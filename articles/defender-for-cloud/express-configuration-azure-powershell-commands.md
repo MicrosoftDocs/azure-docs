@@ -1,13 +1,13 @@
 ---
-title: Express configuration Azure PowerShell commands reference
-description: In this article, you can review the Express configuration Azure PowerShell commands reference and copy example scripts to use in your environments.
+title: Express configuration Azure Command Line Index (CLI) commands reference
+description: In this article, you can review the Express configuration Azure Command Line Index (CLI) commands reference and copy example scripts to use in your environments.
 ms.topic: sample
 author: ElazarK
 ms.author: elkrieger
-ms.date: 05/23/2023
+ms.date: 05/28/2023
 ---
 
-# Express configuration Azure PowerShell commands reference
+# Express configuration Azure Command Line Index (CLI) commands reference
 
 - [Set SQL vulnerability assessment baseline on system database](#set-sql-vulnerability-assessment-baseline-on-system-database)
 - [Get SQL vulnerability assessment baseline on system database](#get-sql-vulnerability-assessment-baseline-on-system-database)
@@ -33,17 +33,15 @@ ms.date: 05/23/2023
 - [Get list SQL vulnerability assessment scans on user database](#get-list-sql-vulnerability-assessment-scans-on-user-database)
 - [Invoke SQL vulnerability assessment scan on system database](#invoke-sql-vulnerability-assessment-scan-on-system-database)
 - [Invoke SQL vulnerability assessment scan on user database](#invoke-sql-vulnerability-assessment-scan-on-user-database)
-- [Get SQL vulnerability assessment server setting on user database](#get-sql-vulnerability-assessment-server-setting-on-user-database)
-- [Get list SQL vulnerability assessment server setting on user database](#get-list-sql-vulnerability-assessment-server-setting-on-user-database)
 - [Get SQL vulnerability assessment server setting](#get-sql-vulnerability-assessment-server-setting)
-- [Get list SQL vulnerability assessment server setting](#get-list-sql-vulnerability-assessment-server-setting)
 - [Set SQL vulnerability assessment server setting](#set-sql-vulnerability-assessment-server-setting)
+- Remove SQL vulnerability assessment server setting
 
-## Set SQL vulnerability assessment baseline on system database
+### Set SQL vulnerability assessment baseline on system database
 
 **Example 1**:
 
-```azurepowershell
+```azurecli
 az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/baselines/default?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master --body '{  "properties": {    "latestScan": true,    "results": {}  }}'
 
 {
@@ -69,7 +67,7 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 
 **Example 2**:
 
-```azurepowershell
+```azurecli
 az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/baselines/default?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master --body '{\"properties\": { \"latestScan\": false, \"results\": {\"VA2063\": [[\"AllowAll\",\"0.0.0.0\",\"255.255.255.255\" ]]}}}'
 
 {
@@ -90,9 +88,9 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Get SQL vulnerability assessment baseline on system database
+### Get SQL vulnerability assessment baseline on system database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/baselines/default?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
 
 {
@@ -116,9 +114,9 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Get List of Sql Vulnerability Assessment Baseline On System Database
+### Get List of Sql Vulnerability Assessment Baseline On System Database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/baselines?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
 {
   "value": [
@@ -145,11 +143,11 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Set SQL vulnerability assessment baseline on user database
+### Set SQL vulnerability assessment baseline on user database
 
 **Example 1**:
 
-```azurepowershell
+```azurecli
 az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/baselines/default?api-version=2022-02-01-preview --body '{  "properties": {    "latestScan": true,    "results": {}  }}'
 {
   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default/baselines/Default",
@@ -174,7 +172,7 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 
 **Example 2**:
 
-```azurepowershell
+```azurecli
 az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/baselines/default?api-version=2022-02-01-preview --body '{\"properties\": { \"latestScan\": false, \"results\": {\"VA2062\": [[\"AllowAll\",\"0.0.0.0\",\"255.255.255.255\" ]]}}}'
 
 {
@@ -195,9 +193,9 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Get SQL vulnerability assessment baseline on user database
+### Get SQL vulnerability assessment baseline on user database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/baselines/default?api-version=2022-02-01-preview
 {
   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default/baselines/Default",
@@ -220,9 +218,9 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Get list SQL vulnerability assessment baseline on user database
+### Get list SQL vulnerability assessment baseline on user database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/baselines?api-version=2022-02-01-preview
 
 {
@@ -250,9 +248,9 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Set SQL vulnerability assessment baseline rule on system database
+### Set SQL vulnerability assessment baseline rule on system database
 
-```azurepowershell
+```azurecli
 az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master --body '{ \"properties\": {    \"latestScan\": false,    \"results\": [        [          \"AllowAll\",          \"0.0.0.0\",          \"255.255.255.255\"        ]      ]  }}'
 
 {
@@ -273,7 +271,7 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 
 ## Get SQL vulnerability assessment baseline rule on system database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
 {
   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/Default/baselines/default/rules/VA2065",
@@ -291,9 +289,9 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Get list SQL vulnerability assessment baseline rule on system database
+### Get list SQL vulnerability assessment baseline rule on system database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/baselines/default/rules?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
 
 {
@@ -340,15 +338,15 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Remove SQL vulnerability assessment baseline rule on system database
+### Remove SQL vulnerability assessment baseline rule on system database
 
-```azurepowershell
+```azurecli
 az rest --method Delete --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
 ```
 
-## Set SQL vulnerability assessment baseline rule on user database
+### Set SQL vulnerability assessment baseline rule on user database
 
-```azurepowershell
+```azurecli
 az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId?api-version=2022-02-01-preview --body '{ \"properties\": {    \"latestScan\": false,    \"results\": [        [          \"AllowAll\",          \"0.0.0.0\",          \"255.255.255.255\"        ]      ]  }}'
 
 {
@@ -367,9 +365,9 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Get SQL vulnerability assessment baseline rule on user database
+### Get SQL vulnerability assessment baseline rule on user database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId?api-version=2022-02-01-preview
 
 {
@@ -388,9 +386,9 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Get list SQL vulnerability assessment baseline rule on user database
+### Get list SQL vulnerability assessment baseline rule on user database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/baselines/default/rules?api-version=2022-02-01-preview
 
 {
@@ -425,13 +423,13 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 
 ## Remove SQL vulnerability assessment baseline rule on user database
 
-```azurepowershell
+```azurecli
 az rest --method Delete --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId?api-version=2022-02-01-preview
 ```
 
-## Get SQL vulnerability assessment scan results on system database
+### Get SQL vulnerability assessment scan results on system database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/scans/$ScanId/scanresults/$RuleId?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
 {
   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/Default/scans/VA2065/scanResults/VA2065",
@@ -473,9 +471,9 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Get list SQL vulnerability assessment scan results on system database
+### Get list SQL vulnerability assessment scan results on system database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/scans/$ScanId/scanresults?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
 
 {
@@ -582,9 +580,9 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Get SQL vulnerability assessment scan results on user database
+### Get SQL vulnerability assessment scan results on user database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/scans/$ScanId/scanresults/$RuleId?api-version=2022-02-01-preview
 {
   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default/scans/VA2062/scanResults/VA2062",
@@ -646,9 +644,9 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Get list SQL vulnerability assessment scan results on user database
+### Get list SQL vulnerability assessment scan results on user database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/scans/$ScanId/scanresults?api-version=2022-02-01-preview
 
 {
@@ -741,9 +739,9 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Get SQL vulnerability assessment scans on system database
+### Get SQL vulnerability assessment scans on system database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/scans/$ScanId?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
 
  {
@@ -770,9 +768,9 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Get list SQL vulnerability assessment scans on system database
+### Get list SQL vulnerability assessment scans on system database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/scans?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
 
 {
@@ -848,9 +846,9 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 ```
 
 
-## Get SQL vulnerability assessment scans on user database
+### Get SQL vulnerability assessment scans on user database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/scans/$ScanId?api-version=2022-02-01-preview
 
 {
@@ -877,9 +875,9 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Get list SQL vulnerability assessment scans on user database
+### Get list SQL vulnerability assessment scans on user database
 
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/scans?api-version=2022-02-01-preview
 
 {
@@ -906,9 +904,9 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Invoke SQL vulnerability assessment scan on system database
+### Invoke SQL vulnerability assessment scan on system database
 
-```azurepowershell
+```azurecli
 az rest --method Post --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/initiateScan?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
 
 {
@@ -917,9 +915,9 @@ az rest --method Post --uri /subscriptions/00000000-1111-2222-3333-444444444444/
 }
 ```
 
-## Invoke SQL vulnerability assessment scan on user database
+### Invoke SQL vulnerability assessment scan on user database
 
-```azurepowershell
+```azurecli
 az rest --method Post --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/initiateScan?api-version=2022-02-01-preview
 
 {
@@ -928,43 +926,9 @@ az rest --method Post --uri /subscriptions/00000000-1111-2222-3333-444444444444/
 }
 ```
 
-## Get SQL vulnerability assessment server setting on user database
+### Get SQL vulnerability assessment server setting
 
-```azurepowershell
-az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default?api-version=2022-02-01-preview
-
-{
-  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default",
-  "name": "Default",
-  "properties": {
-    "state": "Enabled"
-  },
-  "type": "Microsoft.Sql/servers/databases/sqlVulnerabilityAssessments"
-}
-```
-
-## Get list SQL vulnerability assessment server setting on user database
-
-```azurepowershell
-az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments?api-version=2022-02-01-preview
-
-{
-  "value": [
-    {
-      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default",
-      "name": "Default",
-      "properties": {
-        "state": "Enabled"
-      },
-      "type": "Microsoft.Sql/servers/databases/sqlVulnerabilityAssessments"
-    }
-  ]
-}
-```
-
-## Get SQL vulnerability assessment server setting
-
-```azurepowershell
+```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default?api-version=2022-02-01-preview
 
 {
@@ -977,30 +941,11 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Get list SQL vulnerability assessment server setting
-
-```azurepowershell
-az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments?api-version=2022-02-01-preview
-
-{
-  "value": [
-    {
-      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/Default",
-      "name": "Default",
-      "properties": {
-        "state": "Enabled"
-      },
-      "type": "Microsoft.Sql/servers/sqlVulnerabilityAssessments"
-    }
-  ]
-}
-```
-
-## Set SQL vulnerability assessment server setting
+### Set SQL vulnerability assessment server setting
 
 **Example 1**:
 
-```azurepowershell
+```azurecli
 az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default?api-version=2022-02-01-preview --body '{   \"properties\": {     \"state\": \"Enabled\" }}'
 
 {
@@ -1014,7 +959,7 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 ```
 **Example 2**:
 
-```azurepowershell
+```azurecli
 az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default?api-version=2022-02-01-preview --body '{   \"properties\": {     \"state\": \"Disabled\" }}'
 
 {
@@ -1027,4 +972,9 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
+### Remove SQL vulnerability assessment server setting
+
+```azurecli
+az rest --method Delete --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default?api-version=2022-02-01-preview
+```
 ## Next steps
