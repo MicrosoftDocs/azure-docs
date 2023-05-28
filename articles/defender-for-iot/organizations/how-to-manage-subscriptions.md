@@ -108,9 +108,9 @@ You may need to cancel a Defender for IoT plan from your Azure subscription, for
 
 ## Legacy procedures for plan management in the Azure portal
 
-Customers with existing plans from earlier than June 1, 2023 can continue to manage their plans in the Azure portal, until the end of their plan.
+Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home), and OT sensors are onboarded to Defender for IoT based on your licensed site sizes. For more information, see [OT plans billed by site-based licenses](whats-new.md#ot-plans-billed-by-site-based-licenses) and our [TechCommunity blog](https://aka.ms/TransitiontoSite-basedEntitlementSKUs).
 
-For legacy customers, *committed devices* are the number of devices you're monitoring. For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
+Existing customers can continue to use any legacy OT plan until the end of that plan. For legacy customers, *committed devices* are the number of devices you're monitoring. For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
 You might need to edit your plan to change your plan commitment or update the number of committed devices or sites. For example, you may have more devices that require monitoring if you're increasing existing site coverage, or there are network changes such as adding switches.
 

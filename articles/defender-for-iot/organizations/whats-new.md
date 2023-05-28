@@ -32,6 +32,10 @@ When you onboard a new sensor and assign it to a site and zone, you're now reque
 
 Existing customers can continue to use any legacy OT plan they have and edit details in the Azure portal until the end of their plan. However, existing customers cannot add any new plans in the Azure portal. <!--can they continue to onboard new sensors to that plan-->
 
+> [!TIP]
+> A Defender for IoT *site* is a physical location, such as a facility, campus, office building, hospital, rig, and so on. Each site can contain any number of network sensors, which identify devices across detected network traffic.
+>
+
 For more information, see:
 
 - [TechCommunity blog](https://aka.ms/TransitiontoSite-basedEntitlementSKUs)
@@ -39,10 +43,6 @@ For more information, see:
 - [Start a Microsoft Defender for IoT trial](getting-started.md)
 - [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md)
 - [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
-
-> [!TIP]
-> A Defender for IoT *site* is a physical location, such as a facility, campus, office building, hospital, rig, and so on. Each site can contain any number of network sensors, which identify devices across detected network traffic.
->
 
 ## May 2023
 
