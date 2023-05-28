@@ -41,7 +41,7 @@ Analytics rules search for specific events or sets of events across your environ
 
 1. Set the alert **Severity** as appropriate.
 
-1 When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
+1. When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
    :::image type="content" source="media/tutorial-detect-threats-custom/general-tab.png" alt-text="Start creating a custom analytics rule":::
 
@@ -110,11 +110,11 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
    :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-2.png" alt-text="Set query schedule and event grouping" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-2-new.png":::
 
-  1. Set **Run query every** to control how often the query is run&mdash;as frequently as every 5 minutes or as infrequently as once every 14 days.
+  - Set **Run query every** to control how often the query is run&mdash;as frequently as every 5 minutes or as infrequently as once every 14 days.
 
-  1. Set **Lookup data from the last** to determine the time period of the data covered by the query&mdash;for example, it can query the past 10 minutes of data, or the past 6 hours of data. The maximum is 14 days.
+  - Set **Lookup data from the last** to determine the time period of the data covered by the query&mdash;for example, it can query the past 10 minutes of data, or the past 6 hours of data. The maximum is 14 days.
   
-  1. For the new **Start running** setting (in Preview):
+  - For the new **Start running** setting (in Preview):
 
       - Leave it set to **Automatically** to continue the original behavior: the rule will run for the first time immediately upon being created, and after that at the interval set in the **Run query every** setting.
 
