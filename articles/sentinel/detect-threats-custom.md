@@ -138,7 +138,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
     >
     > For more information, see [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).
 
-1. Use the **Alert threshold** section to define the sensitivity level of the rule. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. This is a required field, so if you don’t want to set a threshold – that is, if you want your alert to register every event – enter 0 in the number field.
+- Use the **Alert threshold** section to define the sensitivity level of the rule. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. This is a required field, so if you don’t want to set a threshold – that is, if you want your alert to register every event – enter 0 in the number field.
 
 ### Results simulation
 
