@@ -33,15 +33,15 @@ Analytics rules search for specific events or sets of events across your environ
 
 ### Analytics rule wizard&mdash;General tab
 
-1. Provide a unique **Name** and a **Description**.
+- Provide a unique **Name** and a **Description**.
 
-1. In the **Tactics and techniques** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics and techniques of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
+- In the **Tactics and techniques** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics and techniques of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
 
     [Incidents](investigate-cases.md) created from alerts that are detected by rules mapped to MITRE ATT&CK tactics and techniques automatically inherit the rule's mapping.
 
-1. Set the alert **Severity** as appropriate.
+- Set the alert **Severity** as appropriate.
 
-1. When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
+- When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
    :::image type="content" source="media/tutorial-detect-threats-custom/general-tab.png" alt-text="Start creating a custom analytics rule":::
 
@@ -106,7 +106,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
 ### Query scheduling and alert threshold
 
-1. In the **Query scheduling** section, set the following parameters:
+- In the **Query scheduling** section, set the following parameters:
 
    :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-2.png" alt-text="Set query schedule and event grouping" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-2-new.png":::
 
