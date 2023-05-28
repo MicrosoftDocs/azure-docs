@@ -56,7 +56,7 @@ This procedure describes how to install OT monitoring software on an OT network 
 **To install your software**:
 
 > [!NOTE]
-> There is no need to pre-install an operating system on the VM, the sensor includes the operating system image.
+> There is no need to pre-install an operating system on the VM, the sensor installation includes the operating system image.
 
 1. Mount the ISO file onto your hardware appliance or VM using one of the following options:
 

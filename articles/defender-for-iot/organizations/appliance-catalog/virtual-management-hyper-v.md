@@ -29,7 +29,7 @@ Before you begin the installation, make sure you have the following items:
 Make sure the hypervisor is running.
 
 > [!NOTE]
-> There is no need to pre-install an operating system on the VM, the sensor includes the operating system image.
+> There is no need to pre-install an operating system on the VM, the sensor installation includes the operating system image.
 
 ## Create the virtual machine
 

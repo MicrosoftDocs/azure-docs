@@ -29,7 +29,7 @@ The on-premises management console supports both VMware and Hyper-V deployment o
 Make sure the hypervisor is running.
 
 > [!NOTE]
-> There is no need to pre-install an operating system on the VM, the sensor includes the operating system image.
+> There is no need to pre-install an operating system on the VM, the sensor installation includes the operating system image.
 
 ## Create the virtual machine
 
