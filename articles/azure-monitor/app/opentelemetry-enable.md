@@ -568,7 +568,7 @@ The [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetr
 describes the instruments and provides examples of when you might use each one.
 
 > [!TIP]
-> The histogram is the most versatile and most closely equivalent to the Application Insights Track Metric [Classic API](api-custom-events-metrics.md). Azure Monitor currently flattens the histogram instrument into our five supported aggregation types, and support for percentiles is underway. Although less versatile, other OpenTelemetry instruments have a lesser impact on your application's performance.
+> The histogram is the most versatile and most closely equivalent to the Application Insights GetMetric [Classic API](api-custom-events-metrics.md). Azure Monitor currently flattens the histogram instrument into our five supported aggregation types, and support for percentiles is underway. Although less versatile, other OpenTelemetry instruments have a lesser impact on your application's performance.
 
 #### Histogram Example
 
@@ -613,10 +613,7 @@ public class Program
     {
         using var meterProvider = Sdk.CreateMeterProviderBuilder()
             .AddMeter("OTel.AzureMonitor.Demo")
-            .AddAzureMonitorMetricExporter(o =>
-            {
-                o.ConnectionString = "<Your Connection String>";
-            })
+            .AddAzureMonitorMetricExporter()
             .Build();
 
         Histogram<long> myFruitSalePrice = meter.CreateHistogram<long>("FruitSalePrice");
@@ -730,10 +727,7 @@ public class Program
     {
         using var meterProvider = Sdk.CreateMeterProviderBuilder()
             .AddMeter("OTel.AzureMonitor.Demo")
-            .AddAzureMonitorMetricExporter(o =>
-            {
-                o.ConnectionString = "<Your Connection String>";
-            })
+            .AddAzureMonitorMetricExporter()
             .Build();
 
         Counter<long> myFruitCounter = meter.CreateCounter<long>("MyFruitCounter");
@@ -858,10 +852,7 @@ public class Program
     {
         using var meterProvider = Sdk.CreateMeterProviderBuilder()
             .AddMeter("OTel.AzureMonitor.Demo")
-            .AddAzureMonitorMetricExporter(o =>
-            {
-                o.ConnectionString = "<Your Connection String>";
-            })
+            .AddAzureMonitorMetricExporter()
             .Build();
 
         var process = Process.GetCurrentProcess();
@@ -961,37 +952,75 @@ to draw attention in relevant experiences including the failures section and end
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
-```csharp
-using (var activity = activitySource.StartActivity("ExceptionExample"))
-{
-    try
-    {
-        throw new Exception("Test exception");
-    }
-    catch (Exception ex)
-    {
-        activity?.SetStatus(ActivityStatusCode.Error);
-        activity?.RecordException(ex);
-    }
-}
-```
+- To log an Exception using an Activity:
+  ```csharp
+  using (var activity = activitySource.StartActivity("ExceptionExample"))
+  {
+      try
+      {
+          throw new Exception("Test exception");
+      }
+      catch (Exception ex)
+      {
+          activity?.SetStatus(ActivityStatusCode.Error);
+          activity?.RecordException(ex);
+      }
+  }
+  ```
+- To log an Exception using ILogger:
+  ```csharp
+  var logger = loggerFactory.CreateLogger(logCategoryName);
+
+  try
+  {
+      throw new Exception("Test Exception");
+  }
+  catch (Exception ex)
+  {
+      logger.Log(
+          logLevel: LogLevel.Error,
+          eventId: 0,
+          exception: ex,
+          message: "Hello {name}.",
+          args: new object[] { "World" });
+  }
+  ```
 
 #### [.NET](#tab/net)
 
-```csharp
-using (var activity = activitySource.StartActivity("ExceptionExample"))
-{
-    try
-    {
-        throw new Exception("Test exception");
-    }
-    catch (Exception ex)
-    {
-        activity?.SetStatus(ActivityStatusCode.Error);
-        activity?.RecordException(ex);
-    }
-}
-```
+- To log an Exception using an Activity:
+  ```csharp
+  using (var activity = activitySource.StartActivity("ExceptionExample"))
+  {
+      try
+      {
+          throw new Exception("Test exception");
+      }
+      catch (Exception ex)
+      {
+          activity?.SetStatus(ActivityStatusCode.Error);
+          activity?.RecordException(ex);
+      }
+  }
+  ```
+- To log an Exception using ILogger:
+  ```csharp
+  var logger = loggerFactory.CreateLogger("ExceptionExample");
+
+  try
+  {
+      throw new Exception("Test Exception");
+  }
+  catch (Exception ex)
+  {
+      logger.Log(
+          logLevel: LogLevel.Error,
+          eventId: 0,
+          exception: ex,
+          message: "Hello {name}.",
+          args: new object[] { "World" });
+  }
+  ```
 
 #### [Java](#tab/java)
 
@@ -1119,7 +1148,7 @@ For code representing a background job not captured by an instrumentation librar
 ```csharp
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
         .AddSource("ActivitySourceName")
-        .AddAzureMonitorTraceExporter(o => o.ConnectionString = "<Your Connection String>")
+        .AddAzureMonitorTraceExporter()
         .Build();
 
 var activitySource = new ActivitySource("ActivitySourceName");
@@ -1512,10 +1541,7 @@ To add span attributes, use either of the following two ways:
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
         .AddSource("OTel.AzureMonitor.Demo")
         .AddProcessor(new ActivityEnrichingProcessor())
-        .AddAzureMonitorTraceExporter(o =>
-        {
-                o.ConnectionString = "<Your Connection String>"
-        })
+        .AddAzureMonitorTraceExporter()
         .Build();
 ```
 
@@ -1855,10 +1881,7 @@ You might use the following ways to filter out telemetry before it leaves your a
     using var tracerProvider = Sdk.CreateTracerProviderBuilder()
             .AddSource("OTel.AzureMonitor.Demo")
             .AddProcessor(new ActivityFilteringProcessor())
-            .AddAzureMonitorTraceExporter(o =>
-            {
-                    o.ConnectionString = "<Your Connection String>"
-            })
+            .AddAzureMonitorTraceExporter()
             .Build();
     ```
     
@@ -2080,28 +2103,32 @@ Get the request trace ID and the span ID in your code:
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
 - For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-net/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
 
 #### [.NET](#tab/net)
 
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
 - For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-net/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
 
 ### [Java](#tab/java)
 
-- For help with troubleshooting, review the [troubleshooting steps](java-standalone-troubleshoot.md).
 - For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
+- For help with troubleshooting, review the [troubleshooting steps](java-standalone-troubleshoot.md).
 - For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
 - For a list of open issues related to Azure Monitor Java Autoinstrumentation, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-Java/issues).
 
 ### [Node.js](#tab/nodejs)
 
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry JavaScript community](https://github.com/open-telemetry/opentelemetry-js) directly.
 - For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-js/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
 
 ### [Python](#tab/python)
 
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry Python community](https://github.com/open-telemetry/opentelemetry-python) directly.
 - For a list of open issues related to Azure Monitor Distro, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-Python/issues/new).
 
