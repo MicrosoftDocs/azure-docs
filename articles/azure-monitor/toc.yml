@@ -705,7 +705,7 @@ items:
         - name: JavaScript
           items:
           - name: JavaScript SDK
-            displayName: browser, client-side, snippet
+            displayName: browser, client-side, SDK Loader Script
             href: app/javascript-sdk.md
           - name: JavaScript SDK advanced topics
             href: app/javascript-sdk-advanced.md
@@ -727,10 +727,6 @@ items:
           href: app/opentelemetry-enable.md
         - name: OpenTelemetry configuration
           href: app/opentelemetry-configuration.md
-        - name: .NET (supplemental)
-          items:
-          - name: .NET OpenTelemetry exporter
-            href: app/opentelemetry-dotnet-exporter.md
         - name: Java (supplemental)
           items:
           - name: Spring Boot
@@ -957,6 +953,8 @@ items:
         href: app/separate-resources.md
     - name: Help and support
       items:
+      - name: Create an Azure support ticket
+        href: https://azure.microsoft.com/support/create-ticket
       - name: Application Insights FAQ
         href: /azure/azure-monitor/faq#application-insights
       - name: Q&A forum (general questions)
