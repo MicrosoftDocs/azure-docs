@@ -94,9 +94,9 @@ To get started, register for the preview using the Azure portal or PowerShell.
 # [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
-1. Search for and select **Preview features**.
-1. Search for **Azure Files geo-redundancy for large file shares preview**.
-1. Select the feature, and select **Register**.
+2. Search for and select **Preview features**.
+3. Click the **Type** filter and select **Microsoft.Storage**.
+4. Select **Azure Files geo-redundancy for large file shares preview** and click **Register**.
 
 # [Azure PowerShell](#tab/powershell)
 
