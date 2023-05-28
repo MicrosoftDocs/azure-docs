@@ -162,6 +162,8 @@ The following table provides a brief description of each built-in role. Click th
 > | [Cognitive Services Data Reader (Preview)](#cognitive-services-data-reader-preview) | Lets you read Cognitive Services data. | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | [Cognitive Services Face Recognizer](#cognitive-services-face-recognizer) | Lets you perform detect, verify, identify, group, and find similar operations on Face API. This role does not allow create or delete operations, which makes it well suited for endpoints that only need inferencing capabilities, following 'least privilege' best practices. | 9894cab4-e18a-44aa-828b-cb588cd6f2d7 |
 > | [Cognitive Services Metrics Advisor Administrator](#cognitive-services-metrics-advisor-administrator) | Full access to the project, including the system level configuration. | cb43c632-a144-4ec5-977c-e80c4affc34a |
+> | [Cognitive Services OpenAI Contributor](#cognitive-services-openai-contributor) | Full access including the ability to fine-tune, deploy and generate text | a001fd3d-188f-4b5d-821b-7da978bf7442 |
+> | [Cognitive Services OpenAI User](#cognitive-services-openai-user) | Read access to view files, models, deployments. The ability to create completion and embedding calls. | 5e0bd9bd-7b93-4f28-af87-19fc36ad61bd |
 > | [Cognitive Services QnA Maker Editor](#cognitive-services-qna-maker-editor) | Let's you create, edit, import and export a KB. You cannot publish or delete a KB. | f4cc2bf9-21be-47a1-bdf1-5c5804381025 |
 > | [Cognitive Services QnA Maker Reader](#cognitive-services-qna-maker-reader) | Let's you read and test a KB only. | 466ccd10-b268-4a11-b098-b4849f024126 |
 > | [Cognitive Services User](#cognitive-services-user) | Lets you read and list keys of Cognitive Services. | a97b65f3-24c7-4388-baec-2e87135dc908 |
@@ -7775,6 +7777,114 @@ Full access to the project, including the system level configuration. [Learn mor
     }
   ],
   "roleName": "Cognitive Services Metrics Advisor Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Cognitive Services OpenAI Contributor
+
+Full access including the ability to fine-tune, deploy and generate text
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/*/read |  |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full access including the ability to fine-tune, deploy and generate text",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a001fd3d-188f-4b5d-821b-7da978bf7442",
+  "name": "a001fd3d-188f-4b5d-821b-7da978bf7442",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleDefinitions/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/OpenAI/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Cognitive Services OpenAI Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Cognitive Services OpenAI User
+
+Read access to view files, models, deployments. The ability to create completion and embedding calls.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/*/read |  |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/*/read |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/engines/completions/action | Create a completion from a chosen model |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/engines/search/action | Search for the most relevant documents using the current engine. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/engines/generate/action | (Intended for browsers only.) Stream generated text from the model via GET request. This method is provided because the browser-native EventSource method can only send GET requests. It supports a more limited set of configuration options than the POST variant. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/engines/completions/write |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/search/action | Search for the most relevant documents using the current engine. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/completions/action | Create a completion from a chosen model. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/chat/completions/action | Creates a completion for the chat message |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/embeddings/action | Return the embeddings for a given prompt. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/completions/write |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Ability to view files, models, deployments. Readers can't make any changes They can inference",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/5e0bd9bd-7b93-4f28-af87-19fc36ad61bd",
+  "name": "5e0bd9bd-7b93-4f28-af87-19fc36ad61bd",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleDefinitions/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/OpenAI/*/read",
+        "Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/engines/search/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/engines/generate/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/write",
+        "Microsoft.CognitiveServices/accounts/OpenAI/deployments/search/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/deployments/chat/completions/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/deployments/embeddings/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Cognitive Services OpenAI User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

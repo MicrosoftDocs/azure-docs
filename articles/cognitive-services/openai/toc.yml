@@ -46,6 +46,8 @@ items:
       displayName: ChatGPT, chatgpt
     - name: Completions
       href: ./how-to/completions.md
+    - name: OpenAI vs Azure OpenAI (Python)
+      href: ./how-to/switching-endpoints.md
     - name: Work with code (Codex)
       href: ./how-to/work-with-code.md
     - name: Generate embeddings
@@ -90,12 +92,16 @@ items:
   items:
     - name: REST API (completions & embeddings)
       href: reference.md
-    - name: REST API (completions & embeddings) swagger
-      href: https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2022-12-01/inference.json
-    - name: REST API (authoring & deployment)
-      href: /rest/api/cognitiveservices/azureopenaistable/deployments/create
-    - name: REST API (authoring & deployment) swagger
-      href: https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/authoring/stable/2022-12-01/azureopenai.json
+    - name: REST API (fine-tuning)
+      href: /rest/api/cognitiveservices/azureopenaistable/fine-tunes
+    - name: REST API (Resource creation & deployment)
+      href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
+    - name: .NET 
+      href: /dotnet/api/azure.ai.openai?view=azure-dotnet-preview
+    - name: Java
+      href: /java/api/com.azure.ai.openai?view=azure-java-preview&preserve-view=true
+    - name: JavaScript
+      href: /javascript/api/@azure/openai/?view=azure-node-preview&preserve-view=true
 - name: Resources
   items: 
     - name: Support and help options

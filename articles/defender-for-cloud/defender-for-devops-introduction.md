@@ -26,6 +26,7 @@ Defender for DevOps uses a central console to empower security teams with the ab
 Defender for DevOps helps unify, strengthen and manage multi-pipeline DevOps security. 
 
 ## Availability
+
   > [!Note] 
   > During the preview, the maximum number of GitHub repositories that can be onboarded to Microsoft Defender for Cloud is 2,000. If you try to connect more than 2,000 GitHub repositories, only the first 2,000 repositories, sorted alphabetically, will be onboarded.  
   > 
@@ -92,7 +93,7 @@ On this part of the screen you see:
 
 - Learn about [security in DevOps](/devops/operate/security-in-devops).
 
-- You can learn about [securing Azure Pipelines](/azure/devops/pipelines/security/overview?view=azure-devops).
+- You can learn about [securing Azure Pipelines](/azure/devops/pipelines/security/overview).
 
 - Learn about [security hardening practices for GitHub Actions](https://docs.github.com/actions/security-guides/security-hardening-for-github-actions).
 
