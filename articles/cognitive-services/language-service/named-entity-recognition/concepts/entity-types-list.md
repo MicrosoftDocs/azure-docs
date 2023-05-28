@@ -278,6 +278,8 @@ This entity tag also supports tagging the entity type with the following tags:
     :::column span="2":::
 
         **Details**
+        
+        Cities
 
     :::column-end:::
 
@@ -296,6 +298,8 @@ This entity tag also supports tagging the entity type with the following tags:
     :::column span="2":::
 
         **Details**
+        
+        States
 
     :::column-end:::
 
@@ -314,6 +318,8 @@ This entity tag also supports tagging the entity type with the following tags:
     :::column span="2":::
 
         **Details**
+        
+        Regions in countries.
 
     :::column-end:::
 
@@ -332,6 +338,8 @@ This entity tag also supports tagging the entity type with the following tags:
     :::column span="2":::
 
         **Details**
+        
+        Continents
 
     :::column-end:::
 
@@ -357,7 +365,7 @@ This entity tag also supports tagging the entity type with the following tags:
 
         **Details**
 
-
+        Airports
 
     :::column-end:::
 
@@ -383,7 +391,7 @@ This entity tag also supports tagging the entity type with the following tags:
 
         **Details**
 
-
+        Rivers
 
     :::column-end:::
 
@@ -404,7 +412,7 @@ This entity tag also supports tagging the entity type with the following tags:
 
         **Details**
 
-
+        Oceans
 
     :::column-end:::
 
@@ -425,8 +433,8 @@ This entity tag also supports tagging the entity type with the following tags:
 
         **Details**
 
-
-
+        Deserts
+    
     :::column-end:::
 
 :::row-end:::
