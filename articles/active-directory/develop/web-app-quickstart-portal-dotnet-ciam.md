@@ -10,7 +10,7 @@ ms.workload: identity
 ROBOTS: NOINDEX
 ms.subservice: ciam
 ms.topic: portal
-ms.date: 05/05/2023
+ms.date: 05/22/2023
 ---
 
 # Portal quickstart for ASP.NET web app
@@ -20,9 +20,13 @@ ms.date: 05/05/2023
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 > 1. Make sure you've installed [.NET SDK v7](https://dotnet.microsoft.com/download/dotnet/7.0) or later.
 >
-> 1. Unzip the sample app, `cd` into the app root folder, then run the following command:
+> 1. Unzip the sample app.
+>
+> 1. In your terminal, locate the sample app folder, then run the following command:
+>
 >     ```console
 >     dotnet run
 >     ```
-> 1. Open your browser, visit `https://locahost:7274`, select **Sign-in**, then follow the prompts.
+>
+> 1. Open your browser, visit `https://localhost:7274`, select **Sign-in**, then follow the prompts.
 >

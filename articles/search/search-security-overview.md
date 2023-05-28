@@ -102,11 +102,11 @@ While this solution is the most secure, using more services is an added cost so 
 
 Once a request is admitted to the search service, it must still undergo authentication and authorization that determines whether the request is permitted. Cognitive Search supports two approaches:
 
++ [Azure AD authentication](search-security-rbac.md) establishes the caller (and not the request) as the authenticated identity. An Azure role assignment determines the allowed operation. 
+
 + [Key-based authentication](search-security-api-keys.md) is performed on the request (not the calling app or user) through an API key, where the key is a string composed of randomly generated numbers and letters that prove the request is from a trustworthy source. Keys are required on every request. Submission of a valid key is considered proof the request originates from a trusted entity. 
 
-+ [Azure AD authentication (preview)](search-security-rbac.md) establishes the caller (and not the request) as the authenticated identity. An Azure role assignment determines the allowed operation. 
-
-Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. A search service can be made a trusted service on Azure, connecting to other services using a system or user-assigned managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
+You can use both authentication methods, or [disable an approach](search-security-rbac.md#disable-api-key-authentication) that you don't want to use.
 
 ## Authorization
 
@@ -114,42 +114,36 @@ Cognitive Search provides authorization models for service management and conten
 
 ### Authorize service management
 
-Service Management operations are authorized through [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. 
+Resource management is authorized through [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). Azure RBAC is the authorization system for [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
-In Azure Cognitive Search, Resource Manager is used to create or delete the service, manage API keys, and scale the service. As such, Azure role assignments will determine who can perform those tasks, regardless of whether they're using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](/rest/api/searchmanagement).
+In Azure Cognitive Search, Resource Manager is used to create or delete the service, manage API keys, scale the service, and configure security. As such, Azure role assignments will determine who can perform those tasks, regardless of whether they're using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](/rest/api/searchmanagement).
 
-[Three basic roles](search-security-rbac.md) (Owner, Contributor, Reader) are defined for search service administration. The role assignments can be made using any supported methodology (portal, PowerShell, and so forth) and are honored service-wide.
+[Three basic roles](search-security-rbac.md) (Owner, Contributor, Reader) apply to search service administration. Role assignments can be made using any supported methodology (portal, PowerShell, and so forth) and are honored service-wide.
 
 > [!NOTE]
 > Using Azure-wide mechanisms, you can lock a subscription or resource to prevent accidental or unauthorized deletion of your search service by users with admin rights. For more information, see [Lock resources to prevent unexpected deletion](../azure-resource-manager/management/lock-resources.md).
 
 ### Authorize access to content
 
-If you're using key-based authentication, authorization on content operations is conferred through the type of [API key](search-security-api-keys.md) on the request:
+Content management refers to the objects created and hosted on a search service.
 
-+ Admin key (allows read-write access for create-read-update-delete operations on the search service), created when the service is provisioned
++ For Azure AD authorization, [use Azure role assignments](search-security-rbac.md) to establish read-write access to your search service.
 
-+ Query key (allows read-only access to the documents collection of an index), created as-needed and are designed for client applications that issue queries
-
-In application code, you specify the endpoint and an API key to allow access to content and options. An endpoint might be the service itself, the indexes collection, a specific index, a documents collection, or a specific document. When chained together, the endpoint, the operation (for example, a create or update request) and the permission level (full or read-only rights based on the key) constitute the security formula that protects content and operations.
-
-If you're using Azure AD authentication, [use role assignments instead of API keys](search-security-rbac.md) to establish who and what can read and write to your search service.
++ For key-based authorization, [an API key](search-security-api-keys.md) and a qualified endpoint determine access. An endpoint might be the service itself, the indexes collection, a specific index, a documents collection, or a specific document. When chained together, the endpoint, the operation (for example, a create or update request) and the type of key (admin or query) authorize access to content and operations.
 
 ### Restricting access to indexes
 
-In Azure Cognitive Search, an individual index is generally not a securable object. As noted previously for key-based authentication, access to an index will include read or write permissions based on which API key you provide on the request, along with the context of an operation. Queries are read-only operations. In a query request, there's no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
-
-However, if you're using Azure roles, you can [set permissions on individual indexes](search-security-rbac.md#grant-access-to-a-single-index) as long as it's done programmatically.
+Using Azure roles, you can [set permissions on individual indexes](search-security-rbac.md#grant-access-to-a-single-index) as long as it's done programmatically.
 
 Using keys, anyone with an [admin key](search-security-api-keys.md) to your service can read, modify, or delete any index in the same service. For protection against accidental or malicious deletion of indexes, your in-house source control for code assets is the solution for reversing an unwanted index deletion or modification. Azure Cognitive Search has failover within the cluster to ensure availability, but it doesn't store or execute your proprietary code used to create or load indexes.
 
-For multitenancy solutions requiring security boundaries at the index level, such solutions typically include a middle tier, which customers use to handle index isolation. For more information about the multitenant use case, see [Design patterns for multitenant SaaS applications and Azure Cognitive Search](search-modeling-multitenant-saas-applications.md).
+For multitenancy solutions requiring security boundaries at the index level, it's common to handle index isolation in the middle tier in your application code. For more information about the multitenant use case, see [Design patterns for multitenant SaaS applications and Azure Cognitive Search](search-modeling-multitenant-saas-applications.md).
 
 ### Restricting access to documents
 
-If you require user permissions over search results, you can build security filters in your queries. User permssions at the document level, also known as "row-level security", isn't natively supported in Cognitive Search. This means that any user permissions on data in external systems, such as Azure Cosmos DB, won't transfer with that data as its being indexed by Cognitive Search.
+User permissions at the document level, also known as "row-level security", isn't natively supported in Cognitive Search. If you import data from an external system that provides row-level security, such as Azure Cosmos DB, those permissions won't transfer with the data as its being indexed by Cognitive Search.
 
-Workarounds for "row-level security" include creating a field in the data source that represents a security group or user identity, and then using filters in Cognitive Search to selectively trim search results based on identities. The following table describes two approaches for trimming search results of unauthorized content.
+If you require permissioned access over content in search results, there's a technique for applying filters that include or exclude documents based on user identity. This workaround adds a string field in the data source that represents a group or user identity, which you can make filterable in your index. The following table describes two approaches for trimming search results of unauthorized content.
 
 | Approach | Description |
 |----------|-------------|
@@ -226,9 +220,9 @@ Azure Cognitive Search participates in regular audits, and has been certified ag
 
 For compliance, you can use [Azure Policy](../governance/policy/overview.md) to implement the high-security best practices of [Microsoft cloud security benchmark](/security/benchmark/azure/introduction). The Microsoft cloud security benchmark is a collection of security recommendations, codified into security controls that map to key actions you should take to mitigate threats to services and data. There are currently 12 security controls, including [Network Security](/security/benchmark/azure/mcsb-network-security), Logging and Monitoring, and [Data Protection](/security/benchmark/azure/mcsb-data-protection).
 
-Azure Policy is a capability built into Azure that helps you manage compliance for multiple standards, including those of Microsoft cloud security benchmark. For well-known benchmarks, Azure Policy provides built-in definitions that provide both criteria and an actionable response that addresses non-compliance.
+Azure Policy is a capability built into Azure that helps you manage compliance for multiple standards, including those of Microsoft cloud security benchmark. For well-known benchmarks, Azure Policy provides built-in definitions that provide both criteria and an actionable response that addresses noncompliance.
 
-For Azure Cognitive Search, there's currently one built-in definition. It's for resource logging. With this built-in, you can assign a policy that identifies any search service that is missing resource logging, and then turns it on. For more information, see [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](security-controls-policy.md).
+For Azure Cognitive Search, there's currently one built-in definition. It's for resource logging. You can assign a policy that identifies search services that are missing resource logging, and then turn it on. For more information, see [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](security-controls-policy.md).
 
 ## Watch this video
 

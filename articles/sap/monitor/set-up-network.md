@@ -1,5 +1,5 @@
 ---
-title: Set up network for Azure Monitor for SAP solutions (preview)
+title: Set up network for Azure Monitor for SAP solutions 
 description: Learn how to set up an Azure virtual network for use with Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: sap-on-azure
@@ -9,20 +9,23 @@ ms.date: 10/27/2022
 ms.author: sujaj
 #Customer intent: As a developer, I want to set up an Azure virtual network so that I can use Azure Monitor for SAP solutions.
 ---
-# Set up network for Azure Monitor for SAP solutions (preview)
+# Set up network for Azure Monitor for SAP solutions 
 
-[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
-
-In this how-to guide, you'll learn how to configure an Azure virtual network so that you can deploy *Azure Monitor for SAP solutions*. You'll learn to [create a new subnet](#create-new-subnet) for use with Azure Functions for both versions of the product, *Azure Monitor for SAP solutions* and *Azure Monitor for SAP solutions (classic)*. Then, if you're using the current version of Azure Monitor for SAP solutions, you'll learn to [set up outbound internet access](#configure-outbound-internet-access) to the SAP environment that you want to monitor.
+In this how-to guide, you'll learn how to configure an Azure virtual network so that you can deploy *Azure Monitor for SAP solutions*. 
+- You'll learn to [create a new subnet](#create-new-subnet) for use with Azure Functions.
+- You'll learn to [set up outbound internet access](#configure-outbound-internet-access) to the SAP environment that you want to monitor.
 
 ## Create new subnet
 
-> [!NOTE]
-> This section applies to both Azure Monitor for SAP solutions and Azure Monitor for SAP solutions (classic).
-
 Azure Functions is the data collection engine for Azure Monitor for SAP solutions. You'll need to create a new subnet to host Azure Functions.
 
-[Create a new subnet](../../azure-functions/functions-networking-options.md#subnets) with an **IPv4/28** block or larger.
+[Craete a new subnet](../../azure-functions/functions-networking-options.md#subnets) with an **IPv4/25** block or larger. Since we need atleast 100 IP addresses for monitoring resources.
+After subnet creation is successful, verify the below steps to ensure connectivity between Azure Monitor for SAP solutions subnet to your SAP environment subnet.
+
+- If both the subnets are in different virtual networks, do a virtual network peering between the virtual networks.
+- If the subnets are associated with user defined routes, make sure the routes are configured to allow traffic between the subnets.
+- If the SAP Environment subnets have NSG rules, make sure the rules are configured to allow inbound traffic from Azure Monitor for SAP solutions subnet.
+- If you have a firewall in your SAP environment, make sure the firewall is configured to allow inbound traffic from Azure Monitor for SAP solutions subnet.
 
 For more information, see how to [integrate your app with an Azure virtual network](../../app-service/overview-vnet-integration.md).
 
@@ -30,12 +33,10 @@ For more information, see how to [integrate your app with an Azure virtual netwo
 
 This section only applies to if you are using Custom DNS for your Virtual Network. Add the IP Address 168.63.129.16 which points to Azure DNS Server. This will resolve the storage account and other resource urls which are required for proper functioning of Azure Monitor for SAP Solutions. see below reference image.
 
-![Custom DNS Setting ]([../../media/set-up-network/adding-custom-dns.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Custom DNS Setting.]([../../media/set-up-network/adding-custom-dns.png)
 
 ## Configure outbound internet access
-
-> [!IMPORTANT]
-> This section only applies to the current version of Azure Monitor for SAP solutions. If you're using Azure Monitor for SAP solutions (classic), skip this section.
 
 In many use cases, you might choose to restrict or block outbound internet access to your SAP network environment. However, Azure Monitor for SAP solutions requires network connectivity between the [subnet that you configured](#create-new-subnet) and the systems that you want to monitor. Before you deploy an Azure Monitor for SAP solutions resource, you need to configure outbound internet access, or the deployment will fail.
 
@@ -52,6 +53,20 @@ There are multiple methods to address restricted or blocked outbound internet ac
 You can configure the **Route All** setting when you create an Azure Monitor for SAP solutions resource through the Azure portal. If your SAP environment doesn't allow outbound internet access, disable **Route All**. If your SAP environment allows outbound internet access, keep the default setting to enable **Route All**.
 
 You can only use this option before you deploy an Azure Monitor for SAP solutions resource. It's not possible to change the **Route All** setting after you create the Azure Monitor for SAP solutions resource.
+
+### Allow Inbound Traffic
+
+In case you have NSG or User Defined Route rules that block inbound traffic to your SAP Environment, then you need to modify the rules to allow the inbound traffic, also depending on the types of providers you are trying to onboard you have to unblock a few ports as mentioned below.
+
+| **Provider Type**                  | **Port Number**                                                         |
+|------------------------------------|---------------------------------------------------------------------|
+| Prometheus OS                      |  9100                                                               |
+| Prometheus HA Cluster on RHEL      |  44322                                                              |
+| Prometheus HA Cluster on SUSE      |  9100                                                               |
+| SQL Server                         |  1433  (can be different if you are not using the default port)     |
+| DB2 Server                         |  25000 (can be different if you are not using the default port)     |
+| SAP HANA DB                        |  3\<instance number\>13, 3\<instance number\>15                         |
+| SAP NetWeaver                      |  5\<instance number\>13, 5\<instance number\>15                         |
 
 ### Use service tags
 
@@ -91,29 +106,18 @@ You can enable a private endpoint by creating a new subnet in the same virtual n
 
 To create a private endpoint for Azure Monitor for SAP solutions:
 
-1. [Create a new subnet](../../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) in the same virtual network as the SAP system that you're monitoring.
-1. In the Azure portal, go to your Azure Monitor for SAP solutions resource.
-1. On the **Overview** page for the Azure Monitor for SAP solutions resource, select the **Managed resource group**.
-1. Create a private endpoint connection for the following resources inside the managed resource group.
-    1. [Azure Key Vault resources](#create-key-vault-endpoint)
-    2. [Azure Storage resources](#create-storage-endpoint)
-    3. [Azure Log Analytics workspaces](#create-log-analytics-endpoint)
+1. Create a Azure Private DNS zone which will contain the private endpoint records. You can follow the steps in [Create a private DNS zone](../../dns/private-dns-getstarted-portal.md) to create a private DNS zone. Make sure to link the private DNS zone to the virtual networks that contain you SAP System and Azure Monitor for SAP solutions resources.
+
+      > [!div class="mx-imgBorder"]
+      > ![Screenshot of Adding Virtual Network Link to Private DNS Zone.]([../../media/set-up-network/dns-add-private-link.png)
+
+1. Create a subnet in the virtual network, that will be used for the private endpoint. Note down the subnet ID and Private IP Address for these subnets.
+2. To find the resources in the Azure portal, go to your Azure Monitor for SAP solutions resource.
+3. On the **Overview** page for the Azure Monitor for SAP solutions resource, select the **Managed resource group**.
 
 #### Create key vault endpoint
 
-You only need one private endpoint for all the Azure Key Vault resources (secrets, certificates, and keys). Once a private endpoint is created for key vault, the vault resources can't be accessed from systems outside the given vnet.
-
-1. On the key vault resource's menu, under **Settings**, select **Networking**.
-1. Select the **Private endpoint connections** tab.
-1. Select **Create** to open the endpoint creation page.
-1. On the **Basics** tab, enter or select all required information.
-1. On the **Resource** tab, enter or select all required information. For the key vault resource, there's only one subresource available, the vault.
-1. On the **Virtual Network** tab, select the virtual network and the subnet that you created specifically for the endpoint. It's not possible to use the same subnet as the Azure Functions app.
-1. On the **DNS** tab, for **Integrate with private DNS zone**, select **Yes**. If necessary, add tags.
-1. Select **Review + create** to create the private endpoint.
-1. On the **Networking** page again, select the **Firewalls and virtual networks** tab.
-    1. For **Allow access from**, select **Allow public access from all networks**.
-    1. Select **Apply** to save the changes.
+You can follow the steps in [Create a private endpoint for Azure Key Vault](../../key-vault/general/private-link-service.md) to configure the endpoint and test the connectivity to key vault.
 
 #### Create storage endpoint
 
@@ -127,11 +131,17 @@ Repeat the following process for each type of storage subresource (table, queue,
 1. On the **Basics** tab, enter or select all required information.
 1. On the **Resource** tab, enter or select all required information. For the **Target sub-resource**, select one of the subresource types (table, queue, blob, or file).
 1. On the **Virtual Network** tab, select the virtual network and the subnet that you created specifically for the endpoint. It's not possible to use the same subnet as the Azure Functions app.
-1. On the **DNS** tab, for **Integrate with private DNS zone**, select **Yes**. If necessary, add tags.
+
+      > [!div class="mx-imgBorder"]
+      > ![Screenshot of Creating Private Endpoint - Virtual Network.]([../../media/set-up-network/private-endpoint-vnet-step.png)
+
+1. On the **DNS** tab, for **Integrate with private DNS zone**, select **Yes**.
+1. On the **Tags** tab, add tags if necessary.
 1. Select **Review + create** to create the private endpoint.
-1. On the **Networking** page again, select the **Firewalls and virtual networks** tab.
-    1. For **Allow access from**, select **Allow public access from all networks**.
+1. After the deployment is complete, Navigate back to Storage Account. On the **Networking** page, select the **Firewalls and virtual networks** tab.
+    1. For **Public network access**, select **Enable from all networks**.
     1. Select **Apply** to save the changes.
+1. Make sure to create private endpoints for all storage sub-resources (table, queue, blob, and file)
 
 #### Create log analytics endpoint
 
@@ -205,6 +215,10 @@ Add outbound security rules:
     | 650 | Allow the source IP to access key-vault resource using private endpoint IP. |
     | 700 | Allow the source IP to access storage-account resources using private endpoint IP. (Include IPs for each of storage account sub resources: table, queue, file, and blob)  |
     | 800 | Allow the source IP to access log-analytics workspace resource using private endpoint IP.  |
+
+### DNS Configuration for Private Endpoints
+
+After creating the private endpoints, you need to configure DNS to resolve the private endpoint IP addresses. You can use either Azure Private DNS or custom DNS servers. Refer to [Configure DNS for private endpoints](../../private-link/private-endpoint-dns.md) for more information.
 
 ## Next steps
 
