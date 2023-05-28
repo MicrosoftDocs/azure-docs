@@ -319,7 +319,7 @@ This entity tag also supports tagging the entity type with the following tags:
 
         **Details**
         
-        Regions in countries.
+        Countries/Regions.
 
     :::column-end:::
 
