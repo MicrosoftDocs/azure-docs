@@ -24,7 +24,7 @@ If you have already created and built playbooks to respond to alerts (rather tha
 
 It's important to understand that the playbook itself won't change at all. Only the mechanism that invokes it to run will change.
 
-Finally, the ability to invoke playbooks from analytics rules will be **deprecated effective March 2026**. Until then, playbooks already defined to be invoked from analytics rules will continue to run, but as of **May 2023** you can no longer add playbooks to the list of those invoked from analytics rules. The only remaining option is to invoke them from automation rules.
+Finally, the ability to invoke playbooks from analytics rules will be **deprecated effective March 2026**. Until then, playbooks already defined to be invoked from analytics rules will continue to run, but as of **June 2023** you can no longer add playbooks to the list of those invoked from analytics rules. The only remaining option is to invoke them from automation rules.
 
 ## How to migrate
 
