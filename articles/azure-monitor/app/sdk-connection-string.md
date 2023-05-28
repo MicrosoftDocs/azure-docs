@@ -19,7 +19,7 @@ Key-value pairs provide an easy way for users to define a prefix suffix combinat
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-Don't use a connection string and instrumentation key simultaneously. Whichever was set last will take precedence.
+While both the Instrumentation Key and Connection String can be set in an Azure Functions application, the Connection String takes precedence in determining the connection to ApplicationInsights and the Instrumentaion Key is ignored.
 
 ## Scenario overview
 
