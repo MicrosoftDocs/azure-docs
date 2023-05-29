@@ -6,18 +6,18 @@ author: AvijitkGupta
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 05/12/2023
+ms.date: 05/30/2023
 ---
 
 # pg_azure_storage extension
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-The pg_azure_storage extension provides extensibility, to seamlessly manipulate and load data in different file formats, to your Azure Cosmos DB for PostgreSQL cluster directly from Azure Blob Storage. Containers with access level “Private” or “Blob” requires adding private access key.
+The pg_azure_storage extension allows you to load data in multiple file formats directly from Azure blob storage to your Azure Cosmos DB for PostgreSQL cluster. Containers with access level “Private” or “Blob” requires adding private access key.
 
 You can create the extension from psql by running:
 ```postgresql
-CREATE EXTENSION azure_storage;
+SELECT create_extension('azure_storage');
 ```
 
 ## COPY FROM
@@ -171,13 +171,13 @@ The URI for a container is similar to:
 `https://myaccount.blob.core.windows.net/mycontainer`
 
 #### prefix
-returns file from blob container with matching string initials.
+Returns file from blob container with matching string initials.
 #### path
-full qualified path of Azure blob directory.
+Full qualified path of Azure blob directory.
 #### bytes
-size of file object in bytes.
+Size of file object in bytes.
 #### last_modified
-when was the file content last modified.
+When was the file content last modified.
 #### etag
 An ETag property is used for optimistic concurrency during updates. It isn't a timestamp as there's another property called Timestamp that stores the last time a record was updated. For example, if you load an entity and want to update it, the ETag must match what is currently stored. Setting the appropriate ETag is important because if you have multiple users editing the same item, you don't want them overwriting each other's changes.
 #### content_type
@@ -231,9 +231,9 @@ A container name must be a valid DNS name, as it forms part of the unique URI us
 #### path
 Blob name existing in the container.
 #### rec
-define the record output structure.
+Define the record output structure.
 #### decoder
-specify the blob format
+Specify the blob format
 Decoder can be set to auto (default) or any of the following values
 #### decoder description
 | **Format** | **Description**                                          |
@@ -244,9 +244,9 @@ Decoder can be set to auto (default) or any of the following values
 | text       | A file containing a single text value (for example, large JSON or XML)                            |
 
 #### compression
-defines the compression format. Available options are `auto`, `gzip` & `none`. The use of the `auto` option (default), guesses the compression based on the file extension (.gz == gzip). The option `none` forces to ignore the extension and not attempt to decode. While gzip forces using the gzip decoder (for when you have a gzipped file with a non-standard extension). We currently don't support any other compression formats for the extension.
+Defines the compression format. Available options are `auto`, `gzip` & `none`. The use of the `auto` option (default), guesses the compression based on the file extension (.gz == gzip). The option `none` forces to ignore the extension and not attempt to decode. While gzip forces using the gzip decoder (for when you have a gzipped file with a non-standard extension). We currently don't support any other compression formats for the extension.
 #### options
-for handling custom headers, custom separators, escape characters etc., `options` works in similar fashion to `COPY` command in PostgreSQL, parameter utilizes to blob_get function.
+For handling custom headers, custom separators, escape characters etc., `options` works in similar fashion to `COPY` command in PostgreSQL, parameter utilizes to blob_get function.
 
 ### Return Type
 SETOF Record
