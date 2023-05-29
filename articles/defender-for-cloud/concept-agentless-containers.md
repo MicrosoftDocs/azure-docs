@@ -3,7 +3,7 @@ title: Agentless Container Posture for Microsoft Defender for Cloud
 description: Learn how Agentless Container Posture offers discovery, visibility, and vulnerability assessment for Containers without installing an agent on your machines.
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 05/16/2023
+ms.date: 05/28/2023
 ms.custom: template-concept, build-2023
 ---
 
@@ -30,6 +30,8 @@ Agentless Container Posture provides the following capabilities:
 - Using [cloud security explorer](how-to-manage-cloud-security-explorer.md) for risk hunting by querying various risk scenarios. 
 
 - Viewing security insights, such as internet exposure, and other predefined security scenarios. For more information, search for Kubernetes in the [list of Insights](attack-path-reference.md#cloud-security-graph-components-list).
+
+- [Support for exemptions](#support-for-exemptions)
 
 - [Support for exemptions](#support-for-exemptions)
 
@@ -110,6 +112,7 @@ Container registry vulnerability assessment scans container images stored in you
 
 ## Support for exemptions
 
+<<<<<<< Updated upstream
 While you can currently [exempt a resource or subscription from the list of recommendations](exempt-resource.md), the new capability allows you to [create exemption rules](create-exemption-rule.md) on a more granular level. 
 
     > [!NOTE]
@@ -119,6 +122,25 @@ While you can currently [exempt a resource or subscription from the list of reco
 Learn how to [import container images to a container registry](https://learn.microsoft.com/azure/container-registry/container-registry-import-images?tabs=azure-cli). 
 
 
+=======
+You can exempt a resource or subscription from the list of recommendations. Learn more about [exempting resources and recommendations](exempt-resource.md). With this new capability, you can exempt resources on a more granular level.
+
+> [!NOTE] (concept)
+> This feature supports scanning of images in the Azure Container Registry (ACR) only. If you want to find vulnerabilities stored in other container registries, you can import the images into ACR, after which the imported images are scanned by the built-in vulnerability assessment solution. Learn how to [import container images to a container registry](https://learn.microsoft.com/azure/container-registry/container-registry-import-images?tabs=azure-cli). 
+
+### Exemption criteria
+
+You can use a combination of any of the following criteria to exempt: 
+
+- Minimum auditing severity threshold (low, medium, high, critical). Any CVE below this threshold would not be reported.
+- Fix status (no fix, fix exists, vendor will not fix)
+- CVE
+- Image tag
+- Image digest
+- Base OS distribution
+ 
+Learn how to [create an exemption rule]
+>>>>>>> Stashed changes
 
 ## Next steps
 - Learn about [support and prerequisites for agentless containers posture](support-agentless-containers-posture.md)
