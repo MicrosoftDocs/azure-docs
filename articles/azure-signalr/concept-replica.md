@@ -1,40 +1,60 @@
-Azure SignalR now supports geo-replication to offer better network accessability and disaster fail-over.
+# Azure SignalR Geo-Replication: Enhance Accessibility and Disaster Recovery
 
-## How SignalR Replica Works
-Below is a graph showing how SignalR Replica works:
+Azure SignalR now supports geo-replication, providing superior network accessibility and robust disaster fail-over protection.
 
-![replica_overview drawio](https://github.com/bjqian/azure-docs/assets/16233725/375e8bd5-c153-40c8-9b6c-4942544ec21b)
+## Understanding the SignalR Replica Process
 
-1. The client resolves fqnd of SignalR service. The fqdn is pointed to a traffic manager which will return the nearest regional signalr instance cname.
-2. The client uses this cname to connect to the regional instance.
-## What is the benefit of using SignalR Replica
-1. Automatic failover for regional disaster. If one of the replica region has outage and the data-plane stops working, the traffic manager will detect this failing and exclude this endpoint from its dns result.
-2. Faster network through Azure BackBone. If your clients are geo distributed far away, it would find the nearest replica instance. The replica instances communication through Azure back bone and has faster and more stable network quality.
+The following diagram illustrates how the SignalR Replica operates:
 
-## How to create and enable SignalR Replica
+![SignalR Replica Overview](https://github.com/bjqian/azure-docs/assets/16233725/375e8bd5-c153-40c8-9b6c-4942544ec21b)
 
-On Azure portal SignalR **Replica** blade, click **Add** to create a replication. 
-![image](https://github.com/bjqian/azure-docs/assets/16233725/9e314ee1-d164-4530-9b70-25540f401d5d)
-Restraints:
-1. Replica is only supported on Premium tier.
-2. A resource can have at most 5 replicas. 
+1. The client determines the FQDN (Fully Qualified Domain Name) of the SignalR service. This FQDN points to a traffic manager, which returns the CNAME (Canonical Name) of the nearest regional SignalR instance.
+2. Using this CNAME, the client connects to the regional instance.
 
+## Advantages of Using SignalR Replica
 
+1. **Automatic Regional Disaster Failover:** In the event of an outage in a replica region that causes the data-plane to cease functioning, the traffic manager will detect this failure and exclude the affected endpoint from its DNS results.
+2. **Enhanced Network Speed via Azure BackBone:** If your clients are geographically dispersed, they will connect to the nearest replica instance. These instances communicate through Azure BackBone, ensuring faster, more reliable network quality.
 
-## Performance impact of adding replicas
-After adding replicas, your clients would be distributed to different locations according to their geo locatons. SignalR needs to sync data across different replicas. The syncing cost is ignorable if your scenario is mainly sending to large groups (size >100) or broadcast. The syncing cost becomes visible if the scenario is sending to small groups(size < 10) or a single user. 
-To handle failover, it's recommended that you select each replica's unit size to handle all traffic. Also you could enable auto-scaler to handle this.
+## Creating and Enabling a SignalR Replica
 
-## Configurations
-Thoses configurations are configurable on replica:
+Navigate to the SignalR **Replica** blade on the Azure portal and click **Add** to create a replication. 
+![SignalR Replica Creation](https://github.com/bjqian/azure-docs/assets/16233725/9e314ee1-d164-4530-9b70-25540f401d5d)
+
+Please note the following restrictions:
+1. The replica feature is only available on the Premium tier.
+2. A resource can support a maximum of 5 replicas.
+
+## Impact on Performance After Adding Replicas
+
+Post replica addition, your clients will be distributed across different locations based on their geographical locations. SignalR must synchronize data across these replicas. The synchronization cost is negligible if your use case primarily involves sending to large groups (size >100) or broadcasting. However, the cost becomes more apparent when sending to smaller groups (size < 10) or a single user.
+
+To ensure effective failover management, it is recommended to set each replica's unit size to handle all traffic. Alternatively, you could enable auto-scaler to manage this.
+
+## Pricing
+Replica is a feature of Premium service tier of Azure SignalR Service. When you create a replica to your desired regions, you incur Premium registry fees for each region.
+
+## Delete a replica
+After you've created a replica for your Azure SignalR Service, you can delete it at any time if it's no longer needed. 
+
+To delete a replica in the Azure portal:
+
+1. Navigate to your Azure SignalR Service, and select Replications. Click the replica you want to delete
+2. Click Delete button on the overview blade.
+
+## Configuration Options
+
+The following settings can be configured on the replica:
+
 1. Diagnostic Log Setting
-2. Scaling out 
+2. Scaling Out 
 
-Those configuration are configured on Primary resource and synced to replica:
-1. Event grid settings
+The following settings are configured on the Primary resource and synchronized to the replica:
+
+1. Event Grid Settings
 2. Connection String
-3. Cors config
-4. Managed Identity / User assigned Identity
-5. Networking 
-6. Custom domain
-7. Diagnostic setting **Log cantegory**
+3. CORS (Cross-Origin Resource Sharing) Configurations
+4. Managed Identity / User-Assigned Identity
+5. Networking
+6. Custom Domain
+7. Diagnostic Setting **Log Category**
