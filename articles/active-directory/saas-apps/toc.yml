@@ -1225,6 +1225,8 @@
         href: illumio-sso-tutorial.md
       - name: iLMS
         href: ilms-tutorial.md
+      - name: Imagen
+        href: imagen-tutorial.md
       - name: Image Relay
         href: imagerelay-tutorial.md
       - name: IMAGE WORKS
