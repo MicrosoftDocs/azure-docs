@@ -77,7 +77,7 @@ curl -X POST 'https://login.microsoftonline.com/<tennant ID>/oauth2/token' \
 -H 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials' \
 --data-urlencode 'client_id=<your apps client ID>' \
---data-urlencode 'client_secret=<your apps client secret' \
+--data-urlencode 'client_secret=<your apps client secret>' \
 --data-urlencode 'resource=https://prometheus.monitor.azure.com'
 ```
 
