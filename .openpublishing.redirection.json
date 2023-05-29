@@ -22783,6 +22783,21 @@
             "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/networking/scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md",
+            "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/networking/scripts/virtual-network-powershell-filter-network-traffic.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/networking/powershell-samples.md",
+            "redirect_url": "/azure/networking/fundamentals/networking-overview",
+            "redirect_document_id": false
         }
     ]
 }
