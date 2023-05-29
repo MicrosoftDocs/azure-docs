@@ -51,9 +51,10 @@ RESOURCE_GROUP=<resource-group-name>
 LOCATION=<location>
 POSTGRESQL_SERVER=<server-name>
 POSTGRESQL_DB=<database-name>
+POSTGRESQL_ADMIN_USERNAME=<admin-username>
+POSTGRESQL_ADMIN_PASSWORD=<admin-password>
 AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
 APP_NAME=<web-app-name>
-CONNECTION=<connection-name>
 ```
 
 ### Create a new resource group
@@ -125,96 +126,35 @@ Use the following command to create a PostgreSQL instance:
 az postgres flexible-server create \
     --name ${POSTGRESQL_SERVER} \
     --database-name ${POSTGRESQL_DB} \
-    --active-directory-auth Enabled
+    --admin-user ${POSTGRESQL_ADMIN_USERNAME} \
+    --admin-password ${POSTGRESQL_ADMIN_PASSWORD} \
+    --public-access 0.0.0.0
 ```
 
-To ensure that the application is accessible only by PostgreSQL in Azure Spring Apps, enter `n` to the prompts to enable access to a specific IP address and to enable access for all IP addresses.
-
-```output
-Do you want to enable access to client xxx.xxx.xxx.xxx (y/n) (y/n): n
-Do you want to enable access for all IPs  (y/n): n
-```
+Specifying `0.0.0.0` enables public access from any resources deployed within Azure to access your server.
 
 ### Connect app instance to PostgreSQL instance
 
-After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. The following steps use Service Connector to configure the needed network settings and connection information. For more information about Service Connector, see [What is Service Connector?](../../../service-connector/overview.md).
+After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. Use the following steps to enable the app to connect to the PostgreSQL instance.
 
-1. If you're using Service Connector for the first time, use the following command to register the Service Connector resource provider.
+1. Use the following command to get the PostgreSQL instance's fully qualified domain name:
 
    ```azurecli
-   az provider register --namespace Microsoft.ServiceLinker
+   PSQL_FQDN=$(az postgres flexible-server show \
+       --name ${POSTGRESQL_SERVER} \
+       --query fullyQualifiedDomainName \
+       --output tsv)
    ```
 
-1. Use the following command to achieve a passwordless connection:
+1. Use the following command to provide the `spring.datasource.` properties to the app through environment variables:
 
    ```azurecli
-   az extension add --name serviceconnector-passwordless --upgrade
-   ```
-
-1. Use the following command to create a service connection between the application and the PostgreSQL database:
-
-   ```azurecli
-   az spring connection create postgres-flexible \
-       --resource-group ${RESOURCE_GROUP} \
+   az spring app update \
        --service ${AZURE_SPRING_APPS_NAME} \
-       --app ${APP_NAME} \
-       --client-type springBoot \
-       --target-resource-group ${RESOURCE_GROUP} \
-       --server ${POSTGRESQL_SERVER} \
-       --database ${POSTGRESQL_DB} \
-       --system-identity \
-       --connection ${CONNECTION}
-   ```
-
-   The `--system-identity` parameter is required for the passwordless connection. For more information, see [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../../how-to-bind-postgres.md).
-
-1. After the connection is created, use the following command to validate the connection:
-
-   ```azurecli
-   az spring connection validate \
-       --resource-group ${RESOURCE_GROUP} \
-       --service ${AZURE_SPRING_APPS_NAME} \
-       --app ${APP_NAME} \
-       --connection ${CONNECTION}
-   ```
-
-   The output should appear similar to the following JSON code:
-
-   ```json
-   [
-   {
-       "additionalProperties": {},
-       "description": null,
-       "errorCode": null,
-       "errorMessage": null,
-       "name": "The target existence is validated",
-       "result": "success"
-   },
-   {
-       "additionalProperties": {},
-       "description": null,
-       "errorCode": null,
-       "errorMessage": null,
-       "name": "The target service firewall is validated",
-       "result": "success"
-   },
-   {
-       "additionalProperties": {},
-       "description": null,
-       "errorCode": null,
-       "errorMessage": null,
-       "name": "The configured values (except username/password) is validated",
-       "result": "success"
-   },
-   {
-       "additionalProperties": {},
-       "description": null,
-       "errorCode": null,
-        "errorMessage": null,
-       "name": "The identity existence is validated",
-       "result": "success"
-   }
-   ]
+       --name ${APP_NAME} \
+       --env SPRING_DATASOURCE_URL="jdbc:postgresql://${PSQL_FQDN}:5432/${POSTGRESQL_DB}?sslmode=require" \
+             SPRING_DATASOURCE_USERNAME="${POSTGRESQL_ADMIN_USERNAME}" \
+             SPRING_DATASOURCE_PASSWORD="${POSTGRESQL_ADMIN_PASSWORD}"
    ```
 
 ## Deploy the app to Azure Spring Apps
