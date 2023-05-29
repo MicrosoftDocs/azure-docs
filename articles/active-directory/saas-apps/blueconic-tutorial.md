@@ -55,18 +55,18 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
+   ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Configuration")
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. a. In the **Identifier** textbox, type a URL using the following pattern:
+	a. In the **Identifier** textbox, type a URL using the following pattern:
 	`https://<SUBDOMAIN>.blueconic.net/saml/metadata` 
 
-	b. b. In the **Reply URL** textbox, type a URL using the following pattern:
+	b. In the **Reply URL** textbox, type a URL using the following pattern:
 	`https://<SUBDOMAIN>.blueconic.net/saml/acs`
 
 	> [!Note]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [BlueConic support team](mailto:support@blueconic.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [BlueConic support team](mailto:support@blueconic.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -82,7 +82,7 @@ To configure single sign-on on **BlueConic** side, you need to send the download
 
 ### Create BlueConic test user
 
-In this section, contact [BlueConic support team](mailto:support@blueconic.com) to add the users in the BlueConic platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in BlueConic. Work with [BlueConic support team](mailto:support@blueconic.com) to add the users in the BlueConic platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
