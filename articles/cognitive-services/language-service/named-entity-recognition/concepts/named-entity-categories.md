@@ -22,7 +22,7 @@ Use this article to find the entity categories that can be returned by [Named En
 > * __Entity types__ represent the lowest (or finest) granuality at which the entity has been detected and can be considered to be the base class that has been detected.
 > * __Entity tags__ are used to further identify an entity where a detected entity is tagged by the entity type and additional tags to differentiate the identified entity. The entity tags list could be considered to include categories, subcategories, sub-subcategories, and so on.
 
-::: zone pivot="Generally Available API"
+::: zone pivot="generally-available-api" [Generally Avaialble API]
 
 ## Category: Person
 
@@ -812,22 +812,7 @@ The entity in this category can have the following subcategories.
 
 ::: zone-end
 
-::: zone pivot="Preview API"
-
----
-title: Entity types recognized by new Named Entity Recognition model in Azure Cognitive Service for Language
-titleSuffix: Azure Cognitive Services
-description: Learn about the entities the NER feature can recognize from unstructured text.
-services: cognitive-services
-author: jboback
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
-ms.topic: conceptual
-ms.date: 11/02/2021
-ms.author: jboback
-ms.custom: language-service-ner, ignite-fall-2021
----
+::: zone pivot="preview-api" [Preview API]
 
 # Supported Named Entity Recognition (NER) entity categories 
 
@@ -1311,7 +1296,8 @@ Capabilities, skills, or expertise
 
 ::: zone-end
 
-::: zone pivot="Generally Available to Preview API Mappings"
+::: zone pivot="generally-available-to-preview-api-mappings" [Generally Avaialble to Preview API Mappings]
+
 | Type           | Tags                                   |
 |----------------|----------------------------------------|
 | Date           | Temporal, Date                         |
