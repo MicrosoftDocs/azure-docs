@@ -154,6 +154,8 @@
       href: licensing-group-advanced.md
     - name: Group licensing with PowerShell and Graph
       href: licensing-ps-examples.md
+    - name: Group licensing examples Microsoft Graph PowerShell
+      href: licensing-ps-graph-examples.md
     - name: Service plan IDs for licensing
       href: licensing-service-plan-reference.md
   - name: Sign-in
