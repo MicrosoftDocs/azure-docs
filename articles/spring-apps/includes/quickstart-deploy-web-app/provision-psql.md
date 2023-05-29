@@ -35,5 +35,10 @@ To create an Azure Database for PostgreSQL server, take the following steps:
 
 1. Select **Review + create** to review your selections. Select **Create** to provision the server. This operation may take a few minutes.
 
-1. Create a database:
+1. Go to your PostgreSQL server in the Azure portal.
+
+1. Select **Databases** from the navigation pane to create a database:
+
+    :::image type="content" source="../../media/quickstart-deploy-web-app/8-psql-create-database.png" alt-text="Create a database.":::
+
 
