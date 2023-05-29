@@ -1,6 +1,6 @@
 ---
-title: Deploy Stream Analytics jobs with Bicep 
-description: This article shows you how to generate and deploy Stream Analytics jobs using Bicep template. 
+title: Deploy Azure Stream Analytics jobs using Bicep files
+description: This article shows you how to generate and deploy Azure Stream Analytics jobs using Bicep files. 
 ms.service: stream-analytics
 author: alexlzx
 ms.author: zhenxilin
@@ -8,7 +8,7 @@ ms.date: 05/24/2023
 ms.topic: how-to
 ---
 
-# Deploy Stream Analytics jobs with Bicep
+# Deploy Stream Analytics jobs with Bicep files
 
 The Azure Stream Analytics (ASA) CI/CD npm package allows you to build, test, and deploy your Stream Analytics projects in your CI/CD pipeline using Bicep files. This article walks you through how to generate bicep files and deploy your ASA jobs. 
 

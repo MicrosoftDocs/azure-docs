@@ -1,5 +1,5 @@
 ---
-title: Continuous integration and continuous deployment of Stream Analytics jobs
+title: Continuous integration and continuous deployment of Azure Stream Analytics jobs
 description: This article gives an overview of setting up a continuous integration and deployment (CI/CD) pipeline for Azure Stream Analytics jobs.
 services: stream-analytics
 author: alexlzx
