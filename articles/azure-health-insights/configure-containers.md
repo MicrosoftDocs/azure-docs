@@ -25,7 +25,7 @@ The container has the following configuration settings:
 |Yes|[Billing](#billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure.|
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
 |No|[ApplicationInsights__InstrumentationKey ](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) telemetry support to your container.|
-|Yes|[RAI_Terms](#rai-term-setting)| Indicates acceptance of Responsible AI terms.|
+|Yes|[RAI_Terms](#rai-terms-setting)| Indicates acceptance of Responsible AI terms.|
 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](use-containers.md#billing).

@@ -114,7 +114,7 @@ ApiKey={API_KEY}
 ```
 
 For Clinical Trials, add this value:
-TrialMatcher__TA4HConfiguration__Host={http://<text-analytics container endpoint>:5000}
+TrialMatcher__TA4HConfiguration__Host =   `https://<text-analytics-container-endpoint>:5000` 
 
 This command:
 
