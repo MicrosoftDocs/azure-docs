@@ -2,9 +2,9 @@
 title: Microsoft Sentinel entity types reference | Microsoft Docs
 description: This article displays the Microsoft Sentinel entity types and their required identifiers.
 author: yelevin
-ms.topic: reference
-ms.date: 07/06/2022
 ms.author: yelevin
+ms.topic: reference
+ms.date: 05/29/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -84,6 +84,20 @@ Strong identifiers of an account entity:
 Weak identifiers of an account entity:
 
 - Name
+
+> [!NOTE]
+> If the **Account** entity is defined using the **Name** identifier, and the Name value of a particular entity is one of the following generic, commonly built-in account names, then that entity will be dropped from its alert.
+> - ADMIN
+> - ADMINISTRATOR
+> - SYSTEM
+> - ROOT
+> - ANONYMOUS
+> - AUTHENTICATED USER
+> - NETWORK
+> - NULL
+> - LOCAL SYSTEM
+> - LOCALSYSTEM
+> - NETWORK SERVICE
 
 ## Host
 
