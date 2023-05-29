@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Imagen
 
-In this article, you'll learn how to integrate Imagen with Azure Active Directory (Azure AD). Imagen is the cloud-native media asset management platform built to manage, enrich and distribute your organisation’s large-scale, mission-critical video files and drive value from your content. When you integrate Imagen with Azure AD, you can:
+In this article, you'll learn how to integrate Imagen with Azure Active Directory (Azure AD). Imagen is the cloud-native media asset management platform built to manage, enrich and distribute your organisation large-scale, mission-critical video files and drive value from your content. When you integrate Imagen with Azure AD, you can:
 
 * Control in Azure AD who has access to Imagen.
 * Enable your users to be automatically signed-in to Imagen with their Azure AD accounts.
