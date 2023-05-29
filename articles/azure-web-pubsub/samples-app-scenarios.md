@@ -8,6 +8,7 @@ ms.service: azure-web-pubsub
 ms.topic: samples
 ms.date: 05/15/2023
 ms.custom: mode-ui
+zone_pivot_groups: azure-web-pubsub-samples-app-scenarios
 ---
 # Azure Web PubSub samples - app scenarios
 
@@ -20,26 +21,28 @@ Bi-directional, low-latency and real-time data exchange between clients and serv
 
 Here is a list of code samples written by Azure Web PubSub team and the community. To have your project featured here, please consider submitting a Pull Request.
 
-## C#
+::: zone pivot="method-csharp"
 | App scenario                                        | Industry          | 
 | --------------------------------------------------- | ----------------- |
 | [Unity multiplayer gaming](https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/unity-multiplayer-sample) | Gaming | 
-
 | [Chat app with persistent storage](https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/chatapp-withstorage) | Gaming | 
+::: zone-end
 
-
-## JavaScript
+::: zone pivot="method-javascript"
 | App scenario                                        | Industry          | 
 | --------------------------------------------------- | ----------------- |
 | [Cross-platform chat](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp/Startup.cs#L29) | Social | 
 | [Collaborative code editor](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp/Startup.cs#L29) | Modern work | 
+::: zone-end
 
-## Java
+::: zone pivot="method-java"
 | App scenario                                        | Industry          |   
 | --------------------------------------------------- | ----------------- | 
 | [Chat app](https://github.com/Azure/azure-webpubsub/tree/main/samples/java/chatapp) | Social | 
+::: zone-end
 
-
-## Python
+::: zone pivot="method-python"
 | App scenario                                        | Industry          | 
+| --------------------------------------------------- | ----------------- |
 | [Chat app](https://github.com/Azure/azure-webpubsub/tree/main/samples/python/chatapp) | Social | 
+::: zone-end

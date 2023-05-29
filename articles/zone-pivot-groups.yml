@@ -2457,8 +2457,18 @@ groups:
     title: Java
   - id: method-sdk-python
     title: Python
-  - id: method-rest-apis
-    title: REST APIs
+- id: azure-web-pubsub-samples-app-scenarios
+  title: App scenarios built with Azure Web PubSub
+  prompt: Choose an option
+  pivots: 
+  - id: method-csharp
+    title: C#
+  - id: method-javascript
+    title: JavaScript
+  - id: method-java
+    title: Java
+  - id: method-python
+    title: Python
 # Owner: juliakm, ggailey777
 - id: functions-task-versions
   title: Select your version of the Pipelines task
