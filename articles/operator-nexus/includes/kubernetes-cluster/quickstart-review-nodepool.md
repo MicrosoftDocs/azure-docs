@@ -10,5 +10,4 @@ Count    Location    Mode    Name                          ProvisioningState    
 -------  ----------  ------  ----------------------------  -------------------  ---------------  -----------
 1        eastus      System  myNexusAKSCluster-nodepool-1  Succeeded            myResourceGroup  NC_M4_v1
 1        eastus      User    myNexusAKSCluster-nodepool-2  Succeeded            myResourceGroup  NC_M4_v1
-
 ```
