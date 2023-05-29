@@ -57,7 +57,7 @@ Log alert rules using [cross-resource queries](../logs/cross-workspace-query.md)
 union
 app('00000000-0000-0000-0000-000000000001').requests,
 app('00000000-0000-0000-0000-000000000002').requests,
-workspace('"00000000-0000-0000-0000-000000000001').Perf 
+workspace('00000000-0000-0000-0000-000000000001').Perf 
 ```
 
 >[!NOTE]
