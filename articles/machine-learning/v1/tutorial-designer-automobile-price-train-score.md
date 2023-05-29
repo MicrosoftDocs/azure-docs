@@ -19,6 +19,17 @@ Train a linear regression model that predicts car prices using the Azure Machine
 
 This tutorial uses the Azure Machine Learning designer, for more information, see [What is Azure Machine Learning designer?](concept-designer.md)
 
+>[!Note]
+> Designer supports two types of components, classic prebuilt components (v1) and custom components (v2). These two types of components are NOT compatible. 
+>
+>Classic prebuilt components provide prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
+>
+>Custom components allow you to wrap your own code as a component. It supports sharing components across workspaces and seamless authoring across Studio, CLI v2, and SDK v2 interfaces. 
+>
+>For new projects, we highly suggest you use custom component, which is compatible with AzureML V2 and will keep receiving new updates. 
+>
+>This article applies to classic prebuilt components and not compatible with CLI v2 and SDK v2.
+
 In part one of the tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -35,7 +46,7 @@ In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you
 >
 >To find it, go to the designer in your workspace. In the **New pipeline** section, select **Sample 1 - Regression: Automobile Price Prediction(Basic)**.
 
-[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
 
 ## Create a new pipeline
 
@@ -45,10 +56,10 @@ To create an Azure Machine Learning pipeline, you need an Azure Machine Learning
 
 ### Create a new workspace
 
-You need an Azure Machine Learning workspace to use the designer. The workspace is the top-level resource for Azure Machine Learning, it provides a centralized place to work with all the artifacts you create in Azure Machine Learning. For instruction on creating a workspace, see [Create workspace resources](quickstart-create-resources.md).
+You need an Azure Machine Learning workspace to use the designer. The workspace is the top-level resource for Azure Machine Learning, it provides a centralized place to work with all the artifacts you create in Azure Machine Learning. For instruction on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md).
 
 > [!NOTE]
-> If your workspace uses a Virtual network, there are additional configuration steps you must use to use the designer. For more information, see [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md)
+> If your workspace uses a Virtual network, there are additional configuration steps you must use to use the designer. For more information, see [Use Azure Machine Learning studio in an Azure virtual network](../how-to-enable-studio-virtual-network.md)
 
 ### Create the pipeline
 
@@ -80,7 +91,7 @@ You need an Azure Machine Learning workspace to use the designer. The workspace 
 A pipeline jobs on a compute target, which is a compute resource that's attached to your workspace. After you create a compute target, you can reuse it for future jobs.
 
 > [!Important]
-> Attached compute is not supported, use [compute instances or clusters](concept-compute-target.md#azure-machine-learning-compute-managed) instead.
+> Attached compute is not supported, use [compute instances or clusters](../concept-compute-target.md#azure-machine-learning-compute-managed) instead.
 
 You can set a **Default compute target** for the entire pipeline, which will tell every component to use the same compute target by default. However, you can specify compute targets on a per-module basis.
 
@@ -90,7 +101,7 @@ You can set a **Default compute target** for the entire pipeline, which will tel
 
     * If you already have an available compute target, you can select it from the **Select Azure Machine Learning compute instance** drop-down to run this pipeline.
 
-    * Or, select "Serverless" to use [serverless compute (preview)](./how-to-use-serverless-compute.md).
+    * Or, select "Serverless" to use [serverless compute (preview)](../how-to-use-serverless-compute.md).
 
 1. Enter a name for the compute resource.
 
@@ -344,7 +355,7 @@ For each of the error statistics, smaller is better. A smaller value indicates t
 
 Skip this section if you want to continue on with part 2 of the tutorial, [deploying models](tutorial-designer-automobile-price-deploy.md).
 
-[!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 
