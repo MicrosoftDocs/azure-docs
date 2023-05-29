@@ -9,7 +9,7 @@ ms.date: 09/16/2022
 ms.author: kpunjabi
 ms.custom: public_preview
 services: azure-communication-services
-zone_pivot_groups: acs-csharp-java
+zone_pivot_groups: acs-csharp-java-javascript-python
 ---
 
 # Gather user input with Recognize action
@@ -24,6 +24,14 @@ This guide will help you get started with recognizing DTMF input provided by par
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Recognize action with Java](./includes/recognize-action-quickstart-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Recognize action with Java](./includes/recognize-how-to-js.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Recognize action with Java](./includes/recognize-how-to-python.md)]
 ::: zone-end
 
 ## Event codes
