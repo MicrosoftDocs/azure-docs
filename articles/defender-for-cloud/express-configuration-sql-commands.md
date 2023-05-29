@@ -26,10 +26,6 @@ Below is a list of the SQL vulnerability assessment PowerShell commands and thei
 - [SQL vulnerability assessment execute scan](#sql-vulnerability-assessment-execute-scan)
 - [SQL vulnerability assessments settings](#sql-vulnerability-assessments-settings)
 - [Exported functions](#exported-functions)
-- 
-- 
-- 
-
 
 ### SQL vulnerability assessment baseline
 

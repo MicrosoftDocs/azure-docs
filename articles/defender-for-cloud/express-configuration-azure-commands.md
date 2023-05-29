@@ -114,7 +114,7 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-### Get List of Sql Vulnerability Assessment Baseline On System Database
+### Get List of SQL Vulnerability Assessment Baseline On System Database
 
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/baselines?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
