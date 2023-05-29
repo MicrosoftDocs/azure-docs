@@ -156,9 +156,9 @@ Use AZD to initialize the event-driven application from the Azure Developer CLI 
     Initializing a new project (azd init)
     
     (✓) Done: Initialized git repository
-    (✓) Done: Downloading template code to: D:\samples\event-driven-may24
+    (✓) Done: Downloading template code to: D:\samples\event-driven-app
     
-    ? Please enter a new environment name: [? for help] (event-driven-app) wingtiptoy
+    ? Please enter a new environment name: [? for help] (event-driven-app-dev) wingtiptoy
     
     ? Please enter a new environment name: wingtiptoy
     

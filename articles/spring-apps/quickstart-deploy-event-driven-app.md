@@ -75,6 +75,12 @@ Diagram of Spring event-driven app architecture:
 
 ::: zone-end
 
+::: zone pivot="sc-enterprise"
+
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+
+::: zone-end
+
 ::: zone pivot="sc-standard"
 
 [!INCLUDE [quickstart-tool-introduction](includes/quickstart-deploy-event-driven-app/quickstart-tool-introduction.md)]
