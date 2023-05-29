@@ -123,7 +123,7 @@ This article provides 2 options for deploying to Azure Spring Apps:
 
 1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs:
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/13-asa-logs.png" alt-text="Azure Spring Apps logs.":::
+   :::image type="content" source="media/quickstart-deploy-web-app/13-asa-logs.png" alt-text="Azure Spring Apps logs.":::
    
 ::: zone-end
 
