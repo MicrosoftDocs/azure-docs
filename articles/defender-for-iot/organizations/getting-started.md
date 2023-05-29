@@ -23,19 +23,17 @@ Before you start, make sure that you have:
 
 ## Add a trial license
 
-This procedure describes how to add a trial license for Defender for IoT to your Azure subscription.
+This procedure describes how to add a trial license for Defender for IoT to your Azure subscription. One trial license is available per tenant.
 
 **To add a trial license**:
 
-1. Go to the [Microsoft 365 Admin Center](https://portal.office.com/AdminPortal/Home#/catalog) and select **Marketplace**.
+1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) **Marketplace**.
 
-1. Browse to **Security and identity** products, and locate **Microsoft Defender for IoT**.
+1. Select **All products** and search for **Microsoft Defender for IoT**.
 
-1. In the **Microsoft Defender for IoT** box, select **Details** and then select your license size, depending on the number of devices in your site.
+1. Locate the **Microsoft Defender for IoT Trial** item, and then follow the options through to add the trial to your Microsoft 365 products.
 
-1. A trial license is limited to a single license. Keep the default **1** license defined for the number of licenses. <!--haven't validated this-->
-
-1. Select **Start free trial**.
+For more information, see the [Microsoft 365 admin center help](/microsoft-365/admin/).
 
 ## Add an OT plan
 
