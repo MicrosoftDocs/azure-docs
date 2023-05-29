@@ -334,7 +334,7 @@ if (call != null)
 }
 ```
 
-Add the methods to start or join the different types of Call (1:1 ACS call, 1:1 phone call, ACS Group call, Teams meeting join, etc).
+Add the methods to start or join the different types of Call (1:1 ACS call, 1:1 phone call, ACS Group call, Teams meeting join, etc.).
 
 ```C#
 private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)
@@ -981,7 +981,7 @@ await this.call.HangUpAsync(new HangUpOptions());
 
 ### Run the code
 
-You can build and run the code on Visual Studio. For solution platforms we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64` and `x86`. 
 
 You can make an outbound video call by providing a user ID in the text field and clicking the `Start Call` button. 
 
