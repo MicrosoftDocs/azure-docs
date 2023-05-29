@@ -223,6 +223,7 @@ CommunicationIdentifier target = new CommunicationUserIdentifier("<user_id_of_ta
 RedirectCallOptions redirectCallOptions = new RedirectCallOptions(incomingCallContext, target); 
 Response<Void> response = client.redirectCallWithResponse(redirectCallOptions).block();
 ```
+
 # [JavaScript](#tab/javascript)
 
 ```javascript
