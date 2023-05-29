@@ -529,6 +529,8 @@
       - name: Scan your SQL resources for vulnerabilities
         href: defender-for-sql-on-machines-vulnerability-assessment.md
         displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
+      - name: Consume and export scan results
+        href: defender-for-sql-scan-results.md
     - name: Defender for open-source relational databases
       items: 
       - name: Overview
