@@ -342,10 +342,7 @@ AddParticipant will publish a `AddParticipantSucceeded` or `AddParticipantFailed
 
 ```csharp
 var removeThisUser = new CommunicationUserIdentifier("<user_id>"); 
-var listOfParticipantsToBeRemoved = new List<CommunicationIdentifier>(); 
-listOfParticipantsToBeRemoved.Add(removeThisUser); 
-var removeOption = new RemoveParticipantsOptions(listOfParticipantsToBeRemoved); 
-RemoveParticipantsResult result = await callConnection.RemoveParticipantsAsync(removeOption);
+RemoveParticipantsResult result = await callConnection.RemoveParticipantAsync(removeThisUser);
 ```
 
 # [Java](#tab/java)
