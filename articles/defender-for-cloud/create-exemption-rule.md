@@ -26,7 +26,7 @@ When a finding matches the criteria you've defined in your disable rules, it doe
 You can use a combination of any of the following criteria: 
 
 - Minimum auditing severity threshold (low, medium, high, critical) Any CVE below this threshold wouldn't be reported. 
-- Fix status (no fix, fix exists, vendor won't fix) 
+- Fix status (no fix, fix exists, vendor will not fix) 
 - CVE 
 - Image tag 
 - Image digest 
