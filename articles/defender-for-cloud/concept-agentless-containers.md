@@ -107,6 +107,8 @@ Container registry vulnerability assessment scans container images stored in you
 1. Once a day, all discovered images are pulled and an inventory is created for each image that is discovered.  
 1. Vulnerability reports for known vulnerabilities (CVEs) are generated for each software that is present on an image inventory. 
 1. Vulnerability reports are refreshed daily for any image pushed during the last 90 days to a registry or currently running on a Kubernetes cluster monitored by Defender CSPM Agentless discovery and visibility for Kubernetes, or monitored by the Defender for Containers agent (profile or extension).
+ 
+If you delete an image from the ACR, it currently takes 3 days to remove the findings for an image after it was deleted. Considerations for improving the freshness interval are part of our areas of focus.
 
 ## Support for exemptions
 
