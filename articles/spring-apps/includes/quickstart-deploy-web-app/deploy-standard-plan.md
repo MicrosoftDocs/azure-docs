@@ -62,14 +62,12 @@ Use AZD to initialize the web application from the Azure Developer CLI templates
     ```text
     Initializing a new project (azd init)
     (✓) Done: Initialized git repository
-    (✓) Done: Downloading template code to: D:\samples\event-driven-app
+    (✓) Done: Downloading template code to: <your-local-path>
     
-      Please enter a new environment name: wingtiptoy
-    
-      Please enter a new environment name: wingtiptoy
+      Please enter a new environment name: <your-env-name>
     
     SUCCESS: New project initialized!
-    You can view the template code in your directory: D:\samples\event-driven-app
+    You can view the template code in your directory: <your-local-path>/event-driven-app
     Learn more about running 3rd party code on our DevHub: https://learn.microsoft.com/azure/developer/azure-developer-cli/azd-templates#guidelines-for-using-azd-templates
     ```
 
@@ -156,6 +154,31 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
    ```bash
    azd provision
    ```
+   
+   Command interaction description:
+   - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
+   - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
+
+   > [!NOTE]
+   > This template may only be used with the following Azure locations:
+   >  - Australia East
+   >  - Brazil South
+   >  - Canada Central
+   >  - Central US
+   >  - East Asia
+   >  - East US
+   >  - East US 2
+   >  - Germany West Central
+   >  - Japan East
+   >  - Korea Central
+   >  - North Central US
+   >  - North Europe
+   >  - South Central US
+   >  - UK South
+   >  - West Europe
+   >  - West US
+   >
+   >  If you attempt to use the template with an unsupported region, the provision step will fail.
 
 ---
 
@@ -199,38 +222,18 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
 
 Use AZD to package the app, provision the Azure resources required by the web application and then deploy to Azure Spring Apps.
 
-1. Run the following command to package a deployable copy of your application and deploy the application code to those newly provisioned resources.
+1. Run the following command to package a deployable copy of your application
 
    ```bash
-   azd up
+   azd package
    ```
 
-   Command interaction description:
-   - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
-   - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
+1. Run the following command to deploy the application code to those newly provisioned resources.
 
-   > [!NOTE]
-   > This template may only be used with the following Azure locations:
-   >  - Australia East
-   >  - Brazil South
-   >  - Canada Central
-   >  - Central US
-   >  - East Asia
-   >  - East US
-   >  - East US 2
-   >  - Germany West Central
-   >  - Japan East
-   >  - Korea Central
-   >  - North Central US
-   >  - North Europe
-   >  - South Central US
-   >  - UK South
-   >  - West Europe
-   >  - West US
-   >
-   >  If you attempt to use the template with an unsupported region, the provision step will fail.
+   ```bash
+   azd deploy
+   ```
    
-
    The console outputs messages similar to the following:
 
    ```text
@@ -240,6 +243,6 @@ Use AZD to package the app, provision the Azure resources required by the web ap
    ```
 
 > [!NOTE]
-> This may take a while to complete as it executes three commands: `azd package` (packages a deployable copy of your application), `azd provision` (provisions Azure resources), and `azd deploy` (deploys application code). You will see a progress indicator as it packages, provisions and deploys your application. See more details from [Azure-Samples/ASA-Samples-Web-Application](https://github.com/Azure-Samples/ASA-Samples-Web-Application).
+> You can also use `azd up` to combine the previous three commands: `azd package` (packages a deployable copy of your application), `azd provision` (provisions Azure resources), and `azd deploy` (deploys application code). See more details from [Azure-Samples/ASA-Samples-Web-Application](https://github.com/Azure-Samples/ASA-Samples-Web-Application).
 
 ---
