@@ -43,7 +43,7 @@ The discovery process is based on snapshots taken at intervals:
 
 :::image type="content" source="media/concept-agentless-containers/diagram-permissions-architecture.png" alt-text="Diagram of the permissions architecture." lightbox="media/concept-agentless-containers/diagram-permissions-architecture.png":::
 
-WHen you enable the Agentless discovery for Kubernetes extension, the following process occurs:
+When you enable the Agentless discovery for Kubernetes extension, the following process occurs:
 
 - **Create**: MDC (Microsoft Defender for Cloud) creates an identity in customer environments called CloudPosture/securityOperator/DefenderCSPMSecurityOperator.
 
