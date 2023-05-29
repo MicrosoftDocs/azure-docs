@@ -31,7 +31,7 @@ The `spec.target` property has the following child property.
 |---|---|---|---|
 |configMapName|The name of destination configMap| true| string|
 
-If the `spec.auth` property is not set, the system-assigned managed identity will be used. It has the following child properties, only one authentication method should be set.
+If the `spec.auth` property isn't set, the system-assigned managed identity is used. It has the following child properties, only one authentication method should be set.
 
 |Name|Description| Required|type|
 |---|---|---|---|
@@ -44,9 +44,9 @@ The `spec.keyValues` has the following child properties. The `KeyVaults` propert
 |---|---|---|---|
 |selectors|List of selectors for key-value filtering|false|object array|
 |trimKeyPrefixes|List of key prefixes to be trimmed|false|string array|
-|keyVaults|Settings for Key Vault references|conditional|object|
+|keyVaults|Settings for Key Vault reference|conditional|object|
 
-If the `spec.keyValues.selectors` property is not set, all key-values with no label will be downloaded. It contains an array of *selector* objects, which have the following child properties.
+If the `spec.keyValues.selectors` property isn't set, all key-values with no label will be downloaded. It contains an array of *selector* objects, which have the following child properties.
 
 |Name|Description|Required|type|
 |---|---|---|---|
@@ -67,11 +67,11 @@ The `spec.keyValues.keyVaults.target` property has the following child property.
 |---|---|---|---|
 |secretName|The name of destination Secret|true|string|
 
-If the `spec.keyValues.keyVaults.auth property` is not set, the system-assigned managed identity will be used. It has the following child properties.
+If the `spec.keyValues.keyVaults.auth property` isn't set, the system-assigned managed identity is used. It has the following child properties.
    
 |Name|Description|Required|type|
 |---|---|---|---|
-|managedIdentityClientId|Client Id of a user-assigned managed identity used for authentication with vaults that don't have individual authentication methods specified| false| string|
+|managedIdentityClientId|Client ID of a user-assigned managed identity used for authentication with vaults that don't have individual authentication methods specified| false| string|
 |servicePrincipalReference|Name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with vaults that don't have individual authentication methods specified| false| string|
 |vaults|Authentication methods for individual vaults|false|object array|
 
@@ -80,7 +80,7 @@ The authentication method of each *vault* can be specified with the following pr
 |Name|Description|Required|type|
 |---|---|---|---|
 |uri|Uri of a vault|true|string|
-|managedIdentityClientId|Client Id of a user-assigned managed identity used for authentication with a vault|false|string|
+|managedIdentityClientId|Client ID of a user-assigned managed identity used for authentication with a vault|false|string|
 |servicePrincipalReference|Name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with a vault|false|string|
 
 ## Examples
@@ -106,10 +106,10 @@ The authentication method of each *vault* can be specified with the following pr
 
 #### Use User-Assigned Managed Identity
 
-1. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its client Id after creation.
+1. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its client ID after creation.
 1. [Assign the user-assigned managed identity to the virtual machine scale set](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) used by the Azure Kubernetes Service (AKS) cluster.
 1. [Grant the user-assigned managed identity **App Configuration Data Reader** role](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) in Azure App Configuration.
-1. Set the `spec.auth.managedIdentityClientId` property to the client Id of the user-assigned managed identity in the following sample `AzureAppConfigurationProvider` resource and deploy it to the AKS cluster.
+1. Set the `spec.auth.managedIdentityClientId` property to the client ID of the user-assigned managed identity in the following sample `AzureAppConfigurationProvider` resource and deploy it to the AKS cluster.
 
     ``` yaml
     apiVersion: azconfig.io/v1beta1
@@ -161,7 +161,7 @@ spec:
     configMapName: configmap-created-by-appconfig-provider
 ```
 
-In following example, two selectors are used to retrieve two sets of key-values, each with unique labels. It's important to note that the values of the last selector will take precedence and override any overlapping keys from the previous selectors.
+In following example, two selectors are used to retrieve two sets of key-values, each with unique labels. It's important to note that the values of the last selector take precedence and override any overlapping keys from the previous selectors.
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
@@ -199,7 +199,7 @@ spec:
 
 ### Key Vault references
 
-The following sample instructs to use a service principal to authenticate with a specific vault and a user-assigned managed identity for all other vaults.
+The following sample instructs using a service principal to authenticate with a specific vault and a user-assigned managed identity for all other vaults.
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
