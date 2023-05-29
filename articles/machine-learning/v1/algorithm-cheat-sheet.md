@@ -17,14 +17,15 @@ adobe-target: true
 The **Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right algorithm from the designer for a predictive analytics model.
 
 >[!Note]
-> Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible. 
+> Designer supports two types of components, classic prebuilt components (v1) and custom components (v2). These two types of components are NOT compatible.
 >
->Classic prebuilt components provides prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
+>Classic prebuilt components provide prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
 >
+>Custom components allow you to wrap your own code as a component. It supports sharing components across workspaces and seamless authoring across Studio, CLI v2, and SDK v2 interfaces.
 >
->Custom components allow you to provide your own code as a component. It supports sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
+>For new projects, we highly suggest you use custom component, which is compatible with AzureML V2 and will keep receiving new updates. 
 >
->This article applies to classic prebuilt components. 
+>This article applies to classic prebuilt components and not compatible with CLI v2 and SDK v2.
 
 Azure Machine Learning has a large library of algorithms from the ***classification***, ***recommender systems***, ***clustering***, ***anomaly detection***, ***regression***, and ***text analytics*** families. Each is designed to address a different type of machine learning problem.
 
@@ -44,7 +45,7 @@ The suggestions offered in this algorithm cheat sheet are approximate rules-of-t
 
 Every machine learning algorithm has its own style or inductive bias. For a specific problem, several algorithms may be appropriate, and one algorithm may be a better fit than others. But it's not always possible to know beforehand, which is the best fit. In cases like these, several algorithms are listed together in the cheat sheet. An appropriate strategy would be to try one algorithm, and if the results are not yet satisfactory, try the others. 
 
-To learn more about the algorithms in Azure Machine Learning designer, go to the [Algorithm and component reference](component-reference/component-reference.md).
+To learn more about the algorithms in Azure Machine Learning designer, go to the [Algorithm and component reference](../component-reference/component-reference.md).
 
 ## Kinds of machine learning
 
@@ -66,8 +67,8 @@ In reinforcement learning, the algorithm gets to choose an action in response to
 
 * See more information on [How to select algorithms](how-to-select-algorithms.md)
 
-* [Learn about studio in Azure Machine Learning and the Azure portal](overview-what-is-azure-machine-learning.md).
+* [Learn about studio in Azure Machine Learning and the Azure portal](../overview-what-is-azure-machine-learning.md).
 
 * [Tutorial: Build a prediction model in Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md).
 
-* [Learn about deep learning vs. machine learning](concept-deep-learning-vs-machine-learning.md).
+* [Learn about deep learning vs. machine learning](../concept-deep-learning-vs-machine-learning.md).

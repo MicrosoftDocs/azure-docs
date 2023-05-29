@@ -15,15 +15,15 @@ ms.custom: designer, devx-track-python
 
 # Run Python code in Azure Machine Learning designer
 
-In this article, you'll learn how to use the [Execute Python Script](algorithm-module-reference/execute-python-script.md) component to add custom logic to the Azure Machine Learning designer. In this how-to, you use the Pandas library to do simple feature engineering.
+In this article, you'll learn how to use the [Execute Python Script](../algorithm-module-reference/execute-python-script.md) component to add custom logic to the Azure Machine Learning designer. In this how-to, you use the Pandas library to do simple feature engineering.
 
 You can use the in-built code editor to quickly add simple Python logic. You should use the zip file method to add more complex code, or to upload additional Python libraries.
 
-The default execution environment uses the Anacondas distribution of Python. See the [Execute Python Script component reference](algorithm-module-reference/execute-python-script.md) page for a complete list of pre-installed packages.
+The default execution environment uses the Anacondas distribution of Python. See the [Execute Python Script component reference](../algorithm-module-reference/execute-python-script.md) page for a complete list of pre-installed packages.
 
 ![Execute Python input map](media/how-to-designer-python/execute-python-map.png)
 
-[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
 
 ## Execute Python written in the designer
 
@@ -82,4 +82,4 @@ Now you have a dataset, which has a new **Dollars/HP** feature. This new feature
 
 ## Next steps
 
-Learn how to [import your own data](v1/how-to-designer-import-data.md) in Azure Machine Learning designer.
+Learn how to [import your own data](how-to-designer-import-data.md) in Azure Machine Learning designer.
