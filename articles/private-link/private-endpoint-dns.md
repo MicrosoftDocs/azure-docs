@@ -106,8 +106,8 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Bot Service (Microsoft.BotService/botServices) / Token | privatelink.token.botframework.com | token.botframework.com </br> europe.token.botframework.com |
 | Azure Health Data Services (Microsoft.HealthcareApis/workspaces) / healthcareworkspace | privatelink.workspace.azurehealthcareapis.com </br> privatelink.fhir.azurehealthcareapis.com </br> privatelink.dicom.azurehealthcareapis.com | workspace.azurehealthcareapis.com </br> fhir.azurehealthcareapis.com </br> dicom.azurehealthcareapis.com |
 | Azure Databricks (Microsoft.Databricks/workspaces) / databricks_ui_api, browser_authentication | privatelink.azuredatabricks.net | azuredatabricks.net |
-| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) / global | privatelink-global.wvd.microsoft.com  | azuredatabricks.net |
-| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces and Microsoft.DesktopVirtualization/hostpools) / feed, connection | privatelink.wvd.microsoft.com  | azuredatabricks.net |
+| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) / global | privatelink-global.wvd.microsoft.com  | wvd.microsoft.com |
+| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces and Microsoft.DesktopVirtualization/hostpools) / feed, connection | privatelink.wvd.microsoft.com  | wvd.microsoft.com |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
 
