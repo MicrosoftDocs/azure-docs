@@ -2,7 +2,6 @@
 title: How-to create an exemption rule for a resource or subscription 
 description: Learn how to create an exemption rule for a resource or subscription  
 ms.service: defender-for-cloud
-ms.custom: build-2023
 ms.topic: how-to
 ms.date: 05/28/2023
 ---
