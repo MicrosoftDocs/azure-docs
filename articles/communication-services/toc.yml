@@ -687,6 +687,8 @@ items:
         href: concepts/telephony/outbound-calling.md
       - name: Known limitations
         href: concepts/telephony/known-limitations-acs-telephony.md
+      - name: SIP protocol details for direct routing
+        href: concepts/telephony/direct-routing-sip-specification.md
     - name: Call Automation
       items:
       - name: Overview
