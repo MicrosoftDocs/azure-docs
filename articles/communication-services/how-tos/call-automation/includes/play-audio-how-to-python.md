@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Python play audio quickstart
+description: Python play audio how-to guide
 services: azure-communication-services
 author: Kunaal Punjabi
 ms.service: azure-communication-services
