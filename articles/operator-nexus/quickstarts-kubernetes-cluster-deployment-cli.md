@@ -69,7 +69,7 @@ SERVICE_CIDR="10.96.0.0/16"
 DNS_SERVICE_IP="10.96.0.10"
 ```
 > [!NOTE]
-> Please replace the placeholders for CUSTOM_LOCATION, CSN_ARM_ID, CNI_ARM_ID and AAD_ADMIN_GROUP_OBJECT_ID with your actual values before running these commands.
+> It is essential that you replace the placeholders for CUSTOM_LOCATION, CSN_ARM_ID, CNI_ARM_ID, and AAD_ADMIN_GROUP_OBJECT_ID with your actual values before running these commands.
 
 * After defining these variables, you can create the Kubernetes cluster by executing the following Azure CLI command:
 
