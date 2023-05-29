@@ -13,6 +13,8 @@
       href: distributed-nosql.md
     - name: Distributed relational
       href: distributed-relational.md
+    - name: Integrations with Azure Cosmos DB
+      href: integrations-cosmosdb.md
 - name: NoSQL
   href: nosql/toc.yml
 - name: MongoDB
