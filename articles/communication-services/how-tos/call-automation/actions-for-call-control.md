@@ -44,6 +44,12 @@ var client = new CallAutomationClient("<resource_connection_string>");
  CallAutomationClient client = new CallAutomationClientBuilder().connectionString("<resource_connection_string>").buildClient();
 ```
 
+## [JavaScript](#tab/javascript)
+
+```javascript
+const client = new CallAutomationClient("<resource_connection_string>");
+```
+
 -----
 
 ## Make an outbound call
@@ -72,10 +78,22 @@ CreateCallOptions createCallOptions = new CreateCallOptions(callerIdentifier, ta
 Response<CreateCallResult> response = client.createCallWithResponse(createCallOptions).block(); 
 ```
 
+### [JavaScript](#tab/javascript)
+
+```javascript
+const callInvite = {
+    targetParticipant: { phoneNumber: "+18008008800" }, // person to call
+    sourceCallIdNumber: { phoneNumber: "+18888888888" } // This is the ACS provisioned phone number for the caller
+};
+const callbackUri = "https://<myendpoint>/Events"; // the callback endpoint where you want to receive subsequent events 
+const response = await client.createCall(callInvite, callbackUri);
+```
+
 -----
 When making a group call that includes a phone number, you must provide a phone number that will be used as a caller ID number to the PSTN endpoint.
 
 ### [csharp](#tab/csharp)
+
 ```csharp
 Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events 
 var pstnEndpoint = new PhoneNumberIdentifier("+16041234567");
@@ -85,6 +103,20 @@ var groupCallOptions = new CreateGroupCallOptions(new List<CommunicationIdentifi
     SourceCallerIdNumber = new PhoneNumberIdentifier("+16044561234"), // This is the ACS provisioned phone number for the caller
 };
 CreateCallResult response = await client.CreateGroupCallAsync(groupCallOptions);
+```
+
+### [JavaScript](#tab/javascript)
+
+```javascript
+const callbackUri = "https://<myendpoint>/Events"; // the callback endpoint where you want to receive subsequent events 
+const participants = [
+    { phoneNumber: "+18008008800" },
+    { communicationUserId: "<user_id_of_target>" }, //user id looks like 8:a1b1c1-...
+];
+const createCallOptions:CreateCallOptions = {
+    sourceCallIdNumber: { phoneNumber: "+18888888888" }, // This is the ACS provisioned phone number for the caller
+};
+const response = await client.createGroupCall(participants, callbackUri, createCallOptions);
 ```
 
 -----
@@ -119,6 +151,15 @@ AnswerCallOptions answerCallOptions = new AnswerCallOptions(incomingCallContext,
 Response<AnswerCallResult> response = client.answerCallWithResponse(answerCallOptions).block(); 
 ```
 
+### [JavaScript](#tab/javascript)
+
+```javascript
+const incomingCallContext = "<IncomingCallContext_From_IncomingCall_Event>";
+const callbackUri = "https://<myendpoint>/Events";
+
+const { callConnection } = await client.answerCall(incomingCallContext, callbackUri);
+```
+
 -----
 The response provides you with CallConnection object that you can use to take further actions on this call once it's connected. Once the call is answered, two events will be published to the callback endpoint you provided earlier:
 
@@ -149,6 +190,16 @@ RejectCallOptions rejectCallOptions = new RejectCallOptions(incomingCallContext)
 Response<Void> response = client.rejectCallWithResponse(rejectCallOptions).block(); 
 ```
 
+# [JavaScript](#tab/javascript)
+
+```javascript
+const incomingCallContext = "<IncomingCallContext_From_IncomingCall_Event>";
+const rejectOptions = {
+    callRejectReason: KnownCallRejectReason.Forbidden,
+};
+await client.rejectCall(incomingCallContext, rejectOptions);
+```
+
 -----
 No events are published for reject action.
 
@@ -173,6 +224,14 @@ RedirectCallOptions redirectCallOptions = new RedirectCallOptions(incomingCallCo
 Response<Void> response = client.redirectCallWithResponse(redirectCallOptions).block();
 ```
 
+# [JavaScript](#tab/javascript)
+
+```javascript
+const incomingCallContext = "<IncomingCallContext_From_IncomingCall_Event>";
+const target = { targetParticipant: { communicationUserId: "<user_id_of_target>" } }; //user id looks like 8:a1b1c1-...
+await client.redirectCall(incomingCallContext, target);
+```
+
 -----
 To redirect the call to a phone number, construct the target with PhoneNumberIdentifier.
 
@@ -187,6 +246,16 @@ var target = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdN
 
 ```java
 CommunicationIdentifier target = new PhoneNumberIdentifier("+18001234567"); 
+```
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+const callerIdNumber = { phoneNumber: "+16044561234" };
+const target = {
+    targetParticipant: { phoneNumber: "+16041234567" }, 
+    sourceCallIdNumber: callerIdNumber,
+};
 ```
 
 -----
@@ -210,6 +279,13 @@ TransferCallToParticipantResult result = await callConnection.TransferCallToPart
 CommunicationIdentifier transferDestination = new CommunicationUserIdentifier("<user_id>"); 
 TransferToParticipantCallOptions options = new TransferToParticipantCallOptions(transferDestination); 
 Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
+```
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+const transferDestination = { communicationUserId: "<user_id>" };
+const result = await callConnection.transferCallToParticipant(transferDestination);
 ```
 
 -----
@@ -242,6 +318,17 @@ AddParticipantsOptions addParticipantsOptions = new AddParticipantsOptions(targe
 Response<AddParticipantsResult> addParticipantsResultResponse = callConnectionAsync.addParticipantsWithResponse(addParticipantsOptions).block();
 ```
 
+# [JavaScript](#tab/javascript)
+
+```javascript
+const callerIdNumber = { phoneNumber: "+16044561234" }; // This is the ACS provisioned phone number for the caller
+const addThisPerson = {
+    targetParticipant: { phoneNumber: "+16041234567" }, 
+    sourceCallIdNumber: callerIdNumber,
+};
+const addParticipantResult = await callConnection.addParticipant(addThisPerson);
+```
+
 -----
 To add a Communication Services user, provide a CommunicationUserIdentifier instead of PhoneNumberIdentifier. Source caller ID isn't mandatory in this case.
 
@@ -255,10 +342,7 @@ AddParticipant will publish a `AddParticipantSucceeded` or `AddParticipantFailed
 
 ```csharp
 var removeThisUser = new CommunicationUserIdentifier("<user_id>"); 
-var listOfParticipantsToBeRemoved = new List<CommunicationIdentifier>(); 
-listOfParticipantsToBeRemoved.Add(removeThisUser); 
-var removeOption = new RemoveParticipantsOptions(listOfParticipantsToBeRemoved); 
-RemoveParticipantsResult result = await callConnection.RemoveParticipantsAsync(removeOption);
+RemoveParticipantsResult result = await callConnection.RemoveParticipantAsync(removeThisUser);
 ```
 
 # [Java](#tab/java)
@@ -267,6 +351,13 @@ RemoveParticipantsResult result = await callConnection.RemoveParticipantsAsync(r
 CommunicationIdentifier removeThisUser = new CommunicationUserIdentifier("<user_id>");
 RemoveParticipantsOptions removeParticipantsOptions = new RemoveParticipantsOptions(new ArrayList<>(Arrays.asList(removeThisUser))); 
 Response<RemoveParticipantsResult> removeParticipantsResultResponse = callConnectionAsync.removeParticipantsWithResponse(removeParticipantsOptions).block();
+```
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+const removeThisUser = { communicationUserId: "<user_id>" };
+const removeParticipantResult = await callConnection.removeParticipant(removeThisUser);
 ```
 
 -----
@@ -289,6 +380,12 @@ _ = await callConnection.HangUpAsync(forEveryone: true);
 Response<Void> response1 = callConnectionAsync.hangUpWithResponse(new HangUpOptions(true)).block();
 ```
 
+# [JavaScript](#tab/javascript)
+
+```javascript
+await callConnection.hangUp(true);
+```
+
 -----
 CallDisconnected event is published once the hangUp action has completed successfully.
 
@@ -297,13 +394,19 @@ CallDisconnected event is published once the hangUp action has completed success
 # [csharp](#tab/csharp)
 
 ```csharp
-CallParticipant participantInfo = await callConnection.GetParticipantAsync("<user_id>")
+CallParticipant participantInfo = await callConnection.GetParticipantAsync(new CommunicationUserIdentifier("<user_id>"));
 ```
 
 # [Java](#tab/java)
 
 ```java
 CallParticipant participantInfo = callConnection.getParticipant("<user_id>").block();
+```
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+const participantInfo = await callConnection.getParticipant({ communicationUserId: "<user_id>" });
 ```
 
 -----
@@ -322,6 +425,12 @@ List<CallParticipant> participantList = (await callConnection.GetParticipantsAsy
 List<CallParticipant> participantsInfo = Objects.requireNonNull(callConnection.listParticipants().block()).getValues();
 ```
 
+# [JavaScript](#tab/javascript)
+
+```javascript
+const participantsInfo = await callConnection.listParticipants();
+```
+
 -----
 
 ## Get latest info about a call
@@ -336,6 +445,12 @@ CallConnectionProperties thisCallsProperties = await callConnection.GetCallConne
 
 ```java
 CallConnectionProperties thisCallsProperties = callConnection.getCallProperties().block(); 
+```
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+const thisCallProperties = await callConnection.getCallConnectionProperties();
 ```
 
 -----
