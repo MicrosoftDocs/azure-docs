@@ -56,6 +56,14 @@
               href: howto-create-serviceclient-with-javascript-and-azure-identity.md
             - name: Use server SDK with Azure Identity and Python
               href: howto-create-serviceclient-with-python-and-azure-identity.md
+    - name: Monitor
+      items:
+        - name: Audit compliance using Azure Policy
+          href: howto-monitor-azure-policy.md
+        - name: Monitor Azure Web PubSub
+          href: howto-azure-monitor.md
+        - name: Monitor Azure Web PubSub data reference
+          href: howto-monitor-data-reference.md
     - name: Secure
       items:
         - name: Protect the access key
