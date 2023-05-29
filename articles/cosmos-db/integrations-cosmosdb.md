@@ -1,12 +1,12 @@
 ---
 title: Vercek Integration with Azure Cosmos DB
 description: Learn how to integrate Azure Cosmos DB with Vercel
-author: sasinnat
+author: sajeetharan
 ms.author: sasinnat
 ms.reviewer: sidandrews
 ms.service: cosmos-db
-ms.topic: integrations
-ms.date: 26/03/2023
+ms.topic: how-to
+ms.date: 05/28/2023
 ms.custom: build-2023
 adobe-target: true
 ---
@@ -36,7 +36,7 @@ Use this guide if you have already identified the Vercel project(s) or want to i
 
 1. Vercel Account with Vercel Project – [Learn how to create a new Vercel Project](https://vercel.com/docs/concepts/projects/overview#creating-a-project)
 
-2. Azure Cosmos DB - [Quickstart: Create an Azure Cosmos DB account](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/quickstart-portal)
+2. Azure Cosmos DB - [Quickstart: Create an Azure Cosmos DB account](./nosql/quickstart-portal.md)
 
 3. Some basic knowledge on Next.js, React and TypeScript
 
@@ -99,7 +99,7 @@ Make changes to pages/index.tsx according to your needs. You could check out the
 You could use this [template](https://vercel.com/new/clone?demo-title=CosmosDB%20Starter&demo-description=Starter%20app%20built%20on%20Next.js%20and%20CosmosDB.&demo-url=https://cosmosdb-starter-test.vercel.app/&project-name=CosmosDB%20Starter&repository-name=cosmosdb-starter&repository-url=https%3A%2F%2Fgithub.com%2Fv1k1%2Fcosmosdb-starter&from=templates&integration-ids=oac_mPA9PZCLjkhQGhlA5zntNs0L&env=COSMOSDB_CONNECTION_STRING%2C%E2%80%A2%09COSMOSDB_CONTAINER_NAME) to deploy a starter web app on Vercel with Azure Cosmos DB integration.
 
 1. Choose the GitHub repository, where you want to clone the starter repo.
-   :::image type="content" source="./media/integrations/vercel/create-git.png" alt-text="Screenshot to create the repository" lightbox="./media/integrations/vercel/create-git":::
+   :::image type="content" source="./media/integrations/vercel/create-git-repository.png" alt-text="Screenshot to create the repository" lightbox="./media/integrations/vercel/create-git-repository.png":::
 
 2. Click on the integration to set up Cosmos DB connection keys, these steps are described in detail in previous section.
 
