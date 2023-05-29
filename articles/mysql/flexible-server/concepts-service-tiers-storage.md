@@ -37,7 +37,7 @@ To choose a compute tier, use the following table as a starting point.
 | General Purpose | Most business workloads that require balanced compute and memory with scalable I/O throughput. Examples include servers for hosting web and mobile apps and other enterprise applications.|
 | Business Critical | High-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency. Examples include servers for processing real-time data and high-performance transactional or analytical apps.|
 
-After you create a server, the compute tier, compute size, and storage size can be changed. Compute scaling requires a restart and takes between 60-120 seconds, while storage scaling does not require restart. You also can independently adjust the backup retention period up or down. For more information, see the [Scale resources](#scale-resources) section.
+After you create a server, the compute tier, compute size, and storage size can be changed. Compute scaling requires a restart and takes between 60-120 seconds, while storage scaling doesn't require restart. You also can independently adjust the backup retention period up or down. For more information, see the [Scale resources](#scale-resources) section.
 
 ## Service tiers, size, and server types
 
@@ -136,19 +136,19 @@ Remember that storage once auto-scaled up, cannot be scaled down.
 
 Azure Database for MySQL – Flexible Server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. 
 
-The minimum IOPS is 360 across all compute sizes and the maximum IOPS is determined by the selected compute size. To learn more about the maximum IOPS per compute size refer to the [table](#service-tiers-size-and-server-types).
+The minimum IOPS are 360 across all compute sizes and the maximum IOPS is determined by the selected compute size. To learn more about the maximum IOPS per compute size refer to the [table](#service-tiers-size-and-server-types).
 
-The maximum IOPS is dependent on the maximum available IOPS per compute size. Refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md)/ [Edsv5-series](../../virtual-machines/edv5-edsv5-series.md)] documentation.
+The maximum IOPS are dependent on the maximum available IOPS per compute size. Refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md)/ [Edsv5-series](../../virtual-machines/edv5-edsv5-series.md)] documentation.
 
 > [!Important]
 > **Complimentary IOPS** are equal to MINIMUM("Max uncached disk throughput: IOPS/MBps" of compute size, 300 + storage provisioned in GiB * 3)<br>
-> **Minimum IOPS** is 360 across all compute sizes<br>
-> **Maximum IOPS** is determined by the selected compute size. 
+> **Minimum IOPS are 360 across all compute sizes<br>
+> **Maximum IOPS are determined by the selected compute size. 
 
 You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS than the max IOPS based on compute then you need to scale your server's compute.
 
 ## Autoscale IOPS
-The cornerstone of the Azure Database for MySQL - Flexible Server is its ability to achieve the best performance for tier 1 workloads, which can be improved by enabling server automatically scale performance (IO) of its database servers seamlessly depending on the workload needs. This is an opt-in feature which enable users to scale IOPS on demand without having to pre-provision a certain amount of IO per second. With the Autoscale IOPS featured enable, you can now enjoy worry free IO management in Azure Database for MySQL - Flexible Server because the server scales IOPs up or down automatically depending on workload needs.  
+The cornerstone of the Azure Database for MySQL - Flexible Server is its ability to achieve the best performance for tier 1 workloads, which can be improved by enabling server automatically scale performance (IO) of its database servers seamlessly depending on the workload needs. This is an opt-in feature that enable users to scale IOPS on demand without having to pre-provision a certain amount of IO per second. With the Autoscale IOPS featured enable, you can now enjoy worry free IO management in Azure Database for MySQL - Flexible Server because the server scales IOPs up or down automatically depending on workload needs.  
 
 With Autoscale IOPS, you pay only for the IO the server use and no longer need to provision and pay for resources they aren’t fully using, saving both time and money. In addition, mission-critical Tier-1 applications can achieve consistent performance by making additional IO available to the workload at any time. Autoscale IOPS eliminates the administration required to provide the best performance at the least cost for Azure Database for MySQL customers. 
 
@@ -165,7 +165,7 @@ After you create your server, you can independently change the compute tier, com
 
 When you change the compute tier or compute size, the server is restarted for the new server type to take effect. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back. This window varies, but in most cases, is between 60-120 seconds. 
 
-Scaling storage and changing the backup retention period are online operations and do not require a server restart.
+Scaling storage and changing the backup retention period are online operations and don't require a server restart.
 
 ## Pricing
 
@@ -176,7 +176,7 @@ If you would like to optimize server cost, you can consider following tips:
 - Scale down your compute tier or compute size (vCores) if compute is underutilized.
 - Consider switching to the Burstable compute tier if your workload doesn't need the full compute capacity continuously from the General Purpose and Business Critical tiers.
 - Stop the server when not in use.
-- Reduce the backup retention period if a longer retention of backup is not required.
+- Reduce the backup retention period if a longer retention of backup isn't required.
 
 ## Next steps
 
