@@ -34,9 +34,11 @@
     href: enable-enhanced-security.md
   - name: 3. Connect hybrid and multicloud environments
     items:
-    - name: Connect non-Azure machines
+    - name: Connect non-Azure machines with Azure Arc
       displayName: azure stack, ash, windows, linux, hybrid, arc
-      href: quickstart-onboard-machines.md
+    - name: Connect non-Azure machines with Defender for Endpoint
+      displayName: azure stack, ash, windows, linux, hybrid, defender for endpoint
+      href: onboard-machines-with-defender-for-endpoint.md
     - name: Connect AWS accounts
       displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts
       href: quickstart-onboard-aws.md
