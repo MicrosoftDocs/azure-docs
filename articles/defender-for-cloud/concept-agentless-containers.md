@@ -128,7 +128,7 @@ You can use a combination of any of the following criteria to exempt:
 - Image digest
 - Base OS distribution
  
-Learn how to [create an exemption rule](create-exemption-rule).
+Learn how to [create an exemption rule](create-exemption-rule.md).
 
 ## Next steps
 - Learn about [support and prerequisites for agentless containers posture](support-agentless-containers-posture.md)
