@@ -18,7 +18,7 @@ ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-202
 Use the designer to deploy a machine learning model to predict the price of cars. This tutorial is part two of a two-part series.
 
 >[!Note]
-> Designer supports two types of components, classic prebuilt components（v1） and custom components(v2). These two types of components are NOT compatible. 
+> Designer supports two types of components, classic prebuilt components (v1) and custom components (v2). These two types of components are NOT compatible. 
 >
 >Classic prebuilt components provide prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
 >

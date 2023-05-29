@@ -22,7 +22,7 @@ A common question is “Which machine learning algorithm should I use?” The al
  ![Considerations for choosing algorithms: What do you want to know? What are the scenario requirements?](./media/how-to-select-algorithms/how-to-select-algorithms.png)
 
 >[!Note]
-> Designer supports two types of components, classic prebuilt components（v1） and custom components(v2). These two types of components are NOT compatible. 
+> Designer supports two types of components, classic prebuilt components (v1) and custom components (v2). These two types of components are NOT compatible. 
 >
 >Classic prebuilt components provide prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
 >

@@ -27,7 +27,7 @@ To enable this feature:
 2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
 3. In **Managed preview feature** panel, toggle on **View profiling to debug pipeline performance issues** feature.
 
-### How to find the node that runs totally the longest
+## How to find the node that runs totally the longest
 
 1. On the Jobs page, select the job name and enter the job detail page.
 1. In the action bar, select **View profiling**. Profiling only works for root level pipeline. It will take a few minutes to load the next page.
@@ -50,11 +50,11 @@ To enable this feature:
 
     If you're trying to make the queue time shorter for a node, you can change the compute node number and modify job priority to get more compute resources on this one.
 
-### How to find the node that runs the longest in each status
+## How to find the node that runs the longest in each status
 
 Besides the total duration, you can also sort by durations for each status. For example, you can sort by *Preparing* duration to see which step spends the most time on image building. Then you can open the detail page to find that image building fails because of timeout issue.
 
-#### What do I do if a duration issue identified
+### What do I do if a duration issue identified
 
 Status and definitions:
 
@@ -66,7 +66,7 @@ Status and definitions:
 |Running | Job is executing on remote compute. Time spent in this stage is mainly in two parts: <br> Runtime preparation: image pulling, docker starting and data preparation (mount or download). <br> User script execution. | This status is expected to be most time consuming one.	| 1. Go to the source code check if there's any user error. <br>  2. View the monitoring tab of compute metrics (CPU, memory, networking etc.) to identify the bottleneck. <br> 3. Try online debug with [interactive endpoints](how-to-interactive-jobs.md) if the job is running or locally debug of your code. |
 | Finalizing | Job is in post processing after execution complete. Time spent in this stage is mainly for some post processes like: output uploading, metric/logs uploading and resources clean up.| It will be short for command job. However, might be very long for PRS/MPI job because for a distributed job, the finalizing status is from the first node starting finalizing to the last node done finalizing. | Change your step job output mode from upload to mount if you find unexpected long finalizing time, or open support case via Azure portal. |
 
-### Different view of Gantt chart
+## Different view of Gantt chart
 
 - Critical path
   - You'll see only the step jobs in the pipeline's critical path (jobs that have a dependency).
@@ -79,7 +79,7 @@ Status and definitions:
 - Hierarchical view.
   - You'll see all jobs including pipeline component jobs and step jobs.
 
-### Download the duration table
+## Download the duration table
 
 To export the table, select **Export CSV**.
 

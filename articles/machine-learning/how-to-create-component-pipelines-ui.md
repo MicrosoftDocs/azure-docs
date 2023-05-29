@@ -89,7 +89,7 @@ The example below uses UI to register components, and the [component source file
     > [!Important]
     > Attached compute is not supported, use [compute instances or clusters](concept-compute-target.md#azure-machine-learning-compute-managed) instead.
 
-1. In asset library, you can see **Data**,**Model** and **Components** tabs. Switch to **Components** tab, you can see the components registered from previous section.
+1. In asset library, you can see **Data**, **Model** and **Components** tabs. Switch to **Components** tab, you can see the components registered from previous section.
 
     :::image type="content" source="./media/how-to-create-component-pipelines-ui/asset-library.png" alt-text="Screenshot showing registered component in asset library." lightbox ="./media/how-to-create-component-pipelines-ui/asset-library.png":::
 

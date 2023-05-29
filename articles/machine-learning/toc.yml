@@ -1201,7 +1201,7 @@
             - name: How to use debug pipeline performance 
               href: how-to-debug-pipeline-performance.md
             - name: Deploy pipeline component as batch 
-              herf: how-to-deploy-pipeline-component-as-batch-endpoint.md
+              href: how-to-deploy-pipeline-component-as-batch-endpoint.md
             # v1
             - name: Create ML pipelines (Python)
               href: ./v1/how-to-create-machine-learning-pipelines.md
