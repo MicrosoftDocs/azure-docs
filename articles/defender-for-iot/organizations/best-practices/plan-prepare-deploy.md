@@ -111,7 +111,7 @@ Calculate the number of devices in each site so that you can [purchase Defender 
     - **Broadcast groups**
     - **Inactive devices**: Devices that have no network activity detected for more than 60 days
 
-For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
+For more information, see [Devices monitored by Defender for IoT](/architecture.md#devices-monitored-by-defender-for-iot).
 
 ### Plan a multi-sensor deployment
 
