@@ -87,15 +87,15 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 ### Create an Azure Spring Apps instance
 
-1. Select Create a resource (+) in the upper-left corner of the portal.
+1. Select **Create a resource (+)** in the upper-left corner of the portal.
 
 1. Select **Compute** > **Azure Spring Apps**.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/1-create-azure-spring-apps.png" alt-text="The Azure Spring Apps in menu":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/1-asa-create-service.png" alt-text="The Azure Spring Apps in menu":::
 
 1. Fill out the **Basics** form with the following information:
    
-   :::image type="content" source="../../media/quickstart-deploy-web-app/2-create-basics.png" alt-text="Create an Azure Spring Apps service":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/2-asa-create-basics.png" alt-text="Create an Azure Spring Apps service":::
    
    Setting|Suggested Value|Description
    ---|---|---
@@ -112,7 +112,19 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
     :::image type="content" source="../../media/quickstart-deploy-web-app/3-asa-notifications.png" alt-text="The Notifications pane":::
 
+### Prepare the PostgreSQL instance
+
 [!INCLUDE [provision-psql-flexible](./provision-psql.md)]
+
+### Connect app instance to PostgreSQL instance
+
+1. Go to your Azure Spring Apps instance in the Azure portal.
+
+1. From the navigation pane, open the **Apps** pane and select **Create App**.
+
+1. On the **Create App** page, fill in the app name and select the runtime platform.
+   
+   :::image type="content" source="../../media/quickstart-deploy-web-app/8-asa-create-app.png" alt-text="The Notifications pane":::
 
 #### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
