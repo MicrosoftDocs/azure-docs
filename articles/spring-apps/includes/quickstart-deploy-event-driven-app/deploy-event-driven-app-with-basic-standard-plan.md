@@ -224,8 +224,6 @@ Use AZD to package the app, provision the Azure resources required by the event-
    To learn more about alpha features and their support, visit https://aka.ms/azd-feature-stages.
    
    (✓) Done: Deploying service simple-event-driven-app
-   - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-simple-event-driven-app.azuremicroservices.io/
-   
    
    SUCCESS: Your application was provisioned and deployed to Azure in xx minutes xx seconds.
    ```
