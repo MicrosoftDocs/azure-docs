@@ -28,21 +28,23 @@ Before you run the commands, you need to set several variables to define the con
 | LOCATION                   | The Azure region where you want to create your cluster.                                                                  |
 | RESOURCE_GROUP             | The name of the Azure resource group where you want to create the cluster.                                               |
 | SUBSCRIPTION_ID            | The ID of your Azure subscription.                                                                                       |
-| CUSTOM_LOCATION            | This argument specifies a custom location of the Nexus instance.                                                        |
+| CUSTOM_LOCATION            | This argument specifies a custom location of the Nexus instance.                                                         |
 | CSN_ARM_ID                 | CSN ID is the unique identifier for the cloud services network you want to use.                                          |
 | CNI_ARM_ID                 | CNI ID is the unique identifier for the network interface to be used by the container runtime.                           |
 | AAD_ADMIN_GROUP_OBJECT_ID  | The object ID of the Azure Active Directory group that should have admin privileges on the cluster.                      |
-| CLUSTER_NAME               | The name you want to give to your Nexus Kubernetes cluster.                                                                    |
-| K8S_VERSION                | The version of Kubernetes you want to use.                                                                              |
-| ADMIN_USERNAME             | The username for the cluster administrator.                                                                             |
+| CLUSTER_NAME               | The name you want to give to your Nexus Kubernetes cluster.                                                              |
+| K8S_VERSION                | The version of Kubernetes you want to use.                                                                               |
+| ADMIN_USERNAME             | The username for the cluster administrator.                                                                              |
 | SSH_PUBLIC_KEY             | The SSH public key that is used for secure communication with the cluster.                                               |
 | CONTROL_PLANE_COUNT        | The number of control plane nodes for the cluster.                                                                       |
 | CONTROL_PLANE_VM_SIZE      | The size of the virtual machine for the control plane nodes.                                                             |
 | INITIAL_AGENT_POOL_NAME    | The name of the initial agent pool.                                                                                      |
 | INITIAL_AGENT_POOL_COUNT   | The number of nodes in the initial agent pool.                                                                           |
-| INITIAL_AGENT_POOL_VM_SIZE | The size of the virtual machine for the agent pool nodes.                                                                |
+| SECOND_AGENT_POOL_VM_SIZE  | The size of the virtual machine for the agent pool nodes.                                                                |
+| SECOND_AGENT_POOL_NAME     | The name of the secondary agent pool.                                                                                    |
+| SECOND_AGENT_POOL_COUNT    | The number of nodes in the second agent pool.                                                                            |
 | POD_CIDR                   | The network range for the Kubernetes pods in the cluster, in CIDR notation.                                              |
-| SERVICE_CIDR               | The network range for the Kubernetes services in the cluster, in CIDR notation.                                         |
+| SERVICE_CIDR               | The network range for the Kubernetes services in the cluster, in CIDR notation.                                          |
 | DNS_SERVICE_IP             | The IP address for the Kubernetes DNS service.                                                                           |
 
 
@@ -69,7 +71,7 @@ INITIAL_AGENT_POOL_COUNT="1"
 INITIAL_AGENT_POOL_VM_SIZE="NC_M4_v1"
 SECOND_AGENT_POOL_NAME="${CLUSTER_NAME}-nodepool-2"
 SECOND_AGENT_POOL_VM_SIZE="NC_M4_v1"
-SECOND_AGENT_POOL_COUNT="NC_M4_v1"
+SECOND_AGENT_POOL_COUNT="1"
 POD_CIDR="10.244.0.0/16"
 SERVICE_CIDR="10.96.0.0/16"
 DNS_SERVICE_IP="10.96.0.10"
@@ -79,7 +81,7 @@ DNS_SERVICE_IP="10.96.0.10"
 
 After defining these variables, you can create the Kubernetes cluster by executing the following Azure CLI command:
 
-```azurecli-interactive
+```azurecli
 az networkcloud kubernetescluster create \
 --name "${CLUSTER_NAME}" \
 --resource-group "${RESOURCE_GROUP}" \
@@ -114,9 +116,9 @@ After a few minutes, the command completes and returns information about the clu
 [!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/quickstart-cluster-connect.md)]
 
 ## Add an agent pool
-To add an agent pool to your existing Nexus Kubernetes cluster, you can use the following command. Replace the example values with your preferred values.
+The cluster created in the previous step has a single node pool. Let's add a second agent pool using the ```az networkcloud kubernetescluster agentpool create``` command. The following example creates an agent pool named ```myNexusAKSCluster-nodepool-2```:
 
-```azurecli-interactive
+```azurecli
 az networkcloud kubernetescluster agentpool create \
   --name "${SECOND_AGENT_POOL_NAME}" \
   --kubernetes-cluster-name "${CLUSTER_NAME}" \
