@@ -24,13 +24,13 @@ In this how-to, you learn to do the following tasks:
 > * Consume a pipeline endpoint
 > * Manage endpoint versions
 
-To learn how to set up batch scoring services using the SDK, see the accompanying [tutorial on pipeline batch scoring](./tutorial-pipeline-batch-scoring-classification.md).
+To learn how to set up batch scoring services using the SDK, see the accompanying [tutorial on pipeline batch scoring](../tutorial-pipeline-batch-scoring-classification.md).
 
 ## Prerequisites
 
 This how-to assumes you already have a training pipeline. For a guided introduction to the designer, complete [part one of the designer tutorial](tutorial-designer-automobile-price-train-score.md).
 
-[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
 
 ## Create a batch inference pipeline
 
@@ -136,7 +136,7 @@ You can find the REST endpoint of a pipeline endpoint in the job overview panel.
 
 You can also consume a published pipeline in the **Published pipelines** page. Select a published pipeline and you can find the REST endpoint of it in the **Published pipeline overview** panel to the right of the graph. 
 
-To make a REST call, you'll need an OAuth 2.0 bearer-type authentication header. See the following [tutorial section](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) for more detail on setting up authentication to your workspace and making a parameterized REST call.
+To make a REST call, you'll need an OAuth 2.0 bearer-type authentication header. See the following [tutorial section](../tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) for more detail on setting up authentication to your workspace and making a parameterized REST call.
 
 ## Versioning endpoints
 
@@ -177,4 +177,4 @@ If you make some modifications in your training pipeline, you may want to update
 ## Next steps
 
 * Follow the [designer tutorial to train and deploy a regression model](tutorial-designer-automobile-price-train-score.md).
-* For how to publish and run a published pipeline using the SDK v1, see the [How to deploy pipelines](v1/how-to-deploy-pipelines.md?view=azureml-api-1&preserve-view=true) article.
+* For how to publish and run a published pipeline using the SDK v1, see the [How to deploy pipelines](how-to-deploy-pipelines.md?view=azureml-api-1&preserve-view=true) article.

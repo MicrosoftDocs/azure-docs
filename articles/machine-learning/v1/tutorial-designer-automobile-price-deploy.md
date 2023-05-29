@@ -17,6 +17,17 @@ ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-202
 
 Use the designer to deploy a machine learning model to predict the price of cars. This tutorial is part two of a two-part series.
 
+>[!Note]
+> Designer supports two types of components, classic prebuilt components (v1) and custom components (v2). These two types of components are NOT compatible. 
+>
+>Classic prebuilt components provide prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
+>
+>Custom components allow you to wrap your own code as a component. It supports sharing components across workspaces and seamless authoring across Studio, CLI v2, and SDK v2 interfaces. 
+>
+>For new projects, we highly suggest you use custom component, which is compatible with AzureML V2 and will keep receiving new updates. 
+>
+>This article applies to classic prebuilt components and not compatible with CLI v2 and SDK v2.
+
 In [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) you trained a linear regression model on car prices. In part two, you deploy the model to give others a chance to use it. In this tutorial, you:
 
 > [!div class="checklist"]
@@ -29,7 +40,7 @@ In [part one of the tutorial](tutorial-designer-automobile-price-train-score.md)
 
 Complete [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to learn how to train and score a machine learning model in the designer.
 
-[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
 
 ## Create a real-time inference pipeline
 
@@ -189,11 +200,11 @@ You can update the online endpoint with new model trained in the designer. On th
 
 ## Clean up resources
 
-[!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 
 In this tutorial, you learned the key steps in how to create, deploy, and consume a machine learning model in the designer. To learn more about how you can use the designer see the following links:
 
 + [Designer samples](samples-designer.md): Learn how to use the designer to solve other types of problems.
-+ [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md).
++ [Use Azure Machine Learning studio in an Azure virtual network](../how-to-enable-studio-virtual-network.md).
