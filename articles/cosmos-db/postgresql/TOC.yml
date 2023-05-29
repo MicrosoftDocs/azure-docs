@@ -133,10 +133,10 @@
       items:
         - name: Tenant monitoring fundamentals
           href: concepts-multi-tenant-monitoring.md
-          displayName: tenant stats monitoring
+          displayName: monitoring, statistics
         - name: Tenant monitoring basic usage
           href: howto-monitor-tenant-stats.md
-          displayName: tenant stats monitoring
+          displayName: monitoring, statistics
     - name: Columnar storage
       href: concepts-columnar.md
 - name: How-to guides
