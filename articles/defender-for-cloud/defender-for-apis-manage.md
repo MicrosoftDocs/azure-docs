@@ -5,7 +5,7 @@ author: elazark
 ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 05/16/2023
+ms.date: 05/29/2023
 ---
 
 # Manage your Defender for APIs deployment
@@ -26,13 +26,13 @@ Defender for APIs is currently in preview.
 
 You can use the cloud security explorer to run graph-based queries on the cloud security graph. By utilizing the cloud security explorer, you can proactively identify potential security risks to your APIs.
 
-There are 3 types of APIs you can query:
+There are three types of APIs you can query:
 
 - **API Collections** - A group of all types of API collections.
 
 - **API Endpoints** - A group of all types of API endpoints.
 
-- **API Management** services - API management services are platforms that provides tools and infrastructure for managing APIs, typically through a web-based interface. They often include features such as: API gateway, API portal, API analytics and API security.
+- **API Management** services - API management services are platforms that provide tools and infrastructure for managing APIs, typically through a web-based interface. They often include features such as: API gateway, API portal, API analytics and API security.
 
 **To query APIs in the cloud security graph**:
 
@@ -40,7 +40,7 @@ There are 3 types of APIs you can query:
 
 1. Navigate to **Microsoft Defender for Cloud** > **Cloud Security Explorer**.
 
-1. From the drop down menu select APIs.
+1. From the drop down menu, select APIs.
 
     :::image type="content" source="media/defender-for-apis-manage/cloud-explorer-apis.png" alt-text="Screenshout of Defender for Cloud's cloud security explorer that shows how to select APIs.":::
 
@@ -48,7 +48,7 @@ There are 3 types of APIs you can query:
 
 1. Select **Done**.
 
-1. Add any additional conditions.
+1. Add any other conditions.
 
 1. Select **Search**.
 
