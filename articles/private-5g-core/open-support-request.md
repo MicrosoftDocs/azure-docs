@@ -15,7 +15,7 @@ ms.custom: template-how-to
 If you need help or notice problems with Azure Private 5G Core (AP5GC), you can raise a support request (also known as a support ticket). This article describes how to raise support requests for Azure Private 5G Core.
 
 > [!IMPORTANT]
-> You must always set **Service type** to **Azure Private 5G Core** when raising a support request for any issues related to AP5GC, even if the issue involves another Azure service. Selecting the wrong service type will cause your request to be delayed.
+> You must always set **Service type** to **Azure Private 5G Core** when raising a support request for any issues related to AP5GC, even if the issue involves another Azure service. Selecting the wrong service type may cause your request to be delayed.
 
 Azure provides unlimited support for subscription management, which includes billing, quota adjustments, and account transfers. For technical support, you need a support plan, such as Microsoft Unified Support or Premier Support.
 
