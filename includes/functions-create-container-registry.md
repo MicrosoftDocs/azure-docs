@@ -6,13 +6,11 @@ ms.date: 05/12/2023
 ms.author: glenga
 ---
 
-## Create a function app in a container
+## Choose your development language
 
 First, you use Azure Functions tools to create your project code as a function app in a Docker container using a language-specific Linux base image. Make sure to select your language of choice at the top of the article. 
 
-[!INCLUDE [functions-linux-custom-container-note](functions-linux-custom-container-note.md)]
-
-Core Tools automatically generates a Dockerfile for your project that uses the most up-to-date version of the correct base image for your functions language. 
+Core Tools automatically generates a Dockerfile for your project that uses the most up-to-date version of the correct base image for your functions language. You should regularly update your container from the latest base image and redeploy from the updated version of your container. For more information, see [Creating containerized function apps](../articles/azure-functions/functions-how-to-custom-container.md#creating-containerized-function-apps).
 
 ## Prerequisites 
 
