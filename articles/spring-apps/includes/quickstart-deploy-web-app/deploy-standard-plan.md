@@ -110,7 +110,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Selecting **Go to resource** opens the service's **Overview** page.
 
-    :::image type="content" source="../../media/quickstart-deploy-web-app/3-asa-notifications.png" alt-text="The Notifications pane":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/3-asa-notifications.png" alt-text="The Notifications pane":::
 
 ### Prepare the PostgreSQL instance
 
@@ -122,9 +122,26 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. From the navigation pane, open the **Apps** pane and select **Create App**.
 
-1. On the **Create App** page, fill in the app name and select the runtime platform.
+1. On the **Create App** page, fill in the app name and select *Java 17* as the runtime platform.
    
-   :::image type="content" source="../../media/quickstart-deploy-web-app/8-asa-create-app.png" alt-text="The Notifications pane":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/9-asa-create-app.png" alt-text="Create an app":::
+   
+1. Select **Create** to finish the app creation and select the app to view details.
+
+1. Select **Service Connector** from the navigation pane to create a new service connection.
+   
+   :::image type="content" source="../../media/quickstart-deploy-web-app/10-asa-app-service-connector.png" alt-text="Connect an app to an Azure service":::
+   
+1. Fill out the **Basics** form with the following information:
+
+   :::image type="content" source="../../media/quickstart-deploy-web-app/11-asa-app-service-connector-basics.png" alt-text="Connect to PostgreSQL basics.":::
+   
+1. Configure the **Authentication** options:
+ 
+   :::image type="content" source="../../media/quickstart-deploy-web-app/12-asa-app-service-connector-auth.png" alt-text="Connect to PostgreSQL authentication.":::
+   
+1. Select **Review and Create** to review your selections. Select **Create** to create the connection.   
+   
 
 #### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
