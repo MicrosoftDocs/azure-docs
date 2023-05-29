@@ -75,9 +75,11 @@ From the **Trigger** drop-down, select the appropriate trigger according to the 
 
 #### Base conditions
 
-1. **Incident provider**: If you selected one of the incident triggers and you want the automation rule to take effect only on incidents sourced in Microsoft Sentinel, or alternatively, only on those sourced in Microsoft 365 Defender, specify the source in the **If Incident provider equals** condition. (This condition will be displayed only if an incident trigger is selected.)
+1. **Incident provider**: Incidents can have two possible sources: they can be created inside Microsoft Sentinel, and they can also be [imported from&mdash;and synchronized with&mdash;Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md).
 
-1. **Analytics rule name**: For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition.
+    If you selected one of the incident triggers and you want the automation rule to take effect only on incidents created in Microsoft Sentinel, or alternatively, only on those imported from Microsoft 365 Defender, specify the source in the **If Incident provider equals** condition. (This condition will be displayed only if an incident trigger is selected.)
+
+1. **Analytics rule name**: For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition. (This condition will *not* be displayed if Microsoft 365 Defender is selected as the incident provider.)
 
 #### Other conditions (incidents only)
 
@@ -180,6 +182,12 @@ If you add a **Run playbook** action, you will be prompted to choose from the dr
     You yourself must have **owner** permissions on any resource group to which you want to grant Microsoft Sentinel permissions, and you must have the **Logic App Contributor** role on any resource group containing playbooks you want to run.
 
 - If you don't yet have a playbook that will take the action you have in mind, [create a new playbook](tutorial-respond-threats-playbook.md). You will have to exit the automation rule creation process and restart it after you have created your playbook.
+
+#### Move actions around
+
+You can change the order of actions in your rule even after you've added them. Select the blue up or down arrows next to each action to move it up or down one step.
+
+:::image type="content" source="media/create-manage-use-automation-rules/change-actions-order.png" alt-text="Screenshot showing how to move actions up or down.":::
 
 ### Finish creating your rule
 
