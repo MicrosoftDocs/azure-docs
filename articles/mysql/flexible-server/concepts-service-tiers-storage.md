@@ -45,57 +45,57 @@ Compute resources can be selected based on the tier and size. This determines th
 
 The detailed specifications of the available server types are as follows:
 
-| Compute size         | vCores | Memory Size (GiB) | Max Supported IOPS | Max Connections
-|----------------------|--------|-------------------| ------------------ |------------------
+| Compute size         | vCores | Memory Size (GiB) | Max Supported IOPS | Max Connections | Temp Storage (SSD) GiB |
+|----------------------|--------|-------------------| ------------------ |------------------| ------------------ |
 |**Burstable**				
-|Standard_B1s	|	1	|	1	|	320		|	171
-|Standard_B1ms	|	1	|	2	|	640		|	341
-|Standard_B2s	|	2	|	4	|	1280	|	683
-|Standard_B2ms	|	2	|	8	|	1700	|	1365
-|Standard_B4ms	|	4	|	16	|	2400	|	2731
-|Standard_B8ms	|	8	|	32	|	3100	|	5461
-|Standard_B12ms	|	12	|	48	|	3800	|	8193
-|Standard_B16ms	|	16	|	64	|	4300	|	10923
-|Standard_B20ms	|	20	|	80	|	5000	|	13653
+|Standard_B1s	|	1	|	1	|	320		|	171	|   4   |
+|Standard_B1ms	|	1	|	2	|	640		|	341	|   4   |
+|Standard_B2s	|	2	|	4	|	1280	|	683	|   4   |
+|Standard_B2ms	|	2	|	8	|	1700	|	1365	|   16  |
+|Standard_B4ms	|	4	|	16	|	2400	|	2731	|   32  |
+|Standard_B8ms	|	8	|	32	|	3100	|	5461	|   64  |
+|Standard_B12ms	|	12	|	48	|	3800	|	8193	|   96  |
+|Standard_B16ms	|	16	|	64	|	4300	|	10923	|   128 |
+|Standard_B20ms	|	20	|	80	|	5000	|	13653	|   160 |
 |**General Purpose**|				
-|Standard_D2ads_v5	|2  |8  |3200   |1365
-|Standard_D2ds_v4	|2	|8	|3200	|1365
-|Standard_D4ads_v5	|4	|16	|6400	|2731
-|Standard_D4ds_v4	|4	|16	|6400	|2731
-|Standard_D8ads_v5	|8	|32	|12800	|5461
-|Standard_D8ds_v4	|8	|32	|12800	|5461
-|Standard_D16ads_v5	|16	|64	|20000	|10923
-|Standard_D16ds_v4	|16	|64	|20000	|10923
-|Standard_D32ads_v5	|32	|128	|20000	|21845
-|Standard_D32ds_v4	|32	|128	|20000	|21845
-|Standard_D48ads_v5	|48	|192	|20000	|32768
-|Standard_D48ds_v4	|48	|192	|20000	|32768
-|Standard_D64ads_v5	|64	|256	|20000	|43691
-|Standard_D64ds_v4	|64	|256	|20000	|43691
+|Standard_D2ads_v5	|2  |8  |3200   |1365   |   75  |
+|Standard_D2ds_v4	|2	|8	|3200	|1365   |   75  |
+|Standard_D4ads_v5	|4	|16	|6400	|2731   |   150 |
+|Standard_D4ds_v4	|4	|16	|6400	|2731   |   150 |
+|Standard_D8ads_v5	|8	|32	|12800	|5461   |   300 |
+|Standard_D8ds_v4	|8	|32	|12800	|5461   |   300 |
+|Standard_D16ads_v5	|16	|64	|20000	|10923  |   600 |
+|Standard_D16ds_v4	|16	|64	|20000	|10923  |   600 |
+|Standard_D32ads_v5	|32	|128	|20000	|21845  |   1200    |
+|Standard_D32ds_v4	|32	|128	|20000	|21845  |   1200    |
+|Standard_D48ads_v5	|48	|192	|20000	|32768  |   1800    |
+|Standard_D48ds_v4	|48	|192	|20000	|32768  |   1800    |
+|Standard_D64ads_v5	|64	|256	|20000	|43691  |   2400    |
+|Standard_D64ds_v4	|64	|256	|20000	|43691  |   2400    |
 |**Business Critical** |	
-|Standard_E2ds_v4	|	2	|	16	|	5000	|	2731
-|Standard_E2ads_v5	|	2	|	16	|	5000	|	2731
-|Standard_E4ds_v4	|	4	|	32	|	10000	|	5461
-|Standard_E4ads_v5	|	4	|	32	|	10000	|	5461
-|Standard_E8ds_v4	|	8	|	64	|	18000	|	10923
-|Standard_E8ads_v5	|	8	|	64	|	18000	|	10923
-|Standard_E16ds_v4	|	16	|	128	|	28000	|	21845
-|Standard_E16ads_v5	|	16	|	128	|	28000	|	21845
-|Standard_E32ds_v4	|	32	|	256	|	38000	|	43691
-|Standard_E32ads_v5	|	32	|	256	|	38000	|	43691
-|Standard_E48ds_v4	|	48	|	384	|	48000	|	65536
-|Standard_E48ads_v5	|	48	|	384	|	48000	|	65536
-|Standard_E64ds_v4	|	64	|	504	|	48000	|	86016
-|Standard_E64ads_v5	|	64	|	504	|	48000	|	86016
-|Standard_E80ids_v4	|	80	|	504	|	48000	|	86016
-|Standard_E2ds_v5	|	2	|	16	|	5000	|	2731
-|Standard_E4ds_v5	|	4	|	32	|	10000	|	5461
-|Standard_E8ds_v5	|	8	|	64	|	18000	|	10923
-|Standard_E16ds_v5	|	16	|	128	|	28000	|	21845
-|Standard_E32ds_v5	|	32	|	256	|	38000	|	43691
-|Standard_E48ds_v5	|	48	|	384	|	48000	|	65536
-|Standard_E64ds_v5	|	64	|	512	|	48000	|	87383
-|Standard_E96ds_v5	|	96	|	672	|	48000	|	100000
+|Standard_E2ds_v4	|	2	|	16	|	5000	|	2731    |   75  |
+|Standard_E2ads_v5	|	2	|	16	|	5000	|	2731    |   75  |
+|Standard_E4ds_v4	|	4	|	32	|	10000	|	5461    |   150 |
+|Standard_E4ads_v5	|	4	|	32	|	10000	|	5461    |   150 |
+|Standard_E8ds_v4	|	8	|	64	|	18000	|	10923   |   300 |
+|Standard_E8ads_v5	|	8	|	64	|	18000	|	10923   |   300 |
+|Standard_E16ds_v4	|	16	|	128	|	28000	|	21845   |   600 |
+|Standard_E16ads_v5	|	16	|	128	|	28000	|	21845   |   600 |
+|Standard_E32ds_v4	|	32	|	256	|	38000	|	43691   |   1200    |
+|Standard_E32ads_v5	|	32	|	256	|	38000	|	43691   |   1200    |
+|Standard_E48ds_v4	|	48	|	384	|	48000	|	65536   |   1800    |
+|Standard_E48ads_v5	|	48	|	384	|	48000	|	65536   |   1800    |
+|Standard_E64ds_v4	|	64	|	504	|	48000	|	86016   |   2400    |
+|Standard_E64ads_v5	|	64	|	504	|	48000	|	86016   |   2400    |
+|Standard_E80ids_v4	|	80	|	504	|	48000	|	86016   |   2400    |
+|Standard_E2ds_v5	|	2	|	16	|	5000	|	2731    |   75  |
+|Standard_E4ds_v5	|	4	|	32	|	10000	|	5461    |   150 | 
+|Standard_E8ds_v5	|	8	|	64	|	18000	|	10923   |   300 |
+|Standard_E16ds_v5	|	16	|	128	|	28000	|	21845   |   600 |
+|Standard_E32ds_v5	|	32	|	256	|	38000	|	43691   |   1200    |
+|Standard_E48ds_v5	|	48	|	384	|	48000	|	65536   |   1800    |
+|Standard_E64ds_v5	|	64	|	512	|	48000	|	87383   |   2400    |
+|Standard_E96ds_v5	|	96	|	672	|	48000	|	100000  |   3600    |
 
 To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), General Purpose [Dadsv5-series](../../virtual-machines/dasv5-dadsv5-series.md#dadsv5-series)[Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md#ddsv4-series), and Business Critical [Edsv4](../../virtual-machines/edv4-edsv4-series.md#edsv4-series)/[Edsv5-series](../../virtual-machines/edv5-edsv5-series.md#edsv5-series)/[Eadsv5-series](../../virtual-machines/easv5-eadsv5-series.md#eadsv5-series)
 
