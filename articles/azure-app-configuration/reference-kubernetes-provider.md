@@ -1,5 +1,5 @@
 ---
-title: Azure App Configuration Kubernetes Provider (preview) | Microsoft Docs
+title: Azure App Configuration Kubernetes Reference Provider (preview) | Microsoft Docs
 description: "It describes the supported properties of AzureAppConfigurationProvider object in the Azure App Configuration Kubernetes Provider."
 services: azure-app-configuration
 author: junbchen
@@ -10,13 +10,13 @@ ms.author: junbchen
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
 
-# Azure App Configuration Kubernetes Provider (preview)
+# Azure App Configuration Kubernetes Reference Provider (preview)
 
-The following reference describes the supported properties of `AzureAppConfigurationProvider` object in the Azure App Configuration Kubernetes Provider.
+The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider.
 
 ## Properties
 
-Following is the references of properties that user can specify in `spec` of `AzureAppConfigurationProvider`.
+An `AzureAppConfigurationProvider` resource has the following top-level child properties under the spec.
 
 |Name|Description|Required|type|
 |---|---|---|---|
@@ -31,14 +31,14 @@ The `spec.target` property has the following child property.
 |---|---|---|---|
 |configMapName|The name of destination configMap| true| string|
 
-If the `spec.auth` property is not set, the system-assigned managed identity will be used. It has the following child properties.
+If the `spec.auth` property is not set, the system-assigned managed identity will be used. It has the following child properties, only one authentication method should be set.
 
 |Name|Description| Required|type|
 |---|---|---|---|
-|managedIdentityClientId|Client ID of system-assigned or user-assigned managed identity|false|string|
-|servicePrincipalReference|Name of the Kubernetes Secret, which contains the credentials used for service principal authentication|false|string|
+|managedIdentityClientId|Client ID of user-assigned managed identity|false|string|
+|servicePrincipalReference|Name of the Kubernetes Secret that contains the credentials of a service principal|false|string|
 
-The `spec.keyValues` has the following child properties.
+The `spec.keyValues` has the following child properties. The `KeyVaults` property is required if any Key Vault references are expected to be downloaded.
 
 |Name|Description|Required|type|
 |---|---|---|---|
@@ -50,181 +50,175 @@ If the `spec.keyValues.selectors` property is not set, all key-values with no la
 
 |Name|Description|Required|type|
 |---|---|---|---|
-|keyFilter|Key filter to get a subset of key-value pairs|true|string|
-|labelFilter|Label filter to get a subset of key-value pairs|false|string|
+|keyFilter|The key filter for querying key-values|true|string|
+|labelFilter|The label filter for querying key-values|false|string|
 
 
-`spec.keyValues.keyVaults` is an object that can be specified conditionally depends on whether there are Key Vault reference content type items in retrieved key-values. If there are Key Vault reference content type items, `spec.keyValues.keyVaults` is required. It has following child properties.
+The `spec.keyValues.keyVaults` property has the following child properties.
 
 |Name|Description|Required|type|
 |---|---|---|---|
-|target|The destination of resolved key-values of key vault reference items|true|object|
-|auth|The authentication method to resolve key vault reference items|false|object|
+|target|The destination of resolved Key Vault references in Kubernetes|true|object|
+|auth|The authentication method to access Key Vaults|false|object|
 
-`spec.keyValues.keyVaults.target` is required if `spec.keyValues.keyVaults` is specified. It has the following child property.
+The `spec.keyValues.keyVaults.target` property has the following child property.
 
 |Name|Description|Required|type|
 |---|---|---|---|
 |secretName|The name of destination Secret|true|string|
 
-`spec.keyValues.keyVaults.auth` is optional. One of `managedIdentityClientId` and `servicePrincipalReference` can be specified as the default authentication method for all key vaults, if both aren't specified, the system assigned managed identity would be used. 
+If the `spec.keyValues.keyVaults.auth property` is not set, the system-assigned managed identity will be used. It has the following child properties.
    
 |Name|Description|Required|type|
 |---|---|---|---|
-|managedIdentityClientId|System assigned or user-assigned managed identity client ID for accessing key vaults by default| false| string|
-|servicePrincipalReference|Name of Secret that contains the credentials used for service principal authentication for accessing key vaults by default| false| string|
-|vaults|List of object which user can specify authentication method for each key vault uri|false|object array|
+|managedIdentityClientId|Client Id of a user-assigned managed identity used for authentication with vaults that don't have individual authentication methods specified| false| string|
+|servicePrincipalReference|Name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with vaults that don't have individual authentication methods specified| false| string|
+|vaults|Authentication methods for individual vaults|false|object array|
 
-`spec.keyValues.keyVaults.auth.vaults` is an optional *vault* array. No specifying `spec.keyValues.keyVaults.auth.vaults` means that all key vaults are accessed through the default authentication method that specified in `spec.keyValues.keyVaults.auth`. If there are any key vaults that need to be accessed through different authentication method, user can specify the authentication method for each *vault* with following properties.
-
-Note `uri` is required in each *vault* item and one of `managedIdentityClientId` and `servicePrincipalReference` must be specified.
+The authentication method of each *vault* can be specified with the following properties. One of managedIdentityClientId and servicePrincipalReference must be provided.
 
 |Name|Description|Required|type|
 |---|---|---|---|
-|uri|Array of object which user can specify authentication method for each key vault uri|true|string|
-|managedIdentityClientId|user-assigned managed identity client ID for accessing specified key vault uri|conditional| string|
-|servicePrincipalReference|Name of Secret that contains the credentials used for service principal authentication for accessing specified key vault uri|conditional| string|
+|uri|Uri of a vault|true|string|
+|managedIdentityClientId|Client Id of a user-assigned managed identity used for authentication with a vault|false|string|
+|servicePrincipalReference|Name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with a vault|false|string|
 
 ## Examples
 
-### Authenticate Azure App Configuration
+### Authentication
 
-* To use **System Assigned Managed Identity** to authenticate Azure App Configuration in Kubernetes, first you need to enable the System Assigned Managed identity of the corresponding Virtual Machine Scale Sets resource of AKS cluster, see this [doc](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set) to learn how to enable it.
+#### Use System-Assigned Managed Identity
 
-    After [granting its read access](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) to the Azure App Configuration, you can just deploy the following sample yaml, nothing more authentication information is required in this case.
+1. [Enable the system-assigned managed identity in the virtual machine scale set](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set) used by the Azure Kubernetes Service (AKS) cluster.
+1. [Grant the system-assigned managed identity **App Configuration Data Reader** role](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) in Azure App Configuration.
+1. Deploy the following sample `AzureAppConfigurationProvider` resource to the AKS cluster.
 
     ``` yaml
     apiVersion: azconfig.io/v1beta1
     kind: AzureAppConfigurationProvider
     metadata:
       name: appconfigurationprovider-sample
-      namespace: appconfig-sample
     spec:
-      endpoint: https://<yourappconfig>.azconfig.io
+      endpoint: <your-app-configuration-store-endpoint>
       target:
-        configMapName: configmap-name-to-create
+        configMapName: configmap-created-by-appconfig-provider
     ```
 
-* To use **User Assigned Managed Identity** to authenticate Azure App Configuration in Kubernetes, first, you need to [create a User Assigned Managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity), and [assign](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) it to the corresponding Virtual Machine Scale Sets of your AKS cluster.
+#### Use User-Assigned Managed Identity
 
-    After [granting its read access](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) to the Azure App Configuration, you should set `spec.auth.managedIdentityClientId` to the Client ID of the managed identity, see the following yaml as an example:
+1. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its client Id after creation.
+1. [Assign the user-assigned managed identity to the virtual machine scale set](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) used by the Azure Kubernetes Service (AKS) cluster.
+1. [Grant the user-assigned managed identity **App Configuration Data Reader** role](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) in Azure App Configuration.
+1. Set the `spec.auth.managedIdentityClientId` property to the client Id of the user-assigned managed identity in the following sample `AzureAppConfigurationProvider` resource and deploy it to the AKS cluster.
 
     ``` yaml
     apiVersion: azconfig.io/v1beta1
     kind: AzureAppConfigurationProvider
     metadata:
       name: appconfigurationprovider-sample
-      namespace: appconfig-sample
     spec:
-      endpoint: https://<yourappconfig>.azconfig.io
+      endpoint: <your-app-configuration-store-endpoint>
       target:
-        configMapName: configmap-name-to-create
+        configMapName: configmap-created-by-appconfig-provider
       auth:
         managedIdentityClientId: <your-managed-identity-client-id>
     ```
 
-* To use **Service Principal** to authenticate Azure App Configuration, you need to [create a Service Principal](/azure/active-directory/develop/howto-create-service-principal-portal) and [grant](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) it with the `App Configuration Data Reader` role.
+#### Use Service Principal
 
-    Then you need create a Secret in the same namespace of `AzureAppConfigurationProvider` and set *azure_client_id*, *azure_client_secret* and *azure_tenant_id* in it. Set `spec.auth.servicePrincipalReference` to the name of the Secret, which contains the credentials of the service principal, see the following yaml as an example:
+1. [Create a Service Principal](/azure/active-directory/develop/howto-create-service-principal-portal)
+1. [Grant the service principal **App Configuration Data Reader** role](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) in Azure App Configuration.
+1. Create a Kubernetes Secret in the same namespace as the `AzureAppConfigurationProvider` resource and add *azure_client_id*, *azure_client_secret*, and *azure_tenant_id* of the service principal to the Secret.
+1. Set the `spec.auth.servicePrincipalReference` property to the name of the Secret in the following sample `AzureAppConfigurationProvider` resource and deploy it to the Kubernetes cluster.
 
     ``` yaml
     apiVersion: azconfig.io/v1beta1
     kind: AzureAppConfigurationProvider
     metadata:
       name: appconfigurationprovider-sample
-      namespace: appconfig-sample
     spec:
-      endpoint: https://<yourappconfig>.azconfig.io
+      endpoint: <your-app-configuration-store-endpoint>
       target:
-        configMapName: configmap-name-to-create
+        configMapName: configmap-created-by-appconfig-provider
       auth:
         servicePrincipalReference: <your-service-principal-secret-name>
     ```
 
-    > [!NOTE]
-    > 1. Service Principal is the only authentication method that support authenticating Azure App Configuration in non-AKS cluster at this moment.
-    > 2. Only one authentication method can be set in `auth` field, specifying more than one authentication method is not allowed
+### Key-value selection
 
-### Select a set of key-values from Azure App Configuration
-You can set the `selectors` field to determine the set of key-values you would like to get from Azure App Configuration. 
+Use the `selectors` property to filter the key-values to be downloaded from Azure App Configuration.
 
-This sample constructs all key-values with no label into the target ConfigMap:
+The following sample downloads all key-values with no label.
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
 kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
-  namespace: appconfig-sample
 spec:
-  endpoint: https://<yourappconfig>.azconfig.io
+  endpoint: <your-app-configuration-store-endpoint>
   target:
-    configMapName: configmap-name-to-create
+    configMapName: configmap-created-by-appconfig-provider
 ```
 
-This sample uses selectors to select a subset of key-values from Azure App Configuration:
+In following example, two selectors are used to retrieve two sets of key-values, each with unique labels. It's important to note that the values of the last selector will take precedence and override any overlapping keys from the previous selectors.
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
 kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
-  namespace: appconfig-sample
 spec:
-  endpoint: https://<yourappconfig>.azconfig.io
+  endpoint: <your-app-configuration-store-endpoint>
   target:
-    configMapName: configmap-name-to-create
+    configMapName: configmap-created-by-appconfig-provider
   keyValues:
     selectors:
-      - keyFilter: 'app1*'
-      - keyFilter: 'app2*'
-        labelFilter: 'sampleLabel'
+      - keyFilter: app1*
+        labelFilter: common
+      - keyFilter: app1*
+        labelFilter: development
 ```
 
-> [!NOTE]
-> If there is key overlap among the subsets of key-values returned from the selectors, the value of that key would be set by the last selector.
+### Key prefix trimming
 
-### Trim the prefix of the configuration setting key
-
-This sample uses `trimKeyPrefixes` field to trim the prefix of a key before putting the key-value into ConfigMap.
+The following sample uses the `trimKeyPrefixes` property to trim two prefixes from key names before adding them to the generated ConfigMap.
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
 kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
-  namespace: appconfig-sample
 spec:
-  endpoint: https://<yourappconfig>.azconfig.io
+  endpoint: <your-app-configuration-store-endpoint>
   target:
-    configMapName: configmap-name-to-create
+    configMapName: configmap-created-by-appconfig-provider
   keyValues:
-    trimKeyPrefixes: ["prefix1", "prefix2"]
+    trimKeyPrefixes: [prefix1, prefix2]
 ```
 
-### Resolve keyVault reference content type items
+### Key Vault references
 
-This sample explicitly specifies using service principal to authenticate vault `yourKeyVault.vault.azure.net`. For vaults other than it, user assigned managed identity would be used.
+The following sample instructs to use a service principal to authenticate with a specific vault and a user-assigned managed identity for all other vaults.
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
 kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
-  namespace: appconfig-sample
 spec:
-  endpoint: https://<yourappconfig>.azconfig.io
+  endpoint: <your-app-configuration-store-endpoint>
   target:
-    configMapName: configmap-name-to-create
+    configMapName: configmap-created-by-appconfig-provider
   keyValues:
     selectors:
-      - keyFilter: 'app1*'
+      - keyFilter: app1*
     keyVaults:
       target:
-        secretName: secret-name-to-create
+        secretName: secret-created-by-appconfig-provider
       auth:
         managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
         vaults:
-          - uri: https://yourKeyVault.vault.azure.net
-            servicePrincipalReference: <name-of-secret-contains-service-principal-credentials>
+          - uri: <your-key-vault-uri>
+            servicePrincipalReference: <name-of-secret-containing-service-principal-credentials>
 ```
