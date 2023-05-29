@@ -51,7 +51,7 @@ SecurityEvent
 | where EventID == 4624
 ```
 
-Log alert rules using [cross-resource queries](../logs/logs/cross-workspace-query.md) aren't affected by this change because cross-resource queries use a type of `union`, which limits the query scope to specific resources. The following example would be a valid log alert query:
+Log alert rules using [cross-resource queries](../logs/cross-workspace-query.md) aren't affected by this change because cross-resource queries use a type of `union`, which limits the query scope to specific resources. The following example would be a valid log alert query:
 
 ```Kusto
 union
