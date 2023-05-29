@@ -2,7 +2,7 @@
 title: Reference table for all security alerts in Microsoft Defender for Cloud
 description: This article lists the security alerts visible in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 05/08/2023
+ms.date: 05/15/2023
 ---
 
 # Security alerts - a reference guide
@@ -544,7 +544,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 | **DDoS Attack mitigated for Public IP**<br>(NETWORK_DDOS_MITIGATED) | DDoS Attack mitigated for Public IP (IP address).                    | Probing                                      | Low      |
 
 
-## <a name="alerts-fusion"></a>Security incident alerts
+## <a name="alerts-fusion"></a>Security incident 
 
 [Further details and notes](alerts-overview.md#what-are-security-incidents)
 

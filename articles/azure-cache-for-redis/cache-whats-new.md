@@ -31,6 +31,14 @@ Azure Cache for Redis now supports clustered caches with up to 30 shards. Now, y
 
 For more information, see [Configure clustering for Azure Cache for Redis instance](cache-how-to-premium-clustering.md#azure-cache-for-redis-now-supports-up-to-30-shards-preview).
 
+## April 2023
+
+### 99th percentile latency metric (preview)
+
+A new metric is available to track the worst-case latency of server-side commands in Azure Cache for Redis instances. Latency is measured by using `PING` commands and tracking response times. This metric can be used to track the health of your cache instance and to see if long-running commands are compromising latency performance. 
+
+For more information, see [Monitor Azure Cache for Redis](cache-how-to-monitor.md#list-of-metrics).
+
 ## March 2023
 
 ### In-place scale up and scale out for the Enterprise tiers (preview)
