@@ -49,7 +49,7 @@ If your sensors detect more devices than you're licensed for, purchase a new lic
 
 1. After signing into the on-premises management console for the first time, you'll see a message prompting you to take action for a missing activation file. In the message bar, select the **Take action** link.
 
-    An **Activation** dialog shows the number of monitored and licensed devices. Since you're just starting the deployment, both of these values should be **0**.<!--TBD is this correct?-->
+    An **Activation** dialog shows the number of monitored and licensed devices. Since you're just starting the deployment, both of these values should be **0**.
 
 1. Select the link to the **Azure portal** to jump to Defender for IoT's **Plans and pricing** page in the Azure portal.
 
@@ -74,7 +74,7 @@ If your sensors detect more devices than you're licensed for, purchase a new lic
 
 Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home), and OT sensors are onboarded to Defender for IoT based on your licensed site sizes.
 
-Existing customers can continue to use any legacy OT plan until the end of that plan. If you're working with a legacy OT plan, and you select multiple subscriptions in the **Plans and pricing** page before downloading your activation file, the activation file is associated with all selected subscriptions and the number of devices licensed defined at the time of download.<!--TBD is this correct?-->
+Existing customers can continue to use any legacy OT plan, with no changes in functionality. If you're working with a legacy OT plan, and you select multiple subscriptions in the **Plans and pricing** page before downloading your activation file, the activation file is associated with all selected subscriptions and the number of devices licensed defined at the time of download.
 
 ## Deploy an SSL/TLS certificate
 

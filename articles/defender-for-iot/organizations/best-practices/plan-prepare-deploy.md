@@ -96,6 +96,23 @@ Together with your team, create a table of devices you want to monitor with the 
 | **Managed by partner services?** | Describe if a partner service, such as Siemens, Rockwell, or Emerson, manages the device. If relevant, describe the management policy.|
 | **Serial connections** | If the device communicates via a serial connection, specify the serial communication protocol. |
 
+### Calculate devices in your network
+
+Calculate the number of devices in each site so that you can [purchase Defender for IoT licenses](../how-to-manage-subscriptions.md#purchase-a-defender-for-iot-license) at the correct size. 
+
+**To calculate the number of devices in each site:**:
+
+1. Collect the total number of devices in your site and add them together.
+
+1. Remove any of the following devices, which are *not* identified as individual devices by Defender for IoT:
+
+    - **Public internet IP addresses**
+    - **Multi-cast groups**
+    - **Broadcast groups**
+    - **Inactive devices**: Devices that have no network activity detected for more than 60 days
+
+For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
+
 ### Plan a multi-sensor deployment
 
 If you're planning on deploying multiple network sensors, also consider the following recommendations when deciding where to place your sensors:

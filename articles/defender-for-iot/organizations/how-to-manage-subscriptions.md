@@ -19,22 +19,7 @@ Before performing the procedures in this article, make sure that you have:
 
 - A [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user role for the Azure subscription that you'll be using for the integration
 
-### Calculate devices in your network
-
-Unless you're working with a [trial Defender for IoT license](billing.md#free-trial), you'll need to periodically update your licenses as your network grows. Each license applies to a single site, and is based on the site size, or the number of devices monitored in that site.
-
-**To calculate the number of devices in each site:**:
-
-1. Collect the total number of devices in your site and add them together.
-
-1. Remove any of the following devices, which are *not* identified as individual devices by Defender for IoT:
-
-    - **Public internet IP addresses**
-    - **Multi-cast groups**
-    - **Broadcast groups**
-    - **Inactive devices**: Devices that have no network activity detected for more than 60 days
-
-For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
+- An understanding of your site size. For more information, see [Calculate devices in your network](best-practices/plan-prepare-deploy.md#calculate-devices-in-your-network).
 
 ## Purchase a Defender for IoT license
 
@@ -51,6 +36,7 @@ This procedure describes how to purchase Defender for IoT licenses in the Micros
    Make sure to select the number of licenses you want to purchase, based on the number of sites you want to monitor at the selected size.
 
 For more information, see the [Microsoft 365 admin center help](/microsoft-365/admin/).
+
 
 ## Add an OT plan to your Azure subscription
 
@@ -110,7 +96,7 @@ You may need to cancel a Defender for IoT plan from your Azure subscription, for
 
 Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home), and OT sensors are onboarded to Defender for IoT based on your licensed site sizes. For more information, see [OT plans billed by site-based licenses](whats-new.md#ot-plans-billed-by-site-based-licenses) and our [TechCommunity blog](https://aka.ms/TransitiontoSite-basedEntitlementSKUs).
 
-Existing customers can continue to use any legacy OT plan until the end of that plan. For legacy customers, *committed devices* are the number of devices you're monitoring. For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
+Existing customers can continue to use any legacy OT plan, with no changes in functionality. For legacy customers, *committed devices* are the number of devices you're monitoring. For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
 You might need to edit your plan to change your plan commitment or update the number of committed devices or sites. For example, you may have more devices that require monitoring if you're increasing existing site coverage, or there are network changes such as adding switches.
 
@@ -128,7 +114,7 @@ You might need to edit your plan to change your plan commitment or update the nu
 1. Make any of the following changes as needed:
 
    - Change your price plan from a trial to a monthly or annual commitment
-   - Update the number of [committed devices](#calculate-devices-in-your-network)
+   - Update the number of [committed devices](best-practices/plan-prepare-deploy.md#calculate-devices-in-your-network)
    - Update the number of sites (annual commitments only)
 
 1. Select the **I accept the terms and conditions** option, and then select **Purchase**.

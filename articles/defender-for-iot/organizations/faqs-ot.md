@@ -25,9 +25,32 @@ Microsoft Defender for IoT sensor runs on specific hardware specs as described i
 
 Certified hardware has been tested in our labs for driver stability, packet drops and network sizing.
 
-## Regulation doesn't allow us to connect our system to the Internet. Can we still utilize Defender for IoT?
+## Regulation doesn't allow us to connect our system to the Internet. Can we still use Defender for IoT?
 
-Yes you can! The Microsoft Defender for IoT platform on-premises solution is deployed as a physical or virtual sensor appliance that passively ingests network traffic, such as via SPAN, RSPAN, or TAP, to analyze, discover, and continuously monitor IT, OT, and IoT networks. For larger enterprises, multiple sensors can aggregate their data to an on-premises management console.
+Yes you can! The Microsoft Defender for IoT platform on-premises solution is deployed as a physical or virtual sensor appliance that passively ingests network traffic, such as via SPAN, RSPAN, or TAP, to analyze, discover, and continuously monitor IT, OT, and IoT networks. 
+
+For larger enterprises, multiple sensors can aggregate their data to an on-premises management console.
+
+## Do I need to purchase new licenses when my site grows?
+
+When your Defender for IoT license expires, you'll need to purchase a new license from the Microsoft 365 admin center. If your site has outgrown your previous license size, you'll be prompted to purchase a larger license.
+
+## Are changes automatically synchronized between the Microsoft 365 admin center and the Azure portal?
+
+Yes. Any new licenses that you purchase in the Microsoft 365 admin center are automatically reflected in your OT plan on the Azure portal.
+
+Canceling an OT plan from the Azure portal also cancels your license in the Microsoft 365 admin center, and vice versa.
+
+For more information, see [Manage OT plans and licenses](how-to-manage-subscriptions.md).
+
+## We have a legacy OT plan on my Azure subscription. When do I need to take action?
+
+Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home).
+
+Existing customers can continue to use any legacy OT plan already onboarded to an Azure subscription, with no changes in functionality. However, if you need to add a new plan, for a new subscription, you'll need to purchase a license for that plan from the Microsoft 365 admin center.
+
+For more information, see [OT plans billed by site-based licenses](whats-new.md#ot-plans-billed-by-site-based-licenses) and our [TechCommunity blog](https://aka.ms/TransitiontoSite-basedEntitlementSKUs).
+
 
 ## Where in the network should I connect monitoring ports?
 
@@ -37,6 +60,8 @@ For example:
 
 - A single appliance (virtual of physical) can be in the Shop Floor DMZ layer, having all Shop Floor cell traffic routed to this layer.
 - Alternatively, locate small mini-sensors in each Shop Floor cell with either cloud or local management that will reside in the Shop Floor DMZ layer. Another appliance (virtual or physical) can monitor the traffic in the Shop Floor DMZ layer (for SCADA, Historian, or MES).
+
+For more information, see [Prepare an OT site deployment](best-practices/plan-prepare-deploy.md).
 
 ## How can I change a user's passwords
 

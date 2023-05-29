@@ -40,3 +40,4 @@ For more information, see:
 
 - [Manage Defender for IoT plans for OT monitoring](how-to-manage-subscriptions.md)
 - [Manage Defender for IoT plans for Enterprise IoT monitoring](manage-subscriptions-enterprise.md)
+- [Operational Technology (OT) networks frequently asked questions](faqs-ot.md)
