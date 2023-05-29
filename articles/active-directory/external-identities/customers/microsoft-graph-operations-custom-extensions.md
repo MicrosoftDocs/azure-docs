@@ -19,8 +19,7 @@ ms.custom: developer
 
 Using the Microsoft Graph API allows you to manage resources in your Azure AD for customers directory. The following Microsoft Graph API operations are supported for the management of resources related to custom extensions. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation.
 
-> [!IMPORTANT]
-> Azure AD for customers is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
 
 > [!NOTE]
 > You can also programmatically create an Azure AD for customers directory itself, along with the corresponding Azure resource linked to an Azure subscription. This functionality isn't exposed through the Microsoft Graph API, but through the Azure REST API. For more information, see [Directory Tenants - Create Or Update](/rest/api/azurestack/directory-tenants/create-or-update).

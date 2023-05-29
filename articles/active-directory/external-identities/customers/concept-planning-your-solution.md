@@ -20,8 +20,7 @@ Azure Active Directory (Azure AD) for customers is a customizable, extensible so
 
 This article provides a general framework for integrating your app and configuring Azure AD for customers. It describes the capabilities available in a customer tenant and outlines the important planning considerations for each step in your integration.
 
-> [!IMPORTANT]
-> Azure AD for customers is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
 
 Adding secure sign-in to your app and setting up a customer identity and access management involves four main steps:
 

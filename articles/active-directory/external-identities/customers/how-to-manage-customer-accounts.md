@@ -25,8 +25,7 @@ To add or delete users, your account must be assigned the *User administrator* o
 - Understand user accounts in Azure AD for customers.
 - Understand user roles to control resource access.
 
-> [!IMPORTANT]
-> Azure AD for customers is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
 
 ## Create a customer account
 

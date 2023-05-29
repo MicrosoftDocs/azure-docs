@@ -39,8 +39,7 @@ The following image displays the neutral default branding of the customer tenant
 
 For more information, see [Customize the neutral branding in your customer tenant](how-to-customize-branding-customers.md).
 
-> [!IMPORTANT]
-> Azure AD for customers is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
 
 ## Text customization
 
