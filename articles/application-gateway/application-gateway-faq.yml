@@ -60,7 +60,7 @@ sections:
       - question: Where do I find the Application Gateway IP and DNS?
         answer: |
           If you're using a public IP address as an endpoint, you find the IP and DNS information on the public IP address resource. Or find it in the portal, on the overview page for the application gateway. If you're using internal IP addresses, find the information on the overview page.
-          For the V1 SKU, gateways created after 1st May 2023, won't have default DNS name automatically associated with the public IP resource .
+          For the V1 SKU, gateways created after 1st May 2023, won't have default DNS name automatically associated with the public IP resource.
           For the v2 SKU, open the public IP resource and select **Configuration**. The **DNS name label (optional)** field is available to configure the DNS name.
           
       - question: What are the settings for Keep-Alive timeout and TCP idle timeout?
