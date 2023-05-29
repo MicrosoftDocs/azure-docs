@@ -27,9 +27,58 @@ To learn more about deployments to Azure Container Apps, see [Azure Container Ap
 
 ## Creating containerized function apps
 
-Functions maintains a set of [lanuage-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use to generate your containerized function apps. When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md) and include the [`--docker` option](./functions-core-tools-reference.md#func-init), Core Tools also generates a .Dockerfile that is used to create your container from the correct base image. 
+Functions makes it easy to deploy and run your function apps as Linux containers, which you create and maintain. Functions maintains a set of [lanuage-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use when creating containerized function apps.
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
+
+### Generate the Dockerfile
+
+Functions tooling provides a Docker option that generates a Dockerfile with your functions code project. You can use this file with Docker to create your functions in a container that derives from the correct base image (language and version). 
+
+The way you create a Dockerfile depends on how you create your project.
+
+# [Command line](#tab/core-tools)
+
++ When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md), include the `--docker` option when you run the [`func init`](./functions-core-tools-reference.md#func-init) command, as in the following example:
+
+    ```console  
+    func init --docker
+    ```
++ You can also add a Dockerfile to an existing project by using the `--docker-only` option when you run the [`func init`](./functions-core-tools-reference.md#func-init) command in an existing project folder, as in the following example:
+
+    ```console 
+    func init --docker-only
+    ```
+
+# [Visual Studio Code](#tab/vs-code)
+
+The Azure Functions extension for Visual Studio Code doesn't provide a way to create a Dockerfile when you create the project. However, you can instead create the Dockerfile for an existing project by using the `--docker-only` option when you run the [`func init`](./functions-core-tools-reference.md#func-init) command in the Terminal windows of an existing project folder, as in the following example:
+
+    ```console 
+    func init --docker-only
+    ```  
+
+# [Visual Studio](#tab/vs)
+
++ When you create a Functions project, make sure to check the **Enable Docker** option on the **Additional Information** page of the new project dialog. 
+
++ You can always add a Dockerfile to an existing project by using the `--docker-only` option when you run the [`func init`](./functions-core-tools-reference.md#func-init) command in the Terminal windows of an existing project folder, as in the following example:
+
+    ```console 
+    func init --docker-only
+    ```  
+
+---
+
+### Creating your function app in a container
+
+With the Dockerfile generated for your Functions project, you can use Docker to create the containerized function app on your local computer. The following `docker build` command creates an image of your containerized functions from the project in the local directory:
+
+```console
+docker build --tag <DOCKER_ID>/<IMAGE_NAME>:v1.0.0 .
+``` 
+
+For an example of how to create the container, see [Build the container image and verify locally](../../includes/functions-create-container-registry.md#build-the-container-image-and-verify-locally).
 
 ## Update an image in the registry
 
