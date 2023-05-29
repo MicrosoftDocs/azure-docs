@@ -147,17 +147,17 @@ You can send emails to both default recipient and another recipient by selecting
 -	**Critical emails only**</br>
 For each type of email, you can select the check box to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the specified recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while emails requiring admins to approve an extension request will be triggered.
 
-## Manage role settings through Microsoft Graph
+## Manage role settings using Microsoft Graph
 
-To manage settings for Azure AD roles through Microsoft Graph, use the [unifiedRoleManagementPolicy resource type and related methods](/graph/api/resources/unifiedrolemanagementpolicy).
+To manage settings for Azure AD roles using PIM APIs in Microsoft Graph, use the [unifiedRoleManagementPolicy resource type and related methods](/graph/api/resources/unifiedrolemanagementpolicy).
 
-In Microsoft Graph, role settings are referred to as rules and they're assigned to Azure AD roles through container policies. Each Azure AD role is assigned a specific policy object. You can retrieve all policies that are scoped to Azure AD roles and for each policy, retrieve the associated collection of rules through an `$expand` query parameter. The syntax for the request is as follows:
+In Microsoft Graph, role settings are referred to as rules and they're assigned to Azure AD roles through container policies. Each Azure AD role is assigned a specific policy object. You can retrieve all policies that are scoped to Azure AD roles and for each policy, retrieve the associated collection of rules by using an `$expand` query parameter. The syntax for the request is as follows:
 
 ```http
 GET https://graph.microsoft.com/v1.0/policies/roleManagementPolicies?$filter=scopeId eq '/' and scopeType eq 'DirectoryRole'&$expand=rules
 ```
 
-For more information about managing role settings through PIM APIs in Microsoft Graph, see [Role settings and PIM](/graph/api/resources/privilegedidentitymanagementv3-overview#role-settings-and-pim). For examples of updating rules, see [Use PIM APIs in Microsoft Graph to update Azure AD rules](/graph/how-to-pim-update-rules).
+For more information about managing role settings through PIM APIs in Microsoft Graph, see [Role settings and PIM](/graph/api/resources/privilegedidentitymanagementv3-overview#role-settings-and-pim). For examples of updating rules, see [Update rules in PIM using Microsoft Graph](/graph/how-to-pim-update-rules).
 
 ## Next steps
 
