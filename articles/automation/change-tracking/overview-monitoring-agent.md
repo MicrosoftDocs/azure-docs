@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview using Azure Monit
 description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent (Preview), which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 02/23/2023
+ms.date: 05/29/2023
 ms.topic: conceptual
 ---
 
@@ -141,8 +141,37 @@ The following table shows the tracked item limits per machine for Change Trackin
 
 ### Windows services data
 
-The default collection frequency for Windows services is 30 minutes. To configure the frequency, under **Edit** Settings,  
-use a slider on the **Windows services** tab.
+#### Prerequisites
+
+To enable tracking of Windows Services data, you must upgrade CT extension and use extension more than or equal to 2.11.0.0
+
+#### [For Windows Azure VMs](#tab/win-az-vm)
+
+```powershell-interactive
+- az vm extension set --publisher Microsoft.Azure.ChangeTrackingAndInventory --version 2.11.0 --ids /subscriptions/<subscriptionids>/resourceGroups/<resourcegroupname>/providers/Microsoft.Compute/virtualMachines/<vmname> --name ChangeTracking-Windows
+```
+#### [For Linux Azure VMs](#tab/lin-az-vm)
+
+```powershell-interactive
+– az vm extension set --publisher Microsoft.Azure.ChangeTrackingAndInventory --version 2.11.0 --ids /subscriptions/<subscriptionids>/resourceGroups/<resourcegroupname>/providers/Microsoft.Compute/virtualMachines/<vmname> --name ChangeTracking-Linux
+```
+#### [For Arc-enabled Windows VMs](#tab/win-arc-vm)
+
+```powershell-interactive
+– az connectedmachine extension create --name ChangeTracking-Linux --publisher Microsoft.Azure.ChangeTrackingAndInventory --type ChangeTracking-Linux --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location> --enable-auto-upgrade true
+```
+
+#### [For Arc-enabled Linux VMs](#tab/lin-arc-vm)
+
+```powershell-interactive
+- az connectedmachine extension create --name ChangeTracking-Windows --publisher Microsoft.Azure.ChangeTrackingAndInventory --type ChangeTracking-Windows --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location> --enable-auto-upgrade true
+```
+---
+
+#### Configure frequency
+
+The default collection frequency for Windows services is 30 minutes. To configure the frequency:
+- under **Edit** Settings, use a slider on the **Windows services** tab.
 
 :::image type="content" source="media/overview-monitoring-agent/frequency-slider-inline.png" alt-text="Screenshot of frequency slider." lightbox="media/overview-monitoring-agent/frequency-slider-expanded.png":::
 
