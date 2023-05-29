@@ -62,14 +62,14 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     a. In the **Identifier** textbox, type a URL using the following pattern:
     `https://<SUBDOMAIN>.imagencloud.com/sp-entityid`
 
-    b. In the **Reply URL** textbox, type the URL:
+    b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://<SUBDOMAIN>.imagencloud.com/saml/module.php/saml/sp/saml2-acs.php/imagenweb`
 
     c. In the **Sign on URL** textbox, type a URL using the following pattern:
     `https://<SUBDOMAIN>.imagencloud.com/site/login`
     
     > [!Note]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Imagen support team](mailto:support@imagen.io) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Imagen support team](mailto:support@imagen.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Imagen application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
