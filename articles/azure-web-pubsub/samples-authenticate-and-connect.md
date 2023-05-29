@@ -5,20 +5,20 @@ description: A list of code samples showing how to authenticate and connect to W
 author: kevinguo-ed
 ms.author: kevinguo
 ms.service: azure-web-pubsub
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/15/2023
 ms.custom: mode-ui
 zone_pivot_groups: azure-web-pubsub-samples-authenticate-and-connect
 ---
 # Azure Web PubSub samples - authenticate and connect
 
-To make use of your Azure Web PubSub resource, you need to authenticate and connect to the service first. Azure Web PubSub service distinguishes two roles and they are given a different set of capabilities.
+To make use of your Azure Web PubSub resource, you need to authenticate and connect to the service first. Azure Web PubSub service distinguishes two roles and they're given a different set of capabilities.
  
 ## Client
-The client can be a browser, an mobile app, an IoT device or even an EV charging point as long as it supports WebSocket. A client is usually limited to publishing and subscribing to messages. 
+The client can be a browser, a mobile app, an IoT device or even an EV charging point as long as it supports WebSocket. A client is limited to publishing and subscribing to messages. 
 
 ## Application server
-While the client's role is often limited, the application server's role goes beyond simply receiving and publishing messages. Before a client tries to connect with your Web PubSub resource, it goes to the applicatin server for an Client Access Token first. The token is used to establish a persistent WebSocket connection with  your Web PubSub resource. 
+While the client's role is often limited, the application server's role goes beyond simply receiving and publishing messages. Before a client tries to connect with your Web PubSub resource, it goes to the application server for a Client Access Token first. The token is used to establish a persistent WebSocket connection with  your Web PubSub resource. 
 
 ::: zone pivot="method-sdk-csharp"
 | Use case                                                                 | Description                                                       |
