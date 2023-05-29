@@ -2,7 +2,7 @@
 title: Reference table for all security alerts in Microsoft Defender for Cloud
 description: This article lists the security alerts visible in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 05/15/2023
+ms.date: 05/29/2023
 ---
 
 # Security alerts - a reference guide
@@ -542,20 +542,6 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 |-----------------------------------------|----------------------------------------------------------------------|:--------------------------------------------:|----------|
 | **DDoS Attack detected for Public IP**<br>(NETWORK_DDOS_DETECTED)  | DDoS Attack detected for Public IP (IP address) and being mitigated. | Probing                                      | High     |
 | **DDoS Attack mitigated for Public IP**<br>(NETWORK_DDOS_MITIGATED) | DDoS Attack mitigated for Public IP (IP address).                    | Probing                                      | Low      |
-
-
-## <a name="alerts-fusion"></a>Security incident 
-
-[Further details and notes](alerts-overview.md#what-are-security-incidents)
-
-| Alert                                                | Description                                                                                                                                                                         | MITRE tactics<br>([Learn more](#intentions)) | Severity |
-|------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
-| **Security incident with shared process detected**   | The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that an attacker has {Action taken} your resource {Host}                  | -                                            | High     |
-| **Security incident detected on multiple resources** | The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that similar attack methods were performed on your cloud resources {Host} | -                                            | Medium   |
-| **Security incident detected from same source**      | The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that an attacker has {Action taken} your resource {Host}                  | -                                            | High     |
-| **Security incident detected on multiple machines**  | The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that an attacker has {Action taken} your resources {Host}                 | -                                            | Medium   |
-
-
 
 <a name="intentions"></a>
 
