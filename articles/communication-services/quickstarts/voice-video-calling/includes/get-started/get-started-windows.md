@@ -264,7 +264,7 @@ if (call != null)
 }
 ```
 
-Add the methods to start or join the different types of Call (1:1 ACS call, 1:1 phone call, ACS Group call, Teams meeting join, etc).
+Add the methods to start or join the different types of Call (1:1 ACS call, 1:1 phone call, ACS Group call, Teams meeting join, etc.).
 
 ```C#
 private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)
