@@ -79,6 +79,54 @@ This article provides 2 options for deploying to Azure Spring Apps:
 
 ## Validate the web app
 
+::: zone pivot="sc-consumption-plan"
+
+1. After the deployment has completed, use the following command to access the app with the URL retrieved:
+
+   ```azurecli
+   az spring app show \
+       --service ${AZURE_SPRING_APPS_NAME} \
+       --name ${APP_NAME} \
+       --query properties.url \
+       --output tsv
+   ```
+
+   The page should appear as you saw in localhost.
+
+1. Use the following command to check the app's log to investigate any deployment issue:
+
+   ```azurecli
+   az spring app logs \
+       --service ${AZURE_SPRING_APPS_NAME} \
+       --name ${APP_NAME}
+   ```
+
+::: zone-end
+
+::: zone pivot="sc-enterprise"
+
+1. After the deployment has completed, you can access the app with this URL: `https://${AZURE_SPRING_APPS_NAME}-${APP_NAME}.azuremicroservices.io/`. The page should appear as you saw in localhost.
+
+1. Use the following command to check the app's log to investigate any deployment issue:
+
+   ```azurecli
+   az spring app logs \
+       --service ${AZURE_SPRING_APPS_NAME} \
+       --name ${APP_NAME}
+   ```
+
+::: zone-end   
+
+::: zone pivot="sc-standard"
+
+1. Access the application with the output application URL. The page should appear as you saw in localhost.
+
+1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs:
+
+   :::image type="content" source="../../media/quickstart-deploy-web-app/13-asa-logs.png" alt-text="Azure Spring Apps logs.":::
+   
+::: zone-end
+
 ## Clean up resources
 
 ::: zone pivot="sc-standard"
@@ -100,8 +148,16 @@ az group delete --name ${RESOURCE_GROUP}
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a service connection in Azure Spring Apps with the Azure CLI](../service-connector/quickstart-cli-spring-cloud-connection.md)
 > [Structured application log for Azure Spring Apps](./structured-app-log.md)
+
+> [!div class="nextstepaction"]
+> [Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md)
+
+> [!div class="nextstepaction"]
+> [Use managed identities for applications in Azure Spring Apps](./how-to-use-managed-identities.md)
+
+> [!div class="nextstepaction"]
+> [Create a service connection in Azure Spring Apps with the Azure CLI](../service-connector/quickstart-cli-spring-cloud-connection.md)
 
 For more information, see the following articles:
 
