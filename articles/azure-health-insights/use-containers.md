@@ -46,20 +46,20 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 ## Get the container images with `docker pull`
 
-Project Health Insights container images can be found on the `mcr.microsoft.com` container registry syndicate. They reside within the `azure-cognitive-services/azure-health-insights/` repository and can be found by their model name.
+Project Health Insights container images can be found on the `mcr.microsoft.com` container registry syndicate. They reside within the `azure-cognitive-services/health-insights/` repository and can be found by their model name.
 
-- Clinical Trial Matcher: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/azure-health-insights/clinical-matching`
-- Onco-Phenotype: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/azure-health-insights/cancer-profiling`
+- Clinical Trial Matcher: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/clinical-matching`
+- Onco-Phenotype: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/cancer-profiling`
 
-To use the latest version of the container, you can use the `latest` tag. You can  find a full list of tags on the MCR via `https://mcr.microsoft.com/v2/azure-cognitive-services/azure-health-insights/clinical-matching/tags/list` and `https://mcr.microsoft.com/v2/azure-cognitive-services/azure-health-insights/clinical-matching/tags/list`.
+To use the latest version of the container, you can use the `latest` tag. You can  find a full list of tags on the MCR via `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/clinical-matching/tags/list` and `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/clinical-matching/tags/list`.
 
 - Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry. You can find the featured tags on the [dockerhub clinical matching page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-clinical-matching) and [dockerhub cancer profiling page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-cancer-profiling)  
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/azure-health-insights/<model-name>:<tag-name>
+docker pull mcr.microsoft.com/azure-cognitive-services/health-insights/<model-name>:<tag-name>
 ```
 
-- For Clinical Trial Matcher, use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download textanalytics container image from the Microsoft public container registry. You can find the featured tags on the [dockerhub](https://hub.docker.com/_/microsoft-azure-cognitive-services-textanalytics-healthcare)
+- For Clinical Trial Matcher, use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download textanalytics healthcare container image from the Microsoft public container registry. You can find the featured tags on the [dockerhub](https://hub.docker.com/_/microsoft-azure-cognitive-services-textanalytics-healthcare)
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:<tag-name>
@@ -106,7 +106,7 @@ To run the container in your own environment after downloading the container ima
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
-mcr.microsoft.com/azure-cognitive-services/azure-cognitive-services/azure-health-insights/<model-name>:<tag-name> \
+mcr.microsoft.com/azure-cognitive-services/azure-cognitive-services/health-insights/<model-name>:<tag-name> \
 Eula=accept \
 rai_terms=accept \
 Billing={ENDPOINT_URI} \
