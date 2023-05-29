@@ -71,11 +71,9 @@ CreateCallResult response = await client.CreateCallAsync(callThisPerson, callbac
 
 ```java
 String callbackUri = "https://<myendpoint>/Events"; //the callback endpoint where you want to receive subsequent events
-List<CommunicationIdentifier> targets = new ArrayList<>(Arrays.asList(new PhoneNumberIdentifier("+16471234567"))); 
-CommunicationUserIdentifier callerIdentifier = new CommunicationUserIdentifier("<user_id>"); 
-CreateCallOptions createCallOptions = new CreateCallOptions(callerIdentifier, targets, callbackUri) 
-        .setSourceCallerId("+18001234567"); // This is the ACS provisioned phone number for the caller  
-Response<CreateCallResult> response = client.createCallWithResponse(createCallOptions).block(); 
+PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+18001234567"); // This is the ACS provisioned phone number for the caller  
+CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16471234567"), callerIdNumber); // person to call
+CreateCallResult response = client.createCall(callInvite, callbackUri).block();
 ```
 
 ### [JavaScript](#tab/javascript)
@@ -103,6 +101,17 @@ var groupCallOptions = new CreateGroupCallOptions(new List<CommunicationIdentifi
     SourceCallerIdNumber = new PhoneNumberIdentifier("+16044561234"), // This is the ACS provisioned phone number for the caller
 };
 CreateCallResult response = await client.CreateGroupCallAsync(groupCallOptions);
+```
+
+### [Java](#tab/java)
+
+```java
+String callbackUri = "https://<myendpoint>/Events"; //the callback endpoint where you want to receive subsequent events
+PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+18001234567"); // This is the ACS provisioned phone number for the caller
+List<CommunicationIdentifier> targets = new ArrayList<>(Arrays.asList(new PhoneNumberIdentifier("+16471234567"), new CommunicationUserIdentifier("<user_id_of_target>")));
+CreateGroupCallOptions groupCallOptions = new CreateGroupCallOptions(targets, callbackUri);
+groupCallOptions.setSourceCallIdNumber(callerIdNumber);
+Response<CreateCallResult> response = client.createGroupCallWithResponse(createGroupCallOptions).block();
 ```
 
 ### [JavaScript](#tab/javascript)
@@ -219,7 +228,7 @@ _ = await client.RedirectCallAsync(incomingCallContext, target);
 
 ```java
 String incomingCallContext = "<IncomingCallContext_From_IncomingCall_Event>"; 
-CommunicationIdentifier target = new CommunicationUserIdentifier("<user_id_of_target>"); //user id looks like 8:a1b1c1-... 
+CallInvite target = new CallInvite(new CommunicationUserIdentifier("<user_id_of_target>")); //user id looks like 8:a1b1c1-... 
 RedirectCallOptions redirectCallOptions = new RedirectCallOptions(incomingCallContext, target); 
 Response<Void> response = client.redirectCallWithResponse(redirectCallOptions).block();
 ```
@@ -245,7 +254,8 @@ var target = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdN
 # [Java](#tab/java)
 
 ```java
-CommunicationIdentifier target = new PhoneNumberIdentifier("+18001234567"); 
+PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
+CallInvite target = new CallInvite(new PhoneNumberIdentifier("+18001234567"), callerIdNumber);
 ```
 
 # [JavaScript](#tab/javascript)
@@ -311,11 +321,10 @@ AddParticipantsResult result = await callConnection.AddParticipantAsync(addThisP
 # [Java](#tab/java)
 
 ```java
-CommunicationIdentifier target = new PhoneNumberIdentifier("+16041234567"); 
-List<CommunicationIdentifier> targets = new ArrayList<>(Arrays.asList(target)); 
-AddParticipantsOptions addParticipantsOptions = new AddParticipantsOptions(targets) 
-        .setSourceCallerId(new PhoneNumberIdentifier("+18001234567"));  
-Response<AddParticipantsResult> addParticipantsResultResponse = callConnectionAsync.addParticipantsWithResponse(addParticipantsOptions).block();
+PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
+CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber); 
+AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
+Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
 ```
 
 # [JavaScript](#tab/javascript)
@@ -349,8 +358,8 @@ RemoveParticipantsResult result = await callConnection.RemoveParticipantAsync(re
 
 ```java
 CommunicationIdentifier removeThisUser = new CommunicationUserIdentifier("<user_id>");
-RemoveParticipantsOptions removeParticipantsOptions = new RemoveParticipantsOptions(new ArrayList<>(Arrays.asList(removeThisUser))); 
-Response<RemoveParticipantsResult> removeParticipantsResultResponse = callConnectionAsync.removeParticipantsWithResponse(removeParticipantsOptions).block();
+RemoveParticipantOptions removeParticipantOptions = new RemoveParticipantOptions(removeThisUser); 
+Response<RemoveParticipantResult> removeParticipantResultResponse = callConnectionAsync.removeParticipantWithResponse(removeThisUser).block();
 ```
 
 # [JavaScript](#tab/javascript)
@@ -377,7 +386,7 @@ _ = await callConnection.HangUpAsync(forEveryone: true);
 # [Java](#tab/java)
 
 ```java
-Response<Void> response1 = callConnectionAsync.hangUpWithResponse(new HangUpOptions(true)).block();
+Response<Void> response = callConnectionAsync.hangUpWithResponse(true).block();
 ```
 
 # [JavaScript](#tab/javascript)
@@ -400,7 +409,7 @@ CallParticipant participantInfo = await callConnection.GetParticipantAsync(new C
 # [Java](#tab/java)
 
 ```java
-CallParticipant participantInfo = callConnection.getParticipant("<user_id>").block();
+CallParticipant participantInfo = callConnection.getParticipant(new CommunicationUserIdentifier("<user_id>")).block();
 ```
 
 # [JavaScript](#tab/javascript)
