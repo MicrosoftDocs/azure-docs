@@ -462,6 +462,30 @@ az spring gateway update \
 
 ## Configure environment variables
 
+You can configure Spring Cloud Gateway with environment variables for your needs. 
+
+#### [Azure portal](#tab/Azure-portal)
+
+To configure environment variables in the Azure portal, use the following steps:
+1. Open your Azure Spring Apps instance.
+1. Select Spring Cloud Gateway in the navigation pane, and then select Configuration.
+1. Specify key-value pairs for the log level environment variables in the **Environment variables** sections.
+1. When you've provided all the configurations, select Save to save your changes.
+
+#### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to configure environment variables using Azure CLI:
+```
+az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --properties <key=value> \
+    --secrets <key=value>
+```
+
+---
+
+Here are some use cases by configuring environment variables:
 1. You can configure environments for application performance monitoring, see [Configure application performance monitoring](#configure-application-performance-monitoring) section.
 1. You can configure environments for log levels, see [Configure log levels](#configure-log-levels) section.
 
