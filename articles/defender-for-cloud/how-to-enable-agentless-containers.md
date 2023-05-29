@@ -37,8 +37,12 @@ If you don't see results from your clusters, check the following:
 - Are your clusters Read only (locked)?
 
 ## What do I do if I have stopped clusters?
-We suggest that you rerun the cluster to solve this issue.
+We suggest that you rerun the cluster to solve this issue. We do not support or charge stopped clusters.
+
+## Are you using an updated version of AKS?
+
+Learn more about [supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).
 
 ## Next Steps
  - Learn how to [view and remediate vulnerability assessment findings for registry images and running images](view-and-remediate-vulnerability-assessment-findings.md).
- - Lear how to [create exemption rules](create-exemption-rule.md)for a resource or subscription.
+ - Learn how to [create exemption rules](create-exemption-rule.md) for a resource or subscription.

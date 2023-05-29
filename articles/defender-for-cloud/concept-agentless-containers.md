@@ -23,17 +23,15 @@ Agentless Container Posture provides the following capabilities:
 
 - Viewing security insights, such as internet exposure, and other pre-defined security scenarios. For more information, search for `Kubernetes` in the [list of Insights](attack-path-reference.md#insights).
 
-- Agentless discovery and visibility within Kubernetes components.
+- [Agentless discovery and visibility](#agentless-discovery-and-visibility-within-kubernetes-components) within Kubernetes components.
 
-- Agentless container registry vulnerability assessment, using the image scanning results of your Azure Container Registry (ACR) with cloud security explorer.
+- [Agentless container registry vulnerability assessment](#container-registry-vulnerability-assessment), using the image scanning results of your Azure Container Registry (ACR) with cloud security explorer.
 
 - Using [cloud security explorer](how-to-manage-cloud-security-explorer.md) for risk hunting by querying various risk scenarios. 
 
 - Viewing security insights, such as internet exposure, and other predefined security scenarios. For more information, search for Kubernetes in the [list of Insights](attack-path-reference.md#cloud-security-graph-components-list).
 
-- [Agentless discovery and visibility within Kubernetes components](#agentless-discovery-and-visibility-within-kubernetes-components)
-
-- [Container registry vulnerability assessment](#container-registry-vulnerability-assessment)
+- [Support for exemptions](#support-for-exemptions)
 
 ## Agentless discovery and visibility within Kubernetes components
 
@@ -109,6 +107,17 @@ Container registry vulnerability assessment scans container images stored in you
 1. Once a day, all discovered images are pulled and an inventory is created for each image that is discovered.  
 1. Vulnerability reports for known vulnerabilities (CVEs) are generated for each software that is present on an image inventory. 
 1. Vulnerability reports are refreshed daily for any image pushed during the last 90 days to a registry or currently running on a Kubernetes cluster monitored by Defender CSPM Agentless discovery and visibility for Kubernetes, or monitored by the Defender for Containers agent (profile or extension).
+
+## Support for exemptions
+
+While you can currently [exempt a resource or subscription from the list of recommendations](exempt-resource.md), the new capability allows you to [create exemption rules](create-exemption-rule.md) on a more granular level. 
+
+    > [!NOTE]
+
+    > This feature supports scanning of images in the Azure Container Registry (ACR) only. If you want to find vulnerabilities stored in other container registries, you can import the images into ACR, after which the imported images are scanned by the built-in vulnerability assessment solution.   
+
+Learn how to [import container images to a container registry](https://learn.microsoft.com/azure/container-registry/container-registry-import-images?tabs=azure-cli). 
+
 
 
 ## Next steps
