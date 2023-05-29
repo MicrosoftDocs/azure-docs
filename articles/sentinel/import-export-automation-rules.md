@@ -57,7 +57,9 @@ The file includes all the parameters defined in the automation rule. Rules of an
     - Analytics rule name&mdash;The analytics rule you used in the automation rule condition doesn't appear in the import destination workspace.
     - Custom field&mdash;The custom field you used in the automation rule condition doesn't appear in the import destination workspace.
 
-    In these cases, when you import the automation rule, the deployment will succeed, but the chosen analytics rule or custom field will show as "Unknown".
+    In these cases, when you import the automation rule, the deployment will succeed, but the chosen analytics rule or custom field will show as "Unknown". To remedy this, edit the automation rule and replace the unknowns with new values.
+
+- **Expired automation rule:** If an automation rule is past its expiration date when imported, the deployment of the automation rule will fail with the following error: ___________?
 
 ## Next steps
 
