@@ -2475,6 +2475,8 @@
         href: target-process-tutorial.md
       - name: TAS
         href: tas-tutorial.md
+      - name: TASC (beta)
+        href: tascbeta-tutorial.md
       - name: Taskize Connect
         href: taskize-connect-tutorial.md
       - name: Teachme Biz
