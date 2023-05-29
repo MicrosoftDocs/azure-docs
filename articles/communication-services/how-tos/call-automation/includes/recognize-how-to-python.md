@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Python recognize action quickstart
+description: Python recognize action how-to guide
 services: azure-communication-services
 author: Kunaal
 ms.service: azure-communication-services
