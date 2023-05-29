@@ -36,12 +36,15 @@ If you don't see results from your clusters, check the following:
 - Do you have stopped clusters?
 - Are your clusters Read only (locked)?
 
-## What do I do if I have stopped clusters?
+## What can I do if I have stopped clusters?
 We do not support or charge stopped clusters. To derive the value of agentless capabilities on a stopped cluster, you can rerun the cluster. 
 
-## Are you using an updated version of AKS?
+### What can I do if I have read only (locked) clusters?
 
-Learn more about [supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).
+We suggest that you do one of the following steps:
+
+- [Remove the lock](https://learn.microsoft.com/azure/azure-resource-manager/management/lock-resources?tabs=json#configure-locks). Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json).
+- Perform the bind operation manually by making an API request.
 
 ## Next Steps
  - Learn how to [view and remediate vulnerability assessment findings for registry images and running images](view-and-remediate-vulnerability-assessment-findings.md).

@@ -38,12 +38,9 @@ You need to have a Defender for CSPM plan enabled. There's no dependency on De
 
 This feature uses trusted access. Learn more about [AKS trusted access prerequisites](/azure/aks/trusted-access-feature#prerequisites).
 
-### What can I do if I have read only (locked) clusters?
+## Are you using an updated version of AKS?
 
-We suggest that you do one of the following steps:
-
-- [Remove the lock](https://learn.microsoft.com/azure/azure-resource-manager/management/lock-resources?tabs=json#configure-locks). Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json).
-- Perform the bind operation manually by making an API request.
+Learn more about [supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).
 
 ## Next steps
 
