@@ -58,7 +58,7 @@ Defender for Cloud correlates alerts and contextual signals into incidents.
 - By using the information gathered for each step of an attack, Defender for Cloud can also rule out activity that appears to be steps of an attack, but actually isn't.
 
 > [!TIP]
-> In the [incidents reference](incident-reference.md), review the list of security incident that can be produced by incident correlation.
+> In the [incidents reference](incidents-reference.md), review the list of security incident that can be produced by incident correlation.
 
 <a name="detect-threats"> </a>
 
