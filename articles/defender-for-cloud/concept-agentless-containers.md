@@ -112,11 +112,7 @@ Container registry vulnerability assessment scans container images stored in you
 
 ## Support for exemptions
 
-While you can currently [exempt a resource or subscription from the list of recommendations](exempt-resource.md), the new capability allows you to [create exemption rules](create-exemption-rule.md) on a more granular level. 
-
-    > [!NOTE]
-
-    > This feature supports scanning of images in the Azure Container Registry (ACR) only. If you want to find vulnerabilities stored in other container registries, you can import the images into ACR, after which the imported images are scanned by the built-in vulnerability assessment solution.   
+While you can currently [exempt a resource or subscription from the list of recommendations](exempt-resource.md), the new capability allows you to [create exemption rules] (create-exemption-rule.md) on a more granular level. 
 
 > [!NOTE]
 > This feature supports scanning of images in the Azure Container Registry (ACR) only. If you want to find vulnerabilities stored in other container registries, you can import the images into ACR, after which the imported images are scanned by the built-in vulnerability assessment solution. Learn how to [import container images to a container registry](https://learn.microsoft.com/azure/container-registry/container-registry-import-images?tabs=azure-cli). 
