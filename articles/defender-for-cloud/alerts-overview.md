@@ -4,7 +4,7 @@ description: Learn how Microsoft Defender for Cloud generates security alerts an
 ms.topic: conceptual
 ms.author: dacurwin
 author: dcurwin
-ms.date: 11/29/2022
+ms.date: 05/29/2023
 ms.custom: fasttrack-edit
 ---
 # Security alerts and incidents
@@ -58,7 +58,7 @@ Defender for Cloud correlates alerts and contextual signals into incidents.
 - By using the information gathered for each step of an attack, Defender for Cloud can also rule out activity that appears to be steps of an attack, but actually isn't.
 
 > [!TIP]
-> In the [alerts reference](alerts-reference.md#alerts-fusion), review the list of security incident alerts that can be produced by incident correlation.
+> In the [incidents reference](incident-reference.md), review the list of security incident that can be produced by incident correlation.
 
 <a name="detect-threats"> </a>
 

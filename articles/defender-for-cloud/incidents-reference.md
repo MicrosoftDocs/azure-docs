@@ -25,7 +25,7 @@ Learn how to [manage security incidents](incidents.md#managing-security-incident
 
 [Further details and notes](alerts-overview.md#what-are-security-incidents)
 
-| Alert | Description | MITRE tactics<br>([Learn more](#intentions)) | Severity |
+| Alert | Description | MITRE tactics<br>([Learn more](#mitre-attck-tactics)) | Severity |
 |--|--|--|--|
 | **Security incident with shared process detected** | The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that an attacker has {Action taken} your resource {Host} | - | High |
 | **Security incident detected on multiple resources** | The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that similar attack methods were performed on your cloud resources {Host} | - | Medium |
@@ -48,7 +48,7 @@ Learn how to [manage security incidents](incidents.md#managing-security-incident
 
 ## Legacy incidents
 
-| | Alert | Description | MITRE tactics<br>([Learn more](#intentions)) | Severity |
+| Alert | Description | MITRE tactics<br>([Learn more](#mitre-attck-tactics)) | Severity |
 |--|--|--|--|
 | Fusion_KillChainProgress | | | |
 | **Security incident detected suspicious virtual machine** | This incident indicates suspicious activity on your virtual machine. Multiple alerts from different Defender for Cloud plans have been triggered in chronological order on the same virtual machine, following the MITRE ATT&CK framework. This might indicate a threat actor has gained unauthorized access to your environment and is attempting to compromise it. | - | - |
