@@ -18,9 +18,9 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 3 Provision
 
-### 3.1 Provision an instance of Azure Spring Apps
-
 Use the following steps to create an Azure Spring Apps service instance.
+
+### 3.1 Sign in to the Azure portal
 
 1. Select **Open Cloudshell** and sign in to your Azure account in [Azure Cloud Shell](../../../cloud-shell/overview.md).
 
@@ -30,7 +30,7 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to associate an Azure Storage instance with your subscription to persist files across sessions. For more information, see [Introduction to Azure Storage](../../../storage/common/storage-introduction.md).
 
-   :::image type="content" source="media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of an Azure portal alert that no storage is mounted in the Azure Cloud Shell." lightbox="media/quickstart/azure-storage-subscription.png":::
+   :::image type="content" source="../../includes/quickstart/azure-storage-subscription.png" alt-text="Screenshot of an Azure portal alert that no storage is mounted in the Azure Cloud Shell." lightbox="../../includes/quickstart/azure-storage-subscription.png":::
 
 1. After you sign in successfully, use the following command to display a list of your subscriptions:
 
@@ -43,6 +43,8 @@ Use the following steps to create an Azure Spring Apps service instance.
    ```azurecli-interactive
    az account set --subscription <subscription-ID>
    ```
+
+### 3.2 Provision an instance of Azure Spring Apps
 
 1. Use the following commands to define variables for this quickstart with the names of your resources and desired settings:
 
@@ -93,7 +95,7 @@ Use the following steps to create an Azure Spring Apps service instance.
        --location ${LOCATION}
    ```
 
-### 3.2 Create an app in your Azure Spring Apps instance
+### 3.3 Create an app in your Azure Spring Apps instance
 
 An *App* is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](../../concept-understand-app-and-deployment.md). Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
 
@@ -123,7 +125,7 @@ az spring app create \
 
 Azure Spring Apps creates an empty welcome application and provides its URL in the field named `properties.url`.
 
-:::image type="content" source="media/quickstart/app-welcome-page.png" alt-text="Screenshot of the welcome page for a Spring app in an Azure Spring Apps instance." lightbox="media/quickstart/app-welcome-page.png":::
+:::image type="content" source="../../includes/quickstart/app-welcome-page.png" alt-text="Screenshot of the welcome page for a Spring app in an Azure Spring Apps instance." lightbox="../../includes/quickstart/app-welcome-page.png":::
 
 ### 3.2.2 Create an app with dedicated workload profile
 

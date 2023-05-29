@@ -22,9 +22,9 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 3 Provision
 
-### 3.1 Provision an instance of Azure Spring Apps
-
 Use the following steps to create an Azure Spring Apps service instance.
+
+### 3.1 Sign in to the Azure portal
 
 1. Select **Open Cloudshell** and sign in to your Azure account in [Azure Cloud Shell](../../../cloud-shell/overview.md).
 
@@ -48,6 +48,8 @@ Use the following steps to create an Azure Spring Apps service instance.
    az account set --subscription <subscription-ID>
    ```
 
+### 3.2 Provision an instance of Azure Spring Apps
+
 1. Use the following command to create a resource group:
 
    ```azurecli-interactive
@@ -67,7 +69,7 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 1. Select **Y** to install the Azure Spring Apps extension and run it.
 
-### 3.2 Create an app in your Azure Spring Apps instance
+### 3.3 Create an app in your Azure Spring Apps instance
 
 An *App* is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](../../concept-understand-app-and-deployment.md). Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
 

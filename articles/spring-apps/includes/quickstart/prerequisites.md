@@ -15,7 +15,14 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 ## 1 Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
+::: zone pivot="sc-enterprise"
+
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](../../how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](../../how-to-enterprise-marketplace-offer.md).
+
+::: zone-end
+
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - [Apache Maven](https://maven.apache.org/download.cgi)
@@ -43,11 +50,5 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 ::: zone pivot="sc-standard,sc-enterprise"
 
 - [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
-
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
-- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ::: zone-end
