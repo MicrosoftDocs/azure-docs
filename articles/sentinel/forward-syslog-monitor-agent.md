@@ -10,7 +10,7 @@ ms.custom: template-tutorial
 #Customer intent: As a security-engineer, I want to get syslog data into Microsoft Sentinel so that I can use the data with other data to do attack detection, threat visibility, proactive hunting, and threat response. As an IT administrator, I want to get syslog data into my Log Analytics workspace to monitor my linux-based devices.
 ---
 
-# Tutorial: Forward syslog data to a Log Analytics workspace by using the Azure Monitor agent with Microsoft Sentinel
+# Tutorial: Forward syslog data to a Log Analytics workspace with Microsoft Sentinel by using the Azure Monitor agent
 
 In this tutorial, you'll configure a Linux virtual machine (VM) to forward syslog data to your workspace by using the Azure Monitor agent. These steps allow you to collect and monitor data from Linux-based devices where you can't install an agent like a firewall network device.
  
@@ -47,67 +47,7 @@ To complete the steps in this tutorial, you must have the following resources an
 
 ## Create a data collection rule
 
-Create a *data collection rule* in the same region as your Microsoft Sentinel workspace.
-A data collection rule is an Azure resource that allows you to define the way  data should be handled as it's ingested into Microsoft Sentinel.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for and open **Monitor**.
-1. Under **Settings**, select **Data Collection Rules**.
-1. Select **Create**.
-
-   :::image type="content" source="media/forward-syslog-monitor-agent/create-data-collection-rule.png" alt-text="Screenshot of the data collections rules pane with the create option selected.":::
-
-### Enter basic information
-
-1. On the **Basics** pane, enter the following information:
-
-   |Field   |Value |
-   |---------|---------|
-   |Rule Name     | Enter a name like   dcr-syslog     |
-   |Subscription     | Select the appropriate subscription        |
-   |Resource group     |    Select the appropriate resource group     |
-   |Region     |  Select the same region that your Microsoft Sentinel workspace is located      |
-   |Platform Type     |    Linux     |
-1. Select **Next: Resources**.
-
-### Add resources
-1. Select **Add resources**.
-1. Use the filters to find the virtual machine that you'll use to collect logs.
-   :::image type="content" source="media/forward-syslog-monitor-agent/create-rule-scope.png" alt-text="Screenshot of the page to select the scope for the data collection rule. ":::
-1. Select the virtual machine.
-1. Select **Apply**.
-1. Select **Next: Collect and deliver**.
-
-### Add data source
-
-1. Select **Add data source**.
-1. For **Data source type**, select **Linux syslog**.
-   :::image type="content" source="media/forward-syslog-monitor-agent/create-rule-data-source.png" alt-text="Screenshot of page to select data source type and minimum log level":::
-1. For **Minimum log level**, leave the default values **LOG_DEBUG**.
-1. Select **Next: Destination**.
-
-### Add destination
-
-1. Select **Add destination**.
-
-   :::image type="content" source="media/forward-syslog-monitor-agent/create-rule-add-destination.png" alt-text="Screenshot of the destination tab with the add destination option selected.":::
-1. Enter the following values:
-
-   |Field   |Value |
-   |---------|---------|
-   |Destination type     | Azure Monitor Logs    |
-   |Subscription     | Select the appropriate subscription        |
-   |Account or namespace    |Select the appropriate Log Analytics workspace|
-
-1. Select **Add data source**.
-1. Select **Next: Review + create**.
-
-### Create rule
-
-1. Select **Create**.
-1. Wait 20 minutes before moving on to the next section.
-
-If your VM doesn't have the Azure Monitor agent installed, the data collection rule deployment triggers the installation of the agent on the VM.
+See step by step guide [here](../azure-monitor/agents/data-collection-syslog.md#create).
 
 ## Verify the Azure Monitor agent is running
 

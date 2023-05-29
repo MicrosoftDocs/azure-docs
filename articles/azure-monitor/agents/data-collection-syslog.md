@@ -91,6 +91,13 @@ A data collection rule is an Azure resource that allows you to define the way  d
 1. Select **Add data source**.
 1. Select **Next: Review + create**.
 
+### Create rule
+
+1. Select **Create**.
+1. Wait 20 minutes before moving on to the next section.
+
+If your VM doesn't have the Azure Monitor agent installed, the data collection rule deployment triggers the installation of the agent on the VM.
+
 ## Configure Syslog on Linux Agent 
 When the Azure Monitoring Agent is installed on Linux machine it installs a default Syslog configuration file that defines the facility and severity of the messages that are collected if syslog is enabled in DCR. The configuration file is different depending on the Syslog daemon that the client has installed. 
 
