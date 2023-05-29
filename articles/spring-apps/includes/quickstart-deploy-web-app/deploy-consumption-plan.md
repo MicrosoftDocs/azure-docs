@@ -194,21 +194,4 @@ Now that the cloud environment is prepared, the application is ready to deploy.
        --artifact-path web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
    ```
 
-2. After the deployment has completed, use the following command to retrieve the app URL:
-
-   ```azurecli
-   az spring app show \
-       --service ${AZURE_SPRING_APPS_NAME} \
-       --name ${APP_NAME} \
-       --query properties.url \
-       --output tsv
-   ```
-
-3. Use the following command to check the app's log to investigate any deployment issue:
-
-   ```azurecli
-   az spring app logs \
-       --service ${AZURE_SPRING_APPS_NAME} \
-       --name ${APP_NAME}
-   ```
 
