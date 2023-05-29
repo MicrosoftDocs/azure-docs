@@ -37,13 +37,15 @@ When your Defender for IoT license expires, you'll need to purchase a new licens
 
 ## Are changes automatically synchronized between the Microsoft 365 admin center and the Azure portal?
 
-Yes. Any new licenses that you purchase in the Microsoft 365 admin center are automatically reflected in your OT plan on the Azure portal.
+Any new licenses that you purchase in the Microsoft 365 admin center are automatically reflected in your OT plan on the Azure portal.
 
-Canceling an OT plan from the Azure portal also cancels your license in the Microsoft 365 admin center, and vice versa.
+However, canceling an OT plan from the Azure portal does *not* cancel your license in the Microsoft 365 admin center. If you cancel your OT plan in the Azure portal, make sure to also cancel your license in the Microsoft 365 admin center.
 
-For more information, see [Manage OT plans and licenses](how-to-manage-subscriptions.md).
+All license management procedures are done from the Microsoft 365 admin center, including buying, canceling, renewing, setting to auto-renew, auditing, and more. 
 
-## We have a legacy OT plan on my Azure subscription. When do I need to take action?
+For more information, see [Manage OT plans and licenses](how-to-manage-subscriptions.md) and the [Microsoft 365 admin center help](/microsoft-365/admin/).
+
+## I have a legacy OT plan on my Azure subscription. When do I need to take action?
 
 Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home).
 

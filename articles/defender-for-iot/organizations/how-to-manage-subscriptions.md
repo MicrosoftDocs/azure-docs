@@ -15,6 +15,10 @@ If you're looking to manage Enterprise IoT plans, see [Manage Defender for IoT p
 
 Before performing the procedures in this article, make sure that you have:
 
+- A Microsoft 365 tenant, with access to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) as Global or Billing admin.
+
+    For more information, see [Buy or remove Microsoft 365 licenses for a subscription](/microsoft-365/commerce/licenses/buy-licenses?view=o365-worldwide) and [About admin roles in the Microsoft 365 admin center](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide).
+
 - An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/free/).
 
 - A [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user role for the Azure subscription that you'll be using for the integration
@@ -35,8 +39,9 @@ This procedure describes how to purchase Defender for IoT licenses in the Micros
 
    Make sure to select the number of licenses you want to purchase, based on the number of sites you want to monitor at the selected size.
 
-For more information, see the [Microsoft 365 admin center help](/microsoft-365/admin/).
-
+> [!IMPORTANT]
+> All license management procedures are done from the Microsoft 365 admin center, including buying, canceling, renewing, setting to auto-renew, auditing, and more. For more information, see the [Microsoft 365 admin center help](/microsoft-365/admin/).
+>
 
 ## Add an OT plan to your Azure subscription
 
@@ -86,11 +91,11 @@ You may need to cancel a Defender for IoT plan from your Azure subscription, for
 
    Your changes take effect one hour after confirmation.
 
-1. To change your billed licenses, make sure to cancel your Defender for IoT license from the Microsoft 365 admin center.
-
-   When you choose to cancel a purchase or trial, users with licenses lose access to the product. The user who originally signed up for the purchase or trial subscription receives an email that says the subscription was canceled.
-
-   For more information, see the [Microsoft 365 admin center documentation](/microsoft-365/commerce/subscriptions/manage-self-service-purchases-admins#cancel-a-purchase-or-trial-subscription).
+> [!IMPORTANT]
+> Canceling an OT plan in the Azure portal *doesn't* also cancel your Defender for IoT license. To change your billed licenses,  make sure that you also cancel your Defender for IoT license from the Microsoft 365 admin center.
+> 
+> For more information, see the [Microsoft 365 admin center documentation](/microsoft-365/commerce/subscriptions/manage-self-service-purchases-admins#cancel-a-purchase-or-trial-subscription).
+>
 
 ## Legacy procedures for plan management in the Azure portal
 
