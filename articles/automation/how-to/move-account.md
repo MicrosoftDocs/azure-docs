@@ -88,9 +88,6 @@ Now you can unlink your workspace:
 
 ## Move your Automation account
 
-> [!NOTE]
-> The movement of System assigned managed identity, and User-assigned managed identity takes place with the Automation account.
-
 You can now move your Automation account and its runbooks. 
 
 1. In the Azure portal, browse to the resource group of your Automation account. Select **Move** > **Move to another subscription**.
@@ -99,6 +96,8 @@ You can now move your Automation account and its runbooks.
 
 2. Select the resources in your resource group that you want to move. Ensure that you include your Automation account, runbooks, and Log Analytics workspace resources.
 
+> [!NOTE]
+> The movement of System assigned managed identity, and User-assigned managed identity takes place automatically with the Automation account.
 
 ## Enable features
 
