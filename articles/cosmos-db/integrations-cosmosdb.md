@@ -1,5 +1,5 @@
 ---
-title: Vercek Integration with Azure Cosmos DB
+title: Vercel Integration with Azure Cosmos DB
 description: Learn how to integrate Azure Cosmos DB with Vercel
 author: sajeetharan
 ms.author: sasinnat
