@@ -15,7 +15,7 @@ ms.date: 05/15/2023
 
 ## Introduction
 
-You can now export your automation rules to Azure Resource Manager (ARM) template files, and import rules from these files, as part of managing and controlling your Microsoft Sentinel deployments as code. The export action will create a JSON file (named *Azure_Sentinel_analytic_rule.json*) in your browser's downloads location, that you can then rename, move, and otherwise handle like any other file.
+You can now export your automation rules to Azure Resource Manager (ARM) template files, and import rules from these files, as part of managing and controlling your Microsoft Sentinel deployments as code. The export action will create a JSON file (named *automationRules.json*) in your browser's downloads location, that you can then rename, move, and otherwise handle like any other file.
 
 The exported JSON file is workspace-independent, so it can be imported to other workspaces and even other tenants. As code, it can also be version-controlled, updated, and deployed in a managed CI/CD framework.
 
@@ -27,14 +27,14 @@ The file includes all the parameters defined in the automation rule. Rules of an
 
 1. Select the rule you want to export, and select **Export** from the bar at the top of the screen.
 
-    :::image type="content" source="./media/import-export-automation-rules/export-rule.png" alt-text="Screenshot showing how to export an analytics rule." lightbox="./media/import-export-automation-rules/export-rule.png":::
+    :::image type="content" source="./media/import-export-automation-rules/export-rule.png" alt-text="Screenshot showing how to export an automation rule." lightbox="./media/import-export-automation-rules/export-rule.png":::
 
     > [!NOTE]
     > - You can select multiple automation rules at once for export by marking the check boxes next to the rules and selecting **Export** at the end.
     >
     > - You can export all the rules on a single page of the display grid at once, by marking the check box in the header row before clicking **Export**. You can't export more than one page's worth of rules at a time, though.
     >
-    > - Be aware that in this scenario, a single file (named *Azure_Sentinel_automation_rules.json*) will be created, and will contain JSON code for all the exported rules.
+    > - Be aware that in this scenario, a single file (named *automationRules.json*) will be created, and will contain JSON code for all the exported rules.
 
 ## Import rules
 
@@ -48,6 +48,16 @@ The file includes all the parameters defined in the automation rule. Rules of an
 
     > [!NOTE]
     > You can import **up to 50** automation rules from a single ARM template file.
+
+## Troubleshooting
+
+- **Faulty automation rules:** If you export an automation rule that didn't pass validation when it was created, then when you import it, the deployment will fail with the same errors as the original.
+
+- **Properties don't exist:** If you export an automation rule from a workspace, and then imported it to another workspace where certain properties referenced in the automation rule don't exist, as in the following examples:
+    - Analytics rule name&mdash;The analytics rule you used in the automation rule condition doesn't appear in the import destination workspace.
+    - Custom field&mdash;The custom field you used in the automation rule condition doesn't appear in the import destination workspace.
+
+    In these cases, when you import the automation rule, the deployment will succeed, but the chosen analytics rule or custom field will show as "Unknown".
 
 ## Next steps
 
