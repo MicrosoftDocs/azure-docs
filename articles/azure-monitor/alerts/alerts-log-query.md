@@ -51,17 +51,17 @@ SecurityEvent
 | where EventID == 4624
 ```
 
-Log alert rules using [cross-resource queries](../alerts/logs/cross-workspace-query.md) aren't affected by this change because cross-resource queries use a type of `union`, which limits the query scope to specific resources. The following example would be a valid log alert query:
+Log alert rules using [cross-resource queries](../logs/logs/cross-workspace-query.md) aren't affected by this change because cross-resource queries use a type of `union`, which limits the query scope to specific resources. The following example would be a valid log alert query:
 
 ```Kusto
 union
 app('00000000-0000-0000-0000-000000000001').requests,
 app('00000000-0000-0000-0000-000000000002').requests,
-workspace('00000000-0000-0000-0000-000000000003').Perf 
+workspace('"00000000-0000-0000-0000-000000000001').Perf 
 ```
 
 >[!NOTE]
-> [Cross-resource queries](../alerts/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules). If you still use the [legacy Log Analytics Alert API](./api-alerts.md) for creating log alerts, see [Upgrade legacy rules management to the current Azure Monitor Log Alerts API](../alerts-log-api-switch.md) to learn about switching.
+> [Cross-resource queries](../logs/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules). If you still use the [legacy Log Analytics Alert API](./api-alerts.md) for creating log alerts, see [Upgrade legacy rules management to the current Azure Monitor Log Alerts API](./alerts-log-api-switch.md) to learn about switching.
 
 ## Examples
 
