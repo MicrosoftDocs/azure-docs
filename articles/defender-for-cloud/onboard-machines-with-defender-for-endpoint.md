@@ -38,7 +38,7 @@ Before you begin:
 
 - Make sure you have the required permissions (availability section)
 
-- If you have a Microsoft Defender for Endpoint for Servers license – [make sure to indicate it](integration-defender-for-endpoint.md#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-microsoft-defender-for-servers) in Defender for Cloud
+- If you have a Microsoft Defender for Endpoint for Servers license – [make sure to indicate it](faq-defender-for-servers.yml#can-i-get-a-discount-if-i-already-have-a-microsoft-defender-for-endpoint-license-) in Defender for Cloud
 
 - Review the limitations section
 
