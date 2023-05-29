@@ -104,6 +104,9 @@ Create a directory on your Linux system, and then mount the container in the sto
      mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata
      ```
 
+> [!NOTE]
+> Other nfs v3 mount options can be used awhile mounting as they are all mostly client side options and only affect the client behaviours. For sec option, **sys** is the only supported values as of now. 
+
 ## Resolve common errors
 
 |Error | Cause/resolution|
