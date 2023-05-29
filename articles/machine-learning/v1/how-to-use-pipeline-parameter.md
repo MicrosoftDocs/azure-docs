@@ -28,11 +28,11 @@ In this article, you learn how to do the following:
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
+* An Azure Machine Learning workspace. See [Create workspace resources](../quickstart-create-resources.md).
 
 * For a guided introduction to the designer, complete the [designer tutorial](tutorial-designer-automobile-price-train-score.md). 
 
-[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
 
 ## Create pipeline parameter
 
@@ -185,4 +185,4 @@ Published endpoints are especially useful for retraining and batch prediction sc
 
 In this article, you learned how to create pipeline parameters in the designer. Next, see how you can use pipeline parameters to [retrain models](how-to-retrain-designer.md) or perform [batch predictions](how-to-run-batch-predictions-designer.md).
 
-You can also learn how to [use pipelines programmatically with the SDK v1](v1/how-to-deploy-pipelines.md?view=azureml-api-1&preserve-view=true).
+You can also learn how to [use pipelines programmatically with the SDK v1](how-to-deploy-pipelines.md?view=azureml-api-1&preserve-view=true).

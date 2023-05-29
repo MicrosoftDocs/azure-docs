@@ -20,9 +20,9 @@ Use the built-in examples in Azure Machine Learning designer to quickly get star
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/)
-* An Azure Machine Learning workspace 
+* An Azure Machine Learning workspace
 
-[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
 
 ## Use sample pipelines
 
@@ -118,7 +118,7 @@ The sample datasets are available under **Datasets**-**Samples** category. You c
 | Adult Census Income Binary Classification dataset | A subset of the 1994 Census database, using working adults over the age of 16 with an adjusted income index of > 100.<br/>**Usage**: Classify people using demographics to predict whether a person earns over 50K a year.<br/> **Related Research**: Kohavi, R., Becker, B., (1996). [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science|
 |Automobile price data (Raw)|Information about automobiles by make and model, including the price, features such as the number of cylinders and MPG, as well as an insurance risk score.<br/> The risk score is initially associated with auto price. It is then adjusted for actual risk in a process known to actuaries as symboling. A value of +3 indicates that the auto is risky, and a value of -3 that it is probably safe.<br/>**Usage**: Predict the risk score by features, using regression or multivariate classification.<br/>**Related Research**: Schlimmer, J.C. (1987). [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science. |
 | CRM Appetency Labels Shared |Labels from the KDD Cup 2009 customer relationship prediction challenge ([orange_small_train_appetency.labels](https://kdd.org/cupfiles/KDDCupData/2009/orange_small_train_appetency.labels)).|
-|CRM Churn Labels Shared|Labels from the KDD Cup 2009 customer relationship prediction challenge ([orange_small_train_churn.labels](https://kdd.org/cupfiles/KDDCupData/2009/files/orange_small_train_churn.labels)).|
+|CRM Churn Labels Shared|Labels from the KDD Cup 2009 customer relationship prediction challenge ([orange_small_train_churn.labels](https://www.kdd.org/kdd-cup/view/kdd-cup-2009/Datas)).|
 |CRM Dataset Shared | This data comes from the KDD Cup 2009 customer relationship prediction challenge ([orange_small_train.data.zip](https://kdd.org/cupfiles/KDDCupData/2009/orange_small_train.data.zip)). <br/>The dataset contains 50K customers from the French Telecom company Orange. Each customer has 230 anonymized features, 190 of which are numeric and 40 are categorical. The features are very sparse. |
 |CRM Upselling Labels Shared|Labels from the KDD Cup 2009 customer relationship prediction challenge ([orange_large_train_upselling.labels](https://kdd.org/cupfiles/KDDCupData/2009/orange_small_train_upselling.labels)|
 |Flight Delays Data|Passenger flight on-time performance data taken from the TranStats data collection of the U.S. Department of Transportation ([On-Time](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time)).<br/>The dataset covers the time period April-October 2013. Before uploading to the designer, the dataset was processed as follows: <br/>-    The dataset was filtered to cover only the 70 busiest airports in the continental US <br/>- Canceled flights were labeled as delayed by more than 15 minutes <br/>- Diverted flights were filtered out <br/>- The following columns were selected: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled|
@@ -133,7 +133,7 @@ The sample datasets are available under **Datasets**-**Samples** category. You c
 
 ## Clean up resources
 
-[!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 
