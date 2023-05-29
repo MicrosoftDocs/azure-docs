@@ -16,30 +16,30 @@ As Azure Web PubSub is built on top of WebSocket, the only requirement for using
 ## Web front-end
 :::row:::
    :::column span="":::
-      [Blazor WebAssembly](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js)
+      [Blazor WebAssembly](https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/blazor-webassembly)
    :::column-end:::
    :::column span="":::
-      [React](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js)
+      [React](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp/react)
    :::column-end:::
 :::row-end:::
 
 :::row:::
    :::column span="":::
-      [Vue](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js)
+      [Vue](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/scoreboard)
    :::column-end:::
 :::row-end:::
 
-## Cross-platform
+<!-- ## Cross-platform
 :::row:::
    :::column span="":::
       [React native](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js)
    :::column-end:::
-:::row-end:::
+:::row-end::: -->
 
 ## Gaming
 :::row:::
    :::column span="":::
-      [Unity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js)
+      [Unity](https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/unity-multiplayer-sample)
    :::column-end:::
 :::row-end:::
 

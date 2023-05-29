@@ -21,13 +21,8 @@
 - name: Tutorials
   expanded: false
   items:
-    - name: Serverless development
-      expanded: false
-      items:
-        - name: Build a notification app by using Azure Functions
-          href: tutorial-serverless-notification.md
-        - name: Build a real-time chat app with client authentication
-          href: quickstart-serverless.md
+    - name: Build a real-time chat app with client authentication
+      href: quickstart-serverless.md
     - name: Publish and subscribe messages
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
@@ -96,7 +91,7 @@
         - name: App Service
           href: howto-integrate-app-service.md
         - name: Azure Functions
-          href: integrate-azure-functions.md
+          href: tutorial-serverless-notification.md
         - name: Static Web Apps
           href: tutorial-serverless-static-web-app.md
         - name: Azure IoT Hub
