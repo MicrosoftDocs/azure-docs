@@ -67,12 +67,15 @@ CONTROL_PLANE_VM_SIZE="NC_G2_v1"
 INITIAL_AGENT_POOL_NAME="${CLUSTER_NAME}-nodepool-1"
 INITIAL_AGENT_POOL_COUNT="1"
 INITIAL_AGENT_POOL_VM_SIZE="NC_M4_v1"
+SECOND_AGENT_POOL_NAME="${CLUSTER_NAME}-nodepool-2"
+SECOND_AGENT_POOL_VM_SIZE="NC_M4_v1"
+SECOND_AGENT_POOL_COUNT="NC_M4_v1"
 POD_CIDR="10.244.0.0/16"
 SERVICE_CIDR="10.96.0.0/16"
 DNS_SERVICE_IP="10.96.0.10"
 ```
 > [!NOTE]
-> It is essential that you replace the placeholders for CUSTOM_LOCATION, CSN_ARM_ID, CNI_ARM_ID, and AAD_ADMIN_GROUP_OBJECT_ID with your actual values before running these commands.
+> It is essential that you replace the placeholders for LOCATION, CUSTOM_LOCATION, CSN_ARM_ID, CNI_ARM_ID, and AAD_ADMIN_GROUP_OBJECT_ID with your actual values before running these commands.
 
 After defining these variables, you can create the Kubernetes cluster by executing the following Azure CLI command:
 
@@ -97,8 +100,7 @@ az networkcloud kubernetescluster create \
     cni-network-id="${CNI_ARM_ID}" \
     pod-cidrs="[${POD_CIDR}]" \
     service-cidrs="[${SERVICE_CIDR}]" \
-    dns-service-ip="${DNS_SERVICE_IP}" \
---debug
+    dns-service-ip="${DNS_SERVICE_IP}"
 ```
 
 After a few minutes, the command completes and returns information about the cluster.
@@ -110,6 +112,22 @@ After a few minutes, the command completes and returns information about the clu
 ## Connect to the cluster
 
 [!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/quickstart-cluster-connect.md)]
+
+## Add an agent pool
+To add an agent pool to your existing Nexus Kubernetes cluster, you can use the following command. Replace the example values with your preferred values.
+
+```azurecli-interactive
+az networkcloud kubernetescluster agentpool create \
+  --name "${SECOND_AGENT_POOL_NAME}" \
+  --kubernetes-cluster-name "${CLUSTER_NAME}" \
+  --resource-group "${RESOURCE_GROUP}" \
+  --extended-location name="${CUSTOM_LOCATION}" type=CustomLocation \
+  --count "${SECOND_AGENT_POOL_COUNT}" \
+  --mode User \
+  --vm-sku-name "${SECOND_AGENT_POOL_VM_SIZE}"
+```
+
+[!INCLUDE [quickstart-review-nodepool](./includes/kubernetes-cluster/quickstart-review-nodepool.md)]
 
 ## Clean up resources
 
