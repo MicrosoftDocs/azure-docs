@@ -21,7 +21,7 @@ Agentless Container Posture provides the following capabilities:
 
 - Using cloud security explorer for risk hunting by querying various risk scenarios.
 
-- Viewing security insights, such as internet exposure, and other pre-defined security scenarios. For more information, search for `Kubernetes` in the [list of Insights](attack-path-reference.md#insights).
+- Viewing security insights, such as internet exposure, and other predefined security scenarios. For more information, search for `Kubernetes` in the [list of Insights](attack-path-reference.md#insights).
 
 - [Agentless discovery and visibility](#agentless-discovery-and-visibility-within-kubernetes-components) within Kubernetes components.
 
@@ -45,7 +45,7 @@ The discovery process is based on snapshots taken at intervals:
 
 :::image type="content" source="media/concept-agentless-containers/diagram-permissions-architecture.png" alt-text="Diagram of the permissions architecture." lightbox="media/concept-agentless-containers/diagram-permissions-architecture.png":::
 
-By enabling the Agentless discovery for Kubernetes extension, the following process occurs:
+WHen you enable the Agentless discovery for Kubernetes extension, the following process occurs:
 
 - **Create**: MDC (Microsoft Defender for Cloud) creates an identity in customer environments called CloudPosture/securityOperator/DefenderCSPMSecurityOperator.
 
@@ -80,7 +80,7 @@ Container vulnerability assessment powered by MDVM (Microsoft Defender Vulnerabi
 - **Scanning OS packages** - container vulnerability assessment has the ability to scan vulnerabilities in packages installed by the OS package manager in Linux. See the [full list of the supported OS and their versions](support-agentless-containers-posture.md#registries-and-images).   
 - **Language specific packages** – support for language specific packages and files, and their dependencies installed or copied without the OS package manager. See the [complete list of supported languages](support-agentless-containers-posture.md#registries-and-images).  
 - **Image scanning in Azure Private Link** - Azure container vulnerability assessment provides the ability to scan images in container registries that are accessible via Azure Private Links. This capability requires access to trusted services and authentication with the registry. Learn how to [connect privately to an Azure container registry using Azure Private Link](/azure/container-registry/container-registry-private-link#set-up-private-endpoint---portal-recommended).   
-- **Gaining intel for existing exploits of a vulnerability** - While vulnerability reporting tools can report the ever growing volume of vulnerabilities, the capacity to efficiently remediate them remains a challenge. These tools typically prioritize their remediation processes according to the severity of the vulnerability. MDVM provides additional context on the risk related with each vulnerability, leveraging intelligent assessment and risk-based prioritization  against industry security benchmarks, based on three data sources: [exploit DB](https://www.exploit-db.com/), [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), and [MSRC](https://www.microsoft.com/msrc?SilentAuth=1&wa=wsignin1.0)
+- **Gaining intel for existing exploits of a vulnerability** - While vulnerability reporting tools can report the ever growing volume of vulnerabilities, the capacity to efficiently remediate them remains a challenge. These tools typically prioritize their remediation processes according to the severity of the vulnerability. MDVM provides extra context on the risk related with each vulnerability, leveraging intelligent assessment and risk-based prioritization  against industry security benchmarks, based on three data sources: [exploit DB](https://www.exploit-db.com/), [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), and [MSRC](https://www.microsoft.com/msrc?SilentAuth=1&wa=wsignin1.0)
 - **Reporting** - Defender for Containers powered by Microsoft Defender Vulnerability Management (MDVM)  reports the vulnerabilities as the following recommendation: 
  
     | Recommendation | Description |
@@ -88,7 +88,7 @@ Container vulnerability assessment powered by MDVM (Microsoft Defender Vulnerabi
     | Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. |
 
 - **Query vulnerability information via the Azure Resource Graph** - Ability to query vulnerability information via the [Azure Resource Graph](/azure/governance/resource-graph/overview#how-resource-graph-complements-azure-resource-manager). Learn how to [query recommendations via the ARG](review-security-recommendations.md#review-recommendation-data-in-azure-resource-graph-arg). 
-- **Query vulnerability information via sub-assessment API** - You can get scan results via REST API. See the [sub-assessment list](/rest/api/defenderforcloud/sub-assessments/get?tabs=HTTP).   
+- **Query vulnerability information via sub-assessment API** - You can get scan results via REST API. See the [subassessment list](/rest/api/defenderforcloud/sub-assessments/get?tabs=HTTP).   
    
 ### Scan Triggers 
 
@@ -121,7 +121,7 @@ While you can currently [exempt a resource or subscription from the list of reco
 
 You can use a combination of any of the following criteria to exempt: 
 
-- Minimum auditing severity threshold (low, medium, high, critical). Any CVE below this threshold would not be reported.
+- Minimum auditing severity threshold (low, medium, high, critical). Any CVE below this threshold wouldn't be reported.
 - Fix status (no fix, fix exists, vendor will not fix)
 - CVE
 - Image tag

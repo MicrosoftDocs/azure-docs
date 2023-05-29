@@ -13,7 +13,7 @@ ms.date: 05/28/2023
 
 If you have an organizational need to ignore a vulnerability assessment finding, rather than remediate it, you can optionally disable or exempt it. Disabled findings don't affect your secure score or generate unwanted noise. 
 
-When a finding matches the criteria you've defined in your disable rules, it won't appear in the list of findings. Typical scenario examples include: 
+When a finding matches the criteria you've defined in your disable rules, it doesn't appear in the list of findings. Typical scenario examples include: 
 
 - Disable findings with severity below medium 
 - Temporarily disable findings that are non-patchable until a patch is released
@@ -25,8 +25,8 @@ When a finding matches the criteria you've defined in your disable rules, it won
  
 You can use a combination of any of the following criteria: 
 
-- Minimum auditing severity threshold (low, medium, high, critical) Any CVE below this threshold would not be reported. 
-- Fix status (no fix, fix exists, vendor will not fix) 
+- Minimum auditing severity threshold (low, medium, high, critical) Any CVE below this threshold wouldn't be reported. 
+- Fix status (no fix, fix exists, vendor won't fix) 
 - CVE 
 - Image tag 
 - Image digest 
@@ -44,7 +44,7 @@ You can use a combination of any of the following criteria:
 To view, override, or delete a rule: 
 
 1. Select **Disable rule**. 
-1. Use the optional free text box to provide explanation or justification for why the exception was created; when the list of disable rules is reviewed, providing this information will help give clarity to understand why the disable rule was created.
+1. Use the optional free text box to provide explanation or justification for why the exception was created; when the list of disable rules is reviewed, providing this information helps give clarity to understand why the disable rule was created.
 1. From the scope list, subscriptions with active rules show as **Rule applied**. 
 
 [Screenshot showing how to modify or delete an existing rule] 
