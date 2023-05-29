@@ -216,7 +216,11 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    ```text
    [INFO] Deployment(default) is successfully updated.
    [INFO] Deployment Status: Running
+   [INFO] Getting public url of app(simple-todo-web)...
+   [INFO] Application url: https://<your-azure-spring-apps-name>-simple-todo-web.azuremicroservices.io
    ```
+   
+   The output **Application url** is the endpoint to access the todo application. 
 
 #### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
@@ -237,10 +241,16 @@ Use AZD to package the app, provision the Azure resources required by the web ap
    The console outputs messages similar to the following:
 
    ```text
+   |       | Deploying service simple-todo-webExecuting prepackage hook => /var/folders/m1/twqn055s7ll1bw0sstvkc0j40000gn/T/azd-prepackage-708945870.sh
+   (✓) Done: Deploying service simple-todo-web
+   - Endpoint: https://asa-2jqpw3tejrxdi-simple-todo-web.azuremicroservices.io/
+
    SUCCESS: Your Azure app has been deployed!
    You can view the resources created under the resource group rg-<your-environment-name>-<a-random-string> in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/<>your-subscription-id/resourceGroups/rg-<your-environment-name>-<a-random-string>/overview
    ```
+   
+   The output **Endpoint** is the endpoint to access the todo application. 
 
 > [!NOTE]
 > You can also use `azd up` to combine the previous three commands: `azd package` (packages a deployable copy of your application), `azd provision` (provisions Azure resources), and `azd deploy` (deploys application code). See more details from [Azure-Samples/ASA-Samples-Web-Application](https://github.com/Azure-Samples/ASA-Samples-Web-Application).
