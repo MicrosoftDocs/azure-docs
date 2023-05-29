@@ -37,7 +37,7 @@ If you don't see results from your clusters, check the following:
 - Are your clusters Read only (locked)?
 
 ## What do I do if I have stopped clusters?
-We suggest that you rerun the cluster to solve this issue. We do not support or charge stopped clusters.
+We do not support or charge stopped clusters. To derive the value of agentless capabilities on a stopped cluster, you can rerun the cluster. 
 
 ## Are you using an updated version of AKS?
 
