@@ -47,7 +47,7 @@ var client = new CallAutomationClient("<resource_connection_string>");
 ## [JavaScript](#tab/javascript)
 
 ```javascript
-const client = new CallAutomationClient("<resource_sonnection_string>");
+const client = new CallAutomationClient("<resource_connection_string>");
 ```
 
 -----
