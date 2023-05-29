@@ -98,10 +98,7 @@ az networkcloud kubernetescluster create \
 --debug
 ```
 
-After a few minutes, the command completes and returns JSON-formatted information about the cluster.
-
-> [!NOTE]
-> When you create a new cluster, Nexus automatically creates a second resource group to store the Kuberenetes cluster resources.
+After a few minutes, the command completes and returns information about the cluster.
 
 ## Review deployed resources
 
