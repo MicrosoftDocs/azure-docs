@@ -72,7 +72,7 @@ Example for a query across two workspaces:
 ```
 union 
   Update, 
-  workspace("").Update, workspace("00000000-0000-0000-0000-000000000000").Update
+  workspace("00000000-0000-0000-0000-000000000001").Update, workspace("00000000-0000-0000-0000-000000000002").Update
 | where TimeGenerated >= ago(1h)
 | where UpdateState == "Needed"
 | summarize dcount(Computer) by Classification

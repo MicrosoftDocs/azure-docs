@@ -55,9 +55,9 @@ Log alert rules using [cross-resource queries](../logs/cross-workspace-query.md)
 
 ```Kusto
 union
-app('Contoso-app1').requests,
-app('Contoso-app2').requests,
-workspace('Contoso-workspace1').Perf 
+app('00000000-0000-0000-0000-000000000001').requests,
+app('00000000-0000-0000-0000-000000000002').requests,
+workspace('"00000000-0000-0000-0000-000000000001').Perf 
 ```
 
 >[!NOTE]
