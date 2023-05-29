@@ -45,9 +45,5 @@ As part of compliance requirements in various industries, vendors are expected t
 ## Known limitations
 - Play action isn't enabled to work with Teams Interoperability.
 
-
-## What's coming up next for Play action
-As we invest more into this functionality, we recommend developers sign up to our TAP program that allows you to get early access to the newest feature releases. Over the coming months the play action will add new capabilities that use our integration with Azure Cognitive Services to provide AI capabilities such as Text-to-Speech and fine tuning Text-to-Speech with SSML. With these capabilities, you can improve customer interactions to create more personalized messages.
-
 ## Next Steps
 Check out our how-to guide to learn [how-to play custom voice prompts](../../how-tos/call-automation/play-action.md) to users.
