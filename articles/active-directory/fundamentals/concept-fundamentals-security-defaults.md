@@ -45,7 +45,7 @@ Security defaults make it easier to help protect your organization from these id
 If your tenant was created on or after October 22, 2019, security defaults may be enabled in your tenant. To protect all of our users, security defaults are being rolled out to all new tenants at creation. 
 
 > [!NOTE]
-> To help protect organzations we're always working to improve the security of Microsoft cloud services. As part of this, tenants not actively using a form of multifactor authentication will be periodically notified for the automatic enablement of the security defaults setting. After this setting is enabled, all users in the organization will need to register for multifactor authentication. To avoid confusion, please refer to the notification you recieved and alternatively you can [disable security defaults](#disabling-security-defaults) after it's enabled.
+> To help protect organizations, we're always working to improve the security of Microsoft account services. As part of this, free tenants not actively using multifactor authentication for all their users will be periodically notified for the automatic enablement of the security defaults setting. After this setting is enabled, all users in the organization will need to register for multifactor authentication. To avoid confusion, please refer to the email you received and alternatively you can [disable security defaults](#disabling-security-defaults) after it's enabled.
 
 To enable security defaults in your directory:
 
