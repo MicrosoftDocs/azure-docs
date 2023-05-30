@@ -86,24 +86,25 @@ Create a new `RoomsClient` object that will be used to create new `rooms` and ma
 var connectionString = "<connection_string>";
 RoomsClient roomsClient = new RoomsClient(connectionString);
 
-// Create identities for users
-CommunicationIdentityClient identityClient = new CommunicationIdentityClient(connectionString);
-CommunicationUserIdentifier user1 = await identityClient.CreateUser();
-CommunicationUserIdentifier user2 = await identityClient.CreateUser();
-
 ```
 
 ## Create a room
 
-Create a new `room` with default properties using the code snippet below:
+### Set up room participants
+In order to set up room participants, you'll need to initialize a `CommunicationIdentityClient` to create the communication user identities who will be granted access to join the room.
 
 ```csharp
 
-// Create a room
-List roomParticipants = new List<RoomParticipant>();
-roomParticipants.Add(new RoomParticipant(new CommunicationUserIdentifier(user1.Value.User.Id), RoleType.Presenter));
+// Create identities for users who will join the room
+CommunicationIdentityClient identityClient = new CommunicationIdentityClient(connectionString);
+CommunicationUserIdentifier user1 = await identityClient.CreateUser();
+CommunicationUserIdentifier user2 = await identityClient.CreateUser();
+```
 
+Alternatively, you can follow the instructions [here](https://learn.microsoft.com/azure/communication-services/quickstarts/rooms/join-rooms-call?pivots=platform-web#obtain-user-access-token) to create a user and access token.
 
+After the user identities have been created, you can create a `RoomParticipant` and assign a role. If a role is not assigned, then the participant will be assigned `Attendee` role by default.
+```csharp
 RoomParticipant participant1 = new RoomParticipant(user1) { Role = ParticipantRole.Presenter };
 RoomParticipant participant2 = new RoomParticipant(user2) { Role = ParticipantRole.Attendee };
 
@@ -111,12 +112,19 @@ List<RoomParticipant> participants = new List<RoomParticipant>();
 
 participants.Add(participant1);
 participants.Add(participant2);
+```
 
+### Initialize the room
+Create a new `room` with default properties using the code snippet below:
+
+```csharp
+
+// Create a room
 DateTimeOffset validFrom = DateTimeOffset.UtcNow;
 DateTimeOffset validUntil = validFrom.AddDays(1);
 CancellationToken cancellationToken = new CancellationTokenSource().Token;
 
-CommunicationRoom createdRoom = await roomsClient.CreateRoomAsync(validFrom, validUntil, roomParticipants, cancellationToken);
+CommunicationRoom createdRoom = await roomsClient.CreateRoomAsync(validFrom, validUntil, participants, cancellationToken);
 string roomId = createdRoom.Id;
 Console.WriteLine("\nCreated room with id: " + roomId);
 
