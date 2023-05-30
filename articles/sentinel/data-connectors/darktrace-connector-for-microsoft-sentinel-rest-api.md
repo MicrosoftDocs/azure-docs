@@ -104,7 +104,7 @@ darktrace_model_alerts_CL
 To integrate with Darktrace Connector for Microsoft Sentinel REST API make sure you have: 
 
 - **Darktrace Prerequisites**: To use this Data Connector a Darktrace master running v5.2+ is required.
- Data is sent to the [Azure Monitor HTTP Data Collector API](https://learn.microsoft.com/azure/azure-monitor/logs/data-collector-api) over HTTPs from Darktrace masters, therefore outbound connectivity from the Darktrace master to Microsoft Sentinel REST API is required.
+ Data is sent to the [Azure Monitor HTTP Data Collector API](/azure/azure-monitor/logs/data-collector-api) over HTTPs from Darktrace masters, therefore outbound connectivity from the Darktrace master to Microsoft Sentinel REST API is required.
 - **Filter Darktrace Data**: During configuration it is possible to set up additional filtering on the Darktrace System Configuration page to constrain the amount or types of data sent.
 - **Try the Darktrace Sentinel Solution**: You can get the most out of this connector by installing the Darktrace Solution for Microsoft Sentinel. This will provide workbooks to visualise alert data and analytics rules to automatically create alerts and incidents from Darktrace Model Breaches and AI Analyst incidents.
 

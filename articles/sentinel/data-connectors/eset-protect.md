@@ -142,7 +142,7 @@ Configure ESET PROTECT to send all events through Syslog.
 
 2.  Follow [these instructions](https://help.eset.com/protect_admin/latest/en-US/admin_server_settings_export_to_syslog.html) to export all logs to syslog. Select **JSON** as the output format.
 
-Note:- Refer to the [documentation](https://learn.microsoft.com/en-us/azure/sentinel/connect-log-forwarder?tabs=rsyslog#security-considerations) for setting up the log forwarder for both local and cloud storage.
+Note:- Refer to the [documentation](/azure/sentinel/connect-log-forwarder?tabs=rsyslog#security-considerations) for setting up the log forwarder for both local and cloud storage.
 
 
 

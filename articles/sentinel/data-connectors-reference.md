@@ -397,7 +397,7 @@ Data connectors are available as part of the following offerings:
 ## Microsoft Corporation
 
 - [Azure Firewall](data-connectors/azure-firewall.md)
-- [Dynamics 365](data-connectors/dynamics365.md)
+- [Dynamics 365](data-connectors/dynamics-365.md)
 
 ## Microsoft Sentinel Community, Microsoft Corporation
 
