@@ -47,7 +47,7 @@ To complete the steps in this tutorial, you must have the following resources an
 
 ## Create a data collection rule
 
-See step by step guide [here](../azure-monitor/agents/data-collection-syslog.md#create).
+See step by step guide [here](../azure-monitor/agents/data-collection-syslog.md#create-a-data-collection-rule).
 
 ## Verify the Azure Monitor agent is running
 
@@ -129,5 +129,8 @@ Evaluate whether you still need the resources you created like the virtual machi
 
 ## Next steps
 
+Learn more about: 
+
 > [!div class="nextstepaction"]
 > [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
+> [Collect syslog with Azure Monitor Agent overview](../azure-monitor/agents/data-collection-syslog.md)
