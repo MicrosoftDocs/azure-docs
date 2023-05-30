@@ -14,19 +14,13 @@ metadata:
   author: bandersmsft
   ms.reviewer: micflan
   ms.author: banders
-  ms.date: 05/26/2023
+  ms.date: 05/30/2023
 
 highlightedContent:
   items:
     - title: What is Cost Management and Billing?
       itemType: overview
       url: cost-management-billing-overview.md?toc=/azure/cost-management-billing/toc.json
-    - title: Costs included in Cost Management
-      itemType: concept
-      url: costs/understand-cost-mgt-data.md?toc=/azure/cost-management-billing/toc.json
-    - title: Understand and work with scopes
-      itemType: concept
-      url: costs/understand-work-scopes.md?toc=/azure/cost-management-billing/toc.json
     - title: What are reservations?
       itemType: overview
       url: reservations/save-compute-costs-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
@@ -39,6 +33,12 @@ highlightedContent:
     - title: What's new
       itemType: whats-new
       url: https://azure.microsoft.com/blog/tag/cost-management/
+    - title: Costs included in Cost Management
+      itemType: concept
+      url: costs/understand-cost-mgt-data.md?toc=/azure/cost-management-billing/toc.json
+    - title: Understand and work with scopes
+      itemType: concept
+      url: costs/understand-work-scopes.md?toc=/azure/cost-management-billing/toc.json
     - title: Cost Management best practices
       itemType: concept
       url: costs/cost-mgt-best-practices.md?toc=/azure/cost-management-billing/toc.json
