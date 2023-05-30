@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/17/2023
+ms.date: 05/30/2023
 ms.author: sarahlipsey
 ms.reviewer: madansr7
 ---
@@ -159,7 +159,7 @@ The following is an example of the response:
 }
 ```
 
-For more information, see [Service principal activity in Microsoft Graph](/graph/api/resources/serviceprincipalsigninactivity?view=graph-rest-beta&preserve-view=true).
+For more information, see [List service principal activity in Microsoft Graph](/graph/api/reportroot-list-serviceprincipalsigninactivities?view=graph-rest-beta&preserve-view=true).
 
 ## Application credential activity (preview)
 
