@@ -1,0 +1,71 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "extendedLocation": {
+        "type": "string",
+        "defaultValue": "",
+        "metadata": {
+          "description": "Extended location (custom-location) of the Azure Operator Nexus instance"
+        }
+      },
+      "kubernetesClusterName": {
+        "type": "string",
+        "defaultValue": "[concat('nexus-k8s-cluster-',uniqueString(resourceGroup().id))]",
+        "metadata": {
+          "description": "Nexus Kubernetes cluster name"
+        }
+      },
+      "agentPoolName": {
+        "type": "string",
+        "defaultValue": "[concat(parameters('kubernetesClusterName'), '-nodepool-2')]",
+        "metadata": {
+          "description": "Nexus Kubernetes cluster system pool name"
+        }
+      },
+      "agentPoolVmSkuName": {
+        "type": "string",
+        "metadata": {
+          "description": "Nexus Kubernetes worker vmSize to use (e.g. NC_M4_v1)"
+        },
+        "defaultValue": "NC_M4_v1",
+        "allowedValues": [
+          "NC_M4_v1",
+          "NC_M8_v1",
+          "NC_M12_v1",
+          "NC_M16_v1",
+          "NC_M32_v1",
+          "NC_M36_v1",
+          "NC_M44_v1"
+        ]
+      },
+      "ncApiVersion": {
+        "type": "string",
+        "defaultValue": "2023-05-01-preview"
+      },
+      "agentPoolNodeCount": {
+        "type": "int",
+        "metadata": {
+          "description": "The number of Nexus Kubernetes system pool nodes to create"
+        },
+        "defaultValue": 1
+      }
+    },
+    "resources": [
+      {
+        "type": "Microsoft.NetworkCloud/kubernetesClusters/agentpools",
+        "apiVersion": "[parameters('ncApiVersion')]",
+        "name": "[concat(parameters('kubernetesClusterName'), '/', parameters('agentPoolName'))]",
+        "extendedLocation": {
+          "name": "[parameters('extendedLocation')]",
+          "type": "CustomLocation"
+        },
+        "properties": {
+          "count": "[parameters('agentPoolNodeCount')]",
+          "mode": "User",
+          "vmSkuName": "[parameters('agentPoolVmSkuName')]"
+        },
+        "dependsOn": []
+      }
+    ]
+}
