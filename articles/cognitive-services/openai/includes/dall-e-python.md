@@ -31,33 +31,64 @@ To successfully make a call against Azure OpenAI, you'll need the following:
 
 Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
+## Install the Python SDK
+
+Open the command prompt and navigate to your project folder. Install the OpenAI Python SDK using the following command: 
+
+```bash
+pip install openai
+```
+Install the following libraries as well:
+
+```bash
+pip install requests
+pip install pillow 
+```
+
 ## Create a new Python application
 
-Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
+Create a new Python file called quickstart.py. Then open it in your preferred editor or IDE.
 
 1. Replace the contents of quickstart.py with the following code. Enter your endpoint URL and key in the appropriate fields.
 
     ```python
     import openai
+    import os
+    import requests
+    from PIL import Image
 
-    openai.api_base = 'enter_your_endpoint_URL' # Please add your endpoint here
-    openai.api_key = 'enter_your_key'  # Please add your api key here
+    openai.api_base = '<your_openai_endpoint>' # Add your endpoint here
+    openai.api_key = '<your_openai_key>'  # Add your api key here
 
-    # IMPORTANT: Dall-E is currently only available through api_version '2023-04-01-preview'. This version only supports Dall-E.
-
-    # If you want to use Dall-E and completions together, you have to override the api_version in the constructor as shown throughout the example.
-    openai.api_version = '2023-04-01-preview' # If this version is set globally completions and embeddings will not work without an override. 
+    # At the moment Dall-E is only supported by the 2023-06-01-preview API version
+    openai.api_version = '2023-06-01-preview'
 
     openai.api_type = 'azure'
 
-    openai.Image.create(
-        # IMPORTANT: Dall-E is currently only available through api version '2023-04-01-preview'. This version only supports Dall-E, no completions, etc..
-        # This means that if you want to use Dall-E and completions together, you have to override the api_version here.
-        api_version='2023-04-01-preview',
-        prompt='A cyberpunk monkey hacker dreaming of a beautiful bunch of bananas, digital art',
+    # Create an image using the image generation API
+    generation_response = openai.Image.create(
+        prompt='A painting of a dog',
         size='1024x1024',
         n=2
-    )	
+    )
+
+    # Set the directory where we'll store the image
+    image_dir = os.path.join(os.curdir, 'images')
+    # If the directory doesn't exist, create it
+    if not os.path.isdir(image_dir):
+        os.mkdir(image_dir)
+
+    # With the directory in place, we can initialize the image path (note that filetype should be png)
+    image_path = os.path.join(image_dir, 'generated_image.png')
+
+    # Now we can retrieve the generated image
+    image_url = generation_response["data"][0]["url"]  # extract image URL from response
+    generated_image = requests.get(image_url).content  # download the image
+    with open(image_path, "wb") as image_file:
+        image_file.write(generated_image)
+
+    # Display the image in the default image viewer
+    display(Image.open(image_path))
     ```
 
     > [!IMPORTANT]
@@ -73,18 +104,9 @@ Create a new Python file called quickstart.py. Then open it up in your preferred
 
 ## Output
 
-The output from a successful image generation API call will look like this. The `"contentUrl"` field contains a URL where you can download the generated image. The URL stays active for 24 hours.
+The output image will be downloaded to _generated_image.png_ at your specified location. The script will also display the image in your default image viewer.
 
-```console
-tbd
-```
-
-The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) article. The system will return an operation status of `Failed` and the `error.code` in the message will be set to `ContentFilter`. Here is an example.
-
-```console
-tbd
-```
-
+The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) article.
 
 ## Clean up resources
 
