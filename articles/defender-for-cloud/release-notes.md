@@ -2,8 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.custom: build-2023
-ms.date: 05/28/2023
+ms.date: 05/30/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -16,6 +15,18 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 > [!TIP]
 > If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## June 2023
+
+Updates in June include:
+
+- [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm)
+
+### Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM
+
+With Agentless Container Posture capabilities available in Defender CSPM, the agent-based discovery capabilities are now retired. If you currently use container capabilities within Defender CSPM, please make sure that the [relevant extensions](how-to-enable-agentless-containers.md) are enabled to continue receiving container-related value of the new agentless capabilities such as container-related attack paths, insights, and inventory. 
+
+Learn more about [agentless container posture](concept-agentless-containers.md).
 
 ## May 2023
 

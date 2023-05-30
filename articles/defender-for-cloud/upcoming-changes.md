@@ -2,8 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.custom: build-2023
-ms.date: 05/24/2023
+ms.date: 05/30/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -21,7 +20,6 @@ If you're looking for the latest release notes, you can find them in the [What's
 |--|--|
 | [Additional scopes added to existing Azure DevOps Connectors](#additional-scopes-added-to-existing-azure-devops-connectors) | May 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | June 2023 |
-| [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm) | June 2023
 | [Release of containers vulnerability assessment runtime recommendation powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM](#release-of-containers-vulnerability-assessment-runtime-recommendation-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-cspm) | June 2023 |
 
 
@@ -50,12 +48,6 @@ To improve the Defender for DevOps user experience and enable further integratio
 If you don't have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they don't want to keep by navigating to Defender for Cloud Environment Settings. 
 
 Customers will have until June 30, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists will remain onboarded to Defender for DevOps. For example, if Organization Contoso exists in both connectorA and connectorB, and connectorB was created after connectorA, then connectorA will be removed from Defender for DevOps.
-
-### Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM
-
-**Estimated date for change: June 2023**
-
-With Agentless Container Posture capabilities available in Defender CSPM, the agent-based discovery capabilities are set to be retired in June 2023. If you currently use container capabilities within Defender CSPM, please make sure that the [relevant extensions](how-to-enable-agentless-containers.md) are enabled before this date to continue receiving container-related value of the new agentless capabilities such as container-related attack paths, insights, and inventory.
 
 ### Release of containers vulnerability assessment runtime recommendation powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM
 
