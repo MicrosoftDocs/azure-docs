@@ -32,10 +32,10 @@
         "metadata": {
           "description": "Nexus Kubernetes cluster pod CIDRs."
         },
-        "defaultValue": ["10.245.0.0/16"]
+        "defaultValue": ["10.244.0.0/16"]
       },
       "dnsServiceIp": {
-        "type": "array",
+        "type": "string",
         "metadata": {
           "description": "Nexus Kubernetes cluster DNS service IP."
         },
@@ -46,14 +46,14 @@
         "metadata": {
           "description": "Nexus Kubernetes cluster service CIDRs."
         },
-        "defaultValue": ["10.97.0.0/16"]
+        "defaultValue": ["10.96.0.0/16"]
       },
       "controlPlaneCount": {
         "type": "int",
         "metadata": {
           "description": "Number of Nexus Kubernetes control plane machines to create"
         },
-        "defaultValue": 3
+        "defaultValue": 1
       },
       "extendedLocation": {
         "type": "string",
@@ -85,7 +85,7 @@
       },
       "systemPoolName": {
         "type": "string",
-        "defaultValue": "nodepool-1",
+        "defaultValue": "[concat(parameters('kubernetesClusterName'), '-nodepool-1')]",
         "metadata": {
           "description": "Nexus Kubernetes cluster system pool name"
         }
@@ -125,9 +125,9 @@
         "defaultValue": "2023-05-01-preview"
       },
       "sshPublicKey": {
-        "type": "array",
+        "type": "string",
         "metadata": {
-          "description": "SSH keys to install on the Nexus Kubernetes cluster"
+          "description": "SSH key to install on the Nexus Kubernetes cluster"
         },
         "defaultValue": []
       },
@@ -136,7 +136,7 @@
         "metadata": {
           "description": "The number of Nexus Kubernetes system pool nodes to create"
         },
-        "defaultValue": 3
+        "defaultValue": 1
       }
     },
     "resources": [
@@ -146,7 +146,7 @@
         "name": "[parameters('kubernetesClusterName')]",
         "location": "[parameters('location')]",
         "tags": {
-          "ManagedBy": "sample-nexus-aks-tag-from-doc"
+          "AppName": "Microsoft AP5GC SMF"
         },
         "extendedLocation": {
           "name": "[parameters('extendedLocation')]",
