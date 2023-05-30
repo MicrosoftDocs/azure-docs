@@ -524,10 +524,6 @@
           href: test-automate-integration-testing.md
         - name: Throttling and service limits
           href: test-throttle-service-limits.md
-        - name: Call and test a web API using Postman
-          href: howto-call-a-web-api-with-postman.md
-        - name: Call and test a web API using cURL
-          href: howto-call-a-web-api-with-curl.md
         - name: Create a service principal using the Azure portal
           href: howto-create-service-principal-portal.md
         - name: Create a service principal using Azure PowerShell
@@ -581,6 +577,12 @@
           href: ./howto-restore-app.md
 - name: Reference
   items:
+    - name: Token claims reference
+      items:
+        - name: Access token
+          href: access-token-claims-reference.md            
+        - name: SAML token
+          href: reference-saml-tokens.md
     - name: Microsoft Authentication Library (MSAL) reference
       displayName: SDK, library, msal, auth
       items:
@@ -830,8 +832,6 @@
               href: single-sign-on-saml-protocol.md
             - name: Sign out (SAML)
               href: single-sign-out-saml-protocol.md
-            - name: SAML tokens
-              href: reference-saml-tokens.md
             - name: Token exchange scenarios
               href: scenario-token-exchange-saml-oauth.md
     - name: App registration reference
