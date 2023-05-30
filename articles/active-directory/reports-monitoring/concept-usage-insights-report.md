@@ -61,7 +61,7 @@ To view the details of the sign-in activity for an application, select the **Vie
 
 ![Screenshot shows Usage and insights for Application activity where you can select a range and view sign-in activity for different apps.](./media/concept-usage-insights-report/usage-insights-overview.png)
 
-The sign-in activity graph uses interactive user sign-ins. Select a day in the application usage graph to see a detailed list of the sign-in activities for the application. This detailed list is actually the sign-in log with the filter set to the selected application and date. The details of any sign-in failures appears below the table. 
+The sign-in activity graph uses interactive user sign-ins. Select a day in the application usage graph to see a detailed list of the sign-in activities for the application. This detailed list is actually the sign-in log with the filter set to the selected application and date. The details of any sign-in failures appear below the table. 
 
 ![Screenshot of the sign-in activity details for a selected application.](./media/concept-usage-insights-report/application-activity-sign-in-detail.png)
 
@@ -111,7 +111,7 @@ Looking for the status of an authentication registration or reset event of a use
 
 ## Service principal sign-in activity (preview)
 
-The Service principal sign-in activity (preview) report provides the last activity date for every service principal. The report provides you information on the usage of the service principal - whether it was used as a client or resource app and whether it was used used in an app-only or delegated context. The report shows the last time the service principal was used.
+The Service principal sign-in activity (preview) report provides the last activity date for every service principal. The report provides you information on the usage of the service principal - whether it was used as a client or resource app and whether it was used in an app-only or delegated context. The report shows the last time the service principal was used.
 
 ![Screenshot of the service principal sign-in activity report.](./media/concept-usage-insights-report/service-principal-sign-ins.png)
 
