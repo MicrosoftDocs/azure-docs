@@ -105,9 +105,8 @@ When audio effects are retrieved in the closed caption files, they are retrieved
 
 Audio Effects in closed captions file is retrieved with the following logic employed:
 
-* `Silence` event type will not be added to the closed captions
-* Maximum duration to show an event I 5 seconds
-* Minimum timer duration to show an event is 700 milliseconds
+* `Silence` event type will not be added to the closed captions.
+* Minimum timer duration to show an event is 700 milliseconds.
 
 ## Adding audio effects in closed caption files
 
