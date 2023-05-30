@@ -579,7 +579,7 @@ Because the Windows system generates the frames, you must implement your own for
     /*videoStreamFormat.resolution = VideoStreamResolution.p360*/
     videoStreamFormat.pixelFormat = VideoStreamPixelFormat.rgba
     videoStreamFormat.framesPerSecond = framerate
-    videoStreamFormat.stride1 = w * 4; /* It is times 4 because RGBA is a 32-bit format */
+    videoStreamFormat.stride1 = w * 4 /* It is times 4 because RGBA is a 32-bit format */
     
     var videoStreamFormats: [VideoStreamFormat] = []
     videoStreamFormats.append(videoStreamFormat)
