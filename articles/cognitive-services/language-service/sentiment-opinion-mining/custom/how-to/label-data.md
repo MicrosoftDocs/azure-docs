@@ -17,7 +17,7 @@ ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1
 
 Before training your model you need to label your documents with the classes you want to categorize them into. Data labeling  is a crucial step in development lifecycle; in this step you can create the classes you want to categorize your data into and label your documents with these classes. This data will be used in the next step when training your model so that your model can learn from the labeled data. If you already have labeled data, you can directly [import](create-project.md) it into your project. <!--Be sure that your data follows the [accepted data format](../concepts/data-formats.md).-->
 
-Before creating a custom text classification model, you need to have labeled data first. If your data isn't labeled already, you can label it in the [Language Studio](https://aka.ms/languageStudio). Labeled data informs the model how to interpret text, and is used for training and evaluation.
+Before creating a Custom sentiment analysis model, you need to have labeled data first. If your data isn't labeled already, you can label it in the [Language Studio](https://aka.ms/languageStudio). Labeled data informs the model how to interpret text, and is used for training and evaluation.
 
 ## Prerequisites
 

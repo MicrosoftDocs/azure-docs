@@ -16,7 +16,7 @@ ms.author: aahi
 
 ## Create a new Azure Language resource and Azure storage account
 
-Before you can use custom text classification, you'll need to create an Azure Language resource, which will give you the credentials that you need to create a project and start training a model. You'll also need an Azure storage account, where you can upload your dataset that will be used in building your model.
+Before you can use Custom sentiment analysis, you'll need to create an Azure Language resource, which will give you the credentials that you need to create a project and start training a model. You'll also need an Azure storage account, where you can upload your dataset that will be used in building your model.
 
 > [!IMPORTANT]
 > To get started quickly, we recommend creating a new Azure Language resource using the steps provided in this article, which will let you create the Language resource, and create and/or connect a storage account at the same time, which is easier than doing it later.
@@ -37,9 +37,9 @@ Before you can use custom text classification, you'll need to create an Azure La
 
 [!INCLUDE [Get keys and endpoint Azure Portal](../../../../includes/get-key-endpoint.md)]
 
-## Create a custom text classification project
+## Create a Custom sentiment analysis project
 
-Once your resource and storage container are configured, create a new custom text classification project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
+Once your resource and storage container are configured, create a new Custom sentiment analysis project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
 
 ### Trigger import project job 
 
@@ -93,7 +93,7 @@ Generally after training a model you would review its evaluation details and mak
 
 After your model is deployed successfully, you can start using it to classify your text via [Prediction API](https://aka.ms/ct-runtime-swagger). In the sample dataset you downloaded earlier you can find some test documents that you can use in this step.
 
-### Submit a custom text classification task
+### Submit a Custom sentiment analysis task
 
 [!INCLUDE [submit a text classification task using the REST API](../rest-api/submit-task.md)]
 

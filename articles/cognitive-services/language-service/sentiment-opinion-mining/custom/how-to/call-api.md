@@ -45,11 +45,11 @@ First you need to get your resource key and endpoint:
 
 ### Submit a Custom sentiment analysis task
 
-[!INCLUDE [submit a custom NER task using the REST API](../../includes/custom/rest-api/submit-task.md)]
+[!INCLUDE [submit a Custom sentiment analysis task using the REST API](../../includes/custom/rest-api/submit-task.md)]
 
 ### Get task results
 
-[!INCLUDE [get custom NER task results](../../includes/custom/rest-api/get-results.md)]
+[!INCLUDE [get Custom sentiment analysis task results](../../includes/custom/rest-api/get-results.md)]
 
 # [Client libraries (Azure SDK)](#tab/client)
 
