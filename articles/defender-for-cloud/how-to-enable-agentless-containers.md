@@ -4,12 +4,12 @@ description: Learn how to onboard Agentless Containers
 ms.service: defender-for-cloud
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 05/15/2023
+ms.date: 05/30/2023
 ---
 
 # Onboard Agentless Container posture in Defender CSPM
 
-Onboarding Agentless Container posture in Defender CSPM will allow you to gain all its [capabilities](concept-agentless-containers.md#agentless-container-posture-preview).
+Onboarding Agentless Container posture in Defender CSPM will allow you to gain all its [capabilities](concept-agentless-containers.md#agentless-container-posture).
 
 
 **To onboard Agentless Container posture in Defender CSPM:**
