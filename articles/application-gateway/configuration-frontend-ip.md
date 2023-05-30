@@ -45,6 +45,11 @@ A frontend IP address is associated to a *listener*, which checks for incoming r
 > 
 > **Outbound Rule**: (no specific requirement)
 
+> [!IMPORTANT]
+> **The default domain name behavior for V1 SKU**:
+> - Deployments before 1st May 2023: These deployments will continue to have the default domain names like "string".cloudapp.net mapped to the application gateway's Public IP address.
+> - Deployments after 1st May 2023: For deployments after this date, there will NOT be any default domain name mapped to the gateway's Public IP address. You must manually configure using your domain name by mapping its DNS record to the gateway's IP address
+
 ## Next steps
 
 - [Learn about listener configuration](configuration-listeners.md)
