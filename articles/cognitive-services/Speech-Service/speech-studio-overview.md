@@ -34,11 +34,15 @@ For a demonstration of these scenarios in Speech Studio, view this [introductory
 
 In Speech Studio, the following Speech service features are available as project types:
 
-* [Real-time speech to text](https://aka.ms/speechstudio/speechtotexttool): Quickly test speech to text by dragging audio files here without having to use any code. This is a demo tool for seeing how speech to text works on your audio samples. To explore the full functionality, see [What is speech to text?](speech-to-text.md).
+* [Real-time speech to text](https://aka.ms/speechstudio/speechtotexttool): Quickly test speech to text by dragging audio files here without having to use any code. This is a demo tool for seeing how speech to text works on your audio samples. To explore the full functionality, see [What is speech to text](speech-to-text.md).
+
+* [Batch speech to text](https://aka.ms/speechstudio/batchspeechtotext): Quickly test batch transcription capabilities to transcribe a large amount of audio in storage and receive results asynchronously, To learn more about Batch Speech-to-text, see [Batch speech to text overview](batch-transcription.md).
 
 * [Custom Speech](https://aka.ms/speechstudio/customspeech): Create speech recognition models that are tailored to specific vocabulary sets and styles of speaking. In contrast to the base speech recognition model, Custom Speech models become part of your unique competitive advantage because they're not publicly accessible. To get started with uploading sample audio to create a Custom Speech model, see [Upload training and testing datasets](how-to-custom-speech-upload-data.md).
 
 * [Pronunciation assessment](https://aka.ms/speechstudio/pronunciationassessment): Evaluate speech pronunciation and give speakers feedback on the accuracy and fluency of spoken audio. Speech Studio provides a sandbox for testing this feature quickly, without code. To use the feature with the Speech SDK in your applications, see the [Pronunciation assessment](how-to-pronunciation-assessment.md) article.
+
+* [Speech Translation](https://aka.ms/speechstudio/speechtranslation): Quickly test and translate speech into other languages of your choice with low latency. To explore the full functionality, see [What is speech translation](speech-translation.md).
 
 * [Voice Gallery](https://aka.ms/speechstudio/voicegallery): Build apps and services that speak naturally. Choose from a broad portfolio of [languages, voices, and variants](language-support.md?tabs=tts). Bring your scenarios to life with highly expressive and human-like neural voices.
 
