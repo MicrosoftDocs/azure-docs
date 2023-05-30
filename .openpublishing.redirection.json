@@ -22861,12 +22861,12 @@
         },
         {
             "source_path_from_root": "/articles/networking/scripts/virtual-network-cli-sample-multi-tier-application.md",
-            "redirect_url": "/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
+            "redirect_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-sample-multi-tier-application.md",
-            "redirect_url": "/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
+            "redirect_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
             "redirect_document_id": false
         },
         {
@@ -22886,7 +22886,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-multi-tier-application.md",
-            "redirect_url": "/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
+            "redirect_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
             "redirect_document_id": false
         },
         {
