@@ -424,6 +424,8 @@
               href: azure-cni-overlay.md
             - name: Deploy Isovalent Cilium Enterprise
               href: cilium-enterprise-marketplace.md
+            - name: Network Observability addon
+              href: azure-kubernetes-network-observability.md
         - name: DNS
           items:
             - name: Use a static IP address and DNS label
