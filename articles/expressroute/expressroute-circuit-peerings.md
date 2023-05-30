@@ -47,6 +47,7 @@ Default quotas and limits apply for every ExpressRoute circuit. Refer to the [Az
     * Can only be done using Azure CLI or Azure PowerShell.
     * Billing type must be **unlimited**.
 * Changing from *MeteredData* to *UnlimitedData*.
+* Downgrade from Premium SKU to Standard.
 
 #### Unsupported workflow
 
