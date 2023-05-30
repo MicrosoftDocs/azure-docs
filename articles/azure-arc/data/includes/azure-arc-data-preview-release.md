@@ -42,8 +42,6 @@ June 2023 test release is now available.
 ### Release notes
 
 - Arc SQL Server | Least privilege authentication and authorization on Windows
-- Arc SQL Server | Database Watcher | Event Hub Writer | 1P Preview June
-- Arc SQL Server | Database Watcher | Processor (Spark) | 1P Preview June
 - Arc SQL Server | Host Configuration | Support for being able to view your SQL Server Configuration is now available. This includes being able to view SQL Server instances and modify host level properties like license type and have the ability to skip instances.
 
 -->
