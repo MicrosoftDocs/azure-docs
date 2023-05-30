@@ -55,7 +55,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 using Azure.Communication;
-using Azure.Communication.Calling;
+using Azure.Communication.Calling.WindowsClient;
 
 namespace CallingQuickstart
 {
@@ -86,9 +86,9 @@ namespace CallingQuickstart
             CommunicationTokenCredential token_credential;
             try
             {
-                token_credential = new CommunicationTokenCredential(user_token_);
+                token_credential = new CallTokenCredential(user_token_);
                 CallAgentOptions call_agent_options = new CallAgentOptions();
-                call_agent = await call_client.CreateCallAgent(token_credential, call_agent_options);
+                call_agent = await call_client.CreateCallAgentAsync(token_credential, call_agent_options);
             }
             catch
             {
