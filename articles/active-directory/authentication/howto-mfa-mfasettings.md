@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/17/2023
+ms.date: 05/30/2023
 
 ms.author: justinha
 author: justinha
@@ -78,7 +78,7 @@ To unblock a user, complete the following steps:
 
 ## Report suspicious activity
 
-A preview of **Report Suspicious Activity**, the updated MFA **Fraud Alert** feature, is now available. When an unknown and suspicious MFA prompt is received, users can report the fraud attempt by using Microsoft Authenticator or through their phone. These alerts are integrated with [Identity Protection](../identity-protection/overview-identity-protection.md) for more comprehensive coverage and capability. 
+When an unknown and suspicious MFA prompt is received, users can report the fraud attempt by using Microsoft Authenticator or through their phone. These alerts are integrated with [Identity Protection](../identity-protection/overview-identity-protection.md) for more comprehensive coverage and capability. 
 
 Users who report an MFA prompt as suspicious are set to **High User Risk**. Administrators can use risk-based policies to limit access for these users, or enable self-service password reset (SSPR) for users to remediate problems on their own. If you previously used the **Fraud Alert** automatic blocking feature and don't have an Azure AD P2 license for risk-based policies, you can use risk detection events to identify and disable impacted users and automatically prevent their sign-in. For more information about using risk-based policies, see [Risk-based access policies](../identity-protection/concept-identity-protection-policies.md).  
 
