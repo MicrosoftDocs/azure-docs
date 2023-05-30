@@ -109,64 +109,95 @@ productDirectory:
         - url: automate/partner-automation.md?toc=/azure/cost-management-billing/toc.json
           text: Automation for partners
 
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  title: Billing + subscriptions # < 60 chars (optional)
+  summary: Documentation Azure billing and subscription management # < 160 chars (optional)
+  items:
+    # Card
+    - title: Manage your account
+      links:
+        - url: understand/mca-overview.md?toc=/azure/cost-management-billing/toc.json
+          itemType: concept
+          text: Get started with Microsoft Customer Agreement
+        - url: manage/view-all-accounts.md?toc=/azure/cost-management-billing/toc.json
+          itemType: concept
+          text: View billing accounts
+        - url: manage/change-credit-card.md?toc=/azure/cost-management-billing/toc.json
+          itemType: how-to-guide
+          text: Change credit card
+    # Card
+    - title: Manage your subscription
+      links:
+        - url: manage/create-subscription.md?toc=/azure/cost-management-billing/toc.json
+          itemType: how-to-guide
+          text: Create an additional subscription
+        - url: manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/toc.json
+          itemType: how-to-guide
+          text: Change administrator
+    # Card
+    - title: Access + permissions
+      links:
+        - url: costs/assign-access-acm-data.md?toc=/azure/cost-management-billing/toc.json
+          itemType: how-to-guide
+          text: Assign access to cost data
+        - url: manage/understand-mca-roles.md?toc=/azure/cost-management-billing/toc.json
+          itemType: concept
+          text: Microsoft Customer Agreement roles
+        - url: manage/understand-ea-roles.md?toc=/azure/cost-management-billing/toc.json
+          itemType: concept
+          text: Enterprise Agreement roles
+    # Card
+    - title: Review your bill
+      links:
+        - url: understand/review-individual-bill.md?toc=/azure/cost-management-billing/toc.json
+          itemType: tutorial
+          text: Review your individual account bill
+        - url: understand/review-customer-agreement-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+          itemType: tutorial
+          text: Review your Microsoft Customer Agreement bill
+        - url: understand/review-enterprise-agreement-bill.md?toc=/azure/cost-management-billing/toc.json
+          itemType: tutorial
+          text: Review your Enterprise Agreement bill
+    # Card
+    - title: Downloads + payments
+      links:
+        - url: understand/download-azure-invoice.md?toc=/azure/cost-management-billing/toc.json
+          itemType: how-to-guide
+          text: Download your invoice
+        - url: understand/mca-download-tax-document.md?toc=/azure/cost-management-billing/toc.json
+          itemType: how-to-guide
+          text: Download your tax documents
+        - url: understand/download-azure-daily-usage.md?toc=/azure/cost-management-billing/toc.json
+          itemType: how-to-guide
+          text: Download your usage and charges
+        - url: understand/pay-bill.md?toc=/azure/cost-management-billing/toc.json
+          itemType: how-to-guide
+          text: Pay your bill
+        - url: manage/pay-by-invoice.md?toc=/azure/cost-management-billing/toc.json
+          itemType: how-to-guide
+          text: Pay by wire transfer
+    # Card
+    - title: Learn more
+      links:
+        - url: understand/understand-usage.md?toc=/azure/cost-management-billing/toc.json
+          itemType: concept
+          text: Usage terms explained
+        - url: understand/mca-understand-your-usage.md?toc=/azure/cost-management-billing/toc.json
+          itemType: concept
+          text: Microsoft Customer Agreement usage terms
+        - url: understand/understand-invoice.md?toc=/azure/cost-management-billing/toc.json
+          itemType: concept
+          text: Invoice terms explained
+        - url: understand/mca-understand-your-invoice.md?toc=/azure/cost-management-billing/toc.json
+          itemType: concept
+          text: Microsoft Customer Agreement invoice terms
+        - url: /training/paths/control-spending-manage-bills/
+          itemType: learn
+          text: Learn at your own pace
+
 additionalContent:
   sections:
-    - title: Billing + subscriptions
-      items:
-        - title: Manage your account
-          links:
-            - text: Get started with Microsoft Customer Agreement
-              url: understand/mca-overview.md?toc=/azure/cost-management-billing/toc.json
-            - text: View billing accounts
-              url: manage/view-all-accounts.md?toc=/azure/cost-management-billing/toc.json
-            - text: Change credit card
-              url: manage/change-credit-card.md?toc=/azure/cost-management-billing/toc.json
-        - title: Manage your subscription
-          links:
-            - text: Create an additional subscription
-              url: manage/create-subscription.md?toc=/azure/cost-management-billing/toc.json
-            - text: Change administrator
-              url: manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/toc.json
-        - title: Access + permissions
-          links:
-            - text: Assign access to cost data
-              url: costs/assign-access-acm-data.md?toc=/azure/cost-management-billing/toc.json
-            - text: Microsoft Customer Agreement roles
-              url: manage/understand-mca-roles.md?toc=/azure/cost-management-billing/toc.json
-            - text: Enterprise Agreement roles
-              url: manage/understand-ea-roles.md?toc=/azure/cost-management-billing/toc.json
-        - title: Review your bill
-          links:
-            - text: Review your individual account bill
-              url: understand/review-individual-bill.md?toc=/azure/cost-management-billing/toc.json
-            - text: Review your Microsoft Customer Agreement bill
-              url: understand/review-customer-agreement-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-            - text: Review your Enterprise Agreement bill
-              url: understand/review-enterprise-agreement-bill.md?toc=/azure/cost-management-billing/toc.json
-        - title: Downloads + payments
-          links:
-            - text: Download your invoice
-              url: understand/download-azure-invoice.md?toc=/azure/cost-management-billing/toc.json
-            - text: Download your tax documents
-              url: understand/mca-download-tax-document.md?toc=/azure/cost-management-billing/toc.json
-            - text: Download your usage and charges
-              url: understand/download-azure-daily-usage.md?toc=/azure/cost-management-billing/toc.json
-            - text: Pay your bill
-              url: understand/pay-bill.md?toc=/azure/cost-management-billing/toc.json
-            - text: Pay by wire transfer
-              url: manage/pay-by-invoice.md?toc=/azure/cost-management-billing/toc.json
-        - title: Learn more
-          links:
-            - text: Usage terms explained
-              url: understand/understand-usage.md?toc=/azure/cost-management-billing/toc.json
-            - text: Microsoft Customer Agreement usage terms
-              url: understand/mca-understand-your-usage.md?toc=/azure/cost-management-billing/toc.json
-            - text: Invoice terms explained
-              url: understand/understand-invoice.md?toc=/azure/cost-management-billing/toc.json
-            - text: Microsoft Customer Agreement invoice terms
-              url: understand/mca-understand-your-invoice.md?toc=/azure/cost-management-billing/toc.json
-            - text: Learn at your own pace
-              url: /training/paths/control-spending-manage-bills/
     - title: Training
       items:
         - title: Cost Management basics
