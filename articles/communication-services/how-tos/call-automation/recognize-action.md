@@ -45,6 +45,8 @@ This guide will help you get started with recognizing DTMF input provided by par
 |RecognizeFailed|400|8532|Action failed, inter-digit silence timeout reached.|
 |RecognizeFailed|500|8511|Action failed, encountered failure while trying to play the prompt.|
 |RecognizeFailed|500|8512|Unknown internal server error.|
+|RecognizeCanceled|400|8508|Action failed, the operation was canceled.|
+
 
 
 ## Clean up resources
