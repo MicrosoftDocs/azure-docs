@@ -7,7 +7,8 @@ ms.custom: references_region
 ms.reviewer: shseth
 ---
 # Syslog troubleshooting guide for Azure Monitor Linux Agent
-### Overview of Azure Monitor Linux Agent syslog collection and supported RFC standards 
+
+Overview of Azure Monitor Linux Agent syslog collection and supported RFC standards:
 
 - AMA installs an output configuration for the system syslog daemon during the installation process. The configuration file specifies the way events flow between the syslog daemon and AMA.
 - For `rsyslog` (most Linux distributions), the configuration file is `/etc/rsyslog.d/10-azuremonitoragent.conf`. For `syslog-ng`, the configuration file is `/etc/syslog-ng/conf.d/azuremonitoragent.conf`.
@@ -19,6 +20,8 @@ ms.reviewer: shseth
 	> [!NOTE]
 	> AMA uses local persistency by default, all events received from `rsyslog` / `syslog-ng` are queued in `/var/opt/microsoft/azuremonitoragent/events` if they fail to be uploaded.
 	
+## Issues
+
 ### Rsyslog data not uploaded due to full disk space issue on Azure Monitor Linux Agent
 
 #### Symptom
@@ -73,7 +76,7 @@ none      849   root  txt    REG    0,1       8632     0 16764 / (deleted)
 rsyslogd 1484 syslog   14w   REG    8,1 3601566564     0 35280 /var/log/syslog (deleted)
 ```
 
-### Issue: rsyslog default configuration logs all facilities to /var/log/syslog
+### Rsyslog default configuration logs all facilities to /var/log/syslog
 On some popular distros (for example Ubuntu 18.04 LTS), rsyslog ships with a default configuration file (`/etc/rsyslog.d/50-default.conf`) which will log events from nearly all facilities to disk at `/var/log/syslog`.
 
 AMA doesn't rely on syslog events being logged to `/var/log/syslog`. Instead, it configures rsyslog to forward events over a socket directly to the azuremonitoragent service process (mdsd).
@@ -93,7 +96,7 @@ If you're sending a high log volume through rsyslog, consider modifying the defa
 	```
 2. `sudo systemctl restart rsyslog`
 
-### Issue: Azure Monitor Linux Agent Event Buffer is Filling Disk
+### Azure Monitor Linux Agent Event Buffer is Filling Disk
 If you observe the `/var/opt/microsoft/azuremonitor/events` directory growing unbounded (10 GB or higher) and not reducing in size, [file a ticket](#file-a-ticket) with **Summary** as 'AMA Event Buffer is filling disk' and **Problem type** as 'I need help configuring data collection from a VM'.
 
 [!INCLUDE [azure-monitor-agent-file-a-ticket](../../../includes/azure-monitor-agent/azure-monitor-agent-file-a-ticket.md)]
