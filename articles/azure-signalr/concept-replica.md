@@ -72,7 +72,7 @@ To delete a replica in the Azure portal:
 
 The diagram below provides a brief illustration of the SignalR Replicas' functionality:
 
-![replica_overview drawio (1)](https://github.com/bjqian/azure-docs/assets/16233725/6bdff945-f8f5-4c70-a640-8d75c00b473b)
+![replica_overview-Copy of Page-1 drawio](https://github.com/bjqian/azure-docs/assets/16233725/657a3daa-cc2f-4868-88d0-c2f228223790)
 
 1. The client resolves the Fully Qualified Domain Name (FQDN) of the SignalR service. This FQDN points to a Traffic Manager, which returns the  Canonical Name (CNAME) of the nearest regional SignalR instance.
 2. With this CNAME, the client establishes a connection to the regional instance.
