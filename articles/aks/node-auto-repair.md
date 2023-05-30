@@ -31,13 +31,13 @@ If AKS identifies an unhealthy node that remains unhealthy for *five* minutes, A
 2. If the node restart is unsuccessful, AKS reimages the node.
 3. If the reimage is unsuccessful and it's a Linux node, AKS redeploys the node.
 
-Alternative remediations are investigated by AKS engineers if auto-repair is unsuccessful.
+AKS engineers investigate alternative remediations if auto-repair is unsuccessful.
 
 If you want the remediator to reimage the node, you can add the `nodeCondition "customerMarkedAsUnhealthy": true`.
 
 ## Node auto-drain
 
-[Scheduled events][scheduled-events] can occur on the underlying VMs in any of your node pools. For [spot node pools][spot-node-pools], scheduled events may cause a *preempt* node event for the node. Certain node events, such as  *preempt*, cause AKS node auto-drain to attempt a cordon and drain of the affected node. This process allows for a reschedule of any affected workloads on that node. When this happens, you might notice the node receives a taint with `"remediator.aks.microsoft.com/unschedulable"`, because of `"kubernetes.azure.com/scalesetpriority: spot"`.
+[Scheduled events][scheduled-events] can occur on the underlying VMs in any of your node pools. For [spot node pools][spot-node-pools], scheduled events may cause a *preempt* node event for the node. Certain node events, such as  *preempt*, cause AKS node auto-drain to attempt a cordon and drain of the affected node. This process enables rescheduling for any affected workloads on that node. You might notice the node receives a taint with `"remediator.aks.microsoft.com/unschedulable"`, because of `"kubernetes.azure.com/scalesetpriority: spot"`.
 
 The following table shows the node events and actions they cause for AKS node auto-drain:
 
@@ -47,11 +47,14 @@ The following table shows the node events and actions they cause for AKS node au
 | Reboot | The VM is scheduled for reboot. The VM's non-persistent memory is lost. | No action. |
 | Redeploy | The VM is scheduled to move to another node. The VM's ephemeral disks are lost. | Cordon and drain. |
 | Preempt | The spot VM is being deleted. The VM's ephemeral disks are lost. | Cordon and drain |
-| Terminate | The VM is scheduled to be deleted.| Cordon and drain. |
+| Terminate | The VM is scheduled for deletion.| Cordon and drain. |
 
 ## Limitations
 
-In many cases, AKS can determine if a node is unhealthy and attempt to repair the issue. However, there are cases where AKS either can't repair the issue or detect that an issue exists. For example, AKS can't detect issues if a node status isn't being reported due to error in network configuration or has failed to initially register as a healthy node.
+In many cases, AKS can determine if a node is unhealthy and attempt to repair the issue. However, there are cases where AKS either can't repair the issue or detect that an issue exists. For example, AKS can't detect issues in the following example scenarios:
+
+* A node status isn't being reported due to error in network configuration.
+* A node failed to initially register as a healthy node.
 
 ## Next steps
 
