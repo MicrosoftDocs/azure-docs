@@ -76,5 +76,5 @@ For a list of existing Azure Marketplace offerings in this space, visit [this pa
  
 ## Next steps
 Review the documentation above. 
-Review the Azure Marketplace [Publishing guide by offer type](/partner-center/marketplace/publisher-guide-by-offer-type) for further tips and troubleshooting. 
+Review the Azure Marketplace [Publishing guide by offer type](https://learn.microsoft.com/partner-center/marketplace/publisher-guide-by-offer-type) for further tips and troubleshooting. 
 If you are still facing issues, open a ticket in Partner Center.
