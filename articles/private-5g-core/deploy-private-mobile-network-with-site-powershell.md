@@ -165,9 +165,9 @@ $staticIp = New-AzMobileNetworkSimStaticIPPropertiesObject -StaticIPIpv4Address 
 New-AzMobileNetworkSim -GroupName <SIMGROUP> -Name <SIM> -ResourceGroupName <RESOURCEGROUP>  -InternationalMobileSubscriberIdentity 000000000000001 -AuthenticationKey 00112233445566778899AABBCCDDEEFF -DeviceType Mobile -IntegratedCircuitCardIdentifier 8900000000000000001 -OperatorKeyCode 00000000000000000000000000000001 -SimPolicyId "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/simPolicies/<SIMPOLICY>" -StaticIPConfiguration $staticIp
 ```
 
-### Create a Site and dependant resources resource
+### Create a Site and dependant resources
 
-Use `New-AzMobileNetworkSite` to create a new **Site** resource,. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
+Use `New-AzMobileNetworkSite` to create the new **Site** resource and all remaining required resources (PCCP, PCDP, and ADN). Once complete the application will be fully deployed. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
 
 |Placeholder|Value|
 |-|-|
@@ -184,13 +184,7 @@ $aseId = "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Micro
 
 $customLocationId = "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.ExtendedLocation/customLocations/<CUSTOMLOCATION>"
 
-New-AzMobileNetworkSite -Name <SITE> -ResourceGroup <RESOURCEGROUP> -Location eastus -PlatformType AKS-HCI -Sku G0 -ControlPlaneAccessInterfaceIpv4Address 10.232.44.56 -MobileNetwork <MOBILENETWORK> -ControlPlaneAccessInterfaceIpv4Subnet 10.232.44.0/24 -ControlPlaneAccessInterfaceIpv4Gateway 10.232.44.1 -ControlPlaneAccessInterfaceName N2 -LocalDiagnosticAccessAuthenticationType Password  -UserPlaneAccessInterfaceName N3 -UserPlaneAccessInterfaceIpv4Address 192.168.0.101 -UserPlaneAccessInterfaceIpv4Gateway 192.168.0.1 -UserPlaneAccessInterfaceIpv4Subnet 192.168.0.0/24  -DataNetworkName <DATANETWORK> -UserPlaneDataInterfaceIpv4Address 10.0.0.101 -UserPlaneDataInterfaceIpv4Subnet 10.0.0.0/8 -UserPlaneDataInterfaceIpv4Gateway 10.0.0.1 -UserEquipmentAddressPoolPrefix 192.168.1.0/24 -CoreNetworkTechnology 5GC -AzureStackEdgeDeviceId $aseId -UserPlaneDataInterfaceName N6 -DnsAddress 1.1.1.1 -CustomLocation $customLocationId
-```
-
-Create a variable containing the **Site** resource's ID.
-
-```powershell
-$siteResourceId = New-AzMobileNetworkSiteResourceIdObject -Id /subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/sites/<SITE>
+New-AzMobileNetworkSite -Name <SITE> -ResourceGroup <RESOURCEGROUP> -Location eastus -PlatformType AKS-HCI -Sku G0 -MobileNetwork <MOBILENETWORK> -ControlPlaneAccessInterfaceIpv4Address 10.232.44.56 -ControlPlaneAccessInterfaceIpv4Subnet 10.232.44.0/24 -ControlPlaneAccessInterfaceIpv4Gateway 10.232.44.1 -ControlPlaneAccessInterfaceName N2 -UserPlaneAccessInterfaceName N3 -UserPlaneAccessInterfaceIpv4Address 192.168.0.101 -UserPlaneAccessInterfaceIpv4Gateway 192.168.0.1 -UserPlaneAccessInterfaceIpv4Subnet 192.168.0.0/24 -UserPlaneDataInterfaceIpv4Address 10.0.0.101 -UserPlaneDataInterfaceIpv4Subnet 10.0.0.0/8 -UserPlaneDataInterfaceIpv4Gateway 10.0.0.1 -DataNetworkName <DATANETWORK> -LocalDiagnosticAccessAuthenticationType Password -UserEquipmentAddressPoolPrefix 192.168.1.0/24 -CoreNetworkTechnology 5GC -AzureStackEdgeDeviceId $aseId -UserPlaneDataInterfaceName N6 -DnsAddress 1.1.1.1 -CustomLocation $customLocationId
 ```
 
 ## Clean up resources
