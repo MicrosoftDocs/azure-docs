@@ -35,9 +35,9 @@ This article describes how to perform lifecycle management operations on Bare Me
 This command will `power-off` the specified `bareMetalMachineName`.
 
 ```azurecli
-  az networkcloud baremetalmachine power-off \
-    --name "bareMetalMachineName"  \
-    --resource-group "resourceGroupName"
+az networkcloud baremetalmachine power-off \
+  --name "bareMetalMachineName"  \
+  --resource-group "resourceGroupName"
 ```
 
 ## Start the BMM
@@ -45,9 +45,9 @@ This command will `power-off` the specified `bareMetalMachineName`.
 This command will `start` the specified `bareMetalMachineName`.
 
 ```azurecli
- az networkcloud baremetalmachine start \
-   --name "bareMetalMachineName" \
-   --resource-group "resourceGroupName"
+az networkcloud baremetalmachine start \
+  --name "bareMetalMachineName" \
+  --resource-group "resourceGroupName"
 ```
 
 ## Restart the BMM
@@ -55,9 +55,9 @@ This command will `start` the specified `bareMetalMachineName`.
 This command will `restart` the specified `bareMetalMachineName`.
 
 ```azurecli
- az networkcloud baremetalmachine restart \
-    --name "bareMetalMachineName" \
-    --resource-group "resourceGroupName"
+az networkcloud baremetalmachine restart \
+  --name "bareMetalMachineName" \
+  --resource-group "resourceGroupName"
 ```
 
 ## Make a BMM unschedulable (cordon)
@@ -71,10 +71,10 @@ On executing the `cordon` command, with the value `True` for the `evacuate`
 parameter, the workloads that are running on the BMM are `stopped` and the BMM is set to `pending` state.
 
 ```azurecli
-  az networkcloud baremetalmachine cordon \
-    --evacuate "True" \
-    --name "bareMetalMachineName" \
-    --resource-group "resourceGroupName"
+az networkcloud baremetalmachine cordon \
+  --evacuate "True" \
+  --name "bareMetalMachineName" \
+  --resource-group "resourceGroupName"
 ```
 
 The `evacuate "True"` removes workloads from that node while `evacuate "False"` only prevents the scheduling of new workloads.
@@ -85,9 +85,9 @@ You can make a BMM `schedulable` (usable) by executing the [`uncordon`](#make-a-
 state on the BMM are `restarted` when the BMM is `uncordoned`.
 
 ```azurecli
-  az networkcloud baremetalmachine uncordon \
-    --name "bareMetalMachineName" \
-    --resource-group "resourceGroupName"
+az networkcloud baremetalmachine uncordon \
+  --name "bareMetalMachineName" \
+  --resource-group "resourceGroupName"
 ```
 
 ## Reimage a BMM
