@@ -51,22 +51,35 @@ Starting from agent version 1.13.27, the Linux agent will support both Python 2 
 
 If you're using an older version of the agent, you must have the virtual machine use Python 2 by default. If your virtual machine is using a distro that doesn't include Python 2 by default, then you must install it. The following sample commands will install Python 2 on different distros:
 
- - **Red Hat, CentOS, Oracle**: `yum install -y python2`
- - **Ubuntu, Debian**: `apt-get install -y python2`
- - **SUSE**: `zypper install -y python2`
+ - **Red Hat, CentOS, Oracle**: 
+ 
+ ```bash
+    sudo yum install -y python2
+ ```
+ - **Ubuntu, Debian**: 
+ 
+ ```bash
+    sudo apt-get update
+    sudo apt-get install -y python2
+ ```
+ - **SUSE**: 
+
+ ```bash
+    sudo zypper install -y python2
+ ```
 
 Again, only if you're using an older version of the agent, the python2 executable must be aliased to *python*. Use the following method to set this alias:
 
 1. Run the following command to remove any existing aliases:
  
-    ```
+    ```bash
     sudo update-alternatives --remove-all python
     ```
 
 1. Run the following command to create the alias:
 
-    ```
-    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```bash
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2
     ```
 
 ### Supported Linux hardening

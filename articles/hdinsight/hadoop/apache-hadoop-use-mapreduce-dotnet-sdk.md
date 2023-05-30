@@ -4,7 +4,7 @@ description: Learn how to submit MapReduce jobs to Azure HDInsight Apache Hadoop
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: "hdinsightactive, devx-track-csharp"
-ms.date: 01/15/2020
+ms.date: 04/24/2023
 ---
 
 # Run MapReduce jobs using HDInsight .NET SDK

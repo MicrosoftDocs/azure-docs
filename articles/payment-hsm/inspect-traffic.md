@@ -11,7 +11,7 @@ ms.date: 04/06/2023
 
 # Azure Payment HSM traffic inspection
 
-Azure Payment Hardware Security Module (Payment HSM or PHSM) is a [bare-metal service](overview.md) providing cryptographic key operations for real-time and critical payment transactions in the Azure cloud. For more information, see [What is Azure Payment HSM?](overview.md).
+Azure Payment Hardware Security Module (Payment HSM or PHSM) is a [bare-metal service](overview.md) providing cryptographic key operations for real-time and critical payment transactions in the Azure cloud. For more information, see [What is Azure Payment HSM?](overview.md). 
 
 When Payment HSM is deployed, it comes with a host network interface and a management network interface. There are several deployment scenarios:
 
@@ -62,7 +62,7 @@ This solution requires a reverse proxy, such as:
 - Reverse proxy Server using NGINX (VM-based)
 - Reverse proxy Server using HAProxy (VM-based)
 
-Example of reverse proxy Server using NGINX (VM-based) configuration:
+Example of reverse proxy Server using NGINX (VM-based) configuration to load balance tcp traffic:
 
 ```conf
 # Nginx.conf  

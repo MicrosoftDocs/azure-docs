@@ -375,6 +375,9 @@
       - name: Deploy - PowerShell
         displayName: deployment
         href: deploy-powershell.md
+      - name: Python
+        displayName: deployment
+        href: deploy-python.md
       - name: Deploy - REST API
         displayName: deployment
         href: deploy-rest.md
@@ -466,6 +469,8 @@
       href: template-functions.md
     - name: Array functions
       href: template-functions-array.md
+    - name: CIDR functions
+      href: template-functions-cidr.md
     - name: Comparison functions
       href: template-functions-comparison.md
     - name: Date functions

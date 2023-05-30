@@ -5,7 +5,7 @@ description: Learn how to set up an Azure AD tenant for P2S Azure AD authenticat
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 04/24/2023
 ms.author: cherylmc
 
 ---

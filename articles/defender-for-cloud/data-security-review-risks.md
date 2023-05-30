@@ -1,8 +1,8 @@
 ---
 title: Explore risks to sensitive data in Microsoft Defender for Cloud
 description: Learn how to use attack paths and security explorer to find and remediate sensitive data risks.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 03/14/2023

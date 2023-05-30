@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 04/17/2023
+ms.date: 05/10/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -98,8 +98,7 @@ Azure CNI Overlay has the following limitations:
 - Windows support is still in Preview
     - Windows Server 2019 node pools are **not** supported for Overlay
     - Traffic from host network pods is not able to reach Windows Overlay pods.
-- Sovereign Clouds are not supported
-- Virtual Machine Scale Sets (VMAS) are not supported for Overlay
+- Virtual Machine Availability Sets (VMAS) are not supported for Overlay
 - Dualstack networking is not supported in Overlay
 - You can't use [DCsv2-series](/azure/virtual-machines/dcv2-series) virtual machines in node pools. To meet Confidential Computing requirements, consider using [DCasv5 or DCadsv5-series confidential VMs](/azure/virtual-machines/dcasv5-dcadsv5-series) instead.
 
@@ -153,29 +152,35 @@ When the status reflects *Registered*, refresh the registration of the *Microsof
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## Upgrade an existing cluster to CNI Overlay - Preview
+## Upgrade an existing cluster to CNI Overlay (Preview)
 
 > [!NOTE]
 > The upgrade capability is still in preview and requires the preview AKS Azure CLI extension.
-
 You can update an existing Azure CNI cluster to Overlay if the cluster meets certain criteria. A cluster must:
-
-- be on Kubernetes version 1.22+
-- **not** be using the dynamic pod IP allocation feature
-- **not** have network policies enabled
-- **not** be using any Windows node pools with docker as the container runtime
+> - be on Kubernetes version 1.22+
+> - **not** be using the dynamic pod IP allocation feature
+> - **not** have network policies enabled
+> - **not** be using any Windows node pools with docker as the container runtime
 
 The upgrade process will trigger each node pool to be re-imaged simultaneously (i.e. upgrading each node pool separately to Overlay is not supported). Any disruptions to cluster networking will be similar to a node image upgrade or Kubernetes version upgrade where each node in a node pool is re-imaged.
 
+To update and existing Azure CNI cluster to use overlay, run the following CLI command:
+
+```azurecli-interactive
+clusterName="myOverlayCluster"
+resourceGroup="myResourceGroup"
+location="westcentralus"
+az aks update --name $clusterName \
+--group $resourceGroup \
+--network-plugin-mode overlay \
+--pod-cidr 192.168.0.0/16
+```
+
+The `--pod-cidr` parameter is required when upgrading from legacy CNI because the pods will need to get IPs from a new overlay space which does not overlap with the existing node subnet. The pod CIDR also cannot overlap with any VNet address of the node pools. For example if your VNet address is 10.0.0.0/8 and your nodes are in the subnet 10.240.0.0/16, then the `--pod-cidr` cannot overlap with 10.0.0.0/8 or the existing service CIDR on the cluster.
+
 > [!WARNING] 
-> Due to the limitation around Windows Overlay pods incorrectly SNATing packets from host network pods, this has a more detrimental effect for clusters upgrading to Overlay.
+> Prior to Windows OS Build 20348.1668, there was a limitation around Windows Overlay pods incorrectly SNATing packets from host network pods, this had a more detrimental effect for clusters upgrading to Overlay. To avoid this issue, **use Windows OS Build 20348.1668**. 
 
-While nodes are being upgraded to use the CNI Overlay feature, pods that are on nodes which haven't been upgraded yet will not be able to communicate with pods on Windows nodes that have been upgraded to Overlay. In other words, Overlay Windows pods will not be able to reply to any traffic from pods still running with an IP from the node subnet.
-
-This network disruption will only occur during the upgrade. Once the migration to Overlay has completed for all node pools, all Overlay pods will be able to communicate successfully with the Windows pods.
-
-> [!NOTE]
-> The upgrade completion doesn't change the existing limitation that host network pods **cannot** communicate with Windows Overlay pods.
 
 ## Next steps
 

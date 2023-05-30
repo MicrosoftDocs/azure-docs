@@ -64,7 +64,7 @@ For more information, see [Get started with Azure CLI 2.0](/cli/azure/get-starte
 
 # [Azure PowerShell](#tab/powershellazure)
 
-The [Azure PowerShell az module](/powershell/azure/new-azureps-module-az) provides a set of cmdlets that uses the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) model for managing your Azure resources. You can use it in your browser with [Azure Cloud Shell](../../cloud-shell/overview.md), or you can install it on your local machine using the instructions in [Install the Azure PowerShell module](/powershell/azure/install-az-ps). 
+The [Azure PowerShell az module](/powershell/azure/new-azureps-module-az) provides a set of cmdlets that uses the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) model for managing your Azure resources. You can use it in your browser with [Azure Cloud Shell](../../cloud-shell/overview.md), or you can install it on your local machine using the instructions in [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell). 
 
 If you already have it installed locally, make sure you use the latest version of Azure PowerShell SDK version to configure Azure Disk Encryption. Download the latest version of [Azure PowerShell release](https://github.com/Azure/azure-powershell/releases).
 

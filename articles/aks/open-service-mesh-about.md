@@ -23,7 +23,7 @@ OSM can be added to your Azure Kubernetes Service (AKS) cluster by enabling the 
 >
 > |Kubernetes version         | OSM version installed |
 > |---------------------------|-----------------------|
-> | 1.24.0 or greater         | 1.2.3                 |
+> | 1.24.0 or greater         | 1.2.4                 |
 > | Between 1.23.5 and 1.24.0 | 1.1.3                 |
 > | Below 1.23.5              | 1.0.0                 |
 
@@ -51,6 +51,7 @@ The OSM AKS add-on has the following limitations:
 
 - After installation, you must enable Iptables redirection for port IP address and port range exclusion using `kubectl patch`. For more information, see [iptables redirection][ip-tables-redirection].
 - Any pods that need access to IMDS, Azure DNS, or the Kubernetes API server must have their IP addresses added to the global list of excluded outbound IP ranges using [Global outbound IP range exclusions][global-exclusion].
+* The add-on doesn't work on AKS clusters that are using [Istio based service mesh addon for AKS][istio-about].
 - OSM doesn't support Windows Server containers.
 
 ## Next steps
@@ -72,3 +73,4 @@ After enabling the OSM add-on using the [Azure CLI][osm-azure-cli] or a [Bicep t
 [osm-contour]: https://release-v1-2.docs.openservicemesh.io/docs/demos/ingress_contour
 [osm-nginx]: https://release-v1-2.docs.openservicemesh.io/docs/demos/ingress_k8s_nginx
 [web-app-routing]: web-app-routing.md
+[istio-about]: istio-about.md

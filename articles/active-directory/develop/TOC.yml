@@ -84,7 +84,7 @@
           href: custom-extension-overview.md
         - name: Custom claims provider
           href: custom-claims-provider-overview.md
-    - name: Security best practices
+    - name: Security
       displayName: least privilege, secure app configuration, conditional access
       items:
         - name: Application security
@@ -93,6 +93,22 @@
           href: secure-least-privileged-access.md
         - name: Secure access control using groups
           href: secure-group-access-control.md
+        - name: Tokens and claims
+          items:
+            - name: Tokens and claims overview
+              href: security-tokens.md
+            - name: Access tokens
+              href: access-tokens.md
+            - name: Directory extension attributes
+              href: schema-extensions.md
+            - name: ID tokens
+              href: id-tokens.md
+            - name: Refresh tokens
+              href: refresh-tokens.md
+            - name: Token lifetime
+              href: configurable-token-lifetimes.md
+            - name: Validate claims
+              href: claims-validation.md
         - name: Zero Trust
           href: zero-trust-for-developers.md
     - name: Identity platform best practices
@@ -437,17 +453,16 @@
         - name: Customize tokens and claims
           items:
             - name: Configure optional claims
-              href: active-directory-optional-claims.md
+              href: optional-claims.md
             - name: Configure role claim
               href: active-directory-enterprise-app-role-management.md
             - name: Customize JWT claims
-              href: active-directory-jwt-claims-customization.md
+              href: jwt-claims-customization.md
             - name: Customize SAML claims
-              href: active-directory-saml-claims-customization.md
+              href: saml-claims-customization.md
             - name: Set an access token lifetime policy
               href: configure-token-lifetimes.md
-            - name: Directory extension attributes
-              href: active-directory-schema-extensions.md
+            
             - name: SAML app multi-instancing
               displayName: Configure SAML app multi-instancing for an application
               href: reference-app-multi-instancing.md
@@ -509,6 +524,10 @@
           href: test-automate-integration-testing.md
         - name: Throttling and service limits
           href: test-throttle-service-limits.md
+        - name: Call and test a web API using Postman
+          href: howto-call-a-web-api-with-postman.md
+        - name: Call and test a web API using cURL
+          href: howto-call-a-web-api-with-curl.md
         - name: Create a service principal using the Azure portal
           href: howto-create-service-principal-portal.md
         - name: Create a service principal using Azure PowerShell
@@ -536,7 +555,7 @@
           items:
             - name: Follow the branding guidelines
               displayName: Add branding
-              href: howto-add-branding-in-azure-ad-apps.md
+              href: howto-add-branding-in-apps.md
             - name: Configure Terms of Service and Privacy Statement
               href: howto-add-terms-of-service-privacy-statement.md
         - name: Publish app to a marketplace
@@ -553,7 +572,7 @@
           displayName: migration
           href: msal-migration.md
         - name: List all apps using ADAL
-          href: howto-get-list-of-all-active-directory-auth-library-apps.md
+          href: howto-get-list-of-all-auth-library-apps.md
     - name: Deprecate
       items:
         - name: Remove an app registration
@@ -562,6 +581,12 @@
           href: ./howto-restore-app.md
 - name: Reference
   items:
+    - name: Token claims reference
+      items:
+        - name: Access token
+          href: access-token-claims-reference.md            
+        - name: SAML token
+          href: reference-saml-tokens.md
     - name: Microsoft Authentication Library (MSAL) reference
       displayName: SDK, library, msal, auth
       items:
@@ -793,24 +818,13 @@
                   href: v2-oauth-ropc.md
                 - name: OpenID Connect
                   href: v2-protocols-oidc.md
-            - name: Security tokens
-              displayName: bearer, ID token, access token
-              items:
-                - name: Access tokens
-                  href: access-tokens.md
-                - name: ID tokens
-                  href: id-tokens.md
-                - name: Refresh tokens
-                  href: refresh-tokens.md
-                - name: Token lifetime
-                  href: active-directory-configurable-token-lifetimes.md
             - name: OAuth 2.0 application types
               displayName: App types, OAuth
               href: v2-app-types.md
             - name: Certificate credentials
               href: active-directory-certificate-credentials.md
             - name: Signing key rollover
-              href: active-directory-signing-key-rollover.md
+              href: signing-key-rollover.md
             - name: UserInfo endpoint (OIDC)
               href: userinfo.md            
         - name: SAML 2.0
@@ -822,8 +836,6 @@
               href: single-sign-on-saml-protocol.md
             - name: Sign out (SAML)
               href: single-sign-out-saml-protocol.md
-            - name: SAML tokens
-              href: reference-saml-tokens.md
             - name: Token exchange scenarios
               href: scenario-token-exchange-saml-oauth.md
     - name: App registration reference
@@ -847,7 +859,7 @@
       displayName: MSAL, auth client library, SDK, token validation
       href: reference-v2-libraries.md
     - name: AADSTS error code reference
-      href: reference-aadsts-error-codes.md
+      href: reference-error-codes.md
     - name: "Endpoint reference: Admin consent URI"
       href: v2-admin-consent.md
     - name: "Endpoint reference: National and public cloud URIs"

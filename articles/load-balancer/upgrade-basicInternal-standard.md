@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 04/17/2023
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -29,9 +29,9 @@ This article introduces a PowerShell script that creates a Standard Load Balance
 
 ### Caveats\Limitations
 
-* Script only supports Internal Load Balancer upgrade where no outbound connection is required. If you required [outbound connection](./load-balancer-outbound-connections.md) for some of your VMs, refer to this [page](upgrade-InternalBasic-To-PublicStandard.md) for instructions. 
+* Script only supports Internal Load Balancer upgrade where no outbound connection is required. If you required [outbound connection](./load-balancer-outbound-connections.md) for some of your VMs, refer to this [page](upgrade-InternalBasic-To-PublicStandard.md) for instructions.
 * The Basic Load Balancer needs to be in the same resource group as the backend VMs and NICs.
-* If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
+* If the Standard load balancer is created in a different region, you won't be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
 * If your Load Balancer doesn't have any frontend IP configuration or backend pool, you're likely to hit an error running the script. Make sure they aren't empty.
 * The script can't migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. For this type of upgrade, see [Upgrade a basic load balancer used with Virtual Machine Scale Sets](./upgrade-basic-standard-virtual-machine-scale-sets.md) for instructions and more information.
 
@@ -39,7 +39,7 @@ This article introduces a PowerShell script that creates a Standard Load Balance
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select your Basic Load Balancer from the resources list.
 
-2. Under **Settings**, select **Frontend IP configuration**, and select the first frontend IP configuration. 
+2. Under **Settings**, select **Frontend IP configuration**, and select the first frontend IP configuration.
 
 3. For **Assignment**, select **Static**
 
@@ -53,7 +53,7 @@ Download the migration script from the  [PowerShell Gallery](https://www.powersh
 
 There are two options for you depending on your local PowerShell environment setup and preferences:
 
-* If you don’t have the Azure Az PowerShell module installed, or don’t mind uninstalling the Azure Az PowerShell module, the best option is to use the `Install-Script` option to run the script.
+* If you don't have the Azure Az PowerShell module installed, or don't mind uninstalling the Azure Az PowerShell module, the best option is to use the `Install-Script` option to run the script.
 * If you need to keep the Azure Az PowerShell module, your best bet is to download the script and run it directly.
 
 To determine if you have the Azure Az PowerShell module installed, run `Get-InstalledModule -Name az`. If you don't see any installed Az PowerShell module, then you can use the `Install-Script` method.
@@ -61,16 +61,16 @@ To determine if you have the Azure Az PowerShell module installed, run `Get-Inst
 ### Install using the Install-Script method
 
 To use this option, you must not have the Azure Az PowerShell module installed on your computer. If they're installed, the following command displays an error. You can either uninstall the Azure Az PowerShell module, or use the other option to download the script manually and run it.
-  
+
 Run the script with the following command:
 
 `Install-Script -Name AzureILBUpgrade`
 
-This command also installs the required Az PowerShell module.  
+This command also installs the required Az PowerShell module.
 
 ### Install using the Manual Download method
 
-If you do have some Azure Az PowerShell module installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/scripting/gallery/how-to/working-with-packages/manual-download).
+If you do have some Azure Az PowerShell module installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download).
 
 ### Run the script
 
@@ -81,7 +81,7 @@ If you do have some Azure Az PowerShell module installed and can't uninstall the
 1. Examine the required parameters:
 
    * **rgName: [String]: Required** – This parameter is the resource group for your existing Basic Load Balancer and new Standard Load Balancer. To find this string value, navigate to Azure portal, select your Basic Load Balancer source, and select the **Overview** for the load balancer. The Resource Group is located on that page.
-   * **oldLBName: [String]: Required** – This parameter is the name of your existing Basic Balancer you want to upgrade. 
+   * **oldLBName: [String]: Required** – This parameter is the name of your existing Basic Balancer you want to upgrade.
    * **newlocation: [String]: Required** – This parameter is the location in which the Standard Load Balancer will be created. It's recommended to inherit the same location of the chosen Basic Load Balancer to the Standard Load Balancer for better association with other existing resources.
    * **newLBName: [String]: Required** – This parameter is the name for the Standard Load Balancer to be created.
 1. Run the script using the appropriate parameters. It may take five to seven minutes to finish.

@@ -14,7 +14,7 @@ ms.custom: mode-other
 
 # Quickstart: Configure voice routing programmatically
 
-Configure outbound voice routing rules for Azure Communication Services direct routing
+Configure outbound voice routing rules for Azure Communication Services direct routing.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/voice-routing-sdk-portal.md)]
@@ -38,7 +38,7 @@ Configure outbound voice routing rules for Azure Communication Services direct r
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. [Learn more about cleaning up resources](../create-communication-resource.md#clean-up-resources).
 
 ## Next steps
 
@@ -46,4 +46,4 @@ For more information, see the following articles:
 
 - Learn about [Calling SDK capabilities](../voice-video-calling/getting-started-with-calling.md).
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md).
-- Call to a telephone number [quickstart](./pstn-call.md).
+- Call to a telephone number by [following a quickstart](./pstn-call.md).

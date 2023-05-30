@@ -17,7 +17,7 @@ ms.subservice: calling
 
 Enable your customers to talk with your support agent on Teams through a call interface directly embedded into your web application. 
 
-## Architecture overview
+[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
 ## Prerequisites
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -32,92 +32,92 @@ Follow instructions from our [trusted user access service tutorial](../trusted-s
 
 1. Create an HTML file named `index.html` and add the following code to it:
 
-``` html
+    ``` html
 
-    <!DOCTYPE html>
-    <html>
-        <head>
-            <meta charset="utf-8">
-            <title>Call Widget App - Vanilla</title>
-            <link rel="stylesheet" href="style.css">
-        </head>
-        <body>
-            <div id="call-widget">
-                <div id="call-widget-header">
-                    <div id="call-widget-header-title">Call Widget App</div>
-                    <button  class='widget'> ? </button >
-                    <div class='callWidget'></div>
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <meta charset="utf-8">
+                <title>Call Widget App - Vanilla</title>
+                <link rel="stylesheet" href="style.css">
+            </head>
+            <body>
+                <div id="call-widget">
+                    <div id="call-widget-header">
+                        <div id="call-widget-header-title">Call Widget App</div>
+                        <button  class='widget'> ? </button >
+                        <div class='callWidget'></div>
+                    </div>
                 </div>
-            </div>
-        </body>
-    </html>
+            </body>
+        </html>
 
-```
+    ```
 
 2. Create a CSS file named `style.css` and add the following code to it:
 
-``` css
+    ``` css
 
-    .widget {
-    height: 75px;
-    width: 75px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    background-color: blue;
-    margin-bottom: 35px;
-    margin-right: 35px;
-    border-radius: 50%;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 75px;  
-    color: white;
-    font-size: 30px;
-  }
-  
-  .callWidget {
-    height: 400px;
-    width: 600px;
-    background-color: blue;
-    position: absolute;
-    right: 35px;
-    bottom: 120px;
-    z-index: 10;
-    display: none;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 5px;
-  }
+        .widget {
+        height: 75px;
+        width: 75px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background-color: blue;
+        margin-bottom: 35px;
+        margin-right: 35px;
+        border-radius: 50%;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 75px;  
+        color: white;
+        font-size: 30px;
+      }
 
-```
+      .callWidget {
+        height: 400px;
+        width: 600px;
+        background-color: blue;
+        position: absolute;
+        right: 35px;
+        bottom: 120px;
+        z-index: 10;
+        display: none;
+        border-radius: 5px;
+        border-style: solid;
+        border-width: 5px;
+      }
 
-1. Configure the call window to be hidden by default. We show it when the user clicks the button.
+    ```
 
-``` html
+3. Configure the call window to be hidden by default. We show it when the user clicks the button.
 
-    <script>
-        var open = false;
-        const button = document.querySelector('.widget');
-        const content = document.querySelector('.callWidget');
-        button.addEventListener('click', async function() {
-            if(!open){
-                open = !open;
-                content.style.display = 'block';
-                button.innerHTML = 'X';
-                //Add code to initialize call widget here
-            } else if (open) {
-                open = !open;
-                content.style.display = 'none';
-                button.innerHTML = '?';
+    ``` html
+
+        <script>
+            var open = false;
+            const button = document.querySelector('.widget');
+            const content = document.querySelector('.callWidget');
+            button.addEventListener('click', async function() {
+                if(!open){
+                    open = !open;
+                    content.style.display = 'block';
+                    button.innerHTML = 'X';
+                    //Add code to initialize call widget here
+                } else if (open) {
+                    open = !open;
+                    content.style.display = 'none';
+                    button.innerHTML = '?';
+                }
+            });
+
+            async function getAccessToken(){
+                //Add code to get access token here
             }
-        });
-    
-        async function getAccessToken(){
-            //Add code to get access token here
-        }
-    </script>
+        </script>
 
-```
+    ```
 
 At this point, we have set up a static HTML page with a button that opens a call widget when clicked. Next, we add the widget script code. It makes a call to our Azure Function to get the access token and then use it to initialize our call client for Azure Communication Services and start the call to the Teams user we define.
 
@@ -134,6 +134,7 @@ Add the following code to the `getAccessToken()` function:
     }
 
 ```
+    
 You need to add the URL of your Azure Function. You can find these values in the Azure portal under your Azure Function resource.
 
 
@@ -141,46 +142,46 @@ You need to add the URL of your Azure Function. You can find these values in the
 
 1. Add a script tag to load the call widget script:
 
-``` html
+    ``` html
 
-    <script src="https://github.com/ddematheu2/ACS-UI-Library-Widget/releases/download/widget/callComposite.js"></script>
+        <script src="https://github.com/ddematheu2/ACS-UI-Library-Widget/releases/download/widget/callComposite.js"></script>
 
-```
+    ```
 
 We provide a test script hosted on GitHub for you to use for testing. For production scenarios, we recommend hosting the script on your own CDN. For more information on how to build your own bundle, see [this article](https://azure.github.io/communication-ui-library/?path=/docs/use-composite-in-non-react-environment--page#build-your-own-composite-js-bundle-files).
 
-1. Add the following code under the button event listener:
+2. Add the following code under the button event listener:
 
-``` javascript
+    ``` javascript
 
-    button.addEventListener('click', async function() {
-        if(!open){
-            open = !open;
-            content.style.display = 'block';
-            button.innerHTML = 'X';
-            let response = await getChatContext();
-            console.log(response);
-            const callAdapter = await callComposite.loadCallComposite(
-                {
-                displayName: "Test User",
-                locator: { participantIds: ['INSERT USER UNIQUE IDENTIFIER FROM MICROSOFT GRAPH']},
-                userId: response.user,
-                token: response.userToken
-                },
-                content,
-                {
-                    formFactor: 'mobile',
-                    key: new Date()
-                }
-            );
-        } else if (open) {
-            open = !open;
-            content.style.display = 'none';
-            button.innerHTML = '?';
-        }
-    });
+        button.addEventListener('click', async function() {
+            if(!open){
+                open = !open;
+                content.style.display = 'block';
+                button.innerHTML = 'X';
+                let response = await getChatContext();
+                console.log(response);
+                const callAdapter = await callComposite.loadCallComposite(
+                    {
+                    displayName: "Test User",
+                    locator: { participantIds: ['INSERT USER UNIQUE IDENTIFIER FROM MICROSOFT GRAPH']},
+                    userId: response.user,
+                    token: response.userToken
+                    },
+                    content,
+                    {
+                        formFactor: 'mobile',
+                        key: new Date()
+                    }
+                );
+            } else if (open) {
+                open = !open;
+                content.style.display = 'none';
+                button.innerHTML = '?';
+            }
+        });
 
-```
+    ```
 
 Add a Microsoft Graph [User](https://learn.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) ID to the `participantIds` array. You can find this value through [Microsoft Graph](https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http) or through [Microsoft Graph explorer](https://developer.microsoft.com/graph/graph-explorer) for testing purposes. There you can grab the `id` value from the response.
 

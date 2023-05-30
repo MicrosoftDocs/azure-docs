@@ -7,8 +7,8 @@ author: rastala
 ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: larryfr
-ms.date: 10/20/2022
+ms.reviewer: larryfr, mattmcinnes
+ms.date: 04/25/2023
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli, event-tier1-build-2022, ignite-2022, py-fresh-zinc
 ---
@@ -143,7 +143,7 @@ The Azure Machine Learning [compute instance](concept-compute-instance.md) is a 
 
 There's nothing to install or configure for a compute instance.  
 
-Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](quickstart-create-resources.md).
+Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with [Create resources to get started](quickstart-create-resources.md).
 
 To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 

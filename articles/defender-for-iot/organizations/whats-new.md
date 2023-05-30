@@ -16,6 +16,67 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## May 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | **Sensor versions 22.3.x and higher**: <br>- [Configure Active Directory and NTP settings in the Azure portal](#configure-active-directory-and-ntp-settings-in-the-azure-portal) |
+
+### Configure Active Directory and NTP settings in the Azure portal
+
+Now you can configure Active Directory and NTP settings for your OT sensors remotely from the **Sites and sensors** page in the Azure portal. These settings are available for OT sensor versions 22.3.x and higher.
+
+For more information, see [Sensor setting reference](configure-sensor-settings-portal.md#sensor-setting-reference)
+
+## April 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **Documentation** | [End-to-end deployment guides](#end-to-end-deployment-guides) |
+| **OT networks** | **Sensor version 22.3.8**: <br>- [Proxy support for client SSL/TLS certificates](#proxy-support-for-client-ssltls-certificates) <br>- [Download WMI script from OT sensor console](#download-wmi-script-from-ot-sensor-console) <br>- [Automatically resolved OS notifications](#automatically-resolved-os-notifications) <br>- [UI enhancement when uploading SSL/TLS certificates](#ui-enhancement-when-uploading-ssltls-certificates) |
+
+### End-to-end deployment guides
+
+The Defender for IoT documentation now includes a new **Deploy** section, with a full set of deployment guides for the following scenarios:
+
+- [Standard deployment for OT monitoring](ot-deploy/ot-deploy-path.md)
+- [Air-gapped deployment for OT monitoring with an on-premises sensor management](ot-deploy/air-gapped-deploy.md)
+- [Enterprise IoT deployment](eiot-defender-for-endpoint.md)
+
+For example, the recommended deployment for OT monitoring includes the following steps, which are all detailed in our new articles:
+
+:::image type="content" source="media/deployment-paths/ot-deploy.png" alt-text="Diagram of an OT monitoring deployment path." border="false" lightbox="media/deployment-paths/ot-deploy.png":::
+
+The step-by-step instructions in each section are intended to help customers optimize for success and deploy for Zero Trust. Navigational elements on each page, including flow charts at the top and **Next steps** links at the bottom, indicate where you are in the process, what you’ve just completed, and what your next step should be. For example:
+
+:::image type="content" source="media/deployment-paths/progress-network-level-deployment.png" alt-text="Diagram of a progress bar with Site networking setup highlighted." border="false" lightbox="media/deployment-paths/progress-network-level-deployment.png":::
+
+For more information, see [Deploy Defender for IoT for OT monitoring](ot-deploy/ot-deploy-path.md).
+
+### Proxy support for client SSL/TLS certificates
+
+A client SSL/TLS certificate is required for proxy servers that inspect SSL/TLS traffic, such as when using services like Zscaler and Palo Alto Prisma. Starting in version 22.3.8, you can upload a client certificate through the OT sensor console.
+
+For more information, see [Configure a proxy](connect-sensors.md#configure-proxy-settings-on-an-ot-sensor).
+
+### Download WMI script from OT sensor console
+
+The script used to configure OT sensors to detect Microsoft Windows workstations and servers is now available for download from the OT sensor itself. 
+
+For more information, see [Download the script](detect-windows-endpoints-script.md#download-and-run-the-script)
+
+### Automatically resolved OS notifications
+
+After updating your OT sensor to version 22.3.8, no new device notifications for **Operating system changes** are generated. Existing **Operating system changes** notifications are automatically resolved if they aren't dismissed or otherwise handled within 14 days.
+
+For more information, see [Device notification responses](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
+
+### UI enhancement when uploading SSL/TLS certificates
+
+The OT sensor version 22.3.8 has an enhanced **SSL/TLS Certificates** configuration page for defining your SSL/TLS certificate settings and deploying a CA-signed certificate.
+
+For more information, see [Manage SSL/TLS certificates](how-to-manage-individual-sensors.md#manage-ssltls-certificates).
+
 ## March 2023
 
 |Service area  |Updates  |
@@ -52,7 +113,7 @@ For more information, see [Device data retention periods](references-data-retent
 
 The OT sensor version 22.3.6 has an enhanced **SSL/TLS Certificates** configuration page for defining your SSL/TLS certificate settings and deploying a CA-signed certificate.
 
-For more information, see [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
+For more information, see [Deploy an SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate).
 
 ### Activation files expiration updates
 
@@ -554,9 +615,9 @@ For more information, see:
 
 ### Sensor connections restored after certificate rotation
 
-Starting in version 22.2.3, after rotating your certificates, your sensor connections are automatically restored to your central manager, and you don't need to reconnect them manually.
+Starting in version 22.2.3, after rotating your certificates, your sensor connections are automatically restored to your on-premises management console, and you don't need to reconnect them manually.
 
-For more information, see [About certificates](how-to-deploy-certificates.md).
+For more information, see [Prepare CA-signed certificates](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates) and [Deploy an SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate).
 
 ### Support diagnostic log enhancements (Public preview)
 

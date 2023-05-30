@@ -306,8 +306,8 @@ The following schemas are in use by Azure Video Indexer
             "Filename": "1 Second Video 1.mp4",
             "AnimationModelId": null,
             "BrandsCategories": null,
-            "CustomLanguages": null,
-            "ExcludedAIs": "Face",
+            "CustomLanguages": "en-US,ar-BH,hi-IN,es-MX",
+            "ExcludedAIs": "Faces",
             "LogoGroupId": "ea9d154d-0845-456c-857e-1c9d5d925d95"
         }
     }

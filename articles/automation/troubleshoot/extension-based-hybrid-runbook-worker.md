@@ -2,7 +2,7 @@
 title: Troubleshoot extension-based Hybrid Runbook Worker issues in Azure Automation 
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation extension-based Hybrid Runbook Workers.
 services: automation
-ms.date: 02/09/2023
+ms.date: 04/26/2023
 ms.topic: troubleshooting 
 ms.custom: devx-track-azurepowershell
 ---
@@ -39,6 +39,41 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
   - For Windows: Run the log collector tool in </br>`C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\bin\troubleshooter\PullLogs.ps1` </br>
   Logs are in `C:\HybridWorkerExtensionLogs`.
   - For Linux: Logs are in folders </br>`/var/log/azure/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux` and `/home/hweautomation`.
+
+### Scenario: Job failed to start as the Hybrid Worker was not available when the scheduled job started
+
+#### Issue
+Job fails to start on a Hybrid Worker and you see the following error:
+
+*Failed to start, as hybrid worker was not available when scheduled job started, the hybrid worker was last active at mm/dd/yyyy*.
+
+#### Cause
+This error can occur due to the following reasons:
+- The machines doesn't exist anymore.
+- The machine is turned off and is unreachable.
+- The machine has a network connectivity issue.
+- The Hybrid Runbook Worker extension has been uninstalled from the machine.
+
+#### Resolution
+- Ensure that the machine exists, and Hybrid Runbook Worker extension is installed on it. The Hybrid Worker should be healthy and should give a heartbeat. Troubleshoot any network issues by checking the Microsoft-SMA event logs on the Workers in the Hybrid Runbook Worker Group that tried to run this job. 
+- You can also monitor [HybridWorkerPing](../../azure-monitor/essentials/metrics-supported.md#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues. 
+
+### Scenario: Job was suspended as it exceeded the job limit for a Hybrid Worker
+
+#### Issue
+Job gets suspended with the following error message:
+
+*Job was suspended as it exceeded the job limit for a Hybrid Worker. Add more Hybrid Workers to the Hybrid Worker group to overcome this issue.*
+
+#### Cause
+Jobs might get suspended due to any of the following reasons:
+- Each active Hybrid Worker in the group will poll for jobs every 30 seconds to see if any jobs are available. The Worker picks jobs on a first-come, first-serve basis. Depending on when a job was pushed, whichever Hybrid Worker within the Hybrid Worker Group pings the Automation service first picks up the job. A single hybrid worker can generally pick up four jobs per ping (that is, every 30 seconds). If your rate of pushing jobs is higher than four per 30 seconds and no other Worker picks up the job, the job might get suspended. 
+- Hybrid Worker might not be polling as expected every 30 seconds. This could happen if the Worker is not healthy or there are network issues.  
+
+#### Resolution
+- If the job limit for a Hybrid Worker exceeds four jobs per 30 seconds, you can add more Hybrid Workers to the Hybrid Worker group for high availability and load balancing. You can also schedule jobs so they do not exceed the limit of four jobs per 30 seconds. The processing time of the jobs queue depends on the Hybrid worker hardware profile and load. Ensure that the Hybrid Worker is healthy and gives a heartbeat. 
+- Troubleshoot any network issues by checking the Microsoft-SMA event logs on the Workers in the Hybrid Runbook Worker Group that tried to run this job. 
+- You can also monitor the [HybridWorkerPing](../../azure-monitor/essentials/metrics-supported.md#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues. 
 
 ### Scenario: Hybrid Worker deployment fails with Private Link error
 

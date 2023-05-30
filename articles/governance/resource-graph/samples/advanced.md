@@ -4,8 +4,8 @@ description: Use Azure Resource Graph to run some advanced queries, including wo
 ms.date: 06/15/2022
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Advanced Resource Graph query samples
 

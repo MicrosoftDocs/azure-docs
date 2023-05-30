@@ -3,12 +3,12 @@ title: Upgrade from Basic to Standard for Virtual Machine Scale Sets
 titleSuffix: Azure Load Balancer
 description: This article shows you how to upgrade a load balancer from basic to standard SKU for Virtual Machine Scale Sets.
 services: load-balancer
-author: Welasco
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 09/22/2022
-ms.author: vsantana
-ms.custom: template-how-to
+ms.date: 04/17/2023
+ms.author: mbender
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Upgrade a basic load balancer used with Virtual Machine Scale Sets
@@ -38,6 +38,9 @@ The PowerShell module performs the following functions:
 >[!NOTE]
 > If the Virtual Machine Scale Set in the Load Balancer backend pool has Public IP Addresses in its network configuration, the Public IP Addresses will change during migration (the Public IPs must be removed prior to the migration, then added back post migration with a Standard SKU configuration)
 
+>[!NOTE]
+> If the Virtual Machine Scale Set behind the Load Balancer is a **Service Fabric Cluster**, migration with this script will take more time. In testing, a 5-node Bronze cluster was unavailable for about 30 minutes and a 5-node Silver cluster was unavailable for about 45 minutes. For Service Fabric clusters that require minimal / no connectivity downtime, adding a new nodetype with Standard Load Balancer and IP resources is a better solution.
+
 ### Unsupported Scenarios
 
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member that is also a member of a backend pool on a different load balancer
@@ -52,7 +55,7 @@ The PowerShell module performs the following functions:
 
 - Install the latest version of [PowerShell](/powershell/scripting/install/installing-powershell)
 - Determine whether you have the latest Az PowerShell module installed (8.2.0)
-  - Install the latest Az PowerShell module](/powershell/azure/install-az-ps)
+  - Install the latest [Az PowerShell module](/powershell/azure/install-azure-powershell)
 
 ## Install the 'AzureBasicLoadBalancerUpgrade' module
 
@@ -113,16 +116,22 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\Reco
 
 ## Common Questions
 
+### Will this migration cause downtime to my application? 
+
+Yes, because the Basic Load Balancer needs to be removed before the new Standard Load Balancer can be created, there will be downtime to your application. See [How long does the Upgrade take?](#how-long-does-the-upgrade-take)
+
 ### Will the module migrate my frontend IP address to the new Standard Load Balancer?
 
-Yes, for both public and internal load balancers, the module ensures that front end IP addresses are maintained. For public IPs, the IP is converted to a static IP prior to migration (if necessary). For internal front ends, the module will attempt to reassign the same IP address freed up when the Basic Load Balancer was deleted; if the private IP isn't available the script will fail (see [What happens if my upgrade fails mid-migration?](#what-happens-if-my-upgrade-fails-mid-migration)).
+Yes, for both public and internal load balancers, the module ensures that front end IP addresses are maintained. For public IPs, the IP is converted to a static IP prior to migration (if necessary). For internal front ends, the module attempts to reassign the same IP address freed up when the Basic Load Balancer was deleted; if the private IP isn't available the script fails (see [What happens if my upgrade fails mid-migration?](#what-happens-if-my-upgrade-fails-mid-migration)).
 
 ### How long does the Upgrade take?
 
 The upgrade normally takes a few minutes for the script to finish. The following factors may lead to longer upgrade times:
 - Complexity of your load balancer configuration
 - Number of backend pool members
-- Instance count of associated Virtual Machine Scale Sets.
+- Instance count of associated Virtual Machine Scale Sets
+- Service Fabric Cluster: Upgrades for Service Fabric Clusters take up to an hour in testing.
+
 Keep the downtime in mind and plan for failover if necessary.
 
 ### Does the script migrate my backend pool members from my Basic Load Balancer to the newly created Standard Load Balancer?
@@ -140,36 +149,36 @@ The script migrates the following from the Basic Load Balancer to the Standard L
   - Updates the public IP SKU to Standard, if Basic
   - Upgrade all associated public IPs to the new Standard Load Balancer
 - Health Probes:
-  - All probes will be migrated to the new Standard Load Balancer
+  - All probes are migrated to the new Standard Load Balancer
 - Load balancing rules:
-  - All load balancing rules will be migrated to the new Standard Load Balancer
+  - All load balancing rules are migrated to the new Standard Load Balancer
 - Inbound NAT Rules:
-  - All user-created NAT rules will be migrated to the new Standard Load Balancer
+  - All user-created NAT rules are migrated to the new Standard Load Balancer
 - Inbound NAT Pools:
   - All inbound NAT Pools will be migrated to the new Standard Load Balancer
 - Outbound Rules:
-  - Basic load balancers don't support configured outbound rules. The script will create an outbound rule in the Standard load balancer to preserve the outbound behavior of the Basic load balancer. For more information about outbound rules, see [Outbound rules](./outbound-rules.md).
+  - Basic load balancers don't support configured outbound rules. The script creates an outbound rule in the Standard load balancer to preserve the outbound behavior of the Basic load balancer. For more information about outbound rules, see [Outbound rules](./outbound-rules.md).
 - Network security group
-  - Basic Load Balancer doesn't require a network security group to allow outbound connectivity. In case there's no network security group associated with the Virtual Machine Scale Set, a new network security group will be created to preserve the same functionality. This new network security group will be associated to the Virtual Machine Scale Set backend pool member network interfaces. It will allow the same load balancing rules ports and protocols and preserve the outbound connectivity.
+  - Basic Load Balancer doesn't require a network security group to allow outbound connectivity. In case there's no network security group associated with the Virtual Machine Scale Set, a new network security group is created to preserve the same functionality. This new network security group is associated to the Virtual Machine Scale Set backend pool member network interfaces. It allows the same load balancing rules ports and protocols and preserve the outbound connectivity.
 - Backend pools:
-  - All backend pools will be migrated to the new Standard Load Balancer
-  - All Virtual Machine Scale Set network interfaces and IP configurations will be migrated to the new Standard Load Balancer
+  - All backend pools are migrated to the new Standard Load Balancer
+  - All Virtual Machine Scale Set network interfaces and IP configurations are migrated to the new Standard Load Balancer
   - If a Virtual Machine Scale Set is using Rolling Upgrade policy, the script will update the Virtual Machine Scale Set upgrade policy to "Manual" during the migration process and revert it back to "Rolling" after the migration is completed.
 
 **Internal Load Balancer:**
 
 - Private frontend IP configuration
 - Health Probes:
-  - All probes will be migrated to the new Standard Load Balancer
+  - All probes are migrated to the new Standard Load Balancer
 - Load balancing rules:
-  - All load balancing rules will be migrated to the new Standard Load Balancer
+  - All load balancing rules are migrated to the new Standard Load Balancer
 - Inbound NAT Pools:
   - All inbound NAT Pools will be migrated to the new Standard Load Balancer
 - Inbound NAT Rules:
-  - All user-created NAT rules will be migrated to the new Standard Load Balancer
+  - All user-created NAT rules are migrated to the new Standard Load Balancer
 - Backend pools:
-  - All backend pools will be migrated to the new Standard Load Balancer
-  - All Virtual Machine Scale Set network interfaces and IP configurations will be migrated to the new Standard Load Balancer
+  - All backend pools are migrated to the new Standard Load Balancer
+  - All Virtual Machine Scale Set network interfaces and IP configurations are migrated to the new Standard Load Balancer
   - If there's a Virtual Machine Scale Set using Rolling Upgrade policy, the script will update the Virtual Machine Scale Set upgrade policy to "Manual" during the migration process and revert it back to "Rolling" after the migration is completed.
 
 >[!NOTE]
@@ -181,7 +190,7 @@ The module is designed to accommodate failures, either due to unhandled errors o
 
   1. Address the cause of the migration failure. Check the log file `Start-AzBasicLoadBalancerUpgrade.log` for details
   1. [Remove the new Standard Load Balancer](./update-load-balancer-with-vm-scale-set.md) (if created). Depending on which stage of the migration failed, you may have to remove the Standard Load Balancer reference from the Virtual Machine Scale Set network interfaces (IP configurations) and Health Probes in order to remove the Standard Load Balancer.
-  1. Locate the Basic Load Balancer state backup file. This file will either be in the directory where the script was executed, or at the path specified with the `-RecoveryBackupPath` parameter during the failed execution. The file will be named: `State_<basicLBName>_<basicLBRGName>_<timestamp>.json`
+  1. Locate the Basic Load Balancer state backup file. This file will either be in the directory where the script was executed, or at the path specified with the `-RecoveryBackupPath` parameter during the failed execution. The file is named: `State_<basicLBName>_<basicLBRGName>_<timestamp>.json`
   1. Rerun the migration script, specifying the `-FailedMigrationRetryFilePathLB <BasicLoadBalancerbackupFilePath>` and `-FailedMigrationRetryFilePathVMSS <VMSSBackupFile>` parameters instead of -BasicLoadBalancerName or passing the Basic Load Balancer over the pipeline
 
 ## Next steps

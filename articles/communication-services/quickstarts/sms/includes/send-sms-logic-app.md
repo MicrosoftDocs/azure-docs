@@ -95,9 +95,9 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
 
 1. When you're done, on the designer toolbar, select **Save**.
 
-Next, run your logic app workflow for testing.
+Next, run your workflow for testing.
 
-## Test your logic app
+## Test your workflow
 
 To manually start your workflow, on the designer toolbar, select **Run**. Or, you can wait for the trigger to fire. In both cases, the workflow should send an SMS message to your specified destination phone number. For more information, review [how to run your workflow](../../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow).
 

@@ -39,7 +39,7 @@ To benefit from this article, you'll need to:
 - Access an Azure subscription. If you don't have one already, [create a free account](https://azure.microsoft.com/free/).
 - Run the code in this article using either an Azure Machine Learning compute instance or your own Jupyter notebook.
     - Azure Machine Learning compute instance—no downloads or installation necessary
-        - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+        - Complete [Create resources to get started](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
         - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **v2  > sdk > python > jobs > single-step > tensorflow > train-hyperparameter-tune-deploy-with-keras**.
     - Your Jupyter notebook server
         - [Install the Azure Machine Learning SDK (v2)](https://aka.ms/sdk-v2-install).

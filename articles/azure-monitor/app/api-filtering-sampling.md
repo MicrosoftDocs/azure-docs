@@ -10,12 +10,16 @@ ms.reviewer: cithomas
 
 # Filter and preprocess telemetry in the Application Insights SDK
 
-Plug-ins for the Application Insights SDK can customize how telemetry is enriched and processed before it's sent to the Application Insights service.
+You can write code to filter, modify, or enrich your telemetry before it's sent from the SDK. The processing includes data that's sent from the standard telemetry modules, such as HTTP request collection and dependency collection.
+
+* [Filtering](./api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcessor`. For example, you could reduce the volume of telemetry by excluding requests from robots. Unlike sampling, You have full control what is sent or discarded, but it will affect any metrics based on aggregated logs. Depending on how you discard items, you might also lose the ability to navigate between related items.
+
+* [Add or Modify properties](./api-filtering-sampling.md#add-properties) to any telemetry sent from your app by implementing an `ITelemetryInitializer`. For example, you could add calculated values or version numbers by which to filter the data in the portal.
 
 * [Sampling](sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when you diagnose a problem. In the portal, the total counts are multiplied to compensate for the sampling.
-* Filtering with telemetry processors lets you filter out telemetry in the SDK before it's sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. Filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what's transmitted, but it affects your statistics. For example, you might filter out all successful requests.
-* [Telemetry initializers add or modify properties](#add-properties) to any telemetry sent from your app, which includes telemetry from the standard modules. For example, you could add calculated values or version numbers by which to filter the data in the portal.
-* [The SDK API](./api-custom-events-metrics.md) is used to send custom events and metrics.
+
+> [!NOTE]
+> [The SDK API](./api-custom-events-metrics.md) is used to send custom events and metrics.
 
 Before you start:
 
@@ -318,20 +322,21 @@ For apps written using [ASP.NET Core](asp-net-core.md#add-telemetryinitializers)
 ### JavaScript telemetry initializers
 *JavaScript*
 
-Insert a telemetry initializer using the snippet onInit callback:
+Insert a telemetry initializer by adding the onInit callback function in the [SDK Loader Script configuration](./javascript-sdk.md?tabs=sdkloaderscript#sdk-loader-script-configuration):
 
 ```html
 <script type="text/javascript">
-!function(T,l,y){<!-- Removed the Snippet code for brevity -->}(window,document,{
+!function(v,y,T){<!-- Removed the SDK Loader Script code for brevity -->}(window,document,{
 src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
 crossOrigin: "anonymous",
 onInit: function (sdk) {
   sdk.addTelemetryInitializer(function (envelope) {
+    envelope.data = envelope.data || {};
     envelope.data.someField = 'This item passed through my telemetry initializer';
   });
 }, // Once the application insights instance has loaded and initialized this method will be called
 cfg: { // Application Insights Configuration
-    instrumentationKey: "YOUR_INSTRUMENTATION_KEY"
+    connectionString: "YOUR_CONNECTION_STRING"
 }});
 </script>
 ```

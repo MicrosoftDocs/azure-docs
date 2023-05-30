@@ -534,4 +534,4 @@ You may encounter the following error messages when importing or exporting App C
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Back up App Configuration stores automatically](./howto-backup-config-store.md)
+> [Integrate with a CI/CD pipeline](./integrate-ci-cd-pipeline.md)

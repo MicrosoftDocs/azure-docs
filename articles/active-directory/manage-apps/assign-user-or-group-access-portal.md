@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 11/22/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
-ms.custom: contperf-fy22q2, contperf-fy22q3
+ms.custom: contperf-fy22q2, contperf-fy22q3, enterprise-apps
 zone_pivot_groups: enterprise-apps-all
 
 #customer intent: As an admin, I want to manage user assignment for an app in Azure Active Directory using PowerShell
@@ -23,7 +23,7 @@ This article shows you how to assign users and groups to an enterprise applicati
 
 When you assign a group to an application, only users in the group will have access. The assignment doesn't cascade to nested groups.
 
-Group-based assignment requires Azure Active Directory Premium P1 or P2 edition. Group-based assignment is supported for Security groups only. Nested group memberships and Microsoft 365 groups aren't currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
+Group-based assignment requires Azure Active Directory Premium P1 or P2 edition. Group-based assignment is supported for Security groups and Microsoft 365 groups whose `SecurityEnabled` setting is set to `True` only. Nested group memberships aren't currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
 
 For greater control, certain types of enterprise applications can be configured to require user assignment. For more information on requiring user assignment for an app, see [Manage access to an application](what-is-access-management.md#requiring-user-assignment-for-an-app).
 

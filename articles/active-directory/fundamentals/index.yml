@@ -41,7 +41,8 @@ landingContent:
             url: active-directory-access-create-new-tenant.md
           - text: Create a group and add members 
             url: active-directory-groups-view-azure-portal.md
-
+          - text: Add company branding 
+            url: how-to-customize-branding.md
   # Card
   - title: Create an Azure AD account
     linkLists:
@@ -72,8 +73,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Add or delete users
-            url: add-users-azure-active-directory.md
+          - text: Create or delete users
+            url: how-to-create-delete-users.md
           - text: Assign roles to users
             url: active-directory-users-assign-role-azure-portal.md
           - text: Assign licenses to users

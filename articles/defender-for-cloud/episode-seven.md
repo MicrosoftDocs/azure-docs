@@ -2,7 +2,7 @@
 title: New GCP connector in Microsoft Defender for Cloud
 description: Learn all about the new GCP connector in Microsoft Defender for Cloud.
 ms.topic: reference
-ms.date: 01/24/2023
+ms.date: 04/27/2023
 ---
 
 # New GCP connector in Microsoft Defender for Cloud

@@ -68,6 +68,8 @@ Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourc
 ```
 
 Press return to execute the code. You should see a 200 response, and details about the table you just created will show up. To validate that the table was created go to your workspace and select Tables on the left blade. You should see your table in the list.
+> [!Note]
+> The column names are case sensitive. For example Rawdata will not correcly collect the event data.  It must be RawData.
 
 
 ## Create data collection rule to collect text logs
@@ -120,12 +122,12 @@ To create the data collection rule in the Azure portal:
 
 1. Specify the following information:
  
-    - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas.  
+    - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas (on Linux, AMA version 1.26 or higher is required to collect from a comma-separated list of file patterns).
     
         Examples of valid inputs: 
         - 20220122-MyLog.txt 
         - ProcessA_MyLog.txt  
-        - ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt 
+        - ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt
     
         > [!NOTE]
         > Multiple log files of the same type commonly exist in the same directory. For example, a machine might create a new file every day to prevent the log file from growing too large. To collect log data in this scenario, you can use a file wildcard. Use the format `C:\directoryA\directoryB\*MyLog.txt` for Windows and `/var/*.log` for Linux. There is no support for directory wildcards. 

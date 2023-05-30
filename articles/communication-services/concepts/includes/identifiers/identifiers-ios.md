@@ -33,7 +33,7 @@ let user = CommunicationUserIdentifier(newUserId)
 
 ### Microsoft Teams user
 
-The `MicrosoftTeamsUserIdentifier` represents a Teams user with its Azure AD user object ID. You can retrieve the Azure AD user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in an [Azure AD ID token](../../../../active-directory/develop/id-tokens.md#payload-claims) or [Azure AD access token](../../../../active-directory/develop/access-tokens.md#payload-claims) after your user has signed in and acquired a token.
+The `MicrosoftTeamsUserIdentifier` represents a Teams user with its Azure AD user object ID. You can retrieve the Azure AD user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in an [Azure AD ID token](../../../../active-directory/develop/id-tokens.md#payload-claims) or [Azure AD access token](../../../../active-directory/develop/access-token-claims-reference.md#payload-claims) after your user has signed in and acquired a token.
 
 #### Basic usage
 
@@ -45,7 +45,7 @@ let userId = await getUserIdFromGraph("bob@contoso.com")
 let teamsUser = MicrosoftTeamsUserIdentifier(userId: userId)
 
 // if you're not operating in the public cloud, you must also pass the right Cloud type.
-gcchTeamsUser = MicrosoftTeamsUserIdentifier(userId: userId, cloud: CommunicationCloudEnvironment.Gcch)
+let gcchTeamsUser = MicrosoftTeamsUserIdentifier(userId: userId, cloud: CommunicationCloudEnvironment.Gcch)
 ```
 
 #### API reference
@@ -66,6 +66,30 @@ let phoneNumber = PhoneNumberIdentifier(phoneNumber: "+112345556789")
 #### API reference
 
 [PhoneNumberIdentifier](https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/Classes/PhoneNumberIdentifier.html)
+
+### Microsoft bot
+
+> [!NOTE]
+> The Microsoft Bot Identifier is currently in public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+The `MicrosoftBotIdentifier` interface represents a Microsoft bot with its Azure AD bot object ID. In the preview version the interface represents a bot of the Teams Voice applications such as Call Queue and Auto Attendant, and the application should be configured with a resource account. You can retrieve the Azure AD bot object ID via the [Microsoft Graph REST API /users](/graph/api/user-list) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview).
+#### Basic usage
+
+```swift
+// Get the Microsoft bot's ID from Graph APIs, assuming a helper method for the Graph API
+let botId = await getBotIdFromGraph()
+
+// Create an identifier
+let botIdentifier = MicrosoftBotIdentifier(botId: botId)
+
+// If you're not operating in the public cloud, you must also pass the right Cloud type.
+// If you use Azure Bot Framework instead of Teams Voice applications, set property isResourceAccountConfigured to false.
+let gcchBotIdentifier = MicrosoftBotIdentifier(botId: botId, isResourceAccountConfigured: true, cloudEnvironment: CommunicationCloudEnvironment.Gcch)
+```
+
+#### API reference
+
+[MicrosoftBotIdentifier](https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/Classes/MicrosoftBotIdentifier.html)
 
 ### Unknown
 
@@ -95,6 +119,8 @@ switch (communicationIdentifier)
         print(#"Teams user: \(teamsUser.UserId)"#)
     case let phoneNumber as PhoneNumberIdentifier:
         print(#"Phone number: \(phoneNumber.PhoneNumber)"#)
+    case let bot as MicrosoftBotIdentifier:
+        print(#"Microsoft bot: \(bot.botId)"#)
     case let unknown as UnknownIdentifier:
         print(#"Unknown: \(unknown.Id)"#)
     @unknown default:

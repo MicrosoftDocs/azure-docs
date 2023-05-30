@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 05/17/2023
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ

@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 04/20/2023
 ms.custom: template-how-to
 ---
 
@@ -32,6 +32,10 @@ When scanning MongoDB source, Microsoft Purview supports extracting technical me
 During scan, Microsoft Purview retrieves and analyzes sample documents to infer the collection/view schema. The sample size is configurable.
 
 When setting up scan, you can choose to scan one or more MongoDB database(s) entirely, or further scope the scan to a subset of collections matching the given name(s) or name pattern(s).
+
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ## Prerequisites
 

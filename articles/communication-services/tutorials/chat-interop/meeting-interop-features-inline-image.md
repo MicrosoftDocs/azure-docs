@@ -11,10 +11,12 @@ ms.subservice: teams-interop
 ms.custom: mode-other
 ---
 
-# Tutorial: Enable inline interoperability features in your Chat app
+# Tutorial: Enable inline image support in your Chat app
 
 ## Add inline image support
 The Chat SDK is designed to work with Microsoft Teams seamlessly. Specifically, Chat SDK provides a solution to receive inline images sent by users from Microsoft Teams. Currently this feature is only available in the Chat SDK for JavaScript. 
+
+The Chat SDK for JavaScript provides `previewUrl` and `url` for each inline image. Please note that some GIF images fetched from `previewUrl` might not be animated and a static preview image would be returned instead. Developers are expected to use the `url` if the intention is to fetch animated images only.
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 

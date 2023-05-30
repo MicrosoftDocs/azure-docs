@@ -25,22 +25,19 @@ The Rubrik Security Cloud data connector enables security operations teams to in
 
 **Rubrik Anomaly Events - Anomaly Events for all severity types.**
    ```kusto
-Rubrik_Anomaly_Data_CL
- 
+   Rubrik_Anomaly_Data_CL
    | sort by TimeGenerated desc
    ```
 
 **Rubrik Ransomware Analysis Events - Ransomware Analysis Events for all severity types.**
    ```kusto
-Rubrik_Ransomware_Data_CL
- 
+   Rubrik_Ransomware_Data_CL
    | sort by TimeGenerated desc
    ```
 
 **Rubrik ThreatHunt Events - Threat Hunt Events for all severity types.**
    ```kusto
-Rubrik_ThreatHunt_Data_CL
- 
+   Rubrik_ThreatHunt_Data_CL
    | sort by TimeGenerated desc
    ```
 
@@ -50,7 +47,7 @@ Rubrik_ThreatHunt_Data_CL
 
 To integrate with Rubrik Security Cloud data connector (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 
 
 ## Vendor installation instructions
@@ -60,7 +57,7 @@ To integrate with Rubrik Security Cloud data connector (using Azure Function) ma
    >  This connector uses Azure Functions to connect to the Rubrik webhook which push its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 **STEP 1 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
@@ -95,7 +92,7 @@ Use the following step-by-step instructions to deploy the Rubrik Sentinel data c
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-RubrikWebhookEvents-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
@@ -132,7 +129,7 @@ If you're already signed in, go to the next step.
 		RansomwareAnalysis_table_name
 		ThreatHunts_table_name
 		logAnalyticsUri (optional)
- - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: https://<CustomerId>.ods.opinsights.azure.us. 
+ - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`. 
 4. Once all application settings have been entered, click **Save**.
 
 

@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 09/06/2022
 ms.author: jomondi
 ms.reviewer: phsignor, yuhko, ergreenl
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, enterprise-apps
 
 #customer intent: As an admin, I want to configure group owner consent to apps accessing group data using Azure AD
 ---
