@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/27/2020
+ms.date: 05/08/2023
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---
@@ -38,6 +38,7 @@ From the Insights page of your Load Balancer, you can select More Detailed Metri
 You can navigate through the available tabs each of which contain visuals relevant to a specific aspect of your Load Balancer. Explicit guidance for each is available in the dashboard at the bottom of each tab.
 
 The dashboard tabs currently available are:
+
 * Overview
 * Frontend and Backend Availability
 * Data Throughput
@@ -46,30 +47,37 @@ The dashboard tabs currently available are:
 * Metric Definitions 
 
 ### Overview tab
+
 The Overview tab contains a searchable grid with the overall Data Path Availability and Health Probe Status for each of the Frontend IPs attached to your Load Balancer. These metrics indicate whether the Frontend IP is responsive and the compute instances in your Backend Pool are individually responsive to inbound connections.
 
 You can also view the overall data throughput for each Frontend IP on this page to get a sense of whether you're producing and receive expected traffic levels. The guidance at the bottom of the page directs you to the appropriate tab should you see any irregular values.
 
 ### Frontend and Backend Availability tab
+
 The Frontend and Backend Availability tabs show the Data Path Throughput and Health Probe Status metrics presented in a few useful views. The first graph shows the aggregate value so you can determine whether there's an issue. The rest of the graphs show these metrics split by various dimensions so that you can troubleshoot and identify the sources of any inbound availability issues.
 
 A workflow for viewing these graphs is provided at the bottom of the page with common causes for various symptoms. 
 
 ### Data Throughput tab
+
 The Data Throughput tab allows you to review your inbound and outbound throughput to identify if your traffic patterns are as expected. It shows the inbound and outbound data throughput split by Frontend IP and Frontend Port so that you can identify if how the services you have running are performing individually.
 
 ### Flow Distribution
+
 The Flow Distribution Tab helps you visualize and manage the number of flows your backend instances are receiving and producing. It shows the Flow Creation Rate and Flow Count for inbound and outbound traffic as well as the Network Traffic each VM and Virtual Machine Scale Set instance is receiving. 
 
 These views can give you feedback on whether your Load Balancer configuration or traffic patterns are leading to imbalanced traffic. For example, if you have session affinity configured and a single client is making a disproportionate number of requests. It will also let you know if you're approaching the [per VM flow limit](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) for your machine size.
 
 ### Connection Monitors
+
 The Connection Monitors tab shows you the round-trip latency on a global map for all of the [Connection Monitors](../network-watcher/connection-monitor.md)  you've configured. These visuals provide useful information for services with strict latency requirements. To meet your requirements, you may need to add other regional deployments or  move to a [cross-regional load balancing](./cross-region-overview.md) model
 
 ### Metric Definitions
+
 The Metric Definitions tab contains all the information shown in the [Multi-dimensional Metrics article](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics).
 
 ## Next steps
+
 * Review the dashboard and provide feedback using the below link if there's anything that can be improved
 * [Review the metrics documentation to ensure you understand how each metric is calculated](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
 * [Create Connection Monitors for your Load Balancer](../network-watcher/connection-monitor.md)

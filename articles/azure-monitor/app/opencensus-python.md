@@ -2,13 +2,16 @@
 title: Monitor Python applications with Azure Monitor | Microsoft Docs
 description: This article provides instructions on how to wire up OpenCensus Python with Azure Monitor.
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 05/01/2023
 ms.devlang: python
 ms.custom: devx-track-python
 ms.reviewer: mmcc
 ---
 
 # Set up Azure Monitor for your Python application
+
+> [!NOTE]
+> OpenTelemetry announced the [sunsetting of OpenCensus](https://opentelemetry.io/blog/2023/sunsetting-opencensus/). Azure continues to support the Python OpenCensus SDK and will not drop support for it without at least one year of advance notification. A preview of our [OpenTelemetry-based Python offering](opentelemetry-enable.md?tabs=python) is available.
 
 Azure Monitor supports distributed tracing, metric collection, and logging of Python applications.
 
@@ -17,9 +20,6 @@ Microsoft's supported solution for tracking and exporting data for your Python a
 Microsoft doesn't recommend using any other telemetry SDKs for Python as a telemetry solution because they're unsupported.
 
 OpenCensus is converging into [OpenTelemetry](https://opentelemetry.io/). We continue to recommend OpenCensus while OpenTelemetry gradually matures.
-
-> [!NOTE]
-> A preview [OpenTelemetry-based Python offering](opentelemetry-enable.md?tabs=python) is available. To learn more, see the [OpenTelemetry overview](opentelemetry-overview.md).
 
 ## Prerequisites
 
@@ -220,7 +220,7 @@ For information on sampling in OpenCensus, see [Sampling in OpenCensus](sampling
 
 #### Log correlation
 
-For information on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](./correlation.md#log-correlation).
+For information on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](distributed-tracing-telemetry-correlation.md#log-correlation).
 
 #### Modify telemetry
 
@@ -478,7 +478,7 @@ For information on sampling in OpenCensus, see [Sampling in OpenCensus](sampling
 
 #### Trace correlation
 
-For more information on telemetry correlation in your trace data, see OpenCensus Python [telemetry correlation](./correlation.md#telemetry-correlation-in-opencensus-python).
+For more information on telemetry correlation in your trace data, see OpenCensus Python [telemetry correlation](distributed-tracing-telemetry-correlation.md#telemetry-correlation-in-opencensus-python).
 
 #### Modify telemetry
 

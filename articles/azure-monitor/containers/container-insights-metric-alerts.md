@@ -158,11 +158,11 @@ To disable custom alert rules, use the same ARM template to create the rule, but
 ---
 
 
-## Migrate from metric rules to Prometheus rules (preview) 
+## Migrate from metric rules to Prometheus rules (preview)
 If you're using metric alert rules to monitor your Kubernetes cluster, you should transition to Prometheus recommended alert rules (preview) before March 14, 2026 when metric alerts are retired.
 
-1. Follow the steps at [Enable Prometheus alert rules](#enable-prometheus-alert-rules) to configure Prometheus recommended alert rules (preview). 
-2. Follow the steps at [Disable metric alert rules](#disable-metric-alert-rules) to remove metric alert rules from your clusters. 
+1. Follow the steps at [Enable Prometheus alert rules](#enable-prometheus-alert-rules) to configure Prometheus recommended alert rules (preview).
+2. Follow the steps at [Disable metric alert rules](#disable-metric-alert-rules) to remove metric alert rules from your clusters.
 
 ## Alert rule details
 
@@ -207,7 +207,7 @@ Source code for the recommended alerts can be found in [GitHub](https://github.c
 | Average Persistent Volume Usage % | Average Persistent Volume Usage % | Calculates average persistent volume usage per pod. | 80% |
 | Average Working set memory % | Average Working set memory % | Calculates average Working set memory for a node. | 80% |
 | Restarting container count | Restarting container count | Calculates number of restarting containers. | 0 |
-| Failed Pod Counts | Failed Pod Counts | Calculates number of restarting containers. | 0 |
+| Failed Pod Counts | Failed Pod Counts | Calculates number of pods in failed state. | 0 |
 | Node NotReady status | Node NotReady status | Calculates if any node is in NotReady state. | 0 |
 | OOM Killed Containers | OOM Killed Containers | Calculates number of OOM killed containers. | 0 |
 | Pods ready % | Pods ready % | Calculates the average ready state of pods. | 80% |

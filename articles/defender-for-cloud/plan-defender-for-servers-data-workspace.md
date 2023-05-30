@@ -2,9 +2,9 @@
 title: Plan Defender for Servers data residency and workspaces 
 description: Review data residency and workspace design for Microsoft Defender for Servers.
 ms.topic: conceptual
-ms.author: benmansheim
-author: bmansheim
-ms.date: 11/06/2022
+ms.author: dacurwin
+author: dcurwin
+ms.date: 05/30/2023
 ms.custom: references_regions
 ---
 # Plan data residency and workspaces for Defender for Servers
@@ -78,13 +78,13 @@ You can store your server information in the default workspace or you can use a 
 
 ### If I enable Defender for Clouds Servers plan on the subscription level, do I need to enable it on the workspace level?
 
-When you enable the Servers plan on the subscription level, Defender for Cloud will enable the Servers plan on your default workspaces automatically. Connect to the default workspace by selecting **Connect Azure VMs to the default workspace(s) created by Defender for Cloud** option and selecting **Apply**.
+When you enable the Servers plan on the subscription level, Defender for Cloud enables the Servers plan on your default workspaces automatically. Connect to the default workspace by selecting **Connect Azure VMs to the default workspace(s) created by Defender for Cloud** option and selecting **Apply**.
 
 :::image type="content" source="media/plan-defender-for-servers-data-workspace/connect-workspace.png" alt-text="Screenshot showing how to auto-provision Defender for Cloud to manage your workspaces.":::
 
-However, if you're using a custom workspace in place of the default workspace, you'll need to enable the Servers plan on all of your custom workspaces that don't have it enabled. 
+However, if you're using a custom workspace in place of the default workspace, you need to enable the Servers plan on all of your custom workspaces that don't have it enabled.
 
-If you're using a custom workspace and enable the plan on the subscription level only, the `Microsoft Defender for servers should be enabled on workspaces` recommendation will appear on the Recommendations page. This recommendation will give you the option to enable the servers plan on the workspace level with the Fix button. You're charged for all VMs in the subscription even if the Servers plan isn't enabled for the workspace. The VMs won't benefit from features that depend on the Log Analytics workspace, such as Microsoft Defender for Endpoint, VA solution (TVM/Qualys), and Just-in-Time VM access.
+If you're using a custom workspace and enable the plan on the subscription level only, the `Microsoft Defender for servers should be enabled on workspaces` recommendation appears on the Recommendations page. This recommendation gives you the option to enable the servers plan on the workspace level with the Fix button. You're charged for all VMs in the subscription even if the Servers plan isn't enabled for the workspace. The VMs won't benefit from features that depend on the Log Analytics workspace, such as Microsoft Defender for Endpoint, VA solution (MDVM/Qualys), and Just-in-Time VM access.
 
 Enabling the Servers plan on both the subscription and its connected workspaces, won't incur a double charge. The system will identify each unique VM.
 
@@ -104,11 +104,12 @@ Yes. If you configure your Log Analytics agent to send data to two or more diffe
 
 ### Is the 500-MB free data ingestion calculated for an entire workspace or strictly per machine?
 
-You'll get 500-MB free data ingestion per day, for every VM connected to the workspace. Specifically for the [security data types](#what-data-types-are-included-in-the-500-mb-data-daily-allowance) that are directly collected by Defender for Cloud. 
+You receive a daily allowance of 500 MB of free data ingestion for each virtual machine (VM) connected to the workspace. This allocation specifically applies to the [security data types](#what-data-types-are-included-in-the-500-mb-data-daily-allowance) collected directly by Defender for Cloud.
 
-This data is a daily rate averaged across all nodes. Your total daily free limit is equal to **[number of machines] x 500 MB**. So even if some machines send 100 MB and others send 800 MB, if the total doesn't exceed your total daily free limit, you won't be charged extra.
+The data allowance is a daily rate calculated across all connected machines. Your total daily free limit is equal to the **[number of machines] x 500 MB**. So even if on a given day some machines send 100 MB and others send 800 MB, if the total data from all machines doesn't exceed your daily free limit, you won't be charged extra.
 
 ### What data types are included in the 500-MB data daily allowance?
+
 Defender for Cloud's billing is closely tied to the billing for Log Analytics. [Microsoft Defender for Servers](defender-for-servers-introduction.md) provides a 500 MB/node/day allocation for machines against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
 
 - [SecurityAlert](/azure/azure-monitor/reference/tables/securityalert)
@@ -129,7 +130,7 @@ You can view your data usage in two different ways, the Azure portal, or by runn
 
 **To view your usage in the Azure portal**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Log Analytics workspaces**.
 
@@ -145,7 +146,7 @@ You can also view estimated costs under different pricing tiers by selecting :::
 
 **To view your usage by using a script**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Log Analytics workspaces** > **Logs**.
 
@@ -178,7 +179,7 @@ You may want to manage your costs and limit the amount of data collected for a s
 > Solution targeting has been deprecated because the Log Analytics agent is being replaced with the Azure Monitor agent and solutions in Azure Monitor are being replaced with insights. You can continue to use solution targeting if you already have it configured, but it is not available in new regions.
 > The feature will not be supported after August 31, 2024.
 > Regions that support solution targeting until the deprecation date are:
-> 
+>
 > | Region code | Region name |
 > | :--- | :---------- |
 > | CCAN | canadacentral |
@@ -209,13 +210,13 @@ You may want to manage your costs and limit the amount of data collected for a s
 >
 > | Air-gapped clouds | Region code | Region name |
 > | :---- | :---- | :---- |
-> | UsNat | EXE | usnateast | 
-> | UsNat | EXW | usnatwest | 
-> | UsGov | FF | usgovvirginia | 
-> | China | MC | ChinaEast2 | 
-> | UsGov | PHX | usgovarizona | 
-> | UsSec | RXE | usseceast | 
-> | UsSec | RXW | ussecwest | 
+> | UsNat | EXE | usnateast |
+> | UsNat | EXW | usnatwest |
+> | UsGov | FF | usgovvirginia |
+> | China | MC | ChinaEast2 |
+> | UsGov | PHX | usgovarizona |
+> | UsSec | RXE | usseceast |
+> | UsSec | RXW | ussecwest |
 
 ## Next steps
 

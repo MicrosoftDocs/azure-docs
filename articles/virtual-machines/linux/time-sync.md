@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 05/04/2022
+ms.date: 04/26/2023
 ms.author: cynthn
 ---
 
@@ -127,6 +127,26 @@ Here, chrony will force a time update if the drift is greater than 1 second. To 
 systemctl restart chronyd
 ```
 
+### Time sync messages related to systemd-timesyncd
+
+In some cases, the systemd-timesyncd service might still be enabled and trying to do a sync upon a reboot, if you are still seeing messages in syslog that look similar to:
+
+````
+systemd-timesyncd[945]: Network configuration changed, trying to establish connection.
+Aug  1 12:59:45 vm-name systemd-timesyncd[945]: Network configuration changed, trying to establish connection.
+Aug  1 12:59:45 vm-name systemd-timesyncd[945]: Network configuration changed, trying to establish connection.
+Aug  1 12:59:45 vm-name systemd-timesyncd[945]: Network configuration changed, trying to establish connection.
+Aug  1 12:59:45 vm-name systemd-timesyncd[945]: Network configuration changed, trying to establish connection.
+Aug  1 12:59:45 vm-name systemd-timesyncd[945]: Synchronized to time server 185.125.190.56:123 (ntp.ubuntu.com)
+`````
+
+You can disable it by using:
+
+```bash
+systemctl disable systemd-timesyncd
+````
+In most cases, systemd-timesyncd will try during boot but once chrony starts up it will overwrite and become the default time sync source.
+
 For more information about Ubuntu and NTP, see [Time Synchronization](https://ubuntu.com/server/docs/network-ntp).
 
 For more information about Red Hat and NTP, see [Configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
@@ -139,7 +159,7 @@ On SUSE and Ubuntu releases before 19.10, time sync is configured using [systemd
 
 ### cloud-init
 
-Images that use cloud-init to provision the VM can use the ntp section to setup a time sync service. An example of cloud-init installing chrony and configuring it to use the PTP clock source for Ubuntu VMs:
+Images that use cloud-init to provision the VM can use the `ntp` section to setup a time sync service. An example of cloud-init installing chrony and configuring it to use the PTP clock source for Ubuntu VMs:
 
 ```yaml
 #cloud-config

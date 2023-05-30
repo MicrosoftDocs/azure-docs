@@ -3,13 +3,13 @@ title: Azure OpenAI Service quotas and limits
 titleSuffix: Azure Cognitive Services
 description: Quick reference, detailed description, and best practices on the quotas and limits for the OpenAI service in Azure Cognitive Services.
 services: cognitive-services
-author: ChrisHMSFT
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
-ms.date: 04/25/2023
-ms.author: chrhoder
+ms.date: 05/15/2023
+ms.author: mbullwin
 ---
 
 # Azure OpenAI Service quotas and limits

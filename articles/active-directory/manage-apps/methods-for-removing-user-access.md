@@ -11,6 +11,7 @@ ms.topic: reference
 ms.date: 11/17/2021
 ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 ---
 
 # Remove user access to applications

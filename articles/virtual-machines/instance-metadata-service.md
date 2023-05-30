@@ -39,7 +39,7 @@ Here's sample code to retrieve all metadata for an instance. To access a specifi
 
 #### [Windows](#tab/windows/)
 
-```azurepowershell-interactive
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | ConvertTo-Json -Depth 64
 ```
 
@@ -206,7 +206,7 @@ To access a non-default response format, specify the requested format as a query
 
 #### [Windows](#tab/windows/)
 
-```azurepowershell-interactive
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
@@ -495,7 +495,7 @@ To set up user data, utilize the quickstart template [here](https://aka.ms/ImdsU
 
 #### [Windows](#tab/windows/)
 
-```azurepowershell-interactive
+```powershell
 $userData = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text"
 [System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($userData))
 ```
@@ -516,7 +516,7 @@ As a service provider, you may require to track the number of VMs running your s
 
 #### [Windows](#tab/windows/)
 
-```azurepowershell-interactive
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
@@ -545,7 +545,7 @@ You can query this data directly via IMDS.
 
 #### [Windows](#tab/windows/)
 
-```azurepowershell-interactive
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
@@ -572,7 +572,7 @@ Tags may have been applied to your Azure VM to logically organize them into a ta
 
 #### [Windows](#tab/windows/)
 
-```azurepowershell-interactive
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2017-08-01&format=text"
 ```
 
@@ -596,7 +596,7 @@ The `tags` field is a string with the tags delimited by semicolons. This output 
 
 #### [Windows](#tab/windows/)
 
-```azurepowershell-interactive
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | ConvertTo-Json -Depth 64
 ```
 
@@ -663,7 +663,7 @@ As a service provider, you may get a support call where you would like to know m
 
 #### [Windows](#tab/windows/)
 
-```azurepowershell-interactive
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
@@ -968,7 +968,7 @@ Azure has various sovereign clouds like [Azure Government](https://azure.microso
 
 #### [Windows](#tab/windows/)
 
-```azurepowershell-interactive
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
@@ -1001,7 +1001,7 @@ The cloud and the values of the Azure environment are listed here.
 
 #### [Windows](#tab/windows/)
 
-```azurepowershell-interactive
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
 ```
 
@@ -1046,7 +1046,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 
 #### [Windows](#tab/windows/)
 
-```azurepowershell-interactive
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
@@ -1140,7 +1140,7 @@ Vendors in Azure Marketplace want to ensure that their software is licensed to r
 
 #### [Windows](#tab/windows/)
 
-```azurepowershell-interactive
+```powershell
 # Get the signature
 $attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
 # Decode the signature
@@ -1149,7 +1149,7 @@ $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 
 Verify that the signature is from Microsoft Azure and checks the certificate chain for errors.
 
-```azurepowershell-interactive
+```powershell
 # Get certificate chain
 $cert = [System.Security.Cryptography.X509Certificates.X509Certificate2]($signature)
 $chain = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Chain

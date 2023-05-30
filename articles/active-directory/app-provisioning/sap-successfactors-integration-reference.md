@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/26/2023
+ms.date: 04/27/2023
 ms.author: kenwith
 ms.reviewer: chmutali
 ---
 
 # How Azure Active Directory provisioning integrates with SAP SuccessFactors 
 
-[Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [SAP SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) to manage the identity life cycle of users. Azure Active Directory offers three pre-built integrations: 
+[Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [SAP SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) to manage the identity life cycle of users. Azure Active Directory offers three prebuilt integrations: 
 
 * [SuccessFactors to on-premises Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 * [SuccessFactors to Azure Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
@@ -84,11 +84,11 @@ Based on the attribute-mapping, during full sync Azure AD provisioning service s
 >| OData customPageSize query parameter | `100` |
 
 > [!NOTE]
-> During the full initial sync, both active and terminated workers from SAP SuccessFactors will be fetched.
+> During the full initial sync, both active and terminated workers from SAP SuccessFactors are fetched.
 
 For each SuccessFactors user, the provisioning service looks for an account in the target (Azure AD/on-premises Active Directory) using the matching attribute defined in the mapping. For example: if *personIdExternal* maps to *employeeId* and is set as the matching attribute, then the provisioning service uses the *personIdExternal* value to search for the user with *employeeId* filter. If a user match is found, then it updates the target attributes. If no match is found, then it creates a new entry in the target. 
 
-To validate the data returned by your OData API endpoint for a specific `personIdExternal`, update the `SuccessFactorsAPIEndpoint` in the API query with your API data center server URL and use a tool like [Postman](https://www.postman.com/downloads/) to invoke the query. If the "in" filter does not work, you can try the "eq" filter. 
+To validate the data returned by your OData API endpoint for a specific `personIdExternal`, update the `SuccessFactorsAPIEndpoint` in the API query with your API data center server URL and use a tool like [Postman](https://www.postman.com/downloads/) to invoke the query. If the "in" filter doesn't work, you can try the "eq" filter. 
 
 ```
 https://[SuccessFactorsAPIEndpoint]/odata/v2/PerPerson?$format=json&
@@ -106,7 +106,7 @@ employmentNav/jobInfoNav/employmentTypeNav,employmentNav/jobInfoNav/employeeClas
 
 After full sync, Azure AD provisioning service maintains `LastExecutionTimestamp` and uses it to create delta queries for retrieving incremental changes. The timestamp attributes present in each SuccessFactors entity, such as `lastModifiedDateTime`, `startDate`, `endDate`, and `latestTerminationDate`, are evaluated to see if the change falls between the `LastExecutionTimestamp` and `CurrentExecutionTime`. If yes, then the entry change is considered to be effective and processed for sync. 
 
-Here is the OData API request template that Azure AD uses to query SuccessFactors for incremental changes. You can update the variables `SuccessFactorsAPIEndpoint`, `LastExecutionTimestamp` and `CurrentExecutionTime` in the request template use a tool like [Postman](https://www.postman.com/downloads/) to check what data is returned. Alternatively, you can also retrieve the actual request payload from SuccessFactors by [enabling OData API Audit logs](#enabling-odata-api-audit-logs-in-successfactors). 
+Here's the OData API request template that Azure AD uses to query SuccessFactors for incremental changes. You can update the variables `SuccessFactorsAPIEndpoint`, `LastExecutionTimestamp` and `CurrentExecutionTime` in the request template use a tool like [Postman](https://www.postman.com/downloads/) to check what data is returned. Alternatively, you can also retrieve the actual request payload from SuccessFactors by [enabling OData API Audit logs](#enabling-odata-api-audit-logs-in-successfactors). 
 
 ```
 https://[SuccessFactorsAPIEndpoint]/odata/v2/PerPerson/$count?$format=json&$filter=(personEmpTerminationInfoNav/activeEmploymentsCount ne null) and
@@ -135,7 +135,7 @@ To retrieve more attributes, follow the steps listed:
 1. Click on **Edit attribute list for SuccessFactors**. 
 
    > [!NOTE] 
-   > If the **Edit attribute list for SuccessFactors** option does not show in the Azure portal, use the URL *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* to access the page. 
+   > If the **Edit attribute list for SuccessFactors** option doesn't show in the Azure portal, use the URL *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* to access the page. 
 
 1. The **API expression** column in this view displays the JSONPath expressions used by the connector.
 
@@ -166,7 +166,7 @@ This section covers how you can customize the provisioning app for the following
 
 ### Retrieving more attributes
 
-The default Azure AD SuccessFactors provisioning app schema ships with [90+ pre-defined attributes](sap-successfactors-attribute-reference.md). 
+The default Azure AD SuccessFactors provisioning app schema ships with [90+ predefined attributes](sap-successfactors-attribute-reference.md). 
 To add more SuccessFactors attributes to the provisioning schema, use the steps listed: 
 
 1. Use the OData query to retrieve data for a valid test user from Employee Central. 
@@ -196,7 +196,7 @@ To add more SuccessFactors attributes to the provisioning schema, use the steps 
 
 ### Retrieving custom attributes
 
-By default, the following custom attributes are pre-defined in the Azure AD SuccessFactors provisioning app: 
+By default, the following custom attributes are predefined in the Azure AD SuccessFactors provisioning app: 
 * *custom01-custom15* from the User (userNav) entity
 * *customString1-customString15* from the EmpEmployment (employmentNav) entity called *empNavCustomString1-empNavCustomString15*
 * *customString1-customString15* from the EmpJobInfo (jobInfoNav) entity called *empJobNavCustomString1-empNavJobCustomString15*
@@ -217,10 +217,10 @@ Extending this scenario:
 ### Mapping employment status to account status
 
 By default, the Azure AD SuccessFactors connector uses the `activeEmploymentsCount` field of the `PersonEmpTerminationInfo` object to set account status. You may encounter one of the following issues with this attribute. 
-1. There is a known SAP SuccessFactors issue documented in [knowledge base article 3047486](https://launchpad.support.sap.com/#/notes/3047486) that at times this may disable the account of a terminated worker one day prior to the termination on the last day of work. 
-1. If the `PersonEmpTerminationInfo` object gets set to null, during termination, then AD account disabling will not work, as the provisioning engine filters out records where `personEmpTerminationInfoNav` object is set to null. 
+1. There's a known issue where the connector may disable the account of a terminated worker one day prior to the termination on the last day of work. The issue is documented in [knowledge base article 3047486](https://launchpad.support.sap.com/#/notes/3047486). 
+1. If the `PersonEmpTerminationInfo` object gets set to null, during termination, then AD account disabling doesn't work because the provisioning engine filters out records where the `personEmpTerminationInfoNav` object is set to null.
 
-If you are running into any of these issues or prefer mapping employment status to account status, you can update the mapping to expand the `emplStatus` field and use the employment status code present in the field `emplStatus.externalCode`. Based on [SAP support note 2505526](https://launchpad.support.sap.com/#/notes/2505526), here is a list of employment status codes that you can retrieve in the provisioning app. 
+If you're running into any of these issues or prefer mapping employment status to account status, you can update the mapping to expand the `emplStatus` field and use the employment status code present in the field `emplStatus.externalCode`. Based on [SAP support note 2505526](https://launchpad.support.sap.com/#/notes/2505526), here's a list of employment status codes that you can retrieve in the provisioning app. 
 * A = Active 
 * D = Dormant
 * U = Unpaid Leave
@@ -235,7 +235,7 @@ Use the steps to update your mapping to retrieve these codes.
 
 1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
 1. Under **Show advanced options**, click on **Edit SuccessFactors attribute list**. 
-1. Find the attribute `emplStatus` and update the JSONPath to `$.employmentNav.results[0].jobInfoNav.results[0].emplStatusNav.externalCode`. This will enable the connector to retrieve the employment status codes in the table. 
+1. Find the attribute `emplStatus` and update the JSONPath to `$.employmentNav.results[0].jobInfoNav.results[0].emplStatusNav.externalCode`. The update makes the connector retrieve the employment status codes in the table. 
 1. Save the changes. 
 1. In the attribute mapping blade, update the expression mapping for the account status flag. 
 
@@ -260,7 +260,7 @@ Use the steps to update your mapping to retrieve these codes.
 If your HR process uses Option 1, then no changes are required to the provisioning schema. 
 If your HR process uses Option 2, then Employee Central adds a new *EmpEmployment* entity along with a new *User* entity for the same *Person* entity. 
 
-To handle both these scenarios so that the new employment data shows up when a conversion or rehire occurs, you can bulk update the provisioning app schema using the steps listed:  
+You can handle both scenarios so that the new employment data shows up when a conversion or rehire occurs. Bulk update the provisioning app schema using the steps listed:  
 
 1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
 1. Scroll down and click **Show advanced options**.
@@ -284,7 +284,7 @@ To handle both these scenarios so that the new employment data shows up when a c
 1. After confirming that sync works as expected, restart the provisioning job. 
 
 > [!NOTE]
-> The approach described above only works if SAP SuccessFactors returns the employment objects in ascending order, where the latest employment record is always the last record in the *employmentNav* results array. The order in which multiple employment records are returned is not guaranteed by SuccessFactors. If your SuccessFactors instance has multiple employment records corresponding to a worker and you always want to retrieve attributes associated with the active employment record, use steps described in the next section.  
+> The approach described above only works if SAP SuccessFactors returns the employment objects in ascending order, where the latest employment record is always the last record in the *employmentNav* results array. The order in which multiple employment records are returned isn't guaranteed by SuccessFactors. If your SuccessFactors instance has multiple employment records corresponding to a worker and you always want to retrieve attributes associated with the active employment record, use steps described in the next section.  
 
 ### Retrieving current active employment record
 
@@ -297,17 +297,17 @@ This section describes how you can update the JSONPath settings to definitely re
 1. Click on the link **Review your schema here** to open the schema editor. 
 1. Click on the **Download** link to save a copy of the schema before editing. 
 1. In the schema editor, press Ctrl-H key to open the find-replace control.
-1. Perform the following find replace operations. Ensure there is no leading or trailing space when performing the find-replace operations. If you are using `[-1:]` index instead of `[0]`, then update the *string-to-find* field accordingly. 
+1. Perform the following find replace operations. Ensure there's no leading or trailing space when performing the find-replace operations. If you're using `[-1:]` index instead of `[0]`, then update the *string-to-find* field accordingly. 
 
     | **String to find** | **String to use for replace** | **Purpose**  |
     | ------------------ | ----------------------------- | ------------ |
-    | `$.employmentNav.results\[0\].<br>jobInfoNav.results\[0\].emplStatus` | `$.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P' )\].emplStatusNav.externalCode` | With this find-replace, we are adding the ability to expand emplStatusNav OData object.    |
-    | `$.employmentNav.results\[0\].<br>jobInfoNav.results\[0\]`            | `$.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\]`                             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors EmpJobInfo record. Attributes associated with terminated/inactive records in SuccessFactors will be ignored. |
-    | `$.employmentNav.results\[0\]`                                    | `$.employmentNav..results\[?(@.jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\])\]`             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors Employment record. Attributes associated with terminated/inactive records in SuccessFactors will be ignored. |
+    | `$.employmentNav.results\[0\].<br>jobInfoNav.results\[0\].emplStatus` | `$.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P' )\].emplStatusNav.externalCode` | With this find-replace, we're adding the ability to expand emplStatusNav OData object.    |
+    | `$.employmentNav.results\[0\].<br>jobInfoNav.results\[0\]`            | `$.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\]`                             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors EmpJobInfo record. Attributes associated with terminated/inactive records in SuccessFactors are ignored. |
+    | `$.employmentNav.results\[0\]`                                    | `$.employmentNav..results\[?(@.jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\])\]`             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors Employment record. Attributes associated with terminated/inactive records in SuccessFactors are ignored. |
 
 1. Save the schema.
 1. The above process updates all JSONPath expressions. 
-1. For pre-hire processing to work, the JSONPath associated with `startDate` attribute must use either `[0]` or `[-1:]` index. Under **Show advanced options**, click on **Edit SuccessFactors attribute list**. Find the attribute `startDate` and set it to the value `$.employmentNav.results[-1:].startDate`
+1. For prehire processing to work, the JSONPath associated with `startDate` attribute must use either `[0]` or `[-1:]` index. Under **Show advanced options**, click on **Edit SuccessFactors attribute list**. Find the attribute `startDate` and set it to the value `$.employmentNav.results[-1:].startDate`
 1. Save the schema.
 1. To ensure that terminations are processed as expected, you can use one of the following settings in the attribute mapping section.
  
@@ -361,7 +361,7 @@ To fetch attributes belonging to both jobs, use the steps listed:
 1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
 1. Scroll down and click **Show advanced options**.
 1. Click on **Edit attribute list for SuccessFactors**.
-1. Let's say you want to pull the department associated with job 1 and job 2. The pre-defined attribute *department* already fetches the value of department for the first job. You can define a new attribute called *secondJobDepartment* and set the JSONPath expression to `$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
+1. Let's say you want to pull the department associated with job 1 and job 2. The predefined attribute *department* already fetches the value of department for the first job. You can define a new attribute called *secondJobDepartment* and set the JSONPath expression to `$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
 1. You can now either flow both department values to Active Directory attributes or selectively flow a value using expression mapping. 
 1. Save the mapping. 
 1. Test the configuration using [provision on demand](provision-on-demand.md). 
@@ -379,62 +379,52 @@ The SuccessFactors connector supports expansion of the position object. To expan
 | positionNameDE | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.externalName_de_DE |
 
 ### Provisioning users in the Onboarding module
-Inbound user provisioning from SAP SuccessFactors to on premises Active Directory and Azure AD now supports advance provisioning of prehires present in the SAP SuccessFactors Onboarding 2.0 module. When the Azure AD provisioning service encounters a new hire profile with a future start date, it queries SAP SuccessFactors to get new hires with one of the following status codes: `active`, `inactive`, `active_external_suite`. The status code `active_external_suite` corresponds to pre-hires present in the SAP SuccessFactors Onboarding 2.0 module. For a description of these status codes, refer to [SAP support note 2736579](https://launchpad.support.sap.com/#/notes/0002736579).
+Inbound user provisioning from SAP SuccessFactors to on premises Active Directory and Azure AD now supports advance provisioning of prehires present in the SAP SuccessFactors Onboarding 2.0 module. When the Azure AD provisioning service encounters a new hire profile with a future start date, it queries SAP SuccessFactors to get new hires with one of the following status codes: `active`, `inactive`, `active_external_suite`. The status code `active_external_suite` corresponds to prehires present in the SAP SuccessFactors Onboarding 2.0 module. For a description of these status codes, refer to [SAP support note 2736579](https://launchpad.support.sap.com/#/notes/0002736579).
 
-The default behavior of the provisioning service is to process pre-hires in the Onboarding module. 
+The default behavior of the provisioning service is to process prehires in the Onboarding module. 
 
-If you want to exclude processing of pre-hires in the Onboarding module, update your provisioning job configuration as follows: 
+If you want to exclude processing of prehires in the Onboarding module, update your provisioning job configuration as follows: 
 1. Open the attribute-mapping blade of your SuccessFactors provisioning app.
 1. Under show advanced options, edit the SuccessFactors attribute list to add a new attribute called `userStatus`.
 1. Set the JSONPath API expression for this attribute as: `$.employmentNav.results[0].userNav.status`
 1. Save the schema to return back to the attribute mapping blade. 
-1. Edit the Source Object scope to apply a scoping filter `userStatus NOT EQUALS 
-
-
-
-
-`
+1. Edit the Source Object scope to apply a scoping filter `userStatus NOT EQUALS`
 1. Save the mapping and validate that the scoping filter works using provisioning on demand. 
 
 ### Enabling OData API Audit logs in SuccessFactors
-
-The Azure AD SuccessFactors connector uses SuccessFactors OData API to retrieve changes and provision users. If you observe issues with the provisioning service and want to confirm what data was retrieved from SuccessFactors, you can enable OData API Audit logs in SuccessFactors by following steps documented in  [SAP support note 2680837](https://userapps.support.sap.com/sap/support/knowledge/en/2680837). From these audit logs you can retrieve the request payload sent by Azure AD. To troubleshoot, you can copy this request payload in a tool like "Postman", set it up to use the same API user that is used by the connector and see if it returns the desired changes from SuccessFactors. 
-
+The Azure AD SuccessFactors connector uses SuccessFactors OData API to retrieve changes and provision users. If you observe issues with the provisioning service and want to confirm what data was retrieved from SuccessFactors, you can enable OData API Audit logs in SuccessFactors. To enable audit logs, follow the steps documented in [SAP support note 2680837](https://userapps.support.sap.com/sap/support/knowledge/en/2680837). Retrieve the request payload sent by Azure AD from the audit logs. To troubleshoot, you can copy this request payload in a tool like [Postman](https://www.postman.com/downloads/), set it up to use the same API user that is used by the connector and see if it returns the desired changes from SuccessFactors. 
 
 ## Writeback scenarios
-
 This section covers different write-back scenarios. It recommends configuration approaches based on how email and phone number is set up in SuccessFactors.
 
 ### Supported scenarios for phone and email write-back 
-
 | \# | Scenario requirement | Email primary <br> flag value | Business phone <br> primary flag value | Cell phone <br> primary flag value | Business phone <br> mapping | Cell phone <br> mapping |
 |--|--|--|--|--|--|--|
 | 1 | * Only set business email as primary. <br> * Don't set phone numbers. | true | true | false | \[Not Set\] | \[Not Set\] | 
 | 2 | * In SuccessFactors, business email and business phone is primary <br> * Always flow Azure AD telephone number to business phone and mobile to cell phone. | true | true | false | telephoneNumber | mobile | 
 | 3 | * In SuccessFactors, business email and cell phone is primary <br> * Always flow Azure AD telephone number to business phone and mobile to cell phone | true | false | true |  telephoneNumber | mobile | 
-| 4 | * In SuccessFactors business email is primary <br> * In Azure AD, check if work telephone number is present, if present, then check if mobile number is also present, mark  work telephone number as primary only if mobile number is not present. | true | Use expression mapping: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Use expression mapping: `IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | mobile | 
+| 4 | * In SuccessFactors business email is primary. <br> * In Azure AD, check if work telephone number is present, if present, then check if mobile number is also present. Mark work telephone number as primary only if mobile number isn't present. | true | Use expression mapping: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Use expression mapping: `IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | mobile | 
 | 5 | * In SuccessFactors business email and business phone is primary. <br> * In Azure AD, if mobile is available, then set it as the business phone, else use telephoneNumber. | true | true | false | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[Not Set\] | 
 
-* If there is no mapping for phone number in the write-back attribute-mapping, then only email is included in the write-back.
-* During new hire onboarding in Employee Central, business email and phone number may not be available. If setting business email and business phone as primary is mandatory during onboarding, you can set a dummy value  for business phone and email during new hire creation, which will eventually be updated by the write-back app.
+* If there's no mapping for phone number in the write-back attribute-mapping, then only email is included in the write-back.
+* During new hire onboarding in Employee Central, business email and phone number may not be available. If setting business email and business phone as primary is mandatory during onboarding, you can set a dummy value for business phone and email during new hire creation. After some time, the write-back app updates the value.
  
 ### Enabling writeback with UserID
-
 The SuccessFactors Writeback app uses the following logic to update the User object attributes: 
-* As a first step, it looks for *userId* attribute in the change set. If it is present, then it uses "UserId" for making the SuccessFactors API call. 
-* If *userId* is not found, then it defaults to using the *personIdExternal* attribute value. 
+* As a first step, it looks for *userId* attribute in the changeset. If it's present, then it uses "UserId" for making the SuccessFactors API call. 
+* If *userId* isn't found, then it defaults to using the *personIdExternal* attribute value. 
 
-Usually the *personIdExternal* attribute value in SuccessFactors matches the *userId* attribute value. However, in scenarios such as rehiring and worker conversion, an employee in SuccessFactors may have two employment records, one active and one inactive. In such scenarios, to ensure that write-back updates the active user profile, please update the configuration of the SuccessFactors provisioning apps as described. This configuration ensures that *userId* is always present in the change set visible to the connector and is used in the SuccessFactors API call.
+Usually the *personIdExternal* attribute value in SuccessFactors matches the *userId* attribute value. However, in scenarios such as rehiring and worker conversion, an employee in SuccessFactors may have two employment records, one active and one inactive. In such scenarios, to ensure that write-back updates the active user profile, update the configuration of the SuccessFactors provisioning apps as described. This configuration ensures that *userId* is always present in the changeset visible to the connector and is used in the SuccessFactors API call.
 
 1. Open the SuccessFactors to Azure AD user provisioning app or SuccessFactors to on-premises AD user provisioning app. 
-1. Ensure that an extensionAttribute *(extensionAttribute1-15)* in Azure AD always stores the *userId* of every worker's active employment record. This can be achieved by mapping SuccessFactors *userId* attribute to an extensionAttribute in Azure AD. 
+1. Ensure that `extensionAttribute[1-15]` in Azure AD always stores the `userId` of every worker's active employment record. The record maps SuccessFactors `userId` attribute to `extensionAttribute[1-15]` in Azure AD. 
     > [!div class="mx-imgBorder"]
     > ![Inbound UserID attribute mapping](./media/sap-successfactors-integration-reference/inbound-userid-attribute-mapping.png)
 1. For guidance regarding JSONPath settings, refer to the section [Handling worker conversion and rehiring scenarios](#handling-worker-conversion-and-rehiring-scenarios) to ensure the *userId* value of the active employment record flows into Azure AD. 
 1. Save the mapping. 
 1. Run the provisioning job to ensure that the *userId* values flow into Azure AD. 
     > [!NOTE]
-    > If you are using SuccessFactors to on-premises Active Directory user provisioning, configure AAD Connect to sync the *userId* attribute value from on-premises Active Directory to Azure AD.   
+    > If you're using SuccessFactors to on-premises Active Directory user provisioning, configure AAD Connect to sync the *userId* attribute value from on-premises Active Directory to Azure AD.   
 1. Open the SuccessFactors Writeback app in the Azure portal. 
 1. Map the desired *extensionAttribute* that contains the userId value to the SuccessFactors *userId* attribute.
     > [!div class="mx-imgBorder"]
@@ -442,20 +432,18 @@ Usually the *personIdExternal* attribute value in SuccessFactors matches the *us
 1. Save the mapping. 
 1. Go to *Attribute mapping -> Advanced -> Review Schema* to open the JSON schema editor.
 1. Download a copy of the schema as backup. 
-1. In the schema editor, hit Ctrl-F and search for the JSON node containing the userId mapping, where it is mapped to a source Azure AD attribute. 
+1. In the schema editor, hit Ctrl-F and search for the JSON node containing the userId mapping, where it's mapped to a source Azure AD attribute. 
 1. Update the flowBehavior attribute from "FlowWhenChanged" to "FlowAlways" as shown. 
     > [!div class="mx-imgBorder"]
     > ![Mapping flow behavior update](./media/sap-successfactors-integration-reference/mapping-flow-behavior-update.png)
 1. Save the mapping and test the write-back scenario with provisioning-on-demand. 
 
 ### Unsupported scenarios for phone and email write-back
-
-* In Employee Central, during onboarding personal email and personal phone is set as primary. The write-back app cannot switch this setting and set business email and business phone as primary.
-* In Employee Central, business phone is set as primary. The write-back app cannot change this and set cell phone as primary.
-* The write-back app cannot read the current primary flag settings and use the same values for the write operation. The flag values configured in the attribute-mapping will always be used. 
+* In Employee Central, during onboarding personal email and personal phone is set as primary. The write-back app can't switch this setting and set business email and business phone as primary.
+* In Employee Central, business phone is set as primary. The write-back app can't change this and set cell phone as primary.
+* The write-back app can't read the current primary flag settings and use the same values for the write operation. The flag values configured in the attribute-mapping are always be used. 
 
 ## Next steps
-
 * [Learn how to configure SuccessFactors to Active Directory provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 * [Learn how to configure writeback to SuccessFactors](../saas-apps/sap-successfactors-writeback-tutorial.md)
 * [Learn more about supported SuccessFactors Attributes for inbound provisioning](sap-successfactors-attribute-reference.md)

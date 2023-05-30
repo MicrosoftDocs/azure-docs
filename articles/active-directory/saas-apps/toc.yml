@@ -104,6 +104,8 @@
         href: akashi-tutorial.md
       - name: AlacrityLaw
         href: alacritylaw-tutorial.md
+      - name: Alchemer
+        href: alchemer-tutorial.md
       - name: Alcumus Info Exchange
         href: alcumus-info-tutorial.md
       - name: AlertMedia
@@ -248,6 +250,8 @@
         href: autotaskworkplace-tutorial.md
       - name: Aventri
         href: etouches-tutorial.md
+      - name: Avionte Bold SAML Federated SSO
+        href: avionte-bold-saml-federated-sso-tutorial.md
       - name: AwardSpring
         href: awardspring-tutorial.md
       - name: AwareGo
@@ -328,6 +332,8 @@
         href: blogin-tutorial.md
       - name: Blue Access for Members (BAM)
         href: blue-access-for-members-tutorial.md
+      - name: BlueConic
+        href: blueconic-tutorial.md
       - name: BlueJeans
         href: bluejeans-tutorial.md
       - name: Blue Ocean Brain
@@ -396,6 +402,8 @@
         href: capriza-tutorial.md
       - name: Carbonite Endpoint Backup
         href: carbonite-endpoint-backup-tutorial.md
+      - name: CAREERSHIP
+        href: careership-tutorial.md
       - name: CWT
         href: cwt-tutorial.md
       - name: Catchpoint
@@ -460,12 +468,16 @@
         href: cisco-anyconnect.md
       - name: Cisco Cloud
         href: ciscocloud-tutorial.md
+      - name: Cisco Expressway
+        href: cisco-expressway-tutorial.md
       - name: The Cloud Security Fabric
         href: ciscocloudlock-tutorial.md
       - name: Cisco Intersight
         href: cisco-intersight-tutorial.md
       - name: Cisco Webex
         href: cisco-spark-tutorial.md
+      - name: Cisco Unity Connection
+        href: cisco-unity-connection-tutorial.md
       - name: Cisco Umbrella
         href: cisco-umbrella-tutorial.md    
       - name: Cisco Unified Communications Manager
@@ -524,6 +536,8 @@
         href: cloudsign-tutorial.md
       - name: Kion
         href: cloudtamer-io-tutorial.md
+      - name: CMD+CTRL Base Camp
+        href: cmd-ctrl-base-camp-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
       - name: Coda
@@ -596,6 +610,8 @@
         href: corporateexperience-tutorial.md  
       - name: CorpTax
         href: corptax-tutorial.md
+      - name: Cosgrid Networks
+        href: cosgrid-networks-tutorial.md
       - name: Costpoint
         href: costpoint-tutorial.md
       - name: Count Me In - Operations Dashboard
@@ -676,6 +692,8 @@
         href: debroome-brand-portal-tutorial.md
       - name: Degreed
         href: degreed-tutorial.md
+      - name: Delivery Solutions
+        href: delivery-solutions-tutorial.md
       - name: Deputy
         href: deputy-tutorial.md
       - name: Descartes
@@ -702,6 +720,8 @@
         href: displayr-tutorial.md
       - name: dmarcian
         href: dmarcian-tutorial.md
+      - name: Document360
+        href: document360-tutorial.md
       - name: Documo
         href: documo-tutorial.md
       - name: DocuSign
@@ -1021,6 +1041,8 @@
         href: getabstract-tutorial.md
       - name: GetThere
         href: getthere-tutorial.md
+      - name: Getty Images
+        href: getty-images-tutorial.md
       - name: GHAE
         href: ghae-tutorial.md  
       - name: Gigya
@@ -1179,6 +1201,8 @@
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
         href: ibmopenpages-tutorial.md
+      - name: IBM TRIRIGA on Cloud
+        href: ibm-tririga-on-cloud-tutorial.md
       - name: ice Contact Center
         href: ice-contact-center-tutorial.md
       - name: ICIMS
@@ -1205,6 +1229,8 @@
         href: illumio-sso-tutorial.md
       - name: iLMS
         href: ilms-tutorial.md
+      - name: Imagen
+        href: imagen-tutorial.md
       - name: Image Relay
         href: imagerelay-tutorial.md
       - name: IMAGE WORKS
@@ -1231,6 +1257,8 @@
         href: inforretailinformationmanagement-tutorial.md
       - name: InformaCast
         href: informacast-tutorial.md
+      - name: Informatica Intelligent Data Management Cloud
+        href: informatica-intelligent-data-management-cloud-tutorial.md
       - name: Informatica Platform
         href: informatica-platform-tutorial.md  
       - name: Infrascale Cloud Backup
@@ -1737,6 +1765,8 @@
         href: on24-tutorial.md
       - name: OneDesk
         href: onedesk-tutorial.md
+      - name: Oneflow
+        href: oneflow-tutorial.md
       - name: Oneteam
         href: oneteam-tutorial.md
       - name: OneTrust Privacy Management Software
@@ -2011,6 +2041,8 @@
         href: rackspacesso-tutorial.md
       - name: Radancy's Employee Referrals
         href: radancys-employee-referrals-tutorial.md
+      - name: Radiant IOT Portal
+        href: radiant-iot-portal-tutorial.md
       - name: Raketa
         href: raketa-tutorial.md
       - name: Rally Software
@@ -2027,6 +2059,8 @@
         href: recurly-tutorial.md  
       - name: RedBrick Health
         href: ./redbrick-health-tutorial.md
+      - name: Redocly
+        href: redocly-tutorial.md
       - name: RedVector
         href: redvector-tutorial.md
       - name: Reflektive
@@ -2137,7 +2171,7 @@
         href: sapboc-tutorial.md
       - name: SAP Cloud for Customer
         href: sap-customer-cloud-tutorial.md
-      - name: SAP Cloud Platform
+      - name: SAP Business Technology Platform
         href: sap-hana-cloud-platform-tutorial.md
       - name: SAP Cloud Identity Services
         href: sap-hana-cloud-platform-identity-authentication-tutorial.md
@@ -2219,6 +2253,8 @@
         href: servicechannel-tutorial.md
       - name: ServiceNow
         href: servicenow-tutorial.md
+      - name: ServusConnect
+        href: servusconnect-tutorial.md
       - name: Settling music
         href: settlingmusic-tutorial.md
       - name: SevOne Network Monitoring System (NMS)
@@ -2327,6 +2363,8 @@
         href: snackmagic-tutorial.md  
       - name: Snowflake
         href: snowflake-tutorial.md
+      - name: SOC SST
+        href: soc-sst-tutorial.md
       - name: Softeon WMS
         href: softeon-tutorial.md
       - name: Software AG Cloud
@@ -2445,6 +2483,8 @@
         href: target-process-tutorial.md
       - name: TAS
         href: tas-tutorial.md
+      - name: TASC (beta)
+        href: tasc-beta-tutorial.md
       - name: Taskize Connect
         href: taskize-connect-tutorial.md
       - name: Teachme Biz
@@ -2617,6 +2657,8 @@
         href: userecho-tutorial.md  
       - name: UserVoice
         href: uservoice-tutorial.md
+      - name: UserTesting
+        href: usertesting-saml-tutorial.md
       - name: UserZoom
         href: userzoom-tutorial.md
       - name: Valence Security Platform
@@ -2631,6 +2673,8 @@
         href: v-client-tutorial.md  
       - name: VECOS Releezme Locker management system
         href: vecos-releezme-locker-management-system-tutorial.md  
+      - name: VEDA Cloud
+        href: veda-cloud-tutorial.md
       - name: Velpic SAML
         href: velpicsaml-tutorial.md
       - name: Venafi Control Plane - Datacenter
@@ -3264,7 +3308,7 @@
         href: samanage-provisioning-tutorial.md
       - name: SAP Analytics Cloud
         href: sap-analytics-cloud-provisioning-tutorial.md
-      - name: SAP Cloud Platform Identity Authentication
+      - name: SAP Business Technology Platform Identity Authentication
         href: sap-cloud-platform-identity-authentication-provisioning-tutorial.md
       - name: SAP SuccessFactors to Active Directory
         href: sap-successfactors-inbound-provisioning-tutorial.md

@@ -13,13 +13,13 @@ ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
-# Language identification (preview)
+# Language identification
 
 Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md?tabs=language-identification).
 
 Language identification (LID) use cases include:
 
-* [Speech-to-text recognition](#speech-to-text) when you need to identify the language in an audio source and then transcribe it to text.
+* [Speech to text recognition](#speech-to-text) when you need to identify the language in an audio source and then transcribe it to text.
 * [Speech translation](#speech-translation) when you need to identify the language in an audio source and then translate it to another language.
 
 For speech recognition, the initial latency is higher with language identification. You should only include this optional feature as needed.
@@ -27,11 +27,11 @@ For speech recognition, the initial latency is higher with language identificati
 ## Configuration options
 
 > [!IMPORTANT]
-> Language Identification (preview) APIs have been simplified in the Speech SDK version 1.25. The 
+> Language Identification APIs are simplified with the Speech SDK version 1.25 and later. The 
 `SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority` properties have
 been removed and replaced by a single property `SpeechServiceConnection_LanguageIdMode`. Prioritizing between low latency and high accuracy is no longer necessary following recent model improvements. Now, you only need to select whether to run at-start or continuous Language Identification when doing continuous speech recognition or translation.
 
-Whether you use language identification with [speech-to-text](#speech-to-text) or with [speech translation](#speech-translation), there are some common concepts and configuration options.
+Whether you use language identification with [speech to text](#speech-to-text) or with [speech translation](#speech-translation), there are some common concepts and configuration options.
 
 - Define a list of [candidate languages](#candidate-languages) that you expect in the audio.
 - Decide whether to use [at-start or continuous](#at-start-and-continuous-language-identification) language identification.
@@ -192,18 +192,18 @@ recognizer.stop_continuous_recognition()
 
 ::: zone-end
 
-## Speech-to-text
+## Speech to text
 
-You use Speech-to-text recognition when you need to identify the language in an audio source and then transcribe it to text. For more information, see [Speech-to-text overview](speech-to-text.md).
+You use Speech to text recognition when you need to identify the language in an audio source and then transcribe it to text. For more information, see [Speech to text overview](speech-to-text.md).
 
 > [!NOTE]
-> Speech-to-text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech-to-text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, Java, JavaScript, and Python.
+> Speech to text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech to text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, Java, JavaScript, and Python.
 > 
-> Currently for speech-to-text recognition with continuous language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
+> Currently for speech to text recognition with continuous language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
 
 ::: zone pivot="programming-language-csharp"
 
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_with_language_id_samples.cs).
+See more examples of speech to text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_with_language_id_samples.cs).
 
 ### [Recognize once](#tab/once)
 
@@ -322,7 +322,7 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"en-us_zh-cn.wav"))
 
 ::: zone pivot="programming-language-cpp"
 
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp).
+See more examples of speech to text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp).
 
 ### [Recognize once](#tab/once)
 
@@ -357,7 +357,7 @@ auto detectedLanguage = autoDetectSourceLanguageResult->Language;
 
 ::: zone pivot="programming-language-java"
 
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java).
+See more examples of speech to text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java).
 
 ### [Recognize once](#tab/once)
 
@@ -393,7 +393,7 @@ result.close();
 
 ::: zone pivot="programming-language-python"
 
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
+See more examples of speech to text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
 
 ### [Recognize once](#tab/once)
 
@@ -494,7 +494,7 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 
 ::: zone-end
 
-### Speech-to-text custom models
+### Speech to text custom models
 
 > [!NOTE]
 > Language detection with custom models can only be used with real-time speech to text and speech translation. Batch transcription only supports language detection for base models. 
@@ -1090,7 +1090,7 @@ When you run language ID in a container, use the `SourceLanguageRecognizer` obje
 For more information about containers, see the [language identification speech containers](speech-container-lid.md#use-the-container) how-to guide.
 
 
-## Speech-to-text batch transcription
+## Speech to text batch transcription
 
 To identify languages with [Batch transcription REST API](batch-transcription.md), you need to use `languageIdentification` property in the body of your [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) request. 
 

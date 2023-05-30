@@ -28,6 +28,27 @@ Check this article regularly to learn about:
 > [!TIP]
 > To be notified of updates to this page, add this URL to your RSS feed reader:<br/>`https://learn.microsoft.com/api/search/rss?search=%22Azure+Active+Directory+breaking+changes+reference%22&locale=en-us`
 
+## May 2023
+
+### The Power BI administrator role will be renamed to Fabric Administrator.
+
+**Effective date**: June 2023
+
+**Endpoints impacted**: 
+-	List roleDefinitions - Microsoft Graph v1.0
+-	List directoryRoles - Microsoft Graph v1.0
+
+**Change**
+
+The Power BI Administrator role will be renamed to Fabric Administrator.  
+ 
+On May 23, 2023, Microsoft unveiled Microsoft Fabric, which provides a Data Factory-powered data integration experience, Synapse-powered data engineering, data warehouse, data science, and real-time analytics experiences and business intelligence (BI) with Power BI — all hosted on a lake-centric SaaS solution. The tenant and capacity administration for these experiences are centralized in the Fabric Admin portal (previously known as the Power BI admin portal).  
+
+Starting June 2023, the Power BI Administrator role will be renamed to Fabric Administrator to align with the changing scope and responsibility of this role. All applications including Azure Active Directory, Microsoft Graph APIs, Microsoft 365, and GDAP will start to reflect the new role name over the course of several weeks. 
+ 
+As a reminder, your application code and scripts shouldn't make decisions based on role name or display name.
+
+
 ## December 2021
 
 ### AD FS users will see more login prompts to ensure that the correct user is signed in.
@@ -65,7 +86,7 @@ Error 50105 (the current designation) is emitted when an unassigned user attempt
 
 The error scenario has been updated, so that during non-interactive authentication (where `prompt=none` is used to hide UX), the app will be instructed to perform interactive authentication using an `interaction_required` error response. In the subsequent interactive authentication, Azure AD will now hold the user and show an error message directly, preventing a loop from occurring.
 
-As a reminder, your application code shouldn't make decisions based on error code strings like `AADSTS50105`. Instead, [follow our error-handling guidance](reference-aadsts-error-codes.md#handling-error-codes-in-your-application) and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) like `interaction_required` and `login_required` found in the standard `error` field in the response. The other response fields are intended for consumption only by humans troubleshooting their issues.
+As a reminder, your application code shouldn't make decisions based on error code strings like `AADSTS50105`. Instead, [follow our error-handling guidance](reference-error-codes.md#handling-error-codes-in-your-application) and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) like `interaction_required` and `login_required` found in the standard `error` field in the response. The other response fields are intended for consumption only by humans troubleshooting their issues.
 
 You can review the current text of the 50105 error and more on the error lookup service: https://login.microsoftonline.com/error?code=50105.
 

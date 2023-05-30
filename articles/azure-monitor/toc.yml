@@ -237,6 +237,8 @@ items:
         href: agents/azure-monitor-agent-migration.md
       - name: Migration tools
         href: agents/azure-monitor-agent-migration-tools.md
+      - name: Migration custom text log tables
+        href: agents/azure-monitor-agent-custom-text-log-migration.md
     - name: Performance
       displayName: Performance
       href: agents/azure-monitor-agent-performance.md
@@ -335,25 +337,27 @@ items:
               href: essentials/collect-custom-metrics-linux-telegraf.md
     - name: Troubleshoot
       items:
+      - name: Use AMA Troubleshooter
+        href: agents/use-azure-monitor-agent-troubleshooter.md
       - name: Linux VM
-        href: agents/azure-monitor-agent-troubleshoot-linux-vm.md?context=/azure/virtual-machines/context/context
+        href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
       - name: Linux Rsyslog issues
-        href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md?context=/azure/virtual-machines/context/context
+        href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
       - name: Windows VM
-        href: agents/azure-monitor-agent-troubleshoot-windows-vm.md?context=/azure/virtual-machines/context/context
+        href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
       - name: Windows Arc-enabled server
-        href: agents/azure-monitor-agent-troubleshoot-windows-arc.md?context=/azure/virtual-machines/context/context
+        href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
       - name: Troubleshoot legacy Agents
         displayName: Troublshooting guidance
         items:  
           - name: Log Analytics VM Extension
             displayName: troubleshoot, troubleshooting
-            href: visualize/vmext-troubleshoot.md?context=/azure/virtual-machines/context/context
+            href: visualize/vmext-troubleshoot.md
           - name: Log Analytics Windows agent
             displayName: troubleshoot, troubleshooting
-            href: agents/agent-windows-troubleshoot.md?context=/azure/virtual-machines/context/context
+            href: agents/agent-windows-troubleshoot.md
           - name: Log Analytics Linux agent
-            displayName: troubleshoot, troubleshooting?context=/azure/virtual-machines/context/context
+            displayName: troubleshoot, troubleshooting
             href: agents/agent-linux-troubleshoot.md
   - name: Logs ingestion API
     items:
@@ -402,6 +406,8 @@ items:
       href: essentials/data-platform-metrics.md
     - name: Custom metrics
       href: essentials/metrics-custom-overview.md
+    - name: Metrics REST API
+      href: essentials/metrics-store-custom-rest-api.md
     - name: Prometheus metrics
       items: 
       - name: Overview
@@ -410,22 +416,68 @@ items:
       - name: FAQ
         href: /azure/azure-monitor/faq#prometheus
       - name: Azure Monitor workspace
-        href: essentials/azure-monitor-workspace-overview.md
-      - name: Manage Azure Monitor workspaces
-        href: essentials/azure-monitor-workspace-manage.md
-      - name: Enable on AKS cluster
-        displayName: Prometheus
-        href: essentials/prometheus-metrics-enable.md      
-      - name: Rule groups
+        items: 
+        - name: Overview
+          displayName: Prometheus
+          href: essentials/azure-monitor-workspace-overview.md
+        - name: Manage
+          displayName: Prometheus
+          href: essentials/azure-monitor-workspace-manage.md
+        - name: Private endpoints for Azure Monitor workspaces
+          href: essentials/azure-monitor-workspace-private-endpoint.md 
+        - name: Private link for Prometheus data ingestion
+          href: essentials/private-link-data-ingestion.md
+      - name: Managed agent
+        items:
+        - name: Enable on AKS cluster
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-enable.md
+        - name: Enable on Arc-enabled Kubernetes cluster
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-from-arc-enabled-cluster.md    
+        - name: Customize collection
+          items:
+          - name: Default configuration
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-scrape-default.md
+          - name: Custom configuration
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-scrape-configuration.md
+          - name: Create and validate custom scrape config
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-scrape-validate.md
+          - name: Minimal ingestion profile
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-scrape-configuration-minimal.md
+          - name: High scale
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-scrape-scale.md
+          - name: Send to multiple metric workspaces
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-multiple-workspaces.md
+        - name: Troubleshoot collection
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-troubleshoot.md
+      - name: Alerting and rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
-      - name: Query Prometheus metrics in workbooks
-        displayName: Prometheus
-        href: essentials/prometheus-workbooks.md
-      - name: Query Prometheus using the API and PromQL
-        displayName: Prometheus
-        href: essentials/prometheus-api-promql.md
-      - name: Remote-write
+      - name: Query Prometheus metrics
+        items:
+        - name: Query using Grafana
+          items: 
+          - name: Configure Grafana with managed system identity
+            displayName: Prometheus
+            href: essentials/prometheus-grafana.md
+          - name: Configure Grafana with Azure Active Directory
+            displayName: Prometheus
+            href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
+        - name: Query using Azure workbooks
+          displayName: Prometheus
+          href: essentials/prometheus-workbooks.md
+        - name: Query using the API and PromQL
+          displayName: Prometheus
+          href: essentials/prometheus-api-promql.md
+      - name: Enable remote write
         items:
         - name: Overview
           displayName: Prometheus,remote-write
@@ -436,37 +488,12 @@ items:
         - name: Azure Active Directory
           displayName: Prometheus,remote-write
           href: essentials/prometheus-remote-write-active-directory.md
-      - name: Configure Grafana with managed system identity
+        - name: Azure Active Directory pod identity
+          displayName: Prometheus,remote-write
+          href: essentials/prometheus-remote-write-azure-ad-pod-identity.md  
+      - name: Prometheus Azure Active Directory authorization proxy
         displayName: Prometheus
-        href: essentials/prometheus-grafana.md
-      - name: Configure Grafana with Azure Active Directory
-        displayName: Prometheus
-        href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
-      - name: Troubleshoot collection
-        displayName: Prometheus
-        href: essentials/prometheus-metrics-troubleshoot.md
-      - name: Customize collection
-        items:
-        - name: Default configuration
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-default.md
-        - name: High scale
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-scale.md
-        - name: Custom configuration
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-configuration.md
-        - name: Create and validate custom scrape config
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-validate.md
-        - name: Minimal ingestion profile
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-configuration-minimal.md
-        - name: Send to multiple metric workspaces
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-multiple-workspaces.md
-    - name: Metrics REST API
-      href: essentials/metrics-store-custom-rest-api.md
+        href: essentials/prometheus-authorization-proxy.md
   - name: Logs
     items:
     - name: Overview
@@ -678,7 +705,7 @@ items:
         - name: JavaScript
           items:
           - name: JavaScript SDK
-            displayName: browser, client-side, snippet
+            displayName: browser, client-side, SDK Loader Script
             href: app/javascript-sdk.md
           - name: JavaScript SDK advanced topics
             href: app/javascript-sdk-advanced.md
@@ -692,39 +719,14 @@ items:
             href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
         - name: SDK support policy
           href: app/sdk-support-guidance.md
-        - name: Advanced SDK topics
-          items:
-          - name: Distributed tracing and telemetry correlation
-            href: app/distributed-tracing-telemetry-correlation.md
-            displayName: correlation headers, w3c, distributed tracing, tracing
-          - name: TelemetryProcessors
-            displayName: processors, filtering, telemetry filtering, telemetry processor
-            href: app/api-filtering-sampling.md
-          - name: Exceptions
-            href: app/asp-net-exceptions.md
-          - name: Log traces
-            href: app/asp-net-trace-logs.md
-          - name: Statsbeat
-            href: app/statsbeat.md
-          - name: Application Insights API summary
-            displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
-            href: app/api-custom-events-metrics.md
-          - name: Application Insights data model
-            href: app/data-model-complete.md
-          - name: Connection strings
-            href: app/sdk-connection-string.md
-            displayName: connection string, instrumentation key
-          - name: Sampling
-            displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
-            href: app/sampling.md
-          - name: Remove Application Insights
-            href: app/remove-application-insights.md
       - name: OpenTelemetry instrumentation
         items:
         - name: Overview
           href: app/opentelemetry-overview.md
         - name: Get started (.NET, Node.js, Python and Java)
           href: app/opentelemetry-enable.md
+        - name: OpenTelemetry configuration
+          href: app/opentelemetry-configuration.md
         - name: Java (supplemental)
           items:
           - name: Spring Boot
@@ -749,6 +751,10 @@ items:
                   href: app/java-standalone-telemetry-processors-examples.md
           - name: Upgrade from 2.x
             href: app/java-standalone-upgrade-from-2x.md
+        - name: Node.js (supplemental)
+          items:
+          - name: Node.js OpenTelemetry exporter
+            href: app/opentelemetry-nodejs-exporter.md
         - name: FAQ
           href: /azure/azure-monitor/faq#opentelemetry
       - name: Upgrade from classic resources and iKey
@@ -757,6 +763,33 @@ items:
           href: app/convert-classic-resource.md
         - name: Migrate to connection strings
           href: app/migrate-from-instrumentation-keys-to-connection-strings.md
+      - name: Advanced SDK topics
+        items:
+        - name: Distributed tracing and telemetry correlation
+          href: app/distributed-tracing-telemetry-correlation.md
+          displayName: correlation headers, w3c, distributed tracing, tracing
+        - name: TelemetryProcessors
+          displayName: processors, filtering, telemetry filtering, telemetry processor
+          href: app/api-filtering-sampling.md
+        - name: Exceptions
+          href: app/asp-net-exceptions.md
+        - name: Log traces
+          href: app/asp-net-trace-logs.md
+        - name: Statsbeat
+          href: app/statsbeat.md
+        - name: Application Insights API summary
+          displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
+          href: app/api-custom-events-metrics.md
+        - name: Application Insights data model
+          href: app/data-model-complete.md
+        - name: Connection strings
+          href: app/sdk-connection-string.md
+          displayName: connection string, instrumentation key
+        - name: Sampling
+          displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
+          href: app/sampling.md
+        - name: Remove Application Insights
+          href: app/remove-application-insights.md
     - name: Features
       items:
       - name: Application dashboard
@@ -871,6 +904,13 @@ items:
           href: profiler/profiler-trackrequests.md
         - name: Troubleshooting
           href: profiler/profiler-troubleshooting.md
+      - name: Code Optimizations
+        displayName: opt insights, optimization insights, code optimization, perflens
+        items:
+        - name: Overview
+          href: insights/code-optimizations.md
+        - name: Troubleshooting
+          href: /troubleshoot/azure/azure-monitor/app-insights/code-optimizations-troubleshooting
       - name: Snapshot Debugger
         items:
         - name: Overview
@@ -913,6 +953,8 @@ items:
         href: app/separate-resources.md
     - name: Help and support
       items:
+      - name: Create an Azure support ticket
+        href: https://azure.microsoft.com/support/create-ticket
       - name: Application Insights FAQ
         href: /azure/azure-monitor/faq#application-insights
       - name: Q&A forum (general questions)
@@ -1290,34 +1332,38 @@ items:
       href: alerts/alerts-overview.md
     - name: Alert types
       href: alerts/alerts-types.md
-    - name: Create a new alert rule
-      href: alerts/alerts-create-new-alert-rule.md
-    - name: Manage alert rules
-      href: alerts/alerts-manage-alert-rules.md
+    - name: Alert rules
+      items:
+        - name: Create a new alert rule
+          href: alerts/alerts-create-new-alert-rule.md
+        - name: Manage alert rules
+          href: alerts/alerts-manage-alert-rules.md
+        - name: Metric alert rules
+          items:
+          - name: Dynamic thresholds
+            href: alerts/alerts-dynamic-thresholds.md
+          - name: Single alert for multiple time series
+            href: alerts/alerts-metric-multiple-time-series-single-rule.md
+          - name: Metric alerts on logs
+            href: alerts/alerts-metric-logs.md
+          - name: Troubleshoot metric alerts
+            href: alerts/alerts-troubleshoot-metric.md
+        - name: Log alert rules
+          items:
+          - name: Edit log alerts created in previous versions
+            href: alerts/alerts-manage-alerts-previous-version.md
+          - name: Optimizing alert queries
+            href: alerts/alerts-log-query.md
+          - name: Troubleshoot log alerts
+            href: alerts/alerts-troubleshoot-log.md
+          - name: Webhook actions
+            href: alerts/alerts-log-webhook.md
+          - name: Legacy Log Analytics alerts API
+            href: alerts/api-alerts.md
+          - name: Upgrade from the legacy Log Analytics alerts API
+            href: alerts/alerts-log-api-switch.md
     - name: Manage alert instances
       href: alerts/alerts-manage-alert-instances.md
-    - name: Metric alert rules
-      items:
-      - name: Dynamic thresholds
-        href: alerts/alerts-dynamic-thresholds.md
-      - name: Single alert for multiple time series
-        href: alerts/alerts-metric-multiple-time-series-single-rule.md
-      - name: Metric alerts on logs
-        href: alerts/alerts-metric-logs.md
-      - name: Troubleshoot metric alerts
-        href: alerts/alerts-troubleshoot-metric.md
-    - name: Log alert rules
-      items:
-      - name: Edit log alerts created in previous versions
-        href: alerts/alerts-manage-alerts-previous-version.md
-      - name: Optimizing alert queries
-        href: alerts/alerts-log-query.md
-      - name: Troubleshoot log alerts
-        href: alerts/alerts-troubleshoot-log.md
-      - name: Webhook actions
-        href: alerts/alerts-log-webhook.md
-      - name: Log analytics alerts legacy API
-        href: alerts/api-alerts.md
     - name: Prometheus metric alerts
       href: alerts/prometheus-alerts.md
     - name: Service health alerts
@@ -1326,19 +1372,15 @@ items:
         href: ../service-health/service-notifications.md
       - name: Configure alerts on notification events
         href: ../service-health/alerts-activity-log-service-notifications-portal.md
-    - name: Alert processing rules
-      href: alerts/alerts-processing-rules.md
-      displayName: Azure CLI, az monitor action rule
-    - name: Notifications and actions
+    - name: Respond to an alert
       items:
-      - name: Create an action group
-        href: alerts/action-groups.md
-      - name: Notification rate limiting
-        href: alerts/alerts-rate-limiting.md
-      - name: SMS alert behavior
-        href: alerts/alerts-sms-behavior.md
       - name: Common schema for alerts
         href: alerts/alerts-common-schema.md
+      - name: Action groups
+        href: alerts/action-groups.md
+      - name: Alert processing rules
+        href: alerts/alerts-processing-rules.md
+        displayName: Azure CLI, az monitor action rule
       - name: Configure the schema to get activity log alerts
         href: alerts/activity-log-alerts-webhook.md        
       - name: Non-common alert schema definition
@@ -1435,12 +1477,12 @@ items:
         href: autoscale/autoscale-common-scale-patterns.md
       - name: Scale with custom metrics
         href: autoscale/autoscale-custom-metric.md
+      - name: Autoscale Virtual Machine Scale Sets using PowerShell
+        href: autoscale/autoscale-using-powershell.md
       - name: Scale Virtual Machine Scale Sets using Resource Manager templates
         href: ../virtual-machine-scale-sets/tutorial-autoscale-template.md?toc=/azure/azure-monitor/toc.json
       - name: Scale Virtual Machine Scale Sets using CLI
         href: ../virtual-machine-scale-sets/tutorial-autoscale-cli.md?toc=/azure/azure-monitor/toc.json
-      - name: Scale Virtual Machine Scale Sets using PowerShell
-        href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
       - name: Use webhooks and email notifications
         href: autoscale/autoscale-webhook-email.md
       - name: Autoscale diagnostics
@@ -1514,6 +1556,8 @@ items:
     - name: REST API Walkthrough
       displayName: metrics, analyze
       href: essentials/rest-api-walkthrough.md
+    - name: Migrate to the metrics getBatch API
+      href: essentials/migrate-to-batch-api.md
   - name: Azure alerts management SDK for Python
     href: /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient
   - name: Resource Manager templates

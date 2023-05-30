@@ -9,7 +9,6 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 02/14/2023
 ms.author: lajanuar
-recommendations: false
 ---
 <!-- markdownlint-disable MD025 -->
 
@@ -302,12 +301,13 @@ In this example, we analyze an invoice using the **prebuilt-invoice** model.
   // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
       const key = "<your-key>";
       const endpoint = "<your-endpoint>";
-
+// sample document
+    invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
 
 async function main() {
     const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-layout", formUrlLayout);
+    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-invoice", invoiceUrl);
 
     const {
         pages,

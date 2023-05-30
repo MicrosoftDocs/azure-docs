@@ -53,7 +53,7 @@ Key Vault is a Microsoft application that's pre-registered in all Azure AD tenan
 
 To complete this guide, you must first do the following:
 
-- [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+- [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - [Create a key vault](quick-create-powershell.md)
 - [Create an Azure storage account](../../storage/common/storage-account-create.md?tabs=azure-powershell). The storage account name must use only lowercase letters and numbers. The length of the name must be between 3 and 24 characters.
 
