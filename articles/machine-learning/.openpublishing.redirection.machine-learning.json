@@ -1,6 +1,16 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/v-fake/concept-azure-machine-learning-architecture.md",
+        "redirect_url": "/azure/machine-learning/concept-azure-machine-learning-architecture",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/algorithm-cheat-sheet.md",
+        "redirect_url": "/azure/machine-learning/algorithm-cheat-sheet",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/azure-machine-learning-release-notes.md",
         "redirect_url": "/articles/machine-learning/azure-machine-learning-release-notes",
         "redirect_document_id": false
