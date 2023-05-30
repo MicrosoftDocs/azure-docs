@@ -222,11 +222,11 @@ You're now ready to run the applications.
 
 1. At a command prompt in the **azure-iot-sdk-java\iothub\device\iot-device-samples\handle-messages** folder, run the following commands, replacing the `{Your device connection string}` placeholder value with the device connection string you copied from the registered device in your IoT hub. This step starts the sample device app, which sends telemetry to your IoT hub and listens for cloud-to-device messages sent from your hub:
 
-```cmd/sh
-java -jar ./target/handle-messages-1.0.0-with-deps.jar "{Your device connection string}"
-```
+    ```cmd/sh
+    java -jar ./target/handle-messages-1.0.0-with-deps.jar "{Your device connection string}"
+    ```
 
-   :::image type="content" source="./media/iot-hub-java-java-c2d/receivec2d.png" alt-text="Screenshot of the sample device app running in a console window." lightbox="./media/iot-hub-java-java-c2d/receivec2d.png":::
+    :::image type="content" source="./media/iot-hub-java-java-c2d/receivec2d.png" alt-text="Screenshot of the sample device app running in a console window." lightbox="./media/iot-hub-java-java-c2d/receivec2d.png":::
 
 2. At a command prompt in the **send-c2d-messages** folder, run the following command to send a cloud-to-device message and wait for a feedback acknowledgment:
 
@@ -234,7 +234,7 @@ java -jar ./target/handle-messages-1.0.0-with-deps.jar "{Your device connection 
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-   :::image type="content" source="./media/iot-hub-java-java-c2d/sendc2d.png" alt-text="Screenshot of the sample service app running in a console window." lightbox="./media/iot-hub-java-java-c2d/sendc2d.png":::
+    :::image type="content" source="./media/iot-hub-java-java-c2d/sendc2d.png" alt-text="Screenshot of the sample service app running in a console window." lightbox="./media/iot-hub-java-java-c2d/sendc2d.png":::
 
 ## Next steps
 
