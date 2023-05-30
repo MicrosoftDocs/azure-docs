@@ -96,6 +96,9 @@ AzureActivity
 | where CategoryValue == "Administrative"
 ```
 
+> [!Important]
+> In some scenarios, it is possible that values in fields of AzureActivity might have different casings from otherwise equivalent values. Take care when querying data in AzureActivity to utilize case insensitive operators for string comparisons, or use a scalar function to force a field to a uniform casing before any comparisons. For example, utilziing the [tolower()](/azure/kusto/query/tolowerfunction) function on a field to force it to always be lowercase, or the [=~ operator](/azure/kusto/query/datatypes-string-operators) when performing a string comparison.
+
 ## Send to Azure Event Hubs
 
 Send the activity log to Azure Event Hubs to send entries outside of Azure, for example, to a third-party SIEM or other log analytics solutions. Activity log events from event hubs are consumed in JSON format with a `records` element that contains the records in each payload. The schema depends on the category and is described in [Azure activity log event schema](activity-log-schema.md).
