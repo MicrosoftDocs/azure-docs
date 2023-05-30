@@ -18,7 +18,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
-[Call recording](../../concepts/voice-video-calling/call-recording.md), lets your users record their calls made with Azure Communication Services. Here we'll learn how to manage recording on the client side. Before this can work you will need to setup [server side](../../quickstarts/voice-video-calling/call-recording-sample.md) recording.
+[Call recording](../../concepts/voice-video-calling/call-recording.md), lets your users record their calls made with Azure Communication Services. Here we learn how to manage recording on the client side. Before this can work, you'll need to set up [server side](../../quickstarts/voice-video-calling/call-recording-sample.md) recording.
 
 ## Prerequisites
 
