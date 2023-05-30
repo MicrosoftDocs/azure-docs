@@ -30,6 +30,8 @@ Using the link provided below, you will run a script on the designated machine t
 
 [!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
 
+Install the product solution from the **Content Hub** in Microsoft Sentinel. If the product isn't listed, install the solution for **Common Event Format**. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+
 Your machine must meet the following requirements:
 
 - **Hardware (physical/virtual)**
@@ -78,8 +80,9 @@ If your devices are sending Syslog and CEF logs over TLS (because, for example, 
 
 ## Run the deployment script
  
-1. From the Microsoft Sentinel navigation menu, select **Data connectors**. Select the connector for your product from the connectors gallery (or the **Common Event Format (CEF)** if your product isn't listed), and then the **Open connector page** button on the lower right. 
-
+1. In Microsoft Sentinel, select **Data connectors**. 
+1. Select the connector for your product from the connectors gallery. If your product isn't listed, select **Common Event Format (CEF)**.
+1. In the details pane for the connector, select **Open connector page**.
 1. On the connector page, in the instructions under **1.2 Install the CEF collector on the Linux machine**, copy the link provided under **Run the following script to install and apply the CEF collector**.  
 If you don't have access to that page, copy the link from the text below (copying and pasting the **Workspace ID** and **Primary Key** from above in place of the placeholders):
 
