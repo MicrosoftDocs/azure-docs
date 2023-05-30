@@ -217,9 +217,9 @@ sections:
         answer: |
           Azure Container Instances(ACI) Spot containers are only available in select regions during Public Preview. Current region availability is published [here](container-instances-region-availability.md).
       - question: |
-          Is there an additional cost Azure Container Instances Spot containers?
+          Is there an additional cost for ACI Spot containers?
         answer: |
-          Azure Container Instances Spot containers are offered at discounted price and offers upto 70% discount on top of regular priority ACI containers. The discounts would vary per month in each region. For more details, see [pricing page](https://azure.microsoft.com/pricing/details/container-instances/).
+          ACI Spot containers are offered at discounted price and offers upto 70% discount on top of regular priority ACI containers. The discounts would vary per month in each region. For more details, see [pricing page](https://azure.microsoft.com/pricing/details/container-instances/).
 
 additionalContent: |
 
