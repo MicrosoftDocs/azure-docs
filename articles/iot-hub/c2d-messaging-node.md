@@ -54,7 +54,7 @@ To learn more about cloud-to-device messages, see [Send cloud-to-device messages
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
-# Get the device connection string
+## Get the device connection string
 
 In this article, you run a sample app that simulates a device, which receives cloud-to-device messages sent through your IoT Hub. The **simple_sample_device** sample app included with the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples) connects to your IoT hub and acts as your simulated device. The sample uses the primary connection string of the registered device on your IoT hub. 
 
