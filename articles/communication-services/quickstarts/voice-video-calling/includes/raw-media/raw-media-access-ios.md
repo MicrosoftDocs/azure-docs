@@ -11,7 +11,6 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: mode-other
 ---
-
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
 In this quickstart, you learn how to implement raw media access by using the Azure Communication Services Calling SDK for iOS.
@@ -25,7 +24,6 @@ This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../
 Accessing raw audio media gives you access to the incoming call's audio stream, along with the ability to view and send custom outgoing audio streams during a call.
 
 ### Sending Raw Outgoing Audio
-
 Make an options object specifying the raw stream properties we want to send. 
 
 ```swift
@@ -62,8 +60,6 @@ Or you can also attach the stream to an existing `Call` instance instead:
         // Stream attached to `Call`.
     }
 ```
-
-
 ### Start sending Raw Samples
 
 We can only start sending data once the stream state is `AudioStreamState.started`. 
@@ -316,7 +312,6 @@ Create a `RawOutgoingAudioStream` and attach it to join call options
     incomingAudioOptions.stream = self.rawIncomingStream
     options.incomingAudioOptions = incomingAudioOptions
 ```
-
 Or we can also attach the stream to an existing `Call` instance instead:
 
 ```swift
@@ -356,11 +351,9 @@ or
     }
 ```
 
-## Raw Video Access
-
+# Raw Outgoing Video
 Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
-
-The app must register a delegate to get notified about when it should start or stop producing video frames. The delegate event informs the app, which video format is most appropriate for the current network conditions.
+## Virtual Video
 
 ### Supported video resolutions
 
@@ -379,412 +372,310 @@ The app must register a delegate to get notified about when it should start or s
 | 4x3 | QVGA (320x240) | 15 |
 | 4x3 | 212x160 | 15 |
 
-### Steps to create a virtual video stream
-
-1. Create an array of `VideoFormat` with the video formats that the app supports. It's fine to have only one video format supported, but at least one of the provided video formats must be of the `VideoFrameKind::VideoSoftware` type.
-
-   When multiple formats are provided, the order of the formats in the list doesn't influence or prioritize which one is selected. The criteria for format selection are based on external factors like network bandwidth.
+1. Create an array of `VideoFormat` using the VideoStreamPixelFormat the SDK supports.
+   When multiple formats are available, the order of the formats in the list doesn't influence or prioritize which one is used. The criteria for format selection are based on external factors like network bandwidth.
 
     ```swift
-    let videoFormats: [VideoFormat] = []
+    var videoStreamFormat = VideoStreamFormat()
+    videoStreamFormat.resolution = VideoStreamResolution.p360
+    videoStreamFormat.pixelFormat = VideoStreamPixelFormat.rgba
+    videoStreamFormat.framesPerSecond = framerate
+    videoStreamFormat.stride1 = w * 4 /* It is times 4 because RGBA is a 32-bit format */
 
-    let videoFormat = VideoFormat()
-    videoFormat.width = 1280
-    videoFormat.height = 720
-    videoFormat.pixelFormat = .nv12
-    videoFormat.videoFrameKind = .videoSoftware
-    videoFormat.framesPerSecond = 30
-    videoFormat.stride1 = 1280
-    videoFormat.stride2 = 1280
-
-    videoFormats.append(videoFormat)
+    var videoStreamFormats: [VideoStreamFormat] = [VideoStreamFormat]()
+    videoStreamFormats.append(videoStreamFormat)
     ```
 
-2. Create `RawOutgoingVideoStreamOptions`, and set `VideoFormats` with the previously created object.
+2. Create `RawOutgoingVideoStreamOptions`, and set formats with the previously created object.
 
     ```swift
-    var options = RawOutgoingVideoStreamOptions()
-    options.videoFormats = videoFormats
+    var rawOutgoingVideoStreamOptions = RawOutgoingVideoStreamOptions()
+    rawOutgoingVideoStreamOptions.formats = videoStreamFormats
     ```
 
-3. Implement the `RawOutgoingVideoStreamOptionsDelegate` delegate. This delegate observes changes to the current stream state and the frame sender. Don't send frames if the state isn't equal to `OutgoingVideoStreamState.started`.
+3. Create an instance of `VirtualOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
+    ```swift
+    var rawOutgoingVideoStream = VirtualOutgoingVideoStream(rawOutgoingVideoStreamOptions)
+    ```
 
-   Remember to set `options.delegate` for the class, which implements it. This example uses `self`.
+4. Implement to the `VirtualOutgoingVideoStreamDelegate` delegate. The `didChangeFormat` event informs whenever the `VideoStreamFormat` has been changed from one of the video formats provided on the list.
 
     ```swift
-    options.delegate = self
+    virtualOutgoingVideoStream.delegate = /* Attach delegate and implement didChangeFormat */
     ```
 
-    ```swift 
-    var outgoingVideoStreamState: OutgoingVideoStreamState = .none
-
-    func rawOutgoingVideoStreamOptions(_ options: RawOutgoingVideoStreamOptions, 
-                                        didChangeOutgoingVideoStreamState args: OutgoingVideoStreamStateChangedEventArgs) {
-        outgoingVideoStreamState = args.outgoingVideoStreamState
-    }
-    ```
-
-4. Make sure the `didChangeOutgoingVideoStreamState` delegate is also implemented. This delegate informs the listener about events that require the app to start or stop producing video frames.
-
-   This quickstart uses `mediaFrameSender` as a trigger to let the app know when it's time to start generating frames. Feel free to use any mechanism in your app as a trigger.
+5. Create and instance of the following helper class to access `CVPixelBuffer` data
 
     ```swift
-    var frameSender: VideoFrameSender?
-
-    func rawOutgoingVideoStreamOptions(_ rawOutgoingVideoStreamOptions: RawOutgoingVideoStreamOptions,
-                                       didChangeVideoFrameSender args: VideoFrameSenderChangedEventArgs) {
-        self.frameSender = args.videoFrameSender        
-    }
-    ```
-
-5. Create an instance of `VirtualRawOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
-
-    ```swift
-    let virtualRawOutgoingVideoStream = VirtualRawOutgoingVideoStream(videoStreamOptions: options)
-    ```
-
-6. After `outgoingVideoStreamState` is equal to `OutgoingVideoStreamState.started` and you receive a `VideoFrameSender` instance on the previous delegate, cast `VideoFrameSender` to the appropriate type defined by the `VideoFrameKind` property of `VideoFormat`.
-
-   For example, for `.videoSoftware`, cast `VideoFrameSender` to `SoftwareBasedVideoFrameSender`. Then, you're able to use the `send` method to pass the frame that you want to send in a format defined by the `VideoFormat` instance that you specified in the first step.
-
-   First, produce the frame.
-
-   ```swift
-   protocol FrameProducerProtocol {
-       func nextFrame(for format: VideoFormat) -> CVImageBuffer
-   }
-
-   // Produces random gray stripes.
-   final class GrayLinesFrameProducer: FrameProducerProtocol {
-       var buffer: CVPixelBuffer? = nil
-       private var currentFormat: VideoFormat?
-
-       func nextFrame(for format: VideoFormat) -> CVImageBuffer {
-           let bandsCount = Int.random(in: 10..<25)
-           let bandThickness = Int(format.height * format.width) / bandsCount
+    final class BufferExtensions: NSObject {
+        public static func getArrayBuffersUnsafe(cvPixelBuffer: CVPixelBuffer) -> Array<UnsafeMutableRawPointer?>
+        {
+            var bufferArrayList: Array<UnsafeMutableRawPointer?> = [UnsafeMutableRawPointer?]()
+                
+            let cvStatus: CVReturn = CVPixelBufferLockBaseAddress(cvPixelBuffer, .readOnly)
+            
+            if cvStatus == kCVReturnSuccess {
+                let bufferListSize = CVPixelBufferGetPlaneCount(cvPixelBuffer);
+                for i in 0...bufferListSize {
+                    let bufferRef = CVPixelBufferGetBaseAddressOfPlane(cvPixelBuffer, i)
+                    bufferArrayList.append(bufferRef)
+                }
+            }
     
-           let currentFormat = self.currentFormat ?? format
-           let bufferSizeChanged = currentFormat.width != format.width ||
-                                currentFormat.height != format.height ||
-                                currentFormat.stride1 != format.stride1 
-
-           let newBuffer = buffer == nil || bufferSizeChanged
-           if newBuffer {
-               // Make ARC release previous reusable buffer
-               self.buffer = nil
-               let attrs = [
-                   kCVPixelBufferBytesPerRowAlignmentKey: Int(format.stride1)
-               ] as CFDictionary
-               guard CVPixelBufferCreate(kCFAllocatorDefault, Int(format.width), Int(format.height), 
-                                         kCVPixelFormatType_420YpCbCr8BiPlanarFullRange, attrs, &buffer) == kCVReturnSuccess else {
-                   fatalError()
-               }
-           }
-
-           self.currentFormat = format
-           guard let frameBuffer = buffer else {
-               fatalError()
-           }
-        
-           CVPixelBufferLockBaseAddress(frameBuffer, .readOnly)
-           defer {
-               CVPixelBufferUnlockBaseAddress(frameBuffer, .readOnly)
-           }
-
-           // Fill NV12 Y plane with different luminance for each band.
-           var begin = 0
-           guard let yPlane = CVPixelBufferGetBaseAddressOfPlane(frameBuffer, 0) else {
-               fatalError()
-           }
-           for _ in 0..<bandsCount {
-               let luminance = Int32.random(in: 100..<255)
-               memset(yPlane + begin, luminance, bandThickness)
-               begin += bandThickness
-           }
-        
-           if newBuffer {
-               guard let uvPlane = CVPixelBufferGetBaseAddressOfPlane(frameBuffer, 1) else {
-                   fatalError()
-               }
-               memset(uvPlane, 128, Int((format.height * format.width) / 2))
-           }
-        
-           return frameBuffer
-       }
-   }
-   ```
-
-7. Now you can start sending the frames at the rate that you specified in the format.
-
-   ```swift
-   final class RawOutgoingVideoSender: NSObject {
-       var frameSender: VideoFrameSender?
-       let frameProducer: FrameProducerProtocol
-       var rawOutgoingStream: RawOutgoingVideoStream!
-    
-       private var lock: NSRecursiveLock = NSRecursiveLock()
-
-       private var timer: Timer?
-       private var syncSema = DispatchSemaphore?
-       private(set) weak var call: Call?
-       private var running: Bool = false
-       private let frameQueue: DispatchQueue = DispatchQueue(label: "org.microsoft.frame-sender")
-       private let log = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "RawOutgoingVideoSender")
-
-       private var options: RawOutgoingVideoStreamOptions!
-       private var outgoingVideoStreamState: OutgoingVideoStreamState = .none
-
-       init(frameProducer: FrameProducerProtocol) {
-           self.frameProducer = frameProducer
-           super.init()
-           options = RawOutgoingVideoStreamOptions()
-           options.delegate = self
-           options.videoFormats = [videoFormat] // Video format we specified on step 1.
-           self.rawOutgoingStream = VirtualRawOutgoingVideoStream(videoStreamOptions: options)
-       }
-  
-       func startSending(to call: Call) {
-           self.call = call
-           self.startRunning()
-           self.call?.startVideo(stream: rawOutgoingStream) { error in
-               // Stream sending started.
-           }
-       }
-    
-       func stopSending() {
-           self.stopRunning()
-           call?.stopVideo(stream: rawOutgoingStream) { error in
-               // Stream sending stopped.
-           }
-       }
-    
-       private func startRunning() {
-           lock.lock(); defer { lock.unlock() }
-
-           self.running = true
-           if frameSender != nil {
-               self.startFrameGenerator()
-           }
-       }
-    
-       private func startFrameGenerator() {
-           guard let sender = self.frameSender else {
-               return
-           }
-
-           // How many times per second, based on sender format FPS.
-           let interval = TimeInterval((1 as Float) / sender.videoFormat.framesPerSecond)
-           frameQueue.async { [weak self] in
-               self?.timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
-                   guard let self = self, let sender = self.frameSender else {
-                       return
-                   }
-
-                   let planeData = self.frameProducer.nextFrame(for: sender.videoFormat)
-                   self.send(with: sender, frame: planeData)
-               }
-               RunLoop.current.run()
-               self?.timer?.fire()
-           }
-       }
-    
-       private func sendSync(with sender: VideoFrameSender, frame: CVImageBuffer) {
-           guard let softwareSender = sender as? SoftwareBasedVideoFrameSender else {
-              return
-           }
-           // Ensure that a frame will not be sent before another finishes.
-           syncSema = DispatchSemaphore(value: 0)
-           softwareSender.send(frame: frame, timestampInTicks: sender.timestampInTicks) { [weak self] confirmation, error in
-               self?.syncSema?.signal()
-               guard let self = self else { return }
-               if let confirmation = confirmation {
-                   // Can check if confirmation was successful using `confirmation.status`
-               } else if let error = error {
-                   // Can check details about error in case of failure.
-               }
-           }
-           syncSema?.wait()
-       }
-
-       private func stopRunning() {
-           lock.lock(); defer { lock.unlock() }
-
-           running = false
-           stopFrameGeneration()
-       }
-
-       private func stopFrameGeneration() {
-           lock.lock(); defer { lock.unlock() }
-           timer?.invalidate()
-           timer = nil
-       }
-    
-       deinit {
-           timer?.invalidate()
-           timer = nil
-       }
-   }
-
-   extension RawOutgoingVideoSender: RawOutgoingVideoStreamOptionsDelegate {
-       func rawOutgoingVideoStreamOptions(_ rawOutgoingVideoStreamOptions: RawOutgoingVideoStreamOptions, 
-                                          didChangeOutgoingVideoStreamState args: OutgoingVideoStreamStateChangedEventArgs) {
-           outgoingVideoStreamState = args.outgoingVideoStreamState
-       }
-
-       func rawOutgoingVideoStreamOptions(_ rawOutgoingVideoStreamOptions: RawOutgoingVideoStreamOptions,
-                                          didChangeVideoFrameSender args: VideoFrameSenderChangedEventArgs) {
-           // Sender can change to start sending a more efficient format (given network conditions) of the ones specified 
-           // in the list on the initial step. In that case, you should restart the sender.
-           if running {
-               stopRunning()
-               self.frameSender = args.videoFrameSender
-               startRunning()
-           } else {
-               sender = args.videoFrameSender
-           }
-       }
-   }
-   ```
-
-8. Create a sender with a `FrameProducer` instance, and you can start sending frames to a call.
-
-    ```swift
-    var call: Call?
-    var outgoingVideoSender: RawOutgoingVideoSender? 
-    var sendingRawVideo: Bool = false
-
-    func toggleSendingRawOutgoingVideo() {
-        guard let call = call else {
-            return
+            return bufferArrayList
         }
-        if sendingRawVideo {
-            outgoingVideoSender?.stopSending()
-            outgoingVideoSender = nil
-        } else {
-            let producer = GrayLinesFrameProducer()
-            outgoingVideoSender = RawOutgoingVideoSender(frameProducer: producer)
-            outgoingVideoSender?.startSending(to: call)
-        }
-        sendingRawVideo.toggle()
     }
     ```
 
-## Overview of screen share video streams
+6. Create and instance of the following helper class to generate random `RawVideoFrameBuffer`'s using `VideoStreamPixelFormat.rgba`
 
-Repeat steps 1 to 5 from the previous [Steps to create a virtual video stream](#steps-to-create-a-virtual-video-stream) procedure.
+    ```swift
+    final class VideoFrameSender : NSObject
+    {
+        private var rawOutgoingVideoStream: RawOutgoingVideoStream
+        private var frameIteratorThread: Thread
+        private var stopFrameIterator: Bool = false
 
-For screen sharing, you're still going to use the same sender, but you use a different `VideoStream` and `FrameProducer` instance.
+        public VideoFrameSender(rawOutgoingVideoStream: RawOutgoingVideoStream)
+        {
+            self.rawOutgoingVideoStream = rawOutgoingVideoStream
+        }
 
-You use Apple's `ReplayKit` framework to capture the frames to send to the call.
+        @objc private func VideoFrameIterator()
+        {
+            while !stopFrameIterator {
+                if rawOutgoingVideoStream != nil &&
+                   rawOutgoingVideoStream.format != nil &&
+                   rawOutgoingVideoStream.state == .started {
+                    SendRandomVideoFrameNV12()
+                }
+           }
+        }
+
+        public func SendRandomVideoFrameNV12() -> Void
+        {
+            let videoFrameBuffer = GenerateRandomVideoFrameBuffer()
+            
+            rawOutgoingVideoStream.send(frame: videoFrameBuffer) { error in
+                /*Handle error if non-nil*/
+            }
+            
+            let rate = 0.1 / rawOutgoingVideoStream.format.framesPerSecond
+            let second: Float = 1000000
+            usleep(useconds_t(rate * second))
+        }
+
+        private func GenerateRandomVideoFrameBuffer() -> RawVideoFrame
+        {
+            var cvPixelBuffer: CVPixelBuffer? = nil
+            guard CVPixelBufferCreate(kCFAllocatorDefault,
+                                    rawOutgoingVideoStream.format.width,
+                                    rawOutgoingVideoStream.format.height,
+                                    kCVPixelFormatType_420YpCbCr8BiPlanarFullRange,
+                                    nil,
+                                    &cvPixelBuffer) == kCVReturnSuccess else {
+                fatalError()
+            }
+            
+            GenerateRandomVideoFrameNV12(cvPixelBuffer: cvPixelBuffer!)
+            
+            CVPixelBufferUnlockBaseAddress(cvPixelBuffer!, .readOnly)
+            
+            let videoFrameBuffer = RawVideoFrameBuffer()
+            videoFrameBuffer.buffer = cvPixelBuffer!
+            videoFrameBuffer.streamFormat = rawOutgoingVideoStream.format
+            
+            return videoFrameBuffer
+        }
+        
+        private func GenerateRandomVideoFrameNV12(cvPixelBuffer: CVPixelBuffer) {
+            int w = rawOutgoingVideoStream.format.width
+            int h = rawOutgoingVideoStream.format.height
+
+            let bufferArrayList = BufferExtensions.getArrayBuffersUnsafe(cvPixelBuffer: cvPixelBuffer)
+            let yArrayBuffer = bufferArrayList[0]!
+            let uvArrayBuffer = bufferArrayList[1]!
+            
+            let yVal = Int32.random(in: 1..<255)
+            let uvVal = Int32.random(in: 1..<255)
+            
+            for y in 0...h
+            {
+                for x in 0...w
+                {
+                    yArrayBuffer.storeBytes(of: yVal, toByteOffset: (y * w) + x, as: Int32.self)
+                }
+            }
+            
+            for y in 0...(h/2)
+            {
+                for x in 0...(w/2)
+                {
+                    uvArrayBuffer.storeBytes(of: uvVal, toByteOffset: (y * w) + x, as: Int32.self)
+                }
+            }
+        }
+        
+        public func Start() {
+            stopFrameIterator = false
+            frameIteratorThread = Thread(target: self, selector: #selector(VideoFrameIterator), object: "VideoFrameSender")
+            frameIteratorThread?.start()
+        }
+        
+        public func Stop() {
+            if frameIteratorThread != nil {
+                stopFrameIterator = true
+                frameIteratorThread?.cancel()
+                frameIteratorThread = nil
+            }
+        }
+    }
+    ```
+
+7. Implement to the `VirtualOutgoingVideoStreamDelegate`. The `didChangeState` event informs the state of the current stream. 
+   Don't send frames if the state isn't equal to `VideoStreamState.started`.
+
+    ```swift
+    /*Delegate Implementer*/ 
+    private var videoFrameSender: VideoFrameSender
+    func virtualOutgoingVideoStream(
+        _ virtualOutgoingVideoStream: VirtualOutgoingVideoStream,
+        didChangeState args: VideoStreamStateChangedEventArgs) {
+        switch args.stream.state {
+            case .available:
+                videoFrameSender = VideoFrameSender(rawOutgoingVideoStream)
+                break
+            case .started:
+                /* Start sending frames */
+                videoFrameSender.Start()
+                break
+            case .stopped:
+                /* Stop sending frames */
+                videoFrameSender.Stop()
+                break
+        }
+    }
+    ```
+
+## Screen Share Video
+
+Because the Windows system generates the frames, you must implement your own foreground service to capture the frames and send them by using the Azure Communication Services Calling API.
 
 ### Supported video resolutions
 
 | Aspect ratio | Resolution  | Maximum FPS  |
 | :--: | :-: | :-: |
-| Anything | Anything less than 1920×1080 | 30 |
+| Anything | Anything up to 1080p | 30 |
 
 ### Steps to create a screen share video stream
 
-1. The format now is the screen bounds.
+1. Create an array of `VideoFormat` using the VideoStreamPixelFormat the SDK supports.
+   When multiple formats are available, the order of the formats in the list doesn't influence or prioritize which one is used. The criteria for format selection are based on external factors like network bandwidth.
 
     ```swift
-    let videoFormats: [VideoFormat] = []
-
-    let videoFormat = VideoFormat()
-    videoFormat.width = Int32(UIScreen.main.nativeBounds.width)
-    videoFormat.height = Int32(UIScreen.main.nativeBounds.height)
-    videoFormat.pixelFormat = .nv12 
-    videoFormat.videoFrameKind = .videoSoftware
-    videoFormat.framesPerSecond = 30
-    videoFormat.stride1 = Int32(UIScreen.main.nativeBounds.width)
-    videoFormat.stride2 = Int32(UIScreen.main.nativeBounds.width)
-
-    videoFormats.append(videoFormat)
+    let videoStreamFormat = VideoStreamFormat()
+    videoStreamFormat.width = 1280 /* Width and height can be used for ScreenShareOutgoingVideoStream for custom resolutions or use one of the predefined values inside VideoStreamResolution */
+    videoStreamFormat.height = 720
+    /*videoStreamFormat.resolution = VideoStreamResolution.p360*/
+    videoStreamFormat.pixelFormat = VideoStreamPixelFormat.rgba
+    videoStreamFormat.framesPerSecond = framerate
+    videoStreamFormat.stride1 = w * 4; /* It is times 4 because RGBA is a 32-bit format */
+    
+    var videoStreamFormats: [VideoStreamFormat] = []
+    videoStreamFormats.append(videoStreamFormat)
     ```
 
-2. Instead of `VirtualRawOutgoingVideoStream`, create an instance of `ScreenShareRawOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
+2. Create `RawOutgoingVideoStreamOptions`, and set `VideoFormats` with the previously created object.
 
     ```swift
-    screenShareRawOutgoingVideoStream = ScreenShareRawOutgoingVideoStream(videoStreamOptions: options)
+    var rawOutgoingVideoStreamOptions = RawOutgoingVideoStreamOptions()
+    rawOutgoingVideoStreamOptions.formats = videoStreamFormats
     ```
 
-3. Import a module and start a screen recording.
-
-   ```swift
-   import ReplayKit
-
-   final class ScreenSharingProducer: FrameProducerProtocol {
-       private var sampleBuffer: CMSampleBuffer?
-       let lock = NSRecursiveLock()
-
-       // Invoked when producer receives the first frame from ReplayKit.
-       var onReadyCallback: (() -> Void)?
-    
-       // CMSSampleBuffer we get from ReplayKit produces Y and UV 4:2:0 planes data.
-       func nextFrame(for format: VideoFormat) -> CVImageBuffer {
-           lock.lock(); defer { lock.unlock() }
-           guard let sampleBuffer = sampleBuffer, let frameBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
-               fatalError()
-           }
-           return frameBuffer
-       }
-
-       func startRecording() {
-           // Start a recording of the screen with ReplayKit.
-           RPScreenRecorder.shared().startCapture { [weak self] sampleBuffer, type, error in
-               guard type == .video, error == nil else { return }
-               guard let self = self else { return }
-
-               self.lock.lock()
-               let isFirstFrame = self.sampleBuffer == nil
-               if isFirstFrame {
-                   self.onReadyCallback?()
-                   self.onReadyCallback = nil
-               }
-               self.sampleBuffer = sampleBuffer
-               self.lock.unlock()
-           }
-       }
-
-       func stopRecording() {
-           guard RPScreenRecorder.shared().isRecording else {
-               return
-           }
-           RPScreenRecorder.shared().stopCapture()
-       }
-    
-       deinit {
-           stopRecording()
-       }
-   }
-   ```
-
-4. Create a `ScreenSharingProducer` instance so that when the recorder starts to produce frames, you can send them.
+3. Create an instance of `VirtualOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
 
     ```swift
-    var call: Call?
-    var outgoingVideoSender: RawOutgoingVideoSender? 
-    var sendingScreenShare: Bool = false
-    var screenShareProducer: ScreenSharingProducer?
-    func toggleSendingScreenShareOutgoingVideo() {
-        guard let call = call else {
-            return
+    var rawOutgoingVideoStream = ScreenShareOutgoingVideoStream(rawOutgoingVideoStreamOptions)
+    ```
+
+4. Capture and send the video frame in the following way.
+
+    ```swift
+    private func SendRawVideoFrame() -> Void
+    {
+        CVPixelBuffer cvPixelBuffer = /* Fill it with the content you got from the Windows APIs, The number of buffers depends on the VideoStreamPixelFormat */
+        let videoFrameBuffer = RawVideoFrameBuffer()
+        videoFrameBuffer.buffer = cvPixelBuffer!
+        videoFrameBuffer.streamFormat = rawOutgoingVideoStream.format
+
+        rawOutgoingVideoStream.send(frame: videoFrame) { error in
+            /*Handle error if not nil*/
         }
+    }
+    ```
 
-        if sendingScreenShare {
-            screenShareProducer?.stopRecording()
-            outgoingVideoSender?.stopSending()
-            outgoingVideoSender = nil
-            screenShareProducer = nil 
-        } else {
-            screenShareProducer = ScreenSharingProducer()
-            screenShareProducer?.onReadyCallback = { [weak self] in
-                guard let producer = self?.screenShareProducer else { return }
-                outgoingVideoSender = RawOutgoingVideoSender(frameProducer: producer)
-                outgoingVideoSender?.startSending(to: call)
+# Raw Incoming Video
+
+This feature gives you access the video frames inside the `IncomingVideoStream`'s in order to manipulate those stream objects locally
+
+1. Create an instance of `IncomingVideoOptions` that sets through `JoinCallOptions` setting `VideoStreamKind.RawIncoming`
+
+    ```swift
+    var incomingVideoOptions = IncomingVideoOptions()
+    incomingVideoOptions.streamType = VideoStreamKind.rawIncoming
+    var joinCallOptions = JoinCallOptions()
+    joinCallOptions.incomingVideoOptions = incomingVideoOptions
+    ```
+
+2. Once you receive a `ParticipantsUpdatedEventArgs` event attach `RemoteParticipant.delegate.didChangedVideoStreamState` delegate. This event informs the state of the `IncomingVideoStream` objects.
+    ```swift
+    private var remoteParticipantList: [RemoteParticipant] = []
+
+    func call(_ call: Call, didUpdateRemoteParticipant args: ParticipantsUpdatedEventArgs) {
+        args.addedParticipants.forEach { remoteParticipant in
+            remoteParticipant.incomingVideoStreams.forEach { incomingVideoStream in
+                OnRawIncomingVideoStreamStateChanged(incomingVideoStream: incomingVideoStream)
             }
-            screenShareProducer?.startRecording()
+            remoteParticipant.delegate = /* Attach delegate OnVideoStreamStateChanged*/
         }
-        sendingScreenShare.toggle()
+            
+        args.removedParticipants.forEach { remoteParticipant in
+            remoteParticipant.delegate = nil
+        }
+    }
+
+    func remoteParticipant(_ remoteParticipant: RemoteParticipant, 
+                           didVideoStreamStateChanged args: VideoStreamStateChangedEventArgs) {
+        OnRawIncomingVideoStreamStateChanged(rawIncomingVideoStream: args.stream)
+    }
+
+    func OnRawIncomingVideoStreamStateChanged(rawIncomingVideoStream: RawIncomingVideoStream) {
+        switch incomingVideoStream.state {
+            case .available:
+                /* There is a new IncomingVideoStream */
+                rawIncomingVideoStream.delegate /* Attach delegate OnVideoFrameReceived*/
+                rawIncomingVideoStream.start()
+                break;
+            case .started:
+                /* Will start receiving video frames */
+                break
+            case .stopped:
+                /* Will stop receiving video frames */
+                break
+            case .notAvailable:
+                /* The IncomingVideoStream should not be used anymore */
+                rawIncomingVideoStream.delegate = nil
+                break
+        }
+    }
+    ```
+
+3. At the time, the `IncomingVideoStream` has `VideoStreamState.available` state attach `RawIncomingVideoStream.delegate.didReceivedRawVideoFrame` delegate as shown on the previous step. That event provides the new `RawVideoFrame` objects.
+
+    ```swift
+    func rawIncomingVideoStream(_ rawIncomingVideoStream: RawIncomingVideoStream, 
+                                didRawVideoFrameReceived args: RawVideoFrameReceivedEventArgs) {
+        /* Render/Modify/Save the video frame */
+        let videoFrame = args.frame as! RawVideoFrameBuffer
     }
     ```
