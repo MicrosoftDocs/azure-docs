@@ -655,7 +655,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 ```powershell
 $suffix=Get-Random # random suffix for the Service Principal
 $spDisplayName="sp-$resourceGroup-$suffix"
-$azureADAppSp = New-AzADServicePrincipal -DisplayName $displayName -Role Contributor
+$azureADAppSp = New-AzADServicePrincipal -DisplayName $spDisplayName -Role Contributor
 
 New-AzRoleAssignment -ObjectId $azureADAppSp.Id -RoleDefinitionName 'User Access Administrator' -ResourceGroupName $resourceGroup -ObjectType 'ServicePrincipal'
 New-AzRoleAssignment -ObJectId $azureADAppSp.Id -RoleDefinitionName 'Contributor' -ResourceGroupName $resourceGroup -ObjectType 'ServicePrincipal'
