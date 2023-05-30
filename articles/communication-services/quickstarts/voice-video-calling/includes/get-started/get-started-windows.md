@@ -6,11 +6,9 @@ ms.date: 03/10/2021
 ms.author: rifox
 ---
 
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
-
 In this quickstart, you learn how to start a call using the Azure Communication Services Calling SDK for Windows.
 
-## UWP sample code
+## [UWP](#tab/uwp)
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/Calling).
 
@@ -353,7 +351,7 @@ You can make an outbound call by providing a user ID in the text field and click
 
 :::image type="content" source="../../media/windows/run-the-app.png" alt-text="Screenshot showing running the UWP quickstart app":::
 
-## WinUI 3 sample code
+## [WinUI 3](#tab/WinUI3)
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallingWinUI).
 
