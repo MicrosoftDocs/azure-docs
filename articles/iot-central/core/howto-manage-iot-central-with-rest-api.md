@@ -1,5 +1,5 @@
 ---
-title: Use the REST API to manage and monitor IoT Central applications | Microsoft Docs
+title: Use the REST API to manage and monitor IoT Central applications
 description: This article describes how to create and manage your IoT Central applications with the REST API. The REST API also lets you add a system assigned managed identity to your application.
 services: iot-central
 ms.service: iot-central

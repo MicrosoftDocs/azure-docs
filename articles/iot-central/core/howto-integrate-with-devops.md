@@ -1,5 +1,5 @@
 ---
-title: Integrate Azure IoT Central with CI/CD | Microsoft Docs
+title: Integrate Azure IoT Central with CI/CD
 description: Describes how to integrate IoT Central into a pipeline created with Azure Pipelines.
 author: troyhopwood
 ms.author: troyhop

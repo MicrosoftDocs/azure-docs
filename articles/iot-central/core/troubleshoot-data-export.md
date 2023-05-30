@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot data exports from Azure IoT Central | Microsoft Docs
+title: Troubleshoot data exports from Azure IoT Central
 description: Troubleshoot issues with data exports in IoT Central
 services: iot-central
 author: dominicbetts

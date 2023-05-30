@@ -1,5 +1,5 @@
 ---
-title: Manage users and roles in Azure IoT Central application | Microsoft Docs
+title: Manage users and roles in Azure IoT Central application
 description: As an administrator, how to manage users and roles in your Azure IoT Central application
 author: dominicbetts
 ms.author: dobett

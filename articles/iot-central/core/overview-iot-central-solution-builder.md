@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central data integration guide | Microsoft Docs
+title: Azure IoT Central data integration guide
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to integrate your IoT Central application with other services to extend its capabilities.
 author: dominicbetts
 ms.author: dobett

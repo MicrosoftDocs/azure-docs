@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central quotas and limits | Microsoft Docs
+title: Azure IoT Central quotas and limits
 description: This article lists the key quotas and limits that apply to an IoT Central application.
 author: dominicbetts
 ms.author: dobett

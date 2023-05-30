@@ -1,5 +1,5 @@
 ---
-title: Architectural concepts in Azure IoT Central | Microsoft Docs
+title: Architectural concepts in Azure IoT Central
 description: This article introduces key concepts relating the architecture of Azure IoT Central
 author: dominicbetts
 ms.author: dobett

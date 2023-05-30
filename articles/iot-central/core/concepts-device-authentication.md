@@ -1,5 +1,5 @@
 ---
-title: Device authentication in Azure IoT Central | Microsoft Docs
+title: Device authentication in Azure IoT Central
 description: This article introduces key concepts relating to device authentication in Azure IoT Central
 author: dominicbetts
 ms.author: dobett

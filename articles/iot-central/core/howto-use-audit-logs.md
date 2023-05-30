@@ -1,5 +1,5 @@
 ---
-title: Use Azure IoT Central audit logs | Microsoft Docs
+title: Use Azure IoT Central audit logs
 description: Learn how to use audit logs in IoT Central to track changes made in an IoT Central application
 author: dominicbetts
 ms.author: dobett

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Deploy the Azure IoT Central device bridge | Microsoft Docs
+title: Deploy the Azure IoT Central device bridge
 description: Deploy the IoT Central device bridge to connect other IoT clouds to your IoT Central app. Examples of other IoT clouds include Sigfox, Particle Device Cloud, and The Things Network.
 services: iot-central
 ms.service: iot-central

@@ -1,5 +1,5 @@
 ---
-title: Transform telemetry on ingress to IoT Central | Microsoft Docs
+title: Transform telemetry on ingress to IoT Central
 description: To use complex telemetry from devices, you can use mappings to transform it as it arrives in your IoT Central application. This article describes how to map device telemetry on ingress to IoT Central. 
 author: dominicbetts
 ms.author: dobett

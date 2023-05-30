@@ -1,5 +1,5 @@
 ---
-title: Manage IoT Central organizations | Microsoft Docs
+title: Manage IoT Central organizations
 description: This article describes how to create and manage an organization hierarchy to control which users can access which devices in your IoT Central organization. Use organizations to create multi-tenanted IoT Central applications.
 services: iot-central
 ms.service: iot-central

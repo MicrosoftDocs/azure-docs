@@ -1,5 +1,5 @@
 ---
-title: Connect a  RuuviTag in Azure IoT Central | Microsoft Docs
+title: Connect a  RuuviTag in Azure IoT Central
 description: Learn how to connect a RuuviTag environment sensor to your IoT Central application. 
 services: iot-central
 ms.service: iot-central

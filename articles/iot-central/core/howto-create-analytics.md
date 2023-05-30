@@ -1,5 +1,5 @@
 ---
-title: Analyze device data in your Azure IoT Central application | Microsoft Docs
+title: Analyze device data in your Azure IoT Central application
 description: Analyze device data in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett

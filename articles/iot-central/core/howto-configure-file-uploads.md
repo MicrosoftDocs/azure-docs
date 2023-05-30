@@ -1,5 +1,5 @@
 ---
-title: Upload files from devices to Azure storage | Microsoft Docs
+title: Upload files from devices to Azure storage
 description: How to configure file uploads from your devices to the cloud. After you've configured file uploads, implement file uploads on your devices, and manage uploads in IoT Central.
 services: iot-central
 author: dominicbetts

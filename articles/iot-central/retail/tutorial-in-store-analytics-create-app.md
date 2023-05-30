@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create and deploy an Azure IoT in-store analytics application template | Microsoft Docs
+title: Tutorial - Create and deploy an Azure IoT in-store analytics application template
 description: This tutorial shows how to create and deploy an in-store analytics retail application in IoT Central.
 services: iot-central
 ms.service: iot-central

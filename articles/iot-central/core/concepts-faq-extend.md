@@ -1,5 +1,5 @@
 ---
-title: Extend IoT Central | Microsoft Docs
+title: Extend IoT Central
 description: How do I extend IoT Central if it's missing something I need?
 author: dominicbetts
 ms.author: dobett
