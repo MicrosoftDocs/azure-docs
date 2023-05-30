@@ -72,7 +72,7 @@ For a list of existing Azure Marketplace offerings in this space, visit [this pa
  * Free [training on FedRAMP](https://www.fedramp.gov/training/).
  * FedRAMP [templates](https://www.fedramp.gov/templates/) to help you with program requirements.
  * Get familiar with the [FedRAMP Marketplace](https://marketplace.fedramp.gov/#/products).
- * Learn more about [Azure Compliance Offerings per market and industry](../../azure/compliance).
+ * Learn more about [Azure Compliance Offerings per market and industry](https://learn.microsoft.com/en-us/azure/compliance/).
  
 ## Next steps
 Review the documentation above. 
