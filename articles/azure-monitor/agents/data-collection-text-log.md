@@ -122,12 +122,12 @@ To create the data collection rule in the Azure portal:
 
 1. Specify the following information:
  
-    - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas if your AMA is using Fluent Bit v1.5.1 or more.  
+    - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas (on Linux, AMA version 1.26 or higher is required to collect from a comma-separated list of file patterns).
     
         Examples of valid inputs: 
         - 20220122-MyLog.txt 
         - ProcessA_MyLog.txt  
-        - ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt 
+        - ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt
     
         > [!NOTE]
         > Multiple log files of the same type commonly exist in the same directory. For example, a machine might create a new file every day to prevent the log file from growing too large. To collect log data in this scenario, you can use a file wildcard. Use the format `C:\directoryA\directoryB\*MyLog.txt` for Windows and `/var/*.log` for Linux. There is no support for directory wildcards. 

@@ -210,13 +210,27 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add video calling to your Android WebView client app
       href: quickstarts/voice-video-calling/get-started-android-webview.md
-    - name: Build virtual visit
-      href: tutorials/virtual-visits/sample-builder.md
     - name: Proxy your calling traffic
       href: tutorials/proxy-calling-support-tutorial.md
     - name: Survey users
       href: tutorials/end-of-call-survey-tutorial.md
       displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
+    - name: Virtual appointments
+      items:      
+      - name: Sample builder
+        href: tutorials/virtual-visits/sample-builder.md      
+      - name: Extend Teams
+        items:             
+          - name: Overview
+            href: tutorials/virtual-visits/extend-teams/overview.md
+          - name: Scheduling
+            href: tutorials/virtual-visits/extend-teams/schedule.md
+          - name: Before and after appointment
+            href: tutorials/virtual-visits/extend-teams/before-and-after-appointment.md
+          - name: Precall
+            href: tutorials/virtual-visits/extend-teams/precall.md
+          - name: Call
+            href: tutorials/virtual-visits/extend-teams/call.md  
     - name: Call management
       items:
       - name: Manage calls
@@ -244,7 +258,9 @@ items:
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
       - name: Enable Closed captions for Teams Interoperability
-        href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md        
+        href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md
+      - name: Get local capabilities
+        href: how-tos/calling-sdk/capabilities.md
     - name: Call recording
       items:
       - name: Record a call
@@ -343,6 +359,8 @@ items:
       items:
       - name: Enable inline image interoperability in your chat app
         href: tutorials/chat-interop/meeting-interop-features-inline-image.md
+      - name: Enable file attachment interoperability in your chat app
+        href: tutorials/chat-interop/meeting-interop-features-file-attachment.md
     - name: Mobile integrations
       items:
       - name: Enable push notifications in your chat app
@@ -623,6 +641,8 @@ items:
         href: concepts/analytics/call-logs-azure-monitor.md
       - name: Recording logs
         href: concepts/analytics/recording-logs.md
+      - name: End of call survey logs
+        href: concepts/analytics/logs/end-of-call-survey-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
     - name: UI Library
