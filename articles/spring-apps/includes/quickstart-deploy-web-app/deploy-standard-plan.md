@@ -67,7 +67,7 @@ Use AZD to initialize the web application from the Azure Developer CLI templates
       Please enter a new environment name: <your-env-name>
     
     SUCCESS: New project initialized!
-    You can view the template code in your directory: <your-local-path>/event-driven-app
+    You can view the template code in your directory: <your-local-path>
     Learn more about running 3rd party code on our DevHub: https://learn.microsoft.com/azure/developer/azure-developer-cli/azd-templates#guidelines-for-using-azd-templates
     ```
 
