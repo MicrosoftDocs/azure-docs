@@ -3,7 +3,7 @@ title: How to install the Global Secure Access Windows client
 description: Install the Global Secure Access Windows client to enable client connectivity.
 ms.service: network-access
 ms.topic: how-to
-ms.date: 05/25/2023
+ms.date: 05/30/2023
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
@@ -18,8 +18,8 @@ The Global Secure Access client allows organizations control over network traffi
 - A working Azure AD tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Administrators who interact with **Global Secure Access preview** features must have the [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md). To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) to activate just-in-time privileged role assignments.
 - The Global Secure Access client is supported on the following 64-bit versions of Windows:
-   - Windows 11 version XXXX or higher
-   - Windows 10 version XXXX or higher
+   - Windows 11 version XXXX or higher <!--- supported versions --->
+   - Windows 10 version XXXX or higher <!--- supported versions --->
 - Devices must be either Azure AD joined or hybrid Azure AD joined. Azure AD registered devices aren't supported.
 - IPv6 traffic isn't supported in the preview release. For more information, see the section [Disable IPv6 traffic](#disable-ipv6-traffic).
 
@@ -79,17 +79,28 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "DnsOverHtt
 
 ## Troubleshooting
 
+msn.com will show edge location
+
 To troubleshoot the Global Secure Access client, right-click the client icon in the taskbar.
 
 :::image type="content" source="media/how-to-install-windows-client/client-install-menu-options.png" alt-text="Screenshot showing the context menu of the Global Secure Access client.":::
 
 - Switch user
+   - Forces sign-in screen to change user
 - Pause
+   - Stops windows services related to client. No longer tunneling traffic to edge
+   - Expected client always on as a security tool. If a problem you can stop temporarily. Restarts on reboot
 - Resume
+   - Start stopped services
 - Restart
+   - Pause and resume
 - Collect logs
+   - Collect relavent logs for support
+      - What is included...
 - Analyze
+   - Test client components to ensure configured and working as expected.
 - Healthcheck tool
+   - 
 
 <!--- 
 
