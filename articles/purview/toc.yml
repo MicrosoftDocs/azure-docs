@@ -345,6 +345,8 @@ items:
       href: how-to-schedule-data-estate-insights.md
     - name: View data stewardship
       href: data-stewardship.md
+    - name: View catalog adoption
+      href: catalog-adoption-insights.md
     - name: View asset insights
       href: asset-insights.md
     - name: View glossary insights
