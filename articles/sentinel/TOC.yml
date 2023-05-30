@@ -457,6 +457,10 @@
         href: data-connectors/fortinet.md
       - name: Fortinet FortiWeb Web Application Firewall
         href: data-connectors/fortinet-fortiweb-web-application-firewall.md
+      - name: GitHub (using Webhooks) (using Azure Function)
+        href: data-connectors/github-using-webhooks-using-azure-function.md
+      - name: GitHub Enterprise Audit Log
+        href: data-connectors/github-enterprise-audit-log.md
       - name: GitLab
         href: data-connectors/gitlab.md
       - name: Google ApigeeX (using Azure Functions)

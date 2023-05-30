@@ -399,6 +399,11 @@ Data connectors are available as part of the following offerings:
 - [Azure Firewall](data-connectors/azure-firewall.md)
 - [Dynamics 365](data-connectors/dynamics-365.md)
 
+## Microsoft Corporation - sentinel4github
+
+- [GitHub (using Webhooks) (using Azure Function)](data-connectors/github-using-webhooks-using-azure-function.md)
+- [GitHub Enterprise Audit Log](data-connectors/github-enterprise-audit-log.md)
+
 ## Microsoft Sentinel Community, Microsoft Corporation
 
 - [Forcepoint CASB](data-connectors/forcepoint-casb.md)
