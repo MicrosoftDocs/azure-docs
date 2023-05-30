@@ -108,7 +108,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
 #### Solution 2 - Remove redundant role assignments
 
-If you still need to reduce the number of role assignments in the subscription and other solutions don't work for you, remove redundant role assignments. Follow these steps to identify where redundant role assignments at a lower scope can potentially be removed since a role assignment at a higher scope already grants access.
+To reduce the number of role assignments in the subscription, remove redundant role assignments. Follow these steps to identify where redundant role assignments at a lower scope can potentially be removed since a role assignment at a higher scope already grants access.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and open the Azure Resource Graph Explorer.
 
@@ -117,6 +117,8 @@ If you still need to reduce the number of role assignments in the subscription a
     :::image type="content" source="media/troubleshoot-limits/authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="media/troubleshoot-limits/authorization-scope.png":::
 
 1. Run the following query to get the role assignments with the same role and same principal, but at different scopes.
+
+    This query checks active role assignments and doesn't consider eligible role assignments in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
     [!INCLUDE [azure-resource-graph-samples-query-authorization-same-role-principal](../../includes/resource-graph/samples/query/authorization-same-role-principal.md)]
 
@@ -174,6 +176,8 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
     The following shows an example of the results. The **count_** column is the number of different built-in role assignments with the same principal and same scope. The count is sorted in descending order.
 
+    :::image type="content" source="media/troubleshoot-limits/authorization-same-principal-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments for with the same principal and same scope." lightbox="media/troubleshoot-limits/authorization-same-principal-scope.png":::
+
     | Column | Description |
     | --- | --- |
     | PrincipalId | ID of the principal assigned the built-in roles. |
@@ -183,11 +187,13 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. In a row, select **See details** to open the **Details** pane.
 
+    :::image type="content" source="media/troubleshoot-limits/authorization-same-principal-scope-details.png" alt-text="Screenshot of Details pane that shows role assignments with the same principal and same scope." lightbox="media/troubleshoot-limits/authorization-same-principal-scope-details.png":::
+
 1. Use **AllRD** to see the built-in roles that can potentially be combined into a custom role.
 
 1. List the actions and data actions for the built-in roles. For more information, see [List Azure role definitions](role-definitions-list.md) or [Azure built-in roles](./built-in-roles.md)
 
-1. Create a custom role that includes all the actions and data actions as the built-in roles. For more information, see [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md).
+1. Create a custom role that includes all the actions and data actions as the built-in roles. To make it easier to create the custom role, you can start by cloning one of the built-in roles. For more information, see [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md).
 
 1. Get the principal name from the principal ID.
   
@@ -203,7 +209,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 #### Solution 4 - Make role assignments eligible
 
-To reduce the number of role assignments in the subscription and you have Azure AD Premium P2, make role assignments eligible in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) instead of permanently assigned.
+To reduce the number of role assignments in the subscription and you have Azure AD Premium P2, make role assignments eligible in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md) instead of permanently assigned.
 
 #### Solution 5 - Add an additional subscription
 
