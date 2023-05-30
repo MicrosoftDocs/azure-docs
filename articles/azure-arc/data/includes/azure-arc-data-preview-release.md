@@ -43,5 +43,3 @@ June 2023 test release is now available.
 
 - Arc SQL Server | Least privilege authentication and authorization on Windows
 - Arc SQL Server | Host Configuration | Support for being able to view your SQL Server Configuration is now available. This includes being able to view SQL Server instances and modify host level properties like license type and have the ability to skip instances.
-
--->
