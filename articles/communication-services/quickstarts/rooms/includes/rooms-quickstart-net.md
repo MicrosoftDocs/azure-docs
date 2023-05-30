@@ -103,7 +103,7 @@ CommunicationUserIdentifier user2 = await identityClient.CreateUser();
 
 Alternatively, you can follow the instructions [here](https://learn.microsoft.com/azure/communication-services/quickstarts/rooms/join-rooms-call?pivots=platform-web#obtain-user-access-token) to create a user and access token.
 
-After the user identities have been created, you can create a `RoomParticipant` and assign a role. If a role is not assigned, then the participant will be assigned `Attendee` role by default.
+After the user identities have been created, you can create room participants and assign a role. If a role is not assigned, then the participant will be assigned `Attendee` role by default.
 ```csharp
 RoomParticipant participant1 = new RoomParticipant(user1) { Role = ParticipantRole.Presenter };
 RoomParticipant participant2 = new RoomParticipant(user2) { Role = ParticipantRole.Attendee };
