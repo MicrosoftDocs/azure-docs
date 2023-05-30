@@ -48,11 +48,12 @@ See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for 
 ## Limitations/Known issues - Azure Monitor managed Service for Prometheus
 
 - Scraping and storing metrics at frequencies less than 1 second isn't supported.
-- Metrics with same label names but different casings are rejected by the ingestion (ex;- `diskSize(cluster="eastus", node="node1", filesystem="usr_mnt", FileSystem="usr_opt")` is invalid due to `filesystem` and `FileSystem` labels and are rejected)
-- Azure China cloud and Air gapped clouds aren't supported for Azure Monitor managed service for Prometheus
-- To monitor Windows nodes & pods in your cluster(s), follow steps outlined [here](./prometheus-metrics-enable.md#enable-windows-metrics-collection)
-- Azure Managed Grafana isn't available in the Azure US Government cloud currently
-- Usage metrics (metrics under `Metrics` menu for the Azure Monitor workspace) - Ingestion quota limits and current usage for any Azure monitor Workspace aren't available yet in US Government cloud
+- Metrics with the same label names but different cases are rejected during ingestion (ex;- `diskSize(cluster="eastus", node="node1", filesystem="usr_mnt", FileSystem="usr_opt")` is invalid due to `filesystem` and `FileSystem` labels, and are rejected).
+- Azure China cloud and Air gapped clouds aren't supported for Azure Monitor managed service for Prometheus.
+- To monitor Windows nodes & pods in your cluster(s), follow steps outlined [here](./prometheus-metrics-enable.md#enable-windows-metrics-collection).
+- Azure Managed Grafana isn't currently available in the Azure US Government cloud.
+- Usage metrics (metrics under `Metrics` menu for the Azure Monitor workspace) - Ingestion quota limits and current usage for any Azure monitor Workspace aren't available yet in US Government cloud.
+- During node updates, you may experience gaps lasting 1 to 2 minutes in some metric collections from our cluster level collector. This gap is due to a regular action from Azure Kubernetes Service to update the nodes in your cluster. This behavior is expected and occurs due to the node it runs on being updated. None of our recommended alert rules are affected by this behavior. 
 
 ## Prometheus references
 Following are links to Prometheus documentation.

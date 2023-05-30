@@ -39,7 +39,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 1. Select **Apply**.
 1. Select **Next: Condition** at the bottom of the page.
 1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition. 
-1. (Optional.) If you chose to **See all signals** in the previous step, use the **Select a signal** pane to search for the signal name or filter the list of signals. Filter by:
+1. (Optional) If you chose to **See all signals** in the previous step, use the **Select a signal** pane to search for the signal name or filter the list of signals. Filter by:
     - **Signal type**: The [type of alert rule](alerts-overview.md#types-of-alerts) you're creating.
     - **Signal source**: The service sending the signal. The list is prepopulated based on the type of alert rule you selected.
 
@@ -125,7 +125,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log alert rule.":::
 
-    1. (Optional.) If you are querying an ADX cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
+    1. (Optional) If you are querying an ADX cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
         ```azurecli
          adx(cluster).table    
          | where MyTS >= ago(5m) and MyTS <= now()
@@ -238,35 +238,34 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     From this point on, you can select the **Review + create** button at any time.
 
 1. On the **Actions** tab, select or create the required [action groups](./action-groups.md).
-1. (Optional) If you want to make sure that the data processing for the action group takes place within a specific region, you can select an action group in one of these regions in which to process the action group:
-    - Sweden Central
-    - Germany West Central
 
-    > [!NOTE]
-    > We're continually adding more regions for regional data processing.
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new alert rule.":::
-
-1. (Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add custom properties in key:value pairs to the alert payload to add more information to the payload. Add the property **Name** and **Value** for the custom property you want included in the payload.
+1. (Optional) If you've configured action groups for this alert rule, you can add custom properties in key:value pairs to add more information to the alert notification payload in the <a name="custom-props">**Custom properties**</a> section. Add the property **Name** and **Value** for the custom property you want included in the payload.
 
     You can also use custom properties to extract and manipulate data from alert payloads that use the common schema. You can use those values in the action group webhook or logic app.
 
-    The format for extracting values from the common schema, use a "$", and then the path of the common schema field inside curly brackets. For example: `${data.essentials.monitorCondition}`.
+    The format for extracting values from the [common schema](alerts-common-schema.md), use a "$", and then the path of the common schema field inside curly brackets. For example: `${data.essentials.monitorCondition}`.
 
     In the following examples, values in the **custom properties** are used to utilize data from the payload:
 
     **Example 1**
+    This example creates an "Additional Details" tag with data about the "evaluation window start time" and "evaluation window end time".
     - **Name:** "Additional Details"
     - **Value:** "Evaluation windowStartTime: \${data.alertContext.condition.windowStartTime}. windowEndTime: \${data.alertContext.condition.windowEndTime}"
     - **Result:** "AdditionalDetails:Evaluation windowStartTime: 2023-04-04T14:39:24.492Z. windowEndTime: 2023-04-04T14:44:24.492Z"
 
 
     **Example 2**
+    This example adds data about the reason the alert was fired or resolved. 
     - **Name:** "Alert \${data.essentials.monitorCondition} reason"
     - **Value:** "\${data.alertContext.condition.allOf[0].metricName} \${data.alertContext.condition.allOf[0].operator} \${data.alertContext.condition.allOf[0].threshold} \${data.essentials.monitorCondition}. The value is \${data.alertContext.condition.allOf[0].metricValue}"
     - **Result:**  Example results could be something like:
         - "Alert Resolved reason: Percentage CPU GreaterThan5 Resolved. The value is 3.585"
         - “Alert Fired reason": "Percentage CPU GreaterThan5 Fired. The value is 10.585"
+
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new alert rule.":::
+
+    > [!NOTE]
+    > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
 
 1. On the **Details** tab, define the **Project details**.
     - Select the **Subscription**.
@@ -300,7 +299,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
-    1. <a name="managed-id"></a>In the **Identity** section, select which identity is used by the log alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
+    1. In the <a name="managed-id">**Identity**</a> section, select which identity is used by the log alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
 
         Keep these things in mind when selecting an identity:
         - A managed identity is required if you're sending a query to Azure Data Explorer.
@@ -335,12 +334,6 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
         |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 
-    1. <a name="#custom-props"></a>(Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
-
-        > [!NOTE]
-        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
-
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-advanced.png" alt-text="Screenshot that shows the advanced options section of the Details tab when creating a new log alert rule.":::
     ### [Activity log alert](#tab/activity-log)
 
     1. Enter values for the **Alert rule name** and the **Alert rule description**.

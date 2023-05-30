@@ -3,7 +3,7 @@ title: RequestBodyTooLarge error from Apache Spark app - Azure HDInsight
 description: NativeAzureFileSystem ... RequestBodyTooLarge appears in log for Apache Spark streaming app in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 07/29/2019
+ms.date: 05/25/2023
 ---
 
 # RequestBodyTooLarge appear in Apache Spark Streaming application log in HDInsight
