@@ -1,13 +1,18 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/v-fake/azure-machine-learning-release-notes.md",
+        "redirect_url": "/articles/machine-learning/azure-machine-learning-release-notes",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-consume-web-service.md",
-        "redirect_url": "/azure/machine-learning/how-to-consume-web-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-consume-web-service",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-configure-private-link.md",
-        "redirect_url": "/azure/machine-learning/how-to-configure-private-link.md",
+        "redirect_url": "/azure/machine-learning/how-to-configure-private-link",
         "redirect_document_id": false
     },
     {
