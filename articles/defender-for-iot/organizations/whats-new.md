@@ -40,7 +40,6 @@ Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are
 
 For more information, see:
 
-- [TechCommunity blog](https://aka.ms/TransitiontoSite-basedEntitlementSKUs)
 - [Defender for IoT subscription billing](billing.md)
 - [Start a Microsoft Defender for IoT trial](getting-started.md)
 - [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md)

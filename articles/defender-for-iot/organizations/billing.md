@@ -36,8 +36,6 @@ When purchasing a Defender for IoT license for an OT plan, or when onboarding or
 
 For more information, see:
 
-- [TechCommunity blog](https://aka.ms/TransitiontoSite-basedEntitlementSKUs)
-
 - [Manage Defender for IoT plans for OT monitoring](how-to-manage-subscriptions.md)
 - [Manage Defender for IoT plans for Enterprise IoT monitoring](manage-subscriptions-enterprise.md)
 - [Operational Technology (OT) networks frequently asked questions](faqs-ot.md)

@@ -51,7 +51,7 @@ Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are
 
 Existing customers can continue to use any legacy OT plan already onboarded to an Azure subscription, with no changes in functionality. However, if you need to add a new plan, for a new subscription, you'll need to purchase a license for that plan from the Microsoft 365 admin center.
 
-For more information, see [OT plans billed by site-based licenses](whats-new.md#ot-plans-billed-by-site-based-licenses) and our [TechCommunity blog](https://aka.ms/TransitiontoSite-basedEntitlementSKUs).
+For more information, see [OT plans billed by site-based licenses](whats-new.md#ot-plans-billed-by-site-based-licenses).
 
 
 ## Where in the network should I connect monitoring ports?
