@@ -491,6 +491,9 @@ items:
         - name: Azure Active Directory pod identity
           displayName: Prometheus,remote-write
           href: essentials/prometheus-remote-write-azure-ad-pod-identity.md  
+      - name: KEDA Integration
+        displayName: Prometheus
+        href: essentials/integrate-keda.md    
       - name: Prometheus Azure Active Directory authorization proxy
         displayName: Prometheus
         href: essentials/prometheus-authorization-proxy.md

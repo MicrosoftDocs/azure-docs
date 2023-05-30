@@ -1,3 +1,14 @@
+---
+title: Integrate KEDA with your Azure Kubernetes Service cluster
+description: How to integrate KEDA with your Azure Kubernetes Service cluster.
+author: EdB-MSFT
+ms.author: edbaynash
+services: azure-monitor
+ms.topic: how-to
+ms.date: 05/31/2023
+--- 
+
+
 # Integrate KEDA with your Azure Kubernetes Service cluster
 
 KEDA is a Kubernetes-based Event Driven Autoscaler. KEDA lets you can drive the scaling of any container in Kubernetes based on the load to be processed, by querying metrics from systems such as Prometheus. Integrate KEDA with your Azure Kubernetes Service (AKS) cluster to scale your workloads based on Prometheus metrics from your Azure Monitor workspace.
