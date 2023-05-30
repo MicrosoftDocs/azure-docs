@@ -8,7 +8,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 05/08/2023
+ms.date: 05/30/2023
 ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-csharp]
 ---
 
@@ -56,6 +56,12 @@ You can find more information on cloud-to-device messages in [D2C and C2D Messag
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
+## Get the device connection string
+
+In this article, you simulate a device to receive cloud-to-device messages through your IoT Hub. The **MessageReceiveSample** sample app included with the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples) connects to your IoT hub and acts as your simulated device. The sample uses the primary connection string of your registered device. 
+
+[!INCLUDE [iot-hub-include-find-device-connection-string](../../includes/iot-hub-include-find-device-connection-string.md)]
+
 ## Receive messages in the device app
 
 In this section, modify your device app to receive cloud-to-device messages from the IoT hub.
@@ -102,6 +108,8 @@ For more information about the cloud-to-device message lifecycle and how IoT Hub
 
 > [!NOTE]
 > When using HTTPS instead of MQTT or AMQP as a transport, the `ReceiveAsync` method returns immediately. The supported pattern for cloud-to-device messages with HTTPS is intermittently connected devices that check for messages infrequently (a minimum of every 25 minutes). Issuing more HTTPS receives results in IoT Hub throttling the requests. For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](iot-hub-devguide-c2d-guidance.md) and [Choose a communication protocol](iot-hub-devguide-protocols.md).
+
+
 
 ## Get the IoT hub connection string
 
