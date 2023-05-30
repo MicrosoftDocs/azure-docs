@@ -1,6 +1,41 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-update-web-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-update-web-service",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-mlflow-models.mc",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-mlflow-models.md",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-local-container-notebook-vm.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-local-container-notebook-vm",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-local.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-local",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-inferencing-gpus.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-inferencing-gpus",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-fpga-web-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-fpga-web-service",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-and-where.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-and-where",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-create-register-datasets.md",
         "redirect_url": "/azure/machine-learning/how-to-create-register-datasets",
         "redirect_document_id": true
@@ -1776,8 +1811,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-deploy-model-designer.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-deploy-model-designer",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-model-designer.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-model-designer",
         "redirect_document_id": true
     },
     {
@@ -1831,8 +1866,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-data-prep-synapse-spark-pool.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-data-prep-synapse-spark-pool",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-data-prep-synapse-spark-pool.md",
+        "redirect_url": "/azure/machine-learning/how-to-data-prep-synapse-spark-pool",
         "redirect_document_id": true
     },
     {
@@ -1848,7 +1883,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-create-register-datasets.md",
         "redirect_url": "/azure/machine-learning/how-to-create-register-datasets",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-create-portal-experiments.md",
@@ -2666,18 +2701,18 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-deploy-profile-model.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-deploy-profile-model",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-profile-model.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-profile-model",
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-deploy-pipelines.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-deploy-pipelines",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-pipelines.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-pipelines",
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-deploy-package-models.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-deploy-package-models",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-package-models.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-package-models",
         "redirect_document_id": true
     },
     {
@@ -2686,8 +2721,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-deploy-advanced-entry-script.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-deploy-advanced-entry-script",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-advanced-entry-script.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-advanced-entry-script",
         "redirect_document_id": true
     },
     {
@@ -2721,13 +2756,13 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-deploy-azure-kubernetes-service.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-deploy-azure-kubernetes-service",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-azure-kubernetes-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-azure-kubernetes-service",
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-deploy-azure-container-instance.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-deploy-azure-container-instance",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-azure-container-instance.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-azure-container-instance",
         "redirect_document_id": false
     },
     {
@@ -2766,8 +2801,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-debug-parallel-run-step.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-debug-parallel-run-step",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-debug-parallel-run-step.md",
+        "redirect_url": "/azure/machine-learning/how-to-debug-parallel-run-step",
         "redirect_document_id": true
     },
     {
@@ -3006,8 +3041,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-debug-pipelines.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-debug-pipelines",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-debug-pipelines.md",
+        "redirect_url": "/azure/machine-learning/how-to-debug-pipelines",
         "redirect_document_id": true
     },
     {
