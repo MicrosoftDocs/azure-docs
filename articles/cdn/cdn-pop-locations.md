@@ -29,6 +29,9 @@ This article lists current metros containing point-of-presence (POP) locations, 
 
 ## Microsoft
 
+> [!NOTE]
+> A location may contain more than one POP, noted by the number in parentheses.
+
 [!INCLUDE [front-door-edge-location](../../includes/front-door-edge-locations.md)]
 
 ## Partners
