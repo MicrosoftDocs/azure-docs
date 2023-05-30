@@ -259,7 +259,8 @@ The request formats in the PATCH and POST differ. To ensure that POST and PATCH 
   - **Things to consider**
     - All roles are provisioned as primary = false.
     - The POST contains the role type. The PATCH request doesn't contain type. We're working on sending the type in both POST and PATCH requests.
-    - AppRoleAssignmentsComplex isn't compatible with setting scope to "Sync All users and groups." 
+    - AppRoleAssignmentsComplex isn't compatible with setting scope to "Sync All users and groups."
+    - The AppRoleAssignmentsComplex only supports the PATCH add function. For multi-role SCIM applications, roles deleted in Azure Active Directory will therefore not be deleted from the application. We're working to support additional PATCH functions and address the limitation. 
     
   - **Example output** 
   
