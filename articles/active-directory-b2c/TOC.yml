@@ -48,6 +48,9 @@
     - name: Find tenant name and ID  
       href: tenant-management-read-tenant-name.md
       displayName: tenant name, tenant ID, tenant details    
+    - name: Manage directory quota and remove inactive users   
+      href: tenant-management-directory-quota.md
+      displayName: Directory size quota, delete inactive users      
   - name: 5 - Clean up and delete tenant
     href: tutorial-delete-tenant.md
 # Node Samples
