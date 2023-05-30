@@ -31,7 +31,7 @@ The following facilities are supported with the Syslog collector:
 * uucp
 * local0-local7
 
-For some device types that don't allow local installation of the Azure Monitor agent, the agent can be installed instead on a dedicated Linux-based log forwarder. The originating device must be configured to send Syslog events to the Syslog daemon on this forwarder instead of the local daemon. Please see [Sentinel documents](https://learn.microsoft.com/azure/sentinel/connect-syslog#architecture) for more information.
+For some device types that don't allow local installation of the Azure Monitor agent, the agent can be installed instead on a dedicated Linux-based log forwarder. The originating device must be configured to send Syslog events to the Syslog daemon on this forwarder instead of the local daemon. Please see [Sentinel tutorial](../../sentinel/forward-syslog-monitor-agent.md) for more information.
 
 ## Configure Syslog
 
