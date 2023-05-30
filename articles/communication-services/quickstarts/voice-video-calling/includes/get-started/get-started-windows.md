@@ -6,8 +6,6 @@ ms.date: 03/10/2021
 ms.author: rifox
 ---
 
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
-
 In this quickstart, you learn how to start a call using the Azure Communication Services Calling SDK for Windows.
 
 ## UWP sample code
@@ -19,7 +17,7 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 To complete this tutorial, you need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with Universal Windows Platform development workload.
+- Install [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) with Universal Windows Platform development workload.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
 - A [User Access Token](../../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
 
@@ -40,7 +38,7 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 #### Install the package
 
-Right select your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or superior. Make sure Include Preleased is checked.
+Right select your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.0.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.0.0) or superior.
 
 #### Request access
 
@@ -89,31 +87,62 @@ using CallingQuickstart;
 
 Open the `MainPage.xaml.cs` and replace the content with following implementation: 
 ```C#
-using Azure.Communication.Calling;
-using Azure.WinRT.Communication;
+using Azure.Communication.Calling.WindowsClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Windows.Foundation;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Core;
+using Windows.Media.Core;
+using Windows.Networking.PushNotifications;
+using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
 
 namespace CallingQuickstart
 {
     public sealed partial class MainPage : Page
     {
-        CallAgent callAgent;
-        Call call;
-        DeviceManager deviceManager;
+        private const string authToken = "<ACS auth token>";
 
+        private CallClient callClient;
+        private CallTokenRefreshOptions callTokenRefreshOptions;
+        private CallAgent callAgent;
+        private CommunicationCall call = null;
+        
+        private LocalOutgoingAudioStream micStream;
+
+        #region Page initialization
         public MainPage()
         {
             this.InitializeComponent();
-            Task.Run(() => this.InitCallAgentAndDeviceManagerAsync()).Wait();
-        }
+            
+            // Hide default title bar.
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
 
+            QuickstartTitle.Text = $"{Package.Current.DisplayName} - Ready";
+            Window.Current.SetTitleBar(AppTitleBar);
+
+            CallButton.IsEnabled = true;
+            HangupButton.IsEnabled = !CallButton.IsEnabled;
+            MuteLocal.IsChecked = MuteLocal.IsEnabled = !CallButton.IsEnabled;
+
+            ApplicationView.PreferredLaunchViewSize = new Windows.Foundation.Size(800, 600);
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+        }
+        
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            await InitCallAgentAndDeviceManagerAsync();
+
+            base.OnNavigatedTo(e);
+        }
+#endregion
         private async Task InitCallAgentAndDeviceManagerAsync()
         {
             // Create and cache CallAgent and optionally fetch DeviceManager
@@ -145,7 +174,8 @@ The next table listed the classes and interfaces handle some of the major featur
 | ------------------------------------- | ------------------------------------------------------------ |
 | `CallClient` | The `CallClient` is the main entry point to the Calling SDK.|
 | `CallAgent` | The `CallAgent` is used to start and manage calls. |
-| `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
+| `CommunicationCall` | The `CommunicationCall` is used to manage placed or joined calls. |
+| `CallTokenCredential` | The `CallTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
 |` CommunicationUserIdentifier` | The `CommunicationUserIdentifier` is used to represent the identity of the user, which can be one of the following options: `CommunicationUserIdentifier`, `PhoneNumberIdentifier`, `CallingApplication`. |
 
 ### Authenticate the client
@@ -157,16 +187,47 @@ In the code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to
 Add the code to the `InitCallAgentAndDeviceManagerAsync` function.
 
 ```C#
-var callClient = new CallClient();
-this.deviceManager = await callClient.GetDeviceManager();
+this.callClient = new CallClient(new CallClientOptions() {
+    Diagnostics = new CallDiagnosticsOptions() { 
+        AppName = "CallingQuickstart",
+        AppVersion="1.0",
+        Tags = new[] { "Calling", "ACS", "Windows" }
+        }
+    });
 
-var tokenCredential = new CommunicationTokenCredential("<AUTHENTICATION_TOKEN>");
+// Set up local video stream using the first camera enumerated
+var deviceManager = await this.callClient.GetDeviceManagerAsync();
+var mic = deviceManager?.Microphones?.FirstOrDefault();
+micStream = new LocalOutgoingAudioStream();
+
+callTokenRefreshOptions = new CallTokenRefreshOptions(false);
+callTokenRefreshOptions.TokenRefreshRequested += OnTokenRefreshRequestedAsync;
+
+var tokenCredential = new CallTokenCredential(authToken, callTokenRefreshOptions);
+
 var callAgentOptions = new CallAgentOptions()
 {
-    DisplayName = "<DISPLAY_NAME>"
+    DisplayName = "Contoso",
+    //https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv
+    EmergencyCallOptions = new EmergencyCallOptions() { CountryCode = "840" }
 };
 
-this.callAgent = await callClient.CreateCallAgent(tokenCredential, callAgentOptions);
+
+try
+{
+    this.callAgent = await this.callClient.CreateCallAgentAsync(tokenCredential, callAgentOptions);
+    this.callAgent.CallsUpdated += OnCallsUpdatedAsync;
+    this.callAgent.IncomingCallReceived += OnIncomingCallAsync;
+
+}
+catch(Exception ex)
+{
+    if (ex.HResult == -2147024809)
+    {
+        // E_INVALIDARG
+        // Handle possible invalid token
+    }
+}
 ```
 
 ### Start a call
@@ -174,12 +235,87 @@ this.callAgent = await callClient.CreateCallAgent(tokenCredential, callAgentOpti
 Add the implementation to the `CallButton_Click` to start a call with the `callAgent` we created, and hook up call state event handler.
 
 ```C#
-var startCallOptions = new StartCallOptions();
+var callString = CalleeTextBox.Text.Trim();
 
-var callees = new ICommunicationIdentifier[1] { new CommunicationUserIdentifier(CalleeTextBox.Text.Trim()) };
+if (!string.IsNullOrEmpty(callString))
+{
+    if (callString.StartsWith("8:")) // 1:1 ACS call
+    {
+        call = await StartAcsCallAsync(callString);
+    }
+    else if (callString.StartsWith("+")) // 1:1 phone call
+    {
+        call = await StartPhoneCallAsync(callString, "+12133947338");
+    }
+    else if (Guid.TryParse(callString, out Guid groupId))// Join group call by group guid
+    {
+        call = await JoinGroupCallByIdAsync(groupId);
+    }
+    else if (Uri.TryCreate(callString, UriKind.Absolute, out Uri teamsMeetinglink)) //Teams meeting link
+    {
+        call = await JoinTeamsMeetingByLinkAsync(teamsMeetinglink);
+    }
+}
 
-this.call = await this.callAgent.StartCallAsync(callees, startCallOptions);
-this.call.OnStateChanged += Call_OnStateChangedAsync;
+if (call != null)
+{
+    call.RemoteParticipantsUpdated += OnRemoteParticipantsUpdatedAsync;
+    call.StateChanged += OnStateChangedAsync;
+}
+```
+
+Add the methods to start or join the different types of Call (1:1 ACS call, 1:1 phone call, ACS Group call, Teams meeting join, etc.).
+
+```C#
+private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)
+{
+    var options = await GetStartCallOptionsAsynnc();
+    var call = await this.callAgent.StartCallAsync( new [] { new UserCallIdentifier(acsCallee) }, options);
+    return call;
+}
+
+private async Task<CommunicationCall> StartPhoneCallAsync(string acsCallee, string alternateCallerId)
+{
+    var options = await GetStartCallOptionsAsynnc();
+    options.AlternateCallerId = new PhoneNumberCallIdentifier(alternateCallerId);
+
+    var call = await this.callAgent.StartCallAsync( new [] { new PhoneNumberCallIdentifier(acsCallee) }, options);
+    return call;
+}
+
+private async Task<CommunicationCall> JoinGroupCallByIdAsync(Guid groupId)
+{
+    var joinCallOptions = await GetJoinCallOptionsAsync();
+
+    var groupCallLocator = new GroupCallLocator(groupId);
+    var call = await this.callAgent.JoinAsync(groupCallLocator, joinCallOptions);
+    return call;
+}
+
+private async Task<CommunicationCall> JoinTeamsMeetingByLinkAsync(Uri teamsCallLink)
+{
+    var joinCallOptions = await GetJoinCallOptionsAsync();
+
+    var teamsMeetingLinkLocator = new TeamsMeetingLinkLocator(teamsCallLink.AbsoluteUri);
+    var call = await callAgent.JoinAsync(teamsMeetingLinkLocator, joinCallOptions);
+    return call;
+}
+
+private async Task<StartCallOptions> GetStartCallOptionsAsynnc()
+{
+    return new StartCallOptions() {
+        OutgoingAudioOptions = new OutgoingAudioOptions() { IsOutgoingAudioMuted = true, OutgoingAudioStream = micStream  },
+        OutgoingVideoOptions = new OutgoingVideoOptions() { OutgoingVideoStreams = new OutgoingVideoStream[] { cameraStream } }
+    };
+}
+
+private async Task<JoinCallOptions> GetJoinCallOptionsAsync()
+{
+    return new JoinCallOptions() {
+        OutgoingAudioOptions = new OutgoingAudioOptions() { IsOutgoingAudioMuted = true },
+        OutgoingVideoOptions = new OutgoingVideoOptions() { OutgoingVideoStreams = new OutgoingVideoStream[] { cameraStream } }
+    };
+}
 ```
 
 ### End a call
@@ -187,19 +323,53 @@ this.call.OnStateChanged += Call_OnStateChangedAsync;
 End the current call when the `Hang Up` button is clicked. Add the implementation to the HangupButton_Click to end a call with the callAgent we created, and tear down the call state event handler.
 
 ```C#
-this.call.OnStateChanged -= Call_OnStateChangedAsync;
-await this.call.HangUpAsync(new HangUpOptions());
+var call = this.callAgent?.Calls?.FirstOrDefault();
+if (call != null)
+{
+    try
+    {
+        await call.HangUpAsync(new HangUpOptions() { ForEveryone = true });
+    }
+    catch(Exception ex) 
+    {
+    }
+}
 ```
 
 ### Track call state
 
-Stay notified about the state of current call.
+Stay notified about the state of current call. Add the implementation to the OnStateChangedAsync method
 
 ```C#
-var state = (sender as Call)?.State;
-await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => {
-    State.Text = state.ToString();
-});
+var call = sender as CommunicationCall;
+
+if (call != null)
+{
+    var state = call.State;
+
+    await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+    {
+        QuickstartTitle.Text = $"{Package.Current.DisplayName} - {state.ToString()}";
+        Window.Current.SetTitleBar(AppTitleBar);
+
+        HangupButton.IsEnabled = state == CallState.Connected || state == CallState.Ringing;
+        CallButton.IsEnabled = !HangupButton.IsEnabled;
+        MuteLocal.IsEnabled = !CallButton.IsEnabled;
+    });
+
+    switch (state)
+    {
+        case CallState.Connected:
+            {
+                break;
+            }
+        case CallState.Disconnected:
+            {
+                break;
+            }
+        default: break;
+    }
+}
 ```
 
 ### Run the code
@@ -241,7 +411,7 @@ In Visual Studio, create a new project with the **Blank App, Packaged (WinUI 3 i
 
 #### Install the package
 
-Right click over your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or superior. Make sure Include Preleased is checked.
+Right click over your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.0.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.0.0) or superior.
 
 #### Request access
 
@@ -281,7 +451,7 @@ Open the `MainWindow.xaml` of your project and add the `Grid` node to your `Wind
 
 Open the `MainWindow.xaml.cs` and replace the content with following implementation: 
 ```C#
-using Azure.Communication.Calling;
+using Azure.Communication.Calling.WindowsClient;
 using Azure.WinRT.Communication;
 using Microsoft.UI.Xaml;
 using System;
@@ -295,7 +465,7 @@ namespace CallingQuickstart
     public sealed partial class MainWindow : Window
     {
         CallAgent callAgent;
-        Call call;
+        CommunicationCall call;
         DeviceManager deviceManager;
 
         public MainWindow()
@@ -335,8 +505,8 @@ The following classes and interfaces handle some of the major features of the Az
 | ------------------------------------- | ------------------------------------------------------------ |
 | `CallClient` | The `CallClient` is the main entry point to the Calling client library. |
 | `CallAgent` | The `CallAgent` is used to start and join calls. |
-| `Call` | The `Call` is used to manage placed or joined calls. |
-| `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
+| `CommunicationCall` | The `CommunicationCall` is used to manage placed or joined calls. |
+| `CallTokenCredential` | The `CallTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
 | `CommunicationUserIdentifier` | The `CommunicationUserIdentifier` is used to represent the identity of the user, which can be one of the following options: `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `CallingApplication`. |
 
 ### Authenticate the client
@@ -349,15 +519,18 @@ Add the following code to the `InitCallAgentAndDeviceManagerAsync` function.
 
 ```C#
 var callClient = new CallClient();
-this.deviceManager = await callClient.GetDeviceManager();
+this.deviceManager = await callClient.GetDeviceManagerAsync();
 
-var tokenCredential = new CommunicationTokenCredential("<AUTHENTICATION_TOKEN>");
+callTokenRefreshOptions = new CallTokenRefreshOptions(false);
+callTokenRefreshOptions.TokenRefreshRequested += OnTokenRefreshRequestedAsync;
+
+var tokenCredential = new CallTokenCredential("<AUTHENTICATION_TOKEN>");
 var callAgentOptions = new CallAgentOptions()
 {
     DisplayName = "<DISPLAY_NAME>"
 };
 
-this.callAgent = await callClient.CreateCallAgent(tokenCredential, callAgentOptions);
+this.callAgent = await callClient.CreateCallAgentAsync(tokenCredential, callAgentOptions);
 this.callAgent.OnCallsUpdated += Agent_OnCallsUpdatedAsync;
 this.callAgent.OnIncomingCall += Agent_OnIncomingCallAsync;
 ```
