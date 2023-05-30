@@ -47,6 +47,7 @@ If you have an Application Gateway V1, [Migration from v1 to v2](./migrate-v1-v2
 ### Can Microsoft migrate this data for me?
 
 No, Microsoft cannot migrate user's data on their behalf. Users must do the migration themselves by using the self-serve options provided.
+Application Gateway v1 is built on legacy components and customers have deployed the gateways in many different ways in their architecture ,due to which customer involvement is required for migration.This also allows users to plan the migration during a maintenance window, which can help to ensure that the migration is successful with minimal downtime for the user's applications.
 
 ### What is the time required for migration?
 
