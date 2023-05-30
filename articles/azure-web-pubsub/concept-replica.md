@@ -11,14 +11,14 @@ A geo-replicated Azure Web PubSub Service provides the following benefits:
 
 ## Prerequisites
 
-* An Azure Web PubSub Service in [Premium tier](https://azure.microsoft.com/en-us/pricing/details/Web PubSub-service/).
+* An Azure Web PubSub Service in [Premium tier](https://azure.microsoft.com/en-us/pricing/details/web-pubsub/).
 * The user needs following permissions to operate on replicas:
 
     | Permission                                        | Description                                       |
     |---------------------------------------------------|---------------------------------------------------|
-    | Microsoft.Web PubSubService/Web PubSub/replicas/write   | create, update or delete a replica. |
-    | Microsoft.Web PubSubService/Web PubSub/replicas/read    | get meta data of a replica.|
-    | Microsoft.Web PubSubService/Web PubSub/replicas/action  | perform actions on a replica, such as restarting. |
+    | Microsoft.SignalRService/webpubsub/replicas/write   | create, update or delete a replica. |
+    | Microsoft.SignalRService/webpubsub/replicas/read    | get meta data of a replica.|
+    | Microsoft.SignalRService/webpubsub/replicas/action  | perform actions on a replica, such as restarting. |
 
 
 ## Example use case
@@ -55,7 +55,7 @@ To create a replica, Navigate to the Web PubSub **Replicas** blade on the Azure 
 > * Creating a replica incurs additional cost. Refer to below **Pricing** section for details. 
 
 ## Pricing
-Replica is a feature of [Premium tier](https://azure.microsoft.com/en-us/pricing/details/Web PubSub-service/) of Azure Web PubSub Service. When you create a replica in desired regions, you incur Premium fees for each region.
+Replica is a feature of [Premium tier](https://azure.microsoft.com/en-us/pricing/details/web-pubsub/) of Azure Web PubSub Service. When you create a replica in desired regions, you incur Premium fees for each region.
 
 In the preceding example, Contoso added one replica in Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
 
