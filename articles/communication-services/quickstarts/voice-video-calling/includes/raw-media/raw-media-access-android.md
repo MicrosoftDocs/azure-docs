@@ -164,7 +164,7 @@ It's also important to remember to stop the audio stream in the current call `Ca
     CompletableFuture<Void> result = call.stopAudio(context, rawIncomingAudioStream);
 ```
 
-# Raw Outgoing Video
+## Raw Video Access
 
 Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
 
@@ -438,7 +438,7 @@ Because the Windows system generates the frames, you must implement your own for
     }
     ```
 
-# Raw Incoming Video
+## Raw Incoming Video
 
 This feature gives you access the video frames inside the `IncomingVideoStream` objects in order to manipulate those frames locally
 

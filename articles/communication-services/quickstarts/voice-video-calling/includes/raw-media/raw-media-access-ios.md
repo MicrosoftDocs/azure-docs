@@ -351,7 +351,7 @@ or
     }
 ```
 
-# Raw Outgoing Video
+## Raw Outgoing Video
 Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
 ## Virtual Video
 
@@ -614,7 +614,7 @@ Because the Windows system generates the frames, you must implement your own for
     }
     ```
 
-# Raw Incoming Video
+## Raw Incoming Video
 
 This feature gives you access the video frames inside the `IncomingVideoStream`'s in order to manipulate those stream objects locally
 
