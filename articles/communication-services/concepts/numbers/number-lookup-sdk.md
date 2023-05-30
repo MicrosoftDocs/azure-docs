@@ -30,3 +30,10 @@ The following list presents the set of features which are currently available in
 |                   | Get associated Mobile Country Code, if available(three decimal digits used to identify the country of a mobile operator) | ✔️   | ❌    | ❌    | ❌      |
 | Phone Number      | All number types in E164 format                                      | ✔️   | ❌    | ❌    | ❌      |
 
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Get started with Number Lookup API](../../quickstarts/telephony/number-lookup.md)
+
+- [Number Lookup Concept](../numbers/number-lookup-concept.md)
