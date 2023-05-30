@@ -37,7 +37,7 @@ When a user selects the **Can't access your account** link from an application o
 
 * By default, the browser locale is used to display the SSPR in the appropriate language. The password reset experience is localized into the same languages that [Microsoft 365 supports](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
 * If you want to link to the SSPR in a specific localized language, append `?mkt=` to the end of the password reset URL along with the required locale.
-    * For example, to specify the Spanish *es-us* locale, use `?mkt=es-us` - [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
+    * For example, to specify the Spanish *es-us* locale, use `?mkt=es-us` - [https://passwordreset.microsoftonline.com/](https://passwordreset.microsoftonline.com/).
 
 After the SSPR portal is displayed in the required language, the user is prompted to enter a user ID and pass a captcha. Azure AD now verifies that the user is able to use SSPR by doing the following checks:
 
