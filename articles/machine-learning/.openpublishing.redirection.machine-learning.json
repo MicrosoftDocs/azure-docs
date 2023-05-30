@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-set-up-vs-code-remote.md",
+        "redirect_url": "/azure/machine-learning/how-to-launch-vs-code-remote",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v1/how-to-network-security-overview.md",
         "redirect_url": "/azure/machine-learning/how-to-network-security-overview",
         "redirect_document_id": false
@@ -3834,6 +3839,61 @@
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-batch-with-rest.md",
         "redirect_url": "/azure/machine-learning/how-to-access-data-batch-endpoints-jobs?tabs=rest",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/tutorial-designer-automobile-price-train-score.md",
+        "redirect_url": "/azure/machine-learning/v1/tutorial-designer-automobile-price-train-score",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/tutorial-designer-automobile-price-deploy.md",
+        "redirect_url": "/azure/machine-learning/v1/tutorial-designer-automobile-price-deploy",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/samples-designer.md",
+        "redirect_url": "/azure/machine-learning/v1/samples-designer",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/algorithm-cheat-sheet.md",
+        "redirect_url": "/azure/machine-learning/v1/algorithm-cheat-sheet",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-select-algorithms.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-select-algorithms",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-pipeline-ui.md",
+        "redirect_url": "/azure/machine-learning/how-to-debug-pipeline-failure",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-designer-transform-data.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-designer-transform-data",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-pipeline-parameter.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-use-pipeline-parameter",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-retrain-designer.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-retrain-designer",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-run-batch-predictions-designer.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-run-batch-predictions-designer",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-designer-python.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-designer-python",
+        "redirect_document_id": true
     }
 ]
 }

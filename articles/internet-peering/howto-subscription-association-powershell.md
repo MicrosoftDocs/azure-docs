@@ -5,7 +5,7 @@ services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 05/26/2023
 ms.author: halkazwini 
 ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
@@ -45,7 +45,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
 
 ### Update the peer information associated with this subscription
 
-Below is an example to update peer information.
+Update the peer information associated with this subscription using New-AzPeerAsn:
 
 ```powershell
 $contactDetails = New-AzPeerAsnContactDetail -Role Noc -Email "noc@contoso.com" -Phone "+1 (555) 555-5555"
@@ -63,7 +63,7 @@ In place of **{subscriptionId}** in the output, actual subscription ID is displa
 
 ## View status of a PeerASN
 
-Check for ASN Validation state using [Get-AzPeerAsn](/powershell/module/az.peering/get-azpeerasn):
+Check for ASN Validation state using Get-AzPeerAsn:
 
 ```powershell
 Get-AzPeerAsn
@@ -84,12 +84,10 @@ Type            : Microsoft.Peering/peerAsns
 > Wait for the ValidationState to turn "Approved" before submitting a peering request. It may take up to 12 hours for this approval.
 
 ## Modify PeerAsn
-You may modify NOC contact information anytime.
-
-Below is an example:
+You may modify NOC contact information anytime using Set-AzPeerAsn:
 
 ```powershell
-Set-PeerAsn -Name Contoso_1234 -Email "newemail@test.com" -Phone "1800-000-0000"
+Set-AzPeerAsn -Name Contoso_1234 -Email "newemail@test.com" -Phone "1800-000-0000"
 ```
 
 ## Delete PeerAsn
@@ -104,4 +102,4 @@ Deleting a PeerASN isn't currently supported. If you need to delete PeerASN, con
 
 ## Additional resources
 
-For more information, visit [Internet peering FAQs](faqs.md)
+For more information, visit [Internet peering FAQ](faqs.md)

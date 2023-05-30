@@ -281,7 +281,7 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 The following expression selects all users who have no assigned service plan:
 
 ```
-user.assignedPlans -all (assignedPlan.servicePlanId -eq "")
+user.assignedPlans -all (assignedPlan.servicePlanId -ne null)
 ```
 
 ### Using the underscore (\_) syntax
