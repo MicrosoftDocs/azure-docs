@@ -459,6 +459,12 @@
           href: flexible-server/connect-java.md
         - name: .NET
           href: flexible-server/connect-csharp.md
+    - name: Database deployment
+      items:
+      - name: GitHub Actions
+        href: how-to-deploy-github-action.md
+      - name: Azure pipelines
+        href: flexible-server/azure-pipelines-deploy-database-task.md
   - name: Concepts
     items:
     - name: Servers
@@ -612,12 +618,6 @@
         href: flexible-server/how-to-create-server-customer-managed-key-portal.md
       - name: Azure REST API
         href: flexible-server/how-to-create-server-customer-managed-key-azure-api.md
-    - name: Database deployment
-      items:
-      - name: GitHub Actions
-        href: how-to-deploy-github-action.md
-      - name: Azure pipelines
-        href: flexible-server/azure-pipelines-deploy-database-task.md
     - name: Scheduled maintenance
       items:
       - name: Azure portal
