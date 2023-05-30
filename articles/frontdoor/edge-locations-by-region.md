@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Azure Front Door POP locations by metro
 
-This article lists current metro cities with Azure Front Door Point-of-presence (POP), sorted by regions. Each metro may contain more than one POP. Currently, Azure Front Door has 192 edge locations across 109 metro cities. Azure Front Door also has 4 edge locations across 4 Azure US Government cloud regions.
+This article lists current metro cities with Azure Front Door point-of-presence (POP), sorted by regions. Each metro may contain more than one POP. Currently, Azure Front Door has 192 edge locations across 109 metro cities. Azure Front Door also has 4 edge locations across 4 Azure US Government cloud regions.
 
 ## Microsoft POP locations
 
