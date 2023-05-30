@@ -13,7 +13,9 @@ ms.author: cshoe
 
 By adding [Azure Front Door](../frontdoor/front-door-overview.md) as the CDN for your static web app, you benefit from a secure entry point for fast delivery of your web applications. 
 
-With Static Web Apps, you have two options when it comes to adding Azure Front Door. You can add Azure Front Door to your Static Web Apps by enabling enterprise-grade edge, a managed integration of Azure Front Door with Static Web Apps. Alternatively, you can configure an Azure Front Door resource manually in front of your Static Web Apps. Consider the advantages below to determine which option suits your needs.
+With Static Web Apps, you have two options to integrate with Azure Front Door. You can add Azure Front Door to your static web app by enabling enterprise-grade edge, a managed integration of Azure Front Door with Static Web Apps. Alternatively, you can configure an Azure Front Door resource manually in front of your static web app. 
+
+Consider the advantages below to determine which option best suits your needs.
 
 Enterprise-grade edge provides:
 
