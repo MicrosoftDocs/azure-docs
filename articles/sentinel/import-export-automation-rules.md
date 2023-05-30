@@ -15,7 +15,7 @@ ms.date: 05/15/2023
 
 ## Introduction
 
-You can now export your automation rules to Azure Resource Manager (ARM) template files, and import rules from these files, as part of managing and controlling your Microsoft Sentinel deployments as code. The export action will create a JSON file (named *automationRules.json*) in your browser's downloads location, that you can then rename, move, and otherwise handle like any other file.
+You can now export your automation rules to Azure Resource Manager (ARM) template files, and import rules from these files, as part of managing and controlling your Microsoft Sentinel deployments as code. The export action will create a JSON file in your browser's downloads location, that you can then rename, move, and otherwise handle like any other file.
 
 The exported JSON file is workspace-independent, so it can be imported to other workspaces and even other tenants. As code, it can also be version-controlled, updated, and deployed in a managed CI/CD framework.
 
@@ -44,7 +44,7 @@ The file includes all the parameters defined in the automation rule. Rules of an
 
 1. Select **Import** from the bar at the top of the screen. In the resulting dialog box, navigate to and select the JSON file representing the rule you want to import, and select **Open**.
 
-    :::image type="content" source="./media/import-export-automation-rules/import-rule.png" alt-text="Import automation rule" lightbox="./media/import-export-automation-rules/import-rule.png":::
+    :::image type="content" source="./media/import-export-automation-rules/import-rule.png" alt-text="Screenshot showing how to import an automation rule." lightbox="./media/import-export-automation-rules/import-rule.png":::
 
     > [!NOTE]
     > You can import **up to 50** automation rules from a single ARM template file.
