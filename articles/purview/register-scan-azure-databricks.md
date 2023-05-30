@@ -51,6 +51,8 @@ When object is deleted from the data source, currently the subsequent scan won't
 
 * You must have an active [Microsoft Purview account](create-catalog-portal.md).
 
+* You need an Azure Key Vault, and to [grant Microsoft Purview permissions to access secrets](manage-credentials.md#grant-microsoft-purview-access-to-your-azure-key-vault).
+
 * You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md). The minimal supported self-hosted Integration Runtime version is 5.20.8227.2.
