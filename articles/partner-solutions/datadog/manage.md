@@ -54,10 +54,6 @@ To see the list of resources emitting logs to Datadog, select **Monitored Resour
 
 You can filter the list of resources by resource type, subscription, resource group name, location, and whether the resource is sending logs and metrics. Only the resource types supported by Azure Monitor are monitored. Check out the list of [resource types supported by Azure Monitor](/azure/azure-monitor/essentials/resource-logs-categories).
 
-### Remove/Unlink Subscriptions from a Datadog Resource
-<!-- This appears below too? -->
-You can unlink subscriptions you don't want monitored through the Datadog resource by selecting **Monitored Subscriptions** from the Resource menu. Then, select any subscription you want to remove, and select **Remove subscriptions**. Select **Refresh** to view the updated list of subscriptions being monitored.
-
 The column **Logs to Datadog** indicates whether the resource is sending logs to Datadog. If the resource isn't sending logs, this field indicates why logs aren't being sent to Datadog. The reasons could be:
 
 - Resource doesn't support sending logs. Only resources types with monitoring log categories can be configured to send logs to Datadog.
