@@ -7,6 +7,7 @@ ms.subservice: hpc
 ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
+ms.custom: devx-track-arm-template
 ms.workload: infrastructure-services
 ms.date: 04/06/2023
 ms.author: mamccrea
