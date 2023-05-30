@@ -5,9 +5,10 @@ author: ankitaduttaMSFT
 manager: evansma
 ms.service: resource-mover
 ms.topic: overview
-ms.date: 12/23/2022
+ms.date: 02/02/2023
 ms.author: ankitadutta
-ms.custom: mvc, engagement-fy23
+ms.custom: mvc, engagement-fy23, UpdateFrequency.5
+
 #Customer intent: As an Azure admin, I need a simple way to move Azure resources, and want to understand how Azure Resource Mover can help me do that.
 
 ---
@@ -56,7 +57,7 @@ You can move resources across regions in the Resource Mover hub or from within a
 
 Using Resource Mover, you can currently move the following resources across regions:
 
-- Azure VMs and associated disks
+- Azure VMs and associated disks (Azure Spot VMs are not currently supported)
 - Encrypted Azure VMs and associated disks. This includes VMs with Azure disk encryption enabled and Azure VMs using default server-side encryption (both with platform-managed keys and customer-managed keys)
 - NICs
 - Availability sets 

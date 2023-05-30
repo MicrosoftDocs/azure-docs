@@ -37,7 +37,7 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
 | Number of property updates per second | 100 | This is a soft limit. IoT Central autoscales the application as needed<sup>1</sup>. |
-| Maximum size of a property | 32 KB | This value is set by the IoT Hub service. |
+| Properties | Maximum size of desired properties and reported properties sections are 32 KB each. Maximum size of tags section is 8 KB. Maximum size of each individual property in every section is 4 KB. | These values are set by the IoT Hub service. |
 
 ## Commands
 

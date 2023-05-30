@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with ProdPad | Microsoft Docs"
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with ProdPad"
 description: Learn how to configure single sign-on between Azure Active Directory and ProdPad.
 services: active-directory
 author: jeevansd

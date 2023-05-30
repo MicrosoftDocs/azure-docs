@@ -9,7 +9,7 @@ ms.author: sumuth
 ms.date: 06/20/2022
 ---
 
-# Best practices for server operations on Azure Database for MySQL - Single server
+# Best practices for server operations on Azure Database for MySQL - Single Server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 

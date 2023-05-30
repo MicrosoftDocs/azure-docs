@@ -54,7 +54,7 @@ Once the VM is deployed, follow the steps to connect to the VM using SSH.
 
 To make sure that the VM host name is correctly configured for the managed domain, edit the */etc/hosts* file and set the hostname:
 
-```console
+```bash
 sudo vi /etc/hosts
 ```
 
@@ -65,74 +65,36 @@ In the *hosts* file, update the *localhost* address. In the following example:
 
 Update these names with your own values:
 
-```console
+```config
 127.0.0.1 rhel rhel.aaddscontoso.com
 ```
 
 When done, save and exit the *hosts* file using the `:wq` command of the editor.
 
+
+# [RHEL 6](#tab/rhel) 
+
+
+> [!IMPORTANT]
+> Keep in consideration Red Hat Enterprise Linux 6.X and  Oracle Linux 6.x is already EOL. 
+> RHEL 6.10 has available [ELS support](https://www.redhat.com/en/resources/els-datasheet), which [will end on 06/2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
+
 ## Install required packages
 
-The VM needs some additional packages to join the VM to the managed domain. To install and configure these packages, update and install the domain-join tools using `yum`. There are some differences between RHEL 7.x and RHEL 6.x, so use the appropriate commands for your distro version in the remaining sections of this article.
+The VM needs some additional packages to join the VM to the managed domain. To install and configure these packages, update and install the domain-join tools using `yum`.
 
-**RHEL 7**
-
-```console
-sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
-```
-
-**RHEL 6**
-
-```console
+```bash
 sudo yum install adcli sssd authconfig krb5-workstation
 ```
-
 ## Join VM to the managed domain
 
-Now that the required packages are installed on the VM, join the VM to the managed domain. Again, use the appropriate steps for your RHEL distro version.
-
-### RHEL 7
-
-1. Use the `realm discover` command to discover the managed domain. The following example discovers the realm *AADDSCONTOSO.COM*. Specify your own managed domain name in ALL UPPERCASE:
-
-    ```console
-    sudo realm discover AADDSCONTOSO.COM
-    ```
-
-   If the `realm discover` command can't find your managed domain, review the following troubleshooting steps:
-
-    * Make sure that the domain is reachable from the VM. Try `ping aaddscontoso.com` to see if a positive reply is returned.
-    * Check that the VM is deployed to the same, or a peered, virtual network in which the managed domain is available.
-    * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the managed domain.
-
-1. Now initialize Kerberos using the `kinit` command. Specify a user that's a part of the managed domain. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
-
-    Again, the managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@aaddscontoso.com` is used to initialize Kerberos. Enter your own user account that's a part of the managed domain:
-
-    ```console
-    kinit contosoadmin@AADDSCONTOSO.COM
-    ```
-
-1. Finally, join the VM to the managed domain using the `realm join` command. Use the same user account that's a part of the managed domain that you specified in the previous `kinit` command, such as `contosoadmin@AADDSCONTOSO.COM`:
-
-    ```console
-    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'
-    ```
-
-It takes a few moments to join the VM to the managed domain. The following example output shows the VM has successfully joined to the managed domain:
-
-```output
-Successfully enrolled machine in realm
-```
-
-### RHEL 6
+Now that the required packages are installed on the VM, join the VM to the managed domain.
 
 1. Use the `adcli info` command to discover the managed domain. The following example discovers the realm *ADDDSCONTOSO.COM*. Specify your own managed domain name in ALL UPPERCASE:
 
-    ```console
+    ```bash
     sudo adcli info aaddscontoso.com
     ```
-
    If the `adcli info` command can't find your managed domain, review the following troubleshooting steps:
 
     * Make sure that the domain is reachable from the VM. Try `ping aaddscontoso.com` to see if a positive reply is returned.
@@ -141,22 +103,22 @@ Successfully enrolled machine in realm
 
 1. First, join the domain using the `adcli join` command, this command also creates the keytab to authenticate the machine. Use a user account that's a part of the managed domain.
 
-    ```console
+    ```bash
     sudo adcli join aaddscontoso.com -U contosoadmin
     ```
 
 1. Now configure the `/ect/krb5.conf` and create the `/etc/sssd/sssd.conf` files to use the `aaddscontoso.com` Active Directory domain.
    Make sure that `AADDSCONTOSO.COM` is replaced by your own domain name:
 
-    Open the `/ect/krb5.conf` file with an editor:
+    Open the `/etc/krb5.conf` file with an editor:
 
-    ```console
+    ```bash
     sudo vi /etc/krb5.conf
     ```
 
     Update the `krb5.conf` file to match the following sample:
 
-    ```console
+    ```config
     [logging]
      default = FILE:/var/log/krb5libs.log
      kdc = FILE:/var/log/krb5kdc.log
@@ -183,13 +145,13 @@ Successfully enrolled machine in realm
     
    Create the `/etc/sssd/sssd.conf` file:
     
-    ```console
+    ```bash
     sudo vi /etc/sssd/sssd.conf
     ```
 
     Update the `sssd.conf` file to match the following sample:
 
-    ```console
+    ```config
     [sssd]
      services = nss, pam, ssh, autofs
      config_file_version = 2
@@ -202,20 +164,20 @@ Successfully enrolled machine in realm
 
 1. Make sure `/etc/sssd/sssd.conf` permissions are 600 and is owned by root user:
 
-    ```console
+    ```bash
     sudo chmod 600 /etc/sssd/sssd.conf
     sudo chown root:root /etc/sssd/sssd.conf
     ```
 
 1. Use `authconfig` to instruct the VM about the AD Linux integration:
 
-    ```console
-    sudo authconfig --enablesssd --enablesssdauth --update
+    ```bash
+    sudo authconfig --enablesssd --enablesssd auth --update
     ```
 
 1. Start and enable the sssd service:
 
-    ```console
+    ```bash
     sudo service sssd start
     sudo chkconfig sssd on
     ```
@@ -224,7 +186,7 @@ If your VM can't successfully complete the domain-join process, make sure that t
 
 Now check if you can query user AD information using `getent`
 
-```console
+```bash
 sudo getent passwd contosoadmin
 ```
 
@@ -234,13 +196,13 @@ By default, users can only sign in to a VM using SSH public key-based authentica
 
 1. Open the *sshd_conf* file with an editor:
 
-    ```console
+    ```bash
     sudo vi /etc/ssh/sshd_config
     ```
 
 1. Update the line for *PasswordAuthentication* to *yes*:
 
-    ```console
+    ```config
     PasswordAuthentication yes
     ```
 
@@ -248,17 +210,80 @@ By default, users can only sign in to a VM using SSH public key-based authentica
 
 1. To apply the changes and let users sign in using a password, restart the SSH service for your RHEL distro version:
 
-   **RHEL 7**
-
-    ```console
-    sudo systemctl restart sshd
-    ```
-
-   **RHEL 6**
-
-    ```console
+    ```bash
     sudo service sshd restart
     ```
+
+
+# [RHEL 7](#tab/rhel7) 
+
+## Install required packages
+
+The VM needs some additional packages to join the VM to the managed domain. To install and configure these packages, update and install the domain-join tools using `yum`.
+
+```bash
+sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+```
+## Join VM to the managed domain
+
+Now that the required packages are installed on the VM, join the VM to the managed domain. Again, use the appropriate steps for your RHEL distro version.
+
+1. Use the `realm discover` command to discover the managed domain. The following example discovers the realm *AADDSCONTOSO.COM*. Specify your own managed domain name in ALL UPPERCASE:
+
+    ```bash
+    sudo realm discover AADDSCONTOSO.COM
+    ```
+
+   If the `realm discover` command can't find your managed domain, review the following troubleshooting steps:
+
+    * Make sure that the domain is reachable from the VM. Try `ping aaddscontoso.com` to see if a positive reply is returned.
+    * Check that the VM is deployed to the same, or a peered, virtual network in which the managed domain is available.
+    * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the managed domain.
+
+1. Now initialize Kerberos using the `kinit` command. Specify a user that's a part of the managed domain. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+
+    Again, the managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@aaddscontoso.com` is used to initialize Kerberos. Enter your own user account that's a part of the managed domain:
+
+    ```bash
+    sudo kinit contosoadmin@AADDSCONTOSO.COM
+    ```
+
+1. Finally, join the VM to the managed domain using the `realm join` command. Use the same user account that's a part of the managed domain that you specified in the previous `kinit` command, such as `contosoadmin@AADDSCONTOSO.COM`:
+
+    ```bash
+    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'
+    ```
+
+It takes a few moments to join the VM to the managed domain. The following example output shows the VM has successfully joined to the managed domain:
+
+```output
+Successfully enrolled machine in realm
+```
+
+## Allow password authentication for SSH
+
+By default, users can only sign in to a VM using SSH public key-based authentication. Password-based authentication fails. When you join the VM to a managed domain, those domain accounts need to use password-based authentication. Update the SSH configuration to allow password-based authentication as follows.
+
+1. Open the *sshd_conf* file with an editor:
+
+    ```bash
+    sudo vi /etc/ssh/sshd_config
+    ```
+
+1. Update the line for *PasswordAuthentication* to *yes*:
+
+    ```bash
+    PasswordAuthentication yes
+    ```
+
+    When done, save and exit the *sshd_conf* file using the `:wq` command of the editor.
+
+1. To apply the changes and let users sign in using a password, restart the SSH service.
+
+    ```bash
+    sudo systemctl restart sshd
+    ```
+---
 
 ## Grant the 'AAD DC Administrators' group sudo privileges
 
@@ -266,13 +291,13 @@ To grant members of the *AAD DC Administrators* group administrative privileges 
 
 1. Open the *sudoers* file for editing:
 
-    ```console
+    ```bash
     sudo visudo
     ```
 
 1. Add the following entry to the end of */etc/sudoers* file. The *AAD DC Administrators* group contains whitespace in the name, so include the backslash escape character in the group name. Add your own domain name, such as *aaddscontoso.com*:
 
-    ```console
+    ```config
     # Add 'AAD DC Administrators' group members as admins.
     %AAD\ DC\ Administrators@aaddscontoso.com ALL=(ALL) NOPASSWD:ALL
     ```
@@ -285,29 +310,29 @@ To verify that the VM has been successfully joined to the managed domain, start 
 
 1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@aaddscontoso.com` and then enter the address of your VM, such as *rhel.aaddscontoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
 
-    ```console
-    ssh -l contosoadmin@AADDSCONTOSO.com rhel.aaddscontoso.com
+    ```bash
+    sudo ssh -l contosoadmin@AADDSCONTOSO.com rhel.aaddscontoso.com
     ```
 
 1. When you've successfully connected to the VM, verify that the home directory was initialized correctly:
 
-    ```console
-    pwd
+    ```bash
+    sudo pwd
     ```
 
     You should be in the */home* directory with your own directory that matches the user account.
 
 1. Now check that the group memberships are being resolved correctly:
 
-    ```console
-    id
+    ```bash
+    sudo id
     ```
 
     You should see your group memberships from the managed domain.
 
 1. If you signed in to the VM as a member of the *AAD DC Administrators* group, check that you can correctly use the `sudo` command:
 
-    ```console
+    ```bash
     sudo yum update
     ```
 

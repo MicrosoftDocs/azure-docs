@@ -2,7 +2,7 @@
 title: Server-side encryption of Azure managed disks
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can use customer-managed keys to manage encryption with your own keys, or you can rely on Microsoft-managed keys for the encryption of your managed disks.
 author: roygara
-ms.date: 02/06/2023
+ms.date: 05/03/2023
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: storage
@@ -31,7 +31,7 @@ The following sections describe each of the options for key management in greate
 
 ### Platform-managed keys
 
-By default, managed disks use platform-managed encryption keys. All managed disks, snapshots, images, and data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys.
+By default, managed disks use platform-managed encryption keys. All managed disks, snapshots, images, and data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys. Platform-managed keys are managed by Microsoft.
 
 ### Customer-managed keys
 
@@ -50,7 +50,9 @@ Customer-managed keys are available in all regions that managed disks are availa
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks isn't transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
-To enable customer-managed keys for managed disks, see our articles covering how to enable it with either the [Azure PowerShell module](windows/disks-enable-customer-managed-keys-powershell.md), the [Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) or the [Azure portal](disks-enable-customer-managed-keys-portal.md). 
+To enable customer-managed keys for managed disks, see our articles covering how to enable it with either the [Azure PowerShell module](windows/disks-enable-customer-managed-keys-powershell.md), the [Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) or the [Azure portal](disks-enable-customer-managed-keys-portal.md).
+
+See [Create a managed disk from a snapshot with CLI](scripts/create-managed-disk-from-snapshot.md#disks-with-customer-managed-keys) for a code sample.
 
 ## Encryption at host - End-to-end encryption for your VM data
 

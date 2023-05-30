@@ -264,6 +264,8 @@
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md
+    - name: Data Box Event Grid schema
+      href: ../event-grid/event-schema-data-box.md
   - name: Resources
     items:
     - name: Data Box product

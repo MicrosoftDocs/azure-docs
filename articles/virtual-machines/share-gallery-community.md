@@ -6,12 +6,11 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/07/2022
+ms.date: 03/30/2023
 ms.author: saraic
-ms.reviewer: cynthn
-ms.custom: template-how-to , devx-track-azurecli 
+ms.reviewer: cynthn, mattmcinnes
+ms.custom: template-how-to
 ms.devlang: azurecli
-
 ---
 
 # Share images using a community gallery (preview)
@@ -23,10 +22,12 @@ Sharing images to the community is a new capability in [Azure Compute Gallery](.
 
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> Microsoft does not provide support for images you share to the community.
 > 
-> To publish a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). It will take up to 10 business days after submitting the form to approve the feature. Creating VMs from the community gallery is open to all Azure users.
+> [!INCLUDE [community-gallery-artifacts](./includes/community-gallery-artifacts.md)]
 > 
-> During the preview, the gallery must be created as a community gallery (for CLI, this means using the `--permissions community` parameter) you currently can't migrate a regular gallery to a community gallery.
+> To publish a community gallery, you'll need to enable the preview feature using the Azure CLI: `az feature register --name CommunityGalleries --namespace Microsoft.Compute` or PowerShell: `Register-AzProviderFeature -FeatureName "CommunityGalleries" -ProviderNamespace "Microsoft.Compute"`. For more information on enabling preview features and checking the status, see [Set up preview features in your Azure subscription](../azure-resource-manager/management/preview-features.md). Creating VMs from community gallery images is open to all Azure users. 
 > 
 > You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
 
@@ -51,8 +52,6 @@ There are some limitations for sharing your gallery to the community:
 - The image version region in the gallery should be same as the region home region, creating of cross-region version where the home region is different than the gallery is not supported, however once the image is in the home region it can be replicated to other regions
 - To find images shared to the community from the Azure portal, you need to go through the VM create or scale set creation pages. You can't search the portal or Azure Marketplace for the images
 
-> [!IMPORTANT]
-> Microsoft does not provide support for images you share to the community.
 
 ## How sharing with the community works
 
@@ -64,7 +63,7 @@ The end-users can only interact with the proxy resources, they never interact wi
 
 Azure users can see the latest image versions shared to the community in the portal, or query for them using the CLI. Only the latest version of an image is listed in the community gallery.
 
-When creating a community gallery, you will need to provide contact information for your images. This information will be shown **publicly**, so be careful when providing it:
+When creating a community gallery, you will need to provide contact information for your images. The objective and underlying intention of this information is to facilitate communication between the consumer of the image and the publisher, like if the consumer needs assistance. Be aware that Microsoft does not offer support for these images. This information will be shown **publicly**, so be careful when providing it:
 - Community gallery prefix
 - Publisher support email
 - Publisher URL
@@ -77,9 +76,65 @@ Information from your image definitions will also be publicly available, like wh
 >
 > If you stop sharing your gallery during the preview, you won't be able to re-share it.
 
+## Why share to the community?
+
+As a content publisher, you might want to share a gallery to the community:
+
+- If you have non-commercial, non-proprietary content to share widely on Azure.
+
+- You want greater control over the number of versions, regions, and the duration of image availability.  
+
+- You want to quickly share daily or nightly builds with your customers.  
+
+- You don’t want to deal with the complexity of multi-tenant authentication when sharing with multiple tenants on Azure.
+
+## Reporting issues with a public image 
+Utilizing community-submitted virtual machine images has several risks. Certain images could harbor malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images in which you see these issues.
+
+### Reporting images externally:
+- Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
+
+- Intellectual Property violations: Contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
+ 
+## Best practices
+
+- Images published to the community gallery should be [generalized](generalize.md) images, that have had sensitive or machine specific information removed. For more information about preparing an image, see the OS specific information for [Linux](./linux/create-upload-generic.md) or [Windows](./windows/prepare-for-upload-vhd-image.md).
+## FAQ
+
+**Q: What are the charges for using a gallery that is shared to the community?**
+
+**A**: There are no charges for using the service itself. However, content publishers would be charged for the following:
+- Storage charges for application versions and replicas in each of the regions (source and target). These charges are based on the storage account type chosen. 
+- Network egress charges for replication across regions.
+
+**Q: Is it safe to use images shared to the community?**
+
+**A**: Users should exercise caution while using images from non-verified sources, since these images aren't subject to certification and not scanned for malware/vulnerabilities and publisher details are not verified.
+
+**Q: If an image that is shared to the community doesn’t work, who do I contact for support?**
+
+**A**: Azure isn't responsible for any issues users might encounter with community-shared images. The support is provided by the image publisher. Please look up the publisher contact information for the image and reach out to them for any support.  
+
+**Q: Is Community gallery sharing functionality part of Azure Marketplace?**
+
+**A**: No, Community gallery sharing is not part of Azure Marketplace, it's a feature of 'Azure Compute Gallery'. Anyone with an Azure subscription can use 'Community gallery' and make their images public.
+
+**Q: I have concerns about an image, who do I contact?**
+
+**A**: For issues with images shared to the community:
+- To report malicious images, contact [Abuse Report](https://msrc.microsoft.com/report/abuse). 
+- To report images that potentially violate intellectual property rights, contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
+ 
+
+**Q: How do I request that an image shared to the community be replicated to a specific region?**
+
+**A**: Only the content publishers have control over the regions their images are available in. If you don’t find an image in a specific region, reach out to the publisher directly.
+
 ## Start sharing publicly
 
 In order to share a gallery publicly, it needs to be created as a community gallery. For more information, see [Create a community gallery](create-gallery.md#create-a-community-gallery)
+
+
 
 ### [CLI](#tab/cli)
 
@@ -133,6 +188,3 @@ To delete a gallery shared to community, you must first run `az sig share reset`
 Create an [image definition and an image version](image-version.md).
 
 Create a VM from a [generalized](vm-generalized-image-version.md#community-gallery) or [specialized](vm-specialized-image-version.md#community-gallery) image in a community gallery.
-
-
-

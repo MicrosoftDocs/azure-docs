@@ -175,7 +175,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 1. Select **Events**.
 
-   ![Open the Event Grid details](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
+   ![Open the Event Grid details](./media/publish-iot-hub-events-to-logic-apps/select-events.png)
 
 1. Select **Event subscription**. 
 

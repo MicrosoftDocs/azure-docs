@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/08/2023
+ms.date: 03/13/2023
 ms.author: banders
 ---
 
@@ -22,7 +22,7 @@ In the Azure portal, you can change your default payment method to a new credit 
 
 [!INCLUDE [Pay by check](../../../includes/cost-management-pay-check.md)]
 
-The supported payment methods for Microsoft Azure are credit cards, debit cards, and check wire transfer. To get approved to pay by check wire transfer, see [Pay for your Azure subscription by check or wire transfer](pay-by-invoice.md).
+The supported payment methods for Microsoft Azure are credit cards, debit cards, and wire transfer. To get approved to pay by wire transfer, see [Pay for your Azure subscription wire transfer](pay-by-invoice.md).
 
 >[!NOTE]
 > Azure doesn't support virtual or prepaid cards.
@@ -32,7 +32,7 @@ The supported payment methods for Microsoft Azure are credit cards, debit cards,
 
 With a Microsoft Customer Agreement, your payment methods are associated with billing profiles. Learn how to [check access to a Microsoft Customer Agreement](#check-the-type-of-your-account).
 
-When you create a new subscription, you can specify a new credit card. When you do so, no other subscriptions get associated with the new credit card. However, if you later make any of the following changes, *all subscriptions* will use the payment method you select.
+When you create a new subscription, you can specify a new credit card. When you do so, no other subscriptions get associated with the new credit card. However, if you later make any of the following changes, *all subscriptions* use the payment method you select.
   - Make a payment method active with the **Set active** option
   - Use the **Replace** payment option for any subscription
   - Change the default payment method
@@ -60,7 +60,7 @@ You can change your subscription's default credit card to a new one by following
 1. Select the subscription you'd like to add the credit card to.
 1. Select **Payment methods**.  
     :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods option selected." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
-1. In the top-left corner, select **+ Add** to add a card. A credit card form appears on the right.
+1. In the top-left corner, select **+ Add** to add a card. A credit card form appears.
 1. Enter credit card details.  
     :::image type="content" source="./media/change-credit-card/sub-add-new-default.png" alt-text="Screenshot showing adding a new card." lightbox="./media/change-credit-card/sub-add-new-default.png" :::
 1. To make this card your default payment method, select **Make this my default payment method** above the form. This card becomes the active payment instrument for all subscriptions using the same card as the selected subscription.
@@ -91,20 +91,20 @@ If your credit card gets renewed and the number stays the same, update the exist
     :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot of Search." lightbox="./media/change-credit-card/search.png" :::
 1. Select **Payment methods**.
     :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods" lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
-1. Select the credit card that you'd like to edit. A credit card form will appear on the right.
+1. Select the credit card that you'd like to edit. A credit card form appears.
     :::image type="content" source="./media/change-credit-card/edit-card-x.png" alt-text="Screenshot showing Edit payment method." lightbox="./media/change-credit-card/edit-card-x.png" :::
 1. Update the credit card details.
 1. Select **Next**.
 
 ## Manage Microsoft Customer Agreement credit cards
 
-The following sections apply to customers who have a Microsoft Customer Agreement and signed up for Azure online with a credit card and to those that have the correct [MCA permissions](understand-mca-roles.md). [Learn how to check if you have a Microsoft Customer Agreement](#check-the-type-of-your-account).
+The following sections apply to customers who have a Microsoft Customer Agreement and signed up for Azure online with a credit card. You must have the correct [MCA permissions](understand-mca-roles.md). [Learn how to check if you have a Microsoft Customer Agreement](#check-the-type-of-your-account).
 
 ### Change default credit card
 
 If you have a Microsoft Customer Agreement, your credit card is associated with a billing profile. To change the payment method for a billing profile, you must be the person who signed up for Azure and created the billing account or you must have the correct [MCA permissions](understand-mca-roles.md).
 
-If you'd like to change your billing profile's default payment method to check wire transfer, see [Pay for Azure subscriptions by invoice](pay-by-invoice.md).
+If you'd like to change your billing profile's default payment method to wire transfer, see [Pay for Azure subscriptions by invoice](pay-by-invoice.md).
 
 To change your credit card, follow these steps:
 
@@ -168,7 +168,7 @@ To delete a payment method for a Microsoft Customer Agreement, do the following 
 
 ### Detach payment method used by an MCA billing profile
 
-If your payment method is being used by an MCA billing profile, you'll see a message similar to the following example.
+If your payment method is being used by an MCA billing profile, the following message appears.
 
 :::image type="content" source="./media/change-credit-card/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Example screenshot showing that a payment method is in use by a Microsoft Customer Agreement." :::
 
@@ -223,13 +223,13 @@ Azure doesn't support virtual or prepaid cards. If you're getting errors when ad
 
 The following sections answer commonly asked questions about changing your credit card information.
 
-### Why do I keep getting "Your login session has expired. Please click here to log back in"?
+### Why do I keep getting a "session has expired" error message?
 
-If you keep getting this error message even if you've already logged out and back in, try again with a private browsing session.
+If you get the `Your login session has expired. Please click here to log back in` error message even if you've already logged out and back in, try again with a private browsing session.
 
 ### How do I use a different card for each subscription?
 
-As noted previously, when you create a new subscription, you can specify a new credit card. When you do so, no other subscriptions get associated with the new credit card. You can add multiple new subscriptions, each with a unique credit card. However, if you later make any of the following changes, *all subscriptions* will use the payment method you select.
+As noted previously, when you create a new subscription, you can specify a new credit card. When you do so, no other subscriptions get associated with the new credit card. You can add multiple new subscriptions, each with a unique credit card. However, if you later make any of the following changes, *all subscriptions* use the payment method you select.
 
 - Make a payment method active with the **Set active** option
 - Use the **Replace** payment option for any subscription

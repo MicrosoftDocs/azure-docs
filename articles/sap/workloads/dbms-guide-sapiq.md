@@ -117,7 +117,7 @@ The following table lists the recommendations for each storage type based on the
 
 ### Networking
 
-Azure provides a network infrastructure that allows the mapping of all scenarios that can be realized for an SAP BW system that uses SAP IQ as near-line storage. These scenarios include connecting to on-premises systems, connecting to systems in different virtual networks, and others. For more information, see [Microsoft Azure networking for SAP workloads](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#microsoft-azure-networking).
+Azure provides a network infrastructure that allows the mapping of all scenarios that can be realized for an SAP BW system that uses SAP IQ as near-line storage. These scenarios include connecting to on-premises systems, connecting to systems in different virtual networks, and others. For more information, see [Microsoft Azure networking for SAP workloads](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/sap/workloads/planning-guide.md#microsoft-azure-networking).
 
 ## Deploy SAP IQ on Windows
 

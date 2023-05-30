@@ -90,8 +90,6 @@
               href: troubleshoot/managed-identity.md 
         - name: Run As account
           items:
-            - name: Create Run As account
-              href: create-run-as-account.md
             - name: Delete Run As account
               href: delete-run-as-account.md
             - name: Manage Run As account

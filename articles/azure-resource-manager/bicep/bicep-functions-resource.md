@@ -4,6 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve values a
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 09/09/2022
 ---
 

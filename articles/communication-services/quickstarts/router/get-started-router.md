@@ -62,14 +62,15 @@ static async Task Main(string[] args)
 }
 ```
 
-## Authenticate the Job Router client
+## Authenticate the Job Router clients
 
 Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.
 
 ```csharp
 // Get a connection string to our Azure Communication Services resource.
 var connectionString = "your_connection_string";
-var client = new RouterClient(connectionString);
+var routerClient = new RouterClient(connectionString);
+var routerAdministrationClient = new RouterAdministrationClient(connectionString);
 ```
 
 ## Create a distribution policy
@@ -77,11 +78,14 @@ var client = new RouterClient(connectionString);
 Job Router uses a distribution policy to decide how Workers will be notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerTTL**, and a distribution **mode**.
 
 ```csharp
-var distributionPolicy = await routerClient.SetDistributionPolicyAsync(
-    id: "distribution-policy-1",
-    name: "My Distribution Policy",
-    offerTTL: TimeSpan.FromSeconds(30),
-    mode: new LongestIdleMode()
+var distributionPolicy = await routerAdministrationClient.CreateDistributionPolicyAsync(
+    new CreateDistributionPolicyOptions(
+        distributionPolicyId: "distribution-policy-1",
+        offerTtl: TimeSpan.FromMinutes(1),
+        mode: new LongestIdleMode())
+    {
+        Name = "My distribution policy"
+    }
 );
 ```
 
@@ -90,54 +94,67 @@ var distributionPolicy = await routerClient.SetDistributionPolicyAsync(
 Create the Queue by specifying an **ID**, **name**, and provide the **Distribution Policy** object's ID you created above.
 
 ```csharp
-var queue = await routerClient.SetQueueAsync(
-    id: "queue-1",
-    name: "My Queue",
-    distributionPolicyId: distributionPolicy.Value.Id
+var queue = await routerAdministrationClient.CreateQueueAsync(
+    options: new CreateQueueOptions("queue-1", distributionPolicy.Value.Id)
+    {
+        Name = "My job queue"
+    }
 );
 ```
 
 ## Submit a job
 
-Now, we can submit a job directly to that queue, with a worker selector the requires the worker to have the label `Some-Skill` greater than 10.
+Now, we can submit a job directly to that queue, with a worker selector that requires the worker to have the label `Some-Skill` greater than 10.
 
 ```csharp
 var job = await routerClient.CreateJobAsync(
-    channelId: "my-channel",
-    queueId: queue.Value.Id,
-    priority: 1,
-    workerSelectors: new List<LabelSelector>
+    options: new CreateJobOptions(
+            jobId: jobId,
+            channelId: "my-channel",
+            queueId: queue.Value.Id)
     {
-        new LabelSelector(
-            key: "Some-Skill", 
-            @operator: LabelOperator.GreaterThan, 
-            value: 10)
-    });
+        Priority = 1,
+        RequestedWorkerSelectors = new List<WorkerSelector>
+        {
+            new WorkerSelector(
+                key: "Some-Skill", 
+                labelOperator: LabelOperator.GreaterThan, 
+                value: 10)
+        }
+    }
+);
 ```
 
-## Register a worker
+## Create a worker
 
-Now, we register a worker to receive work from that queue, with a label of `Some-Skill` equal to 11 and capacity on `my-channel`.
+Now, we create a worker to receive work from that queue, with a label of `Some-Skill` equal to 11 and capacity on `my-channel`.  In order for the worker to receive offers make sure that the property **AvailableForOffers** is set to **true**.
 
 ```csharp
-var worker = await routerClient.RegisterWorkerAsync(
-    id: "worker-1",
-    queueIds: new[] { queue.Value.Id },
-    totalCapacity: 1,
-    labels: new LabelCollection()
+var worker = await routerClient.CreateWorkerAsync(
+    new CreateWorkerOptions(
+        workerId: "worker-1",
+        totalCapacity: 1)
     {
-        ["Some-Skill"] = 11
-    },
-    channelConfigurations: new List<ChannelConfiguration>
-    {
-        new ChannelConfiguration("my-channel", 1)
+        QueueIds = new Dictionary<string, QueueAssignment>()
+        {
+            [queue.Value.Id] = new QueueAssignment()
+        },
+        ChannelConfigurations = new Dictionary<string, ChannelConfiguration>()
+        {
+            ["my-channel"] = new ChannelConfiguration(1)
+        },
+        Labels = new Dictionary<string, LabelValue>()
+        {
+            ["Some-Skill"] = new LabelValue(11)
+        },
+        AvailableForOffers = true
     }
 );
 ```
 
 ### Offer
 
-We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [EventGrid subscription][subscribe_events].
+We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [Event Grid subscription][subscribe_events].
 However, we could also wait a few seconds and then query the worker directly against the JobRouter API to see if an offer was issued to it.
 
 ```csharp

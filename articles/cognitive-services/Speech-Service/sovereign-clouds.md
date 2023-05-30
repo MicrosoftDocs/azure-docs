@@ -27,21 +27,22 @@ Available to US government entities and their partners only. See more informatio
 - **Available pricing tiers:**
   - Free (F0) and Standard (S0). See more details [here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 - **Supported features:**
-  - Speech-to-text
+  - Speech to text
     - Custom speech (Acoustic Model (AM) and Language Model (LM) adaptation)
       - [Speech Studio](https://speech.azure.us/)
-  - Text-to-speech
+  - Text to speech
     - Standard voice
     - Neural voice
   - Speech translation
 - **Unsupported features:**
   - Custom Voice
+  - Custom Commands
 - **Supported languages:**
   - See the list of supported languages [here](language-support.md)
 
 ### Endpoint information
 
-This section contains Speech Services endpoint information for the usage with [Speech SDK](speech-sdk.md), [Speech-to-text REST API](rest-speech-to-text.md), and [Text-to-speech REST API](rest-text-to-speech.md).
+This section contains Speech Services endpoint information for the usage with [Speech SDK](speech-sdk.md), [Speech to text REST API](rest-speech-to-text.md), and [Text to speech REST API](rest-text-to-speech.md).
 
 #### Speech Services REST API
 
@@ -50,9 +51,9 @@ Speech Services REST API endpoints in Azure Government have the following format
 |  REST API type / operation | Endpoint format |
 |--|--|
 | Access token | `https://<REGION_IDENTIFIER>.api.cognitive.microsoft.us/sts/v1.0/issueToken`
-| [Speech-to-text REST API](rest-speech-to-text.md) | `https://<REGION_IDENTIFIER>.api.cognitive.microsoft.us/<URL_PATH>` |
-| [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) | `https://<REGION_IDENTIFIER>.stt.speech.azure.us/<URL_PATH>` |
-| [Text-to-speech REST API](rest-text-to-speech.md) | `https://<REGION_IDENTIFIER>.tts.speech.azure.us/<URL_PATH>` |
+| [Speech to text REST API](rest-speech-to-text.md) | `https://<REGION_IDENTIFIER>.api.cognitive.microsoft.us/<URL_PATH>` |
+| [Speech to text REST API for short audio](rest-speech-to-text-short.md) | `https://<REGION_IDENTIFIER>.stt.speech.azure.us/<URL_PATH>` |
+| [Text to speech REST API](rest-text-to-speech.md) | `https://<REGION_IDENTIFIER>.tts.speech.azure.us/<URL_PATH>` |
 
 Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
 
@@ -99,11 +100,11 @@ Replace `subscriptionKey` with your Speech resource key. Replace `usGovHost` wit
 |  Region / Service offering | Host expression |
 |--|--|
 | **US Gov Arizona** | |
-| Speech-to-text | `wss://usgovarizona.stt.speech.azure.us` |
-| Text-to-Speech | `https://usgovarizona.tts.speech.azure.us` |
+| Speech to text | `wss://usgovarizona.stt.speech.azure.us` |
+| Text to speech | `https://usgovarizona.tts.speech.azure.us` |
 | **US Gov Virginia** | |
-| Speech-to-text | `wss://usgovvirginia.stt.speech.azure.us` |
-| Text-to-Speech | `https://usgovvirginia.tts.speech.azure.us` |
+| Speech to text | `wss://usgovvirginia.stt.speech.azure.us` |
+| Text to speech | `https://usgovvirginia.tts.speech.azure.us` |
 
 
 ## Azure China
@@ -115,25 +116,27 @@ Available to organizations with a business presence in China. See more informati
 - **Regions:**
   - China East 2
   - China North 2
+  - China North 3
 - **Available pricing tiers:**
   - Free (F0) and Standard (S0). See more details [here](https://www.azure.cn/pricing/details/cognitive-services/index.html)
 - **Supported features:**
-  - Speech-to-text
+  - Speech to text
     - Custom speech (Acoustic Model (AM) and Language Model (LM) adaptation)
       - [Speech Studio](https://speech.azure.cn/)
     - [Pronunciation assessment](how-to-pronunciation-assessment.md)
-  - Text-to-speech
+  - Text to speech
     - Standard voice
     - Neural voice
   - Speech translator
 - **Unsupported features:**
   - Custom Voice
+  - Custom Commands
 - **Supported languages:**
   - See the list of supported languages [here](language-support.md)
 
 ### Endpoint information
 
-This section contains Speech Services endpoint information for the usage with [Speech SDK](speech-sdk.md), [Speech-to-text REST API](rest-speech-to-text.md), and [Text-to-speech REST API](rest-text-to-speech.md).
+This section contains Speech Services endpoint information for the usage with [Speech SDK](speech-sdk.md), [Speech to text REST API](rest-speech-to-text.md), and [Text to speech REST API](rest-text-to-speech.md).
 
 #### Speech Services REST API
 
@@ -142,9 +145,9 @@ Speech Services REST API endpoints in Azure China have the following format:
 |  REST API type / operation | Endpoint format |
 |--|--|
 | Access token | `https://<REGION_IDENTIFIER>.api.cognitive.azure.cn/sts/v1.0/issueToken`
-| [Speech-to-text REST API](rest-speech-to-text.md) | `https://<REGION_IDENTIFIER>.api.cognitive.azure.cn/<URL_PATH>` |
-| [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) | `https://<REGION_IDENTIFIER>.stt.speech.azure.cn/<URL_PATH>` |
-| [Text-to-speech REST API](rest-text-to-speech.md) | `https://<REGION_IDENTIFIER>.tts.speech.azure.cn/<URL_PATH>` |
+| [Speech to text REST API](rest-speech-to-text.md) | `https://<REGION_IDENTIFIER>.api.cognitive.azure.cn/<URL_PATH>` |
+| [Speech to text REST API for short audio](rest-speech-to-text-short.md) | `https://<REGION_IDENTIFIER>.stt.speech.azure.cn/<URL_PATH>` |
+| [Text to speech REST API](rest-text-to-speech.md) | `https://<REGION_IDENTIFIER>.tts.speech.azure.cn/<URL_PATH>` |
 
 Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
 
@@ -152,6 +155,7 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 |--|--|
 | **China East 2**  | `chinaeast2` |
 | **China North 2**  | `chinanorth2` |
+| **China North 3**  | `chinanorth3` |
 
 #### Speech SDK
 
@@ -191,8 +195,11 @@ Replace `subscriptionKey` with your Speech resource key. Replace `azCnHost` with
 |  Region / Service offering | Host expression |
 |--|--|
 | **China East 2** | |
-| Speech-to-text | `wss://chinaeast2.stt.speech.azure.cn` |
-| Text-to-Speech | `https://chinaeast2.tts.speech.azure.cn` |
+| Speech to text | `wss://chinaeast2.stt.speech.azure.cn` |
+| Text to speech | `https://chinaeast2.tts.speech.azure.cn` |
 | **China North 2** | |
-| Speech-to-text | `wss://chinanorth2.stt.speech.azure.cn` |
-| Text-to-Speech | `https://chinanorth2.tts.speech.azure.cn` |
+| Speech to text | `wss://chinanorth2.stt.speech.azure.cn` |
+| Text to speech | `https://chinanorth2.tts.speech.azure.cn` |
+| **China North 3** | |
+| Speech to text | `wss://chinanorth3.stt.speech.azure.cn` |
+| Text to speech | `https://chinanorth3.tts.speech.azure.cn` |

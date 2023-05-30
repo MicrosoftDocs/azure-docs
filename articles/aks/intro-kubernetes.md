@@ -1,10 +1,9 @@
 ---
 title: Introduction to Azure Kubernetes Service
 description: Learn the features and benefits of Azure Kubernetes Service to deploy and manage container-based applications in Azure.
-services: container-service
 ms.topic: overview
-ms.date: 11/18/2022
-ms.custom: mvc, ignite-2022
+ms.custom: build-2023
+ms.date: 05/02/2023
 ---
 
 # What is Azure Kubernetes Service?
@@ -23,6 +22,8 @@ When you deploy an AKS cluster, you specify the number and size of the nodes, an
 For more information on Kubernetes basics, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+
+> [!NOTE]
 > AKS also supports Windows Server containers.
 
 ## Access, security, and monitoring
@@ -48,12 +49,11 @@ To secure your AKS clusters, see [Integrate Azure AD with AKS][aks-aad].
 
 ### Integrated logging and monitoring
 
-[Azure Monitor for Container Health][azure-monitor] collects memory and processor performance metrics from containers, nodes, and controllers within your AKS clusters and deployed applications. You can review both container logs and [the Kubernetes logs][aks-master-logs], which are:
+[Container Insights][container-insights] is a feature in [Azure Monitor][azure-monitor-overview] that monitors the health and performance of managed Kubernetes clusters hosted on AKS and provides interactive views and workbooks that analyze collected data for a variety of monitoring scenarios. It captures platform metrics and resource logs from containers, nodes, and controllers within your AKS clusters and deployed applications that are available in Kubernetes through the Metrics API.
 
-* Stored in an [Azure Log Analytics][azure-logs] workspace.
-* Available through the Azure portal, Azure CLI, or a REST endpoint.
+Container Insights has native integration with AKS, like collecting critical metrics and logs, alerting on identified issues, and providing visualization with workbooks or integration with Grafana. It can also collect Prometheus metrics and send them to [Azure Monitor managed service for Prometheus][azure-monitor-managed-prometheus], and all together deliver end-to-end observability.
 
-For more information, see [Monitor AKS container health][container-health].
+Logs from the AKS control plane components are collected separately in Azure as resource logs and sent to different locations, such as [Azure Monitor Logs][azure-monitor-logs]. For more information, see [Collect resource logs][collect-resource-logs].
 
 ## Clusters and nodes
 
@@ -85,11 +85,11 @@ AKS supports the creation of Intel SGX-based, confidential computing node pools 
 
 For more information, see [Confidential computing nodes on AKS][conf-com-node].
 
-### Mariner nodes
+### Azure Linux nodes
 
-Mariner is an open-source Linux distribution created by Microsoft, and it’s now available for preview as a container host on Azure Kubernetes Service (AKS). The Mariner container host provides reliability and consistency from cloud to edge across the AKS, AKS-HCI, and Arc products. You can deploy Mariner node pools in a new cluster, add Mariner node pools to your existing Ubuntu clusters, or migrate your Ubuntu nodes to Mariner nodes.
+The Azure Linux container host for AKS is an open-source Linux distribution created by Microsoft, and it’s available as a container host on Azure Kubernetes Service (AKS). The Azure Linux container host for AKS provides reliability and consistency from cloud to edge across the AKS, AKS-HCI, and Arc products. You can deploy Azure Linux node pools in a new cluster, add Azure Linux node pools to your existing Ubuntu clusters, or migrate your Ubuntu nodes to Azure Linux nodes.
 
-For more information, see [Use the Mariner container host on AKS](use-mariner.md)
+For more information, see [Use the Azure Linux container host for AKS](use-azure-linux.md).
 
 ### Storage volume support
 
@@ -120,18 +120,7 @@ To get started with Ingress traffic, see [HTTP application routing][aks-http-rou
 
 Kubernetes has a rich ecosystem of development and management tools that work seamlessly with AKS. These tools include [Helm][helm] and the [Kubernetes extension for Visual Studio Code][k8s-extension].
 
-Azure provides several tools that help streamline Kubernetes, such as DevOps Starter.  
-
-### DevOps Starter
-
-DevOps Starter provides a simple solution for bringing existing code and Git repositories into Azure. DevOps Starter automatically:
-
-* Creates Azure resources (such as AKS).
-* Configures a release pipeline in Azure DevOps Services that includes a build pipeline for CI.
-* Sets up a release pipeline for CD.
-* Generates an Azure Application Insights resource for monitoring.
-
-For more information, see [DevOps Starter][azure-devops].
+Azure provides several tools that help streamline Kubernetes.  
 
 ## Docker image support and private container registry
 
@@ -174,7 +163,6 @@ Learn more about deploying and managing AKS.
 [azure-devops]: ../devops-project/overview.md
 [azure-disk]: ./azure-disk-csi.md
 [azure-files]: ./azure-files-csi.md
-[container-health]: ../azure-monitor/containers/container-insights-overview.md
 [aks-master-logs]: monitor-aks-reference.md#resource-logs
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
@@ -182,9 +170,12 @@ Learn more about deploying and managing AKS.
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
 [conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md
-[aad]: managed-aad.md
+[aad]: managed-azure-ad.md
 [aks-monitor]: monitor-aks.md
-[azure-monitor]: ../azure-monitor/containers/containers.md
-[azure-logs]: ../azure-monitor/logs/log-analytics-overview.md
+[azure-monitor-overview]: ../azure-monitor/overview.md
+[container-insights]: ../azure-monitor/containers/container-insights-overview.md
+[azure-monitor-managed-prometheus]: ../azure-monitor/essentials/prometheus-metrics-overview.md
+[collect-resource-logs]: monitor-aks.md#collect-resource-logs
+[azure-monitor-logs]: ../azure-monitor/logs/data-platform-logs.md
 [helm]: quickstart-helm.md
 [aks-best-practices]: best-practices.md

@@ -34,8 +34,125 @@ Before you configure streaming for any data source, you need to [create an Event
 | [Operating system (guest)](../data-sources.md#operating-system-guest) | Azure virtual machines | Install the [Azure Diagnostics extension](../agents/diagnostics-extension-overview.md) on Windows and Linux virtual machines in Azure. For more information, see [Streaming Azure Diagnostics data in the hot path by using event hubs](../agents/diagnostics-extension-stream-event-hubs.md) for details on Windows VMs. See [Use Linux Diagnostic extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) for details on Linux VMs. |
 | [Application code](../data-sources.md#application-code) | Application Insights | Use diagnostic settings to stream to event hubs. This tier is only available with workspace-based Application Insights resources. For help with setting up workspace-based Application Insights resources, see [Workspace-based Application Insights resources](../app/create-workspace-resource.md#workspace-based-application-insights-resources) and [Migrate to workspace-based Application Insights resources](../app/convert-classic-resource.md#migrate-to-workspace-based-application-insights-resources).|
 
+## Stream diagnostics data
+
+Use diagnostics setting to stream logs and metrics to Event Hubs.
+For information on how to set up diagnostic settings, see [Create diagnostic settings](./diagnostic-settings.md?tabs=portal#create-diagnostic-settings)
+
+The following JSON is an example of metrics data sent to an event hub:
+
+```json
+[
+  {
+    "records": [
+      {
+        "count": 2,
+        "total": 0.217,
+        "minimum": 0.042,
+        "maximum": 0.175,
+        "average": 0.1085,
+        "resourceId": "/SUBSCRIPTIONS/ABCDEF12-3456-78AB-CD12-34567890ABCD/RESOURCEGROUPS/RG-001/PROVIDERS/MICROSOFT.WEB/SITES/SCALEABLEWEBAPP1",
+        "time": "2023-04-18T09:03:00.0000000Z",
+        "metricName": "CpuTime",
+        "timeGrain": "PT1M"
+      },
+      {
+        "count": 2,
+        "total": 0.284,
+        "minimum": 0.053,
+        "maximum": 0.231,
+        "average": 0.142,
+        "resourceId": "/SUBSCRIPTIONS/ABCDEF12-3456-78AB-CD12-34567890ABCD/RESOURCEGROUPS/RG-001/PROVIDERS/MICROSOFT.WEB/SITES/SCALEABLEWEBAPP1",
+        "time": "2023-04-18T09:04:00.0000000Z",
+        "metricName": "CpuTime",
+        "timeGrain": "PT1M"
+      },
+      {
+        "count": 1,
+        "total": 1,
+        "minimum": 1,
+        "maximum": 1,
+        "average": 1,
+        "resourceId": "/SUBSCRIPTIONS/ABCDEF12-3456-78AB-CD12-34567890ABCD/RESOURCEGROUPS/RG-001/PROVIDERS/MICROSOFT.WEB/SITES/SCALEABLEWEBAPP1",
+        "time": "2023-04-18T09:03:00.0000000Z",
+        "metricName": "Requests",
+        "timeGrain": "PT1M"
+      },
+    ...
+    ]
+  }
+]
+```
+
+The following JSON is an example of log data sent to an event hub:
+
+
+```json
+[
+  {
+    "records": [
+      {
+        "time": "2023-04-18T09:39:56.5027358Z",
+        "category": "AuditEvent",
+        "operationName": "VaultGet",
+        "resultType": "Success",
+        "correlationId": "12345678-abc-4bc5-9f31-950eaf3bfcb4",
+        "callerIpAddress": "10.0.0.10",
+        "identity": {
+          "claim": {
+            "http://schemas.microsoft.com/identity/claims/objectidentifier": "123abc12-abcd-9876-cdef-123abc456def",
+            "appid": "12345678-a1a1-b2b2-c3c3-9876543210ab"
+          }
+        },
+        "properties": {
+          "id": "https://mykeyvault.vault.azure.net/",
+          "clientInfo": "AzureResourceGraph.IngestionWorkerService.global/1.23.1.224",
+          "requestUri": "https://northeurope.management.azure.com/subscriptions/ABCDEF12-3456-78AB-CD12-34567890ABCD/resourceGroups/rg-001/providers/Microsoft.KeyVault/vaults/mykeyvault?api-version=2023-02-01&MaskCMKEnabledProperties=true",
+          "httpStatusCode": 200,
+          "properties": {
+            "sku": {
+              "Family": "A",
+              "Name": "Standard",
+              "Capacity": null
+            },
+            "tenantId": "12345678-abcd-1234-abcd-1234567890ab",
+            "networkAcls": null,
+            "enabledForDeployment": 0,
+            "enabledForDiskEncryption": 0,
+            "enabledForTemplateDeployment": 0,
+            "enableSoftDelete": 1,
+            "softDeleteRetentionInDays": 90,
+            "enableRbacAuthorization": 0,
+            "enablePurgeProtection": null
+          }
+        },
+        "resourceId": "/SUBSCRIPTIONS/ABCDEF12-3456-78AB-CD12-34567890ABCD/RESOURCEGROUPS/RG-001/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/mykeyvault",
+        "operationVersion": "2023-02-01",
+        "resultSignature": "OK",
+        "durationMs": "16"
+      }
+    ],
+    "EventProcessedUtcTime": "2023-04-18T09:42:07.0944007Z",
+    "PartitionId": 1,
+    "EventEnqueuedUtcTime": "2023-04-18T09:41:14.9410000Z"
+  },
+...
+```
+
 ## Manual streaming with a logic app
+
 For data that you can't directly stream to an event hub, you can write to Azure Storage Then you can use a time-triggered logic app that [pulls data from Azure Blob Storage](../../connectors/connectors-create-api-azureblobstorage.md#add-action) and [pushes it as a message to the event hub](../../connectors/connectors-create-api-azure-event-hubs.md#add-action).
+
+## Query events from your Event Hubs
+
+Use the process data query function to see the contents of monitoring events sent to your event hub.
+
+Follow the steps below to query your event data using the Azure portal:
+1. Select **Process data** from your event hub.
+1. Find the tile entitled **Enable real time insights from events** and select **Start**.
+1. Select **Refresh** in the **Input preview** section of the page to fetch events from your event hub.
+
+:::image type="content" source="./media/stream-monitoring-data-event-hubs/View-event-hub-data.png" alt-text="A screenshot showing the process data page of an event hub." lightbox="./media/stream-monitoring-data-event-hubs/View-event-hub-data.png":::
 
 ## Partner tools with Azure Monitor integration
 

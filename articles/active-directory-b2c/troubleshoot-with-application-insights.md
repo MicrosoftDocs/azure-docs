@@ -96,6 +96,10 @@ To create an instance of Application Insights in your subscription, follow these
     ...
     <RelyingParty>
       <DefaultUserJourney ReferenceId="UserJourney ID from your extensions policy, or equivalent (for example: SignUpOrSigninWithAzureAD)" />
+      <Endpoints>
+         <!--points to refresh token journey when app makes refresh token request-->
+         <Endpoint Id="Token" UserJourneyReferenceId="RedeemRefreshToken" />
+      </Endpoints>
       <UserJourneyBehaviors>
         <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       </UserJourneyBehaviors>

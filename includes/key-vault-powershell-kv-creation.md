@@ -1,12 +1,11 @@
 ---
 author: msmbaldwin
 ms.service: key-vault
+ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
-
 # Used by articles that register native client applications in the B2C tenant.
-
 ---
 
 Use the Azure PowerShell [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) cmdlet to create a Key Vault in the resource group from the previous step. You will need to provide some information:

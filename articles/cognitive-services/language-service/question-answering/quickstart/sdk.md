@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Use SDK to create and manage knowledge base - custom question answering"
-description: This quickstart shows you how to create and manage your knowledge base using custom question answering.
+title: "Quickstart: Use SDK to create and manage project - custom question answering"
+description: This quickstart shows you how to create and manage your project using custom question answering.
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
@@ -43,8 +43,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
+
 
 ## Explore the REST API
 

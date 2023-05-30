@@ -1,19 +1,19 @@
 ---
-title: Resolve data-skew - Azure Data Lake Tools for Visual Studio
-description: Troubleshooting potential solutions for data-skew problems by using Azure Data Lake Tools for Visual Studio.
+title: Resolve data-skew in Azure Data Lake Analytics using tools for Visual Studio
+description: Troubleshoot potential solutions for data-skew problems in Azure Data Lake Analytics by using Azure Data Lake Tools for Visual Studio.
 ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 03/16/2023
 ---
 
-# Resolve data-skew problems by using Azure Data Lake Tools for Visual Studio
+# Resolve data-skew problems in Azure Data Lake Analytics using Azure Data Lake Tools for Visual Studio
 
 [!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 ## What is data skew?
 
-Briefly stated, data skew is an over-represented value. Imagine that you've assigned 50 tax examiners to audit tax returns, one examiner for each US state. The Wyoming examiner, because the population there is small, has little to do. In California, however, the examiner is kept busy because of the state's large population.
+Briefly stated, data skew is an over-represented value. Imagine that you've assigned 50 tax examiners to audit tax returns, one examiner for each US state. The Wyoming examiner, because the population there's small, has little to do. In California, however, the examiner is kept busy because of the state's large population.
 
 :::image type="content" source="./media/data-lake-analytics-data-lake-tools-data-skew-solutions/data-skew-problem.png" alt-text="A sample column chart showing the majority of data being grouped into two columns, rather than being evenly spread across categories." lightbox="./media/data-lake-analytics-data-lake-tools-data-skew-solutions/data-skew-problem.png":::
 
@@ -21,7 +21,12 @@ In our scenario, the data is unevenly distributed across all tax examiners, whic
 
 ## Resolving data-skew problems
 
-Azure Data Lake Tools for Visual Studio can help detect whether your job has a data-skew problem. If a problem exists, you can resolve it by trying the solutions in this section.
+Azure Data Lake Tools for Visual Studio and Visual Studio Code can help detect whether your job has a data-skew problem.
+
+- [Install Azure Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#install-azure-data-lake-tools-for-visual-studio)
+- [Install Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
+
+If a problem exists, you can resolve it by trying the solutions in this section.
 
 ## Solution 1: Improve table partitioning
 
@@ -129,11 +134,11 @@ You can sometimes write a user-defined operator to deal with complicated process
 
 ### Option 1: Use a recursive reducer, if possible
 
-By default, a user-defined reducer runs in non-recursive mode, which means that reduce work for a key is distributed into a single vertex. But if your data is skewed, the huge data sets might be processed in a single vertex and run for a long time.
+By default, a user-defined reducer runs in nonrecursive mode, which means that reduce work for a key is distributed into a single vertex. But if your data is skewed, the huge data sets might be processed in a single vertex and run for a long time.
 
 To improve performance, you can add an attribute in your code to define reducer to run in recursive mode. Then, the huge data sets can be distributed to multiple vertices and run in parallel, which speeds up your job.
 
-To change a non-recursive reducer to recursive, you need to make sure that your algorithm is associative. For example, the sum is associative, and the median isn't. You also need to make sure that the input and output for reducer keep the same schema.
+To change a nonrecursive reducer to recursive, you need to make sure that your algorithm is associative. For example, the sum is associative, and the median isn't. You also need to make sure that the input and output for reducer keep the same schema.
 
 Attribute of recursive reducer:
 

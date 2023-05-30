@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Appaegis Isolation Access Cloud for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Appaegis Isolation Access Cloud for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Appaegis Isolation Access Cloud.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: c845e98a-6fcd-4285-94b7-a72a2175ca7e
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

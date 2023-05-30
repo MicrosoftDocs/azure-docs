@@ -5,17 +5,19 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: normesta
 
 ms.author: normesta
-ms.date: 02/13/2023
+ms.date: 03/22/2023
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.custom: engagement-fy23
 ---
 
 # Change feed support in Azure Blob Storage
 
-The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
+The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. Each change generates exactly one transaction log entry, so you won't have to manage multiple log entries for the same change. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
+
+To learn how to process records in the change feed, see [Process change feed in Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
 ## How the change feed works
 
@@ -145,9 +147,7 @@ Use an Azure Resource Manager template to enable Change feed on your existing st
 
 The change feed produces several metadata and log files. These files are located in the **$blobchangefeed** container of the storage account. The **$blobchangefeed** container can be viewed either via the Azure portal or via Azure Storage Explorer.
 
-Your client applications can consume the change feed by using the blob change feed processor library that is provided with the change feed processor SDK.
-
-See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
+Your client applications can consume the change feed by using the blob change feed processor library that is provided with the change feed processor SDK. To learn how to process records in the change feed, see [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
 <a id="segment-index"></a>
 

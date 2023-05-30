@@ -85,7 +85,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
-1. Compose a list of the Azure AD Groups you want the Descartes Application use for the Role-based configuration. A list of User Roles Descartes application modules can be found at https://www.gln.com/docs/Descartes_Application_User_Roles.pdf. You can find the Azure Active Direction Group GUIDs please download the Groups from your Azure AD Portal Groups.
+1. Compose a list of the Azure AD Groups you want the Descartes Application use for the Role-based configuration. A list of User Roles Descartes application modules can be found at https://www.gln.com/docs/Descartes_Application_User_Roles.pdf. You can find the Azure Active Direction Group GUIDs please download the Groups from your Azure portal Groups.
 
     ![Screenshot shows the AAD Portal Groups.](media/descartes-tutorial/copy-groups.png "Groups")
 

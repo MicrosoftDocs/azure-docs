@@ -5,7 +5,7 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 08/22/2022
-ms.custom: github-actions-azure
+ms.custom: github-actions-azure, devx-track-bicep
 ---
 
 # Quickstart: Deploy Bicep files by using GitHub Actions

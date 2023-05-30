@@ -168,9 +168,6 @@
     - name: Blockchain Workbench
       tocHref: /azure/blockchain/workbench/
       topicHref: /azure/blockchain/workbench/
-  - name: Azure Databricks
-    tocHref: /azure/azure-databricks/
-    topicHref: /azure/azure-databricks/
   - name: Azure Data Explorer
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
@@ -237,12 +234,9 @@
     tocHref: /power-bi
     topicHref: /azure/azure-portal/index
   - name: Internet of Things
-    tocHref: /azure/iot-fundamentals/
-    topicHref: /azure/iot-fundamentals/
+    tocHref: /azure/iot/
+    topicHref: /azure/iot/
     items:
-      - name: Azure Percept
-        tocHref: /azure/azure-percept/
-        topicHref: /azure/azure-percept/
       - name: Device Development
         tocHref: /azure/iot-develop/
         topicHref: /azure/iot-develop/
@@ -326,6 +320,9 @@
       - name: New Relic
         tocHref: /azure/partner-solutions/new-relic/
         topicHref: /azure/partner-solutions/new-relic/new-relic-overview
+      - name: Palo Alto Networks
+        tocHref: /azure/partner-solutions/palo-alto/
+        topicHref: /azure/partner-solutions/palo-alto/palo-alto-overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
@@ -375,7 +372,7 @@
     items:
     - name: Academic Knowledge
       tocHref: /azure/cognitive-services/academic-knowledge/
-      topicHref: /azure/cognitive-services/academic-knowledge/home
+      topicHref: https://www.microsoft.com/research/project/academic-knowledge/
     - name: Anomaly Detector
       tocHref: /azure/cognitive-services/anomaly-detector/
       topicHref: /azure/cognitive-services/anomaly-detector/
@@ -419,6 +416,9 @@
     - name: Content Moderator
       tocHref: /azure/cognitive-services/content-moderator/
       topicHref: /azure/cognitive-services/content-moderator/
+    - name: Content Safety
+      tocHref: /azure/cognitive-services/content-safety/
+      topicHref: /azure/cognitive-services/content-safety/
     - name: Custom Decision Service
       tocHref: /azure/cognitive-services/custom-decision-service/
       topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview
@@ -529,6 +529,10 @@
     - name: MongoDB
       tocHref: /azure/cosmos-db/mongodb/
       topicHref: /azure/cosmos-db/mongodb/
+      items:
+        - name: vCore
+          tocHref: /azure/cosmos-db/mongodb/vcore/
+          topicHref: /azure/cosmos-db/mongodb/vcore/
     - name: MongoDB
       tocHref: /azure/cosmos-db/mongodb/cli-samples
       topicHref: /azure/cosmos-db/mongodb/cli-samples
@@ -599,9 +603,12 @@
   - name: Dedicated HSM
     tocHref: /azure/dedicated-hsm/
     topicHref: /azure/dedicated-hsm/
-  - name: Microsoft Energy Data Services
+  - name: Azure Data Manager for Energy
     tocHref: /azure/energy-data-services
     topicHref: /azure/energy-data-services
+  - name: Data Manager for Agriculture
+    tocHref: /azure/data-manager-for-agri
+    topicHref: /azure/data-manager-for-agri
   - name: Azure DevTest Labs
     tocHref: /azure/devtest-labs/
     topicHref: /azure/devtest-labs/
@@ -685,12 +692,12 @@
         tocHref: /azure/industry
         topicHref: /azure/industry
 #  - name: Internet of Things
-#    tocHref: /azure/iot-fundamentals/
-#    topicHref: /azure/iot-fundamentals/
+#    tocHref: /azure/iot/
+#    topicHref: /azure/iot/
 #    items:
 #    - name: IoT Fundamentals
-#      tocHref: /azure/iot-fundamentals/
-#      topicHref: /azure/iot-fundamentals/
+#      tocHref: /azure/iot/
+#      topicHref: /azure/iot/
 #    - name: IoT Edge
 #      tocHref: /azure/iot-edge/
 #      topicHref: /azure/iot-edge/
@@ -830,6 +837,9 @@
       - name: Load Balancer
         tocHref: /azure/load-balancer/
         topicHref: /azure/load-balancer/
+      - name: NAT Gateway
+        tocHref: /azure/nat-gateway
+        topicHref: /azure/nat-gateway
       - name: Network Watcher
         tocHref: /azure/network-watcher/
         topicHref: /azure/network-watcher/
@@ -849,9 +859,6 @@
         tocHref: /azure/virtual-network/
         topicHref: /azure/virtual-network/
         items:
-          - name: NAT gateway
-            tocHref: /azure/virtual-network/nat-gateway
-            topicHref: /azure/virtual-network/nat-gateway
           - name: IP services
             tocHref: /azure/virtual-network/ip-services
             topicHref: /azure/virtual-network/ip-services
@@ -968,6 +975,9 @@
       - name: Confidential Ledger
         tocHref: /azure/confidential-ledger/
         topicHref: /azure/confidential-ledger/
+      - name: Microsoft Defender External Attack Surface Management
+        tocHref: /azure/external-attack-surface-management/
+        topicHref: /azure/external-attack-surface-management/
   - name: Service Fabric
     tocHref: /azure/service-fabric/
     topicHref: /azure/service-fabric/
@@ -1028,6 +1038,9 @@
       - name: Elastic SAN
         tocHref: /azure/storage/elastic-san/
         topicHref: /azure/storage/elastic-san/elastic-san-introduction
+      - name: Container Storage
+        tocHref: /azure/storage/container-storage/
+        topicHref: /azure/storage/container-storage/container-storage-introduction
       - name: Queues
         tocHref: /azure/storage/queues/
         topicHref: /azure/storage/queues/storage-queues-introduction
@@ -1145,3 +1158,6 @@
   - name: Azure Deployment Environments
     tocHref: /azure/deployment-environments/
     topicHref: /azure/deployment-environments/index
+  - name: Operator Nexus
+    tocHref: /azure/operator-nexus/
+    topicHref: /azure/operator-nexus/index

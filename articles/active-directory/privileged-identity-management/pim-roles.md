@@ -1,5 +1,5 @@
 ---
-title: Roles you cannot manage in Privileged Identity Management - Azure Active Directory | Microsoft Docs
+title: Roles you cannot manage in Privileged Identity Management
 description: Describes the roles you cannot manage in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''

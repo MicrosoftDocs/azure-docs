@@ -121,8 +121,6 @@
   items:
     - name: Create an application
       href: core/howto-create-iot-central-application.md
-    - name: Integrate IoT Central into a DevOps pipeline
-      href: core/howto-integrate-with-devops.md
     - name: Build and connect devices
       items:
         - name: Set up a device template
@@ -193,8 +191,6 @@
               href: core/howto-transform-data-internally.md
             - name: Troubleshoot data export
               href: core/troubleshoot-data-export.md
-            - name: Export data to cloud destinations (legacy)
-              href: core/howto-export-data-legacy.md           
         - name: Export data and visualize with Databricks
           href: core/howto-create-custom-analytics.md
         - name: Transform data internally on ingress
@@ -275,11 +271,11 @@
   - name: Guided learning path
     href: /training/paths/develop-iot-solutions-with-azure-iot-central/
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+    href: ../iot/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
   - name: Video resources
     href: https://www.youtube.com/playlist?list=PL1ljc761XCiYlm8Rx58jLsUp4gAspw1SG
   - name: IoT Glossary
-    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+    href: ../iot/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
 
   - name: Industrial connectivity partners
     items:

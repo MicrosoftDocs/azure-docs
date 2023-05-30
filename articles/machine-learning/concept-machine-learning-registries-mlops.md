@@ -1,5 +1,5 @@
 ---
-title: Machine Learning registries (preview)
+title: Machine Learning registries
 titleSuffix: Azure Machine Learning
 description: Learn what are Azure Machine Learning registries and how to use to for MLOps
 services: machine-learning
@@ -10,10 +10,10 @@ author: ManojBableshwar
 ms.reviewer: larryfr
 ms.date: 9/9/2022
 ms.topic: conceptual
-ms.custom: devx-track-python, ignite-2022
+ms.custom: devx-track-python, ignite-2022, build-2023
 ---
 
-# Machine Learning registries (preview) for MLOps
+# Machine Learning registries for MLOps
 
 In this article, you'll learn how to scale MLOps across development, testing and production environments. Your environments can vary from few to many based on the complexity of your IT environment and is influenced by factors such as:
 
@@ -43,4 +43,5 @@ The following diagram illustrates promotion of pipelines between exploratory and
 ## Next steps
 
 * [Create a registry](./how-to-manage-registries.md).
+* [Network isolation with registries](./how-to-registry-network-isolation.md).
 * [Share models, components, and environments using registries](./how-to-share-models-pipelines-across-workspaces-with-registries.md).

@@ -8,7 +8,6 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/19/2019
 ms.author: victorh 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Create an Azure Firewall test environment
@@ -31,7 +30,7 @@ You can use `PowerShellGet` if you need to upgrade, which is built into Windows 
 >Other Windows version require you to install `PowerShellGet` before you can use it. 
 >You can run `Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path` to determine if it is installed on your system. If the output is blank, you need to install the latest [Windows Management framework](https://www.microsoft.com/download/details.aspx?id=54616).
 
-For more information, see [Install Azure PowerShell](/powershell/azure/install-Az-ps)
+For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 Any existing Azure PowerShell installation done with the Web Platform installer will conflict with the PowerShellGet installation and needs to be removed.
 

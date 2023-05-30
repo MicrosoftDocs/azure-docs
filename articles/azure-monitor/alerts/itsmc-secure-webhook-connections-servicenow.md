@@ -24,6 +24,7 @@ Ensure that you've met the following prerequisites:
 1. Use the link `https://(instance name).service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor` to the URI for the Secure Webhook definition.
 
 1. Follow the instructions according to the version:
+   * [Tokyo](https://docs.servicenow.com/bundle/tokyo-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Rome](https://docs.servicenow.com/bundle/rome-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Quebec](https://docs.servicenow.com/bundle/quebec-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Paris](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)

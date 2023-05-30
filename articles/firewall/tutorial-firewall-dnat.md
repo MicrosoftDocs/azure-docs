@@ -172,6 +172,9 @@ After deployment finishes, note the private IP address for the virtual machine. 
 
 For the **SN-Workload** subnet, you configure the outbound default route to go through the firewall.
 
+> [!IMPORTANT]
+> You do not need to configure an explicit route back to the firewall at the destination subnet. Azure Firewall is a stateful service and handles the packets and sessions automatically. If you create this route, you'll create an asymmetrical routing environment that interrupts the stateful session logic and results in dropped packets and connections.
+
 1. From the Azure portal home page, select **All services**.
 2. Under **Networking**, select **Route tables**.
 3. Select **Create**.

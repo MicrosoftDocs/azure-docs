@@ -4,9 +4,9 @@ metadata:
   description: Get answers to common questions about Microsoft Defender for Servers.
   ms.topic: faq
   ms.service: defender-for-cloud
-  author: bmansheim
-  ms.author: benmansheim
-  ms.date: 11/29/2022
+  author: dcurwin
+  ms.author: dacurwin
+  ms.date: 05/11/2023
 title: Frequently asked questions for Defender for Servers
 summary: Get answers to common questions about Microsoft Defender for Servers.
 
@@ -17,17 +17,41 @@ sections:
       - question: |
           Can I enable Defender for Servers on a subset of machines in a subscription?
         answer: |
-          No. When you enable Microsoft Defender for Servers on an Azure subscription or on a connected AWS account or GCP project, all connected machines are protected by Defender for Servers. This includes servers that don't have the Log Analytics agent or Azure Monitor agent installed.
+          No. When you enable Microsoft Defender for Servers on an Azure subscription or on a connected AWS account or GCP project, all connected machines are protected by Defender for Servers. Servers that don't have the Log Analytics agent or Azure Monitor agent installed are also protected.
 
       - question: |
           Can I get a discount if I already have a Microsoft Defender for Endpoint license?
         answer: |
-          If you already have a license for Microsoft Defender for Endpoint for Servers, you don't pay for that part of your Microsoft Defender for Servers Plan 2 license. 
+          If you already have a license for **Microsoft Defender for Endpoint for Servers**, you won't have to pay for that part of your Microsoft Defender for Servers Plan 1 or 2 license.
 
-          To request your discount, contact the Defender for Cloud support team through the Azure portal.
+          To request your discount, contact the Defender for Cloud support team through the Azure portal by creating a new support request in the help and support center.
 
-          - Provide the relevant workspace ID, region, and number of Defender for Endpoint for Servers licenses that are applied to machines in the workspace.
-          - The discount is effective starting on the approval date. The discount isn't retroactive.
+          1. Sign in to the [Azure portal](https://portal.azure.com/).
+          
+          1. Select **Support and Troubleshooting**
+
+              :::image type="content" source="media/faq-defender-for-servers/support-and-troubleshoot.png" alt-text="Screenshot that shows the location of the Support and Troubleshooting button on the Azure home screen":::
+
+          1. Select **Help + support**.
+
+          1. Select **Create a support request**.
+
+          1. Enter the following information:
+
+              :::image type="content" source="media/faq-defender-for-servers/support-ticket-description.png" alt-text="Screenshot that shows the support ticket description with the information filled out.":::
+
+          1. Select **Next**.
+
+          1. Select **Next**.
+
+          1. In the *Additional details* tab, enter your Customer Org name, Tenant ID, the number of Microsoft Defender for Endpoint for Servers licenses that were purchased, the expiration date of the Microsoft Defender for Endpoint for Servers licenses that were purchased, and all other required fields.
+
+          1. Select **Next**.
+
+          1. Select **Create**.
+
+          >[!NOTE]
+          > The discount becomes effective starting on the approval date. The discount isn't retroactive.
 
       - question: |
           What servers do I pay for in a subscription?
@@ -58,7 +82,7 @@ sections:
       - question: |
           Do I need to enable Defender for Servers on the subscription and on the workspace?
         answer: |
-          Defender for Servers Plan 1 does not depend on Log Analytics. When you enable Defender for Servers Plan 2 at the subscription level, Defender for Cloud automatically enables the plan on your default Log Analytics workspaces. If you use a custom workspace, make sure you enable the plan on the workspace. Here's more information:
+          Defender for Servers Plan 1 doesn't depend on Log Analytics. When you enable Defender for Servers Plan 2 at the subscription level, Defender for Cloud automatically enables the plan on your default Log Analytics workspaces. If you use a custom workspace, make sure you enable the plan on the workspace. Here's more information:
           
           - If you turn on Defender for Servers for a subscription and for a connected custom workspace, you aren't charged for both. The system identifies unique VMs.
           - If you enable Defender for Servers on cross-subscription workspaces:
@@ -67,11 +91,11 @@ sections:
           
           
       - question: |
-          Is the free allowance applied per workspace or per machine?
+          Is the 500 MB of free data ingestion allowance applied per workspace or per machine?
         answer: |
-          For every VM that's connected to the workspace, you get 500 MB of free data ingestion per day. The allowance is specifically for the security data types that are directly collected by Defender for Cloud.
+          When you have [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md) enabled, you get 500 MB of free data ingestion per day. The allowance is specifically for the security data types that are directly collected by Defender for Cloud.
           
-          This allowance is a daily rate that's averaged across all nodes. Your total daily free limit is equal to \[number of machines\] &times; 500 MB. Even if some machines send 100 MB and others send 800 MB, if the total doesn't exceed your total daily free limit, you aren't charged extra.
+          This allowance is a daily rate that's averaged across all nodes. Your total daily free limit is equal to \[number of machines\] &times; 500 MB. You aren't charged extra if the total doesn't exceed your total daily free limit, even if some machines send 100 MB and others send 800 MB.
 
       - question: |
           What data types are included in the daily allowance?
@@ -93,14 +117,12 @@ sections:
       - question: |
           Am I charged for machines that don't have Log Analytics installed?
         answer: |
-          Yes. When you enable Defender for Servers on an Azure subscription, connected AWS account, or connected GCP project, you're charged for all machines that are connected to your Azure subscription or your AWS account. The term *machines* includes Azure virtual machines, instances of Azure Virtual Machine Scale Sets, and Azure Arc-enabled servers. Machines that don't have Log Analytics installed are covered by protections that don't depend on the Log Analytics agent.
+          Yes. You're charged for all machines that are protected by Defender for Servers in Azure subscriptions, connected AWS accounts, or connected GCP projects. The term *machines* includes Azure virtual machines, instances of Azure Virtual Machine Scale Sets, and Azure Arc-enabled servers. Machines that don't have Log Analytics installed are covered by protections that don't depend on the Log Analytics agent.
 
       - question: |
           If an agent reports to multiple workspaces, am I charged twice?
         answer: |
           If a machine reports to multiple workspaces and all of them have Defender for Servers enabled, the machines are billed for each attached workspace.
-
-      
 
 additionalContent: |
 

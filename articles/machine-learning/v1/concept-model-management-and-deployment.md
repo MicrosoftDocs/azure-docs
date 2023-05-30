@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: dem108
 ms.author:  sehan
 ms.reviewer: mopeakande
-ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022
+ms.custom: UpdateFrequency5, seodec18, mktng-kw-nov2021, event-tier1-build-2022
 ms.date: 01/04/2023
 ---
 
@@ -19,9 +19,14 @@ ms.date: 01/04/2023
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
 > * [v1](concept-model-management-and-deployment.md)
-> * [v2 (current version)](../concept-model-management-and-deployment.md)
+> * [v2 (current version)](../concept-model-management-and-deployment.md?view=azureml-api-2&preserve-view=true)
 
 In this article, learn how to apply Machine Learning Operations (MLOps) practices in Azure Machine Learning for the purpose of managing the lifecycle of your models. Applying MLOps practices can improve the quality and consistency of your machine learning solutions. 
+
+> [!IMPORTANT]
+> Items in this article marked as "preview" are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## What is MLOps?
 
@@ -51,7 +56,7 @@ Use ML pipelines from Azure Machine Learning to stitch together all of the steps
 
 An ML pipeline can contain steps from data preparation to feature extraction to hyperparameter tuning to model evaluation. For more information, see [ML pipelines](../concept-ml-pipelines.md).
 
-If you use the [Designer](../concept-designer.md) to create your ML pipelines, you may at any time click the **"..."** at the top-right of the Designer page and then select **Clone**. Cloning your pipeline allows you to iterate your pipeline design without losing your old versions.  
+If you use the [Designer](concept-designer.md) to create your ML pipelines, you may at any time click the **"..."** at the top-right of the Designer page and then select **Clone**. Cloning your pipeline allows you to iterate your pipeline design without losing your old versions.  
 
 ## Create reusable software environments
 

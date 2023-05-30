@@ -14,7 +14,7 @@ ms.date: 11/07/2022
 
 # What is Azure Firewall?
 
-Azure Firewall is a cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure. It's a fully stateful, firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
+Azure Firewall is a cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure. It's a fully stateful, firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection. To learn what's east-west and north-south traffic, see [East-west and north-south traffic](/azure/architecture/framework/security/design-network-flow#east-west-and-north-south-traffic).
 
 Azure Firewall is offered in three SKUs: Standard, Premium, and Basic.
 
@@ -37,68 +37,20 @@ To learn about Firewall Standard features, see [Azure Firewall Standard features
 
 To learn about Firewall Premium features, see [Azure Firewall Premium features](premium-features.md).
 
-## Azure Firewall Basic (preview)
-
-> [!IMPORTANT]
-> Azure Firewall Basic is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+## Azure Firewall Basic
 
 Azure Firewall Basic is intended for small and medium size (SMB) customers to secure their Azure cloud 
 environments. It provides the essential protection SMB customers need at an affordable price point.
 
 :::image type="content" source="media/overview/firewall-basic-diagram.png" alt-text="Diagram showing Firewall Basic.":::
 
-Azure Firewall Basic is similar to Firewall Standard, but has the following limitations:
+Azure Firewall Basic is similar to Firewall Standard, but has the following main limitations:
 
 - Supports Threat Intel *alert mode* only.
 - Fixed scale unit to run the service on two virtual machine backend instances.
-- Recommended for environments with maximum throughput of 250 Mbps. The throughput may increase for feature general availability (GA).
+- Recommended for environments with an estimated throughput of 250 Mbps.
 
-### Supported regions
-
-Azure Firewall Basic is available in the following regions during the preview:
-
-- East US
-- East US 2
-- West US
-- West US 2
-- West US 3
-- Central US
-- North Central US
-- South Central US
-- West Central US
-- East US 2 EUAP
-- Central US EUAP
-- North Europe
-- West Europe
-- East Asia
-- Southeast Asia
-- Japan East
-- Japan West
-- Australia East
-- Australia Southeast
-- Australia Central
-- Brazil South
-- South India
-- Central India
-- West India
-- Canada Central
-- Canada East
-- UK South
-- UK West
-- Korea Central
-- Korea South
-- France Central
-- South Africa North
-- UAE North
-- Switzerland North
-- Germany West Central
-- Norway East
-- Jio India West
-- Sweden Central
-- Qatar Central
-
-To deploy a Basic Firewall, see [Deploy and configure Azure Firewall Basic (preview) and policy using the Azure portal](deploy-firewall-basic-portal-policy.md).
+To deploy a Basic Firewall, see [Deploy and configure Azure Firewall Basic and policy using the Azure portal](deploy-firewall-basic-portal-policy.md).
 
 ## Azure Firewall Manager
 
@@ -153,14 +105,13 @@ Azure Firewall Standard has the following known issues:
 |NAT rules with ports between 64000 and 65535 are unsupported|Azure Firewall allows any port in the 1-65535 range in network and application rules, however NAT rules only support ports in the 1-63999 range.|This is a current limitation.
 |Configuration updates may take five minutes on average|An Azure Firewall configuration update can take three to five minutes on average, and parallel updates aren't supported.|A fix is being investigated.|
 |Azure Firewall uses SNI TLS headers to filter HTTPS and MSSQL traffic|If browser or server software doesn't support the Server Name Indicator (SNI) extension, you can't connect through Azure Firewall.|If browser or server software doesn't support SNI, then you may be able to control the connection using a network rule instead of an application rule. See [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) for software that supports SNI.|
-|Can't add firewall policy tags using the portal or Azure Resource Manager (ARM) templates|Azure Firewall Policy has a patch support limitation that prevents you from adding a tag using the Azure portal or ARM templates. The following  error is generated: *Could not save the tags for the resource*.|A fix is being investigated. Or, you can use the Azure PowerShell cmdlet `Set-AzFirewallPolicy` to update tags.|
+|Can't add firewall policy tags using the portal or Azure Resource Manager (ARM) templates|Azure Firewall Policy has a patch support limitation that prevents you from adding a tag using the Azure portal or ARM templates. The following  error is generated: *Couldn't save the tags for the resource*.|A fix is being investigated. Or, you can use the Azure PowerShell cmdlet `Set-AzFirewallPolicy` to update tags.|
 |IPv6 not currently supported|If you add an IPv6 address to a rule, the firewall fails.|Use only IPv4 addresses. IPv6 support is under investigation.|
 |Updating multiple IP Groups fails with conflict error.|When you update two or more IP Groups attached to the same firewall, one of the resources goes into a failed state.|This is a known issue/limitation. <br><br>When you update an IP Group, it triggers an update on all firewalls that the IPGroup is attached to. If an update to a second IP Group is started while the firewall is still in the *Updating* state, then the IPGroup update fails.<br><br>To avoid the failure, IP Groups attached to the same firewall must be updated one at a time. Allow enough time between updates to allow the firewall to get out of the *Updating* state.|
 |Removing RuleCollectionGroups using ARM templates not supported.|Removing a RuleCollectionGroup using ARM templates isn't supported and results in failure.|This isn't a supported operation.|
-|DNAT rule for allow *any* (*) will SNAT traffic.|If a DNAT rule allows *any* (*) as the Source IP address, then an implicit Network rule will match VNet-VNet traffic and will always SNAT the traffic.|This is a current limitation.|
+|DNAT rule for allow *any* (*) will SNAT traffic.|If a DNAT rule allows *any* (*) as the Source IP address, then an implicit Network rule matches VNet-VNet traffic and will always SNAT the traffic.|This is a current limitation.|
 |Adding a DNAT rule to a secured virtual hub with a security provider isn't supported.|This results in an asynchronous route for the returning DNAT traffic, which goes to the security provider.|Not supported.|
 | Error encountered when creating more than 2000 rule collections. | The maximal number of NAT/Application or Network rule collections is 2000 (Resource Manager limit). | This is a current limitation. |
-|Unable to see Network Rule Name in Azure Firewall Logs|Azure Firewall network rule log data doesn't show the Rule name for network traffic.|Network rule name logging is in preview. For for information, see [Azure Firewall preview features](firewall-preview.md#network-rule-name-logging-preview).|
 |XFF header in HTTP/S|XFF headers are overwritten with the original source IP address as seen by the firewall. This is applicable for the following use cases:<br>- HTTP requests<br>- HTTPS requests with TLS termination|A fix is being investigated.|
 |Can't upgrade to Premium with Availability Zones in the Southeast Asia region|You can't currently upgrade to Azure Firewall Premium with Availability Zones in the Southeast Asia region.|Deploy a new Premium firewall in Southeast Asia without Availability Zones, or deploy in a region that supports Availability Zones.|
 |Can’t deploy Firewall with Availability Zones with a newly created Public IP address|When you deploy a Firewall with Availability Zones, you can’t use a newly created Public IP address.|First create a new zone redundant Public IP address, then assign this previously created IP address during the Firewall deployment.|
@@ -181,9 +132,7 @@ Untrusted customer signed certificates|Customer signed certificates aren't trust
 |Certificate Propagation|After a CA certificate is applied on the firewall, it may take between 5-10 minutes for the certificate to take effect.|A fix is being investigated.|
 |TLS 1.3 support|TLS 1.3 is partially supported. The TLS tunnel from client to the firewall is based on TLS 1.2, and from the firewall to the external Web server is based on TLS 1.3.|Updates are being investigated.|
 |Availability Zones for Firewall Premium in the Southeast Asia region|You can't currently deploy Azure Firewall Premium with Availability Zones in the Southeast Asia region.|Deploy the firewall in Southeast Asia without Availability Zones, or deploy in a region that supports Availability Zones.|
-
-
-
+|TLSi intermediate CA certificate expiration|In some unique cases, the intermediate CA certificate can expire two months before the original expiration date.|Renew the intermediate CA certificate two months before the original expiration date. A fix is being investigated.|
 
 ## Next steps
 
@@ -191,3 +140,4 @@ Untrusted customer signed certificates|Customer signed certificates aren't trust
 - [Quickstart: Deploy Azure Firewall with Availability Zones - ARM template](deploy-template.md)
 - [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
 - [Learn module: Introduction to Azure Firewall](/training/modules/introduction-azure-firewall/)
+- [Learn more about Azure network security](../networking/security/index.yml)

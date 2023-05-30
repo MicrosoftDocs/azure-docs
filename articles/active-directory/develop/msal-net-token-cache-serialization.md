@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/26/2023
+ms.date: 03/02/2023
 ms.author: dmwendia
 ms.reviewer: jmprieur
 ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
@@ -23,40 +23,35 @@ After Microsoft Authentication Library (MSAL) [acquires a token](msal-acquire-ca
 ## Quick summary
 
 The recommendation is:
-- When you're writing a desktop application, use the cross-platform token cache as explained in [Desktop apps](msal-net-token-cache-serialization.md?tabs=desktop).
-- Do nothing for [mobile and Universal Windows Platform (UWP) apps](msal-net-token-cache-serialization.md?tabs=mobile). MSAL.NET provides secure storage for the cache.
-- In ASP.NET Core [web apps](scenario-web-app-call-api-overview.md) and [web APIs](scenario-web-api-call-api-overview.md), use [Microsoft.Identity.Web](microsoft-identity-web.md) as a higher-level API. You'll get token caches and much more. See [ASP.NET Core web apps and web APIs](msal-net-token-cache-serialization.md?tabs=aspnetcore).
+- When writing a desktop application, use the cross-platform token cache as explained in [desktop apps](msal-net-token-cache-serialization.md?tabs=desktop).
+- No action required for [mobile and Universal Windows Platform (UWP) apps](msal-net-token-cache-serialization.md?tabs=mobile). MSAL.NET provides secure storage for the cache.
+- In ASP.NET Core [web apps](scenario-web-app-call-api-overview.md) and [web APIs](scenario-web-api-call-api-overview.md), use [Microsoft.Identity.Web](microsoft-identity-web.md) as a higher-level API. `Microsoft.Identity.Web` provides token caches as explained in [ASP.NET Core web apps and web APIs](msal-net-token-cache-serialization.md?tabs=aspnetcore).
 - In the other cases of [web apps](scenario-web-app-call-api-overview.md) and [web APIs](scenario-web-api-call-api-overview.md):
   -	If you request tokens for users in a production application, use a [distributed token cache](msal-net-token-cache-serialization.md?tabs=aspnet#distributed-caches) (Redis, SQL Server, Azure Cosmos DB, distributed memory). Use token cache serializers available from [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache/).
-  -	Otherwise, if you want to use an in-memory cache:
-    -	If you're only using `AcquireTokenForClient`, either reuse the confidential client application instance and don't add a serializer, or create a new confidential client application and enable the [shared cache option](msal-net-token-cache-serialization.md?tabs=aspnet#no-token-cache-serialization). 
+  -	If you want to use an in-memory cache and you're only using [`AcquireTokenForClient`](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder), either reuse the confidential client application instance and don't add a serializer, or create a new confidential client application and enable the [shared cache option](msal-net-token-cache-serialization.md?tabs=aspnet#no-token-cache-serialization). 
     
-        A shared cache is faster because it's not serialized. However, the memory will grow as tokens are cached. The number of tokens is equal to the number of tenants times the number of downstream APIs. An app token is about 2 KB in size, whereas tokens for a user are about 7 KB in size. It's great for development, or if you have few users. 
-    -	If you  want to use an in-memory token cache and control its size and eviction policies, use the [Microsoft.Identity.Web in-memory cache option](msal-net-token-cache-serialization.md?tabs=aspnet#in-memory-token-cache-1).
--	If you build an SDK and want to write your own token cache serializer for confidential client applications, inherit from [Microsoft.Identity.Web.MsalAbstractTokenCacheProvider](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.TokenCache/MsalAbstractTokenCacheProvider.cs) and override the `WriteCacheBytesAsync` and `ReadCacheBytesAsync` methods.
+    A shared cache is faster because it's not serialized. However, the memory grows as tokens are cached. The number of tokens is equal to the number of tenants times the number of downstream APIs. An app token is about 2 KB in size, whereas tokens for a user are about 7 KB in size. It's great for development, or if you have few users. 
+ - If you  want to use an in-memory token cache and control its size and eviction policies, use the [Microsoft.Identity.Web in-memory cache option](msal-net-token-cache-serialization.md?tabs=aspnet#in-memory-token-cache-1).
+-	If you build an SDK and want to write your own token cache serializer for confidential client applications, inherit from [Microsoft.Identity.Web.MsalAbstractTokenCacheProvider](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.TokenCache/MsalAbstractTokenCacheProvider.cs) and override the [WriteCacheBytesAsync](/dotnet/api/microsoft.identity.web.tokencacheproviders.msalabstracttokencacheprovider.writecachebytesasync) and [ReadCacheBytesAsync](/dotnet/api/microsoft.identity.web.tokencacheproviders.msalabstracttokencacheprovider.readcachebytesasync) methods.
 
 
 ## [ASP.NET Core web apps and web APIs](#tab/aspnetcore)
 
 The [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) NuGet package provides token cache serialization within the [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) library. 
 
-If you're using the MSAL library directly in an ASP.NET Core app, consider moving to use [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web), which provides a simpler, higher-level API. Otherwise, see the [Non-ASP.NET Core web apps and web APIs](?tabs=aspnet#configuring-the-token-cache), which covers direct MSAL usage.
+If you're using the [MSAL library](/dotnet/api/microsoft.identity.client) directly in an ASP.NET Core app, consider using [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web), which provides a simpler, higher-level API. Otherwise, see [Non-ASP.NET Core web apps and web APIs](?tabs=aspnet#configuring-the-token-cache), which covers direct MSAL usage.
 
 
 | Extension method | Description  |
 | ---------------- | ------------ |
-| [AddInMemoryTokenCaches](/dotnet/api/microsoft.identity.web.microsoftidentityappcallswebapiauthenticationbuilder.addinmemorytokencaches) | Creates a temporary cache in memory for token storage and retrieval. In-memory token caches are faster than the other cache types, but their tokens aren't persisted between application restarts, and you can't control the cache size. In-memory caches are good for applications that don't require tokens to persist between app restarts. Use an in-memory token cache in apps that participate in machine-to-machine auth scenarios like services, daemons, and others that use [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder) (the client credentials grant). In-memory token caches are also good for sample applications and during local app development. Microsoft.Identity.Web versions 1.19.0+ share an in-memory token cache across all application instances.
-| `AddSessionTokenCaches` | The token cache is bound to the user session. This option isn't ideal if the ID token contains many claims, because the cookie will become too large.
+| [AddInMemoryTokenCaches](/dotnet/api/microsoft.identity.web.microsoftidentityappcallswebapiauthenticationbuilder.addinmemorytokencaches) | Creates a temporary cache in memory for token storage and retrieval. In-memory token caches are faster than other cache types, but their tokens aren't persisted between application restarts, and you can't control the cache size. In-memory caches are good for applications that don't require tokens to persist between app restarts. Use an in-memory token cache in apps that participate in machine-to-machine auth scenarios like services, daemons, and others that use [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder) (the client credentials grant). In-memory token caches are also good for sample applications and during local app development. Microsoft.Identity.Web versions 1.19.0+ share an in-memory token cache across all application instances.
+| [AddSessionTokenCaches](/dotnet/api/microsoft.identity.web.microsoftidentityappcallswebapiauthenticationbuilderextension.addsessiontokencaches) | The token cache is bound to the user session. This option isn't ideal if the ID token contains many claims, because the cookie becomes too large.
 | `AddDistributedTokenCaches` | The token cache is an adapter against the ASP.NET Core `IDistributedCache` implementation. It enables you to choose between a distributed memory cache, a Redis cache, a distributed NCache, or a SQL Server cache. For details about the `IDistributedCache` implementations, see [Distributed memory cache](/aspnet/core/performance/caching/distributed).
 
 
 ### In-memory token cache
 
 Here's an example of code that uses the in-memory cache in the [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) method of the [Startup](/aspnet/core/fundamentals/startup) class in an ASP.NET Core application:
-
-```CSharp
-#using Microsoft.Identity.Web
-```
 
 ```CSharp
 using Microsoft.Identity.Web;
@@ -174,7 +169,7 @@ The usage of distributed cache is featured in the [ASP.NET Core web app tutorial
 
 ## [Non-ASP.NET Core web apps and web APIs](#tab/aspnet)
 
-Even when you use MSAL.NET, you can benefit from token cache serializers in Microsoft.Identity.Web.TokenCache. 
+If you're using MSAL.NET in your web app or web API, you can benefit from token cache serializers in [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) 
 
 ### Referencing the NuGet package
 
@@ -235,9 +230,8 @@ Instead of `app.AddInMemoryTokenCache();`, you can use different caching seriali
 <a id="no-token-cache-serialization"></a>
 #### Token cache without serialization
 
-You can specify that you don't want to have any token cache serialization and instead rely on the MSAL.NET internal cache:
-- Use `.WithCacheOptions(CacheOptions.EnableSharedCacheOptions)` when you build the application.
-- Don't add any serializer.
+You can specify that you don't want to have any token cache serialization and instead rely on the MSAL.NET internal cache. Use `.WithCacheOptions(CacheOptions.EnableSharedCacheOptions)` when building the application and don't add any serializer.
+r.
 
 ```CSharp
     // Create the confidential client application
@@ -250,7 +244,7 @@ You can specify that you don't want to have any token cache serialization and in
        .Build();
 ```
 
-`WithCacheOptions(CacheOptions.EnableSharedCacheOptions)` makes the internal MSAL token cache shared between MSAL client application instances. Sharing a token cache is faster than using any token cache serialization, but the internal in-memory token cache doesn't have eviction policies. Existing tokens will be refreshed in place, but fetching tokens for different users, tenants, and resources makes the cache grow accordingly. 
+`WithCacheOptions(CacheOptions.EnableSharedCacheOptions)` makes the internal MSAL token cache shared between MSAL client application instances. Sharing a token cache is faster than using any token cache serialization, but the internal in-memory token cache doesn't have eviction policies. Existing tokens are refreshed in place, but fetching tokens for different users, tenants, and resources makes the cache grow accordingly. 
 
 If you use this approach and have a large number of users or tenants, be sure to monitor the memory footprint. If the memory footprint becomes a problem, consider enabling token cache serialization, which might reduce the internal cache size. Currently, you can't use shared cache and cache serialization together.
 
@@ -378,7 +372,7 @@ var app = ConfidentialClientApplicationBuilder
 ### Samples
 
 - The following sample showcases using the token cache serializers in .NET Framework and .NET Core applications: [ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache). 
-- The following sample is an ASP.NET web app that uses the same technics: [Use OpenID Connect to sign in users to Microsoft identity platform](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect). For the full code, see [WebApp/Utils/MsalAppBuilder.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Utils/MsalAppBuilder.cs).
+- The following sample is an ASP.NET web app that uses the same techniques: [Use OpenID Connect to sign in users to Microsoft identity platform](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect).
 
 ## [Desktop apps](#tab/desktop)
 
@@ -390,7 +384,7 @@ Add the [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packag
 
 #### Configuring the token cache
 
-For details, see the [wiki page](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/wiki/Cross-platform-Token-Cache). Here's an example of usage of the cross-platform token cache:
+For details, see the [Cross platform Token Cache](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/wiki/Cross-platform-Token-Cache). Here's an example using the cross-platform token cache:
 
 ```csharp
  var storageProperties =
@@ -452,8 +446,8 @@ For example, websites might choose to store tokens in a Redis cache, or desktop 
 
 The following classes and interfaces are used in token cache serialization:
 
-- `ITokenCache` defines events to subscribe to token cache serialization requests and methods to serialize or deserialize the cache at various formats (ADAL v3.0, MSAL 2.x, and MSAL 3.x = ADAL v5.0).
-- `TokenCacheCallback` is a callback passed to the events so that you can handle the serialization. They'll be called with arguments of type `TokenCacheNotificationArgs`.
+- `ITokenCache` defines events to subscribe to token cache serialization requests and methods to serialize or deserialize the cache at various formats (MSAL 2.x and MSAL 3.x).
+- `TokenCacheCallback` is a callback passed to the events so that you can handle the serialization. They are called with arguments of type `TokenCacheNotificationArgs`.
 - `TokenCacheNotificationArgs` only provides the `ClientId` value of the application and a reference to the user for which the token is available.
 
 ![Diagram that shows the classes in token cache serialization.](media/msal-net-token-cache-serialization/class-diagram.png)
@@ -473,7 +467,7 @@ Examples of token cache serializers are provided in [Microsoft.Identity.Web/Toke
 
 ### Custom token cache for a desktop or mobile app (public client application)
 
-Since MSAL.NET v2.x, you have several options for serializing the token cache of a public client. You can serialize the cache only to the MSAL.NET format. (The unified format cache is common across MSAL and the platforms.)  You can also support the [legacy](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) token cache serialization of ADAL v3.
+MSAL.NET v2.x and later versions provide several options for serializing the token cache of a public client. You can serialize the cache only to the MSAL.NET format. (The unified format cache is common across MSAL and the platforms.)  You can also support the [legacy](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) token cache serialization of ADAL v3.
 
 Customizing the token cache serialization to share the single sign-on state between ADAL.NET 3.x, ADAL.NET 5.x, and MSAL.NET is explained in part of the following sample: [active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2).
 
@@ -546,9 +540,9 @@ static class TokenCacheHelper
 
 A product-quality, file-based token cache serializer for public client applications (for desktop applications running on Windows, Mac, and Linux) is available from the [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) open-source library. You can include it in your applications from the following NuGet package: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
-#### Dual token cache serialization (MSAL unified cache and ADAL v3)
+#### Dual token cache serialization (MSAL unified cache)
 
-If you want to implement token cache serialization with the unified cache format (common to ADAL.NET 4.x, MSAL.NET 2.x, and other MSALs of the same generation or older, on the same platform), take a look at the following sample: https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/TokenCacheMigration/ADAL2MSAL.
+If you want to implement token cache serialization with the unified cache format (common to MSAL.NET 2.x and other MSALs of the same generation or older, on the same platform), take a look at the following sample: https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/TokenCacheMigration/ADAL2MSAL.
 
 ---
 
@@ -558,7 +552,7 @@ MSAL exposes important metrics as part of [AuthenticationResult.AuthenticationRe
 
 | Metric       | Meaning     | When to trigger an alarm?    |
 | :-------------: | :----------: | :-----------: |
-|  `DurationTotalInMs` | Total time spent in MSAL, including network calls and cache.   | Alarm on overall high latency (> 1 second). Value depends on token source. From the cache: one cache access. From Azure Active Directory (Azure AD): two cache accesses plus one HTTP call. First ever call (per-process) will take longer because of one extra HTTP call. |
+|  `DurationTotalInMs` | Total time spent in MSAL, including network calls and cache.   | Alarm on overall high latency (> 1 second). Value depends on token source. From the cache: one cache access. From Azure Active Directory (Azure AD): two cache accesses plus one HTTP call. First ever call (per-process) takes longer because of one extra HTTP call. |
 |  `DurationInCacheInMs` | Time spent loading or saving the token cache, which is customized by the app developer (for example, save to Redis).| Alarm on spikes. |
 |  `DurationInHttpInMs`| Time spent making HTTP calls to Azure AD.  | Alarm on spikes.|
 |  `TokenSource` | Source of the token. Tokens are retrieved from the cache much faster (for example, ~100 ms versus ~700 ms). Can be used to monitor and alarm the cache hit ratio. | Use with `DurationTotalInMs`. |
@@ -572,4 +566,4 @@ The following samples illustrate token cache serialization.
 | ------ | -------- | ----------- |
 |[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Windows Desktop .NET (WPF) application that calls the Microsoft Graph API. ![Diagram that shows a topology with a desktop app client flowing to Azure Active Directory by acquiring a token interactively and to Microsoft Graph.](media/msal-net-token-cache-serialization/topology.png)|
 |[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Desktop (console) | Set of Visual Studio solutions that illustrate the migration of Azure AD v1.0 applications (using ADAL.NET) to Microsoft identity platform applications (using MSAL.NET). In particular, see [Token cache migration](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md) and [Confidential client token cache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache). |
-[ms-identity-aspnet-webapp-openidconnect](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect) | ASP.NET (net472) | Example of token cache serialization in an ASP.NET MVC application (using MSAL.NET). In particular, see [MsalAppBuilder](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Utils/MsalAppBuilder.cs).
+[ms-identity-aspnet-webapp-openidconnect](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect) | ASP.NET (net472) | Example of token cache serialization in an ASP.NET MVC application (using MSAL.NET).

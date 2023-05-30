@@ -7,10 +7,10 @@ metadata:
   title: Azure Chaos Studio documentation - tutorials, API reference
   description: Learn about Azure Chaos Studio, a solution for building resilience of your services using chaos engineering and fault injection on Azure.
   ms.service: chaos-studio
-  ms.topic: landing-page # Required
-  author: johnkemnetz #Required; your GitHub user alias, with correct capitalization.
-  ms.author: johnkem #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/24/2021 #Required; mm/dd/yyyy format.
+  ms.topic: landing-page
+  author: johnkemnetz
+  ms.author: johnkem
+  ms.date: 08/24/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 

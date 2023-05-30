@@ -1,5 +1,5 @@
 ---
-title: View the service principal of a managed identity using PowerShell - Azure AD
+title: View the service principal of a managed identity using PowerShell
 description: Step-by-step instructions for viewing the service principal of a managed identity using PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -33,7 +33,7 @@ In this article, you learn how to view the service principal of a managed identi
 - Enable [system assigned identity on a virtual machine](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) or [application](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
 - To run the example scripts, you have two options:
     - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
-    - Run scripts locally by installing the latest version of [Azure PowerShell](/powershell/azure/install-az-ps), then sign in to Azure using `Connect-AzAccount`.
+    - Run scripts locally by installing the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell), then sign in to Azure using `Connect-AzAccount`.
 
 ## View the service principal
 

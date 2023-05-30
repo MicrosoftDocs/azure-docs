@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 01/19/2023
 ms.author: aahi
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create a Cognitive Services resource using Bicep

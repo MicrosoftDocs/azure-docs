@@ -1,5 +1,5 @@
 ---
-title: What is entitlement management? - Azure AD
+title: What is entitlement management?
 description: Get an overview of entitlement management and how you can use it to manage access to groups, applications, and SharePoint Online sites for internal and external users.
 services: active-directory
 documentationCenter: ''
@@ -162,7 +162,7 @@ Azure AD Premium P2 licenses are **not** required for the following tasks:
 - No licenses are required for users who have been delegated administrative tasks, such as catalog creator, catalog owner, and access package manager.
 - No licenses are required for guests who have **a privilege to request access packages** but they **do not choose** to request them.
 
-For more information about licenses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
+For more information about licenses, see [Assign or remove licenses using the Azure portal](../fundamentals/license-users-groups.md).
 
 ### Example license scenarios
 

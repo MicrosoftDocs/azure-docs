@@ -46,7 +46,7 @@ To configure Microsoft Purview firewall follow these steps:
   - Public network access is set to _All networks_ on your Microsoft Purview account's Managed Event Hubs, if it's used. 
 
   > [!NOTE]
-  > Even though the network access is enaled through public internet, to gain access to Microsoft Purview governance portal, users must be first authenticated and authorized. 
+  > Even though the network access is enabled through public internet, to gain access to Microsoft Purview governance portal, [users must be first authenticated and authorized](catalog-permissions.md). 
 
 - **Disabled for ingestion only (Preview)**
 

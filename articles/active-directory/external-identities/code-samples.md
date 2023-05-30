@@ -1,28 +1,30 @@
 ---
-title: B2B collaboration code and PowerShell samples - Azure AD
+title: B2B collaboration code and PowerShell samples
 description: Code and PowerShell samples for Azure Active Directory B2B collaboration
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: sample
-ms.date: 03/14/2022
+ms.date: 04/06/2023
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to bulk-invite external users to an organization from email addresses that I've stored in a .csv file.
 ---
 
 # Azure Active Directory B2B collaboration code and PowerShell samples
 
 ## PowerShell example
 
-You can bulk-invite external users to an organization from email addresses that you've stored in a .CSV file.
+You can bulk-invite external users to an organization from email addresses that you've stored in a .csv file.
 
-1. Prepare the .CSV file
-   Create a new CSV file and name it invitations.csv. In this example, the file is saved in C:\data, and contains the following information:
+1. Prepare the .csv file
+   Create a new .csv file and name it invitations.csv. In this example, the file is saved in C:\data, and contains the following information:
 
    Name                  |  InvitedUserEmailAddress
    --------------------- | --------------------------
@@ -35,14 +37,14 @@ You can bulk-invite external users to an organization from email addresses that 
 
 3. Sign in to your tenancy
 
-    ```powershell
+    ```azurepowershell-interactive
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
 4. Run the PowerShell cmdlet
 
-   ```powershell
+   ```azurepowershell-interactive
    $invitations = import-csv C:\data\invitations.csv
    $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
    $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
@@ -57,7 +59,7 @@ This cmdlet sends an invitation to the email addresses in invitations.csv. More 
 
 ## Code sample
 
-The code sample illustrates how to call the invitation API and get the redemption URL. Use the redemption URL to send a custom invitation email. The email can be composed with an HTTP client, so you can customize how it looks and send it through the Microsoft Graph API.
+The code sample illustrates how to call the invitation API and get the redemption URL. Use the redemption URL to send a custom invitation email. You can compose the email with an HTTP client, so you can customize how it looks and send it through the Microsoft Graph API.
 
 
 # [HTTP](#tab/http)
@@ -217,4 +219,4 @@ const inviteRedeemUrl = await sendInvite();
 
 ## Next steps
 
-- [What is Azure AD B2B collaboration?](what-is-b2b.md)
+- [Samples for guest user self-service sign-up](code-samples-self-service-sign-up.md)

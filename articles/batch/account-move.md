@@ -2,8 +2,8 @@
 title: Move an Azure Batch account to another region
 description: Learn how to move an Azure Batch account to a different region using an Azure Resource Manager template in the Azure portal.
 ms.topic: how-to
-ms.date: 12/20/2021
-ms.custom: subject-moving-resources
+ms.date: 02/27/2023
+ms.custom: subject-moving-resources, devx-track-arm-template
 ---
 
 # Move an Azure Batch account to another region
@@ -17,11 +17,11 @@ For more information on Resource Manager and templates, see [Quickstart: Create 
 ## Prerequisites
 
 - Make sure that the services and features that your Batch account uses are supported in the new target region.
-- It's recommended to move the storage account associated with your Batch account to the new target region. Follow the steps in [Move an Azure Storage account to another region](../storage/common/storage-account-move.md). If you prefer, you can leave the storage account in the original region. Typically, performance is better when your storage account is in the same region as your Batch account. This article assumes you've already migrated your storage account.
+- It's recommended to move any Azure resources associated with your Batch account to the new target region. For example, follow the steps in [Move an Azure Storage account to another region](../storage/common/storage-account-move.md) to move an associated autostorage account. If you prefer, you can leave resources in the original region, however, performance is typically better when your Batch account is in the same region as your other Azure resources used by your workload. This article assumes you've already migrated your storage account or any other regional Azure resources to be aligned with your Batch account.
 
 ## Prepare the template
 
-To get started, you'll need to export and then modify an ARM template.
+To get started, you need to export and then modify an ARM template.
 
 ### Export a template
 
@@ -80,7 +80,7 @@ Load and modify the template so you can create a new Batch account in the target
    ```
 
 1. Finally, edit the **location** property to use your target region. This example sets the target region to `centralus`.
-    
+
     ```json
         {
             "resources": [
@@ -88,7 +88,7 @@ Load and modify the template so you can create a new Batch account in the target
                     "type": "Microsoft.Batch/batchAccounts",
                     "apiVersion": "2021-01-01",
                     "name": "[parameters('batchAccounts_mysourceaccount_name')]",
-                    "location": "centralus",  
+                    "location": "centralus",
     ```
 
 To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces. For example, **Central US** = **centralus**.
@@ -110,14 +110,20 @@ Deploy the template to create a new Batch account in the target region.
 
 ### Configure the new Batch account
 
-Some features won't export to a template, so you'll have to recreate them in the new Batch account. These features include:
+Some features don't export to a template, so you have to recreate them in the new Batch account. These features include:
 
-- Jobs
+- Jobs (and tasks)
 - Job schedules
 - Certificates
 - Application packages
 
 Be sure to configure features in the new account as needed. You can look at how you've configured these features in your source Batch account for reference.
+
+> [!IMPORTANT]
+> New Batch accounts are entirely separate from any prior existing Batch accounts, even within the same region. These newly
+> created Batch accounts will have [default service and core quotas](batch-quota-limit.md) associated with them. For User
+> Subscription pool allocation mode Batch accounts, core quotas from the subscription will apply. You will need to ensure
+> that these new Batch accounts have sufficient quota before migrating your workload.
 
 ## Discard or clean up
 
@@ -132,4 +138,3 @@ Confirm that your new Batch account is successfully working in the new region. A
 ## Next steps
 
 - Learn more about [moving resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
-- Learn how to [move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md).

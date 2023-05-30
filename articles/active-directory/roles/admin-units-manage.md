@@ -1,5 +1,5 @@
 ---
-title: Create or delete administrative units - Azure Active Directory
+title: Create or delete administrative units
 description: Create administrative units to restrict the scope of role permissions in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -38,7 +38,7 @@ You can create a new administrative unit by using either the Azure portal, Power
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Administrative units**.
 
@@ -105,7 +105,7 @@ In Azure AD, you can delete an administrative unit that you no longer need as a 
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Administrative units** and then select the administrative unit you want to delete.
 

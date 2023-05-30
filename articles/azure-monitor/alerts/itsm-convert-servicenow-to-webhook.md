@@ -20,7 +20,7 @@ If you're syncing work items between ServiceNow and an Azure Log Analytics works
 
 ## Pull data from your ServiceNow instance into a Log Analytics workspace
 
-1.	[Create a logic app](../../logic-apps/quickstart-create-first-logic-app-workflow.md) in the Azure portal.
+1.	In the Azure portal, [create a Consumption logic app workflow](../../logic-apps/quickstart-create-example-consumption-workflow.md).
 1.	Create an HTTP GET request that uses the [ServiceNow **Table** API](https://developer.servicenow.com/dev.do#!/reference/api/sandiego/rest/c_TableAPI) to retrieve data from the ServiceNow instance. [See an example](https://docs.servicenow.com/bundle/sandiego-application-development/page/integrate/inbound-rest/concept/use-REST-API-Explorer.html#t_GetStartedRetrieveExisting) of how to use the Table call to retrieve incidents.
 1.	To see a list of tables in your ServiceNow instance, in ServiceNow, go to **System definitions**, then **Tables**. Example table names include: `change_request`, `em_alert`, `incident`, `em_event`.
 

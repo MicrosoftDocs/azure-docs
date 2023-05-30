@@ -9,7 +9,7 @@ ms.author: samkemp
 author: samuel100
 ms.date: 08/17/2022
 ms.topic: how-to
-ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to version and track datasets so I can use and share them across multiple machine learning experiments.
 ---
 

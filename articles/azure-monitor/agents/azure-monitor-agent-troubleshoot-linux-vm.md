@@ -2,8 +2,6 @@
 title: Troubleshoot the Azure Monitor agent on Linux virtual machines and scale sets
 description: Guidance for troubleshooting issues on Linux virtual machines, scale sets with Azure Monitor agent and Data Collection Rules.
 ms.topic: conceptual
-author: shseth
-ms.author: shseth
 ms.date: 5/3/2022
 ms.custom: references_region
 ms.reviewer: shseth
@@ -32,7 +30,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 3. **Verify that the agent is running**:  
 	1. Check if the agent is emitting heartbeat logs to Log Analytics workspace using the query below. Skip if 'Custom Metrics' is the only destination in the DCR:
 		```Kusto
-		Heartbeat | where Category == "Azure Monitor Agent" and 'Computer' == "<computer-name>" | take 10
+		Heartbeat | where Category == "Azure Monitor Agent" and Computer == "<computer-name>" | take 10
 		```	 
 	2. Check if the agent service is running
 		```
@@ -52,20 +50,9 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	2. If not, [file a ticket](#file-a-ticket) with **Summary** as 'AMA unable to download DCR config' and **Problem type** as 'I need help with Azure Monitor Linux Agent'.  
 
 
-## Issues collecting Performance counters
 
 ## Issues collecting Syslog
-Here's how AMA collects syslog events:  
-
-- AMA installs an output configuration for the system syslog daemon during the installation process. The configuration file specifies the way events flow between the syslog daemon and AMA.
-- For `rsyslog` (most Linux distributions), the configuration file is `/etc/rsyslog.d/10-azuremonitoragent.conf`. For `syslog-ng`, the configuration file is `/etc/syslog-ng/conf.d/azuremonitoragent.conf`.
-- AMA listens to a UNIX domain socket to receive events from `rsyslog` / `syslog-ng`. The socket path for this communication is `/run/azuremonitoragent/default_syslog.socket`
-- The syslog daemon will use queues when AMA ingestion is delayed, or when AMA isn't reachable.
-- AMA ingests syslog events via the aforementioned socket and filters them based on facility / severity combination from DCR configuration in `/etc/opt/microsoft/azuremonitoragent/config-cache/configchunks/`. Any `facility` / `severity` not present in the DCR will be dropped.
-- AMA attempts to parse events in accordance with **RFC3164** and **RFC5424**. Additionally, it knows how to parse the message formats listed [here](./azure-monitor-agent-overview.md#data-sources-and-destinations).
-- AMA identifies the destination endpoint for Syslog events from the DCR configuration and attempts to upload the events. 
-	> [!NOTE]
-	> AMA uses local persistency by default, all events received from `rsyslog` / `syslog-ng` are queued in `/var/opt/microsoft/azuremonitoragent/events` before being uploaded.  
+For more information on how to troubleshoot syslog issues with Azure Monitor Agent see [here](azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md).  
 	
 - The quality of service (QoS) file `/var/opt/microsoft/azuremonitoragent/log/mdsd.qos` provides CSV-format 15-minute aggregations of the processed events and contains the information on the amount of the processed syslog events in the given timeframe. **This file is useful in tracking Syslog event ingestion drops**.  
 

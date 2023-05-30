@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Miro | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Miro'
 description: Learn how to configure single sign-on between Azure Active Directory and Miro.
 services: active-directory
 author: jeevansd

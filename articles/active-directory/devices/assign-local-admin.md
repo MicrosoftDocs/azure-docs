@@ -58,7 +58,8 @@ Device administrators are assigned to all Azure AD joined devices. You can’t s
 
 - Upto 4 hours have passed for Azure AD to issue a new Primary Refresh Token with the appropriate privileges. 
 - User signs out and signs back in, not lock/unlock, to refresh their profile.
-- Users won't be listed in the local administrator group, the permissions are received through the Primary Refresh Token. 
+
+Users won't be listed in the local administrator group, the permissions are received through the Primary Refresh Token. 
 
 > [!NOTE]
 > The above actions are not applicable to users who have not signed in to the relevant device previously. In this case, the administrator privileges are applied immediately after their first sign-in to the device. 

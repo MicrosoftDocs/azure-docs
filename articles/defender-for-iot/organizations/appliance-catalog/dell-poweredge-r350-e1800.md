@@ -19,11 +19,11 @@ The Dell PowerEdge R350 is also available for the on-premises management console
 
 The following image shows a view of the Dell PowerEdge R350 front panel:
 
-:::image type="content" source="../media/tutorial-install-components/dell-poweredge-r350-front-panel.png" alt-text="Picture of the Dell PowerEdge R350 front panel.":::
+:::image type="content" source="../media/tutorial-install-components/dell-poweredge-r350-front-panel.png" alt-text="Picture of the Dell PowerEdge R350 front panel." border="false":::
 
 The following image shows a view of the Dell PowerEdge R350 back panel:
 
-:::image type="content" source="../media/tutorial-install-components/dell-poweredge-r350-back-panel.png" alt-text="Picture of the Dell PowerEdge R350 back panel.":::
+:::image type="content" source="../media/tutorial-install-components/dell-poweredge-r350-back-panel.png" alt-text="Picture of the Dell PowerEdge R350 back panel." border="false":::
 
 ## Specifications
 
@@ -224,6 +224,5 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
-- [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](../how-to-install-software.md)
+- [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
+- [Download software files for an on-premises management console](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

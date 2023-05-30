@@ -2,7 +2,7 @@
 title: Create and configure Recovery Services vaults
 description: Learn how to create and configure Recovery Services vaults, and how to restore in a secondary region by using Cross Region Restore.
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 04/06/2023
 ms.custom: references_regions, engagement-fy23
 author: jyothisuri
 ms.author: jsuri
@@ -57,6 +57,9 @@ Before you begin, consider the following information:
 - Currently, secondary region RPO is 36 hours. This is because the RPO in the primary region is 24 hours and can take up to 12 hours to replicate the backup data from the primary to the secondary region.
 
 A vault created with GRS redundancy includes the option to configure the Cross Region Restore feature. Every GRS vault has a banner that links to the documentation. 
+
+>[!Note]
+>Cross-region restore is currently not supported for machines running on Ultra disks. [Learn more about Ultra disk backup supportability](backup-support-matrix-iaas.md#ultra-disk-backup).
 
 ![Screenshot that shows the banner about backup configuration.](./media/backup-azure-arm-restore-vms/banner.png)
 

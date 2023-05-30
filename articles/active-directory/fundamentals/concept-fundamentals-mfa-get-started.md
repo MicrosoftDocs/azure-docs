@@ -1,5 +1,5 @@
 ---
-title: Azure AD Multi-Factor Authentication for your organization - Azure Active Directory
+title: Azure AD Multi-Factor Authentication for your organization
 description: Learn about the available features of Azure AD Multi-Factor Authentication for your organization based on your license model
 
 services: multi-factor-authentication

@@ -10,6 +10,7 @@ metadata:
   ms.author: app-svc-docs
   ms.service: app-service
   ms.date: 02/14/2023
+  ms.custom: UpdateFrequency3
 
 landingContent:
   - title: About App Service
@@ -38,7 +39,7 @@ landingContent:
           - text: Deploy a Node.js web app
             url: quickstart-nodejs.md
           - text: Deploy a PHP web app
-            url: quickstart-golang.md           
+            url: quickstart-php.md           
           - text: Deploy a Java app
             url: quickstart-java.md
           - text: Create a WordPress site

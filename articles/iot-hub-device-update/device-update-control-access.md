@@ -1,10 +1,10 @@
 ---
-title: Understand Device Update for IoT Hub authentication and authorization | Microsoft Docs
+title: Understand Device Update for IoT Hub authentication and authorization
 description: Understand how Device Update for IoT Hub uses Azure RBAC to provide authentication and authorization for users and service APIs.
 author: vimeht
 ms.author: vimeht
 ms.date: 10/21/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 

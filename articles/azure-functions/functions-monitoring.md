@@ -85,7 +85,7 @@ By assigning logged items to a category, you have more control over telemetry ge
 
 ### Custom telemetry data
 
-In [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#log-custom-telemetry), and [Python](functions-reference-python.md#log-custom-telemetry), you can use an Application Insights SDK to write custom telemetry data.
+In [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#track-custom-data), and [Python](functions-reference-python.md#log-custom-telemetry), you can use an Application Insights SDK to write custom telemetry data.
 
 ### Dependencies
 
@@ -107,7 +107,7 @@ Dependencies are written at the `Information` level. If you filter at `Warning` 
 In addition to automatic dependency data collection, you can also use one of the language-specific Application Insights SDKs to write custom dependency information to the logs. For an example how to write custom dependencies, see one of the following language-specific examples:
 
 + [Log custom telemetry in C# functions](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions)
-+ [Log custom telemetry in JavaScript functions](functions-reference-node.md#log-custom-telemetry) 
++ [Log custom telemetry in JavaScript functions](functions-reference-node.md#track-custom-data) 
 + [Log custom telemetry in Python functions](functions-reference-python.md#log-custom-telemetry)
 
 ### Performance Counters
@@ -121,7 +121,7 @@ See the developer guide for your language to learn more about writing logs from 
 
 + [C# (.NET class library)](functions-dotnet-class-library.md#logging)
 + [Java](functions-reference-java.md#logger)
-+ [JavaScript](functions-reference-node.md#write-trace-output-to-logs) 
++ [JavaScript](functions-reference-node.md#logging) 
 + [PowerShell](functions-reference-powershell.md#logging)
 + [Python](functions-reference-python.md#logging)
 

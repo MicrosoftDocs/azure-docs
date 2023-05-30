@@ -1,7 +1,7 @@
 ---
 title: 'CLI (v2) schedule YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) schedule YAML schema.
+description: Reference documentation for the CLI (v2) job schedule YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: cloga
 ms.author: lochen
-ms.date: 08/15/2022
+ms.date: 05/17/2023
 ms.reviewer: lagayhar
 ---
 
-# CLI (v2) schedule YAML schema
+# CLI (v2) job schedule YAML schema
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -202,7 +202,7 @@ Current schedule supports the following timezones. The key can be used directly 
 | UTC +02:00  | ISRAEL_STANDARD_TIME            | "Israel Standard Time"            |
 | UTC +02:00  | KALININGRAD_STANDARD_TIME       | "Kaliningrad Standard Time"       |
 | UTC +02:00  | LIBYA_STANDARD_TIME             | "Libya Standard Time"             |
-| UTC +03:00  | TURKEY_STANDARD_TIME            | "Turkey Standard Time"            |
+| UTC +03:00  | TÜRKIYE_STANDARD_TIME           | "Türkiye Standard Time"           |
 | UTC +03:00  | ARABIC_STANDARD_TIME            | "Arabic Standard Time"            |
 | UTC +03:00  | ARAB_STANDARD_TIME              | "Arab Standard Time"              |
 | UTC +03:00  | BELARUS_STANDARD_TIME           | "Belarus Standard Time"           |

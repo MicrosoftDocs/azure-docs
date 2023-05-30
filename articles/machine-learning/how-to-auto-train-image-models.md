@@ -8,7 +8,7 @@ ms.author: swatig
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli
 ms.topic: how-to
 ms.date: 07/13/2022
 #Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model architecture, hyperparameters, and training and deployment environments.
@@ -18,7 +18,7 @@ ms.date: 07/13/2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
-> * [v1](v1/how-to-auto-train-image-models-v1.md)
+> * [v1](v1/how-to-auto-train-image-models-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-auto-train-image-models.md)
 
 
@@ -53,7 +53,7 @@ Automated ML supports model training for computer vision tasks like image classi
        ```
        * Install the Azure Machine Learning Python SDK v2:
        ```python
-       pip install azure-ai-ml
+       pip install azure-ai-ml azure-identity
        ```
    
 ---
@@ -526,11 +526,11 @@ training_parameters:
 
 ## Data augmentation 
 
-In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there's no exposed hyperparameter to control data augmentations. 
+In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model's generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there's no exposed hyperparameter to control data augmentations. 
 
 |Task | Impacted dataset | Data augmentation technique(s) applied |
 |-------|----------|---------|
-|Image classification (multi-class and multi-label) | Training <br><br><br> Validation & Test| Random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue), normalization using channel-wise ImageNet’s mean and standard deviation <br><br><br>Resize, center crop, normalization |
+|Image classification (multi-class and multi-label) | Training <br><br><br> Validation & Test| Random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue), normalization using channel-wise ImageNet's mean and standard deviation <br><br><br>Resize, center crop, normalization |
 |Object detection, instance segmentation| Training <br><br> Validation & Test |Random crop around bounding boxes, expand, horizontal flip, normalization, resize <br><br><br>Normalization, resize
 |Object detection using yolov5| Training <br><br> Validation & Test  |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip <br><br><br> Letterbox resizing|
 
@@ -1156,4 +1156,4 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 ## Next steps
 
 * [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
-* [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md).
+* [Troubleshoot automated ML experiments (SDK v1)](./v1/how-to-troubleshoot-auto-ml.md?view=azureml-api-1&preserve-view=true).

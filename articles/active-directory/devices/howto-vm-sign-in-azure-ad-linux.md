@@ -107,7 +107,7 @@ Ensure that your client meets the following requirements:
 - TCP connectivity from the client to either the public or private IP address of the VM. (ProxyCommand or SSH forwarding to a machine with connectivity also works.)
 
 > [!IMPORTANT]
-> SSH clients based on PuTTY don't support OpenSSH certificates and can't be used to log in with Azure AD OpenSSH certificate-based authentication.
+> SSH clients based on PuTTY now supports OpenSSH certificates and can be used to log in with Azure AD OpenSSH certificate-based authentication.
 
 ## Enable Azure AD login for a Linux VM in Azure
 
@@ -267,7 +267,7 @@ If the Azure Linux VM Sign-In application is missing from Conditional Access, ma
 
 1. Sign in to the Azure portal.
 1. Browse to **Azure Active Directory** > **Enterprise applications**.
-1. Remove the filters to see all applications, and search for **VM**. If you don't see Azure Linux VM Sign-In as a result, the service principal is missing from the tenant.
+1. Remove the filters to see all applications, and search for **Virtual Machine**. If you don't see Microsoft Azure Linux Virtual Machine Sign-In as a result, the service principal is missing from the tenant.
 
 Another way to verify it is via Graph PowerShell:
 
@@ -275,7 +275,7 @@ Another way to verify it is via Graph PowerShell:
 1. Enter the command `Connect-MgGraph -Scopes "ServicePrincipalEndpoint.ReadWrite.All","Application.ReadWrite.All"`.
 1. Sign in with a Global Administrator account.
 1. Consent to the prompt that asks for your permission.
-1. Enter the command `Get-MgServicePrincipal -ConsistencyLevel eventual -Search '"DisplayName:Azure Linux VM Sign-In"'`.
+1. Enter the command `Get-MgServicePrincipal -ConsistencyLevel eventual -Search '"DisplayName:Microsoft Azure Linux Virtual Machine Sign-In"'`.
    
    If this command results in no output and returns you to the PowerShell prompt, you can create the service principal by using the following Graph PowerShell command: `New-MgServicePrincipal -AppId ce6ff14a-7fdc-4685-bbe0-f6afdfcfa8e0`.
    
@@ -450,10 +450,10 @@ To uninstall old packages:
 
 1. Log in as a local user with admin privileges.
 1. Make sure there are no logged-in Azure AD users. Call the `who -u` command to see who is logged in. Then use `sudo kill <pid>` for all session processes that the previous command reported.
-1. Run `sudo apt remove --purge aadlogin` (Ubuntu/Debian), `sudo yum erase aadlogin` (RHEL or CentOS), or `sudo zypper remove aadlogin` (openSUSE or SLES).
+1. Run `sudo apt remove --purge aadlogin` (Ubuntu/Debian), `sudo yum remove aadlogin` (RHEL or CentOS), or `sudo zypper remove aadlogin` (openSUSE or SLES).
 1. If the command fails, try the low-level tools with scripts disabled:
    1. For Ubuntu/Debian, run `sudo dpkg --purge aadlogin`. If it's still failing because of the script, delete the `/var/lib/dpkg/info/aadlogin.prerm` file and try again.
-   1. For everything else, run `rpm -e –noscripts aadogin`.
+   1. For everything else, run `rpm -e --noscripts aadogin`.
 1.	Repeat steps 3-4 for package `aadlogin-selinux`.
 
 ### Extension installation errors
@@ -510,6 +510,27 @@ If *sshd_config* contains either `AllowGroups` or `DenyGroups` statements, the f
 One solution is to remove `AllowGroups` and `DenyGroups` statements from *sshd_config*.
 
 Another solution is to move `AllowGroups` and `DenyGroups` to a `match user` section in *sshd_config*. Make sure the match template excludes Azure AD users.
+
+### Getting Permission Denied when trying to connect from Azure Shell to Linux Red Hat/Oracle/Centos 7.X VM.
+
+The OpenSSH server version in the target VM 7.4 is too old. Version incompatible with OpenSSH client version 8.8. Refer to [RSA SHA256 certificates no longer work](https://bugzilla.mindrot.org/show_bug.cgi?id=3351) for more information.
+
+Workaround:  
+
+- Adding option `"PubkeyAcceptedKeyTypes= +ssh-rsa-cert-v01@openssh.com"` in the `az ssh vm ` command.
+
+```azurecli-interactive
+az ssh vm -n myVM -g MyResourceGroup -- -A -o "PubkeyAcceptedKeyTypes= +ssh-rsa-cert-v01@openssh.com"
+```
+- Adding the option `"PubkeyAcceptedKeyTypes= +ssh-rsa-cert-v01@openssh.com"` in the `/home/<user>/.ssh/config file`.
+
+
+Add the `"PubkeyAcceptedKeyTypes +ssh-rsa-cert-v01@openssh.com"` into the client config file.
+
+```config
+Host *
+PubkeyAcceptedKeyTypes +ssh-rsa-cert-v01@openssh.com
+```
 
 ## Next steps
 

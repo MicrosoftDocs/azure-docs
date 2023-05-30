@@ -5,7 +5,7 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 06/10/2022
+ms.date: 03/21/2023
 ms.author: glenga
 ms.custom: include file, devdivchpfy22
 ---
@@ -19,7 +19,7 @@ ms.custom: include file, devdivchpfy22
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **Subscription** | Your subscription | The subscription under which you'll create your new function app. |
-    | **[Resource Group](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which you'll create your function app. |
+    | **[Resource Group](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which you'll create your function app. You should create a new resource group because there are [known limitations when creating new function apps in an existing resource group](../articles/azure-functions/functions-scale.md#limitations-for-creating-new-function-apps-in-an-existing-resource-group).|
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
     |**Publish**| Code | Option to publish code files or a Docker container. |
     | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. In-portal editing is only available for JavaScript, PowerShell, TypeScript, and C# script. C# class library, Java, and Python functions must be [developed locally](../articles/azure-functions/functions-develop-local.md#local-development-environments).  |

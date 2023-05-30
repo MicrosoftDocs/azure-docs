@@ -1,5 +1,5 @@
 ---
-title: Configure cross-tenant synchronization (preview)
+title: Configure cross-tenant synchronization
 description: Learn how to configure cross-tenant synchronization in Azure Active Directory using the Azure portal.
 services: active-directory
 author: rolyon
@@ -8,18 +8,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 05/05/2023
 ms.author: rolyon
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
-# Configure cross-tenant synchronization (preview)
-
-> [!IMPORTANT]
-> Cross-tenant synchronization is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Configure cross-tenant synchronization
 
 This article describes the steps to configure cross-tenant synchronization using the Azure portal. When configured, Azure AD automatically provisions and de-provisions B2B users in your target tenant. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
@@ -35,17 +31,17 @@ By the end of this article, you'll be able to:
 
 ## Prerequisites
 
-### Source tenant
+![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-- Azure AD Premium P1 or P2 license
-- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings
-- [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure cross-tenant synchronization
-- [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../roles/permissions-reference.md#application-administrator) role to assign users to a configuration and to delete a configuration
+- Azure AD Premium P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
+- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings.
+- [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure cross-tenant synchronization.
+- [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../roles/permissions-reference.md#application-administrator) role to assign users to a configuration and to delete a configuration.
 
-### Target tenant
+![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
-- Azure AD Premium P1 or P2 license
-- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings
+- Azure AD Premium P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
+- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings.
 
 ## Step 1: Plan your provisioning deployment
 
@@ -75,7 +71,7 @@ By the end of this article, you'll be able to:
 
 1. Under **Inbound access** of the added organization, select **Inherited from default**.
 
-1. Select  the **Cross-tenant sync (Preview)** tab.
+1. Select  the **Cross-tenant sync** tab.
 
 1. Check the **Allow users sync into this tenant** check box.
 
@@ -129,7 +125,7 @@ In this step, you automatically redeem invitations in the source tenant.
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization**.
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/azure-ad-overview.png" alt-text="Screenshot that shows the Azure Active Directory Overview page." lightbox="./media/cross-tenant-synchronization-configure/azure-ad-overview.png":::
 
@@ -272,6 +268,9 @@ Attribute mappings allow you to define how data should flow between the source t
     | **Member** | Default. Users will be created as external member (B2B collaboration users) in the target tenant. Users will be able to function as any internal member of the target tenant. |
     | **Guest** | Users will be created as external guests (B2B collaboration users) in the target tenant. |
 
+    > [!NOTE]
+    > If the the B2B user already exists in the target tenant then **Member (userType)** will not changed to **Member**, unless the **Apply this mapping** setting is set to **Always**.
+    
     The user type you choose has the following limitations for apps or services (but aren't limited to):
     
     [!INCLUDE [user-type-workload-limitations-include](../includes/user-type-workload-limitations-include.md)]
@@ -325,7 +324,7 @@ Attribute mappings allow you to define how data should flow between the source t
 
 Now that you have a configuration, you can test on-demand provisioning with one of your users.
 
-1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization**.
 
 1. Select **Configurations** and then select your configuration.
 
@@ -363,7 +362,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
 
 The provisioning job starts the initial synchronization cycle of all users defined in **Scope** of the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running.
 
-1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization**.
 
 1. Select **Configurations** and then select your configuration.
 
@@ -415,6 +414,18 @@ This setting also applies to B2B collaboration and B2B direct connect, so if you
 
 ## Troubleshooting tips
 
+#### Delete a configuration
+
+Follows these steps to delete a configuration on the **Configurations** page.
+
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization**.
+
+1. On the **Configurations** page, add a check mark next to the configuration you want to delete.
+
+1. Select **Delete** and then **OK** to delete the configuration.
+
+    :::image type="content" source="./media/cross-tenant-synchronization-configure/configurations-delete.png" alt-text="Screenshot of the Configurations page showing how to delete a configuration." lightbox="./media/cross-tenant-synchronization-configure/configurations-delete.png":::
+
 #### Symptom - Test connection fails with AzureDirectoryB2BManagementPolicyCheckFailure
 
 When configuring cross-tenant synchronization in the source tenant and you test the connection, it fails with the following error message:
@@ -461,25 +472,70 @@ Restoring a previously soft-deleted user in the target tenant isn't supported.
 
 Manually restore the soft-deleted user in the target tenant. For more information, see [Restore or remove a recently deleted user using Azure Active Directory](../fundamentals/active-directory-users-restore.md).
 
-#### Symptom - Unable to delete a configuration
-
-On the **Configurations** page, there isn't a way to delete a configuration.
+#### Symptom - Users are skipped because SMS sign-in is enabled on the user
+Users are skipped from synchronization. The scoping step includes the following filter with status false: "Filter external users.alternativeSecurityIds EQUALS 'None'"
 
 **Cause**
 
-Currently, there isn't a way to delete a configuration on the **Configurations** page. Instead, you must delete the configuration in **Enterprise applications**.
+If SMS sign-in is enabled for a user, they will be skipped by the provisioning service.
 
 **Solution**
 
-1. In the source tenant, select **Azure Active Directory** > **Enterprise applications**.
+Disable SMS Sign-in for the users. The script below shows how you can disable SMS Sign-in using PowerShell. 
 
-1. In the list of all applications, find the name of your configuration. If necessary, you can search by the configuration name.
+```powershell
+##### Disable SMS Sign-in options for the users
 
-1. Select the configuration and then select **Properties**.
+#### Import module
+Install-Module Microsoft.Graph.Users.Actions
+Install-Module Microsoft.Graph.Identity.SignIns
+Import-Module Microsoft.Graph.Users.Actions
 
-1. Select **Delete** and then **Yes** to delete the configuration.
+Connect-MgGraph -Scopes "User.Read.All", "Group.ReadWrite.All", "UserAuthenticationMethod.Read.All","UserAuthenticationMethod.ReadWrite","UserAuthenticationMethod.ReadWrite.All"
 
-    :::image type="content" source="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png" alt-text="Screenshot of the Enterprise applications Properties page showing how to delete a configuration." lightbox="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png":::
+##### The value for phoneAuthenticationMethodId is 3179e48a-750b-4051-897c-87b9720928f7
+
+$phoneAuthenticationMethodId = "3179e48a-750b-4051-897c-87b9720928f7"
+
+#### Get the User Details
+
+$userId = "objectid_of_the_user_in_Azure_AD"
+
+#### validate the value for SmsSignInState
+
+$smssignin = Get-MgUserAuthenticationPhoneMethod -UserId $userId
+
+{
+    if($smssignin.SmsSignInState -eq "ready"){   
+      #### Disable Sms Sign-In for the user is set to ready
+       
+      Disable-MgUserAuthenticationPhoneMethodSmSign -UserId $userId -PhoneAuthenticationMethodId $phoneAuthenticationMethodId
+      Write-Host "SMS sign-in disabled for the user" -ForegroundColor Green
+    }
+    else{
+    Write-Host "SMS sign-in status not set or found for the user " -ForegroundColor Yellow
+    }
+
+}
+
+##### End the script
+```
+
+#### Symptom - Users fail to provision with error "AzureActiveDirectoryForbidden"
+
+Users in scope fail to provision. The provisioning logs details include the following error message:
+
+```
+Guest invitations not allowed for your company. Contact your company administrator for more details.
+```
+
+**Cause**
+
+This error indicates the Guest invite settings in the target tenant are configured with the most restrictive setting: "No one in the organization can invite guest users including admins (most restrictive)".
+
+**Solution**
+
+Change the Guest invite settings in the target tenant to a less restrictive setting. For more information, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
 
 ## Next steps
 

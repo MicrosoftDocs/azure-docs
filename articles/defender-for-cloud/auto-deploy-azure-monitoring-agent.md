@@ -1,10 +1,10 @@
 ---
 title: Deploy the Azure Monitor Agent with Microsoft Defender for Cloud
 description: Learn how to deploy the Azure Monitor Agent on your Azure, multicloud, and on-premises servers to support Microsoft Defender for Cloud protections.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
-ms.date: 08/03/2022
+ms.date: 03/01/2023
 ms.custom: template-how-to, ignite-2022
 ---
 
@@ -40,15 +40,21 @@ To deploy the Azure Monitor Agent with Defender for Cloud:
 1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
 1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
+
+    :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-server-setting.png" alt-text="Screenshot showing selecting settings for server service plan." lightbox="media/auto-deploy-azure-monitoring-agent/select-server-setting.png":::
+
 1. Enable deployment of the Azure Monitor Agent:
 
     1. For the **Log Analytics agent/Azure Monitor Agent**, select the **On** status.
+        :::image type="content" source="media/auto-deploy-azure-monitoring-agent/turn-on-azure-monitor-agent-auto-provision.png" alt-text="Screenshot showing turning on status for Log Analytics/Azure Monitor Agent." lightbox="media/auto-deploy-azure-monitoring-agent/turn-on-azure-monitor-agent-auto-provision.png":::
 
         In the Configuration column, you can see the enabled agent type. When you enable Defender plans, Defender for Cloud decides which agent to provision based on your environment. In most cases, the default is the Log Analytics agent.
 
     1. For the **Log Analytics agent/Azure Monitor Agent**, select **Edit configuration**.
 
     1. For the Auto-provisioning configuration agent type, select **Azure Monitor Agent**.
+      
+        :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision.png" alt-text="Screenshot showing selecting Azure Monitor Agent for auto-provisioning." lightbox="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision.png":::  
 
     By default:
 
@@ -85,27 +91,35 @@ To configure a custom destination workspace for the Azure Monitor Agent:
 1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
 1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
+
+    :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-server-setting.png" alt-text="Screenshot showing selecting settings in Monitoring coverage column." lightbox="media/auto-deploy-azure-monitoring-agent/select-server-setting.png":::
+
 1. For the **Log Analytics agent/Azure Monitor Agent**, select **Edit configuration**.
+
+    :::image type="content" source="media/auto-deploy-azure-monitoring-agent/configure-azure-monitor-agent-auto-provision.png" alt-text="Screenshot showing where to select edit configuration for Log Analytics agent/Azure Monitor Agent." lightbox="media/auto-deploy-azure-monitoring-agent/configure-azure-monitor-agent-auto-provision.png":::
+
 1. Select **Custom workspace**, and select the workspace that you want to send data to.
+
+    :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision-custom.png" alt-text="screenshot showing selection of custom workspace." lightbox="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision-custom.png":::
 
 ### Log analytics workspace solutions
 
 The Azure Monitor Agent requires Log analytics workspace solutions. These solutions are automatically installed when you auto-provision the Azure Monitor Agent with the default workspace. 
 
-The required [Log Analytics workspace solutions](../azure-monitor/insights/solutions.md) for the data that you're collecting are:
+The required [Log Analytics workspace solutions](/previous-versions/azure/azure-monitor/insights/solutions) for the data that you're collecting are:
 
   - Security posture management (CSPM) – **SecurityCenterFree solution**
   - Defender for Servers Plan 2 – **Security solution**
 
 ### Additional extensions for Defender for Cloud
 
-The Azure Monitor Agent requires additional extensions. The ASA extension, which supports endpoint protection recommendations, fileless attack detection, and Adaptive Application controls, is automatically installed when you auto-provision the Azure Monitor Agent.
+The Azure Monitor Agent requires more extensions. The ASA extension, which supports endpoint protection recommendations, fileless attack detection, and Adaptive Application controls, is automatically installed when you auto-provision the Azure Monitor Agent.
 
 ### Additional security events collection
 
 When you auto-provision the Log Analytics agent in Defender for Cloud, you can choose to collect additional security events to the workspace. When you auto-provision the Azure Monitor agent in Defender for Cloud, the option to collect additional security events to the workspace isn't available. Defender for Cloud doesn't rely on these security events, but they can be helpful for investigations through Microsoft Sentinel.
 
-If you want to collect security events when you auto-provision the Azure Monitor Agent, you can create a [Data Collection Rule](../azure-monitor/essentials/data-collection-rule-overview.md) to collect the required events.
+If you want to collect security events when you auto-provision the Azure Monitor Agent, you can create a [Data Collection Rule](../azure-monitor/essentials/data-collection-rule-overview.md) to collect the required events. Learn [how do it with PowerShell or with Azure Policy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-configure-security-events-collection-with-azure-monitor/ba-p/3770719).
 
 Like for Log Analytics workspaces, Defender for Cloud users are eligible for [500-MB of free data](plan-defender-for-servers-data-workspace.md#log-analytics-pricing-faq) daily on defined data types that include security events.
 

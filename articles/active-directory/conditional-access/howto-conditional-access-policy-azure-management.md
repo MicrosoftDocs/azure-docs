@@ -1,5 +1,5 @@
 ---
-title: Require MFA for Azure management with Conditional Access - Azure Active Directory
+title: Require MFA for Azure management with Conditional Access
 description: Create a custom Conditional Access policy to require multifactor authentication for Azure management tasks
 
 services: active-directory
@@ -31,6 +31,7 @@ These tools can provide highly privileged access to resources that can make the 
 
 To protect these privileged resources, Microsoft recommends requiring multifactor authentication for any user accessing these resources. In Azure AD, these tools are grouped together in a suite called [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management). For Azure Government, this suite should be the Azure Government Cloud Management API app. 
 
+## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 [!INCLUDE [active-directory-policy-deploy-template](../../../includes/active-directory-policy-deploy-template.md)]

@@ -7,8 +7,6 @@ ms.topic: conceptual
 ms.date: 02/02/2022
 ms.author: owend
 ms.reviewer: minewiskan 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Manage server administrators
 

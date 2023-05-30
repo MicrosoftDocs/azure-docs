@@ -16,9 +16,6 @@ ms.custom: seo-lt-2023
 
 You can migrate an instance of Azure Database for PostgreSQL – Single Server to Azure Database for PostgreSQL – Flexible Server by using the Azure portal. In this tutorial, we perform migration of a sample database from an Azure Database for PostgreSQL single server to a PostgreSQL flexible server using the Azure portal.
 
->[!NOTE]
-> The migration tool is in public preview.
-
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
@@ -38,6 +35,8 @@ In this tutorial, you learn to:
 
 2. Allowlist all required extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allow-list-required-extensions). It is important to allowlist the extensions before you initiate a migration using this tool.
 
+3. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it is skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./concepts-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
+
 ## Configure the migration task
 
 The migration tool comes with a simple, wizard-based experience on the Azure portal. Here's how to start:
@@ -46,7 +45,7 @@ The migration tool comes with a simple, wizard-based experience on the Azure por
 
 2. Go to your Azure Database for PostgreSQL Flexible Server target.
 
-3. In the **Overview** tab of the Flexible Server, on the left menu, scroll down to **Migration (preview)** and select it.
+3. In the **Overview** tab of the Flexible Server, on the left menu, scroll down to **Migration** and select it.
 
     :::image type="content" source="./media/concepts-single-to-flexible/azure-portal-overview-page.png" alt-text="Screenshot of the Overview page." lightbox="./media/concepts-single-to-flexible/azure-portal-overview-page.png":::
 
@@ -79,6 +78,9 @@ After deploying the Flexible Server, follow the steps 3 to 5 under [Configure th
 ### Setup tab
 
 The first tab is **Setup**. Just in case you missed it, allowlist all required extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allow-list-required-extensions). It is important to allowlist the extensions before you initiate a migration using this tool.
+
+>[!NOTE]
+> If TIMESCALEDB, PG_PARTMAN, POSTGRES_FDW or POSTGIS_TIGER_DECODER extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
 
 :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-setup.png" alt-text="Screenshot of the details belonging to Set up tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-setup.png":::
 
@@ -128,7 +130,7 @@ The **Review + create** tab summarizes all the details for creating the migratio
 
 ## Monitor the migration
 
-After you select the **Create** button, a notification appears in a few seconds to say that the migration creation is successful. You are redirected automatically to the **Migration (Preview)** page of Flexible Server. That page has a new entry for the recently created migration.
+After you select the **Create** button, a notification appears in a few seconds to say that the migration creation is successful. You are redirected automatically to the **Migration** page of Flexible Server. That page has a new entry for the recently created migration.
 
 :::image type="content" source="./media/concepts-single-to-flexible/azure-portal-migration-grid-monitor.png" alt-text="Screenshot of recently created migration details." lightbox="./media/concepts-single-to-flexible/azure-portal-migration-grid-monitor.png":::
 

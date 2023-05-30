@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Yardi eLearning | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Yardi eLearning'
 description: Learn how to configure single sign-on between Azure Active Directory and Yardi eLearning.
 services: active-directory
 author: jeevansd

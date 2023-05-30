@@ -5,7 +5,7 @@ author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
-ms.date: 11/25/2022
+ms.date: 05/23/2023
 ms.custom: engagement-fy23
 ---
 
@@ -35,7 +35,7 @@ The table summarizes VMware vSphere hypervisor requirements.
 --- | ---
 **VMware vCenter Server** | Version 5.5, 6.0, 6.5, 6.7, 7.0.
 **VMware vSphere ESXi host** | Version 5.5, 6.0, 6.5, 6.7, 7.0.
-**vCenter Server permissions** | Agentless migration uses the [Migrate Appliance](migrate-appliance.md). The appliance needs these permissions in vCenter Server:<br/><br/> - **Datastore.Browse** (Datastore -> Browse datastore): Allow browsing of VM log files to troubleshoot snapshot creation and deletion.<br/><br/> - **Datastore.FileManagement** (Datastore -> Low level file operations): Allow read/write/delete/rename operations in the datastore browser, to troubleshoot snapshot creation and deletion.<br/><br/> - **VirtualMachine.Config.ChangeTracking** (Virtual machine -> Disk change tracking): Allow enable or disable change tracking of VM disks, to pull changed blocks of data between snapshots.<br/><br/> - **VirtualMachine.Config.DiskLease** (Virtual machine -> Disk lease): Allow disk lease operations for a VM, to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead** (Virtual machine -> Provisioning -> Allow read-only disk access): Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess** (Virtual machine -> Provisioning -> Allow disk access): Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles** (Virtual machine -> Provisioning -> Allow virtual machine download): Allows read operations on files associated with a VM, to download the logs and troubleshoot if failure occurs.<br/><br/> - **VirtualMachine.State.\*** (Virtual machine -> Snapshot management): Allow creation and management of VM snapshots for replication.<br/><br/> - **VirtualMachine.Interact.PowerOff** (Virtual machine -> Interaction -> Power off): Allow the VM to be powered off during migration to Azure.
+**vCenter Server permissions** | Agentless migration uses the [Migrate Appliance](migrate-appliance.md). The appliance needs these permissions in vCenter Server:<br/><br/> - **Datastore.Browse** (Datastore -> Browse datastore): Allow browsing of VM log files to troubleshoot snapshot creation and deletion.<br/><br/> - **Datastore.FileManagement** (Datastore -> Low level file operations): Allow read/write/delete/rename operations in the datastore browser, to troubleshoot snapshot creation and deletion.<br/><br/> - **VirtualMachine.Config.ChangeTracking** (Virtual machine -> Disk change tracking): Allow enable or disable change tracking of VM disks, to pull changed blocks of data between snapshots.<br/><br/> - **VirtualMachine.Config.DiskLease** (Virtual machine -> Disk lease): Allow disk lease operations for a VM, to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead** (Virtual machine -> Provisioning -> Allow read-only disk access): Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess** (Virtual machine -> Provisioning -> Allow disk access): Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles** (Virtual machine -> Provisioning -> Allow virtual machine download): Allows read operations on files associated with a VM, to download the logs and troubleshoot if failure occurs.<br/><br/> - **VirtualMachine.State.\*** (Virtual machine -> Snapshot management): Allow creation and management of VM snapshots for replication.<br/><br/> - **VirtualMachine.Interact.PowerOff** (Virtual machine > Interaction > Power off): Allow the VM to be powered off during migration to Azure.
 **Multiple vCenter Servers** | A single appliance can connect to up to 10 vCenter Servers.
 
 
@@ -45,24 +45,25 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 
 **Support** | **Details**
 --- | ---
-**Supported operating systems** | You can migrate [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](../virtual-machines/linux/endorsed-distros.md) operating systems that are supported by Azure.
+**Supported operating systems** | You can migrate [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](../virtual-machines/linux/endorsed-distros.md) operating systems supported by Azure.
 **Windows VMs in Azure** | You might need to [make some changes](prepare-for-migration.md#verify-required-changes-before-migrating) on VMs before migration.
-**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux  8.x, 7.x, 6.x <br/> - Cent OS 8.x, 7.x, 6.x</br> - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3<br/> - Ubuntu 20.04, 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 10, 9, 8, 7<br/> - Oracle Linux 8, 7.7-CI, 7.7, 6<br/> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.<br/> The `SELinux Enforced` setting is currently not fully supported. It will cause Dynamic IP setup and Microsoft Azure Linux Guest agent (waagent/WALinuxAgent) installation to fail. You can still migrate and use the VM.
+**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux  8.x, 7.x, 6.x <br/> - Cent OS 8.x, 7.x, 6.x</br> - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3<br/> - Ubuntu 20.04, 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 10, 9, 8, 7<br/> - Oracle Linux 8, 7.7-CI, 7.7, 6<br/> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.<br/> The `SELinux Enforced` setting is currently not fully supported. It causes Dynamic IP setup and Microsoft Azure Linux Guest agent (waagent/WALinuxAgent) installation to fail. You can still migrate and use the VM.
 **Boot requirements** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.
-**Disk size** | up to 2 TB OS disk for gen 1 VM and gen 2 VMs; 32 TB for data disks.
+**Disk size** | Up to 2-TB OS disk for gen 1 VM and gen 2 VMs; 32 TB for data disks.
 **Disk limits** |  Up to 60 disks per VM.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
 **Independent disks** | Not supported.
 **RDM/passthrough disks** | If VMs have RDM or passthrough disks, these disks won't be replicated to Azure.
 **NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
+**ReiserFS** | Not supported.
 **iSCSI targets** | VMs with iSCSI targets aren't supported for agentless migration.
 **Multipath IO** | Not supported.
 **Storage vMotion** | Supported. 
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
-**Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
+**Target disk** | VMs can be migrated only to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
 **Simultaneous replication** | Up to 300 simultaneously replicating VMs per vCenter Server with one appliance. Up to 500 simultaneously replicating VMs per vCenter Server when an additional [scale-out appliance](./how-to-scale-out-for-migration.md) is deployed.
 **Automatic installation of Azure VM agent (Windows and Linux Agent)** | Supported for Windows Server 2008 R2 onwards. <br/> Supported for RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04, Ubuntu 19.04, Ubuntu 19.10, Ubuntu 20.04.
 
@@ -139,13 +140,14 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.
 **UEFI - Secure boot**         | Not supported for migration.
 **Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
-**Disk size** | up to 2 TB OS disk for gen 1 VM; up to 4 TB OS disk for gen 2 VM; 32 TB for data disks.
+**Disk size** | up to 2-TB OS disk for gen 1 VM; up to 4-TB OS disk for gen 2 VM; 32 TB for data disks.
 **Disk limits** |  Up to 63 disks per VM.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
 **Independent disks** | Supported.
 **Passthrough disks** | Supported.
 **NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
+**ReiserFS** | Not supported.
 **iSCSI targets** | Supported.
 **Multipath IO** | Not supported.
 **Storage vMotion** | Supported
@@ -160,7 +162,7 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2016 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
 
 - Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements) for VMware vSphere.
-- MySQL must be installed on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).
+- Install MySQL on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).
 - Learn about URLs that the replication appliance needs to access in [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
 - Review the [ports](migrate-replication-appliance.md#port-access) the replication appliance needs to access.
 
@@ -189,7 +191,7 @@ Shared VHD | Not supported.
 FC disk | Not supported.
 BitLocker | Not supported.<br/><br/> BitLocker must be disabled before you migrate the machine.
 VM name | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and hyphens.<br/><br/> The machine name must start and end with a letter or number.
-Connect after migration-Windows | To connect to Azure VMs running Windows after migration:<br/><br/> - Before migration, enable RDP on the on-premises VM.<br/><br/> Make sure that TCP, and UDP rules are added for the **Public** profile, and that RDP is allowed in **Windows Firewall** > **Allowed Apps**, for all profiles.<br/><br/> For site-to-site VPN access, enable RDP and allow RDP in **Windows Firewall** -> **Allowed apps and features** for **Domain and Private** networks.<br/><br/> In addition, check that the operating system's SAN policy is set to **OnlineAll**. [Learn more](prepare-for-migration.md).
+Connect after migration-Windows | To connect to Azure VMs running Windows after migration:<br/><br/> - Before migration, enable RDP on the on-premises VM.<br/><br/> Make sure that TCP and UDP rules are added for the **Public** profile, and that RDP is allowed in **Windows Firewall** > **Allowed Apps** for all profiles.<br/><br/> For site-to-site VPN access, enable RDP and allow RDP in **Windows Firewall** > **Allowed apps and features** for **Domain and Private** networks.<br/><br/> In addition, check that the operating system's SAN policy is set to **OnlineAll**. [Learn more](prepare-for-migration.md).
 Connect after migration-Linux | To connect to Azure VMs after migration using SSH:<br/><br/> Before migration, on the on-premises machine, check that the Secure Shell service is set to Start, and that firewall rules allow an SSH connection.<br/><br/> After failover, on the Azure VM, allow incoming connections to the SSH port for the network security group rules on the failed over VM, and for the Azure subnet to which it's connected.<br/><br/> In addition, add a public IP address for the VM.  
 
 

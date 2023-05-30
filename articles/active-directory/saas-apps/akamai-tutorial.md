@@ -62,7 +62,7 @@ Akamai EAA is configured as a single application on the Azure AD. Admin can conf
 
 #### Integration Scenario 2
 
-Akamai EAA Application is set up individually on the Azure AD Portal. Admin can configure Individual he Conditional Access policy on the Application(s) and once the conditions are satisfied users can directly be redirected to the specific application.
+Akamai EAA Application is set up individually on the Azure portal. Admin can configure Individual he Conditional Access policy on the Application(s) and once the conditions are satisfied users can directly be redirected to the specific application.
 
 **Pros**:
 

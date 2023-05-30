@@ -30,6 +30,8 @@
       href: security-planning.md
     - name: Create emergency accounts
       href: security-emergency-access.md
+    - name: Protected actions
+      href: protected-actions-overview.md
 - name: How-to guides
   items:
   - name: Prerequisites
@@ -54,8 +56,6 @@
       href: groups-create-eligible.md
     - name: Assign roles to groups
       href: groups-assign-role.md
-    - name: Make a group eligible for a role in PIM
-      href: groups-pim-eligible.md
     - name: Assign roles with scope using PowerShell
       href: custom-assign-powershell.md
     - name: Assign roles using Microsoft Graph
@@ -86,6 +86,10 @@
       href: admin-units-members-dynamic.md
     - name: Assign roles with scope
       href: admin-units-assign-roles.md
+  - name: Protected actions
+    items:
+    - name: Add, remove, or test
+      href: protected-actions-add.md
   - name: Delegate
     items:
     - name: Delegate admin role

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Klaxoon SAML | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Klaxoon SAML'
 description: Learn how to configure single sign-on between Azure Active Directory and Klaxoon SAML.
 services: active-directory
 author: jeevansd

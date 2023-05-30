@@ -1,20 +1,20 @@
 ---
-title: Enable Caching for ACR (preview)- Azure portal
+title: Enable Cache for ACR (preview) - Azure portal
 description: Learn how to enable Registry Cache in your Azure Container Registry using Azure portal.
 ms.topic: tutorial
 ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---
 
-# Enable Caching for ACR (Preview) - Azure portal
+# Enable Cache for ACR (Preview) - Azure portal
 
-This article is part two of a four-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. This article walks you through the steps of enabling Caching for ACR by using the Azure portal.
+This article is part two of a six-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Cache for ACR, its features, benefits, and preview limitations. This article walks you through the steps of enabling Cache for ACR by using the Azure portal without authentication.
 
 ## Prerequisites
 
-* Sign in to the [Azure portal](https://ms.portal.azure.com/). 
+* Sign in to the [Azure portal](https://ms.portal.azure.com/)
 
-## Configure Caching for ACR (preview) - Azure portal
+## Configure Cache for ACR (preview) - Azure portal
 
 Follow the steps to create cache rule in the [Azure portal](https://portal.azure.com). 
 
@@ -40,7 +40,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 5. Enter the **Rule name**.
 
-6. Select **Source** Registry from the dropdown menu. Currently, Caching for ACR only supports **Docker Hub** and **Microsoft Artifact Registry**. 
+6. Select **Source** Registry from the dropdown menu. Currently, Cache for ACR only supports **Docker Hub** and **Microsoft Artifact Registry**. 
 
 7. Enter the **Repository Path** to the artifacts you want to cache.
 
@@ -54,11 +54,17 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 10. Select on **Save** 
 
-11. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`
+11. Pull the image from your cache using the Docker command by the registry login server name, repository name, and its desired tag.
+
+    - For example, to pull the image from the repository `hello-world` with its desired tag `latest` for a given registry login server `myregistry.azurecr.io`.
+
+    ```azurecli-interactive
+     docker pull myregistry.azurecr.io/hello-world:latest
+    ```
 
 ## Next steps
 
-* Advance to the [next article](tutorial-enable-registry-cache-auth.md) to enable the Caching for ACR (preview) with authentication using Azure portal.
+* Advance to the [next article](tutorial-enable-registry-cache-cli.md) to enable the Cache for ACR (preview) using Azure CLI.
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md

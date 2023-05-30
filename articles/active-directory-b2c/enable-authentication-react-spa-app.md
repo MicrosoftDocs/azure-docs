@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/07/2022
+ms.date: 04/24/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -31,7 +31,6 @@ You can use an existing React app, or [create a new React App](https://reactjs.o
 ```
 npx create-react-app my-app
 cd my-app
-npm start
 ```
 
 ## Step 2: Install the dependencies
@@ -77,7 +76,7 @@ The sample code is made up of the following components. Add these components fro
   > [!IMPORTANT]
   > If the App component file name is `App.js`, change it to `App.jsx`.
 
-- [src/pages/Hello.jsx](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/6-AdvancedScenarios/1-call-api-obo/SPA/src/pages/Hello.jsx) - Demonstrate how to call a protected resource with OAuth2 bearer token.
+- [src/pages/Hello.jsx](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/6-AdvancedScenarios/1-call-api-obo/SPA/src/pages/Home.jsx) - Demonstrate how to call a protected resource with OAuth2 bearer token.
   - It uses the [useMsal](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-react/docs/hooks.md) hook that returns the PublicClientApplication instance.
   - With PublicClientApplication instance, it acquires an access token to call the REST API.
   - Invokes the [callApiWithToken](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/4-Deployment/2-deploy-static/App/src/fetch.js) function to fetch the data from the REST API and renders the result using the **DataDisplay** component.

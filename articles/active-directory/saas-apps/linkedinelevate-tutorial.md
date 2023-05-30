@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with LinkedIn Elevate | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with LinkedIn Elevate'
 description: Learn how to configure single sign-on between Azure Active Directory and LinkedIn Elevate.
 services: active-directory
 author: jeevansd

@@ -3,7 +3,7 @@ title: Enable partitioning in Azure Service Bus Premium namespaces
 description: This article explains how to enable partitioning in Azure Service Bus Premium namespaces by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
 ms.date: 10/12/2022 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: ignite-2022, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
@@ -15,7 +15,7 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 
 
 > [!NOTE]
-> - This feature is currently available only in the East US and South Central US regions, with other regions being added during the public preview.
+> - This feature is currently available only in the East US, North Europe and West Europe regions, with other regions being added during the public preview.
 > - Partitioning is available at entity creation for namespaces in the Premium SKU. Any previously existing partitioned entities in Premium namespaces continue to work as expected.
 > - It's not possible to change the partitioning option on any existing namespace. You can only set the option when you create a namespace.
 > - The assigned messaging units are always a multiplier of the amount of partitions in a namespace, and are equally distributed across the partitions. For example, in a namespace with 16MU and 4 partitions, each partition will be assigned 4MU.
@@ -76,4 +76,3 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
 - [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-

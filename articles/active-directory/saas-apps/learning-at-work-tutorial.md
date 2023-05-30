@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Learning at Work | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Learning at Work'
 description: Learn how to configure single sign-on between Azure Active Directory and Learning at Work.
 services: active-directory
 author: jeevansd

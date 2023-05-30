@@ -7,7 +7,8 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: overview
+ms.custom: build-2023
+ms.topic: whats-new
 ms.date: 12/27/2022
 ms.author: pafarley
 ---
@@ -16,9 +17,58 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## May 2023
+
+### Image Analysis 4.0 Product Recognition (public preview)
+
+The Product Recognition APIs let you analyze photos of shelves in a retail store. You can detect the presence and absence of products and get their bounding box coordinates. Use it in combination with model customization to train a model to identify your specific products. You can also compare Product Recognition results to your store's planogram document. [Product Recognition](./concept-shelf-analysis.md).
+
+## April 2023
+
+### Face limited access tokens
+
+Independent software vendors (ISVs) can manage the Face API usage of their clients by issuing access tokens that grant access to Face features which are normally gated. This allows client companies to use the Face API without having to go through the formal approval process. [Use limited access tokens](how-to/identity-access-token.md).
+
+## March 2023
+
+### Computer Vision Image Analysis 4.0 SDK public preview
+
+The [Florence foundation model](https://www.microsoft.com/en-us/research/project/projectflorence/) is now integrated into Azure Computer Vision. The improved Vision Services enable developers to create market-ready, responsible computer vision applications across various industries. Customers can now seamlessly digitize, analyze, and connect their data to natural language interactions, unlocking powerful insights from their image and video content to support accessibility, drive acquisition through SEO, protect users from harmful content, enhance security, and improve incident response times. For more information, see [Announcing Microsoft's Florence foundation model](https://aka.ms/florencemodel).
+
+### Image Analysis 4.0 SDK (public preview)
+
+Image Analysis 4.0 is now available through client library SDKs in C#, C++, and Python. This update also includes the Florence-powered image captioning and dense captioning at human parity performance.
+
+### Image Analysis V4.0 Captioning and Dense Captioning (public preview):
+
+"Caption" replaces "Describe" in V4.0 as the significantly improved image captioning feature rich with details and semantic understanding. Dense Captions provides more detail by generating one sentence descriptions of up to 10 regions of the image in addition to describing the whole image. Dense Captions also returns bounding box coordinates of the described image regions. There's also a new gender-neutral parameter to allow customers to choose whether to enable probabilistic gender inference for alt-text and Seeing AI applications. Automatically deliver rich captions, accessible alt-text, SEO optimization, and intelligent photo curation to support digital content. [Image captions](./concept-describe-images-40.md).
+
+### Video summary and frame locator (public preview): 
+Search and interact with video content in the same intuitive way you think and write. Locate relevant content without the need for additional metadata. Available only in [Vision Studio](https://aka.ms/VisionStudio).
+
+
+### Image Analysis 4.0 model customization (public preview)
+
+You can now create and train your own [custom image classification and object detection models](./concept-model-customization.md), using Vision Studio or the v4.0 REST APIs.
+
+### Image Retrieval APIs (public preview)
+
+The [Image Retrieval APIs](./how-to/image-retrieval.md), part of the Image Analysis 4.0 API, enable the _vectorization_ of images and text queries. They let you convert images and text to coordinates in a multi-dimensional vector space. You can now search with natural language and find relevant images using vector similarity search.
+
+### Background removal APIs (public preview)
+
+As part of the Image Analysis 4.0 API, the [Background removal API](./concept-background-removal.md) lets you remove the background of an image. This operation can either output an image of the detected foreground object with a transparent background, or a grayscale alpha matte image showing the opacity of the detected foreground object.
+
+### Computer Vision 3.0 & 3.1 previews deprecation
+
+The preview versions of the Computer Vision 3.0 and 3.1 APIs are scheduled to be retired on September 30, 2023. Customers won't be able to make any calls to these APIs past this date. Customers are encouraged to migrate their workloads to the generally available (GA) 3.2 API instead. Mind the following changes when migrating from the preview versions to the 3.2 API:
+- The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls take an optional _model-version_ parameter that you can use to specify which AI model to use. By default, they will use the latest model.
+- The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls also return a `model-version` field in successful API responses. This field reports which model was used.
+- Computer Vision 3.2 API uses a different error-reporting format. See the [API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) to learn how to adjust any error-handling code.
+
 ## October 2022
 
-### Computer Vision Image Analysis 4.0 public preview
+### Computer Vision Image Analysis 4.0 (public preview)
 
 Image Analysis 4.0 has been released in public preview. The new API includes image captioning, image tagging, object detection, smart crops, people detection, and Read OCR functionality, all available through one Analyze Image operation. The OCR is optimized for general, non-document images in a performance-enhanced synchronous API that makes it easier to embed OCR-powered experiences in your workflows.
 

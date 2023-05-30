@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SAP Business ByDesign | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SAP Business ByDesign'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Business ByDesign.
 services: active-directory
 author: jeevansd

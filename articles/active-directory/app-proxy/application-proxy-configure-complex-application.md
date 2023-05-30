@@ -69,13 +69,13 @@ To publish complex distributed app through Application Proxy with application se
 
 3. On the Manage and configure application segments page, select "+ Add app segment"
 
-    :::image type="content" source="./media/application-proxy-configure-complex-application/add-application-segment-1.png" alt-text="Screenshot pf Manage and configure application segment blade.":::
+    :::image type="content" source="./media/application-proxy-configure-complex-application/add-application-segment-1.png" alt-text="Screenshot of Manage and configure application segment blade.":::
 
 4. In the Internal Url field, enter the internal URL for your app.
 
 5. In the External Url field, drop down the list and select the custom domain you want to use.
 
-6. Add CORS Rules (optional).  For more information see [Configuring CORS Rule](https://learn.microsoft.com/graph/api/resources/corsconfiguration_v2?view=graph-rest-beta)
+6. Add CORS Rules (optional).  For more information see [Configuring CORS Rule](/graph/api/resources/corsconfiguration_v2?view=graph-rest-beta).
 
 7. Select Create.
 

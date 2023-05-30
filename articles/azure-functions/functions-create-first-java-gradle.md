@@ -5,7 +5,7 @@ author: KarlErickson
 ms.devlang: java
 ms.custom: devx-track-java
 ms.author: karler
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 04/08/2020
 ---
 

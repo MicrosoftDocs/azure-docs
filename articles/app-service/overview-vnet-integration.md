@@ -3,8 +3,9 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 01/20/2023
+ms.date: 05/24/2023
 ms.author: madsd
+ms.custom: UpdateFrequency3
 
 ---
 # <a name="regional-virtual-network-integration"></a>Integrate your app with an Azure virtual network
@@ -53,7 +54,7 @@ Learn [how to enable virtual network integration](./configure-vnet-integration-e
 
 ## <a name="how-regional-virtual-network-integration-works"></a> How virtual network integration works
 
-Apps in App Service are hosted on worker roles. Virtual network integration works by mounting virtual interfaces to the worker roles with addresses in the delegated subnet. Because the from address is in your virtual network, it can access most things in or through your virtual network like a VM in your virtual network would.
+Apps in App Service are hosted on worker roles. Virtual network integration works by mounting virtual interfaces to the worker roles with addresses in the delegated subnet. The virtual interfaces used aren't resources customers have direct access to. Because the from address is in your virtual network, it can access most things in or through your virtual network like a VM in your virtual network would.
 
 :::image type="content" source="./media/overview-vnet-integration/vnetint-how-regional-works.png" alt-text="Diagram that shows how virtual network integration works.":::
 
@@ -61,23 +62,15 @@ When virtual network integration is enabled, your app makes outbound calls throu
 
 When all traffic routing is enabled, all outbound traffic is sent into your virtual network. If all traffic routing isn't enabled, only private traffic (RFC1918) and service endpoints configured on the integration subnet is sent into the virtual network. Outbound traffic to the internet is routed directly from the app.
 
-The feature supports two virtual interfaces per worker. Two virtual interfaces per worker mean two virtual network integrations per App Service plan. The apps in the same App Service plan can only use one of the virtual network integrations to a specific subnet. If you need an app to connect to more virtual networks or more subnets in the same virtual network, you need to create another App Service plan. The virtual interfaces used aren't resources customers have direct access to.
+For Windows App Service plans, the virtual network integration feature supports two virtual interfaces per worker. Two virtual interfaces per worker mean two virtual network integrations per App Service plan. In other words, a Windows App Service plan can have virtual network integrations with up to two subnets/virtual networks. The apps in the same App Service plan can only use one of the virtual network integrations to a specific subnet, meaning an app can only have a single virtual network integration at a given time. Linux App Service plans support only one virtual network integration per plan.
 
 ## Subnet requirements
 
-Virtual network integration depends on a dedicated subnet. When you create a subnet, the Azure subnet consumes five IPs from the start. One address is used from the integration subnet for each plan instance. If you scale your app to four instances, then four addresses are used.
+Virtual network integration depends on a dedicated subnet. When you create a subnet, the Azure subnet consumes five IPs from the start. One address is used from the integration subnet for each App Service plan instance. If you scale your app to four instances, then four addresses are used.
 
-When you scale up or down in size, the required address space is doubled for a short period of time. The scale operation affects the real, available supported instances for a given subnet size. The following table shows both the maximum available addresses per CIDR block and the effect the available addresses has on horizontal scale.
+When you scale up/down in size or in/out in number of instances, the required address space is doubled for a short period of time. The scale operation affects the real, available supported instances for a given subnet size. Platform upgrades need free IP addresses to ensure upgrade can happen without interruptions to outbound traffic. Finally, after scale up, down or in operations complete, there might be a short period of time before IP addresses are released. 
 
-| CIDR block size | Maximum available addresses | Maximum horizontal scale (instances)<sup>*</sup> |
-|-----------------|-------------------------|---------------------------------|
-| /28             | 11                      | 5                               |
-| /27             | 27                      | 13                              |
-| /26             | 59                      | 29                              |
-
-<sup>*</sup>Assumes that you need to scale up or down in either size or SKU at some point.
-
-Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /27 is required. If the subnet already exists before integrating through the portal, you can use a /28 subnet.
+Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. You should also reserve IP addresses for platform upgrades. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /27 is required. If the subnet already exists before integrating through the portal, you can use a /28 subnet.
 
 >[!NOTE]
 > Windows Containers uses an additional IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If you have for example 10 Windows Container App Service plan instances with 4 apps running, you will need 50 IP addresses and additional addresses to support horizontal (up/down) scale. 
@@ -181,7 +174,7 @@ There are some limitations with using virtual network integration:
 * The integration subnet can't have [service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) enabled.
 * The integration subnet can be used by only one App Service plan.
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
-* You can't have more than two virtual network integrations per App Service plan. Multiple apps in the same App Service plan can use the same virtual network integration. Currently you can only configure the first integration through Azure portal. The second integration must be created using Azure Resource Manager templates or Azure CLI commands.
+* You can't have more than two virtual network integrations per Windows App Service plan. You can't have more than one virtual network integration per Linux App Service plan. Multiple apps in the same App Service plan can use the same virtual network integration.
 * You can't change the subscription of an app or a plan while there's an app that's using virtual network integration.
 
 ## Access on-premises resources

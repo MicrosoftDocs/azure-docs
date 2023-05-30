@@ -4,57 +4,65 @@ titleSuffix: Azure Web PubSub Service
 description: How to access key vault in private network through Shared Private Endpoints
 author: ArchangelSDY
 ms.service: azure-web-pubsub
-ms.topic: article
-ms.date: 01/03/2023
+ms.topic: how-to
+ms.date: 03/27/2023
 ms.author: dayshen
 ---
 
-# Access Key Vault in private network through Shared Private Endpoints
+# Access Key Vault in private network through shared private endpoints
 
-Azure Web PubSub Service can access your Key Vault in private network through Shared Private Endpoints. In this way you don't have to expose your Key Vault on public network.
+Azure Web PubSub Service can access your Key Vault in a private network through shared private endpoints connections. This article shows you how to configure your Web PubSub service instance to route outbound calls to a key vault through a shared private endpoint rather than public network.  
 
    :::image type="content" alt-text="Diagram showing architecture of shared private endpoint." source="media\howto-secure-shared-private-endpoints-key-vault\shared-private-endpoint-overview.png" :::
 
-## Shared Private Link Resources Management
-
-Private endpoints of secured resources that are created through Azure Web PubSub Service APIs are referred to as *shared private link resources*. This is because you're "sharing" access to a resource, such as an Azure Key Vault, that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/). These private endpoints are created inside Azure Web PubSub Service execution environment and aren't directly visible to you.
+Private endpoints of secured resources created through Azure Web PubSub Service APIs are referred to as *shared private-link resources*.  This is because you're "sharing" access to a resource, such as an Azure Key Vault, that has been integrated with the [Azure Private Link service](../private-link/private-link-overview.md). These private endpoints are created inside the Azure Web PubSub Service execution environment and aren't directly visible to you.
 
 > [!NOTE]
-> The examples in this article are based on the following assumptions:
+> The examples in this article use the following resource IDs:
+>
 > * The resource ID of this Azure Web PubSub Service is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webpubsub/contoso-webpubsub .
-> * The resource ID of Azure Key Vault is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.KeyVault/vaults/contoso-kv_.
+> * The resource ID of Azure Key Vault is */subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.KeyVault/vaults/contoso-kv*.
+>
+> When following the steps, substitute the resource IDs of your Azure Web PubSub Service and Azure Key Vault.
 
-The rest of the examples show how the *contoso-webpubsub* service can be configured so that its outbound calls to Key Vault go through a private endpoint rather than public network.
+## Prerequisites
 
-### Step 1: Create a shared private link resource to the Key Vault
+* An Azure subscription, if you don't have one, create a [free account].(<https://azure.microsoft.com/free/?WT.mc_id=A261C142F>).
+* [Azure CLI](/cli/azure/install-azure-cli) 2.25.0 or later (if using Azure CLI)._
+* An Azure Web PubSub Service instance in a **Standard** pricing tier or higher
+* An Azure Key Vault resource.
+
+### 1. Create a shared private endpoint resource to the Key Vault
 
 #### [Azure portal](#tab/azure-portal)
 
-1. In the Azure portal, go to your Azure Web PubSub Service resource.
-1. In the menu pane, select **Networking**. Switch to **Private access** tab.
-1. Click **Add shared private endpoint**.
+1. In the Azure portal, go to your Azure Web PubSub Service resource page.
+1. Select **Networking** from the menu.
+1. Select the **Private access** tab.
+1. Select **Add shared private endpoint**.
 
    :::image type="content" alt-text="Screenshot of shared private endpoints management." source="media\howto-secure-shared-private-endpoints-key-vault\portal-shared-private-endpoints-management.png" lightbox="media\howto-secure-shared-private-endpoints-key-vault\portal-shared-private-endpoints-management.png" :::
 
-1. Fill in a name for the shared private endpoint.
-1. Select the target linked resource either by selecting from your owned resources or by filling a resource ID.
-1. Click **Add**.
+1. Enter a **Name** for the shared private endpoint.
+1. Enter your key vault resource by choosing **Select from your resources** and selecting your resource from the lists, or by choosing **Specify resource ID** and entering your key vault resource ID.
+1. Enter *please approve* for the **Request message**.
+1. Select **Add**.
 
    :::image type="content" alt-text="Screenshot of adding a shared private endpoint." source="media\howto-secure-shared-private-endpoints-key-vault\portal-shared-private-endpoints-add.png" :::
 
-1. The shared private endpoint resource will be in **Succeeded** provisioning state. The connection state is **Pending** approval at target resource side.
+The shared private endpoint resource provisioning state is **Succeeded**. The connection state is **Pending** approval at target resource side.
 
    :::image type="content" alt-text="Screenshot of an added shared private endpoint." source="media\howto-secure-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" lightbox="media\howto-secure-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" :::
 
 #### [Azure CLI](#tab/azure-cli)
 
-You can make the following API call with the [Azure CLI](/cli/azure/) to create a shared private link resource:
+You can make the following API call with the [Azure CLI](/cli/azure/) to create a shared private link resource.  Replace the `uri` with your own value.
 
-```dotnetcli
+```azurecli
 az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webpubsub/contoso-webpubsub/sharedPrivateLinkResources/kv-pe?api-version=2022-08-01-preview --body @create-pe.json
 ```
 
-The contents of the *create-pe.json* file, which represent the request body to the API, are as follows:
+The contents of the *create-pe.json* file, which represents the request body to the API, are as follows:
 
 ```json
 {
@@ -67,35 +75,37 @@ The contents of the *create-pe.json* file, which represent the request body to t
 }
 ```
 
-The process of creating an outbound private endpoint is a long-running (asynchronous) operation. As in all asynchronous Azure operations, the `PUT` call returns an `Azure-AsyncOperation` header value that looks like the following:
+The process of creating an outbound private endpoint is a long-running (asynchronous) operation. As in all asynchronous Azure operations, the `PUT` call returns an `Azure-AsyncOperation` header value that looks like the following output:
 
-```plaintext
+```output
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webpubsub/contoso-webpubsub/operationStatuses/c0786383-8d5f-4554-8d17-f16fcf482fb2?api-version=2022-08-01-preview"
 ```
 
-You can poll this URI periodically to obtain the status of the operation.
+You can poll this URI periodically to obtain the status of the operation. Wait for the status to change to "Succeeded" before proceeding to the next steps.
 
-If you're using the CLI, you can poll for the status by manually querying the `Azure-AsyncOperationHeader` value,
+You can poll for the status by manually querying the `Azure-AsyncOperationHeader` value:
 
-```dotnetcli
+```azurecli
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webpubsub/contoso-webpubsub/operationStatuses/c0786383-8d5f-4554-8d17-f16fcf482fb2?api-version=2022-08-01-preview
 ```
 
-Wait until the status changes to "Succeeded" before proceeding to the next steps.
-
 -----
 
-### Step 2a: Approve the private endpoint connection for the Key Vault
+### 2. Approve the private endpoint connection for the Key Vault
+
+After the private endpoint connection has been created, you need to approve the connection request from the Azure Web PubSub Service in your key vault resource.
 
 #### [Azure portal](#tab/azure-portal)
 
-1. In the Azure portal, select the **Networking** tab of your Key Vault and navigate to **Private endpoint connections**. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
+1. In the Azure portal, go to your key vault resource page.
+1. Select **Networking** from the menu.
+1. Select **Private endpoint connections**.
 
    :::image type="content" alt-text="Screenshot of the Azure portal, showing the Private endpoint connections pane." source="media\howto-secure-shared-private-endpoints-key-vault\portal-key-vault-approve-private-endpoint.png" :::
 
-1. Select the private endpoint that Azure Web PubSub Service created. Click **Approve**.
-
-   Make sure that the private endpoint connection appears as shown in the following screenshot. It could take one to two minutes for the status to be updated in the portal.
+1. Select the private endpoint that Azure Web PubSub Service created.
+1. Select **Approve** and **Yes** to confirm.
+1. Wait for the private endpoint connection to be approved.
 
    :::image type="content" alt-text="Screenshot of the Azure portal, showing an Approved status on the Private endpoint connections pane." source="media\howto-secure-shared-private-endpoints-key-vault\portal-key-vault-approved-private-endpoint.png" :::
 
@@ -103,11 +113,11 @@ Wait until the status changes to "Succeeded" before proceeding to the next steps
 
 1. List private endpoint connections.
 
-    ```dotnetcli
-    az network private-endpoint-connection list -n <key-vault-resource-name>  -g <key-vault-resource-group-name> --type 'Microsoft.KeyVault/vaults'
+    ```azurecli
+    az network private-endpoint-connection list --name <key-vault-resource-name>  --resource-group <key-vault-resource-group-name> --type 'Microsoft.KeyVault/vaults'
     ```
 
-    There should be a pending private endpoint connection. Note down its ID.
+    There should be a pending private endpoint connection. Note its `id`.
 
     ```json
     [
@@ -128,27 +138,31 @@ Wait until the status changes to "Succeeded" before proceeding to the next steps
 
 1. Approve the private endpoint connection.
 
-    ```dotnetcli
+    ```azurecli
     az network private-endpoint-connection approve --id <private-endpoint-connection-id>
     ```
 
 -----
 
-### Step 2b: Query the status of the shared private link resource
+### 3. Query the status of the shared private link resource
 
-It takes minutes for the approval to be propagated to Azure Web PubSub Service. You can check the state using either Azure portal or Azure CLI.
+It takes a few minutes for the approval to be propagated to Azure Web PubSub Service. You can check the state using either Azure portal or Azure CLI.  The shared private endpoint between Azure Web PubSub Service and Azure Key Vault is active when the container state is approved.
 
 #### [Azure portal](#tab/azure-portal)
+
+1. Go to the Azure Web PubSub Service resource in the Azure portal.
+1. Select **Networking** from the menu.
+1. Select **Shared private link resources**.
 
    :::image type="content" alt-text="Screenshot of an approved shared private endpoint." source="media\howto-secure-shared-private-endpoints-key-vault\portal-shared-private-endpoints-approved.png" lightbox="media\howto-secure-shared-private-endpoints-key-vault\portal-shared-private-endpoints-approved.png" :::
 
 #### [Azure CLI](#tab/azure-cli)
 
-```dotnetcli
+```azurecli
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webpubsub/contoso-webpubsub/sharedPrivateLinkResources/func-pe?api-version=2022-08-01-preview
 ```
 
-This would return a JSON, where the connection state would show up as "status" under the "properties" section.
+This command would return a JSON, where the connection state would show up as "status" under the "properties" section.
 
 ```json
 {
@@ -164,17 +178,15 @@ This would return a JSON, where the connection state would show up as "status" u
 
 ```
 
-If the "Provisioning State" (`properties.provisioningState`) of the resource is `Succeeded` and "Connection State" (`properties.status`) is `Approved`, it means that the shared private link resource is functional and Azure Web PubSub Service can communicate over the private endpoint.
+When the "Provisioning State" (`properties.provisioningState`) of the resource is `Succeeded` and "Connection State" (`properties.status`) is `Approved`, the shared private link resource is functional, and Azure Web PubSub Service can communicate over the private endpoint.
 
 -----
 
-At this point, the private endpoint between Azure Web PubSub Service and Azure Key Vault is established.
-
-Now you can configure features like custom domain as usual. **You don't have to use a special domain for Key Vault**. DNS resolution is automatically handled by Azure Web PubSub Service.
+Now you can configure features like a custom domain as usual. You don't have to use a special domain for Key Vault. The Azure Web PubSub Service automatically handles DNS resolution.
 
 ## Next steps
 
 Learn more:
 
-+ [What are private endpoints?](../private-link/private-endpoint-overview.md)
-+ [Configure custom domain](howto-custom-domain.md)
+* [What are private endpoints?](../private-link/private-endpoint-overview.md)
+* [Configure a custom domain](howto-custom-domain.md)

@@ -1,9 +1,9 @@
 ---
 title: Create WebAssembly System Interface (WASI) node pools in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload (preview)
 description: Learn how to create a WebAssembly System Interface (WASI) node pool in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload on Kubernetes.
-services: container-service
 ms.topic: article
-ms.date: 10/19/2022
+ms.custom: devx-track-azurecli
+ms.date: 05/17/2023
 ---
 
 # Create WebAssembly System Interface (WASI) node pools in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload (preview)
@@ -23,13 +23,13 @@ You must have the latest version of Azure CLI installed.
 
 To install the aks-preview extension, run the following command:
 
-```azurecli
+```azurecli-interactive
 az extension add --name aks-preview
 ```
 
 Run the following command to update to the latest version of the extension released:
 
-```azurecli
+```azurecli-interactive
 az extension update --name aks-preview
 ```
 
@@ -85,21 +85,25 @@ az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mywasipoo
 
 The following example output shows the *mywasipool* has the *workloadRuntime* type of *WasmWasi*.
 
+```azurecli-interactive
+az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mywasipool --query workloadRuntime
+```
 ```output
-$ az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mywasipool --query workloadRuntime
 "WasmWasi"
 ```
 
 Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command:  
 
-```azurecli
+```azurecli-interactive
 az aks get-credentials -n myakscluster -g myresourcegroup
 ```
 
 Use `kubectl get nodes` to display the nodes in your cluster.
 
+```bash
+kubectl get nodes -o wide
+```
 ```output
-$ kubectl get nodes -o wide
 NAME                                 STATUS   ROLES   AGE    VERSION    INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
 aks-mywasipool-12456878-vmss000000   Ready    agent   123m   v1.23.12   <WASINODE_IP> <none>        Ubuntu 22.04.1 LTS   5.15.0-1020-azure   containerd://1.5.11+azure-2
 aks-nodepool1-12456878-vmss000000    Ready    agent   133m   v1.23.12   <NODE_IP>     <none>        Ubuntu 22.04.1 LTS   5.15.0-1020-azure   containerd://1.5.11+azure-2
@@ -107,9 +111,10 @@ aks-nodepool1-12456878-vmss000000    Ready    agent   133m   v1.23.12   <NODE_IP
 
 Use `kubectl describe node` to show the labels on a node in the WASI node pool. The following example shows the details of *aks-mywasipool-12456878-vmss000000*.
 
+```bash
+kubectl describe node aks-mywasipool-12456878-vmss000000
+```
 ```output
-$ kubectl describe node aks-mywasipool-12456878-vmss000000
-
 Name:               aks-mywasipool-12456878-vmss000000
 Roles:              agent
 Labels:             agentpool=mywasipool
@@ -117,34 +122,6 @@ Labels:             agentpool=mywasipool
                     kubernetes.azure.com/wasmtime-slight-v1=true
                     kubernetes.azure.com/wasmtime-spin-v1=true
 ...
-```
-
-Add a `RuntimeClass` for running [spin][spin] and [slight][slight] applications. Create a file named *wasm-runtimeclass.yaml* with the following content:
-
-```yml
-apiVersion: node.k8s.io/v1
-kind: RuntimeClass
-metadata:
-  name: "wasmtime-slight-v1"
-handler: "slight"
-scheduling:
-  nodeSelector:
-    "kubernetes.azure.com/wasmtime-slight-v1": "true"
----
-apiVersion: node.k8s.io/v1
-kind: RuntimeClass
-metadata:
-  name: "wasmtime-spin-v1"
-handler: "spin"
-scheduling:
-  nodeSelector:
-    "kubernetes.azure.com/wasmtime-spin-v1": "true"
-```
-
-Use `kubectl` to create the `RuntimeClass` objects.
-
-```azurecli-interactive
-kubectl apply -f wasm-runtimeclass.yaml
 ```
 
 ## Running WASM/WASI Workload
@@ -169,7 +146,7 @@ spec:
       runtimeClassName: wasmtime-slight-v1
       containers:
         - name: hello-slight
-          image: ghcr.io/deislabs/containerd-wasm-shims/examples/slight-rust-hello:latest
+          image: ghcr.io/deislabs/containerd-wasm-shims/examples/slight-rust-hello:v0.3.3
           command: ["/"]
           resources:
             requests:
@@ -198,14 +175,16 @@ spec:
 
 Use `kubectl` to run your example deployment:
 
-```azurecli-interactive
+```bash
 kubectl apply -f slight.yaml
 ```
 
 Use `kubectl get svc` to get the external IP address of the service.
 
+```bash
+kubectl get svc
+```
 ```output
-$ kubectl get svc
 NAME          TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)        AGE
 kubernetes    ClusterIP      10.0.0.1       <none>         443/TCP        10m
 wasm-slight   LoadBalancer   10.0.133.247   <EXTERNAL-IP>  80:30725/TCP   2m47s
@@ -214,7 +193,7 @@ wasm-slight   LoadBalancer   10.0.133.247   <EXTERNAL-IP>  80:30725/TCP   2m47s
 Access the example application at `http://EXTERNAL-IP/hello`. The following example uses `curl`.
 
 ```output
-$ curl http://EXTERNAL-IP/hello
+curl http://EXTERNAL-IP/hello
 hello
 ```
 
@@ -225,7 +204,7 @@ hello
 
 To remove the example deployment, use `kubectl delete`.
 
-```azurecli-interactive
+```bash
 kubectl delete -f slight.yaml
 ```
 

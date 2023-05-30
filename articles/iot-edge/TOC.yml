@@ -18,27 +18,15 @@
   items:
   - name: Develop modules
     items:
-    - name: Develop with Linux containers
+    - name: Develop modules using VS Code
       href: tutorial-develop-for-linux.md
-    - name: Develop with Visual Studio Code
-      href: how-to-vs-code-develop-module.md
-    - name: Develop with Visual Studio 2022
+    - name: Develop modules with Visual Studio
       href: how-to-visual-studio-develop-module.md
-    - name: C
-      href: tutorial-c-module.md
-    - name: C#
-      href: tutorial-csharp-module.md
-    - name: Java
-      href: tutorial-java-module.md
-    - name: Node.js
-      href: tutorial-node-module.md
-    - name: Python
-      href: tutorial-python-module.md
   - name: Deploy Azure services as modules
     items:
     - name: Filter data with Azure Functions
       href: tutorial-deploy-function.md
-    - name: Find averages with Azure Stream Analytics
+    - name: Deploy a Stream Analytics module
       href: tutorial-deploy-stream-analytics.md
     - name: Classify images with Custom Vision
       href: tutorial-deploy-custom-vision.md
@@ -98,6 +86,10 @@
     items:
     - name: Create an IoT Edge device
       href: how-to-create-iot-edge-device.md
+    - name: Configure device settings
+      href: configure-device.md
+    - name: Configure proxy support
+      href: how-to-configure-proxy-support.md
     - name: Linux containers on Linux hosts
       items:
       - name: Provision a single device
@@ -135,6 +127,8 @@
           href: how-to-use-create-options.md
         - name: Give modules access to a device's local storage
           href: how-to-access-host-storage-from-module.md
+    - name: Debug modules with VS Code
+      href: debug-module-vs-code.md
   - name: Deploy modules
     items:
     - name: Deploy to individual devices
@@ -197,8 +191,6 @@
         href: how-to-connect-downstream-iot-edge-device.md
       - name: Configure the API proxy module
         href: how-to-configure-api-proxy-module.md
-  - name: Configure proxy support
-    href: how-to-configure-proxy-support.md
   - name: Azure Blob Storage on IoT Edge
     items:
     - name: Understand blob storage at the edge
@@ -264,6 +256,14 @@
         href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
   - name: Configure
     items:
+    - name: Access TPM secrets
+      href: how-to-access-dtpm.md
+    - name: Configure nested virtualization for Windows VMs
+      href: nested-virtualization.md
+    - name: Connect a USB device
+      href: how-to-connect-usb-devices.md
+    - name: GPU acceleration
+      href: gpu-acceleration.md
     - name: Networking
       items:
       - name: Understand VM networking
@@ -274,16 +274,8 @@
         href: how-to-configure-multiple-nics.md
       - name: VM on a DMZ
         href: how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md
-    - name: Configure nested virtualization for Windows VMs
-      href: nested-virtualization.md
-    - name: Access TPM secrets
-      href: how-to-access-dtpm.md
-    - name: GPU acceleration
-      href: gpu-acceleration.md
     - name: Shared folders
       href: how-to-share-windows-folder-to-vm.md
-    - name: Connect a USB device
-      href: how-to-connect-usb-devices.md
   - name: Develop and debugging
     href: tutorial-develop-for-linux-on-windows.md
   - name: Create a hierarchy of IoT Edge devices
@@ -313,9 +305,9 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+    href: ../iot/iot-support-help.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: IoT Glossary
-    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+    href: ../iot/iot-glossary.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub
@@ -358,7 +350,9 @@
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Azure IoT Tools for Visual Studio Code
+  - name: Azure IoT Edge for Visual Studio Code
+    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge
+  - name: Azure IoT Hub extension for Visual Studio Code
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
   - name: Azure IoT Explorer tool
     href: https://github.com/Azure/azure-iot-explorer

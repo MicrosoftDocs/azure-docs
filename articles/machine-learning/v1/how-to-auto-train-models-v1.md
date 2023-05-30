@@ -10,7 +10,7 @@ author: manashgoswami
 ms.author: magoswam
 ms.reviewer: ssalgado 
 ms.date: 11/04/2022
-ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
 ---
 
 # Train a regression model with AutoML and Python (SDK v1)

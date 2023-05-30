@@ -18,9 +18,8 @@ Azure Automanage currently supports the following SDKs:
 - [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/automanage/azure-resourcemanager-automanage)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/automanage/arm-automanage)
 - [CSharp](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/automanage/Azure.ResourceManager.Automanage)
-- PowerShell (pending)
-- Azure CLI (pending)
-- Terraform (pending)
+- [PowerShell](https://github.com/Azure/azure-powershell/blob/main/src/Automanage/help/Az.Automanage.md)
+- [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/main/src/automanage)
 
 Here's a list of a few of the primary operations the SDKs provide:
 
@@ -29,3 +28,4 @@ Here's a list of a few of the primary operations the SDKs provide:
 - Create Best Practices profile assignments
 - Create custom profile assignments
 - Remove assignments
+- Delete profiles

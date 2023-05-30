@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Dow Jones Factiva | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Dow Jones Factiva'
 description: Learn how to configure single sign-on between Azure Active Directory and Dow Jones Factiva.
 services: active-directory
 author: jeevansd

@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
-ms.topic: how-to
+ms.topic: include
 ms.date: 06/30/2022
 author: ChrisHMSFT
 ms.author: chrhoder
@@ -123,9 +123,10 @@ The first step in creating a customized model is to choose a base model. The **B
 - `curie`
 - `code-cushman-001`\*
 - `davinci`\*
-    \* available by request
 
-For more information about our base models, see [Models](../concepts/models.md). Select a base model from the **Base model type** dropdown, as shown in the following picture, and then select **Next** to continue.
+    \* currently unavailable for new customers. 
+
+For more information about our base models that can be fine-tuned, see [Models](../concepts/models.md). Select a base model from the **Base model type** dropdown, as shown in the following picture, and then select **Next** to continue.
 
 :::image type="content" source="../media/fine-tuning/studio-base-model.png" alt-text="Screenshot of the Base model pane for the Create customized model wizard." lightbox="../media/fine-tuning/studio-base-model.png":::
 
@@ -240,6 +241,8 @@ From the model page, you can also select **Download training file** to download 
 
 When the fine-tune job has succeeded, you can deploy the customized model from the **Models** pane. You must deploy your customized model to make it available for use with completion calls.
 
+[!INCLUDE [Fine-tuning deletion](fine-tune.md)]
+
 > [!NOTE]
 > Only one deployment is permitted for a customized model. An error message is displayed if you select an already-deployed customized model.
 
@@ -285,6 +288,8 @@ The result file is a CSV file containing a header row and a row for each trainin
 When you're done with your customized model, you can delete the deployment and model. You can also delete the training and validation files you uploaded to the service, if needed. 
 
 ### Delete your model deployment
+
+[!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
 You can delete the deployment for your customized model from the **Deployments** page for Azure OpenAI Studio. Select the deployment to delete, and then select **Delete** to delete the deployment. 
 

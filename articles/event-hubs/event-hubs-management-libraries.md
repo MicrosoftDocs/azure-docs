@@ -43,8 +43,8 @@ namespace event_hub_dotnet_management
 {
 	using System;
 	using System.Threading.Tasks;
-	using Microsoft.Azure.Management.EventHub;
-	using Microsoft.Azure.Management.EventHub.Models;
+	using Microsoft.Azure.ResourceManager.EventHubs;
+	using Microsoft.Azure.ResourceManager.EventHubs.Models;
 	using Microsoft.Identity.Client;
 	using Microsoft.Rest;
 

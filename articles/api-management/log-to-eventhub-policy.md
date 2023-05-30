@@ -32,14 +32,14 @@ The `log-to-eventhub` policy sends messages in the specified format to an event 
 
 | Attribute     | Description                                                               | Required                                                             | Default |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----|
-| logger-id     | The ID of the Logger registered with your API Management service.         | Yes                                                 | N/A |
-| partition-id  | Specifies the index of the partition where messages are sent.             | Optional. Do not use if `partition-key` is used. | N/A |
-| partition-key | Specifies the value used for partition assignment when messages are sent. | Optional. Do not use if `partition-id` is used.  | N/A |
+| logger-id     | The ID of the Logger registered with your API Management service. Policy expressions aren't allowed.         | Yes                                                 | N/A |
+| partition-id  | Specifies the index of the partition where messages are sent. Policy expressions aren't allowed.            | Optional. Do not use if `partition-key` is used. | N/A |
+| partition-key | Specifies the value used for partition assignment when messages are sent. Policy expressions are allowed. | Optional. Do not use if `partition-id` is used.  | N/A |
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ### Usage notes

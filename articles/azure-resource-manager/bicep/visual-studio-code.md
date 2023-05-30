@@ -2,7 +2,8 @@
 title: Create Bicep files by using Visual Studio Code
 description: Describes how to create Bicep files by using Visual Studio Code
 ms.topic: conceptual
-ms.date: 02/21/2023
+ms.custom: devx-track-bicep
+ms.date: 05/12/2023
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -17,7 +18,7 @@ To set up your environment for Bicep development, see [Install Bicep tools](inst
 
 Visual Studio Code comes with several Bicep commands.
 
-Open or create a Bicep file in VS Code, select the **View** menu and then select **Command Palette**. You can also use the key combination **[CTRL]+[SHIFT]+P** to bring up the command palette. Type **Bicep** to list the Bicep commands.
+Open or create a Bicep file in VS Code, select the **View** menu and then select **Command Palette**. You can also use **F1** or the key combination <kbd>Ctrl+Shift+P</kbd> to bring up the command palette. Type **Bicep** to list the Bicep commands.
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-commands.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the command palette.":::
 
@@ -53,7 +54,7 @@ The [Bicep configuration file (bicepconfig.json)](./bicep-config.md) can be used
 To create a Bicep configuration file:
 
 1. Open Visual Studio Code.
-1. From the **View** menu, select **Command Palette** (or press **[CTRL/CMD]**+**[SHIFT]**+**P**), and then select **Bicep: Create Bicep Configuration File**.
+1. From the **View** menu, select **Command Palette** (or press <kbd>Ctrl/Cmd+Shift+P</kbd>), and then select **Bicep: Create Bicep Configuration File**.
 1. Select the file directory where you want to place the file.
 1. Save the configuration file when you're done.
 
@@ -123,6 +124,72 @@ When your Bicep file uses modules that are published to a registry, the restore 
 From Visual Studio Code, you can easily open the template reference for the resource type you're working on. To do so, hover your cursor over the resource symbolic name, and then select **View type document**.
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-view-type-document.png" alt-text="Screenshot of Visual Studio Code Bicep view type document.":::
+
+## Paste as Bicep
+
+You can paste a JSON snippet from an ARM template to Bicep file. Visual Studio Code automatically decompiles the JSON to Bicep. This feature is only available with the Bicep extension version 0.14.0 or newer. This feature is enabled by default. To disable the feature, see [VS Code and Bicep extension](./install.md#visual-studio-code-and-bicep-extension).
+
+By using this feature, you can paste:
+
+- Full ARM JSON templates.
+- Single resource or multiple resources.
+- JSON values, such as objects, arrays, and strings. A string with double-quotes is converted to single-quotes.
+
+For example, you can start with the following Bicep file:
+
+```bicep
+@description('Storage Account type')
+@allowed([
+  'Standard_LRS'
+  'Standard_GRS'
+  'Standard_ZRS'
+  'Premium_LRS'
+])
+param storageAccountsku string = 'Standard_LRS'
+
+@description('Location for all resources.')
+param location string = resourceGroup().location
+
+var storageAccountName = '${uniqueString(resourceGroup().id)}storage'
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
+  name: storageAccountName
+  location: location
+  sku: {
+    name: storageAccountsku
+  }
+  kind: 'StorageV2'
+  tags: {
+    ObjectName: storageAccountName
+  }
+  properties: {}
+}
+
+output storageAccountName string = storageAccountName
+```
+
+And, paste the following JSON:
+
+```json
+{
+  "type": "Microsoft.Batch/batchAccounts",
+  "apiVersion": "2021-06-01",
+  "name": "[parameters('batchAccountName')]",
+  "location": "[parameters('location')]",
+  "tags": {
+    "ObjectName": "[parameters('batchAccountName')]"
+  },
+  "properties": {
+    "autoStorage": {
+      "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    }
+  }
+}
+```
+
+Visual Studio Code automatically converts the JSON to Bicep. Notice that you also need to add the parameter named `batchAccountName`.
+
+You can undo the decompilation by using <kbd>Ctrl+Z</kbd>. The original JSON appears in the file.
 
 ## Next steps
 

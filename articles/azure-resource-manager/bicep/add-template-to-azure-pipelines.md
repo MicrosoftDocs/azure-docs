@@ -2,7 +2,8 @@
 title: CI/CD with Azure Pipelines and Bicep files
 description: In this quickstart, you learn how to configure continuous integration in Azure Pipelines by using Bicep files. It shows how to use an Azure CLI task to deploy a Bicep file.
 ms.topic: quickstart
-ms.date: 01/10/2023
+ms.custom: devx-track-bicep, devx-track-azurecli
+ms.date: 05/05/2023
 ---
 
 # Quickstart: Integrate Bicep with Azure Pipelines
@@ -43,9 +44,9 @@ You need a [Bicep file](./quickstart-create-bicep-use-visual-studio-code.md) tha
 
 You can use Azure Resource Group Deployment task or Azure CLI task to deploy a Bicep file.
 
-### Use Azure Resource Group Deployment task
+### Use Azure Resource Manager Template Deployment task
 
-Replace your starter pipeline with the following YAML. It creates a resource group and deploys a Bicep file by using an [Azure Resource Group Deployment task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment):
+Replace your starter pipeline with the following YAML. It creates a resource group and deploys a Bicep file by using an [Azure Resource Manager Template Deployment task](/azure/devops/pipelines/tasks/reference/azure-resource-manager-template-deployment-v3).
 
 ```yml
 trigger:
@@ -78,13 +79,13 @@ steps:
     deploymentName: 'DeployPipelineTemplate'
 ```
 
-For the descriptions of the task inputs, see [Azure Resource Group Deployment task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment).
+For the descriptions of the task inputs, see [Azure Resource Manager Template Deployment task](/azure/devops/pipelines/tasks/reference/azure-resource-manager-template-deployment-v3).
 
 Select **Save**. The build pipeline automatically runs. Go back to the summary for your build pipeline, and watch the status.
 
 ### Use Azure CLI task
 
-Replace your starter pipeline with the following YAML. It creates a resource group and deploys a Bicep file by using an [Azure CLI task](/azure/devops/pipelines/tasks/deploy/azure-cli):
+Replace your starter pipeline with the following YAML. It creates a resource group and deploys a Bicep file by using an [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2):
 
 ```yml
 trigger:
@@ -113,6 +114,12 @@ steps:
       az --version
       az group create --name $(resourceGroupName) --location $(location)
       az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile)
+```
+
+To override the parameters, update the last line of `inlineScript` to:
+
+```bicep
+az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile) --parameters storageAccountType='Standard_GRS' location='eastus'
 ```
 
 For the descriptions of the task inputs, see [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2). When using the task on air-gapped cloud, you must set the `useGlobalConfig` property of the task to `true`. The default value is `false`.

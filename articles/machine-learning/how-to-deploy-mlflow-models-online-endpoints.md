@@ -18,7 +18,7 @@ ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, c
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](./v1/how-to-deploy-mlflow-models.md)
+> * [v1](./v1/how-to-deploy-mlflow-models.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-deploy-mlflow-models-online-endpoints.md)
 
 In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) for real-time inference. When you deploy your MLflow model to an online endpoint, you don't need to indicate a scoring script or an environment. This characteristic is referred as __no-code deployment__. 
@@ -71,7 +71,7 @@ Additionally, you need to:
 - Install the Azure Machine Learning SDK for Python
     
     ```bash
-    pip install azure-ai-ml
+    pip install azure-ai-ml azure-identity
     ```
     
 # [Python (MLflow SDK)](#tab/mlflow)
@@ -579,7 +579,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     __conda.yml__
 
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-diabetes/environment/conda.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-diabetes/environment/conda.yaml":::
 
     > [!NOTE]
     > Note how the package `azureml-inference-server-http` has been added to the original conda dependencies file. 

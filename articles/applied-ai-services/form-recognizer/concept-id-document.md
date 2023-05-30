@@ -7,9 +7,9 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/22/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
-recommendations: false
+
 ms.custom: references.regions
 ---
 <!-- markdownlint-disable MD033 -->
@@ -100,7 +100,9 @@ Form Recognizer v2.1 supports the following tools:
 ::: moniker range="form-recog-2.1.0"
 
 * Supported file formats: JPEG, PNG, PDF, and TIFF
+
 * Form Recognizer processes PDF and TIFF files up to 2000 pages or only the first two pages for free-tier subscribers.
+
 * The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 
 ::: moniker-end
@@ -200,7 +202,7 @@ The following are the fields extracted per document type. The Azure Form Recogni
 
 >[!NOTE]
 >
-> In addition to specifying the IdDocument model, you can designate the ID type for (driver license, passport, national identity card, residence permit, or US social security card ).
+> In addition to specifying the IdDocument model, you can designate the ID type for (driver license, passport, national/regional identity card, residence permit, or US social security card ).
 
 ### Data extraction (all types)
 
@@ -270,8 +272,8 @@ The following are the fields extracted per document type. The Azure Form Recogni
 |:------|:-----|:------------|:--------|
 |`CountryRegion`|`countryRegion`|Country or region code|USA|
 |`Region`|`string`|State or province|Washington|
-|`DocumentNumber`|`string`|National identity card number|WDLABCD456DG|
-|`DocumentDiscriminator`|`string`|National identity card document discriminator|12645646464554646456464544|
+|`DocumentNumber`|`string`|National/regional identity card number|WDLABCD456DG|
+|`DocumentDiscriminator`|`string`|National/regional identity card document discriminator|12645646464554646456464544|
 |`FirstName`|`string`|Given name and middle initial if applicable|LIAM R.|
 |`LastName`|`string`|Surname|TALBOT|
 |`Address`|`address`|Address|123 STREET ADDRESS YOUR CITY WA 99999-1234|
@@ -308,7 +310,7 @@ The following are the fields extracted per document type. The Azure Form Recogni
 |`LastName`|`string`|Surname|TALBOT|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
 
-#### `idDocument` field extracted
+#### `idDocument` fields extracted
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|

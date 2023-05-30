@@ -7,6 +7,7 @@ author: OliverDoll
 manager: juergent
 editor: ''
 tags: azure-resource-manager
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 keywords: ''
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: sap-on-azure
@@ -52,7 +53,7 @@ ms.author: oldoll
 
 ### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Deploy Azure PowerShell cmdlets
 
-Follow the steps described in the article [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
+Follow the steps described in the article [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell)
 
 Check frequently for updates to the PowerShell cmdlets, which usually are updated monthly. Follow the steps described in [this](/powershell/azure/install-az-ps#update-the-azure-powershell-module) article. Unless stated otherwise in SAP Note [1928533] or SAP Note [2015553], we recommend that you work with the latest version of Azure PowerShell cmdlets.
 
@@ -141,10 +142,10 @@ If you want to use Azure Resource Manager, Terraform or other tools to deploy th
 
 Before deploying the VM Extension for SAP, please make sure to assign a user or system assigned managed identity to the virtual machine. For more information, read the following guides:
 
-* [Configure managed identities for Azure resources on a VM using the Azure portal](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
-* [Configure managed identities for Azure resources on an Azure VM using Azure CLI](/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
-* [Configure managed identities for Azure resources on an Azure VM using PowerShell](/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
-* [Configure managed identities for Azure resources on an Azure VM using templates](/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
+* [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+* [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+* [Configure managed identities for Azure resources on an Azure VM using PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+* [Configure managed identities for Azure resources on an Azure VM using templates](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 * [Terraform VM Identity](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine#identity)
 
 After assigning an identity to the virtual machine, give the VM read access to either the resource group or the individual resources associated to the virtual machine (VM, Network Interfaces, OS Disks and Data Disks). It is recommended to use the built-in Reader role to grant the access to these resources. You can also grant this access by adding the VM identity to an Azure Active Directory group that already has read access to the required resources. It is then no longer needed to have Owner privileges when deploying the VM Extension for SAP if you use a user assigned identity that already has the required permissions.

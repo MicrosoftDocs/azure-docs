@@ -26,6 +26,8 @@ This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to 
 | Failed request tracing | Windows | App Service file system | Detailed tracing information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. It's useful if you want to improve site performance or isolate a specific HTTP error. One folder is generated for each failed request, which contains the XML log file, and the XSL stylesheet to view the log file with. |
 | Deployment logging | Windows, Linux | App Service file system | Logs for when you publish content to an app. Deployment logging happens automatically and there are no configurable settings for deployment logging. It helps you determine why a deployment failed. For example, if you use a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script), you might use deployment logging to determine why the script is failing. |
 
+When stored in the App Service file system, logs are subject to the available storage for your pricing tier (see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)).
+
 > [!NOTE]
 > App Service provides a dedicated, interactive diagnostics tool to help you troubleshoot your application. For more information, see [Azure App Service diagnostics overview](overview-diagnostics.md).
 >
@@ -124,11 +126,13 @@ In your application code, you use the usual logging facilities to send log messa
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- By default, ASP.NET Core uses the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) logging provider. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/). For information about WebJobs SDK logging, see [Get started with the Azure WebJobs SDK](./webjobs-sdk-get-started.md#enable-console-logging)
+    By default, ASP.NET Core uses the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) logging provider. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/). For information about WebJobs SDK logging, see [Get started with the Azure WebJobs SDK](./webjobs-sdk-get-started.md#enable-console-logging)
+- Python applications can use the [OpenCensus package](../azure-monitor/app/opencensus-python.md) to send logs to the application diagnostics log.
+
 
 ## Stream logs
 
-Before you stream logs in real time, enable the log type that you want. Any information written to the conosle output or files ending in .txt, .log, or .htm that are stored in the */home/LogFiles* directory (D:\home\LogFiles) is streamed by App Service.
+Before you stream logs in real time, enable the log type that you want. Any information written to the console output or files ending in .txt, .log, or .htm that are stored in the */home/LogFiles* directory (D:\home\LogFiles) is streamed by App Service.
 
 > [!NOTE]
 > Some types of logging buffer write to the log file, which can result in out of order events in the stream. For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.

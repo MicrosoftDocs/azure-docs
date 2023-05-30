@@ -21,10 +21,14 @@
       items:
       - name: Microchip ATSAME54-XPro
         href: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
-      - name: STMicroelectronics L4S5I-IOT01A
-        href: quickstart-devkit-stm-b-l4s5i-iot-hub.md
+      - name: Renesas RX65N Cloud Kit
+        href: quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub.md
       - name: STMicroelectronics L475E-IOT01A
         href: quickstart-devkit-stm-b-l475e-iot-hub.md
+      - name: STMicroelectronics L4S5I-IOT01A
+        href: quickstart-devkit-stm-b-l4s5i-iot-hub.md
+      - name: STMicroelectronics U585I-IOT02A
+        href: quickstart-devkit-stm-b-u585i-iot-hub.md
       - name: NXP MIMXRT1060-EVK
         href: quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md
       - name: MXCHIP AZ3166
@@ -55,6 +59,8 @@
     href: concepts-using-c-sdk-and-embedded-c-sdk.md    
   - name: Overview of device types
     href: concepts-iot-device-types.md
+  - name: Manage device reconnections in IoT Hub and DPS
+    href: concepts-manage-device-reconnections.md
   - name: Device certification
     href: ../certification/program-requirements-pnp.md
   - name: IoT device selection list
@@ -92,12 +98,9 @@
 - name: How to
   items:
   - name: Install and use IoT explorer
-    href: ../iot-fundamentals/howto-use-iot-explorer.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
+    href: ../iot/howto-use-iot-explorer.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
   - name: Manage digital twins
     href: howto-manage-digital-twin.md
-  - name: Manage connectivity and reliable messaging
-    displayName: device SDK, network connection, resiliency, re-connection, retry, connection failures
-    href: how-to-use-reliability-features-in-sdks.md
   - name: Convert a device to IoT Plug and Play
     href: howto-convert-to-pnp.md
   - name: Azure RTOS samples
@@ -108,12 +111,8 @@
         href: quickstart-devkit-microchip-atsame54-xpro.md
       - name: Renesas RX65N Cloud Kit
         href: quickstart-devkit-renesas-rx65n-cloud-kit.md
-      - name: Renesas RX65N-2 MB
-        href: quickstart-devkit-renesas-rx65n-2mb.md
       - name: NXP MIMXRT1060-EVK
         href: quickstart-devkit-nxp-mimxrt1060-evk.md
-      - name: NXP MIMXRT1050-EVKB
-        href: quickstart-devkit-nxp-mimxrt1050-evkb.md
       - name: STMicroelectronics L4S5I-IOT01A
         href: quickstart-devkit-stm-b-l4s5i.md
       - name: STMicroelectronics B-L475-IOT01A
@@ -181,9 +180,9 @@
 - name: Resources
   items:
     - name: Support and help options
-      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
+      href: ../iot/iot-support-help.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
     - name: IoT glossary
-      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
+      href: ../iot/iot-glossary.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
     - name: Code samples
       href: /samples/browse/?expanded=azure&products=azure-iot-pnp
     - name: Azure IoT samples

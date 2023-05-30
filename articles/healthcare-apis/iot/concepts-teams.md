@@ -1,23 +1,26 @@
 ---
 title: The MedTech service and Teams notifications - Azure Health Data Services
-description: In this article, you'll learn how to use the MedTech service and Teams notifications
+description: Learn how to use the MedTech service and Teams notifications
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 1/12/2023
+ms.date: 04/28/2023
 ms.author: jasteppe
 ---
 
 # The MedTech service and Microsoft Teams notifications
 
-In this article, we'll explore using the MedTech service and Microsoft Teams for notifications.
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+
+In this article, we explore using the MedTech service and Microsoft Teams for notifications.
 
 ## The MedTech service and Teams notifications reference architecture
 
-When combining the MedTech service, a Fast Healthcare Interoperability Resources (FHIR&#174;) service, and Teams, you can enable multiple care solutions.
+When combining the MedTech service, the FHIR service, and Teams, you can enable multiple care solutions.
 
-Below is the MedTech service to Teams notifications conceptual architecture for enabling the MedTech service, the FHIR service, and the Teams Patient App.
+The diagram is a MedTech service to Teams notifications conceptual architecture for enabling the MedTech service, the FHIR service, and the Teams Patient App.
 
 You can even embed Power BI Dashboards inside the Microsoft Teams client. For more information on embedding Power BI in Microsoft Team visit [here](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
 

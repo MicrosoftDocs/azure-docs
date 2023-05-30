@@ -1,12 +1,12 @@
 ---
-title: Authentication and Conditional Access for B2B users - Azure AD
+title: Authentication and Conditional Access for B2B users
 description: Learn how to enforce multi-factor authentication policies for Azure Active Directory B2B users.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 04/17/2023
 
 ms.author: mimart
 author: msmimart
@@ -46,7 +46,7 @@ When an Azure AD organization shares resources with external users with an ident
 
 The following diagram illustrates the authentication flow when an external user signs in with an account from a non-Azure AD identity provider, such as Google, Facebook, or a federated SAML/WS-Fed identity provider.
 
-[ ![Diagram showing the Authentication flow for B2B guest users from an external directory.](media/authentication-conditional-access/authentication-flow-b2b-guests.png) ](media/authentication-conditional-access/authentication-flow-b2b-guests.png#lightbox))
+[ ![Diagram showing the Authentication flow for B2B guest users from an external directory.](media/authentication-conditional-access/authentication-flow-b2b-guests.png) ](media/authentication-conditional-access/authentication-flow-b2b-guests.png#lightbox)
 
 | Step | Description |
 |--------------|-----------------------|
@@ -64,18 +64,15 @@ The following diagram illustrates the flow when email one-time passcode authenti
 | Step | Description |
 |--------------|-----------------------|
 | **1** |The user requests access to a resource in another tenant. The resource redirects the user to its resource tenant, a trusted IdP.|
-| **2** | The resource tenant identifies the user as an [external email one-time passcode (OTP) user](./one-time-passcode.md) and sends an email with the OTP to the user.|
+| **2** | The resource tenant identifies the user as an external email one-time passcode (OTP) user and sends an email with the OTP to the user.|
 | **3** | The user retrieves the OTP and submits the code. The resource tenant evaluates the user against its Conditional Access policies.
 | **4** | Once all Conditional Access policies are satisfied, the resource tenant issues a token and redirects the user to its resource. |
 
 ## Conditional Access for external users
 
-Organizations can enforce [Conditional Access](../conditional-access/overview.md) policies for external B2B collaboration and B2B direct connect users in the same way that they’re enabled for full-time employees and members of the organization. With the introduction of cross-tenant access settings, you can also trust MFA and device claims from external Azure AD organizations. This section describes important considerations for applying Conditional Access to users outside of your organization.
+Organizations can enforce Conditional Access policies for external B2B collaboration and B2B direct connect users in the same way that they’re enabled for full-time employees and members of the organization. With the introduction of cross-tenant access settings, you can also trust MFA and device claims from external Azure AD organizations. This section describes important considerations for applying Conditional Access to users outside of your organization.
 
-### Assigning Conditional Access policies to external user types (preview)
-
-> [!NOTE]
-> This section describes a preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### Assigning Conditional Access policies to external user types
 
 When configuring a Conditional Access policy, you have granular control over the types of external users you want to apply the policy to. External users are categorized based on how they authenticate (internally or externally) and their relationship to your organization (guest or member).
 
@@ -84,7 +81,10 @@ When configuring a Conditional Access policy, you have granular control over the
 - **B2B direct connect users** - External users who are able to access your resources via B2B direct connect, which is a mutual, two-way connection with another Azure AD organization that allows single sign-on access to certain Microsoft applications (currently, Microsoft Teams Connect shared channels). B2B direct connect users don’t have a presence in your Azure AD organization, but are instead managed from within the application (for example, by the Teams shared channel owner).
 - **Local guest users** - Local guest users have credentials that are managed in your directory. Before Azure AD B2B collaboration was available, it was common to collaborate with distributors, suppliers, vendors, and others by setting up internal credentials for them and designating them as guests by setting the user object UserType to Guest.
 - **Service provider users** - Organizations that serve as cloud service providers for your organization (the isServiceProvider property in the Microsoft Graph [partner-specific configuration](/graph/api/resources/crosstenantaccesspolicyconfigurationpartner) is true).
-- **Other external users** - Applies to any users who don't fall into the categories above, but who are not considered internal members of your organization, meaning they don't authenticate internally via Azure AD, and the user object created in the resource Azure AD directory does not have a UserType of Member.
+- **Other external users** - Applies to any users who don't fall into the categories above, but who aren't considered internal members of your organization, meaning they don't authenticate internally via Azure AD, and the user object created in the resource Azure AD directory doesn't have a UserType of Member.
+
+>[!NOTE]
+> The "All guest and external users" selection has now been replaced with "Guest and external users" and all its sub types. For customers who previously had a Condtional Access policy with "All guest and external users" selected will now see "Guest and external users" along with all sub types being selected. This change in UX does not have any functional impact on how policy is evaluated by Conditional Access backend. The new selection provides customers the needed granularity to choose specifc types of guest and external users to include/exclude from user scope when creating their Conditional Access policy.
 
 Learn more about [Conditional Access user assignments](../conditional-access/concept-conditional-access-users-groups.md).
 
@@ -169,9 +169,9 @@ The following PowerShell cmdlets are available to *proof up* or request MFA regi
 
 ### Authentication strength policies for external users
 
-[Authentication strength](https://aka.ms/b2b-auth-strengths) is a Conditional Access control that lets you define a specific combination of multifactor authentication (MFA) methods that an external user must complete to access your resources. This control is especially useful for restricting external access to sensitive apps in your organization because you can enforce specific authentication methods, such as a phishing-resistant method, for external users.
+Authentication strength is a Conditional Access control that lets you define a specific combination of multifactor authentication (MFA) methods that an external user must complete accessing your resources. This control is especially useful for restricting external access to sensitive apps in your organization because you can enforce specific authentication methods, such as a phishing-resistant method, for external users.
 
-You also have the ability to apply authentication strength to the different types of [guest or external users](#assigning-conditional-access-policies-to-external-user-types-preview) that you collaborate or connect with. This means you can enforce authentication strength requirements that are unique to your B2B collaboration, B2B direct connect, and other external access scenarios.
+You also have the ability to apply authentication strength to the different types of [guest or external users](#assigning-conditional-access-policies-to-external-user-types) that you collaborate or connect with. This means you can enforce authentication strength requirements that are unique to your B2B collaboration, B2B direct connect, and other external access scenarios.
 
 Azure AD provides three [built-in authentication strengths](https://aka.ms/b2b-auth-strengths):
 
@@ -229,7 +229,7 @@ When device trust settings are enabled, Azure AD checks a user's authentication 
 
 ### Device filters
 
-When creating Conditional Access policies for external users, you can evaluate a policy based on the device attributes of a registered device in Azure AD. By using the *filter for devices* condition, you can target specific devices using the [supported operators and properties](../conditional-access/concept-condition-filters-for-devices.md#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies.
+When creating Conditional Access policies for external users, you can evaluate a policy based on the device attributes of a registered device in Azure AD. By using the *filter for devices* condition, you can target specific devices using the supported operators and properties and the other available assignment conditions in your Conditional Access policies.
 
 Device filters can be used together with cross-tenant access settings to base policies on devices that are managed in other organizations. For example, suppose you want to block devices from an external Azure AD tenant based on a specific device attribute. You can set up a device attribute-based policy by doing the following:
 
@@ -279,7 +279,5 @@ For more information, see [Identity Protection and B2B users](../identity-protec
 For more information, see the following articles:
 
 - [Zero Trust policies for allowing guest access and B2B external user access](/microsoft-365/security/office-365-security/identity-access-policies-guest-access?view=o365-worldwide&preserve-view=true)
-- [What is Azure AD B2B collaboration?](./what-is-b2b.md)
 - [Identity Protection and B2B users](../identity-protection/concept-identity-protection-b2b.md)
-- [External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/)
 - [Frequently Asked Questions (FAQs)](./faq.yml)

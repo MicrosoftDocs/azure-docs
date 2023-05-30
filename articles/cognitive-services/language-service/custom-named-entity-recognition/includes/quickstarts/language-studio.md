@@ -14,8 +14,7 @@ ms.author: aahi
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Create a new Azure Language resource and Azure storage account
 
@@ -28,15 +27,13 @@ Before you can use custom NER, you'll need to create an Azure Language resource,
 
 [!INCLUDE [create a new resource from the Azure portal](../resource-creation-azure-portal.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Create-a-new-azure-language-resource-and-storage-account" target="_target">I ran into an issue</a>
+
 
 ## Upload sample data to blob container
 
 [!INCLUDE [Uploading sample data for custom NER](blob-storage-upload.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Upload-sample-data-to-blob-container" target="_target">I ran into an issue</a>
+
 
 ## Create a custom named entity recognition project
 
@@ -44,8 +41,7 @@ Once your resource and storage account are configured, create a new custom NER p
 
 [!INCLUDE [Create custom NER project](../language-studio/create-project.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Create-custom-named-entity-recognition-project" target="_target">I ran into an issue</a>
+
 
 ## Train your model
 
@@ -53,8 +49,7 @@ Typically after you create a project, you go ahead and start [tagging the docume
 
 [!INCLUDE [Train a model using Language Studio](../language-studio/train-model.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Train-model" target="_target">I ran into an issue</a>
+
 
 ## Deploy your model
 
@@ -62,8 +57,7 @@ Generally after training a model you would review its [evaluation details](../..
 
 [!INCLUDE [Deploy a model using Language Studio](../language-studio/deploy-model.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Deploy-model" target="_target">I ran into an issue</a>
+
 
 
 ## Test your model
@@ -72,12 +66,10 @@ After your model is deployed, you can start using it to extract entities from yo
 
 [!INCLUDE [Test a model using Language Studio](../language-studio/test-model.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Test-model" target="_target">I ran into an issue</a>
+
 
 ## Clean up resources
 
 [!INCLUDE [Delete project using Language Studio](../language-studio/delete-project.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Custom-named-entity-recognition&Page=quickstart&Section=Clean-up-projects" target="_target">I ran into an issue</a>
+

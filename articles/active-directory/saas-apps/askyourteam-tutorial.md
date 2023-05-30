@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with AskYourTeam | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with AskYourTeam'
 description: Learn how to configure single sign-on between Azure Active Directory and AskYourTeam.
 services: active-directory
 author: jeevansd

@@ -1,19 +1,18 @@
 ---
-title: Network Watcher - Create NSG flow logs using an Azure Resource Manager template
-description: Use an Azure Resource Manager template and PowerShell to easily set up NSG Flow Logs.
+title: Manage NSG flow logs - ARM
+titleSuffix: Azure Network Watcher
+description: Learn how to manage network security group flow logs in Azure Network Watcher an Azure Resource Manager template.
 services: network-watcher
 author: halkazwini
-tags: azure-resource-manager
 ms.service: network-watcher
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/09/2022
 ms.author: halkazwini
-ms.custom: fasttrack-edit, devx-track-azurepowershell, engagement-fy23
-
+ms.custom: fasttrack-edit, engagement-fy23, devx-track-arm-template
 ---
 
-# Configure NSG Flow Logs from an Azure Resource Manager template
+# Manage network security group flow logs using an Azure Resource Manager template
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
@@ -64,7 +63,7 @@ For a complete overview of the properties, you may read the [NSG Flow Logs templ
 To create a Microsoft.Network/networkWatchers/flowLogs resource, add the above JSON to the resources section of your template.
 
 
-## Creating your template
+## Create your template
 
 If you are using Azure Resource Manager templates for the first time, you can learn more about them using the links below.
 
@@ -144,7 +143,7 @@ Below are two examples of complete templates to set up NSG Flow Logs.
 }
 ```
 
-## Deploying your Azure Resource Manager template
+## Deploy your Azure Resource Manager template
 
 This tutorial assumes you have an existing Resource group and an NSG you can enable Flow logging on.
 You can save any of the above example templates locally as `azuredeploy.json`. Update the property values so that they point to valid resources in your subscription.
@@ -161,11 +160,11 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 > The above commands are deploying a resource to the NetworkWatcherRG resource group and not the resource group containing the NSG
 
 
-## Verifying your deployment
+## Verify your deployment
 
 There are a couple of ways to check if your deployment has Succeeded. Your PowerShell console should show "ProvisioningState" as "Succeeded". Additionally, you can visit the [NSG Flow Logs portal page](https://portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) to confirm your changes. If there were issues with the deployment, take a look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 
-## Deleting your resource
+## Delete your resource
 Azure enables resource deletion through the "Complete" deployment mode. To delete a Flow Logs resource, specify a deployment in Complete mode without including the resource you wish to delete. Read more about the [Complete deployment mode](../azure-resource-manager/templates/deployment-modes.md#complete-mode)
 
 ## Next steps

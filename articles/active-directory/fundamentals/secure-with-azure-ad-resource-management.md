@@ -8,8 +8,8 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 7/5/2022
-ms.author: gasinh
+ms.date: 3/23/2023
+ms.author: justinha
 ms.reviewer: ajburnle
 ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
@@ -250,12 +250,6 @@ When a requirement exists to deploy IaaS workloads to Azure that require identit
 
 **Azure AD DS managed domain** - Only one Azure AD DS managed domain can be deployed per Azure AD tenant and this is bound to a single VNet. It's recommended that this VNet forms the "hub" for Azure AD DS authentication. From this hub, "spokes" can be created and linked to allow legacy authentication for servers and applications. The spokes are additional VNets on which Azure AD DS joined servers are located and are linked to the hub using Azure network gateways or VNet peering.
 
-**User forest vs. resource forest** - Azure AD DS provides two options for forest configuration of the Azure AD DS managed domain. For the purposes of this section we focus on user forest, as the resource forest relies on a trust being configured with an AD DS forest and this goes against the isolation principle we're addressing here.
-
-* **User forest** - By default, an Azure AD DS managed domain is created as a user forest. This type of forest synchronizes all objects from Azure AD, including any user accounts synchronized from an on-premises AD DS environment.
-
-* **Resource forest** - Resource forests only synchronize users and groups created directly in Azure AD and requires a trust be configured with an AD DS forest for user authentication. For more information, see [Resource forest concepts and features for Azure Active Directory Domain Services](../../active-directory-domain-services/concepts-resource-forest.md).
-
 **Managed domain location** - A location must be set when deploying an Azure AD DS managed domain. The location is a physical region (data center) where the managed domain is deployed. It's recommended you:
 
 * Consider a location that is geographically closed to the servers and applications that require Azure AD DS services.
@@ -319,7 +313,7 @@ When a requirement exists to deploy IaaS workloads to Azure that require identit
 
 **Network Requirements**: These virtual machines will need to access Azure AD for authentication so you must ensure that the virtual machines network configuration permits outbound access to Azure AD endpoints on 443. See the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](../devices/howto-vm-sign-in-azure-ad-linux.md) for more information.
 
-**Role-based Access Control (RBAC)**: Two RBAC roles are available to provide the appropriate level of access to these virtual machines. These RBAC roles can be configured via the Azure AD Portal or via the Azure Cloud Shell Experience. For more information, see [Configure role assignments for the VM](../devices/howto-vm-sign-in-azure-ad-windows.md).
+**Role-based Access Control (RBAC)**: Two RBAC roles are available to provide the appropriate level of access to these virtual machines. These RBAC roles can be configured via the Azure portal or via the Azure Cloud Shell Experience. For more information, see [Configure role assignments for the VM](../devices/howto-vm-sign-in-azure-ad-windows.md).
 
 * **Virtual machine administrator logon**: Users with this role assigned to them can log into an Azure virtual machine with administrator privileges.
 

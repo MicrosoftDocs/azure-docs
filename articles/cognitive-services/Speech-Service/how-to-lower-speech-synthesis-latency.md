@@ -130,9 +130,9 @@ In a service scenario, you can forward the audio chunks immediately to your clie
 
 ::: zone pivot="programming-language-csharp"
 
-You can use the [`PullAudioOutputStream`](/dotnet/api/microsoft.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](/dotnet/api/microsoft.cognitiveservices.speech.audio.pushaudiooutputstream), [`Synthesizing` event](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.synthesizing), and [`AudioDateStream`](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
+You can use the [`PullAudioOutputStream`](/dotnet/api/microsoft.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](/dotnet/api/microsoft.cognitiveservices.speech.audio.pushaudiooutputstream), [`Synthesizing` event](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.synthesizing), and [`AudioDataStream`](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
 
-Taking `AudioDateStream` as an example:
+Taking `AudioDataStream` as an example:
 
 ```csharp
 using (var synthesizer = new SpeechSynthesizer(config, null as AudioConfig))
@@ -156,9 +156,9 @@ using (var synthesizer = new SpeechSynthesizer(config, null as AudioConfig))
 
 ::: zone pivot="programming-language-cpp"
 
-You can use the [`PullAudioOutputStream`](/cpp/cognitive-services/speech/audio-pullaudiooutputstream), [`PushAudioOutputStream`](/cpp/cognitive-services/speech/audio-pushaudiooutputstream), the [`Synthesizing` event](/cpp/cognitive-services/speech/speechsynthesizer#synthesizing), and [`AudioDateStream`](/cpp/cognitive-services/speech/audiodatastream) of the Speech SDK to enable streaming.
+You can use the [`PullAudioOutputStream`](/cpp/cognitive-services/speech/audio-pullaudiooutputstream), [`PushAudioOutputStream`](/cpp/cognitive-services/speech/audio-pushaudiooutputstream), the [`Synthesizing` event](/cpp/cognitive-services/speech/speechsynthesizer#synthesizing), and [`AudioDataStream`](/cpp/cognitive-services/speech/audiodatastream) of the Speech SDK to enable streaming.
 
-Taking `AudioDateStream` as an example:
+Taking `AudioDataStream` as an example:
 
 ```cpp
 auto synthesizer = SpeechSynthesizer::FromConfig(config, nullptr);
@@ -176,9 +176,9 @@ while ((filledSize = audioDataStream->ReadData(buffer, sizeof(buffer))) > 0)
 
 ::: zone pivot="programming-language-java"
 
-You can use the [`PullAudioOutputStream`](/java/api/com.microsoft.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](/java/api/com.microsoft.cognitiveservices.speech.audio.pushaudiooutputstream), the [`Synthesizing` event](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.synthesizing#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_Synthesizing), and [`AudioDateStream`](/java/api/com.microsoft.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
+You can use the [`PullAudioOutputStream`](/java/api/com.microsoft.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](/java/api/com.microsoft.cognitiveservices.speech.audio.pushaudiooutputstream), the [`Synthesizing` event](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.synthesizing#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_Synthesizing), and [`AudioDataStream`](/java/api/com.microsoft.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
 
-Taking `AudioDateStream` as an example:
+Taking `AudioDataStream` as an example:
 
 ```java
 SpeechSynthesizer synthesizer = new SpeechSynthesizer(config, null);
@@ -196,9 +196,9 @@ while (filledSize > 0) {
 
 ::: zone pivot="programming-language-python"
 
-You can use the [`PullAudioOutputStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.pushaudiooutputstream), the [`Synthesizing` event](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#synthesizing), and [`AudioDateStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
+You can use the [`PullAudioOutputStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.pushaudiooutputstream), the [`Synthesizing` event](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#synthesizing), and [`AudioDataStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
 
-Taking `AudioDateStream` as an example:
+Taking `AudioDataStream` as an example:
 
 ```python
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
@@ -217,7 +217,7 @@ while filled_size > 0:
 
 You can use the [`SPXPullAudioOutputStream`](/objectivec/cognitive-services/speech/spxpullaudiooutputstream), [`SPXPushAudioOutputStream`](/objectivec/cognitive-services/speech/spxpushaudiooutputstream), the [`Synthesizing` event](/objectivec/cognitive-services/speech/spxspeechsynthesizer#addsynthesizingeventhandler), and [`SPXAudioDataStream`](/objectivec/cognitive-services/speech/spxaudiodatastream) of the Speech SDK to enable streaming.
 
-Taking `AudioDateStream` as an example:
+Taking `AudioDataStream` as an example:
 
 ```Objective-C
 SPXSpeechSynthesizer *synthesizer = [[SPXSpeechSynthesizer alloc] initWithSpeechConfiguration:speechConfig audioConfiguration:nil];

@@ -34,53 +34,53 @@ When you select **Update map components**, the map is refreshed with all compone
 
 If all the components are roles within a single Application Insights resource, this discovery step isn't required. The initial load for such an application will have all its components.
 
-![Screenshot that shows an example of an application map.](media/app-map/app-map-001.png)
+:::image type="content" source="media/app-map/app-map-001.png" lightbox="media/app-map/app-map-001.png" alt-text="Screenshot that shows an example of an application map.":::
 
 One of the key objectives with this experience is to be able to visualize complex topologies with hundreds of components.
 
 Select any component to see related insights and go to the performance and failure triage experience for that component.
 
-![Diagram that shows application map details.](media/app-map/application-map-002.png)
+:::image type="content" source="media/app-map/application-map-002.png" lightbox="media/app-map/application-map-002.png" alt-text="Diagram that shows application map details.":::
 
 ### Investigate failures
 
 Select **Investigate failures** to open the **Failures** pane.
 
-![Screenshot that shows the Investigate failures button.](media/app-map/investigate-failures.png)
+:::image type="content" source="media/app-map/investigate-failures.png" lightbox="media/app-map/investigate-failures.png" alt-text="Screenshot that shows the Investigate failures button.":::
 
-![Screenshot that shows the Failures screen.](media/app-map/failures.png)
+:::image type="content" source="media/app-map/failures.png" lightbox="media/app-map/failures.png" alt-text="Screenshot that shows the Failures screen.":::
 
 ### Investigate performance
 
 To troubleshoot performance problems, select **Investigate performance**.
 
-![Screenshot that shows the Investigate performance button.](media/app-map/investigate-performance.png)
+:::image type="content" source="media/app-map/investigate-performance.png" lightbox="media/app-map/investigate-performance.png" alt-text="Screenshot that shows the Investigate performance button.":::
 
-![Screenshot that shows the Performance screen.](media/app-map/performance.png)
+:::image type="content" source="media/app-map/performance.png" lightbox="media/app-map/performance.png" alt-text="Screenshot that shows the Performance screen.":::
 
 ### Go to details
 
 The **Go to details** button displays the end-to-end transaction experience, which offers views at the call stack level.
 
-![Screenshot that shows the Go to details button.](media/app-map/go-to-details.png)
+:::image type="content" source="media/app-map/go-to-details.png" lightbox="media/app-map/go-to-details.png" alt-text="Screenshot that shows the Go to details button.":::
 
-![Screenshot that shows the End-to-end transaction details screen.](media/app-map/end-to-end-transaction.png)
+:::image type="content" source="media/app-map/end-to-end-transaction.png" lightbox="media/app-map/end-to-end-transaction.png" alt-text="Screenshot that shows the End-to-end transaction details screen.":::
 
 ### View in Logs (Analytics)
 
 To query and investigate your applications data further, select **View in Logs (Analytics)**.
 
-![Screenshot that shows the View in Logs (Analytics) button.](media/app-map/view-logs.png)
+:::image type="content" source="media/app-map/view-logs.png" lightbox="media/app-map/view-logs.png" alt-text="Screenshot that shows the View in Logs (Analytics) button.":::
 
-![Screenshot that shows the Logs screen with a line graph that summarizes the average response duration of a request over the past 12 hours.](media/app-map/log-analytics.png)
+:::image type="content" source="media/app-map/log-analytics.png" lightbox="media/app-map/log-analytics.png" alt-text="Screenshot that shows the Logs screen with a line graph that summarizes the average response duration of a request over the past 12 hours.":::
 
 ### Alerts
 
 To view active alerts and the underlying rules that cause the alerts to be triggered, select **Alerts**.
 
-![Screenshot that shows the Alerts button.](media/app-map/alerts.png)
+:::image type="content" source="media/app-map/alerts.png" lightbox="media/app-map/alerts.png" alt-text="Screenshot that shows the Alerts button.":::
 
-![Screenshot that shows a list of alerts.](media/app-map/alerts-view.png)
+:::image type="content" source="media/app-map/alerts-view.png" lightbox="media/app-map/alerts-view.png" alt-text="Screenshot that shows a list of alerts.":::
 
 ## Set or override cloud role name
 
@@ -226,7 +226,7 @@ exporter.add_telemetry_processor(callback_function)
 
 To help you understand the concept of *cloud role names*, look at an application map that has multiple cloud role names present.
 
-![Screenshot that shows an application map example.](media/app-map/cloud-rolename.png)
+:::image type="content" source="media/app-map/cloud-rolename.png" lightbox="media/app-map/cloud-rolename.png" alt-text="Screenshot that shows an application map example.":::
 
 In the application map shown, each of the names in green boxes is a cloud role name value for different aspects of this particular distributed application. For this app, its roles consist of `Authentication`, `acmefrontend`, `Inventory Management`, and `Payment Processing Worker Role`.
 
@@ -245,8 +245,8 @@ For the [official definitions](https://github.com/Microsoft/ApplicationInsights-
 ```
 
 Alternatively, *cloud role instance* can be helpful for scenarios where a cloud role name tells you the problem is somewhere in your web front end. But you might be running multiple load-balanced servers across your web front end. Being able to drill in a layer deeper via Kusto queries and knowing if the issue is affecting all web front-end servers or instances or just one can be important.
-intelligent view
-A scenario when you might want to override the value for cloud role instance could be if your app is running in a containerized environment. In this case, just knowing the individual server might not be enough information to locate a specific issue.
+
+Intelligent view A scenario when you might want to override the value for cloud role instance could be if your app is running in a containerized environment. In this case, just knowing the individual server might not be enough information to locate a specific issue.
 
 For more information about how to override the cloud role name property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
@@ -568,10 +568,10 @@ Enable **Intelligent view** only for a single Application Insights resource.
 
 To provide feedback, use the feedback option.
 
-![Screenshot that shows the Feedback option.](./media/app-map/14-updated.png)
+:::image type="content" source="./media/app-map/14-updated.png" lightbox="./media/app-map/14-updated.png" alt-text="Screenshot that shows the Feedback option.":::
 
 ## Next steps
 
-* To learn more about how correlation works in Application Insights, see [Telemetry correlation](correlation.md).
+* To learn more about how correlation works in Application Insights, see [Telemetry correlation](distributed-tracing-telemetry-correlation.md).
 * The [end-to-end transaction diagnostic experience](transaction-diagnostics.md) correlates server-side telemetry from across all your Application Insights-monitored components into a single view.
 * For advanced correlation scenarios in ASP.NET Core and ASP.NET, see [Track custom operations](custom-operations-tracking.md).

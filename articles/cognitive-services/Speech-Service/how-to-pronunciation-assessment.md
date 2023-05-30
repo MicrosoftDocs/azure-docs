@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-speech-sdk
 
 # Use pronunciation assessment
 
-In this article, you'll learn how to evaluate pronunciation with the Speech-to-Text capability through the Speech SDK. To [get pronunciation assessment results](#get-pronunciation-assessment-results), you'll apply the `PronunciationAssessmentConfig` settings to a `SpeechRecognizer` object.
+In this article, you'll learn how to evaluate pronunciation with the Speech to text capability through the Speech SDK. To [get pronunciation assessment results](#get-pronunciation-assessment-results), you'll apply the `PronunciationAssessmentConfig` settings to a `SpeechRecognizer` object.
 
 ::: zone pivot="programming-language-go"
 > [!NOTE]
@@ -32,7 +32,7 @@ You can get pronunciation assessment scores for:
 > [!NOTE]
 > The syllable group, phoneme name, and spoken phoneme of pronunciation assessment are currently only available for the en-US locale.
 > 
-> Usage of pronunciation assessment costs the same as standard Speech to Text pay-as-you-go [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). Pronunciation assessment doesn't yet support commitment tier pricing.
+> Usage of pronunciation assessment costs the same as standard Speech to text, whether pay-as-you-go or commitment tier [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). If you [purchase a commitment tier](../commitment-tier.md) for standard Speech to text, the spend for pronunciation assessment goes towards meeting the commitment.
 >
 > For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
 
@@ -46,7 +46,7 @@ This table lists some of the key configuration parameters for pronunciation asse
 | `ReferenceText` | The text that the pronunciation will be evaluated against. | 
 | `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | 
 | `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels above or equal to the minimal value are returned.  Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph, and it depends on your input reference text. Default: `Phoneme`.| 
-| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. |
+| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. To enable miscue calculation, set the `EnableMiscue` to `True`. You can refer to the code snippet below the table.|
 | `ScenarioId` | A GUID indicating a customized point system. |
 
 You must create a `PronunciationAssessmentConfig` object with the reference text, grading system, and granularity. Enabling miscue and other configuration settings are optional. 
@@ -66,7 +66,7 @@ var pronunciationAssessmentConfig = new PronunciationAssessmentConfig(
 ::: zone pivot="programming-language-cpp"
 
 ```cpp
-auto pronunciationAssessmentConfig = PronunciationAssessmentConfig::CreateFromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\"}");
+auto pronunciationAssessmentConfig = PronunciationAssessmentConfig::CreateFromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"enableMiscue\":true}");
 ```
 
 ::: zone-end
@@ -74,7 +74,7 @@ auto pronunciationAssessmentConfig = PronunciationAssessmentConfig::CreateFromJs
 ::: zone pivot="programming-language-java"
 
 ```Java
-PronunciationAssessmentConfig pronunciationAssessmentConfig = PronunciationAssessmentConfig.fromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\"}");
+PronunciationAssessmentConfig pronunciationAssessmentConfig = PronunciationAssessmentConfig.fromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"enableMiscue\":true}");
 ```
 
 ::: zone-end
@@ -82,7 +82,7 @@ PronunciationAssessmentConfig pronunciationAssessmentConfig = PronunciationAsses
 ::: zone pivot="programming-language-python"
 
 ```Python
-pronunciation_assessment_config = speechsdk.PronunciationAssessmentConfig(json_string="{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\"}")
+pronunciation_assessment_config = speechsdk.PronunciationAssessmentConfig(json_string="{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"EnableMiscue\":true}")
 ```
 
 ::: zone-end
@@ -90,7 +90,7 @@ pronunciation_assessment_config = speechsdk.PronunciationAssessmentConfig(json_s
 ::: zone pivot="programming-language-javascript"
 
 ```JavaScript
-var pronunciationAssessmentConfig = SpeechSDK.PronunciationAssessmentConfig.fromJSON("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\"}");
+var pronunciationAssessmentConfig = SpeechSDK.PronunciationAssessmentConfig.fromJSON("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"EnableMiscue\":true}");
 ```
 
 ::: zone-end

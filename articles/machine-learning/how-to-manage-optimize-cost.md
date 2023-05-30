@@ -33,6 +33,11 @@ Use the following tips to help you manage and optimize your compute resource cos
 
 For information on planning and monitoring costs, see the [plan to manage costs for Azure Machine Learning](concept-plan-manage-cost.md) guide.
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Use Azure Machine Learning compute cluster (AmlCompute)
 
 With constantly changing data, you need fast and streamlined model training and retraining to maintain accurate models. However, continuous training comes at a cost, especially for deep learning models on GPUs. 
@@ -85,7 +90,7 @@ Low-Priority VMs have a single quota separate from the dedicated quota value, wh
 ## Schedule compute instances
 
 When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  
-* [Enable idle shutdown (preview)](how-to-create-manage-compute-instance.md#enable-idle-shutdown-preview) to save on cost when the VM has been idle for a specified time period.
+* [Enable idle shutdown (preview)](how-to-create-manage-compute-instance.md#enable-idle-shutdown) to save on cost when the VM has been idle for a specified time period.
 * Or [set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
 
 ## Use reserved instances

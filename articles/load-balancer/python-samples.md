@@ -5,10 +5,10 @@ description: With these samples, load balance traffic to multiple websites. Depl
 services: virtual-network
 documentationcenter: load-balancer
 author: mbender-ms
-ms.custom: seodec18
+ms.custom: seodec18, engagement-fy23
 ms.service: load-balancer
 ms.topic: sample
-ms.date: 08/20/2021
+ms.date: 02/28/2023
 ms.author: mbender
 
 ---

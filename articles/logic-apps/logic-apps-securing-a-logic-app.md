@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, rarayudu, azla
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 04/13/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -45,7 +45,7 @@ For Consumption logic apps only, before you can create or manage logic apps and 
 
   For example, suppose you have to work with a logic app that you didn't create and authenticate connections used by that logic app's workflow. Your Azure subscription requires Contributor permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have Contributor access.
 
-To prevent others from changing or deleting your logic app, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/apis-list.md#connection-configuration) and [Connection security and encryption](../connectors/apis-list.md#connection-security-encryption).
+To prevent others from changing or deleting your logic app, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/introduction.md#connection-configuration) and [Connection security and encryption](../connectors/introduction.md#connection-security-encryption).
 
 <a name="secure-run-history"></a>
 
@@ -457,7 +457,7 @@ The following table identifies the authentication types that are available on th
 | [Client Certificate](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | - **Consumption**: Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook <br><br>- **Standard**: Azure Automation, Azure Blob Storage, Azure Event Hubs, Azure Queues, Azure Service Bus, Azure Tables, HTTP, HTTP Webhook, SQL Server |
 | [Raw](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Managed identity](#managed-identity-authentication) | **Built-in connectors**: <br><br>- **Consumption**: Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <br><br>- **Standard**: Azure Automation, Azure Blob Storage, Azure Event Hubs, Azure Queues, Azure Service Bus, Azure Tables, HTTP, HTTP Webhook, SQL Server <br><br>**Managed connectors**: Azure AD Identity Protection, Azure App Service, Azure Automation, Azure Blob Storage, Azure Container Instance, Azure Cosmos DB, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Event Hubs, Azure IoT Central V2, Azure IoT Central V3, Azure Key Vault, Azure Log Analytics, Azure Queues, Azure Resource Manager, Azure Service Bus, Azure Sentinel, Azure VM, HTTP with Azure AD, SQL Server |
+| [Managed identity](#managed-identity-authentication) | **Built-in connectors**: <br><br>- **Consumption**: Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <br><br>- **Standard**: Azure Automation, Azure Blob Storage, Azure Event Hubs, Azure Queues, Azure Service Bus, Azure Tables, HTTP, HTTP Webhook, SQL Server <br><br>**Note**: Currently, most [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) don't support selecting user-assigned managed identities for authentication. <br><br>**Managed connectors**: Azure AD Identity Protection, Azure App Service, Azure Automation, Azure Blob Storage, Azure Container Instance, Azure Cosmos DB, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Event Hubs, Azure IoT Central V2, Azure IoT Central V3, Azure Key Vault, Azure Log Analytics, Azure Queues, Azure Resource Manager, Azure Service Bus, Azure Sentinel, Azure Table Storage, Azure VM, HTTP with Azure AD, SQL Server |
 
 <a name="secure-inbound-requests"></a>
 
@@ -597,7 +597,7 @@ In a Standard logic app workflow that starts with the Request trigger (but not a
 
 * An authorization policy must include at least the **Issuer** claim, which has a value that starts with either `https://sts.windows.net/` or `https://login.microsoftonline.com/` (OAuth V2) as the Azure AD issuer ID.
 
-  For example, suppose that your logic app has an authorization policy that requires two claim types, **Audience** and **Issuer**. This sample [payload section](../active-directory/develop/access-tokens.md#payload-claims) for a decoded access token includes both claim types where `aud` is the **Audience** value and `iss` is the **Issuer** value:
+  For example, suppose that your logic app has an authorization policy that requires two claim types, **Audience** and **Issuer**. This sample [payload section](../active-directory/develop/access-token-claims-reference.md#payload-claims) for a decoded access token includes both claim types where `aud` is the **Audience** value and `iss` is the **Issuer** value:
 
   ```json
   {

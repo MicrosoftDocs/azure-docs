@@ -7,10 +7,11 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 03/03/2023
 ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common
+ms.custom: engagement-fy23
 ---
 
 # Use private endpoints for Azure Storage
@@ -64,7 +65,8 @@ When you create a private endpoint, you must specify the storage account and the
 
 You need a separate private endpoint for each storage resource that you need to access, namely [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md), or [Static Websites](../blobs/storage-blob-static-website.md). On the private endpoint, these storage services are defined as the **target sub-resource** of the associated storage account.
 
-If you create a private endpoint for the Data Lake Storage Gen2 storage resource, then you should also create one for the Blob storage resource. That's because operations that target the Data Lake Storage Gen2 endpoint might be redirected to the Blob endpoint. By creating a private endpoint for both resources, you ensure that operations can complete successfully.
+
+If you create a private endpoint for the Data Lake Storage Gen2 storage resource, then you should also create one for the Blob Storage resource. That's because operations that target the Data Lake Storage Gen2 endpoint might be redirected to the Blob endpoint. Similarly, if you add a private endpoint for Blob Storage only, and not for Data Lake Storage Gen2, some operations (such as Manage ACL, Create Directory, Delete Directory, etc.) will fail since the Gen2 APIs require a DFS private endpoint. By creating a private endpoint for both resources, you ensure that all operations can complete successfully.
 
 > [!TIP]
 > Create a separate private endpoint for the secondary instance of the storage service for better read performance on RA-GRS accounts.
@@ -84,6 +86,9 @@ Clients on a VNet using the private endpoint should use the same connection stri
 By default, We create a [private DNS zone](../../dns/private-dns-overview.md) attached to the VNet with the necessary updates for the private endpoints. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
 
 ## DNS changes for private endpoints
+
+> [!NOTE]
+> For details on how to configure your DNS settings for private endpoints, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md).
 
 When you create a private endpoint, the DNS CNAME resource record for the storage account is updated to an alias in a subdomain with the prefix `privatelink`. By default, we also create a [private DNS zone](../../dns/private-dns-overview.md), corresponding to the `privatelink` subdomain, with the DNS A resource records for the private endpoints.
 
@@ -152,5 +157,6 @@ Only private endpoints that target the Blob storage resource are supported. Priv
 
 ## Next steps
 
+- [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md)
 - [Configure Azure Storage firewalls and virtual networks](storage-network-security.md)
 - [Security recommendations for Blob storage](../blobs/security-recommendations.md)

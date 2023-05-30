@@ -1,5 +1,5 @@
 ---
-title: Service-to-service authentication with OAuth2.0 on-behalf-of flow | Microsoft Docs
+title: Service-to-service authentication with OAuth2.0 on-behalf-of flow
 description: This article describes how to use HTTP messages to implement service-to-service authentication with the OAuth2.0 On-Behalf-Of flow.
 services: active-directory
 documentationcenter: .net

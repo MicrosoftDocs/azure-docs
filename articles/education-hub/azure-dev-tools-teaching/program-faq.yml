@@ -2,7 +2,7 @@
 metadata:
   title: Frequently asked questions about Azure for Students and Azure Dev Tools for Teaching
   description: Find answers to some common questions about Azure for Students, Azure for Students Starter, and Azure Dev Tools for Teaching.
-  author: v-dihans
+  author: rymend
   ms.author: rymend	
   ms.service: azure-education
   ms.topic: faq
@@ -17,7 +17,7 @@ sections:
       - question: |
           What happens after I use my $100 credit or I'm at the end of 12 months?
         answer: |
-          If you exhaust your available credit before 12 months and you want to continue to use Azure, you can upgrade to a pay-as-you-go subscription in the Azure portal.  If you do not upgrade, your Azure subscription becomes disabled. If you’re at the end of 12 months, you can renew your subscription by signing up again for the offer. To get detailed terms of use for Azure for Students, please visit the [offer terms](https://azure.microsoft.com/offers/ms-azr-0170p/).
+          If you exhaust your available credit before 12 months and you want to continue to use Azure, you can upgrade to a [pay-as-you-go subscription](../../cost-management-billing/manage/upgrade-azure-subscription.md) in the Azure portal.  If you do not upgrade, your Azure subscription becomes disabled. If you’re at the end of 12 months, you can renew your subscription by signing up again for the offer. To get detailed terms of use for Azure for Students, please visit the [offer terms](https://azure.microsoft.com/offers/ms-azr-0170p/).
       
       - question: |
           Who is eligible for Azure for Students?
@@ -58,6 +58,11 @@ sections:
           Windows Server<br>
              :::column-end:::
           :::row-end:::
+       
+      - question: |
+          Can I deploy Windows 10 and Windows 11 VMs with my Azure for Students subscription?
+        answer: |
+          Yes, as a benefit of your Azure for Students subscription, you may use Windows 10 and 11 virtual machines without the need for a Windows 11 Enterprise license.
           
       - question: |
           Can I get Azure for Students again next year?

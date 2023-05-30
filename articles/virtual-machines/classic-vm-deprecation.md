@@ -6,6 +6,7 @@ manager: vashan
 ms.service: virtual-machines
 ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore

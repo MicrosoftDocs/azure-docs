@@ -1,31 +1,32 @@
 ---
-title: Migrate one-to-few relational data into Azure Cosmos DB for NoSQL
-description: Learn how to handle complex data migration for one-to-few relationships into API for NoSQL
+title: Migrate one-to-few relational data 
+titleSuffix: Azure Cosmos DB for NoSQL
+description: Learn how to perform a complex data migration for one-to-few relationships from a relational database into Azure Cosmos DB for NoSQL.
+ms.author: thvankra
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: how-to
-ms.date: 12/12/2019
-ms.author: thvankra
+ms.topic: conceptual
 ms.devlang: python, scala
+ms.date: 02/27/2023
 ms.custom: ignite-2022
 ---
 
-# Migrate one-to-few relational data into Azure Cosmos DB for NoSQL account
+# Migrate one-to-few relational data into an Azure Cosmos DB for NoSQL account
+
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 In order to migrate from a relational database to Azure Cosmos DB for NoSQL, it can be necessary to make changes to the data model for optimization.
 
-One common transformation is denormalizing data by embedding related subitems within one JSON document. Here we look at a few options for this using Azure Data Factory or Azure Databricks. For general guidance on data modeling for Azure Cosmos DB, please review [Data modeling in Azure Cosmos DB](modeling-data.md).  
+One common transformation is denormalizing data by embedding related subitems within one JSON document. Here we look at a few options for this using Azure Data Factory or Azure Databricks. For more information on data modeling for Azure Cosmos DB, see [data modeling in Azure Cosmos DB](modeling-data.md).  
 
 ## Example Scenario
 
 Assume we have the following two tables in our SQL database, Orders and OrderDetails.
 
-
 :::image type="content" source="./media/migrate-relational-data/orders.png" alt-text="Screenshot that shows the Orders and OrderDetails tables in the SQL database." border="false" :::
 
-We want to combine this one-to-few relationship into one JSON document during migration. To do this, we can create a T-SQL query using "FOR JSON" as below:
+We want to combine this one-to-few relationship into one JSON document during migration. To create a single document, create a T-SQL query using `FOR JSON`:
 
 ```sql
 SELECT
@@ -44,26 +45,24 @@ SELECT
 FROM Orders o;
 ```
 
-The results of this query would look as below: 
+The results of this query would include data from the **Orders** table:
 
-:::image type="content" source="./media/migrate-relational-data/for-json-query-result.png" alt-text="Order Details" lightbox="./media/migrate-relational-data/for-json-query-result.png":::
+:::image type="content" source="./media/migrate-relational-data/for-json-query-result.png" alt-text="Screenshot of a query that results in details of various orders." lightbox="./media/migrate-relational-data/for-json-query-result.png":::
 
-Ideally, you want to use a single Azure Data Factory (ADF) copy activity to query SQL data as the source and write the output directly to Azure Cosmos DB sink as proper JSON objects. Currently, it is not possible to perform the needed JSON transformation in one copy activity. If we try to copy the results of the above query into an Azure Cosmos DB for NoSQL container, we will see the OrderDetails field as a string property of our document, instead of the expected JSON array.
+Ideally, you want to use a single Azure Data Factory (ADF) copy activity to query SQL data as the source and write the output directly to Azure Cosmos DB sink as proper JSON objects. Currently, it isn't possible to perform the needed JSON transformation in one copy activity. If we try to copy the results of the above query into an Azure Cosmos DB for NoSQL container, we see the OrderDetails field as a string property of our document, instead of the expected JSON array.
 
 We can work around this current limitation in one of the following ways:
 
-* **Use Azure Data Factory with two copy activities**: 
-  1. Get JSON-formatted data from SQL to a text file in an intermediary blob storage location, and 
+* **Use Azure Data Factory with two copy activities**:
+  1. Get JSON-formatted data from SQL to a text file in an intermediary blob storage location
   2. Load data from the JSON text file to a container in Azure Cosmos DB.
-
-* **Use Azure Databricks to read from SQL and write to Azure Cosmos DB** - we will present two options here.
-
+* **Use Azure Databricks to read from SQL and write to Azure Cosmos DB** - we present two options here.
 
 Let’s look at these approaches in more detail:
 
 ## Azure Data Factory
 
-Although we cannot embed OrderDetails as a JSON-array in the destination Azure Cosmos DB document, we can work around the issue by using two separate Copy Activities.
+Although we can't embed OrderDetails as a JSON-array in the destination Azure Cosmos DB document, we can work around the issue by using two separate Copy Activities.
 
 ### Copy Activity #1: SqlJsonToBlobText
 
@@ -88,17 +87,16 @@ SELECT [value] FROM OPENJSON(
 )
 ```
 
-:::image type="content" source="./media/migrate-relational-data/adf1.png" alt-text="ADF copy":::
+:::image type="content" source="./media/migrate-relational-data/adf1.png" alt-text="Screenshot of the preview values in the ADF copy operation.":::
 
-
-For the sink of the SqlJsonToBlobText copy activity, we choose "Delimited Text" and point it to a specific folder in Azure Blob Storage with a dynamically generated unique file name (for example, '@concat(pipeline().RunId,'.json').
-Since our text file is not really "delimited" and we do not want it to be parsed into separate columns using commas and want to preserve the double-quotes ("), we set "Column delimiter" to a Tab ("\t") - or another character not occurring in the data - and "Quote character" to "No quote character".
+For the sink of the `SqlJsonToBlobText` copy activity, we choose "Delimited Text" and point it to a specific folder in Azure Blob Storage. This sink includes a dynamically generated unique file name (for example, `@concat(pipeline().RunId,'.json')`.
+Since our text file isn't really "delimited" and we don't want it to be parsed into separate columns using commas. We also want to preserve the double-quotes ("), set "Column delimiter" to a Tab ("\t") - or another character not occurring in the data, and then set "Quote character" to "No quote character".
 
 :::image type="content" source="./media/migrate-relational-data/adf2.png" alt-text="Screenshot that highlights the Column delimiter and Quote character settings.":::
 
 ### Copy Activity #2: BlobJsonToCosmos
 
-Next, we modify our ADF pipeline by adding the second Copy Activity that looks in Azure Blob Storage for the text file that was created by the first activity. It processes it as "JSON" source to insert to Azure Cosmos DB sink as one document per JSON-row found in the text file.
+Next, we modify our ADF pipeline by adding the second Copy Activity that looks in Azure Blob Storage for the text file created by the first activity. It processes it as "JSON" source to insert to Azure Cosmos DB sink as one document per JSON-row found in the text file.
 
 :::image type="content" source="./media/migrate-relational-data/adf3.png" alt-text="Screenshot that highlights the JSON source file and the File path fields.":::
 
@@ -106,7 +104,7 @@ Optionally, we also add a "Delete" activity to the pipeline so that it deletes a
 
 :::image type="content" source="./media/migrate-relational-data/adf4.png" alt-text="Screenshot that highlights the Delete activity.":::
 
-After we trigger the pipeline above, we see a file created in our intermediary Azure Blob Storage location containing one JSON-object per row:
+After we trigger the pipeline mentioned previously, we see a file created in our intermediary Azure Blob Storage location containing one JSON-object per row:
 
 :::image type="content" source="./media/migrate-relational-data/adf5.png" alt-text="Screenshot that shows the created file that contains the JSON objects.":::
 
@@ -114,22 +112,21 @@ We also see Orders documents with properly embedded OrderDetails inserted into o
 
 :::image type="content" source="./media/migrate-relational-data/adf6.png" alt-text="Screenshot that shows the order details as a part of the Azure Cosmos DB document":::
 
-
 ## Azure Databricks
 
-We can also use Spark in [Azure Databricks](https://azure.microsoft.com/services/databricks/) to copy the data from our SQL Database source to the Azure Cosmos DB destination without creating the intermediary text/JSON files in Azure Blob Storage. 
+We can also use Spark in [Azure Databricks](https://azure.microsoft.com/services/databricks/) to copy the data from our SQL Database source to the Azure Cosmos DB destination without creating the intermediary text/JSON files in Azure Blob Storage.
 
 > [!NOTE]
-> For clarity and simplicity, the code snippets below include dummy database passwords explicitly inline, but you should always use Azure Databricks secrets.
->
+> For clarity and simplicity, the code snippets include dummy database passwords explicitly inline, but you should ideally use Azure Databricks secrets.
 
 First, we create and attach the required [SQL connector](/connectors/sql/) and [Azure Cosmos DB connector](https://docs.databricks.com/data/data-sources/azure/cosmosdb-connector.html) libraries to our Azure Databricks cluster. Restart the cluster to make sure libraries are loaded.
 
 :::image type="content" source="./media/migrate-relational-data/databricks1.png" alt-text="Screenshot that shows where to create and attach the required SQL connector and Azure Cosmos DB connector libraries to our Azure Databricks cluster.":::
 
-Next, we present two samples, for Scala and Python. 
+Next, we present two samples, for Scala and Python.
 
 ### Scala
+
 Here, we get the results of the SQL query with “FOR JSON” output into a DataFrame:
 
 ```scala
@@ -175,7 +172,7 @@ val configMap = Map(
 val configAzure Cosmos DB= Config(configMap)
 ```
 
-Finally, we define our schema and use from_json to apply the DataFrame prior to saving it to the CosmosDB collection.
+Finally, we define our schema and use from_json to apply the DataFrame prior to saving it to the Cosmos DB collection.
 
 ```scala
 // Convert DataFrame to proper nested schema
@@ -207,10 +204,9 @@ CosmosDBSpark.save(ordersWithSchema, configCosmos)
 
 :::image type="content" source="./media/migrate-relational-data/databricks3.png" alt-text="Screenshot that highlights the proper array for saving to an Azure Cosmos DB collection.":::
 
-
 ### Python
 
-As an alternative approach, you may need to execute JSON transformations in Spark (if the source database does not support "FOR JSON" or a similar operation), or you may wish to use parallel operations for a very large data set. Here we present a PySpark sample. Start by configuring the source and target database connections in the first cell:
+As an alternative approach, you may need to execute JSON transformations in Spark if the source database doesn't support `FOR JSON` or a similar operation. Alternatively, you can use parallel operations for a large data set. Here we present a PySpark sample. Start by configuring the source and target database connections in the first cell:
 
 ```python
 import uuid
@@ -242,7 +238,7 @@ writeConfig = {
 }
 ```
 
-Then, we will query the source Database (in this case SQL Server) for both the order and order detail records, putting the results into Spark Dataframes. We will also create a list containing all the order IDs, and a Thread pool for parallel operations:
+Then, we query the source Database (in this case SQL Server) for both the order and order detail records, putting the results into Spark Dataframes. We also create a list containing all the order IDs, and a Thread pool for parallel operations:
 
 ```python
 import json
@@ -275,7 +271,7 @@ orderids = orders.select('OrderId').collect()
 pool = ThreadPool(10)
 ```
 
-Then, create a function for writing Orders into the target API for NoSQL collection. This function will filter all order details for the given order ID, convert them into a JSON array, and insert the array into a JSON document that we will write into the target API for NoSQL Collection for that order:
+Then, create a function for writing Orders into the target API for NoSQL collection. This function filters all order details for the given order ID, converts them into a JSON array, and inserts the array into a JSON document. The JSON document is then written into the target API for NoSQL container for that order:
 
 ```python
 def writeOrder(orderid):
@@ -327,16 +323,18 @@ def writeOrder(orderid):
   df.write.format("com.microsoft.azure.cosmosdb.spark").mode("append").options(**writeConfig).save()
 ```
 
-Finally, we will call the above using a map function on the thread pool, to execute in parallel, passing in the list of order IDs we created earlier:
+Finally, we call the Python `writeOrder` function using a map function on the thread pool, to execute in parallel, passing in the list of order IDs we created earlier:
 
 ```python
 #map order details to orders in parallel using the above function
 pool.map(writeOrder, orderids)
 ```
+
 In either approach, at the end, we should get properly saved embedded OrderDetails within each Order document in Azure Cosmos DB collection:
 
-:::image type="content" source="./media/migrate-relational-data/databricks4.png" alt-text="Databricks":::
+:::image type="content" source="./media/migrate-relational-data/databricks4.png" alt-text="Screenshot of the resulting data after migration.":::
 
 ## Next steps
+
 * Learn about [data modeling in Azure Cosmos DB](./modeling-data.md)
-* Learn [how to model and partition data on Azure Cosmos DB](./how-to-model-partition-example.md)
+* Learn [how to model and partition data on Azure Cosmos DB](./model-partition-example.md)

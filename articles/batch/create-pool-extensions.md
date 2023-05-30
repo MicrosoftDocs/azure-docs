@@ -2,7 +2,7 @@
 title: Use extensions with Batch pools
 description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes. 
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 05/26/2023
 ---
 
 # Use extensions with Batch pools
@@ -60,10 +60,10 @@ Request Body
                 "imageReference": {
                     "publisher": "canonical",
                     "offer": "ubuntuserver",
-                    "sku": "18.04-lts",
+                    "sku": "20.04-lts",
                     "version": "latest"
                 },
-                "nodeAgentSkuId": "batch.node.ubuntu 18.04",
+                "nodeAgentSkuId": "batch.node.ubuntu 20.04",
                 "extensions": [
                     {
                         "name": "secretext",
@@ -97,6 +97,8 @@ Request Body
                 "resizeTimeout": "PT15M"
             }
         }
+    }
+}
 ```
 
 ## Get extension data from a pool
@@ -106,7 +108,7 @@ The example below retrieves data from the Azure Key Vault extension.
 REST API URI
 
 ```http
- GET https://<accountname>.<region>.batch.azure.com/pools/test3/nodes/tvmps_a3ce79db285d6c124399c5bd3f3cf308d652c89675d9f1f14bfc184476525278_d/extensions/secretext?api-version=2010-01-01
+ GET https://<accountName>.<region>.batch.azure.com/pools/<poolName>/nodes/<tvmNodeName>/extensions/secretext?api-version=2010-01-01
 ```
 
 Response Body

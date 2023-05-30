@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 12/13/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication
@@ -87,7 +88,7 @@ This article covers the advanced configuration, a flexible SHA implementing that
 
 Before BIG-IP can hand off pre-authentication to Azure AD, register it in your tenant. This process initiates SSO between both entities. The app you create from the F5 BIG-IP gallery template is the relying party that represents the SAML SP for the BIG-IP published application.
 
-1. Sign in to the [Azure AD portal](https://portal.azure.com) with Application Administrator permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) with Application Administrator permissions.
 2. From the left pane, select the **Azure Active Directory** service.
 3. On the left menu, select **Enterprise applications**. The **All applications** pane appears with a list of the applications in your Azure AD tenant.
 4. On the **Enterprise applications** pane, select **New application**.
@@ -454,7 +455,7 @@ BIG-IP logs are a reliable source of information. To increase the log verbosity 
 4. Select **Debug** from the SSO list.
 5. Select **OK**. 
 
-Reproduce your problem before you look at the logs. Then revert this feature, when finished. Otherwise the verbosity is signficant. 
+Reproduce your problem before you look at the logs. Then revert this feature, when finished. Otherwise the verbosity is significant. 
 
 **BIG-IP error**
 

@@ -1,17 +1,17 @@
 ---
-title: Microsoft Azure Data Manager for Energy Preview - How to convert segy to zgy file #Required; page title is displayed in search results. Include the brand.
-description: This article describes how to convert a SEG-Y file to a ZGY file #Required; article description that is displayed in search results. 
-author: marielgherz #Required; your GitHub user alias, with correct capitalization.
-ms.author: marielherzog #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
+title: Microsoft Azure Data Manager for Energy Preview - How to convert segy to zgy file
+description: This article describes how to convert a SEG-Y file to a ZGY file
+author: marielgherz
+ms.author: marielherzog
+ms.service: energy-data-services
+ms.topic: how-to
 ms.date: 08/18/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # How to convert a SEG-Y file to ZGY
 
-In this article, you will learn how to convert SEG-Y formatted data to the ZGY format. Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU&trade; community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/azure/m10-master)
+In this article, you will learn how to convert SEG-Y formatted data to the ZGY format. Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU&trade; community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion)
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

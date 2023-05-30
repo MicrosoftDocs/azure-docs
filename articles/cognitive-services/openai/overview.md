@@ -8,27 +8,27 @@ ms.author: chrhoder
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: overview
-ms.date: 11/07/2022
-ms.custom: event-tier1-build-2022
+ms.date: 05/15/2023
+ms.custom: event-tier1-build-2022, build-2023, build-2023-dataai
 recommendations: false
 keywords:  
 ---
 
 # What is Azure OpenAI Service?
 
-Azure OpenAI Service provides REST API access to OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series. These models can be easily adapted to your specific task including but not limited to content generation, summarization, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio.
+Azure OpenAI Service provides REST API access to OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series. In addition, the new GPT-4 and ChatGPT (gpt-35-turbo) model series have now reached general availability. These models can be easily adapted to your specific task including but not limited to content generation, summarization, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio.
 
 ### Features overview
 
 | Feature | Azure OpenAI |
 | --- | --- |
-| Models available | GPT-3 base series <br> Codex series <br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
-| Fine-tuning | Ada <br> Babbage <br> Curie <br> Cushman* <br> Davinci* <br> \* Currently unavailable. \*\*East US Fine-tuning is currently unavailable to new customers. Please use US South Central for US based training|
+| Models available | **NEW GPT-4 series** <br> GPT-3 base series <br>**NEW ChatGPT (gpt-35-turbo)**<br> Codex series <br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
+| Fine-tuning | Ada <br> Babbage <br> Curie <br> Cushman <br> Davinci <br>**Fine-tuning is currently unavailable to new customers**.|
 | Price | [Available here](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) |
 | Virtual network support & private link support | Yes | 
 | Managed Identity| Yes, via Azure Active Directory | 
 | UI experience | **Azure Portal** for account & resource management, <br> **Azure OpenAI Service Studio** for model exploration and fine tuning |
-| Regional availability | East US <br> South Central US <br> West Europe |
+| Regional availability | East US <br> South Central US <br> West Europe <br> France Central |
 | Content filtering | Prompts and completions are evaluated against our content policy with automated systems. High severity content will be filtered. |
 
 ## Responsible AI
@@ -39,19 +39,17 @@ At Microsoft, we're committed to the advancement of AI driven by principles that
 
 How do I get access to Azure OpenAI?
 
-Access is currently limited as we navigate high demand, upcoming product improvements, and <a href="https://www.microsoft.com/ai/responsible-ai?activetab=pivot1:primaryr6" target="_blank">Microsoft’s commitment to responsible AI</a>. For now, we're working with customers with an existing partnership with Microsoft, lower risk use cases, and those committed to incorporating mitigations. In addition to applying for initial access, all solutions using Azure OpenAI are required to go through a use case review before they can be released for production use.
+Access is currently limited as we navigate high demand, upcoming product improvements, and <a href="https://www.microsoft.com/ai/responsible-ai?activetab=pivot1:primaryr6" target="_blank">Microsoft’s commitment to responsible AI</a>. For now, we're working with customers with an existing partnership with Microsoft, lower risk use cases, and those committed to incorporating mitigations. 
 
 More specific information is included in the application form. We appreciate your patience as we work to responsibly enable broader access to Azure OpenAI.
 
-Apply here for initial access or for a production review:
+Apply here for access:
 
 <a href="https://aka.ms/oaiapply" target="_blank">Apply now</a>
 
-All solutions using Azure OpenAI are also required to go through a use case review before they can be released for production use, and are evaluated on a case-by-case basis. In general, the more sensitive the scenario the more important risk mitigation measures will be for approval.
-
 ## Comparing Azure OpenAI and OpenAI
 
-Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-3, Codex, and DALL-E models with the security and enterprise promise of Azure. Azure OpenAI co-develops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
+Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-4, GPT-3, Codex, and DALL-E models with the security and enterprise promise of Azure. Azure OpenAI co-develops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
 
 With Azure OpenAI, customers get the security capabilities of Microsoft Azure while running the same models as OpenAI. Azure OpenAI offers private networking, regional availability, and responsible AI content filtering.  
 
@@ -124,7 +122,11 @@ The number of examples typically range from 0 to 100 depending on how many can f
 
 ### Models
 
-The service provides users access to several different models. Each model provides a different capability and price point. The GPT-3 base models are known as Davinci, Curie, Babbage, and Ada in decreasing order of capability and increasing order of speed.
+The service provides users access to several different models. Each model provides a different capability and price point.
+
+GPT-4 models are the latest available models. Due to high demand access to this model series is currently only available by request. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
+
+The GPT-3 base models are known as Davinci, Curie, Babbage, and Ada in decreasing order of capability and increasing order of speed.
 
 The Codex series of models is a descendant of GPT-3 and has been trained on both natural language and code to power natural language to code use cases. Learn more about each model on our [models concept page](./concepts/models.md).
 

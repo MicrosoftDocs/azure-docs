@@ -7,19 +7,18 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 03/17/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
-recommendations: false
 ---
 
 # Managed identities for Form Recognizer
 
-:::image type="content" source="media/managed-identities/rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
-
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
+
+:::image type="content" source="media/managed-identities/rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
 * You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Unlike security keys and authentication tokens, managed identities eliminate the need for developers to manage credentials.
 
@@ -27,13 +26,15 @@ Managed identities for Azure resources are service principals that create an Azu
 
 * There's no added cost to use managed identities in Azure.
 
-> [!TIP]
-> Managed identities eliminate the need for you to manage credentials, including Shared Access Signature (SAS) tokens. Managed identities are a safer way to grant access to data without having credentials in your code.
-
+> [!IMPORTANT]
+>
+> * Managed identities eliminate the need for you to manage credentials, including Shared Access Signature (SAS) tokens. 
+>
+> * Managed identities are a safer way to grant access to data without having credentials in your code.
 
 ## Private storage account access
 
- Private Azure storage account access and authentication are supported by [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). If you have an Azure storage account, protected by a Virtual Network (VNet) or firewall, Form Recognizer can't directly access your storage account data. However, once a managed identity is enabled, Form Recognizer can access your storage account using an assigned managed identity credential.
+ Private Azure storage account access and authentication support [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). If you have an Azure storage account, protected by a Virtual Network (VNet) or firewall, Form Recognizer can't directly access your storage account data. However, once a managed identity is enabled, Form Recognizer can access your storage account using an assigned managed identity credential.
 
 > [!NOTE]
 >
@@ -106,7 +107,7 @@ You need to grant Form Recognizer access to your storage account before it can c
     >
     > If you're unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or you get the permissions error, "you do not have permissions to add role assignment at this scope", check that you're currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as Owner or User Access Administrator at the Storage scope for the storage resource.
 
-1. Next, you're going to assign a **Storage Blob Data Reader** role to your Form Recognizer service resource. In the **Add role assignment** pop-up window complete the fields as follows and select **Save**:
+1. Next, you're going to assign a **Storage Blob Data Reader** role to your Form Recognizer service resource. In the **Add role assignment** pop-up window, complete the fields as follows and select **Save**:
 
     | Field | Value|
     |------|--------|

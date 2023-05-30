@@ -1,5 +1,5 @@
 ---
-title: 'Atlassian Jira/Confluence admin guide - Azure Active Directory'
+title: 'Atlassian Jira/Confluence admin guide'
 description: Admin guide to use Atlassian Jira and Confluence with Azure Active Directory (Azure AD)..
 services: active-directory
 author: dhivyagana
@@ -59,12 +59,12 @@ Note the following information before you install the plug-in:
 
 The plug-in supports the following versions of Jira and Confluence:
 
-* Jira Core and Software: 6.0 to 9.1.0
+* Jira Core and Software: 6.0 to 9.7.0
 * Jira Service Desk: 3.0.0 to 4.22.1.
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md).
 * Confluence: 5.0 to 5.10.
 * Confluence: 6.0.1 to 6.15.9.
-* Confluence: 7.0.1 to 7.20.0.
+* Confluence: 7.0.1 to 8.1.0.
 
 ## Installation
 
@@ -124,13 +124,14 @@ The following image shows the configuration screen in both Jira and Confluence:
 
    * For App proxy setup , follow the steps on the [Azure AD App Proxy Documentation](../app-proxy/what-is-application-proxy.md).
 ## Release Notes
+JIRA:
 
 |Plugin Version   |                                   Release Notes                                           |       Supported JIRA versions       |
 |-----------------|-------------------------------------------------------------------------------------------|-------------------------------------|
 |  1.0.20         |   Bug Fixes:                                                                              | Jira Core and Software:             |
-|                 |   JIRA SAML SSO add-on redirects to incorrect URL from mobile browser.                 |  7.0.0 to 9.5.0                     |
+|                 |   JIRA SAML SSO add-on redirects to incorrect URL from mobile browser.                 |  7.0.0 to 9.7.0                     |
 |                 |   The mark log section after enabling the JIRA plugin.                                 |                                     |
-|                 |   The last login date for a user doesn't update when user signs in via SSO            |                                     |
+|                 |   The last login date for a user doesn't update when user signs in via SSO.           |                                     |
 |                 |                                                                                           |                                     |
 |  1.0.19         |   New Feature:                                                                            | Jira Core and Software:             |
 |                 |    Application Proxy Support - Checkbox on the configure plugin screen to toggle the App Proxy mode so as to make the Reply URL editable as per the need to point the App Proxy mode so as to make the Reply URL editable as per the need to point it to the proxy server URL |  6.0 to 9.3.1           |
@@ -143,7 +144,20 @@ The following image shows the configuration screen in both Jira and Confluence:
 |                 |    We have now resolved the security fix in this version. This will protect you from user impersonation vulnerability.|       |
 |                 |    JIRA Service Desk logout issue is resolved.                                         |                                     |
  
- 
+Confluence:
+
+|Plugin Version   |                                   Release Notes                                           |       Supported JIRA versions       |
+|-----------------|-------------------------------------------------------------------------------------------|-------------------------------------|
+|  6.3.9          |   Bug Fixes:                                                                              | Confluence Server: 7.20.3 to 8.1.0  |
+|                 |   System Error: Metadata link cannot be configured on SSO plugins.                        |                                     |
+|                 |                                                                                           |                                     |
+|  6.3.8          |   New Feature:                                                                            | Confluence Server: 5.0 to 7.20.1    |
+|                 |   Application Proxy Support - Checkbox on the configure plugin screen to toggle the App Proxy mode so as to make the Reply URL editable as per the need to point it to the proxy server URL                                                                      |                                     |
+|                 |                                                                                           |                                     |
+|  6.3.7          |   Bug Fixes:                                                                              | Confluence Server: 5.0 to 7.19.0    |
+|                 |   "Force Login" functionality allows the IT admins to force the Azure AD authentication to users. This way users will not see the username and password box and they will be forced to use SSO.                                                              |                                     |
+|                 |   "Force Login" is configurable from the plugin                                           |                                     |
+|                 |   You can pass the domain string to Azure AD so that Azure AD can directly redirect the user to your Federation server.|        |  
  
 ## Troubleshooting
 
@@ -198,7 +212,7 @@ The plug-in supports these versions:
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md).
 * Confluence: 5.0 to 5.10.
 * Confluence: 6.0.1 to 6.15.9.
-* Confluence: 7.0.1 to 7.20.0.
+* Confluence: 7.0.1 to 8.1.0.
 
 ### Is the plug-in free or paid?
 

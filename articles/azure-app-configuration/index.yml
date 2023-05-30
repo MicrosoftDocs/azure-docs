@@ -4,11 +4,11 @@ summary: Learn how to use Azure App Configuration, a managed service that helps 
 metadata:
   title: Azure App Configuration documentation
   description: Learn how to use Azure App Configuration, a managed service that helps developers centralize their application and feature settings simply and securely.
-  author: maud-lv
-  ms.author: malev
+  author: mcleanbyron
+  ms.author: mcleans
   ms.service: azure-app-configuration
   ms.topic: landing-page
-  ms.date: 02/03/2020
+  ms.date: 03/20/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -64,12 +64,16 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+        - text: Create an Azure App Configuration store
+          url: quickstart-azure-app-configuration-create.md
         - text: Code an ASP.NET Core app
           url: quickstart-aspnet-core-app.md
         - text: Code a .NET Core app
           url: quickstart-dotnet-core-app.md
         - text: Code a .NET Framework app
           url: quickstart-dotnet-app.md
+        - text: Code a .NET app in Visual Studio
+          url: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
         - text: Code an Azure Functions app in C#
           url: quickstart-azure-functions-csharp.md
         - text: Code a Java Spring app
@@ -78,8 +82,8 @@ landingContent:
           url: quickstart-python.md
         - text: Azure Resource Manager template
           url: quickstart-resource-manager.md       
-        - text: Code a .NET app in Visual Studio
-          url: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
+        - text: Azure Container Apps
+          url: quickstart-container-apps.md
       - linkListType: tutorial
         links:  
         - text: Use dynamic config in ASP.NET Core
@@ -148,10 +152,8 @@ landingContent:
           url: howto-targetingfilter-aspnet-core.md
       - linkListType: reference
         links:
-        - text: .NET Core library
-          url: https://www.nuget.org/packages/Microsoft.FeatureManagement/
-        - text: .NET Core filter library
-          url: /dotnet/api/microsoft.azure.management.storsimple8000series.models.featurefilter
+        - text: .NET library
+          url: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - text: Java Spring Library
           url: https://azure.github.io/azure-sdk-for-java/springboot.html
 

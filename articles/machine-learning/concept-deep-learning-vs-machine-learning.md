@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how deep learning relates to machine learning and AI. In Azure Machine Learning, use deep learning models for fraud detection, object detection, and more.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt
@@ -67,7 +67,7 @@ Learn how to apply transfer learning for image classification using an open-sour
 
 Because of the artificial neural network structure, deep learning excels at identifying patterns in unstructured data such as images, sound, video, and text. For this reason, deep learning is rapidly transforming many industries, including healthcare, energy, finance, and transportation. These industries are now rethinking traditional business processes. 
 
-Some of the most common applications for deep learning are described in the following paragraphs. In Azure Machine Learning, you can use a model from you build from an open-source framework or build the model using the tools provided.
+Some of the most common applications for deep learning are described in the following paragraphs. In Azure Machine Learning, you can use a model you built from an open-source framework or build the model using the tools provided.
 
 ### Named-entity recognition
 

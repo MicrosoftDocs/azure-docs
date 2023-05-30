@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Brightidea | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Brightidea'
 description: Learn how to configure single sign-on between Azure Active Directory and Brightidea.
 services: active-directory
 author: jeevansd

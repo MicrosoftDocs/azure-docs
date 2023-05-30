@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.reviewer: ssalgado
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
+ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022, build-2023, build-2023-dataai
 ms.date: 03/15/2022
 #Customer intent: I'm a data scientist with ML knowledge in the natural language processing space, looking to build ML models using language specific data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
@@ -18,7 +18,7 @@ ms.date: 03/15/2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of the developer platform of Azure Machine Learning  you are using:"]
-> * [v1](./v1/how-to-auto-train-nlp-models-v1.md)
+> * [v1](./v1/how-to-auto-train-nlp-models-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-auto-train-nlp-models.md)
  
 
@@ -26,7 +26,7 @@ In this article, you learn how to train natural language processing (NLP) models
 
 Automated ML supports NLP which allows ML professionals and data scientists to bring their own text data and build custom models for tasks such as, multi-class text classification, multi-label text classification, and named entity recognition (NER).  
 
-You can seamlessly integrate with the [Azure Machine Learning data labeling](how-to-create-text-labeling-projects.md) capability to label your text data or bring your existing labeled data. Automated ML provides the option to use distributed training on multi-GPU compute clusters for faster model training. The resulting model can be operationalized at scale by leveraging Azure Machine Learning’s MLOps capabilities. 
+You can seamlessly integrate with the [Azure Machine Learning data labeling](how-to-create-text-labeling-projects.md) capability to label your text data or bring your existing labeled data. Automated ML provides the option to use distributed training on multi-GPU compute clusters for faster model training. The resulting model can be operationalized at scale by leveraging Azure Machine Learning's MLOps capabilities. 
 
 ## Prerequisites
 
@@ -235,7 +235,7 @@ Named entity recognition (NER)|`"eng"` <br>  `"deu"` <br> `"mul"`|  English&nbsp
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-You can specify your dataset language in the featurization section of your configuration YAML file. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML](how-to-configure-auto-features.md#bert-integration-in-automated-ml).
+You can specify your dataset language in the featurization section of your configuration YAML file. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML (SDK v1)](./v1/how-to-configure-auto-features.md#bert-integration-in-automated-ml).
 
 ```azurecli
 featurization:
@@ -246,7 +246,7 @@ featurization:
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-You can specify your dataset language with the `set_featurization()` method. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML](how-to-configure-auto-features.md#bert-integration-in-automated-ml).
+You can specify your dataset language with the `set_featurization()` method. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML (SDK v1)](./v1/how-to-configure-auto-features.md?view=azureml-api-1&preserve-view=true#bert-integration-in-automated-ml).
 
 ```python
 text_classification_job.set_featurization(dataset_language='eng')
@@ -369,7 +369,7 @@ The following table describes the hyperparameters that AutoML NLP supports.
 
 | Parameter name | Description | Syntax |
 |-------|---------|---------| 
-| gradient_accumulation_steps | The number of backward operations whose gradients are to be summed up before performing one step of gradient descent by calling the optimizer’s step function. <br><br> This is leveraged to use an effective batch size which is gradient_accumulation_steps times larger than the maximum size that fits the GPU. | Must be a positive integer.
+| gradient_accumulation_steps | The number of backward operations whose gradients are to be summed up before performing one step of gradient descent by calling the optimizer's step function. <br><br> This is leveraged to use an effective batch size which is gradient_accumulation_steps times larger than the maximum size that fits the GPU. | Must be a positive integer.
 | learning_rate | Initial learning rate. | Must be a float in the range (0, 1). |
 | learning_rate_scheduler |Type of learning rate scheduler. | Must choose from `linear, cosine, cosine_with_restarts, polynomial, constant, constant_with_warmup`.  |
 | model_name | Name of one of the supported models.  | Must choose from `bert_base_cased, bert_base_uncased, bert_base_multilingual_cased, bert_base_german_cased, bert_large_cased, bert_large_uncased, distilbert_base_cased, distilbert_base_uncased, roberta_base, roberta_large, distilroberta_base, xlm_roberta_base, xlm_roberta_large, xlnet_base_cased, xlnet_large_cased`. |
@@ -539,4 +539,4 @@ While such cases are uncommon, they're possible and the best way to handle it is
 ## Next steps
 
 + [Deploy AutoML models to an online (real-time inference) endpoint](how-to-deploy-automl-endpoint.md)
-+ [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md)
++ [Troubleshoot automated ML experiments (SDK v1)](./v1/how-to-troubleshoot-auto-ml.md?view=azureml-api-1&preserve-view=true)

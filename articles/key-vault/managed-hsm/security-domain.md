@@ -37,7 +37,7 @@ The keys to a security domain must be held in offline storage (such as an encryp
 It is again especially important to periodically review your security policy around the managed HSM quorum. Your security policy must be accurate, you must have up-to-date records of where the security domain and its private keys are stored, and you must know who has control of the security domain.
 
 Security domain key handling prohibitions:
-- One person should never be allowed to have physical access to all quorum keys. In other words, `m` must be greater that 1 (and should ideally be >= 3).
+- One person should never be allowed to have physical access to all quorum keys. In other words, `m` must be greater than 1 (and should ideally be >= 3).
 - The security domain keys must never be stored on a computer with an internet connection. A computer with internet connection is exposed to various threats, such as viruses and malicious hackers. You significantly reduce your risk by storing the security domain keys offline
 
 ### Establishing a security domain quorum

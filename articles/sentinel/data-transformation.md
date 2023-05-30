@@ -83,10 +83,10 @@ The following table describes DCR support for Microsoft Sentinel data connector 
 | Data connector type | DCR support |
 | ------------------- | ----------- |
 | **Direct ingestion via [Logs ingestion API](../azure-monitor/logs/logs-ingestion-api-overview.md)** | Standard DCRs |
-| [**AMA standard logs**](connect-azure-windows-microsoft-services.md?tabs=AMA#windows-agent-based-connections), such as: <li>[Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama)<li>[Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events-preview)<li>[CEF data](connect-common-event-format.md)<li>[Syslog data](connect-syslog.md) | Standard DCRs |
-| [**MMA standard logs**](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections), such as <li>[Syslog data](connect-syslog.md)<li>[CommonSecurityLog](connect-azure-windows-microsoft-services.md) | Workspace transformation DCRs |
-| [**Diagnostic settings-based connections**](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections) | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors |
-| **Built-in, service-to-service data connectors**, such as:<li>[Microsoft Office 365](connect-azure-windows-microsoft-services.md#api-based-connections)<li>[Azure Active Directory](connect-azure-active-directory.md)<li>[Amazon S3](connect-aws.md) | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors |
+| [**AMA standard logs**](connect-services-windows-based.md), such as: <li>[Windows Security Events via AMA](./data-connectors/windows-security-events-via-ama.md)<li>[Windows Forwarded Events](./data-connectors/windows-forwarded-events.md)<li>[CEF data](connect-common-event-format.md)<li>[Syslog data](connect-syslog.md) | Standard DCRs |
+| [**MMA standard logs**](connect-services-windows-based.md), such as <li>[Syslog data](connect-syslog.md)<li>[CommonSecurityLog](connect-azure-windows-microsoft-services.md) | Workspace transformation DCRs |
+| [**Diagnostic settings-based connections**](connect-services-diagnostic-setting-based.md) | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors |
+| **Built-in, service-to-service data connectors**, such as:<li>[Microsoft Office 365](connect-services-api-based.md)<li>[Azure Active Directory](connect-azure-active-directory.md)<li>[Amazon S3](connect-aws.md) | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors |
 | **Built-in, API-based data connectors**, such as: <li>[Codeless data connectors](create-codeless-connector.md)<li>[Azure Functions-based data connectors](connect-azure-functions-template.md) | Not currently supported |
 
 
@@ -99,8 +99,11 @@ Only the following tables are currently supported for custom log ingestion:
 - [**SecurityEvent**](/azure/azure-monitor/reference/tables/securityevent)
 - [**CommonSecurityLog**](/azure/azure-monitor/reference/tables/commonsecuritylog)
 - [**Syslog**](/azure/azure-monitor/reference/tables/syslog)
-- [**ASimDnsActivityLog**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs)
+- [**ASimAuditEventLogs**](/azure/azure-monitor/reference/tables/asimauditeventlogs)
+- **ASimAuthenticationEventLogs**
+- [**ASimDnsActivityLogs**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs)
 - [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs)
+- [**ASimWebSessionLogs**](/azure/azure-monitor/reference/tables/asimwebsessionlogs)
 
 ## Known issues
 
@@ -112,7 +115,7 @@ Ingestion-time data transformation currently has the following known issues for 
 
 - The following configurations are supported only via API:
 
-    - Standard DCRs for AMA-based connectors like [Windows Security Events](data-connectors-reference.md#windows-security-events-via-ama) and [Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events-preview).
+    - Standard DCRs for AMA-based connectors like [Windows Security Events](./data-connectors/windows-security-events-via-ama.md) and [Windows Forwarded Events](./data-connectors/windows-forwarded-events.md).
 
     - Standard DCRs for custom log ingestion to a standard table.
 

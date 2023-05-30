@@ -378,7 +378,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
                     for msg in received_msgs:
                         print("Received: " + str(msg))
                         # complete the message so that the message is removed from the subscription
-                        receiver.complete_message(msg)
+                        await receiver.complete_message(msg)
     ```
 
 3. Call the `run` method.

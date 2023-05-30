@@ -22,7 +22,7 @@ You can create a question answering project from your own content, such as FAQs 
 
 1. Sign in to the [Language Studio](https://language.azure.com/) with your Azure credentials.
 
-2. Scroll down to the **Answer questions** section and select **Open custom question answering**.
+2. Scroll down to the **Understand questions and conversational language** section and select **Open custom question answering**.
 
     > [!div class="mx-imgBorder"]
     > ![Open custom question answering](../media/create-test-deploy/open-custom-question-answering.png)
@@ -59,7 +59,7 @@ You can create a question answering project from your own content, such as FAQs 
 
 ## Test your project
 
-1. Select the link to your source, this will open the edit knowledge base page.
+1. Select the link to your source, this will open the edit project page.
 
 2. Select **Test** from the menu bar > Enter the question **How do I setup my surface book?**. An answer will be generated based on the question answer pairs that were automatically identified and extracted from your source URL:
 
@@ -77,10 +77,10 @@ You can create a question answering project from your own content, such as FAQs 
 
 ## Deploy your project
 
-1. Select the Deploy knowledge base icon to enter the deploy knowledge base menu.
+1. Select the Deploy project icon to enter the deploy project menu.
 
     > [!div class="mx-imgBorder"]
-    > ![Deploy knowledge base](../media/create-test-deploy/deploy-knowledge-base.png)
+    > ![Deploy project](../media/create-test-deploy/deploy-knowledge-base.png)
 
     When you deploy a project, the contents of your project move from the `test` index to a `prod` index in Azure Search.
 
@@ -97,5 +97,4 @@ If you will not continue to test custom question answering, you can delete the a
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Add questions with metadata](../../../qnamaker/quickstarts/add-question-metadata-portal.md)
+

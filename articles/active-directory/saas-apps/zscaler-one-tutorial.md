@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory integration with Zscaler One | Microsoft Docs"
+title: "Tutorial: Azure Active Directory integration with Zscaler One"
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler One.
 services: active-directory
 author: jeevansd

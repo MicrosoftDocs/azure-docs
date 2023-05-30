@@ -30,7 +30,7 @@ sections:
           * Monitoring
             * [Topology view](./view-network-topology.md) shows you the resources in your virtual network and the relationships between them.
             * [Connection Monitor](./connection-monitor-overview.md) allows you to monitor connectivity and latency between a VM and another network resource.
-            * [Network performance monitor](../azure-monitor/insights/network-performance-monitor.md) allows you to monitor connectivity and latencies across hybrid network architectures, Expressroute circuits, and service/application endpoints.  
+            * [Network performance monitor](/previous-versions/azure/azure-monitor/insights/network-performance-monitor) allows you to monitor connectivity and latencies across hybrid network architectures, Expressroute circuits, and service/application endpoints.  
           * Diagnostics
             * [IP Flow Verify](./network-watcher-ip-flow-verify-overview.md) allows you to detect traffic filtering issues at a VM level.
             * [Next Hop](./network-watcher-next-hop-overview.md) helps you verify traffic routes and detect routing issues.
@@ -88,7 +88,7 @@ sections:
       - question: |
           What are resource limits on Network Watcher?
         answer: |
-          See the [Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#network-watcher-limits) page for all limits.  
+          See the [Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-network-watcher-limits) page for all limits.  
           
       - question: |
           Why is only one instance of Network Watcher allowed per region? 
@@ -98,7 +98,7 @@ sections:
       - question: |
           How can I manage the Network Watcher Resource? 
         answer: |
-          The Network Watcher resource represents the backend service for Network Watcher and is fully managed by Azure. Customers don't need to manage it. Operations like move aren't supported on the resource. However, [the resource can be deleted](./network-watcher-create.md#delete-a-network-watcher-using-the-azure-portal). 
+          The Network Watcher resource represents the backend service for Network Watcher and is fully managed by Azure. Customers don't need to manage it. Operations like move aren't supported on the resource. However, [the resource can be deleted](./network-watcher-create.md#disable-network-watcher-for-your-region). 
           
   - name: Service availability and redundancy 
     questions:

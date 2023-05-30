@@ -1,8 +1,8 @@
 ---
 title: Regulatory Compliance details for PCI DSS 3.2.1
 description: Details of the PCI DSS 3.2.1 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-author: timwarner-msft
-ms.author: timwarner
+author: davidsmatlak
+ms.author: davidsmatlak
 ms.date: 10/13/2022
 ms.topic: sample
 ms.custom: generated

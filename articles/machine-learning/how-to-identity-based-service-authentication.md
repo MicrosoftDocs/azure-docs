@@ -3,14 +3,14 @@ title: Set up service authentication
 titleSuffix: Azure Machine Learning
 description: Learn how to set up and configure authentication between Azure Machine Learning and other Azure services.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: meyetman
+ms.author: meyetman 
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 09/23/2022
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022
+ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, devx-track-azurecli
 ---
 
 # Set up authentication between Azure Machine Learning and other services
@@ -18,7 +18,7 @@ ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cli
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](./v1/how-to-use-managed-identities.md)
+> * [v1](./v1/how-to-use-managed-identities.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](./how-to-identity-based-service-authentication.md)
 
 Azure Machine Learning is composed of multiple Azure services. There are multiple ways that authentication can happen between Azure Machine Learning and the services it relies on.
@@ -61,6 +61,105 @@ For automated creation of role assignments on your user-assigned managed identit
 
 > [!TIP]
 > For a workspace with [customer-managed keys for encryption](concept-data-encryption.md), you can pass in a user-assigned managed identity to authenticate from storage to Key Vault. Use the `user-assigned-identity-for-cmk-encryption` (CLI) or `user_assigned_identity_for_cmk_encryption` (SDK) parameters to pass in the managed identity. This managed identity can be the same or different as the workspace primary user assigned managed identity.
+
+#### To create a workspace with multiple user assigned identities, use one of the following methods:
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```azurecli
+az ml workspace create -f workspace_creation_with_multiple_UAIs.yml --subscription <subscription ID> --resource-group <resource group name> --name <workspace name>
+```
+
+Where the contents of *workspace_creation_with_multiple_UAIs.yml* are as follows:
+
+```yaml
+location: <region name>
+identity:
+   type: user_assigned
+   user_assigned_identities:
+    '<UAI resource ID 1>': {}
+    '<UAI resource ID 2>': {}
+storage_account: <storage acccount resource ID>
+key_vault: <key vault resource ID>
+image_build_compute: <compute(virtual machine) resource ID>
+primary_user_assigned_identity: <one of the UAI resource IDs in the above list>
+```
+
+# [Python SDK](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+```python
+from azure.ai.ml import MLClient, load_workspace
+from azure.identity import DefaultAzureCredential
+
+sub_id="<subscription ID>"
+rg_name="<resource group name>"
+ws_name="<workspace name>"
+
+client = MLClient(DefaultAzureCredential(), sub_id, rg_name)
+wps = load_workspace("workspace_creation_with_multiple_UAIs.yml")
+
+workspace = client.workspaces.begin_create(workspace=wps).result()
+```
+
+# [Studio](#tab/azure-studio)
+
+Not supported currently.
+
+---
+
+#### To update user assigned identities for a workspace, includes adding a new one or deleting the existing ones, use one of the following methods:
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```azurecli
+az ml workspace update -f workspace_update_with_multiple_UAIs.yml --subscription <subscription ID> --resource-group <resource group name> --name <workspace name>
+```
+
+Where the contents of *workspace_update_with_multiple_UAIs.yml* are as follows:
+
+```yaml
+identity:
+   type: user_assigned
+   user_assigned_identities:
+    '<UAI resource ID 1>': {}
+    '<UAI resource ID 2>': {}
+primary_user_assigned_identity: <one of the UAI resource IDs in the above list>
+```
+
+# [Python SDK](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+```python
+from azure.ai.ml import MLClient, load_workspace
+from azure.identity import DefaultAzureCredential
+
+sub_id="<subscription ID>"
+rg_name="<resource group name>"
+ws_name="<workspace name>"
+
+client = MLClient(DefaultAzureCredential(), sub_id, rg_name)
+wps = load_workspace("workspace_update_with_multiple_UAIs.yml")
+
+workspace = client.workspaces.begin_update(workspace=wps).result()
+```
+
+# [Studio](#tab/azure-studio)
+
+Not supported currently.
+
+---
+
+> [!TIP]
+> To add a new UAI, you can specify the new UAI ID under the section user_assigned_identities in addition to the existing UAIs, it's required to pass all the existing UAI IDs.<br>
+To delete one or more existing UAIs, you can put the UAI IDs which needs to be preserved under the section user_assigned_identities, the rest UAI IDs would be deleted.<br>
+To update identity type from SAI to UAI|SAI, you can change type from "user_assigned" to "system_assigned, user_assigned".
 
 ### Compute cluster
 
@@ -293,7 +392,7 @@ If your storage account has virtual network settings, that dictates what identit
 
 * If your storage is ADLS Gen 2 or Blob and has virtual network settings, customers can use either user identity or workspace MSI depending on the datastore settings defined during creation. 
 
-* If the virtual network setting is “Allow Azure services on the trusted services list to access this storage account”, then Workspace MSI is used. 
+* If the virtual network setting is "Allow Azure services on the trusted services list to access this storage account", then Workspace MSI is used. 
 
 ## Scenario: Azure Container Registry without admin user
 

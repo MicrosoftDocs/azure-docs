@@ -35,7 +35,7 @@ Here are some use cases for Connection Monitor:
 - You want to check the connectivity between your on-premises setups and the Azure VMs/virtual machine scale sets that host your cloud application.
 - You want to check the connectivity from single or multiple instances of an Azure Virtual Machine Scale Set to your Azure or Non-Azure multi-tier application. 
 
-Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor (Classic)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor [Service Connectivity Monitor](../azure-monitor/insights/network-performance-monitor-service-connectivity.md), [ExpressRoute Monitoring](../expressroute/how-to-npm.md), and [Performance monitoring](../azure-monitor/insights/network-performance-monitor-performance-monitor.md) feature.
+Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor (Classic)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor [Service Connectivity Monitor](/previous-versions/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute Monitoring](../expressroute/how-to-npm.md), and [Performance monitoring](/previous-versions/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) feature.
 
 Here are some benefits of Connection Monitor:
 

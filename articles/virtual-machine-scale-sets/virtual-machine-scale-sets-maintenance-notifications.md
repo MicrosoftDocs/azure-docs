@@ -8,8 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: maintenance-control
 ms.date: 11/22/2022
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurepowershell
-
+ms.custom: mimckitt
 ---
 
 # Planned maintenance notifications for Virtual Machine Scale Sets

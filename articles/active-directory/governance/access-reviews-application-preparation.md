@@ -1,5 +1,5 @@
 ---
-title: Preparing for an access review of users' access to an application - Azure AD
+title: Preparing for an access review of users' access to an application
 description: Planning for a successful access reviews campaign for a particular application starts with understanding how to model access for that application in Azure AD.
 services: active-directory
 documentationCenter: ''
@@ -141,7 +141,7 @@ Once the reviews have started, you can monitor their progress, and update the ap
 
 1. If you wish, you can also download a [review history report](access-reviews-downloadable-review-history.md) of completed reviews.
 
-1. How long a user who has been denied continued access is able to continue to use a federated application will depend upon the application's own session lifetime, and on the access token lifetime. If the applications used Kerberos, since Kerberos caches the group memberships of a user when they sign into a domain, the users may continue to have access until their Kerberos tickets expire.  To learn more about controlling the lifetime of access tokens, see [configurable token lifetimes](../develop/active-directory-configurable-token-lifetimes.md).
+1. How long a user who has been denied continued access is able to continue to use a federated application will depend upon the application's own session lifetime, and on the access token lifetime. If the applications used Kerberos, since Kerberos caches the group memberships of a user when they sign into a domain, the users may continue to have access until their Kerberos tickets expire.  To learn more about controlling the lifetime of access tokens, see [configurable token lifetimes](../develop/configurable-token-lifetimes.md).
 
 ## Next steps
 

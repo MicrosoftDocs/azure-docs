@@ -1,8 +1,8 @@
 ---
 title: Overview of the extensions that collect data from your workloads
 description: Learn about the extensions that collect data from your workloads to let you protect your workloads with Microsoft Defender for Cloud.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.date: 11/27/2022
@@ -64,7 +64,7 @@ Learn more about [using the Azure Monitor Agent with Defender for Cloud](auto-de
 | Aspect | Azure virtual machines | Azure Arc-enabled machines |
 |---|:--|:--|
 | Release state: | Generally available (GA) | Generally available (GA) |
-| Relevant Defender plan: | [Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md) | [Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md) |
+| Relevant Defender plan: | [Foundational Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options) for agent-based security recommendations<br>[Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md) | [Foundational Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options) for agent-based security recommendations<br>[Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md) |
 | Required roles and permissions (subscription-level): | [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) | [Owner](../role-based-access-control/built-in-roles.md#owner) |
 | Supported destinations: | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure virtual machines | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines |
 | Policy-based: | :::image type="icon" source="./media/icons/no-icon.png"::: No | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes |
@@ -98,7 +98,7 @@ The following use cases explain how deployment of the Log Analytics agent works 
 - **A pre-existing VM extension is present**:
     - When the Monitoring Agent is installed as an extension, the extension configuration allows reporting to only a single workspace. Defender for Cloud doesn't override existing connections to user workspaces. Defender for Cloud will store security data from the VM in the workspace already connected, if the "Security" or "SecurityCenterFree" solution has been installed on it. Defender for Cloud may upgrade the extension version to the latest version in this process.
     - To see to which workspace the existing extension is sending data to, run the test to [Validate connectivity with Microsoft Defender for Cloud](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). Alternatively, you can open Log Analytics workspaces, select a workspace, select the VM, and look at the Log Analytics agent connection.
-    - If you have an environment where the Log Analytics agent is installed on client workstations and reporting to an existing Log Analytics workspace, review the list of [operating systems supported by Microsoft Defender for Cloud](security-center-os-coverage.md) to make sure your operating system is supported. For more information, see [Existing log analytics customers](./faq-azure-monitor-logs.yml).
+    - If you have an environment where the Log Analytics agent is installed on client workstations and reporting to an existing Log Analytics workspace, review the list of [operating systems supported by Microsoft Defender for Cloud](security-center-os-coverage.md) to make sure your operating system is supported.
 
 Learn more about [working with the Log Analytics agent](working-with-log-analytics-agent.md).
 

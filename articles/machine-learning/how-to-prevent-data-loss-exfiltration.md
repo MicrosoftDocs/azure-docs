@@ -9,8 +9,9 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 01/20/2023
-ms.custom: engagement-fy23
+ms.date: 04/14/2023
+ms.custom: engagement-fy23, build-2023
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # Azure Machine Learning data exfiltration prevention
@@ -30,6 +31,11 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
         - `ml.azure.com`
         - `automlresources-prod.azureedge.net`
 
+> [!TIP]
+> The information in this article is primarily about using an Azure Virtual Network. Azure Machine Learning can also use a **managed virtual networks** (preview). With a managed virtual network, Azure Machine Learning handles the job of network isolation for your workspace and managed computes. 
+>
+> To address data exfiltration concerns, managed virtual networks allow you to restrict egress to only approved outbound traffic. For more information, see [Workspace managed network isolation](how-to-managed-network.md).
+
 ## Prerequisites
 
 * An Azure subscription
@@ -42,7 +48,7 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 
 ## Why do I need to use the service endpoint policy
 
-Service endpoint policies allow you to filter egress virtual network traffic to Azure Storage accounts over service endpoint and allow data exfiltration to only specific Azure Storage accounts. Azure Machine Learning compute instance and compute cluster requires access to Microsoft-managed storage accounts for its provisioning. The Azure Machine learning alias in service endpoint policies includes Microsoft-managed storage accounts. We use service endpoint policies with the Azure Machine Learning alias to prevent data exfiltration or control the destination storage accounts. You can learn more in [Service Endpoint policy documentation](../virtual-network/virtual-network-service-endpoint-policies-overview.md).
+Service endpoint policies allow you to filter egress virtual network traffic to Azure Storage accounts over service endpoint and allow data exfiltration to only specific Azure Storage accounts. Azure Machine Learning compute instance and compute cluster requires access to Microsoft-managed storage accounts for its provisioning. The Azure Machine Learning alias in service endpoint policies includes Microsoft-managed storage accounts. We use service endpoint policies with the Azure Machine Learning alias to prevent data exfiltration or control the destination storage accounts. You can learn more in [Service Endpoint policy documentation](../virtual-network/virtual-network-service-endpoint-policies-overview.md).
 
 ## 1. Create the service endpoint policy
 
@@ -78,42 +84,64 @@ Service endpoint policies allow you to filter egress virtual network traffic to 
 
 ### Inbound
 
+:::moniker range="azureml-api-2"
 > [!IMPORTANT]
 > The following information __modifies__ the guidance provided in the [How to secure training environment](how-to-secure-training-vnet.md) article.
+:::moniker-end
+:::moniker range="azureml-api-1"
+> [!IMPORTANT]
+> The following information __modifies__ the guidance provided in the [How to secure training environment](./v1/how-to-secure-training-vnet.md) article.
+:::moniker-end
 
 When using Azure Machine Learning __compute instance__ _with a public IP address_, allow inbound traffic from Azure Batch management (service tag `BatchNodeManagement.<region>`). A compute instance _with no public IP_ __doesn't__ require this inbound communication.
 
 ### Outbound 
 
+:::moniker range="azureml-api-2"
 > [!IMPORTANT]
 > The following information is __in addition__ to the guidance provided in the [Secure training environment with virtual networks](how-to-secure-training-vnet.md) and [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md) articles.
+:::moniker-end
+:::moniker range="azureml-api-1"
+> [!IMPORTANT]
+> The following information is __in addition__ to the guidance provided in the [Secure training environment with virtual networks](./v1/how-to-secure-training-vnet.md) and [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md) articles.
+:::moniker-end
 
 Select the configuration that you're using:
 
 # [Service tag/NSG](#tab/servicetag)
 
-__Allow__ outbound traffic over __TCP port 443__ to the following __service tags__. Replace `<region>` with the Azure region that contains your compute cluster or instance:
+__Allow__ outbound traffic to the following __service tags__. Replace `<region>` with the Azure region that contains your compute cluster or instance:
 
-* `BatchNodeManagement.<region>`
-* `AzureMachineLearning`
-* `Storage.<region>` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
+| Service tag | Protocol | Port |
+| ----- | ----- | ----- |
+| `BatchNodeManagement.<region>` | ANY | 443 |
+| `AzureMachineLearning` | TCP | 443 |
+| `Storage.<region>` | TCP | 443 |
+
+> [!NOTE]
+> For the storage outbound, a Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
 
 # [Firewall](#tab/firewall)
 
-__Allow__ outbound traffic over __TCP port 443__ to the following FQDNs. Replace instances of `<region>` with the Azure region that contains your compute cluster or instance:
+__Allow__ outbound traffic over __ANY port 443__ to the following FQDNs. Replace instances of `<region>` with the Azure region that contains your compute cluster or instance:
 
-* `<region>.batch.azure.com`
-* `<region>.service.batch.com`
+* `*.<region>.batch.azure.com`
+* `*.<region>.service.batch.azure.com`
 
 > [!WARNING]
-> If you enable the service endpoint on the subnet used by your firewall, you must open outbound traffic to the following hosts:
+> If you enable the service endpoint on the subnet used by your firewall, you must open outbound traffic to the following hosts over __TCP port 443__:
 > * `*.blob.core.windows.net`
 > * `*.queue.core.windows.net`
 > * `*.table.core.windows.net`
 
 ---
 
+:::moniker range="azureml-api-2"
 For more information, see [How to secure training environments](how-to-secure-training-vnet.md) and [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
+:::moniker-end
+:::moniker range="azureml-api-1"
+For more information, see [How to secure training environments](./v1/how-to-secure-training-vnet.md) and [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
+:::moniker-end
 
 ## 3. Enable storage endpoint for the subnet
 

@@ -1,10 +1,10 @@
 ---
-title: Understand Device Update for Azure IoT Hub Configuration File| Microsoft Docs
+title: Understand Device Update for Azure IoT Hub Configuration File
 description: Understand Device Update for Azure IoT Hub  Configuration File.
 author: eshashah-msft
 ms.author: eshashah
 ms.date: 08/27/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 

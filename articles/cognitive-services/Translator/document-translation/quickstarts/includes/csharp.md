@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 02/10/2023
+ms.date: 03/17/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -34,8 +34,8 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
     :::image type="content" source="../../media/visual-studio/additional-information.png" alt-text="Screenshot of Visual Studio 2022 additional information set-up window.":::
 
-  > [!div class="nextstepaction"]
-  > [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment)
+> [!div class="nextstepaction"]
+> [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment)
 
 ## Install Newtonsoft.Json
 
@@ -45,23 +45,23 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
 1. Select the Browse tab and type **NewtonsoftJson**.
 
-     :::image type="content" source="../../media/visual-studio/get-newtonsoft-json.png" alt-text="Screenshot of select pre-release NuGet package in Visual Studio.":::
+     :::image type="content" source="../../media/visual-studio/get-newtonsoft-json.png" alt-text="Screenshot of select prerelease NuGet package in Visual Studio.":::
 
 1. Select the latest stable version from the dropdown menu and install the package in your project.
 
     :::image type="content" source="../../media/visual-studio/install-nuget-package.png" alt-text="Screenshot of install selected NuGet package window.":::
 
-  > [!div class="nextstepaction"]
-  > [I ran into an issue installing the NuGet package.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Install-package)
+> [!div class="nextstepaction"]
+> [I ran into an issue installing the NuGet package.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Install-package)
 
 ## Translate all documents in a storage container
 
-  > [!NOTE]
-  >
-  > * Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions.
-  > * The new output uses recent C# features that simplify the code you need to write.
-  > * When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives.
-  > * For more information, *see* [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
+> [!NOTE]
+>
+> * Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions.
+> * The new output uses recent C# features that simplify the code you need to write.
+> * When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives.
+> * For more information, see [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
 
 1. Open the **Program.cs** file.
 
@@ -75,11 +75,10 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
 ## Code sample
 
-  > [!IMPORTANT]
-  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
 
 ```csharp
-
 using System.Text;
 
 class Program
@@ -125,20 +124,19 @@ class Program
     }
 
 }
-
 ```
 
 ## Run your application
 
-* Once you've added a code sample to your application, choose the green **Start** button next to **document-translation-qs** to build and run your program, or press **F5**.
+Once you've added a code sample to your application, choose the green **Start** button next to **document-translation-qs** to build and run your program, or press **F5**.
 
-    :::image type="content" source="../../media/visual-studio/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+:::image type="content" source="../../media/visual-studio/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
-* The successful POST method returns a `202 Accepted`  response code indicating that the batch request was created by the service.
+Upon successful completion: 
 
+* The translated documents can be found in your target container.
+* The successful POST method returns a `202 Accepted`  response code indicating that the service created the batch request.
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
-* The translated documents are listed in your target container.
-
-  > [!div class="nextstepaction"]
-  > [I successfully translated my document.](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
+> [!div class="nextstepaction"]
+> [I successfully translated my document.](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)

@@ -1,15 +1,16 @@
 ---
-title: Move projects and knowledge bases - custom question answering
+title: Move projects - custom question answering
 description: Moving a custom question answering project requires exporting a project from one resource, and then importing into another.
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 1/11/2023
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 # Move projects and question answer pairs
 
 > [!NOTE]
+
 > This article deals with the process to export and move projects and sources from one Language resource to another.
 
 You may want to create copies of your projects or sources for several reasons:
@@ -39,33 +40,32 @@ Exporting a project allows you to back up all the question answer sources that a
 
 ## Export sources
 
-1. Select the Language resource you want to move an individual source from.
-1. Go to Custom Question Answering. Select the project that contains the source you wish to export.
-1. On the Edit knowledge base page, select the ellipsis (`...`) icon to the right of **Enable rich text** in the toolbar. You have the option to export in either Excel or TSV.
+1. Select the language resource you want to move an individual question answer source from.
+1. Select the project that contains the question and answer source you wish to export.
+1. On the Edit project page, select the ellipsis (`...`) icon to the right of **Enable rich text** in the toolbar. You have the option to export in either Excel or TSV.
 
 ## Import question and answers
 
-1. Select the Language resource, which will be the destination for your previously exported source.
-1.  Go to Custom Question Answering. Select the project where you want to import a question and answer source.
-1. On the Edit knowledge base page, select the ellipsis (`...`) icon to the right of **Enable rich text** in the toolbar. You have the option to import either an Excel or TSV file.
+1. Select the language resource, which will be the destination for your previously exported question and answer source.
+1. Select the project where you want to import a question and answer source.
+1. On the Edit project page, select the ellipsis (`...`) icon to the right of **Enable rich text** in the toolbar. You have the option to import either an Excel or TSV file.
 1. Browse to the local location of the file with the **Choose File** option and select **Done**.
 
 <!-- TODO: Replace Link-->
 ### Test
 
-**Test** the source by selecting the **Test** option from the toolbar in the **Edit knowledge base** page which will launch the test panel. Learn how to [test your knowledge base](../../../qnamaker/How-To/test-knowledge-base.md).
+**Test** the question answer source by selecting the **Test** option from the toolbar in the **Edit project** page which will launch the test panel. Learn how to [test your project](../../../qnamaker/How-To/test-knowledge-base.md).
 
 ### Deploy
 
 <!-- TODO: Replace Link-->
-**Deploy** the project and create a chat bot. Learn how to [deploy your knowledge base](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
+**Deploy** the project and create a chat bot. Learn how to [deploy your project](../../../qnamaker/Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
 ## Chat logs
 
-There is no way to move chat logs with the projects. If diagnostic logs are enabled, chat logs are stored in the associated Azure Monitor resource.
+There is no way to move chat logs with projects. If diagnostic logs are enabled, chat logs are stored in the associated Azure Monitor resource.
 
 ## Next steps
 
 <!-- TODO: Replace Link-->
-> [!div class="nextstepaction"]
-> [Edit a knowledge base](../../../qnamaker/How-To/edit-knowledge-base.md)
+

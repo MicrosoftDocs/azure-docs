@@ -8,19 +8,13 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 05/05/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
 
 # On-demand provisioning in Azure Active Directory
-
-::: zone pivot="cross-tenant-synchronization"
-> [!IMPORTANT]
-> [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-::: zone-end
 
 Use on-demand provisioning to provision a user or group in seconds. Among other things, you can use this capability to:
 
@@ -48,7 +42,7 @@ Use on-demand provisioning to provision a user or group in seconds. Among other 
 
 5. Select **Provision on demand**.
 
-6. Search for a user by first name, last name, display name, user principal name, or email address. Alternatively, you can search for a group and pick up to 5 users. 
+6. Search for a user by first name, last name, display name, user principal name, or email address. Alternatively, you can search for a group and pick up to five users. 
    > [!NOTE]
    > For Cloud HR provisioning app (Workday/SuccessFactors to AD/Azure AD), the input value is different. 
    > For Workday scenario, please provide "WorkerID" or "WID" of the user in Workday. 
@@ -61,7 +55,7 @@ Use on-demand provisioning to provision a user or group in seconds. Among other 
 
 ## Understand the provisioning steps
 
-The on-demand provisioning process attempts to show the steps that the provisioning service takes when provisioning a user. There are typically five steps to provision a user. One or more of those steps, explained in the following sections, will be shown during the on-demand provisioning experience.
+The on-demand provisioning process attempts to show the steps that the provisioning service takes when provisioning a user. There are typically five steps to provision a user. One or more of those steps, explained in the following sections, are shown during the on-demand provisioning experience.
 
 ### Step 1: Test connection
 
@@ -116,7 +110,7 @@ The **View details** section shows the scoping conditions that were evaluated. Y
 
 #### Troubleshooting tips
 
-* Make sure that you've defined a valid scoping role. For example, avoid using the [Greater_Than operator](./define-conditional-rules-for-provisioning-user-accounts.md#create-a-scoping-filter) with a non-integer value.
+* Make sure that you've defined a valid scoping role. For example, avoid using the [Greater_Than operator](./define-conditional-rules-for-provisioning-user-accounts.md#create-a-scoping-filter) with a noninteger value.
 * If the user doesn't have the necessary role, review the [tips for provisioning users assigned to the default access role](./application-provisioning-config-problem-no-users-provisioned.md#provisioning-users-assigned-to-the-default-access-role).
 
 ### Step 4: Match user between source and target
@@ -125,11 +119,11 @@ In this step, the service attempts to match the user that was retrieved in the i
 
 #### View details
 
-The **View details** page shows the properties of the users that were matched in the target system. The properties that you see in the context pane vary as follows:
+The **View details** page shows the properties of the users that were matched in the target system. The context pane changes as follows:
 
-* If no users are matched in the target system, you won't see any properties.
-* If there's one user matched in the target system, you'll see the properties of that matched user from the target system.
-* If multiple users are matched, you'll see the properties of both matched users.
+* If no users are matched in the target system, no properties are shown.
+* If one user matches in the target system, the properties of that user are shown.
+* If multiple users match, the properties of both users are shown.
 * If multiple matching attributes are part of your attribute mappings, each matching attribute is evaluated sequentially and the matched users for that attribute are shown.
 
 #### Troubleshooting tips
@@ -152,11 +146,11 @@ The **View details** section displays the attributes that were modified in the t
 #### Troubleshooting tips
 
 * Failures for exporting changes can vary greatly. Check the [documentation for provisioning logs](../reports-monitoring/concept-provisioning-logs.md#error-codes) for common failures.
-* On-demand provisioning says the group or user can't be provisioned because they're not assigned to the application. Note that there's a replicate delay of up to a few minutes between when an object is assigned to an application and that assignment being honored by on-demand provisioning. You may need to wait a few minutes and try again.  
+* On-demand provisioning says the group or user can't be provisioned because they're not assigned to the application. There's a replication delay of up to a few minutes between when an object is assigned to an application and when that assignment is honored in on-demand provisioning. You may need to wait a few minutes and try again.  
 
 ## Frequently asked questions
 
-* **Do you need to turn provisioning off to use on-demand provisioning?** For applications that use a long-lived bearer token or a user name and password for authorization, no additional steps are required. Applications that use OAuth for authorization currently require the provisioning job to be stopped before using on-demand provisioning. Applications such as G Suite, Box, Workplace by Facebook, and Slack fall into this category. Work is in progress to support on-demand provisioning for all applications without having to stop provisioning jobs.
+* **Do you need to turn provisioning off to use on-demand provisioning?** For applications that use a long-lived bearer token or a user name and password for authorization, no more steps are required. Applications that use OAuth for authorization currently require the provisioning job to be stopped before using on-demand provisioning. Applications such as G Suite, Box, Workplace by Facebook, and Slack fall into this category. Work is in progress to support on-demand provisioning for all applications without having to stop provisioning jobs.
 
 * **How long does on-demand provisioning take?** On-demand provisioning typically takes less than 30 seconds.
 
@@ -168,11 +162,12 @@ There are currently a few known limitations to on-demand provisioning. Post your
 > [!NOTE]
 > The following limitations are specific to the on-demand provisioning capability. For information about whether an application supports provisioning groups, deletions, or other capabilities, check the tutorial for that application.
 
-* On-demand provisioning of groups supports updating up to 5 members at a time
+* On-demand provisioning of groups supports updating up to five members at a time
 ::: zone-end
-* Restoring a previously soft-deleted user in the target tenant with on-demand provisioning isn't supported. If you try to soft delete a user with on-demand provisioning and then restore the user, it can result in duplicate users.
+* Restoring a previously soft-deleted user in the target tenant with on-demand provisioning isn't supported. If you try to soft-delete a user with on-demand provisioning and then restore the user, it can result in duplicate users.
 * On-demand provisioning of roles isn't supported.
-* On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Azure AD. Those users won't appear when you search for a user.
+* On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Azure AD. Those users don't appear when you search for a user.
+* On-demand provisioning doesn't support nested groups that aren't directly assigned to the application.
 
 ## Next steps
 

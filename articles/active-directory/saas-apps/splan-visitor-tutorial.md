@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integrate Azure Active Directory single sign-on (SSO) with Splan Visitor | Microsoft Docs'
+title: 'Tutorial: Integrate Azure Active Directory single sign-on (SSO) with Splan Visitor'
 description: Learn how to configure single sign-on between Azure Active Directory and Splan Visitor.
 services: active-directory
 author: jeevansd

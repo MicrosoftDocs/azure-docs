@@ -8,17 +8,18 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/24/2022
+ms.date: 03/29/2023
 ms.author: jomondi
 ms.collection: M365-identity-device-management
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 
 #customer intent: As an admin, I want to enable self-service application access so that users can self-discover applications from their My Apps portal.
 ---
 
 # Enable self-service application assignment
 
-In this article, you learn how to enable self-service application access using the Azure Active Directory Admin Center.
+In this article, you learn how to enable self-service application access using the Azure portal.
 
 Before your users can self-discover applications from the [My Apps portal](my-apps-deployment-plan.md), you need to enable **Self-service application access** for the applications. This functionality is available for applications that were added from the Azure AD Gallery, [Azure AD Application Proxy](../app-proxy/application-proxy.md), or were added using [user or admin consent](../develop/application-consent-experience.md).
 
@@ -57,7 +58,8 @@ To enable self-service application access to an application, follow the steps be
 1. Select the application from the list. If you don't see the application, start typing its name in the search box. Or use the filter controls to select the application type, status, or visibility, and then select **Apply**.
 
 1. In the left navigation menu, select **Self-service**.
-
+    > [!NOTE]
+    > The **Self-service** menu item isn't available if the corresponding app registration's setting for public client flows is enabled. To access this setting, the app registration needs to exist in your tenant. Locate the app registration, select **Authentication** in the left navigation, then locate **Allow public client flows**.
 1. To enable Self-service application access for this application, set **Allow users to request access to this application?** to **Yes.**
 
 1. Next to **To which group should assigned users be added?**, select **Select group**. Choose a group, and then select **Select**. When a user's request is approved, they'll be added to this group. When viewing this group's membership, you'll be able to see who has been granted access to the application through self-service access.

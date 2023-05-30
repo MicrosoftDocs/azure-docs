@@ -224,7 +224,7 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
        > [!NOTE]
        > Use the appropriate **User identifier** to map the user from Azure AD to DocuSign user mapping. Select the proper field, and enter the appropriate value based on your organization settings. Custom Attribute Mapping setting is not mandatory.
 
-    i. In the **Identity Provider Certificates** section, select **ADD CERTIFICATE**, upload the certificate you downloaded from Azure AD portal, and select **SAVE**.
+    i. In the **Identity Provider Certificates** section, select **ADD CERTIFICATE**, upload the certificate you downloaded from Azure portal, and select **SAVE**.
 
        ![Screenshot of Identity Provider Certificates/Add Certificate.](media/docusign-tutorial/certificates.png)
 

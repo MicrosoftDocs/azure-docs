@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 05/08/2023
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -56,9 +56,7 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 
 - Self-hosted integration runtime requires a 64-bit Operating System with .NET Framework 4.7.2 or above. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
 
-- Ensure Visual C++ Redistributable for Visual Studio 2015 or higher is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](/cpp/windows/latest-supported-vc-redist#visual-studio-2015-2017-2019-and-2022).
-
-- The recommended minimum configuration for the self-hosted integration runtime machine is a 2-GHz processor with 4 cores, 8 GB of RAM, and 80 GB of available hard drive space. For the details of system requirements, see [Download](https://www.microsoft.com/download/details.aspx?id=39717).
+- The recommended minimum configuration for the self-hosted integration runtime machine is a 2-GHz processor with 8 cores, 28 GB of RAM, and 80 GB of available hard drive space. Scanning some data sources may require higher machine specification based on your scenario. Please also check the prerequisites in corresponding [connector article](microsoft-purview-connector-overview.md).
 - If the host machine hibernates, the self-hosted integration runtime doesn't respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installer prompts with a message.
 - You must be an administrator on the machine to successfully install and configure the self-hosted integration runtime.
 - Scan runs happen with a specific frequency per the schedule you've set up. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is scanned. When multiple scan jobs are in progress, you see resource usage goes up during peak times.
@@ -234,7 +232,7 @@ There are two supported configuration options by Microsoft Purview:
 - **Use custom proxy**: Configure the HTTP proxy setting to use for the self-hosted integration runtime, instead of using configurations in diahost.exe.config and diawp.exe.config. **Address** and **Port** values are required. **User Name** and **Password** values are optional, depending on your proxy's authentication setting. All settings are encrypted with Windows DPAPI on the self-hosted integration runtime and stored locally on the machine.
 
 > [!NOTE]
-> Proxy is supported when scanning Azure data sources and SQL Server; scanning other sources doesn't support proxy.
+> Connecting to data sources via proxy is not supported for connectors other than Azure data sources and Power BI.
 
 The integration runtime host service restarts automatically after you save the updated proxy settings.
 

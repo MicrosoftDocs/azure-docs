@@ -2,7 +2,7 @@
 title: Defender for DevOps FAQ
 description: If you're having issues with Defender for DevOps perhaps, you can solve it with these frequently asked questions.
 ms.topic: reference
-ms.date: 02/23/2023
+ms.date: 04/18/2023
 ---
 
 # Defender for DevOps frequently asked questions (FAQ)
@@ -11,6 +11,7 @@ If you're having issues with Defender for DevOps these frequently asked question
 
 ## FAQ
 
+- [Scan specific folders for secrets in ADO repos with CredScan](#scan-specific-folders-for-secrets-in-ado-repos-with-credscan)
 - [I'm getting an error while trying to connect](#im-getting-an-error-while-trying-to-connect)
 - [Why can't I find my repository](#why-cant-i-find-my-repository)
 - [Secret scan didn't run on my code](#secret-scan-didnt-run-on-my-code)
@@ -18,13 +19,41 @@ If you're having issues with Defender for DevOps these frequently asked question
 - [I don’t see the results for my ADO projects in Microsoft Defender for Cloud](#i-dont-see-the-results-for-my-ado-projects-in-microsoft-defender-for-cloud)
 - [Why is my Azure DevOps repository not refreshing to healthy?](#why-is-my-azure-devops-repository-not-refreshing-to-healthy) 
 - [I don’t see Recommendations for findings](#i-dont-see-recommendations-for-findings)
-- [What information does Defender for DevOps store about me and my enterprise, and where is the data stored?](#what-information-does-defender-for-devops-store-about-me-and-my-enterprise-and-where-is-the-data-stored)
+- [What information does Defender for DevOps store about me and my enterprise, and where is the data stored and processed?](#what-information-does-defender-for-devops-store-about-me-and-my-enterprise-and-where-is-the-data-stored-and-processed)
+- [Why are Delete source code and Write Code permissions required for Azure DevOps?](#why-are-delete-source-and-write-code-permissions-required-for-azure-devops)
 - [Is Exemptions capability available and tracked for app sec vulnerability management](#is-exemptions-capability-available-and-tracked-for-app-sec-vulnerability-management)
 - [Is continuous, automatic scanning available?](#is-continuous-automatic-scanning-available)
 - [Is it possible to block the developers committing code with exposed secrets](#is-it-possible-to-block-the-developers-committing-code-with-exposed-secrets)
 - [I'm not able to configure Pull Request Annotations](#im-not-able-to-configure-pull-request-annotations)
 - [What programming languages are supported by Defender for DevOps?](#what-programming-languages-are-supported-by-defender-for-devops) 
 - [I'm getting an error that informs me that there's no CLI tool](#im-getting-an-error-that-informs-me-that-theres-no-cli-tool)
+- [Can I migrate the connector to a different region?](#can-i-migrate-the-connector-to-a-different-region)
+
+### Scan specific folders for secrets in ADO repos with CredScan
+If you want to scan specific folders in Azure DevOps repos with CredScan, you can use:
+env: 
+  credscan_targetdirectory: 'NameOfFolderToScanForSecrets/'
+
+A full ADO YAML file for a pipeline that does CredScan scanning for secrets on a specific folder could look like this:
+```yml
+trigger:
+  branches:
+    include:
+      - main
+      - master
+ 
+pool:
+  vmImage: "windows-latest"
+ 
+steps:
+  - task: MicrosoftSecurityDevOps@1
+    displayName: "Microsoft Security DevOps"
+    inputs:
+      categories: 'secrets' 
+      break: false
+    env:
+      credscan_targetdirectory: 'NameOfFolderToScanForSecrets/'
+```      
 
 ### I'm getting an error while trying to connect
 
@@ -36,7 +65,7 @@ You can [check which account is signed in](https://app.vssps.visualstudio.com/pr
 
 The Azure DevOps service only supports `TfsGit`.
 
-Ensure that you've [onboarded your repositories](/azure/defender-for-cloud/quickstart-onboard-devops?branch=main) to Microsoft Defender for Cloud. If you still can't see your repository, ensure that you're signed in with the correct Azure DevOps organization user account. Your Azure subscription and Azure DevOps Organization need to be in the same tenant. If the user for the connector is wrong, you need to delete the previously created connector, sign in with the correct user account and re-create the connector.
+Ensure that you've [onboarded your repositories](./quickstart-onboard-devops.md?branch=main) to Microsoft Defender for Cloud. If you still can't see your repository, ensure that you're signed in with the correct Azure DevOps organization user account. Your Azure subscription and Azure DevOps Organization need to be in the same tenant. If the user for the connector is wrong, you need to delete the previously created connector, sign in with the correct user account and re-create the connector.
 
 ### Secret scan didn't run on my code 
 
@@ -54,9 +83,9 @@ If you don’t see SARIF file in the expected path, you may have chosen a differ
 
 ### I don’t see the results for my ADO projects in Microsoft Defender for Cloud 
 
-Currently, OSS vulnerabilities, IaC scanning vulnerabilities, and Total code scanning vulnerabilities are only available for GitHub repositories. 
+Currently, OSS vulnerability findings are only available for GitHub repositories. 
 
-Azure DevOps repositories only have the total exposed secrets available and will show `N/A` for all other fields. You can learn more about how to [Review your findings](defender-for-devops-introduction.md).
+Azure DevOps repositories will have the total exposed secrets, IaC misconfigurations, and code security findings available. It will show `N/A` for OSS vulnerabilities. You can learn more about how to [Review your findings](defender-for-devops-introduction.md).
 
 ### Why is my Azure DevOps repository not refreshing to healthy? 
 
@@ -66,23 +95,27 @@ If no scan is performed for 14 days, the scan results revert to `N/A`.
 
 ### I don’t see Recommendations for findings
 
-Ensure that you've onboarded the project with the connector and that your repository (that build is for), is onboarded to Microsoft Defender for Cloud. You can learn how to [onboard your DevOps repository](/azure/defender-for-cloud/quickstart-onboard-devops?branch=main) to Defender for Cloud. 
+Ensure that you've onboarded the project with the connector and that your repository (that build is for), is onboarded to Microsoft Defender for Cloud. You can learn how to [onboard your DevOps repository](./quickstart-onboard-devops.md?branch=main) to Defender for Cloud. 
 
 You must have more than a [stakeholder license](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) to the repos to onboard them, and you need to be at least the security reader on the subscription where the connector is created. You can confirm if you've onboarded the repositories by seeing them in the inventory list in Microsoft Defender for Cloud.
 
-### What information does Defender for DevOps store about me and my enterprise, and where is the data stored?
+### What information does Defender for DevOps store about me and my enterprise, and where is the data stored and processed?
 
-Data Defender for DevOps connects to your source code management system, for example, Azure DevOps, GitHub, to provide a central console for your DevOps resources and security posture. Defender for DevOps processes and stores the following information:
+Defender for DevOps connects to your source code management system, for example, Azure DevOps, GitHub, to provide a central console for your DevOps resources and security posture. Defender for DevOps processes and stores the following information:
 
 - Metadata on your connected source code management systems and associated repositories. This data includes user, organizational, and authentication information.
 
 - Scan results for recommendations and assessments results and details.
 
-Data is stored within the region your connector is created in. You should consider which region to create your connector in, for any data residency requirements as you design and create your DevOps connector.
+Data is stored within the region your connector is created in and flows into [Microsoft Defender for Cloud](defender-for-cloud-introduction.md). You should consider which region to create your connector in, for any data residency requirements as you design and create your DevOps connector.
 
 Defender for DevOps currently doesn't process or store your code, build, and audit logs.
 
 Learn more about [Microsoft Privacy Statement](https://go.microsoft.com/fwLink/?LinkID=521839&amp;clcid=0x9).
+
+### Why are Delete Source and Write Code permissions required for Azure DevOps?
+
+Azure DevOps doesn't have the necessary granularity for its permissions. These permissions are required for some of the Defender for DevOps features, such as pull request annotations in order to work.
 
 ### Is Exemptions capability available and tracked for app sec vulnerability management?
 
@@ -98,7 +131,7 @@ The ability to block developers from committing code with exposed secrets isn't 
 
 ### I'm not able to configure Pull Request Annotations
 
-Make sure you have write (owner/contributor) access to the subscription. 
+Make sure you have write (owner/contributor) access to the subscription. If you don't have this type of access today, you can get it through [activating an Azure Active Directory role in PIM](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role). 
 
 ### What programming languages are supported by Defender for DevOps?
 
@@ -123,6 +156,13 @@ This error occurs if you're missing the dependency of `dotnet6` in the pipeline'
  
 You can learn more about [Microsoft Security DevOps](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops). 
 
+### Can I migrate the connector to a different region?
+
+For example, can I migrate the connector from the Central US region to the West Europe region?
+
+We don’t support automatic migration for the Defender for DevOps connectors from one region to another at this time.
+
+If you want to move a connector’s location, for example a GitHub or Azure DevOps connector, to be stored in a different region than the original one where the connector was created, the recommendation is to delete the existing connector and then to create another connector in the new region.
 
 ## Next steps
 

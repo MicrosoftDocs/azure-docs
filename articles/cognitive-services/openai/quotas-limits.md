@@ -3,13 +3,13 @@ title: Azure OpenAI Service quotas and limits
 titleSuffix: Azure Cognitive Services
 description: Quick reference, detailed description, and best practices on the quotas and limits for the OpenAI service in Azure Cognitive Services.
 services: cognitive-services
-author: ChrisHMSFT
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
-ms.date: 06/30/2022
-ms.author: chrhoder
+ms.date: 05/15/2023
+ms.author: mbullwin
 ---
 
 # Azure OpenAI Service quotas and limits
@@ -22,9 +22,9 @@ The following sections provide you with a quick guide to the quotas and limits t
 
 | Limit Name | Limit Value |
 |--|--|
-| OpenAI resources per region | 2 | 
-| Requests per minute per model* | Davinci-models (002 and later): 120  <br> All other models: 300 |
-| Tokens per minute per model* | Davinci-models (002 and later): 40,000  <br> All other models: 120,000 |
+| OpenAI resources per region per Azure subscription | 3 |
+| Requests per minute per model* | Davinci-models (002 and later): 120  <br> ChatGPT model: 300 <br> GPT-4 models: 18 <br> All other models: 300 |
+| Tokens per minute per model* | Davinci-models (002 and later): 40,000  <br> ChatGPT model: 120,000 <br> GPT-4 8k model: 10,000 <br> GPT-4 32k model: 32,000 <br> All other models: 120,000 |
 | Max fine-tuned model deployments* | 2 |
 | Ability to deploy same model to multiple deployments | Not allowed |
 | Total number of training jobs per resource | 100 |
@@ -32,10 +32,13 @@ The following sections provide you with a quick guide to the quotas and limits t
 | Max training jobs queued | 20 | 
 | Max Files per resource | 50 |
 | Total size of all files per resource | 1 GB | 
-| Max training job time (job will fail if exceeded) | 120 hours |
-| Max training job size (tokens in training file) x (# of epochs) | **Ada**: 40-M tokens <br> **Babbage**: 40-M tokens <br> **Curie**: 40-M tokens <br> **Cushman**: 40-M tokens <br> **Davinci**: 10-M |
+| Max training job time (job will fail if exceeded) | 720 hours |
+| Max training job size (tokens in training file) x (# of epochs) | 2 Billion |
 
 *The limits are subject to change. We anticipate that you will need higher limits as you move toward production and your solution scales. When you know your solution requirements, please reach out to us by applying for a quota increase here: <https://aka.ms/oai/quotaincrease>
+
+
+For information on max tokens for different models, consult the [models article](./concepts/models.md#model-summary-table-and-region-availability)
 
 ### General best practices to mitigate throttling during autoscaling
 
@@ -48,9 +51,14 @@ To minimize issues related to throttling, it's a good idea to use the following 
 
 The next sections describe specific cases of adjusting quotas.
 
-### How to request an increase to the transactions-per-minute,  number of fine-tuned models deployed or token per minute quotas.
+### How to request increases to the default quotas and limits
 
-If you need to increase the limit, you can apply for a quota increase here: <https://aka.ms/oai/quotaincrease>
+At this time, due to overwhelming demand we cannot accept any new resource or quota increase requests.
+
+ 
+
+> [!NOTE]
+> Ensure that you thoroughly assess your current resource utilization, approaching its full capacity. Be aware that we will not grant additional resources if efficient usage of existing resources is not observed.
 
 ## Next steps
 

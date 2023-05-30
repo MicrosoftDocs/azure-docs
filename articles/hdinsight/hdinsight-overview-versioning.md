@@ -3,7 +3,7 @@ title: Versioning introduction - Azure HDInsight
 description: Learn how versioning works in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 04/03/2023
 ---
 
 # How versioning works in HDInsight
@@ -17,6 +17,8 @@ Resources in Azure are made available by a Resource provider. HDInsight Resource
 ## HDInsight images
 
 HDInsight uses images to put together open-source software (OSS) components that can be deployed on a cluster. These images contain the base Ubuntu operating system and core components such as Spark, Hadoop, Kafka, HBase or Hive.
+
+[How to check the image number?](./view-hindsight-cluster-image-version.md)
 
 ## Versioning in HDInsight
 

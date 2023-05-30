@@ -1,5 +1,7 @@
-- name: External Identities documentation
+- name: Azure Active Directory External Identities documentation
   href: index.yml
+- name: External Identities documentation
+  href: index-b2b.yml
 - name: Overview
   expanded: true
   items:
@@ -87,6 +89,10 @@
       href: external-collaboration-settings-configure.md
     - name: Allow or block domains
       href: allow-deny-list.md
+  - name: Enforce tenant restrictions
+    items:
+    - name: Tenant restrictions V2
+      href: tenant-restrictions-v2.md
   - name: Configure B2B direct connect 
     href: cross-tenant-access-settings-b2b-direct-connect.md
   - name: Select identity providers
@@ -137,8 +143,6 @@
       href: user-properties.md
     - name: Reset redemption status
       href: reset-redemption-status.md
-    - name: B2B for Azure AD integrated apps
-      href: configure-saas-apps.md
   - name: Manage guest access in a hybrid organization
     items:
     - name: Grant local users access to cloud apps

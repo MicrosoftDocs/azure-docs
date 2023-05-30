@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 12/07/2021
+ms.date: 02/07/2023
 ---
 
 # Tutorial: Query a Cognitive Search index from Power Apps

@@ -39,7 +39,7 @@ The example assumes that you have one Data Lake Storage Gen2 account named `stor
 
 ![Screenshot of a Data Lake Storage Gen2 storage account.](./media/synapse-file-mount-api/gen2-storage-account.png)
 
-To mount the container called `mycontainer`, `mssparkutils` first needs to check whether you have the permission to access the container. Currently, Azure Synapse Analytics supports three authentication methods for the trigger mount operation: `linkedService`, `accountKey`, and `sastoken`. 
+To mount the container called `mycontainer`, `mssparkutils` first needs to check whether you have the permission to access the container. Currently, Azure Synapse Analytics supports three authentication methods for the trigger mount operation: `LinkedService`, `accountKey`, and `sastoken`. 
 
 ### Mount by using a linked service (recommended)
 
@@ -57,6 +57,13 @@ You can create a linked service for Data Lake Storage Gen2 or Blob Storage. Curr
 
     ![Screenshot of selections for creating a linked service by using a managed identity.](./media/synapse-file-mount-api/synapse-link-service-using-managed-identity.png)
 
+> [!IMPORTANT]
+>
+> - If the above created Linked Service to Azure Data Lake Storage Gen2 uses a [managed private endpoint](../security/synapse-workspace-managed-private-endpoints.md) (with a *dfs* URI) , then we need to create another secondary managed private endpoint using the Azure Blob Storage option (with a **blob** URI) to ensure that the internal [fsspec/adlfs](https://github.com/fsspec/adlfs/blob/main/adlfs/spec.py#L400) code can connect using the *BlobServiceClient* interface.
+> - In case the secondary managed private endpoint is not configured correctly, then we would see an error message like *ServiceRequestError: Cannot connect to host [storageaccountname].blob.core.windows.net:443 ssl:True [Name or service not known]*
+> 
+> ![Screenshot of creating a managed private end-point to an ADLS Gen2 storage using blob endpoint.](./media/synapse-file-mount-api/create-mpe-blob-endpoint.png)
+
 > [!NOTE]
 > If you create a linked service by using a managed identity as the authentication method, make sure that the workspace MSI file has the Storage Blob Data Contributor role of the mounted container. 
 
@@ -66,7 +73,7 @@ After you create linked service successfully, you can easily mount the container
 mssparkutils.fs.mount( 
     "abfss://mycontainer@<accountname>.dfs.core.windows.net", 
     "/test", 
-    {"linkedService":"mygen2account"} 
+    {"LinkedService":"mygen2account"} 
 ) 
 ``` 
 
@@ -213,7 +220,7 @@ If you mounted a Blob Storage account and want to access it by using `mssparkuti
     mssparkutils.fs.mount( 
         "wasbs://mycontainer@<blobStorageAccountName>.blob.core.windows.net", 
         "/test", 
-        Map("linkedService" -> "myblobstorageaccount") 
+        Map("LinkedService" -> "myblobstorageaccount") 
     ) 
     ``` 
 

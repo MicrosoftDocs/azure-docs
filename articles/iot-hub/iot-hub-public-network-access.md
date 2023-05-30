@@ -2,10 +2,10 @@
 title: Managing public network access for Azure IoT Hub
 description: Documentation on how to disable and enable public network access for IoT hub
 author: kgremban
+
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/07/2021
 ---
 

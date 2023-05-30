@@ -75,10 +75,9 @@ For more information about the governance capabilities of Microsoft Purview, for
 
 After your account is created, you'll use the Microsoft Purview governance portal to access and manage it. There are two ways to open the Microsoft Purview governance portal:
 
-* Open your Microsoft Purview account in the [Azure portal](https://portal.azure.com). Select the "Open Microsoft Purview governance portal" tile on the overview page.
+- You can browse directly to [https://web.purview.azure.com](https://web.purview.azure.com), select your Microsoft Purview account name, and sign in to your workspace.
+- Alternatively, open your Microsoft Purview account in the [Azure portal](https://portal.azure.com). Select the **Open Microsoft Purview governance portal** tile on the overview page.
     :::image type="content" source="media/create-catalog-portal/open-purview-studio.png" alt-text="Screenshot showing the Microsoft Purview account overview page, with the Microsoft Purview governance portal tile highlighted.":::
-
-* Alternatively, you can browse to [https://web.purview.azure.com](https://web.purview.azure.com), select your Microsoft Purview account name, and sign in to your workspace.
 
 ## Next steps
 

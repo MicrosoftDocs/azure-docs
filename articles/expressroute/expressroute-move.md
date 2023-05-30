@@ -5,10 +5,10 @@ services: expressroute
 author: duongau
 
 ms.service: expressroute
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 06/02/2021
 ms.author: duau
-
 ---
 # Moving ExpressRoute circuits from the classic to the Resource Manager deployment model
 This article provides an overview of what happens when you move an Azure ExpressRoute circuit from the classic to the Azure Resource Manager deployment model.
@@ -96,4 +96,3 @@ Follow the instructions that are described in [Move an ExpressRoute circuit from
   * [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md)
   * [Configure routing](expressroute-howto-routing-arm.md)
   * [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
-

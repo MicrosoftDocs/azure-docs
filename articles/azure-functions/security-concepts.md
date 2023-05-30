@@ -25,7 +25,7 @@ Defender for Cloud integrates with your function app in the portal. It provides,
 
 ### Log and monitor
 
-One way to detect attacks is through activity monitoring and logging analytics. Functions integrates with Application Insights to collects log, performance, and error data for your function app. Application Insights automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. To learn more, see [Monitor Azure Functions](functions-monitoring.md).
+One way to detect attacks is through activity monitoring and logging analytics. Functions integrates with Application Insights to collect log, performance, and error data for your function app. Application Insights automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
 Functions also integrates with Azure Monitor Logs to enable you to consolidate function app logs with system events for easier analysis. You can use diagnostic settings to configure streaming export of platform logs and metrics for your functions to the destination of your choice, such as a Logs Analytics workspace. To learn more, see [Monitoring Azure Functions with Azure Monitor Logs](functions-monitor-log-analytics.md). 
 
@@ -191,6 +191,14 @@ Don't use wildcards in your allowed origins list. Instead, list the specific dom
 
 [!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
+### Secure related resources
+
+A function app frequently depends on additional resources, so part of securing the app is securing these external resources. At a minimum, most function apps include a dependency on Application Insights and Azure Storage. Consult the [Azure security baseline for Azure Monitor](/security/benchmark/azure/baselines/azure-monitor-security-baseline) and the [Azure security baseline for Storage](/security/benchmark/azure/baselines/storage-security-baseline) for guidance on securing these resources.
+
+[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
+
+You should also consult the guidance for any resource types your application logic depends on, both as triggers and bindings and from your function code.
+
 ## Secure deployment
 
 Azure Functions tooling an integration make it easy to publish local function project code to Azure. It's important to understand how deployment works when considering security for an Azure Functions topology.   
@@ -221,7 +229,7 @@ By having a separate scm endpoint, you can control deployments and other advance
 
 ### Continuous security validation
 
-Since security needs to be considered a every step in the development process, it make sense to also implement security validations in a continuous deployment environment. This is sometimes called DevSecOps. Using Azure DevOps for your deployment pipeline let's you integrate validation into the deployment process. For more information, see [Learn how to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline).  
+Since security needs to be considered at every step in the development process, it makes sense to also implement security validations in a continuous deployment environment. This is sometimes called DevSecOps. Using Azure DevOps for your deployment pipeline let's you integrate validation into the deployment process. For more information, see [Learn how to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline).  
 
 ## Network security
 

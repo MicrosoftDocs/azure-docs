@@ -1,12 +1,12 @@
 ---
-title: Self-service password reset for Windows devices - Azure Active Directory
+title: Self-service password reset for Windows devices
 description: Learn how to enable Azure Active Directory self-service password reset at the Windows sign-in screen.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 04/05/2023
 
 ms.author: justinha
 author: justinha
@@ -70,13 +70,13 @@ To configure a Windows 11 or 10 device for SSPR at the sign-in screen, review th
     - Azure AD joined
     - Hybrid Azure AD joined
 
-### Enable for Windows 11 and 10 using Microsoft Endpoint Manager
+### Enable for Windows 11 and 10 using Microsoft Intune
 
-Deploying the configuration change to enable SSPR from the login screen using Microsoft Endpoint Manager is the most flexible method. Microsoft Endpoint Manager allows you to deploy the configuration change to a specific group of machines you define. This method requires Microsoft Endpoint Manager enrollment of the device.
+Deploying the configuration change to enable SSPR from the login screen using Microsoft Intune is the most flexible method. Microsoft Intune allows you to deploy the configuration change to a specific group of machines you define. This method requires Microsoft Intune enrollment of the device.
 
-#### Create a device configuration policy in Microsoft Endpoint Manager
+#### Create a device configuration policy in Microsoft Intune
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Endpoint Manager**.
+1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431).
 1. Create a new device configuration profile by going to **Device configuration** > **Profiles**, then select **+ Create Profile**
    - For **Platform** choose *Windows 10 and later*
    - For **Profile type**, choose Templates then select the Custom template below
@@ -93,7 +93,7 @@ Deploying the configuration change to enable SSPR from the login screen using Mi
     Select **Add**, then **Next**.
 1. The policy can be assigned to specific users, devices, or groups. Assign the profile as desired for your environment, ideally to a test group of devices first, then select **Next**.
 
-    For more information, see [Assign user and device profiles in Microsoft Microsoft Endpoint Manager](/mem/intune/configuration/device-profile-assign).
+    For more information, see [Assign user and device profiles in Microsoft Intune](/mem/intune/configuration/device-profile-assign).
 
 1. Configure applicability rules as desired for your environment, such as to *Assign profile if OS edition is Windows 10 Enterprise*, then select **Next**.
 1. Review your profile, then select **Create**.

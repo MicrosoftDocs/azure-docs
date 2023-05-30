@@ -7,17 +7,16 @@ manager: netahw
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 05/23/2023
 ms.author: sajagtap
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
 # Form Recognizer Studio
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
-[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications. Use the [Form Recognizer Studio quickstart](quickstarts/try-v3-form-recognizer-studio.md) to get started analyzing documents with pre-trained models. Build custom template models and reference the models in your applications using the [Python SDK v3.0](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and other quickstarts.
+[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications. Use the [Form Recognizer Studio quickstart](quickstarts/try-v3-form-recognizer-studio.md) to get started analyzing documents with pretrained models. Build custom template models and reference the models in your applications using the [Python SDK v3.0](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and other quickstarts.
 
 The following image shows the Invoice prebuilt model feature at work.
 
@@ -31,7 +30,7 @@ The following Form Recognizer service features are available in the Studio.
 
 * **Layout**: Try out Form Recognizer's Layout feature to extract text, tables, selection marks, and structure information. Start with the [Studio Layout feature](https://formrecognizer.appliedai.azure.com/studio/layout). Explore with sample documents and your documents. Use the interactive visualization and JSON output to understand how the feature works. See the [Layout overview](concept-layout.md) to learn more and get started with the [Python SDK quickstart for Layout](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#layout-model).
 
-* **General Documents**: Try out Form Recognizer's General Documents feature to extract key-value pairs and entities. Start with the [Studio General Documents feature](https://formrecognizer.appliedai.azure.com/studio/document). Explore with sample documents and your documents. Use the interactive visualization and JSON output to understand how the feature works. See the [General Documents overview](concept-general-document.md) to learn more and get started with the [Python SDK quickstart for Layout](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#general-document-model).
+* **General Documents**: Try out Form Recognizer's General Documents feature to extract key-value pairs. Start with the [Studio General Documents feature](https://formrecognizer.appliedai.azure.com/studio/document). Explore with sample documents and your documents. Use the interactive visualization and JSON output to understand how the feature works. See the [General Documents overview](concept-general-document.md) to learn more and get started with the [Python SDK quickstart for Layout](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#general-document-model).
 
 * **Prebuilt models**: Form Recognizer's prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models. As an example, start with the [Studio Invoice feature](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice). Explore with sample documents and your documents. Use the interactive visualization, extracted fields list, and JSON output to understand how the feature works. See the [Models overview](concept-model-overview.md) to learn more and get started with the [Python SDK quickstart for Prebuilt Invoice](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model).
 

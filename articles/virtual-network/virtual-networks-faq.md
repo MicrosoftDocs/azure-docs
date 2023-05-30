@@ -99,10 +99,10 @@ When NSGs are applied both at NIC & Subnets for a VM, subnet level NSG followed 
 No. Multicast and broadcast are not supported.
 
 ### What protocols can I use within VNets?
-You can use TCP, UDP, and ICMP TCP/IP protocols within VNets. Unicast is supported within VNets.  Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. You cannot use Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68 / destination port UDP/67). UDP source port 65330 which is reserved for the host. See ["Can I deploy a DHCP server in a VNet"](#can-i-deploy-a-dhcp-server-in-a-vnet) for more detail what is and is not supported for DHCP.
+You can use TCP, UDP, ESP, AH, and ICMP TCP/IP protocols within VNets. Unicast is supported within VNets.  Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. You cannot use Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68 / destination port UDP/67). UDP source port 65330 which is reserved for the host. See ["Can I deploy a DHCP server in a VNet"](#can-i-deploy-a-dhcp-server-in-a-vnet) for more detail what is and is not supported for DHCP.
 
 ### Can I deploy a DHCP server in a VNet?
-Azure VNets provide DHCP service and DNS to VMs and client/server DHCP (source port UDP/68, destination port UDP/67) not supported in a VNet.  You cannot deploy your own DHCP service to receive and provide unicast/broadcast client/server DHCP traffic.  You can deploy a DHCP server on a VM with the intent to receive unicast DHCP relay (source port UDP/67, destination port UDP/67) DHCP traffic.  A possible scenario is configuring DHCP relay from devices on-premises to an Azure VM running a DHCP server. Customer is responsible for configuring on-premise devices (for example, router configuration) to create this DHCP relay traffic to the VM's IP in Azure.
+Azure VNets provide DHCP service and DNS to VMs and client/server DHCP (source port UDP/68, destination port UDP/67) not supported in a VNet.  You cannot deploy your own DHCP service to receive and provide unicast/broadcast client/server DHCP traffic for endpoints inside a VNet. It is also an *unsupported* scenario to deploy a DHCP server VM with the intent to receive unicast DHCP relay (source port UDP/67, destination port UDP/67) DHCP traffic.
 
 ### Can I ping default gateway within a VNet?
 No. Azure provided default gateway does not respond to ping. But you can use ping in your VNets to check connectivity and troubleshooting between VMs.
@@ -258,7 +258,7 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/v
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) deployment models.
-- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/az.network) and [classic](/powershell/module/servicemanagement/azure.service/) deployment models.
+- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/az.network) deployment model.
 - The Azure CLI or Azure classic CLI to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](/previous-versions/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) deployment models.
 
 ## VNet peering

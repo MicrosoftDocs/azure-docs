@@ -7,8 +7,6 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2021
 ms.author: franlanglois 
-ms.custom: devx-track-azurepowershell
-
 ---
 # How to administer Azure Cache for Redis
 

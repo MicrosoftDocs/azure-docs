@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 08/20/2022
 #Customer intent: As a developer, I want to create and deploy an automated workflow in multi-tenant Azure Logic Apps with Azure Resource Manager templates (ARM templates).
 ---
@@ -239,7 +239,7 @@ To view the logic app workflow, you can use the Azure portal, run a script that 
 ```azurecli-interactive
 echo "Enter your logic app name:" &&
 read logicAppName &&
-az logic workflow show --name $logicAppName &&
+az logic workflow show --resource-group $resourceGroupName --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
 
@@ -249,7 +249,7 @@ For more information, see [Azure CLI: az logic workflow show](/cli/azure/logic/w
 
 ```azurepowershell-interactive
 $logicAppName = Read-Host -Prompt "Enter your logic app name"
-Get-AzLogicApp -Name $logicAppName
+Get-AzLogicApp -ResourceGroupName $resourceGroupName -Name $logicAppName 
 Write-Host "Press [ENTER] to continue..."
 ```
 

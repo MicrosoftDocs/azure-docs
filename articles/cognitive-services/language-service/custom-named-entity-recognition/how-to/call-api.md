@@ -1,6 +1,6 @@
 ---
 title: Send a Named Entity Recognition (NER) request to your custom model
-description: Learn how to send a request for custom NER.
+description: Learn how to send requests for custom NER.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill

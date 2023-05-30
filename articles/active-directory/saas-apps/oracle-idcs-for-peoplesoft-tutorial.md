@@ -70,7 +70,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     ` https://<SUBDOMAIN>.oraclecloud.com/`
 
     >[!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Oracle IDCS for PeopleSoft support team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Oracle IDCS for PeopleSoft support team](https://www.oracle.com/support/advanced-customer-services/cloud/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Your Oracle IDCS for PeopleSoft application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Oracle IDCS for PeopleSoft expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
@@ -82,11 +82,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Oracle IDCS for PeopleSoft SSO
 
-To configure single sign-on on Oracle IDCS for PeopleSoft side, you need to send the downloaded Federation Metadata XML file from Azure portal to [Oracle IDCS for PeopleSoft support team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on Oracle IDCS for PeopleSoft side, you need to send the downloaded Federation Metadata XML file from Azure portal to [Oracle IDCS for PeopleSoft support team](https://www.oracle.com/support/advanced-customer-services/cloud/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Oracle IDCS for PeopleSoft test user
 
-In this section, you create a user called Britta Simon at Oracle IDCS for PeopleSoft. Work with [Oracle IDCS for PeopleSoft support team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) to add the users in the Oracle IDCS for PeopleSoft platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon at Oracle IDCS for PeopleSoft. Work with [Oracle IDCS for PeopleSoft support team](https://www.oracle.com/support/advanced-customer-services/cloud/) to add the users in the Oracle IDCS for PeopleSoft platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
@@ -105,4 +105,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Oracle IDCS for PeopleSoft you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Oracle IDCS for PeopleSoft you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

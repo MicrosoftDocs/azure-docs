@@ -6,9 +6,9 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 02/26/2023
+  ms.date: 05/19/2023
   ms.author: greglin
-  ms.custom: references_regions
+  ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
 summary: |
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -76,6 +76,9 @@ sections:
           ```
 
           For HTTP/2 connections to the frontend IP address on Application Gateway v2 SKU, the idle timeout is set to 180 seconds and is non-configurable.
+          
+      - question: Does Application Gateway reuse the TCP connection that is  established with backend server?
+        answer: Yes. Application Gateway reuses the existing TCP connections with backend server.
  
       - question: Can I rename my Application Gateway resource?
         answer: No. There's no way to rename an Application Gateway resource. You must create a new resource with a different name. 
@@ -133,8 +136,8 @@ sections:
         answer: |
           Yes. The Application Gateway v1 SKU continues to be supported. However, it's strongly recommended to move to v2 to take advantage of the feature updates in that SKU. For more information on the differences between v1 and v2 features, see [Autoscaling and Zone-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md). You can manually migrate Application Gateway v1 sku deployments to v2 by following our [v1-v2 migration document](migrate-v1-v2.md).
           
-      - question: Does Application Gateway V2 support proxying requests with NTLM authentication?
-        answer: No. Application Gateway V2 doesn't support proxying requests with NTLM authentication.
+      - question: Does Application Gateway V2 support proxying requests with NTLM or Kerberos authentication?
+        answer: No. Application Gateway V2 doesn't support proxying requests with NTLM or Kerberos authentication.
         
       - question: Why are some header values not present when requests are forwarded to my application?
         answer: Request header names can contain alphanumeric characters and hyphens. Request header names containing other characters are discarded when a request is sent to the backend target. Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27), except for underscores (\_).
@@ -186,7 +189,10 @@ sections:
       - question: Can Application Gateway communicate with instances outside of its virtual network or outside of its subscription?
         answer: |
           As long as you have IP connectivity, Application Gateway can communicate with instances outside of the virtual network that it's in. Application Gateway can also communicate with instances outside of the subscription it's in. If you plan to use internal IPs as backend pool members, use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) or [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-          
+       
+      - question: Why am I seeing 502 errors or unhealthy backend servers after I changed the DNS servers for the virtual network?
+        answer: The instances of your application gateway use the virtual network's DNS configuration for name resolution. After changing any DNS server configuration, you need to restart (Stop and Start) the application gateway for the new DNS servers to get assigned. Until then, FQDN-based name resolutions for outbound connectivity could fail.
+       
       - question: Can I deploy anything else in the application gateway subnet?
         answer: No. But you can deploy other application gateways in the subnet.
         
@@ -259,7 +265,8 @@ sections:
           Yes. See [restrict access to specific source IPs](./configuration-infrastructure.md#allow-access-to-a-few-source-ips).
           
       - question: Can I use the same port for both public-facing and private-facing listeners?
-        answer: No.
+        answer: |
+          Yes, you can use public-facing and private-facing listeners with the same port number to simultaneously support both public and private clients (feature in Preview). Note that if a Network Security Group (NSG) is associated with your application gateway's subnet, a specific Inbound rule may be needed depending on its configuration. [Know more](./configuration-listeners.md#frontend-port).
 
       - question: Does Application Gateway support IPv6?
         answer: Application Gateway v2 doesn't currently support IPv6. It can operate in a dual stack VNet using only IPv4, but the gateway subnet must be IPv4-only. Application Gateway v1 doesn't support dual stack VNets. 
@@ -269,11 +276,13 @@ sections:
 
       - question: How do I use Application Gateway V2 with only private frontend IP address?
         answer: |
-          Application Gateway V2 currently doesn't support only private IP mode. It supports the following combinations
+          Application Gateway V2 currently supports private IP frontend configuration only (no public IP) via public preview.  More information can be found [here](application-gateway-private-deployment.md).
+          
+          For current general availability support, Application Gateway V2 supports the following combinations
           * Private IP and Public IP
           * Public IP only
           
-          But if you'd like to use Application Gateway V2 with only private IP, you can follow the process below:
+          To restrict traffic only to private IP addresses with current functionality, you can follow the process below:
           1. Create an Application Gateway with both public and private frontend IP address
           2. Don't create any listeners for the public frontend IP address. Application Gateway won't listen to any traffic on the public IP address if no listeners are created for it.
           3. Create and attach a [Network Security Group](../virtual-network/network-security-groups-overview.md) for the Application Gateway subnet with the following configuration in the order of priority:
@@ -293,7 +302,7 @@ sections:
           
       - question: How can I stop and start Azure Application Gateway?
         answer: |
-          You can use Azure PowerShell or the Azure CLI to stop and start Azure Application Gateway. When you stop and start Application Gateway, [billing](https://azure.microsoft.com/pricing/details/application-gateway/) also stops and starts.
+          You can use Azure PowerShell or the Azure CLI to stop and start Azure Application Gateway. When you stop and start Application Gateway, [billing](https://azure.microsoft.com/pricing/details/application-gateway/) also stops and starts. Any PUT operation done on a Stopped Application Gateway (like adding tag, health probe, listener etc.) triggers a Start. It's recommended to Stop the application gateway once the configuration has been updated.
                              
           ```azurepowershell
           # Stop an existing Azure Application Gateway instance

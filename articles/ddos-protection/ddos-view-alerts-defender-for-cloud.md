@@ -6,7 +6,7 @@ author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/30/2023
+ms.date: 03/29/2023
 ms.author: abell
 ---
 
@@ -24,7 +24,7 @@ To view the alerts, open **Defender for Cloud** in the Azure portal and select *
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection (Preview)](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
+- [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
 
 ## View alerts in Microsoft Defender for Cloud
 
@@ -38,9 +38,4 @@ The alerts include general information about the public IP address that’s unde
 
 ## Next steps
 
-In this How-To, you learned how to view alerts in Microsoft Defender for Cloud.
-
-To learn how to test and simulate a DDoS attack, see the simulation testing guide:
-
-> [!div class="nextstepaction"]
-> [Test through simulations](test-through-simulations.md)
+* [Engage with Azure DDoS Rapid Response](ddos-rapid-response.md)

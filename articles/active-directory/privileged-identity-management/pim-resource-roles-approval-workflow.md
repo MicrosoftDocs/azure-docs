@@ -1,5 +1,5 @@
 ---
-title: Approve requests for Azure resource roles in PIM - Azure AD | Microsoft Docs
+title: Approve requests for Azure resource roles in PIM
 description: Learn how to approve or deny requests for Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -73,6 +73,5 @@ Here's some information about workflow notifications:
 
 ## Next steps
 
-- [Extend or renew Azure resource roles in Privileged Identity Management](pim-resource-roles-renew-extend.md)
 - [Email notifications in Privileged Identity Management](pim-email-notifications.md)
 - [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md)

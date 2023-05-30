@@ -32,10 +32,8 @@ All maintenance operations should finish within the specified maintenance window
 
 Integration with Service Health notifications and the Resource Health Check Monitor allows customers to stay informed of impending maintenance activity. This automation takes advantage of Azure Monitor. You can decide how you want to be notified of impending maintenance events. Also, you can choose which automated flows will help you manage downtime and minimize operational impact.
 
-A 24-hour advance notification precedes all maintenance events that aren't for the DW400c and lower tiers.
-
 > [!NOTE]
-> In the event we are required to deploy a time critical update, advanced notification times may be significantly reduced. This could occur outside an identified maintenance window due to the critical nature of the update.
+> A 24-hour advance notification precedes all maintenance events. In the event we are required to deploy a time critical update, advanced notification times may be significantly reduced. This could occur outside an identified maintenance window due to the critical nature of the update.
 
 If you received advance notification that maintenance will take place, but maintenance can't be performed during the time period in the notification, you'll receive a cancellation notification. Maintenance will then resume during the next scheduled maintenance period.
 
@@ -56,6 +54,13 @@ To view the maintenance schedule that has been applied to your Synapse SQL pool,
 3. The selected Synapse SQL pool opens on the overview blade. The maintenance schedule that's applied to the data warehouse appears below **Maintenance schedule**.
 
 ![Overview blade](./media/maintenance-scheduling/clear-overview-blade.PNG)
+
+## Skip or disable maintenance schedule
+
+To ensure compliance with latest security requirements, we are unable to accommodate requests to skip or delay these updates. However, you may have some options to adjust your maintenance window within the current cycle depending on your situation:
+- If you receive a pending notification for maintenance, and you need more time to finish your jobs or notify your team, you can change the window start time as long as you do so before the beginning of your defined maintenance window. This will shift your window forward in time within the cycle. Note that if you change the window to a start time before the actual present time, maintenance will be triggered immediately.
+- You can manually trigger the maintenance by pausing and resuming (or scaling) your SQL Dedicated pool after the start of a cycle for which a "Pending" notification has been received. The weekend maintenance cycle starts on Saturday at 00:00 UTC; the midweek maintenance cycle starts Tuesday at 12:00 UTC.
+- Although we do require a minimum window of 3 hours, note that maintenance usually takes less than 30 minutes to complete, but it may take longer in some cases. For example, if there are active transactions when the maintenance starts, they will be aborted and rolled back, which may cause delays in coming back online. To avoid this scenario, we recommend that you ensure that no long-running transactions are active during the start of your maintenance window.
 
 ## Change a maintenance schedule
 

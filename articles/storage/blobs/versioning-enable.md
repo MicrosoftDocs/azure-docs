@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 02/14/2023
 ms.author: normesta
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.custom: engagement-fy23, devx-track-arm-template
 ---
 
 # Enable and manage blob versioning

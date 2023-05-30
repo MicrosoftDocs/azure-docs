@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zuddl | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zuddl'
 description: Learn how to configure single sign-on between Azure Active Directory and Zuddl.
 services: active-directory
 author: jeevansd

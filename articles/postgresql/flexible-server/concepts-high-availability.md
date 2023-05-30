@@ -13,20 +13,19 @@ ms.date: 11/05/2022
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-Azure Database for PostgreSQL - Flexible Server offers high availability configurations with automatic failover capabilities. The high availability solution is designed to ensure that committed data is never lost because of failures and that the database won't be a single point of failure in your software architecture. When high availability is configured, flexible server automatically provisions and manages a standby replica. Write-ahead-logs (WAL) is streamed to the replica in  **synchronous** mode using PostgreSQL streaming replication. There are two high availability architectural models: 
+Azure Database for PostgreSQL - Flexible Server offers high availability configurations with automatic failover capabilities. The high availability solution is designed to ensure that committed data is never lost because of failures and that the database won't be a single point of failure in your architecture. When high availability is configured, flexible server automatically provisions and manages a standby. Write-ahead-logs (WAL) is streamed to the replica in synchronous mode using PostgreSQL streaming replication. There are two high availability architectural models: 
 
-* **Zone-redundant HA**: This option provides a complete isolation and redundancy of infrastructure across multiple availability zones within a region. It provides the highest level of availability, but it requires you to configure application redundancy across zones. Zone-redundant HA is preferred when you want protection from availability zone level failures and when latency across the availability zone is acceptable.  Zone-redundant HA is available in a [subset of Azure regions](./overview.md#azure-regions) where the region supports multiple [availability zones](../../availability-zones/az-overview.md). Uptime [SLA of 99.99%](https://azure.microsoft.com/support/legal/sla/postgresql) is offered in this configuration.
-
-* **Same-zone HA**: This option is preferred for infrastructure redundancy with lower network latency because the primary and standby servers will be in the same availability zone. It provides high availability without the need to configure application redundancy across zones. Same-zone HA is preferred when you want to achieve the highest level of availability within a single availability zone with the lowest network latency. Same-zone HA is available in all [Azure regions](./overview.md#azure-regions) where you can deploy Flexible Server.  Uptime [SLA of 99.95%](https://azure.microsoft.com/support/legal/sla/postgresql) offered in this configuration. 
-
-High availability configuration enables automatic failover capability with zero data loss during planned events such as user-initiated scale compute operation, and also during unplanned events such as underlying hardware and software faults, network failures, and availability zone failures. 
+* **Zone-redundant HA**: This option provides a complete isolation and redundancy of infrastructure across multiple availability zones within a region. It provides the highest level of availability, but it requires you to configure application redundancy across availability zones. Zone-redundant HA is preferred when you want protection from availability zone failures. However, one should account for added latency for cross-AZ synchronous writes. This latency is more pronounced for applications with short duration transactions.  Zone-redundant HA is available in a [subset of Azure regions](./overview.md#azure-regions) where the region supports multiple [availability zones](../../availability-zones/az-overview.md). Uptime [SLA of 99.99%](https://azure.microsoft.com/support/legal/sla/postgresql) is offered in this configuration.
+* **Same-zone HA**: This option provide for infrastructure redundancy with lower network latency because the primary and standby servers will be in the same availability zone. It provides high availability without the need to configure application redundancy across zones. Same-zone HA is preferred when you want to achieve the highest level of availability within a single availability zone. This option lowers the latency impact but makes your application vulnerable to zone failures.  Same-zone HA is available in all [Azure regions](./overview.md#azure-regions) where you can deploy Flexible Server.  Uptime [SLA of 99.95%](https://azure.microsoft.com/support/legal/sla/postgresql) offered in this configuration. 
+   
+High availability configuration enables automatic failover capability with zero data loss (i.e. RPO=0) both during planned/unplanned events. For example, user-initiated scale compute operation is a planned failover even while unplanned event refers to failures such as underlying hardware and software faults, network failures, and availability zone failures. 
 
 >[!NOTE]
 > Both these HA deployment models architecturally behave the same. Various discussions in the following sections are applicable to both unless called out otherwise. 
 
 ## High availability architecture
 
-Azure Database for PostgreSQL Flexible server supports two high availability deployment models. One is zone-redundant HA and the other is same-zone HA. In both deployment models, when the application performs writes or commits, using PostgreSQL streaming replication, transaction logs (write-ahead logs a.k.a WAL) are written to the local disk and also replicated in *synchronous* mode to the standby replica. Once the logs are persisted on the standby replica, the application is acknowledged of the writes or commits. The standby server will be in recovery mode which keeps applying the logs, but the primary server doesn't wait for the apply to complete at the standby server.
+As mentioned earlier, Azure Database for PostgreSQL Flexible server supports two high availability deployment models: zone-redundant HA and same-zone HA. In both deployment models, when the application commits a transaction, the transaction logs (write-ahead logs a.k.a WAL) are written to the data/log disk and also replicated in *synchronous* mode to the standby server. Once the logs are persisted on the standby, the transaction is considered committed and an acknowledgement is sent to the application. The standby server is always in recovery mode applying the transaction logs. However, the primary server doesn't wait for standby to apply these log records. It is possible that under heavy transaction workload, the replica server may fall behind but typically catches up to the primary with workload throughput fluctuations.
 
 ### Zone-redundant high availability
 
@@ -40,7 +39,7 @@ Automatic backups are performed periodically from the primary database server, w
 
 ### Same-zone high availability
 
-This model of high availability deployment enables Flexible server to be highly available within the same availability zone. This is supported in all regions, including regions that don't support availability zones. You can choose the region and the availability zone to deploy your primary database server. A standby replica server is **automatically** provisioned and managed in the **same** availability zone in the same region with similar compute, storage, and network configuration as the primary server. Data files and transaction log files (write-ahead logs a.k.a WAL) are stored on locally redundant storage, which automatically stores as **three** data copies each for primary and standby. This provides physical isolation of the entire stack between primary and standby servers within the same availability zone. 
+This model of high availability deployment enables Flexible server to be highly available within the same availability zone. This is supported in all regions, including regions that don't support availability zones. You can choose the region and the availability zone to deploy your primary database server. A standby server is **automatically** provisioned and managed in the **same** availability zone in the same region with similar compute, storage, and network configuration as the primary server. Data files and transaction log files (write-ahead logs a.k.a WAL) are stored on locally redundant storage, which automatically stores as **three** synchronous data copies each for primary and standby. This provides physical isolation of the entire stack between primary and standby servers within the same availability zone. 
 
 Automatic backups are performed periodically from the primary database server, while the transaction logs are continuously archived to the backup storage from the standby replica. If the region supports availability zones, then backup data is stored on zone-redundant storage (ZRS). In regions that doesn't support availability zones, backup data is stored on local redundant storage (LRS).   
 :::image type="content" source="./media/business-continuity/concepts-same-zone-high-availability-architecture.png" alt-text="Same-zone high availability"::: 
@@ -60,7 +59,7 @@ Flexible server has a health monitoring in place that checks for the primary and
 
 There are two failover modes. 
 
-  1. With [**planned failovers**](#failover-process---planned-downtimes) (example: During maintenance window) where the failover is triggered with a known state in which the primary connections are drained, a clean shutdown is performed before the replication is severed. You can also use this to bring the primary server back to your preferred AZ. 
+1. With [**planned failovers**](#failover-process---planned-downtimes) (example: During maintenance window) where the failover is triggered with a known state in which the primary connections are drained, a clean shutdown is performed before the replication is severed. You can also use this to bring the primary server back to your preferred AZ. 
  
   2. With [**unplanned failover**](#failover-process---unplanned-downtimes) (example: Primary server node crash), the primary is immediately fenced and hence any in-flight transactions are lost and to be retried by the application. 
 
@@ -111,10 +110,11 @@ For flexible servers configured with high availability, these maintenance activi
 
 ## Failover process - unplanned downtimes
 
-Unplanned outages include software bugs or infrastructure component failures that impact the availability of the database. If the primary server becomes unavailable, it is detected by the monitoring system and initiates a failover process.  The process includes a few seconds of wait time to make sure it is not a false positive. The replication to the standby replica is severed and the standby replica is activated to be the primary database server. That includes the standby to recover any residual WAL files. Once it is fully recovered, DNS for the same end point is updated with the standby server's IP address. Clients can then retry connecting to the database server using the same connection string and resume their operations. 
+- Unplanned outages include software bugs or infrastructure component failures that impact the availability of the database. If the primary server becomes unavailable, it is detected by the monitoring system and initiates a failover process.  The process includes a few seconds of wait time to make sure it is not a false positive. The replication to the standby replica is severed and the standby replica is activated to be the primary database server. That includes the standby to recover any residual WAL files. Once it is fully recovered, DNS for the same end point is updated with the standby server's IP address. Clients can then retry connecting to the database server using the same connection string and resume their operations. 
 
->[!NOTE]
+> [!NOTE]
 > Flexible servers configured with zone-redundant high availability provide a recovery point objective (RPO) of **Zero** (no data loss). The recovery time objective (RTO) is expected to be **less than 120s** in typical cases. However, depending on the activity in the primary database server at the time of the failover, the failover may take longer. 
+
 
 After the failover, while a new standby server is being provisioned (which usually takes 5-10 minutes), applications can still connect to the primary server and proceed with their read/write operations. Once the standby server is established, it will start recovering the logs that were generated after the failover. 
 
@@ -190,7 +190,7 @@ See [this guide](how-to-manage-high-availability-portal.md) for managing high av
 
 Flexible servers that are configured with high availability, log data is replicated in real time to the standby server. Any user errors on the primary server - such as an accidental drop of a table or incorrect data updates are replicated to the standby replica as well. So, you cannot use standby to recover from such logical errors. To recover from such errors, you have to perform point-in-time restore from the backup. Using flexible server's point-in-time restore capability, you can restore to the time before the error occurred. For databases configured with high availability, a new database server will be restored as a single zone flexible server with a new user-provided server name. You can use the restored server for few use cases:
 
-  1. You can use the restored server for production usage and can optionally enable zone-redundant high availability.
+1. You can use the restored server for production usage and can optionally enable zone-redundant high availability.
   2. If you just want to restore an object, you can then export the object from the restored database server and import it to your production database server.
   3. If you want to clone your database server for testing and development purposes, or you want to restore for any other purposes, you can perform point-in-time restore.
 
@@ -323,11 +323,10 @@ Here are some failure scenarios that require user action to recover:
     No. You can either configure HA within a VNET (spanned across AZs within a region) or public access. 
 
 * **Can I configure HA across regions?** <br>
-    No. HA is configured within a region, but across availability zones. In future, we are planning to offer read replicas that can be configured across regions for disaster recovery (DR) purposes. We will provide more details when the feature is enabled. 
-
+    No. HA is configured within a region, but across availability zones. However, you can enable Geo-read-replica (s) in asynchronous mode to achieve Geo-resiliency.
 * **Can I use logical replication with HA configured servers?** <br>
-    You can configure logical replication with HA. However, after a failover, the logical slot details are not copied over to the standby. Hence, there is currently limited support for this configuration.
-
+    You can configure logical replication with HA. However, after a failover, the logical slot details are not copied over to the standby. Hence, there is currently limited support for this configuration. If you must use logical replication, you will need to re-create it after every failover.
+    
 ### Replication and failover related questions
 
 * **How does flexible server provide high availability in the event of a fault - like AZ fault?** <br>
@@ -367,3 +366,4 @@ Here are some failure scenarios that require user action to recover:
 -   Learn about [business continuity](./concepts-business-continuity.md)
 -   Learn how to [manage high availability](./how-to-manage-high-availability-portal.md)
 -   Learn about [backup and recovery](./concepts-backup-restore.md)
+
