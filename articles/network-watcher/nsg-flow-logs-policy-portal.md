@@ -122,7 +122,7 @@ To assign the *deployIfNotExists* policy:
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/deploy-policy-compliance-details.png" alt-text="Screenshot of the Policy compliance page that shows the noncompliant resources." lightbox="./media/nsg-flow-logs-policy-portal/deploy-policy-compliance-details.png":::
 
-1. Leave the policy runs, and then select **Resource compliance** again to check the status of non-compliant network security groups.
+1. Leave the policy runs to evaluate and deploy flow logs for all non-compliant network security groups. Then select **Resource compliance** again to check the status of network security groups (you don't see noncompliant network security groups if the policy completed its remediation).
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/deploy-policy-compliance-details-compliant-resources.png" alt-text="Screenshot of the Policy compliance page that shows all resources are compliant." lightbox="./media/nsg-flow-logs-policy-portal/deploy-policy-compliance-details-compliant-resources.png":::
 
