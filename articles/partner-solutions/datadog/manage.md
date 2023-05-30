@@ -17,6 +17,7 @@ This article shows how to manage the settings for your Datadog - An Azure Native
 To see details of your Datadog resource, select **Overview** in the left pane.
 
 :::image type="content" source="media/manage/resource-overview.png" alt-text="Datadog resource overview" border="true" lightbox="media/manage/resource-overview.png":::
+<!-- replace with new  -->
 
 The details include:
 
@@ -42,6 +43,7 @@ The overview screen provides a summary of the resources sending logs and metrics
 To change the configuration rules for metrics and logs, select **Metrics and Logs** in the left pane.
 
 :::image type="content" source="media/manage/reconfigure-metrics-and-logs.png" alt-text="Modify the configuration of logs and metrics for the Datadog resource." border="true":::
+<!-- screenshot update  -->
 
 For more information, see [Configure metrics and logs](create.md#configure-metrics-and-logs).
 
@@ -50,7 +52,7 @@ For more information, see [Configure metrics and logs](create.md#configure-metri
 To see the list of resources emitting logs to Datadog, select **Monitored Resources** in the Resource menu.
 
 :::image type="content" source="media/manage/view-monitored-resources.png" alt-text="View resources monitored by Datadog" border="true":::
-<!-- new screenshot?  showing a list of resources being monitored in the working pane. -->
+<!-- Use full screen screenshot -->
 
 You can filter the list of resources by resource type, subscription, resource group name, location, and whether the resource is sending logs and metrics. Only the resource types supported by Azure Monitor are monitored. Check out the list of [resource types supported by Azure Monitor](/azure/azure-monitor/essentials/resource-logs-categories).
 
@@ -63,7 +65,7 @@ The column **Logs to Datadog** indicates whether the resource is sending logs to
 - Region not supported. The Azure resource is in a region that doesn't currently support sending logs to Datadog.
 - Datadog agent not configured. Virtual machines without the Datadog agent installed don't emit logs to Datadog.
 
-### Monitor Multiple Subscriptions
+## Monitor Multiple Subscriptions
 
 While monitoring resources in a subscription is straightforward, observing multiple subscriptions, each with their own set of resources becomes tricky. Instead, you can monitor multiple subscriptions by linking them to a single Datadog resource that is tied to a Datadog organization. This provides a single pane of glass view for all resources across multiple subscriptions.
 
@@ -105,7 +107,7 @@ The Azure Datadog integration provides you with the ability to install Datadog a
 
 You can install Datadog agents on virtual machines as an extension. Go to **Virtual machine agent** under the **Datadog organization configurations** in the Resource menu. This screen shows all the virtual machines across all subscriptions where you have the “Owner” role assigned to. All subscriptions are selected by default. You can select a subset of subscriptions to narrow down the list of virtual machines shown in the subscription.
 
-<!-- screenshot - Showing Virtual machine agent selected in the Resource menu and a list of virtual machines in the working pane. -->
+<!-- screenshot - pending Showing Virtual machine agent selected in the Resource menu and a list of virtual machines in the working pane. -->
 
 For each virtual machine, the following data is displayed:
 
