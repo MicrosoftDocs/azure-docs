@@ -668,9 +668,22 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     # [Studio](#tab/studio)
     
-    > [!IMPORTANT]
-    > You can't create custom MLflow deployments in Online Endpoints using the Azure Machine Learning portal. Switch to [Azure Machine Learning CLI](?tabs=azure-cli) or the [Azure Machine Learning SDK for Python](?tabs=python).
+    On [Azure Machine Learning studio portal](https://ml.azure.com), follow this steps:
+   
+    1. From the __Endpoints__ page, Select **+Create**.
 
+        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" alt-text="Screenshot showing create option on the Endpoints UI page.":::
+
+    1. Provide a name and authentication type for the endpoint, and then select __Next__.
+    1. When selecting a model, select the MLflow model registered previously. Select __Next__ to continue.
+    1. When you select a model registered in MLflow format, in the Environment step of the wizard, you don't need a scoring script or an environment. However, you can indicate one by selecting the checkbox __Customize environment and scoring script__.
+
+        :::image type="content" source="media/how-to-batch-scoring-script/configure-scoring-script-mlflow.png" lightbox="media/how-to-batch-scoring-script/configure-scoring-script-mlflow.png" alt-text="Screenshot showing how to indicate an environment and scoring script for MLflow models":::
+    
+    1. Select the environment and scoring script you created before, then select __Next__.
+    1. Complete the wizard to deploy the model to the endpoint.
+
+        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" alt-text="Screenshot showing NCD review screen":::
     ---
 
 1. Once your deployment completes, your deployment is ready to serve request. One of the easier ways to test the deployment is by using a sample request file along with the `invoke` method.
