@@ -112,6 +112,9 @@ client-request-id: 00000000-0000-0000-0000-000000000000
 }
 ```
 
+> [!Important]
+> This document references a release version of Linux that is nearing or at, End of Life(EOL). Please consider updating to a more current version.
+
 ## Outbound access to the internet
 
 In a pool without public IP addresses, your virtual machines won't be able to access the public internet unless you configure your network setup appropriately, such as by using [virtual network NAT](../virtual-network/nat-gateway/nat-overview.md). NAT only allows outbound access to the internet from the virtual machines in the virtual network. Batch-created compute nodes won't be publicly accessible, since they don't have public IP addresses associated.
