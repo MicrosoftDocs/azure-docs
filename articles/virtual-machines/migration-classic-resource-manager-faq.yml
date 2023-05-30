@@ -115,7 +115,7 @@ sections:
       - question: |
           How can I restore backups of classic VMs once Classic VMs and Classic Storage Accounts are retired?
         answer: |
-          Once classic VMs have been retired, restoring backups of classic VMs will require using the `restore disks` restoration type. Once the disks are restored to your chosen storage account (which may be a Resource Manger storage account), you can [convert them to managed disks](./scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd) and [create a new ARM VM with them attached](./scripts/create-vm-from-managed-os-disks) or [attach them as data disks to an existing VM](./windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).  
+          Once classic VMs have been retired, restoring backups of classic VMs will require using the `restore disks` restoration type. Once the disks are restored to your chosen storage account (which may be a Resource Manger storage account), you can [convert them to managed disks](scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd) and [create a new ARM VM with them attached](scripts/create-vm-from-managed-os-disks) or [attach them as data disks to an existing VM](windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).  
 
       - question: |
           Can I validate my subscription or resources to see if they're capable of migration? 
