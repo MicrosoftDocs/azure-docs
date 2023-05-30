@@ -17,7 +17,7 @@ This article describes how to stream and filter logs in both the CEF and Syslog 
 
 During this process, you use the AMA and Data Collection Rules (DCRs). With DCRs, you can filter the logs before they're ingested, for quicker upload, efficient analysis, and querying. Data Collection Rules (DCRs) to filter the logs before they're ingested, for quicker upload, efficient analysis, and querying.
 
-Learn how to [collect Syslog with the AMA](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
+Learn how to [collect Syslog with the Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
 
 > [!IMPORTANT]
 >
