@@ -233,7 +233,7 @@ To create a public container in Blob storage, perform the following steps:
 1. Under **Data storage** in the left-hand menu, select **Containers**.
 1. Select **+ Container**.
 1. For **Name**, enter *root*. The name can be a name of your choosing, for example *contoso*, but we use *root* in this example for simplicity.
-1. For **Public access level**, select **Blob**. (**Please note that selecting Blob will permit anonymous public read-only access for this container.**)
+1. For **Public access level**, select **Blob**. By selecting the **Blob** option, you allow an anonymous public read-only access for this container.
 1. Select **Create** to create the container.
 1. Select **root** to open the new container.
 
