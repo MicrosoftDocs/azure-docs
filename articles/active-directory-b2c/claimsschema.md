@@ -251,7 +251,7 @@ The **UserInputType** element available user input types:
 |Password | `string` |Password text box.|
 |RadioSingleSelect |`string` | Collection of radio buttons. The claim value is the selected value.|
 |Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Read-only text box. |
-|TextBox |`boolean`, `int`, `string` |Single-line text box. |
+|TextBox |`boolean`, `int`, `phoneNumber`, `string` |Single-line text box. |
 
 
 #### TextBox
