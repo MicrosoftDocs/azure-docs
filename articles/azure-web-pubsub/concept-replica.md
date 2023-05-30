@@ -6,7 +6,7 @@ A geo-replicated Azure Web PubSub Service provides the following benefits:
 
 * **More resilient to regional outage:** If a regional outage happens, the Azure Web PubSub DNS will be resolved to healthy replicas in other regions.
 * **Cross Region Communication**. Different replicas could communicate with each other as if they are the same instance.
-* **Enhanced Network Speed via Azure BackBone:** Geographically dispersed clients will connect to the nearest replica instance. These instances communicate through Azure BackBone, ensuring fast, depe.ndable network quality..
+* **Enhanced Network Speed via Azure BackBone:** Geographically dispersed clients will connect to the nearest replica instance. These instances communicate through Azure BackBone, ensuring fast, stable network quality..
 * **Shared configurations**. All replicas retain the primary Azure Web PubSub Service resource's configuration. 
 
 ## Prerequisites
@@ -50,7 +50,8 @@ The geo-replication feature of Azure Web PubSub Service has following benefits:
 ## Create a Web PubSub Replica
 
 To create a replica, Navigate to the Web PubSub **Replicas** blade on the Azure portal and click **Add** to create a replica. It will be automatically enabled upon creation.
-![Web PubSub Replica Creation](https://github.com/bjqian/azure-docs/assets/16233725/9e314ee1-d164-4530-9b70-25540f401d5d)
+
+![Web PubSub Replica Creation](https://github.com/bjqian/azure-docs/assets/16233725/ecc24f6f-7b14-452f-9a69-65c3cd80ef8a)
 > [!NOTE]
 > * The replica feature is available only for Premium tier.
 > * Creating a replica incurs additional cost. Refer to below **Pricing** section for details. 
@@ -73,12 +74,12 @@ To delete a replica in the Azure portal:
 
 The diagram below provides a brief illustration of the Web PubSub Replicas' functionality:
 
-![replica_overview-Copy of Page-1 drawio](https://github.com/bjqian/azure-docs/assets/16233725/657a3daa-cc2f-4868-88d0-c2f228223790)
+![replica_overview-Page-1 drawio](https://github.com/bjqian/azure-docs/assets/16233725/80241a26-d0cf-4dc6-876d-df29d441639a)
 
-1. The client resolves the Fully Qualified Domain Name (FQDN) `contoso.service.Web PubSub.net` of the Web PubSub service. This FQDN points to a Traffic Manager, which returns the  Canonical Name (CNAME) of the nearest regional Web PubSub instance.
-2. With this CNAME, the client establishes a connection to the regional instance.
+1. The client resolves the Fully Qualified Domain Name (FQDN) `contoso.webpubsub.azure.com` of the Web PubSub service. This FQDN points to a Traffic Manager, which returns the  Canonical Name (CNAME) of the nearest regional Web PubSub instance.
+2. With this CNAME, the client establishes a websocket connection to the regional instance.
 3. The two replicas will synchronize data with each other. Messages sent to one replica would be transferred to other replicas if necessary.
-4. In case a replica fails the health check conducted by the Traffic Manager (TM), the TM will exclude the failed instance's endpoint from its domain resolution process.
+4. In case a replica fails the health check conducted by the Traffic Manager (TM), the TM will exclude the failed instance's endpoint from its domain resolution results.
 
 > [!NOTE]
 > * In the data plane, a primary Azure Web PubSub resource functions identically to its replicas
