@@ -26,8 +26,9 @@ zone_pivot_groups: acs-web-ios-android
 - A room resource. [Create and manage rooms](get-started-rooms.md)
 
 ## Obtain user access token
+If you have already created users and have added them as participants in the room following the instructions [here](./get-started-rooms.md), then you can directly use those users to join the room.
 
-You'll need to create a User Access Token for each call participant. [Learn how to create and manage user access tokens](../identity/access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+Otherwise, you'll need to create a User Access Token for each call participant. [Learn how to create and manage user access tokens](../identity/access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token. After the users have been created, you'll need to add them to the room as participants before they can join the room.
 
 ```azurecli-interactive
 az communication identity token issue --scope voip --connection-string "yourConnectionString"
@@ -86,7 +87,7 @@ For details, see [Use Azure CLI to Create and Manage Access Tokens](../identity/
 [!INCLUDE [Join a room call from Android calling SDK](./includes/rooms-quickstart-call-android.md)]
 ::: zone-end
 
-## Next steps 
+## Next steps
 
 In this section you learned how to:
 > [!div class="checklist"]
