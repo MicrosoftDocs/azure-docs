@@ -26,10 +26,10 @@ Contoso is a social media company with its customer base spread across the US an
 
 <img width="633" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/a353337f-9fd7-4be2-9b0f-1bf961f7eb1a">
 
-Before the advent of the geo-replication feature, Contoso could setup another Azure SignalR Service in Canada Central to serve its Canadian users. By setting up geographically closer Azure SignalR Service, end users now have better network quality and lower latency. 
+Before the advent of the geo-replication feature, Contoso could setup another Azure SignalR Service in Canada Central to serve its Canadian users. By setting up a geographically closer Azure SignalR Service, end users now have better network quality and lower latency. 
 
 However, managing multiple Azure SignalR Services brings some challenges:
-1. A cross-region communication mechanism would be required to enable conversation between Canada and US users
+1. A cross-region communication mechanism would be required to enable conversation between Canada and US users.
 2. The development team would need to manage two separate Azure SignalR Services, each with distinct domains and connection strings.
 3. If a regional outage happens, the traffic needs to be switched to another region.
 
@@ -55,9 +55,9 @@ To create a replica, Navigate to the SignalR **Replicas** blade on the Azure por
 > * Creating a replica incurs additional cost. Refer to below **Pricing** section for details. 
 
 ## Pricing
-Replica is a feature of [Premium tier](https://azure.microsoft.com/en-us/pricing/details/signalr-service/) of Azure SignalR Service. When you create a replica in your desired regions, you incur Premium fees for each region.
+Replica is a feature of [Premium tier](https://azure.microsoft.com/en-us/pricing/details/signalr-service/) of Azure SignalR Service. When you create a replica in desired regions, you incur Premium fees for each region.
 
-In the preceding example, Contoso added one replica Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
+In the preceding example, Contoso added one replica in Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
 
 
 ## Delete a replica
@@ -74,9 +74,9 @@ The diagram below provides a brief illustration of the SignalR Replicas' functio
 
 ![replica_overview-Copy of Page-1 drawio](https://github.com/bjqian/azure-docs/assets/16233725/657a3daa-cc2f-4868-88d0-c2f228223790)
 
-1. The client resolves the Fully Qualified Domain Name (FQDN) of the SignalR service. This FQDN points to a Traffic Manager, which returns the  Canonical Name (CNAME) of the nearest regional SignalR instance.
+1. The client resolves the Fully Qualified Domain Name (FQDN) `contoso.service.signalr.net` of the SignalR service. This FQDN points to a Traffic Manager, which returns the  Canonical Name (CNAME) of the nearest regional SignalR instance.
 2. With this CNAME, the client establishes a connection to the regional instance.
-3. The two replicas will synchronize data with each other
+3. The two replicas will synchronize data with each other. Messages sent to one replica would be transferred to other replicas if necessary.
 4. In case a replica fails the health check conducted by the Traffic Manager (TM), the TM will exclude the failed instance's endpoint from its domain resolution process.
 
 > [!NOTE]
