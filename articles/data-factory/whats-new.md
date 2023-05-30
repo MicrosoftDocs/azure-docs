@@ -24,6 +24,26 @@ This page is updated monthly, so revisit it regularly.  For older months' update
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
 
+## April 2023
+
+### Data flow
+
+Easily unroll multiple arrays in ADF data flows. ADF updated the **Flatten** transformation that now makes it super easy to unroll multiple arrays from a single **Flatten** transformation step. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/unroll-multiple-arrays-in-a-single-flatten-step-in-adf/ba-p/3802457)
+
+### Continuous integration and continuous deployment
+
+You can customize the commit message in Git mode now. Type in a detailed description about the changes you make, and we will save it to Git repository.
+
+### Connectors
+
+The Azure Blob Storage connector now supports anonymous authentication. [Learn more](connector-azure-blob-storage.md#anonymous-authentication)
+
+## March 2023
+
+### Connectors
+
+Azure Data Lake Storage Gen2 connector now supports shared access signature authentication. [Learn more](connector-azure-data-lake-storage.md#shared-access-signature-authentication)
+
 ## February 2023
 
 ### Data movement
