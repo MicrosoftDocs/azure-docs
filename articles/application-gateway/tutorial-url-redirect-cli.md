@@ -89,7 +89,8 @@ az network application-gateway create \
   --frontend-port 80 \
   --http-settings-port 80 \
   --http-settings-protocol Http \
-  --public-ip-address myAGPublicIPAddress
+  --public-ip-address myAGPublicIPAddress \
+  --priority 100
 ```
 
  It may take several minutes for the application gateway to be created. After the application gateway is created, you can see these new features:
@@ -216,7 +217,8 @@ az network application-gateway rule create \
   --http-listener backendListener \
   --rule-type PathBasedRouting \
   --url-path-map urlpathmap \
-  --address-pool appGatewayBackendPool
+  --address-pool appGatewayBackendPool \
+  --priority 100
 
 az network application-gateway rule create \
   --gateway-name myAppGateway \
@@ -225,7 +227,8 @@ az network application-gateway rule create \
   --http-listener redirectedListener \
   --rule-type PathBasedRouting \
   --url-path-map redirectpathmap \
-  --address-pool appGatewayBackendPool
+  --address-pool appGatewayBackendPool \
+  --priority 100
 ```
 
 ## Create virtual machine scale sets
