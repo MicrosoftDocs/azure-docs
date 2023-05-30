@@ -59,7 +59,7 @@ The [Activity log](../azure-monitor/essentials/activity-log.md) is a type of pla
 
 For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Virtual WAN data reference](monitor-virtual-wan-reference.md).
 
-To analyze logs, go to your Virtual WAN gateway (User VPN or site-to-site VPN). In the **Essentials** section of the page, select **Logs -> View in Azure Monitor**. This is currently not supported for ExpressRoute gateways. 
+To analyze logs, go to your Virtual WAN gateway (User VPN or site-to-site VPN). In the **Essentials** section of the page, select **Logs -> View in Azure Monitor**. 
 
 ## Alerts
 

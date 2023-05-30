@@ -13,7 +13,7 @@ ms.reviewer: aul
 This article describes how to configure your Azure Kubernetes Service (AKS) cluster to send data to Azure Monitor managed service for Prometheus. When you configure your AKS cluster to send data to Azure Monitor managed service for Prometheus, a containerized version of the [Azure Monitor agent](../agents/agents-overview.md) is installed with a metrics extension. In addition, you'll specify the Azure Monitor workspace where the data should be sent.
 
 > [!NOTE]
-> The process described here doesn't enable [Container insights](../containers/container-insights-overview.md) on the cluster. However, both agents do use the Azure Monitor agent.
+> The process described here doesn't enable [Container insights](../containers/container-insights-overview.md) on the cluster. However, both processes use the Azure Monitor agent.
 >
 >For different methods to enable Container insights on your cluster, see [Enable Container insights](../containers/container-insights-onboard.md). For details on adding Prometheus collection to a cluster that already has Container insights enabled, see [Collect Prometheus metrics with Container insights](../containers/container-insights-prometheus.md).
 
