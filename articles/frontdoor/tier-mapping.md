@@ -21,7 +21,7 @@ When you migrate your Azure Front Door (classic) to Azure Front Door Standard or
 | Accepted protocol | Copied from Front Door (classic) profile. |
 | Frontend/domains | Changes to **Domains**. Copied from Front Door (classic) profile. |
 | Patterns to match | Copied from Front Door (classic) profile. |
-| Rules engine configuration | The rules engine configuration name changes to rule set but will retain it's association to routes from the Front Door (classic) profile. |
+| Rules engine configuration | The rules engine configuration name changes to rule set but will retain its association to routes from the Front Door (classic) profile. |
 | Route type: *Forwarding* | Backend pool changes to origin group. Forwarding protocol is copied from the Front Door (classic) profile. </br> - If URL rewrite is set to **disabled**, the origin path in Standard or Premium profile is *blank*. </br> - If URL rewrite is set to **enabled**, the *Custom forwarding path* of the Front Door (classic) profile is set as the *origin path*. |
 | Route type: Redirect | A URL redirect rule set gets created called *URLRedirectMigratedRuleSet1* with a URL redirect rule. |
 
