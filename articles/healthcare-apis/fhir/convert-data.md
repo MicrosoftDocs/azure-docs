@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 05/16/2023
+ms.date: 05/30/2023
 ms.author: jasteppe
 ---
 
@@ -33,9 +33,9 @@ The `$convert-data` operation is integrated into the FHIR service as a RESTful A
 
 The health data for conversion is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service returns a FHIR `Bundle` response with the data converted to FHIR.
 
-### Parameters Resource
+###  Parameters
 
-A `$convert-data` API call packages the health data for conversion inside a JSON-formatted [Parameters Resource](http://hl7.org/fhir/parameters.html) in the body of the request. The parameters are described in the following table: 
+A `$convert-data` API call packages the health data for conversion inside a JSON-formatted [parameters](http://hl7.org/fhir/parameters.html) in the body of the request. The parameters are described in the following table: 
 
 | Parameter name | Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Accepted values |
 | -------------- | ----------------------------------------------------------------------- | --------------- |
@@ -112,10 +112,24 @@ A `$convert-data` API call packages the health data for conversion inside a JSON
 
 ## Next steps
 
-In this article, you've learned about the `$convert-data` endpoint for converting health data to FHIR by using the FHIR service in Azure Health Data Service. For information about how to export FHIR data from the FHIR service, see:
+In this article, you've learned about the convert-data operation and the `$convert-data` endpoint for converting health data to FHIR R4 by using the FHIR service in the Azure Health Data Service. 
+
+To learn how to configure your environment to use convert-data, see:
  
 >[!div class="nextstepaction"]
->[Export data](export-data.md)
+>[Configure convert-data](configure-convert-data.md)
+
+To learn how to troubleshoot convert-data, see:
+ 
+>[!div class="nextstepaction"]
+>[Troubleshoot convert-data](troubleshoot-convert-data.md)
+
+To learn about the frequently asked questions (FAQs) for convert-data, see
+
+To learn how to troubleshoot convert-data, see:
+ 
+>[!div class="nextstepaction"]
+>[Frequently asked questions about convert-data](frequently-asked-questions-convert-data.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
  

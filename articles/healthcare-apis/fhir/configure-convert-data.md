@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 05/17/2022
+ms.date: 05/30/2022
 ms.author: jasteppe
 ---
 
@@ -80,13 +80,20 @@ You can register the Azure Container Registry server by using the Azure portal o
 
 To use the Azure portal:
 
-1. In your FHIR service instance, under **Data transformation**, go to the **Artifacts** pane. 
+1. In your FHIR service instance, under **Data transformation**, go to the **Artifacts** pane. A list of currently registered Azure Container Registry servers is displayed. 
+3. Select **Add** and then, in the dropdown list, select your registry server. 
+4. Select **Save**. 
 
-   A list of currently registered Azure Container Registry servers is displayed. 
-2. Select **Add** and then, in the dropdown list, select your registry server. 
-3. Select **Save**. 
+It might take a few minutes for the registration to take effect.
 
-   It might take a few minutes for the registration to take effect.
+**NOTES FROM WILL TO DISCUSS REGARDING THIS SECTION**
+
+From personal experience this command seems to only work for Gen1 Azure API for FHIR and I do not think it works for Gen2 FHIR Service so we should probably remove this CLI section. This CLI command seems to always be trying to add the login-servers to a resource /services (Gen1). I don't think there is a Gen2 equivalent... maybe another developer on the team with more experience with $convert can confirm... I couldn't find anything. Feel free to test out the command as well.
+
+
+Here's the CLI docs which show that az healthcareapis acr add are for Azure API for FHIR: https://learn.microsoft.com/cli/azure/healthcareapis/acr?view=azure-cli-latest.
+
+I think the closest thing for fhir service (Gen2) would be to run a fhir service create command and pass in the login servers: https://learn.microsoft.com/cli/azure/healthcareapis/workspace/fhir-service?view=azure-cli-latest#az-healthcareapis-workspace-fhir-service-create
 
 To use the Azure CLI:
 

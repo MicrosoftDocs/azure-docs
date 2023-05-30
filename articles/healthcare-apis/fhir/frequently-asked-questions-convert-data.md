@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: faq
-ms.date: 05/15/2023
+ms.date: 05/30/2023
 ms.author: jasteppe
 ---
 
@@ -16,7 +16,21 @@ ms.author: jasteppe
 
 ## Convert-data: The basics
 
-### Add FAQs
+### How do I debug an error that I am seeing in the convert service? 
+
+### How do I ensure mapping parity across templates? 
+
+### Does your service create/manage the entire ETL pipeline for me? 
+
+### After I set up the service, what exactly do I have to take on in post processing? 
+
+### Can I take converted FHIR messages and place them back to source of record? 
+
+### What’s the migration path from R4 to R5? 
+
+### I am not familiar with liquid templates. Where do I start? 
+
+### How do I build a custom ACR template (note: we should include information on the actual command used to create the ACR container. It is not intuitive from reading the OSS docs so we should update the OSS docs as well) 
 
 ## Next steps
 
