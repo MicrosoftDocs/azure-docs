@@ -57,6 +57,7 @@ Also see these SAP resources:
 
 - [empower SAP RISE enterprise users with Azure OpenAI in multi-cloud environment](https://blogs.sap.com/2023/02/14/empower-sap-rise-enterprise-users-with-chatgpt-in-multi-cloud-environment/)
 - [Consume OpenAI services (GPT) through CAP & SAP BTP, AI Core](https://github.com/SAP-samples/azure-openai-aicore-cap-api)
+- [SAP SuccessFactors Helps HR Solve Skills Gap with Generative AI | SAP News](https://news.sap.com/2023/05/sap-successfactors-helps-hr-solve-skills-gap-with-generative-ai/)
 
 ### Microsoft Copilot
 
@@ -66,7 +67,8 @@ For more information about integration with [Microsoft 365 Copilot](https://blog
 
 Also see these SAP resources:
 
--[The future of work is now: An update on generative AI at SAP SuccessFactors](https://blogs.sap.com/2023/05/15/the-future-of-work-is-now-an-update-on-generative-ai-at-sap-successfactors/)
+- [The future of work is now: An update on generative AI at SAP SuccessFactors](https://blogs.sap.com/2023/05/15/the-future-of-work-is-now-an-update-on-generative-ai-at-sap-successfactors/)
+- [SAP and Microsoft Collaborate on Joint Generative AI Offerings to Help Customers Address the Talent Gap | SAP News](https://news.sap.com/2023/05/sap-microsoft-joint-generative-ai-offerings-talent-gap/)
 
 ### Microsoft Office
 
