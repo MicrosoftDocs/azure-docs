@@ -61,9 +61,9 @@ Also see these SAP resources:
 
 ### Microsoft Copilot
 
-For more information about integration with [Microsoft 365 Copilot](https://blogs.microsoft.com/blog/2023/03/16/introducing-microsoft-365-copilot-your-copilot-for-work/), see the following Microsoft documentation:
+For more information about integration with [Microsoft 365 Copilot](https://blogs.microsoft.com/blog/2023/03/16/introducing-microsoft-365-copilot-your-copilot-for-work/), see the following Microsoft resources:
 
-- [The synergy of market leaders: Exploring Microsoft and SAP’s game-changing collaboration](https://azure.microsoft.com/blog/the-synergy-of-market-leaders-exploring-microsoft-and-saps-game-changing-collaboration/)
+- [The synergy of market leaders: Exploring Microsoft and SAP’s game-changing collaboration | blog](https://azure.microsoft.com/blog/the-synergy-of-market-leaders-exploring-microsoft-and-saps-game-changing-collaboration/)
 
 Also see these SAP resources:
 
