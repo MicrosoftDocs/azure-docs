@@ -18,7 +18,7 @@ You can use these same steps to set up and run an experiment for any agent-based
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - A virtual machine. If you don't have a VM, you can [create one](../virtual-machines/linux/quick-create-portal.md).
 - A network setup that permits you to [SSH into your VM](../virtual-machines/ssh-keys-portal.md).
 - A user-assigned managed identity. If you don't have a user-assigned managed identity, you can [create one](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
@@ -160,7 +160,7 @@ The chaos agent is an application that runs in your VM or virtual machine scale 
 
 ## Create an experiment
 
-With your VM now on board, you can create your experiment. A chaos experiment defines the actions you want to take against target resources, organized into steps, which run sequentially. The experiment also defines the actions you want to take against branches, which run in parallel.
+With your VM now on board, you can create your experiment. A chaos experiment defines the actions you want to take against target resources. The actions are organized and run in sequential steps. The chaos experiment also defines the actions you want to take against branches, which run in parallel.
 
 1. Formulate your experiment JSON starting with the following JSON sample. Modify the JSON to correspond to the experiment you want to run by using the [Create Experiment API](/rest/api/chaosstudio/experiments/create-or-update) and the [fault library](chaos-studio-fault-library.md).
 
@@ -250,7 +250,7 @@ az role assignment create --role "Reader" --assignee-principal-type "ServicePrin
 ```
 
 ## Run your experiment
-You're now ready to run your experiment. To see the impact, we recommend that you open [an Azure Monitor metrics chart](../azure-monitor/essentials/tutorial-metrics.md) with your VM's CPU pressure in a separate browser tab.
+You're now ready to run your experiment. To see the effect, we recommend that you open [an Azure Monitor metrics chart](../azure-monitor/essentials/tutorial-metrics.md) with your VM's CPU pressure in a separate browser tab.
 
 1. Start the experiment by using the Azure CLI. Replace `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$EXPERIMENT_NAME` with the properties for your experiment.
 

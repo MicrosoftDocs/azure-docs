@@ -17,7 +17,7 @@ You can use these same steps to set up and run an experiment for any agent-based
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - A Linux VM. If you don't have a VM, you can [create one](../virtual-machines/linux/quick-create-portal.md).
 - A network setup that permits you to [SSH into your VM](../virtual-machines/ssh-keys-portal.md).
 - A user-assigned managed identity *that was assigned to the target VM or virtual machine scale set*. If you don't have a user-assigned managed identity, you can [create one](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
@@ -69,7 +69,7 @@ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.
 You've now successfully brought on board your Linux VM to Chaos Studio. In the **Targets** view, you can also manage the capabilities enabled on this resource. Select the **Manage actions** link next to a resource to display the capabilities enabled for that resource.
 
 ## Create an experiment
-With your VM now on board, you can create your experiment. A chaos experiment defines the actions you want to take against target resources, organized into steps, which run sequentially. The experiment also defines the actions you want to take against branches, which run in parallel.
+With your VM now on board, you can create your experiment. A chaos experiment defines the actions you want to take against target resources. The actions are organized and run in sequential steps. The chaos experiment also defines the actions you want to take against branches, which run in parallel.
 
 1. Select the **Experiments** tab in Chaos Studio. In this view, you can see and manage all your chaos experiments. Select **Add an experiment**.
 
