@@ -21,4 +21,4 @@ To get the primary connection string for a device registered to your IoT hub, fo
 
 1. Copy the **Primary connection string** and save the value.
 
-:::image type="content" source="./media/iot-hub-include-find-device-connection-string/iot-hub-device-connection-string.png" alt-text="Screenshot that shows how to retrieve the primary connection string for a device registered to your IoT Hub in the Azure portal." border="true" lightbox="./media/iot-hub-include-find-device-connection-string/iot-hub-device-connection-string.png":::
+   :::image type="content" source="./media/iot-hub-include-find-device-connection-string/iot-hub-device-connection-string.png" alt-text="Screenshot that shows how to retrieve the primary connection string for a device registered to your IoT hub in the Azure portal." border="true" lightbox="./media/iot-hub-include-find-device-connection-string/iot-hub-device-connection-string.png":::
