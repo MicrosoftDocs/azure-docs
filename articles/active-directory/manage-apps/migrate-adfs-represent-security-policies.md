@@ -187,4 +187,6 @@ Accounts within your organization that represent an external user need to be dis
 
 ## Next steps
 
-- [Migrate and test your apps](migrate-adfs-test-app.md).
+- Read  [Migrating application authentication to Azure AD](https://aka.ms/migrateapps/whitepaper).
+- Set up [Conditional Access](../conditional-access/overview.md) and [MFA](../authentication/concept-mfa-howitworks.md).
+- Try a step-wise code sample:[AD FS to Azure AD application migration playbook for developers](https://aka.ms/adfsplaybook).
