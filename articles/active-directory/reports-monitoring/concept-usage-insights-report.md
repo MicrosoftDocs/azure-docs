@@ -113,11 +113,11 @@ Looking for the status of an authentication registration or reset event of a use
 
 The Service principal sign-in activity (preview) report provides the last activity date for every service principal. The report provides you information on the usage of the service principal - whether it was used as a client or resource app and whether it was used in an app-only or delegated context. The report shows the last time the service principal was used.
 
-![Screenshot of the service principal sign-in activity report.](./media/concept-usage-insights-report/service-principal-sign-ins.png)
+[ ![Screenshot of the service principal sign-in activity report.](./media/concept-usage-insights-report/service-principal-sign-ins.png) ](./media/concept-usage-insights-report/service-principal-sign-ins.png#lightbox)
 
 Select the **View more details** link to locate the client and object IDs for the application as well as specific service principal sign-in activity.
 
-![Screenshot of the service principal sign-in activity details.](./media/concept-usage-insights-report/service-principal-sign-in-activity-details.png)
+[ ![Screenshot of the service principal sign-in activity details.](./media/concept-usage-insights-report/service-principal-sign-in-activity-details.png) ](./media/concept-usage-insights-report/service-principal-sign-in-activity-details.png#lightbox)
 
 ### Service principal sign-in activity using Microsoft Graph
 
@@ -167,11 +167,11 @@ The Application credential activity (preview) report provides the last credentia
 
 To view the details of the application credential activity, select the **View more details** link. These details include the application object, service principal, and resource IDs. You can also see if the credential origin is the application or the service principal. 
 
-![Screenshot of the app credential activity report.](media/concept-usage-insights-report/app-credential-activity.png)
+[ ![Screenshot of the app credential activity report.](media/concept-usage-insights-report/app-credential-activity.png) ](media/concept-usage-insights-report/app-credential-activity.png#lightbox)
 
 When you select the **View more details** link, you can see the application object ID and resource ID, in addition to the details visible in the report.
 
-![Screenshot of the app credential activity details.](media/concept-usage-insights-report/app-credential-activity-details.png)
+[ ![Screenshot of the app credential activity details.](media/concept-usage-insights-report/app-credential-activity-details.png) ](media/concept-usage-insights-report/app-credential-activity-details.png#lightbox)
 
 ### Application credential activity using Microsoft Graph
 
