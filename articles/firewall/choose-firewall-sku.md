@@ -1,5 +1,5 @@
 ---
-title: Choosing the right Azure Firewall SKU to meet your needs
+title: Choose the right Azure Firewall SKU to meet your needs
 description: Learn about the different Azure Firewall SKUs and how to choose the right one for your needs.
 services: firewall
 author: vhorne
@@ -9,7 +9,7 @@ ms.date: 03/15/2023
 ms.author: victorh
 ---
 
-# Choosing the right Azure Firewall SKU to meet your needs
+# Choose the right Azure Firewall SKU to meet your needs
 
 Azure Firewall now supports three different SKUs to cater to a wide range of customer use cases and preferences.
 
