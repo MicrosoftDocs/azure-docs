@@ -50,20 +50,29 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 ### 3.2 Provision an instance of Azure Spring Apps
 
+1. Use the following commands to define variables for this quickstart with the names of your resources and desired settings:
+
+   ```azurecli-interactive
+   LOCATION="<region>"
+   RESOURCE_GROUP="<resource-group-name>"
+   SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
+   APP_NAME="demo"
+   ```
+   
 1. Use the following command to create a resource group:
 
    ```azurecli-interactive
    az group create \
-       --resource-group <name-of-resource-group> \
-       --location eastus
+       --resource-group ${RESOURCE_GROUP} \
+       --location ${LOCATION}
    ```
 
 1. Use the following command to create an Azure Spring Apps service instance:
 
    ```azurecli-interactive
    az spring create \
-       --resource-group <name-of-resource-group> \
-       --name <Azure-Spring-Apps-instance-name> \
+       --resource-group ${RESOURCE_GROUP} \
+       --name ${SERVICE_NAME} \
        --sku Enterprise
    ```
 
@@ -75,13 +84,13 @@ An *App* is an abstraction of one business app. For more information, see [App a
 
 :::image type="content" source="../../media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance.":::
 
-Use the following command to specify the app name on Azure Spring Apps as `demo`:
+Use the following command to create the app on Azure Spring Apps:
 
 ```azurecli-interactive
 az spring app create \
-    --resource-group <name-of-resource-group> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --name demo \
+    --resource-group ${RESOURCE_GROUP} \
+    --service ${SERVICE_NAME} \
+    --name ${APP_NAME} \
     --assign-endpoint true
 ```
 
@@ -91,9 +100,9 @@ Use the following command to deploy the *.jar* file for the app:
 
 ```azurecli-interactive
 az spring app deploy \
-    --resource-group <name-of-resource-group> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --name demo \
+    --resource-group ${RESOURCE_GROUP} \
+    --service ${SERVICE_NAME} \
+    --name ${APP_NAME} \
     --artifact-path target/demo-0.0.1-SNAPSHOT.jar
 ```
 
@@ -120,7 +129,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 Use the following steps to import the project.
 
 1. Open IntelliJ IDEA, and then select **Open**.
-1. In the **Open File or Project** dialog box, select the *app* folder.
+1. In the **Open File or Project** dialog box, select the *demo* folder.
 
    :::image type="content" source="../../media/quickstart/intellij-new-project.png" alt-text="Screenshot of IntelliJ IDEA showing Open File or Project dialog box." lightbox="../../media/quickstart/intellij-new-project.png":::
 
@@ -138,21 +147,20 @@ Use the following steps to build and deploy your app.
    :::image type="content" source="../../media/quickstart/intellij-deploy-azure.png" alt-text="Screenshot of IntelliJ IDEA menu showing Deploy to Azure Spring Apps option." lightbox="../../media/quickstart/intellij-deploy-azure.png":::
 
 1. Accept the name for the app in the **Name** field. **Name** refers to the configuration, not the app name. You don't usually need to change it.
-1. In the **Artifact** textbox, select **Maven:com.example:hellospring-0.0.1-SNAPSHOT**.
+1. In the **Artifact** textbox, select **Maven:demo(Java 17)**.
 1. In the **Subscription** textbox, verify that your subscription is correct.
-1. In the **Service** textbox, select the instance of Azure Spring Apps that you created in the [Provision an instance of Azure Spring Apps](#provision-an-instance-of-azure-spring-apps-1) section.
+1. In the **Spring Apps** textbox, select the instance of Azure Spring Apps that you created in the [Provision an instance of Azure Spring Apps](#32-provision-an-instance-of-azure-spring-apps) section.
 1. In the **App** textbox, select the plus sign (**+**) to create a new app.
-
-   :::image type="content" source="../../media/quickstart/intellij-create-new-app.png" alt-text="Screenshot of IntelliJ IDEA showing Deploy Azure Spring Apps dialog box." lightbox="../../media/quickstart/intellij-create-new-app.png":::
-
-1. In the **App name:** textbox under **App Basics**, enter *hellospring*, and then select the **More settings** check box.
+1. In the **App name:** textbox under **App Basics**, enter *demo*, and then select the **More settings** check box.
 1. Select the **Enable** button next to **Public endpoint**. The button changes to **Disable \<to be enabled\>**.
-1. If you're using Java 11, select **Java 11** for the **Runtime** option.
+1. Select **Java 17** for the **Runtime** option.
 1. Select **OK**.
 
    :::image type="content" source="../../media/quickstart/intellij-more-settings.png" alt-text="Screenshot of IntelliJ IDEA Create Azure Spring Apps dialog box with public endpoint Disable button highlighted." lightbox="../../media/quickstart/intellij-more-settings.png":::
 
-1. Under **Before launch**, select **Run Maven Goal 'hellospring:package'**, and then select the pencil icon to edit the command line.
+   :::image type="content" source="../../media/quickstart/intellij-create-new-app.png" alt-text="Screenshot of IntelliJ IDEA showing Deploy Azure Spring Apps dialog box." lightbox="../../media/quickstart/intellij-create-new-app.png":::
+
+1. Under **Before launch**, select **Run Maven Goal 'demo:package'**, and then select the pencil icon to edit the command line.
 
    :::image type="content" source="../../media/quickstart/intellij-edit-maven-goal.png" alt-text="Screenshot of IntelliJ IDEA Create Azure Spring Apps dialog box with Maven Goal edit button highlighted." lightbox="../../media/quickstart/intellij-edit-maven-goal.png":::
 
@@ -160,7 +168,7 @@ Use the following steps to build and deploy your app.
 
    :::image type="content" source="../../media/quickstart/intellij-maven-goal-command-line.png" alt-text="Screenshot of IntelliJ IDEA Select Maven Goal dialog box with Command Line value highlighted." lightbox="../../media/quickstart/intellij-maven-goal-command-line.png":::
 
-1. To start the deployment, select the **Run** button at the bottom of the **Deploy Azure Spring Apps app** dialog box. The plug-in runs the command `mvn package -DskipTests` on the `hellospring` app and deploys the *.jar* file generated by the `package` command.
+1. To start the deployment, select the **Run** button at the bottom of the **Deploy to Azure** dialog box. The plug-in runs the command `mvn package -DskipTests` on the `demo` app and deploys the *.jar* file generated by the `package` command.
 
 Deploying the application can take a few minutes.
 
