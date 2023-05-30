@@ -6,11 +6,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/v-fake/algorithm-cheat-sheet.md",
-        "redirect_url": "/azure/machine-learning/algorithm-cheat-sheet",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/machine-learning/v-fake/azure-machine-learning-release-notes.md",
         "redirect_url": "/articles/machine-learning/azure-machine-learning-release-notes",
         "redirect_document_id": false
@@ -176,8 +171,13 @@
         "redirect_url": "/azure/machine-learning/how-to-datastore"
     },
     {
-        "source_path_from_root": "/articles/machine-learning/v-fake/tutorial-convert-ml-experiment-to-production.md",
-        "redirect_url": "/azure/machine-learning/how-to-convert-ml-experiment-to-production",
+        "source_path_from_root": "/articles/machine-learning/tutorial-convert-ml-experiment-to-production.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-convert-ml-experiment-to-production",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-convert-ml-experiment-to-production.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-convert-ml-experiment-to-production",
         "redirect_document_id": true
     },
     {
@@ -3906,8 +3906,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/algorithm-cheat-sheet.md",
-        "redirect_url": "/azure/machine-learning/v1/algorithm-cheat-sheet",
+        "source_path_from_root": "/articles/machine-learning/v-fake/algorithm-cheat-sheet.md",
+        "redirect_url": "/azure/machine-learning/algorithm-cheat-sheet",
         "redirect_document_id": true
     },
     {
