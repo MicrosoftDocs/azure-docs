@@ -239,21 +239,32 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 1. On the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
-1. (Optional) If you've configured action groups for this alert rule, you can add custom properties in key:value pairs to the alert payload to add more information to the payload in the <a name="custom-props">**Custom properties**</a> section. Add the property **Name** and **Value** for the custom property you want included in the payload.
+
+    > [!NOTE]
+    > We're continually adding more regions for regional data processing.
+
+1. (Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add custom properties in key:value pairs to the alert notification payload to add more information to it. Add the property **Name** and **Value** for the custom property you want included in the payload.
 
     You can also use custom properties to extract and manipulate data from alert payloads that use the common schema. You can use those values in the action group webhook or logic app.
 
-    The format for extracting values from the common schema, use a "$", and then the path of the common schema field inside curly brackets. For example: `${data.essentials.monitorCondition}`.
+    The format for extracting values from the common schema, use a "$", and then the path of the [common schema](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-common-schema) field inside curly brackets. For example: `${data.essentials.monitorCondition}`.
+
+
 
     In the following examples, values in the **custom properties** are used to utilize data from the payload:
 
     **Example 1**
+
+    This example creates an "Additional Details" tag with data refarding the "window start time" and "window end time".
+
     - **Name:** "Additional Details"
     - **Value:** "Evaluation windowStartTime: \${data.alertContext.condition.windowStartTime}. windowEndTime: \${data.alertContext.condition.windowEndTime}"
     - **Result:** "AdditionalDetails:Evaluation windowStartTime: 2023-04-04T14:39:24.492Z. windowEndTime: 2023-04-04T14:44:24.492Z"
 
 
     **Example 2**
+    This example add the data regarding the reason of resolving or firing the alert. 
+
     - **Name:** "Alert \${data.essentials.monitorCondition} reason"
     - **Value:** "\${data.alertContext.condition.allOf[0].metricName} \${data.alertContext.condition.allOf[0].operator} \${data.alertContext.condition.allOf[0].threshold} \${data.essentials.monitorCondition}. The value is \${data.alertContext.condition.allOf[0].metricValue}"
     - **Result:**  Example results could be something like:
@@ -262,8 +273,10 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new alert rule.":::
 
+
     > [!NOTE]
     > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
+
 
 1. On the **Details** tab, define the **Project details**.
     - Select the **Subscription**.

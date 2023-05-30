@@ -27,30 +27,6 @@
     href: tutorial-restrict-network-access-to-resources.md
   - name: Connect virtual networks
     href: tutorial-connect-virtual-networks-portal.md
-- name: Samples
-  items:
-  - name: Azure CLI
-    items:
-    - name: Samples overview
-      href: cli-samples.md
-    - name: Create a virtual network for multi-tier applications
-      href: ./scripts/virtual-network-cli-sample-multi-tier-application.md
-    - name: Peer two virtual networks
-      href: ./scripts/virtual-network-cli-sample-peer-two-virtual-networks.md
-    - name: Route traffic through nva
-      href: ./scripts/virtual-network-cli-sample-route-traffic-through-nva.md
-    - name: Filter network traffic
-      href: ./scripts/virtual-network-cli-sample-filter-network-traffic.md
-    - name: Basic load balancer with IPv4 + IPv6 dual stack 
-      href: ./scripts/virtual-network-cli-sample-ipv6-dual-stack.md
-    - name: Standard load balancer with IPv4 + IPv6 dual stack 
-      href: ./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md
-    - name: Create and test a NAT gateway
-      href: ./nat-gateway/quickstart-create-nat-gateway-cli.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
-  - name: Resource Manager templates
-    href: template-samples.md
 - name: Concepts
   items:
   - name: Concepts and best practices
