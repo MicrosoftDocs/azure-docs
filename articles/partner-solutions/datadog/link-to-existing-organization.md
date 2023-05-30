@@ -2,7 +2,7 @@
 title: Link to existing Datadog
 description: This article describes how to use the Azure portal to link to an existing instance of Datadog.
 ms.topic: quickstart
-ms.date: 05/19/2023
+ms.date: 05/29/2023
 author: flang-msft
 ms.author: franlanglois
 ms.custom: references_regions, mode-other
@@ -87,9 +87,9 @@ For example, the screenshot shows a tag rule where only those **Virtual Machines
 
 There are two types of logs that can be emitted from Azure to Datadog.
 
-* **Subscription level logs** - Provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
+- **Subscription level logs** - Provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
 
-* **Azure resource logs** - Provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
+- **Azure resource logs** - Provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
 To send subscription level logs to Datadog, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Datadog.
 
@@ -103,7 +103,7 @@ Once you have completed configuring metrics and logs, select **Next: Single sign
 
 If the subscription is already linked to an organization through a Datadog resource, an attempt to link the subscription to the same organization through a different Datadog resource would be blocked. It's blocked to avoid scenarios where duplicate logs and metrics get shipped to the same organization for the same subscription.
 
-<!-- screenshot - showing the message that "Subscription cannot be linked to an orgnaization through multiple resources." -->
+:::image type="content" source="media/manage/datadog-subscription-blocked.png" alt-text="Screenshot stating that a subscription is already linked to the selected organization through a different Datadaog resource.":::
 
 ## Configure single sign-on
 
@@ -136,4 +136,3 @@ When the process completes, select **Go to Resource** to see the Datadog resourc
 ## Next steps
 
 - [Manage the Datadog resource](manage.md)
-
