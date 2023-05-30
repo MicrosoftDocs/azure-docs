@@ -39,7 +39,7 @@ The benefits of this approach are:
 * It's simple and can be automated.
 * No need to clean up original configuration using in-tree storage class.
 * Low risk as you're only performing a logical deletion of Kubernetes PV/PVC, the actual physical data isn't deleted.
-* No extra costs as the result of not having to create more Azure objects such as disk, snapshots, etc.
+* No extra cost incurred as the result of not having to create additional Azure objects, such as disk, snapshots, etc.
 
 The following are important considerations to evaluate:
 
@@ -364,7 +364,7 @@ Before proceeding, verify the following:
 Migration from in-tree to CSI is supported by creating a static volume:
 * No need to clean up original configuration using in-tree storage class.
 * Low risk as you're only performing a logical deletion of Kubernetes PV/PVC, the actual physical data isn't deleted.
-* No extra costs as the result of not having to create any Azure objects such as file shares, etc.
+* No extra cost incurred as the result of not having to create additional Azure objects, such as file shares, etc.
 
 ### Migration
 
