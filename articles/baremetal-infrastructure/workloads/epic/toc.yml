@@ -1,0 +1,55 @@
+- name: Azure Large Instances 
+  href: 
+  items: 
+  - name: Overview 
+    href:
+  - name: What is Azure Large Instances? 
+    href:
+  items: 
+    name: Know the terms 
+    href: 
+    name: Connect to Azure Large Instances 
+    name: Workloads 
+    items: 
+    - name: Azure Large Instances for Epic 
+    - name: Overview  
+    - name: Solution design  
+    - name: Architecture  
+    - name: General   
+    - name: Network  
+    - name: Storage  
+    - name: Operating Systems 
+    - name: Instances and regions  
+    - name: SKUs  
+    - name: Sizing  
+    - name: Operations models  
+    - name: Scenarios  
+    - name: Onboarding requirements  
+    - name: Connect to Azure Large instances for Epic  
+    - name: Enable Express Route fast path  
+    - name: Enable Accelerated Networking on VMs  
+    - name: Quality checks   
+    - name: High availability and disaster recovery  
+    - name: Options and considerations  
+    - name: Backup and restore  
+    - name: Principles and preparation 
+    - name: Disaster recovery failover procedure  
+    - name: Troubleshoot and monitor   
+    - name: Scope of Support -  
+    - name: Open a Support Incident -  
+    - name: Open a Service request -  
+    - name: What is SLA for support? - CSS team’s responsibility   
+    - name: Configure Azure Service Health alerts  
+    - name: Manage downtimes 
+    - name: FAQ  
+    - name: Create a connection between your VPN Gateway and ExpressRoute circuit Azure ExpressRoute - 
+    - name: Set up Microsoft peering for your express route circuit Azure ExpressRoute   
+    - name: More info on Azure ExpressRoute  
+    - name: Azure Large Instances NETAPP storage data protection with Azure CVO   
+    - name: Find your subscription ID   
+    - name: Create a volume group  
+    - name: LUN and WWID mapping   
+    - name: Register the Azure Large instance resource provider via the Azure portal or the Azure CLI  
+    - name: Common issues and their resolutions  
+
+  

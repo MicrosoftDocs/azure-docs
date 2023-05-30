@@ -6,7 +6,7 @@ ms.subservice: baremetal-epic
 ms.date: 04/01/2023
 ---
 
-# ALI for Epic overview 
+# Azure Large Instances for Epic overview 
 
 Epic Systems Corporation (Epic) is a leader in Electronic Health Record (EHR) software for midsize and large medical groups, hospitals, and integrated healthcare organizations. 
 Most of the world’s largest health care providers need a highly performant Epic cloud solution. 
