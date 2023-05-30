@@ -102,14 +102,14 @@ The following are known issues with the Synapse Spark.
 
 ### Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse Dedicated SQL Pool Connector for Apache Spark when using notebooks in pipelines
 
-While using Azure Synapse Dedicated SQL Pool Connector for Apache Spark to write Azure Synapse Dedicated pool using Notebooks in pipelines, we would see an error message as below:
+While using Azure Synapse Dedicated SQL Pool Connector for Apache Spark to write Azure Synapse Dedicated pool using Notebooks in pipelines, we would see an error message:
 
 `com.microsoft.spark.sqlanalytics.SQLAnalyticsConnectorException: COPY statement input file schema discovery failed: Cannot bulk load. The file does not exist or you don't have file access rights.`
 
 **Workaround**: The engineering team is currently aware of this behavior and working on a fix. Following steps can be followed to work around the problem.
-- Set below spark config through notebook:
+- Set spark config through notebook:
 <br/>`spark.conf.set("spark.synapse.runAsMsi", "true")`
-- Or set above spark config at [pool level](spark/apache-spark-azure-create-spark-configuration#create-an-apache-spark-configuration).
+- Or set spark config at [pool level](spark/apache-spark-azure-create-spark-configuration.md#create-an-apache-spark-configuration).
 
 
 ## Recently Closed Known issues
