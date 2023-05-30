@@ -148,8 +148,6 @@
           href: service-connector.md
         - name: Java Quarkus app with Postgres DB
           href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
-    - name: Connect to Azure services via Dapr components
-      href: dapr-component-connection.md
     - name: Connect multiple apps
       href: connect-apps.md
     - name: Set up continuous deployment
@@ -181,6 +179,8 @@
         href: authentication-openid.md
     - name: Dapr
       items:
+        - name: Connect to Azure services via Dapr components
+          href: dapr-component-connection.md
         - name: Enable token authentication for Dapr requests 
           href: dapr-authentication-token.md
     - name: Use storage mounts

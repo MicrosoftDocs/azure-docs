@@ -58,7 +58,6 @@ By default, AKS uses a managed identity for its cluster identity. However, you a
 As each node and pod receives its own IP address, plan out the address ranges for the AKS subnets. Keep in mind:
 * The subnet must be large enough to provide IP addresses for every node, pods, and network resource that you deploy. 
     * With both kubenet and Azure CNI networking, each node running has default limits to the number of pods.
-* Each AKS cluster must be placed in its own subnet. 
 * Avoid using IP address ranges that overlap with existing network resources. 
     * Necessary to allow connectivity to on-premises or peered networks in Azure.
 * To handle scale out events or cluster upgrades, you need extra IP addresses available in the assigned subnet. 
