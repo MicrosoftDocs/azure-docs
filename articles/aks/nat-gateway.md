@@ -12,9 +12,9 @@ ms.author: allensu
 
 # Create a managed or user-assigned NAT gateway for your Azure Kubernetes Service (AKS) cluster
 
-While you can route egress traffic through an Azure Load Balancer, there are limitations on the amount of outbound flows of traffic you can have. Azure NAT Gateway allows up to 64,512 outbound UDP and TCP traffic flows per IP address with a maximum of 16 IP addresses.
+While you can route egress traffic through an Azure Load Balancer, there are limitations on the number of outbound flows of traffic you can have. Azure NAT Gateway allows up to 64,512 outbound UDP and TCP traffic flows per IP address with a maximum of 16 IP addresses.
 
-This article shows you how to create an Azure Kubernetes Service (AKS) cluster with a managed NAT gateway and a user-assigned NAT gateway for egress traffic and how to disable OutboundNAT on Windows.
+This article shows you how to create an Azure Kubernetes Service (AKS) cluster with a managed NAT gateway and a user-assigned NAT gateway for egress traffic. It also shows you how to disable OutboundNAT on Windows.
 
 ## Before you begin
 
@@ -52,7 +52,7 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
 
 ## Create an AKS cluster with a user-assigned NAT gateway
 
-This configuration requires bring-your-own networking (via [Kubenet][byo-vnet-kubenet] or [Azure CNI][byo-vnet-azure-cni]) and that the NAT gateway is pre-configured on the subnet. The following commands create the required resources for this scenario.
+This configuration requires bring-your-own networking (via [Kubenet][byo-vnet-kubenet] or [Azure CNI][byo-vnet-azure-cni]) and that the NAT gateway is preconfigured on the subnet. The following commands create the required resources for this scenario.
 
 1. Create a resource group using the [`az group create`][az-group-create] command.
 
