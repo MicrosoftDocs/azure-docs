@@ -20,7 +20,7 @@ Azure IoT Hub is a fully managed service that helps enable reliable and secure b
 
 This article shows you how to:
 
-* Send cloud-to-device messages, from your solution backend, to a single device through IoT Hub
+* Send cloud-to-device (C2D) messages from your solution backend to a single device through IoT Hub
 
 * Receive cloud-to-device messages on a device
 
@@ -47,24 +47,24 @@ You can find more information on cloud-to-device messages in [D2C and C2D Messag
 
 * A device registered in your IoT hub. If you haven't registered a device yet, register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
-* This tutorial uses sample code from the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp).
+* This article uses sample code from the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp).
 
   * Download or clone the SDK repository from GitHub to your development machine.
   * Make sure that .NET Core 3.0.0 or greater is installed on your development machine. Check your version by running `dotnet --version` and [download .NET](https://dotnet.microsoft.com/download) if necessary.
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
-* Visual Studio
+* Visual Studio.
 
 ## Get the device connection string
 
-In this article, you simulate a device to receive cloud-to-device messages through your IoT Hub. The **MessageReceiveSample** sample app included with the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples) connects to your IoT hub and acts as your simulated device. The sample uses the primary connection string of your registered device. 
+In this article, you run a sample app that simulates a device which receives cloud-to-device messages sent through your IoT Hub. The **MessageReceiveSample** sample app included with the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples) connects to your IoT hub and acts as your simulated device. The sample uses the primary connection string of the registered device on your IoT hub. 
 
 [!INCLUDE [iot-hub-include-find-device-connection-string](../../includes/iot-hub-include-find-device-connection-string.md)]
 
 ## Receive messages in the device app
 
-In this section, run the **MessageReceiveSample** sample device app to receive C2D messages sent through your IoT hub. Open a new command prompt and change folders to the **azure-iot-sdk-csharp\iothub\device\samples\getting started\MessageReceiveSample**, under the folder where you expanded the Azure IoT C# SDK. Run the following commands, replacing the `{Your device connection string}` placeholder value in the second command with the device connection string you copied from the registered device in your IoT hub.
+In this section, run the **MessageReceiveSample** sample device app to receive C2D messages sent through your IoT hub. Open a new command prompt and navigate to the **azure-iot-sdk-csharp\iothub\device\samples\getting started\MessageReceiveSample** folder, under the folder where you expanded the Azure IoT C# SDK. Run the following commands, replacing the `{Your device connection string}` placeholder value in the second command with the device connection string you copied from the registered device in your IoT hub.
 
 ```cmd/sh
 dotnet restore
@@ -165,19 +165,26 @@ In this section, you create a .NET console app that sends cloud-to-device messag
    Console.ReadLine();
    ```
 
-1. In Solutions Explorer, right-click your solution, and select **Set StartUp Projects**.
-
-1. In **Common Properties** > **Startup Project**, select **Multiple startup projects**, then select the **Start** action for **SimulatedDevice** and **SendCloudToDevice**. Select **OK** to save your changes.
-
-1. Press **F5**. Both applications should start. Select the **SendCloudToDevice** window, and press **Enter**. You should see the message being received by the device app.
-
-   ![Device app receiving message](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
+1. Press **F5** to start your sample service app. Select the **SendCloudToDevice** window, and press **Enter**. You should see the message being received by the sample device app, as shown in the following output example.
+ 
+   ```cmd/sh
+   5/22/2023 11:13:18 AM> Press Control+C at any time to quit the sample.
+   
+   5/22/2023 11:13:18 AM> Device waiting for C2D messages from the hub...
+   5/22/2023 11:13:18 AM> Use the Azure Portal IoT hub blade or Azure IoT Explorer to send a message to this device.
+   5/22/2023 11:13:18 AM> Trying to receive C2D messages by polling using the ReceiveAsync() method. Press 'n' to move to the next phase.
+   5/22/2023 11:15:18 AM> Polling using ReceiveAsync() - received message with Id=
+   5/22/2023 11:15:18 AM> Received message: [Cloud to device message.]
+           Content type:
+   
+   5/22/2023 11:15:18 AM> Completed C2D message with Id=.
+   ```
 
 ## Receive delivery feedback
 
 It's possible to request delivery (or expiration) acknowledgments from IoT Hub for each cloud-to-device message. This option enables the solution back end to easily inform, retry, or compensation logic. For more information about cloud-to-device feedback, see [D2C and C2D Messaging with IoT Hub](iot-hub-devguide-messaging.md).
 
-In this section, you modify the **SendCloudToDevice** app to request feedback, and receive it from the IoT hub.
+In this section, you modify the **SendCloudToDevice** sample service app to request feedback, and receive it from the IoT hub.
 
 1. In Visual Studio, in the **SendCloudToDevice** project, add the following method to the **Program** class.
 
@@ -206,19 +213,27 @@ In this section, you modify the **SendCloudToDevice** app to request feedback, a
 
 1. Add the following line in the **Main** method, right after `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)`.
 
-   ``` csharp
+   ```csharp
    ReceiveFeedbackAsync();
    ```
 
 1. To request feedback for the delivery of your cloud-to-device message, you have to specify a property in the **SendCloudToDeviceMessageAsync** method. Add the following line, right after the `var commandMessage = new Message(...);` line.
 
-   ``` csharp
+   ```csharp
    commandMessage.Ack = DeliveryAcknowledgement.Full;
    ```
 
-1. Run the apps by pressing **F5**. You should see both applications start. Select the **SendCloudToDevice** window, and press **Enter**. You should see the message being received by the device app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** application.
+1. Make sure the sample device app is running, and then run the sample service app by pressing **F5**. Select the **SendCloudToDevice** console window and press **Enter**. You should see the message being received by the sample device app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** application. The following output shows the feedback message received by the sample service app:
 
-   ![Device app receiving message and service app receiving feedback](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
+   ```cmd/sh
+   Send Cloud-to-Device message
+   
+   
+   Receiving c2d feedback from service
+   Press any key to send a C2D message.
+   
+   Received feedback: Success
+   ```
 
 > [!NOTE]
 > For simplicity, this article does not implement any retry policy. In production code, you should implement retry policies, such as exponential backoff, as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).
@@ -231,4 +246,4 @@ In this article, you learned how to send and receive cloud-to-device messages.
 * To learn more about cloud-to-device messages, see [Send cloud-to-device messages from an IoT hub](iot-hub-devguide-messages-c2d.md).
 
 * To learn more about IoT Hub message formats, see [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md).
-).
+
