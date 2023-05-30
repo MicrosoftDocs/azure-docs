@@ -41,17 +41,20 @@ Azure Front Door has three tiers: Standard, Premium, and (classic). This article
 The following are general guidance for getting the right metrics to estimate the cost of the new tiers.
 
 1. Pull the invoice for the Azure Front Door (classic) profile to get the monthly charges.
+
 1. Compute the Azure Front Door Standard/Premium pricing using the following table:
 
     | Azure Front Door Standard/Premium meter | How to calculate from Azure Front Door (classic) metrics |
     |--|--|
     | Base fee | - If you need managed WAF rules, bot protection, or Private Link: **$330/month** </br> - If you only need custom WAF rules: **$35/month** |
-    | Requests | For Standard: </br>1. Go to your Azure Front Door (classic) profile, select **Metrics** from under *Monitor* in the left side menu pane. </br>2. Select the **Request Count** from the *Metrics* drop-down menu. </br> 3. To view regional metrics, you can apply a split to the data by selecting **Client Country** or **Client Region**. </br> 4. If you select *Client Country*, you need to map them to the corresponding Azure Front Door pricing zone. </br> :::image type="content" source="./media/understanding-pricing/request-count.png" alt-text="Screenshot of the request count metric for Front Door (classic)."::: </br> - For Premium: </br>You can look at the **Request Count** and the **WAF Request Count** metric in the Azure Front Door (classic) profile. </br> :::image type="content" source="./media/understanding-pricing/waf-request-count.png" alt-text="Screenshot of the Web Application Firewall request count metric for Front Door (classic)."::: |
-    | Egress from Azure Front Door edge to client | You can obtain this data from your Azure Front Door (classic) invoice or from the **Billable Response Size** metric in the Azure Front Door (classic) profile. To get a more accurate estimation, apply split by *Client Count* or *Client Region*.</br> :::image type="content" source="./media/understanding-pricing/billable-response-size.png" alt-text="Screenshot of the billable response size metric for Front Door (classic)."::: |
+    | Requests | **For Standard:** </br>1. Go to your Azure Front Door (classic) profile, select **Metrics** from under *Monitor* in the left side menu pane. </br>2. Select the **Request Count** from the *Metrics* drop-down menu. </br> 3. To view regional metrics, you can apply a split to the data by selecting **Client Country** or **Client Region**. </br> 4. If you select *Client Country*, you need to map them to the corresponding Azure Front Door pricing zone. </br> :::image type="content" source="./media/understanding-pricing/request-count.png" alt-text="Screenshot of the request count metric for Front Door (classic)." lightbox="./media/understanding-pricing/request-count.png"::: </br> **For Premium:** </br>You can look at the **Request Count** and the **WAF Request Count** metric in the Azure Front Door (classic) profile. </br> :::image type="content" source="./media/understanding-pricing/waf-request-count.png" alt-text="Screenshot of the Web Application Firewall request count metric for Front Door (classic)." lightbox="./media/understanding-pricing/waf-request-count.png"::: |
+    | Egress from Azure Front Door edge to client | You can obtain this data from your Azure Front Door (classic) invoice or from the **Billable Response Size** metric in the Azure Front Door (classic) profile. To get a more accurate estimation, apply split by *Client Count* or *Client Region*.</br> :::image type="content" source="./media/understanding-pricing/billable-response-size.png" alt-text="Screenshot of the billable response size metric for Front Door (classic)." lightbox="./media/understanding-pricing/billable-response-size.png"::: |
     | Ingress from Azure Front Door edge to origin | You can obtain this data from your Azure Front Door (classic) invoice. Refer to the quantities for Data transfer from client to edge location as an estimation. |
 
 1. Go to the [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=frontdoor-standard-premium).
+
 1. Select the appropriate Azure Front Door tier and zone.
+
 1. Calculate the total cost for the Azure Front Door Standard/Premium profile from the metrics you obtained in the previous step.
 
 ## Example scenarios
