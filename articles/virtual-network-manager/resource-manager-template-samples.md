@@ -5,6 +5,7 @@ description: This article has links to Azure Resource Manager template examples 
 services: virtual-network-manager
 author: mbender-ms
 ms.service: virtual-network-manager
+ms.custom: devx-track-arm-template
 ms.topic: sample
 ms.date: 03/28/2023
 ms.author: mbender
