@@ -1,9 +1,24 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-train-tensorflow.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-tensorflow",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-train-scikit-learn.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-scikit-learn",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-train-pytorch.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-pytorch",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-train-keras.md",
         "redirect_url": "/azure/machine-learning/how-to-train-keras",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-train-distributed-gpu.md",
@@ -13,12 +28,12 @@
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-track-monitor-analyze-runs.md",
         "redirect_url": "/azure/machine-learning/how-to-track-monitor-analyze-runs",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-setup-authentication.md",
         "redirect_url": "/azure/machine-learning/how-to-setup-authentication",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-secure-workspace-vnet.md",
@@ -78,7 +93,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-mlflow-models.md",
         "redirect_url": "/azure/machine-learning/how-to-deploy-mlflow-models.md",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-local-container-notebook-vm.md",
@@ -253,7 +268,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/how-to-train-with-custom-image.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-train-with-custom-image",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-monitor-tensorboard.md",
@@ -261,8 +276,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-custom-model.md",
-        "redirect_url": "/azure/machine-learning/v1/tutorial-power-bi-custom-model",
+        "source_path_from_root": "/articles/machine-learning/v-faketutorial-power-bi-custom-model.md",
+        "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
         "redirect_document_id": true
     },
     {
