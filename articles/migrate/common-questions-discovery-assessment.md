@@ -11,7 +11,7 @@ ms.custom: engagement-fy23
 
 # Assessment - Common questions
 
-This article answers common questions about assessments in Azure Migrate. If you've other questions, check these resources:
+This article answers common questions about assessments in Azure Migrate. If you have other questions, check these resources:
 
 - [General questions](resources-faq.md) about Azure Migrate
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
@@ -24,7 +24,7 @@ Review the supported geographies for [public](migrate-support-matrix.md#public-c
 
 ## How many servers can I discover with an appliance?
 
-You can discover up to 10,000 servers from VMware environment, up to 5,000 servers from Hyper-V environment, and up to 1000 physical servers by using a single appliance. If you've more servers, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), or [scaling a physical server assessment](scale-physical-assessment.md).
+You can discover up to 10,000 servers from VMware environment, up to 5,000 servers from Hyper-V environment, and up to 1000 physical servers by using a single appliance. If you have more servers, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), or [scaling a physical server assessment](scale-physical-assessment.md).
 
 ## How do I choose the assessment type?
 
@@ -84,7 +84,7 @@ By design, in Hyper-V if maximum memory provisioned is less than what is require
 
 ## I see a banner on my assessment that the assessment now also considers processor parameters. What will be the impact of recalculating the assessment?
 
-The assessment now considers processor parameters such as number of operational cores, sockets, etc. and calculating its optimal performance over a period in a simulated environment. This is done to benchmark all processor-based available processor information. Recalculate your assessments to see the updated recommendations.
+The assessment now considers processor parameters such as number of operational cores, sockets, etc. and calculates its optimal performance over a period in a simulated environment. This is done to benchmark all processor-based available processor information. Recalculate your assessments to see the updated recommendations.
 
 The processor benchmark numbers are now considered along with the resource utilization to ensure, we match the processor performance of your on-premises VMware, Hyper-V, and Physical servers and recommend the target Azure SKU sizes accordingly. This is a way to further improve the assessment recommendations to match your performance needs more closely.
 
@@ -96,7 +96,7 @@ No, there will be no impact as we don't consider it for as on premises scenario.
 
 ## I see an increase in my monthly costs after I recalculate my assessments? Is this the most optimized cost for me?
 
-If you've selected all available options for your “VM Series” in your assessment settings, you will get the most optimized cost recommendation for your VMs. However, if you choose only some of the available options for the VM series, the recommendation might skip the most optimized option for you while assigning you an Azure VM SKU while matching your processor performance numbers.
+If you've selected all available options for your “VM Series” in your assessment settings, you'll get the most optimized cost recommendation for your VMs. However, if you choose only some of the available options for the VM series, the recommendation might skip the most optimized option for you while assigning you an Azure VM SKU while matching your processor performance numbers.
 
 ## Why can't I see all Azure VM families in the Azure VM assessment properties?
 
