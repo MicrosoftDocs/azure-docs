@@ -83,7 +83,7 @@ Task (I want to...) |Role (I need to be...)|Synapse RBAC permission/action
 ||Azure Owner or Contributor, or Reader on the workspace|none
 |List linked services or credentials or managed private endpoints|Synapse User|read
 SQL POOLS|
-Create a dedicated SQL pool or a serverless SQL pool|Azure Owner or Contributor on the workspace|none
+Create a dedicated SQL pool or a serverless SQL pool|Azure Owner or Contributor on the resource group|none
 Manage (pause or scale, or delete) a dedicated SQL pool|Azure Owner or Contributor on the SQL pool or workspace|none
 Create a SQL script</br>|Synapse User or </br>Azure Owner or Contributor on the workspace. </br></br>*Additional SQL permissions are required to run a SQL script, publish, or commit changes*.|
 List and open any published SQL script| Synapse Artifact User or Artifact Publisher, or Synapse Contributor|artifacts/read
@@ -101,7 +101,7 @@ Run a KQL script on a Data Explorer pool| Data Explorer permissions on the pool 
 Publish new, update, or delete KQL script|Synapse Artifact Publisher or Synapse Contributor|kqlScripts/write, delete
 Commit changes to a KQL script to the Git repo|Requires Git permissions on the repo|
 APACHE SPARK POOLS|
-Create an Apache Spark pool|Azure Owner or Contributor on the workspace|
+Create an Apache Spark pool|Azure Owner or Contributor on the resource group|
 Monitor Apache Spark applications| Synapse User|read
 View the logs for completed notebook and job execution |Synapse Monitoring Operator|
 Cancel any notebook or Spark job running on an Apache Spark pool|Synapse Compute Operator on the Apache Spark pool.|bigDataPools/useCompute
