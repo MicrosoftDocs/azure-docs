@@ -229,77 +229,6 @@ The following table describes the default resource usage.
 | VMware Spring Cloud Gateway                  | 2              | 1 core            | 2Gi                 |
 | VMware Spring Cloud Gateway operator         | 2              | 1 core            | 2Gi                 |
 
-## Configure application performance monitoring
-
-To monitor Spring Cloud Gateway, you can configure application performance monitoring (APM). The following table lists the five types of APM Java agents provided by Spring Cloud Gateway and their required environment variables.
-
-| Java Agent | Required environment variables |
-| --- | --- |
-| Application Insights | `APPLICATIONINSIGHTS_CONNECTION_STRING` |
-| Dynatrace | `DT_TENANT`<br>`DT_TENANTTOKEN`<br>`DT_CONNECTION_POINT` |
-| New Relic | `NEW_RELIC_LICENSE_KEY`<br>`NEW_RELIC_APP_NAME` |
-| AppDynamics | `APPDYNAMICS_AGENT_APPLICATION_NAME`<br>`APPDYNAMICS_AGENT_TIER_NAME`<br>`APPDYNAMICS_AGENT_NODE_NAME`<br> `APPDYNAMICS_AGENT_ACCOUNT_NAME`<br>`APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY`<br>`APPDYNAMICS_CONTROLLER_HOST_NAME`<br>`APPDYNAMICS_CONTROLLER_SSL_ENABLED`<br>`APPDYNAMICS_CONTROLLER_PORT` |
-| ElasticAPM | `ELASTIC_APM_SERVICE_NAME`<br>`ELASTIC_APM_APPLICATION_PACKAGES`<br>`ELASTIC_APM_SERVER_URL` |
-
-For other supported environment variables, see the following sources:
-
-- [Application Insights public document](../azure-monitor/app/app-insights-overview.md?tabs=net)
-- [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations/azure-spring#envvar)
-- [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
-- [AppDynamics Environment Variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
-- [Elastic Environment Variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
-
-### Manage APM in Spring Cloud Gateway
-
-You can use the Azure portal or the Azure CLI to set up application performance monitoring (APM) in Spring Cloud Gateway. You can also specify the types of APM Java agents to use and the corresponding APM environment variables they support.
-
-#### [Azure portal](#tab/Azure-portal)
-
-Use the following steps to set up APM using the Azure portal:
-
-1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation page and then select **Configuration**.
-
-1. Choose the APM type in the **APM** list to monitor a gateway.
-
-1. Fill in the key-value pairs for the APM environment variables in the **Properties** or **Secrets** sections. You can put variables with sensitive information in **Secrets**.
-
-1. When you've provided all the configurations, select **Save** to save your changes.
-
-Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
-
-#### [Azure CLI](#tab/Azure-CLI)
-
-Use the following command to set up APM using Azure CLI:
-
-```azurecli
-az spring gateway update \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --apm-types <APM-type> \
-    --properties <key=value> \
-    --secrets <key=value>
-```
-
-The allowed values for `--apm-types` are `ApplicationInsights`, `AppDynamics`, `Dynatrace`, `NewRelic`, and `ElasticAPM`. The following command shows the usage using Application Insights as an example.
-
-```azurecli
-az spring gateway update \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --apm-types ApplicationInsights \
-    --properties APPLICATIONINSIGHTS_CONNECTION_STRING=<THE CONNECTION STRING OF YOUR APPINSIGHTS> APPLICATIONINSIGHTS_SAMPLE_RATE=10
-```
-
-You can also put environment variables in the `--secrets` parameter instead of `--properties`, which makes the environment variable more secure in network transmission and data storage in the backend.
-
----
-
-> [!NOTE]
-> Azure Spring Apps upgrades the APM agent and deployed apps with the same cadence to keep compatibility of agents between Spring Cloud Gateway and Spring apps.
->
-> By default, Azure Spring Apps prints the logs of the APM Java agent to `STDOUT`. These logs are included with the Spring Cloud Gateway logs. You can check the version of the APM agent used in the logs. You can query these logs in Log Analytics to troubleshoot.
-> To make the APM agents work correctly, increase the CPU and memory of Spring Cloud Gateway.
-
 ## Configure TLS between gateway and applications
 
 To enhance security and protect sensitive information from interception by unauthorized parties, you can enable Transport Layer Security (TLS) between Spring Cloud Gateway and your applications. This section explains how to configure TLS between a gateway and applications.
@@ -402,9 +331,110 @@ az spring gateway sync-cert \
 
 ---
 
-## Configure log levels
+## Configure environment variables
 
-You can adjust log levels of Spring Cloud Gateway to get more details or to reduce logs:
+Spring Cloud Gateway is managed and tuned by Azure Spring Apps service. Except for the use cases to configure application performance monitoring and configure log level, normally you don't need to configure it with environment variables. But if you do have requirements that cannot be fulfilled by other configurations in this document, you can try configure environment variables listed in [Common application properties](https://cloud.spring.io/spring-cloud-gateway/reference/html/appendix.html#common-application-properties). Please be sure to verify it in your test environment before apply to your production environment.
+
+Below section is how you can configure environment variables.
+
+#### [Azure portal](#tab/Azure-portal)
+
+To configure environment variables in the Azure portal, use the following steps:
+1. Open your Azure Spring Apps instance.
+1. Select Spring Cloud Gateway in the navigation pane, and then select Configuration.
+1. Specify key-value pairs for the log level environment variables in the **Environment variables** sections.
+1. When you've provided all the configurations, select Save to save your changes.
+
+#### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to configure environment variables using Azure CLI:
+```
+az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --properties <key=value> \
+    --secrets <key=value>
+```
+
+---
+
+> [!NOTE]
+> When environment variables are updated, Spring Cloud Gateway will be restarted.
+
+### Configure application performance monitoring
+
+To monitor Spring Cloud Gateway, you can configure application performance monitoring (APM). The following table lists the five types of APM Java agents provided by Spring Cloud Gateway and their required environment variables.
+
+| Java Agent | Required environment variables |
+| --- | --- |
+| Application Insights | `APPLICATIONINSIGHTS_CONNECTION_STRING` |
+| Dynatrace | `DT_TENANT`<br>`DT_TENANTTOKEN`<br>`DT_CONNECTION_POINT` |
+| New Relic | `NEW_RELIC_LICENSE_KEY`<br>`NEW_RELIC_APP_NAME` |
+| AppDynamics | `APPDYNAMICS_AGENT_APPLICATION_NAME`<br>`APPDYNAMICS_AGENT_TIER_NAME`<br>`APPDYNAMICS_AGENT_NODE_NAME`<br> `APPDYNAMICS_AGENT_ACCOUNT_NAME`<br>`APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY`<br>`APPDYNAMICS_CONTROLLER_HOST_NAME`<br>`APPDYNAMICS_CONTROLLER_SSL_ENABLED`<br>`APPDYNAMICS_CONTROLLER_PORT` |
+| ElasticAPM | `ELASTIC_APM_SERVICE_NAME`<br>`ELASTIC_APM_APPLICATION_PACKAGES`<br>`ELASTIC_APM_SERVER_URL` |
+
+For other supported environment variables, see the following sources:
+
+- [Application Insights public document](../azure-monitor/app/app-insights-overview.md?tabs=net)
+- [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations/azure-spring#envvar)
+- [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
+- [AppDynamics Environment Variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
+- [Elastic Environment Variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
+
+### Manage APM in Spring Cloud Gateway
+
+You can use the Azure portal or the Azure CLI to set up application performance monitoring (APM) in Spring Cloud Gateway. You can also specify the types of APM Java agents to use and the corresponding APM environment variables they support.
+
+#### [Azure portal](#tab/Azure-portal)
+
+Use the following steps to set up APM using the Azure portal:
+
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation page and then select **Configuration**.
+
+1. Choose the APM type in the **APM** list to monitor a gateway.
+
+1. Fill in the key-value pairs for the APM environment variables in the **Properties** or **Secrets** sections. You can put variables with sensitive information in **Secrets**.
+
+1. When you've provided all the configurations, select **Save** to save your changes.
+
+Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
+
+#### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to set up APM using Azure CLI:
+
+```azurecli
+az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --apm-types <APM-type> \
+    --properties <key=value> \
+    --secrets <key=value>
+```
+
+The allowed values for `--apm-types` are `ApplicationInsights`, `AppDynamics`, `Dynatrace`, `NewRelic`, and `ElasticAPM`. The following command shows the usage using Application Insights as an example.
+
+```azurecli
+az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --apm-types ApplicationInsights \
+    --properties APPLICATIONINSIGHTS_CONNECTION_STRING=<THE CONNECTION STRING OF YOUR APPINSIGHTS> APPLICATIONINSIGHTS_SAMPLE_RATE=10
+```
+
+You can also put environment variables in the `--secrets` parameter instead of `--properties`, which makes the environment variable more secure in network transmission and data storage in the backend.
+
+---
+
+> [!NOTE]
+> Azure Spring Apps upgrades the APM agent and deployed apps with the same cadence to keep compatibility of agents between Spring Cloud Gateway and Spring apps.
+>
+> By default, Azure Spring Apps prints the logs of the APM Java agent to `STDOUT`. These logs are included with the Spring Cloud Gateway logs. You can check the version of the APM agent used in the logs. You can query these logs in Log Analytics to troubleshoot.
+> To make the APM agents work correctly, increase the CPU and memory of Spring Cloud Gateway.
+
+### Configure log levels with environment variables
+
+You can configure log levels of Spring Cloud Gateway to get more details or to reduce logs:
 - The default log level for Spring Cloud Gateway is `INFO`.
 - You can set log levels to `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `OFF`.
 - You can turn off logs by set log levels to `OFF`.
@@ -459,38 +489,6 @@ az spring gateway update \
 ```
 
 ---
-
-## Configure environment variables
-
-You can configure Spring Cloud Gateway with environment variables for your needs. 
-
-#### [Azure portal](#tab/Azure-portal)
-
-To configure environment variables in the Azure portal, use the following steps:
-1. Open your Azure Spring Apps instance.
-1. Select Spring Cloud Gateway in the navigation pane, and then select Configuration.
-1. Specify key-value pairs for the log level environment variables in the **Environment variables** sections.
-1. When you've provided all the configurations, select Save to save your changes.
-
-#### [Azure CLI](#tab/Azure-CLI)
-
-Use the following command to configure environment variables using Azure CLI:
-```
-az spring gateway update \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --properties <key=value> \
-    --secrets <key=value>
-```
-
----
-
-Here are some use cases by configuring environment variables:
-1. You can configure environments for application performance monitoring, see [Configure application performance monitoring](#configure-application-performance-monitoring) section.
-1. You can configure environments for log levels, see [Configure log levels](#configure-log-levels) section.
-
-> [!NOTE]
-> When environment variables are updated, Spring Cloud Gateway will be restarted.
 
 ## Next steps
 
