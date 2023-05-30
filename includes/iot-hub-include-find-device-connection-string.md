@@ -9,7 +9,7 @@ ms.date: 05/30/2023
 ms.author: kgremban
 ms.custom: include file
 ---
-<!-- This tells how to get the connection string for a device registered to your IoT hub -->
+<!-- This tells how to get the primary connection string for a device registered to your IoT hub -->
 
 To get the primary connection string for a device registered to your IoT hub, follow these steps:
 

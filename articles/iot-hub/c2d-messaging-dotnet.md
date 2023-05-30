@@ -64,43 +64,40 @@ In this article, you simulate a device to receive cloud-to-device messages throu
 
 ## Receive messages in the device app
 
-In this section, modify your device app to receive cloud-to-device messages from the IoT hub.
+In this section, run the device app to upload the file to Azure storage. Open a new command prompt and change folders to the **azure-iot-sdk-csharp\iothub\device\samples\getting started\MessageReceiveSample**, under the folder where you expanded the Azure IoT C# SDK. Run the following commands. Replace the `{Your device connection string}` placeholder value in the second command with the device connection string you copied from the registered device in your IoT hub.
 
-1. In Visual Studio, in the **SimulatedDevice** project, add the following method to the **SimulatedDevice** class.
+    ```cmd/sh
+    dotnet restore
+    dotnet run --c "{Your device connection string}"
+    ```
 
-   ```csharp
-    private static async void ReceiveC2dAsync()
-    {
-        Console.WriteLine("\nReceiving cloud to device messages from service");
-        while (true)
-        {
-            Message receivedMessage = await s_deviceClient.ReceiveAsync();
-            if (receivedMessage == null) continue;
+The following output is from the device app after it successfully starts and connects to your IoT hub:
+    
+    ```cmd/sh
+      5/22/2023 11:13:18 AM> Press Control+C at any time to quit the sample.
+      
+   5/22/2023 11:13:18 AM> Device waiting for C2D messages from the hub...
+   5/22/2023 11:13:18 AM> Use the Azure Portal IoT hub blade or Azure IoT Explorer to send a message to this device.
+   5/22/2023 11:13:18 AM> Trying to receive C2D messages by polling using the ReceiveAsync() method. Press 'n' to move to the next phase.
+    ```
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Received message: {0}", 
-            Encoding.ASCII.GetString(receivedMessage.GetBytes()));
-            Console.ResetColor();
+The **MessageReceiveSample** sample app demonstrates two different ways in which a device can receive a cloud-to-device message:
 
-            await s_deviceClient.CompleteAsync(receivedMessage);
-        }
-    }
-   ```
+The first phase polls for messages by using the [ReceiveAsync](https://review.learn.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet) and [CompleteAsync](https://review.learn.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.completeasync?view=azure-dotnet) methods. The `ReceiveC2dMessagesPollingAndCompleteAsync` method uses the `ReceiveAsync` method, which asynchronously returns the received message at the time that it's received by the device. `ReceiveAsync` returns *null* after a specifiable timeout period. In this example, the default of one minute is used. When the device receives a *null*, it should continue to wait for new messages. This requirement is the reason why the sample app includes the following block of code in the `ReceiveC2dMessagesPollingAndCompleteAsync` method:
 
-1. Add the following method in the **Main** method, right before the `Console.ReadLine()` line:
+```csharp
+   if (receivedMessage == null)
+   {
+      continue;
+   }
+```
 
-   ```csharp
-   ReceiveC2dAsync();
-   ```
-
-The `ReceiveAsync` method asynchronously returns the received message at the time that it's received by the device. It returns *null* after a specifiable timeout period. In this example, the default of one minute is used. When the app receives a *null*, it should continue to wait for new messages. This requirement is the reason for the `if (receivedMessage == null) continue` line.
-
-The call to `CompleteAsync()` notifies IoT Hub that the message has been successfully processed and that the message can be safely removed from the device queue. The device should call this method when its processing successfully completes regardless of the protocol it's using.
+The call to the `CompleteAsync` method notifies IoT Hub that the message has been successfully processed and that the message can be safely removed from the device queue. The device should call this method when its processing successfully completes regardless of the protocol it's using.
 
 With AMQP and HTTPS, but not MQTT, the device can also:
 
-* Abandon a message, which results in IoT Hub retaining the message in the device queue for future consumption.
-* Reject a message, which permanently removes the message from the device queue.
+* Call the [AbandonAsync](https://review.learn.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.abandonasync?view=azure-dotnet) method to abandon a message, which results in IoT Hub retaining the message in the device queue for future consumption.
+* Call the [RejectAsync](https://review.learn.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.rejectasync?view=azure-dotnet) method to reject a message, which permanently removes the message from the device queue.
 
 If something happens that prevents the device from completing, abandoning, or rejecting the message, IoT Hub will, after a fixed timeout period, queue the message for delivery again. For this reason, the message processing logic in the device app must be *idempotent*, so that receiving the same message multiple times produces the same result.
 
@@ -108,8 +105,6 @@ For more information about the cloud-to-device message lifecycle and how IoT Hub
 
 > [!NOTE]
 > When using HTTPS instead of MQTT or AMQP as a transport, the `ReceiveAsync` method returns immediately. The supported pattern for cloud-to-device messages with HTTPS is intermittently connected devices that check for messages infrequently (a minimum of every 25 minutes). Issuing more HTTPS receives results in IoT Hub throttling the requests. For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](iot-hub-devguide-c2d-guidance.md) and [Choose a communication protocol](iot-hub-devguide-protocols.md).
-
-
 
 ## Get the IoT hub connection string
 
@@ -141,7 +136,7 @@ In this section, you create a .NET console app that sends cloud-to-device messag
    using Microsoft.Azure.Devices;
    ```
 
-1. Add the following fields to the **Program** class. Replace the `{iot hub connection string}` placeholder value with the IoT hub connection string you noted previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace the `{device id}` placeholder value with the device ID of the device you added in the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstart.
+1. Add the following fields to the **Program** class. Replace the `{iot hub connection string}` placeholder value with the IoT hub connection string you noted previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace the `{device id}` placeholder value with the device ID of the registered device in your IoT hub.
 
    ``` csharp
    static ServiceClient serviceClient;
