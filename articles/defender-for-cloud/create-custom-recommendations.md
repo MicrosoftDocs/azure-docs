@@ -5,6 +5,7 @@ ms.topic: how-to
 author: AlizaBernstein
 ms.date: 03/26/2023
 ---
+
 # Create custom recommendations and security standards
 
 Recommendations give you suggestions on how to better secure your resources. 
@@ -29,7 +30,7 @@ There are three elements involved when creating and managing custom recommendati
 |Aspect|Details|
 |----|:----|
 |Required/preferred environmental requirements| This preview includes only AWS and GCP recommendations. <br> This feature will be part of the Defender CSPM plan in the future. |
-| Required roles & permissions | Subscription Owner / Contributor |
+| Required roles & permissions | Security Admin |
 |Clouds:| :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
 ## Create a custom recommendation 
@@ -108,3 +109,5 @@ You can use the following links to learn more about Kusto queries:
 - [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/)
 - [Must Learn KQL Part 1: Tools and Resources](https://azurecloudai.blog/2021/11/17/must-learn-kql-part-1-tools-and-resources/) 
 - [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
+
+

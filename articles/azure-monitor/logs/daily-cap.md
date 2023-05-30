@@ -68,7 +68,7 @@ Until September 18, 2023, some data security-related data types collected [Micro
 - ProtectionStatus
 - Update
 - UpdateSummary 
-
+- CommonSecurityLog
 
 ## Set the daily cap
 ### Log Analytics workspace
