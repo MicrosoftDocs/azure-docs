@@ -58,7 +58,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
    | Name           |*myasa*|A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.|
    | Plan           |*Basic*|Pricing Tier determines the resource and cost associated with your instance.|
    | Region         |The region closest to your users| The location that is closest to your users.|
-   | Zone Redundant |Unchecked|Wether to create your Azure Spring Apps service in an Azure availability zone, this could only be supported in several regions at the moment.|
+   | Zone Redundant |Unchecked|Whether to create your Azure Spring Apps service in an Azure availability zone, this could only be supported in several regions at the moment.|
 
 1. Navigate to the tab **Diagnostic settings** on the Azure Spring Apps **Create** page, select **Create new** to create a new Log Analytics workspaces instance. On the **Create new Log Analytics workspace** page, update the name of the **Log Analytics workspace** as needed, then select **OK** to confirm the creation.
 
