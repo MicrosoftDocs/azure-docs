@@ -31,8 +31,9 @@ The compute resources you use for your compute targets are attached to a [worksp
 
 Azure Machine Learning has varying support across different compute targets. A typical model development lifecycle starts with development or experimentation on a small amount of data. At this stage, use a local environment like your local computer or a cloud-based VM. As you scale up your training on larger datasets or perform [distributed training](how-to-train-distributed-gpu.md), use Azure Machine Learning compute to create a single- or multi-node cluster that autoscales each time you submit a job. You can also attach your own compute resource, although support for different scenarios might vary.
 
+:::moniker range="azureml-api-1"
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
-
+:::moniker-end
 
 ## Compute targets for inference
 
