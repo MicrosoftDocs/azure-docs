@@ -36,6 +36,7 @@
     items:
     - name: Connect non-Azure machines with Azure Arc
       displayName: azure stack, ash, windows, linux, hybrid, arc
+      href: quickstart-onboard-machines.md
     - name: Connect non-Azure machines with Defender for Endpoint
       displayName: azure stack, ash, windows, linux, hybrid, defender for endpoint
       href: onboard-machines-with-defender-for-endpoint.md
