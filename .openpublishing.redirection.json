@@ -211,7 +211,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "/azure.microsoft.com/documentation/learning-paths/storsimple-typical/",
+            "source_path": "azure.microsoft.com/documentation/learning-paths/storsimple-typical/",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
@@ -241,7 +241,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "/databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_BestPractices_V1.1.pdf",
+            "source_path": "databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_BestPractices_V1.1.pdf",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
@@ -531,17 +531,17 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "/databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_ExpressRoute.pdf",
+            "source_path": "databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_ExpressRoute.pdf",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
         {
-            "source_path": "/databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_HyperVDeployment_v1.0.pdf",
+            "source_path": "databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_HyperVDeployment_v1.0.pdf",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
         {
-            "source_path": "/databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_VMware_v10.pdf",
+            "source_path": "databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_VMware_v10.pdf",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
@@ -656,7 +656,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "/download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf",
+            "source_path": "download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
@@ -721,17 +721,17 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "/rest/api/storsimple",
+            "source_path": "rest/api/storsimple",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
         {
-            "source_path": "/powershell/module/hcs/",
+            "source_path": "powershell/module/hcs/",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
         {
-            "source_path": "/azure-docs-pr/articles/templates/microsoft.storsimple/allversions",
+            "source_path": "azure-docs-pr/articles/templates/microsoft.storsimple/allversions",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
@@ -771,32 +771,27 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/storsimple/storsimple-virtual-array-update-04-release-notes.md",
-            "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "storsimple-partner-csp-faq.yml",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
         {
-            "source_path": "/onlinehelp.storsimple.com",
+            "source_path": "onlinehelp.storsimple.com",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
         {
-            "source_path": "/azure.microsoft.com/roadmap/",
+            "source_path": "azure.microsoft.com/roadmap/",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
         {
-            "source_path": "/archive/blogs/cis/",
+            "source_path": "archive/blogs/cis/",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
         {
-            "source_path": "/azure.microsoft.com/services/storsimple/",
+            "source_path": "azure.microsoft.com/services/storsimple/",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
@@ -806,32 +801,32 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "/answers/topics/azure-storsimple.html",
+            "source_path": "answers/topics/azure-storsimple.html",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
         {
-            "source_path": "/azure.microsoft.com/pricing/details/storsimple/",
+            "source_path": "azure.microsoft.com/pricing/details/storsimple/",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
         {
-            "source_path": "/azure.microsoft.com/pricing/calculator/",
+            "source_path": "azure.microsoft.com/pricing/calculator/",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
         {
-            "source_path": "/azure.microsoft.com/updates/?product=storsimple",
+            "source_path": "azure.microsoft.com/updates/",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
         {
-            "source_path": "/archive/blogs/storsimple/",
+            "source_path": "archive/blogs/storsimple/",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
         {
-            "source_path": "/download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip",
+            "source_path": "download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
