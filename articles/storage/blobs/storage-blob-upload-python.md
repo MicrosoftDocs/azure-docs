@@ -80,14 +80,17 @@ The following example reads data from a file and stages blocks to be committed a
 
 You can define client library configuration options when uploading a blob. These options can be tuned to improve performance, enhance reliability, and optimize costs. The following code examples show how to define configuration options for an upload when instantiating a [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient). These options can also be configured for a [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) instance or a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) instance.
 
+> [!NOTE]
+> Configuration options need to be passed to the constructor for each client instance that the options apply to. The optional configuration arguments are *not* inherited by a client object that is created from a client for a higher level resource. For example, if you specify configuration options for a new `ContainerClient` instance, those options are *not* applied to a `BlobClient` instance created from the container client using `get_blob_client`. You should construct a new `BlobClient` instance with the desired configuration options.
+
 ### Specify data transfer options for upload
 
-You can specify the following data transfer options when instantiating a client to tune upload performance:
+You can set configuration options when instantiating a client to optimize performance for data transfer operations. You can pass the following keyword arguments when constructing a client object in Python:
 
 - `max_block_size` - The maximum chunk size for uploading a block blob in chunks. Defaults to 4 MiB.
-- `max_single_put_size` - If the blob size is less than or equal to `max_single_put_size`, the blob is uploaded with a single `Put Blob` request. If the blob size is larger than `max_single_put_size`, the blob is uploaded in chunks using `Put Block` and `Put Block List`. Defaults to 64 MiB.
+- `max_single_put_size` - If the blob size is less than or equal to `max_single_put_size`, the blob is uploaded with a single `Put Blob` request. If the blob size is larger than `max_single_put_size`, the blob is uploaded in chunks using `Put Block` and committed using `Put Block List`. Defaults to 64 MiB.
 
-You can also set the `max_concurrency` parameter when calling [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob), which defines the maximum number of parallel connections to use when the blob size exceeds 64 MiB.
+For upload operations, you can also pass the `max_concurrency` argument when calling [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob). This argument defines the maximum number of parallel connections to use when the blob size exceeds 64 MiB.
 
 The following code example shows how to specify data transfer options when creating a `BlobClient` object, and how to upload data using that client object:
 
