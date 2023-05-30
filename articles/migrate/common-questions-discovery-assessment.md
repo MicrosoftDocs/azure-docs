@@ -5,7 +5,7 @@ author: rashijoshi
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 12/12/2022
+ms.date: 05/31/2023
 ms.custom: engagement-fy23
 ---
 
@@ -86,9 +86,9 @@ By design, in Hyper-V if maximum memory provisioned is less than what is require
 
 The assessment now considers processor parameters such as number of operational cores, sockets, etc. and calculating its optimal performance over a period in a simulated environment. This is done to benchmark all processor-based available processor information. Recalculate your assessments to see the updated recommendations.
 
-The processor benchmark numbers are now considered along with the resource utilization to ensure, we match the processor performance of your on-premises VMware environment and recommend the target Azure SKU sizes accordingly. This is a way to further improve the assessment recommendations to match your performance needs more closely.
+The processor benchmark numbers are now considered along with the resource utilization to ensure, we match the processor performance of your on-premises VMware, Hyper-V, and Physical servers and recommend the target Azure SKU sizes accordingly. This is a way to further improve the assessment recommendations to match your performance needs more closely.
 
-Due to this, the target Azure VM cost can differ from your earlier assessments of the same target. Also, the number of cores allocated in the target Azure SKU could also vary if the processor performance of target is a match for your on-premises VMware environment.
+Due to this, the target Azure VM cost can differ from your earlier assessments of the same target. Also, the number of cores allocated in the target Azure SKU could also vary if the processor performance of target is a match for your on-premises VMware, Hyper-V, and Physical servers.
 
 ## For scenarios where customers choose "as on premises", is there any impact due to processor benchmarking?
 
