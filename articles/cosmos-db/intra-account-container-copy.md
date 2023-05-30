@@ -2,18 +2,18 @@
 title: Intra-account container copy jobs
 titleSuffix: Azure Cosmos DB
 description: Copy container data between containers within an account in Azure Cosmos DB.
-author: nayakshweta
-ms.author: shwetn
+author: seesharprun
+ms.author: sidandrews
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2022
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions, ignite-2022, build-2023
 ---
 
 # Intra-account container copy jobs in Azure Cosmos DB (Preview)
 
-[!INCLUDE[NoSQL, Cassandra](includes/appliesto-nosql-cassandra.md)]
+[!INCLUDE[NoSQL, Cassandra, MongoDB](includes/appliesto-nosql-mongodb-cassandra.md)]
 
 You can perform offline container copy within an Azure Cosmos DB account using container copy jobs.
 
@@ -30,9 +30,13 @@ Intra-account container copy jobs can be [created and managed using CLI commands
 
 ## Get started
 
-To get started using container copy jobs, register for "Intra-account offline container copy (Cassandra & SQL)" preview from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview is effective for all Cassandra and API for NoSQL accounts in the subscription.
+### NoSQL and Cassandra API
+To get started with intra-account offline container copy for NoSQL and Cassandra API accounts, register for **"Intra-account offline container copy (Cassandra & NoSQL)"** preview feature flag from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview is effective for all Cassandra and API for NoSQL accounts in the subscription.
 
-## Overview of steps needed to do container copy
+### API for MongoDB
+To get started with intra-account offline container copy for Azure Cosmos DB for MongoDB accounts, register for **"Intra-account offline container copy (MongoDB)"** preview feature flag from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview is effective for all API for MongoDB accounts in the subscription.
+
+## How to do container copy?
 
 1. Create the target Azure Cosmos DB container with the desired settings (partition key, throughput granularity, RUs, unique key, etc.).
 2. Stop the operations on the source container by pausing the application instances or any clients connecting to it.
@@ -70,6 +74,21 @@ The rate of container copy job progress is determined by these factors:
     > [!IMPORTANT]
     > The default SKU offers two 4-vCPU 16-GB server-side instances per account.
 
+## Limitations
+
+### Preview eligibility criteria
+
+Container copy jobs don't work with accounts having following capabilities enabled. You will need to disable these features before running the container copy jobs.
+
+- [Disable local auth](how-to-setup-rbac.md#use-azure-resource-manager-templates)
+- [Merge partition](merge.md).
+
+
+### Account Configurations
+
+- The time-to-live (TTL) setting is not adjusted in the destination container. As a result, if a document has not expired in the source container, it will start its countdown anew in the destination container.
+
+
 ## FAQs
 
 ### Is there an SLA for the container copy jobs?
@@ -92,11 +111,6 @@ The container copy job runs in the write region. If there are accounts configure
 
 The account's write region may change in the rare scenario of a region outage or due to manual failover. In such a scenario, incomplete container copy jobs created within the account would fail. You would need to recreate these failed jobs. Recreated jobs would then run in the new (current) write region.
 
-### Why is a new database *__datatransferstate* created in the account when I run container copy jobs? Am I being charged for this database?
-
-* *__datatransferstate* is a database that is created while running container copy jobs. This database is used by the platform to store the state and progress of the copy job.
-* The database uses manual provisioned throughput of 800 RUs. You are charged for this database.
-* Deleting this database removes the container copy job history from the account. It can be safely deleted once all the jobs in the account have completed, if you no longer need the job history. The platform doesn't clean up the *__datatransferstate* database automatically.
 
 ## Supported regions
 
@@ -123,30 +137,31 @@ Currently, container copy is supported in the following regions:
 * Error - Owner resource doesn't exist
 
     If the job creation fails with the error *"Owner resource doesn't exist"*, it means that the target container wasn't created or was mis-spelt.
-    Make sure the target container is created before running the job as specified in the [overview section.](#overview-of-steps-needed-to-do-container-copy)
+    Make sure the target container is created before running the job as specified in the [overview section.](#how-to-do-container-copy)
 
     ```output
-    "code": "500",
+    "code": "404",
     "message": "Response status code does not indicate success: NotFound (404); Substatus: 1003; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: (Message: {\"Errors\":[\"Owner resource does not exist\"]
     ```
 
-* Error - Shared throughput database creation isn't supported for serverless accounts
+* Error - Request is unauthorized.
 
-    Job creation on serverless accounts may fail with the error *"Shared throughput database creation isn't supported for serverless accounts"*.
-    As a work-around, create a database called *__datatransferstate* manually within the account and try creating the container copy job again.
-
-    ```output
-    ERROR: (BadRequest) Response status code does not indicate success: BadRequest (400); Substatus: 0; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: (Shared throughput database creation is not supported for serverless accounts.
-    ```
-
-* Error - (Request) is blocked by your Cosmos DB account firewall settings.
-
-    The job creation request could be blocked if the client IP isn't allowed as per the VNet and Firewall IPs configured on the account. In order to get past this issue, you need to [allow access to the IP through the Firewall setting](how-to-configure-firewall.md). Alternately, you may set **Accept connections from within public Azure datacenters** in your firewall settings and run the container copy commands through the portal [Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell).
+    If the request fails with error Unauthorized (401), this could happen because Local Authorization is disabled, see [disable local auth](how-to-setup-rbac.md#use-azure-resource-manager-templates). Container copy jobs use primary key to authenticate and if local authorization is disabled, the job creation fails. You need to enable local authorization for container copy jobs to work. 
 
     ```output
-    InternalServerError Request originated from IP xxx.xxx.xxx.xxx through public internet. This is blocked by your Cosmos DB account firewall settings. More info: https://aka.ms/cosmosdb-tsg-forbidden
-    ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    "code": "401",
+    "message": " Response status code does not indicate success: Unauthorized (401); Substatus: 5202; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: Local Authorization is disabled. Use an AAD token to authorize all requests."
     ```
+
+* Error - Error while getting resources for job.
+
+    This error can occur due to internal server issues. To resolve this issue, contact Microsoft support by raising a **New Support Request** from the Azure portal. Set the Problem Type as **'Data Migration'** and Problem subtype as **'Intra-account container copy'**.
+
+    ```output
+    "code": "500"
+    "message": "Error while getting resources for job, StatusCode: 500, SubStatusCode: 0, OperationId:  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    ``` 
+	
 
 ## Next steps
 

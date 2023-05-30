@@ -5,6 +5,7 @@ ms.topic: how-to
 author: AlizaBernstein
 ms.date: 03/26/2023
 ---
+
 # Create custom recommendations and security standards
 
 Recommendations give you suggestions on how to better secure your resources. 
@@ -15,9 +16,9 @@ Security teams can use the readily available recommendations and regulatory stan
 
 Microsoft Defender for Cloud provides the option of creating custom recommendations and standards for AWS and GCP using KQL queries. You can use a query editor to build and test queries over your data.  
 
-There are three types of resources to create and manage custom recommendations: 
+There are three elements involved when creating and managing custom recommendations: 
 
-- **Recommendations** – contains: 
+- **Recommendation** – contains: 
     - Recommendation details (name, description, severity, remediation logic, etc.) 
     - Recommendation logic in KQL. 
     - The standard it belongs to. 
@@ -28,19 +29,19 @@ There are three types of resources to create and manage custom recommendations:
 
 |Aspect|Details|
 |----|:----|
-|Required/Preferred Environmental Requirements| This preview includes only AWS and GCP recommendations. <br> This feature is part of the Defender CSPM bundle in the future. |
-| Required Roles & Permissions | Subscription Owner / Contributor |
+|Required/preferred environmental requirements| This preview includes only AWS and GCP recommendations. <br> This feature will be part of the Defender CSPM plan in the future. |
+| Required roles & permissions | Security Admin |
 |Clouds:| :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
 ## Create a custom recommendation 
 
-1. In Microsoft Defender for Cloud, select Environment Settings. 
+1. In Microsoft Defender for Cloud, select **Environment Settings**. 
 
 1. Select the relevant account / project. 
 
-1. Select Standards.
+1. Select **Standards**.
 
-1. Select Create and then select Recommendation.
+1. Select **Create** and then select **Recommendation**.
 
     :::image type="content" source="./media/create-custom-recommendations/select-create-recommendation.png" alt-text="Screenshot showing where to select Create and then Recommendation." lightbox="./media/create-custom-recommendations/select-create-recommendation.png":::
 
@@ -64,7 +65,7 @@ There are three types of resources to create and manage custom recommendations:
 
 1. Select the relevant account / project. 
 
-1. Select Standards 
+1. Select Standards.
 
 1. Select Add and then select Standard.
 
@@ -90,7 +91,7 @@ To create a new query using the query editor, select the 'open query editor' but
 1. The last row should return all the original columns: "| project Id, Name, Environment, Identifiers, AdditionalData, Record, HealthStatus".
 
     >[!Note]
-    >The Record field contains the data structure as it is returned from the AWS / GCP API. Use this field to define conditions which will determine if the resource is healthy or unhealthy. <br> You can access internal properties of Record filed using a dot notation. <br>
+    >The Record field contains the data structure as it is returned from the AWS / GCP API. Use this field to define conditions which will determine if the resource is healthy or unhealthy. <br> You can access internal properties of the Record field using a dot notation. <br>
     For example: | extend EncryptionType = Record.Encryption.Type.
 
 #### Additional instructions
@@ -108,3 +109,5 @@ You can use the following links to learn more about Kusto queries:
 - [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/)
 - [Must Learn KQL Part 1: Tools and Resources](https://azurecloudai.blog/2021/11/17/must-learn-kql-part-1-tools-and-resources/) 
 - [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
+
+

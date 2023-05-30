@@ -1,5 +1,6 @@
 ---
 title: "Event-driven work using Dapr Bindings"
+titleSuffix: "Azure Container Apps"
 description: Deploy a sample Dapr Bindings application to Azure Container Apps.
 author: hhunter-ms
 ms.author: hannahhunter
@@ -20,9 +21,6 @@ In this tutorial, you create a microservice to demonstrate [Dapr's Bindings API]
 The service listens to input binding events from a system CRON and then outputs the contents of local data to a PostreSql output binding.
 
 :::image type="content" source="media/microservices-dapr-azd/bindings-quickstart.png" alt-text="Diagram of the Dapr binding application.":::
-
-> [!NOTE]
-> This tutorial uses [Azure Developer CLI (`azd`)](/azure/developer/azure-developer-cli/overview), which is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
 
 ## Prerequisites
 
@@ -578,5 +576,6 @@ azd down
 ## Next steps
 
 - Learn more about [deploying Dapr applications to Azure Container Apps](./microservices-dapr.md).
+- [Enable token authentication for Dapr requests.](./dapr-authentication-token.md)
 - Learn more about [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) and [making your applications compatible with `azd`](/azure/developer/azure-developer-cli/make-azd-compatible).
 - [Scale your Dapr applications using KEDA scalers](./dapr-keda-scaling.md)

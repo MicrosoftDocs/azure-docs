@@ -22,24 +22,49 @@ Get started quickly with the [SAP on Azure Deployment Automation Framework](depl
 - An [Azure CLI](/cli/azure/install-azure-cli) installation on your local computer.
 - An [Azure PowerShell](/powershell/azure/install-az-ps#update-the-azure-powershell-module) installation on your local computer.
 - A Service Principal to use for the control plane deployment
+- Ability to create an Azure Devops project if you want to use Azure DevOps for deployment.
 
 Some of the prerequisites may already be installed in your deployment environment. Both Cloud Shell and the deployer have Terraform and the Azure CLI installed.
-## Clone the repository
 
-Clone the repository and prepare the execution environment by using the following steps:
+## Use SAP on Azure Deployment Automation Framework from Azure DevOps Services
+
+Using Azure DevOps streamlines the deployment process by providing pipelines that can be executed to perform both the infrastructure deployment and the configuration and SAP installation activities.
+You can use Azure Repos to store your configuration files and Azure Pipelines to deploy and configure the infrastructure and the SAP application.
+
+### Sign up for Azure DevOps Services
+
+To use Azure DevOps Services, you need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory (Azure AD). To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either _sign-in_ or create a new account.
+
+Follow the guidance here [Configure Azure DevOps for SDAF](configure-devops.md) to configure Azure DevOps for the SAP on Azure Deployment Automation Framework.
+
+## Creating the SAP on Azure Deployment Automation Framework environment without Azure DevOps
+
+You can run the SAP on Azure Deployment Automation Framework from a virtual machine in Azure. The following steps describe how to create the environment.
+
+Clone the repository and prepare the execution environment by using the following steps on a Linux Virtual machine in Azure:
+
+Ensure the Virtual Machine has the following prerequisites installed:
+ - git
+ 
+Ensure that the virtual machine is using either a system assigned or user assigned identity with permissions on the subscription to create resources.
+
 
 - Create a directory called `Azure_SAP_Automated_Deployment` for your automation framework deployment. 
 
 ```bash
-mkdir ~/Azure_SAP_Automated_Deployment/config; cd $_
-git clone https://github.com/Azure/sap-automation-bootstrap.git 
+mkdir -p ~/Azure_SAP_Automated_Deployment; cd $_
 
-mkdir ~/Azure_SAP_Automated_Deployment/sap-automation; cd $_
-git clone https://github.com/Azure/sap-automation.git 
+git clone https://github.com/Azure/sap-automation.git sap-automation
 
-mkdir ~/Azure_SAP_Automated_Deployment/samples; cd $_
-git clone https://github.com/Azure/sap-automation-samples.git 
+git clone https://github.com/Azure/sap-automation-samples.git samples
+
+git clone https://github.com/Azure/sap-automation-bootstrap.git config
+
+cd sap-automation/deploy/scripts
+    
+./configure_deployer.sh
 ```
+
 
 
 > [!TIP]

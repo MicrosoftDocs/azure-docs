@@ -2,7 +2,7 @@
 title: Azure CLI - Enable customer-managed keys with SSE - managed disks
 description: Enable customer-managed keys on your managed disks with the Azure CLI.
 author: roygara
-ms.date: 02/22/2023
+ms.date: 05/03/2023
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
@@ -127,3 +127,4 @@ az disk-encryption-set update -n keyrotationdes -g keyrotationtesting --key-url 
 - [Replicate machines with customer-managed keys enabled disks](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
 - [Set up disaster recovery of VMware VMs to Azure with PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
 - [Set up disaster recovery to Azure for Hyper-V VMs using PowerShell and Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)
+- See [Create a managed disk from a snapshot with CLI](../scripts/create-managed-disk-from-snapshot.md#disks-with-customer-managed-keys) for a code sample.

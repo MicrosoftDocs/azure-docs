@@ -1,6 +1,6 @@
 ---
-title: DICOM Conformance Statement for Azure Health Data Services
-description: This document provides details about the DICOM Conformance Statement for Azure Health Data Services. 
+title: DICOM Conformance Statement version 1 for Azure Health Data Services
+description: This document provides details about the DICOM Conformance Statement v1 for Azure Health Data Services. 
 services: healthcare-apis
 author: mmitrik
 ms.service: healthcare-apis
@@ -10,7 +10,7 @@ ms.date: 10/13/2022
 ms.author: mmitrik
 ---
 
-# DICOM Conformance Statement
+# DICOM Conformance Statement v1
 
 The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standard. Support includes:
 
@@ -27,7 +27,7 @@ The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standa
     * [Request Cancellation](#request-cancellation)
     * [Search Workitems](#search-workitems)
 
-Additionally, the following non-standard API(s) are supported:
+Additionally, the following nonstandard API(s) are supported:
 
 * [Change Feed](dicom-change-feed-overview.md)
 * [Extended Query Tags](dicom-extended-query-tags-overview.md)
@@ -36,17 +36,19 @@ The service uses REST API versioning. The version of the REST API must be explic
 
 `https://<service_url>/v<version>/studies`
 
+This version of the conformance statement corresponds to the `v1` version of the REST APIs.  
+
 For more information on how to specify the version when making requests, see the [API Versioning Documentation](api-versioning-dicom-service.md).
 
-You'll find example requests for supported transactions in the [Postman collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
+You can find example requests for supported transactions in the [Postman collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
 
 ## Preamble Sanitization
 
-The service ignores the 128-byte File Preamble, and replaces its contents with null characters. This behavior ensures that no files passed through the service are vulnerable to the [malicious preamble vulnerability](https://dicom.nema.org/medical/dicom/current/output/chtml/part10/sect_7.5.html). However, this also means that [preambles used to encode dual format content](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6489422/) such as TIFF can't be used with the service.
+The service ignores the 128-byte File Preamble, and replaces its contents with null characters. This behavior ensures that no files passed through the service are vulnerable to the [malicious preamble vulnerability](https://dicom.nema.org/medical/dicom/current/output/chtml/part10/sect_7.5.html). However, this preamble sanitization also means that [preambles used to encode dual format content](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6489422/) such as TIFF can't be used with the service.
 
 ## Studies Service
 
-The [Studies Service](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#chapter_10) allows users to store, retrieve, and search for DICOM Studies, Series, and Instances. We've added the non-standard Delete transaction to enable a full resource lifecycle.
+The [Studies Service](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#chapter_10) allows users to store, retrieve, and search for DICOM Studies, Series, and Instances. We've added the nonstandard Delete transaction to enable a full resource lifecycle.
 
 ### Store (STOW-RS)
 
@@ -57,7 +59,7 @@ This transaction uses the POST method to store representations of studies, serie
 | POST   | ../studies         | Store instances. |
 | POST   | ../studies/{study} | Store instances for a specific study. |
 
-Parameter `study` corresponds to the DICOM attribute StudyInstanceUID. If it's specified, any instance that doesn't belong to the provided study will be rejected with a `43265` warning code.
+Parameter `study` corresponds to the DICOM attribute StudyInstanceUID. If it's specified, any instance that doesn't belong to the provided study is rejected with a `43265` warning code.
 
 The following `Accept` header(s) for the response are supported:
 
@@ -71,6 +73,7 @@ The following `Content-Type` header(s) are supported:
 > [!NOTE]
 > The Server **will not** coerce or replace attributes that conflict with existing data. All data will be stored as provided.
 
+#### Store required attributes
 The following DICOM elements are required to be present in every DICOM file attempting to be stored:
 
 * `StudyInstanceUID`
@@ -80,9 +83,9 @@ The following DICOM elements are required to be present in every DICOM file atte
 * `PatientID`
 
 > [!NOTE]
-> All identifiers must be between 1 and 64 characters long, and only contain alpha numeric characters or the following special characters: `.`, `-`.
+> All UIDs must be between 1 and 64 characters long, and only contain alpha numeric characters or the following special characters: `.`, `-`. `PatientID` is validated based on its `LO` `VR` type.
 
-Each file stored must have a unique combination of `StudyInstanceUID`, `SeriesInstanceUID`, and `SopInstanceUID`. The warning code `45070` will be returned if a file with the same identifiers already exists.
+Each file stored must have a unique combination of `StudyInstanceUID`, `SeriesInstanceUID`, and `SopInstanceUID`. The warning code `45070` is returned if a file with the same identifiers already exists.
 
 Only transfer syntaxes with explicit Value Representations are accepted.
 
@@ -103,7 +106,7 @@ Only transfer syntaxes with explicit Value Representations are accepted.
 
 ### Store response payload
 
-The response payload will populate a DICOM dataset with the following elements:
+The response payload populates a DICOM dataset with the following elements:
 
 | Tag          | Name                  | Description |
 | :----------- | :-------------------- | :---------- |
@@ -111,7 +114,7 @@ The response payload will populate a DICOM dataset with the following elements:
 | (0008, 1198) | `FailedSOPSequence`     | The sequence of instances that failed to store. |
 | (0008, 1199) | `ReferencedSOPSequence` | The sequence of stored instances. |
 
-Each dataset in the `FailedSOPSequence` will have the following elements (if the DICOM file attempting to be stored could be read):
+Each dataset in the `FailedSOPSequence` has the following elements (if the DICOM file attempting to be stored could be read):
 
 | Tag          | Name                     | Description |
 | :----------- | :----------------------- | :---------- |
@@ -120,7 +123,7 @@ Each dataset in the `FailedSOPSequence` will have the following elements (if the
 | (0008, 1197) | `FailureReason`            | The reason code why this instance failed to store. |
 | (0074, 1048) | `FailedAttributesSequence` | The sequence of `ErrorComment` that includes the reason for each failed attribute. |
 
-Each dataset in the `ReferencedSOPSequence` will have the following elements:
+Each dataset in the `ReferencedSOPSequence` has the following elements:
 
 | Tag          | Name                     | Description |
 | :----------- | :----------------------- | :---------- |
@@ -216,7 +219,9 @@ This Retrieve Transaction offers support for retrieving stored studies, series, 
 | GET    | ../studies/{study}/series/{series}/metadata  | Retrieves the metadata for all instances within a series. |
 | GET    | ../studies/{study}/series/{series}/instances/{instance} | Retrieves a single instance. |
 | GET    | ../studies/{study}/series/{series}/instances/{instance}/metadata | Retrieves the metadata for a single instance. |
-| GET    | ../studies/{study}/series/{series}/instances/{instance}/frames/{frames} | Retrieves one or many frames from a single instance. To specify more than one frame, use a comma to separate each frame to return. For example, /studies/1/series/2/instance/3/frames/4,5,6 |
+| GET | ../studies/{study}/series/{series}/instances/{instance}/rendered | Retrieves an instance rendered into an image format |
+| GET    | ../studies/{study}/series/{series}/instances/{instance}/frames/{frames} | Retrieves one or many frames from a single instance. To specify more than one frame, use a comma to separate each frame to return. For example, `/studies/1/series/2/instance/3/frames/4,5,6`. |
+| GET | ../studies/{study}/series/{series}/instances/{instance}/frames/{frame}/rendered | Retrieves a single frame rendered into an image format. |
 
 #### Retrieve instances within study or series
 
@@ -252,7 +257,7 @@ The following `Accept` headers are supported for retrieving frames:
 
 #### Retrieve transfer syntax
 
-When the requested transfer syntax is different from original file, the original file is transcoded to requested transfer syntax. The original file needs to be one of the formats below for transcoding to succeed; otherwise, transcoding may fail:
+When the requested transfer syntax is different from original file, the original file is transcoded to requested transfer syntax. The original file needs to be one of the following formats for transcoding to succeed, otherwise transcoding may fail:
 
 * 1.2.840.10008.1.2 (Little Endian Implicit)
 * 1.2.840.10008.1.2.1 (Little Endian Explicit)
@@ -264,7 +269,7 @@ When the requested transfer syntax is different from original file, the original
 * 1.2.840.10008.1.2.4.91 (JPEG 2000)
 * 1.2.840.10008.1.2.5 (RLE Lossless)
 
-An unsupported `transfer-syntax` will result in `406 Not Acceptable`.
+An unsupported `transfer-syntax` results in `406 Not Acceptable`.
 
 ### Retrieve metadata (for study, series, or instance)
 
@@ -272,7 +277,7 @@ The following `Accept` header is supported for retrieving metadata for a study, 
 
 * `application/dicom+json`
 
-Retrieving metadata will not return attributes with the following value representations:
+Retrieving metadata doesn't return attributes with the following value representations:
 
 | VR Name | Description            |
 | :------ | :--------------------- |
@@ -284,12 +289,26 @@ Retrieving metadata will not return attributes with the following value represen
 | OW      | Other Word             |
 | UN      | Unknown                |
 
-### Retrieve metadata cache validation for (study, series, or instance)
+### Retrieve metadata cache validation (for study, series, or instance)
 
 Cache validation is supported using the `ETag` mechanism. In the response to a metadata request, ETag is returned as one of the headers. This ETag can be cached and added as `If-None-Match` header in the later requests for the same metadata. Two types of responses are possible if the data exists:
 
-* Data hasn't changed since the last request: `HTTP 304 (Not Modified)` response will be sent with no response body.
-* Data has changed since the last request: `HTTP 200 (OK)` response will be sent with updated ETag. Required data will also be returned as part of the body.
+* Data hasn't changed since the last request: `HTTP 304 (Not Modified)` response is sent with no response body.
+* Data has changed since the last request: `HTTP 200 (OK)` response is sent with updated ETag. Required data is also returned as part of the body.
+
+### Retrieve rendered image (for instance or frame)
+The following `Accept` header(s) are supported for retrieving a rendered image an instance or a frame:
+
+- `image/jpeg`
+- `image/png`
+
+In the case that no `Accept` header is specified the service renders an `image/jpeg` by default.
+
+The service only supports rendering of a single frame. If rendering is requested for an instance with multiple frames, then only the first frame is rendered as an image by default.
+
+When specifying a particular frame to return, frame indexing starts at 1.
+
+The `quality` query parameter is also supported. An integer value between `1` and `100` inclusive (1 being worst quality, and 100 being best quality) may be passed as the value for the query parameter. This parameter is used for images rendered as `jpeg`, and is ignored for `png` render requests. If not specified the parameter defaults to `100`.
 
 ### Retrieve response status codes
 
@@ -297,11 +316,11 @@ Cache validation is supported using the `ETag` mechanism. In the response to a m
 | :--------------------------- | :---------- |
 | `200 (OK)`                     | All requested data has been retrieved. |
 | `304 (Not Modified)`           | The requested data hasn't been modified since the last request. Content isn't added to the response body in such case. For more information, see the above section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
-| `400 (Bad Request)`            | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format, or the requested transfer-syntax encoding isn't supported. |
+| `400 (Bad Request)` | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format, or the requested transfer-syntax encoding isn't supported. |
 | `401 (Unauthorized)`           | The client isn't authenticated. |
 | `403 (Forbidden)`              | The user isn't authorized. |
-| `404 (Not Found)`              | The specified DICOM resource couldn't be found. |
-| `406 (Not Acceptable)`         | The specified `Accept` header isn't supported. |
+| `404 (Not Found)`              | The specified DICOM resource couldn't be found, or for rendered request the instance did not contain pixel data. |
+| `406 (Not Acceptable)`         | The specified `Accept` header isn't supported, or for rendered and transcode requests the file requested was too large. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later. |
 
 ### Search (QIDO-RS)
@@ -331,10 +350,10 @@ The following parameters for each query are supported:
 | Key    | Support Value(s)    | Allowed Count | Description |
 | :----- | :----- | :------------ | :---------- |
 | `{attributeID}=` | `{value}`     | 0...N    | Search for attribute/ value matching in query. |
-| `includefield=`  | `{attributeID}`<br/>`all`   | 0...N   | The additional attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided, refer to [Search Response](#search-response) for more information about which attributes will be returned for each query type.<br/>If a mixture of `{attributeID}` and `all` is provided, the server will default to using `all`. |
+| `includefield=`  | `{attributeID}`<br/>`all`   | 0...N   | The additional attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided, refer to [Search Response](#search-response) for more information about which attributes are returned for each query type.<br/>If a mixture of `{attributeID}` and `all` is provided, the server defaults to using `all`. |
 | `limit=`  | `{value}`  | 0..1   | Integer value to limit the number of values returned in the response.<br/>Value can be between the range 1 >= x <= 200. Defaulted to 100. |
-| `offset=`     | `{value}`  | 0..1  | Skip `{value}` results.<br/>If an offset is provided larger than the number of search query results, a 204 (no content) response will be returned. |
-| `fuzzymatching=` | `true` / `false`  | 0..1    | If true fuzzy matching is applied to PatientName attribute. It will do a prefix word match of any name part inside PatientName value. For example, if PatientName is "John^Doe", then "joh", "do", "jo do", "Doe" and "John Doe" will all match. However, "ohn" won't match. |
+| `offset=`     | `{value}`  | 0..1  | Skip `{value}` results.<br/>If an offset is provided larger than the number of search query results, a 204 (no content) response is returned. |
+| `fuzzymatching=` | `true` / `false`  | 0..1    | If true fuzzy matching is applied to PatientName attribute. It does a prefix word match of any name part inside PatientName value. For example, if PatientName is "John^Doe", then "joh", "do", "jo do", "Doe" and "John Doe" all match. However, "ohn" doesn't match. |
 
 #### Searchable attributes
 
@@ -363,13 +382,13 @@ We support the following matching types.
 
 | Search Type | Supported Attribute | Example |
 | :---------- | :------------------ | :------ |
-| Range Query | `StudyDate`/`PatientBirthDate` | `{attributeID}={value1}-{value2}`. For date/ time values, we support an inclusive range on the tag. This will be mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` will be matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times will be matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
+| Range Query | `StudyDate`/`PatientBirthDate` | `{attributeID}={value1}-{value2}`. For date/ time values, we support an inclusive range on the tag. This is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` are matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
 | Exact Match | All supported attributes | `{attributeID}={value1}` |
-| Fuzzy Match | `PatientName`, `ReferringPhysicianName` | Matches any component of the name which starts with the value. |
+| Fuzzy Match | `PatientName`, `ReferringPhysicianName` | Matches any component of the name that starts with the value. |
 
 #### Attribute ID
 
-Tags can be encoded in several ways for the query parameter. We've partially implemented the standard as defined in [PS3.18 6.7.1.1.1](http://dicom.nema.org/medical/dicom/2019a/output/chtml/part18/sect_6.7.html#sect_6.7.1.1.1). The following encodings for a tag are supported:
+Tags can be encoded in several ways for the query parameter. We have partially implemented the standard as defined in [PS3.18 6.7.1.1.1](http://dicom.nema.org/medical/dicom/2019a/output/chtml/part18/sect_6.7.html#sect_6.7.1.1.1). The following encodings for a tag are supported:
 
 | Value            | Example          |
 | :--------------- | :--------------- |
@@ -378,13 +397,13 @@ Tags can be encoded in several ways for the query parameter. We've partially imp
 
 Example query searching for instances:
 
- `../instances?Modality=CT&00280011=512&includefield=00280010&limit=5&offset=0`
+`../instances?Modality=CT&00280011=512&includefield=00280010&limit=5&offset=0`
 
 ### Search response
 
-The response will be an array of DICOM datasets. Depending on the resource, by *default* the following attributes are returned
+The response is an array of DICOM datasets. Depending on the resource, by *default* the following attributes are returned:
 
-#### Default study tags
+#### Default Study tags
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
@@ -402,7 +421,7 @@ The response will be an array of DICOM datasets. Depending on the resource, by *
 | (0020, 0010) | `StudyID` |
 | (0020, 000D) | `StudyInstanceUID` |
 
-#### Default series tags
+#### Default Series tags
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
@@ -415,7 +434,7 @@ The response will be an array of DICOM datasets. Depending on the resource, by *
 | (0040, 0245) | `PerformedProcedureStepStartTime` |
 | (0040, 0275) | `RequestAttributesSequence` |
 
-#### Default instance tags
+#### Default Instance tags
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
@@ -430,7 +449,7 @@ The response will be an array of DICOM datasets. Depending on the resource, by *
 | (0028, 0100) | `BitsAllocated` |
 | (0028, 0008) | `NumberOfFrames` |
 
-If `includefield=all`, the below attributes are included along with default attributes. Along with the default attributes, this is the full list of attributes supported at each resource level.
+If `includefield=all`, the following attributes are included along with default attributes. Along with the default attributes, this is the full list of attributes supported at each resource level.
 
 #### Additional Study tags
 
@@ -457,10 +476,10 @@ If `includefield=all`, the below attributes are included along with default attr
 | (0008, 0021) | `SeriesDate` |
 | (0008, 0031) | `SeriesTime` |
 
-Along with those below attributes are returned:
+The following attributes are returned:
 
 * All the match query parameters and UIDs in the resource url.
-* `IncludeField` attributes supported at that resource level. 
+* `IncludeField` attributes supported at that resource level.
 * If the target resource is `All Series`, then `Study` level attributes are also returned.
 * If the target resource is `All Instances`, then `Study` and `Series` level attributes are also returned.
 * If the target resource is `Study's Instances`, then `Series` level attributes are also returned.
@@ -483,21 +502,21 @@ The query API returns one of the following status codes in the response:
 ### Additional notes
 
 * Querying using the `TimezoneOffsetFromUTC (00080201)` isn't supported.
-* The query API won't return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request will be returned. Anything requested within the acceptable range, will be resolved.
-* When target resource is Study/Series there's a potential for inconsistent study/series level metadata across multiple instances. For example, two instances could have different patientName. In this case, the latest will win and you can search only on the latest data.
-* Paged results are optimized to return matched newest instance first, this may result in duplicate records in subsequent pages if newer data matching the query was added.
+* The query API doesn't return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range will be resolved.
+* When target resource is Study/Series, there's a potential for inconsistent study/series level metadata across multiple instances. For example, two instances could have different patientName. In this case, the latest wins and you can search only on the latest data.
+* Paged results are optimized to return matched _newest_ instance first, this may result in duplicate records in subsequent pages if newer data matching the query was added.
 * Matching is case in-sensitive and accent in-sensitive for PN VR types.
 * Matching is case in-sensitive and accent sensitive for other string VR types.
-* Only the first value will be indexed of a single valued data element that incorrectly has multiple values.
+* Only the first value is indexed of a single valued data element that incorrectly has multiple values.
 
 ### Delete
 
-This transaction isn't part of the official DICOMweb&trade; Standard. It uses the DELETE method to remove representations of studies, series, and instances from the store.
+This transaction isn't part of the official DICOMweb&trade; Standard. It uses the DELETE method to remove representations of Studies, Series, and Instances from the store.
 
-| Method | Path       | Description |
-| :----- | :--------- | :---------- |
-| DELETE | ../studies/{study}       | Delete all instances for a specific study. |
-| DELETE | ../studies/{study}/series/{series}   | Delete all instances for a specific series within a study. |
+| Method | Path                                                    | Description |
+| :----- | :------------------------------------------------------ | :---------- |
+| DELETE | ../studies/{study}                                      | Delete all instances for a specific study. |
+| DELETE | ../studies/{study}/series/{series}                      | Delete all instances for a specific series within a study. |
 | DELETE | ../studies/{study}/series/{series}/instances/{instance} | Delete a specific instance within a series. |
 
 Parameters `study`, `series`, and `instance` correspond to the DICOM attributes `StudyInstanceUID`, `SeriesInstanceUID`, and `SopInstanceUID` respectively.
@@ -507,7 +526,7 @@ There are no restrictions on the request's `Accept` header, `Content-Type` heade
 > [!NOTE]
 > After a Delete transaction, the deleted instances will not be recoverable.
 
-### Response Status Codes
+### Response status codes
 
 | Code                         | Description |
 | :--------------------------- | :---------- |
@@ -520,7 +539,7 @@ There are no restrictions on the request's `Accept` header, `Content-Type` heade
 
 ### Delete response payload
 
-The response body will be empty. The status code is the only useful information returned.
+The response body is empty. The status code is the only useful information returned.
 
 ## Worklist Service (UPS-RS)
 
@@ -547,41 +566,44 @@ Available UPS-RS endpoints include:
 
 This transaction uses the POST method to create a new Workitem.
 
-|Method|	Path	|Description|
-|:---|:---|:---|
-| POST	|../workitems|	Create a Workitem.|
-| POST	|../workitems?{workitem}|	Creates a Workitem with the specified UID.|
+| Method | Path               | Description |
+| :----- | :----------------- | :---------- |
+| POST   | ../workitems         | Create a Workitem. |
+| POST   | ../workitems?{workitem} | Creates a Workitem with the specified UID. |
 
 If not specified in the URI, the payload dataset must contain the Workitem in the `SOPInstanceUID` attribute.
 
 The `Accept` and `Content-Type` headers are required in the request, and must both have the value `application/dicom+json`.
 
-There are several requirements related to DICOM data attributes in the context of a specific transaction. Attributes may be required to be present, required to not be present, required to be empty, or required to not be empty. These requirements can be found [in this table](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3).
+There are several requirements related to DICOM data attributes in the context of a specific transaction. Attributes may be
+required to be present, required to not be present, required to be empty, or required to not be empty. These requirements can be
+found [in this table](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3).
 
-Notes on dataset attributes:
+> [!NOTE]
+> Although the reference table above says that SOP Instance UID shouldn't be present, this guidance is specific to the DIMSE protocol and is handled differently in DICOMWeb™. SOP Instance UID should be present in the dataset if not in the URI.
 
-* **SOP Instance UID:** Although the reference table above says that SOP Instance UID shouldn't be present, this guidance is specific to the DIMSE protocol and is handled differently in DICOMWeb™. SOP Instance UID should be present in the dataset if not in the URI.
-* **Conditional requirement codes:** All the conditional requirement codes including 1C and 2C are treated as optional.
+> [!NOTE]
+> All the conditional requirement codes including 1C and 2C are treated as optional.
 
-#### Create Response Status Codes
+#### Create response status codes
 
-|Code	|Description|
-|:---|:---|
-|`201 (Created)`|	The target Workitem was successfully created.|
-|`400 (Bad Request)`|	There was a problem with the request. For example, the request payload didn't satisfy the requirements above.|
-|`401 (Unauthorized)`|	The client isn't authenticated.
-|`403 (Forbidden)`              | The user isn't authorized. |
-|`409 (Conflict)`	|The Workitem already exists.
-|`415 (Unsupported Media Type)`|	The provided `Content-Type` isn't supported.
-|`503 (Service Unavailable)`|	The service is unavailable or busy. Try again later.|
+| Code                           | Description |
+| :----------------------------- | :---------- |
+| `201 (Created)`                | The target Workitem was successfully created. |
+| `400 (Bad Request)`            | There was a problem with the request. For example, the request payload didn't satisfy the requirements above. |
+| `401 (Unauthorized)`           | The client isn't authenticated. |
+| `403 (Forbidden)`              | The user isn't authorized. |
+| `409 (Conflict)`               | The Workitem already exists. |
+| `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported. |
+| `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later. |
 
-#### Create Response Payload
+#### Create response payload
 
-A success response will have no payload. The `Location` and `Content-Location` response headers will contain a URI reference to the created Workitem.
+A success response has no payload. The `Location` and `Content-Location` response headers contain a URI reference to the created Workitem.
 
-A failure response payload will contain a message describing the failure.
+A failure response payload contains a message describing the failure.
 
-### Request Cancellation
+### Request cancellation
 
 This transaction enables the user to request cancellation of a non-owned Workitem.
 
@@ -592,31 +614,33 @@ There are [four valid Workitem states](https://dicom.nema.org/medical/dicom/curr
 * `CANCELED`
 * `COMPLETED`
 
-This transaction will only succeed against Workitems in the `SCHEDULED` state. Any user can claim ownership of a Workitem by setting its Transaction UID and changing its state to `IN PROGRESS`. From then on, a user can only modify the Workitem by providing the correct Transaction UID. While UPS defines Watch and Event SOP classes that allow cancellation requests and other events to be forwarded, this DICOM service doesn't implement these classes, and so cancellation requests on workitems that are `IN PROGRESS` will return failure. An owned Workitem can be canceled via the [Change Workitem State](#change-workitem-state) transaction.
+This transaction only succeeds against Workitems in the `SCHEDULED` state. Any user can claim ownership of a Workitem by setting its Transaction UID and changing its state to `IN PROGRESS`. From then on, a user can only modify the Workitem by providing the correct Transaction UID. While UPS defines Watch and Event SOP classes that allow cancellation requests and other events to be forwarded, this DICOM service doesn't implement these classes, and so cancellation requests on workitems that are `IN PROGRESS` returns failure. An owned Workitem can be canceled via the [Change Workitem State](#change-workitem-state) transaction.
 
-|Method	|Path|	Description|
-|:---|:---|:---|
-|POST	|../workitems/{workitem}/cancelrequest|	Request the cancellation of a scheduled Workitem|
+| Method  | Path                                            | Description                                      |
+| :------ | :---------------------------------------------- | :----------------------------------------------- |
+| POST    | ../workitems/{workitem}/cancelrequest           | Request the cancellation of a scheduled Workitem |
 
 The `Content-Type` header is required, and must have the value `application/dicom+json`.
 
 The request payload may include Action Information as [defined in the DICOM Standard](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.2-1).
 
-#### Request Cancellation Response Status Codes
+#### Request cancellation response status codes
 
-|Code	|Description|
-|:---|:---|
-|`202 (Accepted)`|	The request was accepted by the server, but the Target Workitem state hasn't necessarily changed yet.|
-|`400 (Bad Request)`|	There was a problem with the syntax of the request.|
-|`401 (Unauthorized)`|	The client isn't authenticated.
-|`403 (Forbidden)`              | The user isn't authorized. |
-|`404 (Not Found)`|	The Target Workitem wasn't found.
-|`409 (Conflict)`|	The request is inconsistent with the current state of the Target Workitem. For example, the Target Workitem is in the **SCHEDULED** or **COMPLETED** state.
-|`415 (Unsupported Media Type)`	|The provided `Content-Type` isn't supported.|
+| Code                         | Description |
+| :--------------------------- | :---------- |
+| `202 (Accepted)`               | The request was accepted by the server, but the Target Workitem state hasn't necessarily changed yet. |
+| `400 (Bad Request)`            | There was a problem with the syntax of the request. |
+| `401 (Unauthorized)`           | The client isn't authenticated. |
+| `403 (Forbidden)`              | The user isn't authorized. |
+| `404 (Not Found)`              | The Target Workitem wasn't found. |
+| `409 (Conflict)`               | The request is inconsistent with the current state of the Target Workitem. For example, the Target Workitem is in the `SCHEDULED` or `COMPLETED` state. |
+| `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported. |
 
-#### Request Cancellation Response Payload
+#### Request cancellation response payload
 
-A success response will have no payload, and a failure response payload will contain a message describing the failure. If the Workitem Instance is already in a canceled state, the response will include the following HTTP Warning header: `299: The UPS is already in the requested state of CANCELED.`
+A success response has no payload, and a failure response payload contains a message describing the failure.
+If the Workitem Instance is already in a canceled state, the response includes the following HTTP Warning header:
+`299: The UPS is already in the requested state of CANCELED.`
 
 ### Retrieve Workitem
 
@@ -626,23 +650,23 @@ Refer to: https://dicom.nema.org/medical/dicom/current/output/html/part18.html#s
 
 If the Workitem exists on the origin server, the Workitem shall be returned in an Acceptable Media Type. The returned Workitem shall not contain the Transaction UID (0008,1195) Attribute. This is necessary to preserve this Attribute's role as an access lock.
 
-|Method	|Path	|Description
-|:---|:---|:---|
-|GET|	../workitems/{workitem}|	Request to retrieve a Workitem
+| Method  | Path                    | Description   |
+| :------ | :---------------------- | :------------ |
+| GET     | ../workitems/{workitem}	| Request to retrieve a Workitem	|
 
 The `Accept` header is required and must have the value `application/dicom+json`.
 
-#### Retrieve Workitem Response Status Codes
+#### Retrieve Workitem response status codes
 
-|Code	|Description|
-|:--- |:---
-|`200 (OK)`|	Workitem Instance was successfully retrieved.|
-|`400 (Bad Request)`|	There was a problem with the request.|
-|`401 (Unauthorized)`|	The client isn't authenticated.|
-|`403 (Forbidden)`   | The user isn't authorized. |
-|`404 (Not Found)`|	The Target Workitem wasn't found.|
+| Code                         	| Description |
+| :---------------------------- | :---------- |
+| 200 (OK)               		| Workitem Instance was successfully retrieved. |
+| 400 (Bad Request)            	| There was a problem with the request.	|
+| 401 (Unauthorized)           	| The client isn't authenticated. |
+| 403 (Forbidden)               | The user isn't authorized. |
+| 404 (Not Found)              	| The Target Workitem wasn't found. |
 
-#### Retrieve Workitem Response Payload
+#### Retrieve Workitem response payload
 
 * A success response has a single part payload containing the requested Workitem in the Selected Media Type.
 * The returned Workitem shall not contain the Transaction UID (0008, 1195) attribute of the Workitem, since that should only be known to the Owner.
@@ -653,37 +677,40 @@ This transaction modifies attributes of an existing Workitem. It corresponds to 
 
 Refer to: https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.6
 
-To update a Workitem currently in the **SCHEDULED** state, the `Transaction UID` attribute shall not be present. For a Workitem in the **IN PROGRESS** state, the request must include the current Transaction UID as a query parameter. If the Workitem is already in the **COMPLETED** or **CANCELED** states, the response will be `400 (Bad Request)`.
+To update a Workitem currently in the `SCHEDULED` state, the `Transaction UID` attribute shall not be present. For a Workitem in the `IN PROGRESS` state, the request must include the current Transaction UID as a query parameter. If the Workitem is already in the `COMPLETED` or `CANCELED` states, the response is `400 (Bad Request)`.
 
-|Method	|Path	|Description
-|:---|:---|:---|
-|POST|	../workitems/{workitem}?{transaction-uid}|	Update Workitem Transaction|
+| Method  | Path                            | Description           |
+| :------ | :------------------------------ | :-------------------- |
+| POST     | ../workitems/{workitem}?{transaction-uid}	| Update Workitem Transaction	|
 
 The `Content-Type` header is required, and must have the value `application/dicom+json`.
 
-The request payload contains a dataset with the changes to be applied to the target Workitem. When modifying a sequence, the request must include all Items in the sequence, not just the Items to be modified. When multiple Attributes need updating as a group, do this as multiple Attributes in a single request, not as multiple requests.
+The request payload contains a dataset with the changes to be applied to the target Workitem. When modifying a sequence, the request must include all Items in the sequence, not just the Items to be modified.
+When multiple Attributes need to be updated as a group, do this as multiple Attributes in a single request, not as multiple requests.
 
-There are a number of requirements related to DICOM data attributes in the context of a specific transaction. Attributes may be required to be present, required to not be present, required to be empty, or required to not be empty. These requirements can be found in this table.
+There are many requirements related to DICOM data attributes in the context of a specific transaction. Attributes may be
+required to be present, required to not be present, required to be empty, or required to not be empty. These requirements can be
+found in [this table](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3).
 
-Notes on dataset attributes:
+> [!NOTE]
+> All the conditional requirement codes including 1C and 2C are treated as optional.
 
-* **Conditional requirement codes:** All the conditional requirement codes including 1C and 2C are treated as optional.
+> [!NOTE]
+> The request can't set the value of the Procedure Step State (0074,1000) attribute. Procedure Step State is managed using the Change State transaction, or the Request Cancellation transaction.
 
-* The request can't set the value of the Procedure Step State (0074,1000) attribute. Procedure Step State is managed using the Change State transaction, or the Request Cancellation transaction.
+#### Update Workitem transaction response status codes
 
-#### Update Workitem Transaction Response Status Codes
+| Code                        	| Description |
+| :---------------------------- | :---------- |
+| `200 (OK)`              		| The Target Workitem was updated. |
+| `400 (Bad Request)`         	| There was a problem with the request. For example: (1) the Target Workitem was in the `COMPLETED` or `CANCELED` state. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect. (4) the dataset didn't conform to the requirements.
+| `401 (Unauthorized)`         	| The client isn't authenticated. |
+| `403 (Forbidden)`             | The user isn't authorized. |
+| `404 (Not Found)`            	| The Target Workitem wasn't found. |
+| `409 (Conflict)`             	| The request is inconsistent with the current state of the Target Workitem. |
+| `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported. |
 
-|Code	|Description|
-|:---|:---|
-|`200 (OK)`|	The Target Workitem was updated.|
-|`400 (Bad Request)`|	There was a problem with the request. For example: (1) the Target Workitem was in the `COMPLETED` or `CANCELED` state. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect. (4) the dataset didn't conform to the requirements.|
-|`401 (Unauthorized)`|	The client isn't authenticated.|
-| `403 (Forbidden)`              | The user isn't authorized. |
-|`404 (Not Found)`|	The Target Workitem wasn't found.|
-|`409 (Conflict)`	|The request is inconsistent with the current state of the Target Workitem.|
-|`415 (Unsupported Media Type)`| The provided `Content-Type` isn't supported.|
-
-#### Update Workitem Transaction Response Payload
+#### Update Workitem transaction response payload
 
 The origin server shall support header fields as required in [Table 11.6.3-2](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#table_11.6.3-2).
 
@@ -691,39 +718,39 @@ A success response shall have either no payload or a payload containing a Status
 
 A failure response payload may contain a Status Report describing any failures, warnings, or other useful information.
 
-### Change Workitem State
+### Change Workitem state
 
 This transaction is used to change the state of a Workitem. It corresponds to the UPS DIMSE N-ACTION operation "Change UPS State". State changes are used to claim ownership, complete, or cancel a Workitem.
 
 Refer to: https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.7
 
-If the Workitem exists on the origin server, the Workitem shall be returned in an Acceptable Media Type. The returned Workitem shall not contain the Transaction UID (0008,1195) attribute. This is necessary to preserve this attribute's role as an access lock, as described here.
+If the Workitem exists on the origin server, the Workitem shall be returned in an Acceptable Media Type. The returned Workitem shall not contain the Transaction UID (0008,1195) attribute. This is necessary to preserve this Attribute's role as an access lock as described [here.](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#sect_CC.1.1)
 
-|Method|	Path|	Description|
-|:---|:---|:---|
-|PUT|	../workitems/{workitem}/state|Change Workitem State |
+| Method  | Path                            | Description           |
+| :------ | :------------------------------ | :-------------------- |
+| PUT     | ../workitems/{workitem}/state	| Change Workitem State	|
 
 The `Accept` header is required, and must have the value `application/dicom+json`.
 
 The request payload shall contain the Change UPS State Data Elements. These data elements are:
 
-* **Transaction UID (0008, 1195)** The request payload shall include a Transaction UID. The user agent creates the Transaction UID when requesting a transition to the `IN PROGRESS` state for a given Workitem. The user agent provides that Transaction UID in subsequent transactions with that Workitem.
-* **Procedure Step State (0074, 1000)** The legal values correspond to the requested state transition. They are: `IN PROGRESS`, `COMPLETED`, or `CANCELED`.
+* **Transaction UID (0008, 1195)**. The request payload shall include a Transaction UID. The user agent creates the Transaction UID when requesting a transition to the `IN PROGRESS` state for a given Workitem. The user agent provides that Transaction UID in subsequent transactions with that Workitem.
+* **Procedure Step State (0074, 1000)**. The legal values correspond to the requested state transition. They are: `IN PROGRESS`, `COMPLETED`, or `CANCELED`.
 
-#### Change Workitem State Response Status Codes
+#### Change Workitem state response status codes
 
-|Code|	Description|
-|:---|:---|
-|`200 (OK)`|	Workitem Instance was successfully retrieved.|
-|`400 (Bad Request)`	|The request can't be performed for one of the following reasons: (1) the request is invalid given the current state of the Target Workitem. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect|
-|`401 (Unauthorized)`	|The client isn't authenticated.|
-|`403 (Forbidden)`   | The user isn't authorized. |
-|`404 (Not Found)`|	The Target Workitem wasn't found.|
-|`409 (Conflict)`|	The request is inconsistent with the current state of the Target Workitem.|
+| Code                         	| Description |
+| :---------------------------- | :---------- |
+| `200 (OK)`               		| Workitem Instance was successfully retrieved. |
+| `400 (Bad Request)`           | The request can't be performed for one of the following reasons: (1) the request is invalid given the current state of the Target Workitem. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect |
+| `401 (Unauthorized)`          | The client isn't authenticated. |
+| `403 (Forbidden)`             | The user isn't authorized. |
+| `404 (Not Found)`             | The Target Workitem wasn't found. |
+| `409 (Conflict)`              | The request is inconsistent with the current state of the Target Workitem. |
 
-#### Change Workitem State Response Payload
+#### Change Workitem state response payload
 
-* Responses will include the header fields specified in [section 11.7.3.2](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.7.3.2).
+* Responses include the header fields specified in [section 11.7.3.2](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.7.3.2).
 * A success response shall have no payload.
 * A failure response payload may contain a Status Report describing any failures, warnings, or other useful information.
 
@@ -731,25 +758,25 @@ The request payload shall contain the Change UPS State Data Elements. These data
 
 This transaction enables you to search for Workitems by attributes.
 
-|Method	|Path|	Description|
-|:---|:---|:---|
-|GET|	../workitems?|	Search for Workitems|
+| Method | Path                                            | Description                       |
+| :----- | :---------------------------------------------- | :-------------------------------- |
+| GET    | ../workitems?                                   | Search for Workitems              |
 
 The following `Accept` header(s) are supported for searching:
 
-`application/dicom+json`
+* `application/dicom+json`
 
 #### Supported Search Parameters
 
 The following parameters for each query are supported:
 
-|Key	|Support| Values|	Allowed| Count	|Description|
-|:--- |:---   |:---   |:---    |:---    |:---|
-|`{attributeID}=`|	`{value}`	|0...N	|Search for attribute/ value matching in query.
-|`includefield=`	|`{attributeID} all`|	0...N	|The additional attributes to return in the response. Only top-level attributes can be specified to be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided, see [Search Response](#search-response) for more information about which attributes will be returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server will default to using 'all'.
-|`limit=`|	`{value}`|	0...1|	Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 200`. Defaulted to `100`.|
-|`offset=`|	`{value}`|	0...1|	Skip {value} results. If an offset is provided larger than the number of search query results, a `204 (no content)` response will be returned.
-|`fuzzymatching=`	|`true/false`|	0...1	|If true fuzzy matching is applied to any attributes with the Person Name (PN) Value Representation (VR). It will do a prefix word match of any name part inside these attributes. For example, if `PatientName` is `John^Doe`, then `joh`, `do`, `jo do`, `Doe` and `John Doe` will all match. However `ohn` will **not** match.|
+| Key              | Support Value(s)              | Allowed Count | Description |
+| :--------------- | :---------------------------- | :------------ | :---------- |
+| `{attributeID}=` | `{value}`                     | 0...N         | Search for attribute/ value matching in query. |
+| `includefield=`  | `{attributeID}`<br/>`all`     | 0...N         | The additional attributes to return in the response. Only top-level attributes can be specified to be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided, see [Search Response](#search-response) for more information about which attributes are returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server defaults to using 'all'. |
+| `limit=`         | `{value}`                     | 0...1          | Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 200`. Defaulted to `100`. |
+| `offset=`        | `{value}`                     | 0...1          | Skip {value} results. If an offset is provided larger than the number of search query results, a `204 (no content)` response is returned. |
+| `fuzzymatching=` | `true` \| `false`             | 0...1          | If true fuzzy matching is applied to any attributes with the Person Name (PN) Value Representation (VR). It does a prefix word match of any name part inside these attributes. For example, if `PatientName` is `John^Doe`, then `joh`, `do`, `jo do`, `Doe` and `John Doe` all match. However `ohn` does **not** match. |
 
 ##### Searchable Attributes
 
@@ -772,23 +799,23 @@ We support searching on these attributes:
 
 We support these matching types:
 
-|Search Type	|Supported Attribute|	Example|
-|:---|:---|:---|
-|Range Query|	`Scheduled​Procedure​Step​Start​Date​Time`|	`{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This will be mapped to `attributeID >= {value1}` AND `attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` will be matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times will be matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid.
-|Exact Match	|All supported attributes|	`{attributeID}={value1}`
-|Fuzzy Match|	`PatientName`	|Matches any component of the name that starts with the value.
+| Search Type | Supported Attribute | Example |
+| :---------- | :------------------ | :------ |
+| Range Query | `Scheduled​Procedure​Step​Start​Date​Time` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This will be mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` will be matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times will be matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
+| Exact Match | All supported attributes | `{attributeID}={value1}` |
+| Fuzzy Match | `PatientName` | Matches any component of the name that starts with the value. |
 
 > [!NOTE]
 > While we don't support full sequence matching, we do support exact match on the attributes listed above that are contained in a sequence.
 
 ##### Attribute ID
 
-Tags can be encoded in a number of ways for the query parameter. We've partially implemented the standard as defined in [PS3.18 6.7.1.1.1](http://dicom.nema.org/medical/dicom/2019a/output/chtml/part18/sect_6.7.html#sect_6.7.1.1.1). The following encodings for a tag are supported:
+Tags can be encoded in many ways for the query parameter. We have partially implemented the standard as defined in [PS3.18 6.7.1.1.1](http://dicom.nema.org/medical/dicom/2019a/output/chtml/part18/sect_6.7.html#sect_6.7.1.1.1). The following encodings for a tag are supported:
 
-|Value	|Example|
-|:---|:---|
-|`{group}{element}`	|`00100010`|
-|`{dicomKeyword}`	|`PatientName`|
+| Value              | Example          |
+| :----------------- | :--------------- |
+| `{group}{element}` | `00100010`         |
+| `{dicomKeyword}`   | `PatientName` |
 
 Example query: 
 
@@ -796,7 +823,7 @@ Example query:
 
 #### Search Response
 
-The response will be an array of `0...N` DICOM datasets with the following attributes returned:
+The response is an array of `0...N` DICOM datasets with the following attributes returned:
 
 * All attributes in [DICOM PowerShell 3.4 Table CC.2.5-3](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3) with a Return Key Type of 1 or 2
 * All attributes in [DICOM PowerShell 3.4 Table CC.2.5-3](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3) with a Return Key Type of 1C for which the conditional requirements are met
@@ -805,21 +832,21 @@ The response will be an array of `0...N` DICOM datasets with the following attri
 
 #### Search Response Codes
 
-The query API will return one of the following status codes in the response:
+The query API returns one of the following status codes in the response:
 
-|Code	|Description|
-|:---|:---|
-|`200 (OK)`|	The response payload contains all the matching resource.|
-|`206 (Partial Content)`	| The response payload contains only some of the search results, and the rest can be requested through the appropriate request.|
-|`204 (No Content)`|	The search completed successfully, but returned no results.|
-|`400 (Bad Request)`|	The was a problem with the request. For example, invalid Query Parameter syntax. The Response body contains details of the failure.|
-|`401 (Unauthorized)`| The client isn't authenticated.|
-|`403 (Forbidden)`              | The user isn't authorized. |
-|`503 (Service Unavailable)`	| The service is unavailable or busy. Try again later.|
+| Code                        | Description |
+| :-------------------------- | :---------- |
+| `200 (OK)`                  | The response payload contains all the matching resource. |
+| `206 (Partial Content)`     | The response payload contains only some of the search results, and the rest can be requested through the appropriate request. |
+| `204 (No Content)`          | The search completed successfully but returned no results. |
+| `400 (Bad Request)`         | There was a problem with the request. For example, invalid Query Parameter syntax. The response body contains details of the failure. |
+| `401 (Unauthorized)`        | The client isn't authenticated. |
+| `403 (Forbidden)`           | The user isn't authorized. |
+| `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
 #### Additional Notes
 
-The query API will not return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request will be returned. Anything requested within the acceptable range, will be resolved.
+The query API will not return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range, will be resolved.
 
 * Paged results are optimized to return matched newest instance first, this may result in duplicate records in subsequent pages if newer data matching the query was added.
 * Matching is case insensitive and accent insensitive for PN VR types.
@@ -828,7 +855,7 @@ The query API will not return `413 (request entity too large)`. If the requested
 
 ### Next Steps
 
-For more information, see 
+For more information about the DICOM service, see 
 
 >[!div class="nextstepaction"]
 >[Overview of the DICOM service](dicom-services-overview.md)

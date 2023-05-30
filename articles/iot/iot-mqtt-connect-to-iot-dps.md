@@ -12,7 +12,7 @@ ms.custom:  [amqp, mqtt]
 
 # Communicate with DPS using the MQTT protocol
 
-DPS enables devices to communicate with the DPS device endpoint using:
+Azure IoT Device Provisioning Service (DPS) enables devices to communicate with the DPS device endpoint using:
 
 * [MQTT v3.1.1](https://mqtt.org/) on port 8883
 * [MQTT v3.1.1](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718127) over WebSocket on port 443.

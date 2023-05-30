@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: ankitadutta
 ms.service: site-recovery
 author: ankitaduttaMSFT
-ms.date: 03/27/2023
+ms.date: 05/02/2023
 ms.custom: engagement-fy23
 
 ---
@@ -20,16 +20,28 @@ You can follow and subscribe to Site Recovery update notifications in the [Azure
 
 For Site Recovery components, we support N-4 versions, where N is the latest released version. These are summarized in the following table.
 
-**Update** |  **Unified Setup** | **Configuration server/Replication appliance** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
+**Update** |  **Unified Setup** | **Replication appliance / Configuration server** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
-[Rollup 66](https://support.microsoft.com/en-us/topic/update-rollup-66-for-azure-site-recovery-kb5023601-c306c467-c896-4c9d-b236-73b21ca27ca5) | 9.53.6615.1 | 5.1.8095.0  | 9.53.6615.1 | 5.1.8103.0 (Modernized VMware), 5.1.8095.0 (Hyper-V) & 5.23.0210.5 (Classic VMware) | 2.0.9260.0
-[Rollup 65](https://support.microsoft.com/topic/update-rollup-65-for-azure-site-recovery-kb5021964-15db362f-faac-417d-ad71-c22424df43e0) | 9.52.6522.1 | 5.1.7870.0 | 9.52.6522.1 | 5.1.7870.0 (VMware) & 5.1.7882.0 (Hyper-V) | 2.0.9259.0
-[Rollup 64](https://support.microsoft.com/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) | 9.51.6477.1 | 5.1.7802.0 | 9.51.6477.1 | 5.1.7802.0 | 2.0.9257.0
-[Rollup 63](https://support.microsoft.com/topic/update-rollup-63-for-azure-site-recovery-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | 9.50.6419.1 | 5.1.7626.0 | 9.50.6419.1 | 5.1.7626.0 | 2.0.9249.0
-[Rollup 62](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) | 9.49.6395.1 | 5.1.7418.0 | 9.49.6395.1 | 5.1.7418.0 | 2.0.9248.0
-
+[Rollup 67](https://support.microsoft.com/topic/update-rollup-67-for-azure-site-recovery-9fa97dbb-4539-4b6c-a0f8-c733875a119f) | 9.54.6682.1 | 9.54.6682.1 / 5.1.8095.0  | 9.54.6682.1 | 5.23.0428.1 (VMware) & 5.1.8095.0 (Hyper-V) | 2.0.9261.0
+[Rollup 66](https://support.microsoft.com/en-us/topic/update-rollup-66-for-azure-site-recovery-kb5023601-c306c467-c896-4c9d-b236-73b21ca27ca5) | 9.53.6615.1 | 9.53.6615.1 / 5.1.8095.0  | 9.53.6615.1 | 5.1.8103.0 (Modernized VMware), 5.1.8095.0 (Hyper-V) & 5.23.0210.5 (Classic VMware) | 2.0.9260.0
+[Rollup 65](https://support.microsoft.com/topic/update-rollup-65-for-azure-site-recovery-kb5021964-15db362f-faac-417d-ad71-c22424df43e0) | 9.52.6522.1 | 9.52.6522.1 / 5.1.7870.0 | 9.52.6522.1 | 5.1.7870.0 (VMware) & 5.1.7882.0 (Hyper-V) | 2.0.9259.0
+[Rollup 64](https://support.microsoft.com/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) | 9.51.6477.1 | 9.51.6477.1 / 5.1.7802.0 | 9.51.6477.1 | 5.1.7802.0 | 2.0.9257.0
+[Rollup 63](https://support.microsoft.com/topic/update-rollup-63-for-azure-site-recovery-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | 9.50.6419.1 | 9.50.6419.1 / 5.1.7626.0 | 9.50.6419.1 | 5.1.7626.0 | 2.0.9249.0
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+## Updates (May 2023)
+
+### Update Rollup 67
+
+[Update rollup 67](https://support.microsoft.com/topic/update-rollup-67-for-azure-site-recovery-9fa97dbb-4539-4b6c-a0f8-c733875a119f) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for Oracle Linux 8.7 with UEK7 kernel, RHEL 9 and Cent OS 9 Linux distros.
+**VMware VM/physical disaster recovery to Azure** | Added support for Oracle Linux 8.7 with UEK7 kernel, RHEL 9, Cent OS 9 and Oracle Linux 9 Linux distros. <br> <br/> Added support for Windows Server 2019 as the ASR replication appliance. <br> <br/> Added support for Microsoft Edge to be the default browser in Appliance Configuration Manager. <br> <br/> Added support to select an Availability set or a Proximity Placement group, after enabling replication using modernized VMware/Physical machine replication scenario.
 
 
 ## Updates (February 2023)

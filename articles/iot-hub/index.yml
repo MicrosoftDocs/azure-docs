@@ -72,8 +72,8 @@ landingContent:
    linkLists:
    - linkListType: tutorial
      links:
-     - text: Use X.509 certificates to authenticate
-       url: tutorial-x509-prove-possession.md
+     - text: Create and upload certificates for testing
+       url: tutorial-x509-test-certs.md
    - linkListType: concept
      links:
      - text: Security best practices

@@ -14,7 +14,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/06/2023
+ms.date: 04/25/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -65,6 +65,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- April 25, 2023: Adjust mount options in [HA for HANA Scale-up with ANF on SLES](sap-hana-high-availability-netapp-files-suse.md), [HANA scale-out with standby node with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md), [HA for HANA Scale-out HA on SLES](sap-hana-high-availability-scale-out-hsr-suse.md), [HA for HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md), [HANA scale-out with standby node on Azure VMs with ANF on RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md), [HA for HANA scale-out on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [HA for SAP NW on SLES with ANF](./high-availability-guide-suse-netapp-files.md) , [HA for SAP NW on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on SLES with simple mount and NFS](high-availability-guide-suse-nfs-simple-mount.md)
 - April 6, 2023: Updates for RHEL 9 in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md)
 - March 26, 2023: Adding recommended sector size in [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
 - March 1, 2023: Change in [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) to add configuration for cluster default properties

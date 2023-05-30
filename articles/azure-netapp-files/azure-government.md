@@ -32,10 +32,11 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
 | Azure NetApp Files backup | Public preview | No |
-| Standard network features | Generally available (GA) | No |
 | Azure NetApp Files datastores for AVS | Generally available (GA) | No | 
 | Azure NetApp Files customer-managed keys | Public preview | No |
 | Azure NetApp Files large volumes | Public preview | No |
+| Edit network features for existing volumes | Public preview | No |
+| Standard network features | Generally available (GA) | No |
 | Standard storage with cool access in Azure NetApp Files | Public preview | No |
 
 ## Portal access

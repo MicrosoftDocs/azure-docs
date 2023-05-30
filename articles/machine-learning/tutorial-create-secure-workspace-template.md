@@ -5,7 +5,7 @@ description: Use a template to create an Azure Machine Learning workspace and re
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
@@ -30,6 +30,8 @@ In this tutorial, you learn how to use a [Microsoft Bicep](../azure-resource-man
     * Azure Bastion host
     * Azure Machine Learning Virtual Machine (Data Science Virtual Machine)
     * The __Bicep__ template also creates an Azure Kubernetes Service cluster, and a separate resource group for it.
+
+[!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
 
 ## Prerequisites
 

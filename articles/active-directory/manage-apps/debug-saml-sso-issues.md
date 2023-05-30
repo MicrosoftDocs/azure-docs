@@ -10,6 +10,7 @@ ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 05/27/2022
+ms.custom: enterprise-apps
 ---
 
 # Debug SAML-based single sign-on to applications

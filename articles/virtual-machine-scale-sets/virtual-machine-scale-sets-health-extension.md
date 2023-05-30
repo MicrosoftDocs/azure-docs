@@ -13,7 +13,12 @@ ms.custom: mimckitt, devx-track-azurepowershell
 
 # Using Application Health extension with Virtual Machine Scale Sets
 
-Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provide support for [Rolling Upgrades](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) including [Automatic OS-Image Upgrades](virtual-machine-scale-sets-automatic-upgrade.md) and [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md), which rely on health monitoring of the individual instances to upgrade your deployment. You can also use Application Health Extension to monitor the application health of each instance in your scale set and perform instance repairs using [Automatic Instance Repairs](virtual-machine-scale-sets-automatic-instance-repairs.md).
+> [!IMPORTANT]
+> **Rich Health States** is currently in public preview. **Binary Health States** is generally available.
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provide support for [Rolling Upgrades](virtual-machine-scale-sets-upgrade-policy.md) including [Automatic OS-Image Upgrades](virtual-machine-scale-sets-automatic-upgrade.md) and [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md), which rely on health monitoring of the individual instances to upgrade your deployment. You can also use Application Health Extension to monitor the application health of each instance in your scale set and perform instance repairs using [Automatic Instance Repairs](virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 This article describes how you can use the two types of Application Health extension, **Binary Health States** or **Rich Health States**, to monitor the health of your applications deployed on Virtual Machine Scale Sets.
 
@@ -21,7 +26,7 @@ This article describes how you can use the two types of Application Health exten
 
 This article assumes that you're familiar with:
 -	Azure virtual machine [extensions](../virtual-machines/extensions/overview.md)
--	[Modifying](virtual-machine-scale-sets-upgrade-scale-set.md) Virtual Machine Scale Sets
+-	[Modifying](virtual-machine-scale-sets-upgrade-policy.md) Virtual Machine Scale Sets
 
 > [!CAUTION]
 > Application Health Extension expects to receive a consistent probe response at the configured port `tcp` or request path `http/https` in order to label a VM as *Healthy*. If no application is running on the VM, or you're unable to configure a probe response, your VM is going to show up as *Unhealthy*.
@@ -133,7 +138,7 @@ This state only applies to Rich Health States. The *Unknown* state is only repor
 
 An instance in an *Unknown* state is treated similar to an *Unhealthy* instance. If enabled, instance repairs will be carried out on an *Unknown* instance while rolling upgrades will be paused until the instance falls back into a *Healthy* state.
 
-The following table shows the health status interpretation for [Rolling Upgrades](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) and [Instance Repairs](virtual-machine-scale-sets-automatic-instance-repairs.md): 
+The following table shows the health status interpretation for [Rolling Upgrades](virtual-machine-scale-sets-upgrade-policy.md) and [Instance Repairs](virtual-machine-scale-sets-automatic-instance-repairs.md): 
 
 | Health State | Rolling Upgrade interpretation | Instance Repairs trigger |
 | ------------ | ------------------------------ | ------------------------ |
@@ -284,9 +289,10 @@ POST on `/subscriptions/<subscriptionId>/resourceGroups/<myResourceGroup>/provid
 
 Use the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet to add the Application Health extension to the scale set model definition.
 
+Update extension functionality is currently not available on PowerShell. To switch between Binary and Rich Health States, you can update the extension version using Azure CLI or REST API commands. 
+
 The following example adds the Application Health extension to the `extensionProfile` in the scale set model of a Windows-based scale set. The example uses the new Az PowerShell module.
 
-To change an existing extension from Rich Health States to Binary Health, use [Update-AzVmssExtension](/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) instead of `Add-AzVmssExtension` at *Add the Application Health extension to the scale set model* step.
 
 ```azurepowershell-interactive
 # Define the scale set variables
@@ -411,9 +417,9 @@ POST on `/subscriptions/<subscriptionId>/resourceGroups/<myResourceGroup>/provid
 
 Use the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet to add the Application Health extension to the scale set model definition.
 
-The following example adds the **Application Health - Rich States** extension to the `extensionProfile` in the scale set model of a Windows-based scale set. The example uses the new Az PowerShell module.
+Update extension functionality is currently not available on PowerShell. To switch between Binary and Rich Health States, you can update the extension version using Azure CLI or REST API commands. 
 
-To upgrade an existing extension from Binary to Rich Health States, use [Update-AzVmssExtension](/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) instead of `Add-AzVmssExtension` at *Add the Application Health extension to the scale set model* step.
+The following example adds the **Application Health - Rich States** extension to the `extensionProfile` in the scale set model of a Windows-based scale set. The example uses the new Az PowerShell module.
 
 ```azurepowershell-interactive
 # Define the scale set variables

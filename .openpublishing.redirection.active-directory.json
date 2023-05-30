@@ -1,6 +1,26 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-schema-extensions.md",
+      "redirect_url": "/azure/active-directory/develop/schema-extensions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-optional-claims.md",
+      "redirect_url": "/azure/active-directory/develop/optional-claims",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-jwt-claims-customization.md",
+      "redirect_url": "/azure/active-directory/develop/jwt-claims-customization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-saml-claims-customization.md",
+      "redirect_url": "/azure/active-directory/develop/saml-claims-customization",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-claims-mapping.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-claims-customization",
       "redirect_document_id": false
@@ -2482,7 +2502,16 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-configurable-token-lifetimes.md",
-      "redirect_url": "/azure/active-directory/develop/active-directory-configurable-token-lifetimes",
+      "redirect_url": "/azure/active-directory/develop/configurable-token-lifetimes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-configurable-token-lifetimes.md",
+      "redirect_url": "/azure/active-directory/develop/configurable-token-lifetimes",
+      "redirect_document_id": true
+    },{
+      "source_path_from_root": "/articles/active-directory/develop/reference-aadsts-error-codes.md",
+      "redirect_url": "/azure/active-directory/develop/reference-error-codes",
       "redirect_document_id": true
     },
     {
@@ -2656,6 +2685,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/howto-add-branding-in-azure-ad-apps.md",
+      "redirect_url": "/azure/active-directory/develop/howto-add-branding-in-apps.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-java-view-saml-returned-by-access-control.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
       "redirect_document_id": false
@@ -2667,7 +2701,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-signing-key-rollover.md",
-      "redirect_url": "/azure/active-directory/develop/active-directory-signing-key-rollover",
+      "redirect_url": "/azure/active-directory/develop/signing-key-rollover",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-signing-key-rollover.md",
+      "redirect_url": "/azure/active-directory/develop/signing-key-rollover",
       "redirect_document_id": false
     },
     {
@@ -3147,6 +3186,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/howto-get-list-of-all-active-directory-auth-library-apps.md",
+      "redirect_url": "/azure/active-directory/develop/howto-get-list-of-all-auth-library-apps",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-devquickstarts-angular.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-v1-angularjs-spa",
       "redirect_document_id": true
@@ -3170,7 +3214,7 @@
       "source_path_from_root": "/articles/active-directory/develop/active-directory-integrating-applications.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad",
       "redirect_document_id": false
-    },
+    }, 
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-devquickstarts-ios.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-v1-ios",
@@ -6544,6 +6588,11 @@
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/troubleshoot-adding-apps.md",
       "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-apps-with-expriring-secrets.md",
+      "redirect_url": "/troubleshoot/azure/active-directory/manage-apps/scripts/powershell-export-apps-with-expiring-secrets",
       "redirect_document_id": false
     },
     {
@@ -11225,6 +11274,1239 @@
       "source_path_from_root": "/articles/active-directory/privileged-identity-management/powershell-for-azure-ad-roles.md",
       "redirect_url": "/powershell/microsoftgraph/tutorial-pim?view=graph-powershell-1.0",
       "redirect_document_id": false
-    }
-  ]
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/concept-attributes.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/concept-attributes",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/concept-how-it-works.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/concept-how-it-works",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/custom-attribute-mapping.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/custom-attribute-mapping",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/how-to-accidental-deletes.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-accidental-deletes",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/how-to-attribute-mapping.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-attribute-mapping",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/how-to-automatic-upgrade.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-automatic-upgrade",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/how-to-cloud-sync-workbook.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-cloud-sync-workbook",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/how-to-configure.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-configure",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/how-to-expression-builder.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-expression-builder",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/how-to-gmsa-cmdlets.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-gmsa-cmdlets",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/how-to-inbound-synch-ms-graph.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-inbound-synch-ms-graph",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/how-to-install-pshell.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-install-pshell",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/how-to-install.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-install",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/how-to-manage-registry-options.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-manage-registry-options",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/how-to-map-usertype.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-map-usertype",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/how-to-on-demand-provision.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-on-demand-provision",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/how-to-prerequisites.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-prerequisites",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/how-to-sso.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-sso",
+      "redirect_document_id": false
+      },
+      
+      {"source_path_from_root": "/articles/active-directory/cloud-sync/how-to-transformation.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-transformation",
+      "redirect_document_id": false
+      },
+      
+      {"source_path_from_root": "/articles/active-directory/cloud-sync/how-to-troubleshoot.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/how-to-troubleshoot",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/index.yml",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/index.yml",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/migrate-azure-ad-connect-to-cloud-sync.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/migrate-azure-ad-connect-to-cloud-sync",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/plan-cloud-sync-topologies.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/plan-cloud-sync-topologies",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/reference-cloud-sync-faq.yml",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/reference-cloud-sync-faq.yml",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/reference-error-codes.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/reference-error-codes",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/reference-expressions.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/reference-expressions",
+      "redirect_document_id": false
+      },
+      
+      {"source_path_from_root": "/articles/active-directory/cloud-sync/reference-powershell.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/reference-powershell",
+      "redirect_document_id": false
+      },
+      
+      {"source_path_from_root": "/articles/active-directory/cloud-sync/reference-version-history.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/reference-version-history",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/tutorial-basic-ad-azure.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/tutorial-basic-ad-azure",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/tutorial-existing-forest.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/tutorial-existing-forest",
+      "redirect_document_id": false
+      },
+      
+      {"source_path_from_root": "/articles/active-directory/cloud-sync/tutorial-pilot-aadc-aadccp.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp",
+      "redirect_document_id": false
+      },
+      
+      {"source_path_from_root": "/articles/active-directory/cloud-sync/tutorial-single-forest.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/tutorial-single-forest",
+      "redirect_document_id": false
+      },
+      
+      {"source_path_from_root": "/articles/active-directory/cloud-sync/what-is-cloud-sync.md",
+      "redirect_url": "/azure/active-directory/hybrid/cloud-sync/what-is-cloud-sync",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/cloud-sync/what-is-provisioning.md",
+      "redirect_url": "/azure/active-directory/hybrid/what-is-provisioning",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/choose-ad-authn.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/choose-ad-authn",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/cloud-governed-management-for-on-premises.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/cloud-governed-management-for-on-premises",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/concept-adsync-service-account.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/concept-adsync-service-account",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/concept-azure-ad-connect-sync-architecture.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/concept-azure-ad-connect-sync-architecture",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/concept-azure-ad-connect-sync-declarative-provisioning-expressions",
+      "redirect_document_id": false
+      },
+      
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/concept-azure-ad-connect-sync-declarative-provisioning",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/concept-azure-ad-connect-sync-default-configuration",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/concept-azure-ad-connect-sync-user-and-contacts",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/deprecated-azure-ad-connect.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/deprecated-azure-ad-connect",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/four-steps.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/four-steps",
+      "redirect_document_id": false
+      },
+      
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-bypassdirsyncoverrides.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-bypassdirsyncoverrides",
+      "redirect_document_id": false
+      },
+
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-adconnectivitytools.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-adconnectivitytools",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-azure-ad-trust.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-azure-ad-trust",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-azureadaccount.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-azureadaccount",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-configure-ad-ds-connector-account",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-create-custom-sync-rule.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-create-custom-sync-rule",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-device-options.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-device-options","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-device-writeback.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-device-writeback","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-emergency-ad-fs-certificate-rotation.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-emergency-ad-fs-certificate-rotation",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-fed-compatibility.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-fed-compatibility",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-fed-group-claims.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-fed-group-claims",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-fed-management.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-fed-management",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-fed-o365-certs.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-fed-o365-certs",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-fed-saml-idp.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-fed-saml-idp","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-fed-sha256-guidance.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-fed-sha256-guidance",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-fed-single-adfs-multitenant-federation.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-fed-single-adfs-multitenant-federation",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-fed-ssl-update.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-fed-ssl-update","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-fed-whatis.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-fed-whatis","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-fix-default-rules.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-fix-default-rules",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-group-writeback-disable.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-group-writeback-disable",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-group-writeback-enable.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-group-writeback-enable",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-group-writeback-v2.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-group-writeback-v2","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-health-ad-fs-sign-in.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-health-ad-fs-sign-in",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-health-adds.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-health-adds",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-health-adfs-risky-ip-workbook.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-health-adfs-risky-ip-workbook",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-health-adfs-risky-ip.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-health-adfs-risky-ip",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-health-adfs.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-health-adfs",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-health-agent-install.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-health-agent-install",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-health-alert-catalog.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-health-alert-catalog",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-health-data-freshness.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-health-data-freshness",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-health-data-retrieval.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-health-data-retrieval",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-health-diagnose-sync-errors.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-health-diagnose-sync-errors",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-health-operations.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-health-operations",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-health-sync.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-health-sync",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-import-export-config.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-import-export-config",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-install-automatic-upgrade.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-install-automatic-upgrade","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-install-custom.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-install-custom",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-install-existing-database.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-install-existing-database",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-install-existing-tenant.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-install-existing-tenant",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-install-express.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-install-express",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-install-move-db.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-install-move-db",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-install-multiple-domains.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-install-multiple-domains",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-install-prerequisites.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-install-prerequisites",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-install-roadmap.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-install-roadmap",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-install-select-installation.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-install-select-installation",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-install-sql-delegation.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-install-sql-delegation",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-installation-wizard.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-installation-wizard","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-migrate-groups.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-migrate-groups",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-modify-group-writeback.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-modify-group-writeback",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-monitor-federation-changes.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-monitor-federation-changes",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-password-hash-synchronization.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-password-hash-synchronization","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-post-installation.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-post-installation","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-preview.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-preview",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-pta-current-limitations.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-pta-current-limitations",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-pta-disable-do-not-configure.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-pta-disable-do-not-configure",
+      
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-pta-faq.yml",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-pta-faq.yml",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-pta-how-it-works.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-pta-how-it-works","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-pta-quick-start.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-pta-quick-start",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-pta-security-deep-dive.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-pta-security-deep-dive",
+      
+      
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-pta-upgrade-preview-authentication-agents.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-pta-upgrade-preview-authentication-agents",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-pta-user-privacy.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-pta-user-privacy","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-pta.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-pta",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-selective-password-hash-synchronization.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-selective-password-hash-synchronization",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-single-object-sync.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-single-object-sync","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sso-faq.yml",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sso-faq.yml","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sso-how-it-works.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sso-how-it-works","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sso-quick-start.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sso-quick-start","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sso-user-privacy.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sso-user-privacy","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sso.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sso","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-staged-rollout.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-staged-rollout",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-best-practices-changing-default-configuration",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-change-addsacct-pass.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-change-addsacct-pass",
+      
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-change-serviceacct-pass.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-change-serviceacct-pass",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-change-the-configuration.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-change-the-configuration",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-configure-filtering.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-configure-filtering",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-endpoint-api-v2",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-feature-directory-extensions",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-feature-preferreddatalocation.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-feature-preferreddatalocation","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-feature-prevent-accidental-deletes",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-feature-scheduler.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-feature-scheduler",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-recycle-bin.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-recycle-bin",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-service-manager-ui-connectors.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-service-manager-ui-connectors",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-service-manager-ui-mvdesigner.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-service-manager-ui-mvdesigner",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-service-manager-ui-mvsearch.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-service-manager-ui-mvsearch",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-service-manager-ui-operations.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-service-manager-ui-operations",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-service-manager-ui.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-service-manager-ui",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-staging-server.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-staging-server",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-technical-concepts.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-technical-concepts",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-sync-whatis.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-sync-whatis","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-syncservice-duplicate-attribute-resiliency.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-syncservice-duplicate-attribute-resiliency",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-syncservice-features.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-syncservice-features",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-syncservice-shadow-attributes",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-uninstall.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-connect-uninstall",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-dirsync-upgrade-get-started.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-dirsync-upgrade-get-started","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/how-to-upgrade-previous-version.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/how-to-upgrade-previous-version",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/howto-troubleshoot-upn-changes.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/howto-troubleshoot-upn-changes",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/migrate-from-federation-to-cloud-authentication.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/migrate-from-federation-to-cloud-authentication",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-connect-design-concepts.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-connect-design-concepts",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-connect-performance-factors.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-connect-performance-factors",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-connect-topologies.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-connect-topologies","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-connect-user-signin.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-connect-user-signin",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-connect-userprincipalname.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-connect-userprincipalname",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-hybrid-identity-design-considerations-accesscontrol-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-accesscontrol-requirements",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-hybrid-identity-design-considerations-business-needs.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-business-needs",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-hybrid-identity-design-considerations-contentmgt-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-contentmgt-requirements",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-hybrid-identity-design-considerations-data-protection-strategy.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-data-protection-strategy",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-hybrid-identity-design-considerations-dataprotection-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-dataprotection-requirements",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-hybrid-identity-design-considerations-directory-sync-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-directory-sync-requirements",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-hybrid-identity-design-considerations-identity-adoption-strategy.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-identity-adoption-strategy",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-hybrid-identity-design-considerations-incident-response-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-incident-response-requirements",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-multifactor-auth-requirements",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-hybrid-identity-design-considerations-nextsteps.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-nextsteps",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-hybrid-identity-design-considerations-overview.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-overview",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-tools-comparison",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-accounts-permissions.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-accounts-permissions",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-adconnectivitytools.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-adconnectivitytools",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-adsync.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-adsync",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-adsyncconfig.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-adsyncconfig",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-adsynctools.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-adsynctools",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-dirsync-deprecated.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-dirsync-deprecated",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-faq.yml",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-faq.yml",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-germany.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-germany",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-government-cloud.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-government-cloud",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-health-faq.yml",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-health-faq.yml",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-health-user-privacy.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-health-user-privacy",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-health-version-history.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-health-version-history","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-instances.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-instances",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-msexchuserholdpolicies.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-msexchuserholdpolicies",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-ports.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-ports",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-pta-version-history.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-pta-version-history",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-sync-attributes-synchronized.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-sync-attributes-synchronized",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-sync-functions-reference.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-sync-functions-reference",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-tls-enforcement.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-tls-enforcement","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-user-privacy.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-user-privacy",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-version-history-archive.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-version-history-archive",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-version-history.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/reference-connect-version-history",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tshoot-connect-attribute-not-syncing.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-attribute-not-syncing","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tshoot-connect-connectivity.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-connectivity",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tshoot-connect-install-issues.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-install-issues","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tshoot-connect-largeobjecterror-usercertificate.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-largeobjecterror-usercertificate",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tshoot-connect-object-not-syncing.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-object-not-syncing",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tshoot-connect-objectsync.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-objectsync",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tshoot-connect-pass-through-authentication.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-pass-through-authentication","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tshoot-connect-password-hash-synchronization.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-password-hash-synchronization",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tshoot-connect-recover-from-localdb-10gb-limit.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-recover-from-localdb-10gb-limit",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tshoot-connect-source-anchor.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-source-anchor",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tshoot-connect-sso.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-sso",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tshoot-connect-sync-errors.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-sync-errors","redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tshoot-connect-tshoot-sql-connectivity.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-tshoot-sql-connectivity",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tutorial-federation.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tutorial-federation",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tutorial-passthrough-authentication.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tutorial-passthrough-authentication",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tutorial-password-hash-sync.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tutorial-password-hash-sync",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/tutorial-phs-backup.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/tutorial-phs-backup",
+      "redirect_document_id": false
+      },
+      
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/whatis-aadc-admin-agent.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/whatis-aadc-admin-agent",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/whatis-azure-ad-connect-v2.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/whatis-azure-ad-connect-v2",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/whatis-azure-ad-connect.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/whatis-azure-ad-connect",
+      "redirect_document_id": false
+      },
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/whatis-fed.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/whatis-fed",
+      "redirect_document_id": false
+      },
+      
+      
+      {
+      "source_path_from_root": "/articles/active-directory/hybrid/whatis-phs.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/whatis-phs",
+      "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-pim-approval-workflow.md",
+        "redirect_url": "/azure/active-directory/privileged-identity-management/pim-approval-workflow",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md",
+        "redirect_url": "/azure/active-directory/privileged-identity-management/pim-create-roles-and-resource-roles-review",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md",
+        "redirect_url": "/azure/active-directory/privileged-identity-management/pim-perform-roles-and-resource-roles-review",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md",
+        "redirect_url": "/azure/active-directory/privileged-identity-management/pim-complete-roles-and-resource-roles-review",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-domain-services/concepts-migration-benefits.md",
+        "redirect_url": "/azure/active-directory-domain-services/overview",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-domain-services/migrate-from-classic-vnet.md",
+        "redirect_url": "/azure/active-directory-domain-services/overview",
+        "redirect_document_id": false
+      }
+
+      ]
 }

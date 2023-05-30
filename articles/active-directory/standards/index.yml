@@ -24,12 +24,12 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Configure to identity standards
-            url: standards-overview.md
           - text: NIST AAL overview
             url: nist-overview.md
           - text: FedRAMP High impact overview
             url: configure-azure-active-directory-for-fedramp-high-impact.md
+          - text: Configure Azure Active Directory for Memorandum 22-09 requirements
+            url: memo-22-09-meet-identity-requirements.md
           - text: Configure Azure Active Directory for CMMC compliance
             url: configure-azure-active-directory-for-cmmc-compliance.md
           - text: Configure Azure Active Directory for HIPAA compliance

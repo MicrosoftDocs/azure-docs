@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 03/16/2023
+ms.date: 05/15/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -22,6 +22,42 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Standard storage with cool access](cool-access-about.md) (Preview)
 
     Most of unstructured data is typically infrequently accessed. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. You can now use the cool access option in a capacity pool of Azure NetApp Files standard service level to have inactive data transparently moved from Azure NetApp Files standard service-level storage (the hot tier) to an Azure storage account (the cool tier). This option lets you free up storage that resides within Azure NetApp Files volumes by moving data blocks to the lower cost cool tier, resulting in overall cost savings. You can configure this option on a volume by specifying the number of days (the *coolness period*, ranging from 7 to 63 days) for inactive data to be considered "cool". Viewing and accessing the data stay transparent, except for a higher access time to data blocks that were moved to the cool tier.
+
+## May 2023 
+
+* Azure NetApp Files now supports [customer-managed keys](configure-customer-managed-keys.md) on both source and data replication volumes with [cross-region replication](cross-region-replication-requirements-considerations.md)  or [cross-zone replication](cross-zone-replication-requirements-considerations.md) relationships. 
+
+* [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) (Preview)
+
+    Azure NetApp Files volumes have been supported with Standard network features since [October 2021](#october-2021), but only for newly created volumes. This new *edit volumes* capability lets you change *existing* volumes that were configured with Basic network features to use Standard network features. This capability provides an enhanced, more standard, Azure Virtual Network (VNet) experience through various security and connectivity features that are available on Azure VNets to Azure services. When you edit existing volumes to use Standard network features, you can start taking advantage of networking capabilities, such as (but not limited to): 
+    * Increased number of client IPs in a virtual network (including immediately peered VNets) accessing Azure NetApp Files volumes - the [same as Azure VMs](azure-netapp-files-resource-limits.md#resource-limits)
+    * Enhanced network security with support for [network security groups](../virtual-network/network-security-groups-overview.md) on Azure NetApp Files delegated subnets
+    * Enhanced network control with support for [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) to and from Azure NetApp Files delegated subnets
+    * Connectivity over Active/Active VPN gateway setup
+    * [ExpressRoute FastPath](../expressroute/about-fastpath.md) connectivity to Azure NetApp Files   
+
+    This feature is now in public preview, currently available in [16 Azure regions](azure-netapp-files-network-topologies.md#regions-edit-network-features). It will roll out to other regions. Stay tuned for further information as more regions become available.
+
+* [Azure Application Consistent Snapshot tool (AzAcSnap) 8 (GA)](azacsnap-introduction.md)
+
+    Version 8 of the AzAcSnap tool is now generally available. [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases in Linux environments. AzAcSnap 8 introduces the following new capabilities and improvements: 
+
+    * Restore change -  ability to revert volume for Azure NetApp Files 
+    * New global settings file (`.azacsnaprc`) to control behavior of `azacsnap` 
+    * Logging enhancements for failure cases and new "mainlog" for summarized monitoring 
+    * Backup (`-c backup`) and Details (`-c details`) fixes  
+
+    Download the latest release of the installer [here](https://aka.ms/azacsnapinstaller). 
+
+* [Single-file snapshot restore](snapshots-restore-file-single.md) is now generally available (GA)
+
+* [Troubleshooting enhancement: break file locks](troubleshoot-file-locks.md)
+
+    In some cases you may encounter (stale) file locks on NFS, SMB, or dual-protocol volumes that need to be cleared. With this new Azure NetApp Files feature you can now break these locks. You can break file locks for all files in a volume or break all file locks initiated by a specified client. 
+
+## April 2023
+
+* [Azure Virtual WAN](configure-virtual-wan.md) is now generally available in [all regions](azure-netapp-files-network-topologies.md#supported-regions) that support standard network features
 
 ## March 2023
 

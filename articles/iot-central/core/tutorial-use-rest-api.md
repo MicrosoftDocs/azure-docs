@@ -1,10 +1,9 @@
 ---
 title: Tutorial - Use the REST API to manage an application
-titleSuffix: Azure IoT Central
 description: In this tutorial you use the REST API to create and manage an IoT Central application, add a device, and configure data export.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/07/2022
+ms.date: 04/26/2023
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central

@@ -1270,22 +1270,37 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/tutorial-x509-certificates.md",
-      "redirect_url": "/azure/iot-hub/reference-x509-certificates",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-test-certs",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/iot-hub/tutorial-x509-introduction.md",
-      "redirect_url": "/azure/iot-hub/tutorial-x509-prove-possession",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-test-certs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-openssl.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-test-certs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-prove-possession.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-test-certs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/tutorial-x509-self-sign.md",
-      "redirect_url": "/azure/iot-hub/reference-x509-certificates",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-test-certs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/tutorial-x509-scripts.md",
-      "redirect_url": "/azure/iot-hub/tutorial-x509-openssl",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-test-certs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-test-certificate.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-test-certs",
       "redirect_document_id": false
     },
     {
@@ -1332,6 +1347,16 @@
       "source_path_from_root": "/articles/iot-hub/iot-hub-mqtt-support.md",
       "redirect_url": "/azure/iot/iot-mqtt-connect-to-iot-hub",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md",
+      "redirect_url": "/azure/iot-hub/reference-iot-hub-extension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-management-iot-toolkit.md",
+      "redirect_url": "/azure/iot-hub/reference-iot-hub-extension",
+      "redirect_document_id": false
     }
   ]
 }

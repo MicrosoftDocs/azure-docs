@@ -3,8 +3,8 @@ title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
 ms.date: 04/23/2023
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other, ignite-2022
 ---
@@ -131,7 +131,7 @@ The native cloud connector requires:
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-environment-settings.png" alt-text="Connecting an AWS account to an Azure subscription.":::
 
-1. Enter the details of the AWS account, including the location where you'll store the connector resource.
+1. Enter the details of the AWS account, including the location where you'll store the connector resource. You can also scan specific AWS regions or all available regions (default) on AWS public cloud.
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Step 1 of the add AWS account wizard: Enter the account details.":::
 
@@ -213,7 +213,7 @@ When deploying the CloudFormation template, the Stack creation wizard offers the
 
 1. **Upload a template file** – AWS will automatically create an S3 bucket that the CloudFormation template will be saved to. The automation for the S3 bucket will have a security misconfiguration that will cause the `S3 buckets should require requests to use Secure Socket Layer` recommendation to appear. You can remediate this recommendation by applying the following policy: 
 
-    ```bash
+    ```json
     {  
       "Id": "ExamplePolicy",  
       "Version": "2012-10-17",  
