@@ -1,27 +1,25 @@
+# Integrate KEDA with your Azure Kubernetes Service cluster
 
+KEDA is a Kubernetes-based Event Driven Autoscaler. KEDA lets you can drive the scaling of any container in Kubernetes based on the number of events needing to be processed, by querying metrics from systems such as Prometheus. Integrate KEDA with your Azure Kubernetes Service (AKS) cluster to scale your workloads based on Prometheus metrics from your Azure Monitor workspace.
 
-Prerequisites
+To integrate KEDA into your Azure Kubernetes Service, you need to deploy and configure a workload identity or pod identity on your cluster. This allows KEDA to authenticate with Azure and retrieve metrics for scaling from your Monitor workspace. 
 
-1. AKS cluster
-1. Managed prometheus sending metrics to an Azure Monitor workspace
+This article will walk you through the steps to integrate KEDA into your AKS cluster using a workload identity.
+
+## Prerequisites
+
+1. Azure Kubernetes Service (AKS) cluster
+1. Prometheus sending metrics to an Azure Monitor workspace. For more information, see [Azure Monitor managed service for Prometheus](hhttps://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-overview).
 
 
 > [!NOTE]
-> KEDA addon (preview) for AKS does not currently support managed prometheus.
-
-Overview o integrations steps
-Set ip Pod Identity or Workload Identity for AKS
-Install KEDA
-Configure sacler
-
-
-To integrate KEDA with Azure Monitor, you need to Deploy and configure workload identity or pod identity on your AKS cluster. This allows KEDA to authenticate with you Azure Monitor workspace and retrieve metrics for scaling.
-
-This article will walk you through the steps to integrate KEDA with Azure Monitor using workload identity.
+> The KEDA addon (preview) for AKS does not currently support managed prometheus.
 
 ## Set up a workload identity
 
-1. Start by setting up some environment variables. Change the values to suit your AKS cluster.Do not change these values for `SERVICE_ACCOUNT_NAMESPACE` and `SERVICE_ACCOUNT_NAME`. They are the namespace and name of the kubernetes service account that KEDA will use to authenticate with Azure Monitor.
+1. Start by setting up some environment variables. Change the values to suit your AKS cluster. 
+ 
+Don't change the values for `SERVICE_ACCOUNT_NAMESPACE` and `SERVICE_ACCOUNT_NAME`. They are the namespace and name of the kubernetes service account that KEDA will use to authenticate with Azure Monitor.
 
 `USER_ASSIGNED_IDENTITY_NAME` is the name of the Azure Active directory identity that will be created for KEDA. 
 `FEDERATED_IDENTITY_CREDENTIAL_NAME` is the name of the credential that will be created for KEDA to use to authenticate with Azure.
