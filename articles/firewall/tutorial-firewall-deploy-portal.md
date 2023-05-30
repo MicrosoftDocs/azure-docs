@@ -286,4 +286,5 @@ You can keep your firewall resources to continue testing, or if no longer needed
 
 ## Next steps
 
-[Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+- [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+- [Learn more about Azure network security](../networking/security/index.yml)
