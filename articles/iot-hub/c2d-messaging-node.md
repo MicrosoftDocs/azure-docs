@@ -106,7 +106,7 @@ In this article, you create a backend service to send cloud-to-device messages t
 
 In this section, you create a Node.js console app that sends cloud-to-device messages to the simulated device app. You need the device ID from your device and your IoT hub connection string.
 
-1. Create an empty folder called **sendcloudtodevicemessage**. Open a command prompt, navigate to the **sendcloudtodevicemessage** folder, and then run the following command to create a `package.json` file in that folder. Press **Enter** at each prompt presented presented by the `npm` command to accept the default for that prompt:
+1. Create an empty folder called **sendcloudtodevicemessage**. Open a command prompt, navigate to the **sendcloudtodevicemessage** folder, and then run the following command to create a `package.json` file in that folder. Press **Enter** at each prompt presented by the `npm` command to accept the default for that prompt:
 
     ```cmd/sh
     npm init
