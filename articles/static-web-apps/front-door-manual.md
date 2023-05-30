@@ -7,6 +7,7 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 01/24/2023
 ms.author: cshoe
+zone_pivot_groups: static-web-apps-afd-methods
 ---
 
 # Tutorial: Configure Azure Front Door for Azure Static Web Apps
@@ -31,7 +32,7 @@ A manual Azure Front Door setup gives you full control over the CDN configuratio
 
 In this tutorial, you learn to add Azure Front Door to your static web app.
 
-## Option 1: Enable enterprise-grade edge
+::: zone pivot="swa-afd-enterprise-grade-edge"
 
 ### Prerequisites
 
@@ -61,8 +62,9 @@ az extension add -n enterprise-edge
 az staticwebapp enterprise-edge enable -n my-static-webapp -g my-resource-group
 ```
 
+::: zone-end
 
-## Option 2: Manually configure Azure Front Door for Azure Static Web Apps 
+::: zone pivot="swa-afd-manual-afd"
 
 ### Prerequisites
 
@@ -241,6 +243,8 @@ With this configuration, your site is no longer available via the generated `*.a
 - **Traffic statistics**: By default, Azure Front Door configures [health probes](../frontdoor/front-door-health-probes.md) that may affect your traffic statistics. You may want to edit the default values for the [health probes](../frontdoor/front-door-health-probes.md).
 
 - **Serving old versions**: When you deploy updates to existing files in your static web app, Azure Front Door may continue to serve older versions of your files until their [time-to-live](https://wikipedia.org/wiki/Time_to_live) expires. [Purge the Azure Front Door cache](../frontdoor/front-door-caching.md#cache-purge) for the affected paths to ensure the latest files are served.
+
+::: zone-end
 
 ## Clean up resources
 

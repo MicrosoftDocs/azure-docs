@@ -1955,6 +1955,14 @@ groups:
     title: REST
   - id: static-web-apps-graphql
     title: GraphQL
+- id: static-web-apps-afd-methods
+  title: Azure Front Door integration method
+  prompt: Select an Azure Front Door configuration method
+  pivots:
+  - id: swa-afd-enterprise-grade-edge
+    title: Enterprise-grade edge (recommended)
+  - id: swa-afd-manual-afd
+    title: Manual Azure Front Door configuration
 # Owner: cshoe
 - id: container-apps-config-types
   title: Configuration method
