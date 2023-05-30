@@ -26,7 +26,7 @@ zone_pivot_groups: acs-web-ios-android
 - A room resource. [Create and manage rooms](get-started-rooms.md)
 
 ## Obtain user access token
-If you have already created users and have added them as participants in the room following the instructions [here](./get-started-rooms.md), then you can directly use those users to join the room.
+If you have already created users and have added them as participants in the room following the "Set up room participants" section in [this page](./get-started-rooms.md), then you can directly use those users to join the room.
 
 Otherwise, you'll need to create a User Access Token for each call participant. [Learn how to create and manage user access tokens](../identity/access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token. After the users have been created, you'll need to add them to the room as participants before they can join the room.
 
