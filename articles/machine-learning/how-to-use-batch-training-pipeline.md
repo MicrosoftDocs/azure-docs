@@ -257,7 +257,7 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
 
     # [Azure CLI](#tab/cli)
     
-    The `deployment-ordinal/deployment.yml` file contains the deployment's configuration.
+    The `deployment-ordinal/deployment.yml` file contains the deployment's configuration. You can check the [full batch endpoint YAML schema]reference-yaml-endpoint-batch.md) for extra properties.
 
     __deployment-ordinal/deployment.yml__
 
@@ -401,7 +401,7 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
 
     # [Azure CLI](#tab/cli)
     
-    The `deployment-onehot/deployment.yml` file contains the deployment's configuration.
+    The `deployment-onehot/deployment.yml` file contains the deployment's configuration. You can check the [full batch endpoint YAML schema]reference-yaml-endpoint-batch.md) for extra properties.
 
     __deployment-onehot/deployment.yml__
 
