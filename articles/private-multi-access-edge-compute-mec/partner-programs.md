@@ -63,7 +63,6 @@ SIM partners provide wireless authentication technologies and embedded cellular 
 | Idemia | ASOCS |
 | JCI | Commscope |
 | Transatel | Compal |
-| | Ericsson |
 | | Foxconn |
 | | Fujitsu |
 | | Inventec |
