@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.custom: devx-track-terraform, devx-track-arm-template
+ms.custom: devx-track-terraform, devx-track-arm-template, devx-track-ansible, devx-track-jenkins
 ms.date: 02/25/2023
 ms.author: cynthn
 ms.reviewer: mattmcinnes

@@ -1,11 +1,11 @@
 ---
 title: Accelerated Networking overview
 description: Learn how Accelerated Networking can improve the networking performance of Azure VMs.
-author: asudbring
+author: steveesp
 ms.service: virtual-network
 ms.topic: how-to
 ms.date: 04/18/2023
-ms.author: allensu
+ms.author: steveesp
 ---
 
 # Accelerated Networking (AccelNet) overview
@@ -138,6 +138,9 @@ Driver=mlx4_en mlx5_en mlx4_core mlx5_core
 Unmanaged=yes 
 EOF 
 ```
+
+>[!NOTE]
+>It is strongly advised that custom images do not run competing network interface software (such as ifupdown and networkd) and do not run dhcpclient directly on multiple interfaces.
 
 --- 
 

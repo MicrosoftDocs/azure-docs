@@ -4,7 +4,7 @@ description: Overview of the Control Plan deployment process within the SAP on A
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 11/17/2021
+ms.date: 05/19/2023
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -104,7 +104,7 @@ The sample Deployer configuration file `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` i
 
 The sample SAP Library configuration file `MGMT-WEEU-SAP_LIBRARY.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY` folder.
 
-Running the following command creates the Deployer, the SAP Library and adding the Service Principal details to the deployment key vault. If you followed the web app setup in the step above, this command will also create the infrastructure to host the application. 
+Running the following command creates the Deployer, the SAP Library and adds the Service Principal details to the deployment key vault. If you followed the web app setup in the step above, this command will also create the infrastructure to host the application. 
 
 # [Linux](#tab/linux)
 
