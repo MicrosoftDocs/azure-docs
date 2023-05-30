@@ -22883,6 +22883,11 @@
             "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md",
             "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-multi-tier-application.md",
+            "redirect_url": "/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
+            "redirect_document_id": false
         }
     ]
 }
