@@ -176,11 +176,6 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-convert-ml-experiment-to-production.md",
-        "redirect_url": "/azure/machine-learning/how-to-convert-ml-experiment-to-production",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/machine-learning/tutorial-train-deploy-notebook.md",
         "redirect_url": "/azure/machine-learning/tutorial-azure-ml-in-a-day",
         "redirect_document_id": true
