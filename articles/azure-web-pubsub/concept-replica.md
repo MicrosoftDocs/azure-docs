@@ -24,7 +24,7 @@ A geo-replicated Azure Web PubSub Service provides the following benefits:
 ## Example use case
 Contoso is a social media company with its customer base spread across the US and Canada. To serve those customers and let them communicate with each other, Contoso runs its services in Central US. Azure Web PubSub Service is used to handle user connections and facilitate communication among users. Contoso's end users are mostly phone users. Due to the long geographical distances, end-users in Canada might experience high latency and poor network quality.
 
-<img width="633" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/a353337f-9fd7-4be2-9b0f-1bf961f7eb1a">
+<img width="633" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/5a4a3460-161a-4fe4-b254-f2cd5e59db87">
 
 Before the advent of the geo-replication feature, Contoso could setup another Azure Web PubSub Service in Canada Central to serve its Canadian users. By setting up a geographically closer Azure Web PubSub Service, end users now have better network quality and lower latency. 
 
@@ -33,12 +33,13 @@ However, managing multiple Azure Web PubSub Services brings some challenges:
 2. The development team would need to manage two separate Azure Web PubSub Services, each with distinct domains and connection strings.
 3. If a regional outage happens, the traffic needs to be switched to another region.
 
-<img width="633" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/04c288f4-5868-42de-be20-807bbc016773">
+<img width="633" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/dd9b491c-0c09-49dd-aa73-9f78fbd41b4c">
+
 
 ## Harnessing Geo-replication
 With the new geo-replication feature, Contoso can now establish a replica in Canada Central, effectively overcoming the above-mentioned hurdles.
 
-<img width="762" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/b2d7f946-bd5d-4c5d-b17f-3a1051a2f347">
+<img width="633" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/abad4c0e-0cc7-4c24-a286-9440d3c3a13c">
 
 The geo-replication feature of Azure Web PubSub Service has following benefits:
 
