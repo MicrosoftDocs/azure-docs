@@ -463,7 +463,7 @@
       items:
       - name: GitHub Actions
         href: how-to-deploy-github-action.md
-      - name: Azure pipelines
+      - name: Azure Pipelines
         href: flexible-server/azure-pipelines-deploy-database-task.md
   - name: Concepts
     items:
