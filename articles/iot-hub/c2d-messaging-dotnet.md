@@ -73,7 +73,7 @@ In this section, run the device app to upload the file to Azure storage. Open a 
 
 The following output is from the device app after it successfully starts and connects to your IoT hub:
     
-    ```cmd/sh
+   ```cmd/sh
    5/22/2023 11:13:18 AM> Press Control+C at any time to quit the sample.
       
    5/22/2023 11:13:18 AM> Device waiting for C2D messages from the hub...
@@ -83,7 +83,7 @@ The following output is from the device app after it successfully starts and con
 
 The **MessageReceiveSample** sample app demonstrates two different ways in which a device can receive a cloud-to-device message:
 
-The first phase polls for messages by using the [ReceiveAsync](dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet) and [CompleteAsync](dotnet/api/microsoft.azure.devices.client.deviceclient.completeasync?view=azure-dotnet) methods. The `ReceiveC2dMessagesPollingAndCompleteAsync` method uses the `ReceiveAsync` method, which asynchronously returns the received message at the time that it's received by the device. `ReceiveAsync` returns *null* after a specifiable timeout period. In this example, the default of one minute is used. When the device receives a *null*, it should continue to wait for new messages. This requirement is the reason why the sample app includes the following block of code in the `ReceiveC2dMessagesPollingAndCompleteAsync` method:
+The first phase polls for messages by using the [ReceiveAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync) and [CompleteAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.completeasync) methods. The `ReceiveC2dMessagesPollingAndCompleteAsync` method uses the `ReceiveAsync` method, which asynchronously returns the received message at the time that it's received by the device. `ReceiveAsync` returns *null* after a specifiable timeout period. In this example, the default of one minute is used. When the device receives a *null*, it should continue to wait for new messages. This requirement is the reason why the sample app includes the following block of code in the `ReceiveC2dMessagesPollingAndCompleteAsync` method:
 
 ```csharp
    if (receivedMessage == null)
@@ -94,10 +94,10 @@ The first phase polls for messages by using the [ReceiveAsync](dotnet/api/micros
 
 The call to the `CompleteAsync` method notifies IoT Hub that the message has been successfully processed and that the message can be safely removed from the device queue. The device should call this method when its processing successfully completes regardless of the protocol it's using.
 
-With AMQP and HTTPS, but not MQTT, the device can also:
+With AMQP and HTTPS protocols, but not the [MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md), the device can also:
 
-* Call the [AbandonAsync](dotnet/api/microsoft.azure.devices.client.deviceclient.abandonasync?view=azure-dotnet) method to abandon a message, which results in IoT Hub retaining the message in the device queue for future consumption.
-* Call the [RejectAsync](dotnet/api/microsoft.azure.devices.client.deviceclient.rejectasync?view=azure-dotnet) method to reject a message, which permanently removes the message from the device queue.
+* Call the [AbandonAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.abandonasync) method to abandon a message, which results in IoT Hub retaining the message in the device queue for future consumption.
+* Call the [RejectAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.rejectasync) method to reject a message, which permanently removes the message from the device queue.
 
 If something happens that prevents the device from completing, abandoning, or rejecting the message, IoT Hub will, after a fixed timeout period, queue the message for delivery again. For this reason, the message processing logic in the device app must be *idempotent*, so that receiving the same message multiple times produces the same result.
 
