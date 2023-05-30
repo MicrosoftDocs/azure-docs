@@ -112,7 +112,7 @@ productDirectory:
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   title: Billing + subscriptions # < 60 chars (optional)
-  summary: Documentation Azure billing and subscription management # < 160 chars (optional)
+  summary: Azure billing and subscription management documentation # < 160 chars (optional)
   items:
     # Card
     - title: Manage your account
