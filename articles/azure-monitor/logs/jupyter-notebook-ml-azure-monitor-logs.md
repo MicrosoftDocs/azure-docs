@@ -165,7 +165,7 @@ import sys
 
 Now that you've integrated your Log Analytics workspace with your notebook, let's look at some data in the workspace by running a query from the notebook:
 
-1.  This query checks how much data (in Megabytes) you ingested into each of the tables (data types) in the Log Analytics workspace each hour over the past week.
+1.  This query checks how much data (in Megabytes) you ingested into each of the tables (data types) in your Log Analytics workspace each hour over the past week.
 :
 
     ```python
