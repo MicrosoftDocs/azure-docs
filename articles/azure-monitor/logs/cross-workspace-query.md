@@ -25,7 +25,7 @@ There are two methods to query data that's stored in multiple workspaces and app
 ## Cross-resource query limits
 
 * The number of Application Insights resources and Log Analytics workspaces that you can include in a single query is limited to 100.
-* Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch).
+* Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../alerts/alerts-log-api-switch.md).
 * References to a cross resource, such as another workspace, should be explicit and can't be parameterized. See [Identify workspace resources](#identify-workspace-resources) for examples.
 
 ## Query across Log Analytics workspaces and from Application Insights
@@ -72,7 +72,7 @@ Example for a query across two workspaces:
 ```
 union 
   Update, 
-  workspace("").Update, workspace("00000000-0000-0000-0000-000000000000").Update
+  workspace("00000000-0000-0000-0000-000000000001").Update, workspace("00000000-0000-0000-0000-000000000002").Update
 | where TimeGenerated >= ago(1h)
 | where UpdateState == "Needed"
 | summarize dcount(Computer) by Classification

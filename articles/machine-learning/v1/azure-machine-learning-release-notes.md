@@ -9,7 +9,7 @@ ms.custom: UpdateFrequency5, event-tier1-build-2022
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 04/10/2023
+ms.date: 05/20/2023
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -19,6 +19,30 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+
+## 2023-05-20
+
+### Azure Machine Learning SDK for Python v1.51.0
+  + **azureml-automl-core**
+    + AutoML forecasting task now supports rolling forecast and partial support for quantile forecasts for hierarchical time series (HTS).
+    + Disallow using non-tabular datasets to customers for Classification (multi-class and multi-label) scenarios
+  + **azureml-automl-dnn-nlp**
+    + Disallow using non-tabular datasets to customers for Classification (multi-class and multi-label) scenarios
+  + **azureml-contrib-automl-pipeline-steps**
+    + AutoML forecasting task now supports rolling forecast and partial support for quantile forecasts for hierarchical time series (HTS).
+  + **azureml-fsspec**
+    + Replaces all user caused errors in MLTable & FSSpec with a custom UserErrorException imported from azureml-dataprep.
+  + **azureml-interpret**
+    + updated azureml-interpret package to interpret-community 0.29.*
+  + **azureml-pipeline-core**
+    + Fix `pipeline_version` not taking effect when calling `pipeline_endpoint.submit()`.
+  + **azureml-train-automl-client**
+    + AutoML forecasting task now supports rolling forecast and partial support for quantile forecasts for hierarchical time series (HTS).
+  + **azureml-train-automl-runtime**
+    + AutoML forecasting task now supports rolling forecast and partial support for quantile forecasts for hierarchical time series (HTS).
+  + **mltable**
+    + Additional encoding variants like `utf-8` are now supported when loading MLTable files.
+    + Replaces all user caused errors in MLTable & FSSpec with a custom UserErrorException imported from azureml-dataprep.
 
 ## 2023-04-10
 
@@ -2284,7 +2308,7 @@ Access the following web-based authoring tools from the studio:
 |-|-|-|
 | Notebook VM(preview) | Fully managed cloud-based workstation | 
 | [Automated machine learning](../tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | 
-| [Designer](../concept-designer.md) | Drag-and-drop machine learning modeling tool formerly known as the visual interface | 
+| [Designer](concept-designer.md) | Drag-and-drop machine learning modeling tool formerly known as the visual interface | 
 
 
 ### Azure Machine Learning designer enhancements
@@ -2592,7 +2616,7 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
     + Fixed metadata parameters parsing in [AzureBatchStep that was causing the error message "assignment for parameter SubscriptionId is not specified".
   + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + Supported training_data, validation_data, label_column_name, weight_column_name as data input format.
-    + Added deprecation message for [explain_model()](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#explain-model-fitted-model--x-train--x-test--best-run-none--features-none--y-train-none----kwargs-) and [retrieve_model_explanations()](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#retrieve-model-explanation-child-run-).
+    + Added deprecation message for explain_model() and retrieve_model_explanations().
 
 
 ## 2019-09-16
