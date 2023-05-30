@@ -1,27 +1,26 @@
 ---
-title: Edit indoor maps with the Azure Maps QGIS plugin
+title: View and edit data with the Azure Maps QGIS plugin
 titleSuffix: Microsoft Azure Maps Creator
-description: How to edit indoor maps using the Azure Maps QGIS plugin
+description: How to view and edit indoor map data using the Azure Maps QGIS plugin
 author: brendansco
 ms.author: Brendanc
-ms.date: 12/07/2020
+ms.date: 05/31/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---
 
-# The Azure Maps QGIS plugin
+# View and edit data with the Azure Maps QGIS plugin
 
-[QGIS] is an open-source [geographic information system (GIS)] application that supports viewing, editing, and analysis of geospatial data. You can view vector or raster maps, tiles, geojsons, shapefiles and many more formats.
+[QGIS] is an open-source [geographic information system (GIS)] application that supports viewing, editing, and analysis of geospatial data.
 
-[Creator] is an offering by [Azure Maps] that makes it possible to develop applications based on your private indoor map data using Azure Maps API and SDK. You can use building
-blueprints in CAD format, or geojson format to create indoor maps using Creator. Map data is stored in the [Dataset Service], can be accessed and edited using the [Features] service and viewed using the [Tileset] and [Style] services.
+[Azure Maps Creator] is used to develop applications based on your private indoor map data using Azure Maps API and SDK. You can use building blueprints in CAD format, or geojson format to create indoor maps using Azure Maps Creator. Map data is stored in the [Dataset Service], can be accessed and edited using the [Features] service and viewed using the [Tileset] and [Style] services.
 
-The [Azure Maps QGIS Plugin] is developed by Azure Maps to visualize and edit Creator Datasets in QGIS. It also allows you to navigate floors using a custom floor-picker and perform CRUD operations for multiple features simultaneously. All QGIS functionalities, such as copying features, rotating, resizing, flipping, can be used to for advanced editing. The plugin also supports error handling for data editing. Logs created by the plugin are useful to understand the APIs and debug.
+The [Azure Maps QGIS Plugin] is used to view and edit [datasets] in [QGIS]. It enables you to navigate floors using a custom floor-picker and perform CRUD operations for multiple features simultaneously. All QGIS functionalities, such as copying features, rotating, resizing, flipping, can be used to for advanced editing. The plugin also supports error handling for data editing. Logs created by the plugin are useful to understand the APIs and debug errors.
 
 ## Prerequisites
 
-* A working knowledge of [QGIS]
+* A basic working knowledge of [QGIS]
 * An [Azure Maps account]
 * A [subscription key]
 
@@ -31,277 +30,192 @@ This section provides information on how to install QGIS and the [Azure Maps QGI
 
 ### Install QGIS
 
-You can install QGIS from here: [Download QGIS]. You can use the latest version, however, we recommend getting the most stable version, which can be found on the same page, by selecting **"Looking for the most stable version?".**
+If you don't already have QGIS installed, see [Download QGIS]. You can use the latest version, however, it's recommended using the most stable version, which can be found on the same page, by selecting **"Looking for the most stable version?".**
+
+![A screenshot showing the QGIS download page with the Looking for the most stable version link outlined in red.](./media/creator-indoor-maps/qgis/stable-version.png)
 
 ### Install the Azure Maps QGIS Plugin
 
+To install the Azure Maps QGIS Plugin:
+
+1. Select **Manage and Install Plugins** from the **Plugins** menu to open the **Plugin Manager**.
+
+1. In the dialog that opens, select the **Azure Maps** plugin then the **Install plugin**:
+
+![A screenshot showing the QGIS install plugin.](./media/creator-indoor-maps/qgis/install-plugin.png)
+
 For detailed instructions on installing a plugin in QGIS, see [Installing New Plugins] in the QGIS Documentation.
 
-Once you have the plugin installed, you will see the AzureMaps symbol on the [plugins toolbar].
+Once you have the plugin installed, you'll see the AzureMaps symbol on the [plugins toolbar].
 
-![The Azure Maps QGIS plugin symbol.](./media/creator-indoor-maps/qgis/azure-maps-symbol.png)
+:::image type="content" source="./media/creator-indoor-maps/qgis/azure-maps-symbol.png"alt-text="A screenshot showing The Azure Maps QGIS plugin symbol on the QGIS toolbar.":::
 
-### Fetching Dataset
+## Working with datasets in the QGIS plugin
 
-Select the Azure Maps symbol to open the [Azure Maps plugin dialog box].
+Your Azure Maps dataset contains the data describing your indoor map. A dataset consists of layers that define a building. Each layer contains entries called features. Each feature is a row in the dataset. A feature usually has a geometry associated with it. Each geometry consists of a set of properties that describe it.
 
-To fetch a dataset, select the Geography and enter your [subscription key] in the plugin dialog box.
+A `featureClass` is a collection of similar features. A building has facility and level feature classes, containing features such as rooms and furniture. For example, a building has a facility `featureClass`, containing facility features. It also has a levels `featureClass` that defines the levels of the building, each level is a feature with its own set of properties that describe that level. Another `featureClass` could be furniture, with each individual piece of furniture described as a feature of the `featureClass` with its own unique set of properties.
 
-You can then view all the datasets you have in your account by selecting the List Dataset button. Pick your desired dataset and the datasetId will be populated with it. You can also type in the datasetId that you want to load in the DatasetId field.
+### Open Dataset
 
-Once the datasetId field has been filled, select Get Features to load the dataset into QGIS.
+The following steps describe how to open your dataset in QGIS using the Azure Maps QGIS Plugin.
 
-### Viewing dataset
+1. Select the **Azure Maps symbol** on the QGIS toolbar to open the **Azure Maps plugin dialog box**.
 
-Once the dataset has been loaded, you can view the different feature classes it contains in the [layer panel]. The ordering of the layers determines how features will be shown on the map; layers at a higher order in the list will be displayed on top.
+    :::image type="content" source="./media/creator-indoor-maps/qgis/azure-maps-symbol.png" alt-text="A screenshot showing the toolbar in QGIS with the Azure Maps button highlighted.":::
 
-Sometimes, layers will have a drop-down containing multiple layers within it, followed by the geometry of the layer, like so:
+1. Select your location, the United States or Europe, from the Geography drop down list.
+1. Enter your [subscription key].
+1. To get a list of all the dataset IDs associated with your Azure Maps account, select the **List Datasets** button.
+1. Select the desired `datasetId` from the **DatasetId** drop down list.
+1. (Optional) Change the location where your logs are saved if you don't want them saved to the default location.
 
-:::image type="content" source="./media/creator-indoor-maps/qgis/dataset.png"alt-text="A screenshot showing a data set in the Azure Maps QGIS plugin.":::
+    :::image type="content" source="./media/creator-indoor-maps/qgis/azure-maps-plugin-dialog-box.png" alt-text="A screenshot showing the Azure Maps plugin dialog box.":::
 
-This happens in the case when the [layer definition] shows that the layer can hold features of different geometries. In such cases, the plugin splits the layer according to the possible geometries, since QGIS only supports one geometry per layer.
+1. Select the **Get Features** button to load your indoor map data into QGIS, once loaded your map appears in the **Map canvas**.
+
+    :::image type="content" source="./media/creator-indoor-maps/qgis/map-qgis-full-screen.png" alt-text="A screenshot showing the QGIS product with the indoor map." lightbox="./media/creator-indoor-maps/qgis/map-qgis-full-screen.png":::
+
+### View dataset
+
+Once the dataset has been loaded, you can view the different feature classes it contains in the **Layers** panel. The ordering of the layers determines how features are shown on the map; layers at a higher order in the list are displayed on top.
+
+Some layers have a drop-down containing multiple layers within it, followed by the geometry of the layer, as the following image shows:
+
+:::image type="content" source="./media/creator-indoor-maps/qgis/layers_example.png"alt-text="A screenshot showing a data set in the QGIS layers section.":::
+
+This happens in the case when the [layer definition] shows that the layer can hold features of different geometries. since QGIS only supports one geometry per layer, the plugin splits these layers by their possible geometries.
 
 > [!NOTE]
 > The geometry geometryCollection is not supported by QGIS.
 
-On the main QGIS window, you will now see the building map.
+You can navigate to different floor by using the **Level** drop-down list in the Plugins toolbar, located next to the Azure Maps plugin symbol as sown in the following image:
 
-:::image type="content" source="./media/creator-indoor-maps/qgis/building-map.png"alt-text="A screenshot showing a building map in the Azure Maps QGIS plugin.":::
+![A screenshot showing the Azure Maps plugin symbol as it appears on the toolbar.](./media/creator-indoor-maps/qgis/layer-dropdown-closed.png)
 
-You can navigate to different floor by using the **Level** drop down list in the Plugins toolbar, located next to the Azure Maps plugin symbol as sown in the following image:
+## Edit dataset
 
-![A screenshot showing the Azure Maps plugin symbol as it appears on the toolbar.](./media/creator-indoor-maps/qgis/azure-maps-symbol.png)
+You can add, edit and delete the features of your dataset using QGIS.
 
-## Making changes to a dataset
+> [!TIP]
+> You will be using the digitizing toolbar when editing the features of your dataset in QGIS, for more information, see [Digitizing an existing layer].
 
-Dataset changes can be classified into three major categories: Additions, edits, deletions.
-
-### Dataset additions
+### Add features
 
 Dataset additions involve adding features to a layer.
 
-1. Select the layer in the [layer panel] where you want to add the new feature.
+1. In the **Layers** panel, select the layer that you want to add the new feature to.
 
-1. Toggle editing mode on in the [Digitizing Toolbar].
+1. Toggle editing mode on in the digitizing toolbar. To view the digitizing toolbar, navigate to **View > Toolbar > Digitizing Toolbar**.
 
-1. Select any add feature options from the [Digitizing Toolbar].
+    :::image type="content" source="./media/creator-indoor-maps/qgis/digitizing-toolbar-toggle-editing-mode.png"alt-text="A screenshot showing editing mode on the digitizing toolbar.":::
 
-1. Select the save button in the [Digitizing Toolbar] to save changes
+1. Select any add feature options from the digitizing toolbar and make the desired changes.
 
-### Dataset edits
+1. Select the save button in the digitizing toolbar to save changes
+
+    :::image type="content" source="./media/creator-indoor-maps/qgis/digitizing-toolbar-save-changes.png"alt-text="A screenshot showing the save changes button on the digitizing toolbar.":::
+
+### Edit features
 
 Dataset edits involve editing feature geometries and properties.
 
 #### Edit a feature geometry
 
-    1. Select the desired layer in the [layer panel] containing the feature you want to edit
+1. In the **Layers** panel, select the layer containing the feature you want to edit.
 
-    1. Toggle editing mode on in the [Digitizing Toolbar].
+1. Toggle editing mode on in the digitizing toolbar.
 
-    1. Select the [Vertex tool] from the [Digitizing Toolbar].
+1. Select the **Vertex tool** from the digitizing toolbar.
 
-    1. Hover over the feature you want to edit, QGIS should show the feature vertices. Drag a vertical to edit the shape.
+    :::image type="content" source="./media/creator-indoor-maps/qgis/vertex-tool.png"alt-text="A screenshot showing the Vertex Tool button on the digitizing toolbar.":::
 
-    1. Once you are done with your changes, select the save button in the [Digitizing Toolbar].
+1. Hover over the feature you want to edit, QGIS should show the feature vertices. Drag a vertical to edit the shape.
+
+1. Once you're done with your changes, select the save button in the digitizing toolbar.
 
 #### Edit a feature property
 
-There are two ways to edit the feature property:
+To edit a feature property using the attribute table
 
-1. Using Attribute table
+1. Open the attribute table for the layer containing the feature you want to edit.
 
-    1. Open the [attribute table](#attribute-table) for the layer containing the feature you want to edit.
+    ![A screenshot showing the attribute table.](./media/creator-indoor-maps/qgis/attribute-table.png)
 
-    1. Toggle the edit more on. The attribute table also contains an edit button.
+    > [!NOTE]
+    > The attribute table shows each feature, with their properties, in a tabular form. It can be accessed by right-clicking on any layer in the **Layers** panel then selecting **Open Attribute Table**.
 
-    1. Edit the property of the desired feature.
+1. Toggle the edit mode on.
 
-    1. Click the save button in the [Digitizing Toolbar] to save changes. The attribute table should also have a save button.
+1. Edit the desired property.
 
-1. Selecting the Feature
+1. Select the save button to save changes.
 
-    1. Select the desired feature in the [Selection toolbar]
+### Delete feature
 
-    1. Select the edit attribute tool from the [Digitizing Toolbar].
+1. Select the feature you want to delete.
 
-        1. Edit the property of the desired feature.
+1. Select the delete feature option from the digitizing toolbar.
 
-        1. Once you are done with your changes, select the save button in the [Digitizing Toolbar].
+    :::image type="content" source="./media/creator-indoor-maps/qgis/digitizing-toolbar-delete.png"alt-text="A screenshot showing the delete feature option in the digitizing toolbar.":::
 
-### Dataset deletions
+1. Select the save button in the digitizing toolbar to save changes.
 
-1. Select the desired feature in the [Selection toolbar] you want to delete.
+## Advanced editing
 
-1. Select the delete feature option from the [Digitizing Toolbar].
-
-1. Select the save button in the [Digitizing Toolbar] to save changes.
-
-## Advanced editing features
-
-To learn more about advance editing features, such as moving, scaling, copying and rotating features, see [Advanced digitizing] in the QGIS Documentation.
+To learn more about advance editing features offered in QGIS, such as moving, scaling, copying and rotating features, see [Advanced digitizing] in the QGIS Documentation.
 
 ## Logs
 
-Azure Maps QGIS Plugin also allows you access to logs, for the requests made to Azure Maps. You can set the location of log file in [Azure Maps Plugin Dialog box](#azure-maps-plugin-dialog-box). By default, log files are stored in the folder containing your downloaded plugin.
+Azure Maps QGIS Plugin logs information related to the requests made to Azure Maps. You can set the location of log file in the Azure Maps Plugin Dialog box. By default, log files are stored in the folder containing your downloaded plugin.
 
 ![A screenshot of the Azure Maps QGIS Plugin dialog box with the logs section highlighted.](./media/creator-indoor-maps/qgis/plugin-dialog-logs.png)
 
 You can view your log files in two ways:
 
-1. **QGIS**. You can view the Logs in QGIS by activating the [Logs Message Panel](#logs-message-panel). You will then see:
+1. **QGIS**. You can view the Logs in QGIS by activating the **Logs Message Panel**. You'll then see:
 
-   ![A screenshot of the Logs Message Panel.](./media/creator-indoor-maps/qgis/logs-message-panel.png)
+    :::image type="content" source="./media/creator-indoor-maps/qgis/logs-message-panel.png"alt-text="A screenshot of the Logs Message Panel.":::
 
-1. You can also view the logs where they are stored. (when you set the
-    location in Azure Maps Plugin Dialog box).
+Logs contain:
 
-Logs will contain the following:
+* Information about server requests and response.
+* Errors received from the server or QGIS.
+* Statistics about the number of features loaded
 
-1. Information about the requests you made, and the response from the
-    server
-
-1. Error response provided by the server, or by QGIS
-
-1. Statistics about the number of features loaded
-
-Error logs for Edits:
+### Error logs for Edits
 
 Error logs for edits are also stored in a separate folder called "AzureMaps_ErrorLogs". They contain more detailed information about the request made, including headers and body, and the response received from the server.
 
-Python Logs:
+### Python Logs
 
-Sometimes, errors can arise from the QGIS framework themselves. In such cases, QGIS logs them under a tab called Python Logs. You can get more
-information about went wrong from these logs as well.
-
-## Glossary
-
-### Azure Maps Terms
-
-#### Features
-
-A feature is any entry in the dataset (a row in the dataset). Usually, it will have a geometry associated with it, along with some property. For instance, a building will have facility `featureClass`, containing facility feature. It will also have the levels `featureClass`, i.e. the levels of a building, containing level features. Another `featureClass` could be furniture, where each feature would be a piece of furniture.
-
-#### Feature Class
-
-A `featureClass` is a collection of features, that goes to form a layer. A building will have facility and level feature classes, and could contain rooms, furniture etc.
-
-#### Azure Maps plugin dialog box
-
-The Azure Maps Plugin Dialog Box can be accessed by selecting the Azure Maps icon on the [Plugins Toolbar](#plugins-toolbar). You will see something like so:
-
-:::image type="content" source="./media/creator-indoor-maps/qgis/azure-maps-plugin-dialog-box.png"alt-text="A screenshot of the Azure Maps Plugin Dialog Box.":::
-
-The plugin has two tabs:
-
-* Creator Tab: This is where you would input the information to load the dataset into QGIS.
-* About Tab: This tab contains links to the Azure Maps documentation, the plugin documentation and feedback.
-
-### QGIS Terms
-
-#### Layer Panel
-
-The layer panel is typically found on the left side of the application. It contains information about the different layers visible in QGIS. To
-view the layer panel, navigate to View Panels Layers.
-
-#### Logs Message Panel
-
-The logs message panel allows you to view logs. For more information, see [Log Messages Panel] in the QGIS Documentation.
-
-To access the panel, select the message icon ![message icon](./media/creator-indoor-maps/qgis/message-icon.png) on the bottom right corner of QGIS.
-
-#### Plugins Toolbar
-
-The plugins toolbar contains all the installed plugins in QGIS. To view the plugins toolbar, navigate to View Toolbars Plugins Toolbar.
-
-#### Digitizing Toolbar
-
-The digitizing toolbar contains options to edit and save a feature. To view the digitizing toolbar, navigate to **View > Toolbar > Digitizing Toolbar**. For more information about the different options offered, see [Editing] in the QGIS Documentation.
-
-Most common options are:
-
-| Icon                                                                            | Description                       |
-|---------------------------------------------------------------------------------|-----------------------------------|
-| ![Pencil icon.](./media/creator-indoor-maps/qgis/pencil.png)                    | Toggle editing mode off and on    |
-| ![Add record icon.](./media/creator-indoor-maps/qgis/add-record.png)            | [Adding Features]                 |
-| ![Vertex tool icon.](./media/creator-indoor-maps/qgis/vertex-tool.png)          | [Vertex tool], used to edit Feature Geometry|
-| ![Edit feature icon.](./media/creator-indoor-maps/qgis/edit-feature.png)        | [Editing attribute values]        |
-| ![Delete features icon.](./media/creator-indoor-maps/qgis/delete-feature.png)   | [Deleting Selected Features]      |
-| ![Save icon.](./media/creator-indoor-maps/qgis/save-changes.png)                | [Saving Edited Layers]            |
-
-#### Selection Toolbar
-
-The selection toolbar allows you to select a feature in the currently active layer in QGIS. for more information, see [Selecting features] in the QGIS Documentation.
-
-The most common ones are:
-
-1. ![The select icon.](./media/creator-indoor-maps/qgis/select.png) - Select features by area. To use this tool
-
-   1. Select the layer containing the desired feature. You can use the [Identify feature tool] to identify the layer.
-
-   1. Select the desired feature
-
-   1. You can now perform functions related to this feature such as
-        edit, delete etc.
-
-#### Attributes Toolbar
-
-The attributes toolbar contains tools to identify the layer a feature is located in. For more information, see [Identifying Features] in the QGIS Documentation.
-The most common tools are:
-
-1. Selecting **identify features** ![The identify features icon.](./media/creator-indoor-maps/qgis/identify-features.png) allows you to identify the layer containing the desired feature.
-
-    1. Select the identify features icon.
-
-    1. Right click on the feature whose layer you want to know.
-
-    1. Select the desired layer from the list of layers (since there could be overlapping features, the tool shows layers for all features at the location you selected. You can hover over each layer to identify which points to your feature)
-
-    1. On the right side, you can see all information about the feature, including its properties.
-
-    1. You can then select the desired layer from the layer panel and select the feature using Select the desired feature in the [Selection toolbar]
-
-#### Attribute Table
-
-The attribute table shows each feature and their properties in a tabular form. It can be accessed by right-clicking a layer in the layer panel a select open attribute table.
+Any errors received from the QGIS framework are displayed in the **Python Logs** tab.
 
 ## Additional information
 
 * If you have suggestions for new features, enter them in the Azure Maps section of [Microsoft Azure | Share your Ideas].
-* If you have question related to Azure Maps, see [Stack Overflow]. Be sure and tag your search and questions with [Azure Maps].
+* If you have question related to Azure Maps, see [Stack Overflow]. Be sure and tag your search and questions with "Azure Maps".
 
 ## Next steps
 
 TBD: What are the next steps?
 
-[Creator]: creator-indoor-maps.md
-[Azure Maps]: about-azure-maps.md
+[Azure Maps Creator]: creator-indoor-maps.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [QGIS]: https://qgis.org/en/site/
 [geographic information system (GIS)]: https://www.usgs.gov/faqs/what-geographic-information-system-gis
+[datasets]: creator-indoor-maps.md#datasets
 [Dataset Service]: /rest/api/maps/2023-03-01-preview/dataset/create?tabs=HTTP
 [Features]: /rest/api/maps/2023-03-01-preview/features/create?tabs=HTTP
 [Tileset]: /rest/api/maps/2023-03-01-preview/tileset/create?tabs=HTTP
 [Style]: /rest/api/maps/2023-03-01-preview/style/create?tabs=HTTP
 [Download QGIS]: https://qgis.org/en/site/forusers/download.html
 [plugins toolbar]: #plugins-toolbar
-[Azure Maps plugin dialog box]: #azure-maps-plugin-dialog-box
-[layer panel]: #layer-panel
 [layer definition]: /rest/api/maps/2023-03-01-preview/features/get-collection-definition?tabs=HTTP
-[Digitizing Toolbar]: #digitizing-toolbar
-[Selection toolbar]: #selection-toolbar
 [Advanced digitizing]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#advanced-digitizing
-[Identify feature tool]: #attributes-toolbar
 [Azure Maps QGIS Plugin]: https://plugins.qgis.org/plugins/QGISPlugin
-[Adding Features]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#adding-features
 [Installing New Plugins]: https://docs.qgis.org/3.28/en/docs/training_manual/qgis_plugins/fetching_plugins.html#basic-fa-installing-new-plugins
-[Selecting features]: https://docs.qgis.org/3.28/en/docs/user_manual/introduction/general_tools.html?highlight=selection#selecting-features
-[Identifying Features]: https://docs.qgis.org/3.28/en/docs/user_manual/introduction/general_tools.html?highlight=selection#identify
-[Editing]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#digitizing-an-existing-layer
-[Log Messages Panel]: https://docs.qgis.org/3.28/en/docs/user_manual/introduction/general_tools.html?highlight=logs#log-messages-panel
-[Editing attribute values]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/attribute_table.html#editing-attribute-values
-[Deleting Selected Features]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#deleting-selected-features
-[Saving Edited Layers]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#saving-edited-layers
-[Vertex tool]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#vertex-tool
+[Digitizing an existing layer]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html?highlight=digitizing%20toolbar#digitizing-an-existing-layer
 [Microsoft Azure | Share your Ideas]: https://feedback.azure.com/d365community/forum/fc834083-0925-ec11-b6e6-000d3a4f09d0
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-maps
