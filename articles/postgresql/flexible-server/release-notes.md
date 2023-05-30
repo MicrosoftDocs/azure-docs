@@ -21,6 +21,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Postgres 15 is now available in public preview for Azure Database for PostgreSQL – Flexible Server in limited regions.
 * General availability: [Pgvector extension](how-to-use-pgvector.md) for Azure Database for PostgreSQL - Flexible Server.
 * General availability :[Azure Key Vault Managed HSM](./concepts-data-encryption.md#using-azure-key-vault-managed-hsm) with Azure Database for PostgreSQL- Flexible server
+* General availability  [32 TB Storage](./concepts-compute-storage.dm) with Azure Database for PostgreSQL- Flexible server
 
 ## Release: April 2023
 * Public preview of [Query Performance Insight](./concepts-query-performance-insight.md) for Azure Database for PostgreSQL – Flexible Server.
