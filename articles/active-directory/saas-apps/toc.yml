@@ -332,6 +332,8 @@
         href: blogin-tutorial.md
       - name: Blue Access for Members (BAM)
         href: blue-access-for-members-tutorial.md
+      - name: BlueConic
+        href: blueconic-tutorial.md
       - name: BlueJeans
         href: bluejeans-tutorial.md
       - name: Blue Ocean Brain
@@ -466,6 +468,8 @@
         href: cisco-anyconnect.md
       - name: Cisco Cloud
         href: ciscocloud-tutorial.md
+      - name: Cisco Expressway
+        href: cisco-expressway-tutorial.md
       - name: The Cloud Security Fabric
         href: ciscocloudlock-tutorial.md
       - name: Cisco Intersight
@@ -606,6 +610,8 @@
         href: corporateexperience-tutorial.md  
       - name: CorpTax
         href: corptax-tutorial.md
+      - name: Cosgrid Networks
+        href: cosgrid-networks-tutorial.md
       - name: Costpoint
         href: costpoint-tutorial.md
       - name: Count Me In - Operations Dashboard
@@ -686,6 +692,8 @@
         href: debroome-brand-portal-tutorial.md
       - name: Degreed
         href: degreed-tutorial.md
+      - name: Delivery Solutions
+        href: delivery-solutions-tutorial.md
       - name: Deputy
         href: deputy-tutorial.md
       - name: Descartes
@@ -1033,6 +1041,8 @@
         href: getabstract-tutorial.md
       - name: GetThere
         href: getthere-tutorial.md
+      - name: Getty Images
+        href: getty-images-tutorial.md
       - name: GHAE
         href: ghae-tutorial.md  
       - name: Gigya
@@ -1219,6 +1229,8 @@
         href: illumio-sso-tutorial.md
       - name: iLMS
         href: ilms-tutorial.md
+      - name: Imagen
+        href: imagen-tutorial.md
       - name: Image Relay
         href: imagerelay-tutorial.md
       - name: IMAGE WORKS
@@ -1245,6 +1257,8 @@
         href: inforretailinformationmanagement-tutorial.md
       - name: InformaCast
         href: informacast-tutorial.md
+      - name: Informatica Intelligent Data Management Cloud
+        href: informatica-intelligent-data-management-cloud-tutorial.md
       - name: Informatica Platform
         href: informatica-platform-tutorial.md  
       - name: Infrascale Cloud Backup
@@ -1751,6 +1765,8 @@
         href: on24-tutorial.md
       - name: OneDesk
         href: onedesk-tutorial.md
+      - name: Oneflow
+        href: oneflow-tutorial.md
       - name: Oneteam
         href: oneteam-tutorial.md
       - name: OneTrust Privacy Management Software
@@ -2025,6 +2041,8 @@
         href: rackspacesso-tutorial.md
       - name: Radancy's Employee Referrals
         href: radancys-employee-referrals-tutorial.md
+      - name: Radiant IOT Portal
+        href: radiant-iot-portal-tutorial.md
       - name: Raketa
         href: raketa-tutorial.md
       - name: Rally Software
@@ -2041,6 +2059,8 @@
         href: recurly-tutorial.md  
       - name: RedBrick Health
         href: ./redbrick-health-tutorial.md
+      - name: Redocly
+        href: redocly-tutorial.md
       - name: RedVector
         href: redvector-tutorial.md
       - name: Reflektive
@@ -2233,6 +2253,8 @@
         href: servicechannel-tutorial.md
       - name: ServiceNow
         href: servicenow-tutorial.md
+      - name: ServusConnect
+        href: servusconnect-tutorial.md
       - name: Settling music
         href: settlingmusic-tutorial.md
       - name: SevOne Network Monitoring System (NMS)
@@ -2461,6 +2483,8 @@
         href: target-process-tutorial.md
       - name: TAS
         href: tas-tutorial.md
+      - name: TASC (beta)
+        href: tasc-beta-tutorial.md
       - name: Taskize Connect
         href: taskize-connect-tutorial.md
       - name: Teachme Biz

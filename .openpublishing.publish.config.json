@@ -747,6 +747,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "web-apps-node-iot-hub-data-visualization",
+      "url": "https://github.com/azure-samples/web-apps-node-iot-hub-data-visualization",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "ImmersiveReaderSdk",
       "url": "https://github.com/microsoft/immersive-reader-sdk",
       "branch": "master",
@@ -997,7 +1003,13 @@
       "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs",
       "branch": "main",
       "branch_mapping": {}
-    }
+    },
+    {
+      "path_to_root": "azure-actions-workflow-samples",
+      "url": "https://github.com/Azure/actions-workflow-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    }  
   ],
   "branch_target_mapping": {
     "live": ["Publish", "PDF"],

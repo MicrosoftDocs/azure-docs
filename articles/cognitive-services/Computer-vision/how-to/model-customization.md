@@ -243,14 +243,16 @@ logging.info(f'Prediction: {prediction}')
 
 ## Create a new custom model
 
-Begin by going to [Vision Studio](https://portal.vision.cognitive.azure.com/) and selecting the **Image analysis** tab. Then select either the **Extract common tags from images** tile for image classification or the **Extract common objects in images** tile for object detection. This guide demonstrates a custom image classification model. 
+Begin by going to [Vision Studio](https://portal.vision.cognitive.azure.com/) and selecting the **Image analysis** tab. Then select the **Customize models** tile.
+
+:::image type="content" source="../media/customization/customization-tile.png" alt-text="Screenshot of the Customize models tile.":::
+
+Then, sign in with your Azure account and select your Computer Vision resource. If you don't have one, you can create one from this screen.
 
 > [!IMPORTANT]
 > To train a custom model in Vision Studio, your Azure subscription needs to be approved for access. Please request access using [this form](https://aka.ms/visionaipublicpreview).
 
-On the next screen, the **Choose the model you want to try out** drop-down lets you select the Pretrained Vision model (to do ordinary Image Analysis) or a custom trained model. Since you don't have a custom model yet, select **Train a custom model**.
-
-![Choose Resource Page]( ../media/customization/custom-model.png)
+:::image type="content" source="../media/customization/select-resource.png" alt-text="Screenshot of the select resource screen.":::
 
 ## Prepare training images
 
@@ -337,7 +339,11 @@ If an evaluation set isn't provided when training the model, the reported perfor
 
 ## Test custom model in Vision Studio
 
-Once you've built a custom model, you can go back to the **Extract common tags from images** tile in Vision Studio and test it by selecting it in the drop-down menu and then uploading new images.
+Once you've built a custom model, you can test by selecting the **Try it out** button on the model evaluation screen.
+
+:::image type="content" source="../media/customization/custom-try-it-out.png" alt-text="Screenshot of the model evaluation screen with Try it out button outlined.":::
+
+This takes you to the **Extract common tags from images** page. Choose your custom model from the drop-down menu and upload a test image.
 
 ![Screenshot of selecing test model in Vision Studio.]( ../media/customization/quick-test.png)
 

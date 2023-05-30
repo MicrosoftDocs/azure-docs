@@ -20,7 +20,7 @@ Computed properties in Azure Cosmos DB have values derived from existing item pr
 
 ## Computed property definition
 
-Computed properties must be at the top level in the item and can't have a nested path. Each computed property definition has two components: a name and a query. The name is the computed property name, and the query defines logic to calculate the property value for each item. Computed properties are scoped to an individual item and therefore can't use values from multiple items or rely on other computed properties.
+Computed properties must be at the top level in the item and can't have a nested path. Each computed property definition has two components: a name and a query. The name is the computed property name, and the query defines logic to calculate the property value for each item. Computed properties are scoped to an individual item and therefore can't use values from multiple items or rely on other computed properties. Every container can have a maximum of 20 computed properties.
 
 Example computed property definition:
 ```json
@@ -66,9 +66,9 @@ The constraints on computed property query definitions are:
 
 - Queries can't use any of the following clauses: WHERE, GROUP BY, ORDER BY, TOP, DISTINCT, OFFSET LIMIT, EXISTS, ALL, and NONE.
 
-- Aggregate and spatial functions aren't supported.
-
 - Queries can't include a scalar subquery.
+
+- Aggregate functions, spatial functions, non-deterministic functions and user defined functions aren't supported.
 
 ## Creating computed properties 
 
@@ -76,7 +76,7 @@ During the preview, computed properties must be created using the .NET v3 SDK. O
 
 |**SDK** |**Supported version** |**Notes** |
 |--------|----------------------|----------|
-|.NET SDK v3 |>= 3.34.0-preview |Computed properties are currently only available in preview package versions. |
+|.NET SDK v3 |>= [3.34.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.34.0-preview) |Computed properties are currently only available in preview package versions. |
 
 ### Create computed properties using the SDK
 
@@ -87,7 +87,7 @@ Here's an example of how to create computed properties in a new container using 
 ```csharp
     ContainerProperties containerProperties = new ContainerProperties("myContainer", "/pk")
     {
-        ComputedProperties = new Collection<ComputedProperty
+        ComputedProperties = new Collection<ComputedProperty>
         {
             new ComputedProperty
             {
@@ -97,12 +97,41 @@ Here's an example of how to create computed properties in a new container using 
         }
     };
 
-    ContainerResponse response = await this.database.CreateContainerAsync(containerProperties);
+    Container container = await client.GetDatabase("myDatabase").CreateContainerAsync(containerProperties);
 ```
+
+Here's an example of how to update computed properties on an existing container using the .NET SDK:
+
+```csharp
+    var container = client.GetDatabase("myDatabase").GetContainer("myContainer");
+
+    // Read the current container properties
+    var containerProperties = await container.ReadContainerAsync();
+    // Make the necessary updates to the container properties
+    containerProperties.Resource.ComputedProperties = new Collection<ComputedProperty>
+        {
+            new ComputedProperty
+            {
+                Name = "cp_lowerName",
+                Query = "SELECT VALUE LOWER(c.name) FROM c"
+            },
+            new ComputedProperty
+            {
+                Name = "cp_upperName",
+                Query = "SELECT VALUE UPPER(c.name) FROM c"
+            }
+        };
+    // Update container with changes
+    await container.ReplaceContainerAsync(containerProperties);
+```
+
+> [!TIP]
+> Every time you update container properties, the old values are overwritten. 
+> If you have existing computed properties and want to add new ones, ensure you add both new and existing computed properties to the collection.
 
 ## Using computed properties in queries
 
-Computed properties can be referenced in queries the same way as persisted properties. Values for computed properties that aren't indexed are evaluated during runtime using the computed property definition. If a computed property is indexed, the index is used in the same way as it is for persisted properties, and the computed property is evaluated on an as needed basis. 
+Computed properties can be referenced in queries the same way as persisted properties. Values for computed properties that aren't indexed are evaluated during runtime using the computed property definition. If a computed property is indexed, the index is used in the same way as it is for persisted properties, and the computed property is evaluated on an as needed basis. It's recommended you [add indexes on your computed properties](#indexing-computed-properties) for the best cost and performance.
 
 These examples use the quickstart products dataset in [Data Explorer](../../data-explorer.md). Launch the quick start to get started and load the dataset in a new container.
 
@@ -274,10 +303,10 @@ Add a composite index on two properties where one is computed, `cp_myComputedPro
     "compositeIndexes": [  
         [  
             {  
-               "path":"/cp_myComputedProperty",
+               "path":"/cp_myComputedProperty"
             },
             {  
-               "path":"/path/to/myPersistedProperty",
+               "path":"/path/to/myPersistedProperty"
             }
         ]
     ]
