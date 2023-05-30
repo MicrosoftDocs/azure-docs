@@ -52,7 +52,7 @@ To review the logs related to all actions performed by the extension, on Windows
 
 #### Issue
 
-The maintenance updates aren’t applied for the machines that are shut down, and you may see that the maintenance configuration is disassociated.
+Patches aren’t getting applied for the machines that are in shut down state, and you may also see that machines are losing their associated maintenance configurations/Schedules.
 
 #### Cause
 
