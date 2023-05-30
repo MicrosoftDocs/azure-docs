@@ -1410,7 +1410,7 @@ items:
   - name: Best practices
     href: best-practices-containers.md
   - name: Monitor containers
-    href: containers/monitor-containers.md
+    href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
   - name: Container insights
     items:
     - name: Overview
