@@ -2,7 +2,7 @@
 title: Create an Azure Batch pool without public IP addresses (preview)
 description: Learn how to create an Azure Batch pool without public IP addresses.
 ms.topic: how-to
-ms.date: 11/18/2022
+ms.date: 05/30/2023
 ms.custom: references_regions
 ---
 
@@ -84,9 +84,9 @@ client-request-id: 00000000-0000-0000-0000-000000000000
           "imageReference": {
                "publisher": "Canonical",
                "offer": "UbuntuServer",
-               "sku": "18.04-lts"
+               "sku": "20.04-lts"
           },
-          "nodeAgentSKUId": "batch.node.ubuntu 18.04"
+          "nodeAgentSKUId": "batch.node.ubuntu 20.04"
      }
      "networkConfiguration": {
           "subnetId": "/subscriptions/<your_subscription_id>/resourceGroups/<your_resource_group>/providers/Microsoft.Network/virtualNetworks/<your_vnet_name>/subnets/<your_subnet_name>",
