@@ -8,12 +8,11 @@ az networkcloud kubernetescluster show \
   --resource-group myResourceGroup
 ```
 
-Additionally, to get a list of agent pool names associated with the ```myNexusAKSCluster``` cluster in the ```myResourceGroup``` resource group, you can use the following Azure CLI command, which uses the ```--query``` parameter to return only the agent pool names.
+Additionally, to get a list of agent pool names associated with the ```myNexusAKSCluster``` cluster in the ```myResourceGroup``` resource group, you can use the following Azure CLI command.
 
 ```azurecli
 az networkcloud kubernetescluster agentpool list \
   --kubernetes-cluster-name myNexusAKSCluster \
   --resource-group myResourceGroup \
-  --output tsv \
-  --query '[].name'
+  --output table
 ```
