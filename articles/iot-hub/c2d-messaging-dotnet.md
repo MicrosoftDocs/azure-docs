@@ -66,24 +66,24 @@ In this article, you simulate a device to receive cloud-to-device messages throu
 
 In this section, run the device app to upload the file to Azure storage. Open a new command prompt and change folders to the **azure-iot-sdk-csharp\iothub\device\samples\getting started\MessageReceiveSample**, under the folder where you expanded the Azure IoT C# SDK. Run the following commands. Replace the `{Your device connection string}` placeholder value in the second command with the device connection string you copied from the registered device in your IoT hub.
 
-    ```cmd/sh
-    dotnet restore
-    dotnet run --c "{Your device connection string}"
-    ```
+   ```cmd/sh
+   dotnet restore
+   dotnet run --c "{Your device connection string}"
+   ```
 
 The following output is from the device app after it successfully starts and connects to your IoT hub:
     
     ```cmd/sh
-      5/22/2023 11:13:18 AM> Press Control+C at any time to quit the sample.
+   5/22/2023 11:13:18 AM> Press Control+C at any time to quit the sample.
       
    5/22/2023 11:13:18 AM> Device waiting for C2D messages from the hub...
    5/22/2023 11:13:18 AM> Use the Azure Portal IoT hub blade or Azure IoT Explorer to send a message to this device.
    5/22/2023 11:13:18 AM> Trying to receive C2D messages by polling using the ReceiveAsync() method. Press 'n' to move to the next phase.
-    ```
+   ```
 
 The **MessageReceiveSample** sample app demonstrates two different ways in which a device can receive a cloud-to-device message:
 
-The first phase polls for messages by using the [ReceiveAsync](https://review.learn.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet) and [CompleteAsync](https://review.learn.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.completeasync?view=azure-dotnet) methods. The `ReceiveC2dMessagesPollingAndCompleteAsync` method uses the `ReceiveAsync` method, which asynchronously returns the received message at the time that it's received by the device. `ReceiveAsync` returns *null* after a specifiable timeout period. In this example, the default of one minute is used. When the device receives a *null*, it should continue to wait for new messages. This requirement is the reason why the sample app includes the following block of code in the `ReceiveC2dMessagesPollingAndCompleteAsync` method:
+The first phase polls for messages by using the [ReceiveAsync](dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet) and [CompleteAsync](dotnet/api/microsoft.azure.devices.client.deviceclient.completeasync?view=azure-dotnet) methods. The `ReceiveC2dMessagesPollingAndCompleteAsync` method uses the `ReceiveAsync` method, which asynchronously returns the received message at the time that it's received by the device. `ReceiveAsync` returns *null* after a specifiable timeout period. In this example, the default of one minute is used. When the device receives a *null*, it should continue to wait for new messages. This requirement is the reason why the sample app includes the following block of code in the `ReceiveC2dMessagesPollingAndCompleteAsync` method:
 
 ```csharp
    if (receivedMessage == null)
@@ -96,8 +96,8 @@ The call to the `CompleteAsync` method notifies IoT Hub that the message has bee
 
 With AMQP and HTTPS, but not MQTT, the device can also:
 
-* Call the [AbandonAsync](https://review.learn.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.abandonasync?view=azure-dotnet) method to abandon a message, which results in IoT Hub retaining the message in the device queue for future consumption.
-* Call the [RejectAsync](https://review.learn.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.rejectasync?view=azure-dotnet) method to reject a message, which permanently removes the message from the device queue.
+* Call the [AbandonAsync](dotnet/api/microsoft.azure.devices.client.deviceclient.abandonasync?view=azure-dotnet) method to abandon a message, which results in IoT Hub retaining the message in the device queue for future consumption.
+* Call the [RejectAsync](dotnet/api/microsoft.azure.devices.client.deviceclient.rejectasync?view=azure-dotnet) method to reject a message, which permanently removes the message from the device queue.
 
 If something happens that prevents the device from completing, abandoning, or rejecting the message, IoT Hub will, after a fixed timeout period, queue the message for delivery again. For this reason, the message processing logic in the device app must be *idempotent*, so that receiving the same message multiple times produces the same result.
 
