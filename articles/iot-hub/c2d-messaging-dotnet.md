@@ -30,9 +30,9 @@ This article shows you how to:
 
 At the end of this article, you run two .NET console apps.
 
-* **MessageReceiveSample**: a sample app included with the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples), which connects to your IoT hub and receives cloud-to-device messages.
+* **MessageReceiveSample**: a sample device app included with the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples), which connects to your IoT hub and receives cloud-to-device messages.
 
-* **SendCloudToDevice**: sends a cloud-to-device message to the device app through IoT Hub and then receives its delivery acknowledgment.
+* **SendCloudToDevice**: a service app that sends a cloud-to-device message to the device app through IoT Hub and then receives its delivery acknowledgment.
 
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages (C, Java, Python, and JavaScript) through [Azure IoT device SDKs](iot-hub-devguide-sdks.md).
@@ -40,8 +40,6 @@ At the end of this article, you run two .NET console apps.
 You can find more information on cloud-to-device messages in [D2C and C2D Messaging with IoT Hub](iot-hub-devguide-messaging.md).
 
 ## Prerequisites
-
-* Visual Studio
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -56,6 +54,8 @@ You can find more information on cloud-to-device messages in [D2C and C2D Messag
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
+* Visual Studio
+
 ## Get the device connection string
 
 In this article, you simulate a device to receive cloud-to-device messages through your IoT Hub. The **MessageReceiveSample** sample app included with the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples) connects to your IoT hub and acts as your simulated device. The sample uses the primary connection string of your registered device. 
@@ -64,26 +64,24 @@ In this article, you simulate a device to receive cloud-to-device messages throu
 
 ## Receive messages in the device app
 
-In this section, run the device app to upload the file to Azure storage. Open a new command prompt and change folders to the **azure-iot-sdk-csharp\iothub\device\samples\getting started\MessageReceiveSample**, under the folder where you expanded the Azure IoT C# SDK. Run the following commands. Replace the `{Your device connection string}` placeholder value in the second command with the device connection string you copied from the registered device in your IoT hub.
+In this section, run the **MessageReceiveSample** sample device app to receive C2D messages sent through your IoT hub. Open a new command prompt and change folders to the **azure-iot-sdk-csharp\iothub\device\samples\getting started\MessageReceiveSample**, under the folder where you expanded the Azure IoT C# SDK. Run the following commands, replacing the `{Your device connection string}` placeholder value in the second command with the device connection string you copied from the registered device in your IoT hub.
 
-   ```cmd/sh
-   dotnet restore
-   dotnet run --c "{Your device connection string}"
-   ```
+```cmd/sh
+dotnet restore
+dotnet run --c "{Your device connection string}"
+```
 
-The following output is from the device app after it successfully starts and connects to your IoT hub:
+The following output is from the sample device app after it successfully starts and connects to your IoT hub:
     
-   ```cmd/sh
-   5/22/2023 11:13:18 AM> Press Control+C at any time to quit the sample.
-      
-   5/22/2023 11:13:18 AM> Device waiting for C2D messages from the hub...
-   5/22/2023 11:13:18 AM> Use the Azure Portal IoT hub blade or Azure IoT Explorer to send a message to this device.
-   5/22/2023 11:13:18 AM> Trying to receive C2D messages by polling using the ReceiveAsync() method. Press 'n' to move to the next phase.
-   ```
+```cmd/sh
+5/22/2023 11:13:18 AM> Press Control+C at any time to quit the sample.
+     
+5/22/2023 11:13:18 AM> Device waiting for C2D messages from the hub...
+5/22/2023 11:13:18 AM> Use the Azure Portal IoT hub blade or Azure IoT Explorer to send a message to this device.
+5/22/2023 11:13:18 AM> Trying to receive C2D messages by polling using the ReceiveAsync() method. Press 'n' to move to the next phase.
+```
 
-The **MessageReceiveSample** sample app demonstrates two different ways in which a device can receive a cloud-to-device message:
-
-The first phase polls for messages by using the [ReceiveAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync) and [CompleteAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.completeasync) methods. The `ReceiveC2dMessagesPollingAndCompleteAsync` method uses the `ReceiveAsync` method, which asynchronously returns the received message at the time that it's received by the device. `ReceiveAsync` returns *null* after a specifiable timeout period. In this example, the default of one minute is used. When the device receives a *null*, it should continue to wait for new messages. This requirement is the reason why the sample app includes the following block of code in the `ReceiveC2dMessagesPollingAndCompleteAsync` method:
+The sample device app polls for messages by using the [ReceiveAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync) and [CompleteAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.completeasync) methods. The `ReceiveC2dMessagesPollingAndCompleteAsync` method uses the `ReceiveAsync` method, which asynchronously returns the received message at the time that it's received by the device. `ReceiveAsync` returns *null* after a specifiable timeout period. In this example, the default of one minute is used. When the device receives a *null*, it should continue to wait for new messages. This requirement is the reason why the sample app includes the following block of code in the `ReceiveC2dMessagesPollingAndCompleteAsync` method:
 
 ```csharp
    if (receivedMessage == null)
