@@ -6,7 +6,7 @@ ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 6/16/2021
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Read input in any format using .NET custom deserializers (Preview)

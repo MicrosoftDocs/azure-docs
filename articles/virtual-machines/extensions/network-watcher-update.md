@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/25/2023
 ms.author: halkazwini
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, template-concept, engagement-fy23
+ms.custom: devx-track-azurepowershell, template-concept, engagement-fy23
 ---
 
 # Update the Network Watcher extension to the latest version
@@ -243,4 +243,3 @@ If you have auto-upgrade set to true for the Network Watcher extension, reboot y
 ## Support
 
 If you need more help at any point in this article, see the Network Watcher extension documentation for [Linux](./network-watcher-linux.md) or [Windows](./network-watcher-windows.md). You can also contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get support**. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
-
