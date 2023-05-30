@@ -665,7 +665,6 @@ New-AzRoleAssignment -ObJectId $azureADAppSp.Id -RoleDefinitionName 'Contributor
 
 ```powershell
 $aadClientSecretDigest = ConvertTo-SecureString -String $azureADAppSp.PasswordCredentials.SecretText -AsPlainText -Force
-$aadClientSecretDigest = ConvertTo-SecureString -String $azureADAppSp.PasswordCredentials.SecretText -AsPlainText -Force
 ```
 
 ### Get the service principal for the OpenShift resource provider - PowerShell
