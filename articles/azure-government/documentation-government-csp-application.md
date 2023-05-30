@@ -10,7 +10,7 @@ ms.service: azure-government
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/31/2021
+ms.date: 05/30/2023
 ---
 
 # Azure Government CSP application process
@@ -27,7 +27,7 @@ Before being able to apply for CSP or any other programs that run under the Micr
 
 The process begins with a request for an Azure Government tenant. For more information and to begin the validation, see [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/?ReqType=CSP). Once complete, you should receive a tenant to activate your enrollment in the Cloud Solution Provider program for the US government. Validation steps are shown below:
 
-- Be a Microsoft Partner (have an MPN ID).
+- Be enrolled in the [Microsoft Cloud Partner Program](/partner-center/mpn-overview) (have a MCPP ID).
 - Verification of legitimacy of the Company, Systems Integrator, Distributor, or Independent Software Vendor (ISV) applying for the tenant.
 - Verification of business engagements with government customers (for example, proof of services rendered to government agencies, statements of works, evidence of being part of GSA Schedule).
 - If you already have an Azure Government tenant, you can use your existing credentials to complete the CSP application.
@@ -47,6 +47,7 @@ The application process includes:
 - Estimation of potential revenue
 - Company validation via Dun and Bradstreet
 - Email verification
+- Verification of an active enrollment in the Advanced Support for Partners program or Prmier Support for Partners program. More information [here](https://partner.microsoft.com/support/partnersupport).
 - Acceptance of [Terms and Conditions](https://download.microsoft.com/download/2/C/8/2C8CAC17-FCE7-4F51-9556-4D77C7022DF5/MCRA2018_AOC_USGCC_ENG_Feb2019_CR.pdf)
 
 After the validation has been completed and terms have been signed, you are ready to transact. For more information on billing, see [Azure plan](/partner-center/azure-plan-lp).
@@ -62,4 +63,4 @@ After the validation has been completed and terms have been signed, you are read
 
 ## Next steps
 
-Once you have onboarded and are ready to create your first customer, make sure to review [Resources for building your Government CSP practice](https://devblogs.microsoft.com/azuregov/resources-for-building-your-government-csp-practice/). If you have any more questions, contact the [Azure Government CSP program](mailto:azgovcsp@microsoft.com).
+Once you have onboarded and are ready to create your first customer, make sure to review [Resources for building your Government CSP practice](https://devblogs.microsoft.com/azuregov/resources-for-building-your-government-csp-practice/). To review further documentation please visit the FAQ located [here](/partner-center/faq-for-us-govt-cloud). For all other questions, please open a ticket within Partner Center. 
