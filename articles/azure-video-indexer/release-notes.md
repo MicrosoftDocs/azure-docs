@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 04/25/2023
+ms.date: 05/24/2023
 ms.author: juliako
 ---
 
@@ -19,6 +19,15 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 * Deprecated functionality
 
 ## May 2023
+
+### API breaking change
+
+We're introducing a change in behavior that may break your existing query logic. The change is in the **List** and **Search** APIs, find a detailed change between the current and the new behavior in a table that follows. You may need to update your code to utilize the [new APIs](https://api-portal.videoindexer.ai/).
+ 
+|API	|Current|New|The breaking change|
+|---|---|---|---|
+|List Videos|•	List all videos/projects according to 'IsBase' boolean parameter. If 'IsBase' is not defined, list both.<br/>•	Returns videos in all states (In progress/Proccessed/Failed).	|•	List Videos API will Return only videos (with paging) in all states.<br/>•	List Projects API will return only projects (with paging).|• List videos API was divided into two new API’s **List Videos** and **List Projects**<br/>•	The 'IsBase' parameter no longer has a meaning. |
+|Search Videos|•	Search all videos/projects according to 'IsBase' boolean parameter. If 'IsBase' is not defined, search both. <br/>•	Search videos in all states (In progress/Proccessed/Failed). |Search only processed videos.|•	Search Videos API will only search videos and not projects.<br/>•	The 'IsBase' parameter no longer has a meaning.<br/>•	Search Videos API will only search Processed videos (and not Failed/InProgress ones.)|
 
 ### Support for HTTP/2
 
