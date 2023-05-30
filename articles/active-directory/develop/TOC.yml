@@ -524,10 +524,6 @@
           href: test-automate-integration-testing.md
         - name: Throttling and service limits
           href: test-throttle-service-limits.md
-        - name: Call and test a web API using Postman
-          href: howto-call-a-web-api-with-postman.md
-        - name: Call and test a web API using cURL
-          href: howto-call-a-web-api-with-curl.md
         - name: Create a service principal using the Azure portal
           href: howto-create-service-principal-portal.md
         - name: Create a service principal using Azure PowerShell
