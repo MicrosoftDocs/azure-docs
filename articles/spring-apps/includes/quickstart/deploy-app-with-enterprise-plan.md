@@ -133,14 +133,14 @@ Use the following steps to import the project.
 
    :::image type="content" source="../../media/quickstart/intellij-new-project.png" alt-text="Screenshot of IntelliJ IDEA showing Open File or Project dialog box." lightbox="../../media/quickstart/intellij-new-project.png":::
 
-### 4.2 Build and deploy your app
-
-> [!NOTE]
-> To run the project locally, add `spring.config.import=optional:configserver:` to the project's *application.properties* file.
+### 4.2 Deploy your app
 
 Use the following steps to build and deploy your app.
 
 1. If you haven't already installed the Azure Toolkit for IntelliJ, follow the steps in [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
+
+   > [!NOTE]
+   > Azure Toolkit for IntelliJ provides four ways to log in to Azure, and the deployment can only start after logging in.
 
 1. Right-click your project in the IntelliJ Project window, and then select **Azure** -> **Deploy to Azure Spring Apps**.
 

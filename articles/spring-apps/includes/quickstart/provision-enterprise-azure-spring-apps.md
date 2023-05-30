@@ -24,13 +24,15 @@ To reuse the Spring Apps instance creation steps in other articles, a separate m
    :::image type="content" source="../../media/quickstart/2-create-enterprise-basics.png" alt-text="Create an Azure Spring Apps service":::
 
    | Setting        |Suggested Value|Description|
-      |----------------|---------------|-----------|
+----------------|----------------|---------------|-----------|
    | Subscription   |Your subscription name|The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.|
    | Resource group |*myresourcegroup*| A new resource group name or an existing one from your subscription.|
    | Name           |*myasa*|A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.|
-   | Plan           |*Enterprise*|Pricing Tier determines the resource and cost associated with your instance.|
+   | Plan           |*Enterprise* |Pricing Tier determines the resource and cost associated with your instance.|
    | Region         |The region closest to your users| The location that is closest to your users.|
-   | Zone Redundant |Unchecked|Wether to create your Azure Spring Apps service in an Azure availability zone, this could only be supported in several regions at the moment.|
+   | Zone Redundant |Unchecked |Whether to create your Azure Spring Apps service in an Azure availability zone, this could only be supported in several regions at the moment.|
+   | Software IP plan |Pay-as-You-Go|Pay as you go with Azure Spring Apps.|
+   | Terms          |Checked |It's required to select the agreement checkbox associated with [Marketplace offering](https://aka.ms/ascmpoffer).|
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 

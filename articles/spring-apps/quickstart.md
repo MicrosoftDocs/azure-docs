@@ -52,12 +52,11 @@ After deployment, you can access the app at `https://<your-Azure-Spring-Apps-ins
 
 In this quickstart, you learned how to build and deploy a Spring app in an Azure Spring Apps service instance. You also learned how to deploy an app with a public endpoint, and how to clean up resources.
 
-You have access to powerful logs, metrics, and distributed tracing capability from the Azure portal. For more information, see [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md).
-
-To learn how to use more Azure Spring capabilities, advance to the quickstart series that deploys a sample application to Azure Spring Apps:
+> [!div class="nextstepaction"]
+> [Deploy your first web application to Azure Spring Apps](./quickstart-deploy-web-app.md)
 
 > [!div class="nextstepaction"]
-> [Introduction to the sample app](./quickstart-sample-app-introduction.md)
+> [Deploy event-driven application to Azure Spring Apps](./quickstart-deploy-event-driven-app-standard-consumption.md)
 
 ::: zone pivot="sc-consumption-plan"
 

@@ -20,10 +20,7 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternatively, to delete the resource group by using Azure CLI, use the following commands:
 
 ```azurecli
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
+az group delete --name ${RESOURCE_GROUP}
 ```
 
 ::: zone-end
