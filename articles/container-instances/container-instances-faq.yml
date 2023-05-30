@@ -211,7 +211,7 @@ sections:
       - question: | 
            How do I file quota requests for ACI Spot containers?
         answer: |
-           Customers can file support request to increase capacity for Spot containers by  selecting the issue type as "Technical" and add details in the description about the requirement for capacity increase for spot container deployment in the supported regions.
+           Customers can file support request to increase capacity for Spot containers by  selecting the issue type as "Services and Subscription limits(quotas)" and new quota type as "StandardSpotCores" added for ACI Spot containers offering when you are requested to fill in the requested details.
       - question: |
           What regions are ACI Spot containers available?
         answer: |
