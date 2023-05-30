@@ -1,6 +1,46 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-train-keras.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-keras",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-train-distributed-gpu.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-distributed-gpu",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-track-monitor-analyze-runs.md",
+        "redirect_url": "/azure/machine-learning/how-to-track-monitor-analyze-runs",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-setup-authentication.md",
+        "redirect_url": "/azure/machine-learning/how-to-setup-authentication",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-secure-workspace-vnet.md",
+        "redirect_url": "/azure/machine-learning/how-to-secure-workspace-vnet",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-secure-web-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-secure-web-service",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-secure-training-vnet.md",
+        "redirect_url": "/azure/machine-learning/how-to-secure-training-vnet",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-secure-inferencing-vnet.md",
+        "redirect_url": "/azure/machine-learning/how-to-secure-inferencing-vnet",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-log-view-metrics.md",
         "redirect_url": "/azure/machine-learning/how-to-log-view-metrics",
         "redirect_document_id": false
@@ -1621,8 +1661,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-set-up-training-targets.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-set-up-training-targets",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-set-up-training-targets.md",
+        "redirect_url": "/azure/machine-learning/how-to-set-up-training-targets",
         "redirect_document_id": true
     },
     {
@@ -1636,8 +1676,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-save-write-experiment-files.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-save-write-experiment-files",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-save-write-experiment-files.md",
+        "redirect_url": "/azure/machine-learning/how-to-save-write-experiment-files",
         "redirect_document_id": true
     },
     {
@@ -4006,9 +4046,9 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-select-algorithms.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-select-algorithms",
-        "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-select-algorithms.md",
+        "redirect_url": "/azure/machine-learning/how-to-select-algorithms",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-use-pipeline-ui.md",
@@ -4026,14 +4066,14 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-retrain-designer.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-retrain-designer",
-        "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-retrain-designer.md",
+        "redirect_url": "/azure/machine-learning/how-to-retrain-designer",
+        "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-run-batch-predictions-designer.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-run-batch-predictions-designer",
-        "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-run-batch-predictions-designer.md",
+        "redirect_url": "/azure/machine-learning/how-to-run-batch-predictions-designer",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-designer-python.md",
