@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.author: franlanglois
 ms.topic: conceptual
-ms.date: 05/19/2023
+ms.date: 05/29/2023
 ---
 
 # Manage a Datadog - An Azure Native ISV Service resource
@@ -67,17 +67,13 @@ The column **Logs to Datadog** indicates whether the resource is sending logs to
 - Region not supported. The Azure resource is in a region that doesn't currently support sending logs to Datadog.
 - Datadog agent not configured. Virtual machines without the Datadog agent installed don't emit logs to Datadog.
 
-<!-- new section 
-What was the desired heading level. You said "under" so I made a heading 3. It seems like maybe you mean heading 2.
-
--->
 ### Monitor Multiple Subscriptions
 
 While monitoring resources in a subscription is straightforward, observing multiple subscriptions, each with their own set of resources becomes tricky. Instead, you can monitor multiple subscriptions by linking them to a single Datadog resource that is tied to a Datadog organization. This provides a single pane of glass view for all resources across multiple subscriptions.
 
 To manage multiple subscriptions that you want to monitor, select **Monitored Subscriptions** in the **Datadog organization configurations** section of the Resource menu.
 
-<!-- Screenshot - showing Monitored Subscriptions selected in the Resource menu.-->
+:::image type="content" source="media/manage/datadog-monitored-subscriptions.png" alt-text="Screenshot showing Monitored Subscriptions selected in the Resource menu.":::
 
 From **Monitored Subscriptions** in the Resource menu, select the **Add Subscriptions**. The **Add Subscriptions** experience that opens and shows the subscriptions you have _Owner_ role assigned to and any Datadog resource created in those subscriptions that is already linked to the same Datadog organization as the current resource.
 
@@ -85,20 +81,19 @@ If the subscription you want to monitor has a resource already linked to the sam
 
 Select the subscriptions you want to monitor through the Datadog resource and select **Add**.
 
-<!-- Screenshot - showing list of subscriptions to select in the working pane. It would be better if they didn't say Liftr. -->
+:::image type="content" source="media/manage/datadog-add-subscription.png" alt-text="Screenshot showing subcriptions to add.":::
 
 If the list doesn’t get updated automatically, select **Refresh**  to view the subscriptions and their monitoring status. You might see an intermediate status of _In Progress_ while a subscription gets added. When the subscription is successfully added, you see the status is updated to **Active**. If a subscription fails to get added, **Monitoring Status** shows as **Failed**.
 
-<!-- Screenshot = showing subscriptions added with a stats as active.  -->
+:::image type="content" source="media/manage/datadog-monitored-subscriptions-list.png" alt-text="Screenshot showing statuses of monitored subscriptions.":::
 
 The set of tag rules for metrics and logs defined for the Datadog resource apply to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the Datadog resource. To reconfigure the rules, check [Reconfigure rules for metrics and logs](#reconfigure-rules-for-metrics-and-logs).
 
 ### Remove/Unlink Subscriptions from a Datadog Resource
-<!-- not sure which heading level to use. This paragraph also appears in the View monitored mesources section-->
 
 You can unlink subscriptions you don't want monitored through the Datadog resource by selecting **Monitored Subscriptions** from the Resource menu. Then, select any subscription you want to remove, and select **Remove subscriptions**. Select **Refresh** to view the updated list of subscriptions being monitored.
 
-<!-- Screenshot - showing subscriptions to remove in the working pane.-->
+:::image type="content" source="media/manage/datadog-remove-subscriptions.png" alt-text="Screenshot showing subscriptions to remove.":::
 
 ## API Keys
 
@@ -140,7 +135,7 @@ You can uninstall Datadog agents on a virtual machine by going to **Virtual mach
 
 You can install Datadog agents on app services as an extension. Go to **App Service extension** in left pane. This screen shows the list of all app services across all subscriptions you have “Owner” role assigned to. All subscriptions are selected by default. You can select a subset of subscriptions to narrow down the list of app services shown.
 
-<!-- screenshot -->
+:::image type="content" source="media/manage/datadog-app-services.png" alt-text="Screenshot showing App Service extension selected in the Resource menu.":::
 
 For each app service, the following data elements are displayed:
 
