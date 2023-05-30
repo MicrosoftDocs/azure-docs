@@ -47,4 +47,4 @@ We suggest that you do one of the following steps:
 
 ## Next Steps
  - Learn how to [view and remediate vulnerability assessment findings for registry images and running images](view-and-remediate-vulnerability-assessment-findings.md).
- - Learn how to [create exemption rules](create-exemption-rule.md) for a resource or subscription.
+ - Learn how to [create and exemption](exempt.resource.md) for a resource or subscription.
