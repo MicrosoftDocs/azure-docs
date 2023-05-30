@@ -51,15 +51,32 @@ The file includes all the parameters defined in the automation rule. Rules of an
 
 ## Troubleshooting
 
-- **Faulty automation rules:** If you export an automation rule that didn't pass validation when it was created, then when you import it, the deployment will fail with the same errors as the original.
+- **Analytics rule doesn't exist:** If you export an automation rule [based on a particular analytics rule](create-manage-use-automation-rules.md#add-conditions-incidents-only), and then import it to another workspace that doesn't have the same analytics rule in it, the following things will happen:
+    - The automation rule will successfully deploy in the second workspace.
+    - The automation rule will be automatically disabled.
+    - In the automation rule conditions, the analytics rule drop-down will display as "Unknown".
 
-- **Properties don't exist:** If you export an automation rule from a workspace, and then imported it to another workspace where certain properties referenced in the automation rule don't exist, as in the following examples:
-    - Analytics rule name&mdash;The analytics rule you used in the automation rule condition doesn't appear in the import destination workspace.
-    - Custom field&mdash;The custom field you used in the automation rule condition doesn't appear in the import destination workspace.
+    To allow this automation rule to run in the new workspace:
+    1. Export the referenced analytics rule from the original workspace and import it to the second one.
+    1. Edit the automation rule in the second workspace, choosing the now-present analytics rule from the drop-down.
+    1. Enable the automation rule.
 
-    In these cases, when you import the automation rule, the deployment will succeed, but the chosen analytics rule or custom field will show as "Unknown". To remedy this, edit the automation rule and replace the unknowns with new values.
+- **Custom details key doesn't exist:** If you export an automation rule with conditions that reference [custom details keys](create-manage-use-automation-rules.md#conditions-based-on-custom-details-preview), and then import it to another workspace where no analytics rules surface those custom details, the following things will happen:
+    - The automation rule will successfully deploy in the second workspace.
+    - The automation rule will *not* be automatically disabled.
+    - In the automation rule conditions, the custom details key drop-down will display as "Unknown".  
+      (These conditions may change... -YL)
 
-- **Expired automation rule:** If an automation rule is past its expiration date when imported, the deployment of the automation rule will fail with the following error: ___________?
+    To allow this automation rule to run in the new workspace:
+    - ???
+
+- **Playbook doesn't exist:** If you export an automation rule that calls a playbook, and then import it to another workspace that doesn't have access to the playbook, or if the playbook was moved or deleted, the following things will happen:
+    - The automation rule deployment will fail.
+    - You'll receive an error message: ___?
+
+- **Expired automation rule:** If an automation rule is past its expiration date when imported, the following things will happen:
+    - The automation rule deployment will fail.
+    - You'll receive an error message: ___?
 
 ## Next steps
 
