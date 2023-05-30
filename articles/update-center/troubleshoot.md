@@ -2,7 +2,7 @@
 title: Troubleshoot known issues with update management center (preview)
 description: The article provides details on the known issues and troubleshooting any problems with update management center (preview).
 ms.service: update-management-center
-ms.date: 04/21/2022
+ms.date: 05/30/2023
 ms.topic: conceptual
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -47,6 +47,21 @@ To review the logs related to all actions performed by the extension, on Windows
 * `cmd_excution_<numeric>_stderr.txt`
 
 ## Known issues
+
+### Scenario: Unable to apply patches for the shutdown machines 
+
+#### Issue
+
+The maintenance updates aren’t applied for the machines that are shut down, and you may see that the maintenance configuration is disassociated.
+
+#### Cause
+
+The machines are in a shutdown state.
+
+### Resolution: 
+
+Keep your machines turned on at least 15 minutes before the scheduled update. For more information, see, [Shut down machines](../virtual-machines/maintenance-configurations.md#shut-down-machines).
+
 
 ### Scenario: Patch run failed with Maintenance window exceeded property showing true even if time remained
 
