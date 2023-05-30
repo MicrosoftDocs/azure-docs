@@ -33,7 +33,7 @@ To reference another workspace in your query, use the [workspace](../logs/worksp
 
 ### Identify workspace resources
 
-You can identify a workspace in one on these IDs:
+You can identify a workspace using one of these IDs:
 
 * **Workspace ID**: A workspace ID is the unique, immutable, identifier assigned to each workspace represented as a globally unique identifier (GUID).
 
@@ -50,7 +50,7 @@ You can identify a workspace in one on these IDs:
 ### Identify an application
 The following examples return a summarized count of requests made against an app named *fabrikamapp* in Application Insights.
 
-You can identify an app in one of these IDs:
+You can identify an app using one of these IDs:
 
 * **ID**: This ID is the app GUID of the application.
 
