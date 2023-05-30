@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Onboard in Microsoft Sentinel'
-description: IN this quickstart, you enable Microsoft Sentinel, and set up data connectors to monitor and protect your environment.
+description: In this quickstart, you enable Microsoft Sentinel, and set up data connectors to monitor and protect your environment.
 author: yelevin
 ms.author: yelevin
 ms.topic: quickstart
