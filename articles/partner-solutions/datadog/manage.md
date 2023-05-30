@@ -17,7 +17,6 @@ This article shows how to manage the settings for your Datadog - An Azure Native
 To see details of your Datadog resource, select **Overview** in the left pane.
 
 :::image type="content" source="media/manage/resource-overview.png" alt-text="Datadog resource overview" border="true" lightbox="media/manage/resource-overview.png":::
-<!-- replace with new  -->
 
 The details include:
 
@@ -33,17 +32,19 @@ It also provides links to Datadog dashboards, logs, and host maps.
 
 The overview screen provides a summary of the resources sending logs and metrics to Datadog.
 
-- Resource type – Azure resource type.
-- Total resources – Count of all resources for the resource type.
-- Resources sending logs – Count of resources sending logs to Datadog through the integration.
-- Resources sending metrics – Count of resources sending metrics to Datadog through the integration.
+
+| Property  | Description  |
+|---------|---------|
+|Resource type     |   Azure resource type       |
+|Total resources     |   Count of all resources for the resource type.      |
+| Resources sending logs   |   Count of resources sending logs to Datadog through the integration.      |
+| Resources sending metrics  |   Count of resources sending metrics to Datadog through the integration.      |
 
 ## Reconfigure rules for metrics and logs
 
 To change the configuration rules for metrics and logs, select **Metrics and Logs** in the left pane.
 
-:::image type="content" source="media/manage/reconfigure-metrics-and-logs.png" alt-text="Modify the configuration of logs and metrics for the Datadog resource." border="true":::
-<!-- screenshot update  -->
+:::image type="content" source="media/manage/reconfigure-metrics-and-logs.png" alt-text="Screenshot showing how to modify the configuration of logs and metrics for the Datadog resource." border="true":::
 
 For more information, see [Configure metrics and logs](create.md#configure-metrics-and-logs).
 
@@ -52,7 +53,6 @@ For more information, see [Configure metrics and logs](create.md#configure-metri
 To see the list of resources emitting logs to Datadog, select **Monitored Resources** in the Resource menu.
 
 :::image type="content" source="media/manage/view-monitored-resources.png" alt-text="View resources monitored by Datadog" border="true":::
-<!-- Use full screen screenshot -->
 
 You can filter the list of resources by resource type, subscription, resource group name, location, and whether the resource is sending logs and metrics. Only the resource types supported by Azure Monitor are monitored. Check out the list of [resource types supported by Azure Monitor](/azure/azure-monitor/essentials/resource-logs-categories).
 
