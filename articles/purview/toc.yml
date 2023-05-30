@@ -323,11 +323,11 @@ items:
           href: how-to-workflow-manage-requests-approvals.md
         - name: Manage workflow runs
           href: how-to-workflow-manage-runs.md
-        - name: Workflow connectors
+        - name: Workflow connectors and actions
           href: how-to-use-workflow-connectors.md    
         - name: Workflow dynamic content
           href: how-to-use-workflow-dynamic-content.md      
-        - name: Workflow HTTP connector
+        - name: Workflows and external APIs
           href: how-to-use-workflow-http-connector.md
   - name: Data sharing
     items:
