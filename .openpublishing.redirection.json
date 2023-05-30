@@ -22814,5 +22814,25 @@
             "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/cli-samples.md",
+            "redirect_url": "/azure/networking/fundamentals/networking-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/powershell-samples.md",
+            "redirect_url": "/azure/networking/fundamentals/networking-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/cli-samples.md",
+            "redirect_url": "/azure/networking/fundamentals/networking-overview",
+            "redirect_document_id": false
+        }
     ]
 }
