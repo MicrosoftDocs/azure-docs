@@ -9,7 +9,7 @@ ms.date: 05/30/2023
 
 # Onboard Agentless Container posture in Defender CSPM
 
-Onboarding Agentless Container posture in Defender CSPM will allow you to gain all its [capabilities](concept-agentless-containers.md#agentless-container-posture).
+Onboarding Agentless Container posture in Defender CSPM will allow you to gain all its [capabilities](concept-agentless-containers.md#capabilities).
 
 
 **To onboard Agentless Container posture in Defender CSPM:**
