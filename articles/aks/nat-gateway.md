@@ -20,11 +20,11 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
 
 * Make sure you're using the latest version of [Azure CLI][az-cli].
 * Make sure you're using Kubernetes version 1.20.x or above.
-* Managed NAT Gateway is incompatible with custom virtual networks.
+* Managed NAT gateway is incompatible with custom virtual networks.
 
 ## Create an AKS cluster with a managed NAT gateway
 
-* Create an AKS cluster with a new managed NAT Gateway using the [`az aks create`][az-aks-create] command with the `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` parameters. If you want the NAT gateway to operate out of availability zones, specify the zones using `--zones`.
+* Create an AKS cluster with a new managed NAT gateway using the [`az aks create`][az-aks-create] command with the `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` parameters. If you want the NAT gateway to operate out of availability zones, specify the zones using `--zones`.
 
     ```azurecli-interactive
     az aks create \
@@ -52,7 +52,7 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
 
 ## Create an AKS cluster with a user-assigned NAT gateway
 
-This configuration requires bring-your-own networking (via [Kubenet][byo-vnet-kubenet] or [Azure CNI][byo-vnet-azure-cni]) and that the NAT Gateway is pre-configured on the subnet. The following commands create the required resources for this scenario.
+This configuration requires bring-your-own networking (via [Kubenet][byo-vnet-kubenet] or [Azure CNI][byo-vnet-azure-cni]) and that the NAT gateway is pre-configured on the subnet. The following commands create the required resources for this scenario.
 
 1. Create a resource group using the [`az group create`][az-group-create] command.
 
@@ -176,9 +176,9 @@ Windows enables OutboundNAT by default. You can now manually disable OutboundNAT
     az provider register --namespace Microsoft.ContainerService
     ```
 
-* Your clusters must have a Managed NAT Gateway (which may increase the overall cost).
+* Your clusters must have a managed NAT gateway (which may increase the overall cost).
 * If you're using Kubernetes version 1.25 or older, you need to [update your deployment configuration][upgrade-kubernetes].
-* If you need to switch from a load balancer to NAT Gateway, you can either add a NAT Gateway into the VNet or run [`az aks upgrade`][aks-upgrade] to update the outbound type.
+* If you need to switch from a load balancer to NAT gateway, you can either add a NAT gateway into the VNet or run [`az aks upgrade`][aks-upgrade] to update the outbound type.
 
 ### Manually disable OutboundNAT for Windows
 
