@@ -15,13 +15,224 @@ Install KEDA
 Configure sacler
 
 
-To integrate KEDA with Azure Monitor, you need to Deploy and configure workload identity on your AKS cluster. This allows KEDA to authenticate with you Azure Monitor workspace and retrieve metrics for scaling.
+To integrate KEDA with Azure Monitor, you need to Deploy and configure workload identity or pod identity on your AKS cluster. This allows KEDA to authenticate with you Azure Monitor workspace and retrieve metrics for scaling.
 
+This article will walk you through the steps to integrate KEDA with Azure Monitor using workload identity.
 
-export RESOURCE_GROUP="rg-ed-kedatest-01"
+## Set up a workload identity
+
+1. Start by setting up some environment variables. Change the values to suit your AKS cluster.Do not change these values for `SERVICE_ACCOUNT_NAMESPACE` and `SERVICE_ACCOUNT_NAME`. They are the namespace and name of the kubernetes service account that KEDA will use to authenticate with Azure Monitor.
+
+`USER_ASSIGNED_IDENTITY_NAME` is the name of the Azure Active directory identity that will be created for KEDA. 
+`FEDERATED_IDENTITY_CREDENTIAL_NAME` is the name of the credential that will be created for KEDA to use to authenticate with Azure.
+
+```bash
+export RESOURCE_GROUP="rg-keda-integration"
 export LOCATION="eastus"
-export SERVICE_ACCOUNT_NAMESPACE="default"
-export SERVICE_ACCOUNT_NAME="workload-identity-sa"
 export SUBSCRIPTION="$(az account show --query id --output tsv)"
-export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
-export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity" 
+export USER_ASSIGNED_IDENTITY_NAME="keda-int-identity"
+export FEDERATED_IDENTITY_CREDENTIAL_NAME="kedaFedIdentity" 
+export SERVICE_ACCOUNT_NAMESPACE="keda"
+export SERVICE_ACCOUNT_NAME="keda-operator"
+```
+
+1. If your AKS cluster has not been created with workload-identity or oidc-issuer enabled, you will need to enable it. If you are not sure, you can run the following command to check if it is enabled.
+
+```azurecli
+az aks show --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER_NAME --query oidcIssuerProfile
+az aks show --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER_NAME --query securityProfile.workloadIdentity
+```
+
+To enable workload identity and oidc-issuer , run the following command. 
+
+```azurecli
+az aks update -g $RESOURCE_GROUP -n $AKS_CLUSTER_NAME --enable-managed-identity --enable-oidc-issuer
+```
+
+1. Store the OIDC issuer url in an environment variable. This will be used later.
+
+```bash
+export AKS_OIDC_ISSUER="$(az aks show -n $CLUSTER_NAME -g $RESOURCE_GROUP --query "oidcIssuerProfile.issuerUrl" -otsv)"
+```
+
+1. Create a user assigned identity for KEDA. This identity will be used by KEDA to authenticate with Azure Monitor. 
+
+```azurecli
+ az identity create --name $USER_ASSIGNED_IDENTITY_NAME --resource-group $RESOURCE_GROUP --location $LOCATION --subscription $SUBSCRIPTION
+```
+
+The output will be similar to the following:
+
+```json
+{
+  "clientId": "abcd1234-abcd-abcd-abcd-9876543210ab",
+  "id": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourcegroups/rg-keda-integration/providers/Microsoft.ManagedIdentity/userAssignedIdentities/keda-int-identity",
+  "location": "eastus",
+  "name": "keda-int-identity",
+  "principalId": "12345678-abcd-abcd-abcd-1234567890ab",
+  "resourceGroup": "rg-keda-integration",
+  "systemData": null,
+  "tags": {},
+  "tenantId": "1234abcd-9876-9876-9876-abcdef012345",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+1. Store the `clientId` and `tenantId` in environment variables to use later.  
+```bash
+export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group $RESOURCE_GROUP --name $USER_ASSIGNED_IDENTITY_NAME --query 'clientId' -otsv)"
+export TENANT_ID="$(az identity show --resource-group $RESOURCE_GROUP --name $USER_ASSIGNED_IDENTITY_NAME --query 'tenantId' -otsv)"
+```
+
+1. Assign the *Monitoring Data Reader* role user to identity for your Azure Monitor workspace. This will allow KEDA to read metrics from you workspace. 
+
+```azurecli
+az role assignment create \
+--assignee $USER_ASSIGNED_CLIENT_ID \
+--role "Monitoring Data Reader" \
+--scope /subscriptions/$SUBSCRIPTION/resourceGroups/<Azure Monitor Workspace resource group>/providers/microsoft.monitor/accounts/<Azure monitor workspace name>
+```
+
+
+1. Create the KEDA namespace, then create Kubernetes service account. This service account will be used by KEDA to authenticate with Azure. 
+
+```azurecli
+
+az aks get-credentials -n $CLUSTER_NAME -g $RESOURCE_GROUP
+
+kubectl create namespace keda
+
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  annotations:
+    azure.workload.identity/client-id: $USER_ASSIGNED_CLIENT_ID
+  name: $SERVICE_ACCOUNT_NAME
+  namespace: $SERVICE_ACCOUNT_NAMESPACE
+EOF
+```
+1. Check your service account by running
+```bash
+kubectl  describe serviceaccount workload-identity-sa -n keda
+```
+
+1. Establish the federated identity between the service account and the user assigned identity. This will allow the service account to use the user assigned identity to authenticate with Azure.
+
+```azurecli
+az identity federated-credential create --name $FEDERATED_IDENTITY_CREDENTIAL_NAME --identity-name $USER_ASSIGNED_IDENTITY_NAME --resource-group $RESOURCE_GROUP --issuer $AKS_OIDC_ISSUER --subject system:serviceaccount:$SERVICE_ACCOUNT_NAMESPACE:$SERVICE_ACCOUNT_NAME --audience api://AzureADTokenExchange
+```
+
+
+## Deploy KEDA
+
+KEDA can be deployed using YAML manifests or Helm charts. This article will use Helm charts. For more information on deploying KEDA, see [Deploying KEDA](https://keda.sh/docs/2.10/deploy/)
+
+1. Deply KEDA using the following command. 
+
+
+```bash 
+helm install keda kedacore/keda --namespace keda \
+--set podIdentity.azureWorkload.enabled=true \
+--set podIdentity.azureWorkload.clientId=$USER_ASSIGNED_CLIENT_ID \
+--set podIdentity.azureWorkload.tenantId=$TENANT_ID
+```
+
+1. Check your deployment by running the following command. 
+```bash
+kubectl get pods -n keda
+```
+The outpout will be similar to the following:
+
+```bash
+NAME                                               READY   STATUS    RESTARTS       AGE
+keda-admission-webhooks-ffcb8f688-kqlxp            1/1     Running   0              4m
+keda-operator-5d9f7d975-mgv7r                      1/1     Running   1 (4m ago)     4m
+keda-operator-metrics-apiserver-7dc6f59678-745nz   1/1     Running   0              4m
+```
+
+## Scalers
+
+Scalers define how and when KEDA should scale a deployment. KEDA supports a variety of scalers. For more information on scalers, see [Scalers](https://keda.sh/docs/2.10/scalers/prometheus/)
+
+The following yaml file defines a scaler.  
+
+The `serverAddress` is the Query endpoint of your Azure Monitor workspace.  `metricName` is the name of the metric you want to scale on. The `query` is the query used to retrieve the metric. The `threshold` is the value at which the deployment will scale. Set thee `podIdentity.provider` according to the type of identity you are using. 
+
+```yml
+apiVersion: keda.sh/v1alpha1
+kind: TriggerAuthentication
+metadata:
+  name: azure-managed-prometheus-trigger-auth
+spec:
+  podIdentity:
+       : azure-workload | azure # use "azure" for pod identity and "azure-workload" for workload identity
+      identityId: <identity-id> # Optional. Default: Identity linked with the label set when installing KEDA.
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: azure-managed-prometheus-scaler
+spec:
+  scaleTargetRef:
+    name: deployment-name-to-be-scaled
+  minReplicaCount: 1
+  maxReplicaCount: 20
+  triggers:
+  - type: prometheus
+    metadata:
+      serverAddress: https://test-azure-monitor-workspace-name-1234.eastus.prometheus.monitor.azure.com
+      metricName: http_requests_total
+      query: sum(rate(http_requests_total{deployment="my-deployment"}[2m])) # Note: query must return a vector/scalar single element response
+      threshold: '100.50'
+      activationThreshold: '5.5'
+    authenticationRef:
+      name: azure-managed-prometheus-trigger-auth
+```
+
+## Troubleshooting
+
+
+### Federated credentials
+
+Federated credentials can take up to 10 minutes to propagate. If you are having issues with KEDA authenticating with Azure, try the following steps.
+
+The following log excerpt shows an error with the federated credentials.
+
+```bash
+kubectl logs -n keda keda-operator-5d9f7d975-mgv7r
+
+{
+ \"error\": \"unauthorized_client\",\n  \"error_description\": \"AADSTS70021: No matching federated identity record found for presented assertion. 
+Assertion Issuer: 'https://eastus.oic.prod-aks.azure.com/abcdef01-2345-6789-0abc-def012345678/12345678-abcd-abcd-abcd-1234567890ab/'.
+Assertion Subject: 'system:serviceaccount:keda:keda-operator'. 
+Assertion Audience: 'api://AzureADTokenExchange'. https://docs.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation
+Trace ID: 12dd9ea0-3a65-408f-a41f-5d0403a25100\\r\\nCorrelation ID: 8a2dce68-17f1-4f11-bed2-4bcf9577f2af\\r\\nTimestamp: 2023-05-30 11:11:53Z\",
+\"error_codes\": [\n    70021\n  ],\n  \"timestamp\": \"2023-05-30 11:11:53Z\",
+\"trace_id\": \"12345678-3a65-408f-a41f-5d0403a25100\",
+\"correlation_id\": \"12345678-17f1-4f11-bed2-4bcf9577f2af\",
+\"error_uri\": \"https://login.microsoftonline.com/error?code=70021\"\n}
+\n--------------------------------------------------------------------------------\n"}
+```
+
+Check the values used to create the ServiceAccount and the credentials created with `az identity federated-credential create` and ensure the `subject` value matches the `system:serviceaccount` value. 
+
+### Azure Monitor workspace persmissions
+
+If you are having issues with KEDA authenticating with Azure, check the permissions for the Azure Monitor workspace.
+The following log excerpt shows that the identity does not have read permissions for the Azure Monitor workspace.
+
+```bash
+kubectl logs -n keda keda-operator-5d9f7d975-mgv7r
+
+2023-05-30T11:15:45Z    ERROR   scale_handler   error getting metric for scaler 
+{"scaledObject.Namespace": "default", "scaledObject.Name": "azure-managed-prometheus-scaler", "scaler": "prometheusScaler", 
+"error": "prometheus query api returned error. status: 403 response: {\"status\":\"error\",
+\"errorType\":\"Forbidden\",\"error\":\"User \\u0027abc123ab-1234-1234-abcd-abcdef123456
+\\u0027 does not have access to perform any of the following actions 
+\\u0027microsoft.monitor/accounts/data/metrics/read, microsoft.monitor/accounts/data/metrics/read
+\\u0027 on resource \\u0027/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourcegroups/rg-azmon-ws-01/providers/microsoft.monitor/accounts/azmon-ws-01\\u0027. RequestId: 123456c427f348258f3e5aeeefef834a\"}"}
+```
+
+Ensure the identity has the `Monitoring Data Reader` role on the Azure Monitor workspace.
+
+
