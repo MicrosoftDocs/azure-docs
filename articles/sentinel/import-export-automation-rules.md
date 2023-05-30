@@ -29,12 +29,14 @@ The file includes all the parameters defined in the automation rule. Rules of an
 
     :::image type="content" source="./media/import-export-automation-rules/export-rule.png" alt-text="Screenshot showing how to export an automation rule." lightbox="./media/import-export-automation-rules/export-rule.png":::
 
+    You'll find the exported file in your Downloads folder. It will be named the same as the name of the automation rule, with a .json extension.
+
     > [!NOTE]
     > - You can select multiple automation rules at once for export by marking the check boxes next to the rules and selecting **Export** at the end.
     >
     > - You can export all the rules on a single page of the display grid at once, by marking the check box in the header row before clicking **Export**. You can't export more than one page's worth of rules at a time, though.
     >
-    > - Be aware that in this scenario, a single file (named *automationRules.json*) will be created, and will contain JSON code for all the exported rules.
+    > - Be aware that in this scenario, a single file (named *Azure_Sentinel_automation_rules.json*) will be created, and will contain JSON code for all the exported rules.
 
 ## Import rules
 
@@ -54,7 +56,7 @@ The file includes all the parameters defined in the automation rule. Rules of an
 - **Analytics rule doesn't exist:** If you export an automation rule [based on a particular analytics rule](create-manage-use-automation-rules.md#add-conditions-incidents-only), and then import it to another workspace that doesn't have the same analytics rule in it, the following things will happen:
     - The automation rule will successfully deploy in the second workspace.
     - The automation rule will be automatically disabled.
-    - In the automation rule conditions, the analytics rule drop-down will display as "Unknown".
+    - In the automation rule conditions, the analytics rule drop-down will display as "Unknown rule".
 
     To allow this automation rule to run in the new workspace:
     1. Export the referenced analytics rule from the original workspace and import it to the second one.
