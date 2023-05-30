@@ -218,7 +218,7 @@
         {
             "source_path": "articles/storsimple/storsimple-regions.md",
             "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false"
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/storsimple/storsimple-8000-system-requirements.md",
@@ -413,7 +413,7 @@
         {
             "source_path": "articles/storsimple/storsimple-8000-configure-mpio-windows-server.md",
             "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/storsimple/storsimple-configure-mpio-on-linux.md",
@@ -588,7 +588,12 @@
         {
             "source_path": "articles/storsimple/storsimple-troubleshoot-operational-device.md",
             "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false"source_path": "articles/storsimple/storsimple-8000-hardware-component-replacement.md
+            "redirect_document_id": false
+        },
+        {    
+            "source_path": "articles/storsimple/storsimple-8000-hardware-component-replacement.md",
+            "redirect_url": "/azure/storsimple/storsimple-overview",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/storsimple/storsimple-8000-controller-replacement.md",
