@@ -44,6 +44,10 @@ There are three steps to configuring Syslog collection:
 
 - **Configure the Log Analytics agent itself**. This is done from within Microsoft Sentinel, and the configuration is sent to all installed agents.
 
+## Prerequisites
+
+Before you begin, install the solution for **Syslog** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+
 ## Configure your Linux machine or appliance
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**.

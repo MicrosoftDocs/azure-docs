@@ -27,6 +27,8 @@ Azure Firewall Premium includes the following features:
 - **URL filtering** - extends Azure Firewall’s FQDN filtering capability to consider an entire URL along with any additional path. For example, `www.contoso.com/a/c` instead of `www.contoso.com`.
 - **Web categories** - administrators can allow or deny user access to website categories such as gambling websites, social media websites, and others.
 
+To compare Azure Firewall features for all Firewall SKUs, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
+
 ## TLS inspection
 
 The TLS (Transport Layer Security) protocol primarily provides cryptography for privacy, integrity, and authenticity using certificates between two or more communicating applications. It runs in the application layer and is widely used to encrypt the HTTP protocol.
