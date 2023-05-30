@@ -1,6 +1,16 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-create-register-datasets.md",
+        "redirect_url": "/azure/machine-learning/how-to-create-register-datasets",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/concept-designer.md",
+        "redirect_url": "/azure/machine-learning/concept-designer",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-create-manage-compute-instance.md",
         "redirect_url": "/azure/machine-learning/how-to-create-manage-compute-instance",
         "redirect_document_id": true
@@ -1651,8 +1661,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-data-ingest-adf.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-data-ingest-adf",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-data-ingest-adf.md",
+        "redirect_url": "/azure/machine-learning/how-to-data-ingest-adf",
         "redirect_document_id": true
     },
     {
