@@ -93,7 +93,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
     # [Azure CLI](#tab/cli)
    
-    To create a new endpoint, create a `YAML` configuration like the following:
+    To create a new endpoint, create a `YAML` configuration like the following. You can check the [full batch endpoint YAML schema]reference-yaml-endpoint-batch.md) for extra properties.
    
     :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/endpoint.yml" :::
    
@@ -363,7 +363,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     # [Azure CLI](#tab/cli)
    
-    To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
+    To create a new deployment under the created endpoint, create a `YAML` configuration like the following. You can check the [full batch endpoint YAML schema]reference-yaml-endpoint-batch.md) for extra properties.
    
     :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deployment-custom/deployment.yml" :::
    
