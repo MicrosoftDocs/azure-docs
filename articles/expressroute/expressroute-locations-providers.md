@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 05/29/2023
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -53,10 +53,7 @@ The following table shows connectivity locations and the service providers for e
 | **Auckland** | [Vocus Group NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | n/a | Supported | Devoli, Kordia, Megaport, REANNZ, Spark NZ, Vocus Group NZ |
 | **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | n/a | Supported | AIS, National Telecom UIH |
 | **Berlin** | [NTT GDC](https://services.global.ntt/en-us/newsroom/ntt-ltd-announces-access-to-microsoft-azure-expressroute-at-ntts-berlin-1-data-center) | 1 | Germany North | Supported | Colt, Equinix, NTT Global DataCenters EMEA|
-| **Bogota** | [Equinix BG1](https://www.equinix.com/locations/americas-colocation/colombia-colocation/bogota-data-centers/bg1/) | 4 | n/a | Supported | CenturyLink Cloud Connect, Equinix |
-| **Busan** | [LG CNS](https://www.lgcns.com/en/business/cloud/datacenter/) | 2 | Korea South | n/a | LG CNS |
-| **Berlin** | [NTT GDC](https://www.e-shelter.de/en/location/berlin-1-data-center) | 1 | Germany North | Supported | Colt, Equinix, NTT Global DataCenters EMEA|
-| **Bogota** | [Equinix BG1](https://www.equinix.com/locations/americas-colocation/colombia-colocation/bogota-data-centers/bg1/) | 4 | n/a | Supported | Cirion Technologies, Equinix |
+| **Bogota** | [Equinix BG1](https://www.equinix.com/locations/americas-colocation/colombia-colocation/bogota-data-centers/bg1/) | 4 | n/a | Supported | CenturyLink Cloud Connect, Equinix  |
 | **Busan** | [LG CNS](https://www.lgcns.com/business/cloud/datacenter/) | 2 | Korea South | n/a | LG CNS |
 | **Campinas** | [Ascenty](https://www.ascenty.com/en/data-centers-en/campinas/) | 3 | Brazil South | Supported | Ascenty |
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/about-us/) | 1 | Australia Central | Supported | CDC |
@@ -74,10 +71,8 @@ The following table shows connectivity locations and the service providers for e
 | **Dubai** | [PCCS](http://www.pacificcontrols.net/cloudservices/) | 3 | UAE North | Supported | Etisalat UAE |
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | UAE North | n/a | DE-CIX, du datamena, Equinix, GBI, Megaport, Orange, Orixcom |
 | **Dublin** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | North Europe | Supported | CenturyLink Cloud Connect, Colt, eir, Equinix, GEANT, euNetworks, Interxion, Megaport, Zayo|
-| **Dublin2** | [Interxion DUB2](https://www.interxion.com/locations/europe/dublin) | 1 | North Europe | Supported | Interxion |
-| **Frankfurt** | [Interxion FRA11](https://www.digitalrealty.com/data-centers/emea/frankfurt) | 1 | Germany West Central | Supported | AT&T NetBond, British Telecom, CenturyLink Cloud Connect, China Unicom Global, Colt, DE-CIX, Equinix, euNetworks, GBI, GEANT, InterCloud, Interxion, Megaport, NTT Global DataCenters EMEA, Orange, Telia Carrier, T-Systems |
 | **Dublin2** | [Interxion DUB2](https://www.interxion.com/locations/europe/dublin) | 1 | North Europe | Supported | Interxion, KPN, Orange |
-| **Frankfurt** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Germany West Central | Supported | AT&T NetBond, British Telecom, CenturyLink Cloud Connect, China Unicom Global, Colt, DE-CIX, Equinix, euNetworks, GBI, GEANT, InterCloud, Interxion, Megaport, NTT Global DataCenters EMEA, Orange, Telia Carrier, T-Systems, Verizon, Zayo |
+| **Frankfurt** | [Interxion FRA11](https://www.digitalrealty.com/data-centers/emea/frankfurt) | 1 | Germany West Central | Supported | AT&T NetBond, British Telecom, CenturyLink Cloud Connect, China Unicom Global, Colt, DE-CIX, Equinix, euNetworks, GBI, GEANT, InterCloud, Interxion, Megaport, NTT Global DataCenters EMEA, Orange, Telia Carrier, T-Systems, Verizon, Zayo |
 | **Frankfurt2** | [Equinix FR7](https://www.equinix.com/locations/europe-colocation/germany-colocation/frankfurt-data-centers/fr7/) | 1 | Germany West Central | Supported |  DE-CIX, Deutsche Telekom AG, Equinix, InterCloud |
 | **Geneva** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Switzerland West | Supported | Colt, Equinix, InterCloud, Megaport, Swisscom |
 | **Hong Kong** | [Equinix HK1](https://www.equinix.com/data-centers/asia-pacific-colocation/hong-kong-colocation/hong-kong-data-centers/hk1) | 2 | East Asia | Supported | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, China Unicom, Colt, Equinix, InterCloud, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon, Zayo |
@@ -212,7 +207,7 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 | **London** | BICS, Equinix, euNetworks| Bezeq International Ltd., CoreAzure, Epsilon Telecommunications Limited, Exponential E, HSO, NexGen Networks, Proximus, Tamares Telecom, Zain |
 | **Los Angeles** | Equinix |Crown Castle, Spectrum Enterprise, Transtelco |
 | **Madrid** | Level3 | Zertia |
-| **Montreal** | Cologix| Airgate Technologies, Inc. Aptum Technologies, Rogers, Zirro |
+| **Montreal** | Cologix| Airgate Technologies, Inc. Aptum Technologies, Oncore Cloud Services Inc., Rogers, Zirro |
 | **Mumbai** | Tata Communications | Tata Teleservices |
 | **New York** |Equinix, Megaport | Altice Business, Crown Castle, Spectrum Enterprise, Webair |
 | **Paris** | Equinix | Proximus |
