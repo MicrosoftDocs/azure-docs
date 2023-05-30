@@ -47,7 +47,7 @@ The application process includes:
 - Estimation of potential revenue
 - Company validation via Dun and Bradstreet
 - Email verification
-- Verification of an active enrollment in the Advanced Support for Partners program or Prmier Support for Partners program. More information [here](https://partner.microsoft.com/en-us/support/partnersupport).
+- Verification of an active enrollment in the Advanced Support for Partners program or Prmier Support for Partners program. More information [here](https://partner.microsoft.com/support/partnersupport).
 - Acceptance of [Terms and Conditions](https://download.microsoft.com/download/2/C/8/2C8CAC17-FCE7-4F51-9556-4D77C7022DF5/MCRA2018_AOC_USGCC_ENG_Feb2019_CR.pdf)
 
 After the validation has been completed and terms have been signed, you are ready to transact. For more information on billing, see [Azure plan](/partner-center/azure-plan-lp).
@@ -63,4 +63,4 @@ After the validation has been completed and terms have been signed, you are read
 
 ## Next steps
 
-Once you have onboarded and are ready to create your first customer, make sure to review [Resources for building your Government CSP practice](https://devblogs.microsoft.com/azuregov/resources-for-building-your-government-csp-practice/). To review further documentation please visit the FAQ located [here](partner-center/faq-for-us-govt-cloud). For all other questions, please open a ticket within Partner Center. 
+Once you have onboarded and are ready to create your first customer, make sure to review [Resources for building your Government CSP practice](https://devblogs.microsoft.com/azuregov/resources-for-building-your-government-csp-practice/). To review further documentation please visit the FAQ located [here](/partner-center/faq-for-us-govt-cloud). For all other questions, please open a ticket within Partner Center. 
