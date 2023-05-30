@@ -10,7 +10,7 @@ ms.custom: mvc, devx-track-azurecli
 
 To help you plan and execute a successful migration to Azure Kubernetes Service (AKS), this guide provides details for the current recommended AKS configuration. While this article doesn't cover every scenario, it contains links to more detailed information for planning a successful migration.
 
-In this article we summarize migration details for:
+In this article, we summarize migration details for:
 
 > [!div class="checklist"]
 >
@@ -52,7 +52,7 @@ We recommend using AKS clusters backed by [Virtual Machine Scale Sets](../virtua
 * [Authorized IP ranges](./api-server-authorized-ip-ranges.md),
 * [Cluster autoscaler](./cluster-autoscaler.md),
 * [Azure Policy for AKS](../governance/policy/concepts/policy-for-kubernetes.md), and
-* Other new features as they are released.
+* Other new features as they're released.
 
 AKS clusters backed by [virtual machine availability sets](../virtual-machines/availability.md#availability-sets) lack support for many of these features.
 
@@ -103,7 +103,7 @@ For more information, see [Azure subscription and service limits](../azure-resou
 
 If your application can't handle downtime, you need to follow best practices for high availability migration scenarios. Read more about [Best practices for complex business continuity planning, disaster recovery, and maximizing uptime in Azure Kubernetes Service (AKS)](./operator-best-practices-multi-region.md).
 
-For complex applications, you typically migrate over time rather than all at once, meaning the old and new environments might need to communicate over the network. Applications previously using `ClusterIP` services to communicate might need to be exposed as type `LoadBalancer` an secured appropriately.
+For complex applications, you typically migrate over time rather than all at once, meaning the old and new environments might need to communicate over the network. Applications previously using `ClusterIP` services to communicate might need to be exposed as type `LoadBalancer` and secured appropriately.
 
 To complete the migration, you want to point clients to the new services that run on AKS. We recommend you redirect traffic by updating DNS to point to the load balancer sitting in front of your AKS cluster.
 
