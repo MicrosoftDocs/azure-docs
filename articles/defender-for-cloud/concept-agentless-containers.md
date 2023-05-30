@@ -17,23 +17,12 @@ Learn more about [CSPM](concept-cloud-security-posture-management.md).
 
 Agentless Container Posture provides the following capabilities:
 
+- [Agentless discovery and visibility](#agentless-discovery-and-visibility-within-kubernetes-components) within Kubernetes components.
+- [Agentless container registry vulnerability assessment](#agentless-container-registry-vulnerability-assessment), using the image scanning results of your Azure Container Registry (ACR) with cloud security explorer.
 - Using Kubernetes [attack path analysis](concept-attack-path.md) to visualize risks and threats to Kubernetes environments.
-
-- Using cloud security explorer for risk hunting by querying various risk scenarios.
-
-- Viewing security insights, such as internet exposure, and other pre-defined security scenarios. For more information, search for `Kubernetes` in the [list of Insights](attack-path-reference.md#insights).
-
-- Agentless discovery and visibility within Kubernetes components.
-
-- Agentless container registry vulnerability assessment, using the image scanning results of your Azure Container Registry (ACR) with cloud security explorer.
-
 - Using [cloud security explorer](how-to-manage-cloud-security-explorer.md) for risk hunting by querying various risk scenarios. 
+- Viewing security insights, such as internet exposure, and other predefined security scenarios. For more information, search for `Kubernetes` in the [list of Insights](attack-path-reference.md#insights).
 
-- Viewing security insights, such as internet exposure, and other predefined security scenarios. For more information, search for Kubernetes in the [list of Insights](attack-path-reference.md#cloud-security-graph-components-list).
-
-- [Agentless discovery and visibility within Kubernetes components](#agentless-discovery-and-visibility-within-kubernetes-components)
-
-- [Container registry vulnerability assessment](#container-registry-vulnerability-assessment)
 
 ## Agentless discovery and visibility within Kubernetes components
 
@@ -65,7 +54,7 @@ By enabling the Agentless discovery for Kubernetes extension, the following proc
 - **Bind**: Upon discovery of an AKS cluster, MDC performs an AKS bind operation between the created identity and the Kubernetes role “Microsoft.Security/pricings/microsoft-defender-operator”. The role is visible via API and gives MDC data plane read permission inside the cluster.
 
 
-## Container registry vulnerability assessment
+## Agentless Container registry vulnerability assessment
 
 - Container registry vulnerability assessment scans images in your Azure Container Registry (ACR) to provide recommendations for improving your posture by remediating vulnerabilities.
 
