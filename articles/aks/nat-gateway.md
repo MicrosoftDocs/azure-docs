@@ -220,6 +220,6 @@ For more information on Azure NAT Gateway, see [Azure NAT Gateway][nat-docs].
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [az-group-create]: /cli/azure/group#az_group_create
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
-[az-network-nat-gateway-create]: /cli/azure/network/nat-gateway#az_network_nat_gateway_create
+[az-network-nat-gateway-create]: /cli/azure/network/nat/gateway#az_network_nat_gateway_create
 [az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
