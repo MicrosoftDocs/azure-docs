@@ -12,9 +12,6 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-> [!IMPORTANT]
-> The Calling Video Effects are available starting on the public preview version [1.0.0-beta.1]([https://central.sonatype.com/artifact/com.azure.android/azure-communication-calling/2.5.1-beta.4](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.0.0-beta.1) of the Windows Calling SDK. Please ensure that you use this or a newer SDK when using Video Effects. This API is provided as a preview ('beta') for developers and may change based on feedback that we receive.
-
 > [!Note]
 > In order to use Video Effects on the Windows Calling SDK, a machine learning model is downloaded to the customer's device. We encourage you to review the privacy notes in your application and update them accordingly, if necessary.
 
@@ -93,8 +90,8 @@ videoEffectsFeature.VideoEffectError += VideoEffectsFeature_OnVideoEffectError;
 and start using the APIs to enable and disable Video Effects:
 
 ```C#
-videoEffectsLocalVideoStreamFeature.EnableEffect( {{VIDEO_EFFECT_TO ENABLE}} );
-videoEffectsLocalVideoStreamFeature.DisableEffect( {{VIDEO_EFFECT_TO ENABLE}} );
+videoEffectsLocalVideoStreamFeature.EnableEffect( {{VIDEO_EFFECT_TO_ENABLE}} );
+videoEffectsLocalVideoStreamFeature.DisableEffect( {{VIDEO_EFFECT_TO_DISABLE}} );
 ```
 
 ### Background blur
