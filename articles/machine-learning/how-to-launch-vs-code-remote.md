@@ -58,8 +58,12 @@ You can create the connection from either the **Notebooks** or **Compute** secti
 
 * Notebooks
 
-    1. Select the **Notebooks** tab
+    1. Select the **Notebooks** tab.
     1. In the *Notebooks* tab, select the file you want to edit.
+    1. If the compute instance is stopped, select **Start compute** and wait until it is running.
+
+        :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="../media/tutorial-azure-ml-in-a-day/start-compute.png":::
+
     1. Select **Editors > Edit in VS Code (Web)**.
 
     :::image type="content" source="media/how-to-launch-vs-code-remote/edit-in-vs-code.png" alt-text="Screenshot of how to connect to Compute Instance VS Code (Web) Azure Machine Learning Notebook." lightbox="media/how-to-launch-vs-code-remote/edit-in-vs-code.png":::
@@ -67,7 +71,8 @@ You can create the connection from either the **Notebooks** or **Compute** secti
 * Compute
 
     1. Select the **Compute** tab
-    1. In the *Applications* column, select **VS Code (Web)** for the compute instance you want to connect to.
+    1. If the compute instance you wish to use is stopped, select it and then select **Start**.
+    1. Once the compute instance is running, in the *Applications* column, select **VS Code (Web)**.
 
     :::image type="content" source="media/how-to-launch-vs-code-remote/vs-code-from-compute.png" alt-text="Screenshot of how to connect to Compute Instance VS Code Azure Machine Learning studio." lightbox="media/how-to-launch-vs-code-remote/vs-code-from-compute.png":::
 
@@ -88,6 +93,10 @@ You can create the connection from either the **Notebooks** or **Compute** secti
 
     1. Select the **Notebooks** tab
     1. In the *Notebooks* tab, select the file you want to edit.
+    1. If the compute instance is stopped, select **Start compute** and wait until it is running.
+
+        :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="../media/tutorial-azure-ml-in-a-day/start-compute.png":::
+
     1. Select **Edit in VS Code (Desktop)**.
 
         :::image type="content" source="media/how-to-launch-vs-code-remote/edit-in-vs-code.png" alt-text="Screenshot of how to connect to Compute Instance VS Code Azure Machine Learning Notebook." lightbox="media/how-to-launch-vs-code-remote/edit-in-vs-code.png":::
@@ -98,8 +107,9 @@ You can create the connection from either the **Notebooks** or **Compute** secti
 
 * Compute
 
-    1. Select the **Compute** tab
-    1. In the *Application URI* column, select **VS Code (Desktop)** for the compute instance you want to connect to.
+    1. Select the **Compute** tab.
+    1. If the compute instance you wish to use is stopped, select it and then select **Start**.
+    1. Once the compute instance is running, in the *Applications* column, select **VS Code (Desktop)**.
 
     :::image type="content" source="media/how-to-launch-vs-code-remote/studio-compute-instance-vs-code-launch.png" alt-text="Screenshot of how to connect to Compute Instance VS Code Azure Machine Learning studio." lightbox="media/how-to-launch-vs-code-remote/studio-compute-instance-vs-code-launch.png":::
 
