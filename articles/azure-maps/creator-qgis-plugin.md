@@ -10,11 +10,9 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# View and edit data with the Azure Maps QGIS plugin
+# Work with datasets using the QGIS plugin
 
 [QGIS] is an open-source [geographic information system (GIS)] application that supports viewing, editing, and analysis of geospatial data.
-
-[Azure Maps Creator] is used to develop applications based on your private indoor map data using Azure Maps API and SDK. You can use building blueprints in CAD format, or geojson format to create indoor maps using Azure Maps Creator. Map data is stored in the [Dataset Service], can be accessed and edited using the [Features] service and viewed using the [Tileset] and [Style] services.
 
 The [Azure Maps QGIS Plugin] is used to view and edit [datasets] in [QGIS]. It enables you to navigate floors using a custom floor-picker and perform CRUD operations for multiple features simultaneously. All QGIS functionalities, such as copying features, rotating, resizing, flipping, can be used to for advanced editing. The plugin also supports error handling for data editing. Logs created by the plugin are useful to understand the APIs and debug errors.
 
@@ -196,20 +194,11 @@ Any errors received from the QGIS framework are displayed in the **Python Logs**
 * If you have suggestions for new features, enter them in the Azure Maps section of [Microsoft Azure | Share your Ideas].
 * If you have question related to Azure Maps, see [Stack Overflow]. Be sure and tag your search and questions with "Azure Maps".
 
-## Next steps
-
-TBD: What are the next steps?
-
-[Azure Maps Creator]: creator-indoor-maps.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [QGIS]: https://qgis.org/en/site/
 [geographic information system (GIS)]: https://www.usgs.gov/faqs/what-geographic-information-system-gis
 [datasets]: creator-indoor-maps.md#datasets
-[Dataset Service]: /rest/api/maps/2023-03-01-preview/dataset/create?tabs=HTTP
-[Features]: /rest/api/maps/2023-03-01-preview/features/create?tabs=HTTP
-[Tileset]: /rest/api/maps/2023-03-01-preview/tileset/create?tabs=HTTP
-[Style]: /rest/api/maps/2023-03-01-preview/style/create?tabs=HTTP
 [Download QGIS]: https://qgis.org/en/site/forusers/download.html
 [plugins toolbar]: #plugins-toolbar
 [layer definition]: /rest/api/maps/2023-03-01-preview/features/get-collection-definition?tabs=HTTP
