@@ -2,7 +2,7 @@
 title: Optimize log alert queries | Microsoft Docs
 description: This article gives recommendations for writing efficient alert queries.
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 5/30/2023
 ms.reviewer: yalavi
 ---
 # Optimize log alert queries
@@ -57,7 +57,7 @@ Log alert rules using [cross-resource queries](../logs/cross-workspace-query.md)
 union
 app('00000000-0000-0000-0000-000000000001').requests,
 app('00000000-0000-0000-0000-000000000002').requests,
-workspace('00000000-0000-0000-0000-000000000001').Perf 
+workspace('00000000-0000-0000-0000-000000000003').Perf 
 ```
 
 >[!NOTE]
