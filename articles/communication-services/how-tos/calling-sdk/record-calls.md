@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.subservice: calling 
 ms.date: 08/10/2021
 ms.custom: template-how-to
-zone_pivot_groups: acs-web-ios-android
+zone_pivot_groups: acs-plat-web-ios-android-windows
 
 #Customer intent: As a developer, I want to manage call recording on the client so that my users can record calls.
 ---
@@ -37,6 +37,10 @@ zone_pivot_groups: acs-web-ios-android
 
 ::: zone pivot="platform-ios"
 [!INCLUDE [Record Calls Client-side iOS](./includes/record-calls/record-calls-ios.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Record Calls Client-side Windows](./includes/record-calls/record-calls-windows.md)]
 ::: zone-end
 
 ## Next steps
