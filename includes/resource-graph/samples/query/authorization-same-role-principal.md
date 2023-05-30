@@ -17,9 +17,9 @@ AuthorizationResources
   AuthorizationResources
   | where type =~ "microsoft.authorization/roledefinitions"
   | extend RoleDefinitionName = tostring(properties.roleName)
-  | extend rdId = tostring(split(tolower(id), "roledefinitions/", 1)[0])
-  | project RoleDefinitionName, rdId
-) on $left.RoleDefinitionId == $right.rdId
+  | extend RoleId = name
+  | project RoleDefinitionName, RoleId
+) on $left.RoleDefinitionId == $right.RoleId
 | summarize count_ = count(), Scopes = make_set(tolower(properties.scope)) by RoleDefinitionId_PrincipalId,RoleDefinitionName
 | project RoleDefinitionId = split(RoleDefinitionId_PrincipalId, "_", 0)[0], RoleDefinitionName, PrincipalId = split(RoleDefinitionId_PrincipalId, "_", 1)[0], count_, Scopes
 | where count_ > 1

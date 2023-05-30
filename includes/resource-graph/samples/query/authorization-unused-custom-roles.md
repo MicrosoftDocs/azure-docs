@@ -15,7 +15,7 @@ AuthorizationResources
 | join kind = leftouter (
 AuthorizationResources
   | where type =~ "microsoft.authorization/roleassignments"
-  | extend RoleId = tostring(split(tolower(properties.roleDefinitionId), "roledefinitions/", 1)[0])
+  | extend RoleId = name
   | summarize RoleAssignmentCount = count() by RoleId
 ) on $left.rdId == $right.RoleId
 | where isempty(RoleAssignmentCount)
