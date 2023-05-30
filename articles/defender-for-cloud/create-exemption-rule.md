@@ -1,9 +1,9 @@
 ---
 title: How-to create an exemption rule for a resource or subscription 
-description: Learn how to create an exemption rule for a resource or subscription  
+description: Learn how to create an exemption rule to specific vulnerability assessment findings  
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 05/28/2023
+ms.date: 05/30/2023
 ---
 
 # Create a rule to exempt specific vulnerability assessment findings 

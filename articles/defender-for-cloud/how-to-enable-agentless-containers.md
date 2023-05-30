@@ -2,9 +2,8 @@
 title: How-to enable Agentless Container posture in Microsoft Defender CSPM
 description: Learn how to onboard Agentless Containers
 ms.service: defender-for-cloud
-ms.custom: build-2023
 ms.topic: how-to
-ms.date: 05/15/2023
+ms.date: 05/30/2023
 ---
 
 # Onboard Agentless Container posture in Defender CSPM
@@ -37,7 +36,7 @@ If you don't see results from your clusters, check the following:
 - Are your clusters Read only (locked)?
 
 ## What can I do if I have stopped clusters?
-We do not support or charge stopped clusters. To derive the value of agentless capabilities on a stopped cluster, you can rerun the cluster. 
+We do not support or charge stopped clusters. To get the value of agentless capabilities on a stopped cluster, you can rerun the cluster. 
 
 ### What can I do if I have read only (locked) clusters?
 

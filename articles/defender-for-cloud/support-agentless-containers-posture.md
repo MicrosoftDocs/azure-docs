@@ -2,9 +2,8 @@
 title: Support and prerequisites for agentless container posture - Microsoft Defender for Cloud
 description: Learn about the requirements for agentless container posture in Microsoft Defender for Cloud
 ms.service: defender-for-cloud
-ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 05/29/2023
+ms.date: 05/30/2023
 ---
 # Support and prerequisites for agentless containers posture
 
@@ -38,7 +37,7 @@ You need to have a Defender for CSPM plan enabled. There's no dependency on De
 
 This feature uses trusted access. Learn more about [AKS trusted access prerequisites](/azure/aks/trusted-access-feature#prerequisites).
 
-## Are you using an updated version of AKS?
+### Are you using an updated version of AKS?
 
 Learn more about [supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).
 
