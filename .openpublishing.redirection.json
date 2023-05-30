@@ -22888,6 +22888,11 @@
             "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-multi-tier-application.md",
             "redirect_url": "/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/authentication/how-to-migrate-mfa-server-to-azure-mfa-with-federation.md",
+            "redirect_url": "/azure/active-directory/authentication/how-to-migrate-mfa-server-to-mfa-with-federation",
+            "redirect_document_id": true
         }
     ]
 }
