@@ -64,7 +64,7 @@ This procedure describes how to onboard an OT network sensor with Defender for I
         
         |Field name |Description  |
         |---------|---------|
-        |**Resource name**     |  Select the site you want to attach your sensors to, or select **Create site** to create a new site.  <br><br>If you're creating a new site: <br>1. In the **New site** field, enter your site's name and select the checkmark button. <br>2.  From the **Site size** menu, select your site's size. The sizes listed in this menu are the sizes that you're licensed for, based on the licenses [you'd purchased](how-to-manage-subscriptions.md) in the Microsoft 365 admin center.     |
+        |**Resource name**     |  Select the site you want to attach your sensors to, or select **Create site** to create a new site.  <br><br>**If you're creating a new site**: <br>1. In the **New site** field, enter your site's name and select the checkmark button. <br>2.  From the **Site size** menu, select your site's size. The sizes listed in this menu are the sizes that you're licensed for, based on the licenses [you'd purchased](how-to-manage-subscriptions.md) in the Microsoft 365 admin center.  <br><br>If you're working with a [legacy OT](https://aka.ms/TransitiontoSite-basedEntitlementSKUs) plan, the **Site size** field isn't included.   |
         |**Display name**     |    Enter a meaningful name for your site to be shown across Defender for IoT.   |
         |**Tags**     |   Enter tag key and values to help you identify and locate your site and sensor in the Azure portal.      |
         |**Zone**     | Select the zone you want to use for your OT sensor, or select **Create zone** to create a new one.        |
@@ -81,18 +81,6 @@ Until you activate your sensor, the sensor's status will show as **Pending Activ
 > Sites and zones configured on the Azure portal are not synchronized with [sites and zones configured on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md).
 >
 > If you're working with a large deployment, we recommend that you use the Azure portal to manage cloud-connected sensors, and an on-premises management console to manage locally-managed sensors.
-
-### Onboarding a sensor to a legacy OT plan
-
-Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home), and OT sensors are onboarded to Defender for IoT based on your licensed site sizes.
-
-Existing customers can continue to use any legacy OT plan, with no changes in functionality.  If you're working with a legacy OT plan, the sensor onboarding wizard has the following changes:
-
-- **Sensor version**: This option is displayed only when the **Cloud connected** option is toggled on. Select the software version installed on your sensor. Verify that version **22.X and above** is selected. 
-
-- **Site**: When creating a new site, you're not requested to select a site size.
-
-For more information, see [OT plans billed by site-based licenses](whats-new.md#ot-plans-billed-by-site-based-licenses) and our [TechCommunity blog](https://aka.ms/TransitiontoSite-basedEntitlementSKUs).
 
 ## Next steps
 
