@@ -1,12 +1,12 @@
 {
     "redirections": [
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-create-manage-compute-instance.md",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-create-manage-compute-instance.md",
         "redirect_url": "/azure/machine-learning/how-to-create-manage-compute-instance",
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-create-machine-learning-pipelines.md",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-create-machine-learning-pipelines.md",
         "redirect_url": "/azure/machine-learning/how-to-create-machine-learning-pipelines",
         "redirect_document_id": false
     },
