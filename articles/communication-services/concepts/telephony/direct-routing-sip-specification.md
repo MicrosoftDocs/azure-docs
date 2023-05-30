@@ -4,7 +4,7 @@ description: SIP protocol details for Azure Communication Services direct routin
 author: boris-bazilevskiy
 ms.author: bobazile
 manager: rcole
-ms.date: 05/22/2023
+ms.date: 05/30/2023
 ms.topic: article
 ms.service: azure-communication-services
 audience: admin
@@ -17,9 +17,9 @@ This article describes how direct routing implements the Session Initiation Prot
 ## Processing the incoming request: finding the Communication resource
 
   > [!NOTE]
-  > In ACS direct routing SIP OPTIONS are enabled by default nd cannot be disabled. SBC must kick-off the OPTIONS exchange first, as SIP Proxy waits for SBC to start the exchange.
+  > In ACS direct routing SIP OPTIONS are enabled by default and cannot be disabled. SBC must initiate the OPTIONS exchange first, as SIP Proxy waits for SBC to start the exchange.
 
-Before an incoming or outbound call can be processed, OPTIONS messages are exchanged between SIP Proxy and the SBC. These OPTIONS messages allow SIP Proxy to provide the allowed capabilities to SBC. It's important for OPTIONS negotiation to be successful (200OK response), allowing for further communication between SBC and SIP Proxy for establishing calls. The SIP headers in an OPTIONS messages to SIP Proxy are provided as an example:
+Before an incoming or outbound call can be processed, OPTIONS messages are exchanged between SIP Proxy and the SBC. These OPTIONS messages allow SIP Proxy to provide the allowed capabilities to SBC. It's important for OPTIONS negotiation to be successful (200 OK response), allowing for further communication between SBC and SIP Proxy for establishing calls. The SIP headers in an OPTIONS messages to SIP Proxy are provided as an example:
 
 | Parameter name | Example of the value | 
 | :---------------------  |:---------------------- |
@@ -344,8 +344,6 @@ The History-Info is protected by a mandatory TLS mechanism.
 ## SBC connection to direct routing and failover mechanism
 
 See the section Failover mechanism for SIP signaling in [Direct routing infrastructure requirements](./direct-routing-infrastructure.md#failover-mechanism-for-sip-signaling).
-
-<------------------------------------------------------------------------------>
 
 ## Retry-After
 
