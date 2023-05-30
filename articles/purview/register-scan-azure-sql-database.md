@@ -440,7 +440,10 @@ Microsoft Purview supports lineage from Azure SQL Database. When you're setting 
 
 1. Follow the steps in the [Configure authentication for a scan](#configure-authentication-for-a-scan) section of this article to authorize Microsoft Purview to scan your SQL database.
 
-1. Sign in to Azure SQL Database with your Azure AD account, and assign `db_owner` permissions to the Microsoft Purview managed identity. 
+1. Sign in to Azure SQL Database with your Azure AD account, and assign `db_owner` permissions to the Microsoft Purview managed identity.
+
+   >[!NOTE]
+   > The 'db_owner' permissions is needed because lineage is based on XEvent sessions. So Microsoft Purview needs the permission to manage the XEvent sessions in SQL. 
 
     Use the following example SQL syntax to create a user and grant permission. Replace `<purview-account>` with your account name.
 
