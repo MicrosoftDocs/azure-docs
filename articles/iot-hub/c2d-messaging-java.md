@@ -64,7 +64,7 @@ In this article, you run a sample app that simulates a device, which receives cl
 
 ## Receive messages in the device app
 
-In this section, run the **ReceiveMessages** sample device app to receive C2D messages sent through your IoT hub. Open a new command prompt and navigate to the **azure-iot-sdk-java\iothub\device\iot-device-samples\handle-messages** folder, under the folder where you expanded the Azure IoT Java SDK. Run the following commands, replacing the `{Your device connection string}` placeholder value with the device connection string you copied from the registered device in your IoT hub.
+In this section, run the **HandleMessages** sample device app to receive C2D messages sent through your IoT hub. Open a new command prompt and navigate to the **azure-iot-sdk-java\iothub\device\iot-device-samples\handle-messages** folder, under the folder where you expanded the Azure IoT Java SDK. Run the following commands, replacing the `{Your device connection string}` placeholder value with the device connection string you copied from the registered device in your IoT hub.
 
 ```cmd/sh
 mvn clean package -DskipTests
