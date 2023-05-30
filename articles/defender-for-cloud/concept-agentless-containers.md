@@ -106,7 +106,7 @@ If you delete an image from the ACR, it currently takes 3 days to remove the fin
 
 ## Support for exemptions
 
-You can customize your vulnerability assessment experience by exempting management groups, subscriptions, or specific resources from your secure score. Learn more about [exempting resources and recommendations from your secure score](exempt.resource.md).
+You can customize your vulnerability assessment experience by exempting management groups, subscriptions, or specific resources from your secure score. Learn more about [exempting resources and recommendations from your secure score](exempt-resource.md).
 
 ## Next steps
 - Learn about [support and prerequisites for agentless containers posture](support-agentless-containers-posture.md)
