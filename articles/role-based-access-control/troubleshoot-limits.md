@@ -58,13 +58,13 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     The following shows an example of the results. The **count_** column is the number of principals assigned the same role and at the same scope. The count is sorted in descending order.
 
-    :::image type="content" source="media/troubleshoot-limits/resource-graph-role-assignments-group.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-limits/resource-graph-role-assignments-group.png":::
+    :::image type="content" source="media/troubleshoot-limits/authorization-same-role-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-limits/authorization-same-role-scope.png":::
 
 1. Identify a row where you want to replace the multiple role assignments with a single role assignment for a group.
 
 1. In the row, select **See details** to open the **Details** pane.
 
-    :::image type="content" source="media/troubleshoot-limits/resource-graph-role-assignments-group-details.png" alt-text="Screenshot of Details pane that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-limits/resource-graph-role-assignments-group-details.png":::
+    :::image type="content" source="media/troubleshoot-limits/authorization-same-role-scope-details.png" alt-text="Screenshot of Details pane that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-limits/authorization-same-role-scope-details.png":::
 
     | Column | Description |
     | --- | --- |
@@ -124,7 +124,7 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
     The following shows an example of the results. The **count_** column is the number of different scopes for role assignments with the same role and same principal. The count is sorted in descending order.
 
-    :::image type="content" source="media/troubleshoot-limits/resource-graph-role-assignments-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments for the same role and same principal, but at different scopes." lightbox="media/troubleshoot-limits/resource-graph-role-assignments-scope.png":::
+    :::image type="content" source="media/troubleshoot-limits/authorization-same-role-principal.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments for the same role and same principal, but at different scopes." lightbox="media/troubleshoot-limits/authorization-same-role-principal.png":::
 
     | Column | Description |
     | --- | --- |
@@ -138,7 +138,7 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
 1. In a row, select **See details** to open the **Details** pane.
 
-    :::image type="content" source="media/troubleshoot-limits/resource-graph-role-assignments-scope-details.png" alt-text="Screenshot of Details pane that shows role assignments for the same role and same principal, but at different scopes." lightbox="media/troubleshoot-limits/resource-graph-role-assignments-scope-details.png":::
+    :::image type="content" source="media/troubleshoot-limits/authorization-same-role-principal-details.png" alt-text="Screenshot of Details pane that shows role assignments for the same role and same principal, but at different scopes." lightbox="media/troubleshoot-limits/authorization-same-role-principal-details.png":::
 
 1. Use **RoleDefinitionId**, **RoleDefinitionName**, and **PrincipalId** to get the role and principal ID.
 
@@ -252,7 +252,7 @@ Follow these steps to find and delete unused Azure custom roles.
 
     The following shows an example of the results:
 
-    :::image type="content" source="media/troubleshoot-limits/resource-graph-custom-roles-unused.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows custom roles without role assignments." lightbox="media/troubleshoot-limits/resource-graph-custom-roles-unused.png":::
+    :::image type="content" source="media/troubleshoot-limits/authorization-unused-custom-roles.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows custom roles without role assignments." lightbox="media/troubleshoot-limits/authorization-unused-custom-roles.png":::
 
     | Column | Description |
     | --- | --- |
