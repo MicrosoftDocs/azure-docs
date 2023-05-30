@@ -23,7 +23,7 @@ Before creating a custom text classification model, you need to have labeled dat
 
 Before you can label data, you need:
 
-* [A successfully created project](create-project.md) with a configured Azure blob storage account, 
+* [A successfully created project](create-project.md) with a configured Azure blob storage account.
 * Documents containing text data that have [been uploaded](design-schema.md#data-preparation) to your storage account.
 
 See the [project development lifecycle](../../overview.md#project-development-lifecycle) for more information.
@@ -67,7 +67,7 @@ Use the following steps to label your data:
 
 8. Under the **Distribution** pivot you can view the distribution across training and testing sets. You have two options for viewing:
    * *Total instances* where you can view count of all labeled instances of a specific class.
-   * *documents with at least one label* where each document is counted if it contains at least one labeled instance of this class.
+   * *Documents with at least one label* where each document is counted if it contains at least one labeled instance of this class.
 
 9. While you're labeling, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save labels** button at the bottom of the page.
 

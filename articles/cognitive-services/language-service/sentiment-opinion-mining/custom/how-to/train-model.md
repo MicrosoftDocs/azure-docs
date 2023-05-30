@@ -27,9 +27,9 @@ The training times can be anywhere from a few minutes when dealing with few docu
 
 Before you train your model, you need:
 
-* [A successfully created project](create-project.md) with a configured Azure blob storage account, 
+* [A successfully created project](create-project.md) with a configured Azure blob storage account.
 * Text data that has [been uploaded](design-schema.md#data-preparation) to your storage account.
-* [Labeled data](label-data.md)
+* [Labeled data](label-data.md).
 
 See the [project development lifecycle](../../overview.md#project-development-lifecycle) for more information.
 

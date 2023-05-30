@@ -19,7 +19,7 @@ ms.author: aahi
 
 * In this tab you can view the model's details such as: F1 score, precision, recall, date and time for the training job, total training time and number of training and testing documents included in this training job.  
 
-    <!--:::image type="content" source="../../media/overview.png" alt-text="A that shows the overview page for model evaluation." lightbox="../../media/overview.png":::-->
+    <!--:::image type="content" source="../../media/overview.png" alt-text="A screenshot that shows the overview page for model evaluation." lightbox="../../media/overview.png":::-->
 
 * You'll also see [guidance](../../custom/concepts/evaluation-metrics.md#guidance) on how to improve the model. When clicking on *view details* a side panel will open to give more guidance on how to improve the model. In this example, there are not enough data in training set for these sentiments. Also, there is unclear distinction between class types in training set, where two sentiments are confused with each other. Selecting the confused sentiments will open the [data labeling](../../custom/how-to/label-data.md) page to label more data with the correct sentiment.
 

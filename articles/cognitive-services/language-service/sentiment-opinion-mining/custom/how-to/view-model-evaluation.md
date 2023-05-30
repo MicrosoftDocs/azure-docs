@@ -26,8 +26,8 @@ Before viewing model evaluation you need:
 
 * [A Custom sentiment analysis project](create-project.md) with a configured Azure blob storage account.
 * Text data that has [been uploaded](design-schema.md#data-preparation) to your storage account.
-<!--* [Labeled data](tag-data.md)-->
-* A successfully [trained model](train-model.md)
+* [Labeled data](tag-data.md).
+* A successfully [trained model](train-model.md).
 
 See the [project development lifecycle](../../overview.md#project-development-lifecycle) for more information.
 
