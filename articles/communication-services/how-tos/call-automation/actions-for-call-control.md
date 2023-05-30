@@ -50,6 +50,12 @@ var client = new CallAutomationClient("<resource_connection_string>");
 const client = new CallAutomationClient("<resource_connection_string>");
 ```
 
+## [Python](#tab/python)
+
+```python
+call_automation_client = CallAutomationClient.from_connection_string("<resource_connection_string>")
+```
+
 -----
 
 ## Make an outbound call
@@ -87,6 +93,20 @@ const callbackUri = "https://<myendpoint>/Events"; // the callback endpoint wher
 const response = await client.createCall(callInvite, callbackUri);
 ```
 
+### [Python](#tab/python)
+
+```python
+callback_uri = "https://<myendpoint>/Events"  # the callback endpoint where you want to receive subsequent events
+caller_id_number = PhoneNumberIdentifier(
+    "+18001234567"
+)  # This is the ACS provisioned phone number for the caller
+call_invite = CallInvite(
+    target=PhoneNumberIdentifier("+16471234567"),
+    source_caller_id_number=caller_id_number,
+)
+call_connection_properties = client.create_call(call_invite, callback_uri)
+```
+
 -----
 When making a group call that includes a phone number, you must provide a phone number that will be used as a caller ID number to the PSTN endpoint.
 
@@ -122,10 +142,28 @@ const participants = [
     { phoneNumber: "+18008008800" },
     { communicationUserId: "<user_id_of_target>" }, //user id looks like 8:a1b1c1-...
 ];
-const createCallOptions:CreateCallOptions = {
+const createCallOptions = {
     sourceCallIdNumber: { phoneNumber: "+18888888888" }, // This is the ACS provisioned phone number for the caller
 };
 const response = await client.createGroupCall(participants, callbackUri, createCallOptions);
+```
+
+### [Python](#tab/python)
+
+```python
+callback_uri = "https://<myendpoint>/Events"  # the callback endpoint where you want to receive subsequent events
+caller_id_number = PhoneNumberIdentifier(
+    "+18888888888"
+)  # This is the ACS provisioned phone number for the caller
+pstn_endpoint = PhoneNumberIdentifier("+18008008800")
+voip_endpoint = CommunicationUserIdentifier(
+    "<user_id_of_target>"
+)  # user id looks like 8:a1b1c1-...
+call_connection_properties = client.create_group_call(
+    target_participants=[voip_endpoint, pstn_endpoint],
+    callback_url=callback_uri,
+    source_caller_id_number=caller_id_number,
+)
 ```
 
 -----
@@ -169,6 +207,16 @@ const callbackUri = "https://<myendpoint>/Events";
 const { callConnection } = await client.answerCall(incomingCallContext, callbackUri);
 ```
 
+### [Python](#tab/python)
+
+```python
+incoming_call_context = "<IncomingCallContext_From_IncomingCall_Event>"
+callback_uri = "https://<myendpoint>/Events"  # the callback endpoint where you want to receive subsequent events
+call_connection_properties = client.answer_call(
+    incoming_call_context=incoming_call_context, callback_url=callback_uri
+)
+```
+
 -----
 The response provides you with CallConnection object that you can use to take further actions on this call once it's connected. Once the call is answered, two events will be published to the callback endpoint you provided earlier:
 
@@ -209,6 +257,16 @@ const rejectOptions = {
 await client.rejectCall(incomingCallContext, rejectOptions);
 ```
 
+# [Python](#tab/python)
+
+```python
+incoming_call_context = "<IncomingCallContext_From_IncomingCall_Event>"
+client.reject_call(
+    incoming_call_context=incoming_call_context,
+    call_reject_reason=CallRejectReason.FORBIDDEN,
+)
+```
+
 -----
 No events are published for reject action.
 
@@ -241,6 +299,18 @@ const target = { targetParticipant: { communicationUserId: "<user_id_of_target>"
 await client.redirectCall(incomingCallContext, target);
 ```
 
+# [Python](#tab/python)
+
+```python
+incoming_call_context = "<IncomingCallContext_From_IncomingCall_Event>"
+call_invite = CallInvite(
+    CommunicationUserIdentifier("<user_id_of_target>")
+  )  # user id looks like 8:a1b1c1-...
+client.redirect_call(
+    incoming_call_context=incoming_call_context, target_participant=call_invite
+)
+```
+
 -----
 To redirect the call to a phone number, construct the target with PhoneNumberIdentifier.
 
@@ -266,6 +336,18 @@ const target = {
     targetParticipant: { phoneNumber: "+16041234567" }, 
     sourceCallIdNumber: callerIdNumber,
 };
+```
+
+# [Python](#tab/python)
+
+```python
+caller_id_number = PhoneNumberIdentifier(
+    "+18888888888"
+)  # This is the ACS provisioned phone number for the caller
+call_invite = CallInvite(
+    target=PhoneNumberIdentifier("+16471234567"),
+    source_caller_id_number=caller_id_number,
+)
 ```
 
 -----
@@ -296,6 +378,16 @@ Response<TransferCallResult> transferResponse = callConnectionAsync.transferToPa
 ```javascript
 const transferDestination = { communicationUserId: "<user_id>" };
 const result = await callConnection.transferCallToParticipant(transferDestination);
+```
+
+# [Python](#tab/python)
+
+```python
+transfer_destination = CommunicationUserIdentifier("<user_id>")
+call_connection_client = call_automation_client.get_call_connection("<call_connection_id_from_ongoing_call>")
+result = call_connection_client.transfer_call_to_participant(
+    target_participant=transfer_destination
+)
 ```
 
 -----
@@ -338,6 +430,22 @@ const addThisPerson = {
 const addParticipantResult = await callConnection.addParticipant(addThisPerson);
 ```
 
+# [Python](#tab/python)
+
+```python
+caller_id_number = PhoneNumberIdentifier(
+    "+18888888888"
+) # This is the ACS provisioned phone number for the caller
+call_invite = CallInvite(
+    target=PhoneNumberIdentifier("+18008008800"),
+    source_caller_id_number=caller_id_number,
+)
+call_connection_client = call_automation_client.get_call_connection(
+    "<call_connection_id_from_ongoing_call>"
+)
+result = call_connection_client.add_participant(call_invite)
+```
+
 -----
 To add a Communication Services user, provide a CommunicationUserIdentifier instead of PhoneNumberIdentifier. Source caller ID isn't mandatory in this case.
 
@@ -369,6 +477,16 @@ const removeThisUser = { communicationUserId: "<user_id>" };
 const removeParticipantResult = await callConnection.removeParticipant(removeThisUser);
 ```
 
+# [Python](#tab/python)
+
+```python
+remove_this_user = CommunicationUserIdentifier("<user_id>")
+call_connection_client = call_automation_client.get_call_connection(
+    "<call_connection_id_from_ongoing_call>"
+)
+result = call_connection_client.remove_participant(remove_this_user)
+```
+
 -----
 RemoveParticipant will publish a `RemoveParticipantSucceeded` or `RemoveParticipantFailed` event, along with a `ParticipantUpdated` providing the latest list of participants in the call. The removed participant is excluded if remove operation was successful.  
 ![Sequence diagram for removing a participant from the call.](media/remove-participant-flow.png)
@@ -395,6 +513,12 @@ Response<Void> response = callConnectionAsync.hangUpWithResponse(true).block();
 await callConnection.hangUp(true);
 ```
 
+# [Python](#tab/python)
+
+```python
+call_connection_client.hang_up(is_for_everyone=True)
+```
+
 -----
 CallDisconnected event is published once the hangUp action has completed successfully.
 
@@ -418,6 +542,14 @@ CallParticipant participantInfo = callConnection.getParticipant(new Communicatio
 const participantInfo = await callConnection.getParticipant({ communicationUserId: "<user_id>" });
 ```
 
+# [Python](#tab/python)
+
+```python
+participant_info = call_connection_client.get_participant(
+    CommunicationUserIdentifier("<user_id>")
+)
+```
+
 -----
 
 ## Get information about all call participants
@@ -431,13 +563,19 @@ List<CallParticipant> participantList = (await callConnection.GetParticipantsAsy
 # [Java](#tab/java)
 
 ```java
-List<CallParticipant> participantsInfo = Objects.requireNonNull(callConnection.listParticipants().block()).getValues();
+List<CallParticipant> participantList = Objects.requireNonNull(callConnection.listParticipants().block()).getValues();
 ```
 
 # [JavaScript](#tab/javascript)
 
 ```javascript
-const participantsInfo = await callConnection.listParticipants();
+const participantList = await callConnection.listParticipants();
+```
+
+# [Python](#tab/python)
+
+```python
+participant_list = call_connection_client.list_participants()
 ```
 
 -----
@@ -447,19 +585,25 @@ const participantsInfo = await callConnection.listParticipants();
 # [csharp](#tab/csharp)
 
 ```csharp
-CallConnectionProperties thisCallsProperties = await callConnection.GetCallConnectionPropertiesAsync(); 
+CallConnectionProperties callConnectionProperties = await callConnection.GetCallConnectionPropertiesAsync(); 
 ```
 
 # [Java](#tab/java)
 
 ```java
-CallConnectionProperties thisCallsProperties = callConnection.getCallProperties().block(); 
+CallConnectionProperties callConnectionProperties = callConnection.getCallProperties().block(); 
 ```
 
 # [JavaScript](#tab/javascript)
 
 ```javascript
-const thisCallProperties = await callConnection.getCallConnectionProperties();
+const callConnectionProperties = await callConnection.getCallConnectionProperties();
+```
+
+# [Python](#tab/python)
+
+```python
+call_connection_properties = call_connection_client.get_call_properties()
 ```
 
 -----
