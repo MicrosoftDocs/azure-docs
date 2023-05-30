@@ -218,7 +218,7 @@
         {
             "source_path": "articles/storsimple/storsimple-regions.md",
             "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false",
+            "redirect_document_id": false"
         },
         {
             "source_path": "articles/storsimple/storsimple-8000-system-requirements.md",
