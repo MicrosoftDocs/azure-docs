@@ -187,7 +187,7 @@ One the scoring script is created, it's time to create a batch deployment for it
 
    # [Azure CLI](#tab/cli)
    
-   To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
+   To create a new deployment under the created endpoint, create a `YAML` configuration like the following. You can check the [full batch endpoint YAML schema]reference-yaml-endpoint-batch.md) for extra properties.
    
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deployment-by-file.yml":::
   
