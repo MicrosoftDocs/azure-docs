@@ -1,17 +1,17 @@
 ---
 title: VMware Tanzu components in Azure Spring Apps
 description: Learn about VMware Tanzu components in the Azure Spring Apps Enterprise plan
-author: taoxu0903
-ms.author: taoxu0903
+author: karlerickson
+ms.author: taoxu
 ms.service: spring-apps
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 05/30/2023
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagement-fy23, references_regions
 ---
 
 # VMware Tanzu components in Azure Spring Apps
 
- [!NOTE]
+> [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
@@ -66,7 +66,7 @@ For more information, see [Use API portal for VMware Tanzu](how-to-use-enterpris
 
 ## Application Configuration Service
 
-Application Configuration Service provides runtime configuration to Spring Boot applications and any polyglot applications. Configuration management is hosted in Git repositories to generate runtime configuration properties for applications.
+Application Configuration Service provides runtime configuration to Spring Boot applications and polyglot applications. Configuration management is hosted in Git repositories to generate runtime configuration properties for applications.
 
 For more information, see [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
 
@@ -78,7 +78,7 @@ For more information, see [Use Tanzu Service Registry](how-to-enterprise-service
 
 ## Application Live View
 
-Application Live View is a lightweight insight and troubleshooting tool that helps application developers and application operators look inside running applications. Application Live View is based on the concept of Spring Boot Actuators. The application provides information from inside the running processes by using endpoints. Application Live View uses those endpoints to get the data from the application and interact with it.
+Application Live View is a lightweight insight and troubleshooting tool that helps application developers and operators look inside running applications. Application Live View is based on the concept of Spring Boot Actuators. The application provides information from inside the running processes by using endpoints. Application Live View uses those endpoints to get the data from the application and interact with it.
 
 For more information, see [Use Application Live View with the Azure Spring Apps Enterprise plan](how-to-use-application-live-view.md).
 
