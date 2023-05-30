@@ -176,8 +176,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-convert-ml-experiment-to-production.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-convert-ml-experiment-to-production",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-convert-ml-experiment-to-production.md",
+        "redirect_url": "/azure/machine-learning/how-to-convert-ml-experiment-to-production",
         "redirect_document_id": true
     },
     {
