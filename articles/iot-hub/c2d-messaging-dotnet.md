@@ -12,7 +12,7 @@ ms.date: 05/30/2023
 ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-csharp]
 ---
 
-# Send messages from the cloud to your device with IoT Hub (.NET)
+# Send cloud-to-device messages with IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
@@ -64,7 +64,7 @@ In this article, you run a sample app that simulates a device, which receives cl
 
 ## Receive messages in the device app
 
-In this section, run the **MessageReceiveSample** sample device app to receive C2D messages sent through your IoT hub. Open a new command prompt and navigate to the **azure-iot-sdk-csharp\iothub\device\samples\getting started\MessageReceiveSample** folder, under the folder where you expanded the Azure IoT C# SDK. Run the following commands, replacing the `{Your device connection string}` placeholder value in the second command with the device connection string you copied from the registered device in your IoT hub.
+In this section, run the **MessageReceiveSample** sample device app to receive C2D messages sent through your IoT hub. Open a new command prompt and navigate to the **azure-iot-sdk-csharp\iothub\device\samples\getting started\MessageReceiveSample** folder, under the folder where you expanded the Azure IoT C# SDK. Run the following commands, replacing the `{Your device connection string}` placeholder value with the device connection string you copied from the registered device in your IoT hub.
 
 ```cmd/sh
 dotnet restore
@@ -94,8 +94,8 @@ The call to the `CompleteAsync` method notifies IoT Hub that the message has bee
 
 With AMQP and HTTPS protocols, but not the [MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md), the device can also:
 
-* Call the [AbandonAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.abandonasync) method to abandon a message, which results in IoT Hub retaining the message in the device queue for future consumption.
-* Call the [RejectAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.rejectasync) method to reject a message, which permanently removes the message from the device queue.
+* Abandon a message, which results in IoT Hub retaining the message in the device queue for future consumption.
+* Reject a message, which permanently removes the message from the device queue.
 
 If something happens that prevents the device from completing, abandoning, or rejecting the message, IoT Hub will, after a fixed timeout period, queue the message for delivery again. For this reason, the message processing logic in the device app must be *idempotent*, so that receiving the same message multiple times produces the same result.
 
