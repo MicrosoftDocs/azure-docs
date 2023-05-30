@@ -4,10 +4,13 @@ description: In this article, you can review the Express configuration PowerShel
 ms.topic: sample
 author: ElazarK
 ms.author: elkrieger
-ms.date: 05/28/2023
+ms.date: 05/30/2023
 ---
 
 # Express configuration PowerShell commands reference
+
+Make a local copy of the script located on [Express configuration PowerShell wrapper module](express-configuration-sql-commands.md), and save the file with the following file name `SqlVulnerabilityAssessmentCommands.psm1`, which will be referenced by the following commands.
+
 
 - [Set SQL vulnerability assessment baseline](#set-sql-vulnerability-assessment-baseline)
 - [Get SQL vulnerability assessment baseline](#get-sql-vulnerability-assessment-baseline)
@@ -22,13 +25,13 @@ ms.date: 05/28/2023
 - [Invoke SQL vulnerability assessment scan](#invoke-sql-vulnerability-assessment-scan)
 - [Get SQL vulnerability assessment server setting](#get-sql-vulnerability-assessment-server-setting)
 - [Set SQL vulnerability assessment server setting](#set-sql-vulnerability-assessment-server-setting)
-- [Set SQL vulnerability assessment server setting](#set-sql-vulnerability-assessment-server-setting-1)
+- [Remove SQL vulnerability assessment server setting](#remove-sql-vulnerability-assessment-server-setting)
 
 ### Set SQL vulnerability assessment baseline
 
 **Example 1**:
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Set-SqlVulnerabilityAssessmentBaseline -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -Body '{  "properties": {    "latestScan": true,    "results": {}  }}'
@@ -45,7 +48,7 @@ Content    : {"properties":{"results":{"VA1143":[["True"]],"VA1219":[["False"]]}
 
 **Example 2**:
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Set-SqlVulnerabilityAssessmentBaseline -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -Body '{
@@ -76,7 +79,7 @@ Content    : {"properties":{"results":{"VA2062":[["AllowAll","0.0.0.0","255.255.
 
 ### Get SQL vulnerability assessment baseline
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Get-SqlVulnerabilityAssessmentBaseline -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db
@@ -93,7 +96,7 @@ Content    : {"properties":{"results":{"VA1143":[["True"]],"VA1219":[["False"]]}
 
 ### Get list SQL vulnerability assessment baseline
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Get-ListSqlVulnerabilityAssessmentBaseline -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db
@@ -111,7 +114,7 @@ Content    : {"value":[{"properties":{"results":{"VA1143":[["True"]],"VA1219":[[
 
 ### Set SQL vulnerability assessment baseline rule
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Set-SqlVulnerabilityAssessmentBaselineRule -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -RuleId VA2062 -Body '{
@@ -139,7 +142,7 @@ Content    : {"properties":{"results":[["AllowAll","0.0.0.0","255.255.255.255"]]
 
 ### Get SQL vulnerability assessment baseline rule
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Get-SqlVulnerabilityAssessmentBaselineRule -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -RuleId VA2062
@@ -156,7 +159,7 @@ Content    : {"properties":{"results":[["AllowAll","0.0.0.0","255.255.255.255"]]
 
 ### Get list SQL vulnerability assessment baseline rule
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Get-ListSqlVulnerabilityAssessmentBaselineRule -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db
@@ -181,7 +184,7 @@ Content    : {"value":[{"properties":{"results":[["True"]]},"id":"/subscriptions
 
 ### Remove SQL vulnerability assessment baseline rule
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Remove-SqlVulnerabilityAssessmentBaselineRuleOnUserDatabase -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -RuleId VA2062
@@ -196,7 +199,7 @@ Content    :
 
 ### Get SQL vulnerability assessment scan results
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Get-SqlVulnerabilityAssessmentScanResults -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -ScanId latest -RuleId VA2062
@@ -238,7 +241,7 @@ Content    : {"properties":{"ruleId":"VA2062","status":"NonFinding","errorMessag
 
 ### Get list SQL vulnerability assessment scan results
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Get-ListSqlVulnerabilityAssessmentScanResults -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -ScanId latest
@@ -286,7 +289,7 @@ Content    : {"value":[
 
 ### Get SQL vulnerability assessment scan
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Get-SqlVulnerabilityAssessmentScansOnUserDatabase -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -ScanId latest
@@ -308,7 +311,7 @@ Content    : {"properties":{"scanId":"f64d81a1-9d7b-4516-a623-a1bfc845ed7e","tri
 
 ### Get list SQL vulnerability assessment scans
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Get-ListSqlVulnerabilityAssessmentScans -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -ScanId latest
@@ -330,7 +333,7 @@ Content    : {"value":[{"properties":{"scanId":"f64d81a1-9d7b-4516-a623-a1bfc845
 
 ### Invoke SQL vulnerability assessment scan
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Invoke-SqlVulnerabilityAssessmentScan -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db
@@ -345,7 +348,7 @@ Content    : {"operation":"ExecuteDatabaseVulnerabilityAssessmentScan","startTim
 
 ### Get SQL vulnerability assessment server setting
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Get-SqlVulnerabilityAssessmentServerSetting -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest
@@ -364,7 +367,7 @@ Content    : {"properties":{"state":"Enabled"},"id":"/subscriptions/00000000-111
 
 **Example 1**:
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Set-SqlVulnerabilityAssessmentServerSetting -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -State 'Enabled'
@@ -381,7 +384,7 @@ Content    : {"properties":{"state":"Enabled"},"id":"/subscriptions/00000000-111
 
 **Example 2**:
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Set-SqlVulnerabilityAssessmentServerSetting -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -State 'Disabled'
@@ -396,9 +399,9 @@ Content    : {"properties":{"state":"Disabled"},"id":"/subscriptions/00000000-11
              "name":"Default","type":"Microsoft.Sql/servers/sqlVulnerabilityAssessments"}
 ```
 
-### Set SQL vulnerability assessment server setting
+### Remove SQL vulnerability assessment server setting
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
 Remove-SqlVulnerabilityAssessmentServerSetting -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest

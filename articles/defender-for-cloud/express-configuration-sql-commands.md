@@ -1,37 +1,27 @@
 ---
-title: Express configuration SQL vulnerability assessment PowerShell commands 
+title: Express configuration PowerShell wrapper module
 description: In this article, you can review the express configuration SQL vulnerability assessment PowerShell commands reference and copy example scripts to use in your environments.
 ms.topic: sample
 author: ElazarK
 ms.author: elkrieger
-ms.date: 05/29/2023
+ms.date: 05/30/2023
 ---
 
-# Express configuration SQL vulnerability assessment PowerShell commands 
+# Express configuration PowerShell wrapper module
+
+## SqlVulnerabilityAssessmentCommands.psm1
 
 ```powershell
 #Requires -Modules @{ ModuleName="Az.Sql"; ModuleVersion="3.11.0" }
 #Requires -Modules @{ ModuleName="Az.Accounts"; ModuleVersion="2.9.1" }
 #Requires -Version 5.1
-```
 
-## SQL vulnerability assessment PowerShell commands 
+######SQL Vulnerability Assessment PowerShell Commands ######
+#############################################################
 
-Below is a list of the SQL vulnerability assessment PowerShell commands and their requirements.
+###Sql Vulnerability Assessment Baseline###
 
-- [SQL vulnerability assessment baseline](#sql-vulnerability-assessment-baseline)
-- [Database SQL vulnerability assessment rule baselines](#database-sql-vulnerability-assessment-rule-baselines)
-- [SQL vulnerability assessment scan result](#sql-vulnerability-assessment-scan-result)
-- [SQL vulnerability assessment scans](#sql-vulnerability-assessment-scans)
-- [SQL vulnerability assessment execute scan](#sql-vulnerability-assessment-execute-scan)
-- [SQL vulnerability assessments settings](#sql-vulnerability-assessments-settings)
-- [Exported functions](#exported-functions)
-
-### SQL vulnerability assessment baseline
-
-#### Create Or Update
-
-```powershell
+# Create Or Update
 function Set-SqlVulnerabilityAssessmentBaseline([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName, [parameter(mandatory)] [string] $Body) {
     <#
         .SYNOPSIS
@@ -95,11 +85,8 @@ function Set-SqlVulnerabilityAssessmentBaseline([parameter(mandatory)] [string] 
 
     return SendRestRequest -Method "Put" -Uri $Uri -Body $Body
 }
-```
 
-#### Get - UserDB
-
-```powershell
+# Get - UserDB
 function Get-SqlVulnerabilityAssessmentBaseline([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName) {
     <#
         .SYNOPSIS
@@ -137,11 +124,8 @@ function Get-SqlVulnerabilityAssessmentBaseline([parameter(mandatory)] [string] 
     }
     return SendRestRequest -Method "Get" -Uri $Uri
 }
-```
 
-#### List - UserDB
-
-```powershell
+# List - UserDB
 function Get-ListSqlVulnerabilityAssessmentBaseline([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName) {
     <#
         .SYNOPSIS
@@ -179,13 +163,10 @@ function Get-ListSqlVulnerabilityAssessmentBaseline([parameter(mandatory)] [stri
     }
     return SendRestRequest -Method "Get" -Uri $Uri
 }
-```
 
-### Database SQL vulnerability assessment rule baselines
+###Database Sql Vulnerability Assessment Rule Baselines###
 
-#### Create Or Update - UserDB
-
-```powershell
+# Create Or Update - UserDB
 function Set-SqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName, [parameter(mandatory)] [string] $RuleId, [parameter(mandatory)] [string] $Body) {
     <#
         .SYNOPSIS
@@ -242,11 +223,8 @@ function Set-SqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [stri
 
     return SendRestRequest -Method "Put" -Uri $Uri -Body $Body
 }
-```
 
-#### Get - UserDB
-
-```powershell
+# Get - UserDB
 function Get-SqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName, [parameter(mandatory)] [string] $RuleId) {
     <#
         .SYNOPSIS
@@ -289,11 +267,8 @@ function Get-SqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [stri
 
     return SendRestRequest -Method "Get" -Uri $Uri
 }
-```
 
-#### List - UserDB
-
-```powershell
+# List - UserDB
 function Get-ListSqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName) {
     <#
         .SYNOPSIS
@@ -341,11 +316,8 @@ function Get-ListSqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [
 
     return SendRestRequest -Method "Get" -Uri $Uri
 }
-```
 
-#### Remove - UserDB
-
-```powershell
+# Remove - UserDB
 function Remove-SqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName, [parameter(mandatory)] [string] $RuleId) {
     <#
         .SYNOPSIS
@@ -386,13 +358,10 @@ function Remove-SqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [s
 
     return SendRestRequest -Method "Delete" -Uri $Uri
 }
-```
 
-### SQL vulnerability assessment scan result
+###Sql Vulnerability Assessment Scan Result###
 
-#### Get
-
-```powershell
+# Get
 function Get-SqlVulnerabilityAssessmentScanResults([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName, [parameter(mandatory)] [string] $ScanId, [parameter(mandatory)] [string] $RuleId) {
     <#
         .SYNOPSIS
@@ -462,11 +431,8 @@ function Get-SqlVulnerabilityAssessmentScanResults([parameter(mandatory)] [strin
     }
     return SendRestRequest -Method "Get" -Uri $Uri
 }
-```
 
-#### List - UserDB
-
-```powershell
+# List - UserDB
 function Get-ListSqlVulnerabilityAssessmentScanResults([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName, [parameter(mandatory)] [string] $ScanId) {
     <#
         .SYNOPSIS
@@ -540,13 +506,10 @@ function Get-ListSqlVulnerabilityAssessmentScanResults([parameter(mandatory)] [s
 
     return SendRestRequest -Method "Get" -Uri $Uri
 }
-```
 
-### SQL vulnerability assessment scans
+###Sql Vulnerability Assessment Scans###
 
-#### Get
-
-```powershell
+# Get
 function Get-SqlVulnerabilityAssessmentScans([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName, [parameter(mandatory)] [string] $ScanId) {
     <#
         .SYNOPSIS
@@ -593,11 +556,8 @@ function Get-SqlVulnerabilityAssessmentScans([parameter(mandatory)] [string] $Su
     }
     return SendRestRequest -Method "Get" -Uri $Uri
 }
-```
 
-#### List - UserDB
-
-```powershell
+# List - UserDB
 function Get-ListSqlVulnerabilityAssessmentScans([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName) {
     <#
         .SYNOPSIS
@@ -640,13 +600,11 @@ function Get-ListSqlVulnerabilityAssessmentScans([parameter(mandatory)] [string]
         $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/scans" + "?api-version=2022-02-01-preview"
     }    return SendRestRequest -Method "Get" -Uri $Uri
 }
-```
 
-### SQL vulnerability assessment execute scan
 
-#### UserDB
+###Sql Vulnerability Assessment Execute Scan###
 
-```powershell
+# UserDB
 function Invoke-SqlVulnerabilityAssessmentScan([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName) {
     <#
         .SYNOPSIS
@@ -683,13 +641,15 @@ function Invoke-SqlVulnerabilityAssessmentScan([parameter(mandatory)] [string] $
     }
     SendRestRequest -Method "Post" -Uri $Uri
 }
-```
 
-### SQL vulnerability assessments settings
 
-#### Get
+###Sql Vulnerability Assessments Settings###
 
-```powershell
+
+
+
+
+# Get
 function Get-SqlVulnerabilityAssessmentServerSetting([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName) {
     <#
         .SYNOPSIS
@@ -721,11 +681,8 @@ function Get-SqlVulnerabilityAssessmentServerSetting([parameter(mandatory)] [str
     $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default?api-version=2022-02-01-preview"
     return SendRestRequest -Method "Get" -Uri $Uri
 }
-```
 
-#### Set
-
-```powershell
+# Set
 function Set-SqlVulnerabilityAssessmentServerSetting([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $State) {
     <#
         .SYNOPSIS
@@ -778,11 +735,7 @@ function Set-SqlVulnerabilityAssessmentServerSetting([parameter(mandatory)] [str
     $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default?api-version=2022-02-01-preview"
     return SendRestRequest -Method "Put" -Uri $Uri -Body $Body
 }
-```
 
-#### Remove
-
-```powershell
 function Remove-SqlVulnerabilityAssessmentServerSetting([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName) {
     <#
         .SYNOPSIS
@@ -836,11 +789,8 @@ function SendRestRequest(
 
     Invoke-AzRestMethod @Params
 }
-```
 
-### Exported functions
-
-```powershell
+# Exported functions
 Export-ModuleMember -Function Set-SqlVulnerabilityAssessmentBaseline
 Export-ModuleMember -Function Get-SqlVulnerabilityAssessmentBaseline
 Export-ModuleMember -Function Get-ListSqlVulnerabilityAssessmentBaseline
@@ -863,5 +813,6 @@ Export-ModuleMember -Function Get-SqlVulnerabilityAssessmentServerSetting
 Export-ModuleMember -Function Set-SqlVulnerabilityAssessmentServerSetting
 Export-ModuleMember -Function Remove-SqlVulnerabilityAssessmentServerSetting
 ```
+
 
 ## Next steps
