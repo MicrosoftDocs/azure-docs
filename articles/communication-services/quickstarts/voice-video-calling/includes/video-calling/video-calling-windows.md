@@ -1,8 +1,7 @@
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
 In this quickstart, you learn how to start a 1:1 video call using the Azure Communication Services Calling SDK for Windows.
 
-## UWP sample code
+## [UWP](#tab/uwp)
 
 ### Prerequisites
 
@@ -438,7 +437,7 @@ Note: Calling `8:echo123` stops the video stream because echo bot doesn't suppor
 
 For more information on user IDs (identity) check the [User Access Tokens](../../../identity/access-tokens.md) guide. 
 
-## WinUI 3 sample code
+## [WinUI 3](#tab/WinUI3)
 
 ### Prerequisites
 
