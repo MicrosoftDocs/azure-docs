@@ -1,6 +1,31 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-create-manage-compute-instance.md",
+        "redirect_url": "/azure/machine-learning/how-to-create-manage-compute-instance",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-create-machine-learning-pipelines.md",
+        "redirect_url": "/azure/machine-learning/how-to-create-machine-learning-pipelines",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-create-attach-kubernetes.md",
+        "redirect_url": "/azure/machine-learning/how-to-create-attach-kubernetes",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-create-attach-compute-cluster.md",
+        "redirect_url": "/azure/machine-learning/how-to-create-attach-compute-cluster",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-convert-ml-experiment-to-production.md",
+        "redirect_url": "/azure/machine-learning/how-to-convert-ml-experiment-to-production",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/concept-azure-machine-learning-architecture.md",
         "redirect_url": "/azure/machine-learning/concept-azure-machine-learning-architecture",
         "redirect_document_id": false
