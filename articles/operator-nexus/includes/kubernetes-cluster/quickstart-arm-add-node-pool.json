@@ -49,6 +49,13 @@
           "description": "The number of Nexus Kubernetes system pool nodes to create"
         },
         "defaultValue": 1
+      },
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+          "description": "Azure DC location of resource"
+        }
       }
     },
     "resources": [
@@ -56,6 +63,7 @@
         "type": "Microsoft.NetworkCloud/kubernetesClusters/agentpools",
         "apiVersion": "[parameters('ncApiVersion')]",
         "name": "[concat(parameters('kubernetesClusterName'), '/', parameters('agentPoolName'))]",
+        "location": "[parameters('location')]",
         "extendedLocation": {
           "name": "[parameters('extendedLocation')]",
           "type": "CustomLocation"
