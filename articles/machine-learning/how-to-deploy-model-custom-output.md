@@ -154,7 +154,7 @@ Follow the next steps to create a deployment using the previous scoring script:
 
    # [Azure CLI](#tab/cli)
    
-   To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
+   To create a new deployment under the created endpoint, create a `YAML` configuration like the following. You can check the [full batch endpoint YAML schema]reference-yaml-endpoint-batch.md) for extra properties.
    
    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml":::
    
