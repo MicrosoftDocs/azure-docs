@@ -44,7 +44,7 @@ To install the Azure Maps QGIS Plugin:
 
 For detailed instructions on installing a plugin in QGIS, see [Installing New Plugins] in the QGIS Documentation.
 
-Once you have the plugin installed, you'll see the AzureMaps symbol on the [plugins toolbar].
+Once you have the plugin installed, you'll see the AzureMaps symbol on the plugins toolbar.
 
 :::image type="content" source="./media/creator-indoor-maps/qgis/azure-maps-symbol.png"alt-text="A screenshot showing The Azure Maps QGIS plugin symbol on the QGIS toolbar.":::
 
@@ -200,7 +200,6 @@ Any errors received from the QGIS framework are displayed in the **Python Logs**
 [geographic information system (GIS)]: https://www.usgs.gov/faqs/what-geographic-information-system-gis
 [datasets]: creator-indoor-maps.md#datasets
 [Download QGIS]: https://qgis.org/en/site/forusers/download.html
-[plugins toolbar]: #plugins-toolbar
 [layer definition]: /rest/api/maps/2023-03-01-preview/features/get-collection-definition?tabs=HTTP
 [Advanced digitizing]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#advanced-digitizing
 [Azure Maps QGIS Plugin]: https://plugins.qgis.org/plugins/QGISPlugin
