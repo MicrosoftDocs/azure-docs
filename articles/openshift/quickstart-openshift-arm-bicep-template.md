@@ -695,7 +695,7 @@ Write-Verbose (ConvertTo-Json $templateParams) -Verbose
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup @templateParams `
-    -TemplateParameterFile azuredeploy.json
+    -TemplateFile azuredeploy.json
 ```
 
 ::: zone-end
