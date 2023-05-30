@@ -58,7 +58,7 @@ items:
       href: distributed-tracing.md
     - name: Local monitoring with packet core dashboards
       href: packet-core-dashboards.md
-    - name: Monitor AP5GC UE usage with Event Hubs
+    - name: Monitoring UE usage with Event Hubs
       href: ue-usage-event-hub.md  
   - name: Reliability
     href: reliability-private-5g-core.md
