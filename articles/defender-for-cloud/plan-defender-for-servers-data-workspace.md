@@ -4,7 +4,7 @@ description: Review data residency and workspace design for Microsoft Defender f
 ms.topic: conceptual
 ms.author: dacurwin
 author: dcurwin
-ms.date: 11/06/2022
+ms.date: 05/30/2023
 ms.custom: references_regions
 ---
 # Plan data residency and workspaces for Defender for Servers
@@ -106,7 +106,7 @@ Yes. If you configure your Log Analytics agent to send data to two or more diffe
 
 You receive a daily allowance of 500 MB of free data ingestion for each virtual machine (VM) connected to the workspace. This allocation specifically applies to the [security data types](#what-data-types-are-included-in-the-500-mb-data-daily-allowance) collected directly by Defender for Cloud.
 
-The data allowance is a daily rate calculated across all connected nodes. Your total daily free limit is equal to the **[number of machines] x 500 MB**. So even if on a given day some machines send 100 MB and others send 800 MB, if the total data from all machines doesn't exceed your daily free limit, you won't be charged extra.
+The data allowance is a daily rate calculated across all connected machines. Your total daily free limit is equal to the **[number of machines] x 500 MB**. So even if on a given day some machines send 100 MB and others send 800 MB, if the total data from all machines doesn't exceed your daily free limit, you won't be charged extra.
 
 ### What data types are included in the 500-MB data daily allowance?
 
@@ -130,7 +130,7 @@ You can view your data usage in two different ways, the Azure portal, or by runn
 
 **To view your usage in the Azure portal**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Log Analytics workspaces**.
 
@@ -146,7 +146,7 @@ You can also view estimated costs under different pricing tiers by selecting :::
 
 **To view your usage by using a script**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Log Analytics workspaces** > **Logs**.
 
@@ -179,7 +179,7 @@ You may want to manage your costs and limit the amount of data collected for a s
 > Solution targeting has been deprecated because the Log Analytics agent is being replaced with the Azure Monitor agent and solutions in Azure Monitor are being replaced with insights. You can continue to use solution targeting if you already have it configured, but it is not available in new regions.
 > The feature will not be supported after August 31, 2024.
 > Regions that support solution targeting until the deprecation date are:
-> 
+>
 > | Region code | Region name |
 > | :--- | :---------- |
 > | CCAN | canadacentral |
@@ -210,13 +210,13 @@ You may want to manage your costs and limit the amount of data collected for a s
 >
 > | Air-gapped clouds | Region code | Region name |
 > | :---- | :---- | :---- |
-> | UsNat | EXE | usnateast | 
-> | UsNat | EXW | usnatwest | 
-> | UsGov | FF | usgovvirginia | 
-> | China | MC | ChinaEast2 | 
-> | UsGov | PHX | usgovarizona | 
-> | UsSec | RXE | usseceast | 
-> | UsSec | RXW | ussecwest | 
+> | UsNat | EXE | usnateast |
+> | UsNat | EXW | usnatwest |
+> | UsGov | FF | usgovvirginia |
+> | China | MC | ChinaEast2 |
+> | UsGov | PHX | usgovarizona |
+> | UsSec | RXE | usseceast |
+> | UsSec | RXW | ussecwest |
 
 ## Next steps
 
