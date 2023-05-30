@@ -1,6 +1,21 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-log-view-metrics.md",
+        "redirect_url": "/azure/machine-learning/how-to-log-view-metrics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-manage-workspace.md",
+        "redirect_url": "/azure/machine-learning/how-to-manage-workspace",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-manage-workspace-cli.md",
+        "redirect_url": "/azure/machine-learning/how-to-manage-workspace-cli",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-inference-onnx-automl-image-models.md",
         "redirect_url": "/azure/machine-learning/how-to-inference-onnx-automl-image-models",
         "redirect_document_id": true
@@ -201,8 +216,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-monitor-tensorboard.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-monitor-tensorboard",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-monitor-tensorboard.md",
+        "redirect_url": "/azure/machine-learning/how-to-monitor-tensorboard",
         "redirect_document_id": true
     },
     {
@@ -221,8 +236,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-link-synapse-ml-workspaces.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-link-synapse-ml-workspaces",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-link-synapse-ml-workspaces.md",
+        "redirect_url": "/azure/machine-learning/how-to-link-synapse-ml-workspaces",
         "redirect_document_id": true
     },
     {
@@ -281,8 +296,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-migrate-from-estimators-to-scriptrunconfig.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-migrate-from-estimators-to-scriptrunconfig",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-migrate-from-estimators-to-scriptrunconfig.md",
+        "redirect_url": "/azure/machine-learning/how-to-migrate-from-estimators-to-scriptrunconfig",
         "redirect_document_id": true
     },
     {
@@ -301,8 +316,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-prebuilt-docker-images-inference-python-extensibility.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-prebuilt-docker-images-inference-python-extensibility",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-prebuilt-docker-images-inference-python-extensibility.md",
+        "redirect_url": "/azure/machine-learning/how-to-prebuilt-docker-images-inference-python-extensibility",
         "redirect_document_id": true
     },
     {
@@ -1651,8 +1666,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-monitor-datasets.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-monitor-datasets",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-monitor-datasets.md",
+        "redirect_url": "/azure/machine-learning/how-to-monitor-datasets",
         "redirect_document_id": true
     },
     {
@@ -1751,8 +1766,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-move-data-in-out-of-pipelines.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-move-data-in-out-of-pipelines",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-move-data-in-out-of-pipelines.md",
+        "redirect_url": "/azure/machine-learning/how-to-move-data-in-out-of-pipelines",
         "redirect_document_id": true
     },
     {
@@ -2806,8 +2821,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-log-pipelines-application-insights.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-log-pipelines-application-insights",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-log-pipelines-application-insights.md",
+        "redirect_url": "/azure/machine-learning/how-to-log-pipelines-application-insights",
         "redirect_document_id": true
     },
     {
@@ -3796,9 +3811,9 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-machine-learning-interpretability-automl.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-machine-learning-interpretability-automl",
-        "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-machine-learning-interpretability-automl.md",
+        "redirect_url": "/azure/machine-learning/how-to-machine-learning-interpretability-automl",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-use-private-python-packages.md",
@@ -3901,13 +3916,13 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-machine-learning-fairness-aml.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-machine-learning-fairness-aml",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-machine-learning-fairness-aml.md",
+        "redirect_url": "/azure/machine-learning/how-to-machine-learning-fairness-aml",
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-machine-learning-interpretability-aml.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-machine-learning-interpretability-aml",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-machine-learning-interpretability-aml.md",
+        "redirect_url": "/azure/machine-learning/how-to-machine-learning-interpretability-aml",
         "redirect_document_id": true
     },
     {
