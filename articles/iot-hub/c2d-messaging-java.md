@@ -210,7 +210,7 @@ In this section, you create a Java console app that sends cloud-to-device messag
     > [!NOTE]
     > For simplicity, this article does not implement a retry policy. In production code, you should implement retry policies (such as exponential backoff) as suggested in the article [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
-9. To build the **simulated-device** app using Maven, execute the following command at the command prompt in the simulated-device folder:
+9. To build the **send-c2d-messages** app using Maven, execute the following command at the command prompt in the simulated-device folder:
 
     ```cmd/sh
     mvn clean package -DskipTests
