@@ -9,7 +9,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 05/26/2023
-ms.author: amsliu
+ms.author: owinfrey
 ms.reviewer: krbain
 ms.custom: template-tutorial
 ---

@@ -19,7 +19,7 @@ To migrate to Azure AD MFA with federation, the Azure AD MFA authentication prov
 
 The following diagram shows the migration process.
 
-   ![Flow chart of the migration process. Process areas and headings in this document are in the same order](./media/how-to-migrate-mfa-server-to-azure-mfa-with-federation/mfa-federation-flow.png)
+   ![Flow chart of the migration process. Process areas and headings in this document are in the same order](./media/how-to-migrate-mfa-server-to-mfa-with-federation/mfa-federation-flow.png)
 
 ## Create migration groups
 
@@ -300,7 +300,7 @@ In Usage & insights, select **Authentication methods**.
 
 Detailed Azure AD MFA registration information can be found on the Registration tab. You can drill down to view a list of registered users by selecting the **Users capable of Azure multi-factor authentication** hyperlink.
 
-   ![Image of Authentication methods activity screen showing user registrations to MFA](./media/how-to-migrate-mfa-server-to-azure-mfa-with-federation/authentication-methods.png)
+   ![Image of Authentication methods activity screen showing user registrations to MFA](./media/how-to-migrate-mfa-server-to-mfa-with-federation/authentication-methods.png)
 
 ## Cleanup steps
 
