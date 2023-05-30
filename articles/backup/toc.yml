@@ -300,12 +300,20 @@
         href: restore-postgresql-database-use-rest-api.md
   - name: Azure Kubernetes Service backup
     items:
-    - name: Backup
-      href: azure-kubernetes-service-cluster-backup.md
-    - name: Restore
-      href: azure-kubernetes-service-cluster-restore.md
-    - name: Manage
-      href: azure-kubernetes-service-cluster-manage-backups.md
+    - name: From the Azure portal
+      items:
+      - name: Backup
+        href: azure-kubernetes-service-cluster-backup.md
+      - name: Restore
+        href: azure-kubernetes-service-cluster-restore.md
+      - name: Manage
+        href: azure-kubernetes-service-cluster-manage-backups.md
+    - name: With PowerShell
+      items:
+      - name: Backup
+        href: azure-kubernetes-service-cluster-backup-using-powershell.md
+      - name: Restore
+        href: azure-kubernetes-service-cluster-restore-using-powershell.md      
   - name: Windows backup using MARS agent
     items:
     - name: Overview

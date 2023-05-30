@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
-ms.date: 04/18/2023
+ms.date: 05/25/2023
 ms.custom: data4ml
 ---
 
@@ -217,6 +217,7 @@ ml_client.data.show_materialization_status(name="<name>")
 
 ## Next steps
 
+- [Import data assets on a schedule](reference-yaml-schedule-data-import.md)
 - [Read data in a job](how-to-read-write-data-v2.md#read-data-in-a-job)
 - [Working with tables in Azure Machine Learning](how-to-mltable.md)
 - [Access data from Azure cloud storage during interactive development](how-to-access-data-interactive.md)

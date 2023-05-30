@@ -1,4 +1,4 @@
-- name: Azure Managed Applications Documentation
+- name: Azure Managed Applications documentation
   href: index.yml
 - name: Overview
   items:
@@ -13,10 +13,16 @@
     displayName: definition, service catalog
   - name: Publish definition with bring your own storage
     href: publish-service-catalog-bring-your-own-storage.md
-    displayName: bring your own storage, BYOS, definition
+    displayName: bring your own storage, BYOS, definition, bicep, service catalog
+  - name: Publish managed app definition - Bicep
+    href: publish-bicep-definition.md
+    displayName: service catalog, bicep
   - name: Deploy service catalog managed app
     href: deploy-service-catalog-quickstart.md
     displayName: service catalog, deploy
+  - name: Deploy service catalog managed app - Bicep
+    href: deploy-bicep-definition.md
+    displayName: service catalog, bicep
   - name: Deploy Azure Marketplace managed app
     href: deploy-marketplace-app-quickstart.md
     displayName: Marketplace, deploy
@@ -36,8 +42,10 @@
     href: concepts-view-definition.md
   - name: Azure Policy for associations
     href: concepts-built-in-policy.md
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/managed-applications-security-baseline?toc=/azure/azure-resource-manager/managed-applications/toc.json
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/managed-applications-security-baseline?toc=/azure/azure-resource-manager/managed-applications/toc.json
 - name: How-to guides
   items:
   - name: Publishers
@@ -64,6 +72,9 @@
       href: key-vault-access.md
     - name: Deploy with managed identity
       href: publish-managed-identity.md
+    - name: Create storage with customer-managed key
+      href: create-storage-customer-managed-key.md
+      displayName: managed identity, cmk, cmek, encryption, bicep
     - name: Deploy with notifications
       href: publish-notifications.md
   - name: Consumers

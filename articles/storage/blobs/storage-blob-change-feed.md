@@ -15,7 +15,7 @@ ms.custom: engagement-fy23
 
 # Change feed support in Azure Blob Storage
 
-The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
+The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. Each change generates exactly one transaction log entry, so you won't have to manage multiple log entries for the same change. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
 
 To learn how to process records in the change feed, see [Process change feed in Azure Blob Storage](storage-blob-change-feed-how-to.md).
 

@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: devx-track-arm-template
 ms.topic: quickstart
-ms.date: 04/28/2023
+ms.date: 05/16/2023
 ms.author: jasteppe
 ---
 
@@ -38,7 +38,7 @@ To begin your deployment and complete the quickstart, you must have the followin
 
 When you have these prerequisites, you're ready to configure the ARM template by using the **Deploy to Azure** button.
 
-## Review the ARM template (Optional)
+## Review the ARM template
 
 The ARM template used to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 
@@ -62,11 +62,11 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 
    * **Location** - Use the drop-down list to select a supported Azure region for the Azure Health Data Services (the value could be the same or different region than your resource group).
 
-   * **Device Mapping** - Don't change the default values for this quickstart.
+   * **Device Mapping** - Leave the default values for this quickstart.
   
-   * **Destination Mapping** - Don't change the default values for this quickstart.
+   * **Destination Mapping** - Leave the default values for this quickstart.
 
-   :::image type="content" source="media\deploy-arm-template\iot-deploy-quickstart-options.png" alt-text="Screenshot of Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\deploy-arm-template\iot-deploy-quickstart-options.png":::
+   :::image type="content" source="media\deploy-arm-template\iot-deploy-quickstart-options.png" alt-text="Screenshot of Azure portal page displaying deployment options for the MedTech service." lightbox="media\deploy-arm-template\iot-deploy-quickstart-options.png":::
 
 2. To validate your configuration, select **Review + create**.
 
@@ -109,11 +109,11 @@ When deployment is completed, the following resources and access roles are creat
 
 * Health Data Services Fast Healthcare Interoperability Resources FHIR service.
 
-* Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
+* Health Data Services MedTech service with the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) enabled and granted the following access roles:
 
-  * For the event hub, the **Azure Event Hubs Data Receiver** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the  event hub.
+  * For the event hub, the **Azure Event Hubs Data Receiver** access role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the event hub.
 
-  * For the FHIR service, the **FHIR Data Writer** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
+  * For the FHIR service, the **FHIR Data Writer** access role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
 
 > [!IMPORTANT]
 > In this quickstart, the ARM template configures the MedTech service to operate in **Create** mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
@@ -135,6 +135,6 @@ In this quickstart, you learned how to deploy the MedTech service in the Azure p
 To learn about other methods for deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+> [Choose a deployment method for the MedTech service](deploy-choose-method.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

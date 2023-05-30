@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 03/23/2023
 ms.author: jomondi
 ms.reviewer: alamaral
+ms.custom: not-enterprise-apps
 ---
 
 # Move application authentication to Azure Active Directory
@@ -132,7 +133,7 @@ For information about Azure AD SAML token encryption and how to configure it, se
 > [!NOTE]
 > Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
-### SAML request signature verification (preview) 
+### SAML request signature verification 
  
 This functionality validates the signature of signed authentication requests. An App Admin enables and disables the enforcement of signed requests and uploads the public keys that should be used to do the validation. For more information, see [How to enfore signed SAML authentication requests](howto-enforce-signed-saml-authentication.md).
 

@@ -37,7 +37,7 @@ Collect all the values in the following table for the mobile network site resour
    |The name for the site.           |**Instance details: Name**|
    |The region in which you deployed the private mobile network.                         |**Instance details: Region**|
    |The packet core in which to create the mobile network site resource.                         |**Instance details: Packet core name**|
-   |The [region code name](region-code-names.md) of the region in which you deployed the private mobile network. For the East US region, this is *eastus*; for West Europe, this is *westeurope*. </br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
+   |The [region code name](region-code-names.md) of the region in which you deployed the private mobile network.</br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
    |The mobile network resource representing the private mobile network to which you’re adding the site. </br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
    |The service plan for the site that you are creating. See [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/). |**Instance details: Service plan**|
 

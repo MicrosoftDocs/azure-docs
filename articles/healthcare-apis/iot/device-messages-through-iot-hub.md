@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial
-ms.date: 04/28/2023
+ms.date: 05/16/2023
 ms.custom: devx-track-arm-template
 ms.author: jasteppe
 ---
@@ -51,7 +51,7 @@ To begin your deployment and complete the tutorial, you must have the following 
 
 When you have these prerequisites, you're ready to configure the ARM template by using the **Deploy to Azure** button.
 
-## Review the ARM template - Optional
+## Review the ARM template
 
 The ARM template used to deploy the resources in this tutorial is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub).
 
@@ -81,9 +81,9 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 
      To learn how to get an Azure AD user object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id). The user object ID that's used in this tutorial is only an example. If you use this option, use your own user object ID or the object ID of another person who you want to be able to access the FHIR service.
 
-   - **Device mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
+   - **Device mapping**: Leave the default values for this tutorial.
 
-   - **Destination mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
+   - **Destination mapping**: Leave the default values for this tutorial.
 
    :::image type="content" source="media\device-messages-through-iot-hub\deploy-template-options.png" alt-text="Screenshot that shows deployment options for the MedTech service for Health Data Services in the Azure portal." lightbox="media\device-messages-through-iot-hub\deploy-template-options.png":::
 
@@ -132,11 +132,11 @@ When deployment is completed, the following resources and access roles are creat
 
 * Health Data Services FHIR service.
 
-* Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
+* Health Data Services MedTech service with the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) enabled and granted the following access roles:
 
-  * For the event hub, the **Azure Event Hubs Data Receiver** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the event hub.
+  * For the event hub, the **Azure Event Hubs Data Receiver** access role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the event hub.
 
-  * For the FHIR service, the **FHIR Data Writer** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
+  * For the FHIR service, the **FHIR Data Writer** access role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
 
 * Conforming and valid MedTech service [device](overview-of-device-mapping.md) and [FHIR destination mappings](overview-of-fhir-destination-mapping.md). **Resolution type** is set to **Create**.
 
@@ -151,7 +151,7 @@ With your resources successfully deployed, you next connect to your IoT hub, cre
 
 * Read the IoT hub-routed test message from the event hub.
 * Transform the test message into five FHIR Observations.
-* Persist the FHIR Observations to your FHIR service.
+* Persist the FHIR Observations into your FHIR service.
 
 You complete the steps by using Visual Studio Code with the Azure IoT Hub extension:
 
@@ -249,6 +249,6 @@ In this tutorial, you deployed an ARM template in the Azure portal, connected to
 To learn about other methods for deploying the MedTech service, see
 
 > [!div class="nextstepaction"] 
-> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+> [Choose a deployment method for the MedTech service](deploy-choose-method.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

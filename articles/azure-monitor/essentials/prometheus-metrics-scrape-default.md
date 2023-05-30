@@ -1,5 +1,5 @@
 ---
-title: Default Prometheus metrics configuration in Azure Monitor (preview)
+title: Default Prometheus metrics configuration in Azure Monitor
 description: This article lists the default targets, dashboards, and recording rules for Prometheus metrics in Azure Monitor.
 ms.topic: conceptual
 ms.custom: ignite-2022
@@ -7,7 +7,7 @@ ms.date: 09/28/2022
 ms.reviewer: aul
 ---
 
-# Default Prometheus metrics configuration in Azure Monitor (preview)
+# Default Prometheus metrics configuration in Azure Monitor
 
 This article lists the default targets, dashboards, and recording rules when you [configure Prometheus metrics to be scraped from an Azure Kubernetes Service (AKS) cluster](prometheus-metrics-enable.md) for any AKS cluster.
 
@@ -15,7 +15,7 @@ This article lists the default targets, dashboards, and recording rules when you
 
  The default scrape frequency for all default targets and scrapes is 30 seconds.
 
-## Targets scraped
+## Targets scraped by default
 
 - `cadvisor` (`job=cadvisor`)
 - `nodeexporter` (`job=node`)
@@ -27,6 +27,9 @@ This article lists the default targets, dashboards, and recording rules when you
 The following metrics are collected by default from each default target. All other metrics are dropped through relabeling rules.
 
    **cadvisor (job=cadvisor)**<br>
+   - `container_spec_cpu_period`
+   - `container_spec_cpu_quota`
+   - `container_cpu_usage_seconds_total`
    - `container_memory_rss`
    - `container_network_receive_bytes_total`
    - `container_network_transmit_bytes_total`
@@ -37,114 +40,128 @@ The following metrics are collected by default from each default target. All oth
    - `container_fs_reads_total`
    - `container_fs_writes_total`
    - `container_fs_reads_bytes_total`
-   - `container_fs_writes_bytes_total`
-   - `container_cpu_usage_seconds_total`
+   -  `container_fs_writes_bytes_total`
+   - `container_memory_working_set_bytes`
+   - `container_memory_cache`
+   - `container_memory_swap`
+   - `container_cpu_cfs_throttled_periods_total`
+   - `container_cpu_cfs_periods_total`
+   - `container_memory_usage_bytes`
+   - `kubernetes_build_info"`
 
    **kubelet (job=kubelet)**<br>
+   - `kubelet_volume_stats_used_bytes`
    - `kubelet_node_name`
    - `kubelet_running_pods`
    - `kubelet_running_pod_count`
-   - `kubelet_running_sum_containers`
+   - `kubelet_running_containers`
    - `kubelet_running_container_count`
    - `volume_manager_total_volumes`
    - `kubelet_node_config_error`
    - `kubelet_runtime_operations_total`
    - `kubelet_runtime_operations_errors_total`
-   - `kubelet_runtime_operations_duration_seconds_bucket`
-   - `kubelet_runtime_operations_duration_seconds_sum`
-   - `kubelet_runtime_operations_duration_seconds_count`
-   - `kubelet_pod_start_duration_seconds_bucket`
-   - `kubelet_pod_start_duration_seconds_sum`
-   - `kubelet_pod_start_duration_seconds_count`
-   - `kubelet_pod_worker_duration_seconds_bucket`
-   - `kubelet_pod_worker_duration_seconds_sum`
-   - `kubelet_pod_worker_duration_seconds_count`
-   - `storage_operation_duration_seconds_bucket`
-   - `storage_operation_duration_seconds_sum`
-   - `storage_operation_duration_seconds_count`
+   - `kubelet_runtime_operations_duration_seconds` `kubelet_runtime_operations_duration_seconds_bucket` `kubelet_runtime_operations_duration_seconds_sum` `kubelet_runtime_operations_duration_seconds_count`
+   - `kubelet_pod_start_duration_seconds` `kubelet_pod_start_duration_seconds_bucket` `kubelet_pod_start_duration_seconds_sum` `kubelet_pod_start_duration_seconds_count`
+   - `kubelet_pod_worker_duration_seconds` `kubelet_pod_worker_duration_seconds_bucket` `kubelet_pod_worker_duration_seconds_sum` `kubelet_pod_worker_duration_seconds_count`
+   - `storage_operation_duration_seconds` `storage_operation_duration_seconds_bucket` `storage_operation_duration_seconds_sum` `storage_operation_duration_seconds_count`
    - `storage_operation_errors_total`
-   - `kubelet_cgroup_manager_duration_seconds_bucket`
-   - `kubelet_cgroup_manager_duration_seconds_sum`
-   - `kubelet_cgroup_manager_duration_seconds_count`
-   - `kubelet_pleg_relist_interval_seconds_bucket`
-   - `kubelet_pleg_relist_interval_seconds_count`
-   - `kubelet_pleg_relist_interval_seconds_sum`
-   - `kubelet_pleg_relist_duration_seconds_bucket`
-   - `kubelet_pleg_relist_duration_seconds_count`
-   - `kubelet_pleg_relist_duration_seconds_sum`
+   - `kubelet_cgroup_manager_duration_seconds` `kubelet_cgroup_manager_duration_seconds_bucket` `kubelet_cgroup_manager_duration_seconds_sum` `kubelet_cgroup_manager_duration_seconds_count`
+   - `kubelet_pleg_relist_duration_seconds` `kubelet_pleg_relist_duration_seconds_bucket` `kubelet_pleg_relist_duration_sum` `kubelet_pleg_relist_duration_seconds_count`
+   - `kubelet_pleg_relist_interval_seconds` `kubelet_pleg_relist_interval_seconds_bucket` `kubelet_pleg_relist_interval_seconds_sum` `kubelet_pleg_relist_interval_seconds_count`
    - `rest_client_requests_total`
-   - `rest_client_request_duration_seconds_bucket`
-   - `rest_client_request_duration_seconds_sum`
-   - `rest_client_request_duration_seconds_count`
+   - `rest_client_request_duration_seconds` `rest_client_request_duration_seconds_bucket` `rest_client_request_duration_seconds_sum` `rest_client_request_duration_seconds_count`
    - `process_resident_memory_bytes`
    - `process_cpu_seconds_total`
    - `go_goroutines`
-   - `kubernetes_build_info`
+   - `kubelet_volume_stats_capacity_bytes`
+   - `kubelet_volume_stats_available_bytes`
+   - `kubelet_volume_stats_inodes_used`
+   - `kubelet_volume_stats_inodes`
+   - `kubernetes_build_info"`
 
    **nodexporter (job=node)**<br>
-   - `node_memory_MemTotal_bytes`
    - `node_cpu_seconds_total`
    - `node_memory_MemAvailable_bytes`
    - `node_memory_Buffers_bytes`
    - `node_memory_Cached_bytes`
    - `node_memory_MemFree_bytes`
    - `node_memory_Slab_bytes`
-   - `node_filesystem_avail_bytes`
-   - `node_filesystem_size_bytes`
-   - `node_time_seconds`
-   - `node_exporter_build_info`
-   - `node_load1`
-   - `node_vmstat_pgmajfault`
-   - `node_network_receive_bytes_total`
-   - `node_network_transmit_bytes_total`
-   - `node_network_receive_drop_total`
-   - `node_network_transmit_drop_total`
-   - `node_disk_io_time_seconds_total`
-   - `node_disk_io_time_weighted_seconds_total`
-   - `node_load5`
+   - `node_memory_MemTotal_bytes`
+   - `node_netstat_Tcp_RetransSegs`
+   - `node_netstat_Tcp_OutSegs`
+   - `node_netstat_TcpExt_TCPSynRetrans`
+   - `node_load1``node_load5`
    - `node_load15`
    - `node_disk_read_bytes_total`
    - `node_disk_written_bytes_total`
-   - `node_uname_info`
+   - `node_disk_io_time_seconds_total`
+   - `node_filesystem_size_bytes`
+   - `node_filesystem_avail_bytes`
+   - `node_filesystem_readonly`
+   - `node_network_receive_bytes_total`
+   - `node_network_transmit_bytes_total`
+   - `node_vmstat_pgmajfault`
+   - `node_network_receive_drop_total`
+   - `node_network_transmit_drop_total`
+   - `node_disk_io_time_weighted_seconds_total`
+   - `node_exporter_build_info`
+   - `node_time_seconds`
+   - `node_uname_info"`
 
    **kube-state-metrics (job=kube-state-metrics)**<br>
-   - `kube_node_status_allocatable`
-   - `kube_pod_owner`
+   - `kube_node_status_capacity`
+   - `kube_job_status_succeeded`
+   - `kube_job_spec_completions`
+   - `kube_daemonset_status_desired_number_scheduled`
+   - `kube_daemonset_status_number_ready`
+   - `kube_deployment_spec_replicas`
+   - `kube_deployment_status_replicas_ready`
+   - `kube_pod_container_status_last_terminated_reason`
+   - `kube_node_status_condition`
+   - `kube_pod_container_status_restarts_total`
    - `kube_pod_container_resource_requests`
    - `kube_pod_status_phase`
    - `kube_pod_container_resource_limits`
-   - `kube_pod_info|kube_replicaset_owner`
-   - `kube_resourcequota`
-   - `kube_namespace_status_phase`
-   - `kube_node_status_capacity`
-   - `kube_node_info`
+   - `kube_node_status_allocatable`
    - `kube_pod_info`
+   - `kube_pod_owner`
+   - `kube_resourcequota`
+   - `kube_statefulset_replicas`
+   - `kube_statefulset_status_replicas`
+   - `kube_statefulset_status_replicas_ready`
+   - `kube_statefulset_status_replicas_current`
+   - `kube_statefulset_status_replicas_updated`
+   - `kube_namespace_status_phase`
+   - `kube_node_info`
+   - `kube_statefulset_metadata_generation`
+   - `kube_pod_labels`
+   - `kube_pod_annotations`
+   - `kube_horizontalpodautoscaler_status_current_replicas`
+   - `kube_horizontalpodautoscaler_status_desired_replicas`
+   - `kube_horizontalpodautoscaler_spec_min_replicas`
+   - `kube_horizontalpodautoscaler_spec_max_replicas`
+   - `kube_node_status_condition`
+   - `kube_node_spec_taint`
+   - `kube_pod_container_status_waiting_reason`
+   - `kube_job_failed`
+   - `kube_job_status_start_time`
    - `kube_deployment_spec_replicas`
    - `kube_deployment_status_replicas_available`
    - `kube_deployment_status_replicas_updated`
-   - `kube_statefulset_status_replicas_ready`
-   - `kube_statefulset_status_replicas`
-   - `kube_statefulset_status_replicas_updated`
-   - `kube_job_status_start_time`
    - `kube_job_status_active`
-   - `kube_job_failed`
-   - `kube_horizontalpodautoscaler_status_desired_replicas`
-   - `kube_horizontalpodautoscaler_status_current_replicas`
-   - `kube_horizontalpodautoscaler_spec_min_replicas`
-   - `kube_horizontalpodautoscaler_spec_max_replicas`
    - `kubernetes_build_info`
-   - `kube_node_status_condition`
-   - `kube_node_spec_taint`
+   - `kube_pod_container_info`
+   - `kube_replicaset_owner`
 
-## Targets scraped for Windows
+## Default targets scraped for Windows
+Following Windows targets are configured to scrape, but scraping is not enabled (**disabled/OFF**) by default - meaning you don't have to provide any scrape job configuration for scraping these targets but they are disabled/OFF by default and you need to turn ON/enable scraping for these targets using [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-scrape-settings-enabled` section
 
 Two default jobs can be run for Windows that scrape metrics required for the dashboards specific to Windows.
-
-> [!NOTE]
-> This requires an update in the ama-metrics-settings-configmap and installing windows-exporter on all Windows node pools. For more information, see the [enablement document](./prometheus-metrics-enable.md#enable-prometheus-metric-collection).
-
 - `windows-exporter` (`job=windows-exporter`)
 - `kube-proxy-windows` (`job=kube-proxy-windows`)
+
+> [!NOTE]
+> This requires applying or updating the `ama-metrics-settings-configmap` configmap and installing `windows-exporter` on all Windows nodes. For more information, see the [enablement document](./prometheus-metrics-enable.md#enable-prometheus-metric-collection).
 
 ## Metrics scraped for Windows
 
@@ -191,26 +208,26 @@ The following metrics are collected when windows-exporter and kube-proxy-windows
 
 ## Dashboards
 
-The following default dashboards are automatically provisioned and configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these dashboards can be found in [this GitHub folder](https://aka.ms/azureprometheus-mixins).
+The following default dashboards are automatically provisioned and configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these dashboards can be found in [this GitHub repository](https://aka.ms/azureprometheus-mixins). The below dashboards will be provisioned in the specified Azure Grafana instance under `Managed Prometheus` folder in Grafana. These are the standard open source community dashboards for monitoring Kubernetes clusters with Prometheus and Grafana. 
 
-- Kubernetes / Compute Resources / Cluster
-- Kubernetes / Compute Resources / Namespace (Pods)
-- Kubernetes / Compute Resources / Node (Pods)
-- Kubernetes / Compute Resources / Pod
-- Kubernetes / Compute Resources / Namespace (Workloads)
-- Kubernetes / Compute Resources / Workload
-- Kubernetes / Kubelet
-- Node Exporter / USE Method / Node
-- Node Exporter / Nodes
-- Kubernetes / Compute Resources / Cluster (Windows)
-- Kubernetes / Compute Resources / Namespace (Windows)
-- Kubernetes / Compute Resources / Pod (Windows)
-- Kubernetes / USE Method / Cluster (Windows)
-- Kubernetes / USE Method / Node (Windows)
+- `Kubernetes / Compute Resources / Cluster`
+- `Kubernetes / Compute Resources / Namespace (Pods)`
+- `Kubernetes / Compute Resources / Node (Pods)`
+- `Kubernetes / Compute Resources / Pod`
+- `Kubernetes / Compute Resources / Namespace (Workloads)`
+- `Kubernetes / Compute Resources / Workload`
+- `Kubernetes / Kubelet`
+- `Node Exporter / USE Method / Node`
+- `Node Exporter / Nodes`
+- `Kubernetes / Compute Resources / Cluster (Windows)`
+- `Kubernetes / Compute Resources / Namespace (Windows)`
+- `Kubernetes / Compute Resources / Pod (Windows)`
+- `Kubernetes / USE Method / Cluster (Windows)`
+- `Kubernetes / USE Method / Node (Windows)`
 
 ## Recording rules
 
-The following default recording rules are automatically configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these recording rules can be found in [this GitHub folder](https://aka.ms/azureprometheus-mixins).
+The following default recording rules are automatically configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these recording rules can be found in [this GitHub repository](https://aka.ms/azureprometheus-mixins). These are the standard open source recording rules used in the dashboards above.
 
 - `cluster:node_cpu:ratio_rate5m`
 - `namespace_cpu:kube_pod_container_resource_requests:sum`

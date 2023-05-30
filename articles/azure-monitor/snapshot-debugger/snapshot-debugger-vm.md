@@ -61,7 +61,8 @@ The following example shows a configuration equivalent to the default configurat
 
 Snapshots are collected _only_ on exceptions reported to Application Insights. In some cases (for example, older versions of the .NET platform), you might need to [configure exception collection](../app/asp-net-exceptions.md#exceptions) to see exceptions with snapshots in the portal.
 
-## Configure snapshot collection for apps by using ASP.NET Core LTS or above
+
+## Configure snapshot collection for applications using ASP.NET Core
 
 ### Prerequisites
 

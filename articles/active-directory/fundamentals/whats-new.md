@@ -207,7 +207,7 @@ With this new experience, PIM now automatically manages any type of resource in 
 **Service category:** Self Service Password Reset                     
 **Product capability:** Identity Security & Protection          
 
-Self Service Password Reset (SSPR) can now PIM eligible users, and evaluate group-based memberships, along with direct memberships when checking if a user is in a particular administrator role. This capability provides more accurate SSPR policy enforcement by validating if users are in scope for the default SSPR admin policy or your organizations SSPR user policy.
+Self Service Password Reset (SSPR) can now check for PIM eligible users, and evaluate group-based memberships, along with direct memberships when checking if a user is in a particular administrator role. This capability provides more accurate SSPR policy enforcement by validating if users are in scope for the default SSPR admin policy or your organizations SSPR user policy.
 
 
 For more information, see: 
@@ -255,7 +255,7 @@ Workload Identity Federation enables developers to use managed identities for th
 For more information, see: 
 - [Workload identity federation](../workload-identities/workload-identity-federation.md).
 - [Configure a user-assigned managed identity to trust an external identity provider (preview)](../workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md)
-- [Use Azure AD workload identity (preview) with Azure Kubernetes Service (AKS)](../../aks/workload-identity-overview.md)
+- [Use Azure AD workload identity with Azure Kubernetes Service (AKS)](../../aks/workload-identity-overview.md)
 
 ---
 

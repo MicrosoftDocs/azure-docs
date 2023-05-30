@@ -94,15 +94,24 @@
   - name: View applied configurations
     href: how-to-view-applied-configurations.md
   - name: Define dynamic network group membership with Azure Policy
-    href: how-to-exclude-elements.md
+    href: how-to-define-network-group-membership-azure-policy.md
   - name: Common issues
     href: common-issues.md
 - name: Reference
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=virtual-network-manager
+  - name: Azure PowerShell
+    href: /powershell/module/az.network#networking
+  - name: Azure CLI
+    href: /cli/azure/network/manager
   - name: REST
     href: /rest/api/networkmanager/
   - name: .NET SDK
     href: /dotnet/api/microsoft.azure.management.network
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.network/networkmanagers
+    displayName: ARM
 - name: Resources
   items:
   - name: Azure roadmap

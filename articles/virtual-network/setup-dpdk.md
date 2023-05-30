@@ -3,11 +3,11 @@ title: DPDK in an Azure Linux VM
 titleSuffix: Azure Virtual Network
 description: Learn the benefits of the Data Plane Development Kit (DPDK) and how to set up the DPDK on a Linux virtual machine.
 services: virtual-network
-author: asudbring
+author: steveesp
 ms.service: virtual-network
 ms.topic: how-to
 ms.date: 04/24/2023
-ms.author: allensu
+ms.author: steveesp
 ---
 
 # Set up DPDK in a Linux virtual machine
@@ -53,37 +53,6 @@ Accelerated networking must be enabled on a Linux virtual machine. The virtual m
 In addition, DPDK uses RDMA verbs to create data queues on the Network Adapter. In the VM, ensure the correct RDMA kernel drivers are loaded. They can be mlx4_ib, mlx5_ib or mana_ib depending on VM sizes. 
 
 
-## Install DPDK via system package (not recommended)
-
-# [RHEL, CentOS](#tab/redhat)
-
-```bash
-sudo yum install -y dpdk
-```
-
-# [openSUSE, SLES](#tab/suse)
-
-```bash
-sudo zypper install -y dpdk
-```
-
-# [Ubuntu, Debian](#tab/ubuntu)
-
-### Ubuntu 18.04
-
-```bash
-sudo add-apt-repository ppa:canonical-server/server-backports -y
-sudo apt-get update
-sudo apt-get install -y dpdk
-```
-
-### Ubuntu 20.04/Debian 10 and newer
-
-```bash
-sudo apt-get install -y dpdk
-```
-
----
 
 ## Install DPDK manually (recommended)
 
@@ -191,11 +160,10 @@ NetVSC is the recommended PMD to run as a master PMD in Azure. It guarantees tha
 
 ## Failsafe PMD
 
-DPDK applications must run over the failsafe PMD that is exposed in Azure. If the application runs directly over the *VF* PMD, it doesn't receive **all** packets that are destined to the VM, since some packets show up over the synthetic interface. 
-
-If you run a DPDK application over the failsafe PMD, it guarantees that the application receives all packets that are destined to it. It also makes sure that the application keeps running in DPDK mode, even if the VF is revoked when the host is being serviced. For more information about failsafe PMD, see [Fail-safe poll mode driver library](https://doc.dpdk.org/guides/nics/fail_safe.html).
-
 Note: running with failsafe PMD is not recommended in Azure. If your DPDK version is 22.11 LTS or newer, use NetVSC PMD is recommended.
+
+As an alternative, you can run a DPDK application over the failsafe PMD. For more information about failsafe PMD see [Fail-safe poll mode driver library](https://doc.dpdk.org/guides/nics/fail_safe.html).
+
 
 ## Run testpmd
 
@@ -292,6 +260,38 @@ The following commands periodically print the packets per second statistics:
     ```
 
 When you're running the previous commands on a virtual machine, change *IP_SRC_ADDR* and *IP_DST_ADDR* in `app/test-pmd/txonly.c` to match the actual IP address of the virtual machines before you compile. Otherwise, the packets are dropped before reaching the forwarder. You can't have a third machine receive forwarded traffic, because the *testpmd* forwarder doesn’t modify the layer-3 addresses, unless you make some code changes.
+
+## Install DPDK via system package (not recommended)
+
+# [RHEL, CentOS](#tab/redhat)
+
+```bash
+sudo yum install -y dpdk
+```
+
+# [openSUSE, SLES](#tab/suse)
+
+```bash
+sudo zypper install -y dpdk
+```
+
+# [Ubuntu, Debian](#tab/ubuntu)
+
+### Ubuntu 18.04
+
+```bash
+sudo add-apt-repository ppa:canonical-server/server-backports -y
+sudo apt-get update
+sudo apt-get install -y dpdk
+```
+
+### Ubuntu 20.04/Debian 10 and newer
+
+```bash
+sudo apt-get install -y dpdk
+```
+
+---
 
 ## References
 

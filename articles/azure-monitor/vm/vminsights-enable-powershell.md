@@ -34,7 +34,7 @@ To enable VM insights for multiple VMs or virtual machine scale set, use the Pow
 
 For each virtual machine or virtual machine scale set, the script verifies whether the VM extension for the Log Analytics agent and Dependency agent is already installed. If both extensions are installed, the script tries to reinstall it. If both extensions aren't installed, the script installs them.
 
-Verify that you're using Azure PowerShell module Az version 1.0.0 or later with `Enable-AzureRM` compatibility aliases enabled. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+Verify that you're using Azure PowerShell module Az version 1.0.0 or later with `Enable-AzureRM` compatibility aliases enabled. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 To get a list of the script's argument details and example usage, run `Get-Help`.
 

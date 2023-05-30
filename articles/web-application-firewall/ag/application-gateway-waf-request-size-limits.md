@@ -28,7 +28,7 @@ The following two size limits configurations are available:
 
 The default value for file upload limit is 100 MB.
 
-For DRS 2.1 / CRS 3.2 (on the WAF_v2 SKU) and newer, these limits are as follows when using a WAF policy for Application Gateway:
+For CRS 3.2 (on the WAF_v2 SKU) and newer, these limits are as follows when using a WAF policy for Application Gateway:
    
    - 2 MB request body size limit
    - 4 GB file upload limit 
@@ -51,4 +51,6 @@ When your WAF receives a request that's over the size limit, the behavior depend
 
 ## Next steps
 
-After you configure your WAF settings, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
+- After you configure your WAF settings, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
+- [Learn more about Azure network security](../../networking/security/index.yml)
+

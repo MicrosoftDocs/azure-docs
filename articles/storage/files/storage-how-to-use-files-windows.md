@@ -4,7 +4,7 @@ description: Learn to use Azure file shares with Windows and Windows Server. Use
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/01/2023
+ms.date: 05/02/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -17,7 +17,7 @@ In order to use an Azure file share via the public endpoint outside of the Azure
 | Windows version | SMB version | Azure Files SMB Multichannel | Maximum SMB channel encryption |
 |-|-|-|-|
 | Windows 11, version 22H2 | SMB 3.1.1 | Yes | AES-256-GCM |
-| Windows 10, version 22H2 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 10, version 22H2 | SMB 3.1.1 | Yes | AES-128-GCM |
 | Windows Server 2022 | SMB 3.1.1 | Yes | AES-256-GCM |
 | Windows 11, version 21H2 | SMB 3.1.1 | Yes | AES-256-GCM |
 | Windows 10, version 21H2 | SMB 3.1.1 | Yes | AES-128-GCM |

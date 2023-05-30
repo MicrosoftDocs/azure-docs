@@ -487,7 +487,7 @@ Defining paths to read Delta Lake tables is different compared to the other file
 ```python
 import mltable
 
-# define the path containing the delta table (where the _delta_log file is stored)
+# define the cloud path containing the delta table (where the _delta_log file is stored)
 delta_table = "abfss://<file_system>@<account_name>.dfs.core.windows.net/<path_to_delta_table>"
 
 # create an MLTable. Note the timestamp_as_of parameter for time travel.
@@ -495,6 +495,21 @@ tbl = mltable.from_delta_lake(
     delta_table_uri=delta_table,
     timestamp_as_of='2022-08-26T00:00:00Z'
 )
+```
+
+If you want to get the latest version of Delta Lake data, you can pass current timestamp into `timestamp_as_of`.
+
+```python
+import mltable
+
+# define the relative path containing the delta table (where the _delta_log file is stored)
+delta_table_path = "./working-directory/delta-sample-data"
+
+# get the current timestamp in the required format
+current_timestamp = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+print(current_timestamp)
+tbl = mltable.from_delta_lake(delta_table_path, timestamp_as_of=current_timestamp)
+df = tbl.to_pandas_dataframe()
 ```
 
 ### Files, folders and globs

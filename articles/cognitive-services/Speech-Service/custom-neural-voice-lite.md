@@ -95,7 +95,7 @@ The training process takes approximately one compute hour. You can check the pro
 To review the CNV Lite model and listen to your own synthetic voice, follow these steps:
 
 1. Select **Custom Voice** > Your project name > **Review model**. Here you can review the voice model name, model language, sample data size, and training progress. The voice name is composed of the word "Neural" appended to your project name.
-1. Select the voice model name to review the model details and listen to the sample text-to-speech results.
+1. Select the voice model name to review the model details and listen to the sample text to speech results.
 1. Select the play icon to hear your voice speak each script. 
     :::image type="content" source="media/custom-voice/lite/lite-review-model.png" alt-text="Screenshot of the review sample output dashboard.":::
 
@@ -130,5 +130,5 @@ From here, you can use the CNV Lite voice model similarly as you would use a CNV
 ## Next steps
 
 * [Create a CNV Pro project](how-to-custom-voice.md) 
-* [Try the text-to-speech quickstart](get-started-text-to-speech.md)
+* [Try the text to speech quickstart](get-started-text-to-speech.md)
 * [Learn more about speech synthesis](how-to-speech-synthesis.md)

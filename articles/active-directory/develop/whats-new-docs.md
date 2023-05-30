@@ -5,7 +5,7 @@ services: active-directory
 author: henrymbuguakiarie
 manager: CelesteDG
 
-ms.date: 04/03/2023
+ms.date: 05/02/2023
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -17,6 +17,31 @@ ms.custom: has-adal-ref
 # Microsoft identity platform docs: What's new
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
+
+## April 2023
+
+### New articles
+
+- [Configure token lifetime policies (preview)](configure-token-lifetimes.md)
+- [Secure applications and APIs by validating claims](claims-validation.md)
+
+### Updated articles
+
+- [Authentication flow support in MSAL](msal-authentication-flows.md)
+- [A web app that calls web APIs: Acquire a token for the app](scenario-web-app-call-api-acquire-token.md)
+- [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md)
+- [Customize claims issued in the JSON web token (JWT) for enterprise applications (Preview)](active-directory-jwt-claims-customization.md)
+- [Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
+- [Daemon app that calls web APIs - acquire a token](scenario-daemon-acquire-token.md)
+- [Daemon app that calls web APIs - call a web API from the app](scenario-daemon-call-api.md)
+- [Daemon app that calls web APIs - code configuration](scenario-daemon-app-configuration.md)
+- [Desktop app that calls web APIs: Acquire a token using WAM](scenario-desktop-acquire-token-wam.md)
+- [Microsoft identity platform access tokens](access-tokens.md)
+- [Quickstart: Get a token and call the Microsoft Graph API by using a console app's identity](quickstart-v2-netcore-daemon.md)
+- [Tutorial: Sign in users and call the Microsoft Graph API from an Android application](tutorial-v2-android.md)
+- [Web app that signs in users: App registration](scenario-web-app-sign-user-app-registration.md)
+- [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md)
+- [Web app that signs in users: Sign-in and sign-out](scenario-web-app-sign-user-sign-in.md)
 
 ## March 2023
 
@@ -55,18 +80,3 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Overview of shared device mode](msal-shared-devices.md)
 - [Run automated integration tests](test-automate-integration-testing.md)
 - [Tutorial: Sign in users and call Microsoft Graph in Windows Presentation Foundation (WPF) desktop app](tutorial-v2-windows-desktop.md)
-
-## January 2023
-
-### New articles
-
-- [Customize claims issued in the JSON web token (JWT) for enterprise applications](jwt-claims-customization.md)
-
-### Updated articles
-
-- [Access Azure AD protected resources from an app in Google Cloud](workload-identity-federation-create-trust-gcp.md)
-- [Configure SAML app multi-instancing for an application in Azure Active Directory](reference-app-multi-instancing.md)
-- [Customize browsers and WebViews for iOS/macOS](customize-webviews.md)
-- [Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
-- [Enable cross-app SSO on Android using MSAL](msal-android-single-sign-on.md)
-- [Using redirect URIs with the Microsoft Authentication Library (MSAL) for iOS and macOS](redirect-uris-ios.md)

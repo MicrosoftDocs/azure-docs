@@ -3,7 +3,7 @@ title: Start an Azure Automation runbook from a webhook
 description: This article tells how to use a webhook to start a runbook in Azure Automation from an HTTP call.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/21/2021
+ms.date: 05/09/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
@@ -104,16 +104,14 @@ Consider the following strategies:
     write-output "start"
     write-output ("object type: {0}" -f $WebhookData.gettype())
     write-output $WebhookData
-    #write-warning (Test-Json -Json $WebhookData)
-    $Payload = $WebhookData | ConvertFrom-Json
     write-output "`n`n"
-    write-output $Payload.WebhookName
-    write-output $Payload.RequestBody
-    write-output $Payload.RequestHeader
+    write-output $WebhookData.WebhookName
+    write-output $WebhookData.RequestBody
+    write-output $WebhookData.RequestHeader
     write-output "end"
 
-    if ($Payload.RequestBody) { 
-        $names = (ConvertFrom-Json -InputObject $Payload.RequestBody)
+    if ($WebhookData.RequestBody) { 
+        $names = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
 
             foreach ($x in $names)
             {
