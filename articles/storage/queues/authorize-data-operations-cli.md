@@ -2,10 +2,10 @@
 title: Choose how to authorize access to queue data with Azure CLI
 titleSuffix: Azure Storage
 description: Specify how to authorize data operations against queue data with the Azure CLI. You can authorize data operations using Azure AD credentials, with the account access key, or with a shared access signature (SAS) token. 
-author: jimmart-dev
+author: tamram
 services: storage
 
-ms.author: jammart
+ms.author: tamram
 ms.reviewer: ozgun
 ms.date: 02/10/2021
 ms.topic: how-to

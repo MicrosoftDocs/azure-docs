@@ -1,13 +1,13 @@
 ---
 title: "Quickstart - Load application secrets using Key Vault"
-titleSuffix: Azure Spring Apps Enterprise tier
-description: Explains how to use Azure Key Vault to securely load secrets for apps running Azure Spring Apps Enterprise tier.
+titleSuffix: Azure Spring Apps Enterprise plan
+description: Explains how to use Azure Key Vault to securely load secrets for apps running the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 05/31/2022
-ms.custom: devx-track-java, service-connector
+ms.custom: devx-track-java, service-connector, devx-track-azurecli
 ---
 
 # Quickstart: Load application secrets using Key Vault
@@ -15,22 +15,22 @@ ms.custom: devx-track-java, service-connector
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This quickstart shows you how to securely load secrets using Azure Key Vault for apps running Azure Spring Apps Enterprise tier.
+This quickstart shows you how to securely load secrets using Azure Key Vault for apps running the Azure Spring Apps Enterprise plan.
 
 Every application has properties that connect it to its environment and supporting services. These services include resources like databases, logging and monitoring tools, messaging platforms, and so on. Each resource requires a way to locate and access it, often in the form of URLs and credentials. This information is often protected by law, and must be kept secret in order to protect customer data. In Azure Spring Apps, you can configure applications to directly load these secrets into memory from Key Vault by using managed identities and Azure role-based access control.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A license for Azure Spring Apps Enterprise tier. For more information, see [View Azure Spring Apps Enterprise tier Offer in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
-- [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
+- Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 - Complete the steps in the following quickstarts:
-  - [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+  - [Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
   - [Integrate with Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
 
 ## Provision Key Vault and store secrets
@@ -118,7 +118,7 @@ The following instructions describe how to create a Key Vault and securely save 
 
 ## Grant applications access to secrets in Key Vault
 
-The following instructions describe how to grant access to Key Vault secrets to applications deployed to Azure Spring Apps Enterprise tier.
+The following instructions describe how to grant access to Key Vault secrets to applications deployed to the Azure Spring Apps Enterprise plan.
 
 1. Use the following command to enable a System Assigned Identity for the Cart Service application:
 
@@ -304,7 +304,7 @@ After granting access to read secrets from Key Vault, use the following steps to
        --resource-group <resource-group-name> \
        --name identity-service \
        --service <Azure-Spring-Apps-service-instance-name> \
-       --config-file-pattern identity/default,identity /key-vault \
+       --config-file-pattern identity/default,identity/key-vault \
        --env "SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTY_SOURCES_0_ENDPOINT=${KEYVAULT_URI}" "SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTY_SOURCES_0_NAME='acme-fitness-store-vault'" "SPRING_PROFILES_ACTIVE=default,key-vault"
    ```
 

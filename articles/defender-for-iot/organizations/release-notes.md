@@ -38,6 +38,10 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **22.3** | | | |
+| 22.3.9 | 05/2023 | Patch | 04/2024 |
+| 22.3.8 | 04/2023 | Patch | 03/2024 |
+| 22.3.7 | 03/2023 | Patch | 02/2024 |
+| 22.3.6 | 03/2023 | Patch | 02/2024 |
 | 22.3.5 | 01/2023 | Patch | 12/2023 |
 | 22.3.4 | 01/2023 | Major | 12/2023 |
 | **22.2** | | | |
@@ -75,7 +79,7 @@ Earlier versions use a legacy support model, with support dates [detailed for ea
 
 ### On-premises appliance security
 
-The OT network sensor and the on-premises management console are designed as a *locked-down* security appliance with a hardened attack surface. Appliance access and control is allowed only through the [management port](best-practices/understand-network-architecture.md), via HTTP for web access and SSH for the support shell.
+The OT network sensor and the on-premises management console are designed as a *locked-down* security appliance with a hardened attack surface. Appliance access and control are allowed only through the [management port](best-practices/understand-network-architecture.md), via HTTP for web access and SSH for the support shell.
 
 Defender for IoT adheres to the [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) throughout the entire development lifecycle, including activities like training, compliance, code reviews, threat modeling, design requirements, component governance, and pen testing. All appliances are locked down according to industry best practices and should not be modified.
 
@@ -93,6 +97,45 @@ To understand whether a feature is supported in your sensor version, check the r
 
 ## Versions 22.3.x
 
+### 22.3.9
+
+**Release date**: 05/2023
+
+**Supported until**: 04/2024
+
+This version includes bug fixes for stability improvements.
+
+### 22.3.8
+
+**Release date**: 04/2023
+
+**Supported until**: 03/2024
+
+- [Download WMI script from OT sensor console](detect-windows-endpoints-script.md#download-and-run-the-script)
+- [Automatically resolved notifications for operating system changes and device type changes](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
+- [UI enhancements when uploading SSL/TLS certificates](how-to-deploy-certificates.md#deploy-a-certificate-on-an-ot-sensor)
+
+### 22.3.6 / 22.3.7
+
+<a name=22.3.7></a>
+
+**Release date**: 03/2023
+
+**Supported until**: 02/2024
+
+Version 22.3.7 includes the same features as 22.3.6. If you have version 22.3.6 installed, we strongly recommend that you update to version 22.3.7, which also includes important bug fixes.
+
+- [Support for transient devices](device-inventory.md#supported-devices)
+- [Auto-resolved notifications](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
+- [Device data retention updated to 90 days](references-data-retention.md#device-data-retention-periods)
+- [Merging](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices) and [deleting](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) devices on OT sensors now include confirmation messages when the action has completed
+- Support for [deleting multiple devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) on OT sensors
+- An enhanced [editing device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details) process on the OT sensor, using an **Edit** button in the toolbar at the top of the page
+- [Enhanced UI on the OT sensor for uploading an SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate)
+- [Activation files for locally managed sensors no longer expire](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
+- Severity for all [**Suspicion of Malicious Activity**](alert-engine-messages.md#malware-engine-alerts) alerts is now **Critical**
+- [Allow internet connections on an OT network in bulk](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network)
+
 ### 22.3.5
 
 **Release date**: 01/2023
@@ -108,6 +151,7 @@ This version includes bug fixes for stability improvements.
 **Supported until**: 12/2023
 
 - [Azure connectivity status shown on OT sensors](how-to-manage-individual-sensors.md#validate-connectivity-status)
+- [Configure Active Directory and NTP settings in the Azure portal](configure-sensor-settings-portal.md#active-directory)
 
 ## Versions 22.2.x
 
@@ -191,11 +235,12 @@ This version includes the following new updates and fixes:
 - [New naming convention for hardware profiles](ot-appliance-sizing.md)
 - [PCAP access from the Azure portal](how-to-manage-cloud-alerts.md)
 - [Bi-directional alert synch between OT sensors and the Azure portal](alerts.md#managing-ot-alerts-in-a-hybrid-environment)
-- [Sensor connections restored after certificate rotation](how-to-deploy-certificates.md)
+- [Sensor connections restored after certificate rotation](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate)
 - [Upload diagnostic logs for support tickets from the Azure portal](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support)
 - [Improved security for uploading protocol plugins](resources-manage-proprietary-protocols.md)
 - [Sensor names shown in browser tabs](how-to-manage-individual-sensors.md)
 - [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
+
 
 ## Versions 22.1.x
 
@@ -245,7 +290,7 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
-- [Diagnostic logs automatically available to support for cloud-connected sensors](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
+- [Diagnostic logs automatically available to support for cloud-connected sensors](how-to-troubleshoot-sensor.md#download-a-diagnostics-log-for-support)
 - [Rockwell protocol: Device inventory shows PLC operating mode key state, run state, and security mode](how-to-manage-device-inventory-for-organizations.md)
 - [Automatic CLI session timeouts](references-work-with-defender-for-iot-cli-commands.md)
 - [Sensor health widgets in the Azure portal](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health)
@@ -264,7 +309,7 @@ This version includes the following new updates and fixes:
 
 - [Enhanced sensor Overview page](how-to-manage-individual-sensors.md)
 
-- [New sensor diagnostics log](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
+- [New sensor diagnostics log](how-to-troubleshoot-sensor.md#download-a-diagnostics-log-for-support)
 
 - [Alert updates](how-to-view-alerts.md):
 
@@ -286,13 +331,13 @@ This version includes the following new updates and fixes:
 
 - [New connectivity models](architecture-connections.md)
 
-- [New firewall requirements](how-to-set-up-your-network.md#sensor-access-to-azure-portal)
+- [New firewall requirements](networking-requirements.md#sensor-access-to-azure-portal)
 
 - [Improved support for Profinet DCP, Honeywell, and Windows endpoint detection protocols](concept-supported-protocols.md)
 
 - [Sensor reports now accessible from the **Data Mining** page](how-to-create-data-mining-queries.md)
 
-- [Updated process for sensor name changes](how-to-manage-individual-sensors.md#change-the-name-of-a-sensor)
+- [Updated process for sensor name changes](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
 
 - [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
 
@@ -343,9 +388,9 @@ This version includes the following new updates and fixes:
 
 - [PLC operating mode detections](how-to-create-risk-assessment-reports.md)
 - [New PCAP API](api/management-alert-apis.md#pcap-request-alert-pcap)
-- [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
+- [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
 - [Support for Webhook extended to send data to endpoints](how-to-forward-alert-information-to-partners.md#webhook-extended)
-- [Unicode support for certificate passphrases](how-to-deploy-certificates.md)
+- [Unicode support for certificate passphrases](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates)
 
 ## Next steps
 

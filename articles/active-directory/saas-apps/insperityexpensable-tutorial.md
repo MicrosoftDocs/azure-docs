@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Insperity ExpensAble | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Insperity ExpensAble'
 description: Learn how to configure single sign-on between Azure Active Directory and Insperity ExpensAble.
 services: active-directory
 author: jeevansd

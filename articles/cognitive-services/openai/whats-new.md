@@ -7,13 +7,69 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
-ms.topic: overview
-ms.date: 12/14/2022
+ms.topic: whats-new
+ms.date: 05/15/2023
 recommendations: false
 keywords:  
 ---
 
 # What's new in Azure OpenAI Service
+
+## May 2023
+
+### Azure OpenAI Chat Completion General Availability (GA)
+
+- General availability support for:
+  - Chat Completion API version `2023-05-15`.
+  - GPT-35-Turbo models.
+  - GPT-4 model series. Due to high demand access to this model series is currently only available by request. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
+  
+If you are currently using the `2023-03-15-preview` API, we recommend migrating to the GA `2023-05-15` API. If you are currently using API version `2022-12-01` this API remains GA, but does not include the latest Chat Completion capabilities.
+
+> [!IMPORTANT]
+> Using the current versions of the GPT-35-Turbo models with the completion endpoint remains in preview.
+  
+### France Central
+
+- Azure OpenAI is now available in the France Central region. Check the [models page](concepts/models.md), for the latest information on model availability in each region.  
+
+## April 2023
+
+- **Inactive deployments of customized models will now be deleted after 15 days; models will remain available for redeployment.** If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#deploy-a-customized-model).
+
+
+## March 2023
+
+- **GPT-4 series models are now available in preview on Azure OpenAI**. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4). These models are currently available in the East US and South Central US regions.
+
+- **New Chat Completion API for ChatGPT and GPT-4 models released in preview on 3/21**. To learn more checkout the [updated quickstarts](./quickstart.md) and [how-to article](./how-to/chatgpt.md).
+
+- **ChatGPT (gpt-35-turbo) preview**. To learn more checkout the [how-to article](./how-to/chatgpt.md).
+
+- Increased training limits for fine-tuning: The max training job size (tokens in training file) x (# of epochs) is 2 Billion tokens for all models. We have also increased the max training job from 120 to 720 hours. 
+- Adding additional use cases to your existing access.  Previously, the process for adding new use cases required customers to reapply to the service. Now, we're releasing a new process that allows you to quickly add new use cases to your use of the service. This process follows the established Limited Access process within Azure Cognitive Services. [Existing customers can attest to any and all new use cases here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUM003VEJPRjRSOTZBRVZBV1E5N1lWMk1XUyQlQCN0PWcu). Please note that this is required anytime you would like to use the service for a new use case you did not originally apply for.
+
+## February 2023
+
+### New Features
+
+- .NET SDK(inference) [preview release](https://www.nuget.org/packages/Azure.AI.OpenAI/1.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)
+- [Terraform SDK update](https://registry.terraform.io/providers/hashicorp/azurerm/3.37.0/docs/resources/cognitive_deployment) to support Azure OpenAI management operations.
+- Inserting text at the end of a completion is now supported with the `suffix` parameter.
+
+### Updates
+
+- Content filtering is on by default.
+
+New articles on:
+
+- [Monitoring an Azure OpenAI Service](./how-to/monitoring.md)
+- [Plan and manage costs for Azure OpenAI](./how-to/manage-costs.md)
+
+New training course:
+
+- [Intro to Azure OpenAI](/training/modules/explore-azure-openai/)
+
 
 ## January 2023
 

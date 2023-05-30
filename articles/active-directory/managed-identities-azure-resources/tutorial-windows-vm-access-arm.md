@@ -1,12 +1,12 @@
 ---
-title: "Tutorial: Use managed identity to access Azure Resource Manager - Windows - Azure AD"
+title: "Tutorial: Use managed identity to access Azure Resource Manager - Windows"
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: barclayn
 manager: amycolannino
 editor: daveba
-ms.custom: subject-rbac-steps, mode-other
+ms.custom: subject-rbac-steps, mode-other, devx-track-arm-template
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: quickstart

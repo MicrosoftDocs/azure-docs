@@ -3,7 +3,7 @@ title: Create a persistent volume with Azure Blob storage in Azure Kubernetes Se
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 01/18/2023
+ms.date: 05/17/2023
 
 ---
 
@@ -23,6 +23,11 @@ For more information on Kubernetes volumes, see [Storage options for application
 - If you don't have a storage account that supports the NFS v3 protocol, review [NFS v3 support with Azure Blob storage][azure-blob-storage-nfs-support].
 
 - [Enable the Blob storage CSI driver][enable-blob-csi-driver] on your AKS cluster.
+
+- To support an [Azure DataLake Gen2 storage account][azure-datalake-storage-account] when using blobfuse mount, you'll need to do the following:
+
+   - To create an ADLS account using the driver in dynamic provisioning, specify `isHnsEnabled: "true"` in the storage class parameters.
+   - To enable blobfuse access to an ADLS account in static provisioning, specify the mount option `--use-adls=true` in the persistent volume.
 
 ## Dynamically provision a volume
 
@@ -145,7 +150,7 @@ The following YAML creates a pod that uses the persistent volume claim **azure-b
 
     The output of the command resembles the following example:
 
-    ```bash
+    ```output
     test.txt
     ```
 
@@ -179,7 +184,7 @@ In this example, the following manifest configures mounting a Blob storage conta
 
     The output of the command resembles the following example:
 
-    ```bash
+    ```output
     storageclass.storage.k8s.io/blob-nfs-premium created
     ```
 
@@ -220,7 +225,7 @@ In this example, the following manifest configures using blobfuse and mounts a B
 
     The output of the command resembles the following example:
 
-    ```bash
+    ```output
     storageclass.storage.k8s.io/blob-fuse-premium created
     ```
 
@@ -240,7 +245,7 @@ This section provides guidance for cluster administrators who want to create one
 |--- | **Following parameters are only for blobfuse** | --- | --- | --- |
 |volumeAttributes.secretName | Secret name that stores storage account name and key (only applies for SMB).| | No ||
 |volumeAttributes.secretNamespace | Specify namespace of secret to store account key. | `default` | No | Pvc namespace|
-|nodeStageSecretRef.name | Specify secret name that stores one of the following:<br> `azurestorageaccountkey`<br>`azurestorageaccountsastoken`<br>`msisecret`<br>`azurestoragespnclientsecret`. | |Existing Kubernetes secret name |  No  |
+|nodeStageSecretRef.name | Specify secret name that stores one of the following:<br> `azurestorageaccountkey`<br>`azurestorageaccountsastoken`<br>`msisecret`<br>`azurestoragespnclientsecret`. | |  No  |Existing Kubernetes secret name |
 |nodeStageSecretRef.namespace | Specify the namespace of secret. | Kubernetes namespace | Yes ||
 |--- | **Following parameters are only for NFS protocol** | --- | --- | --- |
 |volumeAttributes.mountPermissions | Specify mounted folder permissions. | `0777` | No ||
@@ -268,13 +273,13 @@ When you create an Azure Blob storage resource for use with AKS, you can create 
 
 For this article, create the container in the node resource group. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster named **myAKSCluster** in the resource group named **myResourceGroup**:
 
-```azurecli
+```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 ```
 
 The output of the command resembles the following example:
 
-```azurecli
+```azurecli-interactive
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
@@ -300,6 +305,8 @@ The following example demonstrates how to mount a Blob storage container as a pe
     apiVersion: v1
     kind: PersistentVolume
     metadata:
+      annotations:
+        pv.kubernetes.io/provisioned-by: blob.csi.azure.com
       name: pv-blob
     spec:
       capacity:
@@ -388,6 +395,8 @@ Kubernetes needs credentials to access the Blob storage container created earlie
     apiVersion: v1
     kind: PersistentVolume
     metadata:
+      annotations:
+        pv.kubernetes.io/provisioned-by: blob.csi.azure.com
       name: pv-blob
     spec:
       capacity:
@@ -483,7 +492,7 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 
     The output from the command resembles the following example:
 
-    ```bash
+    ```output
     Filesystem      Size  Used Avail Use% Mounted on
     ...
     blobfuse         14G   41M   13G   1% /mnt/blob
@@ -512,3 +521,4 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 [enable-blob-csi-driver]: azure-blob-csi.md#before-you-begin
 [az-tags]: ../azure-resource-manager/management/tag-resources.md
 [sas-tokens]: ../storage/common/storage-sas-overview.md
+[azure-datalake-storage-account]: ../storage/blobs/upgrade-to-data-lake-storage-gen2-how-to.md

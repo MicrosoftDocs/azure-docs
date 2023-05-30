@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 11/30/2022
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Encrypt managed disks with cross-tenant customer-managed keys
@@ -52,7 +53,7 @@ To use the Azure portal, sign in to the portal and follow these steps.
 
 # [PowerShell](#tab/azure-powershell)
 
-To use Azure PowerShell, install the latest Az module or the Az.Storage module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
+To use Azure PowerShell, install the latest Az module or the Az.Storage module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell).
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 

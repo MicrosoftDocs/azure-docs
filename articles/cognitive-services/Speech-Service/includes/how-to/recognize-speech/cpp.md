@@ -129,7 +129,7 @@ Next, subscribe to the events that [`SpeechRecognizer`](/cpp/cognitive-services/
 * [`Recognizing`](/cpp/cognitive-services/speech/asyncrecognizer#recognizing): Signal for events that contain intermediate recognition results.
 * [`Recognized`](/cpp/cognitive-services/speech/asyncrecognizer#recognized): Signal for events that contain final recognition results, which indicate a successful recognition attempt.
 * [`SessionStopped`](/cpp/cognitive-services/speech/asyncrecognizer#sessionstopped): Signal for events that indicate the end of a recognition session (operation).
-* [`Canceled`](/cpp/cognitive-services/speech/asyncrecognizer#canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result or a direct cancellation request. Alternatively, they indicate a transport or protocol failure.
+* [`Canceled`](/cpp/cognitive-services/speech/asyncrecognizer#canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result of a direct cancellation request. Alternatively, they indicate a transport or protocol failure.
 
 ```cpp
 speechRecognizer->Recognizing.Connect([](const SpeechRecognitionEventArgs& e)
@@ -191,11 +191,11 @@ A common task for speech recognition is specifying the input (or source) languag
 speechConfig->SetSpeechRecognitionLanguage("de-DE");
 ```
 
-[`SetSpeechRecognitionLanguage`](/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) is a parameter that takes a string as an argument. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt).
+[`SetSpeechRecognitionLanguage`](/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) is a parameter that takes a string as an argument. Refer to the [list of supported speech to text locales](../../../language-support.md?tabs=stt).
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-cpp#speech-to-text) with Speech-to-text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use [language identification](../../../language-identification.md?pivots=programming-language-cpp#speech-to-text) with Speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
 For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-cpp#speech-to-text).
 
@@ -208,3 +208,10 @@ auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourS
 speechConfig->SetEndpointId("YourEndpointId");
 auto speechRecognizer = SpeechRecognizer::FromConfig(speechConfig);
 ```
+
+## Run and use a container
+
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
+
+For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
+

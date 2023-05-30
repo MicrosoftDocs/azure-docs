@@ -1,23 +1,23 @@
 ---
-title: Known limitations and issues with Azure Synapse Link for SQL
-description: Learn about known limitations and issues with Azure Synapse Link for SQL.
+title: Limitations and known issues with Azure Synapse Link for SQL
+description: Learn about limitations and known issues with Azure Synapse Link for SQL.
 author: jonburchel
 ms.service: synapse-analytics
 ms.topic: troubleshooting
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 01/27/2023
+ms.date: 05/03/2023
 ms.author: jburchel
 ms.reviewer: jburchel, chuckheinzelman, wiassaf, imotiwala
 ---
 
-# Known limitations and issues with Azure Synapse Link for SQL
+# Limitations and known issues with Azure Synapse Link for SQL
 
-This article lists the known limitations and issues with Azure Synapse Link for SQL.
+This article lists the [limitations](#limitations) and [known issues](#known-issues) with Azure Synapse Link for SQL.
 
-## Known limitations
+## Limitations
 
-The following is the list of known limitations for Azure Synapse Link for SQL.
+The following sections list limitations for Azure Synapse Link for SQL.
 
 ### Azure SQL Database and SQL Server 2022
 * Source tables must have primary keys.
@@ -29,10 +29,10 @@ The following is the list of known limitations for Azure Synapse Link for SQL.
   * sql_variant
   * timestamp
 * Source table row size can't exceed 7,500 bytes. For tables where variable-length columns are stored off-row, a 24-byte pointer is stored in the main record.
-* When source tables are being initially snapshotted, any source table data containing large object (LOB) data greater than 1 MB in size is not supported. These LOB data types include: varchar(max), nvarchar(max), varbinary(max). An error will be thrown and data won't be exported to Azure Synapse Analytics.
+* When source tables are being initially snapshotted, any source table data containing large object (LOB) data greater than 1 MB in size is not supported. These LOB data types include: varchar(max), nvarchar(max), varbinary(max). An error is thrown and data is not exported to Azure Synapse Analytics.
 * Tables enabled for Azure Synapse Link for SQL can have a maximum of 1,020 columns (not 1,024).
 * While a database can have multiple links enabled, a given table can't belong to multiple links.
-* When a database owner doesn't have a mapped login, Azure Synapse Link for SQL will run into an error when enabling a link connection.  User can set database owner to a valid user with the `ALTER AUTHORIZATION` command to fix this issue.
+* When a database owner doesn't have a mapped login, Azure Synapse Link for SQL runs into an error when enabling a link connection.  User can set database owner to a valid user with the `ALTER AUTHORIZATION` command to fix this issue.
 * If the source table contains computed columns or columns with data types that aren't supported by Azure Synapse Analytics dedicated SQL pools, these columns won't be replicated to Azure Synapse Analytics.  Unsupported columns include:
   * image
   * text
@@ -61,7 +61,7 @@ The following is the list of known limitations for Azure Synapse Link for SQL.
   * Graph
 * System tables can't be replicated.
 * The security configuration from the source database will **NOT** be reflected in the target dedicated SQL pool.
-* Enabling Azure Synapse Link for SQL will create a new schema named `changefeed`. Don't use this schema, as it is reserved for system use.
+* Enabling Azure Synapse Link for SQL creates a new schema named `changefeed`. Don't use this schema, as it is reserved for system use.
 * Source tables with collations that are unsupported by dedicated SQL pools, such as UTF8 and certain Japanese collations, can't be replicated. Here's the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
     * Additionally, some Thai language collations are currently not supported by Azure Synapse Link for SQL. These unsupported collations include:
         *    Thai100CaseInsensitiveAccentInsensitiveKanaSensitive
@@ -73,7 +73,7 @@ The following is the list of known limitations for Azure Synapse Link for SQL.
         *    ThaiCaseSensitiveAccentInsensitiveWidthSensitive
     * Currently, the collation **Latin1_General_BIN2** is not supported as there is a known issue where the link cannot be stopped nor underlying tables could be removed from replication.
 * Single row updates (including off-page storage) of > 370 MB are not supported.
-* Currently, if the primary key column(s) of the table are not the first columns in the table, and columns to the left of primary key column(s) are deleted, replication may fail. To troubleshoot, see [Troubleshoot: Azure Synapse Link for SQL initial snapshot fails on source table with primary key not listed as the first column in sequence](troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md).
+* When Azure Synapse Link for SQL on Azure SQL Database or SQL Server 2022 is enabled, the aggressive log truncation feature of Accelerated Database Recovery (ADR) is automatically disabled. This is because Azure Synapse Link for SQL accesses the database transaction log. This behavior is similar to changed data capture (CDC). Active transactions continue to hold the transaction log truncation until the transaction commits and Azure Synapse Link for SQL catches up, or transaction aborts. This might result in the transaction log filling up more than usual and should be monitored so that the transaction log does not fill.
 
 ### Azure SQL Database only
 * Azure Synapse Link for SQL isn't supported on Free, Basic or Standard tier with fewer than 100 DTUs.
@@ -83,7 +83,7 @@ The following is the list of known limitations for Azure Synapse Link for SQL.
 * Azure Synapse Link can't be enabled on the secondary database once a GeoDR failover has happened if the secondary database has a different name from the primary database.
 * If you enable Azure Synapse Link for SQL on your database as a Microsoft Azure Active Directory (Azure AD) user, Point-in-time restore (PITR) will fail. PITR only works when you enable Azure Synapse Link for SQL on your database as a SQL user.
 * If you create a database as an Azure AD user and enable Azure Synapse Link for SQL, a SQL authentication user (for example, even sysadmin role) won't be able to disable/make changes to Azure Synapse Link for SQL artifacts.  However, another Azure AD user is able to enable/disable Azure Synapse Link for SQL on the same database. Similarly, if you create a database as an SQL authentication user, enabling/disabling Azure Synapse Link for SQL as an Azure AD user won't work.
-* When Azure Synapse Link for SQL on Azure SQL Database or SQL Server is enabled, the aggressive log truncation feature of Accelerated Database Recovery (ADR) is automatically disabled. This is because Azure Synapse Link for SQL accesses the database transaction log. This behavior is similar to changed data capture (CDC). Active transactions continue to hold the transaction log truncation until the transaction commits and Azure Synapse Link for SQL catches up, or transaction aborts. This might result in the transaction log filling up more than usual and should be monitored so that the transaction log does not fill.
+
 
 ### SQL Server 2022 only
 * Azure Synapse Link for SQL can't be enabled on databases that are transactional replication publishers or distributors.

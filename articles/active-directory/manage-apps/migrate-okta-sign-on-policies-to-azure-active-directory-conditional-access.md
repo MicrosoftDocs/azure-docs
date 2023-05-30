@@ -1,208 +1,235 @@
 ---
 title: Tutorial to migrate Okta sign-on policies to Azure Active Directory Conditional Access
-description: In this tutorial, you learn how to migrate Okta sign-on policies to Azure Active Directory Conditional Access.
+description: Learn how to migrate Okta sign-on policies to Azure Active Directory Conditional Access.
 services: active-directory
 author: gargi-sinha
 manager: martinco
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 01/13/2023
 ms.author: gasinh
 ms.subservice: app-mgmt
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Migrate Okta sign-on policies to Azure Active Directory Conditional Access
 
-In this tutorial, you'll learn how your organization can migrate from global or application-level sign-on policies in Okta to Azure Active Directory (Azure AD) Conditional Access policies to secure user access in Azure AD and connected applications.
+In this tutorial, learn to migrate an organization from global or application-level sign-on policies in Okta Conditional Access in Azure Active Directory (Azure AD). Conditional Access policies secure user access in Azure AD and connected applications.
 
-This tutorial assumes you have an Office 365 tenant federated to Okta for sign-in and multifactor authentication (MFA). You should also have Azure AD Connect server or Azure AD Connect cloud provisioning agents configured for user provisioning to Azure AD.
+Learn more: [What is Conditional Access?](/azure/active-directory/conditional-access/overview)
+
+This tutorial assumes you have:
+
+* Office 365 tenant federated to Okta for sign-in and multi-factor authentication
+* Azure AD Connect server, or Azure AD Connect cloud provisioning agents configured for user provisioning to Azure AD
 
 ## Prerequisites
 
-When you switch from Okta sign-on to Conditional Access, it's important to understand licensing requirements. Conditional Access requires users to have an Azure AD Premium P1 license assigned before registration for Azure AD Multi-Factor Authentication.
+See the following two sections for licensing and credentials prerequisites.
 
-Before you do any of the steps for hybrid Azure AD join, you'll need an enterprise administrator credential in the on-premises forest to configure the service connection point (SCP) record.
+### Licensing
 
-## Catalog current Okta sign-on policies
+There are licensing requirements if you switch from Okta sign-on to Conditional Access. The process requires an Azure AD Premium P1 license to enable registration for Azure AD Multi-Factor Authentication (MFA).
 
-To complete a successful transition to Conditional Access, evaluate the existing Okta sign-on policies to determine use cases and requirements that will be transitioned to Azure AD.
+Learn more: [Assign or remove licenses in the Azure Active Directory portal](/azure/active-directory/fundamentals/license-users-groups)
 
-1. Check the global sign-on policies by going to **Security** > **Authentication** > **Sign On**.
+### Enterprise Administrator credentials
 
-   ![Screenshot that shows global sign-on policies.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/global-sign-on-policies.png)
+To configure the service connection point (SCP) record, ensure you have Enterprise Administrator credentials in the on-premises forest.
 
-   In this example, the global sign-on policy enforces MFA on all sessions outside of our configured network zones.
+## Evaluate Okta sign-on policies for transition
 
-   ![Screenshot that shows global sign-on policies enforcing MFA.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/global-sign-on-policies-enforce-mfa.png)
+Locate and evaluate Okta sign-on policies to determine what will be transitioned to Azure AD.
 
-2. Go to **Applications** and check the application-level sign-on policies. Select **Applications** from the submenu, and then select your Office 365 connected instance from the **Active apps list**.
+1. In Okta go to **Security** > **Authentication** > **Sign On**.
 
-3. Select **Sign On** and scroll to the bottom of the page.
+    ![Screenshot of Global MFA Sign On Policy entries on the Authentication page.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/global-sign-on-policies.png)
 
-In the following example, the Office 365 application sign-on policy has four separate rules:
+2. Go to **Applications**. 
+3. From the submenu, select **Applications**
+4. From the **Active apps list**, select the Microsoft Office 365 connected instance.
 
-- **Enforce MFA for Mobile Sessions**: Requires MFA from every modern authentication or browser session on iOS or Android.
-- **Allow Trusted Windows Devices**: Prevents your trusted Okta devices from being prompted for more verification or factors.
-- **Require MFA from Untrusted Windows Devices**: Requires MFA from every modern authentication or browser session on untrusted Windows devices.
-- **Block Legacy Authentication**: Prevents any legacy authentication clients from connecting to the service.
+    ![Screenshot of settings under Sign On, for Microsoft Office 365.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/global-sign-on-policies-enforce-mfa.png)
 
-  ![Screenshot that shows Office 365 sign-on rules.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/sign-on-rules.png)
+5. Select **Sign On**.
+6. Scroll to the bottom of the page.
 
-## Configure condition prerequisites
+The Microsoft Office 365 application sign-on policy has four rules:
 
-Conditional Access policies can be configured to match Okta's conditions for most scenarios without more configuration.
+- **Enforce MFA for mobile sessions** - requires MFA from modern authentication or browser sessions on iOS or Android
+- **Allow trusted Windows devices** - prevents unnecessary verification or factor prompts for trusted Okta devices
+- **Require MFA from untrusted Windows devices** - requires MFA from modern authentication or browser sessions on untrusted Windows devices
+- **Block legacy authentication** - prevents legacy authentication clients from connecting to the service
 
-In some scenarios, you might need more setup before you configure the Conditional Access policies. The two known scenarios at the time of writing this article are:
+The following screenshot is conditions and actions for the four rules, on the Sign On Policy screen.
 
-- **Okta network locations to named locations in Azure AD**: Follow the instructions in [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md#named-locations) to configure named locations in Azure AD.
-- **Okta device trust to device-based CA**: Conditional Access offers two possible options when you evaluate a user's device:
-
-  - [Use hybrid Azure AD join](#hybrid-azure-ad-join-configuration), which is a feature enabled within the Azure AD Connect server that synchronizes Windows current devices, such as Windows 10, Windows Server 2016, and Windows Server 2019, to Azure AD.
-  - [Enroll the device in Microsoft Intune](#configure-device-compliance) and assign a compliance policy.
-
-### Hybrid Azure AD join configuration
-
-To enable hybrid Azure AD join on your Azure AD Connect server, run the configuration wizard. You'll need to take steps post-configuration to automatically enroll devices.
-
->[!NOTE]
->Hybrid Azure AD join isn't supported with the Azure AD Connect cloud provisioning agents.
-
-1. To enable hybrid Azure AD join, follow these [instructions](../devices/hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
-
-1. On the **SCP configuration** page, select the **Authentication Service** dropdown. Choose your Okta federation provider URL and select **Add**. Enter your on-premises enterprise administrator credentials and then select **Next**.
-
-   ![Screenshot that shows SCP configuration.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/scp-configuration.png)
-
-1. If you've blocked legacy authentication on Windows clients in either the global or app-level sign-on policy, make a rule to allow the hybrid Azure AD join process to finish.
-
-1. Allow the entire legacy authentication stack through for all Windows clients. You can also contact Okta support to enable its custom client string on your existing app policies.
-
-### Configure device compliance
-
-Hybrid Azure AD join is a direct replacement for Okta device trust on Windows. Conditional Access policies can also look at device compliance for devices that have fully enrolled in Microsoft Intune:
-
-- **Compliance overview**: Refer to [device compliance policies in Intune](/mem/intune/protect/device-compliance-get-started#:~:text=Reference%20for%20non-compliance%20and%20Conditional%20Access%20on%20the,applicable%20%20...%20%203%20more%20rows).
-- **Device compliance**: Create [policies in Intune](/mem/intune/protect/create-compliance-policy).
-- **Windows enrollment**: If you've opted to deploy hybrid Azure AD join, you can deploy another group policy to complete the [auto-enrollment process of these devices in Intune](/windows/client-management/mdm/enroll-a-windows-10-device-automatically-using-group-policy).
-- **iOS/iPadOS enrollment**: Before you enroll an iOS device, you must make [more configurations](/mem/intune/enrollment/ios-enroll) in the Endpoint Management console.
-- **Android enrollment**: Before you enroll an Android device, you must make [more configurations](/mem/intune/enrollment/android-enroll) in the Endpoint Management console.
-
-## Configure Azure AD Multi-Factor Authentication tenant settings
-
-Before you convert to Conditional Access, confirm the base Azure AD Multi-Factor Authentication tenant settings for your organization.
-
-1. Go to the [Azure portal](https://portal.azure.com) and sign in with a global administrator account.
-
-1. Select **Azure Active Directory** > **Users** > **Multi-Factor Authentication** to go to the legacy Azure AD Multi-Factor Authentication portal.
-
-   ![Screenshot that shows the legacy Azure AD Multi-Factor Authentication portal.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/legacy-azure-ad-portal.png)
-
-   You can also use the legacy link to the [Azure AD Multi-Factor Authentication portal](https://aka.ms/mfaportal).
-
-1. On the legacy **multi-factor authentication** menu, change the status menu through **Enabled** and **Enforced** to confirm you have no users enabled for legacy MFA. If your tenant has users in the following views, you must disable them in the legacy menu. Only then will Conditional Access policies take effect on their account.
-
-   ![Screenshot that shows disabling a user in the legacy Azure AD Multi-Factor Authentication portal.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/disable-user-legacy-azure-ad-portal.png)
-
-   The **Enforced** field should also be empty.
-
-1. Select the **Service settings** option. Change the **App passwords** selection to **Do not allow users to create app passwords to sign in to non-browser apps**.
-
-   ![Screenshot that shows the application password settings not allowing users to create app passwords.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/app-password-selection.png)
-
-1. Ensure the **Skip multi-factor authentication for requests from federated users on my intranet** and **Allow users to remember multi-factor authentication on devices they trust (between one to 365 days)** checkboxes are cleared, and then select **Save**.
-
-  >[!NOTE]
-   >See [best practices for configuring the MFA prompt settings](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
-
-![Screenshot that shows cleared checkboxes in the legacy Azure AD Multi-Factor Authentication portal.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/uncheck-fields-legacy-azure-ad-portal.png)
+   ![Screenshot of conditions and actions for the four rules, on the Sign On Policy screen.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/sign-on-rules.png)
 
 ## Configure Conditional Access policies
 
-After you've configured the prerequisites and established the base settings, it's time to build the first Conditional Access policy.
+Configure Conditional Access policies to match Okta conditions. However, in some scenarios, you might need more setup:
 
-1. To configure Conditional Access policies in Azure AD, go to the [Azure portal](https://portal.azure.com). On **Manage Azure Active Directory**, select **View**.
+* Okta network locations to named locations in Azure AD 
+  *  [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md)
+* Okta device trust to device-based Conditional Access (two options to evaluate user devices):
+  * See the following section, **Hybrid Azure AD join configuration** to synchronize Windows devices, such as Windows 10, Windows Server 2016 and 2019, to Azure AD
+  * See the following section, **Configure device compliance**
+  * See, [Use hybrid Azure AD join](#hybrid-azure-ad-join-configuration), a feature in Azure AD Connect server that synchronizes Windows devices, such as Windows 10, Windows Server 2016, and Windows Server 2019, to Azure AD
+  * See, [Enroll the device in Microsoft Intune](#configure-device-compliance) and assign a compliance policy
 
-   Configure Conditional Access policies by following [best
-practices for deploying and designing Conditional Access](../conditional-access/plan-conditional-access.md#understand-conditional-access-policy-components).
+### Hybrid Azure AD join configuration
 
-1. To mimic the global sign-on MFA policy from Okta, [create a policy](../conditional-access/howto-conditional-access-policy-all-users-mfa.md).
+To enable hybrid Azure AD join on your Azure AD Connect server, run the configuration wizard. After configuration, enroll devices.
 
-1. Create a [device trust-based Conditional Access rule](../conditional-access/require-managed-devices.md).
+   >[!NOTE]
+   >Hybrid Azure AD join isn't supported with the Azure AD Connect cloud provisioning agents.
 
-   This policy as any other in this tutorial can be targeted to a specific application, a test group of users, or both.
+1. [Configure hybrid Azure AD join](../devices/howto-hybrid-azure-ad-join.md).
+2. On the **SCP configuration** page, select the **Authentication Service** dropdown. 
 
-   ![Screenshot that shows testing a user.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/test-user.png)
+    ![Screenshot of the Authentication Service dropdown on the Microsoft Azure Active Directory Connect dialog.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/scp-configuration.png)
 
-   ![Screenshot that shows success in testing a user.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/success-test-user.png)
+4. Select an Okta federation provider URL.
+5. Select **Add**. 
+6. Enter your on-premises Enterprise Administrator credentials
+7. Select **Next**.
 
-1. After you've configured the location-based policy and device trust policy, it's time to configure the equivalent [block legacy authentication](../conditional-access/howto-conditional-access-policy-block-legacy.md) policy.
+    > [!TIP]
+    > If you blocked legacy authentication on Windows clients in the global or app-level sign-on policy, make a rule that enables the hybrid Azure AD join process to finish. Allow the legacy authentication stack for Windows clients. </br>To enable custom client strings on app policies, contact the [Okta Help Center](https://support.okta.com/help/). 
 
-With these three Conditional Access policies, the original Okta sign-on policies experience has been replicated in Azure AD. Next steps involve enrolling the user via Azure AD Multi-Factor Authentication and testing the policies.
+### Configure device compliance
 
-## Enroll pilot members in Azure AD Multi-Factor Authentication
+Hybrid Azure AD join is a replacement for Okta device trust on Windows. Conditional Access policies recognize compliance for devices enrolled in Microsoft Intune.
 
-After you configure the Conditional Access policies, users must register for Azure AD Multi-Factor Authentication methods. Users can be required to register through several different methods.
+#### Device compliance policy
 
-1. For individual registration, direct users to the [Microsoft Sign-in pane](https://aka.ms/mfasetup) to manually enter the registration information.
+* [Use compliance policies to set rules for devices you manage with Intune](/mem/intune/protect/device-compliance-get-started)
+* [Create a compliance policy in Microsoft Intune](/mem/intune/protect/create-compliance-policy)
 
-1. Users can go to the [Microsoft Security info page](https://aka.ms/mysecurityinfo) to enter information or manage the form of MFA registration.
+#### Windows 10/11, iOS, iPadOS, and Android enrollment
 
-See [this guide](../authentication/howto-registration-mfa-sspr-combined.md) to fully understand the MFA registration process.
+If you deployed hybrid Azure AD join, you can deploy another group policy to complete auto-enrollment of these devices in Intune.
 
-Go to the [Microsoft Sign-in pane](https://aka.ms/mfasetup). After you sign in with Okta MFA, you're instructed to register for MFA with Azure AD.
+* [Enrollment in Microsoft Intune](/mem/intune/enrollment/)
+* [Quickstart: Set up automatic enrollment for Windows 10/11 devices](/mem/intune/enrollment/quickstart-setup-auto-enrollment)
+* [Enroll Android devices](/mem/intune/enrollment/android-enroll)
+* [Enroll iOS/iPadOS devices in Intune](/mem/intune/enrollment/ios-enroll)
 
->[!NOTE]
->If registration already happened in the past for a user, they're taken to the **My Security** information page after they satisfy the MFA prompt.
-See the [user documentation for MFA enrollment](../user-help/security-info-setup-signin.md).
+## Configure Azure AD Multi-Factor Authentication tenant settings
+
+Before you convert to Conditional Access, confirm the base MFA tenant settings for your organization.
+
+1. Go to the [Azure portal](https://portal.azure.com).
+2. Sign in as a Global Administrator.
+3. Select **Azure Active Directory** > **Users** > **Multi-Factor Authentication**.
+4. The legacy Azure AD Multi-Factor Authentication portal appears. Or select [Azure AD MFA portal](https://aka.ms/mfaportal).
+
+    ![Screenshot of the multi-factor authentication screen.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/legacy-azure-ad-portal.png)
+
+5. Confirm there are no users enabled for legacy MFA: On the **multi-factor authentication** menu, on **Multi-Factor Auth status**, select **Enabled** and **Enforced**. If the tenant has users in the following views, disable them in the legacy menu.
+
+    ![Screenshot of the multi-factor authentication screen with the search feature highlighted.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/disable-user-legacy-azure-ad-portal.png)
+
+6. Ensure the **Enforced** field is empty.
+7. Select the **Service settings** option. 
+8. Change the **App passwords** selection to **Do not allow users to create app passwords to sign in to non-browser apps**.
+
+   ![Screenshot of the multi-factor authentication screen with service settings highlighted.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/app-password-selection.png)
+
+9. Clear the checkboxes for **Skip multi-factor authentication for requests from federated users on my intranet** and **Allow users to remember multi-factor authentication on devices they trust (between one to 365 days)**.
+10. Select **Save**.
+
+    ![Screenshot of cleared checkboxes on the Require Trusted Devices for Access screen.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/uncheck-fields-legacy-azure-ad-portal.png)
+
+    >[!NOTE]
+    >See [Optimize reauthentication prompts and understand session lifetime for Azure AD MFA](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
+
+
+## Build a Conditional Access policy
+
+To configure Conditional Access policies, see [Best practices for deploying and designing Conditional Access](../conditional-access/plan-conditional-access.md#conditional-access-policy-components).
+
+After you configure the prerequisites and established base settings, you can build Conditional Access policy. Policy can be targeted to an application, a test group of users, or both.
+
+Before you get started: 
+
+* [Understand Conditional Access policy components](../conditional-access/plan-conditional-access.md)
+* [Building a Conditional Access policy](../conditional-access/concept-conditional-access-policies.md)
+
+1. Go to the [Azure portal](https://portal.azure.com). 
+2. On **Manage Azure Active Directory**, select **View**.
+3. Create a policy. See, [Common Conditional Access policy: Require MFA for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md).
+4. Create a device trust-based Conditional Access rule.
+
+   ![Screenshot of entries for Require Trusted Devices for Access, under Conditional Access.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/test-user.png)
+
+   ![Screenshot of the Keep you account secure dialog with the success message.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/success-test-user.png)
+
+5. After you configure the location-based policy and device trust policy, [Block legacy authentication with Azure AD with Conditional Access](/azure/active-directory/conditional-access/block-legacy-authentication).
+
+With these three Conditional Access policies, the original Okta sign-on policies experience is replicated in Azure AD. 
+
+## Enroll pilot members in MFA
+
+Users register for MFA methods. 
+
+For individual registration, users go to [Microsoft Sign-in pane](https://aka.ms/mfasetup).
+
+To manage registration, users go to [Microsoft My Sign-Ins | Security Info](https://aka.ms/mysecurityinfo).
+
+Learn more: [Enable combined security information registration in Azure Active Directory](../authentication/howto-registration-mfa-sspr-combined.md).
+
+   >[!NOTE]
+   >If users registered, they're redirected to the **My Security** page, after they satisfy MFA.
 
 ## Enable Conditional Access policies
 
-1. To roll out testing, change the policies created in the earlier examples to **Enabled test user login**.
+1. To test, change the created policies to **Enabled test user login**.
 
-   ![Screenshot that shows enabling a test user.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enable-test-user.png)
+   ![Screenshot of policies on the Conditional Access, Policies screen.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enable-test-user.png)
 
-1. On the next Office 365 **Sign-In** pane, the test user John Smith is prompted to sign in with Okta MFA and Azure AD Multi-Factor Authentication.
+2. On the Office 365 **Sign-In** pane, the test user John Smith is prompted to sign in with Okta MFA and Azure AD MFA.
 
-   ![Screenshot that shows the Azure Sign-In pane.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/sign-in-through-okta.png)
+   ![Screenshot of the Azure Sign-In pane.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/sign-in-through-okta.png)
 
-1. Complete the MFA verification through Okta.
+3. Complete the MFA verification through Okta.
 
-   ![Screenshot that shows MFA verification through Okta.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/mfa-verification-through-okta.png)
+   ![Screenshot of MFA verification through Okta.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/mfa-verification-through-okta.png)
 
-1. After the user completes the Okta MFA prompt, the user is prompted for Conditional Access. Ensure that the policies were configured appropriately and are within conditions to be triggered for MFA.
+4. The user is prompted for Conditional Access. 
+5. Ensure the policies are configured to be triggered for MFA.
 
-   ![Screenshot that shows MFA verification through Okta prompted for Conditional Access.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/mfa-verification-through-okta-prompted-ca.png)
+   ![Screenshot of MFA verification through Okta prompted for Conditional Access.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/mfa-verification-through-okta-prompted-ca.png)
 
-## Cut over from sign-on to Conditional Access policies
+## Add organization members to Conditional Access policies
 
-After you conduct thorough testing on the pilot members to ensure that Conditional Access is in effect as expected, the remaining organization members can be added to Conditional Access policies after registration has been completed.
+After you conduct testing on pilot members, add the remaining organization members to Conditional Access policies, after registration.
 
-To avoid double-prompting between Azure AD Multi-Factor Authentication and Okta MFA, opt out from Okta MFA by modifying sign-on policies.
+To avoid double-prompting between Azure AD MFA and Okta MFA, opt out from Okta MFA: modify sign-on policies.
 
-The final migration step to Conditional Access can be done in a staged or cut-over fashion.
 
-1. Go to the Okta admin console, select **Security** > **Authentication**, and then go to **Sign-on Policy**.
+1. Go to the Okta admin console
+2. Select **Security** > **Authentication**
+3. Go to **Sign-on Policy**.
 
    >[!NOTE]
-   > Set global policies to **Inactive** only if all applications from Okta are protected by their own application sign-on policies.
-1. Set the **Enforce MFA** policy to **Inactive**. You can also assign the policy to a new group that doesn't include the Azure AD users.
+   > Set global policies to **Inactive** if all applications from Okta are protected by application sign-on policies.
 
-   ![Screenshot that shows Global MFA Sign On Policy as Inactive.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/mfa-policy-inactive.png)
+4. Set the **Enforce MFA** policy to **Inactive**. You can assign the policy to a new group that doesn't include the Azure AD users.
 
-1. On the application-level sign-on policy pane, update the policies to **Inactive** by selecting the **Disable Rule** option. You can also assign the policy to a new group that doesn't include the Azure AD users.
+    ![Screenshot of Global MFA Sign On Policy as Inactive.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/mfa-policy-inactive.png)
 
-1. Ensure there's at least one application-level sign-on policy that's enabled for the application that allows access without MFA.
+5. On the application-level sign-on policy pane, select the **Disable Rule** option. 
+6. Select **Inactive**. You can assign the policy to a new group that doesn't include the Azure AD users.
+7. Ensure there's at least one application-level sign-on policy enabled for the application that allows access without MFA.
 
-   ![Screenshot that shows application access without MFA.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/application-access-without-mfa.png)
+    ![Screenshot of application access without MFA.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/application-access-without-mfa.png)
 
-1. After you disable the Okta sign-on policies or exclude the migrated Azure AD users from the enforcement groups, users are prompted *only* for Conditional Access the next time they sign in.
+8. Users are prompted for Conditional Access the next time they sign in.
 
 ## Next steps
 
-For more information about migrating from Okta to Azure AD, see:
-
-- [Migrate applications from Okta to Azure AD](migrate-applications-from-okta-to-azure-active-directory.md)
-- [Migrate Okta federation to Azure AD](migrate-okta-federation-to-azure-active-directory.md)
-- [Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory.md)
+- [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta-to-azure-active-directory.md)
+- [Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication](migrate-okta-federation-to-azure-active-directory.md)
+- [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory.md)

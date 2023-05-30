@@ -2,8 +2,8 @@
 title: How to create Azure Maps applications using the Java REST SDK (preview)
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the Java REST SDK Developers Guide.
-author: eriklindeman
-ms.author: eriklind
+author: dubiety
+ms.author: yuchungchen 
 ms.date: 01/25/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -12,7 +12,7 @@ services: azure-maps
 
 # Java REST SDK Developers Guide (preview)
 
-The Azure Maps Java SDK can be integrated with Java applications and libraries to build maps-related and location-aware applications. The Azure Maps Java SDK contains APIs for Search, Route, Render, Elevation, Geolocation, Traffic, Timezone, and Weather. These APIs support operations such as searching for an address, routing between different coordinates, obtaining the geo-location of a specific IP address etc.
+The Azure Maps Java SDK can be integrated with Java applications and libraries to build maps-related and location-aware applications. The Azure Maps Java SDK contains APIs for Search, Route, Render, Geolocation, Traffic, Timezone, and Weather. These APIs support operations such as searching for an address, routing between different coordinates, obtaining the geo-location of a specific IP address etc.
 
 > [!NOTE]
 > Azure Maps Java SDK is baselined on Java 8, with testing and forward support up until the latest Java long-term support release (currently Java 18). For the list of Java versions for download, see [Java Standard Versions].
@@ -33,7 +33,7 @@ The Azure Maps Java SDK can be integrated with Java applications and libraries t
 
 ## Create a Maven project
 
-The following PowerShell code snippet demonstrates how to use PowerShell to create a maven project. First we'll run maven command to create maven project:
+The following PowerShell code snippet demonstrates how to use PowerShell to create a maven project. First, run the maven command to create a maven project:
 
 ```powershell
 mvn archetype:generate "-DgroupId=groupId" "-DartifactId=DemoProject" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DarchetypeVersion=1.4" "-DinteractiveMode=false" 
@@ -42,15 +42,15 @@ mvn archetype:generate "-DgroupId=groupId" "-DartifactId=DemoProject" "-Darchety
 | Parameter   | Description                                                  |
 |-------------|--------------------------------------------------------------|
 | `-DGroupId` | Group ID uniquely identifies your project across all projects|
-| `-DartifactId` | Project name. It will be created as a new folder.         |
+| `-DartifactId` | Project name. It's created as a new folder.         |
 | `-DarchetypeArtifactId` | project type. `maven-archetype-quickstart` results in a sample project. |
 | `-DinteractiveMode` | Setting to `false` results in a blank Java project with default options. |
 
 ### Install the packages
 
-To use the Azure Maps Java SDK, you will need to install all required packages. Each service in Azure Maps is available in its own package. Services include Search, Render, Traffic, Weather, etc. You only need to install the packages for the service or services you will be using in your project.
+To use the Azure Maps Java SDK, you need to install all required packages. Each service in Azure Maps is available in its own package. The Azure Maps services include Search, Render, Traffic, Weather, etc. You only need to install the packages for the service or services used in your project.
 
-After creating the maven project, there should be a `pom.xml` file with basic information such as group ID, name, artifact ID. This is where you will add a dependency for each of the Azure Maps services, as shown below:
+Once the maven project is created, there should be a `pom.xml` file with basic information such as group ID, name, artifact ID. Next, add a dependency for each of the Azure Maps services, as the following example demonstrates:
 
 ```xml
 <dependency> 
@@ -83,11 +83,6 @@ After creating the maven project, there should be a `pom.xml` file with basic in
   <artifactId>azure-maps-timezone</artifactId> 
   <version>1.0.0-beta.1</version> 
 </dependency> 
-<dependency> 
-  <groupId>com.azure</groupId> 
-  <artifactId>azure-maps-elevation</artifactId> 
-  <version>1.0.0-beta.1</version> 
-</dependency> 
 ```
 
 Run `mvn clean install` on your project, then create a java file named `demo.java` and import what you need from Azure maps into the file:
@@ -102,14 +97,13 @@ New-Item demo.java
 
 ### Azure Maps services
 
-| Service Name  | Maven package           |  Samples     |
+| Service name  | Maven package           |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][java search readme] | [azure-maps-search][java search package] | [search samples][java search sample] |
 | [Routing][java routing readme] | [azure-maps-routing][java routing package] | [routing samples][java routing sample] |
 | [Rendering][java rendering readme]| [azure-maps-rendering][java rendering package]|[rendering sample][java rendering sample] |
 | [Geolocation][java geolocation readme]|[azure-maps-geolocation][java geolocation package]|[geolocation sample][java geolocation sample] |
 | [Timezone][java timezone readme] | [azure-maps-timezone][java timezone package] | [timezone samples][java timezone sample] |
-| [Elevation][java elevation readme] | [azure-maps-elevation][java elevation package] | [elevation samples][java elevation sample] |
 
 ## Create and authenticate a MapsSearchClient
 
@@ -117,7 +111,7 @@ The client object used to access the Azure Maps Search APIs require either an `A
 
 ### Using an Azure AD credential
 
-You can authenticate with Azure AD using the [Azure Identity library][Identity library]. To use the [DefaultAzureCredential] provider, you'll need to add the mvn dependency in the `pom.xml` file:
+You can authenticate with Azure AD using the [Azure Identity library][Identity library]. To use the [DefaultAzureCredential] provider, you need to add the mvn dependency in the `pom.xml` file:
 
 ```xml
 <dependency>
@@ -126,7 +120,7 @@ You can authenticate with Azure AD using the [Azure Identity library][Identity l
 </dependency>
 ```
 
-You'll need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources][Host daemon]. During this process you'll get an Application (client) ID, a Directory (tenant) ID, and a client secret. Copy these values and store them in a secure place. You'll need them in the following steps.
+You need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources][Host daemon]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
 
 Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource's client ID as environment variables:
 
@@ -166,7 +160,7 @@ public class Demo {
 ```
 
 > [!IMPORTANT]
-> The other environment variables created above, while not used in the code sample here, are required by `DefaultAzureCredential()`. If you do not set these environment variables correctly, using the same naming conventions, you will get run-time errors. For example, if your `AZURE_CLIENT_ID` is missing or invalid you will get an `InvalidAuthenticationTokenTenant` error.
+> The other environment variables created in the previous code snippet, while not used in the code sample, are required by are required by `DefaultAzureCredential()`. If you do not set these environment variables correctly, using the same naming conventions, you will get run-time errors. For example, if your `AZURE_CLIENT_ID` is missing or invalid you will get an `InvalidAuthenticationTokenTenant` error.
 
 ### Using a subscription key credential
 
@@ -345,7 +339,7 @@ In this sample, the `client.SearchAddress` method returns results ordered by con
 
 ## Batch reverse search
 
-Azure Maps Search also provides some batch query methods. These methods will return Long Running Operations (LRO) objects. The requests might not return all the results immediately, so users can choose to wait until completion or query the result periodically as demonstrated in the batch reverse search method:
+Azure Maps Search also provides some batch query methods. These methods return Long Running Operations (LRO) objects. The requests might not return all the results immediately, so users can choose to wait until completion or query the result periodically as demonstrated in the batch reverse search method:
 
 ```java
 import java.util.ArrayList;
@@ -392,33 +386,29 @@ public class Demo{
 }
 ```
 
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
 [authentication]: azure-maps-authentication.md
-
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[defaultazurecredential]: /azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential
+[Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
+[Identity library]: /java/api/overview/azure/identity-readme?source=recommendations&view=azure-java-stable
 [Java Standard Versions]: https://www.oracle.com/java/technologies/downloads/
 [Java Version 8]: /azure/developer/java/fundamentals/?view=azure-java-stable
 [maven]: /azure/developer/java/sdk/get-started-maven
-[Identity library]: /java/api/overview/azure/identity-readme?source=recommendations&view=azure-java-stable
-[defaultazurecredential]: /azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential
-[Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 
 <!--  Java SDK Developers Guide  --->
-[java search package]: https://repo1.maven.org/maven2/com/azure/azure-maps-search
-[java search readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-search/README.md
-[java search sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-search/src/samples/java/com/azure/maps/search/samples
-[java routing package]: https://repo1.maven.org/maven2/com/azure/azure-maps-route
-[java routing readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-route/README.md
-[java routing sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-route/src/samples/java/com/azure/maps/route/samples
+[java geolocation readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-geolocation/README.md
+[java geolocation sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-geolocation/src/samples/java/com/azure/maps/geolocation/samples
+[java geolocation package]: https://repo1.maven.org/maven2/com/azure/azure-maps-geolocation
 [java rendering package]: https://repo1.maven.org/maven2/com/azure/azure-maps-render
 [java rendering readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-render/README.md
 [java rendering sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-render/src/samples/java/com/azure/maps/render/samples
-[java geolocation package]: https://repo1.maven.org/maven2/com/azure/azure-maps-geolocation
-[java geolocation readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-geolocation/README.md
-[java geolocation sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-geolocation/src/samples/java/com/azure/maps/geolocation/samples
-[java timezone package]: https://repo1.maven.org/maven2/com/azure/azure-maps-timezone
+[java routing package]: https://repo1.maven.org/maven2/com/azure/azure-maps-route
+[java routing readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-route/README.md
+[java routing sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-route/src/samples/java/com/azure/maps/route/samples
+[java search package]: https://repo1.maven.org/maven2/com/azure/azure-maps-search
+[java search readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-search/README.md
+[java search sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-search/src/samples/java/com/azure/maps/search/samples
 [java timezone readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-timezone/README.md
 [java timezone sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-timezone/src/samples/java/com/azure/maps/timezone/samples
-[java elevation package]: https://repo1.maven.org/maven2/com/azure/azure-maps-elevation
-[java elevation readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-elevation/README.md
-[java elevation sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-elevation/src/samples/java/com/azure/maps/elevation/samples
+[java timezone package]: https://repo1.maven.org/maven2/com/azure/azure-maps-timezone

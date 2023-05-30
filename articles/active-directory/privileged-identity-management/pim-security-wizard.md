@@ -1,5 +1,5 @@
 ---
-title: Azure AD roles Discovery and insights (preview) in Privileged Identity Management former Security Wizard - Azure Active Directory
+title: Azure AD roles Discovery and insights (preview) in Privileged Identity Management former Security Wizard
 description: Discovery and insights (formerly Security Wizard) help you convert permanent Azure AD role assignments to just-in-time assignments with Privileged Identity Management.
 services: active-directory
 documentationcenter: ''

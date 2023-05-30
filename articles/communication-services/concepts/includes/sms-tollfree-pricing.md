@@ -31,7 +31,7 @@ Fees for toll-free leasing are charged after provisioning and then recur on a mo
 ### Usage Fee
 SMS offers pay-as-you-go pricing. The price is a per-message segment* charge based on the destination of the message. Messages can be sent by toll-free phone numbers to phone numbers located within the United States, Canada, and Puerto Rico.
 
-The following prices include required communications taxes and fees:
+The following prices are exclusive of the required communications taxes and fees:
 
 |Country| Send Message | Receive Message|
 |-----------|---------|--------------|

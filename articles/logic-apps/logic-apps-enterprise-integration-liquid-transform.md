@@ -36,11 +36,11 @@ For more information, review the following documentation:
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Your logic app resource and workflow. Liquid operations don't have any triggers available, so your workflow has to minimally include a trigger. For more information, review the following documentation:
+* Your logic app resource and workflow. Liquid operations don't have any triggers available, so your workflow has to minimally include a trigger. For more information, se the following documentation:
 
-  * [Quickstart: Create your first Consumption logic app workflow with multi-tenant Azure Logic Apps](quickstart-create-first-logic-app-workflow.md)
+  * [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
 
-  * [Create a Standard logic app workflow with single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
+  * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
 * Based on whether you're working on a Consumption or Standard logic app workflow, you'll need an [integration account resource](logic-apps-enterprise-integration-create-integration-account.md). Usually, you need this resource when you want to define and store artifacts for use in enterprise integration and B2B workflows.
 

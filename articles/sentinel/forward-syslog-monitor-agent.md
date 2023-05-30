@@ -1,6 +1,6 @@
 ---
-title: Forward syslog data to Microsoft Sentinel and Azure Monitor by using the Azure Monitor agent
-description: Monitor linux-based devices by forwarding syslog data to a Log Analytics workspace. 
+title: Tutorial - Forward syslog data to Microsoft Sentinel and Azure Monitor by using the Azure Monitor agent
+description: In this tutorial, you'll learn how to monitor linux-based devices by forwarding syslog data to a Log Analytics workspace. 
 author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
@@ -10,13 +10,13 @@ ms.custom: template-tutorial
 #Customer intent: As a security-engineer, I want to get syslog data into Microsoft Sentinel so that I can use the data with other data to do attack detection, threat visibility, proactive hunting, and threat response. As an IT administrator, I want to get syslog data into my Log Analytics workspace to monitor my linux-based devices.
 ---
 
-# Forward syslog data to a Log Analytics workspace by using the Azure Monitor agent
+# Tutorial: Forward syslog data to a Log Analytics workspace by using the Azure Monitor agent with Microsoft Sentinel
 
-In this article, we'll describe how to configure a Linux virtual machine (VM) to forward syslog data to your workspace by using the Azure Monitor agent. These steps allow you to collect and monitor data from Linux-based devices where you can't install an agent like a firewall network device.
+In this tutorial, you'll configure a Linux virtual machine (VM) to forward syslog data to your workspace by using the Azure Monitor agent. These steps allow you to collect and monitor data from Linux-based devices where you can't install an agent like a firewall network device.
  
 Configure your linux-based device to send data to a Linux VM. The Azure Monitor agent on the VM forwards the syslog data to the Log Analytics workspace. Then use Microsoft Sentinel or Azure Monitor to monitor the device from the data stored in the Log Analytics workspace.
 
-In this article, you learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a data collection rule
@@ -26,7 +26,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-To complete the steps in this article, you must have the following resources and roles.
+To complete the steps in this tutorial, you must have the following resources and roles.
 
 - Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure account with the following roles to deploy the agent and create the data collection rules:
@@ -121,7 +121,7 @@ In Microsoft Sentinel or Azure Monitor, verify that the Azure Monitor agent is r
 
    ```kusto
    Heartbeat
-   | where Computer == "vm-ubuntu"
+   | where Computer == "vm-linux"
    | take 10
    ```
 
@@ -154,6 +154,11 @@ If you're forwarding syslogs to an Azure VM, use the following steps to allow re
 
 ### Configure Linux syslog daemon
 
+> [!NOTE] 
+> To avoid [Full Disk scenarios](../azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed AMA.
+> Read more about [RSyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [Syslog-ng](
+https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.26/administration-guide/34#TOPIC-1431029).
+
 Connect to your Linux VM and run the following command to configure the Linux syslog daemon:
 
 ```bash
@@ -174,7 +179,7 @@ After you configured your linux-based device to send logs to your VM, verify tha
 
    ```kusto
    Syslog
-   | where Computer == "vm-ubuntu"
+   | where Computer == "vm-linux"
    | summarize by HostName
    ```
 

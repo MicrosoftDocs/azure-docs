@@ -8,7 +8,7 @@ ms.date: 04/02/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-
+ms.custom: devx-track-azurecli
 ---
 
 # Configure Azure VM Image Builder permissions by using the Azure CLI

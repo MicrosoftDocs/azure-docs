@@ -7,7 +7,6 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 01/03/2022
 ms.author: danlep
-ms.custom: devx-track-azurepowershell
 ---
 
 # Connect to a virtual network in internal mode using Azure API Management 
@@ -177,4 +176,3 @@ Learn more about:
 [Common network configuration problems]: virtual-network-reference.md
 
 [ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags
-

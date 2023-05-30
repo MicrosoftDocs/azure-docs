@@ -91,7 +91,9 @@ The following software must be installed:
   * **Desktop development with C++**
   * **Universal Windows Platform (UWP) development** 
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* **GIT** [(download)](https://git-scm.com/downloads)
+* To work with the samples repository:
+  * **Git** [(download)](https://git-scm.com/downloads)
+  * **Git LFS plugin** [(download)](https://git-lfs.github.com/)
 * Optional: To view the video stream from the server on a desktop PC, you need the **HEVC Video Extensions** [(Microsoft Store link)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7). Ensure that the latest version is installed by checking for updates in the store.
 
 ## Unity

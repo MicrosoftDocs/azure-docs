@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Deskradar | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Deskradar'
 description: Learn how to configure single sign-on between Azure Active Directory and Deskradar.
 services: active-directory
 author: jeevansd

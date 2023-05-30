@@ -1,10 +1,10 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-author: timwarner-msft
+author: davidsmatlak
 ms.date: 02/22/2023
 ms.topic: conceptual
-ms.author: timwarner
+ms.author: davidsmatlak
 ---
 # Understand Azure Policy effects
 
@@ -18,7 +18,7 @@ These effects are currently supported in a policy definition:
 - [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
-- [DenyAction](#denyaction)
+- [DenyAction (preview)](#denyaction-preview)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
 - [Manual (preview)](#manual-preview)
@@ -279,8 +279,7 @@ related resources to match.
   - Allowed values are _Subscription_ and _ResourceGroup_.
   - Sets the scope of where to fetch the related resource to match from.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
-  - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
-    resource group specified in **ResourceGroupName**.
+  - For _ResourceGroup_, would limit to the resource group in **ResourceGroupName** if specified. If **ResourceGroupName** isn't specified, would limit to the **if** condition resource's resource group, which is the default behavior.
   - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation.
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
@@ -453,7 +452,7 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
     }
 }
 ```
-## DenyAction
+## DenyAction (preview)
 
 `DenyAction` is used to block requests on intended action to resources. The only supported action today is `DELETE`. This effect will help prevent any accidental deletion of critical resources.
 
@@ -463,6 +462,9 @@ When a request call with an applicable action name and targeted scope is submitt
 assignment.
 
 `Microsoft.Authorization/policyAssignments`, `Microsoft.Authorization/denyAssignments`, `Microsoft.Blueprint/blueprintAssignments`, `Microsoft.Resources/deploymentStacks`, and `Microsoft.Authorization/locks` are all exempt from DenyAction enforcement to prevent lockout scenarios.
+
+> [!NOTE]
+> Under preview, assignments with `denyAction` effect will show a `Not Started` compliance state.
 
 #### Subscription deletion
 Policy won't block removal of resources that happens during a subscription deletion.

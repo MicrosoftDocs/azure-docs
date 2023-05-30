@@ -260,6 +260,10 @@ View and change details of your project. On this tab, you can:
 * Edit instructions you give to your labels.
 * Change settings for ML-assisted labeling and kick off a labeling task.
 
+### Vision Studio tab
+
+If your project was created from [Cognitive Services Vision Studio](../cognitive-services/computer-vision/how-to/model-customization.md), you'll also see a **Vision Studio** tab.  Select **Go to Vision Studio** to return to Vision Studio. Once you return to Vision Studio, you will be able to import your labeled data.
+
 ### Access for labelers
 
 [!INCLUDE [access](../../includes/machine-learning-data-labeling-access.md)]
@@ -278,10 +282,16 @@ To export the labels, on the **Project details** page of your labeling project, 
 
 You can export an image label as:
 
-* A [COCO format](http://cocodataset.org/#format-data) file. The COCO file is created in the default blob store of the Machine Learning workspace in a folder in *Labeling/export/coco*. 
+* A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.
+* A [COCO format](http://cocodataset.org/#format-data) file. Azure Machine Learning creates the COCO file in a folder inside *Labeling/export/coco*. 
 * An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
+* An [Azure MLTable data asset](./how-to-mltable.md).
 
-Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code you can use to access your labels by using Python.
+When you export a CSV or COCO file, a notification appears briefly when the file is ready to download.  You'll also find the notification in the **Notification** section on the top bar:
+
+:::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Notification for file download.":::
+
+Access exported Azure Machine Learning datasets and data assets in the **Data** section of Machine Learning. The data details page also provides sample code you can use to access your labels by using Python.
 
 :::image type="content" source="media/how-to-create-labeling-projects/exported-dataset.png" alt-text="Screenshot that shows an example of the dataset details page in Machine Learning.":::
 

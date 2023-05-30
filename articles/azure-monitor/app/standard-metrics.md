@@ -3,7 +3,7 @@ title: Azure Application Insights standard metrics | Microsoft Docs
 description: This article lists Azure Application Insights metrics with supported aggregations and dimensions. 
 services: azure-monitor
 ms.topic: reference
-ms.date: 07/03/2019
+ms.date: 04/05/2023
 ms.reviewer: vitalyg
 ---
 
@@ -25,7 +25,7 @@ The *Availability* metric shows the percentage of the web test runs that didn't 
 
 ### Availability test duration (availabilityResults/duration)
 
-The *Availability test duration* metric shows how much time it took for the web test to run. For the [multi-step web tests](../app/availability-multistep.md), the metric reflects the total execution time of all steps.
+The *Availability test duration* metric shows how much time it took for the web test to run. For the [multi-step web tests](/previous-versions/azure/azure-monitor/app/availability-multistep), the metric reflects the total execution time of all steps.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|---|---|---|
@@ -269,5 +269,7 @@ The count of trace statements logged with the TrackTrace() Application Insights 
 
 ## Next steps
 
+* [Metrics - Get - REST API](https://learn.microsoft.com/rest/api/application-insights/metrics/get)
+* [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
 * Learn about [Log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).
 * [Log-based metrics queries and definitions](../essentials/app-insights-metrics.md).

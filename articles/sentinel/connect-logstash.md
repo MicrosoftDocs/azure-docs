@@ -144,6 +144,58 @@ Here are some sample configurations that use a few different options.
     } 
    ```
 
+- A more advanced configuration to parse a custom timestamp and a JSON string from unstructured text data and log a selected set of fields into Log Analytics with the extracted timestamp:
+
+   ```ruby
+    # Example log line below:
+    # Mon Nov 07 20:45:08 2022: { "name":"_custom_time_generated", "origin":"test_microsoft", "sender":"test@microsoft.com", "messages":1337}
+    # take an input
+    input {
+        file {
+            path => "/var/log/test.log"
+        }
+    }
+    filter {
+    # extract the header timestamp and the Json section
+        grok {
+            match => {
+                "message" => ["^(?<timestamp>.{24}):\s(?<json_data>.*)$"]
+            }
+        }
+    # parse the extracted header as a timestamp
+    date {
+        id => 'parse_metric_timestamp'
+            match => [ 'timestamp', 'EEE MMM dd HH:mm:ss yyyy' ]
+            timezone => 'Europe/Rome'
+            target => 'custom_time_generated'
+        }
+    json {
+        source => "json_data"
+        }
+    }
+    # output to a file for debugging (optional)
+    output {
+        file {
+            path => "/tmp/test.txt"
+            codec => line { format => "custom format: %{message} %{custom_time_generated} %{json_data}"}
+        }
+    }
+    # output to the console output for debugging (optional)
+    output {
+        stdout { codec => rubydebug }
+    }
+    # log into Log Analytics
+    output {
+        microsoft-logstash-output-azure-loganalytics {
+            workspace_id => '[REDACTED]'
+            workspace_key => '[REDACTED]'
+            custom_log_table_name => 'RSyslogMetrics'
+            time_generated_field => 'custom_time_generated'
+            key_names => ['custom_time_generated','name','origin','sender','messages']
+        }
+    }
+   ```
+
    > [!NOTE]
    > Visit the output plugin [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics) to learn more about its inner workings, configuration, and performance settings.
 

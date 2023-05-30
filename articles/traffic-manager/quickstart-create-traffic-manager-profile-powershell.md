@@ -9,8 +9,7 @@ ms.date: 02/18/2023
 ms.topic: quickstart
 ms.service: traffic-manager
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: template-quickstart, devx-track-azurepowershell, mode-api
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
@@ -28,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a Resource Group
 Create a resource group using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).

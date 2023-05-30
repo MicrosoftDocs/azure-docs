@@ -6,8 +6,6 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/13/2023
 ms.author: cherylmc 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Working with virtual network gateway SKUs (legacy SKUs)
 

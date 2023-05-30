@@ -4,7 +4,7 @@ description: Learn to write messages to Azure Event Hubs streams using Azure Fun
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 03/04/2022
+ms.date: 03/03/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -17,6 +17,24 @@ For information on setup and configuration details, see the [overview](functions
 Use the Event Hubs output binding to write events to an event stream. You must have send permission to an event hub to write events to it.
 
 Make sure the required package references are in place before you try to implement an output binding.
+
+::: zone pivot="programming-language-python"
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models.
+
+> [!IMPORTANT]
+> The Python v2 programming model is currently in preview.
+::: zone-end
+
 
 ## Example
 
@@ -42,16 +60,23 @@ The following example shows how to use the `IAsyncCollector` interface to send a
 [FunctionName("EH2EH")]
 public static async Task Run(
     [EventHubTrigger("source", Connection = "EventHubConnectionAppSetting")] EventData[] events,
-    [EventHub("dest", Connection = "EventHubConnectionAppSetting")]IAsyncCollector<string> outputEvents,
+    [EventHub("dest", Connection = "EventHubConnectionAppSetting")]IAsyncCollector<EventData> outputEvents,
     ILogger log)
 {
     foreach (EventData eventData in events)
     {
-        // do some processing:
-        var myProcessedEvent = DoSomething(eventData);
-
-        // then send the message
-        await outputEvents.AddAsync(JsonConvert.SerializeObject(myProcessedEvent));
+        // Do some processing:
+        string newEventBody = DoSomething(eventData);
+        
+        // Queue the message to be sent in the background by adding it to the collector.
+        // If only the event is passed, an Event Hub partition to be be assigned via
+        // round-robin for each batch.
+        await outputEvents.AddAsync(new EventData(newEventBody));
+        
+        // If your scenario requires that certain events are grouped together in an
+        // Event Hub partition, you can specify a partition key.  Events added with 
+        // the same key will always be assigned to the same partition.        
+        await outputEvents.AddAsync(new EventData(newEventBody), "sample-key");
     }
 }
 ```
@@ -170,7 +195,31 @@ module.exports = function(context) {
 Complete PowerShell examples are pending.
 ::: zone-end 
 ::: zone pivot="programming-language-python"  
-The following example shows an event hub trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function writes a message to an event hub.
+The following example shows an event hub trigger binding and a Python function that uses the binding. The function writes a message to an event hub. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+
+# [v2](#tab/python-v2)
+
+```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.function_name(name="eventhub_output")
+@app.route(route="eventhub_output")
+@app.event_hub_output(arg_name="event",
+                      event_hub_name="<EVENT_HUB_NAME>",
+                      connection="<CONNECTION_SETTING>")
+def eventhub_output(req: func.HttpRequest, event: func.Out[str]):
+    body = req.get_body()
+    if body is not None:
+        event.set(body.decode('utf-8'))
+    else:    
+        logging.info('req body is none')
+    return 'ok'
+```
+
+# [v1](#tab/python-v1)
 
 The following examples show Event Hubs binding data in the *function.json* file.
 
@@ -197,6 +246,8 @@ def main(timer: func.TimerRequest) -> str:
     logging.info('Message created at: %s', timestamp)
     return 'Message created at: {}'.format(timestamp)
 ```
+
+---
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -252,6 +303,22 @@ The following table explains the binding configuration properties that you set i
 ---
 
 ::: zone-end  
+::: zone pivot="programming-language-python"
+## Decorators
+
+_Applies only to the Python v2 programming model._
+
+For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_trigger`:
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`arg_name` | The variable name used in function code that represents the event. |
+|`event_hub_name`  | he name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
+|`connection`  | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections). |
+
+For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+::: zone-end
+
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
@@ -266,6 +333,13 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
 
 ## Configuration
+::: zone-end
+
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model._
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 
 The following table explains the binding configuration properties that you set in the *function.json* file, which differs by runtime version.
 
@@ -311,7 +385,7 @@ In-process C# class library functions supports the following types:
 
 This version of [EventData](/dotnet/api/azure.messaging.eventhubs.eventdata) drops support for the legacy `Body` type in favor of [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody).
 
-Send messages by using a method parameter such as `out string paramName`. To write multiple messages, you can use `ICollector<string>` or `IAsyncCollector<string>` in place of `out string`.
+Send messages by using a method parameter such as `out string paramName`. To write multiple messages, you can use `ICollector<EventData>` or `IAsyncCollector<EventData>` in place of `out string`.  Partition keys may only be used with `IAsyncCollector<EventData>`.
 
 # [Extension v3.x+](#tab/extensionv3/in-process)
 

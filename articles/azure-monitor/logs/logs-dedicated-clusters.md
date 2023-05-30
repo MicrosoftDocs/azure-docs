@@ -2,8 +2,7 @@
 title: Azure Monitor Logs Dedicated Clusters
 description: Customers meeting the minimum commitment tier could use dedicated clusters
 ms.topic: conceptual
-author: yossi-y
-ms.author: yossiy
+ms.reviewer: yossiy
 ms.date: 01/01/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -16,7 +15,7 @@ Linking a Log Analytics workspace to a dedicated cluster in Azure Monitor provid
 Capabilities that require dedicated clusters:
 
 - **[Customer-managed keys](../logs/customer-managed-keys.md)** - Encrypt cluster data using keys that you provide and control.
-- **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Control Microsoft support engineer access requests to your data.
+- **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox)** - Control Microsoft support engineer access requests to your data.
 - **[Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** - Protect against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the extra layer of encryption continues to protect your data.
 - **[Cross-query optimization](../logs/cross-workspace-query.md)** - Cross-workspace queries run faster when workspaces are on the same cluster.
 - **Cost optimization** - Link your workspaces in same region to cluster to get commitment tier discount to all workspaces, even to ones with low ingestion that 
@@ -26,7 +25,8 @@ eligible for commitment tier discount.
     Availability zones aren't currently supported in all regions. New clusters you create in supported regions have availability zones enabled by default.
 
 ## Cluster pricing model
-Log Analytics Dedicated Clusters use a commitment tier pricing model of at least 500 GB/day. Any usage above the tier level incurs charges based on the per-GB rate of that commitment tier. See [Azure Monitor Logs pricing details](cost-logs.md#dedicated-clusters) for pricing details for dedicated clusters.
+Log Analytics Dedicated Clusters use a commitment tier pricing model of at least 500 GB/day. Any usage above the tier level incurs charges based on the per-GB rate of that commitment tier. See [Azure Monitor Logs pricing details](cost-logs.md#dedicated-clusters) for pricing details for dedicated clusters. The commitment tiers have a 31-day commitment period from the time a commitment tier is selected.
+
 ## Required permissions
 
 To perform cluster-related actions, you need these permissions:
@@ -75,7 +75,7 @@ Provide the following properties when creating new dedicated cluster:
 
 After you create your cluster resource, you can edit properties such as *sku*, *keyVaultProperties, or *billingType*. See more details below.
 
-You can have up to five active clusters per subscription per region. If the cluster is deleted, it's still reserved for 14 days. You can have up to seven clusters per subscription and region, five active, plus two deleted in past 14 days.
+Deleted clusters take two weeks to be completely removed. You can have up to seven clusters per subscription and region, five active, and two deleted in past two weeks.
 
 > [!NOTE]
 > Cluster creation triggers resource allocation and provisioning. This operation can take a few hours to complete.
@@ -205,7 +205,10 @@ The managed identity service generates the *principalId* GUID when you create th
 
 ## Link a workspace to a cluster
 
-When a Log Analytics workspace is linked to a dedicated cluster, new data ingested to the workspace, is routed to the cluster while existing data remains in the existing Log Analytics cluster. If the dedicated cluster is configured with customer-managed keys (CMK), new ingested data is encrypted with your key. The system abstracts the data location, you can query data as usual while the system performs cross-cluster queries in the background.
+When a Log Analytics workspace is linked to a dedicated cluster, the workspace billing plan in workspace is changed per cluster plan, new data ingested to the workspace is routed to the cluster, and existing data remains in Log Analytics cluster. Linking a workspace has no affect on data ingestion and query experiences.
+
+Queries and experiences aren't affected by the  
+If the dedicated cluster is configured with customer-managed keys (CMK), new ingested data is encrypted with your key. The system abstracts the data location, you can query data as usual while the system performs cross-cluster queries in the background.
 
 A cluster can be linked to up to 1,000 workspaces. Linked workspaces can be located in the same region as the cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
 
@@ -214,14 +217,13 @@ You need 'write' permissions to both the workspace and the cluster resource for 
 - In the workspace: *Microsoft.OperationalInsights/workspaces/write*
 - In the cluster resource: *Microsoft.OperationalInsights/clusters/write*
 
-Other than the billing aspects, configuration of linked workspace remain, including data retention settings.
+Other than the billing aspects that is governed by the cluster plan, the linked workspace configuration remain.
 
 The workspace and the cluster can be in different subscriptions. It's possible for the workspace and cluster to be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
 
-Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
-
-> [!WARNING]
-> Linking a workspace to a cluster requires syncing multiple backend components and assuring cache hydration. Since this operation may take up to two hours to complete, you should you run it asynchronously.
+> [!NOTE]
+> Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
+> Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which can take up to two hours.
 
 Use the following commands to link a workspace to a cluster:
 
@@ -466,7 +468,9 @@ The same as for 'clusters in a resource group', but in subscription scope.
 
 ## Update commitment tier in cluster
 
-When the data volume to your linked workspaces changes over time, you can update the Commitment Tier level appropriately. The tier is specified in units of GB and can have values of 500, 1000, 2000 or 5000 GB/day. You don't have to provide the full REST request body, but you must include the sku.
+When the data volume to linked workspaces changes over time, you can update the Commitment Tier level appropriately to optimize cost. The tier is specified in units of Gigabytes (GB) and can have values of 500, 1000, 2000 or 5000 GB per day. You don't have to provide the full REST request body, but you must include the sku.
+
+During the commitment period, you can change to a higher commitment tier, which restarts the 31-day commitment period. You can't move back to pay-as-you-go or to a lower commitment tier until after you finish the commitment period.
 
 #### [CLI](#tab/cli)
 
@@ -543,10 +547,16 @@ Content-type: application/json
 
 ### Unlink a workspace from cluster
 
-You can unlink a workspace from a cluster at any time. The workspace pricing tier is changed to per-GB, data ingested to cluster before the unlink operation remains in the cluster, and new data to workspace get ingested to Log Analytics. You can query data as usual and the service performs cross-cluster queries seamlessly. If cluster was configured with Customer-managed key (CMK), data remains encrypted with your key and accessible, while your key and permissions to Key Vault remain.  
+You can unlink a workspace from a cluster at any time. The workspace pricing tier is changed to per-GB, data ingested to cluster before the unlink operation remains in the cluster, and new data to workspace get ingested to Log Analytics.
+
+> [!WARNING]
+> Unlinking a workspace does not move workspace data out of the cluster. Any data collected for workspace while linked to cluster, remains in cluster for the retention period defined in workspace, and accessible as long as cluster isn't deleted.
+
+Queries aren't affected when workspace is unlinked and service performs cross-cluster queries seamlessly. If cluster was configured with Customer-managed key (CMK), data ingested to workspace while was linked, remains encrypted with your key and accessible, while your key and permissions to Key Vault remain.
 
 > [!NOTE] 
-> There is a limit of two link operations for a specific workspace within a month to prevent data distribution across clusters. Contact support if you reach limit.
+> - There is a limit of two link operations for a specific workspace within a month to prevent data distribution across clusters. Contact support if you reach the limit.
+> - Unlinked workspaces are moved to Pay-As-You-Go pricing tier.
 
 Use the following commands to unlink a workspace from cluster:
 
@@ -578,14 +588,15 @@ N/A
 
 You need to have *write* permissions on the cluster resource. 
 
-When deleting a cluster, you're losing access to all data in cluster, which was ingested from workspaces that were linked to it. This operation isn't reversible.
-The cluster's billing stops when deleted, regardless the 30 days commitment tier. 
+Cluster deletion operation should be done with caution, since operation is non-recoverable. All ingested data to cluster from linked workspaces, gets permanently deleted. 
 
-If you delete your cluster while workspaces are linked, Workspaces get automatically unlinked from the cluster before the cluster delete, and new data sent to workspaces gets ingested to Log Analytics store instead. If the retention of data in workspaces older than the period it was linked to the cluster, you can query workspace for the time range before the link to cluster and after the unlink, and the service performs cross-cluster queries seamlessly.
+The cluster's billing stops when cluster is deleted, regardless of the 31-days commitment tier defined in cluster.
+
+If you delete a cluster that has linked workspaces, workspaces get automatically unlinked from the cluster, workspaces are moved to Pay-As-You-Go pricing tier, and new data to workspaces is ingested to Log Analytics clusters instead. You can query workspace for the time range before it was linked to the cluster, and after the unlink, and the service performs cross-cluster queries seamlessly.
 
 > [!NOTE] 
-> - There is a limit of seven clusters per subscription and region, five active, plus two deleted in past 14 days.
-> - Cluster's name remain reserved for 14 days after deletion, and can't be used for creating a new cluster.
+> - There is a limit of seven clusters per subscription and region, five active, plus two that were deleted in past two weeks.
+> - Cluster's name remain reserved two weeks after deletion, and can't be used for creating a new cluster.
 
 Use the following commands to delete a cluster:
 
@@ -626,7 +637,7 @@ Authorization: Bearer <token>
 
 - A maximum of five active clusters can be created in each region and subscription.
 
-- A maximum of seven clusters allowed per subscription and region, five active, plus two deleted in past 14 days.
+- A maximum of seven clusters allowed per subscription and region, five active, plus two that were deleted in past 2 weeks.
 
 - A maximum of 1,000 Log Analytics workspaces can be linked to a cluster.
 
@@ -642,11 +653,13 @@ Authorization: Bearer <token>
   - If you create a cluster and get an error "region-name doesn't support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
   - Double encryption setting can't be changed after the cluster has been created.
 
-- Deleting a linked workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-a-workspace) the workspace during the [soft-delete](./delete-workspace.md#soft-delete-behavior) period, it returns to previous state and remains linked to cluster.
+- Deleting a workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-a-workspace) the workspace during the [soft-delete](./delete-workspace.md#soft-delete-behavior) period, workspace returns to previous state and remains linked to cluster.
+
+- During the commitment period, you can change to a higher commitment tier, which restarts the 31-day commitment period. You can't move back to pay-as-you-go or to a lower commitment tier until after you finish the commitment period.
 
 ## Troubleshooting
 
-- If you get conflict error when creating a cluster, it may be that you've deleted your cluster in the last 14 days and it's in a soft-delete state. The cluster name remains reserved during the soft-delete period and you can't create a new cluster with that name. The name is released after the soft-delete period when the cluster is permanently deleted.
+- If you get conflict error when creating a cluster, it might have been deleted in past 2 weeks and in deletion process yet. The cluster name remains reserved during the 2 weeks deletion period and you can't create a new cluster with that name.
 
 - If you update your cluster while the cluster is at provisioning or updating state, the update will fail.
 
@@ -680,7 +693,7 @@ Authorization: Bearer <token>
 
 ### Cluster Get
 
- -  404--Cluster not found, the cluster might have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it, or use another name to create a new cluster. 
+ -  404--Cluster not found, the cluster might have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in deletion process.
 
 ### Cluster Delete
 
@@ -690,7 +703,7 @@ Authorization: Bearer <token>
 
 -  404--Workspace not found. The workspace you specified doesn't exist or was deleted.
 -  409--Workspace link or unlink operation in process.
--  400--Cluster not found, the cluster you specified doesn't exist or was deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it.
+-  400--Cluster not found, the cluster you specified doesn't exist or was deleted.
 
 ### Workspace unlink
 -  404--Workspace not found. The workspace you specified doesn't exist or was deleted.

@@ -3,7 +3,7 @@ title: Azure Automation data security
 description: This article helps you learn how Azure Automation protects your privacy and secures your data.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/11/2022
+ms.date: 05/26/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -14,7 +14,7 @@ This article contains several topics explaining how data is protected and secure
 
 ## TLS 1.2 for Azure Automation
 
-To insure the security of data in transit to Azure Automation, we strongly encourage you to configure the use of Transport Layer Security (TLS) 1.2. The following are a list of methods or clients that communicate over HTTPS to the Automation service:
+To ensure the security of data in transit to Azure Automation, we strongly encourage you to configure the use of Transport Layer Security (TLS) 1.2. The following are a list of methods or clients that communicate over HTTPS to the Automation service:
 
 * Webhook calls
 
@@ -56,11 +56,11 @@ The following table summarizes the retention policy for different resources.
 
 ## Data backup
 
-When you delete an Automation account in Azure, all objects in the account are deleted. The objects include runbooks, modules, configurations, settings, jobs, and assets. They can't be recovered after the account is deleted. You can use the following information to back up the contents of your Automation account before deleting it.
+When you delete an Automation account in Azure, all objects in the account are deleted. The objects include runbooks, modules, configurations, settings, jobs, and assets. You can [recover](delete-account.md#restore-a-deleted-automation-account) a deleted Automation account within 30 days. You can also use the following information to back up the contents of your Automation account before deleting it:
 
 ### Runbooks
 
-You can export your runbooks to script files using either the Azure portal or the [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure.service/get-azureautomationrunbookdefinition) cmdlet in Windows PowerShell. You can import these script files into another Automation account, as discussed in [Manage runbooks in Azure Automation](manage-runbooks.md).
+You can export your runbooks to script files using either the Azure portal or the [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) cmdlet in Windows PowerShell. You can import these script files into another Automation account, as discussed in [Manage runbooks in Azure Automation](manage-runbooks.md).
 
 ### Integration modules
 
@@ -76,16 +76,10 @@ You can't retrieve the values for encrypted variables or the password fields of 
 
 You can export your DSC configurations to script files using either the Azure portal or the [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration) cmdlet in Windows PowerShell. You can import and use these configurations in another Automation account.
 
-## Geo-replication in Azure Automation
+## Data residency
 
-Geo-replication is standard in Azure Automation accounts. You choose a primary region when setting up your account. The internal Automation geo-replication service assigns a secondary region to the account automatically. The service then continuously backs up account data from the primary region to the secondary region. The full list of primary and secondary regions can be found at [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
+You specify a region during the creation of an Azure Automation account. Service data such as assets, configuration, logs are stored in that region and may transit or be processed in other regions within the same geography. These global endpoints are necessary to provide end-users with a high-performance, low-latency experience regardless of location. Only for the Brazil South (Sao Paulo State) region of Brazil geography, Southeast Asia region (Singapore) and East Asia region (Hongkong) of the Asia Pacific geography, we store Azure Automation data in the same region to accommodate data-residency requirements for these regions.
 
-The backup created by the Automation geo-replication service is a complete copy of Automation assets, configurations, and the like. This backup can be used if the primary region goes down and loses data. In the unlikely event that data for a primary region is lost, Microsoft attempts to recover it.
-
-> [!NOTE]
-> Azure Automation stores customer data in the region selected by the customer. For the purpose of BCDR, for all regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region). Only for the Brazil South (Sao Paulo State) region of Brazil geography and Southeast Asia region (Singapore) of the Asia Pacific geography, we store Azure Automation data in the same region to accommodate data-residency requirements for these regions.
-
-The Automation geo-replication service isn't accessible directly to external customers if there is a regional failure. If you want to maintain Automation configuration and runbooks during regional failures, set up disaster recovery of the Automation accounts and their dependent resources, such as Modules, Connections, Credentials, Certificates, Variables and Schedules. [Learn more](automation-disaster-recovery.md).
 
 ## Next steps
 

@@ -7,9 +7,9 @@ ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
 ms.topic: tutorial
-ms.date: 06/24/2022
+ms.date: 03/31/2023
 ms.author: barclayn
-ms.custom: ep-miar, ignite-2022
+ms.custom: ep-miar, ignite-2022, devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.tool: azure-cli, azure-powershell
 ms.devlang: azurecli
 #Customer intent: As an administrator, I want to know how to access Azure Cosmos DB from a virtual machine using a managed identity
@@ -28,7 +28,7 @@ In this article, we set up a virtual machine to use managed identities to connec
 
 ## Create a resource group
 
-Create a resource group called **mi-test**. We'll use this resource group for all resources used in this tutorial.
+Create a resource group called **mi-test**. We use this resource group for all resources used in this tutorial.
 
 - [Create a resource group using the Azure portal](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups)
 - [Create a resource group using the CLI](../../azure-resource-manager/management/manage-resource-groups-cli.md#create-resource-groups)
@@ -170,14 +170,14 @@ The user assigned managed identity should be specified using its [resourceID](./
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az vm create --resource-group <MyResourceGroup> --name <myVM> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
+az vm create --resource-group <MyResourceGroup> --name <myVM> --image <SKU Linux Image> --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
 ```
 
 [Configure managed identities for Azure resources on a VM using the Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
-Depending on your API version, you have to take [different steps](qs-configure-template-windows-vm.md#user-assigned-managed-identity). If your apiVersion is 2018-06-01, your user-assigned managed identities are stored in the userAssignedIdentities dictionary format and the ```<identityName>``` value is the name of a variable that you define in the variables section of your template. In the variable, you point to the user assigned managed identity that you want to assign.
+Depending on your API version, you have to take [different steps](qs-configure-template-windows-vm.md#user-assigned-managed-identity). If your apiVersion is 2018-06-01, your user-assigned managed identities are stored in the userAssignedIdentities dictionary format. The ```<identityName>``` value is the name of a variable that you define in the variables section of your template. In the variable, you point to the user assigned managed identity that you want to assign.
 
 ```json
     "variables": {
@@ -310,7 +310,7 @@ To use the sample below, you need to have the following NuGet packages:
 - Microsoft.Azure.Cosmos
 - Microsoft.Azure.Management.CosmosDB
 
-In addition to the NuGet packages above, you also need to enable **Include prerelease** and then add **Azure.ResourceManager.CosmosDB**. 
+In addition to the NuGet packages above, you also need to enable **Include prerelease** and then add **Azure.ResourceManager.CosmosDB**.
 
 ```csharp
 using Azure.Identity;
@@ -326,44 +326,53 @@ namespace MITest
     {
         static async Task Main(string[] args)
         {
+            // Replace the placeholders with your own values
             var subscriptionId = "Your subscription ID";
             var resourceGroupName = "You resource group";
             var accountName = "Cosmos DB Account name";
             var databaseName = "mi-test";
             var containerName = "container01";
 
+            // Authenticate to Azure using Managed Identity (system-assigned or user-assigned)
             var tokenCredential = new DefaultAzureCredential();
 
-            // create the management clientSS
-            var managementClient = new CosmosDBManagementClient(subscriptionId, tokenCredential);
+            // Create the Cosmos DB management client using the subscription ID and token credential
+            var managementClient = new CosmosDBManagementClient(tokenCredential)
+            {
+                SubscriptionId = subscriptionId
+            };
 
-            // create the data client
-            var dataClient = new CosmosClient("https://[Account].documents.azure.com:443/", tokenCredential);
+            // Create the Cosmos DB data client using the account URL and token credential
+            var dataClient = new CosmosClient($"https://{accountName}.documents.azure.com:443/", tokenCredential);
 
-            // create a new database 
-            var createDatabaseOperation = await managementClient.SqlResources.StartCreateUpdateSqlDatabaseAsync(resourceGroupName, accountName, databaseName,
+            // Create a new database using the management client
+            var createDatabaseOperation = await managementClient.SqlResources.StartCreateUpdateSqlDatabaseAsync(
+                resourceGroupName,
+                accountName,
+                databaseName,
                 new SqlDatabaseCreateUpdateParameters(new SqlDatabaseResource(databaseName), new CreateUpdateOptions()));
             await createDatabaseOperation.WaitForCompletionAsync();
 
-            // create a new container
-            var createContainerOperation = await managementClient.SqlResources.StartCreateUpdateSqlContainerAsync(resourceGroupName, accountName, databaseName, containerName,
+            // Create a new container using the management client
+            var createContainerOperation = await managementClient.SqlResources.StartCreateUpdateSqlContainerAsync(
+                resourceGroupName,
+                accountName,
+                databaseName,
+                containerName,
                 new SqlContainerCreateUpdateParameters(new SqlContainerResource(containerName), new CreateUpdateOptions()));
             await createContainerOperation.WaitForCompletionAsync();
 
-
-            // create a new item 
+            // Create a new item in the container using the data client
             var partitionKey = "pkey";
             var id = Guid.NewGuid().ToString();
             await dataClient.GetContainer(databaseName, containerName)
                 .CreateItemAsync(new { id = id, _partitionKey = partitionKey }, new PartitionKey(partitionKey));
 
-
-            // read back the item
+            // Read back the item from the container using the data client
             var pointReadResult = await dataClient.GetContainer(databaseName, containerName)
                 .ReadItemAsync<dynamic>(id, new PartitionKey(partitionKey));
 
-
-            // run a query
+            // Run a query to get all items from the container using the data client
             await dataClient.GetContainer(databaseName, containerName)
                 .GetItemQueryIterator<dynamic>("SELECT * FROM c")
                 .ReadNextAsync();

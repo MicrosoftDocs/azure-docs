@@ -5,6 +5,8 @@
   items:
     - name: About Azure Red Hat OpenShift
       href: intro-openshift.md
+    - name: What's new with Azure Red Hat OpenShift?
+      href: azure-redhat-openshift-release-notes.md
 - name: Tutorials
   expanded: true
   items:
@@ -32,7 +34,6 @@
           href: howto-gpu-workloads.md
         - name: Segregate worker nodes into subnets
           href: howto-segregate-machinesets.md
-
         - name: Manually update cluster certificates
           href: howto-update-certificates.md
     - name: Networking 
@@ -43,8 +44,6 @@
           href: howto-custom-dns.md
         - name: Configure DNS forwarding
           href: dns-forwarding.md
-        - name: Configure OVN-Kubernetes network provider
-          href: howto-configure-ovn-kubernetes.md
         - name: Restrict egress traffic
           href: howto-restrict-egress.md
     - name: Storage
@@ -75,6 +74,8 @@
           href: howto-enable-fips-openshift.md
         - name: Enable Network Security Group flow logs
           href: howto-enable-nsg-flowlogs.md
+        - name: Manage customer data access requests
+          href: howto-use-lockbox.md
         - name: Use Azure Key Vault secrets
           href: howto-use-key-vault-secrets.md
     - name: Back up and restore
@@ -108,6 +109,9 @@
       items:
       - name: Overview of egress lockdown
         href: concepts-egress-lockdown.md
+      - name: Overview of OVN-Kubernetes
+        href: concepts-ovn-kubernetes.md
+
 - name: Reference
   items:
     - name: Azure Red Hat OpenShift CLI

@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/14/2022
+ms.date: 03/02/2023
 ms.author: cherylmc
 
 ---
@@ -23,7 +23,7 @@ In this model, a spoke can be:
 * Remote user
 * Internet
 
-![hub and spoke](./media/virtual-wan-global-transit-network-architecture/figure1.png)
+:::image type="content" source="./media/virtual-wan-global-transit-network-architecture/hub-spoke.png" alt-text="Diagram of hub and spoke." lightbox="./media/virtual-wan-global-transit-network-architecture/hub-spoke.png":::
 
 **Figure 1: Global transit hub-and-spoke network**
 
@@ -35,7 +35,7 @@ Azure Virtual WAN is a Microsoft-managed cloud networking service. All the netwo
 
 Azure Virtual WAN allows a global transit network architecture by enabling ubiquitous, any-to-any connectivity between globally distributed sets of cloud workloads in VNets, branch sites, SaaS and PaaS applications, and users.
 
-![Azure Virtual WAN](./media/virtual-wan-global-transit-network-architecture/figure2.png)
+:::image type="content" source="./media/virtual-wan-global-transit-network-architecture/transit-network.png" alt-text="Diagram of global network transit with Virtual WAN." lightbox="./media/virtual-wan-global-transit-network-architecture/transit-network.png":::
 
 **Figure 2: Global transit network and Virtual WAN**
 
@@ -47,7 +47,7 @@ You can establish a virtual WAN by creating a single virtual WAN hub in the regi
 
 An Enterprise cloud footprint can span multiple cloud regions and it's optimal (latency-wise) to access the cloud from a region closest to their physical site and users. One of the key principles of global transit network architecture is to enable cross-region connectivity between all cloud and on-premises network endpoints. This means that traffic from a branch that is connected to the cloud in one region can reach another branch or a VNet in a different region using hub-to-hub connectivity enabled by [Azure Global Network](https://azure.microsoft.com/global-infrastructure/global-network/).
 
-![cross-region](./media/virtual-wan-global-transit-network-architecture/figure3.png)
+:::image type="content" source="./media/virtual-wan-global-transit-network-architecture/cross-region.png" alt-text="Diagram of cross-region." lightbox="./media/virtual-wan-global-transit-network-architecture/cross-region.png":::
 
 **Figure 3: Virtual WAN cross-region connectivity**
 
@@ -61,7 +61,7 @@ Global transit network architecture enables any-to-any connectivity via virtual 
 
 Any-to-any connectivity (in the context of a global architecture) allows an enterprise with globally distributed users, branches, datacenters, VNets, and applications to connect to each other through the “transit” hub(s). Azure Virtual WAN acts as the global transit system.
 
-![any to any](./media/virtual-wan-global-transit-network-architecture/figure4.png)
+:::image type="content" source="./media/virtual-wan-global-transit-network-architecture/any-any.png" alt-text="Diagram of any to any." lightbox="./media/virtual-wan-global-transit-network-architecture/any-any.png":::
 
 **Figure 4: Virtual WAN traffic paths**
 
@@ -83,9 +83,10 @@ Branch-to-VNet is the primary path supported by Azure Virtual WAN. This path all
 
 ### ExpressRoute Global Reach and Virtual WAN
 
-ExpressRoute is a private and resilient way to connect your on-premises networks to the Microsoft Cloud. Virtual WAN supports Express Route circuit connections. Connecting a branch site to Virtual WAN with Express Route requires 1) Premium or Standard Circuit 2) Circuit to be in a Global Reach enabled location.
+ExpressRoute is a private and resilient way to connect your on-premises networks to the Microsoft Cloud. Virtual WAN supports Express Route circuit connections. 
+The following ExpressRoute circuit SKUs can be connected to Virtual WAN: Local, Standard, and Premium.
 
-ExpressRoute Global Reach is an add-on feature for ExpressRoute. With Global Reach, you can link ExpressRoute circuits together to make a private network between your on-premises networks. Branches that are connected to Azure Virtual WAN using ExpressRoute require the ExpressRoute Global Reach to communicate with each other.
+ExpressRoute Global Reach is an add-on feature for ExpressRoute. With Global Reach, you can link ExpressRoute circuits together to make a private network between your on-premises networks. Branches that are connected to Azure Virtual WAN using ExpressRoute require the ExpressRoute Global Reach to communicate with each other. Global Reach is not required for transitivity between site-to-site VPN and ExpressRoute connected branches.  
 
 In this model, each branch that is connected to the virtual WAN hub using ExpressRoute can connect to VNets using the branch-to-VNet path. Branch-to-branch traffic won't transit the hub because ExpressRoute Global Reach enables a more optimal path over Azure WAN.
 
@@ -118,15 +119,15 @@ Forced Tunneling can be enabled by configuring the enable default route on a VPN
 
 A virtual hub propagates a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if enable default flag is 'Enabled' on the connection. 
 
-This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It's enabled by default when a virtual network connection is added to connect a VNet to a virtual hub. The default route doesn't originate in the Virtual WAN hub; the default route is propagated if it is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled.
+This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It's enabled by default when a virtual network connection is added to connect a VNet to a virtual hub. The default route doesn't originate in the Virtual WAN hub; the default route is propagated if it's already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled.
 
 ## <a name="security"></a>Security and policy control
 
 The Azure Virtual WAN hubs interconnect all the networking end points across the hybrid network and potentially see all transit network traffic. Virtual WAN hubs can be converted to Secured Virtual Hubs by deploying the Azure Firewall inside VWAN hubs to enable cloud-based security, access, and policy control. Orchestration of Azure Firewalls in virtual WAN hubs can be performed by Azure Firewall Manager.
 
-[Azure Firewall Manager](../firewall-manager/index.yml) provides the capabilities to manage and scale security for global transit networks. Azure Firewall Manager provides ability to centrally manage routing, global policy management, advanced Internet security services via third-party along with the Azure Firewall.
+[Azure Firewall Manager](../firewall-manager/index.yml) provides the capabilities to manage and scale security for global transit networks. Azure Firewall Manager provides ability to centrally manage routing, global policy management, advanced Internet security services via third-party along with the Azure Firewall. To learn about how to secure your private and internet traffic, please see [Virtual Hub Routing Intent](how-to-routing-policies.md).
 
-![secured virtual hub with Azure Firewall](./media/virtual-wan-global-transit-network-architecture/figure5.png)
+:::image type="content" source="./media/virtual-wan-global-transit-network-architecture/secured-hub.png" alt-text="Diagram of secured virtual hub with Azure Firewall." lightbox="./media/virtual-wan-global-transit-network-architecture/secured-hub.png":::
 
 **Figure 5: Secured virtual hub with Azure Firewall**
 
@@ -175,12 +176,12 @@ This is a two step configuration:
 
 2. Configure which Connections (Vnet and Branch) can route traffic to the internet (0.0.0.0/0) via the Azure FW in the hub or Trusted Security Provider. This step ensures that the default route is propagated to selected branches and Vnets that are attached to the Virtual WAN hub via the Connections. 
 
-### Force Tunneling Traffic to On-Premises Firewall in a Secured Virtual Hub
+### Force tunneling traffic to on-premises firewall in a Secured Virtual Hub
 
 If there is already a default route learned (via BGP) by the Virtual Hub from one of the Branches (VPN or ER sites), this default route is overridden by the default route learned from Azure Firewall Manager setting. In this case, all traffic that is entering the hub from Vnets and branches destined to internet, will be routed to the Azure Firewall or Trusted Security Provider.
 
 > [!NOTE]
-> Currently there is no option to select on-premises Firewall or Azure Firewall (and Trusted Security Provider) for internet bound traffic originating from Vnets, Branches or Users. The default route learned from the Azure Firewall Manager setting is always preferred over the default route learned from one of the branches.
+> Currently there is no option to select on-premises firewall or Azure Firewall (and Trusted Security Provider) for internet bound traffic originating from Vnets, Branches or Users. The default route learned from the Azure Firewall Manager setting is always preferred over the default route learned from one of the branches.
 
 
 ## Next steps

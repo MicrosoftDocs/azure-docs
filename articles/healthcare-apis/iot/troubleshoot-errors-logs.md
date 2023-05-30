@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot errors using the MedTech service logs - Azure Health Data Services
-description: This article assists troubleshooting and fixing MedTech service error logs.
+description: Learn how to troubleshoot and fix MedTech service error using the service logs.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 02/28/2023
+ms.date: 04/28/2023
 ms.author: jasteppe
 ---
 
@@ -41,7 +41,7 @@ This property represents the operation being performed by the MedTech service wh
 |FHIRConversion|The data flow stage where the grouped-normalized data is transformed into an Observation resource.|
 
 > [!NOTE]
-> To learn about the MedTech service device message data transformation, see [Understand the MedTech service device message data transformation](understand-service.md).
+> To learn about the MedTech service device message data transformation, see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
 
 ## MedTech service health check exceptions and fixes
 
@@ -93,7 +93,7 @@ In the MedTech service logs, the error's name is logged in the **LogType**.
 The errors' names are listed in the following table, and the fixes for them are provided below the table:
 
 |LogType|
-|---------|
+|-------|
 |[CorrelationIdNotDefinedException](#correlationidnotdefinedexception)|
 |[FhirDataMappingException](#fhirdatamappingexception)|
 |[FhirResourceNotFoundException](#fhirresourcenotfoundexception)|
@@ -152,7 +152,6 @@ The errors' names are listed in the following table, and the fixes for them are 
 * The key that is referenced by the device mapping property specified in the error message.
 
 * A non-blank value for the key. 
-
 
 Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the device mapping property specified in the error message has a value that correctly references the corresponding key in your device messages.
 
@@ -220,7 +219,7 @@ The template’s type and line with the error are specified in the error message
 
 **Severity**: Blocking
 
-**Fix**: The fix depends on the type of managed identity that you'd like to use. The difference between a system-assigned and a user-assigned managed identity can be reviewed at [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types). **Note**: The MedTech service supports only one identity: either a system-assigned managed identity or a single user-assigned managed identity.  
+**Fix**: The fix depends on the type of managed identity that you'd like to use. The difference between a system-assigned and a user-assigned managed identity can be reviewed at [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). **Note**: The MedTech service supports only one identity: either a system-assigned managed identity or a single user-assigned managed identity.  
 
 If you'd like to use a system-assigned managed identity:
 
@@ -228,17 +227,17 @@ If you'd like to use a system-assigned managed identity:
 
 2. On the Azure portal, go to the **Identity** blade of your MedTech service, go to the **System assigned** tab, and ensure the following:
    * The **Status** is set to **On**.
-   * The **Azure role assignments** show that your event hub has an **Azure Event Hubs Data Receiver** role assigned to your MedTech service’s system-assigned managed identity. If not, follow these [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub). 
+   * The **Azure role assignments** show that your event hub has an **Azure Event Hubs Data Receiver** role assigned to your MedTech service’s system-assigned managed identity. If not, follow these [instructions](deploy-manual-portal.md#grant-resource-access-to-the-medtech-service-system-managed-identity). 
 
 If you'd like to use a user-assigned managed identity:
 
-1. Ensure that you have a user-assigned managed identity. If not, create one using the [Azure portal](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) or an [ARM template](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-arm#create-a-user-assigned-managed-identity-3).
+1. Ensure that you have a user-assigned managed identity. If not, create one using the [Azure portal](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) or an [ARM template](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-arm#create-a-user-assigned-managed-identity-3).
 
-2. If you're deploying a MedTech service using an ARM template, ensure that your MedTech service resource in the ARM template has an `identity` property containing 1) the `type` value of `"userAssigned"` and 2) a `userAssignedIdentities` value that includes your user-assigned managed identity's name (see example at [Assign a user-assigned managed identity to an Azure VM](/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm#assign-a-user-assigned-managed-identity-to-an-azure-vm)).
+2. If you're deploying a MedTech service using an ARM template, ensure that your MedTech service resource in the ARM template has an `identity` property containing 1) the `type` value of `"userAssigned"` and 2) a `userAssignedIdentities` value that includes your user-assigned managed identity's name (see example at [Assign a user-assigned managed identity to an Azure VM](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm)).
 
-3. On the Azure portal, go to the **Identity** blade of your MedTech service, go to the **User assigned** tab, and ensure that your user-assigned managed identity is shown. If not, add your user-assigned managed identity (see example at [Assign a user-assigned managed identity to an existing VM](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#assign-a-user-assigned-managed-identity-to-an-existing-vm)).
+3. On the Azure portal, go to the **Identity** blade of your MedTech service, go to the **User assigned** tab, and ensure that your user-assigned managed identity is shown. If not, add your user-assigned managed identity (see example at [Assign a user-assigned managed identity to an existing VM](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-existing-vm)).
 
-4. On the Azure portal, go to your event hub, and assign the **Azure Event Hubs Data Receiver** role to your MedTech service's user-assigned managed identity (see [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub), but use the user-assigned managed identity instead of the system-assigned managed identity).
+4. On the Azure portal, go to your event hub, and assign the **Azure Event Hubs Data Receiver** role to your MedTech service's user-assigned managed identity (see [instructions](deploy-manual-portal.md#grant-resource-access-to-the-medtech-service-system-managed-identity), but use the user-assigned managed identity instead of the system-assigned managed identity).
 
 ### MultipleResourceFoundException
 
@@ -302,7 +301,7 @@ The expression and line with the error are specified in the error message.
 
 **Severity**: Blocking
 
-**Fix**: On the Azure portal, go to your event hub, and assign the **Azure Event Hubs Data Receiver** role to your MedTech service (see [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub)).
+**Fix**: On the Azure portal, go to your event hub, and assign the **Azure Event Hubs Data Receiver** role to your MedTech service (see [instructions](deploy-manual-portal.md#grant-resource-access-to-the-medtech-service-system-managed-identity)).
 
 ### UnauthorizedAccessFhirServiceException
 
@@ -310,10 +309,10 @@ The expression and line with the error are specified in the error message.
 
 **Severity**: Blocking
 
-**Fix**: On the Azure portal, go to your FHIR service, and assign the **FHIR Data Writer** role to your MedTech service (see [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-fhir-service)).
+**Fix**: On the Azure portal, go to your FHIR service, and assign the **FHIR Data Writer** role to your MedTech service (see [instructions](deploy-manual-portal.md#grant-resource-access-to-the-medtech-service-system-managed-identity)).
 
 > [!NOTE]
-> If you're not able to fix your MedTech service issue using this troubleshooting guide, you can open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket and attach copies of your device message, [device mapping, and FHIR destination mapping](how-to-create-mappings-copies.md) to your request to better help with issue determination.
+> If you're not able to fix your MedTech service issue using this troubleshooting guide, you can open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket attaching copies of your device message and [device and FHIR destination mappings](how-to-use-mapping-debugger.md#overview-of-the-mapping-debugger) to your request to better help with issue determination.
 
 ## Next steps
 

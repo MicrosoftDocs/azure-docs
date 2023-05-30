@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with LaunchDarkly | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with LaunchDarkly'
 description: Learn how to configure single sign-on between Azure Active Directory and LaunchDarkly.
 services: active-directory
 author: jeevansd

@@ -43,7 +43,7 @@ ms.author: oldoll
 > General Support Statement:
 > Support for the Azure Extension for SAP is provided through SAP support channels. If you need assistance with the Azure VM extension for SAP solutions, please open a support case with SAP Support.
  
-When you've prepared the VM as described in [Deployment scenarios of VMs for SAP on Azure][deployment-guide-3], the Azure VM Agent is installed on the virtual machine. The next step is to deploy the Azure Extension for SAP, which is available in the Azure Extension Repository in the global Azure datacenters. For more information, see [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide-9.1].
+When you've prepared the VM as described in [Deployment scenarios of VMs for SAP on Azure][deployment-guide-3], the Azure VM Agent is installed on the virtual machine. The next step is to deploy the Azure Extension for SAP, which is available in the Azure Extension Repository in the global Azure datacenters.
  
 To be sure SAP supports your environment, enable the Azure VM extension for SAP solutions as described in Configure the Azure Extension for SAP.
 
@@ -68,11 +68,11 @@ When you are setting up your SAP software deployment, you need the following SAP
  
 ## Differences between the two versions of the Azure VM extension for SAP solutions
 
-There are two Version of the VM Extension for SAP. Check the prerequisites for SAP and required minimum versions of SAP Kernel and SAP Host Agent in the resources listed in [SAP resources][sap-resources].
+There are two versions of the VM Extension for SAP. Check the prerequisites for SAP and required minimum versions of SAP Kernel and SAP Host Agent in the resources listed in [SAP resources][sap-resources].
 
 ### Standard Version of VM Extension for SAP
 
-This version is the current standard VM Extension for SAP. There are some exceptions where Microsoft recommends to install the new VM Extension for SAP. In addition, when opening a support case, SAP Support is able to request to install the new VM Extension. For more details on when to use the new version of the VM Extension for SAP, see chapter [New Version of VM Extension for SAP][new-monitoring]
+This version is the current standard VM Extension for SAP. There are some exceptions where Microsoft recommends installing the new VM Extension for SAP. In addition, when opening a support case, SAP Support is able to request to install the new VM Extension. For more details on when to use the new version of the VM Extension for SAP, see chapter [New Version of VM Extension for SAP][new-monitoring]
  
 ### <a name="38d9f33f-d0af-4b8f-8134-f1f97d656fb6"></a>New Version of VM Extension for SAP
 
@@ -86,7 +86,7 @@ This version is the new Azure VM extension for SAP solutions. With further impro
  
 ## Recommendation
 
-We currently recommend to use the standard version of the extension for each installation where none of the use cases for the new version of the extension applies. We are currently working on improving the new version of the VM extension to be able to make it the default and deprecate the standard version of the extension. During this time, you can use the new version. However, you need to make sure the VM Extension can access management.azure.com.
+We currently recommend using the standard version of the extension for each installation where none of the use cases for the new version of the extension applies. We are currently working on improving the new version of the VM extension to be able to make it the default and deprecate the standard version of the extension. During this time, you can use the new version. However, you need to make sure the VM Extension can access management.azure.com.
  
 > [!NOTE]
 > Make sure to uninstall the VM Extension before switching between the two versions.

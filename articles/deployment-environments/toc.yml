@@ -4,8 +4,8 @@ items:
 - name: Overview
   expanded: true
   items: 
-    - name: What is Azure Deployment Environments Preview?
-      displayName: ADE Overview
+    - name: What is Azure Deployment Environments?
+      displayName: Azure Deployment Environments overview
       href: overview-what-is-azure-deployment-environments.md
 - name: Quickstarts
   displayName: Quickstarts
@@ -24,35 +24,46 @@ items:
       href: concept-environments-key-concepts.md
     - name: Usage scenarios
       href: concept-environments-scenarios.md
-    - name: Components common to ADE and Dev Box
+    - name: Deployment Environments and Dev Box components 
       href: concept-common-components.md
 - name: How-to guides
   expanded: true
   items:
-    - name: Add and configure a catalog
+    - name: Add & configure a catalog
       href: how-to-configure-catalog.md
-    - name: Add and configure a catalog item
+    - name: Add & configure a catalog item
       href: configure-catalog-item.md
     - name: Configure a managed identity
       href: how-to-configure-managed-identity.md
     - name: Configure dev center environment types
       href: how-to-configure-devcenter-environment-types.md
-    - name: Configure project environment types
+    - name: Add & delete project environment types
       href: how-to-configure-project-environment-types.md
-    - name: Provide access to Dev Managers
+    - name: Provide access to dev managers
       href: how-to-configure-project-admin.md
     - name: Provide access to developers
       href: how-to-configure-deployment-environments-user.md
     - name: Manage environments as a developer
       href: how-to-manage-environments.md
+    - name: Use Azure CLI dev center extension
+      href: how-to-install-devcenter-cli-extension.md
+    - name: Create and configure a dev center with the CLI
+      href: how-to-create-configure-dev-center.md
+    - name: Create and configure a project with the CLI
+      href: how-to-create-configure-projects.md
     - name: Create environments with the CLI
-      href: how-to-create-access-environments.md  
+      href: how-to-create-access-environments.md
+- name: Tutorials
+  expanded: true
+  items:
+    - name: Deploy environments in CI/CD with GitHub
+      href: tutorial-deploy-environments-in-cicd-github.md  
 - name: Reference
   items:
+    - name: Azure CLI
+      href: https://aka.ms/CLI-reference
     - name: REST API
       href: /rest/api/devcenter/
-    - name: CLI
-      href: how-to-configure-use-cli.md
 - name: Resources
   items: 
     - name: Azure roadmap

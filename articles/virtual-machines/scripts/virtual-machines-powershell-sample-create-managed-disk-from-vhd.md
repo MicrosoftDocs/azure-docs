@@ -7,6 +7,7 @@ manager: kavithag
 ms.service: virtual-machines
 ms.topic: sample
 ms.workload: infrastructure
+ms.custom: devx-track-azurepowershell
 ms.date: 06/05/2017
 ms.author: ramankum
 ---

@@ -49,6 +49,9 @@ You are not limited to using services within your regional pairs. Although an Az
 
 Regions are paired for cross-region replication based on proximity and other factors.
 
+>[!IMPORTANT]
+>To learn more about your region's architecture, please contact your Microsoft sales or customer representative.
+
 **Azure regional pairs**
 
 | Geography | Regional pair A | Regional pair B |

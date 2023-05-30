@@ -1,29 +1,29 @@
 ---
-title: Configure Tanzu Dev Tools in Azure Spring Apps Enterprise tier
-description: Learn how to use Tanzu Dev Tools in Azure Spring Apps Enterprise tier.
+title: Configure Tanzu Dev Tools in the Azure Spring Apps Enterprise plan
+description: Learn how to use Tanzu Dev Tools in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: zlhe
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/28/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
-# Configure Tanzu Dev Tools in Azure Spring Apps Enterprise tier
+# Configure Tanzu Dev Tools in the Azure Spring Apps Enterprise plan
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article describes how to configure VMware Tanzu Dev Tools. Dev Tools includes a set of developer tools to help make the development experience easier for both the inner and outer loop. Currently, Dev Tools includes Application Live View and Application Accelerator for use with Azure Spring Apps Enterprise tier.
+This article describes how to configure VMware Tanzu Dev Tools. Dev Tools includes a set of developer tools to help make the development experience easier for both the inner and outer loop. Currently, Dev Tools includes Application Live View and Application Accelerator for use with the Azure Spring Apps Enterprise plan.
 
 [Dev Tools Portal](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-tap-gui-about.html) is a centralized portal that you can use to access any Dev Tools. You can use Dev Tools Portal to view the applications and services running for your organization. In this article, you learn how to use Dev Tools Portal to configure single sign-on (SSO) and endpoint exposure so that you can get access to any Dev Tools.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- To provision an Azure Marketplace offer purchase, see the [Prerequisites](how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering from Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension. Use the following command to remove previous versions and install the latest extension. If you previously installed the `spring-cloud` extension, uninstall it to avoid configuration and version mismatches.
 
   ```azurecli
@@ -72,7 +72,7 @@ Use the following command to update the SSO configuration using the Azure CLI:
 ```azurecli
 az spring dev-tool update \
     --resource-group <resource-group-name> \
-    --name <Azure-Spring-Apps-service-instance-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
     --client-id "<client-id>" \
     --scopes "scope1,scope2" \
     --client-secret "<client-secret>" \
@@ -101,7 +101,7 @@ Use the following command to assign a public endpoint using the Azure CLI:
 ```azurecli
 az spring dev-tool update \
     --resource-group <resource-group-name> \
-    --name <Azure-Spring-Apps-service-instance-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
     --assign-endpoint
 ```
 

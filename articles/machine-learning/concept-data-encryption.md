@@ -10,7 +10,8 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 12/20/2022
+ms.date: 03/07/2023
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # Data encryption with Azure Machine Learning
@@ -90,6 +91,7 @@ For an example of creating a workspace using an existing Azure Container Registr
 * [Create a workspace with Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace).
 * [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md)
 
+:::moniker range="azureml-api-1"
 ### Azure Container Instance
 
 > [!IMPORTANT]
@@ -112,6 +114,7 @@ For more information on creating and using a deployment configuration, see the f
 * [Where and how to deploy](./v1/how-to-deploy-and-where.md)
 
 For more information on using a customer-managed key with ACI, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md).
+:::moniker-end
 
 ### Azure Kubernetes Service
 
@@ -128,6 +131,8 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no jobs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption is not enabled for workspaces by default. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, then the OS disk is encrypted. 
 
 Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, the temporary disk is encrypted. This environment is short-lived (only during your job,) and encryption support is limited to system-managed keys only.
+
+Managed online endpoint and batch endpoint use machine learning compute in the backend, and follows the same encryption mechanism.
 
 **Compute instance**
 The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, the local OS and temporary disks on compute instance are encrypted with Microsoft managed keys. Customer managed key encryption is not supported for OS and temporary disks.
@@ -155,7 +160,9 @@ You may also want to encrypt [diagnostic information logged from your deployed e
 
 Azure Machine Learning uses TLS to secure internal communication between various Azure Machine Learning microservices. All Azure Storage access also occurs over a secure channel.
 
+:::moniker range="azureml-api-1"
 To secure external calls made to the scoring endpoint, Azure Machine Learning uses TLS. For more information, see [Use TLS to secure a web service through Azure Machine Learning](./v1/how-to-secure-web-service.md).
+:::moniker-end
 
 ## Data collection and handling
 
@@ -181,8 +188,15 @@ Each workspace has an associated system-assigned managed identity that has the s
 
 ## Next steps
 
-* [Connect to Azure storage](how-to-access-data.md)
-* [Get data from a datastore](how-to-create-register-datasets.md)
+:::moniker range="azureml-api-2"
+* [Use datastores](how-to-datastore.md)
+* [Create data assets](how-to-create-data-assets.md)
+* [Access data in a training job](how-to-read-write-data-v2.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
+* [Connect to Azure storage](./v1/how-to-access-data.md)
+* [Get data from a datastore](./v1/how-to-create-register-datasets.md)
 * [Connect to data](v1/how-to-connect-data-ui.md)
 * [Train with datasets](v1/how-to-train-with-datasets.md)
-* [Customer-managed keys](concept-customer-managed-keys.md).
+:::moniker-end
+* [Customer-managed keys](concept-customer-managed-keys.md)

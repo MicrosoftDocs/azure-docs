@@ -1,6 +1,7 @@
 ---
 author: mumian
 ms.service: azure-resource-manager
+ms.custom: devx-track-bicep
 ms.topic: include
 ms.date: 09/16/2022
 ms.author: jgao

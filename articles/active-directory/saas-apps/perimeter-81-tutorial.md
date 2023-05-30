@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Perimeter 81 | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Perimeter 81'
 description: Learn how to configure single sign-on between Azure Active Directory and Perimeter 81.
 services: active-directory
 author: jeevansd

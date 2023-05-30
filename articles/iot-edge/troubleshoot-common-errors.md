@@ -115,6 +115,49 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
 
 Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
 
+### Edge Agent module with LTE connection reports 'empty edge agent config' and causes 'transient network error'
+
+#### Symptoms
+
+A device configured with LTE connection is having issues starting modules defined in the deployment. The *edgeAgent* isn't able to connect to the IoT Hub and reports *empty edge agent config* and *transient network error occurred.*
+
+#### Cause
+
+Some networks have packet overhead, which makes the default docker network MTU (1500) too high and causes packet fragmentation preventing access to external resources.
+
+#### Solution
+
+1. Check the MTU setting for your docker network. 
+    
+   `docker network inspect <network name>`
+
+1. Check the MTU setting for the physical network adaptor on your device.
+   
+    `ip addr show eth0`
+
+>[!NOTE]
+>The MTU for the docker network cannot be higher than the MTU for your device. Contact your ISP for more information.
+
+If you see a different MTU size for your docker network and the device, try the following workaround:
+
+1. Create a new network. For example,
+
+    `docker network create --opt com.docker.network.driver.mtu=1430 test-mtu`
+
+    In the example, the MTU setting for the device is 1430. Hence, the MTU for the Docker network is set to 1430.
+
+1. Stop and remove the Azure network.
+
+    `docker network rm azure-iot-edge`
+
+1. Recreate the Azure network.
+
+   `docker network create --opt com.docker.network.driver.mtu=1430 azure-iot-edge`
+
+1. Remove all containers and restart the *aziot-edged* service.
+
+   `sudo iotedge system stop && sudo docker rm -f $(docker ps -aq -f "label=net.azure-devices.edge.owner=Microsoft.Azure.Devices.Edge.Agent") && sudo iotedge config apply`
+
 ### IoT Edge agent can't access a module's image (403)
 
 #### Symptoms

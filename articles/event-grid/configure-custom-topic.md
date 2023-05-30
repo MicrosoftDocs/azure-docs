@@ -14,7 +14,7 @@ This article shows how to update or configure a custom topic or a domain in Azur
 1. Sign in to [Azure portal](https://portal.azure.com/).
 2. In the search bar at the top, type **Event Grid Topics**, and then select **Event Grid Topics** from the drop-down list. If you are configuring a domain, search for **Event Grid Domains**. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Screenshot showing the Azure port search bar to search for Event Grid topics.":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-topics.png" alt-text="Screenshot showing the Azure port search bar to search for Event Grid topics.":::
 3. On the **Event Grid Topics** or **Event Grid Domains** page, select your topic or domain. 
 
     :::image type="content" source="./media/configure-custom-topic/select-topic.png" alt-text="Screenshot showing the selection of the topic in the list of Event Grid topics.":::
@@ -70,7 +70,7 @@ You can use similar steps to enable an identity for an Event Grid domain.
 1. On the left menu, select **Configuration** under **Settings**.
 1. 2. For **Data residency**, select whether you don't want any data to be replicated to another region (**Regional**) or you want the metadata to be replicated to a predefined secondary region (**Cross-Geo**). 
 
-    The **Cross-Geo** option allows Microsoft-initiated failover to the paired region in case of a region failure. For more information, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md). Microsoft-initiated failover is exercised by Microsoft in rare situations to fail over Event Grid resources from an affected region to the corresponding geo-paired region. This process doesn't require an intervention from user. Microsoft reserves right to make a determination of when this path will be taken. The mechanism doesn't involve a user consent before the user's topic or domain is failed over. For more information, see [How do I recover from a failover?](./event-grid-faq.yml).
+    The **Cross-Geo** option allows Microsoft-initiated failover to the paired region in case of a region failure. For more information, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md). Microsoft-initiated failover is exercised by Microsoft in rare situations to fail over Event Grid resources from an affected region to the corresponding geo-paired region. This process doesn't require an intervention from user. Microsoft reserves right to make a determination of when this path will be taken. The mechanism doesn't involve a user consent before the user's topic or domain is failed over. For more information, see [How do I recover from a failover?](./faq.yml).
 
     If you select the **Regional** option, you may define your own disaster recovery plan. 
 

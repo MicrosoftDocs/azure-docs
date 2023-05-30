@@ -22,6 +22,7 @@ The following considerations apply when using a warmup trigger:
 * There can be only one warmup trigger function per function app, and it can't be invoked after the instance is already running.
 * The warmup trigger is only called during scale-out operations, not during restarts or other non-scale startups. Make sure your logic can load all required dependencies without relying on the warmup trigger. Lazy loading is a good pattern to achieve this goal.
 * Dependencies created by warmup trigger should be shared with other functions in your app. To learn more, see [Static clients](manage-connections.md#static-clients).
+* If the [built-in authentication](../app-service/overview-authentication-authorization.md) (aka Easy Auth) is used, [HTTPS Only](../app-service/configure-ssl-bindings.md#enforce-https) should be enabled for the warmup trigger to get invoked.
 
 ## Example
 
@@ -251,7 +252,7 @@ The following considerations apply to using a warmup function in C#:
 
 # [Isolated process](#tab/isolated-process)
 
-- Your function must be named `warmup` (case-insensitive) using the `FunctionName` attribute.
+- Your function must be named `warmup` (case-insensitive) using the `Function` attribute.
 - A return value attribute isn't required.
 - You can pass an object instance to the function.
 

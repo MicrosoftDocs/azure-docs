@@ -38,6 +38,9 @@ To quickly see SSPR in action and then come back to understand additional deploy
 > [!div class="nextstepaction"]
 > [Enable self-service password reset (SSPR)](tutorial-enable-sspr.md)
 
+> [!TIP]
+> As a companion to this article, we recommend using the [Plan your self-service password reset deployment guide](https://go.microsoft.com/fwlink/?linkid=2221501) when signed in to the Microsoft 365 Admin Center. This guide will customize your experience based on your environment. To review best practices without signing in and activating automated setup features, go to the [M365 Setup portal](https://go.microsoft.com/fwlink/?linkid=2221600). 
+
 ## Learn about SSPR
 
 Learn more about SSPR. See [How it works: Azure AD self-service password reset](./concept-sspr-howitworks.md).
@@ -68,6 +71,9 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 
 * An account with Global Administrator privileges.
 
+### Guided walkthrough
+
+For a guided walkthrough of many of the recommendations in this article, see the [Plan your self-service password reset deployment](https://go.microsoft.com/fwlink/?linkid=2221501) guide when signed in to the Microsoft 365 Admin Center.  To review best practices without signing in and activating automated setup features, go to the [M365 Setup portal](https://go.microsoft.com/fwlink/?linkid=2221600).
 
 ### Training resources
 
@@ -194,6 +200,7 @@ Configure both the **Notify users on password resets** and the **Notify all admi
 > - Public: msonlineservicesteam@microsoft.com
 > - China: msonlineservicesteam@oe.21vianet.com 
 > - Government: msonlineservicesteam@azureadnotifications.us
+> 
 > If you observe issues in receiving notifications, please check your spam settings. 
 
 ### Customization settings
@@ -254,7 +261,7 @@ You can also refer to [Complete out an Azure AD self-service password reset pilo
 
 ### Plan support
 
-While SSPR does not typically create user issues, it is important to prepare support staff to deal with issues that may arise. While an administrator can reset the password for end users through the Azure AD portal, it is better to help resolve the issue via a self-service support process.
+While SSPR does not typically create user issues, it is important to prepare support staff to deal with issues that may arise. While an administrator can reset the password for end users through the Azure portal, it is better to help resolve the issue via a self-service support process.
 
 To enable your support team's success, you can create a FAQ based on questions you receive from your users. Here are a few examples:
 

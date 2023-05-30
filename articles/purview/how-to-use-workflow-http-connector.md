@@ -5,9 +5,9 @@ author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-workflows
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 09/30/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Workflows HTTP connector

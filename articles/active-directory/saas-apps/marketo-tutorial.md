@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Marketo | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory SSO integration with Marketo'
 description: Learn how to configure single sign-on between Azure Active Directory and Marketo.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 05/12/2023
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Marketo
+# Tutorial: Azure Active Directory SSO integration with Marketo
 
 In this tutorial, you learn how to integrate Marketo with Azure Active Directory (Azure AD).
 Integrating Marketo with Azure AD provides you with the following benefits:
@@ -25,19 +25,19 @@ Integrating Marketo with Azure AD provides you with the following benefits:
 
 To configure Azure AD integration with Marketo, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Marketo single sign-on enabled subscription
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Marketo single sign-on enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Marketo supports **IDP** initiated SSO
+* Marketo supports **IDP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Adding Marketo from the gallery
+## Add Marketo from the gallery
 
 To configure the integration of Marketo into Azure AD, you need to add Marketo from the gallery to your list of managed SaaS apps.
 
@@ -48,7 +48,7 @@ To configure the integration of Marketo into Azure AD, you need to add Marketo f
 1. In the **Add from the gallery** section, type **Marketo** in the search box.
 1. Select **Marketo** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
- Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Marketo
 
@@ -64,7 +64,7 @@ To configure and test Azure AD single sign-on with Marketo, perform the followin
     1. **[Create Marketo test user](#create-marketo-test-user)** - to have a counterpart of Britta Simon in Marketo that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -74,7 +74,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** text box, type the URL:
     `https://saml.marketo.com/sp`
@@ -88,17 +88,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Reply URL and Relay State. Contact [Marketo Client support team](https://investors.marketo.com/contactus.cfm) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+1. Your Marketo application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Marketo expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
+
+	![Screenshot shows the image of token attributes configuration.](common/default-attributes.png "Attributes")
+
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-6. On the **Set up Marketo** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set up Marketo** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user 
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you create a test user in the Azure portal called B.Simon.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
@@ -110,7 +114,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Marketo.
+In this section, you enable B.Simon to use Azure single sign-on by granting access to Marketo.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Marketo**.
@@ -216,27 +220,27 @@ In this section, you create a user called Britta Simon in Marketo. follow these 
    
     ![test user1](./media/marketo-tutorial/tutorial_marketo_06.png) 
 
-3. Navigate to the **Security** menu and click **Users & Roles**
+3. Navigate to the **Security** menu and click **Users & Roles**.
    
     ![test user2](./media/marketo-tutorial/tutorial_marketo_19.png)  
 
-4. Click the **Invite New User** link on the Users tab
+4. Click the **Invite New User** link on the Users tab.
    
     ![test user3](./media/marketo-tutorial/tutorial_marketo_15.png) 
 
-5. In the Invite New User wizard fill the following information
+5. In the Invite New User wizard, fill the following information.
    
     a. Enter the user **Email** address in the textbox
    
     ![test user4](./media/marketo-tutorial/tutorial_marketo_16.png)
    
-    b. Enter the **First Name** in the textbox
+    b. Enter the **First Name** in the textbox.
    
-    c. Enter the **Last Name**  in the textbox
+    c. Enter the **Last Name**  in the textbox.
    
-    d. Click **Next**
+    d. Click **Next**.
 
-6. In the **Permissions** tab, select the **userRoles** and click **Next**
+6. In the **Permissions** tab, select the **userRoles** and click **Next**.
    
     ![test user5](./media/marketo-tutorial/tutorial_marketo_17.png)
 7. Click the **Send** button to send the user invitation
@@ -245,7 +249,7 @@ In this section, you create a user called Britta Simon in Marketo. follow these 
 
 8. User receives the email notification and has to click the link and change the password to activate the account. 
 
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 

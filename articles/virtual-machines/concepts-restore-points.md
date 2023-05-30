@@ -55,7 +55,6 @@ The following table summarizes the support matrix for VM restore points.
 **Minimum Frequency at which [crash consistent restore points (preview)](https://github.com/Azure/Virtual-Machine-Restore-Points/tree/main/Crash%20consistent%20VM%20restore%20points%20(preview)) can be taken** | 1 hour
 
 > [!Note]
-
 > Restore Points (App consistent or crash consistent) can be created by customer at the minimum supported frequency as mentioned above. Taking restore points at a frequency lower than supported would result in failure.
 
 ## Operating system support

@@ -134,6 +134,61 @@
             "source_path_from_root": "/articles/virtual-desktop/powershell-module.md",
             "redirect_url": "/azure/virtual-desktop/cli-powershell",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/deploy-azure-ad-joined-vm.md",
+            "redirect_url": "/azure/virtual-desktop/azure-ad-joined-session-hosts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/configure-vm-gpu.md",
+            "redirect_url": "/azure/virtual-desktop/enable-gpu-acceleration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/create-validation-host-pool.md",
+            "redirect_url": "/azure/virtual-desktop/configure-validation-environment",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/expand-existing-host-pool.md",
+            "redirect_url": "/azure/virtual-desktop/add-session-hosts-host-pool",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/create-host-pools-azure-marketplace.md",
+            "redirect_url": "/azure/virtual-desktop/create-host-pool",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/create-host-pools-powershell.md",
+            "redirect_url": "/azure/virtual-desktop/create-host-pool",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/deploy-windows-server-virtual-machine.md",
+            "redirect_url": "/azure/virtual-desktop/add-session-hosts-host-pool",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/environment-setup.md",
+            "redirect_url": "/azure/virtual-desktop/terminology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/app-attach-image-prep.md",
+            "redirect_url": "/azure/virtual-desktop/msix-app-attach-create-msix-image",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/app-attach-msixmgr.md",
+            "redirect_url": "/azure/virtual-desktop/msix-app-attach-create-msix-image",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/fslogix-office-app-rule-editor.md",
+            "redirect_url": "/azure/virtual-desktop/install-office-on-wvd-master-image",
+            "redirect_document_id": false
         }
     ]
 }

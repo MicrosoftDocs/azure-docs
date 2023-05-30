@@ -1,5 +1,5 @@
 ---
-title: Bulk delete users in the Azure Active Directory portal | Microsoft Docs
+title: Bulk delete users in the Azure portal
 description: Delete users in bulk in the Azure admin center in Azure Active Directory 
 services: active-directory 
 author: barclayn
@@ -38,8 +38,8 @@ The rows in a downloaded CSV template are as follows:
 
 ## To bulk delete users
 
-1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
-1. In Azure AD, select **Users** > **Bulk operations** > **Bulk delete**.
+1. [Sign in to the Azure portal](https://portal.azure.com) with an account that is a User Administrator in the organization.
+1. Browse to **Azure Active Directory** > **Users** > **Bulk operations** > **Bulk delete**.
 1. On the **Bulk delete user** page, select **Download** to download the latest version of the CSV template.
 1. Open the CSV file and add a line for each user you want to delete. The only required value is **User principal name**. Save the file.
 1. On the **Bulk delete user** page, under **Upload your csv file**, browse to the file. When you select the file and click submit, validation of the CSV file starts.

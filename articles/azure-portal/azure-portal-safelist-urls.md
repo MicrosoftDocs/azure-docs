@@ -1,7 +1,7 @@
 ---
 title: Allow the Azure portal URLs on your firewall or proxy server
 description: To optimize connectivity between your network and the Azure portal and its services, we recommend you add these URLs to your allowlist.
-ms.date: 10/12/2022
+ms.date: 05/18/2023
 ms.topic: conceptual
 ---
 
@@ -20,7 +20,14 @@ You can use [service tags](../virtual-network/service-tags-overview.md) to defin
 
 The URL endpoints to allow for the Azure portal are specific to the Azure cloud where your organization is deployed. To allow network traffic to these endpoints to bypass restrictions, select your cloud, then add the list of URLs to your proxy server or firewall. We do not recommend adding any additional portal-related URLs aside from those listed here, although you may want to add URLs related to other Microsoft products and services. Depending on which services you use, you may not need to include all of these URLs in your allowlist.
 
+> [!NOTE]
+> Including the wildcard symbol (\*) at the start of an endpoint will allow all subdomains. Avoid adding a wildcard symbol to endpoints listed here that don't already include one. Instead, if you identify additional subdomains of an endpoint that are needed for your particular scenario, we recommend that you allow only that particular subdomain. 
+
 ### [Public Cloud](#tab/public-cloud)
+
+> [!TIP]
+> The service tags required to access the Azure portal (including authentication and resource listing) are **AzureActiveDirectory**, **AzureResourceManager**, and **AzureFrontDoor.Frontend**. Access to other services may require additional permissions, as described below.  
+> However, there is a possibility that unnecessary communication other than communication to access the portal may also be allowed. If granular control is required, FQDN-based access control such as Azure Firewall is required.
 
 #### Azure portal authentication
 
@@ -56,7 +63,7 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 *.subscriptionrp.trafficmanager.net
 *.signup.azure.com
 ```
- 
+
 #### General Azure services and documentation
 
 ```
@@ -69,6 +76,7 @@ ad.azure.com (Azure AD)
 adf.azure.com (Azure Data Factory)
 api.aadrm.com (Azure AD)
 api.loganalytics.io (Log Analytics Service)
+api.azrbac.mspim.azure.com (Azure AD)
 *.applicationinsights.azure.com (Application Insights Service)
 appservice.azure.com (Azure App Services)
 *.arc.azure.net (Azure Arc)
@@ -76,6 +84,7 @@ asazure.windows.net (Analysis Services)
 bastion.azure.com (Azure Bastion Service)
 batch.azure.com (Azure Batch Service)
 catalogapi.azure.com (Azure Marketplace)
+catalogartifact.azureedge.net (Azure Marketplace)
 changeanalysis.azure.com (Change Analysis)
 cognitiveservices.azure.com (Cognitive Services)
 config.office.com (Microsoft Office)

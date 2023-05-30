@@ -6,10 +6,9 @@ ms.author: saraic
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
-ms.workload: infrastructure
-ms.date: 07/18/2022
+ms.custom: devx-track-azurepowershell
+ms.date: 04/18/2023
 ms.reviewer: cynthn
-
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 # Store and share images in an Azure Compute Gallery
@@ -35,7 +34,7 @@ When you use a gallery to store images, multiple resource types are created:
 
 ## Image definitions
 
-Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created, what OS it is for, and other information about using the image. An image definition is like a plan for all of the details around creating a specific image. You don't deploy a VM from an image definition, but from the image versions created from the definition.
+Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created and also contains Image metadata such as, what OS it is for, features it supports and other information about using the image. An image definition is like a plan for all of the details around creating a specific image. You don't deploy a VM from an image definition, but from the image versions created from the definition.
 
 There are three parameters for each image definition that are used in combination - **Publisher**, **Offer** and **SKU**. These are used to find a specific image definition. You can have image versions that share one or two, but not all three values.  For example, here are three image definitions and their values:
 
@@ -65,6 +64,23 @@ The following are other parameters that can be set on your image definition so t
 - Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
 - Purchase plan information for Marketplace images - `-PurchasePlanPublisher`, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](./windows/cli-ps-findimage.md) and [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).
 
+Image definition contains metadata of the image to allow grouping of images that support same features, plan, os state., os type etc. Some of the features, securitytype can be defined 
+
+-Features
+ - Accelerated Networking: Image supports Accelerated Networking
+
+-Architecture
+ - x64 or ARM64 [Architecture](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
+
+-SecurityType
+ - TrustedLaunch - Image is capable of creating Trusted VMs 
+ - TrustedLaunchSupported - Image capable of creating either a Gen2 VM (or) Trusted Launch VM
+ - [Confidential VM](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-images) - Image capable of creating Confidential VMs
+ - [ConfidentialVMSupported](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-supported-images) - Image capable of creating either a Gen2 VM (or) Confidential VM
+ - TrustedLaunchAndConfidentialVmSupported - Image capable of creating a Gen 2 VM (or) [Trusted VM](trusted-launch.md) (or) Confidential VM
+
+-Examples
+ - CLI examples for adding [Image Definition features](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
 
 ## Image versions
 
@@ -111,15 +127,13 @@ Image version:
 
 ## Sharing
 
-There are three main ways to share an Azure Compute Gallery, depending on who you want to share with:
+There are three main ways to share images an Azure Compute Gallery, depending on who you want to share with:
 
-| Share with\: | Option |
-|----|----|
-|[Specific people, groups, or service principals](./share-gallery.md) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](./share-gallery-direct.md) | A direct shared gallery (preview) lets you share to everyone in a subscription or tenant. |
-| [Everyone](./share-gallery-community.md) | Community gallery (preview) lets you share your entire gallery publicly, to all Azure users. |
-
-
+| Sharing with: | People | Groups | Service Principal | All users in a specific subscription (or) tenant | Publicly with all users in Azure |
+|---|---|---|---|---|---|
+| [RBAC Sharing](./share-gallery.md) | Yes | Yes | Yes | No | No |
+| RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
+| RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
 
 ## Shallow replication 
 
@@ -233,7 +247,7 @@ No, you may replicate the image versions across regions in a subscription and us
 
 ### Can I share image versions across Azure AD tenants? 
 
-Yes, you can use RBAC to share to individuals across tenants. But, to share at scale, see "Share gallery images across Azure tenants" using [PowerShell](./windows/share-images-across-tenants.md) or [CLI](./linux/share-images-across-tenants.md).
+Yes, you can use RBAC to share to individuals across tenants. But, to share at scale, see "Share gallery images across Azure tenants" using [PowerShell](share-gallery.md?tabs=powershell) or [CLI](share-gallery.md?tabs=cli).
 
 ### How long does it take to replicate image versions across the target regions?
 

@@ -1,5 +1,5 @@
 ---
-title: Use additional context in Microsoft Authenticator notifications - Azure Active Directory
+title: Use additional context in Microsoft Authenticator notifications
 description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
@@ -165,7 +165,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 #### Example of how to enable application name and geographic location for separate groups
  
 In **featureSettings**, change **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **default** to **enabled.** 
-Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
+Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure portal.
 
 You need to PATCH the entire schema to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The following example shows an update to **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
 
@@ -222,7 +222,7 @@ GET https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationM
 #### Example of how to disable application name and only enable geographic location 
  
 In **featureSettings**, change the state of **displayAppInformationRequiredState** to **default** or **disabled** and **displayLocationInformationRequiredState** to **enabled.** 
-Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
+Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure portal.
 
 You need to PATCH the entire schema to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The following example shows an update to **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
 
@@ -273,9 +273,9 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 #### Example of how to exclude a group from application name and geographic location 
  
 In **featureSettings**, change the states of **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **default** to **enabled.** 
-Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
+Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure portal.
 
-In addition, for each of the features, you'll change the id of the excludeTarget to the ObjectID of the group from the Azure AD portal. This change excludes that group from seeing application name or geographic location.
+In addition, for each of the features, you'll change the id of the excludeTarget to the ObjectID of the group from the Azure portal. This change excludes that group from seeing application name or geographic location.
 
 You need to PATCH the entire schema to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The following example shows an update to **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
 
@@ -410,9 +410,9 @@ To turn off additional context, you'll need to PATCH **displayAppInformationRequ
 
 ## Enable additional context in the portal
 
-To enable application name or geographic location in the Azure AD portal, complete the following steps:
+To enable application name or geographic location in the Azure portal, complete the following steps:
 
-1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
+1. In the Azure portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
 1. On the **Basics** tab, click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Any**. 
    
    Only users who are enabled for Microsoft Authenticator here can be included in the policy to show the application name or geographic location of the sign-in, or excluded from it. Users who aren't enabled for Microsoft Authenticator can't see application name or geographic location.

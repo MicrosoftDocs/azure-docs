@@ -2,6 +2,7 @@
 title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 11/04/2022
 ---
 

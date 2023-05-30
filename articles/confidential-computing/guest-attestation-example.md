@@ -6,7 +6,7 @@ ms.author: reprasa
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 04/11/2023
 ms.custom: template-concept, ignite-2022
 ---
  
@@ -21,12 +21,13 @@ Depending on your [type of scenario](guest-attestation-confidential-vms.md#scena
 ## Prerequisites
 
 - An Azure subscription.
-- An Azure [confidential VM](quick-create-confidential-vm-portal-amd.md) or a [VM with trusted launch enabled](../virtual-machines/trusted-launch-portal.md). You can use a Linux or Windows VM.
+- An Azure [confidential VM](quick-create-confidential-vm-portal-amd.md) or a [VM with trusted launch enabled](../virtual-machines/trusted-launch-portal.md). You can use a Ubuntu Linux VM or Windows VM.
+
 ## Use sample application
 
 To use a sample application in C++ for use with the guest attestation APIs, follow the instructions for your operating system (OS).
 
-#### [Linux](#tab/linux)
+#### [Ubuntu](#tab/linux)
 
 1. Sign in to your VM.
 
@@ -65,7 +66,6 @@ To use a sample application in C++ for use with the guest attestation APIs, foll
 1. Run the application by running the `AttestationClientApp.exe`.
 
 ---
-
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Palo Alto Networks - Aperture | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Palo Alto Networks - Aperture'
 description: Learn how to configure single sign-on between Azure Active Directory and Palo Alto Networks - Aperture.
 services: active-directory
 author: jeevansd

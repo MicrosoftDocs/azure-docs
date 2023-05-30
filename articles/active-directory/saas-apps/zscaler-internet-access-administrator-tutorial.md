@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory integration with Zscaler Internet Access Administrator | Microsoft Docs"
+title: "Tutorial: Azure Active Directory integration with Zscaler Internet Access Administrator"
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler Internet Access Administrator.
 services: active-directory
 author: jeevansd

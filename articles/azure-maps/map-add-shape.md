@@ -84,7 +84,7 @@ The Polygon layer only has a few styling options. Here is a tool to try them out
 
 ## Add a circle to the map
 
-Azure Maps uses an extended version of the GeoJSON schema that provides a definition for circles, as noted [here](extend-geojson.md#circle). A circle is rendered on the map by creating a `Point` feature. This `Point` has a `subType` property with a value of `"Circle"` and a `radius` property with a number that represents the radius in meters. 
+Azure Maps uses an extended version of the GeoJSON schema that provides a [definition for circles](extend-geojson.md#circle). A circle is rendered on the map by creating a `Point` feature. This `Point` has a `subType` property with a value of `"Circle"` and a `radius` property with a number that represents the radius in meters.
 
 ```javascript
 {

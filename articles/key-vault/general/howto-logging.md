@@ -37,11 +37,6 @@ To complete this tutorial, you'll need an Azure key vault. You can create a new 
 
 You'll also need a destination for your logs.  The destination can be an existing or new Azure storage account and/or Log Analytics workspace.
 
-> [!IMPORTANT]
-> If you use an existing Azure storage account or Log Analytics workspace, it must be in the same subscription as your key vault. It must also use the Azure Resource Manager deployment model, rather than the classic deployment model.
->
-> If you create a new Azure storage account or Log Analytics workspace, we recommend you create it in the same resource group as your key vault, for ease of management.
-
 You can create a new Azure storage account using one of these methods:
   - [Create a storage account using the Azure CLI](../../storage/common/storage-account-create.md?tabs=azure-cli)
   - [Create a storage account using Azure PowerShell](../../storage/common/storage-account-create.md?tabs=azure-powershell)
@@ -176,7 +171,7 @@ But first, download all the blobs. With the Azure CLI, use the [az storage blob 
 az storage blob download --container-name "insights-logs-auditevent" --file <path-to-file> --name "<blob-name>" --account-name "<your-unique-storage-account-name>"
 ```
 
-With Azure PowerShell, use the [Gt-AzStorageBlobs](/powershell/module/az.storage/get-azstorageblob) cmdlet to get a list of the blobs. Then pipe that list to the [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet to download the logs to your chosen path.
+With Azure PowerShell, use the [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) cmdlet to get a list of the blobs. Then pipe that list to the [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet to download the logs to your chosen path.
 
 ```powershell-interactive
 $blobs = Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"

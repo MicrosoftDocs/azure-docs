@@ -2,16 +2,12 @@
 title: "Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline in Azure Data Studio"
 titleSuffix: Azure Database Migration Service
 description: Learn how to migrate on-premises SQL Server to Azure SQL Managed Instance offline by using Azure Data Studio and Azure Database Migration Service.
-services: dms
 author: croblesm
 ms.author: roblescarlos
-manager: 
-ms.reviewer: 
-ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
-ms.topic: tutorial
 ms.date: 01/26/2023
+ms.service: dms
+ms.topic: tutorial
+ms.custom: seo-lt-2019
 ---
 
 # Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline in Azure Data Studio
@@ -69,7 +65,7 @@ Before you begin the tutorial:
 
 - Ensure that the service account that's running the source SQL Server instance has read and write permissions on the SMB network share that contains database backup files.
 
-- If you're migrating a database that's protected by Transparent Data Encryption (TDE), the certificate from the source SQL Server instance must be migrated to your target managed instance before you restore the database. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](/azure/dms/tutorial-transparent-data-encryption-migration-ads).
+- If you're migrating a database that's protected by Transparent Data Encryption (TDE), the certificate from the source SQL Server instance must be migrated to your target managed instance before you restore the database. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](./tutorial-transparent-data-encryption-migration-ads.md).
 
     > [!TIP]
     > If your database contains sensitive data that's protected by [Always Encrypted](/sql/relational-databases/security/encryption/configure-always-encrypted-using-sql-server-management-studio), the migration process automatically migrates your Always Encrypted keys to your target managed instance.

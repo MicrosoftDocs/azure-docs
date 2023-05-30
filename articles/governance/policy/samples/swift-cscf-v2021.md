@@ -4,8 +4,8 @@ description: "Details of the [Preview]: SWIFT CSCF v2021 Regulatory Compliance b
 ms.date: 05/12/2022
 ms.topic: sample
 ms.custom: generated
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Details of the SWIFT CSP v2021 Regulatory Compliance built-in initiative
 

@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/29/2023
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints for my Microsoft Purview account, for secure access.
 ---
 
@@ -186,7 +186,8 @@ If you do not use DNS forwarders and instead you manage A records directly in yo
 | `datasource.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Microsoft Purview\> |
 | `policy.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Microsoft Purview\> |
 | `sensitivity.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Microsoft Purview\> |
-
+| `web.privatelink.purviewstudio.azure.com` | A | \<portal private endpoint IP address of Microsoft Purview\> |
+| `workflow.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Microsoft Purview\> |
 
 ## Verify and DNS test name resolution and connectivity 
 

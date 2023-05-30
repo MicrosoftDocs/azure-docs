@@ -2,7 +2,7 @@
 title: Azure Blob storage trigger for Azure Functions
 description: Learn how to run an Azure Function as Azure Blob storage data changes.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 04/16/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -12,24 +12,27 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 The Blob storage trigger starts a function when a new or updated blob is detected. The blob contents are provided as [input to the function](./functions-bindings-storage-blob-input.md).
 
-There are several ways to execute your function code based on changes to blobs in a storage container. Use the following table to determine which function trigger best fits your needs:
-
-| Consideration | Blob Storage (standard) | Blob Storage (event-based) | Queue Storage | Event Grid | 
-| ----- | ----- | ----- | ----- | ---- |
-| Latency | High (up to 10 min) | Low | Medium  | Low | 
-| [Storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts) limitations | Blob-only accounts not supported¹  | general purpose v1 not supported  | none | general purpose v1 not supported |
-| Extension version |Any | Storage v5.x+ |Any |Any |
-| Processes existing blobs | Yes | No | No | No |
-| Filters | [Blob name pattern](#blob-name-patterns)  | [Event filters](../storage/blobs/storage-blob-event-overview.md#filtering-events) | n/a | [Event filters](../storage/blobs/storage-blob-event-overview.md#filtering-events) |
-| Requires [event subscription](../event-grid/concepts.md#event-subscriptions) | No | Yes | No | Yes |
-| Supports high-scale² | No | Yes | Yes | Yes |
-| Description | Default trigger behavior, which relies on polling the container for updates. For more information, see the [examples in this article](#example). | Consumes blob storage events from an event subscription. Requires a `Source` parameter value of `EventGrid`. For more information, see [Tutorial: Trigger Azure Functions on blob containers using an event subscription](./functions-event-grid-blob-trigger.md). | Blob name string is manually added to a storage queue when a blob is added to the container. This value is passed directly by a Queue Storage trigger to a Blob Storage input binding on the same function. | Provides the flexibility of triggering on events besides those coming from a storage container. Use when need to also have non-storage events trigger your function. For more information, see [How to work with Event Grid triggers and bindings in Azure Functions](event-grid-how-tos.md). |
-
-<sup>1</sup> Blob Storage input and output bindings support blob-only accounts.
-
-<sup>2</sup> High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
+> [!TIP] 
+> There are several ways to execute your function code based on changes to blobs in a storage container, and the Blob storage trigger might not be the best option. To learn more about alternate triggering options, see [Working with blobs](./storage-considerations.md#working-with-blobs).
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md). 
+
+::: zone pivot="programming-language-python"  
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models. 
+
+> [!IMPORTANT]   
+> The Python v2 programming model is currently in preview.  
+::: zone-end   
 
 ## Example
 
@@ -193,8 +196,29 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example shows a blob trigger binding in a *function.json* file and [Python code](functions-reference-python.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+The following example shows a blob trigger binding. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
+# [v2](#tab/python-v2)
+
+```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.function_name(name="BlobTrigger1")
+@app.blob_trigger(arg_name="myblob", 
+                  path="PATH/TO/BLOB",
+                  connection="CONNECTION_SETTING")
+def test_function(myblob: func.InputStream):
+   logging.info(f"Python blob trigger function processed blob \n"
+                f"Name: {myblob.name}\n"
+                f"Blob Size: {myblob.length} bytes")
+```
+
+# [v1](#tab/python-v1)
+
+The function writes a log when a blob is added or updated in the `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 Here's the *function.json* file:
 
 ```json
@@ -229,6 +253,9 @@ def main(myblob: func.InputStream):
 ```
 
 ::: zone-end  
+
+---
+
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
@@ -282,6 +309,21 @@ C# script uses a *function.json* file for configuration instead of attributes.
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ::: zone-end  
+::: zone pivot="programming-language-python"
+## Decorators
+
+_Applies only to the Python v2 programming model._
+
+For Python v2 functions defined using decorators, the following properties on the `blob_trigger` decorator define the Blob Storage trigger:
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`arg_name`       | Declares the parameter name in the function signature. When the function is triggered, this parameter's value has the contents of the queue message. |
+|`path`  | The [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) to monitor.  May be a [blob name pattern](#blob-name-patterns). |
+|`connection` | The storage account connection string. |
+
+For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+::: zone-end
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
@@ -289,7 +331,13 @@ The `@BlobTrigger` attribute is used to give you access to the blob that trigger
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
+::: zone-end
 
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model._
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
 |function.json property |Description|

@@ -32,9 +32,9 @@ If all of these conditions aren't true, then you can use DCR-based log collectio
 ## Migration procedure
 If the table that you're targeting with DCR-based log collection fits the criteria above, then you must perform the following steps:
 
-1. Configure your data collection rule (DCR) following procedures at [Send custom logs to Azure Monitor Logs using Resource Manager templates](tutorial-logs-ingestion-api.md) or [Add transformation in workspace data collection rule to Azure Monitor using resource manager templates](tutorial-workspace-transformations-api.md).
+1. Configure your data collection rule (DCR) following procedures at [Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)](tutorial-logs-ingestion-api.md) or [Add transformation in workspace data collection rule to Azure Monitor using Resource Manager templates](tutorial-workspace-transformations-api.md).
 
-1. If using the Logs ingestion API, also [configure the data collection endpoint (DCE)](tutorial-logs-ingestion-api.md#create-a-data-collection-endpoint) and the agent or component that will be sending data to the API.
+1. If using the Logs ingestion API, also [configure the data collection endpoint (DCE)](tutorial-logs-ingestion-api.md#create-data-collection-endpoint) and the agent or component that will be sending data to the API.
 
 1. Issue the following API call against your table. This call is idempotent, so there will be no effect if the table has already been migrated. 
 

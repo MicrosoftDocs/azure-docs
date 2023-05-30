@@ -210,7 +210,7 @@ This workbook enables custom visualization of security-relevant WAF events acros
 
 #### Logging
 
-Application Gateway WAF provides detailed reporting on each threat that it detects. Logging is integrated with Azure Diagnostics logs. Alerts are recorded in the .json format. These logs can be integrated with [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).
+Application Gateway WAF provides detailed reporting on each threat that it detects. Logging is integrated with Azure Diagnostics logs. Alerts are recorded in the .json format. These logs can be integrated with [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
 
 ![Application Gateway diagnostics logs windows](../media/ag-overview/waf2.png)
 
@@ -263,3 +263,4 @@ To learn what's new with Azure Web Application Firewall, see [Azure updates](htt
 - Learn more about [WAF managed rules](application-gateway-crs-rulegroups-rules.md)
 - Learn more about [Custom Rules](custom-waf-rules-overview.md)
 - Learn about [Web Application Firewall on Azure Front Door](../afds/afds-overview.md)
+- [Learn more about Azure network security](../../networking/security/index.yml)

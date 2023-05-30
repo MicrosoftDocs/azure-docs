@@ -40,7 +40,7 @@ The Recurrence trigger is part of the built-in Schedule connector and runs nativ
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md). If you're new to logic apps, learn [how to create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md).
 
 <a name="add-recurrence-trigger"></a>
 
@@ -153,7 +153,7 @@ The Recurrence trigger is part of the built-in Schedule connector and runs nativ
 
    ![Screenshot showing Standard workflow and "Recurrence" trigger with advanced scheduling example.](./media/connectors-native-recurrence/recurrence-trigger-advanced-example-standard.png)
 
-1. Now continue building your workflow with other actions. For more actions that you can add, see [Connectors for Azure Logic Apps](../connectors/apis-list.md).
+1. Now continue building your workflow with other actions.
 
 ## Workflow definition - Recurrence
 
@@ -229,4 +229,5 @@ Otherwise, if you don't select a time zone, daylight saving time (DST) events mi
 ## Next steps
 
 * [Pause workflows with delay actions](../connectors/connectors-native-delay.md)
-* [Connectors for Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)

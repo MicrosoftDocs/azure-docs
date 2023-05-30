@@ -4,15 +4,15 @@ description: In this quickstart, you learn how to create and configure an Azure 
 services: route-server
 author: halkazwini
 ms.author: halkazwini
-ms.date: 07/28/2022
+ms.date: 04/06/2023
 ms.topic: quickstart
 ms.service: route-server
-ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
+ms.custom: template-quickstart, devx-track-azurepowershell, mode-api, engagement-fy23
 ---
 
 # Quickstart: Create and configure Route Server using Azure PowerShell
 
-This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using Azure PowerShell. Route Server will learn routes from your NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, see [Azure Route Server](overview.md).
+This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using Azure PowerShell. Route Server learns routes from your NVA and program them on the virtual machines in the virtual network. Azure Route Server also advertises the virtual network routes to the NVA. For more information, see [Azure Route Server](overview.md).
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure PowerShell." border="false":::
 
@@ -55,7 +55,7 @@ $virtualNetwork = New-AzVirtualNetwork @vnet
 
 ### Add a dedicated subnet
 
-Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or short prefix (such as /26 or /25) or you'll receive an error message when deploying the Route Server. Create a subnet configuration named **RouteServerSubnet** with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
+Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or shorter prefix (such as /26 or /25) or you'll receive an error message when deploying the Route Server. Create a subnet configuration named **RouteServerSubnet** with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
 $subnet = @{
@@ -67,7 +67,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig @subnet
 
 $virtualnetwork | Set-AzVirtualNetwork
 
-$vnetInfo = Get-AzVirtualNetwork -Name myVirtualNetwork
+$vnetInfo = Get-AzVirtualNetwork -Name myVirtualNetwork -ResourceGroupName myRouteServerRG
 $subnetId = (Get-AzVirtualNetworkSubnetConfig -Name RouteServerSubnet -VirtualNetwork $vnetInfo).Id
 ```
 
@@ -104,13 +104,13 @@ $subnetId = (Get-AzVirtualNetworkSubnetConfig -Name RouteServerSubnet -VirtualNe
 
 To establish BGP peering from the Route Server to your NVA use [Add-AzRouteServerPeer](/powershell/module/az.network/add-azrouteserverpeer):
 
-The “your_nva_ip” is the virtual network IP assigned to the NVA. The “your_nva_asn” is the Autonomous System Number (ASN) configured in the NVA. The ASN can be any 16-bit number other than the ones in the range of 65515-65520. This range of ASNs are reserved by Microsoft.
+The `your_nva_ip` is the virtual network IP assigned to the NVA. The `your_nva_asn` is the Autonomous System Number (ASN) configured in the NVA. The ASN can be any 16-bit number other than the ones in the range of 65515-65520. This range of ASNs is reserved by Microsoft.
 
 ```azurepowershell-interactive
 $peer = @{
-    PeerName = 'myNVA"
-    PeerIp = '192.168.0.1'
-    PeerAsn = '65501'
+    PeerName = 'myNVA'
+    PeerIp = 'your_nva_ip'
+    PeerAsn = 'your_nva_asn'
     RouteServerName = 'myRouteServer'
     ResourceGroupName = myRouteServerRG'
 }
@@ -131,16 +131,20 @@ $routeserver = @{
 Get-AzRouteServer @routeserver
 ```
 
-The output will look like the following:
+The output looks like the following:
 
 ``` 
 RouteServerAsn : 65515
 RouteServerIps : {10.5.10.4, 10.5.10.5}
 ```
 
+[!INCLUDE [NVA peering note](../../includes/route-server-note-nva-peering.md)]
+
 ## <a name = "route-exchange"></a>Configure route exchange
 
-If you have an ExpressRoute and an Azure VPN gateway in the same virtual network and you want them to exchange routes, you can enable route exchange on the Azure Route Server.
+If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual network, you can enable *BranchToBranchTraffic* to exchange routes between the gateway and the Route Server.
+
+[!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-gateway.md)]
 
 1. To enable route exchange between Azure Route Server and the gateway(s), use [Update-AzRouteServer](/powershell/module/az.network/update-azrouteserver) with the *-AllowBranchToBranchTraffic* flag:
 

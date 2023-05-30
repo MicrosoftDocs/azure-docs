@@ -6,20 +6,17 @@ author: bashan-git
 manager: sphenry
 services: azure-communication-services
 ms.author: bashan
-ms.date: 04/15/2022
+ms.date: 03/31/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 ---
 # Email pricing in Azure Communication Services
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Prices for Azure Communication Services are generally based on a pay-as-you-go model and Email offers pay-as-you-go pricing as well. The prices in the following examples are for illustrative purposes and may not reflect the latest Azure pricing.
 
 ## Email price
 
- The price is based on number of messages sent to the recipient and amount of data transferred to each recipient which includes headers, message content (including text and images), and attachments. Messages can be sent to one more recipients.
+ The price is based on number of messages sent to the recipient and amount of data transferred to each recipient which includes headers, message content (including text and images), and attachments. Messages can be sent to one or more recipients.
 
 
 |Email Send |Data Transferred|

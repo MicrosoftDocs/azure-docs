@@ -2,6 +2,7 @@
 title: Azure Event Hubs Firewall Rules | Microsoft Docs
 description: Use Firewall Rules to allow connections from specific IP addresses to Azure Event Hubs. 
 ms.topic: article
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 02/15/2023
 ---
 

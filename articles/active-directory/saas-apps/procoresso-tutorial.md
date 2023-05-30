@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Procore SSO | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Procore SSO'
 description: Learn how to configure single sign-on between Azure Active Directory and Procore SSO.
 services: active-directory
 author: jeevansd

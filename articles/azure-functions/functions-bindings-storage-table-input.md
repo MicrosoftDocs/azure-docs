@@ -896,12 +896,13 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 | Element |Description|
 |---------|---------|
-| **[TableInputName](/java/api/com.microsoft.azure.functions.annotation.tableinput.name)** | The name of the table. | 
- **[PartitionKey](/java/api/com.microsoft.azure.functions.annotation.tableinput.partitionkey)** |Optional. The partition key of the table entity to read. | 
-|**[RowKey](/java/api/com.microsoft.azure.functions.annotation.tableinput.rowkey)** | The row key of the table entity to read. | 
-|**[Take](/java/api/com.microsoft.azure.functions.annotation.tableinput.take)** | Optional. The maximum number of entities to read.| 
-|**[Filter](/java/api/com.microsoft.azure.functions.annotation.tableinput.filter)** | Optional. An OData filter expression for table input. | 
-|**[Connection](/java/api/com.microsoft.azure.functions.annotation.tableinput.connection)** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+|**[name](/java/api/com.microsoft.azure.functions.annotation.tableinput.name)** |  The name of the variable that represents the table or entity in function code.| 
+|**[tableName](/java/api/com.microsoft.azure.functions.annotation.tableinput.tableName)** |  The name of the table.|
+|**[partitionKey](/java/api/com.microsoft.azure.functions.annotation.tableinput.partitionkey)** |Optional. The partition key of the table entity to read. | 
+|**[rowKey](/java/api/com.microsoft.azure.functions.annotation.tableinput.rowkey)** |Optional. The row key of the table entity to read.| 
+|**[take](/java/api/com.microsoft.azure.functions.annotation.tableinput.take)** | Optional. The maximum number of entities to read.| 
+|**[filter](/java/api/com.microsoft.azure.functions.annotation.tableinput.filter)** | Optional. An OData filter expression for table input.| 
+|**[connection](/java/api/com.microsoft.azure.functions.annotation.tableinput.connection)** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  

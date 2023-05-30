@@ -1,239 +1,233 @@
 ---
-title: 'Quickstart: Create a virtual network - Azure PowerShell'
+title: 'Quickstart: Use Azure PowerShell to create a virtual network'
 titleSuffix: Azure Virtual Network
-description: In this quickstart, you create a virtual network using the Azure portal. A virtual network lets Azure resources communicate with each other and with the internet.
+description: Learn how to use Azure PowerShell to create and connect through an Azure virtual network and virtual machines.
 author: asudbring
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 04/13/2022
+ms.date: 03/15/2023
 ms.author: allensu
 ms.custom: devx-track-azurepowershell, mode-api
-#Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
+#Customer intent: I want to use PowerShell to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
 ---
 
-# Quickstart: Create a virtual network using PowerShell
+# Quickstart: Use Azure PowerShell to create a virtual network
 
-A virtual network lets Azure resources, like virtual machines (VMs), communicate privately with each other, and with the internet. 
+This quickstart shows you how to create a virtual network by using Azure PowerShell. You then create two virtual machines (VMs) in the network, securely connect to the VMs from the internet, and communicate privately between the VMs.
 
-In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to the VMs from the internet, and communicate privately over the virtual network.
+A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure PowerShell installed locally or Azure Cloud Shell
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+- Azure Cloud Shell or Azure PowerShell.
 
-## Create a resource group and a virtual network
+  The steps in this quickstart run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-There are a handful of steps you have to walk through to get your resource group and virtual network configured.
+  You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. The steps in this article require Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
 
-### Create the resource group
+  If you run PowerShell locally, run `Connect-AzAccount` to connect to Azure.
 
-Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a resource group named **CreateVNetQS-rg** in the **Eastus** location:
+## Create a virtual network
 
-```azurepowershell-interactive
-$rg = @{
-    Name = 'CreateVNetQS-rg'
-    Location = 'EastUS'
-}
-New-AzResourceGroup @rg
-```
+1. First, use [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup) to create a resource group to host the virtual network. Run the following code to create a resource group named `TestRG` in the `eastus` Azure region.
 
-### Create the virtual network
+   ```azurepowershell-interactive
+   $rg = @{
+       Name = 'TestRG'
+       Location = 'eastus'
+   }
+   New-AzResourceGroup @rg
+   ```
+   
+1. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create a virtual network named `VNet` with IP address prefix `10.0.0.0/16` in the `TestRG` resource group and `eastus` location.
 
-Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a default virtual network named **myVNet** in the **EastUS** location:
+   ```azurepowershell-interactive
+   $vnet = @{
+       Name = 'VNet'
+       ResourceGroupName = 'TestRG'
+       Location = 'eastus'
+       AddressPrefix = '10.0.0.0/16'
+   }
+   $virtualNetwork = New-AzVirtualNetwork @vnet
+   ```
 
-```azurepowershell-interactive
-$vnet = @{
-    Name = 'myVNet'
-    ResourceGroupName = 'CreateVNetQS-rg'
-    Location = 'EastUS'
-    AddressPrefix = '10.0.0.0/16'
-}
-$virtualNetwork = New-AzVirtualNetwork @vnet
-```
+1. Azure deploys resources to a subnet within a virtual network. Use [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) to create a subnet configuration named `default` with address prefix `10.0.0.0/24`.
 
-### Add a subnet
+   ```azurepowershell-interactive
+   $subnet = @{
+       Name = 'default'
+       VirtualNetwork = $virtualNetwork
+       AddressPrefix = '10.0.0.0/24'
+   }
+   $subnetConfig = Add-AzVirtualNetworkSubnetConfig @subnet
+   ```
 
-Azure deploys resources to a subnet within a virtual network, so you need to create a subnet. Create a subnet configuration named **default** with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
+1. Then associate the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork).
 
-```azurepowershell-interactive
-$subnet = @{
-    Name = 'default'
-    VirtualNetwork = $virtualNetwork
-    AddressPrefix = '10.0.0.0/24'
-}
-$subnetConfig = Add-AzVirtualNetworkSubnetConfig @subnet
-```
+   ```azurepowershell-interactive
+   $virtualNetwork | Set-AzVirtualNetwork
+   ```
 
-### Associate the subnet to the virtual network
+## Deploy Azure Bastion
 
-You can write the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). This command creates the subnet:
+Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview).
 
-```azurepowershell-interactive
-$virtualNetwork | Set-AzVirtualNetwork
-```
+1. Configure an Azure Bastion subnet for your virtual network. This subnet is reserved exclusively for Azure Bastion resources and must be named `AzureBastionSubnet`.
+
+   ```azurepowershell-interactive
+   $subnet = @{
+       Name = 'AzureBastionSubnet'
+       VirtualNetwork = $virtualNetwork
+       AddressPrefix = '10.0.1.0/26'
+   }
+   $subnetConfig = Add-AzVirtualNetworkSubnetConfig @subnet
+   ```
+
+1. Set the configuration.
+
+   ```azurepowershell-interactive
+   $virtualNetwork | Set-AzVirtualNetwork
+   ```
+
+1. Create a public IP address for Azure Bastion. The bastion host uses the public IP to access secure shell (SSH) and remote desktop protocol (RDP) over port 443.
+
+   ```azurepowershell-interactive
+   $publicip = New-AzPublicIpAddress -ResourceGroupName "TestRG" -name "VNet-ip" -location "EastUS" -AllocationMethod Static -Sku Standard
+   ```
+
+1. Use the [New-AzBastion](/powershell/module/az.network/new-azbastion) command to create a new Standard SKU Azure Bastion host in the AzureBastionSubnet.
+
+   ```azurepowershell-interactive
+      New-AzBastion -ResourceGroupName "TestRG" -Name "VNet-bastion" `
+      -PublicIpAddressRgName "TestRG" -PublicIpAddressName "VNet-ip" `
+      -VirtualNetworkRgName "TestRG" -VirtualNetworkName "VNet" `
+      -Sku "Standard"
+   ```
+
+It takes about 10 minutes for the Bastion resources to deploy. You can create VMs in the next section while Bastion deploys to your virtual network.
 
 ## Create virtual machines
 
-Create two VMs in the virtual network.
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named `VM1` and `VM2` in the `default` subnet of the virtual network. When you're prompted for credentials, enter user names and passwords for the VMs.
 
-### Create the first VM
+1. To create the first VM, run the following code:
 
-Create the first VM with [New-AzVM](/powershell/module/az.compute/new-azvm). When you run the next command, you're prompted for credentials. Enter a user name and password for the VM:
+   ```azurepowershell-interactive
+   $vm1 = @{
+       ResourceGroupName = 'TestRG'
+       Location = 'eastus'
+       Name = 'VM1'
+       VirtualNetworkName = 'VNet'
+       SubnetName = 'default'
+   }
+   New-AzVM @vm1
+   ```
 
-```azurepowershell-interactive
-$vm1 = @{
-    ResourceGroupName = 'CreateVNetQS-rg'
-    Location = 'EastUS'
-    Name = 'myVM1'
-    VirtualNetworkName = 'myVNet'
-    SubnetName = 'default'
-}
-New-AzVM @vm1 -AsJob
-```
+1. To create the second VM, run the following code:
 
-The `-AsJob` option creates the VM in the background. You can continue to the next step.
+   ```azurepowershell-interactive
+   $vm2 = @{
+       ResourceGroupName = 'TestRG'
+       Location = 'eastus'
+       Name = 'VM2'
+       VirtualNetworkName = 'VNet'
+       SubnetName = 'default'
+   }
+   New-AzVM @vm2
+   ```
+   
+>[!TIP]
+>You can use the `-AsJob` option to create a VM in the background while you continue with other tasks. For example, run `New-AzVM @vm1 -AsJob`. When Azure starts creating the VM in the background, you get something like the following output:
+>
+>```powershell
+>Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+>--     ----            -------------   -----         -----------     --------             -------
+>1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
+>```
 
-When Azure starts creating the VM in the background, you'll get something like this back:
+Azure takes a few minutes to create the VMs. When Azure finishes creating the VMs, it returns output to PowerShell.
 
-```powershell
-Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
---     ----            -------------   -----         -----------     --------             -------
-1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
-```
+>[!NOTE]
+>VMs in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
 
-### Create the second VM
+## Connect to a VM
 
-Create the second VM with this command:
+1. In the portal, search for and select **Virtual machines**.
 
-```azurepowershell-interactive
-$vm2 = @{
-    ResourceGroupName = 'CreateVNetQS-rg'
-    Location = 'EastUS'
-    Name = 'myVM2'
-    VirtualNetworkName = 'myVNet'
-    SubnetName = 'default'
-}
-New-AzVM @vm2
-```
+1. On the **Virtual machines** page, select **VM1**.
 
-You'll have to create another user and password. Azure takes a few minutes to create the VM.
+1. At the top of the **VM1** page, select the dropdown arrow next to **Connect**, and then select **Bastion**.
 
-> [!IMPORTANT]
-> Don't continue with the next step until Azure's finished.  You'll know it's done when it returns output to PowerShell.
+   :::image type="content" source="./media/quick-create-portal/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to VM1 with Azure Bastion." border="true":::
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
-
-## Connect to a VM from the internet
-
-To get the public IP address of the VM, use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress).
-
-This example returns the public IP address of the **myVM1** VM:
-
-```azurepowershell-interactive
-$ip = @{
-    Name = 'myVM1'
-    ResourceGroupName = 'CreateVNetQS-rg'
-}
-Get-AzPublicIpAddress @ip | select IpAddress
-```
-
-Open a command prompt on your local computer. Run the `mstsc` command. Replace `<publicIpAddress>` with the public IP address returned from the last step:
-
-> [!NOTE]
-> If you've been running these commands from a PowerShell prompt on your local computer, and you're using the Az PowerShell module version 1.0 or later, you can continue in that interface.
-
-```cmd
-mstsc /v:<publicIpAddress>
-```
-1. If prompted, select **Connect**.
-
-1. Enter the user name and password you specified when creating the VM.
-
-    > [!NOTE]
-    > You may need to select **More choices** > **Use a different account**, to specify the credentials you entered when you created the VM.
-
-1. Select **OK**.
-
-1. You may receive a certificate warning. If you do, select **Yes** or **Continue**.
+1. On the **Bastion** page, enter the username and password you created for the VM, and then select **Connect**.
 
 ## Communicate between VMs
 
-1. In the Remote Desktop of **myVM1**, open PowerShell.
+1. From the desktop of VM1, open PowerShell.
 
-1. Enter `ping myVM2`.
+1. Enter `ping myVM2`. You get a reply similar to the following message:
 
-    You'll get a reply message like this:
+   ```powershell
+   PS C:\Users\VM1> ping VM2
+   
+   Pinging VM2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net with 32 bytes of data
+   Request timed out.
+   Request timed out.
+   Request timed out.
+   Request timed out.
+   
+   Ping statistics for 10.0.0.5:
+       Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+   ```
 
-    ```powershell
-    PS C:\Users\myVM1> ping myVM2
+   The ping fails because it uses the Internet Control Message Protocol (ICMP). By default, ICMP isn't allowed through Windows firewall.
 
-    Pinging myVM2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net
-    Request timed out.
-    Request timed out.
-    Request timed out.
-    Request timed out.
+1. To allow ICMP to inbound through Windows firewall on this VM, enter the following command:
 
-    Ping statistics for 10.0.0.5:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
-    ```
+   ```powershell
+   New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
+   ```
 
-    The ping fails, because it uses the Internet Control Message Protocol (ICMP). By default, ICMP isn't allowed through your Windows firewall.
+1. Close the remote desktop connection to VM1.
 
-1. To allow **myVM2** to ping **myVM1** in a later step, enter this command:
+1. Repeat the steps in [Connect to a VM](#connect-to-a-vm) to connect to VM2.
 
-    ```powershell
-    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
-    ```
+1. From PowerShell on VM2, enter `ping VM1`.
 
-    That command lets ICMP inbound through the Windows firewall.
+   This time you get a success reply similar to the following message, because you allowed ICMP through the firewall on VM1.
 
-1. Close the remote desktop connection to **myVM1**.
+   ```cmd
+   PS C:\Users\VM2> ping VM1
+   
+   Pinging VM1.e5p2dibbrqtejhq04lqrusvd4g.bx.internal.cloudapp.net [10.0.0.4] with 32 bytes of data:
+   Reply from 10.0.0.4: bytes=32 time=2ms TTL=128
+   Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
+   
+   Ping statistics for 10.0.0.4:
+       Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+   Approximate round trip times in milli-seconds:
+       Minimum = 0ms, Maximum = 2ms, Average = 0ms
+   ```
 
-1. Repeat the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet). This time, connect to **myVM2**.
-
-1. From a command prompt on the **myVM2** VM, enter `ping myVM1`.
-
-    You'll get a reply message like this:
-
-    ```cmd
-    C:\windows\system32>ping myVM1
-
-    Pinging myVM1.e5p2dibbrqtejhq04lqrusvd4g.bx.internal.cloudapp.net [10.0.0.4] with 32 bytes of data:
-    Reply from 10.0.0.4: bytes=32 time=2ms TTL=128
-    Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
-    Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
-    Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
-
-    Ping statistics for 10.0.0.4:
-        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
-    Approximate round trip times in milli-seconds:
-        Minimum = 0ms, Maximum = 2ms, Average = 0ms
-    ```
-
-    You receive replies from **myVM1**, because you allowed ICMP through the Windows firewall on the **myVM1** VM in a previous step.
-
-1. Close the remote desktop connection to **myVM2**.
+1. Close the remote desktop connection to VM2.
 
 ## Clean up resources
 
-When you're done with the virtual network and the VMs, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all the resources it has:
+When you're done with the virtual network and the VMs, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all its resources.
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name 'CreateVNetQS-rg' -Force
+Remove-AzResourceGroup -Name 'TestRG' -Force
 ```
 
 ## Next steps
 
-In this quickstart: 
+In this quickstart, you created a virtual network with a default subnet that contains two VMs. You deployed Azure Bastion and used it to connect to the VMs, and securely communicated between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
-* You created a default virtual network and two VMs. 
-* You connected to one VM from the internet and communicated privately between the two VMs.
-
-Private communication between VMs is unrestricted in a virtual network. 
-
-Advance to the next article to learn more about configuring different types of VM network communications:
+Private communication between VMs in a virtual network is unrestricted. Continue to the next article to learn more about configuring different types of VM network communications.
 > [!div class="nextstepaction"]
 > [Filter network traffic](tutorial-filter-network-traffic.md)

@@ -154,7 +154,7 @@ You can add additional column mappings using the **New mapping** button. Use the
 
   :::image type="content" source="media/adf-cdc/change-data-capture-resource-86.png" alt-text="Screenshot of the monitoring blade.":::
  
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-87.png" alt-text="Screenshot of the monitoring button at the top of the CDC canvas.":::
+  :::image type="content" source="media/adf-cdc/change-data-capture-resource-87.png" alt-text="Screenshot of the monitoring button at the top of the CDC canvas." lightbox="media/adf-cdc/change-data-capture-resource-87.png":::
 
 2.	Select **Change Data Capture (preview)** to view your CDC resources. 
 
@@ -162,18 +162,18 @@ You can add additional column mappings using the **New mapping** button. Use the
  
 3.	Here you can see the **Source**, **Target**, **Status**, and **Last processed** time of your change data capture. 
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-89.png" alt-text="Screenshot of an overview of the change data capture monitoring page.":::
+  :::image type="content" source="media/adf-cdc/change-data-capture-resource-89.png" alt-text="Screenshot of an overview of the change data capture monitoring page." lightbox="media/adf-cdc/change-data-capture-resource-89.png":::
 
 4.	Click the name of your CDC to see more details. You can see how many changes (insert/update/delete) were read and written and other diagnostic information. 
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-90.png" alt-text="Screenshot of the detailed monitoring of a selected change data capture.":::
+  :::image type="content" source="media/adf-cdc/change-data-capture-resource-90.png" alt-text="Screenshot of the detailed monitoring of a selected change data capture." lightbox="media/adf-cdc/change-data-capture-resource-90.png":::
 
 > [!NOTE] 
 > If you have multiple mappings set up in your Change data capture, each mapping will show as a different color. Click on the bar to see specific details for each mapping or use the Diagnostics at the bottom of the screen. 
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-91.png" alt-text="Screenshot of the detailed monitoring page of a change data capture with multiple sources to target mappings.":::
+  :::image type="content" source="media/adf-cdc/change-data-capture-resource-91.png" alt-text="Screenshot of the detailed monitoring page of a change data capture with multiple sources to target mappings." lightbox="media/adf-cdc/change-data-capture-resource-91.png":::
   
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-92.png" alt-text="Screenshot of a detailed breakdown of each mapping in the change data capture artifact.":::
+  :::image type="content" source="media/adf-cdc/change-data-capture-resource-92.png" alt-text="Screenshot of a detailed breakdown of each mapping in the change data capture artifact." lightbox="media/adf-cdc/change-data-capture-resource-92.png":::
   
   
 ## Next steps

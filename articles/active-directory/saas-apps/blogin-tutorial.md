@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with BlogIn | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with BlogIn'
 description: Learn how to configure single sign-on between Azure Active Directory and BlogIn.
 services: active-directory
 author: jeevansd

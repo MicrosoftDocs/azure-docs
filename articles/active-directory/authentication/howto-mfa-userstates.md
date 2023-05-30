@@ -1,5 +1,5 @@
 ---
-title: Enable per-user Multi-Factor Authentication - Azure Active Directory
+title: Enable per-user Multi-Factor Authentication
 description: Learn how to enable per-user Azure AD Multi-Factor Authentication by changing the user state
 
 services: multi-factor-authentication

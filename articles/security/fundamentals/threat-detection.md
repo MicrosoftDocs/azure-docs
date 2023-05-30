@@ -89,7 +89,7 @@ Data sources and solutions each create separate record types with their own set 
 Most of your interaction with Azure Monitor logs is through the Azure portal, which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal, you can use:
 * [Log searches](../../azure-monitor/logs/log-query-overview.md) where you construct queries to analyze collected data.
 * [Dashboards](../../azure-monitor/visualize/tutorial-logs-dashboards.md), which you can customize with graphical views of your most valuable searches.
-* [Solutions](../../azure-monitor/insights/solutions.md), which provide additional functionality and analysis tools.
+* [Solutions](/previous-versions/azure/azure-monitor/insights/solutions), which provide additional functionality and analysis tools.
 
 Solutions add functionality to Azure Monitor logs. They primarily run in the cloud and provide analysis of data that's collected in the log analytics repository. Solutions might also define new record types to be collected that can be analyzed with log searches or by using an additional user interface that the solution provides in the log analytics dashboard.
 

@@ -2,7 +2,7 @@
 title: Azure Event Grid trigger for Azure Functions
 description: Learn to run code when Event Grid events in Azure Functions are dispatched.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 04/02/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, fasttrack-edit, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -31,7 +31,7 @@ The type of the input parameter used with an Event Grid trigger depends on these
 
 # [In-process](#tab/in-process)
 
-The following example shows a Functions version 3.x function that uses a `CloudEvent`  binding parameter:
+The following example shows a Functions version 4.x function that uses a `CloudEvent`  binding parameter:
 
 ```cs
 using Azure.Messaging;
@@ -54,11 +54,11 @@ namespace Company.Function
 }
 ```
 
-The following example shows a Functions version 3.x function that uses an `EventGridEvent` binding parameter:
+The following example shows a Functions version 4.x function that uses an `EventGridEvent` binding parameter:
 
 ```cs
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.EventGrid.Models;
+using Azure.Messaging.EventGrid;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Extensions.Logging;
 
@@ -80,7 +80,6 @@ The following example shows a function that uses a  `JObject`  binding parameter
 ```cs
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Logging;

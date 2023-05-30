@@ -196,7 +196,7 @@ Put the following method above the `quickstart` method to find the Quantity sube
 
 In order to determine an utterance's intention and extract entities, the app needs examples of utterances. The examples need to target a specific, single intent and should mark all custom entities. Prebuilt entities do not need to be marked.
 
-Add example utterances by creating a list of [ExampleLabelObject](/javascript/api/@azure/cognitiveservices-luis-authoring/examplelabelobject) objects, one object for each example utterance. Each example should mark all entities with a dictionary of name/value pairs of entity name and entity value. The entity value should be exactly as it appears in the text of the example utterance.
+Add example utterances by creating a list of ExampleLabelObject objects, one object for each example utterance. Each example should mark all entities with a dictionary of name/value pairs of entity name and entity value. The entity value should be exactly as it appears in the text of the example utterance.
 
 :::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="Partial screenshot showing the labeled example utterance in the portal. ":::
 
@@ -210,7 +210,7 @@ Once the model is created, the LUIS app needs to be trained for this version of 
 
 The [train.trainVersion](/javascript/api/@azure/cognitiveservices-luis-authoring/train#trainversion-string--string--msrest-requestoptionsbase-) method needs the app ID and the version ID.
 
-A very small model, such as this quickstart shows, will train very quickly. For production-level applications, training the app should include a polling call to the [get_status](/javascript/api/@azure/cognitiveservices-luis-authoring/train#getstatus-string--string--msrest-requestoptionsbase-) method to determine when or if the training succeeded. The response is a list of [ModelTrainingInfo](/javascript/api/@azure/cognitiveservices-luis-authoring/modeltraininginfo) objects with a separate status for each object. All objects must be successful for the training to be considered complete.
+A very small model, such as this quickstart shows, will train very quickly. For production-level applications, training the app should include a polling call to the [get_status](/javascript/api/@azure/cognitiveservices-luis-authoring/train#getstatus-string--string--msrest-requestoptionsbase-) method to determine when or if the training succeeded. The response is a list of ModelTrainingInfo objects with a separate status for each object. All objects must be successful for the training to be considered complete.
 
 [!code-javascript[Train the app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=TrainAppVersion)]
 
@@ -231,7 +231,7 @@ Use an msRest.ApiKeyCredentials object with your key, and use it with your endpo
 
 ## Get prediction from runtime
 
-Add the following code to create the request to the prediction runtime. The user utterance is part of the [predictionRequest](/javascript/api/@azure/cognitiveservices-luis-runtime/predictionrequest) object.
+Add the following code to create the request to the prediction runtime. The user utterance is part of the predictionRequest object.
 
 The **[luisRuntimeClient.prediction.getSlotPrediction](/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-)** method needs several parameters such as the app ID, the slot name, and the prediction request object to fulfill the request. The other options such as verbose, show all intents, and log are optional.
 

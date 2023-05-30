@@ -21,8 +21,8 @@ These plugins provide extra functionality and integration with the specific fram
 
 The React plug-in for the Application Insights JavaScript SDK enables:
 
-- Tracking of route changes.
-- React components usage statistics.
+- Tracking of router changes
+- React components usage statistics
 
 ### Get started
 
@@ -30,7 +30,7 @@ Install the npm package:
 
 ```bash
 
-npm install @microsoft/applicationinsights-react-js @microsoft/applicationinsights-web --save
+npm install @microsoft/applicationinsights-react-js
 
 ```
 
@@ -97,7 +97,7 @@ appInsights.loadAppInsights();
 
 | Name    | Default | Description                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|
-| history | null    | React router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main). To learn how to access the history object outside of components, see the [React router FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components).    |
+| history | null    | React router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main). |
 
 #### React components usage tracking
 
@@ -107,22 +107,22 @@ It measures time from the `ComponentDidMount` event through the `ComponentWillUn
 
 To see this metric in the Azure portal, go to the Application Insights resource and select the **Metrics** tab. Configure the empty charts to display the custom metric name `React Component Engaged Time (seconds)`. Select the aggregation (for example, sum or avg) of your metric and split by `Component Name`.
 
-![Screenshot that shows a chart that displays the custom metric "React Component Engaged Time (seconds)" split by "Component Name"](./media/javascript-react-plugin/chart.png)
+:::image type="content" source="./media/javascript-react-plugin/chart.png" lightbox="./media/javascript-react-plugin/chart.png" alt-text="Screenshot that shows a chart that displays the custom metric React Component Engaged Time (seconds) split by Component Name":::
 
 You can also run custom queries to divide Application Insights data to generate reports and visualizations as per your requirements. In the Azure portal, go to the Application Insights resource, select **Analytics** from the **Overview** tab, and run your query.
 
-![Screenshot that shows custom metric query results.](./media/javascript-react-plugin/query.png)
+:::image type="content" source="./media/javascript-react-plugin/query.png" lightbox="./media/javascript-react-plugin/query.png" alt-text="Screenshot that shows custom metric query results.":::
 
 > [!NOTE]
 > It can take up to 10 minutes for new custom metrics to appear in the Azure portal.
 
 ### Use React Hooks
 
-[React Hooks](https://reactjs.org/docs/hooks-reference.html) are an approach to state and lifecycle management in a React application without relying on class-based React components. The Application Insights React plug-in provides several Hooks integrations that operate in a similar way to the higher-order component approach.
+[React Hooks](https://react.dev/reference/react) are an approach to state and lifecycle management in a React application without relying on class-based React components. The Application Insights React plug-in provides several Hooks integrations that operate in a similar way to the higher-order component approach.
 
 #### Use React Context
 
-The React Hooks for Application Insights are designed to use [React Context](https://reactjs.org/docs/context.html) as a containing aspect for it. To use Context, initialize Application Insights, and then import the Context object:
+The React Hooks for Application Insights are designed to use [React Context](https://react.dev/learn/passing-data-deeply-with-context) as a containing aspect for it. To use Context, initialize Application Insights, and then import the Context object:
 
 ```javascript
 import React from "react";
@@ -229,7 +229,7 @@ When the Hook is used, a data payload can be provided to it to add more data to 
 
 ### React error boundaries
 
-[Error boundaries](https://reactjs.org/docs/error-boundaries.html) provide a way to gracefully handle an exception when it occurs within a React application. When such an error occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the error when it occurs.
+[Error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) provide a way to gracefully handle an exception when it occurs within a React application. When such an error occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the error when it occurs.
 
 ```javascript
 import React from "react";
@@ -268,25 +268,27 @@ If a custom `PageView` duration isn't provided, `PageView` duration defaults to 
 
 ### Sample app
 
-Check out the [Application Insights React demo](https://github.com/Azure-Samples/application-insights-react-demo).
+Check out the [Application Insights React demo](https://github.com/microsoft/applicationinsights-react-js/tree/main/sample/applicationinsights-react-sample).
 
 ## [React Native](#tab/reactnative)
 
 ### React Native plugin for Application Insights JavaScript SDK
 
-The React Native plugin for Application Insights JavaScript SDK collects device information, by default this plugin automatically collects:
+The React Native plugin for Application Insights JavaScript SDK collects device information. By default, this plugin automatically collects:
 
 - **Unique Device ID** (Also known as Installation ID.)
-- **Device Model Name** (Such as iPhone X, Samsung Galaxy Fold, Huawei P30 Pro etc.)
+- **Device Model Name** (Such as iPhone XS, Samsung Galaxy Fold, Huawei P30 Pro etc.)
 - **Device Type** (For example, handset, tablet, etc.)
 
 ### Requirements
 
-You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin works in react-native apps. It doesn't work with [apps using the Expo framework](https://docs.expo.io/), therefore it doesn't work with Create React Native App.
+You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin only works in react-native apps. It doesn't work with [apps using the Expo framework](https://docs.expo.io/) or Create React Native App, which is based on the Expo framework.
 
 ### Getting started
 
-Install and link the [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package. Keep the `react-native-device-info` package up to date to collect the latest device names using your app.
+By default, this plugin relies on the [`react-native-device-info` package](https://www.npmjs.com/package/react-native-device-info). You must install and link to this package. Keep the `react-native-device-info` package up to date to collect the latest device names using your app.
+
+Since v3, support for accessing the DeviceInfo has been abstracted into an interface `IDeviceInfoModule` to enable you to use / set your own device info module. This interface uses the same function names and result `react-native-device-info`.
 
 ```zsh
 
@@ -316,6 +318,79 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 
 ```
+
+#### Disabling automatic device info collection
+
+```typescript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+var RNPlugin = new ReactNativePlugin();
+var appInsights = new ApplicationInsights({
+    config: {
+        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        disableDeviceCollection: true,
+        extensions: [RNPlugin]
+    }
+});
+appInsights.loadAppInsights();
+```
+
+#### Using your own device info collection class
+
+```typescript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+// Simple inline constant implementation
+const myDeviceInfoModule = {
+    getModel: () => "deviceModel",
+    getDeviceType: () => "deviceType",
+    // v5 returns a string while latest returns a promise
+    getUniqueId: () => "deviceId",         // This "may" also return a Promise<string>
+};
+
+var RNPlugin = new ReactNativePlugin();
+RNPlugin.setDeviceInfoModule(myDeviceInfoModule);
+
+var appInsights = new ApplicationInsights({
+    config: {
+        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        extensions: [RNPlugin]
+    }
+});
+
+appInsights.loadAppInsights();
+```
+
+### IDeviceInfoModule
+
+Interface to abstract how the plugin can access the Device Info. This interface is a stripped down version of the `react-native-device-info` interface and is mostly supplied for testing.
+
+```typescript
+export interface IDeviceInfoModule {
+    /**
+     * Returns the Device Model
+     */
+    getModel: () => string;
+
+    /**
+     * Returns the device type
+     */
+    getDeviceType: () => string;
+
+    /**
+     * Returns the unique Id for the device. To support both the current version and previous
+     * versions react-native-device-info, this may return either a `string` or `Promise<string>`.
+     * When a promise is returned, the plugin will "wait" for the promise to `resolve` or `reject`
+     * before processing any events. This WILL cause telemetry to be BLOCKED until either of these
+     * states, so when returning a Promise, it MUST `resolve` or `reject`. Tt can't just never resolve.
+     * There is a default timeout configured via `uniqueIdPromiseTimeout` to automatically unblock
+     * event processing when this issue occurs.
+     */
+    getUniqueId: () => Promise<string> | string;
+}
+```
+
+If events are getting "blocked" because the `Promise` returned via `getUniqueId` is never resolved / rejected, you can call `setDeviceId()` on the plugin to "unblock" this waiting state. There is also an automatic timeout configured via `uniqueIdPromiseTimeout` (defaults to 5 seconds), which will internally call `setDeviceId()` with any previously configured value.
 
 ### Enable Correlation
 
@@ -348,14 +423,18 @@ The Angular plugin for the Application Insights JavaScript SDK, enables:
 Install npm package:
 
 ```bash
-npm install @microsoft/applicationinsights-angularplugin-js @microsoft/applicationinsights-web --save
+npm install @microsoft/applicationinsights-angularplugin-js
 ```
 
 ### Basic usage
 
 Set up an instance of Application Insights in the entry component in your app:
 
+
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
+> [!IMPORTANT]
+> When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled errors caught by the error service will not be sent.
 
 ```js
 import { Component } from '@angular/core';
@@ -385,7 +464,10 @@ export class AppComponent {
 }
 ```
 
-To track uncaught exceptions, setup ApplicationinsightsAngularpluginErrorService in `app.module.ts`:
+To track uncaught exceptions, set up ApplicationinsightsAngularpluginErrorService in `app.module.ts`:
+
+> [!IMPORTANT]
+> When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled errors caught by the error service will not be sent.
 
 ```js
 import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applicationinsights-angularplugin-js';
@@ -401,6 +483,29 @@ import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applica
   ...
 })
 export class AppModule { }
+```
+
+To chain more custom error handlers, create custom error handlers that implement IErrorService:
+
+```javascript
+import { IErrorService } from '@microsoft/applicationinsights-angularplugin-js';
+
+export class CustomErrorHandler implements IErrorService {
+    handleError(error: any) {
+        ...
+    }
+}
+```
+
+And pass errorServices array through extensionConfig:
+
+```javascript
+extensionConfig: {
+        [angularPlugin.identifier]: {
+          router: this.router,
+          errorServices: [new CustomErrorHandler()]
+        }
+      }
 ```
 
 ### Enable Correlation

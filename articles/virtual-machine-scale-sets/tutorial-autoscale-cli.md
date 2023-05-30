@@ -39,7 +39,7 @@ Now create a Virtual Machine Scale Set with [az vmss create](/cli/azure/vmss). T
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --image UbuntuLTS \
+  --image <SKU image> \
   --orchestration-mode Flexible \
   --instance-count 2 \
   --admin-username azureuser \
@@ -91,47 +91,79 @@ To test the autoscale rules, generate some CPU load on the VM instances in the s
 
 To connect to an individual instance, see [Tutorial: Connect to Virtual Machine Scale Set instances](tutorial-connect-to-instances-cli.md)
 
-Once logged in, install the **stress** utility. Start *10* **stress** workers that generate CPU load. These workers run for *420* seconds, which is enough to cause the autoscale rules to implement the desired action.
+Once logged in, install the **stress** or **stress-ng** utility. Start *10* **stress** workers that generate CPU load. These workers run for *420* seconds, which is enough to cause the autoscale rules to implement the desired action.
 
-```console
+# [Ubuntu, Debian](#tab/Ubuntu) 
+
+```bash
 sudo apt-get update
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
+# [RHEL, CentOS](#tab/redhat) 
+
+```bash
+sudo dnf install stress-ng
+sudo  stress-ng --cpu 10 --timeout 420s --metrics-brief &
+```
+# [SLES](#tab/SLES)
+
+```bash
+sudo zypper install stress-ng
+sudo stress-ng --cpu 10 --timeout 420s --metrics-brief &
+```
+---
 
 When **stress** shows output similar to *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, press the *Enter* key to return to the prompt.
 
 To confirm that **stress** generates CPU load, examine the active system load with the **top** utility:
 
-```console
+```bash
 top
 ```
 
 Exit **top**, then close your connection to the VM instance. **stress** continues to run on the VM instance.
 
-```console
+```bash
 Ctrl-c
 exit
 ```
 
 Connect to second VM instance with the port number listed from the previous [az vmss list-instance-connection-info](/cli/azure/vmss):
 
-```console
+```bash
 ssh azureuser@13.92.224.66 -p 50003
 ```
 
-Install and run **stress**, then start ten workers on this second VM instance.
+Install and run **stress** or **stress-ng**, then start ten workers on this second VM instance.
 
-```console
+# [Ubuntu, Debian](#tab/Ubuntu) 
+
+```bash
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
+
+# [RHEL, CentOS](#tab/redhat) 
+
+```bash
+sudo dnf install stress-ng
+sudo  stress-ng --cpu 10 --timeout 420s --metrics-brief &
+```
+
+# [SLES](#tab/SLES)
+
+```bash
+sudo zypper install stress-ng
+sudo stress-ng --cpu 10 --timeout 420s --metrics-brief &
+```
+---
 
 Again, when **stress** shows output similar to *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, press the *Enter* key to return to the prompt.
 
 Close your connection to the second VM instance. **stress** continues to run on the VM instance.
 
-```console
+```bash
 exit
 ```
 

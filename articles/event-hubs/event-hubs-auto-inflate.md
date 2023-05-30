@@ -2,6 +2,7 @@
 title: Automatically scale up throughput units in Azure Event Hubs
 description: Enable Auto-inflate on a namespace to automatically scale up throughput units (standard tier).
 ms.topic: article
+ms.custom: devx-track-arm-template
 ms.date: 06/13/2022
 ---
 

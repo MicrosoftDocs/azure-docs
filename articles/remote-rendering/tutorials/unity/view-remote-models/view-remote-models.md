@@ -26,8 +26,9 @@ For this tutorial you need:
 
 * An active pay-as-you-go Azure subscription [Create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* GIT [(download)](https://git-scm.com/downloads)
+* The latest version of Visual Studio 2022 [(download)](https://visualstudio.microsoft.com/vs/)
+* Git [(download)](https://git-scm.com/downloads)
+* Git LFS plugin [(download)](https://git-lfs.github.com/)
 * Unity (see [system requirements](../../../overview/system-requirements.md#unity) for supported versions)
 * Intermediate knowledge of Unity and the C# language (for example: creating scripts and objects, using prefabs, configuring Unity events, etc.)
 
@@ -48,6 +49,9 @@ In this example, we'll assume the project is being created in a folder called **
 ## Include the Azure Remote Rendering and OpenXR packages
 
 Follow the instructions on how to [add the Azure Remote Rendering and OpenXR packages](../../../how-tos/unity/install-remote-rendering-unity-package.md) to your Unity Project.
+
+> [!NOTE]
+> If Unity displays a warning dialog after importing the OpenXR package asking whether to enable the native platform backends for the new input system, click **No** for now. You will enable it in a later step.
 
 ## Configure the camera
 
@@ -592,7 +596,6 @@ public async void InitializeSessionService()
     }
     catch (ArgumentException argumentException)
     {
-        NotificationBar.Message("InitializeSessionService failed: SessionConfiguration is invalid.");
         Debug.LogError(argumentException.Message);
         CurrentCoordinatorState = RemoteRenderingState.NotAuthorized;
         return;

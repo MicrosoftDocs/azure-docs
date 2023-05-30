@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Mapbox | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Mapbox'
 description: Learn how to configure single sign-on between Azure Active Directory and Mapbox.
 services: active-directory
 author: jeevansd

@@ -2,6 +2,7 @@
 title: Virtual Network service endpoints - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to add a Microsoft.EventHub service endpoint to a virtual network. 
 ms.topic: article
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 02/15/2023
 ---
 

@@ -64,8 +64,10 @@
     - name: Manage roles/policies and permission requests
       expanded: false
       items:
+      - name: View privileged role assignments in your organization
+        href: product-privileged-role-insights.md
       - name: View roles/policies and requests for permission in the Remediation dashboard
-        href: ui-remediation.md
+        href: ui-remediation.md 
       - name: View information about roles/policies
         href: how-to-view-role-policy.md
       - name: View information about active and completed tasks

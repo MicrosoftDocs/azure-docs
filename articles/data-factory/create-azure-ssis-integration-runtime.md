@@ -4,7 +4,7 @@ description: Learn how to create an Azure-SSIS integration runtime in Azure Data
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 04/12/2023
 author: chugugrace
 ms.author: chugu 
 ms.custom: devx-track-azurepowershell
@@ -64,7 +64,7 @@ These articles shows how to provision an Azure-SSIS IR by using the [Azure porta
 
   - You want to connect to on-premises data stores from SSIS packages running on your Azure-SSIS IR without configuring a self-hosted IR.
 
-- **Azure PowerShell (optional)**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps), if you want to run a PowerShell script to provision your Azure-SSIS IR.
+- **Azure PowerShell (optional)**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell), if you want to run a PowerShell script to provision your Azure-SSIS IR.
 
 ### Regional support
 

@@ -6,8 +6,7 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 02/24/2023
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
-
+ms.custom: H1Hack27Feb2017
 ---
 
 # Create a Windows virtual machine from a Resource Manager template
@@ -52,9 +51,9 @@ New-AzResourceGroupDeployment `
 
 ```
 
-If you choose to install and use the PowerShell locally instead of from the Azure Cloud shell, this tutorial requires the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally instead of from the Azure Cloud shell, this tutorial requires the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-In the previous example, you specified a template stored in GitHub. You can also download or create a template and specify the local path with the `--template-file` parameter.
+In the previous example, you specified a template stored in GitHub. You can also download or create a template and specify the local path with the `-template-file` parameter.
 
 Here are some additional resources:
 

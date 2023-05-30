@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
+ms.custom: devx-track-azurecli
 services: container-instances
 ms.date: 06/17/2022
 ---
@@ -28,7 +29,7 @@ Use a managed identity in a running container to authenticate to any [service th
 
 ### Enable a managed identity
 
- When you create a container group, enable one or more managed identities by setting a [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity) property. You can also enable or update managed identities after a container group is running - either action causes the container group to restart. To set the identities on a new or existing container group, use the Azure CLI, a Resource Manager template, a YAML file, or another Azure tool. 
+ When you create a container group, enable one or more managed identities by setting a [ContainerGroupIdentity](/rest/api/container-instances/2022-09-01/container-groups/create-or-update#containergroupidentity) property. You can also enable or update managed identities after a container group is running - either action causes the container group to restart. To set the identities on a new or existing container group, use the Azure CLI, a Resource Manager template, a YAML file, or another Azure tool. 
 
 Azure Container Instances supports both types of managed Azure identities: user-assigned and system-assigned. On a container group, you can enable a system-assigned identity, one or more user-assigned identities, or both types of identities. If you're unfamiliar with managed identities for Azure resources, see the [overview](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -86,13 +87,13 @@ To use the identity in the following steps, use the [az identity show](/cli/azur
 
 ```azurecli-interactive
 # Get service principal ID of the user-assigned identity
-spID=$(az identity show \
+SP_ID=$(az identity show \
   --resource-group myResourceGroup \
   --name myACIId \
   --query principalId --output tsv)
 
 # Get resource ID of the user-assigned identity
-resourceID=$(az identity show \
+RESOURCE_ID=$(az identity show \
   --resource-group myResourceGroup \
   --name myACIId \
   --query id --output tsv)
@@ -106,7 +107,7 @@ Run the following [az keyvault set-policy](/cli/azure/keyvault) command to set a
  az keyvault set-policy \
     --name mykeyvault \
     --resource-group myResourceGroup \
-    --object-id $spID \
+    --object-id $SP_ID \
     --secret-permissions get
 ```
 
@@ -121,7 +122,7 @@ az container create \
   --resource-group myResourceGroup \
   --name mycontainer \
   --image mcr.microsoft.com/azure-cli \
-  --assign-identity $resourceID \
+  --assign-identity $RESOURCE_ID \
   --command-line "tail -f /dev/null"
 ```
 
@@ -135,7 +136,7 @@ az container show \
 
 The `identity` section in the output looks similar to the following, showing the identity is set in the container group. The `principalID` under `userAssignedIdentities` is the service principal of the identity you created in Azure Active Directory:
 
-```console
+```output
 [...]
 "identity": {
     "principalId": "null",
@@ -178,14 +179,14 @@ Output:
 To store the access token in a variable to use in subsequent commands to authenticate, run the following command:
 
 ```bash
-token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true | jq -r '.access_token')
+TOKEN=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true | jq -r '.access_token')
 
 ```
 
 Now use the access token to authenticate to key vault and read a secret. Be sure to substitute the name of your key vault in the URL (*https:\//mykeyvault.vault.azure.net/...*):
 
 ```bash
-curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"
+curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $TOKEN"
 ```
 
 The response looks similar to the following, showing the secret. In your code, you would parse this output to obtain the secret. Then, use the secret in a subsequent operation to access another Azure resource.
@@ -204,14 +205,14 @@ The `--assign-identity` parameter with no additional value enables a system-assi
 
 ```azurecli-interactive
 # Get the resource ID of the resource group
-rgID=$(az group show --name myResourceGroup --query id --output tsv)
+RG_ID=$(az group show --name myResourceGroup --query id --output tsv)
 
 # Create container group with system-managed identity
 az container create \
   --resource-group myResourceGroup \
   --name mycontainer \
   --image mcr.microsoft.com/azure-cli \
-  --assign-identity --scope $rgID \
+  --assign-identity --scope $RG_ID \
   --command-line "tail -f /dev/null"
 ```
 
@@ -225,7 +226,7 @@ az container show \
 
 The `identity` section in the output looks similar to the following, showing that a system-assigned identity is created in Azure Active Directory:
 
-```console
+```output
 [...]
 "identity": {
     "principalId": "xxxxxxxx-528d-7083-b74c-xxxxxxxxxxxx",
@@ -239,7 +240,7 @@ The `identity` section in the output looks similar to the following, showing tha
 Set a variable to the value of `principalId` (the service principal ID) of the identity, to use in later steps.
 
 ```azurecli-interactive
-spID=$(az container show \
+SP_ID=$(az container show \
   --resource-group myResourceGroup \
   --name mycontainer \
   --query identity.principalId --out tsv)
@@ -253,7 +254,7 @@ Run the following [az keyvault set-policy](/cli/azure/keyvault) command to set a
  az keyvault set-policy \
    --name mykeyvault \
    --resource-group myResourceGroup \
-   --object-id $spID \
+   --object-id $SP_ID \
    --secret-permissions get
 ```
 
@@ -270,13 +271,13 @@ az container exec \
 
 Run the following commands in the bash shell in the container. First log in to the Azure CLI using the managed identity:
 
-```azurecli
+```azurecli-interactive
 az login --identity
 ```
 
 From the running container, retrieve the secret from the key vault:
 
-```azurecli
+```azurecli-interactive
 az keyvault secret show \
   --name SampleSecret \
   --vault-name mykeyvault --query value

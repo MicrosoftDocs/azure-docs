@@ -1,22 +1,23 @@
 ---
 title: Revisions in Azure Container Apps
-description: Learn how revisions are created in Azure Container Apps
+description: Learn how revisions are created in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
 ms.date: 05/11/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022
+ms.custom: ignite-fall-2021, event-tier1-build-2022, build-2023
 ---
 
 # Revisions in Azure Container Apps
 
 Azure Container Apps implements container app versioning by creating revisions. A revision is an immutable snapshot of a container app version. 
 
-- The first revision is automatically created when you deploy your container app.
-- New revisions are automatically created when you make a [*revision-scope*](#revision-scope-changes) change to your container app.
+- The first revision is automatically provisioned when you deploy your container app.
+- New revisions are automatically provisioned when you make a [*revision-scope*](#revision-scope-changes) change to your container app.
 - While revisions are immutable, they're affected by [*application-scope*](#application-scope-changes) changes, which apply to all revisions.
+- You can create new revisions by updating a previous revision.
 - You can retain up to 100 revisions, giving you a historical record of your container app updates.
 - You can run multiple revisions concurrently.
 - You can split external HTTP traffic between active revisions.
@@ -35,16 +36,70 @@ You can use revisions to:
 - Split traffic between revisions for [A/B testing](https://wikipedia.org/wiki/A/B_testing).
 - Gradually phase in a new revision in blue-green deployments.  For more information about blue-green deployment, see [BlueGreenDeployment](https://martinfowler.com/bliki/BlueGreenDeployment.html).
 
+## Revision lifecycle
+
+Revisions go through a series of states, based on status and availability.
+
+### Provisioning status
+
+When a new revision is first created, it has to pass startup and readiness checks.  _Provisioning status_ is set to _provisioning_ during verification.  Use _provisioning status_ to follow progress.
+
+Once the revision is verified, _running status_ is set to _running_.  The revision is available and ready for work.  
+
+_Provisioning status_ values include:
+
+- _Provisioning:_ It's being provisioned.
+
+- _Provisioned:_ The app has been provisioned, which is the final state for provisioning status.
+
+- _Provisioning failed:_ The app failed to provision.  
+
+### Running status
+
+After the revision is provisioned, it is running. Use _running status_ to monitor the status of a revision after a successful provision. 
+
+Running status values include:
+
+- _Running:_ The revision is running; no issues have been identified.
+
+- _Unhealthy:_ The revision has encountered a problem. 
+
+    Causes and urgency vary; use the revision running state details to learn more.
+    
+    Common issues include:  
+
+    - Container crashing
+    - Resource quota exceeded
+    - Image access issues, such as [_ImagePullBackOff_ errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster).
+
+- _Failed:_ Critical errors cause revisions to fail.  The _running state_ provides details. 
+ 
+  Common causes include:
+
+  - Terminated
+  - Exit code 137
+
+Use running state details to learn more about the current status.
+
+### Inactive status
+
+A revision can be set to active or inactive.  
+
+Inactive revisions don't have provisioning or running states.
+
+Inactive revisions remain in a list of up to 100 inactive revisions.    
+ 
+## Multiple revisions
 The following diagram shows a container app with two revisions.
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions-traffic-split.png" alt-text="Azure Container Apps: Traffic splitting among revisions":::
 
-The scenario shown above presumes the container app is in the following state:
+This scenario presumes the container app is in the following state:
 
-- [Ingress](ingress.md) is enabled, making the container app available via HTTP.
+- [Ingress](ingress-how-to.md) is enabled, making the container app available via HTTP or TCP.
 - The first revision was deployed as _Revision 1_.
 - After the container was updated, a new revision was activated as _Revision 2_.
-- [Traffic splitting](revisions-manage.md#traffic-splitting) rules are configured so that _Revision 1_ receives 80% of the requests, and _Revision 2_ receives the remaining 20%.
+- [Traffic splitting](traffic-splitting.md) rules are configured so that _Revision 1_ receives 80% of the requests, and _Revision 2_ receives the remaining 20%.
 
 ## Revision name suffix
 
@@ -52,15 +107,23 @@ Revision names are used to identify a revision, and in the revision's URL.  You 
 
 The format of a revision name is:
 
-```text
+``` text
 <CONTAINER_APP_NAME>--<REVISION_SUFFIX>
 ```
 
 By default, Container Apps creates a unique revision name with a suffix consisting of a semi-random string of alphanumeric characters.  You can customize the name by setting a unique custom revision suffix.
 
-For example, for a container app named *album-api*, setting the revision suffix name to *1st-revision* would create a revision with the name *album-api--1st-revision*.
+For example, for a container app named *album-api*, setting the revision suffix name to *first-revision* would create a revision with the name *album-api--first-revision*.
 
-You can set the revision suffix in the [ARM template](azure-resource-manager-api-spec.md#propertiestemplate), through the Azure CLI `az containerapp create` and `az containerapp update` commands, or when creating a revision via the Azure portal.
+A revision suffix name must:
+
+- consist of lower case alphanumeric characters or dashes ('-')
+- start with an alphabetic character
+- end with an alphanumeric character
+- not have two consecutive dashes (--)
+- not be more than 64 characters
+
+You can set the revision suffix in the [ARM template](azure-resource-manager-api-spec.md#propertiestemplate), through the Azure CLI `az containerapp create` and `az containerapp update` commands, or when creating a revision via the Azure portal. 
 
 ## Change types
 
@@ -92,8 +155,8 @@ These parameters include:
 - [Secret values](manage-secrets.md) (revisions must be restarted before a container recognizes new secret values)
 - [Revision mode](#revision-modes)
 - Ingress configuration including:
-  - Turning [ingress](ingress.md) on or off
-  - [Traffic splitting rules](revisions-manage.md#traffic-splitting)
+  - Turning [ingress](ingress-how-to.md) on or off
+  - [Traffic splitting rules](traffic-splitting.md)
   - Labels
 - Credentials for private container registries
 - Dapr settings
@@ -111,7 +174,7 @@ By default, a container app is in *single revision mode*. In this mode, when a n
 
 Set the revision mode to *multiple revision mode*, to run multiple revisions of your app simultaneously. While in this mode, new revisions are activated alongside current active revisions.
 
-For an app implementing external HTTP ingress, you can control the percentage of traffic going to each active revision from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in an ARM template. For more information, see [Traffic splitting](revisions-manage.md#traffic-splitting).
+For an app implementing external HTTP ingress, you can control the percentage of traffic going to each active revision from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in an ARM template. For more information, see [Traffic splitting](traffic-splitting.md).
 
 ## Revision Labels
 
@@ -145,7 +208,7 @@ You can find the label URL in the revision details pane.
 
 ## Activation state
 
-In *multiple revision mode*, revisions remain active until you deactivate them. You can activate and deactivate revisions from your container app's **Revision management** page in the Azure portal or from the Azure CLI.
+In *multiple revision modes*, revisions remain active until you deactivate them. You can activate and deactivate revisions from your container app's **Revision management** page in the Azure portal or from the Azure CLI.
 
 You aren't charged for the inactive revisions. You can have a maximum of 100 revisions, after which the oldest revision is purged.
 

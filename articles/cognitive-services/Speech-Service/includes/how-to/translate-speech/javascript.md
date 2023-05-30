@@ -67,7 +67,7 @@ The [TranslationRecognizer class](/javascript/api/microsoft-cognitiveservices-sp
 * *Single-shot translation (async)*: Performs translation in a nonblocking (asynchronous) mode. It translates a single utterance. It determines the end of a single utterance by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
 * *Continuous translation (async)*: Asynchronously initiates a continuous translation operation. The user registers to events and handles various application states. To stop asynchronous continuous translation, call [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#stopcontinuousrecognitionasync).
 
-To learn more about how to choose a speech recognition mode, see [Get started with speech-to-text](../../../get-started-speech-to-text.md).
+To learn more about how to choose a speech recognition mode, see [Get started with speech to text](../../../get-started-speech-to-text.md).
 
 ### Specify a target language
 
@@ -144,7 +144,7 @@ In the following code, you subscribe to the events sent from `TranslationRecogni
 * [`recognizing`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#recognizing): Signal for events that contain intermediate translation results.
 * [`recognized`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#recognized): Signal for events that contain final translation results. These results indicate a successful translation attempt.
 * [`sessionStopped`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#sessionstopped): Signal for events that indicate the end of a translation session (operation).
-* [`canceled`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#canceled): Signal for events that contain canceled translation results. These events indicate a translation attempt that was canceled as a result or a direct cancellation. Alternatively, they indicate a transport or protocol failure.
+* [`canceled`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#canceled): Signal for events that contain canceled translation results. These events indicate a translation attempt that was canceled as a result of a direct cancellation. Alternatively, they indicate a transport or protocol failure.
 
 ```javascript
 translationRecognizer.recognizing = (s, e) => {

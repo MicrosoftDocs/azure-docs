@@ -108,7 +108,7 @@
             href: howto-authentication-passwordless-faqs.md
           - name: Troubleshoot hybrid
             href: howto-authentication-passwordless-troubleshoot.md
-      - name: Passwordless phone sign-in
+      - name: Microsoft Authenticator
         items:
         - name: Manage
           href: howto-authentication-passwordless-phone.md
@@ -118,6 +118,8 @@
           href: how-to-mfa-number-match.md
         - name: Use additional context 
           href: how-to-mfa-additional-context.md
+        - name: Use Authenticator Lite 
+          href: how-to-mfa-authenticator-lite.md
         - name: Use Microsoft managed settings 
           href: how-to-mfa-microsoft-managed.md
       - name: Windows Hello for Business
@@ -178,6 +180,8 @@
     items:
     - name: Deployment guide
       href: howto-mfa-getstarted.md
+    - name: Configure MFA using the portal guide
+      href: multi-factor-authentication-wizard.md
     - name: Configure settings
       href: howto-mfa-mfasettings.md
     - name: Configure users
@@ -249,7 +253,7 @@
       - name: Overview
         href: how-to-migrate-mfa-server-to-azure-mfa.md
       - name: Migrate to Azure MFA and user authentication
-        href: how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md
+        href: how-to-migrate-mfa-server-to-mfa-user-authentication.md
       - name: Migrate to Azure MFA with Federation
         href: how-to-migrate-mfa-server-to-azure-mfa-with-federation.md    
       - name: Migration Utility

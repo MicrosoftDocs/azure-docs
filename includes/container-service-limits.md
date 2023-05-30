@@ -1,11 +1,11 @@
 ---
 title: include file
 description: include file
-author: zr-msft
+author: mgoedtel
 ms.service: azure-kubernetes-service
 ms.topic: include
-ms.date: 04/06/2021
-ms.author: zarhoads
+ms.date: 04/13/2023
+ms.author: magoedte
 ms.custom: include file
 ---
 

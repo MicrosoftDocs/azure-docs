@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Eccentex AppBase for Azure | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Eccentex AppBase for Azure'
 description: Learn how to configure single sign-on between Azure Active Directory and Eccentex AppBase for Azure.
 services: active-directory
 author: jeevansd

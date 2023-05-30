@@ -18,7 +18,7 @@ The **Analytics** dashboard in Permissions Management collects detailed informat
 
 - **Users**: Tracks assigned permissions and usage of various identities.
 - **Groups**: Tracks assigned permissions and usage of the group and the group members.
-- **Active Resources**: Tracks active resources (used in the last 90 days).
+- **Active Resources**: Tracks resources that identities have performed actions on (in the last 90 days).
 - **Active Tasks**: Tracks active tasks (performed in the last 90 days).
 - **Access Keys**: Tracks the permission usage of access keys for a given user.
 - **Serverless Functions**: Tracks assigned permissions and usage of the serverless functions.

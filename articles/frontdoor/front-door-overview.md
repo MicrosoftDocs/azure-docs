@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: overview
 ms.workload: infrastructure-services
-ms.date: 03/18/2022
+ms.date: 03/18/2023
 ms.author: duau
 # Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
 ---
@@ -15,7 +15,7 @@ ms.author: duau
 
 Whether you’re delivering content and files or building global apps and APIs, Azure Front Door can help you deliver higher availability, lower latency, greater scale, and more secure experiences to your users wherever they are.  
 
-Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) that provides fast, reliable, and secure access between your users and your applications’ static and dynamic web content across the globe. Azure Front Door delivers your content using the Microsoft’s global edge network with hundreds of [global and local points of presence (PoPs)](edge-locations-by-region.md) distributed around the world close to both your enterprise and consumer end users.
+Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) that provides fast, reliable, and secure access between your users and your applications’ static and dynamic web content across the globe. Azure Front Door delivers your content using Microsoft’s global edge network with hundreds of [global and local points of presence (PoPs)](edge-locations-by-region.md) distributed around the world close to both your enterprise and consumer end users.
 
 :::image type="content" source="./media/overview/front-door-overview.png" alt-text="Diagram of Azure Front Door routing user traffic to endpoints." lightbox="./media/overview/front-door-overview-expanded.png":::
 

@@ -40,59 +40,13 @@ Downtime will depend on how you choose to redirect traffic from your old to your
 
 If you want your App Service Environment to use availability zones, redeploy your apps into a newly created availability zone enabled App Service Environment.
 
-### Important considerations when using availability zones
-
-Traffic is routed to all of your available App Service instances. In the case when a zone goes down, the App Service platform will detect lost instances and automatically attempt to find new replacement instances and spread traffic as needed. If you have [autoscale](../app-service/manage-scale-up.md) configured, and if it decides more instances are needed, autoscale will also issue a request to App Service to add more instances. Note that [autoscale behavior is independent of App Service platform behavior](../azure-monitor/autoscale/autoscale-overview.md) and that your autoscale instance count specification doesn't need to be a multiple of three. It's also important to note there's no guarantee that requests for additional instances in a zone-down scenario will succeed since back filling lost instances occurs on a best-effort basis. The recommended solution is to create and configure your App Service plans to account for losing a zone as described in the next section.
-
-Applications that are deployed in an App Service Environment that has availability zones enabled will continue to run and serve traffic if a single zone becomes unavailable.  However it's possible that non-runtime behaviors including App Service plan scaling, application creation, application configuration, and application publishing may still be impacted from an outage in other Availability Zones. Zone redundancy for App Service Environments only ensures continued uptime for deployed applications.
-
-When the App Service platform allocates instances to a zone redundant App Service plan, it uses [best effort zone balancing offered by the underlying Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing). An App Service plan will be "balanced" if each zone has either the same number of VMs, or +/- one VM in all of the other zones used by the App Service plan.
-
-## In-region data residency
+### In-region data residency
 
 A zone redundant App Service Environment will only store customer data within the region where it has been deployed. App content, settings, and secrets stored in App Service remain within the region where the zone redundant App Service Environment is deployed.
 
 ### How to redeploy
 
-The following steps describe how to enable availability zones.
-
-1. To redeploy and ensure you'll be able to use availability zones, you'll need to be on the App Service footprint that supports availability zones. Create your new App Service Environment in one of the [supported regions](../app-service/environment/overview.md#regions).
-1. Ensure the zoneRedundant property (described below) is set to true when creating the new App Service Environment.
-1. Create your new App Service plans and apps in the new App Service Environment using your desired deployment method.
-
-You can create an App Service Environment with availability zones using the [Azure CLI](/cli/azure/install-azure-cli), [Azure portal](https://portal.azure.com), or an [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/overview.md).
-
-To enable availability zones using the Azure CLI, include the `--zone-redundant` parameter when you create your App Service Environment.
-
-```azurecli
-az appservice ase create --resource-group MyResourceGroup --name MyAseName --zone-redundant --vnet-name MyVNet --subnet MySubnet --kind asev3 --virtual-ip-type Internal
-```
-
-To create an App Service Environment with availability zones using the Azure portal, enable the zone redundancy option during the "Create App Service Environment v3" experience on the Hosting tab.
-
-The only change needed in an Azure Resource Manager template to specify an App Service Environment with availability zones is the ***zoneRedundant*** property on the [Microsoft.Web/hostingEnvironments](/azure/templates/microsoft.web/hostingEnvironments?tabs=json) resource. The ***zoneRedundant*** property should be set to ***true***.
-
-```json
-"resources": [
-  {
-    "apiVersion": "2019-08-01",
-    "type": "Microsoft.Web/hostingEnvironments",
-    "name": "MyAppServiceEnvironment",
-    "kind": "ASEV3",
-    "location": "West US 3",
-    "properties": {
-      "name": "MyAppServiceEnvironment",
-      "location": "West US 3",
-      "dedicatedHostCount": "0",
-      "zoneRedundant": true,
-      "InternalLoadBalancingMode": 0,
-      "virtualNetwork": {
-        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/MyVNet/subnets/MySubnet"
-      }
-    }
-  }
-]
-```
+To redeploy your new App Service Environment, you'll need to create the App Service Environment v3 on Isolated v2 plan. For instructions on how to create your App Service Environment, see [Create an App Service Environment](../app-service/environment/creation.md).
 
 ## Pricing
 
@@ -102,3 +56,6 @@ There's a minimum charge of nine App Service plan instances in a zone redundant 
 
 > [!div class="nextstepaction"]
 > [Azure services and regions that support availability zones](availability-zones-service-support.md)
+
+> [!div class="nextstepaction"]
+> [Reliability in Azure App Service](reliability-app-service.md)

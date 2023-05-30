@@ -1,5 +1,5 @@
 ---
-title: Prerequisites for Azure Active Directory reporting API | Microsoft Docs
+title: Prerequisites for Azure Active Directory reporting API
 description: Learn about the prerequisites to access the Azure AD reporting API
 services: active-directory
 author: shlipsey3
@@ -63,7 +63,7 @@ To access the Azure AD reporting API, you must grant your app *Read directory da
     ![Screenshot of the API permissions menu option and Add permissions button.](./media/howto-configure-prerequisites-for-reporting-api/api-permissions-new-permission.png)
 
 1. Select **Microsoft Graph** > **Application permissions**.
-1. Add **Directory.ReadAll** and **AuditLog.Read.All**, then select the **Add permissions** button.
+1. Add **Directory.Read.All**, **AuditLog.Read.All** and **Policy.Read.ConditionalAccess** then select the **Add permissions** button.
     - If you need more permissions to run the queries you need, you can add them now or modify the permissions as needed in Microsoft Graph.
     - For more information, see [Work with Graph Explorer](/graph/graph-explorer/graph-explorer-features).
 

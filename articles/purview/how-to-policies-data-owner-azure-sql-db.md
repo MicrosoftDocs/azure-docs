@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 10/31/2022
+ms.date: 03/17/2023
 ms.custom: references_regions, event-tier1-build-2022
 ---
 # Provision access by data owner for Azure SQL Database (preview)
@@ -35,6 +35,7 @@ After you've registered your resources, you'll need to enable Data Use Managemen
 Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this screenshot. This will enable the access policies to be used with the given Azure SQL server and all its contained databases.
 ![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-azure-sql-db.png)
 
+[!INCLUDE [Access policies Azure SQL Database pre-requisites](./includes/access-policies-configuration-azure-sql-db.md)]
 
 ## Create and publish a data owner policy
 
@@ -57,48 +58,14 @@ Follow this link for the steps to [unpublish a data owner policy in Microsoft Pu
 Follow this link for the steps to [update or delete a data owner policy in Microsoft Purview](how-to-policies-data-owner-authoring-generic.md#update-or-delete-a-policy).
 
 ## Test the policy
+After creating the policy, any of the Azure AD users in the Subject should now be able to connect to the data sources in the scope of the policy. To test, use SSMS or any SQL client and try to query. Attempt access to a SQL table you have provided read access to.
 
-The Azure AD Accounts referenced in the access policies should now be able to connect to any database in the server to which the policies are published.
+If you require additional troubleshooting, see the [Next steps](#next-steps) section in this guide.
 
-### Force policy download
-It is possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it is membership in ##MS_ServerStateManager##-server role.
+## Role definition detail
+This section contains a reference of how relevant Microsoft Purview data policy roles map to specific actions in SQL data sources.
 
-```sql
--- Force immediate download of latest published policies
-exec sp_external_policy_refresh reload
-```  
-
-### Analyze downloaded policy state from SQL
-The following DMVs can be used to analyze which policies have been downloaded and are currently assigned to Azure AD accounts. The minimal permission required to run them is VIEW DATABASE SECURITY STATE - or assigned Action Group *SQL Security Auditor*.
-
-```sql
-
--- Lists generally supported actions
-SELECT * FROM sys.dm_server_external_policy_actions
-
--- Lists the roles that are part of a policy published to this server
-SELECT * FROM sys.dm_server_external_policy_roles
-
--- Lists the links between the roles and actions, could be used to join the two
-SELECT * FROM sys.dm_server_external_policy_role_actions
-
--- Lists all Azure AD principals that were given connect permissions  
-SELECT * FROM sys.dm_server_external_policy_principals
-
--- Lists Azure AD principals assigned to a given role on a given resource scope
-SELECT * FROM sys.dm_server_external_policy_role_members
-
--- Lists Azure AD principals, joined with roles, joined with their data actions
-SELECT * FROM sys.dm_server_external_policy_principal_assigned_actions
-```
-
-## Additional information
-
-### Policy action mapping
-
-This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure SQL DB.
-
-| **Microsoft Purview policy action** | **Data source specific actions**     |
+| **Microsoft Purview policy role definition** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
 |||
 | *Read* |Microsoft.Sql/sqlservers/Connect |
@@ -112,3 +79,4 @@ Check blog, demo and related how-to guides
 * [Concepts for Microsoft Purview data owner policies](./concept-policies-data-owner.md)
 * [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)
 * [Enable Microsoft Purview data owner policies on an Azure Arc-enabled SQL Server](./how-to-policies-data-owner-arc-sql-server.md)
+* Doc: [Troubleshoot Microsoft Purview policies for SQL data sources](./troubleshoot-policy-sql.md)

@@ -1,12 +1,12 @@
 ---
-title: Use Azure AD Multi-Factor Authentication with NPS - Azure Active Directory
+title: Use Azure AD Multi-Factor Authentication with NPS
 description: Learn how to use Azure AD Multi-Factor Authentication capabilities with your existing Network Policy Server (NPS) authentication infrastructure
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 04/10/2023
 
 ms.author: justinha
 author: justinha
@@ -27,10 +27,13 @@ The NPS extension acts as an adapter between RADIUS and cloud-based Azure AD Mul
 When you use the NPS extension for Azure AD Multi-Factor Authentication, the authentication flow includes the following components:
 
 1. **NAS/VPN Server** receives requests from VPN clients and converts them into RADIUS requests to NPS servers.
-2. **NPS Server** connects to Active Directory Domain Services (AD DS) to perform the primary authentication for the RADIUS requests and, upon success, passes the request to any installed extensions.
-3. **NPS Extension** triggers a request to Azure AD Multi-Factor Authentication for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.
+1. **NPS Server** connects to Active Directory Domain Services (AD DS) to perform the primary authentication for the RADIUS requests and, upon success, passes the request to any installed extensions.
+1. **NPS Extension** triggers a request to Azure AD Multi-Factor Authentication for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.
    >[!NOTE]
-   >Users must have access to their default authentication method to complete the MFA requirement. They cannot choose an alternative method. Their default authentication method will be used even if it's been disabled in the tenant authentication methods and MFA policies.
+   >Although NPS doesn't support [number matching](how-to-mfa-number-match.md), the latest NPS extension does support time-based one-time password (TOTP) methods, such as the TOTP available in Microsoft Authenticator. TOTP sign-in provides better security than the alternative **Approve**/**Deny** experience. 
+   >
+   >After May 8, 2023, when number matching is enabled for all users, anyone who performs a RADIUS connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with a TOTP method instead. Users must have a TOTP authentication method registered to see this behavior. Without a TOTP method registered, users continue to see **Approve**/**Deny**.
+
 1. **Azure AD MFA** communicates with Azure Active Directory (Azure AD) to retrieve the user's details and performs the secondary authentication using a verification method configured to the user.
 
 The following diagram illustrates this high-level authentication request flow:
@@ -106,21 +109,25 @@ When you install the extension, you need the *Tenant ID* and admin credentials f
 
 The NPS server must be able to communicate with the following URLs over TCP port 443:
 
-* *https:\//strongauthenticationservice.auth.microsoft.com* (for Azure Public cloud customers).
-* *https:\//strongauthenticationservice.auth.microsoft.us* (for Azure Government customers).
-* *https:\//strongauthenticationservice.auth.microsoft.cn* (for Azure China 21Vianet customers). 
-* *https:\//adnotifications.windowsazure.com*
-* *https:\//login.microsoftonline.com*
-* *https:\//credentials.azure.com*
+* `https://login.microsoftonline.com`
+* `https://login.microsoftonline.us (Azure Government)`
+* `https://login.chinacloudapi.cn (Azure China 21Vianet)`
+* `https://credentials.azure.com`
+* `https://strongauthenticationservice.auth.microsoft.com`
+* `https://strongauthenticationservice.auth.microsoft.us (Azure Government)`
+* `https://strongauthenticationservice.auth.microsoft.cn (Azure China 21Vianet)`
+* `https://adnotifications.windowsazure.com`
+* `https://adnotifications.windowsazure.us (Azure Government)`
+* `https://adnotifications.windowsazure.cn (Azure China 21Vianet)`
 
 Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#run-the-powershell-script):
 
-* *https:\//login.microsoftonline.com*
-* *https:\//provisioningapi.microsoftonline.com*
-* *https:\//aadcdn.msauth.net*
-* *https:\//www.powershellgallery.com*
-* *https:\//go.microsoft.com*
-* *https:\//aadcdn.msftauthimages.net*
+* `https://login.microsoftonline.com`
+* `https://provisioningapi.microsoftonline.com`
+* `https://aadcdn.msauth.net`
+* `https://www.powershellgallery.com`
+* `https://go.microsoft.com`
+* `https://aadcdn.msftauthimages.net`
 
 ## Prepare your environment
 
@@ -330,9 +337,7 @@ You can choose to create this key and set it to *FALSE* while your users are onb
 
 ### NPS extension health check script
 
-The following script is available to perform basic health check steps when troubleshooting the NPS extension.
-
-[MFA_NPS_Troubleshooter.ps1](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
+The [Azure AD MFA NPS Extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) performs a basic health check when troubleshooting the NPS extension. Run the script and choose one of available options.
 
 ### How to fix the error "Service principal was not found" while running `AzureMfaNpsExtnConfigSetup.ps1` script? 
 
@@ -343,7 +348,7 @@ import-module MSOnline
 Connect-MsolService
 New-MsolServicePrincipal -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -DisplayName "Azure Multi-Factor Auth Client"
 ```
-Once done , go to https://aad.portal.azure.com > "Enterprise Applications" > Search for "Azure Multi-Factor Auth Client" > Check properties for this app > Confirm if the service principal is enabled or disabled > Click on the application entry > Go to Properties of the app > If the option "Enabled for users to sign-in? is set to No in Properties of this app , please set it to Yes.
+Once done , go to the [Azure portal](https://portal.azure.com) > **Azure Active Directory** > **Enterprise Applications** > Search for "Azure Multi-Factor Auth Client" > Check properties for this app > Confirm if the service principal is enabled or disabled > Click on the application entry > Go to Properties of the app > If the option "Enabled for users to sign-in? is set to No in Properties of this app , please set it to Yes.
 
 Run the `AzureMfaNpsExtnConfigSetup.ps1` script again and it should not return the `Service principal was not found` error. 
 
@@ -411,17 +416,13 @@ A VPN server may send repeated requests to the NPS server if the timeout value i
 For more information on why you see discarded packets in the NPS server logs, see [RADIUS protocol behavior and the NPS extension](#radius-protocol-behavior-and-the-nps-extension) at the start of this article.
 
 ### How do I get Microsoft Authenticator number matching to work with NPS?
-Make sure you run the latest version of the NPS extension. NPS extension versions beginning with 1.0.1.40 support number matching.
+Although NPS doesn't support number matching, the latest NPS extension does support time-based one-time password (TOTP) methods such as the TOTP available in Microsoft Authenticator, other software tokens, and hardware FOBs. TOTP sign-in provides better security than the alternative **Approve**/**Deny** experience. Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). 
 
-Because the NPS extension can't show a number, a user who is enabled for number matching will still be prompted to Approve/Deny. However, you can create a registry key that overrides push notifications to ask a user to enter a One-Time Passcode (OTP). The user must have an OTP authentication method registered to see this behavior. Common OTP authentication methods include the OTP available in the Authenticator app, other software tokens, and so on.
+After May 8, 2023, when number matching is enabled for all users, anyone who performs a RADIUS connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with a TOTP method instead. 
 
-If the user doesn't have an OTP method registered, they'll continue to get the Approve/Deny experience. A user with number matching disabled will always see the Approve/Deny experience.
-
-To create the registry key that overrides push notifications:
-1. On the NPS Server, open the Registry Editor.
-2. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa.
-3. Set the following Key Value Pair: Key: OVERRIDE_NUMBER_MATCHING_WITH_OTP Value = TRUE
-4. Restart the NPS Service.
+Users must have a TOTP authentication method registered to see this behavior. Without a TOTP method registered, users continue to see **Approve**/**Deny**. 
+ 
+Prior to the release of NPS extension version 1.2.2216.1 after May 8, 2023, organizations that run earlier versions of NPS extension can modify the registry to require users to enter a TOTP. For more information, see [NPS extension](how-to-mfa-number-match.md#nps-extension).
 
 ## Managing the TLS/SSL Protocols and Cipher Suites
 

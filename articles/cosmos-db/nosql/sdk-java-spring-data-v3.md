@@ -27,15 +27,15 @@ You can use Spring Data Azure Cosmos DB in your applications hosted in [Azure Sp
 
 ### Spring Boot Version Support
 
-This project supports multiple Spring Boot Versions. Visit [spring boot support policy](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-spring-data-cosmos#spring-boot-support-policy) for more information. Maven users can inherit from the `spring-boot-starter-parent` project to obtain a dependency management section to let Spring manage the versions for dependencies. Visit [spring boot version support](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-spring-data-cosmos#spring-boot-version-support) for more information.
+This project supports multiple Spring Boot Versions. Visit [spring boot support policy](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos#spring-boot-support-policy) for more information. Maven users can inherit from the `spring-boot-starter-parent` project to obtain a dependency management section to let Spring manage the versions for dependencies. Visit [spring boot version support](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos#spring-boot-version-support) for more information.
 
 ### Spring Data Version Support
 
-This project supports different spring-data-commons versions. Visit [spring data version support](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-spring-data-cosmos#spring-data-version-support) for more information.
+This project supports different spring-data-commons versions. Visit [spring data version support](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos#spring-data-version-support) for more information.
 
 ### Which Version of Azure Spring Data Azure Cosmos DB Should I Use
 
-Azure Spring Data Azure Cosmos DB library supports multiple versions of Spring Boot / Spring Cloud. Refer to [azure Spring Data Azure Cosmos DB version mapping](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md#which-version-of-azure-spring-data-cosmos-should-i-use) for detailed information on which version of Azure Spring Data Azure Cosmos DB to use with Spring Boot / Spring Cloud version.
+Azure Spring Data Azure Cosmos DB library supports multiple versions of Spring Boot / Spring Cloud. Refer to [azure Spring Data Azure Cosmos DB version mapping](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#which-version-of-azure-spring-data-cosmos-should-i-use) for detailed information on which version of Azure Spring Data Azure Cosmos DB to use with Spring Boot / Spring Cloud version.
 
 > [!IMPORTANT]  
 > These release notes are for version 3 of Spring Data Azure Cosmos DB. 
@@ -65,11 +65,11 @@ Azure Spring Data Azure Cosmos DB library supports multiple versions of Spring B
 
 | Content | Link |
 |---|---|
-| **Release notes** | [Release notes for Spring Data Azure Cosmos DB SDK v3](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md) |
-| **SDK Documentation** | [Azure Spring Data Azure Cosmos DB SDK v3 documentation](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/README.md) |
+| **Release notes** | [Release notes for Spring Data Azure Cosmos DB SDK v3](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/CHANGELOG.md) |
+| **SDK Documentation** | [Azure Spring Data Azure Cosmos DB SDK v3 documentation](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md) |
 | **SDK download** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-cosmos) |
 | **API documentation** | [Java API reference documentation](/java/api/overview/azure/spring-data-cosmos-readme?view=azure-java-stable&preserve-view=true) |
-| **Contribute to SDK** | [Azure SDK for Java Central Repo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) | 
+| **Contribute to SDK** | [Azure SDK for Java Central Repo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos) | 
 | **Get started** | [Quickstart: Build a Spring Data Azure Cosmos DB app to manage Azure Cosmos DB for NoSQL data](./quickstart-java-spring-data.md) <br> [GitHub repo with quickstart code](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) | 
 | **Basic code samples** | [Azure Cosmos DB: Spring Data Azure Cosmos DB examples for the API for NoSQL](samples-java-spring-data.md) <br> [GitHub repo with sample code](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples)|
 | **Performance tips**| [Performance tips for Java SDK v4 (applicable to Spring Data)](performance-tips-java-sdk-v4.md)| 
@@ -77,7 +77,7 @@ Azure Spring Data Azure Cosmos DB library supports multiple versions of Spring B
 | **Azure Cosmos DB workshops and labs** |[Azure Cosmos DB workshops home page](https://aka.ms/cosmosworkshop)
 
 ## Release history
-Release history is maintained in the azure-sdk-for-java repo, for detailed list of releases, see the [changelog file](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md).
+Release history is maintained in the azure-sdk-for-java repo, for detailed list of releases, see the [changelog file](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/CHANGELOG.md).
 
 ## Recommended version
 

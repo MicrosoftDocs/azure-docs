@@ -7,7 +7,6 @@ ms.topic: conceptual
 ms.date: 08/09/2022
 author: chugugrace
 ms.author: chugu
-ms.custom: devx-track-azurepowershell
 ---
 
 # How to clean up SSISDB logs automatically

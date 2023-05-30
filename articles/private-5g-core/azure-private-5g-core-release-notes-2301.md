@@ -1,8 +1,8 @@
 ---
 title: Azure Private 5G Core 2301 release notes 
 description: Discover what's new in the Azure Private 5G Core 2301 release
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: release-notes
 ms.date: 01/31/2023
@@ -42,12 +42,13 @@ The following table provides a summary of issues fixed in this release.
 
 The following table provides a summary of known issues carried over from the previous releases. 
 
-  |No.  |Feature  | Issue |
-  |-----|-----|-----|
-  | 1 | Policy configuration  | Azure Private 5G Core may ignore non-default QoS and Policy configuration when handling 4G subscribers.  | 
-  | 2 | Packet forwarding  | Azure Private 5G Core may not forward buffered packets if NAT is enabled.   | 
-  | 3 | Local dashboards  | In some scenarios, the local dashboards don't show session rejection under the **Device and Session Statistics** panel if Session Establishment requests are rejected due to invalid PDU type (e.g. IPv6 when only IPv4 supported).   | 
-  | 4 | Packet forwarding  | When Azure Private 5G Core has NAT enabled on a data network, approximately one in every 65,536 downlink packets sent to a UE will be emitted with an incorrect IP checksum, which will likely cause it to be dropped.  | 
+  |No.  |Feature  | Issue | Workaround/comments |
+  |-----|-----|-----|-----|
+  | 1 | Policy configuration  | Azure Private 5G Core may ignore non-default QoS and Policy configuration when handling 4G subscribers. | Not applicable. |
+  | 2 | Packet forwarding  | Azure Private 5G Core may not forward buffered packets if NAT is enabled. | Not applicable. |
+  | 3 | Local dashboards  | In some scenarios, the local dashboards don't show session rejection under the **Device and Session Statistics** panel if Session Establishment requests are rejected due to invalid PDU type (e.g. IPv6 when only IPv4 supported). | Not applicable. |
+  | 4 | Packet forwarding  | When Azure Private 5G Core has NAT enabled on a data network, approximately one in every 65,536 downlink packets sent to a UE will be emitted with an incorrect IP checksum, which will likely cause it to be dropped. | Not applicable. | 
+  | 5 | Install/upgrade | Changing the technology type of a deployment from 4G (EPC) to 5G using upgrade or site delete and add is not supported. | Please contact support for the required steps to change the technology type. |
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Absorb LMS | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Absorb LMS'
 description: Learn how to configure single sign-on between Azure Active Directory and Absorb LMS.
 services: active-directory
 author: jeevansd
@@ -211,7 +211,7 @@ For Azure AD users to sign in to Absorb LMS, they must be set up in Absorb LMS. 
     ![The Only Allow SSO Login toggle](./media/absorblms-tutorial/save.png)
 
     > [!NOTE]
-    > By Default, User Provisioning is not enabled in SSO. If the customer wants to enable this feature, they have to set it up as mentioned in [this](https://support.absorblms.com/hc/en-us/articles/360014083294-Incoming-SAML-2-0-SSO-Account-Provisioning) documentation. Also please note that User Provisioing is only available on **Absorb 5 - New Learner Experience** with ACS URL-`https://company.myabsorb.com/api/rest/v2/authentication/saml`
+    > By Default, User Provisioning is not enabled in SSO. If the customer wants to enable this feature, they have to set it up as mentioned in [this](https://support.absorblms.com/hc/en-us/articles/360014083294-Incoming-SAML-2-0-SSO-Account-Provisioning) documentation. Also please note that User Provisioning is only available on **Absorb 5 - New Learner Experience** with ACS URL-`https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
 ## Test SSO
 

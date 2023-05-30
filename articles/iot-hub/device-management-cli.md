@@ -1,14 +1,14 @@
 ---
-title: Get started with Azure IoT Hub device management (Azure CLI)
-description: How to use Azure IoT Hub device management to initiate a remote device reboot. You use the Azure CLI to implement a simulated device and invoke a direct method from that device.
+title: Device management using direct methods (CLI)
+titleSuffix: Azure IoT Hub
+description: How to use Azure IoT Hub direct methods with the Azure CLI for device management tasks including invoking a remote device reboot.
 author: kgremban
 
-ms.service: iot-hub
-services: iot-hub
-ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 01/30/2023
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: azurecli
+ms.topic: how-to
+ms.date: 01/30/2023
 ms.custom:  "mqtt, devx-track-azurecli"
 ---
 
@@ -28,7 +28,7 @@ Use a direct method to initiate device management actions (such as reboot, facto
 
 * Providing status updates through *reported properties* to IoT Hub.
 
-You can use Azure CLI to run device twin queries to report on the progress of your device management actions.
+You can use Azure CLI to run device twin queries to report on the progress of your device management actions. For more information about using direct methods, see [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md).
 
 This article shows you how to create two Azure CLI sessions:
 
@@ -38,11 +38,11 @@ This article shows you how to create two Azure CLI sessions:
 
 ## Prerequisites
 
-* Azure CLI. You can also run the commands in this article using the [Azure Cloud Shell](/azure/cloud-shell/overview), an interactive CLI shell that runs in your browser or in an app such as Windows Terminal. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this article requires Azure CLI version 2.36 or later. Run `az --version` to find the version. To locally install or upgrade Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI. You can also run the commands in this article using the [Azure Cloud Shell](../cloud-shell/overview.md), an interactive CLI shell that runs in your browser or in an app such as Windows Terminal. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this article requires Azure CLI version 2.36 or later. Run `az --version` to find the version. To locally install or upgrade Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 * An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
 ## Prepare the Cloud Shell
 
@@ -174,4 +174,3 @@ In this section, you use the second CLI session to invoke a direct method and pr
 To learn how to use Azure CLI to extend your IoT solution and schedule method invocations on devices, see [Schedule and broadcast jobs](schedule-jobs-cli.md).
 
 To continue getting started with IoT Hub and device management patterns, such as end-to-end image-based update, see [Device Update for Azure IoT Hub article using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).
-

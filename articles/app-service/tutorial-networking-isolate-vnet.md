@@ -2,6 +2,7 @@
 title: 'Tutorial: Isolate back-end communication with Virtual Network integration'
 description: Connections from App Service to back-end services are routed through shared network infrastructure with other apps and subscriptions. Learn how to isolate traffic by using Virtual Network integration.
 ms.topic: tutorial
+ms.custom: devx-track-azurecli
 ms.date: 10/26/2021
 
 ms.reviewer: madsd

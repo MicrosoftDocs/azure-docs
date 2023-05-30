@@ -1,15 +1,8 @@
 ---
-author: sdwheeler
 description: Learn to embed Azure Cloud Shell.
-manager: mkluck
-ms.author: sewhee
 ms.contributor: jahelmic
 ms.date: 11/14/2022
-ms.service: cloud-shell
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.workload: infrastructure-services
-services: cloud-shell
 tags: azure-resource-manager
 title: Embed Azure Cloud Shell
 ---
@@ -37,13 +30,13 @@ To integrate Cloud Shell's launch button into markdown files by copying the foll
 Regular sized button
 
 ```markdown
-[![Launch Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/media/embed-cloud-shell/launch-cloud-shell-1.png](https://shell.azure.com)
+[![Launch Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/media/embed-cloud-shell/launch-cloud-shell-1.png)](https://shell.azure.com)
 ```
 
 Large sized button
 
 ```markdown
-[![Launch Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/media/embed-cloud-shell/launch-cloud-shell-2.png](https://shell.azure.com)
+[![Launch Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/media/embed-cloud-shell/launch-cloud-shell-2.png)](https://shell.azure.com)
 ```
 
 The location of these image files is subject to change. We recommend that you download the files for

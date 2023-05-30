@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/30/2023
+ms.date: 03/16/2023
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -31,7 +31,7 @@ In this article, you'll learn how to:
 
 ## Scenario overview 
 
-In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP 200 (OK) response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP 409 (Conflict) response, and the use must re-enter an access code. 
+In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP 200 (OK) response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP 409 (Conflict) response, and the user must re-enter an access code. 
 
 :::image type="content" source="media/custom-policies-series-call-rest-api/screenshot-of-call-rest-api-call.png" alt-text="A flowchart of calling a R E S T  A P I.":::
 
@@ -88,7 +88,7 @@ You need to deploy an app, which will serve as your external app. Your custom po
                     "code" : "errorCode",
                     "requestId": "requestId",
                     "userMessage" : "The access code you entered is incorrect. Please try again.",
-                    "developerMessage" : `The The provided code ${req.body.accessCode} does not match the expected code for user.`,
+                    "developerMessage" : `The provided code ${req.body.accessCode} does not match the expected code for user.`,
                     "moreInfo" :"https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
                 };
                 res.status(409).send(errorResponse);                
@@ -104,7 +104,7 @@ You need to deploy an app, which will serve as your external app. Your custom po
 
 1. To test the app works as expected, use the following steps:
     1. In your terminal, run the `node index.js` command to start your app server. 
-    1. To make a POST request similar to the one shown below, you can use an HTTP client such as [Microsoft PowerShell](https://learn.microsoft.com/powershell/scripting/overview) or [Postman](https://www.postman.com/):
+    1. To make a POST request similar to the one shown below, you can use an HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/):
     
     ```http
         POST http://localhost/validate-accesscode HTTP/1.1
@@ -133,7 +133,7 @@ You need to deploy an app, which will serve as your external app. Your custom po
             "code": "errorCode",
             "requestId": "requestId",
             "userMessage": "The access code you entered is incorrect. Please try again.",
-            "developerMessage": "The The provided code 54321 does not match the expected code for user.",
+            "developerMessage": "The provided code 54321 does not match the expected code for user.",
             "moreInfo": "https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
         }
     ```
@@ -150,7 +150,7 @@ Follow the steps in [Deploy your app to Azure](../app-service/quickstart-nodejs.
 
 - Service endpoint looks similar to `https://custompolicyapi.azurewebsites.net/validate-accesscode`.
 
-You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](https://learn.microsoft.com/powershell/scripting/overview) or [Postman](https://www.postman.com/). This time, use `https://custompolicyapi.azurewebsites.net/validate-accesscode` URL as the endpoint. 
+You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/). This time, use `https://custompolicyapi.azurewebsites.net/validate-accesscode` URL as the endpoint. 
 
 ## Step 2 - Call the REST API
 
@@ -301,6 +301,12 @@ Then, update the *Metadata*, *InputClaimsTransformations*, and *InputClaims* of 
         <InputClaim ClaimTypeReferenceId="requestBodyPayload" />
     </InputClaims>
 ```
+
+## Receive data from REST API
+
+If your REST API returns data, which you want to include as claims in your policy, you can receive it by specifying claims in the `OutputClaims` element of the RESTful technical profile. If the name of the claim defined in your policy is different from the name defined in the REST API, you need to map these names by using the `PartnerClaimType` attribute. 
+
+Use the steps in [Receiving data](api-connectors-overview.md?pivots=b2c-custom-policy#receiving-data) to learn how to format the data the custom policy expects, how to handle nulls values, and how to parse REST the API's nested JSON body.
 
 ## Next steps
 

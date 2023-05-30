@@ -34,8 +34,6 @@ KEDA can be added to your Azure Kubernetes Service (AKS) cluster by enabling the
 
 The KEDA add-on provides a fully supported installation of KEDA that is integrated with AKS.
 
-[!INCLUDE [Current version callout](./includes/keda/current-version-callout.md)]
-
 ## Capabilities and features
 
 KEDA provides the following capabilities and features:

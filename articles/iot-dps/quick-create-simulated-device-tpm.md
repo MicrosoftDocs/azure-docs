@@ -98,7 +98,7 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 4. Copy the tag name for the latest release of the Azure IoT C SDK.
 
-5. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. (replace `<release-tag>` with the tag you copied in the previous step).
+5. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Replace `<release-tag>` with the tag you copied in the previous step, for example: `lts_01_2023`.
 
     ```cmd/sh
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -222,10 +222,11 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
     npm install node-gyp -g
     npm install ffi-napi -g
     ```
+
     > [!NOTE]
-    > There are some known issues to installing the above packages. To resolve these issues, run `npm install --global --production windows-build-tools` using a command prompt in **Run as administrator** mode, run `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` after replacing the path with your installed version, and then rerun the above installation commands. 
+    > There are some known issues to installing the above packages. To resolve these issues, run `npm install --global --production windows-build-tools` using a command prompt in **Run as administrator** mode, run `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` after replacing the path with your installed version, and then rerun the above installation commands.
     >
-    
+
 5. Install all required packages running the following command at your command prompt in the **registerdevice** folder:
 
     ```cmd/sh
@@ -386,7 +387,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 1. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
 
     ```cmd
-    cd '.\azure-iot-sdk-csharp\provisioning\device\samples\How To\TpmSample\'
+    cd '.\azure-iot-sdk-csharp\provisioning\device\samples\how to guides\TpmSample\'
     ```
 
 2. Type the following command to build and run the TPM device provisioning sample. Copy the endorsement key returned from your TPM 2.0 hardware security module to use later when enrolling your device.
@@ -406,58 +407,17 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 ::: zone-end
 ::: zone pivot="programming-language-ansi-c, programming-language-nodejs, programming-language-java"
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. On the left-hand menu or on the portal page, select **All resources**.
-
-3. Select your Device Provisioning Service.
-
-4. In the **Settings** menu, select **Manage enrollments**.
-
-5. At the top of the page, select **+ Add individual enrollment**.
-
-6. In the **Add Enrollment** panel, enter the following information:
-
-   * Select **TPM** as the identity attestation *Mechanism*.
-   * Enter the *Registration ID* and *Endorsement key* for your TPM device from the values you noted previously.
-   * Select an IoT hub linked with your provisioning service.
-   * Optionally, you may provide the following information:
-       * Enter a unique *Device ID* (you can use the suggested **test-docs-device** or provide your own). Make sure to avoid sensitive data while naming your device. If you choose not to provide one, the registration ID will be used to identify the device instead.
-       * Update the **Initial device twin state** with the desired initial configuration for the device.
-   * Once complete, press the **Save** button.
-
-      ![Enter device enrollment information in the portal](./media/quick-create-simulated-device-tpm/enter-device-enrollment.png)
-
-7. Select **Save**.
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-individual-enrollment-tpm.md](../../includes/iot-dps-individual-enrollment-tpm.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+The C# TPM sample for this quickstart doesn't provide a registration ID. When prompted to add one for the individual enrollment, provide your own value.
 
-2. On the left-hand menu or on the portal page, select **All resources**.
-
-3. Select your Device Provisioning Service.
-
-4. In the **Settings** menu, select **Manage enrollments**.
-
-5. At the top of the page, select **+ Add individual enrollment**.
-
-6. In the **Add Enrollment** panel, enter the following information:
-
-   * Select **TPM** as the identity attestation *Mechanism*.
-   * Enter the *Endorsement key* you retrieved earlier from your HSM.
-   * Enter a unique *Registration ID* for your device. You'll also use this registration ID when registering your device, so make a note of it for later.
-   * Select an IoT hub linked with your provisioning service.
-   * Optionally, you may provide the following information:
-       * Enter a unique *Device ID* (you can use the suggested **test-docs-device** or provide your own). Make sure to avoid sensitive data while naming your device. If you choose not to provide one, the registration ID will be used to identify the device instead.
-       * Update the **Initial device twin state** with the desired initial configuration for the device.
-   * Once complete, press the **Save** button.
-
-      ![Enter device enrollment information in the portal](./media/quick-create-simulated-device-tpm/enter-device-enrollment.png)
-
-7. Select **Save**.
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-individual-enrollment-tpm.md](../../includes/iot-dps-individual-enrollment-tpm.md)]
 
 ::: zone-end
 ::: zone pivot="programming-language-csharp, programming-language-ansi-c, programming-language-nodejs, programming-language-java"
@@ -540,7 +500,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 3. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
 
    ```cmd
-    cd '.\azure-iot-sdk-csharp\provisioning\device\samples\How To\TpmSample\'
+    cd '.\azure-iot-sdk-csharp\provisioning\device\samples\how to guides\TpmSample\'
    ```
 
 4. Run the following command to register your device. Replace `<IdScope>` with the value for the DPS you copied and `<RegistrationId>` with the value you used when creating the device enrollment.
@@ -728,9 +688,9 @@ If you plan to continue working on and exploring the device client sample, don't
 
 4. In the **Settings** menu, select **Manage enrollments**.
 
-5. Select the **Individual Enrollments** tab.
+5. Select the **Individual enrollments** tab.
 
-6. Select the check box next to the *REGISTRATION ID* of the device you enrolled in this quickstart.
+6. Select the check box next to the registration ID of the device you enrolled in this quickstart.
 
 7. At the top of the page, select  **Delete**.
 
@@ -742,7 +702,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 3. In the **Explorers** menu, select **IoT devices**.
 
-4. Select the check box next to the *DEVICE ID* of the device you registered in this quickstart.
+4. Select the check box next to the device ID of the device you registered in this quickstart.
 
 5. At the top of the page, select  **Delete**.
 

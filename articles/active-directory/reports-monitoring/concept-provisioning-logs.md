@@ -1,5 +1,5 @@
 ---
-title: Provisioning logs in Azure Active Directory | Microsoft Docs
+title: Provisioning logs in Azure Active Directory
 description: Overview of the provisioning logs in Azure Active Directory.
 services: active-directory
 author: shlipsey3
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/23/2023
+ms.date: 03/31/2023
 ms.author: sarahlipsey
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
@@ -231,6 +231,7 @@ Use the following table to better understand how to resolve errors that you find
 |SystemForCrossDomainIdentity<br>ManagementServiceIncompatible|The Azure AD provisioning service is unable to parse the response from the third party application. Work with the application developer to ensure that the SCIM server is compatible with the [Azure AD SCIM client](../app-provisioning/use-scim-to-provision-users-and-groups.md#understand-the-azure-ad-scim-implementation).|
 |SchemaPropertyCanOnlyAcceptValue|The property in the target system can only accept one value, but the property in the source system has multiple. Ensure that you either map a single-valued attribute to the property that is throwing an error, update the value in the source to be single-valued, or remove the attribute from the mappings.|
 
+
 ## Error codes for cross-tenant synchronization
 
 Use the following table to better understand how to resolve errors that you find in the provisioning logs for [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md). For any error codes that are missing, provide feedback by using the link at the bottom of this page.
@@ -241,7 +242,11 @@ Use the following table to better understand how to resolve errors that you find
 > | AzureActiveDirectoryCannotUpdateObjectsOriginatedInExternalService | The synchronization engine could not update one or more user properties in the target tenant.<br/><br/>The operation failed in Microsoft Graph API because of Source of Authority (SOA) enforcement. Currently, the following properties show up in the list:<br/>`Mail`<br/>`showInAddressList` | In some cases (for example when `showInAddressList` property is part of the user update), the synchronization engine might automatically retry the (user) update without the offending property. Otherwise, you will need to update the property directly in the target tenant. |
 > | AzureDirectoryB2BManagementPolicyCheckFailure | The cross-tenant synchronization policy allowing automatic redemption failed.<br/><br/>The synchronization engine checks to ensure that the administrator of the target tenant has created an inbound cross-tenant synchronization policy allowing automatic redemption. The synchronization engine also checks if the administrator of the source tenant has enabled an outbound policy for automatic redemption. | Ensure that the automatic redemption setting has been enabled for both the source and target tenants. For more information, see [Automatic redemption setting](../multi-tenant-organizations/cross-tenant-synchronization-overview.md#automatic-redemption-setting). |
 > | AzureActiveDirectoryQuotaLimitExceeded | The number of objects in the tenant exceeds the directory limit.<br/><br/>Azure AD has limits for the number of objects that can be created in a tenant. | Check whether the quota can be increased. For information about the directory limits and steps to increase the quota, see [Azure AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md). |
-> |InvitationCreationFailure| The Azure AD provisioning service attempted to invite the user in the target tenant. That invitation failed.| Navigate to the user settings page in Azure AD > external users > collaboration restrictions and ensure that collaboration with that tenant is enabled.|
+> |InvitationCreationFailure| The Azure AD provisioning service attempted to invite the user in the target tenant. That invitation failed.| Further investigation likely requires contacting support.|
+> |AzureActiveDirectoryInsufficientRights|When a B2B user in the target tenant has a role other than User, Helpdesk Admin, or User Account Admin, they cannot be deleted.| Remove the role(s) on the user in the target tenant in order to successfully delete the user in the target tenant.|
+> |AzureActiveDirectoryForbidden|External collaboration settings have blocked invitations.|Navigate to user settings and ensure that [external collaboration settings](../external-identities/external-collaboration-settings-configure.md) are permitted.|
+> |InvitationCreationFailureInvalidPropertyValue|Potential causes:<br/>* The Primary SMTP Address is an invalid value.<br/>* UserType is neither guest nor member<br/>* Group email Address is not supported | Potential solutions:<br/>* The Primary SMTP Address has an invalid value. Resolving this issue will likely require updating the mail property of the source user. For more information, see [Prepare for directory synchronization to Microsoft 365](https://aka.ms/DirectoryAttributeValidations)<br/>* Ensure that the userType property is provisioned as type guest or member. This can be fixed by checking your attribute mappings to understand how the userType attribute is mapped.<br/>* The email address address of the user matches with the email address of a group in the tenant. Update the email address for one of the two objects.|
+> |InvitationCreationFailureAmbiguousUser| The invited user has a proxy address that matches an internal user in the target tenant. The proxy address must be unique. | To resolve this error, delete the existing internal user in the target tenant or remove this user from sync scope.|
 
 ## Next steps
 

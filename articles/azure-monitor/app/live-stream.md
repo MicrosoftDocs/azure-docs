@@ -24,7 +24,7 @@ With Live Metrics, you can:
 * Monitor any Windows performance counter live.
 * Easily identify a server that's having issues and filter all the KPI/live feed to just that server.
 
-![Screenshot that shows the Live Metrics tab.](./media/live-stream/live-metric.png)
+:::image type="content" source="./media/live-stream/live-metric.png" lightbox="./media/live-stream/live-metric.png" alt-text="Screenshot that shows the Live Metrics tab.":::
 
 Live Metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, Java, and Node.js apps.
 
@@ -34,7 +34,7 @@ Live Metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
 ## Get started
 
 > [!IMPORTANT]
-> Monitoring ASP.NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) applications requires Application Insights version 2.8.0 or above. To enable Application Insights, ensure that it's activated in the Azure portal and that the Application Insights NuGet package is included. Without the NuGet package, some telemetry is sent to Application Insights, but that telemetry won't show in Live Metrics.
+> To enable Application Insights, ensure that it's activated in the Azure portal and your app is using a recent version of the [Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) NuGet package. Without the NuGet package, some telemetry is sent to Application Insights, but that telemetry won't show in Live Metrics.
 
 1. Follow language-specific guidelines to enable Live Metrics:
    * [ASP.NET](./asp-net.md): Live Metrics is enabled by default.
@@ -60,61 +60,173 @@ To manually configure Live Metrics:
 1. Install the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector).
 1. The following sample console app code shows setting up Live Metrics:
 
-    ```csharp
-    using Microsoft.ApplicationInsights;
-    using Microsoft.ApplicationInsights.Extensibility;
-    using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
-    using System;
-    using System.Threading.Tasks;
-    
-    namespace LiveMetricsDemo
+# [.NET 6.0+](#tab/dotnet6)
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+
+// Create a TelemetryConfiguration instance.
+TelemetryConfiguration config = TelemetryConfiguration.CreateDefault();
+config.InstrumentationKey = "INSTRUMENTATION-KEY-HERE";
+QuickPulseTelemetryProcessor quickPulseProcessor = null;
+config.DefaultTelemetrySink.TelemetryProcessorChainBuilder
+    .Use((next) =>
     {
-        class Program
+        quickPulseProcessor = new QuickPulseTelemetryProcessor(next);
+        return quickPulseProcessor;
+    })
+    .Build();
+
+var quickPulseModule = new QuickPulseTelemetryModule();
+
+// Secure the control channel.
+// This is optional, but recommended.
+quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+quickPulseModule.Initialize(config);
+quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
+
+// Create a TelemetryClient instance. It is important
+// to use the same TelemetryConfiguration here as the one
+// used to set up Live Metrics.
+TelemetryClient client = new TelemetryClient(config);
+
+// This sample runs indefinitely. Replace with actual application logic.
+while (true)
+{
+    // Send dependency and request telemetry.
+    // These will be shown in Live Metrics.
+    // CPU/Memory Performance counter is also shown
+    // automatically without any additional steps.
+    client.TrackDependency("My dependency", "target", "http://sample",
+        DateTimeOffset.Now, TimeSpan.FromMilliseconds(300), true);
+    client.TrackRequest("My Request", DateTimeOffset.Now,
+        TimeSpan.FromMilliseconds(230), "200", true);
+    Task.Delay(1000).Wait();
+}
+```
+
+# [.NET 5.0](#tab/dotnet5)
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using System;
+using System.Threading.Tasks;
+
+namespace LiveMetricsDemo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                // Create a TelemetryConfiguration instance.
-                TelemetryConfiguration config = TelemetryConfiguration.CreateDefault();
-                config.InstrumentationKey = "INSTRUMENTATION-KEY-HERE";
-                QuickPulseTelemetryProcessor quickPulseProcessor = null;
-                config.DefaultTelemetrySink.TelemetryProcessorChainBuilder
-                    .Use((next) =>
-                    {
-                        quickPulseProcessor = new QuickPulseTelemetryProcessor(next);
-                        return quickPulseProcessor;
-                    })
-                    .Build();
-    
-                var quickPulseModule = new QuickPulseTelemetryModule();
-    
-                // Secure the control channel.
-                // This is optional, but recommended.
-                quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY-HERE";
-                quickPulseModule.Initialize(config);
-                quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
-    
-                // Create a TelemetryClient instance. It is important
-                // to use the same TelemetryConfiguration here as the one
-                // used to set up Live Metrics.
-                TelemetryClient client = new TelemetryClient(config);
-    
-                // This sample runs indefinitely. Replace with actual application logic.
-                while (true)
+            // Create a TelemetryConfiguration instance.
+            TelemetryConfiguration config = TelemetryConfiguration.CreateDefault();
+            config.InstrumentationKey = "INSTRUMENTATION-KEY-HERE";
+            QuickPulseTelemetryProcessor quickPulseProcessor = null;
+            config.DefaultTelemetrySink.TelemetryProcessorChainBuilder
+                .Use((next) =>
                 {
-                    // Send dependency and request telemetry.
-                    // These will be shown in Live Metrics.
-                    // CPU/Memory Performance counter is also shown
-                    // automatically without any additional steps.
-                    client.TrackDependency("My dependency", "target", "http://sample",
-                        DateTimeOffset.Now, TimeSpan.FromMilliseconds(300), true);
-                    client.TrackRequest("My Request", DateTimeOffset.Now,
-                        TimeSpan.FromMilliseconds(230), "200", true);
-                    Task.Delay(1000).Wait();
-                }
+                    quickPulseProcessor = new QuickPulseTelemetryProcessor(next);
+                    return quickPulseProcessor;
+                })
+                .Build();
+
+            var quickPulseModule = new QuickPulseTelemetryModule();
+
+            // Secure the control channel.
+            // This is optional, but recommended.
+            quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+            quickPulseModule.Initialize(config);
+            quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
+
+            // Create a TelemetryClient instance. It is important
+            // to use the same TelemetryConfiguration here as the one
+            // used to set up Live Metrics.
+            TelemetryClient client = new TelemetryClient(config);
+
+            // This sample runs indefinitely. Replace with actual application logic.
+            while (true)
+            {
+                // Send dependency and request telemetry.
+                // These will be shown in Live Metrics.
+                // CPU/Memory Performance counter is also shown
+                // automatically without any additional steps.
+                client.TrackDependency("My dependency", "target", "http://sample",
+                    DateTimeOffset.Now, TimeSpan.FromMilliseconds(300), true);
+                client.TrackRequest("My Request", DateTimeOffset.Now,
+                    TimeSpan.FromMilliseconds(230), "200", true);
+                Task.Delay(1000).Wait();
             }
         }
     }
-    ```
+}
+```
+
+> [!NOTE]
+> This .NET version is no longer supported.
+
+# [.NET Framework](#tab/dotnet-framework)
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using System;
+using System.Threading.Tasks;
+
+namespace LiveMetricsDemo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Create a TelemetryConfiguration instance.
+            TelemetryConfiguration config = TelemetryConfiguration.CreateDefault();
+            config.InstrumentationKey = "INSTRUMENTATION-KEY-HERE";
+            QuickPulseTelemetryProcessor quickPulseProcessor = null;
+            config.DefaultTelemetrySink.TelemetryProcessorChainBuilder
+                .Use((next) =>
+                {
+                    quickPulseProcessor = new QuickPulseTelemetryProcessor(next);
+                    return quickPulseProcessor;
+                })
+                .Build();
+
+            var quickPulseModule = new QuickPulseTelemetryModule();
+
+            // Secure the control channel.
+            // This is optional, but recommended.
+            quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+            quickPulseModule.Initialize(config);
+            quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
+
+            // Create a TelemetryClient instance. It is important
+            // to use the same TelemetryConfiguration here as the one
+            // used to set up Live Metrics.
+            TelemetryClient client = new TelemetryClient(config);
+
+            // This sample runs indefinitely. Replace with actual application logic.
+            while (true)
+            {
+                // Send dependency and request telemetry.
+                // These will be shown in Live Metrics.
+                // CPU/Memory Performance counter is also shown
+                // automatically without any additional steps.
+                client.TrackDependency("My dependency", "target", "http://sample",
+                    DateTimeOffset.Now, TimeSpan.FromMilliseconds(300), true);
+                client.TrackRequest("My Request", DateTimeOffset.Now,
+                    TimeSpan.FromMilliseconds(230), "200", true);
+                Task.Delay(1000).Wait();
+            }
+        }
+    }
+}
+```
+
+---
 
 The preceding sample is for a console app, but the same code can be used in any .NET applications. If any other telemetry modules are enabled to autocollect telemetry, it's important to ensure that the same configuration used for initializing those modules is used for the Live Metrics module.
 
@@ -135,11 +247,11 @@ These capabilities are available with ASP.NET, ASP.NET Core, and Azure Functions
 
 You can monitor custom KPI live by applying arbitrary filters on any Application Insights telemetry from the portal. Select the filter control that shows when you mouse-over any of the charts. The following chart plots a custom **Request** count KPI with filters on **URL** and **Duration** attributes. Validate your filters with the stream preview section that shows a live feed of telemetry that matches the criteria you've specified at any point in time.
 
-![Screenshot that shows the Filter request rate.](./media/live-stream/filter-request.png)
+:::image type="content" source="./media/live-stream/filter-request.png" lightbox="./media/live-stream/filter-request.png" alt-text="Screenshot that shows the Filter request rate.":::
 
 You can monitor a value different from **Count**. The options depend on the type of stream, which could be any Application Insights telemetry like requests, dependencies, exceptions, traces, events, or metrics. It can also be your own [custom measurement](./api-custom-events-metrics.md#properties).
 
-![Screenshot that shows the Query Builder on Request Rate with a custom metric.](./media/live-stream/query-builder-request.png)
+:::image type="content" source="./media/live-stream/query-builder-request.png" lightbox="./media/live-stream/query-builder-request.png" alt-text="Screenshot that shows the Query Builder on Request Rate with a custom metric.":::
 
 Along with Application Insights telemetry, you can also monitor any Windows performance counter. Select it from the stream options and provide the name of the performance counter.
 
@@ -148,24 +260,24 @@ Live Metrics are aggregated at two points: locally on each server and then acros
 ## Sample telemetry: Custom live diagnostic events
 By default, the live feed of events shows samples of failed requests and dependency calls, exceptions, events, and traces. Select the filter icon to see the applied criteria at any point in time.
 
-![Screenshot that shows the Filter button.](./media/live-stream/filter.png)
+:::image type="content" source="./media/live-stream/filter.png" lightbox="./media/live-stream/filter.png" alt-text="Screenshot that shows the Filter button.":::
 
 As with metrics, you can specify any arbitrary criteria to any of the Application Insights telemetry types. In this example, we're selecting specific request failures and events.
 
-![Screenshot that shows the Query Builder.](./media/live-stream/query-builder.png)
+:::image type="content" source="./media/live-stream/query-builder.png" lightbox="./media/live-stream/query-builder.png" alt-text="Screenshot that shows the Query Builder.":::
 
 > [!NOTE]
 > Currently, for exception message-based criteria, use the outermost exception message. In the preceding example, to filter out the benign exception with an inner exception message (follows the "<--" delimiter) "The client disconnected," use a message not-contains "Error reading request content" criteria.
 
 To see the details of an item in the live feed, select it. You can pause the feed either by selecting **Pause** or by scrolling down and selecting an item. Live feed resumes after you scroll back to the top, or when you select the counter of items collected while it was paused.
 
-![Screenshot that shows the Sample telemetry window with an exception selected and the exception details displayed at the bottom of the window.](./media/live-stream/sample-telemetry.png)
+:::image type="content" source="./media/live-stream/sample-telemetry.png" lightbox="./media/live-stream/sample-telemetry.png" alt-text="Screenshot that shows the Sample telemetry window with an exception selected and the exception details displayed at the bottom of the window.":::
 
 ## Filter by server instance
 
 If you want to monitor a particular server role instance, you can filter by server. To filter, select the server name under **Servers**.
 
-![Screenshot that shows the Sampled live failures.](./media/live-stream/filter-by-server.png)
+:::image type="content" source="./media/live-stream/filter-by-server.png" lightbox="./media/live-stream/filter-by-server.png" alt-text="Screenshot that shows the Sampled live failures.":::
 
 ## Secure the control channel
 
@@ -188,33 +300,34 @@ It's possible to try custom filters without having to set up an authenticated ch
 
 1. Select the **API Access** tab and then select **Create API key**.
 
-   ![Screenshot that shows selecting the API Access tab and the Create API key button.](./media/live-stream/api-key.png)
+   :::image type="content" source="./media/live-stream/api-key.png" lightbox="./media/live-stream/api-key.png" alt-text="Screenshot that shows selecting the API Access tab and the Create API key button.":::
 
 1. Select the **Authenticate SDK control channel** checkbox and then select **Generate key**.
 
-   ![Screenshot that shows the Create API key pane. Select Authenticate SDK control channel checkbox and then select Generate key.](./media/live-stream/create-api-key.png)
+   :::image type="content" source="./media/live-stream/create-api-key.png" lightbox="./media/live-stream/create-api-key.png" alt-text="Screenshot that shows the Create API key pane. Select Authenticate SDK control channel checkbox and then select Generate key.":::
 
 ### Add an API key to configuration
 
 You can add an API key to configuration for ASP.NET, ASP.NET Core, WorkerService, and Azure Functions apps.
 
-#### ASP.NET
+# [.NET 6.0+](#tab/dotnet6)
 
-In the *applicationinsights.config* file, add `AuthenticationApiKey` to `QuickPulseTelemetryModule`:
+In the *Program.cs* file, add the following namespace:
 
-```xml
-<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
-      <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
-</Add>
+```csharp
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 ```
 
-#### ASP.NET Core
+Then add the following service registration:
 
-For [ASP.NET Core](./asp-net-core.md) applications, follow these instructions.
+```csharp
+// Existing code which includes services.AddApplicationInsightsTelemetry() to enable Application Insights.
+builder.Services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
+```
 
-Modify `ConfigureServices` of your *Startup.cs* file as shown.
+# [.NET 5.0](#tab/dotnet5)
 
-Add the following namespace:
+In the *Startup.cs* file, add the following namespace:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
@@ -229,6 +342,22 @@ public void ConfigureServices(IServiceCollection services)
     services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 }
 ```
+
+> [!NOTE]
+> This .NET version is no longer supported.
+
+# [.NET Framework](#tab/dotnet-framework)
+
+In the *applicationinsights.config* file, add `AuthenticationApiKey` to `QuickPulseTelemetryModule`:
+
+```xml
+<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
+      <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
+</Add>
+```
+
+
+---
 
 For more information on how to configure ASP.NET Core applications, see [Configuring telemetry modules in ASP.NET Core](./asp-net-core.md#configure-or-remove-default-telemetrymodules).
 
@@ -304,14 +433,13 @@ As described in the [Azure TLS 1.2 migration announcement](https://azure.microso
 
 ### "Data is temporarily inaccessible" status message
 
-When navigating to Live Metrics, you may see a banner with the status message: "Data is temporarily inaccessible. The updates on our status are posted here https://aka.ms/aistatus" 
+When navigating to Live Metrics, you may see a banner with the status message: "Data is temporarily inaccessible. The updates on our status are posted here https://aka.ms/aistatus"
 
-Verify if any firewalls or browser extensions are blocking access to Live Metrics. For example, some popular ad-blocker extensions block connections to \*.monitor.azure.com. In order to use the full capabilities of Live Metrics, either disable the ad-blocker extension or add an exclusion rule for the domain \*.livediagnostics.monitor.azure.com to your ad-blocker, firewall, etc. 
+Follow the link to the *Azure status* page and check if there's an activate outage affecting Application Insights. If there's no outage, verify if any firewalls or browser extensions are blocking access to Live Metrics. For example, some popular ad-blocker extensions block connections to `*.monitor.azure.com`. In order to use the full capabilities of Live Metrics, either disable the ad-blocker extension or add an exclusion rule for the domain `*.livediagnostics.monitor.azure.com` to your ad-blocker, firewall, etc.
 
 ### Unexpected large number of requests to livediagnostics.monitor.azure.com
 
-Heavier traffic is expected while the LiveMetrics pane is open. Navigate away from the LiveMetrics pane to restore normal traffic flow of traffic.
-Application Insights SDKs poll QuickPulse endpoints with REST API calls once every five seconds to check if the LiveMetrics pane is being viewed.
+Heavier traffic is expected while the LiveMetrics pane is open. Navigate away from the LiveMetrics pane to restore normal traffic flow of traffic. Application Insights SDKs poll QuickPulse endpoints with REST API calls once every five seconds to check if the LiveMetrics pane is being viewed.
 
 The SDKs will send new metrics to QuickPulse every one second while the LiveMetrics pane is open.
 

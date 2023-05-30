@@ -18,7 +18,7 @@ ms.custom: UpdateFrequency5, devx-track-python, data4ml, sdkv1, event-tier1-buil
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](how-to-train-with-datasets.md)
-> * [v2 (current version)](../how-to-read-write-data-v2.md)
+> * [v2 (current version)](../how-to-read-write-data-v2.md?view=azureml-api-2&preserve-view=true)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 

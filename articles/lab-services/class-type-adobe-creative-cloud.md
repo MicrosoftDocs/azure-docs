@@ -12,6 +12,8 @@ ms.date: 02/17/2023
 
 # Set up a lab for Adobe Creative Cloud in Azure Lab Services
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 In this article, you learn how to set up a class that uses Adobe Creative Cloud. [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) is a collection of desktop applications and web services used for photography, design, video, web, user experience (UX), and more.  Universities and K-12 schools use Creative Cloud in digital arts and media classes.  Some of Creative Cloud’s media processes might require more computational and visualization (GPU) power than a typical tablet, laptop, or workstation support.  With Azure Lab Services, you have flexibility to choose from various virtual machine (VM) sizes, including GPU sizes.
 
 ## Create Cloud licensing in a lab VM
@@ -28,7 +30,7 @@ Read [Adobe’s article on licensing](https://helpx.adobe.com/enterprise/using/l
 
 ### Lab plan settings
 
-[!INCLUDE [must have lab plan](./includes/lab-services-class-type-lab-plan.md)]
+Once you have an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the quickstart on [how to set up a lab plan](./quick-create-resources.md). You can also use an existing lab plan.
 
 This lab uses a Windows 10 Azure Marketplace images as the base VM image. You first need to enable this image in your lab plan. This lets lab creators then select the image as a base image for their lab.
 
@@ -119,7 +121,7 @@ To fix this issue:
 
 This section provides a cost estimate for running this class for 25 users. There are 20 hours of scheduled class time. Also, each user gets 10 hours quota for homework or assignments outside scheduled class time. The virtual machine size we chose was **Small GPU (Visualization)**, which is 160 lab units.
 
-25 students \* (20 scheduled hours + 10 quota hours) \* 160 Lab Units * 0.01 USD per hour = 1200.00 USD
+25 lab users \* (20 scheduled hours + 10 quota hours) \* 160 Lab Units * 0.01 USD per hour = 1200.00 USD
 
 >[!IMPORTANT]
 > This cost estimate is for example purposes only.  For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).  

@@ -108,7 +108,7 @@ Device management for Azure AD joined devices is based on a mobile device manage
 There are two approaches for managing Azure AD joined devices:
 
 - **MDM-only** - A device is exclusively managed by an MDM provider like Intune. All policies are delivered as part of the MDM enrollment process. For Azure AD Premium or EMS customers, MDM enrollment is an automated step that is part of an Azure AD join.
-- **Co-management** -  A device is managed by an MDM provider and Microsoft Endpoint Configuration Manager. In this approach, the Microsoft Endpoint Configuration Manager agent is installed on an MDM-managed device to administer certain aspects.
+- **Co-management** -  A device is managed by an MDM provider and Microsoft Configuration Manager. In this approach, the Microsoft Configuration Manager agent is installed on an MDM-managed device to administer certain aspects.
 
 If you're using Group Policies, evaluate your GPO and MDM policy parity by using [Group Policy analytics](/mem/intune/configuration/group-policy-analytics) in Microsoft Intune. 
 
@@ -120,7 +120,7 @@ Review supported and unsupported policies to determine whether you can use an MD
 If your MDM solution isn't available through the Azure AD app gallery, you can add it following the process 
 outlined in [Azure Active Directory integration with MDM](/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
 
-Through co-management, you can use Microsoft Endpoint Configuration Manager to manage certain aspects of your devices while policies are delivered through your MDM platform. Microsoft Intune enables co-management with Microsoft Endpoint Configuration Manager. For more information on co-management for Windows 10 or newer devices, see [What is co-management?](/configmgr/core/clients/manage/co-management-overview). If you use an MDM product other than Intune, check with your MDM provider on applicable co-management scenarios.
+Through co-management, you can use Microsoft Configuration Manager to manage certain aspects of your devices while policies are delivered through your MDM platform. Microsoft Intune enables co-management with Microsoft Configuration Manager. For more information on co-management for Windows 10 or newer devices, see [What is co-management?](/configmgr/core/clients/manage/co-management-overview). If you use an MDM product other than Intune, check with your MDM provider on applicable co-management scenarios.
 
 **Recommendation:** Consider MDM only management for Azure AD joined devices.
 

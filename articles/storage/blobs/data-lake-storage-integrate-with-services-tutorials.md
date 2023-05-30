@@ -6,7 +6,7 @@ author: normesta
 
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 10/06/2021
+ms.date: 03/07/2023
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ---

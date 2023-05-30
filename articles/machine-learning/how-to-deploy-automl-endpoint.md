@@ -168,7 +168,7 @@ After you create a deployment, you can score it as described in [Invoke the endp
 If you haven't installed Python SDK v2 yet, please install with this command:
 
 ```azurecli
-pip install azure-ai-ml
+pip install azure-ai-ml azure-identity
 ```
 
 For more information, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ai-ml-readme).

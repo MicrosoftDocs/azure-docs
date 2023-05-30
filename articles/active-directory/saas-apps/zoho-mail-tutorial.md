@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Zoho | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Zoho'
 description: Learn how to configure single sign-on between Azure Active Directory and Zoho.
 services: active-directory
 author: jeevansd

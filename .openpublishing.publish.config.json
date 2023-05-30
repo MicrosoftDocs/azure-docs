@@ -69,6 +69,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-docs-code-javascript",
+      "url": "https://github.com/Azure-Samples/ms-identity-docs-code-javascript",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "main",
@@ -233,7 +239,13 @@
     {
       "path_to_root": "azure-functions-durable-js",
       "url": "https://github.com/Azure/azure-functions-durable-js",
-      "branch": "main",
+      "branch": "v2.x",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-functions-durable-js-v3",
+      "url": "https://github.com/Azure/azure-functions-durable-js",
+      "branch": "v3.x",
       "branch_mapping": {}
     },
     {
@@ -369,6 +381,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-docs-code-dotnet",
+      "url": "https://github.com/Azure-Samples/ms-identity-docs-code-dotnet",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "remote-monitoring-webui",
       "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
       "branch": "master",
@@ -393,6 +411,18 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-vj",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "vijetajo-patch-2",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-batch-pup",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "santiagxf/batch-pup",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azureml-examples-mavaisma-r-azureml",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "mavaisma-r-azureml",
@@ -414,6 +444,12 @@
       "path_to_root": "azureml-examples-online-endpoint-vnet",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-featurestore",
+      "url": "https://github.com/Azure/azureml-examples",
+      "branch": "featurestore/pup",
       "branch_mapping": {}
     },
     {
@@ -533,6 +569,12 @@
     {
       "path_to_root": "spring-data-azure-cosmos-db-sql-tutorial",
       "url": "https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmos-db-mongodb-mern-web-app",
+      "url": "https://github.com/Azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app/",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -687,6 +729,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-javascript-react-docs",
+      "url": "https://github.com/Azure-Samples/ms-identity-javascript-react-docs",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cognitive-services-quickstart-code",
       "url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code",
       "branch": "master",
@@ -696,6 +744,12 @@
       "path_to_root": "js-e2e",
       "url": "https://github.com/azure-samples/js-e2e",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "web-apps-node-iot-hub-data-visualization",
+      "url": "https://github.com/azure-samples/web-apps-node-iot-hub-data-visualization",
+      "branch": "master",
       "branch_mapping": {}
     },
     {
@@ -760,7 +814,7 @@
     },
     {
       "path_to_root": "azure-spring-apps-reference-architecture",
-      "url": "https://github.com/Azure/azure-spring-apps-reference-architecture",
+      "url": "https://github.com/Azure/azure-spring-apps-landing-zone-accelerator",
       "branch": "reference-architecture",
       "branch_mapping": {}
     },
@@ -867,6 +921,18 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-python-webapp-quickstart",
+      "url": "https://github.com/Azure-Samples/ms-identity-python-webapp",
+      "branch": "0.7.0",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "ms-identity-python-webapp-tutorial",
+      "url": "https://github.com/Azure-Samples/ms-identity-python-webapp",
+      "branch": "0.6.0",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "ms-identity-node",
       "url": "https://github.com/Azure-Samples/ms-identity-node",
       "branch": "main",
@@ -915,11 +981,35 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-ai-vision-sdk",
+      "url": "https://github.com/Azure-Samples/azure-ai-vision-sdk",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-cache-redis-samples",
       "url": "https://github.com/Azure-Samples/azure-cache-redis-samples",
       "branch": "main",
       "branch_mapping": {}
-    }
+    },
+    {
+		"path_to_root": "azure-load-testing-samples",
+		"url": "https://github.com/Azure-Samples/azure-load-testing-samples",
+		"branch": "main",
+		"branch_mapping": {}
+	  },
+	  {
+      "path_to_root": "microsoft-graph",
+      "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-actions-workflow-samples",
+      "url": "https://github.com/Azure/actions-workflow-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    }  
   ],
   "branch_target_mapping": {
     "live": ["Publish", "PDF"],
@@ -940,9 +1030,11 @@
   ".openpublishing.redirection.app-service.json",
   ".openpublishing.redirection.azure-arc-data.json",
   ".openpublishing.redirection.azure-attestation.json",
+  ".openpublishing.redirection.azure-app-configuration.json",
   ".openpublishing.redirection.azure-australia.json",
   ".openpublishing.redirection.azure-databricks.json",
   ".openpublishing.redirection.azure-hpc.json",
+  ".openpublishing.redirection.azure-kubernetes-service.json",
   ".openpublishing.redirection.azure-monitor.json",
   ".openpublishing.redirection.azure-percept.json",
   ".openpublishing.redirection.azure-productivity.json",
@@ -953,8 +1045,6 @@
   ".openpublishing.redirection.baremetal-infrastructure.json",
   ".openpublishing.redirection.defender-for-cloud.json",
   ".openpublishing.redirection.defender-for-iot.json",
-  ".openpublishing.redirection.deployment-environments.json",
-  ".openpublishing.redirection.dev-box.json",
   ".openpublishing.redirection.healthcare-apis.json",
   ".openpublishing.redirection.iot-hub-device-update.json",
   ".openpublishing.redirection.json",
@@ -964,6 +1054,7 @@
   ".openpublishing.redirection.security-benchmark.json",
   ".openpublishing.redirection.sql-database.json",
   ".openpublishing.redirection.virtual-desktop.json",
+  ".openpublishing.redirection.devops-project.json",
   "articles/applied-ai-services/.openpublishing.redirection.applied-ai-old.json",
   "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
   "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
@@ -990,7 +1081,7 @@
   "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
   "articles/iot-dps/.openpublishing.redirection.iot-dps.json",
   "articles/iot-edge/.openpublishing.redirection.iot-edge.json",
-  "articles/iot-fundamentals/.openpublishing.redirection.iot-fundamentals.json",
+  "articles/iot/.openpublishing.redirection.iot.json",
   "articles/iot-hub/.openpublishing.redirection.iot-hub.json",
   "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
   "articles/logic-apps/.openpublishing.redirection.logic-apps.json",
@@ -1010,6 +1101,8 @@
   "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
   "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
   "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
-  "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json"
+  "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
+  "articles/dev-box/.openpublishing.redirection.dev-box.json",
+  "articles/deployment-environments/.openpublishing.redirection.deployment-environments.json"
 ]
 }

@@ -848,7 +848,7 @@ There are several ways to get a backup of HBase. For example, Snapshot, Export, 
 
 Azure Cosmos DB automatically backs up data at periodic intervals, which does not affect the performance or availability of database operations. Backups are stored in Azure storage and can be used to recover data if needed. There are two types of Azure Cosmos DB backups:
 
-* [Periodic backup](../configure-periodic-backup-restore.md)
+* [Periodic backup](../periodic-backup-restore-introduction.md)
 
 * [Continuous backup](../continuous-backup-restore-introduction.md)
 

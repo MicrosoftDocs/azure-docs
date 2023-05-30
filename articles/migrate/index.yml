@@ -9,8 +9,8 @@ metadata:
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
-  author: v-ksreedevan
-  ms.author: v-ksreedevan
+  author: jyothisuri
+  ms.author: jsuri
   ms.date: 07/08/2020
   ms.custom: seo-azure-migrate
   keywords: azure migrate, azure migration, azure migrate assessment tool, azure migrate tool, azure migrate documentation, azure migration documentation
@@ -47,6 +47,8 @@ landingContent:
             url: ./tutorial-migrate-hyper-v.md
           - text: Migrate physical servers/VMs with Migration and modernization
             url: ./tutorial-migrate-physical-virtual-machines.md
+          - text: Modernize ASP.NET web apps to Azure Kubernetes Service (AKS)
+            url: ./tutorial-modernize-asp-net-aks.md
 
   - title: Start deployment
     linkLists:

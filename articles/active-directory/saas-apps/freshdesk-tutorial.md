@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with FreshDesk | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with FreshDesk'
 description: Learn how to configure single sign-on between Azure Active Directory and FreshDesk.
 services: active-directory
 author: jeevansd

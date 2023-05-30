@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SAML 1.1 Token enabled LOB App | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SAML 1.1 Token enabled LOB App'
 description: Learn how to configure single sign-on between Azure Active Directory and SAML 1.1 Token enabled LOB App.
 services: active-directory
 author: jeevansd

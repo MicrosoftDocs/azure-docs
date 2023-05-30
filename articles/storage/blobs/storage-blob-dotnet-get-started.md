@@ -8,7 +8,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 03/20/2023
 ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: template-how-to, devguide-csharp
@@ -18,7 +18,7 @@ ms.custom: template-how-to, devguide-csharp
 
 This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for .NET. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
-[Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [API reference](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
+[API reference](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [Give feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 
 ## Prerequisites
 
@@ -30,21 +30,26 @@ This article shows you how to connect to Azure Blob Storage by using the Azure B
 
 ## Set up your project
 
-Open a command prompt and change directory (`cd`) into your project folder. Then, install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command. 
+This section walks you through preparing a project to work with the Azure Blob Storage client library for .NET.
+
+From your project directory, install packages for the Azure Blob Storage and Azure Identity client libraries using the `dotnet add package` command. The Azure.Identity package is needed for passwordless connections to Azure services.
 
 ```console
-cd myProject
 dotnet add package Azure.Storage.Blobs
+dotnet add package Azure.Identity
 ```
 
 Add these `using` statements to the top of your code file.
 
 ```csharp
+using Azure.Identity;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Azure.Storage.Blobs.Specialized;
 
 ```
+
+Blob client library information:
 
 - [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs): Contains the primary classes (_client objects_) that you can use to operate on the service, containers, and blobs.
 
@@ -77,16 +82,16 @@ To authorize with Azure AD, you'll need to use a security principal. The type of
 
 An easy and secure way to authorize access and connect to Blob Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. You can then use that credential to create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object.
 
-The following example creates a `BlobServiceClient` object using `DefaultAzureCredential`:
+The following example creates a `BlobServiceClient` object authorized using `DefaultAzureCredential`:
 
 ```csharp
-public static void GetBlobServiceClient(ref BlobServiceClient blobServiceClient, string accountName)
+public BlobServiceClient GetBlobServiceClient(string accountName)
 {
-    TokenCredential credential = new DefaultAzureCredential();
+    BlobServiceClient client = new(
+        new Uri($"https://{accountName}.blob.core.windows.net"),
+        new DefaultAzureCredential());
 
-    string blobUri = "https://" + accountName + ".blob.core.windows.net";
-
-    blobServiceClient = new BlobServiceClient(new Uri(blobUri), credential);          
+    return client;
 }
 ```
 

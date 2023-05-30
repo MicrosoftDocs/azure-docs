@@ -1,13 +1,14 @@
 ---
 title: Common questions about VMware disaster recovery with Azure Site Recovery
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
-ms.date: 12/28/2022
+ms.date: 03/14/2023
 ms.topic: conceptual
 ms.service: site-recovery
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
 ---
+
 # Common questions about VMware to Azure replication
 
 This article answers common questions that might come up when you deploy disaster recovery of on-premises VMware virtual machines (VMs) to Azure.
@@ -19,23 +20,7 @@ This article answers common questions that might come up when you deploy disaste
 
 ### How do I use the classic experience in the Recovery Services vault rather than the modernized experience? 
 
-A new and more reliable way to protect VMware virtual machines using the Azure Site Recovery replication appliance is now generally available. When a new Recovery Services vault is created, by default the modernized experience will be selected. 
-
-
-To change the experience - 
-
-1. Open the vault on Azure portal. 
-2. Click on **Site Recovery** in the **Getting started** section. 
-3. Click on the banner on top of this page. 
-
-    [![Modify VMware stack step 1](./media/vmware-azure-common-questions/change-stack-step-1.png)](./media/vmware-azure-common-questions/change-stack-step-1.png#lightbox)
-
-4. This will open the experience selection blade. Select the classic experience if you want to use configuration server and then click on **OK**. If not, close the pane. 
-
-    [![Modify VMware stack step 2](./media/vmware-azure-common-questions/change-stack-step-2.png)](./media/vmware-azure-common-questions/change-stack-step-2.png#lightbox)
-
-> [!NOTE]
-> Note that once the experience type has been switched to classic from modernized, it cannot be switched again in the same Recovery Services vault. Ensure that the desired experience is selected, before saving this change.
+Moving to the classic experience in a newly created Recovery Services is not possible as it will be [deprecated](vmware-physical-azure-classic-deprecation.md) in March 2026. All new Recovery Services vaults will be using the modernized experience. 
 
 ### Can I migrate to the modernized experience? 
 
@@ -139,7 +124,7 @@ Site Recovery replicates on-premises VMware VMs and physical servers to managed 
 
 No. Beginning in March 2019, in the Azure portal, you can replicate only to Azure managed disks.
 
-Replication of new VMs to a storage account is available only by using PowerShell ([Az.RecoveryServices module version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) or the REST API (version 2018-01-10 or 2016-08-10). [Learn how](./vmware-azure-disaster-recovery-powershell.md) to setup replication using the PowerShell commands.
+Replication of new VMs to a storage account is available only by using PowerShell ([Az.RecoveryServices module version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) or the REST API (version 2018-01-10 or 2016-08-10). [Learn how](./vmware-azure-disaster-recovery-powershell.md) to set up replication using the PowerShell commands.
 
 ### What are the benefits of replicating to managed disks?
 
@@ -215,7 +200,7 @@ No, Site Recovery doesn't support replication to Azure Storage on virtual networ
 
 Site Recovery generates crash-consistent recovery points every 5 minutes.
 
-### Can I change an already replicating machine from one to another another Recovery Services vault?
+### Can I change an already replicating machine from one to another Recovery Services vault?
 
 Switching Recovery Services vaults, when the replication is already ongoing, is not supported. To do so, replication will need to be disabled and enabled again. Additionally, the mobility service agent, installed on the source machine, will need to be unconfigured so that it can be configured to a new vault. Use the below commands to perform the unregistration - 
 
@@ -382,7 +367,7 @@ Crash-consistent recovery points are generated in every five minutes. App-consis
 
 ### Do increases in recovery point retention increase storage costs?
 
-Yes. For example, if you increase retention from 1 day to 3 days, Site Recovery saves recovery points for an additional 2 days.The added time incurs storage changes. Earlier, it was saving recovery points per hour for 1 day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
+Yes. For example, if you increase retention from 1 day to three days, Site Recovery saves recovery points for an additional 2 days. The added time incurs storage changes. Earlier, it was saving recovery points per hour for one day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
 
 ### How do I access Azure VMs after failover?
 

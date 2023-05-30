@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure ProdPad for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure ProdPad for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to ProdPad.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 57511d3c-905a-4de5-9cc9-1a08bd7b8457
 ms.service: active-directory

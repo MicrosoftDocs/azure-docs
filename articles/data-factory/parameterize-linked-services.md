@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse, ignite-2022
 ms.topic: conceptual
-ms.date: 09/05/2022
+ms.date: 03/21/2023
 author: chez-charlie
 ms.author: chez
 ---
@@ -40,6 +40,7 @@ All the linked service types are supported for parameterization.
 - Amazon S3 Compatible Storage
 - Azure Blob Storage
 - Azure Cosmos DB for NoSQL
+- Azure Databricks Delta Lake
 - Azure Data Explorer
 - Azure Data Lake Storage Gen1
 - Azure Data Lake Storage Gen2

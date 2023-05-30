@@ -31,7 +31,7 @@ The `wait` policy executes its immediate child policies in parallel, and waits f
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| for       | Determines whether the `wait` policy waits for all immediate child policies to be completed or just one. Allowed values are:<br /><br /> - `all` - wait for all immediate child policies to complete<br />- `any` - wait for any immediate child policy to complete. Once the first immediate child policy has completed, the `wait` policy completes and execution of any other immediate child policies is terminated. | No       | `all`     |
+| for       | Determines whether the `wait` policy waits for all immediate child policies to be completed or just one. Allowed values are:<br /><br /> - `all` - wait for all immediate child policies to complete<br />- `any` - wait for any immediate child policy to complete. Once the first immediate child policy has completed, the `wait` policy completes and execution of any other immediate child policies is terminated.<br/><br/>Policy expressions are allowed. | No       | `all`     |
 
 
 ## Elements
@@ -41,7 +41,7 @@ May contain as child elements only `send-request`, `cache-lookup-value`, and `ch
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ## Example

@@ -34,11 +34,16 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-| [Unity XT](https://www.dell.com/en-us/dt/storage/unity.htm) |1.25.4|1.15.0_2023-01-10|16.0.816.19223 |Not validated|
-| [PowerStore T](https://www.dell.com/en-us/dt/storage/powerstore-storage-appliance.htm) |1.25.4|1.15.0_2023-01-10|16.0.816.19223 |Not validated|
+| [Unity XT](https://www.dell.com/en-us/dt/storage/unity.htm) |1.24.3|1.15.0_2023-01-10|16.0.816.19223 |Not validated|
+| [PowerStore T](https://www.dell.com/en-us/dt/storage/powerstore-storage-appliance.htm) |1.24.3|1.15.0_2023-01-10|16.0.816.19223 |Not validated|
 | [PowerFlex](https://www.dell.com/en-us/dt/storage/powerflex.htm) |1.21.5|1.4.1_2022-03-08|15.0.2255.119 | 12.3 (Ubuntu 12.3-1) |
 | [PowerStore X](https://www.dell.com/en-us/dt/storage/powerstore-storage-appliance/powerstore-x-series.htm)|1.20.6|1.0.0_2021-07-30|15.0.2148.140 | 12.3 (Ubuntu 12.3-1) |
 
+### Hitachi
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
+|-----|-----|-----|-----|-----|
+|[Hitachi UCP with RedHat OpenShift](https://www.hitachivantara.com/en-us/solutions/modernize-digital-core/infrastructure-modernization/hybrid-cloud-infrastructure.html) | 1.23.12 | 1.16.0_2023-02-14 | 16.0.937.6221 |  14.5 (Ubuntu 20.04)|
+|[Hitachi UCP with VMware Tanzu](https://www.hitachivantara.com/en-us/solutions/modernize-digital-core/infrastructure-modernization/hybrid-cloud-infrastructure.html)  | 1.23.8 | 1.16.0_2023-02-14 | 16.0.937.6221 |  14.5 (Ubuntu 20.04)|
 
 ### HPE
 
@@ -85,7 +90,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-| TKG 2.1.0 | 1.26.0 | 1.15.0_2023-01-10	| 16.0.816.19223 | 	 14.5 (Ubuntu 20.04)
+| TKG 2.1.0 | 1.24.9 | 1.15.0_2023-01-10	| 16.0.816.19223 | 	 14.5 (Ubuntu 20.04)
 | TKG-1.6.0 | 1.23.8 | 1.11.0_2022-09-13	| 16.0.312.4243 | 	 12.3 (Ubuntu 12.3-1)
 | TKGm v1.5.3 | 1.22.8 | 1.9.0_2022-07-12 | 16.0.312.4243 |  12.3 (Ubuntu 12.3-1)|
 

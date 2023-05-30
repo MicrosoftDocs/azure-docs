@@ -3,8 +3,8 @@ title: Release notes - Map Control
 titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Web SDK. 
 author: eriklindeman
-ms.author: eriklind
-ms.date: 1/31/2023
+ms.author: sipa
+ms.date: 3/15/2023
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
@@ -15,6 +15,130 @@ services: azure-maps
 This document contains information about new features and other changes to the Map Control.
 
 ## v3 (preview)
+
+### [3.0.0-preview.7] (May 2nd, 2023)
+
+#### New features (3.0.0-preview.7)
+
+- In addition to map configuration, [Map.setServiceOptions()] now supports changing `domain`, `styleAPIVersion`, `styleDefinitionsVersion` on runtime.
+
+#### Bug fixes (3.0.0-preview.7)
+
+- Fixed token expired exception on relaunches when using AAD / shared token / anonymous authentication by making sure authentication is resolved prior to any style definition request
+
+- Fixed redundant style definition and thumbnail requests 
+
+- Fixed incorrect `aria-label` applied to zoom out control button element
+
+- Fixed the possibility of undefined copyright element container when withRuleBasedAttribution is set to false
+
+- Fixed the possibility of event listener removal called on undefined target in `EventManager.remove()`
+
+#### Installation (3.0.0-preview.7)
+
+The preview is available on [npm][3.0.0-preview.7] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.7][3.0.0-preview.7]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.7/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.7/atlas.min.js"></script>
+    ```
+
+### [3.0.0-preview.6] (March 31, 2023)
+
+#### Installation (3.0.0-preview.6)
+
+The preview is available on [npm][3.0.0-preview.6] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.6][3.0.0-preview.6]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.6/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.6/atlas.min.js"></script>
+    ```
+
+#### New features (3.0.0-preview.6)
+
+- Optimized the internal style transform performance.
+
+#### Bug fixes (3.0.0-preview.6)
+
+- Resolved an issue where the first style set request was unauthenticated for `AAD` authentication.
+
+- Eliminated redundant requests during map initialization and on style changed events.
+
+### [3.0.0-preview.5] (March 15, 2023)
+
+#### Installation (3.0.0-preview.5)
+
+The preview is available on [npm][3.0.0-preview.5] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.5][3.0.0-preview.5]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.5/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.5/atlas.min.js"></script>
+    ```
+
+#### New features (3.0.0-preview.5)
+
+- Support dynamically updating mapConfiguration via `map.setServiceOptions({ mapConfiguration: 'MAP_CONFIG' })` 
+
+### [3.0.0-preview.4] (March 10, 2023)  
+
+#### Installation (3.0.0-preview.4)
+
+The preview is available on [npm][3.0.0-preview.4] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.4][3.0.0-preview.4]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.4/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.4/atlas.min.js"></script>
+    ```
+
+#### New features (3.0.0-preview.4)
+
+- Extended map coverage in China, Japan, and Korea.
+
+- Preview of refreshed map styles (Road / Night / Hybrid / Gray Scale Dark / Gray Scale Light / Terra / High Contrast Dark / High Contrast Light).
+
+- More details on roads/building footprints/trails coverage.
+
+- Wider zoom level ranges (1~21) for the Terra style.
+
+- Greater details on public transit including ferries, metros, and bus stops.
+
+- Additional information about the altitude of mountains and the location of waterfalls.
+
+#### Changes (3.0.0-preview.4)
+
+- Traffic data now only support relative mode.
+
+- Deprecated `showBuildingModels` in [StyleOptions].
+
+- Changed the default `minZoom` from -2 to 1.
+
+#### Bug fixes (3.0.0-preview.4)
+
+- Cleaned up various memory leaks in [Map.dispose()].
+
+- Improved style picker's tab navigation for accessibility in list layout.
+
+- Optimized style switching by avoiding deep cloning objects.
+
+- Fixed an exception that occurred in [SourceManager] when style switching with sources that weren't vector or raster. 
+
+- **\[BREAKING\]** Previously `sourceadded` events are only emitted if new sources are added to the style. Now `sourceremoved` / `sourceadded` events are emitted when the new source and the original source in the current style aren't equal, even if they have the same source ID.
 
 ### [3.0.0-preview.3] (February 2, 2023)
 
@@ -43,7 +167,7 @@ The preview is available on [npm][3.0.0-preview.3] and CDN.
 
 #### Bug fixes (3.0.0-preview.3)
 
-- Fixed issue in [language mapping], now `zh-Hant-TW` will no longer revert back to `en-US`.
+- Fixed issue in [language mapping], now `zh-Hant-TW` no longer reverts back to `en-US`.
 
 - Fixed the inability to switch between [user regions (view)].
 
@@ -108,6 +232,46 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 ## v2 (latest)
 
+### [2.2.7] (May 2nd, 2023)
+
+#### New features (2.2.7)
+
+- In addition to map configuration, [Map.setServiceOptions()] now supports changing `domain`, `styleAPIVersion`, `styleDefinitionsVersion` on runtime.
+
+#### Bug fixes (2.2.7)
+
+- Fixed token expired exception on relaunches when using AAD / shared token / anonymous authentication by making sure authentication is resolved prior to any style definition request
+
+- Fixed redundant style definition and thumbnail requests 
+
+- Fixed incorrect `aria-label` applied to zoom out control button element
+
+- Fixed the possibility of undefined copyright element container when withRuleBasedAttribution is set to false
+
+- Fixed the possibility of event listener removal called on undefined target in EventManager.remove()
+
+### [2.2.6]
+
+#### Bug fixes (2.2.6)
+
+- Resolved an issue where the first style set request was unauthenticated for `AAD` authentication.
+
+- Eliminated redundant requests during map initialization and on style changed events.
+
+### [2.2.5]
+
+#### New features (2.2.5)
+
+- Support dynamically updating mapConfiguration via `map.setServiceOptions({ mapConfiguration: 'MAP_CONFIG' })` 
+
+### [2.2.4]
+
+#### Bug fixes (2.2.4)
+
+- Cleaned up various memory leaks in [Map.dispose()].
+
+- Improved style picker's tab navigation for accessibility in list layout.
+
 ### [2.2.3]
 
 #### New features (2.2.3)
@@ -116,7 +280,7 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 #### Bug fixes (2.2.3)
 
-- Fixed issue in [language mapping], now `zh-Hant-TW` will no longer revert back to `en-US`.
+- Fixed issue in [language mapping], now `zh-Hant-TW` no longer reverts back to `en-US`.
 
 - Fixed the inability to switch between [user regions (view)].
 
@@ -159,9 +323,17 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.0.0-preview.7]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.7
+[3.0.0-preview.6]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.6
+[3.0.0-preview.5]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.5
+[3.0.0-preview.4]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.4
 [3.0.0-preview.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.3
 [3.0.0-preview.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2
 [3.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1
+[2.2.7]: https://www.npmjs.com/package/azure-maps-control/v/2.2.7
+[2.2.6]: https://www.npmjs.com/package/azure-maps-control/v/2.2.6
+[2.2.5]: https://www.npmjs.com/package/azure-maps-control/v/2.2.5
+[2.2.4]: https://www.npmjs.com/package/azure-maps-control/v/2.2.4
 [2.2.3]: https://www.npmjs.com/package/azure-maps-control/v/2.2.3
 [2.2.2]: https://www.npmjs.com/package/azure-maps-control/v/2.2.2
 [Azure AD]: ../active-directory/develop/v2-overview.md
@@ -169,12 +341,15 @@ Stay up to date on Azure Maps:
 [@azure/msal-browser]: https://github.com/AzureAD/microsoft-authentication-library-for-js
 [migration guide]: ../active-directory/develop/msal-compare-msal-js-and-adal-js.md
 [CameraBoundsOptions]: /javascript/api/azure-maps-control/atlas.cameraboundsoptions?view=azure-maps-typescript-latest
+[Map.dispose()]: /javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#azure-maps-control-atlas-map-dispose
 [Map.setCamera(options)]: /javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#azure-maps-control-atlas-map-setcamera
 [language mapping]: https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-maps/supported-languages.md#azure-maps-supported-languages
 [user regions (view)]: /javascript/api/azure-maps-control/atlas.styleoptions?view=azure-maps-typescript-latest#azure-maps-control-atlas-styleoptions-view
 [ImageSpriteManager.add()]: /javascript/api/azure-maps-control/atlas.imagespritemanager?view=azure-maps-typescript-latest#azure-maps-control-atlas-imagespritemanager-add
+[Map.setServiceOptions()]: https://learn.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#azure-maps-control-atlas-map-setserviceoptions
 [azure-maps-control]: https://www.npmjs.com/package/azure-maps-control
 [maplibre-gl]: https://www.npmjs.com/package/maplibre-gl
+[SourceManager]: /javascript/api/azure-maps-control/atlas.sourcemanager
 [StyleOptions]: /javascript/api/azure-maps-control/atlas.styleoptions
 [TrafficControlOptions]: /javascript/api/azure-maps-control/atlas.trafficcontroloptions
 [Azure Maps Samples]: https://samples.azuremaps.com

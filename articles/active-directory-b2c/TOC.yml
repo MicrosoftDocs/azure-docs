@@ -500,6 +500,9 @@
     # Secure
   - name: Secure
     items:
+      - name: Security overview
+        href: security-architecture.md
+        displayName: azure ad b2c security best practices
       - name: Enable MFA
         items:
         - name: Multi-factor authentication

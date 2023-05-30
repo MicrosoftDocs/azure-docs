@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Velpic SAML | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Velpic SAML'
 description: Learn how to configure single sign-on between Azure Active Directory and Velpic SAML.
 services: active-directory
 author: jeevansd

@@ -8,7 +8,7 @@ ms.date: 07/08/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-arm-template
 ---
 
 # Create an App Service app and deploy a private endpoint by using an Azure Resource Manager template

@@ -3,6 +3,7 @@ title: Use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 description: Learn how to use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 author: vhorne
 ms.service: firewall
+ms.custom: devx-track-azurecli, build-2023
 services: firewall
 ms.topic: how-to
 ms.date: 10/27/2022
@@ -143,7 +144,7 @@ When the previous command has succeeded, save the firewall frontend IP address f
 # Capture Firewall IP Address for Later Use
 
 FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAddress" -o tsv)
-FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv)
+FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIPAddress" -o tsv)
 ```
 
 > [!NOTE]
@@ -172,7 +173,8 @@ See [virtual network route table documentation](../virtual-network/virtual-netwo
 
 
 Below are three network rules you can use to configure on your firewall, you may need to adapt these rules based on your deployment. The first rule allows access to port 9000 via TCP. The second rule allows access to port 1194 and 123 via UDP. Both these rules will only allow traffic destined to the Azure Region CIDR that we're using, in this case East US. 
-Finally, we'll add a third network rule opening port 123 to `ntp.ubuntu.com` FQDN via UDP (adding an FQDN as a network rule is one of the specific features of Azure Firewall, and you'll need to adapt it when using your own options).
+
+Finally, we'll add a third network rule opening port 123 to an Internet time server FQDN (for example:`ntp.ubuntu.com`)  via UDP. Adding an FQDN as a network rule is one of the specific features of Azure Firewall, and you'll need to adapt it when using your own options.
 
 After setting the network rules, we'll also add an application rule using the `AzureKubernetesService` that covers all needed FQDNs accessible through TCP port 443 and port 80.
 
@@ -218,7 +220,7 @@ You'll define the outbound type to use the UDR that already exists on the subnet
 > For more information on outbound type UDR including limitations, see [**egress outbound type UDR**](../aks/egress-outboundtype.md#limitations).
 
 > [!TIP]
-> Additional features can be added to the cluster deployment such as [**Private Cluster**](../aks/private-clusters.md) or changing the [**OS SKU**](../aks/cluster-configuration.md#mariner-os).
+> Additional features can be added to the cluster deployment such as [**Private Cluster**](../aks/private-clusters.md) or changing the [**OS SKU**](../aks/cluster-configuration.md#azure-linux-container-host-for-aks).
 >
 > The AKS feature for [**API server authorized IP ranges**](../aks/api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. The authorized IP ranges feature is denoted in the diagram as optional. When enabling the authorized IP range feature to limit API server access, your developer tools must use a jumpbox from the firewall's virtual network or you must add all developer endpoints to the authorized IP range.
 
@@ -250,7 +252,7 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 ```
 
-Use the [az aks get-credentials][az-aks-get-credentials] command to configure `kubectl` to connect to your newly created Kubernetes cluster.
+Use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command to configure `kubectl` to connect to your newly created Kubernetes cluster.
 
 ```azurecli
 az aks get-credentials -g $RG -n $AKSNAME

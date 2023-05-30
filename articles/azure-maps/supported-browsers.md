@@ -65,9 +65,9 @@ You might want to target older browsers that don't support WebGL or that have on
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Additional code samples using Azure Maps in Leaflet can be found [here](https://samples.azuremaps.com/?search=leaflet).
+For code samples using Azure Maps in Leaflet, see [Azure Maps Samples](https://samples.azuremaps.com/?search=leaflet).
 
-[Here](open-source-projects.md#third-part-map-control-plugins) are some popular open-source map controls that the Azure Maps team has created plugin's for.
+For a list of third-party map control plug-ins, see [Azure Maps community - Open-source projects](open-source-projects.md#third-part-map-control-plugins).
 
 ## Next steps
 

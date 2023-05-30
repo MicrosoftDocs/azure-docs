@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Titanfile | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Titanfile'
 description: Learn how to configure single sign-on between Azure Active Directory and Titanfile.
 services: active-directory
 author: jeevansd

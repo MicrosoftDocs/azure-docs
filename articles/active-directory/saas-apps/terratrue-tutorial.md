@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TerraTrue | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TerraTrue'
 description: Learn how to configure single sign-on between Azure Active Directory and TerraTrue.
 services: active-directory
 author: jeevansd

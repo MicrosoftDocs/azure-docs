@@ -55,30 +55,30 @@ You can also get the maintenance status for all VMs in a resource group by using
 Get-AzVM -ResourceGroupName myResourceGroup -Status
 ```
 
-The following PowerShell example takes your subscription ID and returns a list of VMs that are scheduled for maintenance.
+The following PowerShell example takes your subscription ID and returns a list of VMs indicating whether they are scheduled for maintenance.
 
 ```powershell
 
-function MaintenanceIterator
-{
-    Select-AzSubscription -SubscriptionId $args[0]
+function MaintenanceIterator {
+  param (
+    $SubscriptionId
+  )
+  
+  Select-AzSubscription -SubscriptionId $SubscriptionId | Out-Null
 
-    $rgList= Get-AzResourceGroup 
-
-    for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
-    {
-        $rg = $rgList[$rgIdx]        
-	$vmList = Get-AzVM -ResourceGroupName $rg.ResourceGroupName 
-        for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
-        {
-            $vm = $vmList[$vmIdx]
-            $vmDetails = Get-AzVM -ResourceGroupName $rg.ResourceGroupName -Name $vm.Name -Status
-              if ($vmDetails.MaintenanceRedeployStatus )
-            {
-                Write-Output "VM: $($vmDetails.Name)  IsCustomerInitiatedMaintenanceAllowed: $($vmDetails.MaintenanceRedeployStatus.IsCustomerInitiatedMaintenanceAllowed) $($vmDetails.MaintenanceRedeployStatus.LastOperationMessage)"               
-            }
-          }
+  $rgList = Get-AzResourceGroup
+  foreach ($rg in $rgList) {
+    $vmList = Get-AzVM -ResourceGroupName $rg.ResourceGroupName 
+    foreach ($vm in $vmList) {
+      $vmDetails = Get-AzVM -ResourceGroupName $rg.ResourceGroupName -Name $vm.Name -Status
+      [pscustomobject]@{
+        Name                                  = $vmDetails.Name
+        ResourceGroupName                     = $rg.ResourceGroupName
+        IsCustomerInitiatedMaintenanceAllowed = [bool]$vmDetails.MaintenanceRedeployStatus.IsCustomerInitiatedMaintenanceAllowed
+        LastOperationMessage                  = $vmDetails.MaintenanceRedeployStatus.LastOperationMessage
+      }
     }
+  }
 }
 
 ```
@@ -88,7 +88,11 @@ function MaintenanceIterator
 Using information from the function in the previous section, the following starts maintenance on a VM if **IsCustomerInitiatedMaintenanceAllowed** is set to true.
 
 ```powershell
-Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
+
+MaintenanceIterator -SubscriptionId <Subscription ID> |
+    Where-Object -FilterScript {$_.IsCustomerMaintenanceAllowed} |
+        Restart-AzVM -PerformMaintenance
+
 ```
 
 ## Classic deployments

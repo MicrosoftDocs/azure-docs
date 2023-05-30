@@ -1,5 +1,5 @@
 ---
-title: Manage authentication methods for Azure AD Multi-Factor Authentication - Azure Active Directory
+title: Manage authentication methods for Azure AD Multi-Factor Authentication
 description: Learn how you can configure Azure Active Directory user settings for Azure AD Multi-Factor Authentication
 
 services: multi-factor-authentication

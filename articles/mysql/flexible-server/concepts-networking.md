@@ -1,5 +1,5 @@
 ---
-title: Networking overview - Azure Database for MySQL Flexible Server
+title: Networking overview - Azure Database for MySQL - Flexible Server
 description: Learn about connectivity and networking options in the Flexible Server deployment option for Azure Database for MySQL
 author: vivgk
 ms.author: vivgk
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article introduces the concepts to control connectivity to your Azure MySQL Flexible Server. You learn in detail the networking concepts for Azure Database for MySQL Flexible server to create and access a server securely in Azure.
+This article introduces the concepts to control connectivity to your Azure MySQL Flexible Server. You learn in detail the networking concepts for Azure Database for MySQL - Flexible Server to create and access a server securely in Azure.
 
 Azure Database for MySQL - Flexible server supports two ways to configure connectivity to your servers:
 > [!NOTE]  
@@ -61,9 +61,9 @@ Regardless of your networking option, we recommend you use the fully qualified d
 
 ## TLS and SSL
 
-Azure Database for MySQL Flexible Server supports connecting your client applications to the MySQL server using Secure Sockets Layer (SSL) with Transport layer security (TLS) encryption. TLS is an industry-standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.
+Azure Database for MySQL - Flexible Server supports connecting your client applications to the MySQL server using Secure Sockets Layer (SSL) with Transport layer security (TLS) encryption. TLS is an industry-standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.
 
-Azure Database for MySQL Flexible Server supports encrypted connections using Transport Layer Security (TLS 1.2) by default, and all incoming connections with TLS 1.0 and TLS 1.1 are denied by default. The encrypted connection enforcement or TLS version configuration on your flexible server can be configured and changed.
+Azure Database for MySQL - Flexible Server supports encrypted connections using Transport Layer Security (TLS 1.2) by default, and all incoming connections with TLS 1.0 and TLS 1.1 are denied by default. The encrypted connection enforcement or TLS version configuration on your flexible server can be configured and changed.
 
 Following are the different configurations of SSL and TLS settings you can have for your flexible server:
 

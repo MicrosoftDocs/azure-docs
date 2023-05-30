@@ -37,20 +37,26 @@ items:
     href: how-to-permissions.md
   - name: Create a dashboard
     href: how-to-create-dashboard.md
-  - name: Share an Azure Managed Grafana instance
+  - name: Share a dashboard
+    href: how-to-share-dashboard.md
+  - name: Share a workspace
     href: how-to-share-grafana-workspace.md
   - name: Configure SMTP settings
     href: how-to-smtp-settings.md
+  - name: Use reporting and image rendering
+    href: how-to-use-reporting-and-image-rendering.md
   - name: Monitor Azure Managed Grafana
     href: how-to-monitor-managed-grafana-workspace.md
   - name: Use service accounts
     href: how-to-service-accounts.md
   - name: Create and manage API keys
     href: how-to-create-api-keys.md
-  - name: Enable zone redundancy
-    href: how-to-enable-zone-redundancy.md
   - name: Set up private access
     href: how-to-set-up-private-access.md 
+  - name: Connect to a data source privately
+    href: how-to-connect-to-data-source-privately.md 
+  - name: Enable zone redundancy
+    href: how-to-enable-zone-redundancy.md
   - name: Use deterministic outbound IPs
     href: how-to-deterministic-ip.md
   - name: Enable Grafana Enterprise
@@ -65,8 +71,10 @@ items:
   items:
   - name: Azure CLI
     href: /cli/azure/grafana
-  - name: Bicep and ARM templates
+  - name: ARM, Bicep and Terraform templates
     href: /azure/templates/microsoft.dashboard/2021-09-01-preview/grafana
+  - name: Azure PowerShell
+    href: https://www.powershellgallery.com/packages/Az.Dashboard
   - name: Control plane APIs
     href: /rest/api/managed-grafana
   - name: Data plane APIs
