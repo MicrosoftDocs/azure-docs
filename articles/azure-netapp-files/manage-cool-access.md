@@ -111,7 +111,12 @@ Standard service with cool access can be enabled during the creation of a new vo
         This option specifies whether the volume will support cool access. 
  
     * **Coolness Period**
-        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 63 days.         
+        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 63 days.    
+
+    * **Cool Access Retrieval Policy**   
+        * `Ddefault`: There is no change to the retrieval behavior of cool data with this value. Cool data is retrieved from the Azure storage account on random reads.
+        * `On-Read`: Cool data is retrieved from the Azure storage account upon both sequential and random reads.
+        * `Never`: Cool data isn't retrieved from the Azure storage account upon sequential or random reads.
 
     :::image type="content" source="../media/azure-netapp-files/cool-access-new-volume.png" alt-text="Image showing the Create a volume field. Under the basics tab, there's an option to Enable Cool Access with a checkbox selected. There's a coolness period field which accesses a numerical string between 7 and 63 days. The image shows 31 as the value in the field. " lightbox="../media/azure-netapp-files/cool-access-new-volume.png"::: 
 
@@ -125,6 +130,10 @@ In a Standard service-level, cool-access enabled capacity pool, you can enable a
         This option specifies whether the volume will support cool access. 
     * **Coolness Period**  
         This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 63 days. 
+    * **Cool Access Retrieval Policy**   
+        * `Ddefault`: There is no change to the retrieval behavior of cool data with this value. Cool data is retrieved from the Azure storage account on random reads.
+        * `On-Read`: Cool data is retrieved from the Azure storage account upon both sequential and random reads.
+        * `Never`: Cool data isn't retrieved from the Azure storage account upon sequential or random reads.
 
     :::image type="content" source="../media/azure-netapp-files/cool-access-existing-volume.png" alt-text="The Edit window: Enable Cool Access is a field with a checked checkbox. The coolness period is set to 31 days. " lightbox="../media/azure-netapp-files/cool-access-existing-volume.png"::: 
 
