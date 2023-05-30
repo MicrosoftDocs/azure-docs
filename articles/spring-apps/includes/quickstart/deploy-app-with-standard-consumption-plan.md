@@ -14,6 +14,8 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
+## 2 Prepare Spring Project
+
 [!INCLUDE [prepare-spring-project-event-driven](../../includes/quickstart/prepare-spring-project.md)]
 
 ## 3 Provision

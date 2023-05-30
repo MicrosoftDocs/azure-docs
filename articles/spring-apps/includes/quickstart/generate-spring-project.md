@@ -35,7 +35,7 @@ Use the following steps to create the project:
 
        @RequestMapping("/")
        public String index() {
-           return "Greetings from Azure Spring Apps!";
+           return "Hello World";
         }
    }
    ```

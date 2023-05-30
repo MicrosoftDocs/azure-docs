@@ -50,20 +50,18 @@ After deployment, you can access the app at `https://<your-Azure-Spring-Apps-ins
 
 ## 7 Next steps
 
-In this quickstart, you learned how to build and deploy a Spring app in an Azure Spring Apps service instance. You also learned how to deploy an app with a public endpoint, and how to clean up resources.
+> [!div class="nextstepaction"]
+> [Quickstart: Deploy your first web application to Azure Spring Apps](./quickstart-deploy-web-app.md)
 
 > [!div class="nextstepaction"]
-> [Deploy your first web application to Azure Spring Apps](./quickstart-deploy-web-app.md)
-
-> [!div class="nextstepaction"]
-> [Deploy event-driven application to Azure Spring Apps](./quickstart-deploy-event-driven-app-standard-consumption.md)
+> [Quickstart: Deploy event-driven application to Azure Spring Apps](./quickstart-deploy-event-driven-app-standard-consumption.md)
 
 ::: zone pivot="sc-consumption-plan"
 
 To learn how to create a Standard consumption and dedicated plan in Azure Spring Apps for app deployment, advance to the Standard consumption and dedicated quickstart series:
 
 > [!div class="nextstepaction"]
-> [Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](./quickstart-provision-standard-consumption-service-instance.md)
+> [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](./quickstart-provision-standard-consumption-service-instance.md)
 
 ::: zone-end
 

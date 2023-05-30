@@ -151,14 +151,15 @@ Use the following steps to build and deploy your app.
 1. In the **Subscription** textbox, verify that your subscription is correct.
 1. In the **Spring Apps** textbox, select the instance of Azure Spring Apps that you created in the [Provision an instance of Azure Spring Apps](#32-provision-an-instance-of-azure-spring-apps) section.
 1. In the **App** textbox, select the plus sign (**+**) to create a new app.
+
+   :::image type="content" source="../../media/quickstart/intellij-create-new-app.png" alt-text="Screenshot of IntelliJ IDEA showing Deploy Azure Spring Apps dialog box." lightbox="../../media/quickstart/intellij-create-new-app.png":::
+
 1. In the **App name:** textbox under **App Basics**, enter *demo*, and then select the **More settings** check box.
 1. Select the **Enable** button next to **Public endpoint**. The button changes to **Disable \<to be enabled\>**.
 1. Select **Java 17** for the **Runtime** option.
 1. Select **OK**.
 
    :::image type="content" source="../../media/quickstart/intellij-more-settings.png" alt-text="Screenshot of IntelliJ IDEA Create Azure Spring Apps dialog box with public endpoint Disable button highlighted." lightbox="../../media/quickstart/intellij-more-settings.png":::
-
-   :::image type="content" source="../../media/quickstart/intellij-create-new-app.png" alt-text="Screenshot of IntelliJ IDEA showing Deploy Azure Spring Apps dialog box." lightbox="../../media/quickstart/intellij-create-new-app.png":::
 
 1. Under **Before launch**, select **Run Maven Goal 'demo:package'**, and then select the pencil icon to edit the command line.
 
