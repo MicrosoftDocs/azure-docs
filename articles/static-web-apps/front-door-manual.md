@@ -29,7 +29,7 @@ A manual Azure Front Door setup gives you full control over the CDN configuratio
 * Add a web application firewall
 * Use more advanced features of Azure Front Door
 
-In this tutorial, learn how to add Azure Front Door to your Static Web Apps, by enabling enterprise-grade edge for your Static Web Apps or manually configuring an Azure Front Door for your Static Web Apps site.
+In this tutorial, you learn to add Azure Front Door to your static web app.
 
 ## Option 1: Enable enterprise-grade edge
 
