@@ -61,4 +61,4 @@ For SAP systems that aren't currently deployed using the flexible scale set, you
 
 To move an existing SAP HANA deployment that is currently pinned with Azure NetApp Files to zonal deployment with flexible scale set (FD=1), you must redeploy or migrate the SAP HANA VMs with flexible scale set (FD=1). Additionally, you would need to configure Azure NetApp Files with the [availability zones volume placement feature](../../azure-netapp-files/manage-availability-zone-volume-placement.md) and transfer data to new volumes using backup/restore.
 
-Keep in mind that the availability zone volume placement feature is still in preview. Therefore, it's essential to thoroughly review the documentation on [managing availability zone volume placement for Azure NetApp Files](../../azure-netapp-files/manage-availability-zone-volume-placement.md) for additional consideration.
+Keep in mind that the availability zone volume placement feature is still in preview. Therefore, it's essential to thoroughly review the documentation on [managing availability zone volume placement for Azure NetApp Files](../../azure-netapp-files/use-availability-zones.md) for additional consideration.
