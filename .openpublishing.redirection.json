@@ -1,6 +1,31 @@
 {
     "redirections": [
         {
+            "source_path": "articles/storsimple/storsimple-configure-backup-target-using-backup-exec.md",
+            "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storsimple/storsimple-partner-csp-faq.yml",
+            "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storsimple/storsimple-update-device.md",
+            "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storsimple-virtual-array-install-update-11.md",
+            "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storsimple/storsimple-virtual-array-update-11-release-notes.md",
+            "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/storsimple/storsimple-ova-overview.md",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
@@ -512,11 +537,6 @@
         },
         {
             "source_path": "articles/storsimple/storsimple-configure-backup-target-veeam.md",
-            "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/torsimple-configure-backup-target-using-backup-exec.md",
             "redirect_url": "/azure-docs-pr/articles/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
