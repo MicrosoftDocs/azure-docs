@@ -1,7 +1,7 @@
 ---
 author: jsaurezlee-msft
 ms.service: azure-communication-services
-ms.topic: article
+ms.topic: include
 ms.date: 30/05/2023
 ms.author: jsaurezlee
 ---
