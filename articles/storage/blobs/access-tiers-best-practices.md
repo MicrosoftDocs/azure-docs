@@ -24,7 +24,7 @@ To identify the most optimal access tier, try to estimate what percentage of the
 > [!div class="mx-imgBorder"]
 > ![Chart that shows a bar for each tier which represents the monthly cost based on percentage read pattern](./media/access-tiers-best-practices/read-pattern-access-tiers.png)
 
-To model and analyze the cost of using cool or cold versus archive storage, see [Archive versus cool](archive-cost-estimation.md#archive-versus-cool). You can apply similar modeling techniques to compare the cost of hot to cool, cold or archive.
+To model and analyze the cost of using cool or cold versus archive storage, see [Archive versus cold and cool](archive-cost-estimation.md#archive-versus-cold-and-cool). You can apply similar modeling techniques to compare the cost of hot to cool, cold or archive.
 
 > [!IMPORTANT]
 > The cold tier is currently in PREVIEW. To learn more, see [Cold tier (preview)](access-tiers-overview.md#cold-tier-preview).
