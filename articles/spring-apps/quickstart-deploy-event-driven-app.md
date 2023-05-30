@@ -45,6 +45,13 @@ Diagram of Spring event-driven app architecture:
 ## 1 Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+::: zone pivot="sc-enterprise"
+
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+
+::: zone-end
+
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - [Apache Maven](https://maven.apache.org/download.cgi)
@@ -72,12 +79,6 @@ Diagram of Spring event-driven app architecture:
 ::: zone pivot="sc-standard,sc-enterprise"
 
 - [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
-
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
-- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ::: zone-end
 
