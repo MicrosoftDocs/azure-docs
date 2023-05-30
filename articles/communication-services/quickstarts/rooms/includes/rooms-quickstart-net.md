@@ -156,14 +156,11 @@ To retrieve all active rooms, use the `GetRoomsAsync` method exposed on the clie
 ```csharp
 
 // List all active rooms
-AsyncPageable<CommunicationRoom> allRooms = await roomsClient.GetRoomsAsync();
+AsyncPageable<CommunicationRoom> allRooms = roomsClient.GetRoomsAsync();
 await foreach (CommunicationRoom room in allRooms)
 {
-    if (room is not null)
-    {
-        Console.WriteLine("\nFirst room id in all active rooms: " + room.Id);
-        break;
-    }
+    Console.WriteLine("\nFirst room id in all active rooms: " + room.Id);
+    break;
 }
 
 ```
