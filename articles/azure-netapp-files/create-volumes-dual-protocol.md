@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 05/28/2023
 ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -112,6 +112,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
         If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
 
+    * **Enable Cool Access**, **Coolness Period**, and **Cool Access Retrieval Policy**      
+        These fields configure [Standard storage with cool access in Azure NetApp Files](cool-access-about.md). For descriptions, see [Manage Azure NetApp Files Standard service level with cool access](manage-cool-access.md). 
+
     * **Virtual network**  
         Specify the Azure virtual network (VNet) from which you want to access the volume.  
 
@@ -122,8 +125,6 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         The subnet you specify must be delegated to Azure NetApp Files. 
         
         If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
- 
-        ![Create a volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 

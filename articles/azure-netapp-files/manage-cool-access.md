@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 04/01/2023
+ms.date: 05/28/2023
 ms.author: anfdocs
 ---
 
@@ -119,6 +119,11 @@ Standard service with cool access can be enabled during the creation of a new vo
         * `Never`: Cool data isn't retrieved from the Azure storage account upon sequential or random reads.
 
     :::image type="content" source="../media/azure-netapp-files/cool-access-new-volume.png" alt-text="Image showing the Create a volume field. Under the basics tab, there's an option to Enable Cool Access with a checkbox selected. There's a coolness period field which accesses a numerical string between 7 and 63 days. The image shows 31 as the value in the field. " lightbox="../media/azure-netapp-files/cool-access-new-volume.png"::: 
+
+1. Follow one of the following articles to complete the volume creation:   
+    * [Create an NFS volume](azure-netapp-files-create-volumes.md)
+    * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
+    * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 
 #### Enable cool access on an existing volume 
 
