@@ -78,7 +78,7 @@ You'll need an Azure Resource Manager connection to authenticate with Azure port
 
 1. Choose **+ New service connection** and select **Generic**.
 
-1. Use **https://management.azure.com** and provide a Service connection name. Do not provide any Authentication related information..
+1. Use **https://management.azure.com** and provide a service connection name. Do not provide any authentication related information.
 
 1. Create your service connection.
 
