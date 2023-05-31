@@ -193,6 +193,7 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 - [Deploy SAP security content](deploy-sap-security-content.md)
 - [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
 Troubleshooting:
