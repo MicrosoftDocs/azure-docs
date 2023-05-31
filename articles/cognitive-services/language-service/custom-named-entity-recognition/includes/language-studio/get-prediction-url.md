@@ -23,12 +23,12 @@ ms.author: aahi
 
 4. Submit the `POST` cURL request in your terminal or command prompt. You'll receive a 202 response with the API results if the request was successful.
 
-5. In the response header you receive extract `{JOB-ID}` from `operation-location`, which has the format: `{ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<JOB-ID}>`
+5. In the response header you receive extract `{JOB-ID}` from `operation-location`, which has the format: `{ENDPOINT}/language/analyze-text/jobs/{JOB-ID}`
 
 6. Back to Language Studio; select **Retrieve** pivot from the same window you got the example request you got earlier and copy the sample request into a text editor. 
 
     :::image type="content" source="../../media/get-prediction-url-3.png" alt-text="A screenshot showing the example retrieval request." lightbox="../../media/get-prediction-url-3.png":::
 
-7. Replace `<JOB-ID>` with the `{JOB-ID}` you extracted from the previous step. 
+7. Replace `<OPERATION-ID>` with the `{JOB-ID}` you extracted from the previous step. 
 
 8. Submit the `GET` cURL request in your terminal or command prompt.
