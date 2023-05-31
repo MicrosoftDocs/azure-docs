@@ -153,7 +153,7 @@
         - name: Migrate Okta sign on policies to Azure AD Conditional Access
           href: migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md
         - name: Migrate Okta sync provisioning to Azure AD Connect based synchronization
-          href: migrate-okta-sync-provisioning-to-azure-active-directory.md
+          href: migrate-okta-sync-provisioning.md
         - name: Migrate Okta federation to Azure AD managed authentication
           href: migrate-okta-federation-to-azure-active-directory.md
     - name: Secure legacy apps 
