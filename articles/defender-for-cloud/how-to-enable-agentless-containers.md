@@ -38,13 +38,40 @@ If you don't see results from your clusters, check the following:
 ## What can I do if I have stopped clusters?
 We do not support or charge stopped clusters. To get the value of agentless capabilities on a stopped cluster, you can rerun the cluster. 
 
-### What can I do if I have read only (locked) clusters?
+## What do I do if I have locked resource groups, subscriptions, or clusters? 
 
-We suggest that you do one of the following steps:
+We suggest that you unlock the locked resource group/subscription/cluster, make the relevant requests manually, and then re-lock the resource group/subscription/cluster by doing the following: 
 
-- [Remove the lock](https://learn.microsoft.com/azure/azure-resource-manager/management/lock-resources?tabs=json#configure-locks). Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json).
-- Perform the bind operation manually by making an API request.
+1. Enable the feature flag manually via CLI: 
+
+    ``` CLI 
+
+    “az feature register --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview” 
+
+    ``` 
+
+1. Perform the bind operation in the CLI: 
+
+    ``` CLI 
+
+    az account set -s <SubscriptionId> 
+
+    az extension add --name aks-preview 
+
+    az aks trustedaccess rolebinding create --resource-group <cluster resource group> --cluster-name <cluster name> --name defender-cloudposture --source-resource-id /subscriptions/<SubscriptionId>/providers/Microsoft.Security/pricings/CloudPosture/securityOperators/DefenderCSPMSecurityOperator --roles  "Microsoft.Security/pricings/microsoft-defender-operator" 
+
+    ``` 
+
+For locked clusters, you can also do one of the following: 
+
+- Remove the lock. 
+- Perform the bind operation manually by doing an API request. 
+
+ 
 
 ## Next Steps
- - Learn how to [view and remediate vulnerability assessment findings for registry images and running images](view-and-remediate-vulnerability-assessment-findings.md).
- - Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
+
+- Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json). 
+- Learn more about [Trusted Access](/azure/aks/trusted-access-feature). 
+- Learn how to [view and remediate vulnerability assessment findings for registry images and running images](view-and-remediate-vulnerability-assessment-findings.md).
+- Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.

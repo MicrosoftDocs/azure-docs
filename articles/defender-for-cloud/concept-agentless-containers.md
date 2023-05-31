@@ -22,10 +22,11 @@ Agentless Container Posture provides the following capabilities:
 - Using Kubernetes [attack path analysis](concept-attack-path.md) to visualize risks and threats to Kubernetes environments.
 - Using [cloud security explorer](how-to-manage-cloud-security-explorer.md) for risk hunting by querying various risk scenarios. 
 - Viewing security insights, such as internet exposure, and other predefined security scenarios. For more information, search for `Kubernetes` in the [list of Insights](attack-path-reference.md#insights).
-- [Support for exemptions](#support-for-exemptions): create exemptions for specific vulnerability assessment findings.
 
 > [!NOTE]
 > This feature supports scanning of images in the Azure Container Registry (ACR) only. If you want to find vulnerabilities stored in other container registries, you can import the images into ACR, after which the imported images are scanned by the built-in vulnerability assessment solution. Learn how to [import container images to a container registry](https://learn.microsoft.com/azure/container-registry/container-registry-import-images?tabs=azure-cli).
+
+All of these capabilities are available as part of the [Defender Cloud Security Posture Management](concept-cloud-security-posture-management.md) plan. 
 
 ## Agentless discovery and visibility within Kubernetes components
 
@@ -103,10 +104,6 @@ Container registry vulnerability assessment scans container images stored in you
 1. Vulnerability reports are refreshed daily for any image pushed during the last 90 days to a registry or currently running on a Kubernetes cluster monitored by Defender CSPM Agentless discovery and visibility for Kubernetes, or monitored by the Defender for Containers agent (profile or extension).
  
 If you delete an image from the ACR, it currently takes 3 days to remove the findings for an image after it was deleted. Considerations for improving the freshness interval are part of our areas of focus.
-
-## Support for exemptions
-
-You can customize your vulnerability assessment experience by exempting management groups, subscriptions, or specific resources from your secure score. Learn more about [exempting resources and recommendations from your secure score](exempt-resource.md).
 
 ## Next steps
 - Learn about [support and prerequisites for agentless containers posture](support-agentless-containers-posture.md)
