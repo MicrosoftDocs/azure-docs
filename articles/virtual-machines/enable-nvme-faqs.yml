@@ -86,6 +86,7 @@ sections:
         answer: |
           - The source VM e.g. E8bsv5 in this case, should use a NVMe none tagged OS image that supports NVMe  
           - Ensure to set the destination *discontrollertype* of the VM as NVMe also in E112i VMs. Use the following Power Shell script to do so:
+
 ''''      
           $subscription_id = 'your-subscription-id'
 
