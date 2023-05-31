@@ -168,7 +168,7 @@ spec:
       terminationGracePeriodSeconds: 60
       containers:
       - name: mygw
-        image: df.microsoft.com/azure-api-management/gateway:v2
+        image: mcr.microsoft.com/azure-api-management/gateway:v2
         ports:
         - name: http
           containerPort: 8080
