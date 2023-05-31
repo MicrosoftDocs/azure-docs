@@ -10,7 +10,7 @@ You need to configure your application code to look for the specific managed ide
     Create a `DefaultAzureCredentialOptions` object and pass it to `DefaultAzureCredential`. Set the [ManagedIdentityClientId](/dotnet/api/azure.identity.defaultazurecredentialoptions.managedidentityclientid?view=azure-dotnet&preserve-view=true) property to the client ID.
 
     ```csharp
-    var credential = new DefaultAzureCredential(
+    DefaultAzureCredential credential = new(
         new DefaultAzureCredentialOptions
         {
             ManagedIdentityClientId = managedIdentityClientId
