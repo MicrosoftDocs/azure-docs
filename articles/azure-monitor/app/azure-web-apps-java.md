@@ -107,7 +107,7 @@ To manually update, follow these steps:
    
    **Startup Command** doesn't honor `JAVA_OPTS` for JavaSE or `CATALINA_OPTS` for Tomcat.
 
-   If you don't use **Startup Command**, create a new environment variable, `JAVA_OPTS` or `CATALINA_OPTS` for Tomcat, with the value
+   If you don't use **Startup Command**, create a new environment variable, `JAVA_OPTS` for JavaSE or `CATALINA_OPTS` for Tomcat, with the value
    `-javaagent:{PATH_TO_THE_AGENT_JAR}/applicationinsights-agent-{VERSION_NUMBER}.jar`.
 
 4. Restart the app to apply the changes.
