@@ -233,7 +233,7 @@ jobs:
 ```
 ---
 
-## Step 7: Wait for Azure machine Learning job to complete
+## Step 7: Wait for Azure Machine Learning job to complete
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
