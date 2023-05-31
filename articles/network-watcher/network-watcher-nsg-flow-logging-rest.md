@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 07/13/2021
 ms.author: halkazwini
-ms.custom: engagement-fy23
+ms.custom: etemplate-how-to, ngagement-fy23
 ---
 
 # Manage network security group flow logs using REST API
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure portal](nsg-flow-logging.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
