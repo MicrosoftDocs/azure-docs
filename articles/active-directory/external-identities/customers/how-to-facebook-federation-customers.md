@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/28/2023
+ms.date: 05/24/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -38,17 +38,21 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
     1. Enter a URL for the **Terms of Service URL**, for example `https://www.contoso.com/tos`. The policy URL is a page you maintain to provide terms and conditions for your application.
     1. Enter a URL for the **User Data Deletion**, for example `https://www.contoso.com/delete_my_data`. The User Data Deletion URL is a page you maintain to provide away for users to request that their data be deleted.
     1. Choose a **Category**, for example `Business and Pages`. Facebook requires this value, but it's not used for Azure AD.
-2. At the bottom of the page, select **Add Platform**, and then select **Website**.
-3. In **Site URL**, enter the address of your website, for example `https://contoso.com`. 
-4. Select **Save Changes**.
-5. From the menu, select the **plus** sign or **Add Product** link next to **PRODUCTS**. Under the **Add Products to Your App**, select **Set up** under **Facebook Login**.
-6. From the menu, select **Facebook Login**, select **Settings**.
-7. In **Valid OAuth redirect URIs**, enter:
-    - `https://login.microsoftonline.com`
-    -  `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp`. Replace the tenant ID with your Azure AD for customers tenant ID. To find your tenant ID, go to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Azure Active Directory**, select **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
-    - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp`. Replace the tenant name with your Azure AD for customers tenant name.
-8. Select **Save Changes** at the bottom of the page.
-9. To make your Facebook application available to Azure AD, select the Status selector at the top right of the page and turn it **On** to make the Application public, and then select **Switch Mode**. At this point, the Status should change from **Development** to **Live**. For more information, see [Facebook App Development](https://developers.facebook.com/docs/development/release).
+1. At the bottom of the page, select **Add Platform**, and then select **Website**.
+1. In **Site URL**, enter the address of your website, for example `https://contoso.com`. 
+1. Select **Save Changes**.
+1. From the menu, select the **plus** sign or **Add Product** link next to **PRODUCTS**. Under the **Add Products to Your App**, select **Set up** under **Facebook Login**.
+1. From the menu, select **Facebook Login**, select **Settings**.
+1. In **Valid OAuth redirect URIs**, enter the following URIs, replacing `<tenant-ID>` with your customer tenant ID and `<tenant-name>` with your customer tenant name:
+   - `https://login.microsoftonline.com/te/<tenant-ID>/oauth2/authresp`
+   - `https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oidc/www.facebook.com`
+    - `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oidc/www.facebook.com`
+    - `https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oauth2`
+    - `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oauth2`
+   > [!NOTE]
+   > To find your customer tenant ID, go to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Azure Active Directory**, select **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
+1. Select **Save Changes** at the bottom of the page.
+1. To make your Facebook application available to Azure AD, select the Status selector at the top right of the page and turn it **On** to make the Application public, and then select **Switch Mode**. At this point, the Status should change from **Development** to **Live**. For more information, see [Facebook App Development](https://developers.facebook.com/docs/development/release).
 
 ## Configure Facebook federation in Azure AD for customers
 
