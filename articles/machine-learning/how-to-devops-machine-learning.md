@@ -235,7 +235,6 @@ jobs:
 
 ## Step 7: Wait for Azure Machine Learning job to complete
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 In Step 6, we added a job to submit an Azure Machine Learning job. In this step, we will add another job that will wait for the Azure Machine Learning job to complete. 
 
