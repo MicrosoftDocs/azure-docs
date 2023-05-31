@@ -47,7 +47,7 @@ Follow your deployment journey through this series of articles, in which you'll 
 | **2. Plan architecture** | Learn about [working with the solution across multiple workspaces](cross-workspace.md) (PREVIEW) |
 | **3. Deployment prerequisites** | [Prerequisites for deploying the Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) |
 | **4. Prepare SAP environment** | [Deploying SAP CRs and configuring authorization](preparing-sap.md) |
-| **5. Configure auditing** | [Configure auditing](configure-audit.md)] |
+| **5. Configure auditing** | [Configure auditing](configure-audit.md) |
 | **6. Deploy data connector agent** | [Deploy and configure the container hosting the data connector agent](deploy-data-connector-agent-container.md) |
 | **7. Deploy SAP security content** | [Deploy SAP security content](deploy-sap-security-content.md)
 | **8. Configure the solution** | [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md) |
