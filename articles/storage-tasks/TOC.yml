@@ -12,6 +12,8 @@ items:
     href: storage-task-quickstart-portal.md
 - name: Concepts
   items: 
+  - name: Storage Task Permissions
+    href: storage-task-permission.md
   - name: Monitor Storage Tasks
     href: monitor-storage-tasks.md
 - name: How-To
