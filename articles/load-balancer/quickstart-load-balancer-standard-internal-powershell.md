@@ -78,7 +78,7 @@ $gwpublicip = New-AzPublicIpAddress @gwpublicip
 
 ```
 > [!NOTE]
-> The public IP address is used by the NAT gateway to provide outbound connectivity for the virtual machines in the backend pool. This is recommended when you create an internal load balancer and need the backend pool resources to have outbound connectivity. For more information, see [NAT gateway](load-balancer-outbound-connections).
+> The public IP address is used by the NAT gateway to provide outbound connectivity for the virtual machines in the backend pool. This is recommended when you create an internal load balancer and need the backend pool resources to have outbound connectivity. For more information, see [NAT gateway](load-balancer-outbound-connections.md).
 
 ### Create virtual network, network security group, bastion host, and NAT gateway
 
