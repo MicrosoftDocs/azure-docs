@@ -398,6 +398,10 @@ There are several advanced scenarios that benefit from client-side throughput co
 
 - **Load balancing of throughput between different Azure Cosmos DB clients** - in some use cases, it's important to make sure all the clients get a fair (equal) share of the throughput
 
+> [!WARNING]
+> Please note that throughput control is not yet supported for gateway mode. 
+> Currently, for [serverless Azure Cosmos DB accounts](../serverless.md), attempting to use `targetThroughputThreshold` to define a percentage will result in failure. You can only provide an absolute value for target throughput/RU using `targetThroughput`.  
+
 ### Global throughput control
 
 Global throughput control in the Java SDK is configured by first creating a container that will define throughput control metadata. This container must have a partition key of `groupId`, and `ttl` enabled. Assuming you already have objects for client, database, and container as defined in the examples above, you can create this container as below. Here we name the container `ThroughputControl`:
