@@ -296,7 +296,7 @@ Replace `<name of-service-connection>`,`<variable-for-subscription-id>`,`<variab
 
 ## Step 8: Submit pipeline and Verify your pipeline run
 
-Select "Save and run." The pipeline will wait for the AzureML job to complete and end the task under WaitForJobCompletion job with the same status as the AzureML Job. For example,
+Select __Save and run__. The pipeline will wait for the Azure Machine Learning job to complete, and end the task under `WaitForJobCompletion` with the same status as the Azure Machine Learning job. For example:
 AzureML Job Succeeded == Azure DevOps Task under WaitForJobCompletion job **Succeeded**
 AzureML Job Failed == Azure DevOps Task under WaitForJobCompletion job **Failed**
 AzureML Job Cancelled == Azure DevOps Task under WaitForJobCompletion job **Cancelled**
