@@ -422,9 +422,17 @@ We need to clean the video renderers once the call is disconnected and handle th
 End the current call when the `Hang Up` button is clicked. Add the implementation to the HangupButton_Click to end a call with the callAgent we created, and tear down the participant update and call state event handlers.
 
 ```C#
-this.call.OnRemoteParticipantsUpdated -= Call_OnRemoteParticipantsUpdatedAsync;
-this.call.OnStateChanged -= Call_OnStateChangedAsync;
-await this.call.HangUpAsync(new HangUpOptions());
+var call = this.callAgent?.Calls?.FirstOrDefault();
+if (call != null)
+{
+    try
+    {
+        await call.HangUpAsync(new HangUpOptions() { ForEveryone = true });
+    }
+    catch(Exception ex) 
+    {
+    }
+}
 ```
 
 ### Run the code
