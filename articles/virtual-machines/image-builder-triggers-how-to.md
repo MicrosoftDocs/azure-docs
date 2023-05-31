@@ -27,7 +27,7 @@ Before setting up your first trigger, ensure you're using Azure Image Builder AP
 
 ### Register the features
 
-To use VM Image Builder with triggers, you need to register the feature. Check your registration by running the following commands:
+To use VM Image Builder with triggers, you need to register the below features. Check your registration by running the following commands:
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages -o json | grep registrationState
@@ -46,7 +46,16 @@ az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 az provider register -n Microsoft.Network
 ```
+Register the auto image build triggers feature:
 
+```azurecli-interactive
+az feature register --namespace Microsoft.VirtualMachineImages --name Triggers
+```
+
+To register the auto image build triggers feature using PowerShell, run the following command:
+```azurepowershell-interactive
+Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineImages -Name Triggers
+```
 ### Set variables
 First, you need to set some variables that you'll repeatedly use in commands.
 
