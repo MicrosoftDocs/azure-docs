@@ -3,7 +3,7 @@ title: Stream data from Microsoft Purview Information Protection to Microsoft Se
 description: Stream data from Microsoft Purview Information Protection (formerly Microsoft Information Protection) to Microsoft Sentinel so you can analyze and report on data from the Microsoft Purview labeling clients and scanners.
 author: limwainstein
 ms.topic: how-to
-ms.date: 01/02/2023
+ms.date: 05/31/2023
 ms.author: lwainstein
 #Customer intent: As a security operator, I want to get specific labeling data from Microsoft Purview, so I can track, analyze, report on the data and use it for compliance purposes.
 ---
