@@ -74,7 +74,7 @@ Configure a user-assigned managed identity as a federated identity credential on
 
 # [PowerShell](#tab/azure-powershell)
 
-To use Azure PowerShell to configure the ISV's tenant, install the latest [Az](https://www.powershellgallery.com/packages/Az) module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
+To use Azure PowerShell to configure the ISV's tenant, install the latest [Az](https://www.powershellgallery.com/packages/Az) module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell).
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](azure-powershell-requirements-no-header.md)]
 
@@ -300,7 +300,7 @@ Now you can configure customer-managed keys with the key vault URI and key.
 
 # [PowerShell](#tab/azure-powershell)
 
-To use Azure PowerShell to configure the client's tenant, install the latest [Az](https://www.powershellgallery.com/packages/Az) module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps).
+To use Azure PowerShell to configure the client's tenant, install the latest [Az](https://www.powershellgallery.com/packages/Az) module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell).
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](azure-powershell-requirements-no-header.md)]
 

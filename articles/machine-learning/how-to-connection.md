@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
-ms.date: 04/18/2023
+ms.date: 05/25/2023
 ms.custom: data4ml
 
 # Customer intent: As an experienced data scientist with Python skills, I have data located in external sources outside of Azure. I need to make that data available to the Azure Machine Learning platform, to train my machine learning models.
@@ -220,7 +220,7 @@ $schema: http://azureml/sdk-2-0/Connection.json
 type: s3
 name: my_s3_connection
 
-target: https://<mybucket>.amazonaws.com # add the s3 bucket details
+target: <mybucket> # add the s3 bucket details
 credentials:
     type: access_key
     access_key_id: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # add access key id
@@ -255,9 +255,9 @@ from azure.ai.ml import MLClient
 from azure.ai.ml.entities import WorkspaceConnection
 from azure.ai.ml.entities import AccessKeyConfiguration
 
-target = "https://<mybucket>.amazonaws.com" # add the s3 bucket details
+target=<mybucket> # add the s3 bucket details
 name=<my_s3_connection> # name of the connection
-wps_connection = WorkspaceConnection(name=name,
+wps_connection=WorkspaceConnection(name=name,
 type="s3",
 target= target,
 credentials= AccessKeyConfiguration(access_key_id="XXXXXX",acsecret_access_key="XXXXXXXX")
@@ -271,3 +271,4 @@ ml_client.connections.create_or_update(workspace_connection=wps_connection)
 ## Next steps
 
 - [Import data assets](how-to-import-data-assets.md)
+- [Import data assets on a schedule](reference-yaml-schedule-data-import.md)

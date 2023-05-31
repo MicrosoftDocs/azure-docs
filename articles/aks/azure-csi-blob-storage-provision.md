@@ -3,7 +3,7 @@ title: Create a persistent volume with Azure Blob storage in Azure Kubernetes Se
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 03/23/2023
+ms.date: 05/17/2023
 
 ---
 
@@ -23,6 +23,11 @@ For more information on Kubernetes volumes, see [Storage options for application
 - If you don't have a storage account that supports the NFS v3 protocol, review [NFS v3 support with Azure Blob storage][azure-blob-storage-nfs-support].
 
 - [Enable the Blob storage CSI driver][enable-blob-csi-driver] on your AKS cluster.
+
+- To support an [Azure DataLake Gen2 storage account][azure-datalake-storage-account] when using blobfuse mount, you'll need to do the following:
+
+   - To create an ADLS account using the driver in dynamic provisioning, specify `isHnsEnabled: "true"` in the storage class parameters.
+   - To enable blobfuse access to an ADLS account in static provisioning, specify the mount option `--use-adls=true` in the persistent volume.
 
 ## Dynamically provision a volume
 
@@ -516,3 +521,4 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 [enable-blob-csi-driver]: azure-blob-csi.md#before-you-begin
 [az-tags]: ../azure-resource-manager/management/tag-resources.md
 [sas-tokens]: ../storage/common/storage-sas-overview.md
+[azure-datalake-storage-account]: ../storage/blobs/upgrade-to-data-lake-storage-gen2-how-to.md

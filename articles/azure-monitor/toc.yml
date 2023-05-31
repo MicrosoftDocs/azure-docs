@@ -227,7 +227,9 @@ items:
       - name: Collect SNMP traps
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-snmp-data.md
-      - name: Forward syslog data to workspace
+      - name: Collect syslog data
+        href: agents/data-collection-syslog.md
+      - name: Forward syslog data with Sentinel
         href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json        
     - name: Define network settings
       href: agents/azure-monitor-agent-data-collection-endpoint.md
@@ -237,6 +239,8 @@ items:
         href: agents/azure-monitor-agent-migration.md
       - name: Migration tools
         href: agents/azure-monitor-agent-migration-tools.md
+      - name: Migration custom text log tables
+        href: agents/azure-monitor-agent-custom-text-log-migration.md
     - name: Performance
       displayName: Performance
       href: agents/azure-monitor-agent-performance.md
@@ -338,24 +342,24 @@ items:
       - name: Use AMA Troubleshooter
         href: agents/use-azure-monitor-agent-troubleshooter.md
       - name: Linux VM
-        href: agents/azure-monitor-agent-troubleshoot-linux-vm.md?context=/azure/virtual-machines/context/context
-      - name: Linux Rsyslog issues
-        href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md?context=/azure/virtual-machines/context/context
+        href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
+      - name: Linux Syslog issues
+        href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
       - name: Windows VM
-        href: agents/azure-monitor-agent-troubleshoot-windows-vm.md?context=/azure/virtual-machines/context/context
+        href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
       - name: Windows Arc-enabled server
-        href: agents/azure-monitor-agent-troubleshoot-windows-arc.md?context=/azure/virtual-machines/context/context
+        href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
       - name: Troubleshoot legacy Agents
         displayName: Troublshooting guidance
         items:  
           - name: Log Analytics VM Extension
             displayName: troubleshoot, troubleshooting
-            href: visualize/vmext-troubleshoot.md?context=/azure/virtual-machines/context/context
+            href: visualize/vmext-troubleshoot.md
           - name: Log Analytics Windows agent
             displayName: troubleshoot, troubleshooting
-            href: agents/agent-windows-troubleshoot.md?context=/azure/virtual-machines/context/context
+            href: agents/agent-windows-troubleshoot.md
           - name: Log Analytics Linux agent
-            displayName: troubleshoot, troubleshooting?context=/azure/virtual-machines/context/context
+            displayName: troubleshoot, troubleshooting
             href: agents/agent-linux-troubleshoot.md
   - name: Logs ingestion API
     items:
@@ -404,6 +408,8 @@ items:
       href: essentials/data-platform-metrics.md
     - name: Custom metrics
       href: essentials/metrics-custom-overview.md
+    - name: Metrics REST API
+      href: essentials/metrics-store-custom-rest-api.md
     - name: Prometheus metrics
       items: 
       - name: Overview
@@ -412,22 +418,68 @@ items:
       - name: FAQ
         href: /azure/azure-monitor/faq#prometheus
       - name: Azure Monitor workspace
-        href: essentials/azure-monitor-workspace-overview.md
-      - name: Manage Azure Monitor workspaces
-        href: essentials/azure-monitor-workspace-manage.md
-      - name: Enable on AKS cluster
-        displayName: Prometheus
-        href: essentials/prometheus-metrics-enable.md      
-      - name: Rule groups
+        items: 
+        - name: Overview
+          displayName: Prometheus
+          href: essentials/azure-monitor-workspace-overview.md
+        - name: Manage
+          displayName: Prometheus
+          href: essentials/azure-monitor-workspace-manage.md
+        - name: Private endpoints for Azure Monitor workspaces
+          href: essentials/azure-monitor-workspace-private-endpoint.md 
+        - name: Private link for Prometheus data ingestion
+          href: essentials/private-link-data-ingestion.md
+      - name: Managed agent
+        items:
+        - name: Enable on AKS cluster
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-enable.md
+        - name: Enable on Arc-enabled Kubernetes cluster
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-from-arc-enabled-cluster.md    
+        - name: Customize collection
+          items:
+          - name: Default configuration
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-scrape-default.md
+          - name: Custom configuration
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-scrape-configuration.md
+          - name: Create and validate custom scrape config
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-scrape-validate.md
+          - name: Minimal ingestion profile
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-scrape-configuration-minimal.md
+          - name: High scale
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-scrape-scale.md
+          - name: Send to multiple metric workspaces
+            displayName: Prometheus
+            href: essentials/prometheus-metrics-multiple-workspaces.md
+        - name: Troubleshoot collection
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-troubleshoot.md
+      - name: Alerting and rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
-      - name: Query Prometheus metrics in workbooks
-        displayName: Prometheus
-        href: essentials/prometheus-workbooks.md
-      - name: Query Prometheus using the API and PromQL
-        displayName: Prometheus
-        href: essentials/prometheus-api-promql.md
-      - name: Remote-write
+      - name: Query Prometheus metrics
+        items:
+        - name: Query using Grafana
+          items: 
+          - name: Configure Grafana with managed system identity
+            displayName: Prometheus
+            href: essentials/prometheus-grafana.md
+          - name: Configure Grafana with Azure Active Directory
+            displayName: Prometheus
+            href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
+        - name: Query using Azure workbooks
+          displayName: Prometheus
+          href: essentials/prometheus-workbooks.md
+        - name: Query using the API and PromQL
+          displayName: Prometheus
+          href: essentials/prometheus-api-promql.md
+      - name: Enable remote write
         items:
         - name: Overview
           displayName: Prometheus,remote-write
@@ -438,37 +490,15 @@ items:
         - name: Azure Active Directory
           displayName: Prometheus,remote-write
           href: essentials/prometheus-remote-write-active-directory.md
-      - name: Configure Grafana with managed system identity
+        - name: Azure Active Directory pod identity
+          displayName: Prometheus,remote-write
+          href: essentials/prometheus-remote-write-azure-ad-pod-identity.md  
+      - name: KEDA integration
         displayName: Prometheus
-        href: essentials/prometheus-grafana.md
-      - name: Configure Grafana with Azure Active Directory
+        href: essentials/integrate-keda.md    
+      - name: Prometheus Azure Active Directory authorization proxy
         displayName: Prometheus
-        href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
-      - name: Troubleshoot collection
-        displayName: Prometheus
-        href: essentials/prometheus-metrics-troubleshoot.md
-      - name: Customize collection
-        items:
-        - name: Default configuration
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-default.md
-        - name: High scale
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-scale.md
-        - name: Custom configuration
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-configuration.md
-        - name: Create and validate custom scrape config
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-validate.md
-        - name: Minimal ingestion profile
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-configuration-minimal.md
-        - name: Send to multiple metric workspaces
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-multiple-workspaces.md
-    - name: Metrics REST API
-      href: essentials/metrics-store-custom-rest-api.md
+        href: essentials/prometheus-authorization-proxy.md
   - name: Logs
     items:
     - name: Overview
@@ -680,7 +710,7 @@ items:
         - name: JavaScript
           items:
           - name: JavaScript SDK
-            displayName: browser, client-side, snippet
+            displayName: browser, client-side, SDK Loader Script
             href: app/javascript-sdk.md
           - name: JavaScript SDK advanced topics
             href: app/javascript-sdk-advanced.md
@@ -700,6 +730,8 @@ items:
           href: app/opentelemetry-overview.md
         - name: Get started (.NET, Node.js, Python and Java)
           href: app/opentelemetry-enable.md
+        - name: OpenTelemetry configuration
+          href: app/opentelemetry-configuration.md
         - name: Java (supplemental)
           items:
           - name: Spring Boot
@@ -724,6 +756,10 @@ items:
                   href: app/java-standalone-telemetry-processors-examples.md
           - name: Upgrade from 2.x
             href: app/java-standalone-upgrade-from-2x.md
+        - name: Node.js (supplemental)
+          items:
+          - name: Node.js OpenTelemetry exporter
+            href: app/opentelemetry-nodejs-exporter.md
         - name: FAQ
           href: /azure/azure-monitor/faq#opentelemetry
       - name: Upgrade from classic resources and iKey
@@ -873,6 +909,13 @@ items:
           href: profiler/profiler-trackrequests.md
         - name: Troubleshooting
           href: profiler/profiler-troubleshooting.md
+      - name: Code Optimizations
+        displayName: opt insights, optimization insights, code optimization, perflens
+        items:
+        - name: Overview
+          href: insights/code-optimizations.md
+        - name: Troubleshooting
+          href: /troubleshoot/azure/azure-monitor/app-insights/code-optimizations-troubleshooting
       - name: Snapshot Debugger
         items:
         - name: Overview
@@ -915,6 +958,8 @@ items:
         href: app/separate-resources.md
     - name: Help and support
       items:
+      - name: Create an Azure support ticket
+        href: https://azure.microsoft.com/support/create-ticket
       - name: Application Insights FAQ
         href: /azure/azure-monitor/faq#application-insights
       - name: Q&A forum (general questions)
@@ -1336,12 +1381,8 @@ items:
       items:
       - name: Common schema for alerts
         href: alerts/alerts-common-schema.md
-      - name: Create an action group
+      - name: Action groups
         href: alerts/action-groups.md
-      - name: Notification rate limiting
-        href: alerts/alerts-rate-limiting.md
-      - name: SMS alert behavior
-        href: alerts/alerts-sms-behavior.md
       - name: Alert processing rules
         href: alerts/alerts-processing-rules.md
         displayName: Azure CLI, az monitor action rule
@@ -1520,6 +1561,8 @@ items:
     - name: REST API Walkthrough
       displayName: metrics, analyze
       href: essentials/rest-api-walkthrough.md
+    - name: Migrate to the metrics getBatch API
+      href: essentials/migrate-to-batch-api.md
   - name: Azure alerts management SDK for Python
     href: /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient
   - name: Resource Manager templates

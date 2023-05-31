@@ -158,6 +158,8 @@ items:
       href: register-scan-azure-sql-managed-instance.md
     - name: Azure Dedicated SQL pool (formerly SQL DW)
       href: register-scan-azure-synapse-analytics.md
+    - name: Azure Machine Learning
+      href: register-scan-azure-machine-learning.md
     - name: Cassandra
       href: register-scan-cassandra-source.md
     - name: Db2
@@ -321,11 +323,11 @@ items:
           href: how-to-workflow-manage-requests-approvals.md
         - name: Manage workflow runs
           href: how-to-workflow-manage-runs.md
-        - name: Workflow connectors
+        - name: Workflow connectors and actions
           href: how-to-use-workflow-connectors.md    
         - name: Workflow dynamic content
           href: how-to-use-workflow-dynamic-content.md      
-        - name: Workflow HTTP connector
+        - name: Workflows and external APIs
           href: how-to-use-workflow-http-connector.md
   - name: Data sharing
     items:
@@ -343,6 +345,8 @@ items:
       href: how-to-schedule-data-estate-insights.md
     - name: View data stewardship
       href: data-stewardship.md
+    - name: View catalog adoption
+      href: catalog-adoption-insights.md
     - name: View asset insights
       href: asset-insights.md
     - name: View glossary insights
@@ -479,8 +483,6 @@ items:
       href: tutorial-purview-audit-logs-diagnostics.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
-    - name: Troubleshooting access policy distribution
-      href: troubleshoot-policy-distribution.md
     - name: Troubleshooting policies for SQL
       href: troubleshoot-policy-sql.md
     - name: Frequently asked questions (FAQ)

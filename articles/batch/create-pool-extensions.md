@@ -2,7 +2,7 @@
 title: Use extensions with Batch pools
 description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes. 
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 05/26/2023
 ---
 
 # Use extensions with Batch pools
@@ -60,10 +60,10 @@ Request Body
                 "imageReference": {
                     "publisher": "canonical",
                     "offer": "ubuntuserver",
-                    "sku": "18.04-lts",
+                    "sku": "20.04-lts",
                     "version": "latest"
                 },
-                "nodeAgentSkuId": "batch.node.ubuntu 18.04",
+                "nodeAgentSkuId": "batch.node.ubuntu 20.04",
                 "extensions": [
                     {
                         "name": "secretext",

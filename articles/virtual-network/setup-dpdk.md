@@ -3,11 +3,11 @@ title: DPDK in an Azure Linux VM
 titleSuffix: Azure Virtual Network
 description: Learn the benefits of the Data Plane Development Kit (DPDK) and how to set up the DPDK on a Linux virtual machine.
 services: virtual-network
-author: asudbring
+author: steveesp
 ms.service: virtual-network
 ms.topic: how-to
 ms.date: 04/24/2023
-ms.author: allensu
+ms.author: steveesp
 ---
 
 # Set up DPDK in a Linux virtual machine
@@ -162,9 +162,7 @@ NetVSC is the recommended PMD to run as a master PMD in Azure. It guarantees tha
 
 Note: running with failsafe PMD is not recommended in Azure. If your DPDK version is 22.11 LTS or newer, use NetVSC PMD is recommended.
 
-DPDK applications must run over the failsafe PMD that is exposed in Azure. If the application runs directly over the *VF* PMD, it doesn't receive **all** packets that are destined to the VM, since some packets show up over the synthetic interface. 
-
-If you run a DPDK application over the failsafe PMD, it guarantees that the application receives all packets that are destined to it. It also makes sure that the application keeps running in DPDK mode, even if the VF is revoked when the host is being serviced. For more information about failsafe PMD, see [Fail-safe poll mode driver library](https://doc.dpdk.org/guides/nics/fail_safe.html).
+As an alternative, you can run a DPDK application over the failsafe PMD. For more information about failsafe PMD see [Fail-safe poll mode driver library](https://doc.dpdk.org/guides/nics/fail_safe.html).
 
 
 ## Run testpmd

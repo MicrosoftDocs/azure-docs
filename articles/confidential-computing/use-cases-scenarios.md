@@ -50,7 +50,7 @@ Partnered health facilities contribute private health data sets to train an ML m
 
 ### Protecting privacy with IoT and smart-building solutions
 
-Many countries have strict privacy laws about gathering and using data on people’s presence and movements inside buildings. This may include data that is directly personally identifiable data from CCTV or security badge scans. Or, indirectly identifiable where different sets of sensor data could be considered personally identifiable when grouped together.
+Many countries/regions have strict privacy laws about gathering and using data on people’s presence and movements inside buildings. This may include data that is directly personally identifiable data from CCTV or security badge scans. Or, indirectly identifiable where different sets of sensor data could be considered personally identifiable when grouped together.
 
 Privacy needs to be balanced with cost & environmental needs where organizations are keen to understand occupancy/movement in-order to provide the most efficient use of energy to heat and light a building.
 

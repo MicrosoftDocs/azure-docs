@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
 ms.date: 05/01/2023
-ms.custom: template-concept, engagement-fy23
+ms.custom: template-concept, engagement-fy23, devx-track-azurepowershell
 ---
 
 # Create a hub and spoke topology in Azure - PowerShell
@@ -106,7 +106,7 @@ This section will guide you through how to create a hub-and-spoke configuration 
      ```
 
 > [!NOTE]
-> If you're looking to migrate to network-managed groups for a hub-and-spoke topology, you'll be pleased to know that Azure Virtual Network Manager is fully compatible with pre-existing hub and spoke topology deployments using peering. This means that you won't need to delete any existing peered connections between the spokes and the hub. The migration occurs without any downtime to your network.
+> If you're currently using peering and want to manage topology and connectivity with Azure Virtual Network Manager, you can migrate without any downtime to your network. Virtual network manager instances are fully compatible with pre-existing hub and spoke topology deployment using peering. This means that you won't need to delete any existing peered connections between the spokes and the hub as the network manager will automatically detect and manage them.
 
 ## Deploy the hub-and-spoke configuration
 

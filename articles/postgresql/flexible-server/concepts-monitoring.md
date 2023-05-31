@@ -138,7 +138,7 @@ You can choose from the following categories of enhanced metrics:
 
 ## Autovacuum metrics
 
-Autovaccum metrics can be used to monitor and tune autovaccum performance for Azure Database for PostgresSQL - Flexible Server. Each metric is emitted at a *30-minute* interval and has up to *93 days* of retention. You can create alerts for specific metrics, and you can split and filter metrics data by using the DatabaseName dimension.
+Autovaccum metrics can be used to monitor and tune autovaccum performance for Azure Database for PostgreSQL - Flexible Server. Each metric is emitted at a *30-minute* interval and has up to *93 days* of retention. You can create alerts for specific metrics, and you can split and filter metrics data by using the DatabaseName dimension.
 
 ### Enable autovacuum metrics
 
@@ -202,7 +202,7 @@ Is-db-alive is an database server availability metric for Azure Postgres Flexibl
 
 |Display Name                                     |Metric ID                      |Unit   |Description                                                                                             |Dimension   |Default enabled|
 |-------------------------------------------------|-------------------------------|-------|--------------------------------------------------------------------------------------------------------|------------|---------------|
-|**Database Is Alive** (Preview)                  |`is-db-alive`                  |Count  |Indicates if the database is up or not				                                                   |N/a		    |Yes            |
+|**Database Is Alive** (Preview)                  |`is_db_alive`                  |Count  |Indicates if the database is up or not				                                                   |N/a		    |Yes            |
 
 #### Considerations when using the Database availability metrics
 

@@ -46,7 +46,7 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 
 1. Use the [DCR generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator) to convert your legacy agent configuration into [data collection rules](./data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule) automatically.<sup>1</sup> 
 
-    Review the generated rules before you create them, to leverage benefits like [filtering](../essentials/data-collection-transformations.md), granular targeting (per machine), and other optimizations.  
+    Review the generated rules before you create them, to leverage benefits like [filtering](../essentials/data-collection-transformations.md), granular targeting (per machine), and other optimizations. There are special steps needed to[ migrate MMA custom logs to AMA custom logs](./azure-monitor-agent-custom-text-log-migration.md)
 
 1. Test the new agent and data collection rules on a few nonproduction machines: 
 
@@ -70,7 +70,7 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
         | project TimeGenerated, Computer, Category, EventID, sourceHealthServiceId, ParameterXml, EventData
         ```
     
-1. Use [built-in policies](../agents/azure-monitor-agent-manage.md#built-in-policies) to deploy extensions and DCR associations at scale small-scale testing. Using policy also ensures automatic deployment of extensions and DCR associations for new machines.<sup>3</sup>
+1. Use [built-in policies](../agents/azure-monitor-agent-manage.md#built-in-policies) to deploy extensions and DCR associations at scale. Using policy also ensures automatic deployment of extensions and DCR associations for new machines.<sup>3</sup>
     
     Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to **monitor the at-scale migration** across your machines.  
     
