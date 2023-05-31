@@ -4,7 +4,7 @@ description: The article tells what update management center (preview) in Azure 
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/11/2023
+ms.date: 05/31/2023
 ms.topic: overview
 ---
 
@@ -95,6 +95,15 @@ You need the following permissions to create and manage update deployments. The 
 |Read permission for Maintenance updates resource |*Microsoft.Maintenance/updates/read* |Machine |
 |Read permission for Maintenance apply updates resource |*Microsoft.Maintenance/applyUpdates/read* |Machine |
 
+### VM images
+For more information, see the [list of supported operating systems and VM images](support-matrix.md#supported-operating-systems).
+
+> [!NOTE]
+> Currently, update management center (preview) has the following limitations regarding the operating system support: 
+> - Marketplace images other than the [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images) are currently not supported.
+> - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and VMs created by Azure Migrate, Azure Backup, Azure Site Recovery aren't fully supported for now. However, you can use on-demand operations such as one-time update and check for updates in update management center (preview). We recommend that you use [Automation update management](../automation/update-management/overview.md) till the support is available in Update management center (preview).
+
+
 ### Network planning
 
 To prepare your network to support update management center (preview), you may need to configure some infrastructure components.
@@ -103,9 +112,7 @@ For Windows machines, you must allow traffic to any endpoints required by Window
 
 For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux distributions, see your provider documentation.
 
-### VM images
 
-Update management center (preview) supports a combination of Offer, Publisher and Sku of the Azure VMs created using Azure Marketplace images, where the virtual machine agent is already included in the Azure Marketplace image. Learn more about the [supported VM images](support-matrix.md#supported-operating-systems).
 
 ## Next steps
 
