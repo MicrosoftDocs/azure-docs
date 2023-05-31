@@ -32,7 +32,6 @@ Use the Azure portal to find the Elastic application.
 1. Select **Set up + subscribe**.
 
    :::image type="content" source="media/create/set-up.png" alt-text="select offer.":::
-  <!-- update screenshot -->
 
 ## Create resource
 
