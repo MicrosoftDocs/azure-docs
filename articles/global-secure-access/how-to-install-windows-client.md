@@ -23,6 +23,12 @@ The Global Secure Access client allows organizations control over network traffi
 - Devices must be either Azure AD joined or hybrid Azure AD joined. Azure AD registered devices aren't supported.
 - IPv6 traffic isn't supported in the preview release. For more information, see the section [Disable IPv6 traffic](#disable-ipv6-traffic).
 
+<!--- NOTES --->
+- Secure DNS is not supported
+- Administrator creds
+- Traffic forwarding profiles created (Changes will propigate after a brief delay Configurable in registry )
+<!--- NOTES --->
+
 ### Download the client
 
 The most current version of the Global Secure Access client can be downloaded from the Microsoft Entra admin center.
@@ -30,6 +36,10 @@ The most current version of the Global Secure Access client can be downloaded fr
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md).
 1. Browse to **Global Secure Access (Preview)** > **Devices** > **Clients**.
 1. Select **Download**.
+
+<!--- NOTES --->
+New versions will do update in place
+<!--- NOTES --->
 
 ## Install the client
 
@@ -44,6 +54,11 @@ Organizations can install the client manually or use [Microsoft Intune to deploy
 1. After signing in the connection icon turns green, and double-clicking on it opens a notification with client information showing a connected state.
 
    :::image type="content" source="media/how-to-install-windows-client/client-install-connected.png" alt-text="Screenshot showing the client is connected.":::
+
+<!--- NOTES --->
+The client gets the traffic 
+Dependent on traffic forwarding profiles configured in your tenant.
+<!--- NOTES --->
 
 ## Disable IPv6 traffic
 
@@ -68,7 +83,7 @@ CreateIfNotExists "HKLM:\SOFTWARE\Policies\Google\Chrome"
 CreateIfNotExists "HKLM:\SOFTWARE\Policies\Microsoft"
 CreateIfNotExists "HKLM:\SOFTWARE\Policies\Microsoft\Edge"
 
-# Disable chrome and edge's built in DNS resolvers.
+# Disable Chrome and Edge's built in DNS resolvers.
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "BuiltInDnsClientEnabled" -Type DWord -Value 0
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "BuiltInDnsClientEnabled" -Type DWord -Value 0
 
@@ -79,14 +94,15 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "DnsOverHtt
 
 ## Troubleshooting
 
-msn.com will show edge location
+<!--- msn.com will show edge location --->
 
 To troubleshoot the Global Secure Access client, right-click the client icon in the taskbar.
 
 :::image type="content" source="media/how-to-install-windows-client/client-install-menu-options.png" alt-text="Screenshot showing the context menu of the Global Secure Access client.":::
 
+<!--- NOTES --->
 - Switch user
-   - Forces sign-in screen to change user
+   - Forces sign-in screen to change user or reauthenticate the existing user.
 - Pause
    - Stops windows services related to client. No longer tunneling traffic to edge
    - Expected client always on as a security tool. If a problem you can stop temporarily. Restarts on reboot
@@ -100,13 +116,15 @@ To troubleshoot the Global Secure Access client, right-click the client icon in 
 - Analyze
    - Test client components to ensure configured and working as expected.
 - Healthcheck tool
-   - 
-
-<!--- 
-
-Need more details from PM for this section
-
---->
+   - Summary
+   - Flows is a good way to see what traffic and process is actually tunneling
+      - FQDN is N/A when destination is a specific IP address
+      - Correlation ID useful to track between components 
+   - HostNameAcquisition
+      - Every FQDN and the one we give it
+   - Services
+      - Current state of services required for client
+<!--- NOTES --->
 
 ## Next steps
 
