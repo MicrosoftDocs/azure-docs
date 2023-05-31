@@ -14,10 +14,10 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+**This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard  ❌ Enterprise 
 
-There are multiple tiers supported by Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](./quotas.md#azure-spring-apps-service-plans-and-limits). In this quickstart, it shows how to provision a Basic or Standard tier Azure Spring Apps service instance. About how to create instances for other tiers, check below documents.
-- Create an Enterprise tier instance, see [provision Enterprise tier instance](./how-to-migrate-standard-tier-to-enterprise-tier.md#provision-a-service-instance)
+There are multiple plans supported by Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](./quotas.md#azure-spring-apps-service-plans-and-limits). In this quickstart, it shows how to provision a Basic or Standard plan Azure Spring Apps service instance. About how to create instances for other plans, check below documents.
+- Create an Enterprise plan instance, see [provision Enterprise plan instance](./how-to-migrate-standard-tier-to-enterprise-tier.md#provision-a-service-instance)
 - Create a Standard consumption plan service instance, see [provision Standard consumption plan instance](./quickstart-provision-standard-consumption-service-instance.md)
 
 You can provision an instance of the Azure Spring Apps service using the Azure portal or the Azure CLI.  Both methods are explained below.
