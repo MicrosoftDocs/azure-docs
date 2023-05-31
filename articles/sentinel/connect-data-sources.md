@@ -52,7 +52,7 @@ Learn more about data connectors in the [data connectors reference](data-connect
 
 ### REST API integration on the provider side
 
-An API integration built by the provider connects with the provider data sources and pushes data into Microsoft Sentinel custom log tables using the [Azure Monitor Data Collector API](azure-manager-schema-reference/arm-schema-ref/micorosoft-securityinsights/dataconnectors.md).
+An API integration built by the provider connects with the provider data sources and pushes data into Microsoft Sentinel custom log tables using the [Azure Monitor Data Collector API](../azure-monitor/logs/data-collector-api.md).
 
 To learn about REST API integration, read your provider documentation and [Connect your data source to Microsoft Sentinel's REST-API to ingest data](connect-rest-api-template.md).
 
@@ -124,7 +124,7 @@ Both Microsoft and other organizations author Microsoft Sentinel data connectors
 1. In the Microsoft Sentinel **Data connectors** page, select the relevant connector.
 1. To access support and maintenance for the connector, use the support contact link in the **Supported by** field on the side panel for the connecter. 
 
-  :::image type="content" source="media/connect-data-sources/support.png" alt-text="Screenshot showing the Supported by field for a data connector in Microsoft Sentinel." lightbox="media/collect-data/connectors.png":::     
+  :::image type="content" source="media/connect-data-sources/support.png" alt-text="Screenshot showing the Supported by field for a data connector in Microsoft Sentinel." lightbox="media/connect-data-sources/support.png":::     
 
 ## Next steps
 
