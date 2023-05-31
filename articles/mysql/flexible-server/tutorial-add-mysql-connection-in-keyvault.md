@@ -33,7 +33,7 @@ To add a secret to the vault, follow the steps:
 
 Once that you receive the message that the secret has been successfully created, you may select on it on the list. 
 
-For more information on secrets attributes, see [About Azure Key Vault secrets](./about-secrets.md)
+For more information on secrets attributes, see [About Azure Key Vault secrets](../../key-vault/about-secrets.md)
 
 ## Configure access policies
 In the Key Vault settings, configure the appropriate access policies to grant access to the users or applications that need to retrieve the MySQL connection string from the Key Vault. Ensure that the necessary permissions are granted for "Get" operations on secrets.
