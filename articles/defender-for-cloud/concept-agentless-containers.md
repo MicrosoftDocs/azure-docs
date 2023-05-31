@@ -22,7 +22,6 @@ Agentless Container Posture provides the following capabilities:
 - Using Kubernetes [attack path analysis](concept-attack-path.md) to visualize risks and threats to Kubernetes environments.
 - Using [cloud security explorer](how-to-manage-cloud-security-explorer.md) for risk hunting by querying various risk scenarios. 
 - Viewing security insights, such as internet exposure, and other predefined security scenarios. For more information, search for `Kubernetes` in the [list of Insights](attack-path-reference.md#insights).
-- [Support for exemptions](#support-for-exemptions): create exemptions for specific vulnerability assessment findings.
 
 
 ## Agentless discovery and visibility within Kubernetes components
@@ -78,7 +77,8 @@ Container vulnerability assessment powered by MDVM (Microsoft Defender Vulnerabi
     | Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. |
 
 - **Query vulnerability information via the Azure Resource Graph** - Ability to query vulnerability information via the [Azure Resource Graph](/azure/governance/resource-graph/overview#how-resource-graph-complements-azure-resource-manager). Learn how to [query recommendations via the ARG](review-security-recommendations.md#review-recommendation-data-in-azure-resource-graph-arg). 
-- **Query vulnerability information via sub-assessment API** - You can get scan results via REST API. See the [sub-assessment list](/rest/api/defenderforcloud/sub-assessments/get?tabs=HTTP).   
+- **Query vulnerability information via sub-assessment API** - You can get scan results via REST API. See the [sub-assessment list](/rest/api/defenderforcloud/sub-assessments/get?tabs=HTTP).  
+- **Support for exemptions** - Learn how to  [create exemption rules for a management group, resource group, or subscription](how-to-enable-agentless-containers.md#support-for-exemptions) 
    
 ### Scan Triggers 
 
@@ -100,9 +100,6 @@ Container registry vulnerability assessment scans container images stored in you
 1. Vulnerability reports for known vulnerabilities (CVEs) are generated for each software that is present on an image inventory. 
 1. Vulnerability reports are refreshed daily for any image pushed during the last 90 days to a registry or currently running on a Kubernetes cluster monitored by Defender CSPM Agentless discovery and visibility for Kubernetes, or monitored by the Defender for Containers agent (profile or extension).
 
-## Support for exemptions
-
-You can customize your vulnerability assessment experience by exempting management groups, subscriptions, or specific resources from your secure score. Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
 
 ## Next steps
 - Learn about [support and prerequisites for agentless containers posture](support-agentless-containers-posture.md)
