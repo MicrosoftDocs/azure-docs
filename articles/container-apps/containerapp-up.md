@@ -15,9 +15,9 @@ The `az containerapp up` (or `up`) command is the fastest way to deploy an app i
 
 The `az containerapp up` command is a streamlined way to create and deploy container apps that primarily use default settings. However, you'll need to run other CLI commands to configure more advanced settings:
 
-- Dapr: [`az containerapp dapr enable`](/cli/azure/containerapp/dapr?view=azure-cli-latest#az-containerapp-dapr-enable)
-- Secrets: [`az containerapp secret set`](/cli/azure/containerapp/secret?view=azure-cli-latest#az-containerapp-secret-set)
-- Transport protocols: [`az containerapp ingress update`](/cli/azure/containerapp/ingress?view=azure-cli-latest#az-containerapp-ingress-update)
+- Dapr: [`az containerapp dapr enable`](/cli/azure/containerapp/dapr#az-containerapp-dapr-enable)
+- Secrets: [`az containerapp secret set`](/cli/azure/containerapp/secret#az-containerapp-secret-set)
+- Transport protocols: [`az containerapp ingress update`](/cli/azure/containerapp/ingress#az-containerapp-ingress-update)
 
 To customize your container app's resource or scaling settings, you can use the `up` command and then the `az containerapp update` command to change these settings.  Note that the `az containerapp up` command isn't an abbreviation of the `az containerapp update` command.  
 
