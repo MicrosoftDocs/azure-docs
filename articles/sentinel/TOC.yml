@@ -921,6 +921,8 @@
       href: create-tasks-automation-rule.md
     - name: Create and perform advanced incident tasks using playbooks
       href: create-tasks-playbook.md
+    - name: Export and import automation rules
+      href: import-export-automation-rules.md
   - name: Manage Microsoft Sentinel
     items:
     - name: Manage multiple workspaces
