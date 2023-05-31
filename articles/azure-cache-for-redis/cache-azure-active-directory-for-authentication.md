@@ -4,9 +4,10 @@ titleSuffix: Azure Cache for Redis
 description: Learn how to use Azure Active Directory with Azure Cache for Redis.
 author: flang-msft
 
+ms.custom: references_regions
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 05/12/2023
 ms.author: franlanglois
 
 ---
@@ -22,6 +23,9 @@ Azure Cache for Redis offers two methods to authenticate to your cache instance:
 Although access key authentication is simple, it comes with a set of challenges around security and password management. In this article, you learn  how to use an Azure Active Directory (Azure AD) token for cache authentication.
 
 Azure Cache for Redis offers a password-free authentication mechanism by integrating with [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis). This integration also includes [role-based access control](/azure/role-based-access-control/) functionality provided through [access control lists (ACLs)](https://redis.io/docs/management/security/acl/) supported in open source Redis.
+
+> [!IMPORTANT]
+> The updates to Azure Cache for Redis that enable Azure Active Directory for authentication are available only in East US region.
 
 To use the ACL integration, your client application must assume the identity of an Azure Active Directory entity, like service principal or managed identity, and connect to your cache. In this article, you learn how to use your service principal or managed identity to connect to your cache, and how to grant your connection predefined permissions based on the Azure AD artifact being used for the connection.
 
@@ -75,11 +79,11 @@ To use the ACL integration, your client application must assume the identity of 
 
 Because most Azure Cache for Redis clients assume that a password/access key is used for authentication, you likely need to update your client workflow to support authentication using Azure AD. In this section, you learn how to configure your client applications to connect to Azure Cache for Redis using an Azure AD token.
 
-<!-- Conceptual Art goes here. -->
+:::image type="content" source="media/cache-azure-active-directory-for-authentication/azure-ad-token.png" alt-text="Architecture diagram showing the flow of a token from Azure AD to a customer application to a cache.":::
 
 ### Azure AD Client Workflow
 
-1. Configure your client application to acquire an Azure AD token for your application using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview).
+1. Configure your client application to acquire an Azure AD token for scope `acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default` using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview). 
 
    <!-- (ADD code snippet) -->
 
@@ -93,17 +97,17 @@ Because most Azure Cache for Redis clients assume that a password/access key is 
 
 1. Ensure that your client executes a Redis [AUTH command](https://redis.io/commands/auth/) automatically before your Azure AD token expires using:
 
-   1. `UserName` = Object ID of your managed identity or service principal
+   - `UserName` = Object ID of your managed identity or service principal
 
-   1. `Password` = Azure AD token refreshed periodically
+   - `Password` = Azure AD token refreshed periodically
 
    <!-- (ADD code snippet) -->
 
 ### Client library support
 
-The library `Microsoft.Azure.StackExchangeRedis` is an extension of `StackExchange.Redis` that enables you to use Azure Active Directory to authenticate connections from a Redis client application to an Azure Cache for Redis. The extension manages the authentication token, including proactively refreshing tokens before they expire to maintain persistent Redis connections over multiple days.
+The library [`Microsoft.Azure.StackExchangeRedis`](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) is an extension of `StackExchange.Redis` that enables you to use Azure Active Directory to authenticate connections from a Redis client application to an Azure Cache for Redis. The extension manages the authentication token, including proactively refreshing tokens before they expire to maintain persistent Redis connections over multiple days.
 
-This [code sample](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) demonstrates how to use the `Microsoft.Azure.StackExchangeRedis` NuGet package to connect to your Azure Cache for Redis instance using Azure Active Directory.
+This [code sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis) demonstrates how to use the `Microsoft.Azure.StackExchangeRedis` NuGet package to connect to your Azure Cache for Redis instance using Azure Active Directory.
 
 <!-- 
 The following table includes links to code samples, which demonstrate how to connect to your Azure Cache for Redis instance using an Azure AD token. A wide variety of client libraries are included in multiple languages.

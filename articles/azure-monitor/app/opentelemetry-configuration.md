@@ -18,7 +18,7 @@ This article covers configuration settings for the Azure Monitor OpenTelemetry d
 
 A connection string in Application Insights defines the target location for sending telemetry data, ensuring it reaches the appropriate resource for monitoring and analysis.
 
-### [.NET](#tab/net)
+### [ASP.NET Core](#tab/aspnetcore)
 
 Use one of the following three ways to configure the connection string:
 
@@ -52,6 +52,45 @@ Use one of the following three ways to configure the connection string:
 > 1. Code
 > 2. Environment Variable
 > 3. Configuration File
+
+### [.NET](#tab/net)
+
+Use one of the following two ways to configure the connection string:
+
+- Add the Azure Monitor Exporter to each OpenTelemetry signal in application startup.
+    ```csharp
+    var tracerProvider = Sdk.CreateTracerProviderBuilder()
+    .AddAzureMonitorTraceExporter(options =>
+    {
+        options.ConnectionString = "<Your Connection String>";
+    });
+
+    var metricsProvider = Sdk.CreateMeterProviderBuilder()
+        .AddAzureMonitorMetricExporter(options =>
+        {
+            options.ConnectionString = "<Your Connection String>";
+        });
+
+    var loggerFactory = LoggerFactory.Create(builder =>
+    {
+        builder.AddOpenTelemetry(options =>
+        {
+            options.AddAzureMonitorLogExporter(options =>
+            {
+                options.ConnectionString = "<Your Connection String>";
+            });
+        });
+    });
+    ```
+- Set an environment variable:
+   ```console
+   APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
+   ```
+
+> [!NOTE]
+> If you set the connection string in more than one place, we adhere to the following precedence:
+> 1. Code
+> 2. Environment Variable
 
 ### [Java](#tab/java)
 
@@ -103,6 +142,29 @@ configure_azure_monitor(
 
 You might want to update the [Cloud Role Name](app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) and the Cloud Role Instance from the default values to something that makes sense to your team. They appear on the Application Map as the name underneath a node.
 
+### [ASP.NET Core](#tab/aspnetcore)
+
+Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
+
+```csharp
+// Setting role name and role instance
+var resourceAttributes = new Dictionary<string, object> {
+    { "service.name", "my-service" },
+    { "service.namespace", "my-namespace" },
+    { "service.instance.id", "my-instance" }};
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddOpenTelemetry().UseAzureMonitor();
+builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => 
+    builder.ConfigureResource(resourceBuilder => 
+        resourceBuilder.AddAttributes(resourceAttributes)));
+
+var app = builder.Build();
+
+app.Run();
+```
+
 ### [.NET](#tab/net)
 
 Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
@@ -114,17 +176,26 @@ var resourceAttributes = new Dictionary<string, object> {
     { "service.namespace", "my-namespace" },
     { "service.instance.id", "my-instance" }};
 var resourceBuilder = ResourceBuilder.CreateDefault().AddAttributes(resourceAttributes);
-// Done setting role name and role instance
 
-// Set ResourceBuilder on the provider.
 var tracerProvider = Sdk.CreateTracerProviderBuilder()
+    // Set ResourceBuilder on the TracerProvider.
     .SetResourceBuilder(resourceBuilder)
-    .AddSource("OTel.AzureMonitor.Demo")
-    .AddAzureMonitorTraceExporter(o =>
+    .AddAzureMonitorTraceExporter();
+
+var metricsProvider = Sdk.CreateMeterProviderBuilder()
+    // Set ResourceBuilder on the MeterProvider.
+    .SetResourceBuilder(resourceBuilder)
+    .AddAzureMonitorMetricExporter();
+
+var loggerFactory = LoggerFactory.Create(builder =>
+{
+    builder.AddOpenTelemetry(options =>
     {
-        o.ConnectionString = "<Your Connection String>";
-    })
-    .Build();
+        // Set ResourceBuilder on the Logging config.
+        options.SetResourceBuilder(resourceBuilder);
+        options.AddAzureMonitorLogExporter();
+    });
+});
 ```
 
 ### [Java](#tab/java)
@@ -178,26 +249,40 @@ You may want to enable sampling to reduce your data ingestion volume, which redu
 > [!NOTE] 
 > Metrics are unaffected by sampling.
 
+#### [ASP.NET Core](#tab/aspnetcore)
+
+The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
+
+In this example, we utilize the `ApplicationInsightsSampler`, which is included with the Distro.
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddOpenTelemetry().UseAzureMonitor();
+builder.Services.Configure<ApplicationInsightsSamplerOptions>(options => { options.SamplingRatio = 0.1F; });
+
+var app = builder.Build();
+
+app.Run();
+```
+
 #### [.NET](#tab/net)
 
 The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
 
 In this example, we utilize the `ApplicationInsightsSampler`, which offers compatibility with Application Insights SDKs.
 
-```dotnetcli
-dotnet add package --prerelease OpenTelemetry.Extensions.AzureMonitor
-```
+1. Install the latest [OpenTelemetry.Extensions.AzureMonitor](https://www.nuget.org/packages/OpenTelemetry.Extensions.AzureMonitor) package:
+    ```dotnetcli
+    dotnet add package --prerelease OpenTelemetry.Extensions.AzureMonitor
+    ```
 
-```csharp
-var tracerProvider = Sdk.CreateTracerProviderBuilder()
-    .AddSource("OTel.AzureMonitor.Demo")
-    .SetSampler(new ApplicationInsightsSampler(0.1F))
-    .AddAzureMonitorTraceExporter(o =>
-    {
-     o.ConnectionString = "<Your Connection String>";
-    })
-    .Build();
-```
+1. Add the following code snippet. 
+    ```csharp
+    var tracerProvider = Sdk.CreateTracerProviderBuilder()
+        .SetSampler(new ApplicationInsightsSampler(new ApplicationInsightsSamplerOptions { SamplingRatio = 0.1F }))
+        .AddAzureMonitorTraceExporter();
+    ```
 
 #### [Java](#tab/java)
 
@@ -233,6 +318,35 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 
 You might want to enable Azure Active Directory (Azure AD) Authentication for a more secure connection to Azure, which prevents unauthorized telemetry from being ingested into your subscription.
 
+#### [ASP.NET Core](#tab/aspnetcore)
+
+We support the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#credential-classes).
+
+- We recommend `DefaultAzureCredential` for local development.
+- We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
+  - For system-assigned, use the default constructor without parameters.
+  - For user-assigned, provide the client ID to the constructor.
+- We recommend `ClientSecretCredential` for service principals.
+  - Provide the tenant ID, client ID, and client secret to the constructor.
+
+1. Install the latest [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) package:
+    ```dotnetcli
+    dotnet add package Azure.Identity
+    ```
+    
+1. Provide the desired credential class:
+    ```csharp
+    var builder = WebApplication.CreateBuilder(args);
+
+    builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
+        options.Credential = new DefaultAzureCredential();
+    });
+
+    var app = builder.Build();
+
+    app.Run();
+    ```
+
 #### [.NET](#tab/net)
 
 We support the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#credential-classes).
@@ -244,17 +358,38 @@ We support the credential classes provided by [Azure Identity](https://github.co
 - We recommend `ClientSecretCredential` for service principals.
   - Provide the tenant ID, client ID, and client secret to the constructor.
 
-```csharp
-var builder = WebApplication.CreateBuilder(args);
+1. Install the latest [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) package:
+    ```dotnetcli
+    dotnet add package Azure.Identity
+    ```
 
-builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
-    options.Credential = new DefaultAzureCredential();
-});
+1. Provide the desired credential class:    
+    ```csharp
+    var credential = new DefaultAzureCredential();
 
-var app = builder.Build();
+    var tracerProvider = Sdk.CreateTracerProviderBuilder()
+        .AddAzureMonitorTraceExporter(options =>
+        {
+            options.Credential = credential;
+        });
 
-app.Run();
-```
+    var metricsProvider = Sdk.CreateMeterProviderBuilder()
+        .AddAzureMonitorMetricExporter(options =>
+        {
+            options.Credential = credential;
+        });
+
+    var loggerFactory = LoggerFactory.Create(builder =>
+    {
+        builder.AddOpenTelemetry(options =>
+        {
+            options.AddAzureMonitorLogExporter(options =>
+            {
+                options.Credential = credential;
+            });
+        });
+    });
+    ```
     
 #### [Java](#tab/java)
 
@@ -291,6 +426,35 @@ configure_azure_monitor(
 
 To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry to disk and periodically tries to send it again for up to 48 hours. In high-load applications, telemetry is occasionally dropped for two reasons. First, when the allowable time is exceeded, and second, when the maximum file size is exceeded or the SDK doesn't have an opportunity to clear out the file. If we need to choose, the product saves more recent events over old ones. [Learn More](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)
 
+### [ASP.NET Core](#tab/aspnetcore)
+
+The Distro package includes the AzureMonitorExporter which by default uses one of the following locations for offline storage (listed in order of precedence):
+
+- Windows
+  - %LOCALAPPDATA%\Microsoft\AzureMonitor
+  - %TEMP%\Microsoft\AzureMonitor
+- Non-Windows
+  - %TMPDIR%/Microsoft/AzureMonitor
+  - /var/tmp/Microsoft/AzureMonitor
+  - /tmp/Microsoft/AzureMonitor
+
+To override the default directory, you should set `AzureMonitorOptions.StorageDirectory`.
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddOpenTelemetry().UseAzureMonitor(options =>
+{
+    options.StorageDirectory = "C:\\SomeDirectory";
+});
+
+var app = builder.Build();
+
+app.Run();
+```
+
+To disable this feature, you should set `AzureMonitorOptions.DisableOfflineStorage = true`.
+
 ### [.NET](#tab/net)
 
 By default, the AzureMonitorExporter uses one of the following locations for offline storage (listed in order of precedence):
@@ -305,14 +469,29 @@ By default, the AzureMonitorExporter uses one of the following locations for off
 
 To override the default directory, you should set `AzureMonitorExporterOptions.StorageDirectory`.
 
-For example:
 ```csharp
 var tracerProvider = Sdk.CreateTracerProviderBuilder()
-    .AddAzureMonitorTraceExporter(o => {
-        o.ConnectionString = "<Your Connection String>";
-        o.StorageDirectory = "C:\\SomeDirectory";
-    })
-    .Build();
+    .AddAzureMonitorTraceExporter(options =>
+    {
+        options.StorageDirectory = "C:\\SomeDirectory";
+    });
+
+var metricsProvider = Sdk.CreateMeterProviderBuilder()
+    .AddAzureMonitorMetricExporter(options =>
+    {
+        options.StorageDirectory = "C:\\SomeDirectory";
+    });
+
+var loggerFactory = LoggerFactory.Create(builder =>
+{
+    builder.AddOpenTelemetry(options =>
+    {
+        options.AddAzureMonitorLogExporter(options =>
+        {
+            options.StorageDirectory = "C:\\SomeDirectory";
+        });
+    });
+});
 ```
 
 To disable this feature, you should set `AzureMonitorExporterOptions.DisableOfflineStorage = true`.
@@ -385,27 +564,51 @@ configure_azure_monitor(
 
 ## Enable the OTLP Exporter
 
-You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
+You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside the Azure Monitor Exporter to send your telemetry to two locations.
 
 > [!NOTE]
 > The OTLP Exporter is shown for convenience only. We don't officially support the OTLP Exporter or any components or third-party experiences downstream of it.
 
+#### [ASP.NET Core](#tab/aspnetcore)
+
+1. Install the [OpenTelemetry.Exporter.OpenTelemetryProtocol](https://www.nuget.org/packages/OpenTelemetry.Exporter.OpenTelemetryProtocol/) package in your project.
+
+    ```dotnetcli
+    dotnet add package --prerelease OpenTelemetry.Exporter.OpenTelemetryProtocol
+    ```
+
+1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/examples/Console/TestOtlpExporter.cs).
+
+    ```csharp
+    var builder = WebApplication.CreateBuilder(args);
+
+    builder.Services.AddOpenTelemetry().UseAzureMonitor();
+    builder.Services.AddOpenTelemetry().WithTracing(builder => builder.AddOtlpExporter());
+    builder.Services.AddOpenTelemetry().WithMetrics(builder => builder.AddOtlpExporter());
+
+    var app = builder.Build();
+
+    app.Run();
+    ```
+
 #### [.NET](#tab/net)
 
-1. Install the [OpenTelemetry.Exporter.OpenTelemetryProtocol](https://www.nuget.org/packages/OpenTelemetry.Exporter.OpenTelemetryProtocol/) package along with [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) in your project.
+1. Install the [OpenTelemetry.Exporter.OpenTelemetryProtocol](https://www.nuget.org/packages/OpenTelemetry.Exporter.OpenTelemetryProtocol/) package in your project.
+
+    ```dotnetcli
+    dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol
+    ```
 
 1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/examples/Console/TestOtlpExporter.cs).
     
     ```csharp
-    // Sends data to Application Insights as well as OTLP
-    using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-            .AddSource("OTel.AzureMonitor.Demo")
-            .AddAzureMonitorTraceExporter(o =>
-            {
-                o.ConnectionString = "<Your Connection String>"
-            })
-            .AddOtlpExporter()
-            .Build();
+    var tracerProvider = Sdk.CreateTracerProviderBuilder()
+        .AddAzureMonitorTraceExporter()
+        .AddOtlpExporter();
+
+    var metricsProvider = Sdk.CreateMeterProviderBuilder()
+        .AddAzureMonitorMetricExporter()
+        .AddOtlpExporter();
     ```
 
 #### [Java](#tab/java)
@@ -462,6 +665,15 @@ For more information about Java, see the [Java supplemental documentation](java-
 ## OpenTelemetry configurations
 
 The following OpenTelemetry configurations can be accessed through environment variables while using the Azure Monitor OpenTelemetry Distros.
+### [ASP.NET Core](#tab/aspnetcore)
+
+| Environment variable       | Description                                        |
+| -------------------------- | -------------------------------------------------- |
+| `APPLICATIONINSIGHTS_CONNECTION_STRING` | Set this to the connection string for your Application Insights resource. |
+| `APPLICATIONINSIGHTS_STATSBEAT_DISABLED` | Set this to `true` to opt-out of internal metrics collection. |
+| `OTEL_RESOURCE_ATTRIBUTES` | Key-value pairs to be used as resource attributes. See the [Resource SDK specification](https://github.com/open-telemetry/opentelemetry-specification/blob/v1.5.0/specification/resource/sdk.md#specifying-resource-information-via-an-environment-variable) for more details. |
+| `OTEL_SERVICE_NAME`        | Sets the value of the `service.name` resource attribute. If `service.name` is also provided in `OTEL_RESOURCE_ATTRIBUTES`, then `OTEL_SERVICE_NAME` takes precedence. |
+
 
 ### [.NET](#tab/net)
 
@@ -482,6 +694,6 @@ For more information about OpenTelemetry SDK configuration, see the [OpenTelemet
 
 ### [Python](#tab/python)
 
-Currently unavailable.
+For more information about OpenTelemetry SDK configuration, see the [OpenTelemetry documentation](https://opentelemetry.io/docs/concepts/sdk-configuration). 
 
 ---

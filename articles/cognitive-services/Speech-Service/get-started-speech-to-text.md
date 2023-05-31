@@ -1,5 +1,5 @@
 ---
-title: "Speech-to-text quickstart - Speech service"
+title: "Speech to text quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you convert speech to text with recognition from a microphone.
 services: cognitive-services
