@@ -3,7 +3,7 @@ title: Add a tile layer to an Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
 description: In this article, you will learn how to use the tile layer in Azure Maps Power BI visual.
 author: deniseatmicrosoft
-ms.author: limingchen 
+ms.author: limingchen
 ms.date: 11/29/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -27,12 +27,12 @@ The bounding box and zoom range of where a tile service is available can be pass
 | Tile size      | An integer value that specifies both the width and height dimensions of the tiles.   |
 | North bound    | Northern latitude of the bounding box where tiles are available. |
 | South bound    | Southern latitude of the bounding box where tiles are available. |
-| East bound     | Eastern longitude of the bounding box where tiles are available.  |
-| West bound     | Western longitude of the bounding box where tiles are available.   |
+| East bound     | Eastern longitude of the bounding box where tiles are available. |
+| West bound     | Western longitude of the bounding box where tiles are available. |
 | Transparency   | Transparency of the tile layer.   |
 | Is TMS         | Tile Map Services, a specification that reverses the Y coordinate axis of the tile layer. |
 | Min zoom       | Minimum zoom level tiles are available. |
-| Max zoom       | Maximum zoom level tiles are available.  |
+| Max zoom       | Maximum zoom level tiles are available. |
 | Layer position | Specifies the position of the layer relative to other map layers. |
 
 ## Tile URL formatting

@@ -122,12 +122,6 @@
     items:
     - name: Create a Zero Trust network for web applications
       href: create-zero-trust-network-web-apps.md
-  - name: Sample scripts
-    items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
   - name: Tutorials
     items:
     - name: Load balance VMs
