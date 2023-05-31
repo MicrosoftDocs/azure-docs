@@ -35,7 +35,6 @@ az provider show -n Microsoft.KeyVault -o json | grep registrationState
 az provider show -n Microsoft.Compute -o json | grep registrationState
 az provider show -n Microsoft.Storage -o json | grep registrationState
 az provider show -n Microsoft.Network -o json | grep registrationState
-az provider show -n Microsoft.VirtualMachineImages/Triggers -o json | grep registrationState
 ```
 
 If the output doesn't say registered, run the following commands:
@@ -46,7 +45,6 @@ az provider register -n Microsoft.Compute
 az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 az provider register -n Microsoft.Network
-az provider register -n Microsoft.VirtualMachineImages/Triggers
 ```
 
 ### Set variables
