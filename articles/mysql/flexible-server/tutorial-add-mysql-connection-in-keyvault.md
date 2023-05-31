@@ -15,7 +15,7 @@ By storing the MySQL connection string in Azure Key Vault, you ensure that sensi
 ## Prerequisites
 
 1. To access Azure Key Vault, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-2. All access to secrets takes place through Azure Key Vault. For this quickstart, create a key vault using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md). Make sure you have the necessary permissions to manage and access the Key Vault.
+2. All access to secrets takes place through Azure Key Vault. For this quickstart, create a key vault using [Azure portal](../../key-vault/general/quick-create-portal.md), [Azure CLI](../../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../../key-vault/general/quick-create-powershell.md). Make sure you have the necessary permissions to manage and access the Key Vault.
 3. Install .NET or Java or PHP or Python based on the framework you are using for your application. 
 
 ## Add a secret to Key Vault
@@ -27,7 +27,7 @@ To add a secret to the vault, follow the steps:
 1. Select on **Generate/Import**.
 1. On the **Create a secret** screen choose the following values:
     - **Upload options**: Manual.
-    - **Name**: Type a name for the secret. The secret name must be unique within a Key Vault. The name must be a 1-127 character string, starting with a letter and containing only 0-9, a-z, A-Z, and -. For more information on naming, see [Key Vault objects, identifiers, and versioning](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)
+    - **Name**: Type a name for the secret. The secret name must be unique within a Key Vault. The name must be a 1-127 character string, starting with a letter and containing only 0-9, a-z, A-Z, and -. For more information on naming, see [Key Vault objects, identifiers, and versioning](../../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)
     - **Value**: Type a value for the secret. Key Vault APIs accept and return secret values as strings. 
     - Leave the other values to their defaults. Select **Create**.
 
