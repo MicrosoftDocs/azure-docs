@@ -2,24 +2,16 @@
 title: 'Tutorial: Log network traffic flow to and from a virtual machine - Azure portal'
 titleSuffix: Azure Network Watcher
 description: Learn how to log network traffic flow to and from a virtual machine (VM) using Network Watcher NSG flow logs capability.
-services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 02/28/2023
+ms.date: 05/31/2023
 ms.author: halkazwini
 ms.custom: template-tutorial, mvc, engagement-fy23
 # Customer intent: I need to log the network traffic to and from a virtual machine (VM) so I can analyze it for anomalies.
 ---
 
 # Tutorial: Log network traffic to and from a virtual machine using the Azure portal
-
-> [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
-> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
-> - [REST API](network-watcher-nsg-flow-logging-rest.md)
-> - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 This tutorial helps you use Azure Network Watcher [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) capability to log a virtual machine's network traffic that flows through the [network security group (NSG)](../virtual-network/network-security-groups-overview.md) associated to its network interface.
 
@@ -41,9 +33,9 @@ You learn how to:
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a virtual network
+## Create a virtual network and a Bastion host
 
-In this section, you create **myVNet** virtual network.
+In this section, you create **myVNet** virtual network with two subnets and an Azure Bastion host. The first subnet is used for the virtual machine, and the second subnet is used for the Bastion host.
 
 1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** in the search results.
 
@@ -60,27 +52,25 @@ In this section, you create **myVNet** virtual network.
     | Name | Enter *myVNet*. |
     | Region | Select **East US**. |
 
-1. Select the **IP Addresses** tab, or select **Next: IP Addresses** button at the bottom of the page.
+1. Select the **Security** tab, or select the **Next** button at the bottom of the page. 
 
-1. Enter the following values in the **IP Addresses** tab:
-
-    | Setting | Value |
-    | --- | --- |
-    | IPv4 address space | Enter *10.0.0.0/16*. |
-    | Subnet name | Enter *mySubnet*. |
-    | Subnet address range | Enter *10.0.0.0/24*. |
-
-1. Select the **Security** tab, or select the **Next: Security** button at the bottom of the page. 
-
-1. Under **BastionHost**, select **Enable** and enter the following:
+1. Under **Azure Bastion**, select **Enable Azure Bastion** and accept the default values:
 
     | Setting | Value |
     | --- | --- |
-    | Bastion name | Enter *myBastionHost*. |
-    | AzureBastionSubnet address space | Enter *10.0.1.0/24*. |
-    | Public IP Address | Select **Create new**. </br> Enter *myBastionIP* for **Name**. </br> Select **OK**. |
+    | Azure Bastion host name | **myVNet-Bastion**. |
+    | Azure Bastion public IP Address | **(New) myVNet-bastion-publicIpAddress**. |
 
-1. Select the **Review + create** tab or select the **Review + create** button.
+1. Select the **IP Addresses** tab, or select **Next** button at the bottom of the page.
+
+1. Accept the default IP address space **10.0.0.0/16** and rename the **default** subnet by selecting the pencil icon next to it. In the **Edit subnet** page, enter the subnet name:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Subnet details** | |
+    | Name | Enter *mySubnet*. |
+
+1. Select the **Review + create**.
 
 1. Review the settings, and then select **Create**. 
 
@@ -175,30 +165,30 @@ In this section, you create a storage account to use it to store the flow logs.
 
 1. Review the settings, and then select **Create**.
 
-## Enable NSG flow log
+## Create an NSG flow log
 
 In this section, you create an NSG flow log that's saved into the storage account created previously in the tutorial.
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
 
-1. Select **NSG flow logs** under **Logs**.
+1. Under **Logs**, select **Flow logs**.
 
-1. In **Network Watcher | NSG flow logs**, select **+ Create** or **Create NSG flow log** blue button.
+1. In **Network Watcher | Flow logs**, select **+ Create** or **Create flow log** blue button.
 
-    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/nsg-flow-logs.png" alt-text="Screenshot of NSG flow logs page in the Azure portal.":::
+    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/flow-logs.png" alt-text="Screenshot of Flow logs page in the Azure portal." lightbox="./media/network-watcher-nsg-flow-logging-portal/flow-logs.png":::
 
 1. Enter or select the following values in **Create a flow log**:
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |   |
-    | Subscription | Select your Azure subscription. The subscription of your virtual machine and its network security group. |
-    | Network Security Group | Select **+ Select NSG**. <br> Select **myVM-nsg**. <br> Select **Confirm selection**. |
+    | Subscription | Select the Azure subscription of your network security group that you want to log. |
+    | Network security group | Select **+ Select resource**. <br> In **Select network security group**, select **myVM-nsg**. Then, select **Confirm selection**. |
     | Flow Log Name | Leave the default of **myVM-nsg-myResourceGroup-flowlog**.
     | **Instance details** |   |
-    | Subscription | Select your Azure subscription. The subscription of the storage account. |
+    | Subscription | Select the Azure subscription of your storage account. |
     | Storage Accounts | Select the storage account you created in the previous steps. This tutorial uses **mynwstorageaccount**. |
-    | Retention (days) | Enter a retention time for the logs. This tutorial uses **1** day. |
+    | Retention (days) | Enter *0* to retain the flow logs data in the storage account forever (until you delete it from the storage account). To apply a retention policy, enter the retention time in days. For information about storage pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
     :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/create-nsg-flow-log.png" alt-text="Screenshot of create NSG flow log page in the Azure portal.":::
 
@@ -208,7 +198,7 @@ In this section, you create an NSG flow log that's saved into the storage accoun
 
 1. Once the deployment is complete, select **Go to resource**.
 
-    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/nsg-flow-logs-list.png" alt-text="Screenshot of NSG flow logs page in the Azure portal showing the newly created flow log.":::
+    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/flow-logs-list.png" alt-text="Screenshot of Flow logs page in the Azure portal showing the newly created flow log." lightbox="./media/network-watcher-nsg-flow-logging-portal/flow-logs-list.png":::
 
 1. Go back to your browser tab of **myVM** virtual machine.
 
@@ -233,6 +223,9 @@ In this section, you go to the storage account you previously selected and downl
 6. Select the ellipsis **...** to the right of the PT1H.json file, then select **Download**.
 
    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/nsg-log-file.png" alt-text="Screenshot showing how to download nsg flow log from the storage account container in the Azure portal.":::
+
+> [!NOTE]
+> You can use Azure Storage Explorer to access and download flow logs from your storage account. Fore more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 ## View flow log
 
@@ -312,7 +305,7 @@ In this tutorial, you learned how to:
 * Enable NSG flow logging for a network security group to log traffic from and to a virtual machine.
 * Download and view the flow log data.
 
-The raw data in the JSON file can be difficult to interpret. To visualize flow logs data, you can use [Azure Traffic Analytics](traffic-analytics.md) and [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
+The raw data in the JSON file can be difficult to interpret. To visualize flow logs data, you can use [Traffic analytics](traffic-analytics.md) and [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
 
 For alternate methods of enabling NSG Flow Logs, see [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), [REST API](network-watcher-nsg-flow-logging-rest.md), or [Resource Manager templates](network-watcher-nsg-flow-logging-azure-resource-manager.md).
 
