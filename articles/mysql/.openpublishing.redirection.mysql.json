@@ -784,6 +784,11 @@
         "source_path_from_root": "/articles/mysql/single-server/select-right-deployment-type.md",
         "redirect_url": "/azure/mysql/select-right-deployment-type",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "articles/mysql/single-server/how-to-troubleshoot-replication-latency.md",
+        "redirect_url": "/azure/mmysql/how-to-troubleshoot-replication-latency",
+        "redirect_document_id": true
     }
   ]
 }

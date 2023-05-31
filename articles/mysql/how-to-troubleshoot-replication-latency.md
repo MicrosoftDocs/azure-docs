@@ -1,20 +1,22 @@
 ---
-title: Troubleshoot replication latency - Azure Database for MySQL
-description: Learn how to troubleshoot replication latency by using Azure Database for MySQL read replicas.
+title: Troubleshoot replication latency - Azure Database for MySQL - Flexible Server
+description: Learn how to troubleshoot replication latency by using Azure Database for MySQL - Flexible Server read replicas.
 keywords: mysql, troubleshoot, replication latency in seconds
 ms.service: mysql
-ms.subservice: single-server
-author: savjani
-ms.author: pariks
+ms.subservice: flexible-server
+author: VandhanaMehta
+ms.author: vamehta
 ms.topic: troubleshooting
 ms.date: 06/20/2022
 ---
 
-# Troubleshoot replication latency in Azure Database for MySQL
+# Troubleshoot replication latency in Azure Database for MySQL - flexible Server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
+[!INCLUDE[inclusive-language-guidelines-slave](includes/inclusive-language-guidelines-slave.md)]
 
 The [read replica](concepts-read-replicas.md) feature allows you to replicate data from an Azure Database for MySQL server to a read-only replica server. You can scale out workloads by routing read and reporting queries from the application to replica servers. This setup reduces the pressure on the source server. It also improves overall performance and latency of the application as it scales.
 
@@ -27,11 +29,10 @@ The replication lag on the secondary read replicas depends several factors. Thes
 - Compute tier of the source server and secondary read replica server.
 - Queries running on the source server and secondary server.
 
-In this article, you'll learn how to troubleshoot replication latency in Azure Database for MySQL. You'll also understand some common causes of increased replication latency on replica servers.
+In this article, you learn how to troubleshoot replication latency in Azure Database for MySQL. You'll also understand some common causes of increased replication latency on replica servers.
 
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
->
 
 ## Replication concepts
 
@@ -46,7 +47,7 @@ Azure Database for MySQL provides the metric for replication lag in seconds in [
 
 To understand the cause of increased replication latency, connect to the replica server by using [MySQL Workbench](connect-workbench.md) or [Azure Cloud Shell](https://shell.azure.com). Then run following command.
 
->[!NOTE]
+> [!NOTE]
 > In your code, replace the example values with your replica server name and admin username. The admin username requires `@\<servername>` for Azure Database for MySQL.
 
 ```azurecli-interactive
@@ -55,7 +56,7 @@ mysql --host=myreplicademoserver.mysql.database.azure.com --user=myadmin@mydemos
 
 Here's how the experience looks in the Cloud Shell terminal:
 
-```
+```bash
 Requesting a Cloud Shell.Succeeded.
 Connecting terminal...
 
@@ -82,16 +83,16 @@ mysql>
 
 In the same Cloud Shell terminal, run the following command:
 
-```
+```sql
 mysql> SHOW SLAVE STATUS;
 ```
 
 Here's a typical output:
   
->[!div class="mx-imgBorder"]
+> [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/how-to-troubleshoot-replication-latency/show-status.png" alt-text="Monitoring replication latency":::
 
-The output contains a lot of information. Normally, you need to focus on only the rows that the following table describes.
+The output contains numerous information. Normally, you need to focus on only the rows that the following table describes.
 
 |Metric|Description|
 |---|---|
@@ -122,7 +123,7 @@ The following sections address scenarios in which high replication latency is co
 
 If you see the following values, then replication latency is likely caused by high network latency or high CPU consumption on the source server.
 
-```
+```bash
 Slave_IO_State: Waiting for master to send event
 Master_Log_File: the binary file sequence is larger then Relay_Master_Log_File, e.g. mysql-bin.00020
 Relay_Master_Log_File: the file sequence is smaller than Master_Log_File, e.g. mysql-bin.00010
@@ -140,7 +141,7 @@ If you don't see high CPU utilization on the source server, the problem might be
 
 If you see the following values, then a heavy burst of transactions on the source server is likely causing the replication latency. 
 
-```
+```bash
 Slave_IO_State: Waiting for the slave SQL thread to free enough relay log space
 Master_Log_File: the binary file sequence is larger then Relay_Master_Log_File, e.g. mysql-bin.00020
 Relay_Master_Log_File: the file sequence is smaller then Master_Log_File, e.g. mysql-bin.00010
@@ -158,7 +159,7 @@ Replication latency of this sort is commonly caused by the data load on the sour
 
 If you observe the following values, then the problem might be on the replica server.
 
-```
+```bash
 Slave_IO_State: Waiting for master to send event
 Master_Log_File: The binary log file sequence equals to Relay_Master_Log_File, e.g. mysql-bin.000191
 Read_Master_Log_Pos: The position of master server written to the above file is larger than Relay_Log_Pos, e.g. 103978138
@@ -194,7 +195,6 @@ where tco.constraint_type is null
 and tab.table_schema not in('mysql', 'information_schema', 'performance_schema', 'sys') 
 and tab.table_type = 'BASE TABLE' 
 order by tab.table_schema, tab.table_name;
-
 ```
 
 #### Long-running queries on the replica server
@@ -241,6 +241,55 @@ It might be useful to set the binlog_group_commit_sync_delay parameter to 1000 o
 > In replica server, binlog_group_commit_sync_delay parameter is recommended to be 0. This is recommended because unlike source server, the replica server won't have high-concurrency and increasing the value for binlog_group_commit_sync_delay on replica server could inadvertently cause replication lag to increase.
 
 For low-concurrency workloads that include many singleton transactions, the binlog_group_commit_sync_delay setting can increase latency. Latency can increase because the IO thread waits for bulk binary log updates even if only a few transactions are committed.
+
+## Advanced Troubleshooting Options
+
+If using the show slave status command doesn't provide enough information to troubleshoot replication latency, try viewing these additional options for learning about which processes are active or waiting.
+
+### View the threads table
+
+The [`performance_schema.threads`](https://dev.mysql.com/doc/refman/5.7/en/performance-schema-threads-table.html) table shows the process state. A process with the state Waiting for lock_type lock indicates that there’s a lock on one of the tables, preventing the replication thread from updating the table.
+
+```sql
+SELECT name, processlist_state, processlist_time FROM performance_schema.threads WHERE name LIKE '%slave%';
+```
+
+For more information, see [General Thread States](https://dev.mysql.com/doc/refman/5.7/en/general-thread-states.html).
+
+### View the replication_connection_status table
+
+The performance_schema.replication_connection_status table shows the current status of the replication I/O thread that handles the replica's connection to the source, and it changes more frequently. The table contains values that vary during the connection.
+
+```sql    
+SELECT * FROM performance_schema.replication_connection_status;
+```
+
+### View the replication_applier_status_by_worker table
+
+The `performance_schema.replication_applier_status_by_worker` table shows the status of the worker threads, Last seen transaction along with last error number and message, which help you find the transaction having issue and identify the root cause. 
+
+You can run the below commands in the Data-in replication to skip errors or transactions:
+
+`az_replication_skip_counter`
+
+or
+
+`az_replication_skip_gtid_transaction`
+
+```sql
+SELECT * FROM performance_schema.replication_applier_status_by_worker;
+```
+
+### View the SHOW RELAYLOG EVENTS statement
+
+The `show relaylog events` statement shows the events in the relay log of a replica.
+
+· For GITD based replication (Read replica), the statement shows GTID transaction and binlog file and its position, you can use mysqlbinlog to get contents and statements being run.
+· For MySQL binlog position replication (used for Data-in replication), it shows statements being run, which will help to know on which table transactions are being run
+
+### Check the InnoDB Standard Monitor and Lock Monitor Output
+
+You can also try checking the InnoDB Standard Monitor and Lock Monitor Output to help in resolving locks and deadlocks and minimize replication lag. The Lock Monitor is the same as the Standard Monitor except that it includes additional lock information. To view this additional lock and deadlock information, run the show engine innodb status\G command.
 
 ## Next steps
 
