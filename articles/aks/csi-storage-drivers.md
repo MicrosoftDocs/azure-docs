@@ -109,5 +109,5 @@ To review the migration options for your storage classes and upgrade your cluste
 [migrate-from-in-tree-csi-drivers]: csi-migrate-in-tree-volumes.md
 [learn-azure-policy-kubernetes]: ../governance/policy/concepts/policy-for-kubernetes.md
 [azure-policy-aks-definition]: ../governance/policy/samples/built-in-policies.md#kubernetes
-[encrypt-managed-disks-customer-managed-keys]: virtual-machines/disks-cross-tenant-customer-managed-keys.md
-[azure-disk-customer-managed-keys]: azure-disk-customer-managed-keys
+[encrypt-managed-disks-customer-managed-keys]: ../virtual-machines/disks-cross-tenant-customer-managed-keys.md
+[azure-disk-customer-managed-keys]: azure-disk-customer-managed-keys.md
