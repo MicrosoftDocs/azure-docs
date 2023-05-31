@@ -9,7 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/17/2023
+ms.date: 05/30/2023
 ms.author: robiro
 ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -180,8 +180,16 @@ For example, you create an availability set, and you deploy the first VM in the 
 
 The same problem can occur if you're resizing VMs. If you try to move a VM out of the Edsv5 family and into a VM type that's in the M family, the deployment fails. If you resize to a VM family that can't be hosted on the same host hardware, you must shut down all the VMs that are in your availability set and resize them all to be able to run on the other host machine type. For information about SLAs of VMs that are deployed in an availability set, see [Virtual Machines SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
+### Virtual machine scale sets with flexible orchestration
+
+[Virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) with flexible orchestration provide a logical grouping of platform-managed virtual machines. You have an option to create scale set within region or span it across availability zones. On creating the flexible scale set within a region with platformFaultDomainCount>1 (FD>1), the VMs deployed in the scale set would be distributed across specified number of fault domains in the same region. On the other hand, creating the flexible scale set across availability zones with platformFaultDomainCount=1 (FD=1) would distribute VMs across specified zone and the scale set would also distribute VMs across different fault domains within the zone on a best effort basis.
+
+**For SAP workload only flexible scale set with FD=1 is supported.** The advantage of using flexible scale sets with FD=1 for cross zonal deployment, instead of traditional availability zone deployment is that the VMs deployed with the scale set would be distributed across different fault domains within the zone in a best-effort manner. To learn more about SAP workload deployment with scale set, see [flexible virtual machine scale deployment guide](sap-high-availability-architecture-scenarios.md).
+
+When deploying a high availability SAP workload on Azure, it's important to take into account the various deployment types available, and how they can be applied across different Azure regions (such as across zones, in a single zone, or in a region with no zones). For more information, see [High availability deployment options for SAP workload](sap-high-availability-architecture-scenarios.md#high-availability-deployment-options-for-sap-workload).
+
 > [!TIP]
-> You can't directly switch between an availability set and an availability zone in a deployed VM. To make the switch, you need to re-create the VM and disks with zone constraints from existing resources in place. An [open-source project](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) includes PowerShell functions that you can use as a sample to change a VM from an availability set to an availability zone. A [blog post](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-migrate-a-highly-available-sap-system-in-azure-from/ba-p/3216917) shows you how to modify a high-availability SAP system from availability set to availability zone.
+> Currently there is no direct way to migration SAP workload deployed in availability sets or Availability zones to flexible scale with FD=1. To make the switch, you need to re-create the VM and disk with zone constraints from existing resources in place. An [open-source project](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) includes PowerShell functions that you can use as a sample to change a VM deployed in availability set or availability zone to flexible scale set with FD=1. A [blog post](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-easily-migrate-an-existing-sap-system-vms-to-flexible/ba-p/3833548) shows you how to modify a HA or non-HA SAP system deployed in availability set or availability zone to flexible scale set with FD=1.
 
 ### Proximity placement groups
 
