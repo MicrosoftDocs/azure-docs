@@ -6,7 +6,7 @@ author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/21/2023
+ms.date: 05/31/2023
 manager: nitinme
 keywords: ChatGPT
 
@@ -239,7 +239,7 @@ The previous example will run until you hit the model's token limit. With each q
 It's your responsibility to ensure the prompt and completion falls within the token limit. This means that for longer conversations, you need to keep track of the token count and only send the model a prompt that falls within the limit.
 
 > [!NOTE]  
-> Inernal implementation may accept more tokens than the maximum, but it's subject to change without notice. Please use under the limit described in the [models article](../concepts/models.md).
+> We strongly recommend staying within the [documented input token limit](../concepts/models.md) for all models even if you find you are able to exceed that limit.
 
 The following code sample shows a simple chat loop example with a technique for handling a 4096 token count using OpenAI's tiktoken library.
 
