@@ -46,6 +46,112 @@ When configured, AP5GC will send data usage reports per QoS flow level for all P
 |- **Preemption Capability**|String |See above.|
 |- **Preemption Vulnerability**|String |See above.|
 
+## UE usage schema
+
+The following schema is used for UE usage:
+
+```apache
+{
+  "type": "record",
+  "name": "UeUsageReport",
+  "namespace": "Microsoft.Azure.Pmn.EventHubAgent.Models",
+  "doc": "Schema for the UE usage report data. The events will be serialized using this schema.",
+    "fields": [{
+        "name": "apnDnn",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "arp",
+        "type": ["null", {
+            "type": "record",
+            "name": "Arp",
+            "fields": [{
+                "name": "preemptCap",
+                "type": ["null", "string"],
+                "default": null
+            }, {
+                "name": "preemptVuln",
+                "type": ["null", "string"],
+                "default": null
+            }, {
+                "name": "priorityLevel",
+                "type": ["null", "int"],
+                "default": null
+            }]
+        }],
+        "default": null
+    }, {
+        "name": "downlinkDataVolumeBytes",
+        "type": ["null", "long"],
+        "default": null
+    }, {
+        "name": "durationSeconds",
+        "type": ["null", "int"],
+        "default": null
+    }, {
+        "name": "eventTimestamp",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "imei",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "imsi",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "ipAddress",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "pcControlPlaneId",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "pcDataPlaneId",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "pduSessionId",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "qci5QI",
+        "type": ["null", "int"],
+        "default": null
+    }, {
+        "name": "ranIdentifier",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "ratType",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "servingPlmnId",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "timestampFirstUsage",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "timestampLastUsage",
+        "type": ["null", "string"],
+        "default": null
+    }, {
+        "name": "totalDataVolumeBytes",
+        "type": ["null", "long"],
+        "default": null
+    }, {
+        "name": "uplinkDataVolumeBytes",
+        "type": ["null", "long"],
+        "default": null
+    }]
+}
+```
+
 ## Next steps
 
 - [Learn more about Azure Event Hubs](/azure/event-hubs/monitor-event-hubs)
