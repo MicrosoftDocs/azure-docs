@@ -17,6 +17,10 @@ See these [important announcements](#announcements) about recent changes to feat
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## June 2023
+
+- [Classic alert automation due for deprecation](#classic-alert-automation-due-for-deprecation) (see Announcements)
+
 ## May 2023
 
 - Connect your threat intelligence platform or custom solution to Microsoft Sentinel with the new [upload indicators API](#connect-threat-intelligence-with-the-upload-indicators-api)

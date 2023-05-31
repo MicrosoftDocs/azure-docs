@@ -44,7 +44,7 @@ Finally, the ability to invoke playbooks from analytics rules will be **deprecat
 
 1. Select the **Automated response** tab.
 
-1. Playbooks directly configured to run from this analytics rule can be found under **Alert automation (classic)**.
+1. Playbooks directly configured to run from this analytics rule can be found under **Alert automation (classic)**. Notice the warning about deprecation.
 
     :::image type="content" source="media/migrate-playbooks-to-automation-rules/see-playbooks.png" alt-text="Screenshot of automation rules and playbooks screen.":::
 
