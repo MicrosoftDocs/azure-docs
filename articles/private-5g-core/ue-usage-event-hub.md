@@ -48,9 +48,9 @@ When configured, AP5GC will send data usage reports per QoS flow level for all P
 
 ## UE usage schema
 
-The following schema is used for UE usage:
+The following schema is used deserialize the UE usage messages - see [Azure Schema Registry in Azure Event Hubs](/azure/event-hubs/schema-registry-overview) for more information:
 
-```apache
+```json
 {
   "type": "record",
   "name": "UeUsageReport",
