@@ -259,7 +259,7 @@ The following section provides steps for creating a PowerShell runbook. The scri
 3. Copy & paste the following PowerShell script to your runbook script window. Save and then publish your runbook by using **Save** and **Publish** buttons on the toolbar. 
 
     >[!NOTE]
-    > This example uses System-assigned managed identity. If you are using Run As account (service principal) or User-assigned managed identity, refer to [Azure Automation Sample scripts](../automation/migrate-run-as-accounts-managed-identity?tabs=sa-managed-identity.md#sample-scripts) for login part.
+    > This example uses System-assigned managed identity. If you are using Run As account (service principal) or User-assigned managed identity, refer to [Azure Automation Sample scripts](../automation/migrate-run-as-accounts-managed-identity.md?tabs=ua-managed-identity#sample-scripts) for login part.
     >
     > Enable appropriate RBAC permissions for the managed identity of this Automation account. Refer to [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md).
 
