@@ -1,12 +1,12 @@
 ---
 title: Trusted launch for Azure VMs
 description: Learn about trusted launch for Azure virtual machines.
-author: lakmeedee
-ms.author: dejv
+author: Howie425
+ms.author: howieasmerom
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 04/25/2023
 ms.reviewer: mattmcinnes
 ms.custom: template-concept; references_regions
 ---
@@ -20,59 +20,47 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 > [!IMPORTANT]
 > Trusted launch requires the creation of new virtual machines. You can't enable trusted launch on existing virtual machines that were initially created without it.
 
-
-
 ## Benefits
 
 - Securely deploy virtual machines with verified boot loaders, OS kernels, and drivers.
 - Securely protect keys, certificates, and secrets in the virtual machines.
-- Gain insights and confidence of the entire boot chain’s integrity.
+- Gain insights and confidence of the entire boot chain's integrity.
 - Ensure workloads are trusted and verifiable.
 
-## Limitations
+## Virtual machines sizes
 
-**VM size support**:
-- B-series
-- DCsv2-series
-- DCsv3-series, DCdsv3-series
-- Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series
-- Dav4-series, Dasv4-series
-- Ddv4-series, Ddsv4-series
-- Dv5-series, Dsv5-series
-- Ddv5-series, Ddsv5-series
-- Dasv5-series, Dadsv5-series
-- Esv3-series, Ev4-series, Esv4-series
-- Edv4-series, Edsv4-series
-- Eav4-series, Easv4-series
-- Ev5-series, Esv5-series
-- Edv5-series, Edsv5-series
-- Easv5-series, Eadsv5-series
-- Fsv2-series
-- FX-series
-- Lsv2-series
-- Lsv3-series, Lasv3-series
-- NCasT4_v3-series
-- NVadsA10 v5-series
+| Type | Virtual machines sizes supported | Sizes not supported yet.
+|:--- |:--- |:--- |
+| [General Purpose](sizes-general.md) |B-series, DCsv2-series, DCsv3-series, DCdsv3-series, Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series, Dav4-series, Dasv4-series, Ddv4-series, Ddsv4-series, Dv5-series, Dsv5-series, Ddv5-series, Ddsv5-series, Dasv5-series, Dadsv5-series | DCasv5-series, DCadsv5-series, Dpsv5-series, Dpdsv5-series, Dplsv5-series, Dpldsv5-series, Dlsv5-series, Dldsv5-series
+| [Compute optimized](sizes-compute.md) | FX-series, Fsv2-series | All sizes supported.
+| [Memory optimized](sizes-memory.md) | Dsv2-series, Esv3-series, Ev4-series, Esv4-series, Edv4-series, Edsv4-series, Eav4-series, Easv4-series | Edv5-series, Edsv5-series, Easv5-series, Eadsv5-series, ECasv5, ECadsv5-series, Epsv5-series, Epdsv5-series, M-series, Msv2-series and Mdsv2 Medium Memory series, Mv2-series
+| [Storage optimized](sizes-storage.md) | Ls-series, Lsv2-series, Lsv3-series, Lasv3-series | All sizes supported.
+| [GPU](sizes-gpu.md) &#42; | NVv3-series, NVv4-series, NDv2-series, NC_A100_v4-series, NCasT4_v3-series, NCadsA10 v4-series, NVadsA10 v5-series | NCv2-series, NCv3-series, NDasrA100_v4-series, NDm_A100_v4-series, ND-series
 
-**OS support**:
-- Redhat Enterprise Linux 8.3, 8.4, 8.5, 8.6, 9.0, 9.1 LVM
-- SUSE Enterprise Linux 15 SP3
-- Ubuntu Server 22.04 LTS
-- Ubuntu Server 20.04 LTS
-- Ubuntu Server 18.04 LTS
-- Debian 11
-- CentOS 8.3, 8.4
-- Oracle Linux 8.3, 8.4, 8.5, 8.6, 9.0 LVM
-- CBL-Mariner
-- Windows Server 2022
-- Windows Server 2019
-- Windows Server 2016
-- Windows 11 Pro
-- Windows 11 Enterprise
-- Windows 11 Enterprise multi-session
-- Windows 10 Pro
-- Windows 10 Enterprise
-- Windows 10 Enterprise multi-session
+> [!NOTE]
+> - Installation of the **CUDA & GRID drivers** does not require any additional steps for Secure Boot enabled Windows VMs
+> - Install the **CUDA driver** on Ubuntu VMs enabled with secure boot using [these steps](./linux/n-series-driver-setup.md#install-cuda-driver-on-ubuntu-with-secure-boot-enabled).
+> - The **GRID driver** installation requires secure boot to be disabled for Linux VMs.
+
+## Operating systems supported
+
+| OS | Version |
+|:--- |:--- |
+| CBL-Mariner | 1.0, 2.0 |
+| CentOS | 8.3, 8.4 |
+| Debian |11 |
+| Oracle Linux |8.3, 8.4, 8.5, 8.6, 9.0 LVM |
+| RedHat Enterprise Linux |8.3, 8.4, 8.5, 8.6, 9.0, 9.1 LVM |
+| SUSE Enterprise Linux |15SP3, 15SP4 |
+| Ubuntu Server |18.04 LTS, 20.04 LTS, 22.04 LTS |
+| Windows 10 |Pro, Enterprise, Enterprise Multi-Session &#42; |
+| Windows 11 |Pro, Enterprise, Enterprise Multi-Session &#42; |
+| Windows Server |2016, 2019, 2022 &#42; |
+| Window Server (Azure Edition) | 2022 |
+
+&#42; Variations of this operating system are supported.
+
+## Additional information
 
 **Regions**:
 - All public regions
@@ -81,11 +69,12 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 **Pricing**:
 No additional cost to existing VM pricing.
 
-**The following features are not supported**:
-- Azure Site Recovery (coming soon)
-- Ultra disk (coming soon)
-- Managed image
-- Nested Virtualization (most v5 VM sizes supported; other sizes coming soon)
+## Unsupported features
+- Azure Site Recovery
+- Azure Automanage
+- Ultra disk, Premium SSD v2
+- Managed Image
+- Nested Virtualization (most v5 VM sizes supported)
 
 ## Secure boot
 
@@ -104,7 +93,6 @@ Trusted launch uses the vTPM to perform remote attestation by the cloud. This is
 HVCI is a powerful system mitigation that protects Windows kernel-mode processes against injection and execution of malicious or unverified code. It checks kernel mode drivers and binaries before they run, preventing unsigned files from loading into memory. This ensures such executable code can't be modified once it is allowed to load. For more information about VBS and HVCI, see [Virtualization Based Security (VBS) and Hypervisor Enforced Code Integrity (HVCI)](https://techcommunity.microsoft.com/t5/windows-insider-program/virtualization-based-security-vbs-and-hypervisor-enforced-code/m-p/240571).
 
 With trusted launch and VBS you can enable Windows Defender Credential Guard. This feature isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets and credential theft attacks, like Pass-the-Hash (PtH) attacks. For more information, see [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
-
 
 ## Microsoft Defender for Cloud integration
 
@@ -125,10 +113,9 @@ If your VMs are properly set up with trusted launch, Microsoft Defender for Clou
     > [!NOTE]
     >  This alert is available for VMs with vTPM enabled and the Attestation extension installed. Secure Boot must be enabled for attestation to pass. Attestation will fail if Secure Boot is disabled. If you must disable Secure Boot, you can suppress this alert to avoid false positives.
 
-- **Alert for Untrusted Linux Kernel module:** For trusted launch with secure boot enabled, it’s possible for a VM to boot even if a kernel driver fails validation and is prohibited from loading. If this happens, Microsoft Defender for Cloud will issue a low severity alert. While there is no immediate threat, because the untrusted driver has not been loaded, these events should be investigated. Consider the following:
+- **Alert for Untrusted Linux Kernel module:** For trusted launch with secure boot enabled, it's possible for a VM to boot even if a kernel driver fails validation and is prohibited from loading. If this happens, Microsoft Defender for Cloud will issue a low severity alert. While there is no immediate threat, because the untrusted driver has not been loaded, these events should be investigated. Consider the following:
     - Which kernel driver failed? Am I familiar with this driver and expect it to be loaded?
     - Is this the exact version of the driver I am expecting? Are the driver binaries intact? If this is a 3rd party driver, did the vendor pass the OS compliance tests to get it signed?
-
 
 ## FAQ
 
@@ -137,14 +124,14 @@ Frequently asked questions about trusted launch.
 ### Why should I use trusted launch? What does trusted launch guard against?
 
 Trusted launch guards against boot kits, rootkits, and kernel-level malware. These sophisticated types of malware run in kernel mode and remain hidden from users. For example:
-- Firmware rootkits: these kits overwrite the firmware of the virtual machine’s BIOS, so the rootkit can start before the OS.
-- Boot kits: these kits replace the OS’s bootloader so that the virtual machine loads the boot kit before the OS.
+- Firmware rootkits: these kits overwrite the firmware of the virtual machine's BIOS, so the rootkit can start before the OS.
+- Boot kits: these kits replace the OS's bootloader so that the virtual machine loads the boot kit before the OS.
 - Kernel rootkits: these kits replace a portion of the OS kernel so the rootkit can start automatically when the OS loads.
-- Driver rootkits: these kits pretend to be one of the trusted drivers that OS uses to communicate with the virtual machine’s components.
+- Driver rootkits: these kits pretend to be one of the trusted drivers that OS uses to communicate with the virtual machine's components.
 
 ### What are the differences between secure boot and measured boot?
 
-In secure boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS will check a signature on the loader, and the loader will check signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature won’t match, and the VM will not boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot). Measured boot does not halt the boot process, it measures or computes the hash of the next objects in the chain and stores the hashes in the Platform Configuration Registers (PCRs) on the vTPM. Measured boot records are used for boot integrity monitoring.
+In secure boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS will check a signature on the loader, and the loader will check signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature won't match, and the VM will not boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot). Measured boot does not halt the boot process, it measures or computes the hash of the next objects in the chain and stores the hashes in the Platform Configuration Registers (PCRs) on the vTPM. Measured boot records are used for boot integrity monitoring.
 
 ### What happens when an integrity fault is detected?
 
@@ -176,7 +163,7 @@ Trusted launch supports ephemeral OS disks. Note that, while using ephemeral dis
 
 ### How can I find VM sizes that support Trusted launch?
 
-See the list of [Generation 2 VM sizes supporting Trusted launch](trusted-launch.md#limitations).
+See the list of [Generation 2 VM sizes supporting Trusted launch](trusted-launch.md#virtual-machines-sizes).
 
 The following commands can be used to check if a [Generation 2 VM Size](../virtual-machines/generation-2.md#generation-2-vm-sizes) does not support Trusted launch.
 
@@ -189,6 +176,7 @@ vmSize="Standard_NC12s_v3"
 
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].capabilities" --subscription $subscription
 ```
+
 #### PowerShell
 
 ```azurepowershell
@@ -197,7 +185,7 @@ $vmSize = "Standard_M64"
 (Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
 ```
 
-The response is similar to the following form. `TrustedLaunchDisabled   True` in the output indicates that the Generation 2 VM size does not support Trusted launch. If it's a Generation 2 VM size and `TrustedLaunchDisabled` is not part of the output, it implies that Trusted launch is supported for that VM size.
+The response is similar to the following form. `TrustedLaunchDisabled True` in the output indicates that the Generation 2 VM size does not support Trusted launch. If it's a Generation 2 VM size and `TrustedLaunchDisabled` is not part of the output, it implies that Trusted launch is supported for that VM size.
 
 ```
 Name                                         Value

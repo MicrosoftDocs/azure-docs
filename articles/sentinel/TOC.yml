@@ -289,7 +289,7 @@
         href: data-connectors/api-protection.md
       - name: ARGOS Cloud Security
         href: data-connectors/argos-cloud-security.md
-      - name: Armorblox (using Azure Function)
+      - name: Armorblox (using Azure Functions)
         href: data-connectors/armorblox-using-azure-function.md
       - name: Aruba ClearPass
         href: data-connectors/aruba-clearpass.md
@@ -297,7 +297,7 @@
         href: data-connectors/atlassian-confluence-audit-using-azure-function.md
       - name: Atlassian Jira Audit (using Azure Function)
         href: data-connectors/atlassian-jira-audit-using-azure-function.md
-      - name: Auth0 Access Management (using Azure Function)
+      - name: Auth0 Access Management(using Azure Functions)
         href: data-connectors/auth0-access-management-using-azure-function.md
       - name: Automated Logic WebCTRL
         href: data-connectors/automated-logic-webctrl.md
@@ -375,7 +375,7 @@
         href: data-connectors/citrix-waf-web-app-firewall.md
       - name: Claroty
         href: data-connectors/claroty.md
-      - name: Cloudflare (Preview) (using Azure Function)
+      - name: Cloudflare (Preview) (using Azure Functions)
         href: data-connectors/cloudflare-using-azure-function.md
       - name: Cognni
         href: data-connectors/cognni.md
@@ -411,7 +411,7 @@
         href: data-connectors/derdack-signl4.md
       - name: Digital Guardian Data Loss Prevention
         href: data-connectors/digital-guardian-data-loss-prevention.md
-      - name: Digital Shadows Searchlight (using Azure Function)
+      - name: Digital Shadows Searchlight (using Azure Functions)
         href: data-connectors/digital-shadows-searchlight-using-azure-function.md
       - name: DNS
         href: data-connectors/dns.md
@@ -463,13 +463,13 @@
         href: data-connectors/github-enterprise-audit-log.md
       - name: GitLab
         href: data-connectors/gitlab.md
-      - name: Google ApigeeX (using Azure Function)
+      - name: Google ApigeeX (using Azure Functions)
         href: data-connectors/google-apigeex-using-azure-function.md
-      - name: Google Cloud Platform Cloud Monitoring (using Azure Function)
+      - name: Google Cloud Platform Cloud Monitoring (using Azure Functions)
         href: data-connectors/google-cloud-platform-cloud-monitoring-using-azure-function.md
-      - name: Google Cloud Platform DNS (using Azure Function)
+      - name: Google Cloud Platform DNS (using Azure Functions)
         href: data-connectors/google-cloud-platform-dns-using-azure-function.md
-      - name: Google Cloud Platform IAM (using Azure Function)
+      - name: Google Cloud Platform IAM (using Azure Functions)
         href: data-connectors/google-cloud-platform-iam-using-azure-function.md
       - name: Google Workspace (G Suite) (using Azure Function)
         href: data-connectors/google-workspace-g-suite-using-azure-function.md
@@ -491,6 +491,10 @@
         href: data-connectors/infosecglobal-data-connector.md
       - name: ISC Bind
         href: data-connectors/isc-bind.md
+      - name: Island Enterprise Browser Admin Audit (Polling CCP)
+        href: data-connectors/island-enterprise-browser-admin-audit-polling-ccp.md
+      - name: Island Enterprise Browser User Activity (Polling CCP)
+        href: data-connectors/island-enterprise-browser-user-activity-polling-ccp.md
       - name: Ivanti Unified Endpoint Management
         href: data-connectors/ivanti-unified-endpoint-management.md
       - name: Jamf Protect
@@ -625,7 +629,7 @@
         href: data-connectors/securitybridge-threat-detection-for-sap.md
       - name: SenservaPro (Preview)
         href: data-connectors/senservapro.md
-      - name: SentinelOne (using Azure Function)
+      - name: SentinelOne (using Azure Functions)
         href: data-connectors/sentinelone-using-azure-function.md
       - name: Slack Audit (using Azure Function)
         href: data-connectors/slack-audit-using-azure-function.md
@@ -703,7 +707,7 @@
         href: data-connectors/workplace-from-facebook-using-azure-function.md
       - name: Zero Networks Segment Audit
         href: data-connectors/zero-networks-segment-audit.md
-      - name: Zero Networks Segment Audit (Function) (using Azure Function)
+      - name: Zero Networks Segment Audit (Function) (using Azure Functions)
         href: data-connectors/zero-networks-segment-audit-function-using-azure-function.md
       - name: Zimperium Mobile Threat Defense
         href: data-connectors/zimperium-mobile-threat-defense.md
@@ -965,6 +969,8 @@
         href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
       - name: Prepare SAP environment
         href: sap/preparing-sap.md
+      - name: Configure auditing
+        href: sap/configure-audit.md
       - name: Deploy data connector agent
         href: sap/deploy-data-connector-agent-container.md
       - name: Deploy SAP security content
@@ -979,9 +985,7 @@
     - name: Optional deployment steps
       items: 
       - name: Configure SAP data connector to use SNC
-        href: sap/configure-snc.md
-      - name: Configure auditing
-        href: sap/configure-audit.md
+        href: sap/configure-snc.md      
       - name: Collect SAP HANA audit logs
         href: sap/collect-sap-hana-audit-logs.md
       - name: Deploy SAP connector manually

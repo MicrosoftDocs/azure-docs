@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 03/25/2023
+ms.date: 05/22/2023
 ms.author: cwatson
 ---
 
@@ -75,7 +75,7 @@ Data connectors are available as part of the following offerings:
 
 ## Armorblox
 
-- [Armorblox (using Azure Function)](data-connectors/armorblox-using-azure-function.md)
+- [Armorblox (using Azure Functions)](data-connectors/armorblox-using-azure-function.md)
 
 ## Aruba
 
@@ -88,7 +88,7 @@ Data connectors are available as part of the following offerings:
 
 ## Auth0
 
-- [Auth0 Access Management (using Azure Function)](data-connectors/auth0-access-management-using-azure-function.md)
+- [Auth0 Access Management (using Azure Functions)](data-connectors/auth0-access-management-using-azure-function.md)
 
 ## Better Mobile Security Inc.
 
@@ -146,7 +146,7 @@ Data connectors are available as part of the following offerings:
 
 ## Cloudflare
 
-- [Cloudflare (Preview) (using Azure Function)](data-connectors/cloudflare-using-azure-function.md)
+- [Cloudflare (Preview) (using Azure Functions)](data-connectors/cloudflare-using-azure-function.md)
 
 ## Cognni
 
@@ -209,7 +209,7 @@ Data connectors are available as part of the following offerings:
 
 ## Digital Shadows
 
-- [Digital Shadows Searchlight (using Azure Function)](data-connectors/digital-shadows-searchlight-using-azure-function.md)
+- [Digital Shadows Searchlight (using Azure Functions)](data-connectors/digital-shadows-searchlight-using-azure-function.md)
 
 ## Dynatrace
 
@@ -262,10 +262,10 @@ Data connectors are available as part of the following offerings:
 
 ## Google
 
-- [Google ApigeeX (using Azure Function)](data-connectors/google-apigeex-using-azure-function.md)
-- [Google Cloud Platform Cloud Monitoring (using Azure Function)](data-connectors/google-cloud-platform-cloud-monitoring-using-azure-function.md)
-- [Google Cloud Platform DNS (using Azure Function)](data-connectors/google-cloud-platform-dns-using-azure-function.md)
-- [Google Cloud Platform IAM (using Azure Function)](data-connectors/google-cloud-platform-iam-using-azure-function.md)
+- [Google ApigeeX (using Azure Functions)](data-connectors/google-apigeex-using-azure-function.md)
+- [Google Cloud Platform Cloud Monitoring (using Azure Functions)](data-connectors/google-cloud-platform-cloud-monitoring-using-azure-function.md)
+- [Google Cloud Platform DNS (using Azure Functions)](data-connectors/google-cloud-platform-dns-using-azure-function.md)
+- [Google Cloud Platform IAM (using Azure Functions)](data-connectors/google-cloud-platform-iam-using-azure-function.md)
 - [Google Workspace (G Suite) (using Azure Function)](data-connectors/google-workspace-g-suite-using-azure-function.md)
 
 ## H.O.L.M. Security Sweden AB
@@ -307,6 +307,11 @@ Data connectors are available as part of the following offerings:
 ## ISC
 
 - [ISC Bind](data-connectors/isc-bind.md)
+
+## Island Technology Inc.
+
+- [Island Enterprise Browser Admin Audit (Polling CCP)](data-connectors/island-enterprise-browser-admin-audit-polling-ccp.md)
+- [Island Enterprise Browser User Activity (Polling CCP)](data-connectors/island-enterprise-browser-user-activity-polling-ccp.md)
 
 ## Ivanti
 
@@ -380,7 +385,6 @@ Data connectors are available as part of the following offerings:
 - [Network Security Groups](data-connectors/network-security-groups.md)
 - [Office 365](data-connectors/office-365.md)
 - [Security Events via Legacy Agent](data-connectors/security-events-via-legacy-agent.md)
-- [SentinelOne (using Azure Function)](data-connectors/sentinelone-using-azure-function.md)
 - [Syslog](data-connectors/syslog.md)
 - [Threat intelligence - TAXII](data-connectors/threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](data-connectors/threat-intelligence-platforms.md)
@@ -531,6 +535,10 @@ Data connectors are available as part of the following offerings:
 
 - [SenservaPro (Preview)](data-connectors/senservapro.md)
 
+## SentinelOne
+
+- [SentinelOne (using Azure Functions)](data-connectors/sentinelone-using-azure-function.md)
+
 ## Slack
 
 - [Slack Audit (using Azure Function)](data-connectors/slack-audit-using-azure-function.md)
@@ -588,7 +596,7 @@ Data connectors are available as part of the following offerings:
 
 - [Trend Micro Deep Security](data-connectors/trend-micro-deep-security.md)
 - [Trend Micro TippingPoint](data-connectors/trend-micro-tippingpoint.md)
-- [Trend Micro Vision One (using Azure Function)](data-connectors/trend-micro-vision-one-using-azure-function.md)
+- [Trend Vision One (using Azure Function)](data-connectors/trend-micro-vision-one-using-azure-function.md)
 
 ## TrendMicro
 
@@ -628,7 +636,7 @@ Data connectors are available as part of the following offerings:
 ## ZERO NETWORKS LTD
 
 - [Zero Networks Segment Audit](data-connectors/zero-networks-segment-audit.md)
-- [Zero Networks Segment Audit (Function) (using Azure Function)](data-connectors/zero-networks-segment-audit-function-using-azure-function.md)
+- [Zero Networks Segment Audit (Function) (using Azure Functions)](data-connectors/zero-networks-segment-audit-function-using-azure-function.md)
 
 ## Zimperium, Inc.
 

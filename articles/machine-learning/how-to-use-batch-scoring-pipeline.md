@@ -273,7 +273,7 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
 
     # [Azure CLI](#tab/cli)
     
-    The `deployment.yml` file contains the deployment's configuration.
+    The `deployment.yml` file contains the deployment's configuration. You can check the [full batch endpoint YAML schema](reference-yaml-endpoint-batch.md) for extra properties.
 
     __deployment.yml__
 
