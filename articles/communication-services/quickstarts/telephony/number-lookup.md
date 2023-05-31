@@ -15,6 +15,9 @@ ms.author: ericasp
 
 Get started with the Phone Numbers client library for C# to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number.  Follow these steps to install the package and look up operator information about a phone number.
 
+> [!NOTE]
+> Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/LookupPhoneNumber).
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -44,12 +47,18 @@ cd NumberLookupQuickstart
 dotnet build
 ```
 
+### Connect to the nuget package dev feed
+```
+nuget sources add -Name "Azure SDK for .NET Dev Feed" -Source "https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json"
+```
+[This guide](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed) has more information about the nuget package dev feed.
+
 ### Install the package
 
 While still in the application directory, install the Azure Communication Services PhoneNumbers client library for .NET package by using the following command.
 
 ```console
-dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0
+dotnet add package Azure.Communication.PhoneNumbers --version 1.2.0-alpha.20230531.2
 ```
 
 Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace.
@@ -125,6 +134,10 @@ Run the application from your application directory with the `dotnet run` comman
 dotnet run
 ```
 
+## Sample code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/LookupPhoneNumber).
+
 ## Troubleshooting
 
 Common questions and issues:
@@ -137,5 +150,5 @@ In this quickstart you learned how to:
 > [!div class="checklist"]
 > * Look up operator information for a phone number
 
-[!div class="nextstepaction"]
-[Send an SMS](../sms/send.md)
+> [!div class="nextstepaction"]
+> [Send an SMS](../sms/send.md)
