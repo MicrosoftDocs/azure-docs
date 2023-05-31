@@ -232,11 +232,11 @@ After you disable Okta provisioning, the Azure AD Connect server can synchronize
 6. Clear **Enable staging mode**.
 7. Select **Next**.
 
-   ![Screenshot of the Azure A D Connect window. On the left, Staging Mode is selected. On the Configure staging mode page, nothing is selected.](./media/migrate-okta-sync-provisioning/uncheck-enable-staging-mode.png)
+   ![Screenshot of the Azure AD Connect window. On the left, Staging Mode is selected. On the Configure staging mode page, nothing is selected.](./media/migrate-okta-sync-provisioning/uncheck-enable-staging-mode.png)
 
 8. Select **Configure**.
 
-   ![Screenshot of the Ready to configure page in Azure A D Connect. On the left, Configure is selected. A Configure button is also visible.](./media/migrate-okta-sync-provisioning/ready-to-configure.png)
+   ![Screenshot of the Ready to configure page in Azure AD Connect. On the left, Configure is selected. A Configure button is also visible.](./media/migrate-okta-sync-provisioning/ready-to-configure.png)
 
 9. After configuration, open the **Synchronization Service** as an administrator. 
 10. On the domain.onmicrosoft.com connector, view the **Export**. 
