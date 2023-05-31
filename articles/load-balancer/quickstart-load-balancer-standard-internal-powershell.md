@@ -246,7 +246,7 @@ New-AzLoadBalancer @loadbalancer
 
 ## Create virtual machines
 
-In this section, you'll create the two virtual machines for the backend pool of the load balancer.
+In this section, you create the two virtual machines for the backend pool of the load balancer.
 
 * Create three network interfaces with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)
 
@@ -475,7 +475,7 @@ New-AzVM @vm
 
 7. Open **Internet Explorer** on **myTestVM**.
 
-8. Enter the IP address from the previous step into the address bar of the browser. The default page of IIS Web server is displayed on the browser displaying the name of the .
+8. Enter the IP address from the previous step into the address bar of the browser. The custom IIS Web server page is displayed.
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot of web browser showing default web page for load balanced VM" border="true":::
    
