@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 In Solution 1, Azure AD is used as the primary IdP for all applications while a managed service provides multilateral federation. In this example, Cirrus Bridge is the managed service used for integration of CAS and multilateral federation apps.
 
-[![Diagram showing Azure AD integration with various application environments using Cirrus to provide CAS bridge and SAML bridge.](media/multilateral-federation-solution-one/azure-ad-cirrus-bridge.png)](media/multilateral-federation-solution-one/azure-ad-cirrus-bridge.png#lightbox)
+[![Diagram showing Azure AD integration with various application environments using Cirrus to provide CAS bridge and SAML bridge.](media/multilateral-federation-solution-one/azure-ad-cirrus-bridge.png)](media/multilateral-federation-solution-one/cirrus-bridge.png#lightbox)
 
 If on-premises Active Directory is also being used, then [AD is configured](../hybrid/whatis-hybrid-identity.md) with hybrid identities. Implementing this Azure AD with Cirrus Bridge solution provides:
 
@@ -28,7 +28,7 @@ If on-premises Active Directory is also being used, then [AD is configured](../h
 
 Implementing Azure AD with Cirrus bridge enables you to take advantage of more capabilities available in Azure AD:
 
-* **External attribute store support** - [Azure AD custom claims provider](../develop/custom-claims-provider-overview.md) enables you to use an external attribute store (like an external LDAP Directory) to add additional claims into tokens on a per app basis. It uses a custom extension that calls an external REST API to fetch claims from external systems.
+* **Custom claims provider support** - [Azure AD custom claims provider](../develop/custom-claims-provider-overview.md) enables you to use an external attribute store (like an external LDAP Directory) to add additional claims into tokens on a per app basis. It uses a custom extension that calls an external REST API to fetch claims from external systems.
 
 * **Custom security attributes** - Provides you with the ability to add custom attributes to objects in the directory and control who can read them. [Custom security attributes](../fundamentals/custom-security-attributes-overview.md) enable you to store more of your attributes directly in Azure AD.
 
@@ -80,6 +80,19 @@ The following are some of the trade-offs of using this solution:
 * **One time integration effort required** - To streamline integration, you need to perform a one-time migration of all student and faculty apps to Azure AD, as well as set up the Cirrus Bridge.
 
 * **Subscription required for Cirrus Bridge** - An annual subscription is required for the Cirrus Bridge. The subscription fee is based on anticipated annual authentication usage of the bridge.
+
+## Migration resources
+
+The following are resources to help with your migration to this solution architecture.
+
+| Migration Resource   | Description           |
+| - | - |
+| [Resources for migrating applications to Azure Active Directory (Azure AD)](../manage-apps/migration-resources.md) | List of resources to help you migrate application access and authentication to Azure AD |
+| [Azure AD custom claims provider](../develop/custom-claims-provider-overview.md)|This article provides an overview to the Azure AD custom claims provider |
+| [Custom security attributes documentation](../fundamentals/custom-security-attributes-manage.md) | This article describes how to manage access to custom security attributes |
+| [Azure AD SSO integration with Cirrus Identity Bridge](../saas-apps/cirrus-identity-bridge-for-azure-ad-tutorial.md) | Tutorial to integrate Cirrus Identity Bridge for Azure AD with Azure AD |
+| [Cirrus Identity Bridge Overview](https://blog.cirrusidentity.com/documentation/azure-bridge-setup-rev-6.0) | Link to the documentation for the Cirrus Identity Bridge |
+| [Azure MFA deployment considerations](../authentication/howto-mfa-getstarted.md) | Link to guidance for configuring multi-factor authentication (MFA) using Azure AD | 
 
 ## Next steps
 

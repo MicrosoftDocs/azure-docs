@@ -1,10 +1,8 @@
 ---
 title: Manage resources - Azure PowerShell
 description: Use Azure PowerShell and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
-author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: jgao 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 # Manage Azure resources by using Azure PowerShell

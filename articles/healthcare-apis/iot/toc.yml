@@ -17,19 +17,15 @@ items:
     expanded: true
     items:    
     - name: Choose a deployment method
-      href: deploy-new-choose.md
+      href: deploy-choose-method.md
     - name: ARM template
       href: deploy-new-arm.md
     - name: Azure PowerShell or the Azure CLI
-      href: deploy-new-powershell-cli.md
-    - name: Azure Bicep
-      href: deploy-new-bicep-powershell-cli.md
-    - name: Azure portal - Manual
-      href: deploy-new-manual.md
-    - name: Azure portal - Configure
-      href: deploy-new-config.md
-    - name: Azure portal - Deploy
-      href: deploy-new-deploy.md   
+      href: deploy-json-powershell-cli.md
+    - name: Bicep
+      href: deploy-bicep-powershell-cli.md
+    - name: Azure portal
+      href: deploy-manual-portal.md
 - name: Tutorials
   expanded: true
   items:
@@ -41,19 +37,16 @@ items:
   - name: Map
     expanded: false
     items:
-    - name: Mapping debugger
-      expanded: false
-      items:
-        - name: Use the Mapping debugger
-          href: how-to-use-mapping-debugger.md
+    - name: Use the Mapping debugger
+      href: how-to-use-mapping-debugger.md
     - name: Device
       expanded: false
       items:
       - name: Overview of the device mapping
         href: overview-of-device-mapping.md
-      - name: Use CalculatedContent
+      - name: Use CalculatedContent mappings
         href: how-to-use-calculatedcontent-mappings.md
-      - name: Use IotJsonPathContent
+      - name: Use IotJsonPathContent mappings
         href: how-to-use-iotjsonpathcontent-mappings.md
       - name: Use custom functions
         href: how-to-use-custom-functions.md 
@@ -90,7 +83,7 @@ items:
 - name: Resources
   expanded: false
   items:
-  - name: FAQs - The MedTech service
+  - name: FAQs - MedTech service
     href: frequently-asked-questions.md
   - name: Open-source projects
     href: git-projects.md     

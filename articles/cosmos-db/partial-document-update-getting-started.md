@@ -2,13 +2,12 @@
 title: Get started with partial document update
 titleSuffix: Azure Cosmos DB for NoSQL
 description: Learn how to use the partial document update feature with the .NET, Java, and Node SDKs for Azure Cosmos DB for NoSQL.
-ms.author: sidandrews
-author: seesharprun
+author: AbhinavTrips
+ms.author: abtripathi
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 04/03/2023
-ms.custom: ignite-fall-2021, ignite-2022
+ms.date: 05/23/2023
 ---
 
 # Get started with Azure Cosmos DB Partial Document Update
@@ -281,6 +280,57 @@ Support for Partial Document Update (Patch API) in the [Azure Cosmos DB JavaScri
 
 ---
 
+## [Python (Preview)](#tab/python)
+
+Support for Partial Document Update (Patch API) in the [Azure Cosmos DB Python SDK](nosql/sdk-python.md) is available in Preview starting with version *4.4.0b2*. You can download it from the [pip Registry](https://pypi.org/project/azure-cosmos/4.4.0b2/).
+
+> [!NOTE]
+> Find a complete Partial Document Update sample in the [python samples repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/samples/document_management.py#L105C8-L122) on GitHub. 
+
+- Run a single patch operation:
+
+    ```python
+    operations =
+    [
+        { op: 'replace', path: '/price', value: 355.45 }
+    ]
+    
+    response = container.patch_item(item='e379aea5-63f5-4623-9a9b-4cd9b33b91d5', partition_key='road-bikes', patch_operations=operations)
+    
+    ```
+
+- Combine multiple patch operations:
+
+    ```python
+    operations =
+    [
+        { op: 'add', path: '/color', value: 'silver' },
+        { op: 'remove', path: '/used' }
+    ]
+    
+    response = container.patch_item(item='e379aea5-63f5-4623-9a9b-4cd9b33b91d5', partition_key='road-bikes', patch_operations=operations)
+
+    ```
+
+- Use conditional patch syntax based on filter predicate:
+
+    ```python
+    filter = "from products p WHERE p.used = false"
+
+    operations =
+    [
+        { op: 'replace', path: '/price', value: 100.00 }
+    ]
+
+    try:
+        container.patch_item(item='e379aea5-63f5-4623-9a9b-4cd9b33b91d5', partition_key='road-bikes', patch_operations=operations, filter_predicate=filter)
+    except exceptions.CosmosHttpResponseError as e:
+        print('\nError occured. {0}'.format(e.message))
+    
+    ```
+
+---
+
 ## Support for server-side programming
 
 Partial Document Update operations can also be [executed on the server-side](stored-procedures-triggers-udfs.md) using stored procedures, triggers, and user-defined functions.
@@ -335,34 +385,46 @@ this.patchDocument = function (documentLink, patchSpec, options, callback) {
 > [!NOTE]
 > Find the definition of `validateOptionsAndCallback` in the [.js DocDbWrapperScript](https://github.com/Azure/azure-cosmosdb-js-server/blob/1dbe69893d09a5da29328c14ec087ef168038009/utils/DocDbWrapperScript.js#L289) on GitHub.
 
-Sample parameter for patch operation:
+Sample stored procedure for patch operation:
 
 ```javascript
-function () {
+function patchDemo() {
     var doc = {
-      "id": "exampleDoc",
-      "field1": {
-         "field2": 10,
-         "field3": 20
-      }
-   };
-   var isAccepted = __.createDocument(__.getSelfLink(), doc, (err, doc) => {
-         if (err) throw err;
-         var patchSpec = [
-            {"op": "add", "path": "/field1/field2", "value": 20}, 
-            {"op": "remove", "path": "/field1/field3"}
-         ];
-         isAccepted = __.patchDocument(doc._self, patchSpec, (err, doc) => {
-               if (err) throw err;
-               else {
-                  getContext().getResponse().setBody(docPatched);
-               }
-            }
-         }
-         if(!isAccepted) throw new Error("patch was't accepted")
-      }
-   }
-   if(!isAccepted) throw new Error("create wasn't accepted")
+        "id": "exampleDoc",
+        "fields": {
+            "field1": "exampleString",
+            "field2": 20,
+            "field3": 40
+        }
+    };
+    
+    var isAccepted = __.createDocument(__.getSelfLink(), doc, (err, doc) => {
+        if (err) {
+            throw err;
+        }
+        else {
+            getContext().getResponse().setBody("Example document successfully created.");
+            
+            var patchSpec = [
+                { "op": "add", "path": "/fields/field1", "value": "newExampleString" },
+                { "op": "remove", "path": "/fields/field2" },
+                { "op": "incr", "path": "/fields/field3", "value": 10 }
+            ];
+            
+            var isAccepted = __.patchDocument(doc._self, patchSpec, (err, doc) => {
+                if (err) {
+                    throw err;
+                }
+                else {
+                    getContext().getResponse().appendBody(" Example document successfully patched.");
+                }
+            });
+            
+            if (!isAccepted) throw new Error("Patch wasn't accepted");
+        }
+    });
+
+    if (!isAccepted) throw new Error("Create wasn't accepted.");
 }
 ```
 

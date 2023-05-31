@@ -1,7 +1,7 @@
 ---
 title: Understand Azure Automanage Machine Configuration
 description: Learn how Azure Policy uses the machine configuration feature to audit or configure settings inside virtual machines.
-ms.date: 04/18/2023
+ms.date: 05/16/2023
 ms.topic: conceptual
 ---
 # Understand the machine configuration feature of Azure Automanage
@@ -64,8 +64,9 @@ Arc-enabled servers because it's included in the Arc Connected Machine agent.
 > machines.
 
 To deploy the extension at scale across many machines, assign the policy initiative
-`Deploy prerequisites to enable guest configuration policies on virtual machines` to a management
-group, subscription, or resource group containing the machines that you plan to manage.
+`Virtual machines' Guest Configuration extension should be deployed with system-assigned managed identity`
+to a management group, subscription, or resource group containing the machines that you plan to
+manage.
 
 If you prefer to deploy the extension and managed identity to a single machine, follow the guidance
 for each:
@@ -120,14 +121,17 @@ compatible. The following table shows a list of supported operating systems on A
 
 | Publisher | Name                       | Versions         |
 | --------- | -------------------------- | ---------------- |
+| Alma      | AlmaLinux                  | 9                |
 | Amazon    | Linux                      | 2                |
-| Canonical | Ubuntu Server              | 14.04 - 20.x     |
+| Canonical | Ubuntu Server              | 14.04 - 22.x     |
 | Credativ  | Debian                     | 8 - 10.x         |
-| Microsoft | Windows Server             | 2012 - 2022      |
+| Microsoft | CBL-Mariner                | 1 - 2            |
 | Microsoft | Windows Client             | Windows 10       |
-| Oracle    | Oracle-Linux               | 7.x-8.x          |
-| OpenLogic | CentOS                     | 7.3 -8.x         |
-| Red Hat   | Red Hat Enterprise Linux\* | 7.4 - 8.x        |
+| Microsoft | Windows Server             | 2012 - 2022      |
+| Oracle    | Oracle-Linux               | 7.x - 8.x        |
+| OpenLogic | CentOS                     | 7.3 - 8.x        |
+| Red Hat   | Red Hat Enterprise Linux\* | 7.4 - 9.x        |
+| Rocky     | Rocky Linux                | 9                |
 | SUSE      | SLES                       | 12 SP3-SP5, 15.x |
 
 \* Red Hat CoreOS isn't supported.
@@ -262,10 +266,10 @@ correct behavior based on the current state of the machine resource in Azure.
 > instead. [Learn More][25]
 
 If the machine doesn't currently have any managed identities, the effective policy is:
-[Add system-assigned managed identity to enable machine configuration assignments on virtual machines with no identities][26]
+[Add system-assigned managed identity to enable Guest Configuration assignments on virtual machines with no identities][26]
 
 If the machine currently has a user-assigned system identity, the effective policy is:
-[Add system-assigned managed identity to enable machine configuration assignments on VMs with a user-assigned identity][27]
+[Add system-assigned managed identity to enable Guest Configuration assignments on VMs with a user-assigned identity][27]
 
 ## Availability
 

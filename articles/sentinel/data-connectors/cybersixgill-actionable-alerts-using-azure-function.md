@@ -69,7 +69,7 @@ Use the following step-by-step instructions to deploy the Cybersixgill Actionabl
 
 **1. Deploy a Function App**
 
-> NOTE:You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> NOTE:You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python) for Azure function development.
 
 1. Download the [Azure Function App](https://github.com/syed-loginsoft/Azure-Sentinel/blob/cybersixgill/Solutions/Cybersixgill-Actionable-Alerts/Data%20Connectors/CybersixgillAlerts.zip?raw=true) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

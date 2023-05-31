@@ -72,7 +72,7 @@ Use this method for automated deployment of the Confluence Audit data connector 
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-confluenceauditapi-azuredeploy)
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
 > **NOTE:** Within the same resource group, you can't mix Windows and Linux apps in the same region. Select existing resource group without Windows apps in it or create new resource group.
-3. Enter the **ConfluenceAccessToken**, **ConfluenceUsername**, **ConfluenceHomeSiteName** (short site name part, as example HOMESITENAME from https://HOMESITENAME.atlassian.net) and deploy. 
+3. Enter the **ConfluenceAccessToken**, **ConfluenceUsername**, **ConfluenceHomeSiteName** (short site name part, as example HOMESITENAME from `https://HOMESITENAME.atlassian.net`) and deploy. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
 
@@ -83,7 +83,7 @@ Use the following step-by-step instructions to deploy the Confluence Audit data 
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-confluenceauditapi-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

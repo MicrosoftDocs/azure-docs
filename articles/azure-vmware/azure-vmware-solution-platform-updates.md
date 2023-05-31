@@ -4,12 +4,27 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 4/20/2023
+ms.date: 4/24/2023
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft will regularly apply important updates to the Azure VMware Solution for new features and software lifecycle management. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+
+## May 2023
+
+**Azure VMware Solution in Azure Gov**
+ 
+Azure VMware Service will become generally available on May 17, 2023, to US Federal and State and Local Government (US) customers and their partners, in the regions of Arizona and Virgina. With this release, we are combining world-class Azure infrastructure together with VMware technologies by offering Azure VMware Solutions on Azure Government, which is designed, built, and supported by Microsoft. 
+
+ 
+**New Azure VMware Solution Region: Qatar**
+
+We are excited to announce that the Azure VMware Solution has gone live in Qatar Central and is now available to customers. 
+
+With the introduction of AV36P in Qatar, customers will receive access to 36 cores, 2.6 GHz clock speed, 768GB of RAM, and 19.2TB of SSD storage.
+
+To learn more about available regions of Azure products, see [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&regions=all)
 
 ## April 2023
 
@@ -21,11 +36,11 @@ Introducing Run Commands for VMware HCX on Azure VMware Solution. You can use th
 
 All new Azure VMware Solution private clouds are being deployed with VMware NSX-T Data Center version 3.2.2. NSX-T Data Center versions in existing private clouds will be upgraded to NSX-T Data Center version 3.2.2 through April 2023.
 
-**HCX Enterprise Edition - Default**
+**VMware HCX Enterprise Edition - Default**
 
 VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. VMware HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html), like Replicated Assisted vMotion (RAV) and Mobility Optimized Networking (MON). VMware HCX Enterprise is now automatically installed for all new VMware HCX add-on requests, and existing VMware HCX Advanced customers can upgrade to VMware HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
 
-**Log analytics - monitor Azure VMware Solution**
+**Azure Log analytics - monitor Azure VMware Solution**
 
 The data in Azure Log Analytics offer insights into issues by searching using Kusto Query Language.
 
@@ -48,6 +63,10 @@ You can use Azure NetApp Files volumes as a file share for Azure VMware Solution
 Stretched clusters for Azure VMware Solution, provides 99.99% uptime for mission critical applications that require the highest availability.
 
 For more information, see [Azure Migration and Modernization blog](https://techcommunity.microsoft.com/t5/azure-migration-and/bg-p/AzureMigrationBlog). 
+
+## January 2023
+
+Starting January 2023, all new Azure VMware Solution private clouds are being deployed with Microsoft signed TLS certificate for vCenter and NSX.
 
 ## November 2022
 
@@ -131,7 +150,7 @@ All new Azure VMware Solution private clouds are now deployed with NSX-T Data Ce
  
 You'll receive an email with the planned maintenance date and time. You can reschedule an upgrade. The email also provides details on the upgraded component, its effect on workloads, private cloud access, and other Azure services. 
 
-For more information on this NSX-T Data Center version, see [VMware NSX-T Data Center [!INCLUDE [nsxt-version](includes/nsxt-version.md)] Release Notes](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/rn/VMware-NSX-T-Data-Center-312-Release-Notes.html).
+For more information on this NSX-T Data Center version, see [VMware NSX-T Data Center 3.1.1 Release Notes](https://docs.vmware.com/en/VMware-NSX/3.1/rn/VMware-NSX-T-Data-Center-311-Release-Notes.html).
 
 ## May 2021
 
@@ -157,8 +176,12 @@ Azure VMware Solution will apply the [VMware ESXi 6.7, Patch Release ESXi670-202
 
 Documented workarounds for the vSphere stack, as per [VMSA-2021-0002](https://www.vmware.com/security/advisories/VMSA-2021-0002.html), will also be applied **through March 15, 2021**.
  
-   >[!NOTE]
-   >This is non-disruptive and should not impact the Azure VMware Solution service or workloads. During maintenance, various VMware vSphere alerts, such as _Lost network connectivity on DVPorts_ and _Lost uplink redundancy on DVPorts_, appear in vCenter Server and clear automatically as the maintenance progresses.
+>[!NOTE]
+>This is non-disruptive and should not impact the Azure VMware Solution service or workloads. During maintenance, various VMware vSphere alerts, such as _Lost network connectivity on DVPorts_ and _Lost uplink redundancy on DVPorts_, appear in vCenter Server and clear automatically as the maintenance progresses.
 
 ## Post update
 Once complete, newer versions of VMware solution components will appear. If you notice any issues or have any questions, contact our support team by opening a support ticket.
+
+
+
+

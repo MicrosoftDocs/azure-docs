@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 03/15/2023
+ms.date: 04/27/2023
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
@@ -33,7 +33,7 @@ To deploy applications using GitOps with Flux v2, you need the following:
 
 #### For Azure Arc-enabled Kubernetes clusters
 
-* An Azure Arc-enabled Kubernetes connected cluster that's up and running.
+* An Azure Arc-enabled Kubernetes connected cluster that's up and running. Starting with [`microsoft.flux` version 1.7.0](extensions-release.md#170-march-2023), ARM64-based clusters are supported.
   
   [Learn how to connect a Kubernetes cluster to  Azure Arc](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
 
@@ -141,7 +141,7 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
 
 #### For Azure Arc-enabled Kubernetes clusters
 
-* An Azure Arc-enabled Kubernetes connected cluster that's up and running.
+* An Azure Arc-enabled Kubernetes connected cluster that's up and running. Starting with [`microsoft.flux` version 1.7.0](extensions-release.md#170-march-2023), ARM64-based clusters are supported.
   
   [Learn how to connect a Kubernetes cluster to  Azure Arc](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
 

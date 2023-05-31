@@ -19,13 +19,13 @@ For more information about the benefits of BGP and to understand the technical r
 
 ## Getting started
 
-Each part of this article helps you form a basic building block for enabling BGP in your network connectivity. If you complete all three parts (configure BGP on the gateway, S2S connection, and VNet-to-VNet connection) you build the topology as shown in Diagram 1.
+Each part of this article helps you form a basic building block for enabling BGP in your network connectivity. If you complete all three parts (configure BGP on the gateway, S2S connection, and VNet-to-VNet connection) you build the topology as shown in **Diagram 1**. You can combine parts together to build a more complex, multi-hop, transit network that meets your needs.
 
 **Diagram 1**
 
 :::image type="content" source="./media/bgp-howto/vnet-to-vnet.png" alt-text="Diagram showing network architecture and settings." border="false":::
 
-You can combine parts together to build a more complex, multi-hop, transit network that meets your needs.
+For context, referring to Diagram 1, if BGP were to be disabled between TestVNet2 and TestVNet1, TestVNet2 wouldn't learn the routes for the on-premises network, Site5, and therefore couldn't communicate with Site 5. Once you enable BGP, all three networks will be able to communicate over the S2S IPsec and VNet-to-VNet connections.
 
 ### Prerequisites
 
@@ -190,14 +190,6 @@ To enable or disable BGP on a VNet-to-VNet connection, you use the same steps as
 
 > [!NOTE]
 > A VNet-to-VNet connection without BGP will limit the communication to the two connected VNets only. Enable BGP to allow transit routing capability to other S2S or VNet-to-VNet connections of these two VNets.
-
-If you completed all three parts of this exercise, you have established the following network topology:
-
-**Diagram 4**
-
-:::image type="content" source="./media/bgp-howto/vnet-to-vnet.png" alt-text="Diagram showing full network configuration." border="false":::
-
-For context, referring to **Diagram 4**, if BGP were to be disabled between TestVNet2 and TestVNet1, TestVNet2 wouldn't learn the routes for the on-premises network, Site5, and therefore couldn't communicate with Site 5. Once you enable BGP, as shown in the Diagram 4, all three networks will be able to communicate over the S2S IPsec and VNet-to-VNet connections.
 
 ## Next steps
 

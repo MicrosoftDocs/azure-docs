@@ -2,10 +2,8 @@
 title: Partner services
 description: Learn about services  offered by partners on Azure. 
 
-
-
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 04/25/2023
 
 ---
 
@@ -25,7 +23,6 @@ Azure Native ISV Services are available through the Marketplace.
 |[Azure Native Dynatrace Service](dynatrace/dynatrace-overview.md)   | Provides deep cloud observability, advanced AIOps, and continuous runtime application security.  |
 |[Azure Native New Relic Service Preview](new-relic/new-relic-overview.md)    |  A cloud-based end-to-end observability platform for analyzing and troubleshooting the performance of applications, infrastructure, logs, real-user monitoring, and more.   |
 
-
 ## Data and storage
 
 |Partner  |Description  |
@@ -38,3 +35,4 @@ Azure Native ISV Services are available through the Marketplace.
 |Partner  |Description  |
 |---------|-------------|
 |[NGINXaaS - Azure Native ISV Service](nginx/nginx-overview.md) | Use NGINXaaS as a reverse proxy within your Azure environment. |
+|[Cloud NGFW by Palo Alto Networks Preview](palo-alto/palo-alto-overview.md) | Use Palo Alto Networks as a firewall in the Azure environment. |

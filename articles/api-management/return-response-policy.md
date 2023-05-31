@@ -36,15 +36,19 @@ The `return-response` policy cancels pipeline execution and returns either a def
 
 | Element         | Description                                                                               | Required |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
-| set-status      | A [set-status](set-status-policy.md) policy statement.           | No       |
-| set-header      | A [set-header](set-header-policy.md) policy statement. | No       |
-| set-body        | A [set-body](set-body-policy.md) policy statement.         | No       |
+| [set-status](set-status-policy.md)      | Sets the status code of the response.           | No       |
+| [set-header](set-header-policy.md)      | Sets a header in the response. | No       |
+| [set-body](set-body-policy.md)        | Sets the body in the response.         | No       |
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+
+### Usage notes
+
+- A liquid template doesn't work when specified inside the body (set using `set-body`) of the `return-response` policy. The `return-response` policy cancels the current execution pipeline and removes the request body and response body in the current context. As a result, a liquid template specified inside the policy receives an empty string as its input and won't produce the expected output.  
 
 ## Example
 

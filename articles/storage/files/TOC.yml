@@ -31,6 +31,8 @@
     href: storage-files-networking-overview.md
   - name: Disaster recovery and failover
     href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/files/toc.json
+  - name: Geo-redundancy for large file shares
+    href: geo-redundant-storage-for-large-file-shares.md
   - name: Azure file share snapshots
     href: storage-snapshots-files.md
   - name: Performance and scale
@@ -43,6 +45,10 @@
       href: nfs-nconnect-performance.md
     - name: Scalability and performance targets
       href: storage-files-scale-targets.md
+  - name: Authentication and authorization
+    items:
+    - name: Authorize with Azure AD
+      href: authorize-oauth-rest.md
   - name: Understanding billing
     href: understanding-billing.md
   - name: Windows Server to Azure Files
@@ -125,6 +131,10 @@
       href: storage-files-identity-auth-azure-active-directory-enable.md
     - name: Enable AD Kerberos authentication for Linux clients (SMB)
       href: storage-files-identity-auth-linux-kerberos-enable.md
+  - name: Authorize
+    items:
+    - name: Authorize access to file data
+      href: authorize-data-operations-portal.md
   - name: Data protection
     items:
     - name: Enable soft delete
@@ -134,11 +144,7 @@
       - name: Change how data is replicated
         href: ../common/redundancy-migration.md?toc=/azure/storage/files/toc.json
       - name: Design highly available applications
-        items:
-        - name: .NET (v12 SDK)
-          href: ../common/geo-redundant-design.md?toc=/azure/storage/files/toc.json
-        - name: .NET (v11 SDK)
-          href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/files/toc.json
+        href: ../common/geo-redundant-design.md?toc=/azure/storage/files/toc.json
     - name: Manage disaster recovery
       items:
       - name: Check the Last Sync Time property
@@ -331,7 +337,7 @@
   - name: Azure pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+    href: ../common/videos-azure-files-and-file-sync.md
   - name: Azure Files and Azure NetApp Files comparison
     href: storage-files-netapp-comparison.md
   - name: Compare access with NFS to Azure Files, Blob Storage, and NetApp Files
@@ -386,3 +392,15 @@
         href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
       - name: Azure Storage client library version 2.1     
         href: https://github.com/Azure/azure-storage-python
+  - name: Code samples using deprecated SDKs
+    items:
+    - name: .NET
+      items:
+      - name: Version 11.x samples
+        href: files-samples-dotnet-v11.md
+      - name: Design highly available applications (.NET version 11.x)
+        href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/files/toc.json
+    - name: Java version 8 samples
+      href: files-samples-java-v8.md
+    - name: Python version 2 samples
+      href: files-samples-python-v2.md

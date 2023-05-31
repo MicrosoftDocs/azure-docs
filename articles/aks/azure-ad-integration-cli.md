@@ -4,16 +4,16 @@ description: Learn how to use the Azure CLI to create and Azure Active Directory
 author: TomGeske
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 11/11/2021
+ms.date: 05/28/2023
 ms.author: miwithro
 ---
 
 # Integrate Azure Active Directory with Azure Kubernetes Service using the Azure CLI (legacy)
 
 > [!WARNING]
-> **The feature described in this document, Azure AD Integration (legacy), will be deprecated on June 1st, 2023.
+> **The feature described in this document, Azure AD Integration (legacy), will be deprecated on June 1st, 2023. At that time, no new clusters can be created with Azure AD Integration (legacy). All Azure AD Integration (legacy) AKS clusters will be migrated to AKS-managed Azure AD automatically starting from August 1st, 2023.
 >
-> AKS has a new improved [AKS-managed Azure AD][managed-aad] experience  that doesn't require you to manage server or client application. If you want to migrate follow the instructions [here][managed-aad-migrate].
+> AKS has a new improved [AKS-managed Azure AD][managed-aad] experience that doesn't require you to manage server or client applications. If you want to migrate follow the instructions [here][managed-aad-migrate].
 
 Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you can log into an AKS cluster using an Azure AD authentication token. Cluster operators can also configure Kubernetes role-based access control (Kubernetes RBAC) based on a user's identity or directory group membership.
 
@@ -282,5 +282,5 @@ For best practices on identity and resource control, see [Best practices for aut
 [rbac-authorization]: concepts-identity.md#kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
-[managed-aad]: managed-aad.md
-[managed-aad-migrate]: managed-aad.md#upgrade-to-aks-managed-azure-ad-integration
+[managed-aad]: managed-azure-ad.md
+[managed-aad-migrate]: managed-azure-ad.md#upgrade-a-legacy-azure-ad-cluster-to-aks-managed-azure-ad-integration

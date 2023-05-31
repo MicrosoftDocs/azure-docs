@@ -381,6 +381,7 @@ For more information, see [Deploy the SAP solution](deploy-sap-security-content.
 For more information, see:
 
 - [Deploy the Microsoft Sentinel solution for SAP® applications data connector with SNC](configure-snc.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Microsoft Sentinel solution for SAP® applications detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Microsoft Sentinel solution for SAP® applications logs reference](sap-solution-log-reference.md)
 - [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)

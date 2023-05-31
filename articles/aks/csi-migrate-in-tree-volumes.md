@@ -2,7 +2,7 @@
 title: Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
 description: Learn how to migrate from in-tree persistent volume to the Container Storage Interface (CSI) driver in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 03/23/2023
+ms.date: 05/16/2023
 author: mgoedtel
 
 ---
@@ -19,6 +19,9 @@ To make this process as simple as possible, and to ensure no data loss, this art
 * Kubectl and cluster administrators have access to create, get, list, delete access to a PVC or PV, volume snapshot, or volume snapshot content. For an Azure Active Directory (Azure AD) RBAC enabled cluster, you're a member of the [Azure Kubernetes Service RBAC Cluster Admin][aks-rbac-cluster-admin-role] role.
 
 ## Migrate Disk volumes
+
+> [!NOTE]
+> The labels `failure-domain.beta.kubernetes.io/zone` and `failure-domain.beta.kubernetes.io/region` have been deprecated in AKS 1.24 and removed in 1.26. If your existing persistent volumes are still using nodeAffinity matching these two labels, you need to change them to `topology.kubernetes.io/zone` and `topology.kubernetes.io/region` labels in the new persistent volume setting.
 
 Migration from in-tree to CSI is supported using two migration options:
 
@@ -54,11 +57,11 @@ The following are important considerations to evaluate:
     Replace **pvName** with the name of your selected PersistentVolume. Alternatively, if you want to update the reclaimPolicy for multiple PVs, create a file named **patchReclaimPVs.sh** and copy in the following code.
 
     ```bash
-    #!/bin/sh
+    #!/bin/bash
     # Patch the Persistent Volume in case ReclaimPolicy is Delete
     NAMESPACE=$1
     i=1
-    for PVC in $(kubectl get pvc -n $namespace | awk '{ print $1}'); do
+    for PVC in $(kubectl get pvc -n $NAMESPACE | awk '{ print $1}'); do
       # Ignore first record as it contains header
       if [ $i -eq 1 ]; then
         i=$((i + 1))
@@ -88,11 +91,10 @@ The following are important considerations to evaluate:
 
     * Creates a new PersistentVolume with name `existing-pv-csi` for all PersistentVolumes in namespaces for storage class `storageClassName`.
     * Configure new PVC name as `existing-pvc-csi`.
-    * Updates the application (deployment/StatefulSet) to refer to new PVC.
     * Creates a new PVC with the PV name you specify.
 
     ```bash
-    #!/bin/sh
+    #!/bin/bash
     #kubectl get pvc -n <namespace> --sort-by=.metadata.creationTimestamp -o custom-columns=NAME:.metadata.name,CreationTime:.metadata.creationTimestamp,StorageClass:.spec.storageClassName,Size:.spec.resources.requests.storage
     # TimeFormat 2022-04-20T13:19:56Z
     NAMESPACE=$1
@@ -118,7 +120,7 @@ The following are important considerations to evaluate:
             if [[ $RECLAIM_POLICY == "Retain" ]]; then
               if [[ $STORAGECLASS == $EXISTING_STORAGE_CLASS ]]; then
                 STORAGE_SIZE="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.capacity.storage}')"
-                SKU_NAME="$(kubectl get storageClass $STORAGECLASS -o jsonpath='{.reclaimPolicy}')"
+                SKU_NAME="$(kubectl get storageClass $STORAGE_CLASS_NEW -o jsonpath='{.parameters.skuname}')"
                 DISK_URI="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.azureDisk.diskURI}')"
                 PERSISTENT_VOLUME_RECLAIM_POLICY="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
     
@@ -181,7 +183,6 @@ The following are important considerations to evaluate:
    * `namespace` - The cluster namespace
    * `sourceStorageClass` - The in-tree storage driver-based StorageClass
    * `targetCSIStorageClass` - The CSI storage driver-based StorageClass, which can be either one of the default storage classes that have the provisioner set to **disk.csi.azure.com** or **file.csi.azure.com**. Or you can create a custom storage class as long as it is set to either one of those two provisioners. 
-   * `volumeSnapshotClass` - Name of the volume snapshot class. For example, `custom-disk-snapshot-sc`.
    * `startTimeStamp` - Provide a start time in the format **yyyy-mm-ddthh:mm:ssz**.
    * `endTimeStamp` - Provide an end time in the format **yyyy-mm-ddthh:mm:ssz**.
 
@@ -248,7 +249,7 @@ Before proceeding, verify the following:
     * Creates a new file with the filename `<namespace>-timestamp`, which contains a list of all old resources that needs to be cleaned up.
 
     ```bash
-    #!/bin/sh
+    #!/bin/bash
     #kubectl get pvc -n <namespace> --sort-by=.metadata.creationTimestamp -o custom-columns=NAME:.metadata.name,CreationTime:.metadata.creationTimestamp,StorageClass:.spec.storageClassName,Size:.spec.resources.requests.storage
     # TimeFormat 2022-04-20T13:19:56Z
     NAMESPACE=$1
@@ -274,7 +275,7 @@ Before proceeding, verify the following:
             RECLAIM_POLICY="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
             if [[ $STORAGE_CLASS == $EXISTING_STORAGE_CLASS ]]; then
               STORAGE_SIZE="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.capacity.storage}')"
-              SKU_NAME="$(kubectl get storageClass $STORAGE_CLASS -o jsonpath='{.reclaimPolicy}')"
+              SKU_NAME="$(kubectl get storageClass $STORAGE_CLASS_NEW -o jsonpath='{.parameters.skuname}')"
               DISK_URI="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.azureDisk.diskURI}')"
               TARGET_RESOURCE_GROUP="$(cut -d'/' -f5 <<<"$DISK_URI")"
               echo $DISK_URI
@@ -373,7 +374,7 @@ Migration from in-tree to CSI is supported by creating a static volume.
     Replace **pvName** with the name of your selected PersistentVolume. Alternatively, if you want to update the reclaimPolicy for multiple PVs, create a file named **patchReclaimPVs.sh** and copy in the following code.
 
     ```bash
-    #!/bin/sh
+    #!/bin/bash
     # Patch the Persistent Volume in case ReclaimPolicy is Delete
     namespace=$1
     i=1

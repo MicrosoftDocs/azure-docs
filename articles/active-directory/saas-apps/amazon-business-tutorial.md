@@ -136,7 +136,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 In this section, you'll create a test user in the Azure portal called B.Simon.
 
 > [!NOTE]
-> Adminstrators need to create the test users in their tenant if needed. Following steps show how to create a test user.
+> Administrators need to create the test users in their tenant if needed. Following steps show how to create a test user.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.

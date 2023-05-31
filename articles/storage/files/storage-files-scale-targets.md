@@ -33,10 +33,10 @@ Storage account scale targets apply at the storage account level. There are two 
 
 | Attribute | GPv2 storage accounts (standard) | FileStorage storage accounts (premium) |
 |-|-|-|
-| Number of storage accounts per region per subscription | 250 | 250 |
-| Maximum storage account capacity | 5 PiB<sup>1</sup> | 100 TiB (provisioned) |
+| Number of storage accounts per region per subscription | 250<sup>1</sup> | 250<sup>1</sup> |
+| Maximum storage account capacity | 5 PiB<sup>2</sup> | 100 TiB (provisioned) |
 | Maximum number of file shares | Unlimited | Unlimited, total provisioned size of all shares must be less than max than the max storage account capacity |
-| Maximum concurrent request rate | 20,000 IOPS<sup>1</sup> | 100,000 IOPS |
+| Maximum concurrent request rate | 20,000 IOPS<sup>2</sup> | 100,000 IOPS |
 | Throughput (ingress + egress) for LRS/GRS<br /><ul><li>Australia East</li><li>Central US</li><li>East Asia</li><li>East US 2</li><li>Japan East</li><li>Korea Central</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US</li></ul> | <ul><li>Ingress: 7,152 MiB/sec</li><li>Egress: 14,305 MiB/sec</li></ul> | 10,340 MiB/sec |
 | Throughput (ingress + egress) for ZRS<br /><ul><li>Australia East</li><li>Central US</li><li>East US</li><li>East US 2</li><li>Japan East</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US 2</li></ul> | <ul><li>Ingress: 7,152 MiB/sec</li><li>Egress: 14,305 MiB/sec</li></ul> | 10,340 MiB/sec |
 | Throughput (ingress + egress) for redundancy/region combinations not listed in the previous row | <ul><li>Ingress: 2,980 MiB/sec</li><li>Egress: 5,960 MiB/sec</li></ul> | 10,340 MiB/sec |
@@ -46,7 +46,8 @@ Storage account scale targets apply at the storage account level. There are two 
 | Management write operations | 10 per second/1200 per hour | 10 per second/1200 per hour |
 | Management list operations | 100 per 5 minutes | 100 per 5 minutes |
 
-<sup>1</sup> General-purpose version 2 storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> With a quota increase, you can create up to 500 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](../../quotas/storage-account-quota-requests.md).
+<sup>2</sup> General-purpose version 2 storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 ### Azure file share scale targets
 Azure file share scale targets apply at the file share level.
@@ -81,13 +82,14 @@ File scale targets apply to individual files stored in Azure file shares.
 | Maximum concurrent request rate | 1,000 IOPS | Up to 8,000<sup>1</sup> |
 | Maximum ingress for a file | 60 MiB/sec | 200 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup> |
 | Maximum egress for a file | 60 MiB/sec | 300 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup> |
-| Maximum concurrent handles per file, directory, and share root<sup>3</sup> | 2,000 handles | 2,000 handles  |
+| Maximum concurrent handles for root directory<sup>3</sup> | 10,000 handles | 10,000 handles  |
+| Maximum concurrent handles per file and directory<sup>3</sup> | 2,000 handles | 2,000 handles |
 
 <sup>1 Applies to read and write I/Os (typically smaller I/O sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower. These are soft limits, and throttling can occur beyond these limits.</sup>
 
 <sup>2 Subject to machine network limits, available bandwidth, I/O sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./storage-files-smb-multichannel-performance.md).</sup>
 
-<sup>3 Azure Files supports 2,000 open handles per share, and in practice can go higher. However, if an application keeps an open handle on the root of the share, the share root limit will be reached before the per-file or per-directory limit is reached.</sup>
+<sup>3 Azure Files supports 10,000 open handles on the root directory and 2,000 open handles per file and directory within the share. The number of active users supported per share is dependent on the applications that are accessing the share. If your applications are not opening a handle on the root directory, Azure Files can support more than 10,000 active users per share.</sup>
 
 ## Azure File Sync scale targets
 The following table indicates which targets are soft, representing the Microsoft tested boundary, and hard, indicating an enforced maximum:

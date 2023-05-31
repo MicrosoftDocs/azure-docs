@@ -37,14 +37,14 @@ You can bulk-invite external users to an organization from email addresses that 
 
 3. Sign in to your tenancy
 
-    ```powershell
+    ```azurepowershell-interactive
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
 4. Run the PowerShell cmdlet
 
-   ```powershell
+   ```azurepowershell-interactive
    $invitations = import-csv C:\data\invitations.csv
    $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
    $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"

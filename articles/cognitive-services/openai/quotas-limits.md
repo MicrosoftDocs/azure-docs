@@ -3,13 +3,13 @@ title: Azure OpenAI Service quotas and limits
 titleSuffix: Azure Cognitive Services
 description: Quick reference, detailed description, and best practices on the quotas and limits for the OpenAI service in Azure Cognitive Services.
 services: cognitive-services
-author: ChrisHMSFT
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
-ms.date: 03/21/2023
-ms.author: chrhoder
+ms.date: 05/15/2023
+ms.author: mbullwin
 ---
 
 # Azure OpenAI Service quotas and limits
@@ -22,9 +22,9 @@ The following sections provide you with a quick guide to the quotas and limits t
 
 | Limit Name | Limit Value |
 |--|--|
-| OpenAI resources per region within Azure subscription | 2 | 
-| Requests per minute per model* | Davinci-models (002 and later): 120  <br> ChatGPT model (preview): 300 <br> GPT-4 models (preview): 18 <br> All other models: 300 |
-| Tokens per minute per model* | Davinci-models (002 and later): 40,000  <br> ChatGPT model: 120,000 <br> All other models: 120,000 |
+| OpenAI resources per region per Azure subscription | 3 |
+| Requests per minute per model* | Davinci-models (002 and later): 120  <br> ChatGPT model: 300 <br> GPT-4 models: 18 <br> All other models: 300 |
+| Tokens per minute per model* | Davinci-models (002 and later): 40,000  <br> ChatGPT model: 120,000 <br> GPT-4 8k model: 10,000 <br> GPT-4 32k model: 32,000 <br> All other models: 120,000 |
 | Max fine-tuned model deployments* | 2 |
 | Ability to deploy same model to multiple deployments | Not allowed |
 | Total number of training jobs per resource | 100 |
@@ -51,13 +51,11 @@ To minimize issues related to throttling, it's a good idea to use the following 
 
 The next sections describe specific cases of adjusting quotas.
 
-### How to request an increase to the transactions-per-minute,  number of fine-tuned models deployed or token per minute quotas.
+### How to request increases to the default quotas and limits
 
-If you need to increase the limit, you can apply for a quota increase here: <https://aka.ms/oai/quotaincrease>
+At this time, due to overwhelming demand we cannot accept any new resource or quota increase requests.
 
-### How to request an increase to the number of resources per region
-
-If you need to increase the number of resources, you can apply for a resource increase here: <https://aka.ms/oai/resourceincrease>
+ 
 
 > [!NOTE]
 > Ensure that you thoroughly assess your current resource utilization, approaching its full capacity. Be aware that we will not grant additional resources if efficient usage of existing resources is not observed.

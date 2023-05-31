@@ -11,7 +11,6 @@ ms.date: 10/20/2022
 ms.author: egeaney
 ms.custom: applied-ai-non-critical-form
 monikerRange: '>=form-recog-2.1.0'
-recommendations: false
 ---
 
 # Form Recognizer encryption of data at rest

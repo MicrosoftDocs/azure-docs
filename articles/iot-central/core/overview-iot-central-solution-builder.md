@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Central data integration guide | Microsoft Docs
-description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to integrate your IoT Central application with other services to extend its capabilities.
+title: Azure IoT Central data integration guide
+description: This guide describes how to integrate your IoT Central application with other services to extend its capabilities.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/03/2022
@@ -119,8 +119,6 @@ You can use the data export and rules capabilities in IoT Central to integrate w
 - [Use workflows to integrate your Azure IoT Central application with other cloud services](howto-configure-rules-advanced.md)
 - [Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid](howto-create-custom-rules.md)
 - [Extend Azure IoT Central with custom analytics using Azure Databricks](howto-create-custom-analytics.md)
-
-You can use IoT Edge devices connected to your IoT Central application to integrate with [Azure Video Analyzer](/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/overview).
 
 ## Integrate with companion applications
 

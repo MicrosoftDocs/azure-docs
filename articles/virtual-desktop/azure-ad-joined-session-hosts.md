@@ -76,6 +76,8 @@ To access Azure AD-joined VMs using the web, Android, macOS and iOS clients, you
 
 You can use Azure AD Multi-Factor Authentication with Azure AD-joined VMs. Follow the steps to [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md) and note the extra steps for [Azure AD-joined session host VMs](set-up-mfa.md#azure-ad-joined-session-host-vms).
 
+If you're using Azure AD Multi-Factor Authentication and you don't want to restrict signing in to strong authentication methods like Windows Hello for Business, you'll need to [exclude the Azure Windows VM Sign-In app](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) from your Conditional Access policy.
+
 ### Single sign-on
 
 You can enable a single sign-on experience using Azure AD authentication when accessing Azure AD-joined VMs. Follow the steps to [Configure single sign-on](configure-single-sign-on.md) to provide a seamless connection experience.

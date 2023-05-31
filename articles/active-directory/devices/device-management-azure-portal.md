@@ -90,13 +90,13 @@ If a device is managed by another management authority, like Microsoft Intune, b
 
 You can use a device ID to verify the device ID details on the device or to troubleshoot via PowerShell. To access the copy option, select the device.
 
-![Screenshot that shows a device ID and the copy button.](./media/device-management-azure-portal/35.png)
+![Screenshot that shows a device ID and the copy button.](./media/device-management-azure-portal/device-details.png)
   
 ## View or copy BitLocker keys
 
 You can view and copy BitLocker keys to allow users to recover encrypted drives. These keys are available only for Windows devices that are encrypted and store their keys in Azure AD. You can find these keys when you view a device's details by selecting **Show Recovery Key**. Selecting **Show Recovery Key** will generate an audit log, which you can find in the `KeyManagement` category.
 
-![Screenshot that shows how to view BitLocker keys.](./media/device-management-azure-portal/device-details-show-bitlocker-key.png)
+![Screenshot that shows how to view BitLocker keys.](./media/device-management-azure-portal/show-bitlocker-key.png)
 
 To view or copy BitLocker keys, you need to be the owner of the device or have one of these roles:
 
@@ -115,7 +115,7 @@ In this preview, you have the ability to infinitely scroll, reorder columns, and
 - Compliant state
 - Join type (Azure AD joined, Hybrid Azure AD joined, Azure AD registered)
 - Activity timestamp
-- OS
+- OS Type and Version
 - Device type (printer, secure VM, shared device, registered device)
 - MDM
 - Autopilot
@@ -148,9 +148,11 @@ If you want to manage device identities by using the Azure portal, the devices n
 You must be assigned one of the following roles to view or manage device settings in the Azure portal:
 
 - Global Administrator
-- Cloud Device Administrator
 - Global Reader
-- Directory Reader
+- Cloud Device Administrator
+- Intune administrator
+- Windows 365 administrator
+- Directory reviewer
 
 ![Screenshot that shows device settings related to Azure AD.](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
@@ -174,6 +176,7 @@ You must be assigned one of the following roles to view or manage device setting
 
 - **Additional local administrators on Azure AD joined devices**: This setting allows you to select the users who are granted local administrator rights on a device. These users are added to the Device Administrators role in Azure AD. Global Administrators in Azure AD and device owners are granted local administrator rights by default. 
 This option is a premium edition capability available through products like Azure AD Premium and Enterprise Mobility + Security.
+- **Enable Azure AD Local Administrator Password Solution (LAPS) (preview)**: LAPS is the management of local account passwords on Windows devices. LAPS provides a solution to securely manage and retrieve the built-in local admin password. With cloud version of LAPS, customers can enable storing and rotation of local admin passwords for both Azure AD and Hybrid Azure AD join devices. To learn how to manage LAPS in Azure AD, see [the overview article](howto-manage-local-admin-passwords.md).
 
 - **Restrict non-admin users from recovering the BitLocker key(s) for their owned devices (preview)**: In this preview, admins can block self-service BitLocker key access to the registered owner of the device. Default users without the BitLocker read permission will be unable to view or copy their BitLocker key(s) for their owned devices.
 

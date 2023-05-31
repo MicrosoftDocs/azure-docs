@@ -54,7 +54,7 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 
 - Familiarity with [Azure Private DNS](../dns/private-dns-privatednszone.md)
 
-- Optionally, [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
+- Optionally, [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Automated DNS server integration
 
@@ -564,6 +564,9 @@ The following steps describe how this topology works:
 11. **On-premises DNS Server resolves workspace domain name to private endpoint address**:
 
     The query from On-premises DNS Server to DNS Server in step 8 ultimately returns the IP addresses associated with the Private Endpoint to the Azure Machine Learning workspace. These IP addresses are returned to the original client, which will now communicate with the Azure Machine Learning workspace over the Private Endpoint configured in step 1.
+
+    > [!IMPORTANT]
+    > If VPN Gateway is being used in this set up along with custom DNS Server IP's on VNet then Azure DNS IP (168.63.129.16) needs to be added in the list as well to maintain undisrupted communication.
 
 <a id="hosts"></a>
 ## Example: Hosts file
