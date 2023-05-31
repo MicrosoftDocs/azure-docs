@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 05/30/2023
 ---
 
 # What can I accomplish with Microsoft Purview DevOps policies?
@@ -63,6 +63,12 @@ Bob and Alice are involved with the DevOps process at their company. Given their
 |                  |Reduces the need for privileged accounts to configure access directly at the data source.|
 |                  |Supports the Principle of Least Privilege via data resource scopes and the role definitions.|
 |||
+
+## DevOps policies API
+Many sophisticated customers prefer to interface with Microsoft Purview via scripts rather than via the UI. Now Microsoft Purview DevOps policies supports a REST API offering full CRUD capability (listing, policies for SQL Performance Monitor, policies for SQL Security Auditor). See the spec here: https://learn.microsoft.com/en-us/rest/api/purview/devopspolicydataplane/devops-policy.
+
+![Diagram shows where to find the DevOps API in the Azure REST API menu.](./media/concept-policies-devops/devops-policy-API.png).
+
 
 ## Mapping of popular DMVs and DMFs
 SQL dynamic metadata includes a list of more than 700 DMVs/DMFs. We list here as an illustration some of the most popular ones, mapped to their role definition in Microsoft Purview DevOps policies and provide a URL link to the document that describes them.
