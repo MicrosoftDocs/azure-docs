@@ -61,9 +61,9 @@ To allow delegated roles, such as catalog creators and access package managers, 
 
 **Prerequisite role:** Global administrator or User administrator
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Users**.
+1. In the Azure portal, select **Azure Active Directory** and then select **Users**.
 
-1. In the left menu, click **User settings**.
+1. In the left menu, select **User settings**.
 
 1. Make sure **Restrict access to Azure AD administration portal** is set to **No**.
 
@@ -73,7 +73,7 @@ To allow delegated roles, such as catalog creators and access package managers, 
 
 You can also view and update catalog creators and entitlement management catalog-specific role assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the Graph API to [list the role definitions](/graph/api/rbacapplication-list-roledefinitions) of entitlement management, and [list role assignments](/graph/api/rbacapplication-list-roleassignments) to those role definitions.
 
-To retrieve a list of the users and groups assigned to the catalog creators role, the role with definition id `ba92d953-d8e0-4e39-a797-0cbedb0a89e8`, use the Graph query
+To retrieve a list of the users and groups assigned to the catalog creators role, the role with definition ID `ba92d953-d8e0-4e39-a797-0cbedb0a89e8`, use the Graph query
 
 ```http
 GET https://graph.microsoft.com/beta/roleManagement/entitlementManagement/roleAssignments?$filter=roleDefinitionId eq 'ba92d953-d8e0-4e39-a797-0cbedb0a89e8'&$expand=principal
