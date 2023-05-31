@@ -332,6 +332,8 @@
         href: blogin-tutorial.md
       - name: Blue Access for Members (BAM)
         href: blue-access-for-members-tutorial.md
+      - name: BlueConic
+        href: blueconic-tutorial.md
       - name: BlueJeans
         href: bluejeans-tutorial.md
       - name: Blue Ocean Brain
@@ -352,6 +354,8 @@
         href: boxcryptor-tutorial.md
       - name: Brandfolder
         href: brandfolder-tutorial.md
+      - name: Brainfuse Online Tutoring
+        href: brainfuse-online-tutoring-tutorial.md
       - name: BrainStorm Platform
         href: brainstorm-platform-tutorial.md
       - name: Braze
@@ -1039,6 +1043,8 @@
         href: getabstract-tutorial.md
       - name: GetThere
         href: getthere-tutorial.md
+      - name: Getty Images
+        href: getty-images-tutorial.md
       - name: GHAE
         href: ghae-tutorial.md  
       - name: Gigya
@@ -1225,6 +1231,8 @@
         href: illumio-sso-tutorial.md
       - name: iLMS
         href: ilms-tutorial.md
+      - name: Imagen
+        href: imagen-tutorial.md
       - name: Image Relay
         href: imagerelay-tutorial.md
       - name: IMAGE WORKS
@@ -1251,6 +1259,8 @@
         href: inforretailinformationmanagement-tutorial.md
       - name: InformaCast
         href: informacast-tutorial.md
+      - name: Informatica Intelligent Data Management Cloud
+        href: informatica-intelligent-data-management-cloud-tutorial.md
       - name: Informatica Platform
         href: informatica-platform-tutorial.md  
       - name: Infrascale Cloud Backup
@@ -2475,6 +2485,8 @@
         href: target-process-tutorial.md
       - name: TAS
         href: tas-tutorial.md
+      - name: TASC (beta)
+        href: tasc-beta-tutorial.md
       - name: Taskize Connect
         href: taskize-connect-tutorial.md
       - name: Teachme Biz

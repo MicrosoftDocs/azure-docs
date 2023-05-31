@@ -1179,6 +1179,22 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+- id: acs-js-csharp-java-python-portal-rest
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: azure-portal
+    title: Azure Portal
+  - id: programming-language-rest
+    title: REST
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
 - id: acs-js-csharp-java-python-swift
   title: Programming languages
   prompt: Choose a programming language
@@ -1391,6 +1407,16 @@ groups:
     title: Android
   - id: platform-ios
     title: iOS
+- id: acs-plat-ios-android-windows
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
+  - id: platform-windows
+    title: Windows
 - id: acs-plat-web-android-windows
   title: Platform
   prompt: Choose a platform
