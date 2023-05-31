@@ -349,7 +349,7 @@ In order to change the authorization of an existing connection, enter the connec
 
 ## Recommended playbooks
 
-The following recommended playbooks, and other similar playbooks are available to you in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks):
+The following recommended playbooks, and other similar playbooks are available to you in the [Content hub](sentinel-solutions-deploy.md), or in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks):
 
 - **Notification playbooks** are triggered when an alert or incident is created and send a notification to a configured destination:
 
@@ -374,3 +374,5 @@ The following recommended playbooks, and other similar playbooks are available t
 
 - [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 - [Create and perform incident tasks in Microsoft Sentinel using playbooks](create-tasks-playbook.md)
+
+
