@@ -73,7 +73,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
     |:---|:---|:---|
     | Performance | Azure Monitor Metrics (Public preview)<sup>1</sup> - Insights.virtualmachine namespace<br>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table | Numerical values measuring performance of different aspects of operating system and workloads |
     | Windows event logs (including sysmon events) | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
-    | Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system |
+    | Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system. [Collect syslog with Azure Monitor Agent](data-collection-syslog.md) |
     |	Text logs and Windows IIS logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](data-collection-text-log.md)	|
 
 
@@ -130,6 +130,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	VM Insights	|	X (Public preview)	|	X	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Automation Update Management	|	|	X	|		|
+|   | Azure Stack HCI | X |  |  |
 |		|	Update Management Center	|	N/A (Public preview, independent of monitoring agents)	|		|		|
 |		|	Change Tracking	| X (Public preview) |	X	|		|
 |       |   SQL Best Practices Assessment | X |     |       |
@@ -186,7 +187,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | 
 | Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X |   |
 | Windows 7 SP1<br>(Server scenarios only<sup>1</sup>)                 |   | X |   |
-| Azure Stack HCI                                          |   | X |   |
+| Azure Stack HCI                                          | X | X |   |
 
 <sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser).<br>
 <sup>2</sup> Using the Azure Monitor agent [client installer](./azure-monitor-agent-windows-client.md).<br>

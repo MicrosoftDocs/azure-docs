@@ -1,6 +1,6 @@
 ---
 title: How to use device commands in an Azure IoT Central solution
-description: How to use device commands in Azure IoT Central solution. This tutorial shows you how to use device commands in client app to your Azure IoT Central application. 
+description: How to use device commands in Azure IoT Central solution. Learn how to define and call device commands from IoT Central, and respond in a device.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/31/2022 

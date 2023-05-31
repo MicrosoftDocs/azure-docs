@@ -33,6 +33,8 @@
     href: network-watcher-nsg-flow-logging-portal.md
 - name: Concepts
   items:
+  - name: Network Watcher FAQ
+    href: frequently-asked-questions.yml
   - name: Connection monitor
     href: connection-monitor-overview.md
   - name: Connection monitor schema
@@ -49,6 +51,10 @@
     href: network-watcher-troubleshoot-overview.md
   - name: Packet capture
     href: network-watcher-packet-capture-overview.md
+  - name: Effective security rules
+    href: network-watcher-security-group-view-overview.md
+  - name: NSG flow logs
+    href: network-watcher-nsg-flow-logging-overview.md
   - name: Traffic analytics
     items:
     - name: Overview
@@ -61,10 +67,6 @@
       href: usage-scenarios-traffic-analytics.md
     - name: Frequently asked questions
       href: traffic-analytics-faq.yml
-  - name: NSG flow logs
-    href: network-watcher-nsg-flow-logging-overview.md
-  - name: Effective security rules
-    href: network-watcher-security-group-view-overview.md
   - name: RBAC permissions
     href: required-rbac-permissions.md
   - name: Security
@@ -73,11 +75,11 @@
       href: /security/benchmark/azure/baselines/network-watcher-security-baseline?toc=/azure/network-watcher/toc.json
   - name: Data residency
     href: data-residency.md
-  - name: Network Watcher FAQ
-    href: frequently-asked-questions.yml
+  - name: Moving Network Watcher resources
+    href: resource-move.md
 - name: How-to guides
   items:
-  - name: Configure Network Watcher
+  - name: Enable Network Watcher
     href: network-watcher-create.md
   - name: Connection monitor using Azure Monitor agent
     items: 
@@ -101,62 +103,64 @@
       href: migrate-to-connection-monitor-from-network-performance-monitor.md
     - name: From connection monitor (classic)
       href: migrate-to-connection-monitor-from-connection-monitor-classic.md
-  - name: Diagnose VM network problems
+  - name: Install Network Watcher Agent
     items:
-    - name: Install VM extension
+    - name: Windows
+      href: ../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+    - name: Linux
+      href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+  - name: Diagnose network security rules
+    href: diagnose-network-security-rules.md
+  - name: Diagnose a routing problem
+    items:
+    - name: PowerShell
+      href: diagnose-vm-network-routing-problem-powershell.md
+    - name: Azure CLI
+      href: diagnose-vm-network-routing-problem-cli.md
+  - name: Diagnose outbound connection problems
+    items:
+    - name: Portal
+      href: network-watcher-connectivity-portal.md
+    - name: PowerShell
+      href: network-watcher-connectivity-powershell.md
+    - name: Azure CLI
+      href: network-watcher-connectivity-cli.md
+    - name: REST
+      href: network-watcher-connectivity-rest.md
+  - name: Capture and analyze packets
+    items:
+    - name: Manage a packet capture
       items:
-      - name: Windows
-        href: ../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
-      - name: Linux
-        href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
-    - name: Diagnose a routing problem
+      - name: Virtual machine - Portal
+        href: network-watcher-packet-capture-manage-portal.md
+      - name: Virtual Machine Scale Set - Portal
+        href: network-watcher-packet-capture-manage-portal-vmss.md
+      - name: Virtual machine - PowerShell
+        href: network-watcher-packet-capture-manage-powershell.md
+      - name: Virtual Machine Scale Set - PowerShell
+        href: network-watcher-packet-capture-manage-powershell-vmss.md
+      - name: Virtual machine - Azure CLI
+        href: network-watcher-packet-capture-manage-cli.md
+      - name: Virtual machine - REST
+        href: network-watcher-packet-capture-manage-rest.md
+      - name: Virtual Machine Scale Set - REST
+        href: network-watcher-packet-capture-manage-rest-vmss.md
+    - name: Analyze a packet capture
       items:
-      - name: PowerShell
-        href: diagnose-vm-network-routing-problem-powershell.md
-      - name: Azure CLI
-        href: diagnose-vm-network-routing-problem-cli.md
-    - name: Diagnose outbound connection problems
-      items:
-      - name: Portal
-        href: network-watcher-connectivity-portal.md
-      - name: PowerShell
-        href: network-watcher-connectivity-powershell.md
-      - name: Azure CLI
-        href: network-watcher-connectivity-cli.md
-      - name: REST
-        href: network-watcher-connectivity-rest.md
-    - name: Capture and analyze packets
-      items:
-      - name: Manage a packet capture
-        items:
-        - name: Virtual machine - Portal
-          href: network-watcher-packet-capture-manage-portal.md
-        - name: Virtual Machine Scale Set - Portal
-          href: network-watcher-packet-capture-manage-portal-vmss.md
-        - name: Virtual machine - PowerShell
-          href: network-watcher-packet-capture-manage-powershell.md
-        - name: Virtual Machine Scale Set - PowerShell
-          href: network-watcher-packet-capture-manage-powershell-vmss.md
-        - name: Virtual machine - Azure CLI
-          href: network-watcher-packet-capture-manage-cli.md
-        - name: Virtual machine - REST
-          href: network-watcher-packet-capture-manage-rest.md
-        - name: Virtual Machine Scale Set - REST
-          href: network-watcher-packet-capture-manage-rest-vmss.md
-      - name: Analyze a packet capture
-        items:
-        - name: Find anomalies
-          href: network-watcher-deep-packet-inspection.md
-        - name: Proactive network monitoring with Azure Functions
-          href: network-watcher-alert-triggered-packet-capture.md
-        - name: Perform intrusion detection using open source tools
-          href: network-watcher-intrusion-detection-open-source-tools.md
-        - name: Visualize network traffic patterns using open source tools
-          href: network-watcher-using-open-source-tools.md
-  - name: Flow log traffic monitoring
+      - name: Find anomalies
+        href: network-watcher-deep-packet-inspection.md
+      - name: Proactive network monitoring with Azure Functions
+        href: network-watcher-alert-triggered-packet-capture.md
+      - name: Perform intrusion detection using open source tools
+        href: network-watcher-intrusion-detection-open-source-tools.md
+      - name: Visualize network traffic patterns using open source tools
+        href: network-watcher-using-open-source-tools.md
+  - name: Flow logging
     items:
     - name: Manage NSG flow logs
       items:
+      - name: Azure portal
+        href: nsg-flow-logging.md
       - name: PowerShell
         href: network-watcher-nsg-flow-logging-powershell.md
       - name: Azure CLI
@@ -220,8 +224,6 @@
   - name: Monitor network performance
     href: /previous-versions/azure/azure-monitor/insights/network-performance-monitor
     maintainContext: true
-  - name: Move Network Watcher resources
-    href: resource-move.md
 - name: Reference
   items:
   - name: Azure CLI

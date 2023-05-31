@@ -129,7 +129,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
 
     You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, you can use the names **N2**, **N3** and **N6-DN1**, **N6-DN2**, **N6-DN3** (for a 5G deployment with multiple data networks (DNs); just **N6** for a single DN deployment). You can optionally configure each virtual network with a virtual local area network identifier (VLAN ID) to enable layer 2 traffic separation. The following example is for a 5G multi-DN deployment without VLANs.
 :::zone pivot="ase-pro-2"
-3. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have three data networks):
+3. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have the maximum three data networks):
     1. Select **Add virtual network** and fill in the side panel:
           - **Virtual switch**: select **vswitch-port3** for N2 and N3, and select **vswitch-port4** for N6-DN1, N6-DN2, and N6-DN3.
           - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
@@ -146,7 +146,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
 :::zone-end
 :::zone pivot="ase-pro-gpu"
 
-3. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have three data networks):
+3. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have the maximum three data networks):
     1. Select **Add virtual network** and fill in the side panel:
         - **Virtual switch**: select **vswitch-port5** for N2 and N3, and select **vswitch-port6** for N6-DN1, N6-DN2, and N6-DN3.
         - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.

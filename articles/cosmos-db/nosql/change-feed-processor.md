@@ -8,8 +8,8 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 04/26/2023
-ms.custom: devx-track-csharp
+ms.date: 05/09/2023
+ms.custom: devx-track-csharp, build-2023
 ---
 
 # Change feed processor in Azure Cosmos DB
@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp
 
 The change feed processor is part of the Azure Cosmos DB [.NET V3](https://github.com/Azure/azure-cosmos-dotnet-v3) and [Java V4](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos) SDKs. It simplifies the process of reading the change feed and distributes the event processing across multiple consumers effectively.
 
-The main benefit of change feed processor library is its fault-tolerant behavior that assures an "at-least-once" delivery of all the events in the change feed.
+The main benefit of change feed processor is its fault-tolerant behavior that assures an "at-least-once" delivery of all the events in the change feed.
 
 ## Components of the change feed processor
 
@@ -27,7 +27,7 @@ There are four main components of implementing the change feed processor:
 
 * **The lease container:** The lease container acts as a state storage and coordinates processing the change feed across multiple workers. The lease container can be stored in the same account as the monitored container or in a separate account.
 
-* **The compute instance**: A compute instance hosts the change feed processor to listen for changes. Depending on the platform, it could be represented by a VM, a kubernetes pod, an Azure App Service instance, an actual physical machine. It has a unique identifier referenced as the *instance name* throughout this article.
+* **The compute instance**: A compute instance hosts the change feed processor to listen for changes. Depending on the platform, it could be represented by a VM, a kubernetes pod, an Azure App Service instance, or an actual physical machine. It has a unique identifier referenced as the *instance name* throughout this article.
 
 * **The delegate:** The delegate is the code that defines what you, the developer, want to do with each batch of changes that the change feed processor reads.
 
@@ -41,13 +41,13 @@ Each range is being read in parallel and its progress is maintained separately f
 
 ### [.NET](#tab/dotnet)
 
-The point of entry is always the monitored container, from a `Container` instance you call `GetChangeFeedProcessorBuilder`:
+The change feed processor in .NET is currently only available for [latest version mode](change-feed-modes.md#latest-version-change-feed-mode). The point of entry is always the monitored container, from a `Container` instance you call `GetChangeFeedProcessorBuilder`:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
 Where the first parameter is a distinct name that describes the goal of this processor and the second name is the delegate implementation that handles changes.
 
-An example of a delegate would be:
+An example of a delegate is:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
@@ -66,7 +66,7 @@ The normal life cycle of a host instance is:
 
 ## Error handling
 
-The change feed processor is resilient to user code errors. If your delegate implementation has an unhandled exception (step #4), the thread processing that particular batch of changes stops, and a new thread is eventually created. The new thread checks the latest point in time the lease store has saved for that range of partition key values, and restart from there, effectively sending the same batch of changes to the delegate. This behavior continues until your delegate processes the changes correctly and it's the reason the change feed processor has an "at least once" guarantee.
+The change feed processor is resilient to user code errors. If your delegate implementation has an unhandled exception (step #4), the thread processing that particular batch of changes stops, and a new thread is eventually created. The new thread checks the latest point in time the lease store has saved for that range of partition key values, and restarts from there, effectively sending the same batch of changes to the delegate. This behavior continues until your delegate processes the changes correctly and it's the reason the change feed processor has an "at least once" guarantee. Consuming the change feed in an Eventual consistency level can also result in duplicate events in-between subsequent change feed read operations. For example, the last event of one read operation could appear as the first event of the next operation.
 
 > [!NOTE]
 > There is only one scenario where a batch of changes will not be retried. If the failure happens on the first ever delegate execution, the lease store has no previous saved state to be used on the retry. On those cases, the retry would use the [initial starting configuration](#starting-time), which might or might not include the last batch.
@@ -130,7 +130,7 @@ The change feed processor will be initialized and start reading changes from the
 
 ### [Java](#tab/java)
 
-An example of a delegate implementation would be:
+An example of a delegate implementation when reading the change feed in [latest version mode](change-feed-modes.md#latest-version-change-feed-mode) is:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=Delegate)]
 
@@ -138,12 +138,16 @@ An example of a delegate implementation would be:
 > In the above we pass a variable `options` of type `ChangeFeedProcessorOptions`, which can be used to set various values including `setStartFromBeginning`:
 > [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=ChangeFeedProcessorOptions)]
 
-We assign the result of `buildChangeFeedProcessor()` to a `changeFeedProcessorInstance`, passing parameters of compute instance name (`hostName`), the monitored container (here called `feedContainer`) and the `leaseContainer`. We then start the change feed processor:
+The delegate implementation for reading the change feed in [all versions and deletes mode](change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview) is similar, but instead of calling `.handleChanges()` you call `.handleAllVersionsAndDeletesChanges()`. All versions and deletes mode is in preview and is available in Java SDK version >= `4.42.0`. An example is:
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessorForAllVersionsAndDeletesMode.java?name=Delegate)]
+ 
+In either change feed mode, you can assign this to a `changeFeedProcessorInstance`, passing parameters of compute instance name (`hostName`), the monitored container (here called `feedContainer`) and the `leaseContainer`. We then start the change feed processor:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=StartChangeFeedProcessor)]
 
 >[!NOTE]
-> The above code snippets are taken from a sample in GitHub, which you can find [here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java).
+> The above code snippets are taken from samples in GitHub. You can find the sample for [latest version mode here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java) or [all versions and deletes mode here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessorForAllVersionsAndDeletesMode.java).
 
 ## Processing life cycle
 
@@ -156,7 +160,7 @@ The normal life cycle of a host instance is:
 
 ## Error handling
 
-The change feed processor is resilient to user code errors. If your delegate implementation has an unhandled exception (step #4), the thread processing that particular batch of changes is stopped, and a new thread is created. The new thread checks the latest point in time the lease store has saved for that range of partition key values, and restart from there, effectively sending the same batch of changes to the delegate. This behavior continues until your delegate processes the changes correctly and it's the reason the change feed processor has an "at least once" guarantee.
+The change feed processor is resilient to user code errors. If your delegate implementation has an unhandled exception (step #4), the thread processing that particular batch of changes is stopped, and a new thread is created. The new thread checks the latest point in time the lease store has saved for that range of partition key values, and restart from there, effectively sending the same batch of changes to the delegate. This behavior continues until your delegate processes the changes correctly and it's the reason the change feed processor has an "at least once" guarantee. Consuming the change feed in an Eventual consistency level can also result in duplicate events in-between subsequent change feed read operations. For example, the last event of one read operation could appear as the first event of the next operation.
 
 > [!NOTE]
 > There is only one scenario where a batch of changes will not be retried. If the failure happens on the first ever delegate execution, the lease store has no previous saved state to be used on the retry. On those cases, the retry would use the [initial starting configuration](#starting-time), which might or might not include the last batch.
@@ -188,6 +192,9 @@ Moreover, the change feed processor can dynamically adjust to containers scale d
 ## Starting time
 
 By default, when a change feed processor starts the first time, it initializes the leases container, and start its [processing life cycle](#processing-life-cycle). Any changes that happened in the monitored container before the change feed processor was initialized for the first time won't be detected.
+
+> [!NOTE]
+> Modifying the starting time of the change feed processor is not available when you are using [all versions and deletes mode](change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview). Currently, you must use the default start time.
 
 ### Reading from a previous date and time
 

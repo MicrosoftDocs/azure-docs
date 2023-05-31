@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 05/09/2023
+ms.date: 05/31/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -24,6 +24,19 @@ Make sure to check back here often to keep up with new updates.
 New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they're rolled out progressively to session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout in [validation environments](create-validation-host-pool.md) first.
 
 A rollout may take several weeks before the agent is available in all environments. Some agent versions may not reach non-validation environments, so you may see multiple versions of the agent deployed across your environments.
+
+## Version 1.0.6713.400
+
+This update was released at the end of May 2023 and includes the following changes:
+
+- Fixed an issue that made the Remote Desktop Agent incorrectly report Hybrid Azure Active Directory (AD) Join virtual machines (VMs) as domain-joined.
+- General improvements and bug fixes.
+
+## Version 1.0.6425.1200
+
+This update was released at the beginning of May 2023 and includes the following changes:
+
+- General improvements and bug fixes.
 
 ## Version 1.0.6425.300
 
@@ -49,7 +62,7 @@ This update was released in March 2023 and includes the following changes:
 
 This update was released in February 2023 and includes the following changes:
 
-- Domain Trust health check is now enabled. When virtual machines (VMs) fail the Domain Trust health check, they're now given the *Unavailable* status.
+- Domain Trust health check is now enabled. When virtual machines fail the Domain Trust health check, they're now given the *Unavailable* status.
 - General improvements and bug fixes.
 
 ## Version 1.0.5739.9000/1.0.5739.9800
