@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: quickstart
-ms.date: 05/10/2023
+ms.date: 05/31/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -89,6 +89,9 @@ Follow the steps below, to download and run the sample app.
 ## Explore Azure AD for customers
 
 Follow the articles below to learn more about the configuration the guide created for you or to configure your own apps. You can always come back to the [admin center](https://entra.microsoft.com/) to customize your tenant and explore the full range of configuration options for your tenant.
+
+> [!NOTE]
+> The next time you return to your tenant, you might be prompted to set up additional authentication factors for added security of your tenant admin account.
 
 ## Next steps
  - [Register an app in CIAM](how-to-register-ciam-app.md)
