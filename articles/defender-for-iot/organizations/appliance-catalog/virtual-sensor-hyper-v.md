@@ -17,7 +17,7 @@ This article describes an OT sensor deployment on a virtual appliance using Micr
 |**Status** | Supported |
 
 > [!IMPORTANT]
-> Versions 22.2.x of the sensor are incompatible with Hyper-V. Until the issue has been resolved, we recommend using either version 22.3.x or 22.1.7.
+> Versions 22.2.x of the sensor are incompatible with Hyper-V. Until the issue has been resolved, we recommend using versions 22.3.x and above.
 
 ## Prerequisites
 
