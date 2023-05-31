@@ -229,7 +229,7 @@ For more information, see the [Moogsoft documentation](https://www.moogsoft.com/
 
 ![New Relic logo.](./media/partners/newrelic-logo.png)
 
-Microsoft and New Relic have teamed up to provide the [Azure Native New Relic Service](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview), where the New Relic observability platform is hosted on Azure. You can subscribe to the New Relic service to collect, alert on, and analyze telemetry data for your applications and infrastructure, and with this offering, your telemetry data will be stored in Azure. In addition, you can allocate your multi-year committed Azure spend towards the New Relic service.
+Microsoft and New Relic have teamed up to provide the [Azure Native New Relic Service](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview), where the New Relic observability platform is hosted on Azure. You can subscribe to the New Relic service to collect, alert on, and analyze telemetry data for your applications and infrastructure, and with this offering, your telemetry data will be stored in Azure. In addition, you can allocate your multi-year committed Azure spend towards the New Relic service.
 
 Overview of the Azure Native New Relic Service:
 
