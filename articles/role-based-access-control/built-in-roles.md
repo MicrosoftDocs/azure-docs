@@ -234,11 +234,11 @@ The following table provides a brief description of each built-in role. Click th
 > | [Key Vault Secrets Officer](#key-vault-secrets-officer) | Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 > | [Key Vault Secrets User](#key-vault-secrets-user) | Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
 > | [Managed HSM contributor](#managed-hsm-contributor) | Lets you manage managed HSM pools, but not access to them. | 18500a29-7fe2-46b2-a342-b16a415e101d |
-> | [Microsoft Sentinel Automation Contributor](#microsoft-sentinel-automation-contributor) | Microsoft Sentinel Automation Contributor | f4c81013-99ee-4d62-a7ee-b3f1f648599a |
-> | [Microsoft Sentinel Contributor](#microsoft-sentinel-contributor) | Microsoft Sentinel Contributor | ab8e14d6-4a74-4a29-9ba8-549422addade |
-> | [Microsoft Sentinel Playbook Operator](#microsoft-sentinel-playbook-operator) | Microsoft Sentinel Playbook Operator | 51d6186e-6489-4900-b93f-92e23144cca5 |
-> | [Microsoft Sentinel Reader](#microsoft-sentinel-reader) | Microsoft Sentinel Reader | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
-> | [Microsoft Sentinel Responder](#microsoft-sentinel-responder) | Microsoft Sentinel Responder | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
+> | [Azure Sentinel Automation Contributor](#Azure-sentinel-automation-contributor) | Azure Sentinel Automation Contributor | f4c81013-99ee-4d62-a7ee-b3f1f648599a |
+> | [Azure Sentinel Contributor](#Azure-sentinel-contributor) | Azure Sentinel Contributor | ab8e14d6-4a74-4a29-9ba8-549422addade |
+> | [Azure Sentinel Playbook Operator](#Azure-sentinel-playbook-operator) | Azure Sentinel Playbook Operator | 51d6186e-6489-4900-b93f-92e23144cca5 |
+> | [Azure Sentinel Reader](#Azure-sentinel-reader) | Azure Sentinel Reader | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
+> | [Azure Sentinel Responder](#Azure-sentinel-responder) | Azure Sentinel Responder | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
 > | [Security Admin](#security-admin) | View and update permissions for Microsoft Defender for Cloud. Same permissions as the Security Reader role and can also update the security policy and dismiss alerts and recommendations.<br><br>For Microsoft Defender for IoT, see [Azure user roles for OT and Enterprise IoT monitoring](../defender-for-iot/organizations/roles-azure.md). | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Security Assessment Contributor](#security-assessment-contributor) | Lets you push assessments to Microsoft Defender for Cloud | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Security Manager (Legacy)](#security-manager-legacy) | This is a legacy role. Please use Security Admin instead. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
