@@ -56,7 +56,7 @@ https://github.com/azure/azureml-examples
 
 ## Step 3: Create a Service connection
 
-You can use an existing Service connection 
+You can use an existing Service connection.
 
 # [Azure Resource manager](#tab/arm)
 
