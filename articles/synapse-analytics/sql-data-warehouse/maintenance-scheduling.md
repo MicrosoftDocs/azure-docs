@@ -21,12 +21,13 @@ For example, you can schedule a primary window of Saturday 22:00 to Sunday 01:00
 
 All newly created data warehouse instances will have a system-defined maintenance schedule applied during deployment. The schedule can be edited as soon as deployment is complete.
 
-Although a maintenance window can be between three and eight hours this does not mean the data warehouse will be offline for the duration. Maintenance can occur at any time within that window and you should expect a single disconnect during that period lasting ~5 -6 mins as the service deploys new code to your data warehouse. DW400c and lower may experience multiple brief losses in connectivity at various times during the maintenance window. When maintenance starts, all active sessions will be canceled, and non-committed transactions will be rolled back. To minimize instance downtime, make sure that your data warehouse has no long-running transactions before your chosen maintenance period.
+The duration of a maintenance window can range from three (3) to eight (8) hours, with a minimum requirement of three (3) hours. However, it is important to keep in mind that maintenance tasks typically take less than 30 minutes to complete, but it may take longer in some cases. For example, if there are active transactions when the maintenance starts, they will be aborted and rolled back, which may cause delays in coming back online. To avoid this scenario, we recommend that you ensure that no long-running transactions are active during the start of your maintenance window.
 
 All maintenance operations should finish within the specified maintenance windows unless we are required to deploy a time sensitive update. If your data warehouse is paused during a scheduled maintenance, it will be updated during the resume operation. You'll be notified immediately after your data warehouse maintenance is completed.
 
 > [!NOTE]
-> The maintenance windows are not applicable for DW400c or lower performance levels. They can undergo maintenance at any time.
+> - The maintenance windows are not applicable for DW400c or lower performance levels. They can undergo maintenance at any time.
+> - DW400c and lower may experience multiple brief losses in connectivity at various times during the maintenance window.
 
 ## Alerts and monitoring
 
