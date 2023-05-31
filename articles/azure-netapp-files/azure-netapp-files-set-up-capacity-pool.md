@@ -61,7 +61,7 @@ You must have already [created a NetApp account](azure-netapp-files-create-netap
         > [!IMPORTANT] 
         > Azure NetApp Files double encryption at rest supports [Standard network features](azure-netapp-files-network-topologies.md#configurable-network-features), but not Basic network features. See [considerations](double-encryption-at-rest.md#considerations) for using Azure NetApp Files double encryption at rest.  
         >
-        > After the capacity pool is created, you can’t modify the setting (switching between `single` or `double`) for encryption type.  
+        > After the capacity pool is created, you can’t modify the setting (switching between `single` or `double`) for the encryption type.  
 
         Azure NetApp Files double encryption at rest is currently in preview. If you are using this feature for the first time, you need to register the feature first. 
         1. Register the feature: 
