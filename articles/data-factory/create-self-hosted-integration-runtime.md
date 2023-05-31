@@ -372,7 +372,39 @@ You also need to make sure that Microsoft Azure is in your company's allowlist. 
    - Public: https://www.microsoft.com/download/details.aspx?id=56519
    - US Gov: https://www.microsoft.com/download/details.aspx?id=57063 
    - Germany: https://www.microsoft.com/download/details.aspx?id=57064 
-   - China: https://www.microsoft.com/download/details.aspx?id=57062 
+   - China: https://www.microsoft.com/download/details.aspx?id=57062
+
+### Configure proxy server settings when using a private endpoint
+
+If your company's network architure involves the use of private endpoints and for security reasons, and your company's policy does not allow a direct internet connection from the VM hosting the Self Hosted Integration Runtime to the Azure Data Factory service URL, then you will need to allow bypass the ADF Service URL for full connectivity. The following procedure provides instructions for updating the diahost.exe.config file. You should also repeat these steps for the diawp.exe.config file.
+
+1. In File Explorer, make a safe copy of _C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config_ as a backup of the original file.
+1. Open Notepad running as administrator.
+1. In Notepad, open _C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config_.
+1. Find the default **system.net** tag as shown here:
+
+    ```xml
+    <system.net>
+        <defaultProxy useDefaultCredentials="true" />
+    </system.net>
+    ```
+
+    You can then add bypasslist details as shown in the following example:
+
+    ```xml
+    <system.net>
+      <defaultProxy>
+          <bypasslist>
+              <add address = "[adfresourcename].[adfresourcelocation].datafactory.azure.net" />
+          </bypasslist>
+          <proxy 
+          usesystemdefault="True"
+          proxyaddress="http://proxy.domain.org:8888/"
+          bypassonlocal="True"
+          />
+      </defaultProxy>
+  </system.net>
+    ```
 
 ### Possible symptoms for issues related to the firewall and proxy server
 
