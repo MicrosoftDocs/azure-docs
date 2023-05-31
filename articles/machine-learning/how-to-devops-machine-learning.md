@@ -74,7 +74,7 @@ You'll need an Azure Resource Manager connection to authenticate with Azure port
 
 # [Generic](#tab/generic)
 
-1. In Azure DevOps, click on **Project Settings** and open the **Service connections** page.
+1. In Azure DevOps, select **Project Settings** and open the **Service connections** page.
 
 1. Choose **+ New service connection** and select **Generic**.
 
