@@ -11,7 +11,6 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: mode-other
 ---
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
 In this quickstart, you learn how to implement raw media access by using the Azure Communication Services Calling SDK for iOS.
 
