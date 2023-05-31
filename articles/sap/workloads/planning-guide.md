@@ -241,7 +241,7 @@ For examples of network architecture for SAP deployment, see the following artic
 
 Some virtual networking configurations have specific considerations to be aware of.
 
-- Configuring [network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application layer and the DBMS layer of SAP components by using the SAP kernel, such as S/4HANA or SAP NetWeaver, *isn't supported*.
+- The configuring of [network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application layer and the DBMS layer of SAP components by using the SAP kernel, such as S/4HANA or SAP NetWeaver, *isn't supported*.
 
   Network virtual appliances in communication paths can easily double the network latency between two communication partners. They also can restrict throughput in critical paths between the SAP application layer and the DBMS layer. In some scenarios, network virtual appliances can cause Pacemaker Linux clusters to fail.
 
@@ -618,7 +618,7 @@ It isn't possible to describe all migration approaches and options for the large
 
   Often, any database workload is intentionally not supported because a service can't guarantee database consistency. If the DBMS type is supported by the migration service, the database change or churn rate often is too high. Most busy SAP systems won't meet the change rate that migration tools allow. Issues might not be seen or discovered until production migration. In many situations, some Azure services aren't suitable for migrating SAP systems. Azure Site Recovery and Azure Migrate don't have validation for a large-scale SAP migration. A proven SAP migration methodology is to rely on DBMS replication or SAP migration tools.
 
-  A deployment in Azure instead of a basic VM migration is preferable and easier to accomplish than an on-premises migration. Automated deployment frameworks like [Azure Center for SAP solutions](../center-sap-solutions/overview.md) and [Azure deployment automation framework](../automation/deployment-framework.md) allow quick execution of automated tasks. Migrating your SAP landscape to a new deployed infrastructure by using DBMS native replication technologies like HANA system replication, DBMS backup and restore, or SAP migration tools uses established technical knowledge of your SAP system.
+  A deployment in Azure instead of a basic VM migration is preferable and easier to accomplish than an on-premises migration. Automated deployment frameworks like [Azure Center for SAP solutions](../center-sap-solutions/overview.md) and [Azure deployment automation framework](../automation/deployment-framework.md) allow quick execution of automated tasks. To migrate your SAP landscape to a new deployed infrastructure by using DBMS native replication technologies like HANA system replication, DBMS backup and restore, or SAP migration tools uses established technical knowledge of your SAP system.
 
 - **Infrastructure scale-up**. During an SAP migration, having more infrastructure capacity can help you deploy more quickly. The project team should consider scaling up the [VM size](/azure/virtual-machines/sizes) to provide more CPU and memory. The team also should consider scaling up VM aggregate storage and network throughput. Similarly, on the VM level, consider storage elements like individual disks to increase throughput with [on-demand bursting](/azure/virtual-machines/disks-enable-bursting) and [performance tiers](/azure/virtual-machines/disks-performance-tiers-portal) for Premium SSD v1. Increase IOPS and throughput values if you use [Premium SSD v2](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli#adjust-disk-performance) above the configured values. Enlarge NFS and SMB file shares to increase performance limits. Keep in mind that Azure manage disks can't be reduced in size, and that reduction in size, performance tiers, and throughput KPIs can have various cool-down times.
 
@@ -651,3 +651,4 @@ Operating an SAP landscape in Azure requires connectivity to and from SAP for su
 - [Deploy an SAP workload on Azure](deployment-guide.md)
 - [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](dbms-guide-general.md)
 - [SAP workloads on Azure: Planning and deployment checklist](deployment-checklist.md)
+- [Virtual machine scale sets for SAP workload](./virtual-machine-scale-set-sap-deployment-guide.md)
