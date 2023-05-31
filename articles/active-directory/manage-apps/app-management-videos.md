@@ -102,7 +102,7 @@ ___
 
 ## Phases of migrating apps from ADFS to Azure AD
 
-Learn about the phases of migrating applications from AD FS to Azure AD.
+Learn about the different phases of migrating apps from ADFS to Azure AD and the steps involved in each phase. View a demo on how to migrate a simple app from ADFS to Azure AD and the steps you need to take to ensure a successful migration.
 
 ___
 
