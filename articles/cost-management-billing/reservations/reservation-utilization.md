@@ -45,7 +45,7 @@ There are two options for Power BI users:
 
 ## Set alerts on utilization
 
-With reservation utilization alerts, you can promptly take remedial actions to ensure optimal utilization of your reservation purchases. To learn more, see [Reservation utilization alerts](/cost-management-billing/costs/reservation-utilization-alerts.md).
+With reservation utilization alerts, you can promptly take remedial actions to ensure optimal utilization of your reservation purchases. To learn more, see [Reservation utilization alerts](/cost-management-billing/costs/reservation-utilization-alerts).
 
 
 ## Next steps
