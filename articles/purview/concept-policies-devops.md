@@ -65,7 +65,7 @@ Bob and Alice are involved with the DevOps process at their company. Given their
 |||
 
 ## DevOps policies API
-Many sophisticated customers prefer to interface with Microsoft Purview via scripts rather than via the UI. Now Microsoft Purview DevOps policies supports a REST API offering full CRUD capability (listing, policies for SQL Performance Monitor, policies for SQL Security Auditor). See the spec here: https://learn.microsoft.com/en-us/rest/api/purview/devopspolicydataplane/devops-policy.
+Many sophisticated customers prefer to interface with Microsoft Purview via scripts rather than via the UI. Now Microsoft Purview DevOps policies supports a REST API offering full CRUD capability (listing, policies for SQL Performance Monitor, policies for SQL Security Auditor). See the spec [here]( /rest/api/purview/devopspolicydataplane/devops-policy).
 
 ![Diagram shows where to find the DevOps API in the Azure REST API menu.](./media/concept-policies-devops/devops-policy-API.png).
 
