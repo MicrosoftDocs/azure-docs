@@ -67,9 +67,5 @@ If your branch location has device links added, they appear in the **Links** col
 
 To delete a device link, navigate to the device link details page and select the **Delete** icon. A confirmation dialog appears. Select **Delete** to confirm the deletion.
 
-### Delete a device link from a branch location using the API
-
-
-
 ## Next steps
 - [List office branch locations](how-to-list-branch-locations.md)

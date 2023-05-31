@@ -27,8 +27,6 @@ Global Secure Access provides branch connectivity so you can connect a branch of
 
 There are multiple ways to connect a branch location to Global Secure Access. In a nutshell, you're creating an Internet Protocol Security (IPSec) tunnel between a core router at your branch location and the nearest Microsoft VPN service. The network traffic is routed with the core router at the branch location so installation of a client isn't required on individual devices.
 
-## Create a branch location using the Microsoft Entra admin center
-
 Branch office locations are configured on three tabs. To work through each tab, either select the tab from the top of the page, or select the **Next** button at the bottom of the page.
 
 ### Basics
@@ -47,130 +45,56 @@ The first step is to provide the basic details of your branch office, including 
 The connectivity tab is where you add the device links for the branch office location. You need to provide the device type, IP address, border gateway protocol (BGP) address, and autonomous system number (ASN) for each device link. You can add device links after creating the branch office location. For more information on device links, see [How to manage branch location device links](how-to-manage-branch-location-device-links.md).
 
 1. Select the **Add a link** button. The **Add a link pane** opens with three tabs to complete.
-1. Under the **General** tab, enter the following details: 
+
+**General**
+
+1. Enter the following details: 
     - **Link name**: Name of your CPE.
     - **Device type**: Choose one of the options from the dropdown list.
     - **IP address**: Public IP address of your device.
     - **Link BGP address**: The border gateway protocol address of the CPE.
     - **Link ASN**: Provide the autonomous system number of the CPE. For more information on the requirements for this detail, see the [Link ASN](#link-asn) section of this article.
 1. Select the **Next** button.
-1. Under the **Details** tab, enter the following details: 
-    - Protocol: `IKEv2` 
-    - IPSec/IKE policy: `Default` 
 
-    Alternatively, you can select **IPSec/IKE** policy = `Custom`. In this case, enter the details:
-    - IKE Phase 1 
-    - Encryption: `GCMAES128` 
-    - IKEv2 integrity: `GCMAES128` 
-    - DH Group: `14` 
-    - IKE Phase 2 
-    - IPSec encryption: `GCMAES128` 
-    - IPSec integrity: `GCMAES128` 
-    - PFS group: `PFS1` 
-    - SA lifetime (seconds): `300` 
+**Details**
+
+<!--- why is IKEv1 greyed out in my sample --->
+1. Select either **IKEv2** or **IKEv1**. 
+1. The IPSec/IKE policy is set to **Default** but you can change to **Custom**. If you select **Custom** you need to set the following details:
+    - Encryption
+    - IKEv2 integrity
+    - DH group
+    - IPSec encryption
+    - IPSec integrity
+    - PFS group
+    - SA lifetime
 1. Select the **Next** button.
-1. Under the **Security** tab, enter the following details: 
-    - Pre shared key (PSK): `<Enter the secret key. The same secret key must be used on your CPE.>` 
-1. Select **Add link**. 
+
+**Security**
+
+1. Enter a pre-shared key to be used on your CPE.
+1. Select the **Add link** button. 
 
 ### Traffic profiles
 
 You can assign the branch office to a traffic forwarding profile when you create the branch. You can also assign the branch at a later time. For more information, see [Traffic forwarding profiles](concept-traffic-forwarding.md).
 
-1. Select **Next: Forwarding profiles**.
-1. Select **M365 traffic profile: All M365 traffic**. 
-1. Select **Review + Create**.
+1. Select the appropriate traffic forwarding profile.
+1. Select the **Review + Create** button.
 
-## Manage branch location details using the Microsoft Graph API
+## Update branch locations
 
-### Create a branch location
+All details of your branch locations can be updated at any time.
 
-1. Sign in to Microsoft Graph Explorer. 
-1. Select POST as the HTTP method. 
-1. Select BETA as the API version. 
-1. Add the following query to use Create Branches API (add hyperlink to the Graph API) 
-    ```
-    POST https://graph.microsoft.com/beta/networkaccess/branches 
-    { 
-        "name": "ContosoBranch", 
-        "country": "United States ", //must be removed 
-        "region": "East US", 
-        "bandwidthCapacity": 1000, //must be removed. This goes under deviceLink. 
-        "deviceLinks": [ 
-        { 
-            "name": "CPE Link 1", 
-            "ipAddress": "20.125.118.219", 
-            "version": "1.0.0", 
-            "deviceVendor": "Other", 
-            "bgpConfiguration": { 
-                "ipAddress": "172.16.11.5", 
-                "asn": 8888 
-              }, 
-              "tunnelConfiguration": { 
-                  "@odata.type": "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Default", 
-                  "preSharedKey": "Detective5OutgrowDiligence" 
-              } 
-        }] 
-    }  
-    ```
-1. Select **Run query** to create a branch.
+1. Sign in to the Microsoft Entra admin center at [https://entra.microsoft.com](https://entra.microsoft.com).
+1. Go to **Global Secure Access (preview)** > **Devices** > **Branches**.
+1. Select the branch you need to update.
 
+### Basics
 
-### Assign a traffic profile to a branch location
+On the Basics page you can update the branch name, country, region, and bandwidth. Select the pencil icon to edit the details.
 
-Traffic profiles, also known as forwarding profiles, determine what traffic is routed to the Microsoft network. Associating a traffic profile to your branch location is two step process. First, get the ID of the traffic profile. The ID is important because it's different for all tenants. Second, associate the traffic profile with your desired branch location.
-
-To update a branch using the Microsoft Graph API in Graph Explorer. 
-1. Open a web browser and navigate to the Graph Explorer at https://aka.ms/ge.
-1. Select **PATCH** as the HTTP method from the dropdown. 
-1. Select the API version to **beta**. 
-1. Enter the query:
-    ```
-    GET https://graph.microsoft.com/beta/networkaccess/forwardingprofiles 
-    ```
-1. Select **Run query**. 
-1. Find the ID of the desired traffic forwarding profile. 
-1. Select PATCH as the HTTP method from the dropdown. 
-1. Enter the query:
-    ```
-        PATCH https://graph.microsoft.com/beta/networkaccess/branches/d2b05c5-1e2e-4f1d-ba5a-1a678382ef16/forwardingProfiles
-        {
-            "@odata.context": "#$delta",
-            "value":
-            [{
-                "ID": "1adaf535-1e31-4e14-983f-2270408162bf"
-            }]
-        }
-    ```
-1. Select **Run query** to update the branch. 
-
-
-### Edit a top-level branch setting
-<!--- what IS a "top-level branch setting"? --->
-To edit the name, location, or region of a branch location:
-
-1. Open a web browser and navigate to the Graph Explorer at https://aka.ms/ge.
-1. Select **PATCH** as the HTTP method from the dropdown. 
-1. Select the API version to **beta**. 
-1. Enter the query:
-    ```
-    PATCH https://graph.microsoft.com/beta/networkaccess/branches/8d2b05c5-1e2e-4f1d-ba5a-1a678382ef16
-    {
-        "@odata.context": "#$delta",
-        "name": "ContosoBranch2"
-    }
-    ``` 
-1. Select **Run query** to update the branch. 
-
-### Delete a branch using the API
-1. Open a web browser and navigate to the Graph Explorer at https://aka.ms/ge.
-1. Select **PATCH** as the HTTP method from the dropdown. 
-1. Select the API version to **beta**. 
-1. Enter the query:
-    ```
-    DELETE https://graph.microsoft.com/beta/networkaccess/branches/97e2a6ea-c6c4-4bbe-83ca-add9b18b1c6b 
-    ```
-1. Select **Run query** to delete the branch. 
+![Screenshot of the edit branch details option.](media/how-to-manage-branch-locations/update-branch-details.png)
 
 ## Delete a branch
 
@@ -179,6 +103,8 @@ To edit the name, location, or region of a branch location:
 1. Select the branch you need to delete.
 1. Select the **Delete** button. 
 1. Select **Delete** from the confirmation message.
+
+![Screenshot of the delete branch button.](media/how-to-manage-branch-locations/delete-branch.png)
 
 ## Link ASN
 
