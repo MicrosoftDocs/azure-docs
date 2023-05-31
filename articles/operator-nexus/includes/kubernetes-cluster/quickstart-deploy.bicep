@@ -1,14 +1,11 @@
 @description('Nexus Kubernetes cluster name')
-param name string
+param kubernetesClusterName string
 
 @description('ARM id of the network to be used as the cni network')
 param cniNetworkId string
 
 @description('ARM id of the cloud services network')
 param cloudServicesNetworkId string
-
-@description('ARM id of the the attached l3 network')
-param l3NetworkId string
 
 @description('HybridAKS Kubernetes Version to use')
 param kubernetesVersion string = 'v1.24.9'
@@ -30,7 +27,7 @@ param serviceCidrs array = [
 param dnsServiceIp string = '10.96.0.10'
 
 @description('SSH public keys to be associated with the "clouduser" user')
-param sshPublicKey array = []
+param sshPublicKey string = ''
 
 @description('AAD groups object IDs that will be set as cluster admin on the provisioned cluster.')
 param adminGroupObjectIds array = []
@@ -57,7 +54,7 @@ param systemPoolNodeCount int = 1
 param workerVmSkuName string = 'NC_M4_v1'
 
 resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-05-01-preview' = {
-  name: name
+  name: kubernetesClusterName
   location: location
   tags: tags
   extendedLocation: {
@@ -71,50 +68,25 @@ resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-05-01
     }
     administratorConfiguration: {
       adminUsername: adminUsername
-      sshPublicKeys: [for sshKey in sshPublicKey: {
-        keyData: sshKey
-      }]
+      sshPublicKeys: [
+        {
+          keyData: sshPublicKey
+        }
+      ]
     }
     initialAgentPoolConfigurations: [
       {
-        name: '${name}-nodepool-1'
-        administratorConfiguration: {
-          adminUsername: adminUsername
-          sshPublicKeys: [for sshKey in sshPublicKey: {
-            keyData: sshKey
-          }]
-        }
+        name: '${kubernetesClusterName}-nodepool-1'
         count: systemPoolNodeCount
         vmSkuName: workerVmSkuName
         mode: 'System'
       }
     ]
     controlPlaneNodeConfiguration: {
-      administratorConfiguration: {
-        adminUsername: adminUsername
-        sshPublicKeys: [for sshKey in sshPublicKey: {
-          keyData: sshKey
-        }]
-      }
       count: controlPlaneCount
       vmSkuName: controlPlaneVmSkuName
     }
     networkConfiguration: {
-      attachedNetworkConfiguration: {
-        l3Networks: [
-          {
-            networkId: l3NetworkId
-            pluginType: 'SRIOV'
-            ipamEnabled: 'False'
-          }
-        ]
-      }
-      bgpServiceLoadBalancerConfiguration: {
-        bgpAdvertisements: []
-        bgpPeers: []
-        ipAddressPools: []
-        fabricPeeringEnabled: 'True'
-      }
       cniNetworkId: cniNetworkId
       cloudServicesNetworkId: cloudServicesNetworkId
       dnsServiceIp: dnsServiceIp

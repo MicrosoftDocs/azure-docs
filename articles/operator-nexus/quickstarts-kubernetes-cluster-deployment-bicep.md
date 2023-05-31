@@ -36,7 +36,7 @@ Once you have reviewed and saved the template file named ```kubernetes-deploy.bi
 2. Deploy the template.
 
 ```azurecli
-    az deployment group create 
+    az deployment group create \
       --resource-group myResourceGroup \
       --template-file kubernetes-deploy.bicep \
       --parameters @kubernetes-deploy-parameters.json
