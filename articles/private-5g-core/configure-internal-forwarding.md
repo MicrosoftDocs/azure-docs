@@ -12,10 +12,11 @@ ms.custom: template-how-to
 
 # Configure UE to UE internal forwarding for Azure Private 5G Core - Azure portal
 
-AP5GC enables traffic flowing between user equipment (UEs) attached to the same data network to stay within that network. This is called *internal forwarding between UEs*. Internal forwarding between UEs minimizes latency and maximizes security and privacy for UE-UE traffic. You can modify your existing SIM policies to enable or disable this behaviour.
+Azure Private 5G Core enables traffic flowing between user equipment (UEs) attached to the same data network to stay within that network. This is called *internal forwarding between UEs*. Internal forwarding between UEs minimizes latency and maximizes security and privacy for UE-UE traffic. You can enable or disable this behavior using SIM policies.
 
-If you are using the [Default service and allow-all SIM policy](default-service-sim-policy.md), internal forwarding will be enabled. If you are using a more restrictive policy, you may need to enable internal forwarding. 
-If you are using the [Default service and allow-all SIM policy](default-service-sim-policy.md, and would like to disable internal forwarding, either because you use an external gateway or because you do not want UEs to communicate with each other, you can create a service to do so and then apply it to your allow-all SIM policy
+If you are using the [Default service and allow-all SIM policy](default-service-sim-policy.md), internal forwarding will be enabled. If you are using a more restrictive policy, you may need to enable internal forwarding.
+
+If you are using the [Default service and allow-all SIM policy](default-service-sim-policy.md) and would like to disable internal forwarding, either because you use an external gateway or because you do not want UEs to communicate with each other, you can create a service to do so and then apply it to your allow-all SIM policy.
 
 ## Prerequisites
 
