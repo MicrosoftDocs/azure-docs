@@ -38,7 +38,7 @@ This article describes resolutions to issues you might have when managing capaci
 | Cannot change QoS type from manual to auto | Once the QoS type is changed to manual, you cannot change it to auto. Given this, there are three options: <ul><li> Do not move the volume if it must be in a capacity pool with QoS type auto.</li><li> Create a new capacity pool with QoS type manual enabled, then you can move the volume to the new capacity pool. </li><li> Change the destination pool to QoS type manual from auto. Then perform the move. </li></ul> For information about QoS, see [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md#qos_types). | 
 | Cannot change a volume from a Double Encrypted Pool to a Single Encrypted Pool or from a Single Encrypted Pool to a Double Encrypted Pool | The destination pool must be of the same encryption type as the source pool. |
 
-## Issues for double-encrypted capacity pools  
+## Issues for double-encryption capacity pools  
 
 |     Error condition    |     Resolution    |
 |-|-|
