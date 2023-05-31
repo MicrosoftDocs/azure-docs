@@ -19,12 +19,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-<!-- Date TBD -->
 
 * [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) (Preview)
 
     
-
 
 ## May 2023 
 
