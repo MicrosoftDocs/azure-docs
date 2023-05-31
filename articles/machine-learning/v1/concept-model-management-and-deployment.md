@@ -133,16 +133,6 @@ To deploy the model as a web service, you must provide the following items:
 
 For more information, see [Deploy models](how-to-deploy-and-where.md).
 
-#### Controlled rollout
-
-When deploying to Azure Kubernetes Service, you can use controlled rollout to enable the following scenarios:
-
-* Create multiple versions of an endpoint for a deployment
-* Perform A/B testing by routing traffic to different versions of the endpoint.
-* Switch between endpoint versions by updating the traffic percentage in endpoint configuration.
-
-For more information, see [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
-
 ### Analytics
 
 Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI (preview)](/power-bi/service-machine-learning-integration).
