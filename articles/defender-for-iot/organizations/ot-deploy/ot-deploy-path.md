@@ -183,6 +183,26 @@ When baseline learning ends, the OT monitoring deployment process is complete, a
 > [Turn off learning mode manually](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) if you feel that the current alerts in Defender for IoT reflect your network traffic accurately, and learning mode hasn't already ended automatically.
 >
 
+## Connect Defender for IoT data to your SIEM
+
+After you’re completely deployed, operationalize security alerts and manage your IoT incidents by integrating Defender for IoT with your security information and event management (SIEM) platform and existing SOC workflows and tools.
+Integrate Defender for IoT alerts with your organizational SIEM by integrating with Microsoft Sentinel, or by [creating forwarding rules](../how-to-forward-alert-information-to-partners.md) to other SIEM systems or an email address.
+Defender for IoT integrates out-of-the-box with Microsoft Sentinel, as well as a broad range of SIEM, ticketing, firewall, and NAC systems, such as Splunk, QRadar, LogRhythm, Fortinet and more.
+
+For more information, see:
+
+- [OT threat monitoring in enterprise SOCs](../concept-sentinel-integration.md)
+- [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../iot-solution.md)
+- [Integrations with Microsoft and partner services](../integrate-overview.md)
+
+After integrating Defender for IoT with a SIEM, we recommend the following next steps to fine tune which alerts are forwarded to the SIEM to reduce alert fatigue. 
+
+- Identify and define relevant IoT/OT security threats and SOC incidents you would like to monitor based on your specific OT needs and environment.
+
+- Create detection rules and severity levels in the SIEM. Only relevant incidents will be triggered, thus reducing unnecessary noise. For example, you would define PLC code changes performed from unauthorized devices, or outside of work hours, as a high severity incident due to the high fidelity of this specific alert.
+
+- Define the appropriate workflow for mitigation and create automated investigation playbooks for each use case.
+
 ## Next steps
 
 Now that you understand the OT monitoring system deployment steps, you're ready to get started!
