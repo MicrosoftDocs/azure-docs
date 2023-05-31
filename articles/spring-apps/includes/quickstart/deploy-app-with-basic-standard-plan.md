@@ -20,7 +20,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 3 Provision
 
-The main resources you need to run this sample is an Azure Spring Apps instance . Use the following steps to create these resources.
+The main resources you need to run this sample is an Azure Spring Apps instance. Use the following steps to create these resources.
 
 ### 3.1 Sign in to the Azure portal
 
@@ -42,11 +42,11 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
 
    Command interaction description:
     - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you just created, which defaults to the first subscription in the list. If you use the default number, press Enter directly.
-    - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you just created, If you use the default number, press Enter directly.
-    - **Input the app name**: Provide an app name. If you use the default project artifact id, press Enter directly.
+    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press Enter directly.
+    - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press Enter directly.
+    - **Input the app name**: Provide an app name. If you use the default project artifact ID, press Enter directly.
     - **Expose public access for this app (boot-for-azure)?**: Enter *y*.
-    - **Confirm to save all the above configurations (Y/n)**: Enter `y`. If Enter `n`, the configuration will not be saved in the pom files.
+    - **Confirm to save all the above configurations (Y/n)**: Enter `y`. If Enter `n`, the configuration won't be saved in the POM files.
 
 1. Use the following command to deploy the app:
 
