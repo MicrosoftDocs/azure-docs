@@ -39,8 +39,8 @@ The following table provides a summary of issues fixed in this release.
   |No.  |Feature  | Issue |
   |-----|-----|-----|
   | 1 | Packet forwarding | In scenarios of sustained high load (e.g., continuous setup of 100s of TCP flows per second) combined with NAT pin-hole exhaustion, AP5GC can encounter a memory leak, leading to a short period of service disruption resulting in some call failures. This issue has been fixed in this release. |
-  | 2 | Install/Upgrade | Changing the technology type of a deployment from 4G (EPC) to 5G using upgrade or site delete/ add sequence is currently not supported. This issue has been fixed in this release. |
-  | 3 | Local dashboards | In some scenarios, the Azure Private 5G Core local dashboards do not show session rejection under the **Device and Session Statistics** panel if "Session Establishment" requests are rejected due to invalid PDU type (e.g. IPv6 when only IPv4 supported). This issue has been fixed in this release. | 
+  | 2 | Install/Upgrade | Changing the technology type of a deployment from 4G (EPC) to 5G using the upgrade or site delete/add sequence is not supported. This issue has been fixed in this release. |
+  | 3 | Local dashboards | In some scenarios, the Azure Private 5G Core local dashboards do not show session rejection under the **Device and Session Statistics** panel if "Session Establishment" requests are rejected due to invalid PDU type (e.g. IPv6 when only IPv4 is supported). This issue has been fixed in this release. | 
 
 ## Known issues in the AP5GC 2305 release
 
