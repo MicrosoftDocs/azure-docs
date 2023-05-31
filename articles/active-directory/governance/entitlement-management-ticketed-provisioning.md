@@ -15,7 +15,7 @@ ms.custom: template-tutorial
 
 
 
-Scenario: In this scenario you learn how to use custom extensibility, and a Logic App, to automatically generate ServiceNow ticket for manual provisioning of users who have received assignments and need access to apps.
+Scenario: In this scenario you learn how to use custom extensibility, and a Logic App, to automatically generate ServiceNow tickets for manual provisioning of users who have received assignments and need access to apps.
 
 In this tutorial, you learn how to:
 
