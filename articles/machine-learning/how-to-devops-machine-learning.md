@@ -302,7 +302,8 @@ AzureML Job Failed == Azure DevOps Task under WaitForJobCompletion job **Failed*
 AzureML Job Cancelled == Azure DevOps Task under WaitForJobCompletion job **Cancelled**
 
  
-You can view the complete Azure Machine Learning job in Azure Machine Learning studio for information.
+> [!TIP]
+> You can view the complete Azure Machine Learning job in [Azure Machine Learning studio](https://ml.azure.com).
 
 
 ## Clean up resources
