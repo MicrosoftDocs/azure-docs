@@ -103,7 +103,7 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 * Azure AD Connect requires network connectivity to all configured domains
 * Azure AD Connect requires network connectivity to the root domain of all configured forest
 * If you have firewalls on your intranet and you need to open ports between the Azure AD Connect servers and your domain controllers, see [Azure AD Connect ports](reference-connect-ports.md) for more information.
-* If your proxy or firewall limit which URLs can be accessed, the URLs documented in [Office 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges) must be opened. Also see [Safelist the Azure portal URLs on your firewall or proxy server](../../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
+* If your proxy or firewall limit which URLs can be accessed, the URLs documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened. Also see [Safelist the Azure portal URLs on your firewall or proxy server](../../../azure-portal/azure-portal-safelist-urls.md).
   * If you're using the Microsoft cloud in Germany or the Microsoft Azure Government cloud, see [Azure AD Connect sync service instances considerations](reference-connect-instances.md) for URLs.
 * Azure AD Connect (version 1.1.614.0 and after) by default uses TLS 1.2 for encrypting communication between the sync engine and Azure AD. If TLS 1.2 isn't available on the underlying operating system, Azure AD Connect incrementally falls back to older protocols (TLS 1.1 and TLS 1.0). From Azure AD Connect version 2.0 onwards. TLS 1.0 and 1.1 are no longer supported and installation will fail if TLS 1.2 is not enabled.
 * Prior to version 1.1.614.0, Azure AD Connect by default uses TLS 1.0 for encrypting communication between the sync engine and Azure AD. To change to TLS 1.2, follow the steps in [Enable TLS 1.2 for Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
@@ -234,6 +234,4 @@ The minimum requirements for computers running AD FS or Web Application Proxy se
 * Azure VM: A2 configuration or higher
 
 ## Next steps
-
 Learn more about [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
-
