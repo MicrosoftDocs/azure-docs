@@ -81,7 +81,7 @@ sections:
           - Only Gen2 images are supported.  
           - Choose one of the Azure regions where NVMe is enabled. 
           By meeting the five conditions, you'll be able to enable NVMe on the supported VM family in no time. Follow the above conditions while creating and resizing a VM with NVMe to ensure successful launch of feature.
-       - question: |
+      - question: |
           How can I resize a SCSI Ebsv5 or Ebdsv5 VM (E.g 8 vCPU) created using untagged image to a NVMe-enabled VM of the different size(E112i) without recreating the VM configurations and without tagging the image? 
         answer: |
           - The source VM e.g. E8bsv5 in this case, should use a NVMe none tagged OS image that supports NVMe  
