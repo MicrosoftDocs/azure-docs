@@ -43,6 +43,14 @@ Conversation summarization supports the following languages:
 |-----------------------|---------------|---------------------|
 | English               | `en`          |                     |
 
+## Languages supported by custom summarization
+
+Custom summarization supports the following languages:
+
+| Language              | Language code |      Notes          |
+|-----------------------|---------------|---------------------|
+| English               | `en`          |                     |
+
 ---
 
 ## Next steps

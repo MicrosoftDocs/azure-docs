@@ -223,6 +223,19 @@ Total supported language codes: 94
 | Yiddish (new)	 | `yi` | 2022-11-01 | |
 
 
+## Multi-lingual option (Custom sentiment analysis only)
+
+With [Custom sentiment analysis](./overview.md?tabs=custom), you can train a model in one language and use to classify documents in another language. This feature is useful because it helps save time and effort. Instead of building separate projects for every language, you can handle multi-lingual dataset in one project. Your dataset doesn't have to be entirely in the same language but you should enable the multi-lingual option for your project while creating or later in project settings. If you notice your model performing poorly in certain languages during the evaluation process, consider adding more data in these languages to your training set.
+
+You can train your project entirely with English documents, and query it in: French, German, Mandarin, Japanese, Korean, and others. Custom sentiment analysis
+makes it easy for you to scale your projects to multiple languages by using multilingual technology to train your models.
+
+Whenever you identify that a particular language is not performing as well as other languages, you can add more documents for that language in your project. In the [data labeling](./custom/how-to/label-data.md) page in Language Studio, you can select the language of the document you're adding. When you introduce more documents for that language to the model, it is introduced to more of the syntax of that language, and learns to predict it better.
+
+You aren't expected to add the same number of documents for every language. You should build the majority of your project in one language, and only add a few documents in languages you observe aren't performing well. If you create a project that is primarily in English, and start testing it in French, German, and Spanish, you might observe that German doesn't perform as well as the other two languages. In that case, consider adding 5% of your original English documents in German, train a new model and test in German again. You should see better results for German queries. The more labeled documents you add, the more likely the results are going to get better. 
+
+When you add data in another language, you shouldn't expect it to negatively affect other languages. 
+
 ## Next steps
 
 * [how to call the API](how-to/call-api.md#specify-the-sentiment-analysis-model) for more information.
