@@ -90,99 +90,69 @@ sections:
           '''      
           $subscription_id = 'your-subscription-id'
 
-$resource_group_name = 'your-resource-group-name'
+          $resource_group_name = 'your-resource-group-name'
 
-$vm_name = 'your-vm-name'
+          $vm_name = 'your-vm-name'
 
-$disk_controller_change_to = 'NVMe'
+          $disk_controller_change_to = 'NVMe'
 
-$vm_size_change_to = 'Standard_E112ibds_v5'
+          $vm_size_change_to = 'Standard_E112ibds_v5'
 
- 
+          $os_disk_name = (Get-AzVM -ResourceGroupName $resource_group_name -Name $vm_name).StorageProfile.OsDisk.Name
 
-$os_disk_name = (Get-AzVM -ResourceGroupName $resource_group_name -Name $vm_name).StorageProfile.OsDisk.Name
+          $uri = 'https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Compute/disks/{2}?api-version=2022-07-02' -f $subscription_id, $resource_group_name, $os_disk_name
 
- 
+          $access_token = (Get-AzAccessToken).Token
 
-$uri = 'https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Compute/disks/{2}?api-version=2022-07-02' -f $subscription_id, $resource_group_name, $os_disk_name
+          $auth_header = @{
 
- 
+              'Content-Type'  = 'application/json'
 
-$access_token = (Get-AzAccessToken).Token
+                  'Authorization' = 'Bearer ' + $access_token
+                                                                }
+          $body = @'
+                      {
+           "properties": {
 
- 
+           "supportedCapabilities": {
 
-$auth_header = @{
+                  "diskControllerTypes":"SCSI, NVMe"
 
-   'Content-Type'  = 'application/json'
+                                                      }
+                                                             }
+                                                                    }
+          '@
 
-   'Authorization' = 'Bearer ' + $access_token
+         $get_supported_capabilities = (Invoke-WebRequest -uri $uri -Method Get -Headers $auth_header | ConvertFrom-Json).properties.supportedCapabilities
 
-}
+         #Stop and deallocate the VM
 
- 
+         Stop-AzVM -ResourceGroupName $resource_group_name -Name $vm_name -Force
 
-$body = @'
+         #Add NVMe supported capabilities to the OS disk
 
-{
+         $Update_Supported_Capabilities = (Invoke-WebRequest -uri $uri -Method PATCH -body $body -Headers $auth_header | ConvertFrom-Json)
 
-   "properties": {
+         # Get VM configuration
 
-       "supportedCapabilities": {
+         $vm = Get-AzVM -ResourceGroupName $resource_group_name -Name $vm_name
 
-           "diskControllerTypes":"SCSI, NVMe"
+         # Build a configuration with updated VM size
 
-       }
+         $vm.HardwareProfile.VmSize = $vm_size_change_to
 
-   }
+         # Build a configuration with updated disk controller type
 
-}
+         $vm.StorageProfile.DiskControllerType = $disk_controller_change_to
 
-'@
+         # Change the VM size and VM’s disk controller type
 
- 
+         Update-AzVM -ResourceGroupName $resource_group_name -VM $vm
+         # Start the VM
 
-$get_supported_capabilities = (Invoke-WebRequest -uri $uri -Method Get -Headers $auth_header | ConvertFrom-Json).properties.supportedCapabilities
-
- 
-
-#Stop and deallocate the VM
-
-Stop-AzVM -ResourceGroupName $resource_group_name -Name $vm_name -Force
-
- 
-
-#Add NVMe supported capabilities to the OS disk
-
-$Update_Supported_Capabilities = (Invoke-WebRequest -uri $uri -Method PATCH -body $body -Headers $auth_header | ConvertFrom-Json)
-
- 
-
-# Get VM configuration
-
-$vm = Get-AzVM -ResourceGroupName $resource_group_name -Name $vm_name
-
- 
-
-# Build a configuration with updated VM size
-
-$vm.HardwareProfile.VmSize = $vm_size_change_to
-
- 
-
-# Build a configuration with updated disk controller type
-
-$vm.StorageProfile.DiskControllerType = $disk_controller_change_to
-
- 
-
-# Change the VM size and VM’s disk controller type
-
-Update-AzVM -ResourceGroupName $resource_group_name -VM $vm
-''''
-# Start the VM
-
-Start-AzVM -ResourceGroupName $resource_group_name -Name $vm_name
+         Start-AzVM -ResourceGroupName $resource_group_name -Name $vm_name
+         '''
+         
   - name: Missing Required Configurations
     questions:
       - question: |
