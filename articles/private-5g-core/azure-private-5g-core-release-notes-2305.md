@@ -22,7 +22,7 @@ The support lifetime for version 2305 will end on July 31, 2023. Please be prepa
 
 ## What's new
 
-- **User-Plane Inactivity Detection** - Starting from AP5GC 2305, a user-plane inactivity timer with a value of 600s will be configured for 5G sessions. If there is no traffic for a period of 600s and RAN-initiated Access Network release has not occurred, the Packet Core will release Access Network resources.
+- **User-Plane Inactivity Detection** - Starting from AP5GC 2305, a user-plane inactivity timer with a value of 600 seconds will be configured for 5G sessions. If there is no traffic for a period of 600 seconds and RAN-initiated Access Network release has not occurred, the Packet Core will release Access Network resources.
 
 - **UE (user equipment) to UE internal forwarding** - This release delivers the ability for AP5GC to internally forward UE data traffic destined to another UE in the same Data Network (without going via an external router).  
 
@@ -46,8 +46,8 @@ The following table provides a summary of issues fixed in this release.
 
   |No.  |Feature  | Issue | Workaround/comments |
   |-----|-----|-----|-----|
-  | 1 | Local Dashboards | Where Azure Active Directory is used to authenticate access to AP5GC Local Dashboards, this traffic does not transmit via the web proxy when enabled on the Azure Stack Edge appliance that the packet core is running on. | |
-  | 2 | Reboot | AP5GC may intermittently fail to recover after the underlying platform is rebooted and may require another reboot to recover. | |
+  | 1 | Local Dashboards | Where Azure Active Directory is used to authenticate access to AP5GC Local Dashboards, this traffic does not transmit via the web proxy when enabled on the Azure Stack Edge appliance that the packet core is running on. | Not applicable. |
+  | 2 | Reboot | AP5GC may intermittently fail to recover after the underlying platform is rebooted and may require another reboot to recover. | Not applicable. |
 
 ## Known issues from previous releases
 
