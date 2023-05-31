@@ -70,7 +70,7 @@ In this section, you create **myVNet** virtual network with two subnets and an A
     | **Subnet details** | |
     | Name | Enter *mySubnet*. |
 
-1. Select the **Review + create**.
+1. Select **Review + create**.
 
 1. Review the settings, and then select **Create**. 
 
