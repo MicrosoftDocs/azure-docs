@@ -30,6 +30,9 @@ Discover applications using ADFS:
 
 > [!VIDEO https://www.youtube.com/embed/PxLIacDpHh4]
 
+>[!NOTE]
+> This video covers both phase 1 and 2 of the migration process.
+ 
 ## Using other identity providers (IdPs)
 
 - If you’re currently using Okta, refer to our [Okta to Azure AD migration guide](migrate-applications-from-okta-to-azure-active-directory.md).

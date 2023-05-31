@@ -39,7 +39,8 @@ Once you've determined values for business criticality and usage, you can then d
 ![A triangle diagram showing the relationships between Usage, Expected Lifespan, and Business Criticality](media/migrate-apps-to-azure-ad/triangular-diagram-showing-relationship.png)
 
 > [!VIDEO https://www.youtube.com/embed/PxLIacDpHh4]
-
+>[!NOTE]
+> This video covers both phase 1 and 2 of the migration process.
 ## Prioritize apps for migration
 
 You can choose to begin the app migration with either the lowest priority apps or the highest priority apps based on your organization’s needs.
