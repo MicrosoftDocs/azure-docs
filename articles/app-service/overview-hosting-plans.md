@@ -15,7 +15,7 @@ An app service always runs in an _App Service plan_. In addition, [Azure Functio
 When you create an App Service plan in a certain region (for example, West Europe), a set of compute resources is created for that plan in that region. Whatever apps you put into this App Service plan run on these compute resources as defined by your App Service plan. Each App Service plan defines:
 
 - Operating System (Windows, Linux)
-- Region (West US, East US, ans so on)
+- Region (West US, East US, and so on)
 - Number of VM instances
 - Size of VM instances (Small, Medium, Large)
 - Pricing tier (Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2)
