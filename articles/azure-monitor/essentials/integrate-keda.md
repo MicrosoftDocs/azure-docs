@@ -18,15 +18,15 @@ To integrate KEDA into your Azure Kubernetes Service, you have to deploy and con
 This article walks you through the steps to integrate KEDA into your AKS cluster using a workload identity.
  Note
 
->[!NOTE]
+> [!NOTE]
 > We recommend using Azure Active Directory workload identity. This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities to federate with any external identity providers on behalf of the application.
-
+>
 > The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022, and the project will be archived in Sept. 2023. For more information, see the deprecation notice. The AKS Managed add-on begins deprecation in Sept. 2023.
 
 ## Prerequisites
 
-1. Azure Kubernetes Service (AKS) cluster
-1. Prometheus sending metrics to an Azure Monitor workspace. For more information, see [Azure Monitor managed service for Prometheus](./prometheus-metrics-overview.md).
++ Azure Kubernetes Service (AKS) cluster
++ Prometheus sending metrics to an Azure Monitor workspace. For more information, see [Azure Monitor managed service for Prometheus](./prometheus-metrics-overview.md).
 
 
 ## Set up a workload identity
@@ -199,7 +199,7 @@ spec:
     authenticationRef:
       name: azure-managed-prometheus-trigger-auth
 ```
-+ `serverAddress` is the Query endpoint of your Azure Monitor workspace. For more information,see [Query Prometheus metrics using the API and PromQL](./prometheus-api-promql.md#query-endpoint)
++ `serverAddress` is the Query endpoint of your Azure Monitor workspace. For more information, see [Query Prometheus metrics using the API and PromQL](./prometheus-api-promql.md#query-endpoint)
 + `metricName` is the name of the metric you want to scale on. 
 + `query` is the query used to retrieve the metric. 
 + `threshold` is the value at which the deployment scales. 
@@ -222,7 +222,7 @@ kubectl logs -n keda keda-operator-5d9f7d975-mgv7r
  \"error\": \"unauthorized_client\",\n  \"error_description\": \"AADSTS70021: No matching federated identity record found for presented assertion. 
 Assertion Issuer: 'https://eastus.oic.prod-aks.azure.com/abcdef01-2345-6789-0abc-def012345678/12345678-abcd-abcd-abcd-1234567890ab/'.
 Assertion Subject: 'system:serviceaccount:keda:keda-operator'. 
-Assertion Audience: 'api://AzureADTokenExchange'. https://docs.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation
+Assertion Audience: 'api://AzureADTokenExchange'. https://docs.microsoft.com/azure/active-directory/develop/workload-identity-federation
 Trace ID: 12dd9ea0-3a65-408f-a41f-5d0403a25100\\r\\nCorrelation ID: 8a2dce68-17f1-4f11-bed2-4bcf9577f2af\\r\\nTimestamp: 2023-05-30 11:11:53Z\",
 \"error_codes\": [\n    70021\n  ],\n  \"timestamp\": \"2023-05-30 11:11:53Z\",
 \"trace_id\": \"12345678-3a65-408f-a41f-5d0403a25100\",
