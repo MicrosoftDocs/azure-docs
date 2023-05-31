@@ -20,7 +20,7 @@ Azure Files has increased the root directory handle limit per share from 2,000 t
 
 Note: The number of active users supported per share is dependent on the applications that are accessing the share. If your applications are not opening a handle on the root directory, Azure Files can support more than 10,000 active users per share.
  
-The root directory handle limit has been increased in all regions and applies to all existing and new file shares. 
+The root directory handle limit has been increased in all regions and applies to all existing and new file shares. For more information about Azure Files scale targets, see: [Azure Files scalability and performance targets](https://learn.microsoft.com/azure/storage/files/storage-files-scale-targets).
 
 
 #### Geo-redundant storage for large file shares is in public preview
