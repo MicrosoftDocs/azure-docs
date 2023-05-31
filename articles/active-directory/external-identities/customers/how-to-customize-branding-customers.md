@@ -51,7 +51,7 @@ The following image displays the neutral default branding of the customer tenant
 
 ## How to customize the default sign-in experience
 
-Before you customize any settings, the neutral default branding will appear in your sign-in and sign-up pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS. 
+Before you customize any settings, the neutral default branding will appear in your sign-in and sign-up pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a [custom CSS](/azure/active-directory/fundamentals/reference-company-branding-css-template). 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the customer tenant you created earlier.
