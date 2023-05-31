@@ -130,7 +130,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	VM Insights	|	X (Public preview)	|	X	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Automation Update Management	|	|	X	|		|
-|   | Azure Stack HCI | X |  |
+|   | Azure Stack HCI | X |  |  |
 |		|	Update Management Center	|	N/A (Public preview, independent of monitoring agents)	|		|		|
 |		|	Change Tracking	| X (Public preview) |	X	|		|
 |       |   SQL Best Practices Assessment | X |     |       |
