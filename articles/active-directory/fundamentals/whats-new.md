@@ -32,6 +32,187 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 
+## May 2023
+
+### General Availability - Conditional Access authentication strength for members, external users and FIDO2 restrictions
+
+**Type:** New feature   
+**Service category:** Conditional Access                      
+**Product capability:** Identity Security & Protection              
+
+Authentication strength is a Conditional Access control that allows administrators to specify which combination of authentication methods can be used to access a resource. For example, they can make only phishing-resistant authentication methods available to access a sensitive resource. Likewise, to access a nonsensitive resource, they can allow less secure multifactor authentication (MFA) combinations such as password + SMS.
+
+Authentication strength is now in General Availability for members and external users from any Microsoft cloud and FIDO2 restrictions. For more information, see: [Conditional Access authentication strength](../authentication/concept-authentication-strengths.md).
+
+---
+
+### General Availability - SAML/Ws-Fed based identity provider authentication for Azure Active Directory B2B users in US Sec and US Nat clouds
+
+**Type:** New feature   
+**Service category:** B2B                        
+**Product capability:** B2B/B2C             
+
+SAML/Ws-Fed based identity providers for authentication in Azure AD B2B are generally available in US Sec, US Nat and China clouds. For more information, see: [Federation with SAML/WS-Fed identity providers for guest users](../external-identities/direct-federation.md).
+
+---
+
+### Generally Availability - Cross-tenant synchronization
+
+**Type:** New feature   
+**Service category:** Provisioning                          
+**Product capability:** Identity Lifecycle Management              
+
+Cross-tenant synchronization allows you to set up a scalable and automated solution for users to access applications across tenants in your organization. It builds upon the Azure Active Directory B2B functionality and automates creating, updating, and deleting B2B users within tenants in your organization.  For more information, see: [What is cross-tenant synchronization?](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
+
+---
+
+### Public Preview - New My Groups Experience
+
+**Type:** Changed feature   
+**Service category:** Group Management                          
+**Product capability:** End User Experiences              
+
+A new and improved My Groups experience is now available at [myaccount.microsoft.com/groups](https://myaccount.microsoft.com/groups). This experience replaces the existing My Groups experience at mygroups.microsoft.com in May.   For more information, see: [Update your Groups info in the My Apps portal](https://support.microsoft.com/account-billing/update-your-groups-info-in-the-my-apps-portal-bc0ca998-6d3a-42ac-acb8-e900fb1174a4).
+
+---
+
+### General Availability - Admins can restrict their users from creating tenants
+
+**Type:** New feature   
+**Service category:** User Access Management                           
+**Product capability:** User Management               
+
+The ability for users to create tenants from the Manage Tenant overview has been present in Azure AD since almost the beginning of the Azure portal.  This new capability in the User Settings blade allows admins to restrict their users from being able to create new tenants. There's also a new [Tenant Creator](../roles/permissions-reference.md#tenant-creator) role to allow specific users to create tenants. For more information, see [Default user permissions](../fundamentals/users-default-permissions.md#restrict-member-users-default-permissions).
+
+---
+
+### Public Preview - Devices Self-Help Capability for Pending Devices
+
+
+
+**Type:** New feature   
+**Service category:** Device Access Management                
+**Product capability:** End User Experiences          
+
+In the **All Devices** view under the Registered column, you can now select any pending devices you have, and it opens a context pane to help troubleshoot why a device may be pending. You can also offer feedback on if the summarized information is helpful or not. For more information, see: [Pending devices in Azure Active Directory](/troubleshoot/azure/active-directory/pending-devices).
+
+
+---
+
+### General Availability - Admins can now restrict users from self-service accessing their BitLocker keys
+
+
+
+**Type:** New feature   
+**Service category:** Device Access Management                
+**Product capability:** User Management            
+
+Admins can now restrict their users from self-service accessing their BitLocker keys through the Devices Settings page. Turning on this capability hides the BitLocker key(s) of all non-admin users. This helps to control BitLocker access management at the admin level. For more information, see: [Restrict member users' default permissions](users-default-permissions.md#restrict-member-users-default-permissions).
+
+
+---
+
+### Public Preview - New provisioning connectors in the Azure AD Application Gallery - May 2023
+
+**Type:** New feature   
+**Service category:** App Provisioning               
+**Product capability:** 3rd Party Integration    
+      
+We've added the following new applications in our App gallery with Provisioning support. You can now automate creating, updating, and deleting of user accounts for these newly integrated apps:
+
+- [Sign In Enterprise Host Provisioning](../saas-apps/sign-in-enterprise-host-provisioning-tutorial.md)
+
+
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+
+
+---
+
+### General Availability -  Microsoft Entra Permissions Management Azure Active Directory Insights
+
+**Type:** New feature   
+**Service category:** Other                               
+**Product capability:** Permissions Management                 
+
+The Azure Active Directory Insights tab in Microsoft Entra Permissions Management provides a view of all permanent role assignments assigned to Global Administrators, and a curated list of highly privileged roles. Administrators can then use the report to take further action within the Azure Active Directory console. For more information, see [View privileged role assignments in your organization (Preview)](../cloud-infrastructure-entitlement-management/product-privileged-role-insights.md).
+
+---
+
+### Public Preview - In portal guide to configure multi-factor authentication
+
+**Type:** New feature   
+**Service category:** MFA                           
+**Product capability:** Identity Security & Protection              
+
+The in portal guide to configure multi-factor authentication helps you get started with Azure Active Directory's MFA capabilities. You can find this guide under the Tutorials tab in the Azure AD Overview. For more information, see: [Configure multi-factor authentication using the portal guide](../authentication/multi-factor-authentication-wizard.md).
+
+---
+
+### General Availability - Authenticator Lite (In Outlook)
+
+**Type:** New feature   
+**Service category:** Microsoft Authenticator App                           
+**Product capability:** User Authentication                
+
+Authenticator Lite (in Outlook) is an authentication solution for users that haven't yet downloaded the Microsoft Authenticator app. Users are prompted in Outlook on their mobile device to register for multi-factor authentication. After they enter their password at sign-in, they'll have the option to send a push notification to their Android or iOS device.
+
+Due to the security enhancement this feature provides users, the Microsoft managed value of this feature will be changed from ‘*disabled*’ to ‘*enabled*’ on June 9. We’ve made some changes to the feature configuration, so if you made an update before GA, May 17, please validate that the feature is in the correct state for your tenant prior to June 9. If you don't wish for this feature to be enabled on June 9, move the state to ‘*disabled*’, or set users to include and exclude groups.  
+
+
+For more information, see: [How to enable Microsoft Authenticator Lite for Outlook mobile (preview)](../authentication/how-to-mfa-authenticator-lite.md).
+
+---
+
+### General Availability - PowerShell and Web Services connector support through the Azure AD provisioning agent
+
+**Type:** New feature   
+**Service category:** Provisioning                          
+**Product capability:** Outbound to On-premises Applications               
+
+The Azure AD on-premises application provisioning feature now supports both the [PowerShell](../app-provisioning/on-premises-powershell-connector.md) and [web services](../app-provisioning/on-premises-web-services-connector.md) connectors. you can now provision users into a flat file using the PowerShell connector or an app such as SAP ECC using the web services connector. For more information, see: [Provisioning users into applications using PowerShell](../app-provisioning/on-premises-powershell-connector.md).
+
+---
+
+### General Availability - Verified threat actor IP sign-in detection
+
+**Type:** New feature   
+**Service category:** Identity Protection                          
+**Product capability:** Identity Security & Protection               
+
+Identity Protection has added a new detection, using the Microsoft Threat Intelligence database, to detect sign-in's performed from IP addresses of known nation state and cyber-crime actors and allow customers to block these sign-ins's by using risk-based conditional access policies. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md#sign-in-risk).
+
+---
+
+### General Availability - Conditional Access Granular control for external user types 
+
+**Type:** New feature   
+**Service category:** Conditional Access                            
+**Product capability:** Identity Security & Protection               
+
+When configuring a Conditional Access policy, customers now have granular control over the types of external users they want to apply the policy to. External users are categorized based on how they authenticate (internally or externally) and their relationship to your organization (guest or member). For more information, see: [Assigning Conditional Access policies to external user types](../external-identities/authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types).
+
+---
+
+### General Availability - My Security-info now shows Microsoft Authenticator type
+
+**Type:** Changed feature   
+**Service category:** MFA                        
+**Product capability:** Identity Security & Protection               
+
+We have improved My Sign-ins and My Security-Info to give you more clarity on the types of Microsoft Authenticator other Authenticator apps a user has registered. Users will now see Microsoft Authenticator registrations with additional information showing the app as being registered as Push-based MFA or Password-less phone sign-in (PSI) and for other Authenticator apps (Software OATH) we now indicate they're registered as a Time-based One-time password method.  For more information, see: [Set up the Microsoft Authenticator app as your verification method](https://support.microsoft.com/account-billing/set-up-the-microsoft-authenticator-app-as-your-verification-method-33452159-6af9-438f-8f82-63ce94cf3d29).
+
+---
+
+### General Availability - SAML/Ws-Fed based identity provider authentication for Azure Active Directory B2B users in US Sec and US Nat clouds
+
+**Type:** New feature   
+**Service category:** B2B                        
+**Product capability:** B2B/B2C             
+
+SAML/Ws-Fed based identity providers for authentication in Azure AD B2B are generally available in US Sec, US Nat and China clouds. For more information, see: [Federation with SAML/WS-Fed identity providers for guest users](../external-identities/direct-federation.md).
+
+---
+
 ## April 2023
 
 ### Public Preview - Custom attributes for Azure Active Directory Domain Services
@@ -124,7 +305,7 @@ Group secrets are typically created when a group is assigned credentials to an a
 **Service category:** Microsoft Authenticator App                     
 **Product capability:** User Authentication           
 
-Authenticator Lite is an additional surface for AAD users to complete multifactor authentication using push notifications on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in the Outlook mobile app. Users may receive a notification in their Outlook mobile app to approve or deny, or use the Outlook app to generate an OATH verification code that can be entered during sign-in. The *'Microsoft managed'* setting for this feature will be set to enabled on May 26th, 2023. This will enable the feature for all users in tenants where the feature is set to Microsoft managed. If you wish to change the state of this feature, please do so before May 26th, 2023. For more information, see: [How to enable Microsoft Authenticator Lite for Outlook mobile (preview)](../authentication/how-to-mfa-authenticator-lite.md).
+Authenticator Lite is an additional surface for Azure Active Directory users to complete multifactor authentication using push notifications on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in the Outlook mobile app. Users may receive a notification in their Outlook mobile app to approve or deny, or use the Outlook app to generate an OATH verification code that can be entered during sign-in. The *'Microsoft managed'* setting for this feature will be set to enabled on May 26th, 2023. This enables the feature for all users in tenants where the feature is set to Microsoft managed. If you wish to change the state of this feature, please do so before May 26th, 2023. For more information, see: [How to enable Microsoft Authenticator Lite for Outlook mobile (preview)](../authentication/how-to-mfa-authenticator-lite.md).
 
 ---
 
@@ -134,7 +315,7 @@ Authenticator Lite is an additional surface for AAD users to complete multifacto
 **Service category:** MFA                       
 **Product capability:** Identity Security & Protection             
 
-As part of ongoing service improvements, we are making updates to the per-user MFA admin configuration experience to align with the look and feel of Azure. This change does not include any changes to the core functionality and will only include visual improvements.  For more information, see: [Enable per-user Azure AD Multi-Factor Authentication to secure sign-in events](../authentication/howto-mfa-userstates.md).
+As part of ongoing service improvements, we're making updates to the per-user MFA admin configuration experience to align with the look and feel of Azure. This change doesn't include any changes to the core functionality and will only include visual improvements.  For more information, see: [Enable per-user Azure AD Multi-Factor Authentication to secure sign-in events](../authentication/howto-mfa-userstates.md).
 
 ---
 
@@ -478,19 +659,6 @@ For more information about how to better secure your organization by using autom
 **Product capability:** Collaboration          
 
 Cross-tenant synchronization allows you to set up a scalable and automated solution for users to access applications across tenants in your organization. It builds upon the Azure AD B2B functionality and automates creating, updating, and deleting B2B users. For more information, see: [What is cross-tenant synchronization? (preview)](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
-
-
----
-
-### Public Preview - Devices option Self-Help Capability for Pending Devices
-
-
-
-**Type:** New feature   
-**Service category:** Device Access Management                
-**Product capability:** End User Experiences          
-
-In the **All Devices** options under the registered column, you can now select any pending devices you have, and it opens a context pane to help troubleshoot why the device may be pending. You can also offer feedback on if the summarized information is helpful or not. For more information, see: [Pending devices in Azure Active Directory](/troubleshoot/azure/active-directory/pending-devices).
 
 
 ---
