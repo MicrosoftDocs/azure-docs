@@ -295,9 +295,9 @@ If you are using the Generic Service connection, you can't use the task provided
 ## Step 8: Submit pipeline and Verify your pipeline run
 
 Select __Save and run__. The pipeline will wait for the Azure Machine Learning job to complete, and end the task under `WaitForJobCompletion` with the same status as the Azure Machine Learning job. For example:
-AzureML Job Succeeded == Azure DevOps Task under WaitForJobCompletion job **Succeeded**
-AzureML Job Failed == Azure DevOps Task under WaitForJobCompletion job **Failed**
-AzureML Job Cancelled == Azure DevOps Task under WaitForJobCompletion job **Cancelled**
+Azure Machine Learning Job Succeeded == Azure DevOps Task under WaitForJobCompletion job **Succeeded**
+Azure Machine Learning Job Failed == Azure DevOps Task under WaitForJobCompletion job **Failed**
+Azure Machine Learning Job Cancelled == Azure DevOps Task under WaitForJobCompletion job **Cancelled**
 
  
 > [!TIP]
