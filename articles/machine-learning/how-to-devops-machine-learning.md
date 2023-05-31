@@ -110,7 +110,7 @@ You should already have a resource group in Azure with [Azure Machine Learning](
 1. Create a new variable, `Subscription_ID`, and select the checkbox **Keep this value secret**. Set the value to your [Azure portal subscription ID](../azure-portal/get-subscription-tenant-id.md).
 1. Create a new variable for `Resource_Group` with the name of the resource group for Azure Machine Learning (example: `machinelearning`). 
 1. Create a new variable for `AzureML_Workspace_Name` with the name of your Azure Machine Learning workspace (example: `docs-ws`).
-1. Create a new variable for `Service_connection` with the name of your Service-connection (example: `machine-learning-service-connection`).
+1. Create a new variable for `Service_connection` with the name of your service connection (example: `machine-learning-service-connection`).
 1. Select **Save** to save your variables. 
 
 ## Step 6: Build your YAML pipeline to submit the Azure Machine Learning job
