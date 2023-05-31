@@ -142,16 +142,13 @@ In a Standard service-level, cool-access enabled capacity pool, you can enable a
 
     :::image type="content" source="../media/azure-netapp-files/cool-access-existing-volume.png" alt-text="The Edit window: Enable Cool Access is a field with a checked checkbox. The coolness period is set to 31 days. " lightbox="../media/azure-netapp-files/cool-access-existing-volume.png"::: 
 
-### <a name="modify_cool"></a>Modify coolness period for a volume 
+### <a name="modify_cool"></a>Modify cool access configuration for a volume
 
-You can modify the coolness period setting for a volume based on the client read/write patterns.  
+Based on the client read/write patterns, you can modify the cool access configuration as needed for a volume. 
 
 1. Right-click the volume for which you want to modify the coolness configuration.  
 
-1. In the **Edit** window that appears, update the **Coolness Period** field.   
-    The default value is 31 days. The supported values are between 7 and 63. 
-
-    :::image type="content" source="../media/azure-netapp-files/cool-access-existing-volume.png" alt-text="The Edit window: Enable Cool Access is a field with a checked checkbox. The coolness period is set to 31 days. " lightbox="../media/azure-netapp-files/cool-access-existing-volume.png"::: 
+1. In the **Edit** window that appears, update the **Coolness Period** and **Cool Access Retrieval Policy** fields as needed.   
 
 ## Next steps
 * [Standard storage with cool access in Azure NetApp Files](cool-access-about.md)
