@@ -43,6 +43,18 @@ Links are provided to more information for each supported scenario.
 > [!NOTE]
 > Auto-instrumentation was known as "codeless attach" before October 2021.
 
+## SDK Loader Script injection by configuration
+
+If you’re using the following supported SDKs, you can configure the SDK Loader Script to inject from the server-side SDK onto each page.
+
+> [!NOTE]
+> See the linked article for instructions on how to install the server-side SDK.
+
+   | SDK   | More information
+   |	:---	|	:---	|
+   | ASP.NET Core | [Enable client-side telemetry for web applications](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
+   | Node.js | [Automatic web Instrumentation[Preview]](./nodejs.md#automatic-web-instrumentationpreview) |
+
 ## Next steps
 
 * [Application Insights overview](app-insights-overview.md)
