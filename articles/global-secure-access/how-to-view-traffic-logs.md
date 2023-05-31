@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 05/26/2023
+ms.date: 05/31/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -18,17 +18,24 @@ This article describes how to use the traffic logs to monitor the traffic for Gl
 
 ## Prerequisites
 
-## Understanding transactions and connections
-
-To better understand the information provided in the logs, it may help to understand the details that make up the logs. There are two concepts associated with these logs: transactions and connections.
-
-Transactions are request and response pairs that contain detailed information on the device, user, and how much data was transferred in each direction. 
+Need details here.
 
 ## How to view the traffic logs
 
-To view the logs, go to **Microsoft Entra admin center** > **Global Secure Access (Preview)** > **Monitor** > **Traffic logs**.
+To view the Global Secure Access traffic logs, go to **Microsoft Entra admin center** > **Global Secure Access (Preview)** > **Monitor** > **Traffic logs**.
 
-The logs provide a summary of the traffic in each category.
+The top of the page displays a summary of all network connections as well as a breakdown for each traffic forwarding profile.
+
+The log details provide valuable information about your network traffic.
+
+- **Traffic type**: 
+- **Destination FQDN**:
+- **User principal name**:
+- **Action**:
+- **Source IP**:
+- **Sent bytes**:
+- **Received bytes**:
+
 
 ## Next steps
 

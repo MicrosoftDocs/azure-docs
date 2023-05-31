@@ -27,6 +27,11 @@ To use this feature, you need the following roles, subscriptions, and resources:
 
 The *enriched Office 365 logs* provide information about Microsoft 365 workloads, so you can review network diagnostic data, performance data, and security events relevant to Microsoft 365 apps. For example, if access to Microsoft 365 is blocked for a user in your organization, you need visibility into how the user's device is connecting to your network.
 
+These logs provide:
+- Improved latency and predictability
+- Additional information added to original logs
+- Accurate IP address
+
 These logs are a subset of the logs available in the [Microsoft 365 audit log](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=0365-worldwide&preserve-view=true). The logs are enriched with additional information, such as the user's IP address, device name, and device type. The enriched logs also contain information about the Microsoft 365 app, such as the app name, app ID, and app version.
 
 ## How to export the logs
