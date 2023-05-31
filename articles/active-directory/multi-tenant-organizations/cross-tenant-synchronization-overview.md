@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: overview
-ms.date: 05/14/2023
+ms.date: 05/31/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -255,6 +255,20 @@ What federation options are supported for users in the target tenant back to the
 Does cross-tenant synchronization use System for Cross-Domain Identity Management (SCIM)?
 
 - No. Currently, Azure AD supports a SCIM client, but not a SCIM server. For more information, see [SCIM synchronization with Azure Active Directory](../fundamentals/sync-scim.md).
+
+#### Deprovisioning
+Does cross-tenant synchronization support deprovisioning users?
+
+- Yes, when the below actions occur in the source tenant, the user will be [soft deleted](https://learn.microsoft.com/azure/active-directory/fundamentals/recover-from-deletions#soft-deletions) in the target tenant. If they are not [restored](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) within 30 days they will be hard deleted.
+
+  - Soft / hard delete in the source
+  - Unassign from the cross-tenant sync configuration
+  - Removed from a group that is providing access to the app
+  - Met the scoping filter criteria initially, but doesn’t meet it any more
+
+- If the user in the source tenant is restored, reassigned to the app, meets the scoping condition again withn 30 days of soft deletion, it will be restored in the target tenant.
+
+- If the user is blocked from sign-in in the source tenant (accountEnabled = false) they will be blocked from sign-in in the target. This is not a deletion, but an updated to the accountEnabled property.
 
 
 ## Next steps
