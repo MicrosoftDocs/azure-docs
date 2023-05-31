@@ -10,7 +10,7 @@ ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
 
-# Manage network security group flow logs using REST API
+# Manage NSG flow logs using REST API
 
 > [!div class="op_single_selector"]
 > - [Azure portal](nsg-flow-logging.md)
