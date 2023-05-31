@@ -42,7 +42,7 @@ This article describes resolutions to issues you might have when managing capaci
 
 |     Error condition    |     Resolution    |
 |-|-|
-| Out of storage capacity when creating or resizing volumes under double-encrypted capacity pools: `There are currently insufficient resources available to create [or extend] a volume in this region. Please retry the operation. If the problem persists, contact Support.` |  The error indicates insufficient resources in the region to support hardware-level data encryption. Retry the operation after some time. Resources may have been freed in the cluster, region, or zone in the interim.  |
+| Out of storage capacity when creating or resizing volumes under double-encryption capacity pools: `There are currently insufficient resources available to create [or extend] a volume in this region. Please retry the operation. If the problem persists, contact Support.` |  The error indicates insufficient resources in the region to support hardware-level data encryption. Retry the operation after some time. Resources may have been freed in the cluster, region, or zone in the interim.  |
 
 ## Next steps  
 
