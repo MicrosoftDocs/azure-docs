@@ -137,7 +137,7 @@ Delta replication cycles are scheduled as follows:
 
 - First delta replication cycle is scheduled immediately after the initial replication cycle completes
 - Next delta replication cycles are scheduled according to the following logic: 
-  min[max[(Previous delta replication cycle time/2), 1 hour], 12]
+  min[max[(Previous delta replication cycle time/2), 1 hour], 12 hours]
 
 That is, the next delta replication will be scheduled no sooner than one hour and no later than 12 hours. For example, if a VM takes four hours for a delta replication cycle, the next delta replication cycle is scheduled in two hours, and not in the next hour.
 
