@@ -1,13 +1,15 @@
 ---
-title: Lumenisity UoS Patents
+title: Lumenisity University of Southhampton Patents
 description: List of Lumenisity UoS Patents as of April 19, 2023.
 author: duongau
 ms.topic: article
-ms.date: 05/15/2023
+ms.date: 05/31/2023
 ms.author: duau
 ---
 
-# Lumenisity UoS Patents
+# Lumenisity University of Southhampton Patents
+
+The following is a list of patents owned by Lumenisity UoS (University of Southampton) as of April 19, 2023. This list is subject to change without notice.
 
 > [!NOTE]
 > Microsoft Hollow Core Fiber products and manufacturing processes may be protected by one or more claims of the following patents or published patent applications.
