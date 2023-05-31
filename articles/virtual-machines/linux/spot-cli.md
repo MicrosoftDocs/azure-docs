@@ -7,7 +7,7 @@ ms.subservice: spot
 ms.workload: infrastructure-services
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 05/31/2023
 ms.author: jushiman
 ms.reviewer: cynthn
 ---
