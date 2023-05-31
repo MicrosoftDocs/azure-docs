@@ -11,7 +11,7 @@ This article helps you troubleshoot the following error string that appears in t
 
 > "Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration."
 
-This issue occurs when the Functions runtime can't start. The most common reason for this is that the function app has lost access to its storage account. For more information, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
+This issue occurs when the Functions runtime can't start. The most common reason for this is that the function app has lost access to its storage account. For more information, see [Storage account requirements](../../storage-considerations.md#storage-account-requirements).
 
 The rest of this article helps you troubleshoot specific causes of this error, including how to identify and resolve each case.
 
@@ -19,7 +19,7 @@ The rest of this article helps you troubleshoot specific causes of this error, i
 
 Every function app requires a storage account to operate. If that account is deleted, your functions won't work.
 
-Start by looking up your storage account name in your application settings. Either `AzureWebJobsStorage` or `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contains the name of your storage account as part of a connection string. For more information, see [App settings reference for Azure Functions](./././functions-app-settings.md#azurewebjobsstorage).
+Start by looking up your storage account name in your application settings. Either `AzureWebJobsStorage` or `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contains the name of your storage account as part of a connection string. For more information, see [App settings reference for Azure Functions](../../functions-app-settings.md#azurewebjobsstorage).
 
 Search for your storage account in the Azure portal to see whether it still exists. If it has been deleted, re-create the storage account and replace your storage connection strings. Your function code is lost, and you need to redeploy it.
 
@@ -30,12 +30,12 @@ In the preceding step, if you can't find a storage account connection string, it
 ### Required application settings
 
 * Required:
-  * [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)
+  * [`AzureWebJobsStorage`](../../functions-app-settings.md#azurewebjobsstorage)
 * Required for Premium plan functions:
-  * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md)
-  * [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md)
+  * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](../../functions-app-settings.md)
+  * [`WEBSITE_CONTENTSHARE`](../../functions-app-settings.md)
 
-For more information, see [App settings reference for Azure Functions](./functions-app-settings.md).
+For more information, see [App settings reference for Azure Functions](../../functions-app-settings.md).
 
 ### Guidance
 
@@ -45,7 +45,7 @@ For more information, see [App settings reference for Azure Functions](./functio
 
 ## Storage account credentials are invalid
 
-The previously discussed storage account connection strings must be updated if you regenerate storage keys. For more information about storage key management, see [Create an Azure Storage account](../storage/common/storage-account-create.md).
+The previously discussed storage account connection strings must be updated if you regenerate storage keys. For more information about storage key management, see [Create an Azure Storage account](../../../storage/common/storage-account-create.md).
 
 ## Storage account is inaccessible
 
@@ -53,9 +53,9 @@ Your function app must be able to access the storage account. Common issues that
 
 * The function app is deployed to your App Service Environment (ASE) without the correct network rules to allow traffic to and from the storage account.
 
-* The storage account firewall is enabled and not configured to allow traffic to and from functions. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+* The storage account firewall is enabled and not configured to allow traffic to and from functions. For more information, see [Configure Azure Storage firewalls and virtual networks](../../../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-* Verify that the `allowSharedKeyAccess` setting is set to `true`, which is its default value. For more information, see [Prevent Shared Key authorization for an Azure Storage account](../storage/common/shared-key-authorization-prevent.md?tabs=portal#verify-that-shared-key-access-is-not-allowed). 
+* Verify that the `allowSharedKeyAccess` setting is set to `true`, which is its default value. For more information, see [Prevent Shared Key authorization for an Azure Storage account](../../../storage/common/shared-key-authorization-prevent.md?tabs=portal#verify-that-shared-key-access-is-not-allowed). 
 
 ## Daily execution quota is full
 
@@ -71,9 +71,9 @@ To resolve this issue, remove or increase the daily quota, and then restart your
 
 Your function app might be unreachable for either of the following reasons:
 
-* Your function app is hosted in an [internally load balanced App Service Environment](../app-service/environment/create-ilb-ase.md) and it's configured to block inbound internet traffic.
+* Your function app is hosted in an [internally load balanced App Service Environment](../../../app-service/environment/create-ilb-ase.md) and it's configured to block inbound internet traffic.
 
-* Your function app has [inbound IP restrictions](functions-networking-options.md#inbound-networking-features) that are configured to block internet access. 
+* Your function app has [inbound IP restrictions](../../functions-networking-options.md#inbound-networking-features) that are configured to block internet access. 
 
 The Azure portal makes calls directly to the running app to fetch the list of functions, and it makes HTTP calls to the Kudu endpoint. Platform-level settings under the **Platform Features** tab are still available.
 
@@ -84,7 +84,7 @@ To verify your ASE configuration:
 
 You can also use the portal from a computer that's connected to the virtual network that's running your app or to a virtual machine that's running in your virtual network. 
 
-For more information about inbound rule configuration, see the "Network Security Groups" section of [Networking considerations for an App Service Environment](../app-service/environment/network-info.md#network-security-groups).
+For more information about inbound rule configuration, see the "Network Security Groups" section of [Networking considerations for an App Service Environment](../../../app-service/environment/network-info.md#network-security-groups).
 
 ## Container errors on Linux
 
@@ -102,7 +102,7 @@ Errors can occur when the container image being referenced is unavailable or fai
 
 You need to correct any errors that prevent the container from starting for the function app run correctly.
 
-When the container image can't be found, you'll see a `manifest unknown` error in the Docker logs. In this case, you can use the Azure CLI commands documented at [How to target Azure Functions runtime versions](set-runtime-version.md?tabs=azurecli#manual-version-updates-on-linux) to change the container image being referenced. If you've deployed a [custom container image](functions-create-function-linux-custom-image.md), you need to fix the image and redeploy the updated version to the referenced registry.
+When the container image can't be found, you'll see a `manifest unknown` error in the Docker logs. In this case, you can use the Azure CLI commands documented at [How to target Azure Functions runtime versions](../../set-runtime-version.md?tabs=azurecli#manual-version-updates-on-linux) to change the container image being referenced. If you've deployed a [custom container image](../../functions-how-to-custom-container), you need to fix the image and redeploy the updated version to the referenced registry.
 
 ### App container has conflicting ports
 
@@ -115,15 +115,19 @@ By default, the container in which your function app runs uses port `:80`. When 
 
 ## Host ID collision 
 
-Starting with version 3.x of the Functions runtime, [host ID collision](storage-considerations.md#host-id-considerations) are detected and logged as a warning. In version 4.x, an error is logged and the host is stopped. If the runtime can't start for your function app, [review the logs](analyze-telemetry-data.md). If there's a warning or an error about host ID collisions, follow the mitigation steps in [Host ID considerations](storage-considerations.md#host-id-considerations).  
+Starting with version 3.x of the Functions runtime, [host ID collision](../../storage-considerations.md#host-id-considerations) are detected and logged as a warning. In version 4.x, an error is logged and the host is stopped. If the runtime can't start for your function app, [review the logs](../../analyze-telemetry-data.md). If there's a warning or an error about host ID collisions, follow the mitigation steps in [Host ID considerations](../../storage-considerations.md#host-id-considerations).  
 
 ## Read-only app settings
 
-Changing any _read-only_ [App Service application settings](../app-service/reference-app-settings.md#app-environment) can put your function app into an unreachable state. 
+Changing any _read-only_ [App Service application settings](../../../app-service/reference-app-settings.md#app-environment) can put your function app into an unreachable state. 
+
+## Failed to initialize run from package
+
+Setting app setting: WEBSITE_RUN_FROM_PACKAGE = 1 without having a successful deployment can put the function app into an unreachable state. You can follow the troubleshooting steps in [Failed To Initialize Run From Package](./failed-to-initialize-run-from-package.md).
 
 ## Next steps
 
 Learn about monitoring your function apps:
 > [!div class="nextstepaction"]
-> [Monitor Azure Functions](functions-monitoring.md)
+> [Monitor Azure Functions](../../functions-monitoring.md)
 
