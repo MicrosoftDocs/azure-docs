@@ -77,6 +77,9 @@ We no longer support Windows containers. [IoT Edge for Linux on Windows](iot-edg
 
 The systems listed in the following table are considered compatible with Azure IoT Edge, but aren't actively tested or maintained by Microsoft.
 
+> [!IMPORTANT]
+> Support for these systems is best effort and may require you reproduce the issue on a tier 1 supported system.
+
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
 | [CentOS-7](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7) | ![CentOS + AMD64](./media/support/green-check.png) | ![CentOS + ARM32v7](./media/support/green-check.png) | ![CentOS + ARM64](./media/support/green-check.png) |
