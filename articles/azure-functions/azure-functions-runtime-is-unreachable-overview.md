@@ -19,7 +19,7 @@ The rest of this article helps you troubleshoot specific causes of this error, i
 
 Every function app requires a storage account to operate. If that account is deleted, your functions won't work.
 
-Start by looking up your storage account name in your application settings. Either `AzureWebJobsStorage` or `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contains the name of your storage account as part of a connection string. For more information, see [App settings reference for Azure Functions](functions-app-settings.md#azurewebjobsstorage).
+Start by looking up your storage account name in your application settings. Either `AzureWebJobsStorage` or `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contains the name of your storage account as part of a connection string. For more information, see [App settings reference for Azure Functions](./functions-app-settings.md#azurewebjobsstorage).
 
 Search for your storage account in the Azure portal to see whether it still exists. If it has been deleted, re-create the storage account and replace your storage connection strings. Your function code is lost, and you need to redeploy it.
 
@@ -30,12 +30,12 @@ In the preceding step, if you can't find a storage account connection string, it
 ### Required application settings
 
 * Required:
-  * [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
+  * [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)
 * Required for Premium plan functions:
-  * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md)
-  * [`WEBSITE_CONTENTSHARE`](functions-app-settings.md)
+  * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md)
+  * [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md)
 
-For more information, see [App settings reference for Azure Functions](functions-app-settings.md).
+For more information, see [App settings reference for Azure Functions](./functions-app-settings.md).
 
 ### Guidance
 
@@ -102,7 +102,7 @@ Errors can occur when the container image being referenced is unavailable or fai
 
 You need to correct any errors that prevent the container from starting for the function app run correctly.
 
-When the container image can't be found, you'll see a `manifest unknown` error in the Docker logs. In this case, you can use the Azure CLI commands documented at [How to target Azure Functions runtime versions](set-runtime-version.md?tabs=azurecli#manual-version-updates-on-linux) to change the container image being referenced. If you've deployed a [custom container image](functions-how-to-custom-container.md), you need to fix the image and redeploy the updated version to the referenced registry.
+When the container image can't be found, you'll see a `manifest unknown` error in the Docker logs. In this case, you can use the Azure CLI commands documented at [How to target Azure Functions runtime versions](set-runtime-version.md?tabs=azurecli#manual-version-updates-on-linux) to change the container image being referenced. If you've deployed a [custom container image](functions-create-function-linux-custom-image.md), you need to fix the image and redeploy the updated version to the referenced registry.
 
 ### App container has conflicting ports
 
