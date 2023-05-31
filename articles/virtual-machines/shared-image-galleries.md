@@ -65,31 +65,28 @@ Image definitions contain metadata for the image to allow grouping of images tha
 - Purchase plan information for Marketplace images - `-PurchasePlanPublisher`, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](./windows/cli-ps-findimage.md) and [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).
 - Features are features that are supported, based on the type of gallery:
 
-|     Features                                   |     Accepted Values                            |     Definition                                                                                                                                                                                                            |     Supported in                           |
-|------------------------------------------------|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
-|     IsHibernateSupported                       |     True, False                                |     Create VM's with support for   hibernation when set on the image.                                                                                                                                                     |     Private, Direct shared,   Community    |
-|     IsAcceleratedNetworkSupported              |     True, False                                |     Create   VM's with accelerated networking enabled can be created when set on the   image. When set to True   on Image definition, Capturing VMs which don't support accelerated networking   will not be supported    |     Private, Direct shared,   Community    |
-|     DiskControllerType                         |     ["SCSI",   "NVMe"], ["SCSI"]               |     Set this   to use either SCSI or NVMe disk type. NVMe VMs and disks can only be captured in Image definitions   which are tagged to be supporting NVMe.                                                               |     Private, Direct shared,   Community    |
+   | Features | Accepted Values | Definition | Supported in |
+   |--|--|--|--|
+   | IsHibernateSupported | True, False | Create VMs with support for hibernation. | Private, direct shared, community |
+   | IsAcceleratedNetworkSupported | True, False | Create VM's with accelerated networking enabled. When set to `True` on Image definition, capturing VMs that don't support accelerated networking is not supported. | Private, direct shared, community |
+   | DiskControllerType | ["SCSI", "NVMe"], ["SCSI"] | Set this to use either SCSI or NVMe disk type. NVMe VMs and disks can only be captured in image definitions that are tagged to be supporting NVMe. | Private, direct shared, community |
  
 
 -Architecture
  - x64 or ARM64 [Architecture](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
 
--SecurityType
- - TrustedLaunch - Image is capable of creating Trusted VMs 
- - TrustedLaunchSupported - Image capable of creating either a Gen2 VM (or) Trusted Launch VM
- - [Confidential VM](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-images) - Image capable of creating Confidential VMs
- - [ConfidentialVMSupported](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-supported-images) - Image capable of creating either a Gen2 VM (or) Confidential VM
- - TrustedLaunchAndConfidentialVmSupported - Image capable of creating a Gen 2 VM (or) [Trusted VM](trusted-launch.md) (or) Confidential VM
-                                                                                                                                                                                       |                                            |
-|     SecurityType                               |     Accepted Values                            |     Definition                                                                                                                                                                                                            |     Supported in                           |
-|     ConfidentialVmSupported                    |     ConfidentialVmSupported                    |     It's a generic Gen2 image that   does not contain VMGS blob. Gen2 VM or Confidential VM can be created from   this image type                                                                                         |     Private, Direct shared,   Community    |
-|     ConfidentialVM                             |     ConfidentialVM                             |     Only   Confidential VMs can be created from this image type                                                                                                                                                           |     Private                                |
-|     TrustedLaunchSupported                     |     TrustedLaunchSupported                     |     It's a   generic Gen2 image that does not contain VMGS blob.  Gen2 VM or   TrustedLaunch VM can be created from this image type                                                                                       |     Private, Direct shared,   Community    |
-|     TrustedLaunch                              |     TrustedLaunch                              |     Only TrustedLaunch VM can be   created from this image type                                                                                                                                                           |     Private                                |
-|     TrustedLaunchAndConfidentialVmSupported    |     TrustedLaunchAndConfidentialVmSupported    |     It's a   generic Gen2 image that does not contain VMGS blob.  Gen2   VM/TrustedLaunch VM or a ConfidentialVM can be created from this image type.                                                                     |     Private, Direct shared,   Community    |
+- SecurityType determines the security features that are enabled on the VM. Some types limited, based on the type of gallery that they are stored in:
 
-   For more information, see the CLI examples for adding [image definition features](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create).
+   | Accepted Values | Definition | Supported in |
+   |--|--|--|
+   | [ConfidentialVMSupported](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-supported-images) | It's a generic Gen2 image that does not contain VMGS blob. Gen2 VM or Confidential VM can be created from this image type | Private, Direct shared, Community |
+   | [Confidential VM](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-images) | Only Confidential VMs can be created from this image type | Private |
+   | TrustedLaunchSupported | It's a generic Gen2 image that does not contain the VMGS blob. Gen2 VM or TrustedLaunch VM can be created from this image type. | Private, direct shared, community |
+   | TrustedLaunch | Only TrustedLaunch VM can be   created from this image type | Private |
+   | TrustedLaunchAndConfidentialVmSupported | It's a generic Gen2 image that does not contain the VMGS blob. Gen2 VM, TrustedLaunch VM, or a ConfidentialVM can be created from this image type. | Private, direct shared, community |
+
+
+For more information, see the CLI examples for adding [image definition features](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create).
 
 ## Image versions
 
