@@ -1,6 +1,6 @@
 ---
-title: Extend IoT Central | Microsoft Docs
-description: How do I extend IoT Central if it's missing something I need?
+title: How to extend IoT Central
+description: How to use data exports, rules, or the REST API to extend IoT Central if it's missing something you need.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/09/2022

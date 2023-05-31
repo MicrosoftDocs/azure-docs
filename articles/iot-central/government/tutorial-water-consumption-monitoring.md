@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Azure IoT water consumption monitoring | Microsoft Docs
+title: Tutorial - Azure IoT water consumption monitoring
 description: This tutorial shows you how to deploy and use the water consumption monitoring application template for IoT Central.
 author: dominicbetts
 ms.author: dobett
