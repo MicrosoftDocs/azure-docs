@@ -1,11 +1,11 @@
 ---
 title: Manage NSG flow logs - Azure PowerShell
 titleSuffix: Azure Network Watcher
-description: Learn how to create, change, disable, or delete NSG flow logs in Azure Network Watcher using Azure PowerShell.
+description: Learn how to create, change, disable, or delete Azure Network Watcher NSG flow logs using Azure PowerShell.
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 05/31/2023
 ms.author: halkazwini
 ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
@@ -13,12 +13,12 @@ ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 # Manage NSG flow logs using Azure PowerShell
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure portal](nsg-flow-logging.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
-Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about NSG flow logs, see [NSG flow logs overview](network-watcher-nsg-flow-logging-overview.md).
+Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](network-watcher-nsg-flow-logging-overview.md).
 
 In this article, you learn how to create, change, disable, or delete an NSG flow log using Azure PowerShell.
 
@@ -155,6 +155,9 @@ For information about the structure of a flow log, see [Log format of NSG flow l
 
 To temporarily disable a flow log without deleting it, use [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog) with the `-Enabled $false` parameter. Disabling a flow log stops flow logging for the associated network security group. However, the flow log resource remains with all its settings and associations. You can re-enable it at any time to resume flow logging for the configured network security group.
 
+> [!NOTE]
+> If traffic analytics is enabled for a flow log, it must disabled before you can disable the flow log.
+
 ```azurepowershell-interactive
 # Place the network security group properties into a variable.
 $nsg = Get-AzNetworkSecurityGroup -Name 'myNSG' -ResourceGroupName 'myResourceGroup'
@@ -174,6 +177,8 @@ To permanently delete an NSG flow log, use [Remove-AzNetworkWatcherFlowLog](/pow
 # Delete the flow log.
 Remove-AzNetworkWatcherFlowLog -Name 'myFlowLog' -Location 'eastus'
 ```
+> [!NOTE]
+> Deleting a flow log does not delete the flow log data from the storage account. Flow logs data stored in the storage account follow the configured retention policy.
 
 ## Next Steps
 

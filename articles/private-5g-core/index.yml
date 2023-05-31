@@ -8,9 +8,9 @@ metadata:
   description: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Private 5G Core.
   ms.service: private-5g-core
   ms.topic: landing-page
-  author: djrmetaswitch
-  ms.author: drichards
-  ms.date: 01/24/2022
+  author: robswain
+  ms.author: robswain
+  ms.date: 05/31/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -120,6 +120,8 @@ landingContent:
             url: configure-sim-policy-azure-portal.md
           - text: Configure a service and SIM policy - ARM template
             url: configure-service-sim-policy-arm-template.md
+          - text: Configure UE to UE internal forwarding - Azure portal
+            url: configure-internal-forwarding.md
   # Card
   - title: Provision and manage SIMs
     linkLists:

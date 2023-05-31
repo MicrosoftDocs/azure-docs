@@ -18,7 +18,7 @@ Learn how to boost checkpoint speed and reduce checkpoint cost for large Azure M
 
 ## Overview
 
-Azure Container for PyTorch (ACPT) now includes **Nebula**, a fast, simple, disk-less, model-aware checkpoint tool. Nebula offers a simple, high-speed checkpointing solution for distributed large-scale model training jobs using PyTorch. By utilizing the latest distributed computing technologies, Nebula can reduce checkpoint times from hours to seconds - potentially saving 95% to 99.9% of time. Large-scale training jobs can greatly benefit from Nebula’s performance.
+Azure Container for PyTorch (ACPT) now includes **Nebula**, a fast, simple, disk-less, model-aware checkpoint tool. Nebula offers a simple, high-speed checkpointing solution for distributed large-scale model training jobs using PyTorch. By utilizing the latest distributed computing technologies, Nebula can reduce checkpoint times from hours to seconds - potentially saving 95% to 99.9% of time. Large-scale training jobs can greatly benefit from Nebula's performance.
 
 To make Nebula available for your training jobs, import the `nebulaml` python package in your script. Nebula has full compatibility with different distributed PyTorch training strategies, including PyTorch Lightning, DeepSpeed, and more. The Nebula API offers a simple way to monitor and view checkpoint lifecycles. The APIs support various model types, and ensure checkpoint consistency and reliability.  
 
@@ -77,7 +77,7 @@ With Nebula you can:
 * An Azure Machine Learning compute target. See [Manage training & deploy computes](./how-to-create-attach-compute-studio.md) to learn more about compute target creation
 * A training script that uses **PyTorch**.
 * ACPT-curated (Azure Container for PyTorch) environment. See [Curated environments](resource-curated-environments.md#azure-container-for-pytorch-acpt) to obtain the ACPT image. Learn how to [use the curated environment](./how-to-use-environments.md)
-* An Azure Machine Learning script run configuration file. If you don’t have one, you can follow [this resource](./how-to-set-up-training-targets.md)
+* An Azure Machine Learning script run configuration file. If you don't have one, you can follow [this resource](./v1/how-to-set-up-training-targets.md)
 
 ## How to Use Nebula
 

@@ -107,7 +107,7 @@ With datasets, you can accomplish a number of machine learning tasks through sea
 + Create a [data labeling project](#label-data-with-data-labeling-projects).
 + Train machine learning models:
      + [automated ML experiments](../how-to-use-automated-ml-for-ml-models.md)
-     + the [designer](../tutorial-designer-automobile-price-train-score.md#import-data)
+     + the [designer](tutorial-designer-automobile-price-train-score.md#import-data)
      + [notebooks](how-to-train-with-datasets.md)
      + [Azure Machine Learning pipelines](how-to-create-machine-learning-pipelines.md)
 + Access datasets for scoring with [batch inference](../tutorial-pipeline-batch-scoring-classification.md) in [machine learning pipelines](how-to-create-machine-learning-pipelines.md).
