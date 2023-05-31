@@ -126,11 +126,12 @@ The following tutorial explains how to migrate an existing application to connec
 1. Identify the locations in your code that create a `CosmosClient` object to connect to Azure Cosmos DB. Update your code to match the following example:
 
     ```nodejs
+    const credential = new DefaultAzureCredential();
     const endpoint = process.env.COSMOS_ENDPOINT;
 
     const cosmosClient = new CosmosClient({ 
         endpoint, 
-        aadCredentials: new DefaultAzureCredential() 
+        aadCredentials: credential
     });
     ```
 
