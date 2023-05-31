@@ -584,6 +584,8 @@ You can add the security rule to the network security group from the Network Wat
 
     :::image type="content" source="./media/diagnose-network-security-rules/nsg-diagnostics-vm-test-result-allowed-details.png" alt-text="Screenshot showing the details of the network security group after adding a security rule that allows the traffic to the virtual machine from the Bastion subnet." lightbox="./media/diagnose-network-security-rules/nsg-diagnostics-vm-test-result-allowed-details.png":::
 
+    The security rule **AllowBastionConnections** allows the traffic from any IP address in **10.0.1.0/26** to the virtual machine. Because the Bastion host uses IP addresses from **10.0.1.0/26**, its connection to the virtual machine is allowed by the **AllowBastionConnections** security rule.
+
 # [**PowerShell**](#tab/powershell)
 
 1. Use [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig) to create a security rule that allows traffic from the Bastion subnet. Then use [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) to update the network security group with the new security rule.
@@ -682,6 +684,8 @@ You can add the security rule to the network security group from the Network Wat
                   ]
     ```
 
+    The security rule **AllowBastionConnections** allows the traffic from any IP address in **10.0.1.0/26** to the virtual machine. Because the Bastion host uses IP addresses from **10.0.1.0/26**, its connection to the virtual machine is allowed by the **AllowBastionConnections** security rule.
+
 # [**Azure CLI**](#tab/cli)
 
 1. Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to add to the network security group a security rule that allows traffic from the Bastion subnet.
@@ -777,9 +781,9 @@ You can add the security rule to the network security group from the Network Wat
     }
     ```
 
----
+    The security rule **AllowBastionConnections** allows the traffic from any IP address in **10.0.1.0/26** to the virtual machine. Because the Bastion host uses IP addresses from **10.0.1.0/26**, its connection to the virtual machine is allowed by the **AllowBastionConnections** security rule.
 
-The security rule **AllowBastionConnections** allows the traffic from any IP address in **10.0.1.0/26** to the virtual machine. Because the Bastion host uses IP addresses from **10.0.1.0/26**, its connection to the virtual machine is allowed by the **AllowBastionConnections** security rule.
+---
 
 ## Next steps
 - To learn about other Network Watcher tools, see [Azure Network Watcher overview](network-watcher-monitoring-overview.md).
