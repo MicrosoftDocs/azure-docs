@@ -16,6 +16,8 @@ ms.custom: ignite-fall-2021
 
 This article describes how to connect your data sources to Microsoft Sentinel using Syslog. For more information about supported connectors for this method, see [Data connectors reference](data-connectors-reference.md).
 
+Learn how to [collect Syslog with the Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
+
 > [!IMPORTANT]
 > The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 
@@ -43,6 +45,10 @@ There are three steps to configuring Syslog collection:
 - **Configure your application's logging settings** corresponding to the location of the Syslog daemon that will be sending events to the agent.
 
 - **Configure the Log Analytics agent itself**. This is done from within Microsoft Sentinel, and the configuration is sent to all installed agents.
+
+## Prerequisites
+
+Before you begin, install the solution for **Syslog** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 ## Configure your Linux machine or appliance
 

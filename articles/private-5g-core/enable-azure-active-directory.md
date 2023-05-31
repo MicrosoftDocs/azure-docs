@@ -2,8 +2,8 @@
 title: Enable Azure Active Directory (Azure AD) for local monitoring tools
 titleSuffix: Azure Private 5G Core
 description: Complete the prerequisite tasks for enabling Azure Active Directory to access Azure Private 5G Core's local monitoring tools. 
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to 
 ms.date: 12/29/2022
@@ -73,8 +73,10 @@ If your deployment contains multiple sites, you can use the same two redirect UR
 To support Azure AD on Azure Private 5G Core applications, you'll need a YAML file containing Kubernetes secrets.
 
 1. Convert each of the values you collected in [Collect the information for Kubernetes Secret Objects](#collect-the-information-for-kubernetes-secret-objects) into Base64 format. For example, you can run the following command in an Azure Cloud Shell **Bash** window:
-    
-    `$ echo -n  <Value> | base64`
+
+    ```bash    
+    echo -n <Value> | base64
+    ```
 
 1. Create a *secret-azure-ad-local-monitoring.yaml* file containing the Base64-encoded values to configure distributed tracing and the packet core dashboards. The secret for distributed tracing must be named **sas-auth-secrets**, and the secret for the packet core dashboards must be named **grafana-auth-secrets**.
 

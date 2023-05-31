@@ -24,9 +24,7 @@ Use the following built-in workbooks to visualize and monitor data ingested via 
 | Workbook name | Description | Logs |
 | --------- | --------- | --------- |
 | <a name="sap---system-applications-and-products-workbook"></a>**SAP - Audit Log Browser** | Displays data such as: <br><br>General system health, including user sign-ins over time, events ingested by the system, message classes and IDs, and ABAP programs run <br><br>Severities of events occurring in your system <br><br>Authentication and authorization events occurring in your system |Uses data from the following log: <br><br>[ABAPAuditLog_CL](sap-solution-log-reference.md#abap-security-audit-log) |
-| **SAP - Suspicious Privileges Operations** | Displays data such as: <br><br>Sensitive and critical assignments <br><br>Actions and changes made to sensitive, privileged users <br><br>Changes made to roles |Uses data from the following logs: <br><br>[ABAPAuditLog_CL](sap-solution-log-reference.md#abap-security-audit-log) <br><br>[ABAPChangeDocsLog_CL](sap-solution-log-reference.md#abap-change-documents-log) |
-| **SAP - Initial Access & Attempts to Bypass SAP Security Mechanisms** | Displays data such as: <br><br>Executions of sensitive programs, code, and function modules <br><br>Configuration changes, including log deactivations <br><br>Changes made in debug mode |Uses data from the following logs: <br><br>[ABAPAuditLog_CL](sap-solution-log-reference.md#abap-security-audit-log)<br><br>[ABAPTableDataLog_CL](sap-solution-log-reference.md#abap-db-table-data-log-preview)<br><br>[Syslog](sap-solution-log-reference.md#abap-syslog) |
-| **SAP - Persistency &  Data Exfiltration** | Displays data such as: <br><br>Internet Communication Framework (ICF) services, including activations and deactivations and data about new services and service handlers <br><br> Insecure operations, including both function modules and programs <br><br>Direct access to sensitive tables | Uses data from the following logs: <br><br>[ABAPAuditLog_CL](sap-solution-log-reference.md#abap-security-audit-log) <br><br>[ABAPTableDataLog_CL](sap-solution-log-reference.md#abap-db-table-data-log-preview)<br><br>[ABAPSpoolLog_CL](sap-solution-log-reference.md#abap-spool-log)<br><br>[ABAPSpoolOutputLog_CL](sap-solution-log-reference.md#apab-spool-output-log)<br><br>[Syslog](sap-solution-log-reference.md#abap-syslog) |
+
 
 
 For more information, see [Tutorial: Visualize and monitor your data](../monitor-your-data.md) and [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md).
@@ -194,6 +192,7 @@ For more information, see:
 
 - [Deploying Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
 - [Microsoft Sentinel solution for SAP® applications logs reference](sap-solution-log-reference.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Deploy the Microsoft Sentinel solution for SAP® applications data connector with SNC](configure-snc.md)
 - [Configuration file reference](configuration-file-reference.md)
 - [Prerequisites for deploying the Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)

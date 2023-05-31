@@ -6,14 +6,14 @@ services: azure-government
 cloud: gov
 documentationcenter: ''
 author: todorgb
-manager: pathuff
+manager: vernonw
 
 ms.assetid: 
 ms.service: azure-government
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 01/05/2021
+ms.date: 05/30/2023
 ms.author: todorb
 
 ---
@@ -58,7 +58,7 @@ Microsoft is able to scale through its partners. Scale is what will allow us to 
 
 ## Publishing to Azure Marketplace
 
-1. Join the Partner Network - It’s a requirement for publishing but easy to sign up. Instructions are located here: [Ensure you have a MPN ID and Partner Center Account](../../marketplace/create-account.md#create-a-partner-center-account-and-enroll-in-the-commercial-marketplace).
+1. Join the Partner Network - It’s a requirement for publishing but easy to sign up. Instructions are located here: [Ensure you have a MCPP ID and Partner Center Account](../../marketplace/create-account.md#create-a-partner-center-account-and-enroll-in-the-commercial-marketplace).
 2. Enable your partner center account as Publisher / Developer for Marketplace, follow the instructions [here](../../marketplace/create-account.md).
 3. With an enabled Partner Center Account, publish listing as a SaaS App as instructed [here](../../marketplace/create-new-saas-offer.md).
 
@@ -72,9 +72,9 @@ For a list of existing Azure Marketplace offerings in this space, visit [this pa
  * Free [training on FedRAMP](https://www.fedramp.gov/training/).
  * FedRAMP [templates](https://www.fedramp.gov/templates/) to help you with program requirements.
  * Get familiar with the [FedRAMP Marketplace](https://marketplace.fedramp.gov/#/products).
- * Are you a partner and want to join our program? Fill out the [form](https://aka.ms/partnerazcl).
- * Learn more about [Azure Blueprints](../../governance/blueprints/overview.md) and review [samples](../../governance/blueprints/samples/index.md).
- * To learn how Azure Blueprints help you when using Azure Policy review the [blog post](https://azure.microsoft.com/blog/new-azure-blueprint-simplifies-compliance-with-nist-sp-800-53/).
+ * Learn more about [Azure Compliance Offerings per market and industry](https://learn.microsoft.com/azure/compliance/).
  
 ## Next steps
-Review the documentation above. If you are still facing issues reach out to [Azure Government Partner Inquiries](mailto:azgovpartinf@microsoft.com).
+Review the documentation above. 
+Review the Azure Marketplace [Publishing guide by offer type](https://learn.microsoft.com/partner-center/marketplace/publisher-guide-by-offer-type) for further tips and troubleshooting. 
+If you are still facing issues, open a ticket in Partner Center.

@@ -240,7 +240,7 @@ az feature show --namespace Microsoft.Storage --name ColdTier
 
 ### Limitations and known issues
 
-- The [change feed](storage-blob-change-feed.md)is not yet compatible with the cold tier.
+- The [change feed](storage-blob-change-feed.md) is not yet compatible with the cold tier.
 - [Point in time restore](point-in-time-restore-overview.md) is not yet compatible with the cold tier. 
 - [Object replication](object-replication-overview.md) is not yet compatible with the cold tier.
 - The default access tier setting of the account can't be set to cold tier.
@@ -257,7 +257,7 @@ If you plan to refer to the cold tier by using code in a custom application, you
 | [JavaScript](/javascript/api/preview-docs/@azure/storage-blob/) | 12.13.0 |
 
 > [!NOTE]
-> If you plan to refer to the cold tier when using the AzCopy tool, make sure to install AzCopy version 12.18.0 or later.
+> If you plan to refer to the cold tier when using the AzCopy tool, make sure to install AzCopy version 10.18.1 or later.
 
 
 ## Feature support
