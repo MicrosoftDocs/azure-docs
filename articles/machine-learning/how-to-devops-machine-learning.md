@@ -241,7 +241,10 @@ In step 6, you added a job to submit an Azure Machine Learning job. In this step
 
 # [Using Azure Resource manager service connection](#tab/arm)
 
-If you are using an Azure Resource Manager Service connection, you can use "Machine Learning" extension. You can search this extension [here](https://marketplace.visualstudio.com/search?target=AzureDevOps&category=Azure%20Pipelines&visibilityQuery=public&sortBy=Installs). Install the "Machine Learning" extension.
+If you are using an Azure Resource Manager service connection, you can use the "Machine Learning" extension. You can search this extension in the [Azure DevOps extensions Marketplace](https://marketplace.visualstudio.com/search?target=AzureDevOps&category=Azure%20Pipelines&visibilityQuery=public&sortBy=Installs). Install the "Machine Learning" extension.
+
+> [!IMPORTANT]
+> Don't install the __Machine Learning (classic)__ extension by mistake.
 
 In the Pipeline review window, add a Server Job. In the steps part of the job, open the "Show assistant" on the right side and search for "AzureML." Select the "AzureML Job Wait" task and fill in the information for the job you would like to wait for. 
 
