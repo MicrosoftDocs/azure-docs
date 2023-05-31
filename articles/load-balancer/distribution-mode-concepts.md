@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: conceptual 
-ms.date: 05/24/2022
+ms.date: 05/30/2023
 ms.custom: template-concept 
 #Customer intent: As a administrator, I want to learn about the different distribution modes of Azure Load Balancer so that I can configure the distribution mode for my application.
 ---
