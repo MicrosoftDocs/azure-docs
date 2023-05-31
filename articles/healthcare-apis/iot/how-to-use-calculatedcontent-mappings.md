@@ -21,7 +21,6 @@ This article provides an overview of how to use CalculatedContent templates with
 The MedTech service CalculatedContent template support two JSON expression languages: JSONPath and JMESPath. Expressions are used to identify which template to use with a given JSON device message (for example: TypeMatchExpression) and to extract specific values that are required to create a normalized message (for example: TimestampExpression, DeviceIdExpression, etc.).
 
 > [!NOTE] 
-> Is this note redundant? 
 >If you don't define an expression language, the MedTech service device mapping templates use the default expression language that's configured for the template. The default is JSONPath, but you can overwrite it if necessary.
 
 An expression is defined as:
@@ -51,7 +50,7 @@ CalculatedContent templates allow matching on and extracting values from an Azur
 
 |Element|Description|JSONPath expression|JMESPath expression|
 |:------|:----------|:------------------|:------------------|
-|typeMatchExpression|The expression that the MedTech service evaluates against the EventData payload. If the service finds a matching Token value, it considers the template a match. The service evaluates all later expressions against the extracted Token value matched here.|`$..[?(@heartRate)]`|``[Body][?contains(keys(@), `heartRate`)] \| @[0]``|
+|typeMatchExpression|The expression that the MedTech service evaluates against the device message payload. If the service finds a matching token value, it considers the template a match. The service evaluates all later expressions against the extracted token value matched here.|`$..[?(@heartRate)]`|``[Body][?contains(keys(@), `heartRate`)] \| @[0]``|
 |deviceIdExpression|The expression to extract the device identifier.|`$.matchedToken.deviceId`|`@.matchedToken.deviceId`|
 |timestampExpression|The expression to extract the timestamp value for the measurement's `OccurrenceTimeUtc` value.|`$.matchedToken.endDate`|`@.matchedToken.endDate`|
 |patientIdExpression|The expression to extract the patient identifier. *Required* when the MedTech services's **Resolution type** is set to **Create**, and *optional* when the MedTech service's **Resolution type** is set to **Lookup**.|`$.matchedToken.patientId`|`@.matchedToken.patientId`|
