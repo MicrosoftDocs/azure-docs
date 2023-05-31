@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 05/24/2023
+ms.date: 05/30/2023
 ms.author: danlep
 ---
 
-# SQL Azure data source for a resolver
+# Azure SQL data source for a resolver
 
-The `sql-data-source` resolver policy configures the SQL Azure request and optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management.  
+The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request to an Azure SQL database and optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management.  
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -22,7 +22,7 @@ The `sql-data-source` resolver policy configures the SQL Azure request and optio
 <sql-data-source> 
     <connection-info>
         <get-authorization-context>...get-authorization-context policy configuration...</get-authorization-context>
-        <connection-string use-managed-identity="true | false" scope="scope for ..." client-id="Client ID of identity used for connection">
+        <connection-string use-managed-identity="true | false" client-id="Client ID of identity used for connection">
             "SQL Azure connection string"
         </connection-string>
         <include-fragment>...include-fragment policy configuration...</include-fragment>
@@ -32,9 +32,11 @@ The `sql-data-source` resolver policy configures the SQL Azure request and optio
     <request single-result="true | false">
         <include-fragment>...include-fragment policy configuration...</include-fragment>
         <set-body>...set-body policy configuration...</set-body>
-        <sql-statement>SQL statement string</sql-statement>
+        <sql-statement>T-SQL query string</sql-statement>
         <sql-parameters>
-            <parameter>"SQL parameter string"</parameter>
+            <parameter sql-type="parameter type" name="Query parameter name in @ notation"
+                "Value of query parameter"
+            </parameter>
             <!-- if there are multiple parameters, then add additional parameter elements -->
         </sql-parameters>
     </request>
@@ -46,23 +48,14 @@ The `sql-data-source` resolver policy configures the SQL Azure request and optio
 </sql-data-source> 
 ```
 
-
 ## Elements
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| connection-info | .... | Yes |
+| [connection-info](#connection-info-elements) | Specifies connection to Azure SQL database. | Yes |
 | [include-fragment](include-fragment-policy.md) | Inserts a policy fragment in the policy definition. If there are multiple fragments, then add additional `include-fragment` elements. | No |
-| request | Specifies the resolvers' SQL request and optional parameters.  | Yes | 
-| response |  Optionally specifies child policies to configure the resolver's SQL response. If not specified, the response is returned as a raw string.  | No |
-
-### connection-info attributes
-
-| Attribute                                      | Description                                                                                 | Required                                           | Default |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| use-managed-identity | ...  | No  | false   |
-| scope | ... | No | N/A |
-| client-id | ... | No | N/A |
+| [request](#request-attribute) | Specifies the resolver's T-SQL request and optional parameters.  | Yes | 
+| [response](#response-elements) |  Optionally specifies child policies to configure the response from the Azure SQL database. If not specified, the response is returned as a raw string.  | No |
 
 ### connection-info elements
 
@@ -73,28 +66,34 @@ The `sql-data-source` resolver policy configures the SQL Azure request and optio
 |Element|Description|Required|
 |----------|-----------------|--------------|
 | [get-authorization-context](get-authorization-context-policy.md) | Gets an authorization context for the resolver's SQL request.  | No |
-| connection-string | Specifies the SQL Azure connection string. |  Yes |
+| [connection-string](#connection-string-attributes) | Specifies the SQL Azure connection string. If the `use-managed-identity` attribute is set to `false` (default), the connection string must include a username and password. |  Yes |
 | [include-fragment](include-fragment-policy.md) | Inserts a policy fragment in the policy definition. If there are multiple fragments, then add additional `include-fragment` elements. | No |
 | [authentication-certificate](authentication-certificate-policy.md)  | Authenticates using a client certificate in the resolver's SQL request.  | No  | 
 
+### connection-string attributes
+
+| Attribute                                      | Description                                                                                 | Required                                           | Default |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
+| use-managed-identity | Boolean. Specifies whether to use a [managed identity](api-management-howto-use-managed-service-identity.md) assigned to the API Management instance for connection to the Azure SQL database in place of a username and password in the connection string. Policy expressions are allowed. <br/><br/>The identity must be [configured](#configure-managed-identity-integration-with-sql-azure) to perform the request on the Azure SQL database.  | No  | `false`   |
+| client-id | If `use-managed-identity` is `true` and a user-assigned managed identity is used, the client ID of the identity.<br/><br/>The identity must be [configured](#configure-managed-identity-integration-with-sql-azure) to perform the request on the Azure SQL database. | No | N/A |
 
 ## request attribute
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| single-result | ...  | No  | false   |
+| single-result | Boolean. Specifies whether the request is a single-result query. Policy expressions are allowed  | No  | `false`   |
 
 ### request elements
 
 > [!NOTE]
-> Except where noted, each child element may be specified at most once. Specify elements in the order listed.
+> Each child element may be specified at most once. Specify elements in the order listed.
 
 |Element|Description|Required|
 |----------|-----------------|--------------|
  | [include-fragment](include-fragment-policy.md) | Inserts a policy fragment in the policy definition.  | No |
 | [set-body](set-body-policy.md)  |  Sets the body in the resolver's SQL request. | No  | 
-| statement | .... | Yes |
-| parameters | A list of SQL parameters, in `parameter` subelements.  | No |
+| sql-statement | A T-SQL statement for the request to the Azure SQL database. | Yes |
+| [parameters](#parameter-attributes) | A list of SQL parameters, in `parameter` subelements, for the request.  | No |
 
 
 ### parameter attributes
@@ -102,12 +101,12 @@ The `sql-data-source` resolver policy configures the SQL Azure request and optio
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | name   | String. The name of the SQL parameter.   | Yes     |  N/A   |
-|  sql-type  | String. The type of the SQL parameter.  |   No  |  N/A     |
+|  sql-type  | String. The [data type](/sql/t-sql/data-types/data-types-transact-sql) of the SQL parameter.  |   No  |  N/A     |
 
 ### response elements
 
 > [!NOTE]
-> Except where noted, each child element may be specified at most once. Specify elements in the order listed.
+> Each child element may be specified at most once. Specify elements in the order listed.
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
@@ -122,24 +121,27 @@ The `sql-data-source` resolver policy configures the SQL Azure request and optio
 
 ### Usage notes
 
-* This policy is invoked only when resolving a single field in a matching GraphQL query, mutation, or subscription. 
+* This policy is invoked only when resolving a single field in a matching GraphQL query. 
+
+## Configure managed identity integration with SQL Azure
+
+You can use an API Management managed identity to connect to a SQL Azure database, instead of configuring a username and password in a connection string.
+
+[...TBD...]
 
 ## Examples
 
-### Resolver for GraphQL query
+### Resolver for GraphQL query by making single T-SQL request
 
-The following example resolves a query by making a SQL request to a backend database.
+The following example resolves a query by making a single T-SQL request to a backend database. The connection string uses username and password. The response is returned as a raw string.
 
-#### Example schema
-
-TODO
 
 #### Example policy
 
 ```xml
 <sql-data-source>
     <connection-info>
-        <connection-string>{{0}}</connection-string>
+        <connection-string>Azure SQL connection string</connection-string>
         </connection-info>
         <request single-result="true">
             <sql-statement>
@@ -160,11 +162,13 @@ TBD
 ```xml
 <sql-data-source> 
     <connection-info>
-        <connection-string use-managed-identity=""true"" client-id=""optional-value"" scope=""optional-value"">{{connectionString}}</connection-string>
+        <connection-string use-managed-identity="true">
+            Azure SQL connection string
+        </connection-string>
     </connection-info> 
     <request single-result="true"> 
         <sql-statement> 
-            SELECT TOP (1) 
+            SELECT 
                 p.[Id] AS [Id] 
                 p.[FirstName] AS [FirstName] 
                 p.[LastName] AS [LastName] 
@@ -172,7 +176,7 @@ TBD
             WHERE @personId = p.[Id] 
          </sql-statement> 
          <parameters> 
-             <parameter name=""@personId"">{{context.GraphQL.Arguments.id}}</parameter> 
+             <parameter name="@personId">{{context.GraphQL.Arguments.id}}</parameter> 
           </parameters> 
      </request>
 </sql-data-source>

@@ -40,7 +40,8 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
         <query-parameters> 
             <parameter type="parameter type" name="Query parameter name in @ notation"> 
                 "Value of query parameter"
-            </parameter> 
+            </parameter>
+            <!-- if there are multiple parameters, then add additional parameter elements --> 
         </query-parameters> 
         <partition-key data-type="string | number | bool | none | null" template="liquid" > 
             "Container partition key" 
@@ -109,7 +110,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 | [query-request](#query-request-attributes)    |   Specifies settings for a [query request](../cosmos-db/nosql/how-to-dotnet-query-items.md) to Cosmos DB container.    |  No      |
 | [read-request](#read-request-elements)    |  Specifies settings for a [read request](../cosmos-db/nosql/how-to-dotnet-read-item.md) to Cosmos DB container.    |    No   |
 | [delete-request](#delete-request-attributes)    |  Specifies settings for a delete request to Cosmos DB container.    |   No     |
-| [write-request](#write-request-attributes) | Specifies settings for write request to Cosmos DB container.  |  No |
+| [write-request](#write-request-attributes) | Specifies settings for write request to Cosmos DB contIf the `use-managed-identity` attribute is set to `false` (default), the connection string must include aainer.  |  No |
 | [response](#response-elements)  |  Optionally specifies child policies to configure the resolver's response.  |    No |
 
 
@@ -117,7 +118,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| [connection-string](#connection-string-attributes) | Connection string for Cosmos DB account. If the `use-managed-identity` attribute is set to `false` (default), the connection string must include an account key.   | Yes    |
+| [connection-string](#connection-string-attributes) | Connection string for Cosmos DB account. n account key.   | Yes    |
 | database-name | String. Name of Cosmos DB database. | Yes  |
 | container-name | String. Name of container in Cosmos DB database. | Yes  |
 
@@ -125,7 +126,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| use-managed-identity | Boolean. Specifies whether to use a [managed identity](api-management-howto-use-managed-service-identity.md) assigned to the API Management instance for connection to the Cosmos DB account in place of an account key in the connection string. The identity must have an Azure RBAC [role assignment](#configure-managed-identity-integration-with-cosmos-db) or equivalent permissions to perform the request on the Cosmos DB container. | No  | `false`   |
+| use-managed-identity | Boolean. Specifies whether to use a [managed identity](api-management-howto-use-managed-service-identity.md) assigned to the API Management instance for connection to the Cosmos DB account in place of an account key in the connection string. The identity must be [configured](#configure-managed-identity-integration-with-cosmos-db) to perform the request on the Cosmos DB container. | No  | `false`   |
 | client-id | If `use-managed-identity` is `true` and a user-assigned managed identity is used, the client ID of the identity.<br/><br/>The identity must have an Azure RBAC [role assignment](#configure-managed-identity-integration-with-cosmos-db) or equivalent permissions to perform the request on the Cosmos DB container.  | No | N/A |
 
 ### query-request attributes
@@ -412,13 +413,39 @@ documents.azure.com:443/;
 
 ### Construct parameter input for Cosmos DB query
 
-Cosmos DB supports [parameterized queries](../cosmos-db/nosql/query/parameterized-queries.md).
+The following examples show ways to construct Cosmos DB [parameterized queries](../cosmos-db/nosql/query/parameterized-queries.md) using policy expressions. 
 
-The following examples show ways to construct parameterized queries using policy expressions. 
+The examples are based on the following sample GraphQL schema, and generate the corresponding Cosmos DB parameterized query.
+
+
+**Example GraphQL schema**
+```
+input personInput {
+  id: String!
+  firstName: String
+}
+
+type Query {
+  personsStringParam(stringInput: String): personsConnection
+  personsPersonParam(input: personInput): personsConnection
+}
+```
+
+**Example Cosmos DB query**
+
+```json
+{
+    "query": "query { 
+        personsPersonParam(input: { id: \"3\" } { 
+        items { id firstName lastName } 
+        } 
+    }"
+}    
+```
 
 #### Pass JSON object (JObject) from expression
 
-**Sample policy**
+**Example policy**
 
 ```xml
 [...]
@@ -431,21 +458,10 @@ The following examples show ways to construct parameterized queries using policy
 [...]
 ```
 
-**Sample query**
 
-```json
-{
-    "query": "query { 
-        personsPersonParam(input: { id: \"3\" } { 
-        items { id firstName lastName } 
-        } 
-    }"
-}    
-```
+#### Pass .NET input type (string, int, decimal, bool) from expression
 
-#### 1. Pass .NET input type (string, int, decimal, bool) from expression
-
-**Sample policy**
+**Example policy**
 
 ```xml
 [...]
@@ -458,21 +474,9 @@ The following examples show ways to construct parameterized queries using policy
 [...]
 ```
 
-**Sample query**
+#### Pass JSON value (JValue) from expression
 
-```json
-{
-    "query": "query { 
-        personsStringParam(stringInput: \"3\") { 
-        items { id firstName lastName } 
-        } 
-    }"
-}
-```
-
-#### 1. Pass JSON value (JValue) from expression
-
-**Sample policy**
+**Example policy**
 
 ```xml
 [...]
@@ -485,21 +489,9 @@ The following examples show ways to construct parameterized queries using policy
 [...]
 ```
 
-**Sample query**
+#### Pass raw stream from expression
 
-```json
-{
-"query": "query { 
-    { personsStringParam(stringInput: \"3\") { 
-        items { id firstName lastName } 
-        } 
-    }"
-}
-```
-
-#### 1. Pass raw stream from expression
-
-**Sample policy**
+**Example policy**
 
 ```xml
 [...]
@@ -510,18 +502,6 @@ The following examples show ways to construct parameterized queries using policy
     </parameters>
   </query-request>
 [...]
-```
-
-**Sample query**
-
-```json
-{
-"query": "query { 
-    { personsStringParam(stringInput: \"3\") { 
-        items { id firstName lastName } 
-        } 
-    }"
-}
 ```
 
 ## Related policies
