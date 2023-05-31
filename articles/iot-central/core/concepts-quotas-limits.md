@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Central quotas and limits | Microsoft Docs
-description: This article lists the key quotas and limits that apply to an IoT Central application.
+title: Azure IoT Central quotas and limits
+description: This article lists the key quotas and limits that apply to an IoT Central application including those from the underlying DPS and IoT Hub services.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/07/2022

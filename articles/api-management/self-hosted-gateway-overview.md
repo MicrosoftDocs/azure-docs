@@ -204,6 +204,7 @@ As of v2.1.1 and above, you can manage the ciphers that are being used through t
 ## Next steps
 
 -   Learn more about the various gateways in our [API gateway overview](api-management-gateways-overview.md)
+-   Learn more about the support policy for the [self-hosted gateway](self-hosted-gateway-support-policies.md)
 -   Learn more about [API Management in a Hybrid and Multi-Cloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   Learn more about guidance for [running the self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md)
 -   [Deploy self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)
