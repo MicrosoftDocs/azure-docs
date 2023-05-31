@@ -13,4 +13,4 @@
 **Applies to:** ![IoT Edge 1.4 checkmark](./media/iot-edge-version/yes-icon.png) IoT Edge 1.4
 
 > [!IMPORTANT]
-> IoT Edge 1.4 is the [supported release](../support.md#releases). For more information about updating to the latest version of IoT Edge, see [Update IoT Edge](/azure/iot-edge/how-to-update-iot-edge).
+> IoT Edge 1.4 is the [supported release](../support.md#releases). If you are on an earlier release, see [Update IoT Edge](/azure/iot-edge/how-to-update-iot-edge).
