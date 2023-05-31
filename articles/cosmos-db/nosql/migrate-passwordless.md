@@ -160,6 +160,8 @@ The following tutorial explains how to migrate an existing application to connec
     )
     ```
 
+---
+
 ### Run the app locally
 
 After making these code changes, run your application locally. The new configuration should pick up your local credentials, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure allows your app to connect to the Azure service locally.
