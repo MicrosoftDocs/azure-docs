@@ -136,8 +136,8 @@ The following table shows the tracked item limits per machine for Change Trackin
 |Registry|250|
 |Windows software (not including hotfixes) |250|
 |Linux packages|1250|
-|Add Services | 250 |
-|Daemons| 250| 
+|Windows Services | 250 |
+|Linux Daemons| 500| 
 
 ### Windows services data
 
@@ -148,12 +148,12 @@ To enable tracking of Windows Services data, you must upgrade CT extension and u
 #### [For Windows Azure VMs](#tab/win-az-vm)
 
 ```powershell-interactive
-- az vm extension set --publisher Microsoft.Azure.ChangeTrackingAndInventory --version 2.11.0 --ids /subscriptions/<subscriptionids>/resourceGroups/<resourcegroupname>/providers/Microsoft.Compute/virtualMachines/<vmname> --name ChangeTracking-Windows
+- az vm extension set --publisher Microsoft.Azure.ChangeTrackingAndInventory --version 2.11.0 --ids /subscriptions/<subscriptionids>/resourceGroups/<resourcegroupname>/providers/Microsoft.Compute/virtualMachines/<vmname> --name ChangeTracking-Windows --enable-auto-upgrade true
 ```
 #### [For Linux Azure VMs](#tab/lin-az-vm)
 
 ```powershell-interactive
-– az vm extension set --publisher Microsoft.Azure.ChangeTrackingAndInventory --version 2.11.0 --ids /subscriptions/<subscriptionids>/resourceGroups/<resourcegroupname>/providers/Microsoft.Compute/virtualMachines/<vmname> --name ChangeTracking-Linux
+– az vm extension set --publisher Microsoft.Azure.ChangeTrackingAndInventory --version 2.11.0 --ids /subscriptions/<subscriptionids>/resourceGroups/<resourcegroupname>/providers/Microsoft.Compute/virtualMachines/<vmname> --name ChangeTracking-Linux --enable-auto-upgrade true
 ```
 #### [For Arc-enabled Windows VMs](#tab/win-arc-vm)
 
