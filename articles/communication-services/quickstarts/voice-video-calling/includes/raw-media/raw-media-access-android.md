@@ -18,10 +18,10 @@ The Azure Communication Services Calling SDK offers APIs that allow apps to gene
 
 This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-android) for Android.
 
-## Raw Audio Access 
+## RawAudio access 
 Accessing raw audio media gives you access to the incoming audio stream of the call, along with the ability to view and send custom outgoing audio streams during a call.
 
-### Sending Raw Outgoing Audio
+### Send Raw Outgoing audio
 
 Make an options object specifying the raw stream properties we want to send. 
 
@@ -51,7 +51,7 @@ Create a `RawOutgoingAudioStream` and attach it to join call options and the str
 
 ```
 
-### Attach Stream to a call
+### Attach stream to a call
 
 Or you can also attach the stream to an existing `Call` instance instead:
 
@@ -59,7 +59,7 @@ Or you can also attach the stream to an existing `Call` instance instead:
     CompletableFuture<Void> result = call.startAudio(context, rawOutgoingAudioStream);
 ```
 
-### Start sending Raw Samples
+### Start sending raw samples
 
 We can only start sending data once the stream state is `AudioStreamState.STARTED`. 
 To observe the audio stream state change, add a listener to the `OnStateChangedListener` event.
@@ -105,7 +105,7 @@ The audio buffer format should match the specified stream properties.
     thread.start();
 ```
 
-### Receiving Raw Incoming Audio
+### Receive Raw Incoming audio
 
 We can also receive the call audio stream samples as [`java.nio.ByteBuffer`](https://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html) if we want to process the audio before playback.
 
@@ -162,7 +162,7 @@ It's also important to remember to stop the audio stream in the current call `Ca
     CompletableFuture<Void> result = call.stopAudio(context, rawIncomingAudioStream);
 ```
 
-## Raw Video Access
+## RawVideo access
 
 Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
 
@@ -369,7 +369,7 @@ Because the app generates the video frames, the app must inform the Azure Commun
     });
     ```
 
-## Screen Share Video
+## ScreenShare Video
 
 Because the Windows system generates the frames, you must implement your own foreground service to capture the frames and send them by using the Azure Communication Services Calling API.
 

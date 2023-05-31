@@ -14,9 +14,11 @@ ms.custom: mode-other
 In this quickstart, you learn how to implement raw media access by using the Azure Communication Services Calling SDK for Windows.
 The Azure Communication Services Calling SDK offers APIs that allow apps to generate their own video frames to send to remote participants in a call.
 This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-windows) for Windows.
-## Raw Audio Access 
+
+## RawAudio access 
 Accessing raw audio media gives you access to the incoming call's audio stream, along with the ability to view and send custom outgoing audio streams during a call.
-### Sending Raw Outgoing Audio
+
+### Send Raw Outgoing audio
 Make an options object specifying the raw stream properties we want to send. 
 ```csharp
     RawOutgoingAudioStreamProperties outgoingAudioProperties = new RawOutgoingAudioStreamProperties()
@@ -40,12 +42,12 @@ Create a `RawOutgoingAudioStream` and attach it to join call options and the str
     options.OutgoingAudioOptions = outgoingAudioOptions;
     // Start or Join call with those call options.
 ```
-### Attach Stream to a call
+### Attach stream to a call
 Or you can also attach the stream to an existing `Call` instance instead:
 ```csharp
     await call.StartAudio(rawOutgoingAudioStream);
 ```
-### Start sending Raw Samples
+### Start sending raw samples
 We can only start sending data once the stream state is `AudioStreamState.Started`. 
 To observe the audio stream state change, add a listener to the `OnStateChangedListener` event.
 ```csharp
@@ -90,7 +92,7 @@ The audio buffer format should match the specified stream properties.
         }).Start();
     }
 ```
-### Receiving Raw Incoming Audio
+### Receive Raw Incoming audio
 We can also receive the call audio stream samples as [`MemoryBuffer`](/uwp/api/windows.foundation.memorybuffer) if we want to process the call audio stream before playback.
 Create a `RawIncomingAudioStreamOptions` object specifying the raw stream properties we want to receive.
 ```csharp
@@ -144,7 +146,7 @@ buffer received events.
     rawIncomingAudioStream.MixedAudioBufferReceived += OnRawIncomingMixedAudioBufferAvailable;
 ```
 
-## Raw Outgoing Video
+## RawVideo access
 
 Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
 

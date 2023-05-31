@@ -19,10 +19,10 @@ The Azure Communication Services Calling SDK offers APIs that allow apps to gene
 This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-ios) for iOS.
 
 
-## Raw Audio Access 
+## RawAudio access 
 Accessing raw audio media gives you access to the incoming call's audio stream, along with the ability to view and send custom outgoing audio streams during a call.
 
-### Sending Raw Outgoing Audio
+### Send Raw Outgoing audio
 Make an options object specifying the raw stream properties we want to send. 
 
 ```swift
@@ -49,7 +49,7 @@ Create a `RawOutgoingAudioStream` and attach it to join call options and the str
 
 ```
 
-### Attach Stream to a call
+### Attach stream to a call
 
 Or you can also attach the stream to an existing `Call` instance instead:
 
@@ -197,7 +197,7 @@ It's also important to remember to stop the audio stream in the current call `Ca
     }
 ```
 
-### Capturing Microphone Samples
+### Capturing microphone samples
 
 Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaudio/avaudioengine) we can capture microphone frames by tapping into the audio engine [input node](https://developer.apple.com/documentation/avfaudio/avaudioengine/1386063-inputnode). And capturing the microphone data and being able to use raw audio functionality, we're able to process the audio before sending it to a call. 
 
@@ -273,19 +273,14 @@ Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaud
     }
 ```
 
----
-**NOTE**
-
-The sample rate of the audio engine [input node](https://developer.apple.com/documentation/avfaudio/avaudioengine/1386063-inputnode) defaults to a value of the preferred sample rate for the shared audio session. So we can't install tap in that node using a different value. So we have to ensure that the `RawOutgoingStream`
-properties sample rate matches the one we get from tap into microphone samples or convert the tap buffers to the format that 
-matches what is expected on the outgoing stream.
-
----
-
+>[!NOTE]
+>The sample rate of the audio engine [input node](https://developer.apple.com/documentation/avfaudio/avaudioengine/1386063-inputnode) defaults to a >value of the preferred sample rate for the shared audio session. So we can't install tap in that node using a different value. 
+>So we have to ensure that the `RawOutgoingStream` properties sample rate matches the one we get from tap into microphone samples or convert the tap buffers to the format that matches what is expected on the outgoing stream.
+>
 
 With this small sample, we learned how we can capture the microphone [`AVAudioEngine`](https://developer.apple.com/documentation/avfaudio/avaudioengine) data and send those samples to a call using raw outgoing audio feature.
 
-### Receiving Raw Incoming Audio
+### Receive Raw Incoming audio
 
 We can also receive the call audio stream samples as [`AVAudioPCMBuffer`](https://developer.apple.com/documentation/avfaudio/avaudiopcmbuffer) if we want to process the audio before playback.
 
@@ -350,8 +345,10 @@ or
     }
 ```
 
-## Raw Outgoing Video
+## RawVideo access
+
 Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
+
 ## Virtual Video
 
 ### Supported video resolutions
@@ -556,7 +553,7 @@ Because the app generates the video frames, the app must inform the Azure Commun
     }
     ```
 
-## Screen Share Video
+## ScreenShare Video
 
 Because the Windows system generates the frames, you must implement your own foreground service to capture the frames and send them by using the Azure Communication Services Calling API.
 
