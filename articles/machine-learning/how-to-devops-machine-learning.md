@@ -236,7 +236,7 @@ jobs:
 ## Step 7: Wait for Azure Machine Learning job to complete
 
 
-In Step 6, we added a job to submit an Azure Machine Learning job. In this step, we will add another job that will wait for the Azure Machine Learning job to complete. 
+In step 6, you added a job to submit an Azure Machine Learning job. In this step, you add another job that waits for the Azure Machine Learning job to complete. 
 
 
 # [Using Azure Resource manager Service connection](#tab/arm)
