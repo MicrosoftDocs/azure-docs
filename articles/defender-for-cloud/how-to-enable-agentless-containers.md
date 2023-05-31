@@ -69,9 +69,14 @@ For locked clusters, you can also do one of the following:
 
  
 
+## Support for exemptions
+
+You can customize your vulnerability assessment experience by exempting management groups, subscriptions, or specific resources from your secure score. Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
+
 ## Next Steps
 
 - Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json). 
 - Learn more about [Trusted Access](/azure/aks/trusted-access-feature). 
 - Learn how to [view and remediate vulnerability assessment findings for registry images and running images](view-and-remediate-vulnerability-assessment-findings.md).
 - Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
+

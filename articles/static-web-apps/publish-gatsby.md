@@ -110,6 +110,10 @@ The following steps show you how to create a new static site app and deploy it t
     | _Repository_ | Select **gatsby-static-web-app**. |
     | _Branch_ | Select **main**. |
 
+    > [!NOTE]
+    > If you don't see any repositories, you may need to authorize Azure Static Web Apps on GitHub.
+    > Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
+
 1. In the _Build Details_ section, select **Gatsby** from the _Build Presets_ drop-down and keep the default values.
 
 ### Review and create

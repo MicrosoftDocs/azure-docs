@@ -73,6 +73,11 @@ sections:
           Yes. You can configure NSG flow Logs to be sent to a storage account located in a different subscription, provided you have the appropriate privileges, and that the storage account is located in the same region as the network security group. The network security group and the destination storage account must also share the same Azure Active Directory Tenant.
 
       - question: |
+          Can my flow log resources and storage accounts be in different tenants?
+        answer: |
+          No. All resources must be in the same tenant including Network security groups, flow logs, storage accounts & Log Analytics workspaces (in cases where Traffic Analytics is enabled).
+
+      - question: |
           What if I can't configure a network security group for traffic analytics due to a "Not found" error?
         answer: |
           Select a supported region. If you select a non-supported region, you receive a "Not found" error. For more information, see [Traffic analytics supported regions](./supported-region-traffic-analytics.md).
