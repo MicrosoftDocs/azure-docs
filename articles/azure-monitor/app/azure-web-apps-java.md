@@ -113,7 +113,7 @@ To manually update, follow these steps:
 4. Restart the app to apply the changes.
 
 > [!NOTE]
-> If you set the `JAVA_OPTS` or `CATALINA_OPTS` for Tomcat environment variable, you will have to disable Application Insights in the portal. Alternatively, if you prefer to enable Application Insights from the portal, make sure that you don't set the `JAVA_OPTS` nor `CATALINA_OPTS` for Tomcat variable in App Service configurations settings. 
+> If you set the `JAVA_OPTS` or `CATALINA_OPTS` for Tomcat environment variable, you will have to disable Application Insights in the portal. Alternatively, if you prefer to enable Application Insights from the portal, make sure that you don't set the `JAVA_OPTS` or `CATALINA_OPTS` for Tomcat variable in App Service configurations settings. 
 
 ## Release notes
 
