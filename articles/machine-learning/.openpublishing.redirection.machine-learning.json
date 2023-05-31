@@ -1,6 +1,41 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/v-fake/tutorial-1st-experiment-bring-data.md",
+        "redirect_url": "/azure/machine-learning/tutorial-1st-experiment-bring-data",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/introduction.md",
+        "redirect_url": "/azure/machine-learning/introduction.md",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-use-secrets-in-runs.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-secrets-in-runs",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-use-managed-identities.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-managed-identities",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-use-environments.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-environments.md",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-troubleshoot-deployment-local.md",
+        "redirect_url": "/azure/machine-learning/how-to-troubleshoot-deployment-local",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-troubleshoot-deployment.md",
+        "redirect_url": "/azure/machine-learning/how-to-troubleshoot-deployment",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-train-tensorflow.md",
         "redirect_url": "/azure/machine-learning/how-to-train-tensorflow",
         "redirect_document_id": false
@@ -266,8 +301,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-train-with-custom-image.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-train-with-custom-image",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-train-with-custom-image.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-with-custom-image",
         "redirect_document_id": false
     },
     {
@@ -356,8 +391,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-troubleshoot-prebuilt-docker-image-inference.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-troubleshoot-prebuilt-docker-image-inference",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-troubleshoot-prebuilt-docker-image-inference.md",
+        "redirect_url": "/azure/machine-learning/how-to-troubleshoot-prebuilt-docker-image-inference",
         "redirect_document_id": true
     },
     {
@@ -1536,13 +1571,13 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-use-synapsesparkstep.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-use-synapsesparkstep",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-use-synapsesparkstep.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-synapsesparkstep",
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-version-track-datasets.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-version-track-datasets",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-version-track-datasets.md",
+        "redirect_url": "/azure/machine-learning/how-to-version-track-datasets",
         "redirect_document_id": true
     },
     {
@@ -1588,7 +1623,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-ui-sample-classification-predict-flight-delay.md",
         "redirect_url": "/azure/machine-learning/samples-designer",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md",
@@ -1626,8 +1661,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-train-with-datasets.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-train-with-datasets",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-train-with-datasets.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-with-datasets",
         "redirect_document_id": true
     },
     {
@@ -1976,8 +2011,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-use-automlstep-in-pipelines.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-use-automlstep-in-pipelines",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-use-automlstep-in-pipelines.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-automlstep-in-pipelines",
         "redirect_document_id": true
     },
     {
@@ -2221,8 +2256,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/reference-pipeline-yaml.md",
-        "redirect_url": "/azure/machine-learning/v1/reference-pipeline-yaml",
+        "source_path_from_root": "/articles/machine-learning/v-fake/reference-pipeline-yaml.md",
+        "redirect_url": "/azure/machine-learning/reference-pipeline-yaml",
         "redirect_document_id": false
     },
     {
@@ -2231,8 +2266,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/reference-azure-machine-learning-cli.md",
-        "redirect_url": "/azure/machine-learning/v1/reference-azure-machine-learning-cli",
+        "source_path_from_root": "/articles/machine-learning/v-fake/reference-azure-machine-learning-cli.md",
+        "redirect_url": "/azure/machine-learning/reference-azure-machine-learning-cli",
         "redirect_document_id": false
     },
     {
@@ -2651,8 +2686,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-use-labeled-dataset.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-use-labeled-dataset",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-use-labeled-dataset.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-labeled-dataset",
         "redirect_document_id": true
     },
     {
@@ -2701,8 +2736,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-trigger-published-pipeline.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-trigger-published-pipeline",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-trigger-published-pipeline.md",
+        "redirect_url": "/azure/machine-learning/how-to-trigger-published-pipeline",
         "redirect_document_id": true
     },
     {
@@ -3871,8 +3906,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-use-private-python-packages.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-use-private-python-packages",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-use-private-python-packages.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-private-python-packages",
         "redirect_document_id": true
     },
     {
@@ -3986,34 +4021,34 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/migrate-execute-r-script.md",
-        "redirect_url": "/azure/machine-learning/v1/migrate-execute-r-script",
+        "source_path_from_root": "/articles/machine-learning/v-fake/migrate-execute-r-script.md",
+        "redirect_url": "/azure/machine-learning/migrate-execute-r-script",
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/migrate-overview.md",
-        "redirect_url": "/azure/machine-learning/v1/migrate-overview",
-        "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/v-fake/migrate-overview.md",
+        "redirect_url": "/azure/machine-learning/migrate-overview",
+        "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/migrate-rebuild-experiment.md",
-        "redirect_url": "/azure/machine-learning/v1/migrate-rebuild-experiment",
-        "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/v-fake/migrate-rebuild-experiment.md",
+        "redirect_url": "/azure/machine-learning/migrate-rebuild-experiment",
+        "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/migrate-rebuild-integrate-with-client-app.md",
-        "redirect_url": "/azure/machine-learning/v1/migrate-rebuild-integrate-with-client-app",
-        "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/v-fake/migrate-rebuild-integrate-with-client-app.md",
+        "redirect_url": "/azure/machine-learning/migrate-rebuild-integrate-with-client-app",
+        "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/migrate-rebuild-web-service.md",
-        "redirect_url": "/azure/machine-learning/v1/migrate-rebuild-web-service",
-        "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/v-fake/migrate-rebuild-web-service.md",
+        "redirect_url": "/azure/machine-learning/migrate-rebuild-web-service",
+        "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/migrate-register-dataset.md",
-        "redirect_url": "/azure/machine-learning/v1/migrate-register-dataset",
-        "redirect_document_id": true
+        "source_path_from_root": "/articles/machine-learning/v-fake/migrate-register-dataset.md",
+        "redirect_url": "/azure/machine-learning/migrate-register-dataset",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-change-storage-access-key.md",
@@ -4051,8 +4086,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/samples-designer.md",
-        "redirect_url": "/azure/machine-learning/v1/samples-designer",
+        "source_path_from_root": "/articles/machine-learning/v-fake/samples-designer.md",
+        "redirect_url": "/azure/machine-learning/samples-designer",
         "redirect_document_id": true
     },
     {
@@ -4076,8 +4111,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-use-pipeline-parameter.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-use-pipeline-parameter",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-use-pipeline-parameter.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-pipeline-parameter",
         "redirect_document_id": true
     },
     {
