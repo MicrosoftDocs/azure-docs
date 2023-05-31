@@ -58,7 +58,7 @@ https://github.com/azure/azureml-examples
 
 You can use an existing Service connection.
 
-# [Azure Resource manager](#tab/arm)
+# [Azure Resource Manager](#tab/arm)
 
 You'll need an Azure Resource Manager connection to authenticate with Azure portal. 
 
