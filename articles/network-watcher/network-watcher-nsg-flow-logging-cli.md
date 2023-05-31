@@ -2,11 +2,10 @@
 title: Manage NSG flow logs - Azure CLI
 titleSuffix: Azure Network Watcher
 description: Learn how to create, change, disable, or delete NSG flow logs in Azure Network Watcher using the Azure CLI.
-services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 05/31/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
 ---
@@ -14,7 +13,7 @@ ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
 # Manage NSG flow logs using the Azure CLI
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure portal](nsg-flow-logging.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
@@ -59,7 +58,7 @@ az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-g
 
 > [!NOTE]
 > - The storage account can't have network rules that restrict network access to only Microsoft services or specific virtual networks.
-> - If you use a different subscription for your storage account, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+> - If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
 > - If the storage account is in a different resource group or subscription, you must specify the full ID of the storage account instead of only its name. For example, if **myStorageAccount** storage account is in a resource group named **StorageRG** while the network security group is in the resource group **myResourceGroup**, you must use `/subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/myStorageAccount` for `--storage-account` parameter instead of `myStorageAccount`.
 
 ```azurecli-interactive
