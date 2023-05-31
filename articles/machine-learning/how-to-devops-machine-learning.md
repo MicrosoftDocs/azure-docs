@@ -24,7 +24,7 @@ You can use an [Azure DevOps pipeline](/azure/devops/pipelines/) to automate the
 * Deployment of machine learning models as public or private web services
 * Monitoring deployed machine learning models (such as for performance or data-drift analysis)
 
-This article will teach you how to create an Azure Pipeline that builds and deploys a machine learning model to [Azure Machine Learning](overview-what-is-azure-machine-learning.md). You'll train a scikit-learn linear regression model on the Diabetes dataset.
+This article will teach you how to create an Azure Pipeline that builds and deploys a machine learning model to [Azure Machine Learning](overview-what-is-azure-machine-learning.md). 
 
 This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/azure/ai-ml-readme) and [Azure CLI ML extension v2](/cli/azure/ml). 
 
@@ -32,8 +32,6 @@ This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/a
 
 * Complete the [Create resources to get started](quickstart-create-resources.md) to:
     * Create a workspace
-    * Create a cloud-based compute instance to use for your development environment
-
 * [Create a cloud-based compute cluster](how-to-create-attach-compute-cluster.md#create) to use for training your model
 * Azure Machine Learning extension (preview) for Azure Pipelines. This extension isn't required to submit the Azure Machine Learning job; it is required to be able to wait for the job completion.
 
@@ -56,7 +54,7 @@ https://github.com/azure/azureml-examples
 
 ## Step 3: Create a Service connection
 
-You can use an existing Service connection.
+You can use an existing service connection.
 
 # [Azure Resource Manager](#tab/arm)
 
@@ -99,21 +97,7 @@ You'll need an Azure Resource Manager connection to authenticate with Azure port
 
 1. Select the **Starter pipeline**. You'll update the starter pipeline template.
 
-## Step 5: Create variables
-
-You should already have a resource group in Azure with [Azure Machine Learning](overview-what-is-azure-machine-learning.md). To deploy your DevOps pipeline to Azure Machine Learning, you'll need to create variables for your subscription ID, resource group, and machine learning workspace. 
-
-1. Select the Variables tab on your pipeline edit page.  
-
-    :::image type="content" source="media/how-to-devops-machine-learning/machine-learning-select-variables.png" alt-text="Screenshot of variables option in pipeline edit. ":::   
- 
-1. Create a new variable, `Subscription_ID`, and select the checkbox **Keep this value secret**. Set the value to your [Azure portal subscription ID](../azure-portal/get-subscription-tenant-id.md).
-1. Create a new variable for `Resource_Group` with the name of the resource group for Azure Machine Learning (example: `machinelearning`). 
-1. Create a new variable for `AzureML_Workspace_Name` with the name of your Azure Machine Learning workspace (example: `docs-ws`).
-1. Create a new variable for `Service_connection` with the name of your service connection (example: `machine-learning-service-connection`).
-1. Select **Save** to save your variables. 
-
-## Step 6: Build your YAML pipeline to submit the Azure Machine Learning job
+## Step 5: Build your YAML pipeline to submit the Azure Machine Learning job
 
 Delete the starter pipeline and replace it with the following YAML code. In this pipeline, you'll:
 
@@ -121,20 +105,20 @@ Delete the starter pipeline and replace it with the following YAML code. In this
 * Use the Bash task to run bash scripts for the Azure Machine Learning SDK and CLI.
 * Use the Azure CLI task to submit an Azure Machine Learning job. 
 
-Select the following tabs depending on whether you are using an Azure Resource Manager service connection or a generic service connection. As applicable in the YAML pipeline, replace the following placeholder text with the variables you created in step 5.
+Select the following tabs depending on whether you are using an Azure Resource Manager service connection or a generic service connection. In the pipeline YAML, replace the value of variables with your resources.
 
- *  `<name of-service-connection>`
- * `<variable-for-subscription-id>`
- * `<variable-name-for-resource-group>`
- * `<variable-name-for-workspace>`
-
-# [Using Azure Resource manager service connection](#tab/arm)
+# [Using Azure Resource Manager service connection](#tab/arm)
 
 ```yaml
 name: submit-azure-machine-learning-job
 
 trigger:
 - none
+
+variables:
+  service-connection: 'machine-learning-connection' # replace with your service connection name
+  resource-group: 'machinelearning-rg' # replace with your resource group name
+  workspace: 'docs-ws' # replace with your workspace name
 
 jobs:
 - job: SubmitAzureMLJob
@@ -160,14 +144,14 @@ jobs:
     name: submit_azureml_job_task
     displayName: Submit AzureML Job Task
     inputs:
-      azureSubscription: $(<name of-service-connection>)
+      azureSubscription: $(service-connection)
       workingDirectory: 'cli/jobs/pipelines-with-components/nyc_taxi_data_regression'
       scriptLocation: inlineScript
       scriptType: bash
       inlineScript: |
       
         # submit component job and get the run name
-        job_out=$(az ml job create --file single-job-pipeline.yml -g $(<variable-name-for-resource-group>) -w $(<variable-name-for-workspace>) --query name)
+        job_out=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name)
 
         # Remove quotes around job name
         job_name=$(sed -e 's/^"//' -e 's/"$//' <<<"$job_out")
@@ -177,12 +161,18 @@ jobs:
         echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
 
 ```
-# [Using Generic Service connection](#tab/generic)
+# [Using generic service connection](#tab/generic)
 ```yaml
 name: submit-azure-machine-learning-job
 
 trigger:
 - none
+
+variables:
+  subscription_id: '00000000-0000-0000-0000-000000000000' # replace with your subscription id
+  service-connection: 'generic-machine-learning-connection' # replace with your generic service connection name
+  resource-group: 'machinelearning-rg' # replace with your resource group name
+  workspace: 'docs-ws' # replace with your workspace name
 
 jobs:
 - job: SubmitAzureMLJob
@@ -217,7 +207,7 @@ jobs:
       inlineScript: |
       
         # submit component job and get the run name
-        job_out=$(az ml job create --file single-job-pipeline.yml -g $(<variable-name-for-resource-group>) -w $(<variable-name-for-workspace>) --query name)
+        job_out=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name)
 
         # Remove quotes around run name
         job_name=$(sed -e 's/^"//' -e 's/"$//' <<<"$job_out")
@@ -239,7 +229,7 @@ jobs:
 In step 6, you added a job to submit an Azure Machine Learning job. In this step, you add another job that waits for the Azure Machine Learning job to complete. 
 
 
-# [Using Azure Resource manager service connection](#tab/arm)
+# [Using Azure Resource Manager service connection](#tab/arm)
 
 If you are using an Azure Resource Manager service connection, you can use the "Machine Learning" extension. You can search this extension in the [Azure DevOps extensions Marketplace](https://marketplace.visualstudio.com/search?target=AzureDevOps&category=Azure%20Pipelines&visibilityQuery=public&sortBy=Installs). Install the "Machine Learning" extension.
 
@@ -250,9 +240,12 @@ In the Pipeline review window, add a Server Job. In the steps part of the job, s
 
 The task has four inputs: `Service Connection`, `Azure Resource Group Name`, `AzureML Workspace Name` and `AzureML Job Name`. Fill these inputs. The resulting YAML for these steps is similar to the following example: 
 
+>NOTE
+> * The Azure Machine Learning job wait task runs on a **server job**, which doesn't use up expensive agent pool resources and requires no additional charges. Server jobs (indicated by `pool: server`) run on the same machine as your pipeline. For more information, see [Server jobs](/azure/devops/pipelines/process/phases#server-jobs).
 
-> [!NOTE]
-> If you are directly using the example YAML, and not adding the task manually, replace `<name of-service-connection>`, `<variable-name-for-resource-group>`, and `<variable-name-for-workspace>` entries with name of variables, you set in step 5.
+> * One Azure Machine Learning job wait task can only wait on one job. You'll need to set up a separate task for each job that you want to wait on.
+
+> * The Azure Machine Learning job wait task can wait for a maximum of 2 days. This is a hard limit set by Azure DevOps Pipelines. 
 
 ```yml
 - job: WaitForAzureMLJobCompletion
@@ -266,18 +259,15 @@ The task has four inputs: `Service Connection`, `Azure Resource Group Name`, `Az
   steps:
   - task: AzureMLJobWaitTask@0
     inputs:
-      serviceConnection: $(<name of-service-connection>`)
-      resourceGroupName: $(<variable-name-for-resource-group>)
-      azureMLWorkspaceName: $(<variable-name-for-workspace>)
+      serviceConnection: $(service-connection)
+      resourceGroupName: $(resource-group)
+      azureMLWorkspaceName: $(workspace)
       azureMLJobName: $(azureml_job_name_from_submit_job)
 ```
 
-# [Using Generic Service connection](#tab/generic)
+# [Using generic service connection](#tab/generic)
 
 If you are using the Generic Service connection, you can't use the task provided by Azure Machine Learning extension. Instead, call the API directly using an `InvokeRESTAPI` task. The following YAML example demonstrates how to use the API.
-
-Replace `<name of-service-connection>`,`<variable-for-subscription-id>`,`<variable-name-for-resource-group>` and `<variable-name-for-workspace>` with name of variables, you have set in Step 5.
-
 
 ```yml
 - job: WaitForJobCompletion
@@ -292,11 +282,11 @@ Replace `<name of-service-connection>`,`<variable-for-subscription-id>`,`<variab
   - task: InvokeRESTAPI@1
     inputs:
       connectionType: connectedServiceName
-      serviceConnection: $(<name of-service-connection>)
+      serviceConnection: $(service-connection)
       method: PATCH
       body: "{ \"Properties\": { \"NotificationSetting\": { \"Webhooks\": { \"ADO_Webhook_$(system.TimelineId)\": { \"WebhookType\": \"AzureDevOps\", \"EventType\": \"RunTerminated\", \"PlanUri\": \"$(system.CollectionUri)\", \"ProjectId\": \"$(system.teamProjectId)\", \"HubName\": \"$(system.HostType)\", \"PlanId\": \"$(system.planId)\", \"JobId\": \"$(system.jobId)\", \"TimelineId\": \"$(system.TimelineId)\", \"TaskInstanceId\": \"$(system.TaskInstanceId)\", \"AuthToken\": \"$(system.AccessToken)\"}}}}}"
       headers: "{\n\"Content-Type\":\"application/json\", \n\"Authorization\":\"Bearer $(AAD_TOKEN)\" \n}"
-      urlSuffix: "subscriptions/$(<variable-for-subscription-id>)/resourceGroups/$(<variable-name-for-resource-group>)/providers/Microsoft.MachineLearningServices/workspaces/$(<variable-name-for-workspace>)/jobs/$(job_name_from_submit_task)?api-version=2023-04-01-preview"
+      urlSuffix: "subscriptions/$(subscription_id)/resourceGroups/$(resource-group)/providers/Microsoft.MachineLearningServices/workspaces/$(workspace)/jobs/$(job_name_from_submit_task)?api-version=2023-04-01-preview"
       waitForCompletion: "true"
 ```
 ---
@@ -317,11 +307,3 @@ AzureML Job Cancelled == Azure DevOps Task under WaitForJobCompletion job **Canc
 ## Clean up resources
 
 If you're not going to continue to use your pipeline, delete your Azure DevOps project. In Azure portal, delete your resource group and Azure Machine Learning instance.
-
-## Key points regarding "AzureML Job Wait" task used in Step 7 to wait for Azure Machine Learning job completion
-
-* The Azure Machine Learning job wait task runs on a **server job**, which doesn't use up expensive agent pool resources and requires no additional charges. Server jobs (indicated by `pool: server`) run on the same machine as your pipeline. For more information, see [Server jobs](/azure/devops/pipelines/process/phases#server-jobs).
-
-* One Azure Machine Learning job wait task can only wait on one job. You'll need to set up a separate task for each job that you want to wait on.
-
-* The Azure Machine Learning job wait task can wait for a maximum of 2 days. This is a hard limit set by Azure DevOps Pipelines. 
