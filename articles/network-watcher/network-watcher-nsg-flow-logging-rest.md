@@ -2,14 +2,12 @@
 title: Manage NSG flow logs - Azure REST API
 titleSuffix: Azure Network Watcher
 description: Learn how to manage network security group flow logs in Azure Network Watcher using REST API.
-services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 07/13/2021
 ms.author: halkazwini
-ms.custom: etemplate-how-to, ngagement-fy23
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Manage network security group flow logs using REST API
