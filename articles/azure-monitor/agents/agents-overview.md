@@ -187,7 +187,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | 
 | Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X |   |
 | Windows 7 SP1<br>(Server scenarios only<sup>1</sup>)                 |   | X |   |
-| Azure Stack HCI                                          |   | X |   |
+| Azure Stack HCI                                          | X | X |   |
 
 <sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser).<br>
 <sup>2</sup> Using the Azure Monitor agent [client installer](./azure-monitor-agent-windows-client.md).<br>
