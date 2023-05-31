@@ -69,6 +69,10 @@
       items:
         - name: Audit compliance using Azure Policy
           href: howto-monitor-azure-policy.md
+        - name: Monitor Azure Web PubSub
+          href: howto-azure-monitor.md
+        - name: Monitor Azure Web PubSub data reference
+          href: howto-monitor-data-reference.md
     - name: Secure
       items:
         - name: Protect the access key

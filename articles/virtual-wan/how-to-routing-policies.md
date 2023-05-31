@@ -11,8 +11,7 @@ ms.author: wellee
 ---
 # How to configure Virtual WAN Hub routing intent and routing policies
 
->[!NOTE] 
-> The rollout for routing intent capabilities to support inter-region traffic is currently underway. Inter-region capabilities may not be immediately available.
+
 
 Virtual WAN Hub routing intent allows you to set up simple and declarative routing policies to send traffic to bump-in-the-wire security solutions like Azure Firewall, Network Virtual Appliances or software-as-a-service (SaaS) solutions deployed within the Virtual WAN hub.
 
@@ -53,7 +52,7 @@ Consider the following configuration where Hub 1 and Hub 2  have Routing Policie
 The following are the traffic flows that result from such a configuration.
 
 > [!NOTE]
-> Internet Traffic must egress through the **local** seurity solution in the hub as the default route (0.0.0.0/0) does **not** propagate across hubs.
+> Internet Traffic must egress through the **local** security solution in the hub as the default route (0.0.0.0/0) does **not** propagate across hubs.
 
 | From |   To |  Hub 1 VNets | Hub 1 branches | Hub 2 VNets | Hub 2 branches| Internet|
 | -------------- | -------- | ---------- | ---| ---| ---| ---|
@@ -95,7 +94,7 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 * The following connectivity use cases are **not** supported with Routing Intent:
   * Encrypted ExpressRoute (Site-to-site VPN tunnels running over ExpressRoute circuits) is **not** supported in hubs where routing intent is configured. Connectivity between Encrypted ExpressRoute connected sites and Azure is impacted if routing intent is configured on a hub.
   * Static routes in the defaultRouteTable that point to a Virtual Network connection can't be used in conjunction with routing intent. However, you can use the [BGP peering feature](scenario-bgp-peering-hub.md).
-  * Routing Intent only supports a single Network Virtual Appliance in each Virtual WAN hub. Multiple Network Virtual Appliances is currently in the road-map.
+  * The ability to deploy both a SD-WAN connectivity NVA and a separate Firewall NVA or SaaS solution in the **same** Virtual WAN hub is currently in the road-map. Once routing intent is configured with next hop SaaS solution or Firewall NVA, connectivity between the SD-WAN NVA and Azure is impacted. Instead, deploy the SD-WAN NVA and Firewall NVA or SaaS solution in different Virtual Hubs. Alternatively, you can also deploy the SD-WAN NVA in a spoke Virtual Network connected to the hub and leverage the virtual hub [BGP peering](scenario-bgp-peering-hub.md) capability.
   * Network Virtual Appliances (NVAs) can only be specified as the next hop resource for routing intent if they're Next-Generation Firewall or dual-role Next-Generation Firewall and SD-WAN NVAs. Currently, **checkpoint**, **fortinet-ngfw** and **fortinet-ngfw-and-sdwan** are the only NVAs eligible to be configured to be the next hop for routing intent. If you attempt to specify another NVA, Routing Intent creation fails. You can check the type of the NVA by navigating to your Virtual Hub -> Network Virtual Appliances and then looking at the **Vendor** field.
   * Routing Intent users who want to connect multiple ExpressRoute circuits to Virtual WAN and want to send traffic between them via a security solution deployed in the hub can enable open up a support case to enable this use case. Reference [enabling connectivity across ExpressRoute circuits](#expressroute) for more information.
 
@@ -236,7 +235,13 @@ After transit connectivity across ExpressRoute circuits using a firewall applian
 
 Additionally, if your ExpressRoute circuit is advertising a non-RFC1918 prefix to Azure, please make sure the address ranges that you put in the Private Traffic Prefixes text box are less specific than ExpressRoute advertised routes. For example, if the ExpressRoute Circuit is advertising 40.0.0.0/24 from on-premises, put a /23 CIDR range or larger in the Private Traffic Prefix text box (example: 40.0.0.0/23).
 
-## <a name="azurefirewall"></a> Configure routing intent and policies through Azure Firewall Manager
+## Configuring routing intent through Azure Portal
+
+Routing intent and routing policies can be configured through Azure Portal using [Azure Firewall Manager](#azurefirewall) or [Virtual WAN portal](#nva). Azure Firewall Manager portal allows you to configure routing policies with next hop resource  Azure Firewall. Virtual WAN portal allows you to configure routing policies with the next hop resource  Azure Firewall, Network Virtual Appliances deployed within the Virtual hub or SaaS solutions.
+
+Customers using Azure Firewall in Virtual WAN secured hub can either set Azure Firewall Manager's 'Enable inter-hub' setting to 'Enabled' to use routing intent or use Virtual WAN portal to directly configure Azure Firewall as the next hop resource for routing intent and policies. Configurations in either portal experience are equivalent and changes in Azure Firewall Manager are automatically reflected in Virtual WAN portal and vice versa.
+
+### <a name="azurefirewall"></a> Configure routing intent and policies through Azure Firewall Manager
 
 The following steps describe how to configure routing intent and routing policies on your Virtual Hub using Azure Firewall Manager. Note that Azure Firewall Manager only supports next hop resources of type Azure Firewall. 
 
@@ -259,7 +264,7 @@ The following steps describe how to configure routing intent and routing policie
 10. Repeat steps 2-8 for other Secured Virtual WAN hubs that you want to configure Routing policies for.
 11. At this point, you're ready to send test traffic. Please make sure your Firewall Policies are configured appropriately to allow/deny traffic based on your desired security configurations. 
 
-## <a name="nva"></a> Configure routing intent and policies through Virtual WAN portal
+### <a name="nva"></a> Configure routing intent and policies through Virtual WAN portal
 
 The following steps describe how to configure routing intent and routing policies on your Virtual Hub using Virtual WAN portal. 
 

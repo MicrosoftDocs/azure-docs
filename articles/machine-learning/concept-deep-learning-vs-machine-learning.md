@@ -17,7 +17,7 @@ ms.custom: contperf-fy21q1,contperfq1
 
 This article explains deep learning vs. machine learning and how they fit into the broader category of artificial intelligence. Learn about deep learning solutions you can build on Azure Machine Learning, such as fraud detection, voice and facial recognition, sentiment analysis, and time series forecasting.
 
-For guidance on choosing algorithms for your solutions, see the [Machine Learning Algorithm Cheat Sheet](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri).
+For guidance on choosing algorithms for your solutions, see the [Machine Learning Algorithm Cheat Sheet](./v1/algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri).
 
 ## Deep learning, machine learning, and AI
 
@@ -67,7 +67,7 @@ Learn how to apply transfer learning for image classification using an open-sour
 
 Because of the artificial neural network structure, deep learning excels at identifying patterns in unstructured data such as images, sound, video, and text. For this reason, deep learning is rapidly transforming many industries, including healthcare, energy, finance, and transportation. These industries are now rethinking traditional business processes. 
 
-Some of the most common applications for deep learning are described in the following paragraphs. In Azure Machine Learning, you can use a model from you build from an open-source framework or build the model using the tools provided.
+Some of the most common applications for deep learning are described in the following paragraphs. In Azure Machine Learning, you can use a model you built from an open-source framework or build the model using the tools provided.
 
 ### Named-entity recognition
 
