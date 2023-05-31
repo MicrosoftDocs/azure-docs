@@ -1,5 +1,5 @@
 ---
-title: Industrial IoT patterns with Azure IoT Central | Microsoft Docs
+title: Industrial IoT patterns with Azure IoT Central
 description: This article introduces common Industrial IoT patterns that you can implement using Azure IoT Central
 author: dominicbetts
 ms.author: dobett
