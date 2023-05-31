@@ -1,6 +1,6 @@
 ---
 title: "Azure Operator Nexus: Runtime Upgrade"
-description: Learn to install the needed Azure CLI extensions for Operator Nexus
+description: Learn to execute a cluster runtime upgrade for Operator Nexus
 author: Eduardo Rivera De La Torre
 ms.author: eduardori
 ms.service: azure-operator-nexus
