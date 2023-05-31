@@ -43,7 +43,7 @@ For security purposes, you may need to change the access keys for an Azure Stora
 :::moniker range="azureml-api-1"
 * The [Azure Machine Learning SDK v1](/python/api/overview/azure/ml/install).
 
-* The [Azure Machine Learning CLI extension v1](reference-azure-machine-learning-cli.md).
+* The [Azure Machine Learning CLI extension v1](./v1/reference-azure-machine-learning-cli.md).
 
 > [!NOTE]
 > The code snippets in this document were tested with version 1.0.83 of the Python SDK.
