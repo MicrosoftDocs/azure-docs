@@ -105,7 +105,7 @@ To manually update, follow these steps:
 
    :::image type="content"source="./media/azure-web-apps/startup-command.png" alt-text="Screenshot of startup command.":::
    
-   **Startup Command** honors neither `JAVA_OPTS` nor `CATALINA_OPTS` for Tomcat.
+   **Startup Command** doesn't honor `JAVA_OPTS` or `CATALINA_OPTS` for Tomcat.
 
    If you don't use **Startup Command**, create a new environment variable, `JAVA_OPTS` or `CATALINA_OPTS` for Tomcat, with the value
    `-javaagent:{PATH_TO_THE_AGENT_JAR}/applicationinsights-agent-{VERSION_NUMBER}.jar`.
