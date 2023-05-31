@@ -246,7 +246,7 @@ If you are using an Azure Resource Manager service connection, you can use the "
 > [!IMPORTANT]
 > Don't install the __Machine Learning (classic)__ extension by mistake.
 
-In the Pipeline review window, add a Server Job. In the steps part of the job, open the "Show assistant" on the right side and search for "AzureML." Select the "AzureML Job Wait" task and fill in the information for the job you would like to wait for. 
+In the Pipeline review window, add a Server Job. In the steps part of the job, select __Show assistant__ and search for __AzureML__. Select the __AzureML Job Wait__ task and fill in the information for the job. 
 
 The task has four inputs: `Service Connection`, `Azure Resource Group Name`, `AzureML Workspace Name` and `AzureML Job Name`. Fill these inputs. The resulting YAML for these steps looks like below. 
 
