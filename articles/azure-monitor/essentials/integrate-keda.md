@@ -26,7 +26,7 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
 ## Prerequisites
 
 1. Azure Kubernetes Service (AKS) cluster
-1. Prometheus sending metrics to an Azure Monitor workspace. For more information, see [Azure Monitor managed service for Prometheus](hhttps://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-overview).
+1. Prometheus sending metrics to an Azure Monitor workspace. For more information, see [Azure Monitor managed service for Prometheus](./prometheus-metrics-overview.md).
 
 
 ## Set up a workload identity
