@@ -31,16 +31,20 @@ The following Azure services are used to monitor Kubernetes clusters.
 
 ## Data
 
-
-| Data type | Sources | Collection method | Analyze with |
+### Metrics
+ Sources | Description |
 |:---|:---|:---|:---|
-| Metrics | Platform metrics | Automatically collected for AKS, not available for hybrid. | Metrics explorer. |
-|         | Prometheus metrics | Managed Prometheus for AKS.<br>Arc and Managed Prometheus for hybrid. |
-| Logs    | Activity logs | |
-|         | stderr/stdout | ContainerLogv2 in Container insights. |
-|         | Control plane logs | Diagnostic setting |
-|         | Cluster inventory | Container insights |
-|         | Application | Application insights |
+| Platform metrics | [Platform metrics](../aks/monitor-aks-reference.md#metrics) are automatically collected for AKS clusters at no cost. You can analyze these metrics with [metrics explorer](../essentials/metrics-getting-started.md) or use them for [metric alerts](../alerts/alerts-types.md#metric-alerts). |
+| Prometheus metrics | Prometheus metrics are stored in [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). 
+
+Use Arc and Managed Prometheus for hybrid. |
+
+
+| Activity logs | |
+| stderr/stdout | ContainerLogv2 in Container insights. |
+| Control plane logs | Diagnostic setting |
+| Cluster inventory | Container insights |
+| Application | Application insights |
 
 
 ## Personas
@@ -58,18 +62,13 @@ The following Azure services are used to monitor Kubernetes clusters.
 
 
 
-## Configure monitoring
+## Prerequisites
 
-The following sections describe the steps required to configure full monitoring of your AKS cluster using Azure Monitor.
+| Component | Description |
+|:---|:---|
+| Azure Monitor workspace | You require at least one [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) to support Managed Prometheus.  There's no cost for the workspaces, but you do incur ingestion and retention costs when you collect data. See [Azure Monitor Logs pricing details](../logs/cost-logs.md) for details. For information on design considerations for a workspace configuration, see [Azure Monitor workspace architecture](../essentials/azure-monitor-workspace-overview.md#azure-monitor-workspace-architecture). |
+| Log Analytics workspace | You require at least one [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) if you enable Container insights or if you collect resource logs.There's no cost for the workspaces, but you do incur ingestion costs when you collect data. See [Azure Monitor pricing](https://aka.ms/azmonpricing) for details. For information on design considerations for a workspace configuration, see [Designing your Azure Monitor Logs deployment](../logs/workspace-design.md). |
 
-
-### Create Log Analytics workspace
-
-You need at least one Log Analytics workspace to support Container Insights and to collect and analyze other telemetry about your AKS cluster. There's no cost for the workspace, but you do incur ingestion and retention costs when you collect data. See [Azure Monitor Logs pricing details](..//logs/cost-logs.md) for details.
-
-If you're just getting started with Azure Monitor, we recommend starting with a single workspace and creating additional workspaces as your requirements evolve. Many environments will use a single workspace for all the Azure resources they monitor. You can even share a workspace used by [Microsoft Defender for Cloud and Microsoft Sentinel](..//vm/monitor-virtual-machine-security.md), although it's common to segregate availability and performance telemetry from security data.
-
-For information on design considerations for a workspace configuration, see [Designing your Azure Monitor Logs deployment](..//logs/workspace-design.md).
 
 ### Enable Container Insights
 
