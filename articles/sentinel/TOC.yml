@@ -535,6 +535,8 @@
         href: data-connectors/microsoft-defender-for-iot.md
       - name: Microsoft Defender for Office 365
         href: data-connectors/microsoft-defender-for-office-365.md
+      - name: Microsoft Defender Threat Intelligence
+        href: data-connectors/microsoft-defender-threat-intelligence.md
       - name: Microsoft PowerBI
         href: data-connectors/microsoft-powerbi.md
       - name: Microsoft Project
@@ -669,6 +671,8 @@
         href: data-connectors/threat-intelligence-taxii.md
       - name: Threat Intelligence Platforms
         href: data-connectors/threat-intelligence-platforms.md
+      - name: Threat Intelligence Upload Indicators API
+        href: data-connectors/threat-intelligence-upload-indicators-api.md
       - name: Trend Micro Apex One
         href: data-connectors/trend-micro-apex-one.md
       - name: Trend Micro Deep Security
