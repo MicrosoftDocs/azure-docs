@@ -2,7 +2,7 @@
 title: Link to existing Datadog
 description: This article describes how to use the Azure portal to link to an existing instance of Datadog.
 ms.topic: quickstart
-ms.date: 05/29/2023
+ms.date: 05/31/2023
 author: flang-msft
 ms.author: franlanglois
 ms.custom: references_regions, mode-other
@@ -63,6 +63,10 @@ By default, Azure links your current Datadog organization to your Datadog resour
 
 Select **Next: Metrics and logs** to configure metrics and logs.
 
+If the subscription is already linked to an organization through a Datadog resource, an attempt to link the subscription to the same organization through a different Datadog resource would be blocked. It's blocked to avoid scenarios where duplicate logs and metrics get shipped to the same organization for the same subscription.
+
+:::image type="content" source="media/manage/datadog-subscription-blocked.png" alt-text="Screenshot stating that a subscription is already linked to the selected organization through a different Datadaog resource.":::
+
 ## Configure metrics and logs
 
 Use Azure resource tags to configure which metrics and logs are sent to Datadog. You can include or exclude metrics and logs for specific resources.
@@ -99,11 +103,6 @@ The logs sent to Datadog are charged by Azure. For more information, see the [pr
 
 Once you have completed configuring metrics and logs, select **Next: Single sign-on**.
 
-### Unable to link a subscription to an existing Datadog organization
-
-If the subscription is already linked to an organization through a Datadog resource, an attempt to link the subscription to the same organization through a different Datadog resource would be blocked. It's blocked to avoid scenarios where duplicate logs and metrics get shipped to the same organization for the same subscription.
-
-:::image type="content" source="media/manage/datadog-subscription-blocked.png" alt-text="Screenshot stating that a subscription is already linked to the selected organization through a different Datadaog resource.":::
 
 ## Configure single sign-on
 
