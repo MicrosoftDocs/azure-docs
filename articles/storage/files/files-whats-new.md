@@ -15,6 +15,14 @@ Azure Files is updated regularly to offer new features and enhancements. This ar
 ## What's new in 2023
 
 ### 2023 quarter 2 (April, May, June)
+#### Azure Files scalability improvement for Azure Virtual Desktop and other workloads is generally available
+Azure Files has increased the root directory handle limit per share from 2,000 to 10,000 for standard and premium file shares. This improvement benefits applications that keep an open handle on the root directory. For example, Azure Virtual Desktop with FSLogix profile containers now supports 10,000 active users per share (5x improvement). 
+
+Note: The number of active users supported per share is dependent on the applications that are accessing the share. If your applications are not opening a handle on the root directory, Azure Files can support more than 10,000 active users per share.
+ 
+The root directory handle limit has been increased in all regions and applies to all existing and new file shares. For more information about Azure Files scale targets, see: [Azure Files scalability and performance targets](storage-files-scale-targets.md).
+
+
 #### Geo-redundant storage for large file shares is in public preview
 
 Azure Files geo-redundancy for large file shares preview significantly improves capacity and performance for standard SMB file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. The preview is only available for standard SMB Azure file shares. For more information, see [Azure Files geo-redundancy for large file shares preview](geo-redundant-storage-for-large-file-shares.md).

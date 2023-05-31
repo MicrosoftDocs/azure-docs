@@ -225,5 +225,5 @@ Map the default Okta authorization server to Microsoft Graph scopes or permissio
 ## Next steps
 
 - [Migrate Okta federation to Azure AD](migrate-okta-federation-to-azure-active-directory.md)
-- [Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory.md)
+- [Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning.md)
 - [Migrate Okta sign-on policies to Azure AD Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
