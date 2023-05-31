@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Store and get a MySQL connection string in Azure Key vault"
+title: "Tutorial: Store and get a MySQL connection string in Azure Key vault"
 description: "This tutorial shows how to store and get a Azure Database for MySQL Flexible Server connection string in Azure Key vault"
 ms.service: mysql
 ms.subservice: flexible-server
