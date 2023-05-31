@@ -34,13 +34,13 @@ A user that needs access to an access package can submit an access request. Depe
 | --- | --- |
 | Submitted | User submits a request. |
 | Pending approval | If the policy for an access package requires approval, a request moves to pending approval. |
-| Expired | If no approvers approve a request within the approval request timeout, the request expires. To try again, the user will have to resubmit their request. |
+| Expired | If no approvers approve a request within the approval request timeout, the request expires. To try again, the user has to resubmit their request. |
 | Denied | Approver denies a request. |
 | Approved | Approver approves a request. |
 | Delivering | User has **not** been assigned access to all the resources in the access package. If this is an external user, the user may not have accessed the resource directory yet. They also may not have accepted the consent prompt. |
 | Delivered | User has been assigned access to all the resources in the access package. |
 | Access extended | If extensions are allowed in the policy, the user extended the assignment. |
-| Access expired | User's access to the access package has expired. To get access again, the user will have to submit a request. |
+| Access expired | User's access to the access package has expired. To get access again, the user has to submit a request. |
 
 ## Email notifications
 
@@ -96,7 +96,7 @@ The following table provides more detail about each of these email notifications
 
 When a requestor submits an access request for an access package configured to require approval, all approvers added to the policy will receive an email notification with details of the request. The details in the email include: requestor's name organization, and business justification; and the requested access start and end date (if provided). The details will also include when the request was submitted and when the request will expire.
 
-The email includes a link approvers can click on to go to My Access to approve or deny the access request. Here is a sample email notification that is sent to an approver to complete an access request:
+The email includes a link approvers can select on to go to My Access to approve or deny the access request. Here is a sample email notification that is sent to an approver to complete an access request:
 
 ![Approve request to access package email](./media/entitlement-management-shared/approver-request-email.png)
 
