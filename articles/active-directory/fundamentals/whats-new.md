@@ -229,8 +229,7 @@ When configuring a Conditional Access policy, customers now have granular contro
 
 ---
 
-### General Availability - New Federated Apps available in Azure AD Application gallery - April 2023
-
+### General Availability - New Federated Apps available in Azure AD Application gallery - May 2023
 
 
 **Type:** New feature   
