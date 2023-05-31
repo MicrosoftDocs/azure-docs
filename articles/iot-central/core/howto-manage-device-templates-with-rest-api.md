@@ -1,6 +1,6 @@
 ---
-title: Use the REST API to add device templates in Azure IoT Central
-description: How to use the IoT Central REST API to add device templates in an application
+title: Add device templates in Azure IoT Central with the REST API
+description: How to use the IoT Central REST API to add, update, delete, and manage device templates in an application
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/17/2022
