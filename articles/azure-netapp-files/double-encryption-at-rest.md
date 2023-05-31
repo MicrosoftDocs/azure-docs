@@ -28,7 +28,7 @@ Azure NetApp Files double encryption at rest provides two levels of encryption p
 
 If you are using this feature for the first time, you need to [register for the feature](azure-netapp-files-set-up-capacity-pool.md#encryption_type) and then create a double-encryption capacity pool. For details, see [Create a capacity pool for Azure NetApp Files](azure-netapp-files-set-up-capacity-pool.md).
 
-When you create a volume in a double-encryption capacity pool, the default key management (the **Encryption key source** field) is `Microsoft Managed Keys`, and the other choice is `Customer Managed Keys`. Using customer-managed keys requires additional preparation of an Azure Key Vault and other details.  For more information about using volume encryption with customer managed keys, see [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md).
+When you create a volume in a double-encryption capacity pool, the default key management (the **Encryption key source** field) is `Microsoft Managed Key`, and the other choice is `Customer Managed Key`. Using customer-managed keys requires additional preparation of an Azure Key Vault and other details.  For more information about using volume encryption with customer managed keys, see [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md).
 
 :::image type="content" source="../media/azure-netapp-files/double-encryption-create-volume.png" alt-text="Screenshot of the Create Volume page in a double-encryption capacity pool." lightbox="../media/azure-netapp-files/double-encryption-create-volume.png":::
 
