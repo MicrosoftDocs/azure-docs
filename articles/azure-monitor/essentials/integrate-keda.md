@@ -11,11 +11,17 @@ ms.date: 05/31/2023
 
 # Integrate KEDA with your Azure Kubernetes Service cluster
 
-KEDA is a Kubernetes-based Event Driven Autoscaler. KEDA lets you can drive the scaling of any container in Kubernetes based on the load to be processed, by querying metrics from systems such as Prometheus. Integrate KEDA with your Azure Kubernetes Service (AKS) cluster to scale your workloads based on Prometheus metrics from your Azure Monitor workspace.
+KEDA is a Kubernetes-based Event Driven Autoscaler. KEDA lets you drive the scaling of any container in Kubernetes based on the load to be processed, by querying metrics from systems such as Prometheus. Integrate KEDA with your Azure Kubernetes Service (AKS) cluster to scale your workloads based on Prometheus metrics from your Azure Monitor workspace.
 
 To integrate KEDA into your Azure Kubernetes Service, you have to deploy and configure a workload identity or pod identity on your cluster. The identity allows KEDA to authenticate with Azure and retrieve metrics for scaling from your Monitor workspace. 
 
 This article walks you through the steps to integrate KEDA into your AKS cluster using a workload identity.
+ Note
+
+>[!NOTE]
+> We recommend using Azure Active Directory workload identity. This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities to federate with any external identity providers on behalf of the application.
+
+> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022, and the project will be archived in Sept. 2023. For more information, see the deprecation notice. The AKS Managed add-on begins deprecation in Sept. 2023.
 
 ## Prerequisites
 
@@ -23,18 +29,10 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
 1. Prometheus sending metrics to an Azure Monitor workspace. For more information, see [Azure Monitor managed service for Prometheus](hhttps://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-overview).
 
 
-> [!NOTE]
-> The KEDA addon (preview) for AKS does not currently support managed prometheus.
-
 ## Set up a workload identity
 
 1. Start by setting up some environment variables. Change the values to suit your AKS cluster. 
  
-    Don't change the values for `SERVICE_ACCOUNT_NAMESPACE` and `SERVICE_ACCOUNT_NAME`. They're the namespace and name of the kubernetes service account that KEDA uses to authenticate with Azure.
-
-    `USER_ASSIGNED_IDENTITY_NAME` is the name of the Azure Active directory identity that's created for KEDA. 
-    `FEDERATED_IDENTITY_CREDENTIAL_NAME` is the name of the credential that's created for KEDA to use to authenticate with Azure.
-
     ```bash
     export RESOURCE_GROUP="rg-keda-integration"
     export LOCATION="eastus"
@@ -44,6 +42,11 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
     export SERVICE_ACCOUNT_NAMESPACE="keda"
     export SERVICE_ACCOUNT_NAME="keda-operator"
     ```
+
+    + `SERVICE_ACCOUNT_NAME` - KEDA must use the service account that was used to create federated credentials.
+    + `SERVICE_ACCOUNT_NAMESPACE` Both KEDA and service account must be in same namespace.
+    + `USER_ASSIGNED_IDENTITY_NAME` is the name of the Azure Active directory identity that's created for KEDA. 
+    + `FEDERATED_IDENTITY_CREDENTIAL_NAME` is the name of the credential that's created for KEDA to use to authenticate with Azure.
 
 1. If your AKS cluster hasn't been created with workload-identity or oidc-issuer enabled, you'll need to enable it. If you aren't sure, you can run the following command to check if it's enabled.
 
@@ -133,38 +136,38 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
     az identity federated-credential create --name $FEDERATED_IDENTITY_CREDENTIAL_NAME --identity-name $USER_ASSIGNED_IDENTITY_NAME     --resource-group $RESOURCE_GROUP --issuer $AKS_OIDC_ISSUER --subject     system:serviceaccount:$SERVICE_ACCOUNT_NAMESPACE:$SERVICE_ACCOUNT_NAME --audience api://AzureADTokenExchange
     ```
 
+    > [!Note]
+    > It takes a few seconds for the federated identity credential to be propagated after being initially added. If a token request is made immediately after adding the federated identity credential, it might lead to failure for a couple of minutes as the cache is populated in the directory with old data. To avoid this issue, you can add a slight delay after adding the federated identity credential.
+
 ## Deploy KEDA
 
-KEDA can be deployed using YAML manifests or Helm charts. This article uses Helm charts. For more information on deploying KEDA, see [Deploying KEDA](https://keda.sh/docs/2.10/deploy/)
+KEDA can be deployed using YAML manifests, Helm charts, or Operator Hub. This article uses Helm charts. For more information on deploying KEDA, see [Deploying KEDA](https://keda.sh/docs/2.10/deploy/)
 
-1. Deply KEDA using the following command. 
+Deploy KEDA using the following command. 
 
-
-    ```bash 
-    helm install keda kedacore/keda --namespace keda \
-    --set podIdentity.azureWorkload.enabled=true \
-    --set podIdentity.azureWorkload.clientId=$USER_ASSIGNED_CLIENT_ID \
-    --set podIdentity.azureWorkload.tenantId=$TENANT_ID
-    ```
+```bash 
+helm install keda kedacore/keda --namespace keda \
+--set podIdentity.azureWorkload.enabled=true \
+--set podIdentity.azureWorkload.clientId=$USER_ASSIGNED_CLIENT_ID \
+--set podIdentity.azureWorkload.tenantId=$TENANT_ID
+```
     
-1. Check your deployment by running the following command. 
-    ```bash
-    kubectl get pods -n keda
-    ```
-    The output will be similar to the following:
-    
-    ```bash
-    NAME                                               READY   STATUS    RESTARTS       AGE
-    keda-admission-webhooks-ffcb8f688-kqlxp            1/1     Running   0              4m
-    keda-operator-5d9f7d975-mgv7r                      1/1     Running   1 (4m ago)     4m
-    keda-operator-metrics-apiserver-7dc6f59678-745nz   1/1     Running   0              4m
-    ```
+Check your deployment by running the following command. 
+```bash
+kubectl get pods -n keda
+```
+The output will be similar to the following:
+
+```bash
+NAME                                               READY   STATUS    RESTARTS       AGE
+keda-admission-webhooks-ffcb8f688-kqlxp            1/1     Running   0              4m
+keda-operator-5d9f7d975-mgv7r                      1/1     Running   1 (4m ago)     4m
+keda-operator-metrics-apiserver-7dc6f59678-745nz   1/1     Running   0              4m
+```
 
 ## Scalers
 
-Scalers define how and when KEDA should scale a deployment. KEDA supports a variety of scalers. For more information on scalers, see [Scalers](https://keda.sh/docs/2.10/scalers/prometheus/)
-
-The following yaml file defines a scaler.  
+Scalers define how and when KEDA should scale a deployment. KEDA supports a variety of scalers. For more information on scalers, see [Scalers](https://keda.sh/docs/2.10/scalers/prometheus/). Azure Managed Prometheus utilizes already existing Prometheus scaler to retrieve Prometheus metrics from Azure Monitor Workspace. The following yaml file is an example to use Azure Managed Prometheus.
 
 ```yml
 apiVersion: keda.sh/v1alpha1
@@ -173,7 +176,7 @@ metadata:
   name: azure-managed-prometheus-trigger-auth
 spec:
   podIdentity:
-       : azure-workload | azure # use "azure" for pod identity and "azure-workload" for workload identity
+      provider: azure-workload | azure # use "azure" for pod identity and "azure-workload" for workload identity
       identityId: <identity-id> # Optional. Default: Identity linked with the label set when installing KEDA.
 ---
 apiVersion: keda.sh/v1alpha1
@@ -196,7 +199,7 @@ spec:
     authenticationRef:
       name: azure-managed-prometheus-trigger-auth
 ```
-+ `serverAddress` is the Query endpoint of your Azure Monitor workspace.  
++ `serverAddress` is the Query endpoint of your Azure Monitor workspace. For more information,see [Query Prometheus metrics using the API and PromQL](./prometheus-api-promql.md#query-endpoint)
 + `metricName` is the name of the metric you want to scale on. 
 + `query` is the query used to retrieve the metric. 
 + `threshold` is the value at which the deployment scales. 
