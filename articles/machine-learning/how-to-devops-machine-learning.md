@@ -24,7 +24,7 @@ You can use an [Azure DevOps pipeline](/azure/devops/pipelines/) to automate the
 * Deployment of machine learning models as public or private web services
 * Monitoring deployed machine learning models (such as for performance or data-drift analysis)
 
-This article will teach you how to create an Azure Pipeline that builds and deploys a machine learning model to [Azure Machine Learning](overview-what-is-azure-machine-learning.md). 
+This article teaches you how to create an Azure Pipeline that builds and deploys a machine learning model to [Azure Machine Learning](overview-what-is-azure-machine-learning.md). 
 
 This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/azure/ai-ml-readme) and [Azure CLI ML extension v2](/cli/azure/ml). 
 
@@ -58,7 +58,7 @@ You can use an existing service connection.
 
 # [Azure Resource Manager](#tab/arm)
 
-You'll need an Azure Resource Manager connection to authenticate with Azure portal. 
+You need an Azure Resource Manager connection to authenticate with Azure portal. 
 
 1. In Azure DevOps, select **Project Settings** and open the **Service connections** page.
 
@@ -223,7 +223,7 @@ jobs:
 ```
 ---
 
-## Step 7: Wait for Azure Machine Learning job to complete
+## Step 6: Wait for Azure Machine Learning job to complete
 
 
 In step 6, you added a job to submit an Azure Machine Learning job. In this step, you add another job that waits for the Azure Machine Learning job to complete. 
@@ -292,7 +292,7 @@ If you are using the Generic Service connection, you can't use the task provided
 ---
 
 
-## Step 8: Submit pipeline and Verify your pipeline run
+## Step 7: Submit pipeline and Verify your pipeline run
 
 Select __Save and run__. The pipeline will wait for the Azure Machine Learning job to complete, and end the task under `WaitForJobCompletion` with the same status as the Azure Machine Learning job. For example:
 Azure Machine Learning Job Succeeded == Azure DevOps Task under WaitForJobCompletion job **Succeeded**
