@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 05/30/2023
 ms.custom: project-no-code, b2c-docs-improvements
 ms.reviewer: kengaderdus
-ms.author: alvesfabi
+ms.author: falves
 ms.subservice: B2C
 ---
 
@@ -20,7 +20,7 @@ ms.subservice: B2C
 
 It's important that you control the consumption of the directory quota to prevent errors when creating new directory objects. Directory quota has a given size that is expressed in number of objects: uer accounts, app registrations, groups, etc. are examples of the objects that consume from the directory quota. When the quota size is reached the directory will generate an error when trying to create a new object.
 
-It's recommended that inactive user accounts are monitored and managed properly. To understand more read [this](user-manage-inactive)
+It's recommended that inactive user accounts are monitored and managed properly. To understand more read [this](user-manage-inactive.md)
 
 
 ## Monitor directory quota consumption of your Azure AD B2C tenant
