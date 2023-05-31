@@ -73,9 +73,9 @@ Learn how to [add Facebook as an identity provider](how-to-facebook-federation-c
 
 ### Updating sign-in methods
 
-After you've selected sign-in options for an app, you can update them later. For example, you can add social identity providers or update the local account sign-in method.
+At any time, you can update the sign-in options you've selected for an app. For example, you can add social identity providers or change the local account sign-in method.
 
-When you update sign-in methods, be aware that existing users will continue to sign in using their original method. For example, if you start out with email and password and then change to email with one-time passcode, new users will be presented with the new sign-in method. However, any users who have already signed up will continue to be prompted for email and password.  
+Be aware that when you change sign-in methods, the change affects only new users. Existing users will continue to sign in using their original method. For example, suppose you start out with the email and password sign-in method, and then change to email with one-time passcode. New users will sign in using a one-time passcode, but any users who have already signed up with an email and password will continue to be prompted for their email and password.  
 
 ## Next steps
 

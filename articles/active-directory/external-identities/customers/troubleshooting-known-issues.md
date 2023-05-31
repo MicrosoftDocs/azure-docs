@@ -54,8 +54,8 @@ If you're the admin who created the customer tenant, and you use the same email 
 
 **Workaround**: Take one of the following actions.
 
-- Don't create a local customer account using the same email address used by the admin that created the tenant.
-- If you've already created a customer account with the same email address as the admin, sign out in the portal, and then use `https://entra.microsoft.com` instead of `https://entra.microsoft.com/<tenantID>` or `<tenantName>.onmicrosoft.com` to sign in with the correct admin user.
+- When creating a local customer account, use a different email address than the one used by the admin who created the tenant.
+- If you've already created a customer account with the same email address as the admin, sign out of the admin center, and then use `https://entra.microsoft.com` instead of `https://entra.microsoft.com/<tenantID>` or `<tenantName>.onmicrosoft.com` to sign in with the correct admin account.
 
 ### Unable to delete your customer tenant
 
@@ -63,7 +63,7 @@ You get the following error when you try to delete a customer tenant:
 
    `Unable to delete tenant`
 
-**Cause**: This error occurs for customer tenants if you don't delete the b2c-extensions-app.
+**Cause**: This error occurs when you try to delete a customer tenant but you haven't deleted the b2c-extensions-app.
 
 **Workaround**: When deleting a customer tenant, delete the **b2c-extensions-app**, found in **App registrations** under **All applications**.
 
@@ -71,17 +71,17 @@ You get the following error when you try to delete a customer tenant:
 
 ### Device code flows display Microsoft branding instead of custom branding
 
-Device code flows display Microsoft branding even when you've configured custom branding.
+The device code flows display Microsoft branding even when you've configured custom branding.
 
 **Cause**: Device code flows don't yet support custom branding
 
-**Workaround**: None at this time.
+**Workaround**: None currently.
 
 ### The sign-up page displays Microsoft branding and "Can't access your account?"
 
-After you set up a tenant and create a sign-up user flow, you see Microsoft branding instead of neutral branding, along with **Can't access your account?** under the sign-in email box instead of **No account? Create one**. The sign-in page for a workforce tenant is displaying instead of sign-in for a customer tenant. 
+After you set up a tenant and create a sign-up user flow, you see Microsoft branding instead of neutral branding, along with **Can't access your account?** under the sign-in email box instead of **No account? Create one**.
 
-**Cause**: This issue can occur when you refresh the sign-in page too many times in quick succession.
+**Cause**: The sign-in page for a workforce tenant is displaying instead of sign-in for a customer tenant. This issue can occur when you refresh the sign-in page too many times in quick succession.
 
 **Workaround**: Wait a few minutes and then refresh. The customer sign-in page should appear.
 
@@ -102,11 +102,11 @@ When you follow the get started guide to run a sample and try to sign in as a cu
 
 ### Error "Invalid client secret provided” (ASP.NET Core) or “Cannot read properties of undefined (reading 'verifier')” (Node.js)
 
-When running the ASP.NET Core sample from the get started guide and trying to sign in as a customer, you see an error that starts with the following text:
+When you run the ASP.NET Core sample from the get started guide and try to sign in as a customer, you see an error that starts with the following text:
 
    `AADSTS7000215: Invalid client secret provided. Ensure the secret being sent in the request is the client secret value, not the client secret ID, for a secret added to app...`
 
-Or, when running the Node.js sample, you see an error containing the following line:
+Or, when you run the Node.js sample, you see an error containing the following line:
 
    `TypeError: Cannot read properties of undefined (reading 'verifier')`
 
