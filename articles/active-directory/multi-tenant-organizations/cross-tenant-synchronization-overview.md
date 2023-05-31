@@ -266,15 +266,18 @@ Does cross-tenant synchronization support deprovisioning users?
   - Remove the user from a group that is assigned to the cross-tenant synchronization configuration
   - An attribute on the user changes such that they do not meet meet the scoping filter conditions defined on the cross-tenant synchronization configuration anymore 
 
-- If the user in the source tenant is restored, reassigned to the app, meets the scoping condition again withn 30 days of soft deletion, it will be restored in the target tenant.
+- Currently only regular users, Helpdesk Admins and User Account Admins can be deleted. Users with other Azure AD roles such as directory reader currently cannot be deleted by cross-tenant synchronization. This is subject to change in the future.
 
 - If the user is blocked from sign-in in the source tenant (accountEnabled = false) they will be blocked from sign-in in the target. This is not a deletion, but an updated to the accountEnabled property.
+
+Does cross-tenant synchronization support restoring users? 
+
+- If the user in the source tenant is restored, reassigned to the app, meets the scoping condition again withn 30 days of soft deletion, it will be restored in the target tenant.
+- Customers also have the ability to manually [restore](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) the user directly in the target tenant.
 
 How can I deprovision all the users that are currently in scope of cross-tenant synchronization? 
 
 - Unassign all users and / or groups from the cross-tenant synchronization configuration. This will trigger all the users that were unassigned, either directly or through group membership, to be deprovisioned in subsequent sync cycles. Please note that the target tenant will need to keep the inbound policy for sync enabled until deprovisioning is complete. If the scope is set to sync `all users and groups`, you will also need to change it to `assigned users and groups`.
-
-- Currently only regular users, Helpdesk Admins and User Account Admins can be deleted. Users with other Azure AD roles such as directory reader currently cannot be deleted by cross-tenant synchronization. This is subject to change in the future.
 
 ## Next steps
 
