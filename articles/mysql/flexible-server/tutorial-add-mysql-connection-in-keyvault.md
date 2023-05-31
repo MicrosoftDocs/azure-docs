@@ -12,17 +12,41 @@ ms.date: 12/07/2022
 # Tutorial: Store and get a MySQL connection string in Azure Key vault
 By storing the MySQL connection string in Azure Key Vault, you ensure that sensitive information is securely managed and accessed only by authorized users or applications. Additionally, any changes to the connection string can be easily updated in the Key Vault without modifying the application code.
 
-- Set up an Azure Key Vault :Create an Azure Key Vault in your Azure subscription if you haven't already. Make sure you have the necessary permissions to manage and access the Key Vault.
-- Add a secret to the Key Vault: Inside the Key Vault, navigate to the "Secrets" section and click on "Generate/Import." Provide a name for your secret and enter the MySQL connection string as the secret value.
-- Configure access policies: In the Key Vault settings, configure the appropriate access policies to grant access to the users or applications that need to retrieve the MySQL connection string from the Key Vault. Ensure that the necessary permissions are granted for "Get" operations on secrets.
-- Retrieve the MySQL connection string: In your application or script, use the Azure Key Vault SDK or client libraries to authenticate and retrieve the MySQL connection string from the Key Vault. You will need to provide the appropriate authentication credentials and access permissions to access the Key Vault.
-- Use the connection string in your application: Once you have retrieved the MySQL connection string from Azure Key Vault, you can use it in your application to establish a connection to the MySQL database. Pass the retrieved connection string as a parameter to your database connection code.
+## Prerequisites
 
-## Retrive secret from Key vault Code samples
+1. To access Azure Key Vault, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+2. All access to secrets takes place through Azure Key Vault. For this quickstart, create a key vault using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md). Make sure you have the necessary permissions to manage and access the Key Vault.
+3. Install .NET or Java or PHP or Python based on the framework you are using for your application. 
+
+## Add a secret to Key Vault
+
+To add a secret to the vault, follow the steps:
+
+1. Navigate to your new key vault in the Azure portal
+1. On the Key Vault settings pages, select **Secrets**.
+1. Select on **Generate/Import**.
+1. On the **Create a secret** screen choose the following values:
+    - **Upload options**: Manual.
+    - **Name**: Type a name for the secret. The secret name must be unique within a Key Vault. The name must be a 1-127 character string, starting with a letter and containing only 0-9, a-z, A-Z, and -. For more information on naming, see [Key Vault objects, identifiers, and versioning](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)
+    - **Value**: Type a value for the secret. Key Vault APIs accept and return secret values as strings. 
+    - Leave the other values to their defaults. Select **Create**.
+
+Once that you receive the message that the secret has been successfully created, you may select on it on the list. 
+
+For more information on secrets attributes, see [About Azure Key Vault secrets](./about-secrets.md)
+
+## Configure access policies
+In the Key Vault settings, configure the appropriate access policies to grant access to the users or applications that need to retrieve the MySQL connection string from the Key Vault. Ensure that the necessary permissions are granted for "Get" operations on secrets.
+
+## Retrieve the MySQL connection string
+In your application or script, use the Azure Key Vault SDK or client libraries to authenticate and retrieve the MySQL connection string from the Key Vault. You will need to provide the appropriate authentication credentials and access permissions to access the Key Vault. Once you have retrieved the MySQL connection string from Azure Key Vault, you can use it in your application to establish a connection to the MySQL database. Pass the retrieved connection string as a parameter to your database connection code.
+
+### Code samples to retrieve conection string 
 Here are few code samples to retrieve the connection string from the key vault secret. 
 
-### .NET 
+### [.NET](#tab/dotnet)
 In this code, we first define the URI of our Key Vault and the name of the secret (connection string) we want to retrieve. We then create a new DefaultAzureCredential object, which represents the authentication information for our application to access the Key Vault.
+
 ```net
 using System;
 using System.Threading.Tasks;
@@ -49,8 +73,82 @@ namespace KeyVaultDemo
     }
 }
 ```
-### Java
+---
 
-### PHP
+### [Java](#tab/java)
+In this Java code, we use the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java) to interact with Azure Key Vault. We first define the Key Vault URL and the name of the secret (connection string) we want to retrieve. Then, we create a SecretClient object using the SecretClientBuilder class. We set the Key Vault URL and provide the DefaultAzureCredential to authenticate with Azure AD. The DefaultAzureCredential automatically authenticates using the available credentials, such as environment variables, managed identities, or Visual Studio Code authentication.
 
+Next, we use the getSecret method on the SecretClient to retrieve the secret. The method returns a KeyVaultSecret object, from which we can obtain the secret value using the getValue method.Finally, we print out the retrieved connection string to the console. Make sure to replace the keyVaultUrl and secretName variables with your own Key Vault URL and secret name. Next, we create a new SecretClient object and pass in the Key Vault URI and the credential object. We can then call the GetSecretAsync method on the client object, passing in the name of the secret we want to retrieve.
 
+The GetSecretAsync method returns a KeyVaultSecret object, which contains the secret value (in our case, the connection string). We can access the value by calling the Value property on the KeyVaultSecret object.  Finally, we print out the retrieved connection string to the console.
+
+```java
+import com.azure.identity.DefaultAzureCredentialBuilder;
+import com.azure.security.keyvault.secrets.SecretClient;
+import com.azure.security.keyvault.secrets.SecretClientBuilder;
+import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
+
+public class KeyVaultDemo {
+
+    public static void main(String[] args) {
+        String keyVaultUrl = "https://my-key-vault.vault.azure.net/";
+        String secretName = "my-db-conn-string";
+
+        SecretClient secretClient = new SecretClientBuilder()
+                .vaultUrl(keyVaultUrl)
+                .credential(new DefaultAzureCredentialBuilder().build())
+                .buildClient();
+
+        KeyVaultSecret secret = secretClient.getSecret(secretName);
+        String connString = secret.getValue();
+
+        System.out.println("Connection string retrieved: " + connString);
+    }
+}
+```
+---
+
+### [PHP](#tab/php)
+In this PHP code, we first require the necessary autoload file and import the required classes from the Azure SDK. We define the $keyVaultUrl variable with the URL of your Azure Key Vault and $secretName variable with the name of the secret (connection string) you want to retrieve. Next, we create a DefaultAzureCredential object to authenticate with Azure AD, which automatically picks up the available credentials from your environment.Then, we create a SecretClient object, passing the Key Vault URL and the credential object to authenticate with the Key Vault.
+
+Using the getSecret method on the SecretClient, we retrieve the secret by passing the $secretName. The method returns a KeyVaultSecret object, from which we can obtain the secret value using the getValue method. Finally, we print out the retrieved connection string to the console. Make sure to have the necessary Azure SDK packages installed and the autoload file included properly in your PHP project.
+
+```php
+require_once 'vendor/autoload.php';
+
+use Azure\Identity\DefaultAzureCredential;
+use Azure\Security\KeyVault\Secrets\SecretClient;
+
+$keyVaultUrl = 'https://my-key-vault.vault.azure.net/';
+$secretName = 'my-db-conn-string';
+
+$credential = new DefaultAzureCredential();
+$client = new SecretClient($keyVaultUrl, $credential);
+
+$secret = $client->getSecret($secretName);
+$connString = $secret->getValue();
+
+echo 'Connection string retrieved: ' . $connString;
+```
+---
+
+### [Python](#tab/python)
+In this Python code, we first import the necessary modules from the Azure SDK. We define the key_vault_url variable with the URL of your Azure Key Vault and secret_name variable with the name of the secret (connection string) you want to retrieve. Next, we create a DefaultAzureCredential object to authenticate with Azure AD. The DefaultAzureCredential automatically authenticates using the available credentials, such as environment variables, managed identities, or Visual Studio Code authentication.
+
+Then, we create a SecretClient object, passing the Key Vault URL and the credential object to authenticate with the Key Vault.Using the get_secret method on the SecretClient, we retrieve the secret by passing the secret_name. The method returns a KeyVaultSecret object, from which we can obtain the secret value using the value property. Finally, we print out the retrieved connection string to the console. Make sure to replace the key_vault_url and secret_name variables with your own Key Vault URL and secret name.
+
+```python
+from azure.identity import DefaultAzureCredential
+from azure.keyvault.secrets import SecretClient
+
+key_vault_url = "https://my-key-vault.vault.azure.net/"
+secret_name = "my-db-conn-string"
+
+credential = DefaultAzureCredential()
+secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
+
+secret = secret_client.get_secret(secret_name)
+conn_string = secret.value
+
+print("Connection string retrieved:", conn_string)
+```
