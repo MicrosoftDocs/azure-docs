@@ -60,6 +60,7 @@ This guidance helps you provide the required information to define how to authen
 | telemetry.metrics.cloud | Indication whether or not to [enable emitting metrics to Azure Monitor](how-to-configure-cloud-metrics-logs.md). | No |    `true` | v2.0+ |
 | observability.opentelemetry.enabled | Indication whether or not to enable [emitting metrics to an OpenTelemetry collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) on Kubernetes. | No | `false` | v2.0+ |
 | observability.opentelemetry.collector.uri | URI of the OpenTelemetry collector to send metrics to. | Yes, if `observability.opentelemetry.enabled` is set to `true`; otherwise no. | N/A | v2.0+ |
+| observability.opentelemetry.system-metrics.enabled | Enable sending system metrics to the OpenTelemetry collector such as CPU, memory, garbage collection, etc. | No | `false` | v2.3+ |
 | observability.opentelemetry.histogram.buckets | Histogram buckets in which OpenTelemetry metrics should be reported. Format: "*x,y,z*,...". | No | "5,10,25,50,100,250,500,1000,2500,5000,10000" | v2.0+ |
 
 ## Logs
