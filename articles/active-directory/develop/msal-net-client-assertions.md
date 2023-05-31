@@ -35,7 +35,7 @@ MSAL.NET has four methods to provide either credentials or assertions to the con
 
 ### Client assertions
 
-This is useful if you want to handle the certificate yuorself, for example if you wish to use Azure KeyVault's APIs for signing, which eliminates the need for downloading the certificates. A signed client assertion takes the form of a signed JWT with the payload containing the required authentication claims mandated by Azure AD, Base64 encoded. To use it:
+This is useful if you want to handle the certificate yourself. For example, if you wish to use Azure KeyVault's APIs for signing, which eliminates the need for downloading the certificates. A signed client assertion takes the form of a signed JWT with the payload containing the required authentication claims mandated by Azure AD, Base64 encoded. To use it:
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
