@@ -316,4 +316,4 @@ If you're not going to continue to use your pipeline, delete your Azure DevOps p
 
 * One AzureML Job Wait task can only wait on one job. You will need to set up a separate task for each job that you want to wait on.
 
-* The AzureML Job Wait task can wait for a maximum of 2 days. This is a hard limit set by Azure DevOps Pipelines. 
+* The Azure Machine Learning job wait task can wait for a maximum of 2 days. This is a hard limit set by Azure DevOps Pipelines. 
