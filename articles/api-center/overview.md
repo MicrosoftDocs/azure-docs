@@ -6,7 +6,7 @@ editor: ''
  
 ms.service: api-center
 ms.topic: overview
-ms.date: 05/24/2023
+ms.date: 05/31/2023
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -41,16 +41,10 @@ For more information about the information assets and capabilities in API Center
 
 ## Preview limitations
 
-* In preview, API Center is only available in the following Azure regions:
+* In preview, API Center is available in the following Azure regions:
 
     * East US 
-    * East US 2 
-    * Central US 
-    * West US 2  
-    * North Europe 
-    * West Europe 
     * UK South     
-    * Southeast Asia 
     * Central India 
     * Australia East 
     
