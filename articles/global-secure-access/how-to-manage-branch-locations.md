@@ -81,8 +81,9 @@ You can assign the branch office to a traffic forwarding profile when you create
 1. Select **M365 traffic profile: All M365 traffic**. 
 1. Select **Review + Create**.
 
+## Manage branch location details using the Microsoft Graph API
 
-## Create a branch location using the Microsoft Graph API
+### Create a branch location
 
 1. Sign in to Microsoft Graph Explorer. 
 1. Select POST as the HTTP method. 
@@ -114,20 +115,40 @@ You can assign the branch office to a traffic forwarding profile when you create
     ```
 1. Select **Run query** to create a branch.
 
-## Edit top-level branch settings
-<!--- need more information here --->
-### Edit a top-level branch setting using the Entra portal
-1. Navigate to the Microsoft Entra admin center at [https://entra.microsoft.com](https://entra.microsoft.com) and login with administrator credentials.
-1. In the left hand navigation, choose **Global Secure Access**. 
-1. Select **Connect**. 
-1. Select **Branch**.
-1. Select a desired branch. 
-1. Under the **Basics** tab, select the pencil icon to edit the name or region. 
-1. Select **Save**.
-1. Under the **Links** tab, select **Add a link to add new device**. Follow the steps listed to add a device link.
 
-### Edit a top-level branch setting using the API
+### Assign a traffic profile to a branch location
+
+Traffic profiles, also known as forwarding profiles, determine what traffic is routed to the Microsoft network. Associating a traffic profile to your branch location is two step process. First, get the ID of the traffic profile. The ID is important because it's different for all tenants. Second, associate the traffic profile with your desired branch location.
+
 To update a branch using the Microsoft Graph API in Graph Explorer. 
+1. Open a web browser and navigate to the Graph Explorer at https://aka.ms/ge.
+1. Select **PATCH** as the HTTP method from the dropdown. 
+1. Select the API version to **beta**. 
+1. Enter the query:
+    ```
+    GET https://graph.microsoft.com/beta/networkaccess/forwardingprofiles 
+    ```
+1. Select **Run query**. 
+1. Find the ID of the desired traffic forwarding profile. 
+1. Select PATCH as the HTTP method from the dropdown. 
+1. Enter the query:
+    ```
+        PATCH https://graph.microsoft.com/beta/networkaccess/branches/d2b05c5-1e2e-4f1d-ba5a-1a678382ef16/forwardingProfiles
+        {
+            "@odata.context": "#$delta",
+            "value":
+            [{
+                "ID": "1adaf535-1e31-4e14-983f-2270408162bf"
+            }]
+        }
+    ```
+1. Select **Run query** to update the branch. 
+
+
+### Edit a top-level branch setting
+<!--- what IS a "top-level branch setting"? --->
+To edit the name, location, or region of a branch location:
+
 1. Open a web browser and navigate to the Graph Explorer at https://aka.ms/ge.
 1. Select **PATCH** as the HTTP method from the dropdown. 
 1. Select the API version to **beta**. 
@@ -140,6 +161,24 @@ To update a branch using the Microsoft Graph API in Graph Explorer.
     }
     ``` 
 1. Select **Run query** to update the branch. 
+
+### Delete a branch using the API
+1. Open a web browser and navigate to the Graph Explorer at https://aka.ms/ge.
+1. Select **PATCH** as the HTTP method from the dropdown. 
+1. Select the API version to **beta**. 
+1. Enter the query:
+    ```
+    DELETE https://graph.microsoft.com/beta/networkaccess/branches/97e2a6ea-c6c4-4bbe-83ca-add9b18b1c6b 
+    ```
+1. Select **Run query** to delete the branch. 
+
+## Delete a branch
+
+1. Sign in to the Microsoft Entra admin center at [https://entra.microsoft.com](https://entra.microsoft.com).
+1. Go to **Global Secure Access (preview)** > **Devices** > **Branches**.
+1. Select the branch you need to delete.
+1. Select the **Delete** button. 
+1. Select **Delete** from the confirmation message.
 
 ## Link ASN
 
@@ -155,29 +194,9 @@ The following ASNs are reserved by Azure and cannot be used for your on-premises
 - 65520 (private)
 
 <!--- need to understand what this means - pulled it from the tooltip --->
+
 While setting up IPsec connectivity from virtual network gateways to Azure virtual WAN VPN, the ASN for Local Network Gateway is required to be 65515.
 
-## Delete a branch
-
-### Delete a branch using the Entra portal
-1. Navigate to the Microsoft Entra admin center at [https://entra.microsoft.com](https://entra.microsoft.com) and login with administrator credentials.
-1. In the left hand navigation, choose **Global Secure Access**. 
-1. Select **Connect**. 
-1. Select **Branch**.
-1. Select a desired branch. 
-1. Select the **Delete** icon, which looks like a trash can, from command bar at top of the screen. 
-1. Select **Delete** from in the confirmation pane. 
-
-### Delete a branch using the API
-1. Open a web browser and navigate to the Graph Explorer at https://aka.ms/ge.
-1. Select **PATCH** as the HTTP method from the dropdown. 
-1. Select the API version to **beta**. 
-1. Enter the query:
-    ```
-    DELETE https://graph.microsoft.com/beta/networkaccess/branches/97e2a6ea-c6c4-4bbe-83ca-add9b18b1c6b 
-    ```
-1. Select **Run query** to delete the branch. 
- 
 ## Next steps
 
 - [List branch locations](how-to-list-branch-locations.md)
