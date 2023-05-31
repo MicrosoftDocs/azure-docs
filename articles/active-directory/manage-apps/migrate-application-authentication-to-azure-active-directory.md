@@ -43,7 +43,7 @@ To ensure that the users can easily and securely access applications, your goal 
 
 [Azure AD](../fundamentals/active-directory-whatis.md) offers a universal identity platform that provides your employees, partners, and customers a single identity to access the applications they want and collaborate from any platform and device.
 
- [![A diagram of Azure AD connectivity.](media/migrate-apps-to-azure-ad/azure-ad-connectivity.png)](media/migrate-apps-to-azure-ad/azure-ad-connectivity.png#lightbox)
+:::image type="content" source="media/migrate-application-authentication-to-azure-active-directory/azure-ad-connectivity.png" alt-text="Diagram showing Azure AD connectivity.":::
 
 Azure AD has a [full suite of identity management capabilities](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad). Standardizing your app authentication and authorization to Azure AD gets you the benefits that these capabilities provide.
 
@@ -57,7 +57,7 @@ When technology projects fail, it's often due to mismatched expectations, the ri
 
 Before we get into the tools, you should understand how to think through the migration process. Through several direct-to-customer workshops, we recommend the following four phases:
 
-![A diagram of the phases of migration](media/migrate-apps-to-azure-ad/phases-of-migration.png)
+:::image type="content" source="media/migrate-application-authentication-to-azure-active-directory/phases-of-migration.png" alt-text="Diagram showing the phases of migration.":::
 
 ### Assemble the project team
 

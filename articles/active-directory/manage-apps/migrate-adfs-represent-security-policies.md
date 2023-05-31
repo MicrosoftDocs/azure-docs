@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/26/2023
+ms.date: 05/31/2023
 ms.author: jomondi
 ms.reviewer: gasinh
 ---
@@ -29,45 +29,45 @@ The following are examples of various types of authorization rules in AD FS, and
 
 Permit Access to All Users in AD FS:
 
-  ![Screenshot shows the Set up Single Sign-On with SAML dialog box.](media/migrate-adfs-apps-to-azure/permit-access-to-all-users-1.png)
+:::image type="content" source="media/migrate-adfs-represent-security-policies/permit-access-to-all-users-1.png" alt-text="Screenshot shows how to edit access to all users.":::
 
 This maps to Azure AD in one of the following ways:
 
 1. Set **User assignment required** to **No**.
 
-    ![edit access control policy for SaaS apps ](media/migrate-adfs-apps-to-azure/permit-access-to-all-users-2.png)
+   :::image type="content" source="media/migrate-adfs-represent-security-policies/permit-access-to-all-users-2.png" alt-text="Screenshot shows how to edit access control policy for SaaS apps.":::
 
     > [!Note]
     > Setting **User assignment required** to **Yes** requires that users are assigned to the application to gain access. When set to **No**, all users have access. This switch doesn't control what users see in the **My Apps** experience.
 
 1. In the **Users and groups tab**, assign your application to the **All Users** automatic group. You must [enable Dynamic Groups](../enterprise-users/groups-create-rule.md) in your Azure AD tenant for the default **All Users** group to be available.
 
-    ![My SaaS Apps in Azure AD ](media/migrate-adfs-apps-to-azure/permit-access-to-all-users-3.png)
+    :::image type="content" source="media/migrate-adfs-represent-security-policies/permit-access-to-all-users-3.png" alt-text="Screenshot shows My SaaS Apps in Azure AD.":::
 
 ### Example 2: Allow a group explicitly
 
 Explicit group authorization in AD FS:
 
-  ![Screenshot shows the Edit Rule dialog box for the Allow domain admins Claim rule.](media/migrate-adfs-apps-to-azure/allow-a-group-explicitly-1.png)
+:::image type="content" source="media/migrate-adfs-represent-security-policies/allow-a-group-explicitly-1.png" alt-text="Screenshot shows the Edit Rule dialog box for the Allow domain admins claim rule.":::
 
 To map this rule to Azure AD:
 
 1. In the [Entra portal](https://entra.microsoft.com/#home), [create a user group](../fundamentals/active-directory-groups-create-azure-portal.md) that corresponds to the group of users from AD FS.
 1. Assign app permissions to the group:
 
-    ![Add Assignment ](media/migrate-adfs-apps-to-azure/allow-a-group-explicitly-2.png)
+   :::image type="content" source="media/migrate-adfs-represent-security-policies/allow-a-group-explicitly-2.png" alt-text="Screenshot shows how to add a user assignment to the app.":::
 
 ### Example 3: Authorize a specific user
 
 Explicit user authorization in AD FS:
 
-  ![Screenshot shows the Edit Rule dialog box for the Allow a specific user Claim rule with an Incoming claim type of Primary S I D.](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
+:::image type="content" source="media/migrate-adfs-represent-security-policies/authorize-a-specific-user-1.png" alt-text="Screenshot shows the Edit Rule dialog box for the Allow a specific user Claim rule with an Incoming claim type of Primary S I D.":::
 
 To map this rule to Azure AD:
 
 * In the [Entra portal](https://entra.microsoft.com/#home), add a user to the app through the Add Assignment tab of the app as shown below:
 
-    ![My SaaS apps in Azure ](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-2.png)
+  :::image type="content" source="media/migrate-adfs-represent-security-policies/authorize-a-specific-user-2.png" alt-text="Screenshot shows My SaaS apps in Azure.":::
 
 ## Map multi-factor authentication rules
 
@@ -77,7 +77,7 @@ The following are examples of types of MFA rules in AD FS, and how you can map t
 
 MFA rule settings in AD FS:
 
-  ![Screenshot shows Conditions for Azure AD in the Entra portal.](media/migrate-adfs-apps-to-azure/mfa-settings-common-for-all-examples.png)
+:::image type="content" source="media/migrate-adfs-represent-security-policies/mfa-settings-common-for-all-examples.png" alt-text="Screenshot shows Conditions for Azure AD in the Entra portal.":::
 
 ### Example 1: Enforce MFA based on users/groups
 
@@ -89,7 +89,7 @@ Specify MFA rules for a user or a group in Azure AD:
 1. Select **Assignments**. Add the user(s) or group(s) for which you want to enforce MFA.
 1. Configure the **Access controls** options as shown in the following screenshots:
 
-    ‎![Screenshot shows the Grant pane where you can grant access.](media/migrate-adfs-apps-to-azure/mfa-users-groups.png)
+   :::image type="content" source="media/migrate-adfs-represent-security-policies/mfa-users-groups.png" alt-text="Screenshot shows the Grant pane where you can grant access.":::
 
 ### Example 2: Enforce MFA for unregistered devices
 
@@ -99,7 +99,7 @@ Specify MFA rules for unregistered devices in Azure AD:
 1. Set the **Assignments** to **All users**.
 1. Configure the **Access controls** options as shown below:
 
-    ![Screenshot shows the Grant pane where you can grant access and specify other restrictions.](media/migrate-adfs-apps-to-azure/mfa-unregistered-devices.png)
+   :::image type="content" source="media/migrate-adfs-represent-security-policies/mfa-unregistered-devices.png" alt-text="Screenshot shows the Grant pane where you can grant access and specify other restrictions.":::
 
 When you set the **For multiple controls** option to **Require one of the selected controls**, it means that if any one of the conditions specified by the checkbox are met by the user, the user is granted access to your app.
 
@@ -112,37 +112,38 @@ Specify MFA rules based on a user's location in Azure AD:
 1. [Configure named locations in Azure AD](../conditional-access/location-condition.md). Otherwise, federation from inside your corporate network is trusted.
 1. Configure the **Conditions rules** to specify the locations for which you would like to enforce MFA.
 
-    ![Screenshot shows the Locations pane for Conditions rules.](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
+   :::image type="content" source="media/migrate-adfs-represent-security-policies/mfa-location-1.png" alt-text="Screenshot shows the Locations pane for Conditions rules.":::
 
 1. Configure the **Access controls** options as shown below:
 
-    ![Map access control policies](media/migrate-adfs-apps-to-azure/mfa-location-2.png)
+   :::image type="content" source="media/migrate-adfs-represent-security-policies/mfa-location-2.png" alt-text="Screenshot shows the Locations pane to map access control policies.":::
 
 ## Map Emit attributes as Claims rule
 
 Emit attributes as Claims rule in AD FS:
 
-  ![Screenshot shows the Edit Rule dialog box for Emit attributes as Claims.](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claims-rule-1.png)
+:::image type="content" source="media/migrate-adfs-represent-security-policies/map-emit-attributes-as-claims-rule-1.png" alt-text="Screenshot shows the Edit Rule dialog box for Emit attributes as Claims.":::
 
 To map the rule to Azure AD:
 
 1. In the [Entra portal](https://entra.microsoft.com/#home), select **Enterprise Applications** and then **Single sign-on** to view the SAML-based sign-on configuration:
 
-    ![Screenshot shows the Single sign-on page for your Enterprise Application.](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claims-rule-2.png)
+   :::image type="content" source="media/migrate-adfs-represent-security-policies/map-emit-attributes-as-claims-rule-2.png" alt-text="Screenshot shows the Single sign-on page for your Enterprise Application.":::
 
 1. Select **Edit** (highlighted) to modify the attributes:
 
-    ![This is the page to edit User Attributes and Claims](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claims-rule-3.png)
+   :::image type="content" source="media/migrate-adfs-represent-security-policies/map-emit-attributes-as-claims-rule-3.png" alt-text="Screenshot shows the page to edit User Attributes and Claims.":::
 
 ## Map built-In access control policies
 
 Built-in access control policies in AD FS 2016:
 
-  ![Azure AD built in access control](media/migrate-adfs-apps-to-azure/map-built-in-access-control-policies-1.png)
+   :::image type="content" source="media/migrate-adfs-represent-security-policies/map-built-in-access-control-policies-1.png" alt-text="Screenshot shows Azure AD built in access control.":::
+
 
 To implement built-in policies in Azure AD, use a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json) and configure the access controls, or use the custom policy designer in AD FS 2016 to configure access control policies. The Rule Editor has an exhaustive list of Permit and Except options that can help you make all kinds of permutations.
 
-  ![Azure AD access control policies](media/migrate-adfs-apps-to-azure/map-built-in-access-control-policies-2.png)
+:::image type="content" source="media/migrate-adfs-represent-security-policies/map-built-in-access-control-policies-2.png" alt-text="Screenshot shows Azure AD built in access control policies.":::
 
 In this table, we've listed some useful Permit and Except options and how they map to Azure AD.
 
@@ -155,7 +156,7 @@ In this table, we've listed some useful Permit and Except options and how they m
 
 Here's an example of how to configure the Exclude option for trusted locations in the Entra portal:
 
-  ![Screenshot of mapping access control policies](media/migrate-adfs-apps-to-azure/map-built-in-access-control-policies-3.png)
+:::image type="content" source="media/migrate-adfs-represent-security-policies/map-built-in-access-control-policies-3.png" alt-text="Screenshot of mapping access control policies.":::
 
 ## Transition users from AD FS to Azure AD
 

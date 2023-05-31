@@ -26,19 +26,20 @@ One way to think about this is along the axes of business criticality, usage, an
 
 Business criticality takes on different dimensions for each business, but the two measures that you should consider are **features and functionality** and **user profiles**. Assign apps with unique functionality a higher point value than those with redundant or obsolete functionality.
 
-![A diagram of the spectrums of features & functionality and user profiles](media/migrate-apps-to-azure-ad/functionality-user-profile.png)
+:::image type="content" source="media/migrate-adfs-classify-apps-plan-pilot/functionality-user-profile.png" alt-text="Diagram showing the spectrums of features & functionality and user profiles.":::
 
 ### Usage
 
 Applications with **high usage numbers** should receive a higher value than apps with low usage. Assign a higher value to apps with external, executive, or security team users. For each app in your migration portfolio, complete these assessments.
 
-![A diagram of the spectrums of User Volume and User Breadth](media/migrate-apps-to-azure-ad/user-volume-breadth.png)
+:::image type="content" source="media/migrate-adfs-classify-apps-plan-pilot/user-volume-breadth.png" alt-text="Diagram showing the spectrums of User Volume and User Breadth.":::
 
 Once you've determined values for business criticality and usage, you can then determine the **application lifespan**, and create a matrix of priority. The diagram shows the matrix.
 
-![A triangle diagram showing the relationships between Usage, Expected Lifespan, and Business Criticality](media/migrate-apps-to-azure-ad/triangular-diagram-showing-relationship.png)
+:::image type="content" source="media/migrate-adfs-classify-apps-plan-pilot/triangular-diagram-showing-relationship.png" alt-text="Diagram of a triangle showing the relationships between Usage, Expected Lifespan, and Business Criticality.":::
 
 > [!VIDEO https://www.youtube.com/embed/PxLIacDpHh4]
+
 >[!NOTE]
 > This video covers both phase 1 and 2 of the migration process.
 ## Prioritize apps for migration
@@ -131,7 +132,7 @@ This also helps you implement the [five steps to securing your identity  infrast
 
 The device and location that a user uses to access an app are also important. Devices physically connected to your corporate network are more secure. Connections from outside the network over VPN may need scrutiny.
 
-![A diagram showing the relationship between User Location and Data Access.](media/migrate-apps-to-azure-ad/user-location-data-access.png)
+:::image type="content" source="media/migrate-adfs-classify-apps-plan-pilot/user-location-data-access.png" alt-text="Diagram showing the relationship between User Location and Data Access.":::
 
 With these aspects of resource, user, and device in mind, you may choose to use [Azure AD Conditional Access](../conditional-access/overview.md) capabilities. Conditional access goes beyond user permissions: it's based on a combination of factors, such as the identity of a user or group, the network that the user is connected to, the device and application they're using, and the type of data they're trying to access. The access granted to the user adapts to this broader set of conditions.
 

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/30/2023
+ms.date: 05/31/2023
 ms.author: jomondi
 ms.reviewer: gasinh
 ---
@@ -20,11 +20,9 @@ Apps that use SAML 2.0 for authentication can be configured for [SAML-based sing
 
 To configure a SaaS application for SAML-based SSO, see [Quickstart: Set up SAML-based single sign-on](add-application-portal-setup-sso.md).
 
-  ![SSO SAML User Screenshots ](media/migrate-adfs-apps-to-azure/sso-saml-user-attributes-claims.png)
+:::image type="content" source="media/migrate-adfs-saml-based-sso/sso-saml-user-attributes-claims.png" alt-text="Screenshot of the SAML SSO settings blade.":::
 
 Many SaaS applications have an [application-specific tutorial](../saas-apps/tutorial-list.md) that steps you through the configuration for SAML-based SSO.
-
-  ![app tutorial](media/migrate-adfs-apps-to-azure/app-tutorial.png)
 
 Some apps can be migrated easily. Apps with more complex requirements, such as custom claims, may require extra configuration in Azure AD and/or [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md). For information about supported claims mappings, see [How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)](../develop/active-directory-claims-mapping.md).
 
