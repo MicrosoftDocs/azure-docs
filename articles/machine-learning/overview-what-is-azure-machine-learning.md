@@ -63,7 +63,7 @@ The [Azure Machine Learning studio](https://ml.azure.com) offers multiple author
 
     :::image type="content" source="media/overview-what-is-azure-machine-learning/metrics.png" alt-text="Screenshot of metrics for a training run.":::
 
-* Azure Machine Learning designer: use the designer to train and deploy machine learning models without writing any code. Drag and drop datasets and components to create ML pipelines. Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
+* Azure Machine Learning designer: use the designer to train and deploy machine learning models without writing any code. Drag and drop datasets and components to create ML pipelines.
 
 * Automated machine learning UI: Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) with an easy-to-use interface.
 
