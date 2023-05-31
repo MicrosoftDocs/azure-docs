@@ -24,23 +24,37 @@ This section lists the Azure resource types that Azure Load Testing supports for
 * Azure App Service
 * Azure App Service plan
 * Azure Application Insights
+* Azure Batch Service
 * Azure Cache for Redis
+* Azure Cognitive Services
+* Azure Container Apps
+* Azure Container Instances
 * Azure Cosmos DB
+* Azure Data Explorer
+* Azure Data Factory
+* Azure Data Lake Storage Gen1
 * Azure Database for MariaDB server
+* Azure Database for MySQL Flexible Server
 * Azure Database for MySQL server
+* Azure Database for PostgreSQL Flexible Server
 * Azure Database for PostgreSQL server
 * Azure Functions function app
+* Azure HDInsight
 * Azure Kubernetes Service (AKS)
+* Azure Logic Apps
+* Azure Spring Apps
 * Azure SQL Database
 * Azure SQL elastic pool
 * Azure SQL Managed Instance
+* Azure SQL Managed Instance
+* Azure Synapse Analytics
 * Event Hubs cluster
 * Event Hubs namespace
 * Key Vault
 * Service Bus
 * Static Web Apps
-* Storage Accounts: Azure Blob Storage/Azure Files/Azure Table Storage/Queue Storage
 * Storage Accounts (classic): Azure Files/Azure Table Storage/Queue Storage
+* Storage Accounts: Azure Blob Storage/Azure Files/Azure Table Storage/Queue Storage
 * Traffic Manager profile
 * Virtual Machine Scale Sets
 * Virtual Machines
