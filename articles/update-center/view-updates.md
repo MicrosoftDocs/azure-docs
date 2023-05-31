@@ -12,7 +12,7 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-This article details how to check the status of available updates on a single VM or multiple machines using update management center (preview).
+This article details how to check the status of available updates on a single VM or multiple VMs using update management center (preview).
 
 
 ## Check updates on single VM
