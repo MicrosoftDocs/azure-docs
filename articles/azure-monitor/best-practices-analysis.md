@@ -71,10 +71,10 @@ The [out-of-the-box Grafana Azure alerts dashboard](https://grafana.com/grafana/
 |:---------|:---------|:---------|
 |[Azure Workbooks](./visualize/workbooks-overview.md)|Native Azure dashboarding platform   |Use as a tool for engineering and technical teams to visualize and investigate scenarios.    
 |    |Autorefresh    |Use as a reporting tool for App developers, Cloud engineers, and other technical personnel|
-|    |Out-of-the-box and public GitHub templates and reports     |    |    |
+|    |Out-of-the-box and public GitHub templates and reports     |    |
 |    |Parameters allow dynamic real time updates    |    |
 |    |Can provide high-level summaries that allow you to select any item for more in-depth data using the selected value in the query|    |
-    |Can query more sources than other visualizations|    |
+|    |Can query more sources than other visualizations|    |
 |    |Fully customizable    |    |
 |    |Designed for collaborating and troubleshooting    |    |
 |[Azure dashboards](../azure-portal/azure-portal-dashboards.md)|Native Azure dashboarding platform    |For Azure/Arc exclusive environments    |
