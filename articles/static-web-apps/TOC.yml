@@ -138,6 +138,9 @@
     - name: Troubleshoot errors
       href: troubleshooting.md
       displayName: deployment, runtime, errors
+    - name: Deploy with unsupported source control providers
+      href: other-providers.md
+      displayName: Jenkins, Jekyll
 - name: Tutorials
   items:
     - name: Publish from a static site generator
