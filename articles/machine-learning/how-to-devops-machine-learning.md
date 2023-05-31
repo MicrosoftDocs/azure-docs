@@ -239,7 +239,7 @@ jobs:
 In step 6, you added a job to submit an Azure Machine Learning job. In this step, you add another job that waits for the Azure Machine Learning job to complete. 
 
 
-# [Using Azure Resource manager Service connection](#tab/arm)
+# [Using Azure Resource manager service connection](#tab/arm)
 
 If you are using an Azure Resource Manager Service connection, you can use "Machine Learning" extension. You can search this extension [here](https://marketplace.visualstudio.com/search?target=AzureDevOps&category=Azure%20Pipelines&visibilityQuery=public&sortBy=Installs). Install the "Machine Learning" extension.
 
