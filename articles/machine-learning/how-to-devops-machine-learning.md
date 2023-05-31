@@ -273,7 +273,7 @@ Note that if you are directly using the YAML below and not adding the task manua
 
 # [Using Generic Service connection](#tab/generic)
 
-If you are using the Generic Service connection, you can not use the task provided by "Machine Learning" extension. You would need to call the API directly using InvokeRESTAPI task. Below YAML shows how to d that.
+If you are using the Generic Service connection, you can't use the task provided by Azure Machine Learning extension. Instead, call the API directly using an `InvokeRESTAPI` task. The following YAML example demonstrates how to use the API.
 
 Replace `<name of-service-connection>`,`<variable-for-subscription-id>`,`<variable-name-for-resource-group>` and `<variable-name-for-workspace>` with name of variables, you have set in Step 5.
 
