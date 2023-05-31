@@ -35,7 +35,10 @@ This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/a
     * Create a cloud-based compute instance to use for your development environment
 
 * [Create a cloud-based compute cluster](how-to-create-attach-compute-cluster.md#create) to use for training your model
-* Azure Machine Learning extension for Azure Pipelines. You can download is here Add-link when available. This extension is not required to submit the Azure Machine Learning job but to be able to wait for the job completion.
+* Azure Machine Learning extension (preview) for Azure Pipelines. This extension isn't required to submit the Azure Machine Learning job; it is required to be able to wait for the job completion.
+
+    [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 ## Step 1: Get the code
 
