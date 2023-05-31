@@ -206,7 +206,7 @@ If the replication status for a blob in the source account indicates failure, th
 
 ## Billing
 
-There's not cost to configure object replication. This includes the task of enabling change feed, enabling versioning, as well as adding replication policies. However, object replication incurs costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed. 
+There is no cost to configure object replication. This includes the task of enabling change feed, enabling versioning, as well as adding replication policies. However, object replication incurs costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed. 
 
 Here's a breakdown of the costs. To find the price of each cost component, see [Azure Blob Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -219,11 +219,13 @@ Here's a breakdown of the costs. To find the price of each cost component, see [
 ||Cost of network egress<sup>2</sup>|
 
 
+
 <sup>1</sup>    See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing).
 
 <sup>2</sup>    This includes only blob versions created since the last replication completed.
 
 <sup>3</sup>    See [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
+
 
 
 ## Next steps
@@ -232,3 +234,5 @@ Here's a breakdown of the costs. To find the price of each cost component, see [
 - [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md)
 - [Blob versioning](versioning-overview.md)
 - [Change feed support in Azure Blob Storage](storage-blob-change-feed.md)
+
+

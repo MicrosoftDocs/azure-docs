@@ -158,7 +158,7 @@ Now that the repository is created, you can create a static web app from the Azu
               - pipe: microsoft/azure-static-web-apps-deploy:main
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR/Client'
-                    OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/wwwroot'
+                    OUTPUT_LOCATION: 'wwwroot'
                     API_TOKEN: $deployment_token
     ```
 

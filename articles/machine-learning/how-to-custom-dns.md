@@ -54,7 +54,7 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 
 - Familiarity with [Azure Private DNS](../dns/private-dns-privatednszone.md)
 
-- Optionally, [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
+- Optionally, [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Automated DNS server integration
 

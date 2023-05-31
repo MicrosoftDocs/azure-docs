@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/nat-gateway/tutorial-protect-nat-gateway-ddos.md",
+            "redirect_url": "/azure/ddos-protection/ddos-protection-sku-comparison#limitations",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/route-server/routing-preference.md",
             "redirect_url": "/azure/route-server/overview",
             "redirect_document_id": false
@@ -7850,6 +7855,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-maps/how-to-request-elevation-data.md",
+            "redirect_url": "https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/power-bi-visual-add-bar-chart-layer.md",
+            "redirect_url": "/azure/azure-maps/power-bi-visual-add-3d-column-layer",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-portal/resource-group-portal-linked-resources.md",
             "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
             "redirect_document_id": false
@@ -14891,8 +14906,8 @@
         },
         {
             "source_path_from_root": "/articles/security/security-storage-overview.md",
-            "redirect_url": "/azure/security/fundamentals/storage-overview",
-            "redirect_document_id": true
+            "redirect_url": "/azure/storage/blobs/security-recommendations",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security/azure-security-technical-capabilities.md",
@@ -17422,6 +17437,11 @@
         {
             "source_path_from_root": "/articles/virtual-network/virtual-networks-manage-dns-in-vnet.md",
             "redirect_url": "/azure/virtual-network/virtual-networks-using-network-configuration-file",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network-manager/how-to-exclude-elements.md",
+            "redirect_url": "/azure/virtual-network-manager/how-to-define-network-group-membership-azure-policy",
             "redirect_document_id": false
         },
         {
@@ -22728,7 +22748,151 @@
             "source_path_from_root": "/articles/synapse-analytics/synapse-link/troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md",
             "redirect_url": "/azure/synapse-analytics/synapse-link/synapse-link-for-sql-known-issues",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/use-mariner.md",
+            "redirect_url": "/azure/aks/use-azurelinux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/authentication/how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md",
+            "redirect_url": "/azure/active-directory/authentication/how-to-migrate-mfa-server-to-mfa-user-authentication",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-function-linux-custom-image.md",
+            "redirect_url": "/azure/azure-functions/functions-how-to-custom-container",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/windows-firewall-events-via-ama.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-meraki.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-asa-ftd-via-ama.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md",
+            "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-filter-network-traffic.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/powershell-samples.md",
+            "redirect_url": "/azure/networking/fundamentals/networking-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-filter-network-traffic.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-filter-network-traffic.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/cli-samples.md",
+            "redirect_url": "/azure/networking/fundamentals/networking-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/powershell-samples.md",
+            "redirect_url": "/azure/networking/fundamentals/networking-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/cli-samples.md",
+            "redirect_url": "/azure/networking/fundamentals/networking-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-cli-sample-peer-two-virtual-networks.md",
+            "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-ipv6-dual-stack-standard-load-balancer.md",
+            "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md",
+            "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-cli-sample-route-traffic-through-nva.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-ipv6-dual-stack.md",
+            "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-cli-sample-multi-tier-application.md",
+            "redirect_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-sample-multi-tier-application.md",
+            "redirect_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-ipv6-dual-stack.md",
+            "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-filter-network-traffic.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-multi-tier-application.md",
+            "redirect_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/authentication/how-to-migrate-mfa-server-to-azure-mfa-with-federation.md",
+            "redirect_url": "/azure/active-directory/authentication/how-to-migrate-mfa-server-to-mfa-with-federation",
+            "redirect_document_id": true
         }
-
     ]
 }

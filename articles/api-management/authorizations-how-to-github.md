@@ -77,7 +77,7 @@ You learn how to:
 1. After successful authorization, the browser is redirected to API Management and the window is closed. When prompted during redirection, select **Allow access**. In API Management, select **Next**.
 1. On the **Access policy** page, create an access policy so that API Management has access to use the authorization. Ensure that a managed identity is configured for API Management. [Learn more about managed identities in API Management](api-management-howto-use-managed-service-identity.md#create-a-system-assigned-managed-identity).
 
-1. For this example, select **API Management service `<service name>`**.
+1. For this example, select **API Management service `<service name>`**, and then click "+ Add members". You should see your access policy in the Members table below.
 
     :::image type="content" source="media/authorizations-how-to-azure-ad/create-access-policy.png" alt-text="Screenshot of selecting a managed identity to use the authorization."::: 
 1. Select **Complete**.

@@ -1,89 +1,9 @@
 {
 	"redirections": [
         {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/overview.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/quickstart.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/language-support.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/how-to/create-project.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/how-to/design-schema.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/how-to/label-data.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/how-to/train-model.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/how-to/view-model-evaluation.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/how-to/deploy-model.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/how-to/call-api.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/how-to/fail-over.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/concepts/data-formats.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/concepts/evaluation-metrics.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/reference/service-limits.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/reference/glossary.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/concepts/entity-components.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/cognitive-services/conversational-language-understanding/fail-over.md",
             "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/fail-over",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-classification/how-to/use-autotagging.md",
@@ -6161,6 +6081,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/translator/quickstart-translator.md",
+            "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator-rest-api",
+            "redirect_document_id": true
+        },
+        {     
             "source_path_from_root": "/articles/cognitive-services/Translator/request-limits.md",
             "redirect_url": "/azure/cognitive-services/Translator/service-limits",
             "redirect_document_id": true

@@ -27,6 +27,8 @@ Azure Firewall Premium includes the following features:
 - **URL filtering** - extends Azure Firewall’s FQDN filtering capability to consider an entire URL along with any additional path. For example, `www.contoso.com/a/c` instead of `www.contoso.com`.
 - **Web categories** - administrators can allow or deny user access to website categories such as gambling websites, social media websites, and others.
 
+To compare Azure Firewall features for all Firewall SKUs, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
+
 ## TLS inspection
 
 The TLS (Transport Layer Security) protocol primarily provides cryptography for privacy, integrity, and authenticity using certificates between two or more communicating applications. It runs in the application layer and is widely used to encrypt the HTTP protocol.
@@ -75,7 +77,9 @@ The Azure Firewall signatures/rulesets include:
 
 IDPS allows you to detect attacks in all ports and protocols for nonencrypted traffic. However, when HTTPS traffic needs to be inspected, Azure Firewall can use its TLS inspection capability to decrypt the traffic and better detect malicious activities.  
 
-The IDPS Bypass List allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list.
+The IDPS Bypass List is a configuration that allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list. The IDPS Bypass list is not intended to be a way to improve throughput performance, as the firewall is still subject to the performance associated with your use case. For more information, see [Azure Firewall performance](firewall-performance.md#performance-data).
+
+:::image type="content" source="media/premium-features/idps-bypass-list.png" alt-text="Screenshot showing the IDPS Bypass list screen." lightbox="media/premium-features/idps-bypass-list.png":::
 
 ### IDPS Private IP ranges
 
@@ -124,6 +128,8 @@ URL Filtering can be applied both on HTTP and HTTPS traffic. When HTTPS traffic 
 ## Web categories
 
 Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are also included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic.
+
+Azure Firewall Premium web categories are only available in firewall policies. Ensure that your policy SKU matches the SKU of your firewall instance. For example, if you have a Firewall Premium instance, you must use a Firewall Premium policy.
 
 > [!IMPORTANT]
 > Microsoft is transitioning to an updated and new Web Content Filtering category feed in the next couple weeks. This will contain more granularity and additional subcategorizations.
@@ -197,3 +203,4 @@ For the supported regions for Azure Firewall, see [Azure products available by r
 - [Learn about Azure Firewall Premium certificates](premium-certificates.md)
 - [Deploy and configure Azure Firewall Premium](premium-deploy.md)
 - [Migrate to Azure Firewall Premium](premium-migrate.md)
+- [Learn more about Azure network security](../networking/security/index.yml)
