@@ -54,7 +54,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
 1. Run the following query to get the role assignments with the same role and at the same scope, but for different principals.
 
-    [!INCLUDE [azure-resource-graph-samples-query-authorization-same-role-scope](../../includes/resource-graph/samples/query/authorization-same-role-scope.md)]
+    [!INCLUDE [azure-resource-graph-samples-query-authorization-same-role-scope](../governance/includes/resource-graph/query/authorization-same-role-scope.md)]
 
     The following shows an example of the results. The **count_** column is the number of principals assigned the same role and at the same scope. The count is sorted in descending order.
 
@@ -118,7 +118,7 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
 1. Run the following query to get the role assignments with the same role and same principal, but at different scopes.
 
-    [!INCLUDE [azure-resource-graph-samples-query-authorization-same-role-principal](../../includes/resource-graph/samples/query/authorization-same-role-principal.md)]
+    [!INCLUDE [azure-resource-graph-samples-query-authorization-same-role-principal](../governance/includes/resource-graph/query/authorization-same-role-principal.md)]
 
     The following shows an example of the results. The **count_** column is the number of different scopes for role assignments with the same role and same principal. The count is sorted in descending order.
 
@@ -170,7 +170,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Run the following query to get role assignments with the same principal and same scope, but with different built-in roles.
 
-    [!INCLUDE [azure-resource-graph-samples-query-authorization-same-principal-scope](../../includes/resource-graph/samples/query/authorization-same-principal-scope.md)]
+    [!INCLUDE [azure-resource-graph-samples-query-authorization-same-principal-scope](../governance/includes/resource-graph/query/authorization-same-principal-scope.md)]
 
     The following shows an example of the results. The **count_** column is the number of different built-in role assignments with the same principal and same scope. The count is sorted in descending order.
 
@@ -254,7 +254,7 @@ Follow these steps to find and delete unused Azure custom roles.
 
     This query checks active role assignments and doesn't consider eligible role assignments in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
-    [!INCLUDE [azure-resource-graph-samples-query-authorization-unused-custom-roles](../../includes/resource-graph/samples/query/authorization-unused-custom-roles.md)]
+    [!INCLUDE [azure-resource-graph-samples-query-authorization-unused-custom-roles](../governance/includes/resource-graph/query/authorization-unused-custom-roles.md)]
 
     The following shows an example of the results:
 
