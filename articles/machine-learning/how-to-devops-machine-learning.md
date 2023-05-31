@@ -251,7 +251,8 @@ In the Pipeline review window, add a Server Job. In the steps part of the job, s
 The task has four inputs: `Service Connection`, `Azure Resource Group Name`, `AzureML Workspace Name` and `AzureML Job Name`. Fill these inputs. The resulting YAML for these steps is similar to the following example: 
 
 
-Note that if you are directly using the YAML below and not adding the task manually, replace `<name of-service-connection>`,`<variable-name-for-resource-group>` and `<variable-name-for-workspace>` with name of variables, you have set in Step 5.
+> [!NOTE]
+> If you are directly using the example YAML, and not adding the task manually, replace `<name of-service-connection>`, `<variable-name-for-resource-group>`, and `<variable-name-for-workspace>` entries with name of variables, you set in step 5.
 
 ```yml
 - job: WaitForAzureMLJobCompletion
