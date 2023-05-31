@@ -11,7 +11,7 @@ ms.author: jowang
 
 For UWP app, in Visual Studio 2022, create a new `Blank App (Universal Windows)` project. After entering the project name, feel free to pick any Windows SDK greater than `10.0.17763.0`. 
 
-For WinUI 3 app, create a new project with the `Blank App, Packaged (WinUI 3 in Desktop)` template to set up a single-page WinUI 3 app. [Windows App SDK version 1.3](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/stable-channel#version-13) and above is required.
+For WinUI 3 app, create a new project with the `Blank App, Packaged (WinUI 3 in Desktop)` template to set up a single-page WinUI 3 app. [Windows App SDK version 1.3](/windows/apps/windows-app-sdk/stable-channel#version-13) and above is required.
 ### Install the package and dependencies with NuGet Package Manager
 
 The Calling SDK APIs and libraries are publicly available via a NuGet package.
