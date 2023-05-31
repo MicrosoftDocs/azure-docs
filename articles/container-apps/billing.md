@@ -99,10 +99,6 @@ The billing for apps running in the Dedicated plan within the Consumption + Dedi
 - **Dedicated plan management**: You're billed a fixed cost for the Dedicated management plan when using Dedicated workload profiles. This cost is the same regardless of how many Dedicated workload profiles in use.
 
 For instance, you are not billed any charges for Dedicated unless you use a Dedicated workload profile in your environment.
-
-### Request charges
-
-Only requests that come from outside a Container Apps environment running the Consumption workload profile are billable. [Health probe](./health-probes.md) requests are not billable.
  
 ## General terms
 
