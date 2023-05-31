@@ -12,9 +12,9 @@ ms.date: 06/20/2022
 
 # Troubleshoot replication latency in Azure Database for MySQL - flexible Server
 
-[!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 [!INCLUDE[inclusive-language-guidelines-slave](includes/inclusive-language-guidelines-slave.md)]
 

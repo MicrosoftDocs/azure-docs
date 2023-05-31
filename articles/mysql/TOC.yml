@@ -744,7 +744,7 @@
     href: single-server/how-to-data-encryption-troubleshoot.md
     displayName: encryption, security
   - name: Troubleshoot replication latency
-    href: single-server/how-to-troubleshoot-replication-latency.md
+    href: how-to-troubleshoot-replication-latency.md
     displayName: replication, latency, monitor
   - name: Troubleshoot database corruption
     href: single-server/how-to-fix-corrupt-database.md
