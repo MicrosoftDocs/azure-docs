@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot bare metal machine issues using the `az networkcloud baremetalmachine run-data-extract` command for Azure Operator Nexus
-description: Step by step guide on using the `az networkcloud baremetalmachine run-data-extract` to extract data from a bare metal machine for troubleshooting & diagnostic purposes.
+description: Step by step guide on using the `az networkcloud baremetalmachine run-data-extract` to extract data from a bare metal machine for troubleshooting and diagnostic purposes.
 author: eak13
 ms.author: ekarandjeff
 ms.service: azure
@@ -11,13 +11,13 @@ ms.custom: template-how-to
 
 # Troubleshoot bare metal machine issues using the `az networkcloud baremetalmachine run-data-extract` command
 
-There may be situations where a user needs to investigate & resolve issues with an on-premises bare metal machine. Azure Operator Nexus provides a prescribed set of data extract commands via `az networkcloud baremetalmachine run-data-extract`. These commands enable users to get diagnostic data from a bare metal machine.
+There may be situations where a user needs to investigate and resolve issues with an on-premises bare metal machine. Azure Operator Nexus provides a prescribed set of data extract commands via `az networkcloud baremetalmachine run-data-extract`. These commands enable users to get diagnostic data from a bare metal machine.
 
 The command produces an output file containing the results of the data extract located in the Cluster Manager's Azure Storage Account.
 
 ## Before you begin
 
-- This article assumes that you've installed the Azure command line interface & the `networkcloud` command line interface extension. For more information, see [How to Install CLI Extensions](./howto-install-cli-extensions.md).
+- This article assumes that you've installed the Azure command line interface and the `networkcloud` command line interface extension. For more information, see [How to Install CLI Extensions](./howto-install-cli-extensions.md).
 - The target bare metal machine is on and has readyState set to True.
 - The syntax for these commands is based on the 0.3.0+ version of the `az networkcloud` CLI.
 
@@ -87,5 +87,5 @@ Collection successfully exported to /hostfs/tmp/runcommand/hardware-support-data
 
 ================================
 Script execution result can be found in storage account:
-https://cm2p9bctvhxnst.blob.core.windows.net/bmm-run-command-output/dd84df50-7b02-4d10-a2be-46782cbf4eef-action-bmmdataextcmd.tar.gz?se=2023-04-14T01%3A00%3A15Z&sig=ZJcsNoBzvOkUNL0IQ3XGtbJSaZxYqmtd%2BM6rmxDFqXE%3D&sp=r&spr=https&sr=b&st=2023-04-13T21%3A00%3A15Z&sv=2019-12-12
+https://cm2p9bctvhxnst.blob.core.windows.net/bmm-run-command-output/dd84df50-7b02-4d10-a2be-46782cbf4eef-action-bmmdataextcmd.tar.gz?se=2023-04-14T01%3A00%3A15Zandsig=ZJcsNoBzvOkUNL0IQ3XGtbJSaZxYqmtd%2BM6rmxDFqXE%3Dandsp=randspr=httpsandsr=bandst=2023-04-13T21%3A00%3A15Zandsv=2019-12-12
 ```
