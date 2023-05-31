@@ -27,6 +27,9 @@ An Azure Spring Apps service has one or more outbound public IP addresses. The n
 
 The outbound public IP addresses are usually constant and remain the same, but there are exceptions.
 
+> [!IMPORTANT]
+> If the Azure Spring Apps instance is deployed in your own virtual network, the static outbound IP might be changed after the Start/Stop Azure Spring Apps service instance operation.
+
 ## When outbound IPs change
 
 Each Azure Spring Apps instance has a set number of outbound public IP addresses at any given time. Any outbound connection from the applications, such as to a back-end database, uses one of the outbound public IP addresses as the origin IP address. The IP address is selected randomly at runtime, so your back-end service must open its firewall to all the outbound IP addresses.

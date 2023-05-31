@@ -67,7 +67,7 @@
   - name: Planning and operations guide
     displayName: guide, planning, roles, policies, recommendations
     href: defender-for-cloud-planning-and-operations-guide.md
-  - name: Protect your resources
+  - name: Protect your VMs
     displayName: manage, access, harden
     href: tutorial-protect-resources.md
   - name: Investigate and respond to security alerts

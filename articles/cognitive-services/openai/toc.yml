@@ -97,7 +97,7 @@ items:
     - name: REST API (Resource creation & deployment)
       href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
     - name: .NET 
-      href: /dotnet/api/azure.ai.openai?view=azure-dotnet-preview
+      href: /dotnet/api/azure.ai.openai?view=azure-dotnet-preview&preserve-view=true
     - name: Java
       href: /java/api/com.azure.ai.openai?view=azure-java-preview&preserve-view=true
     - name: JavaScript
