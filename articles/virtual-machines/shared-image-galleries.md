@@ -64,6 +64,7 @@ Image definitions contain metadata for the image to allow grouping of images tha
 - Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
 - Purchase plan information for Marketplace images - `-PurchasePlanPublisher`, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](./windows/cli-ps-findimage.md) and [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).
 - Features are features that are supported, based on the type of gallery:
+
 |     Features                                   |     Accepted Values                            |     Definition                                                                                                                                                                                                            |     Supported in                           |
 |------------------------------------------------|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
 |     IsHibernateSupported                       |     True, False                                |     Create VM's with support for   hibernation when set on the image.                                                                                                                                                     |     Private, Direct shared,   Community    |
@@ -88,8 +89,7 @@ Image definitions contain metadata for the image to allow grouping of images tha
 |     TrustedLaunch                              |     TrustedLaunch                              |     Only TrustedLaunch VM can be   created from this image type                                                                                                                                                           |     Private                                |
 |     TrustedLaunchAndConfidentialVmSupported    |     TrustedLaunchAndConfidentialVmSupported    |     It's a   generic Gen2 image that does not contain VMGS blob.  Gen2   VM/TrustedLaunch VM or a ConfidentialVM can be created from this image type.                                                                     |     Private, Direct shared,   Community    |
 
--Examples
- - CLI examples for adding [Image Definition features](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
+   For more information, see the CLI examples for adding [image definition features](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create).
 
 ## Image versions
 
