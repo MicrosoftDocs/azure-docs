@@ -8,21 +8,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 05/14/2023
+ms.date: 05/31/2023
 ms.author: rolyon
 ms.custom: it-pro
-zone_pivot_groups: multi-tenant-organizations-powershell-graph
 
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
 # Configure cross-tenant synchronization using PowerShell or Microsoft Graph API
 
-::: zone pivot="ms-powershell"
 > [!IMPORTANT]
 > Configuring cross-tenant synchronization using Microsoft Graph PowerShell is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-::: zone-end
 
 This article describes the key steps to configure cross-tenant synchronization using Microsoft Graph PowerShell or Microsoft Graph API. When configured, Azure AD automatically provisions and de-provisions B2B users in your target tenant. For detailed steps using the Azure portal, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
 
@@ -48,7 +45,8 @@ This article describes the key steps to configure cross-tenant synchronization u
 
 ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
-::: zone pivot="ms-powershell"
+# [PowerShell](#tab/ms-powershell)
+
 1. Start PowerShell.
 
 1. If necessary, install the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?branch=main).
@@ -74,9 +72,9 @@ This article describes the key steps to configure cross-tenant synchronization u
     ```powershell
     Select-MgProfile -Name "beta"
     ```
-::: zone-end
 
-::: zone pivot="ms-graph"
+# [Microsoft Graph](#tab/ms-graph)
+
 These steps describe how to use Microsoft Graph Explorer (recommended), but you can also use Postman, or another REST API client.
 
 1. Start [Microsoft Graph Explorer tool](https://aka.ms/ge).
@@ -96,13 +94,15 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
     - Source tenant ID: {sourceTenantId}
     - Target tenant ID: {targetTenantId}
-::: zone-end
+
+---
 
 ## Step 2: Enable user synchronization in the target tenant
 
 ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
-::: zone pivot="ms-powershell"
+# [PowerShell](#tab/ms-powershell)
+
 1. In the target tenant, use the [New-MgPolicyCrossTenantAccessPolicyPartner](/powershell/module/microsoft.graph.identity.signins/new-mgpolicycrosstenantaccesspolicypartner?view=graph-powershell-beta&preserve-view=true&branch=main) command to create a new partner configuration in a cross-tenant access policy between the target tenant and the source tenant. Use the source tenant ID in the request.
 
     If you get the error `New-MgPolicyCrossTenantAccessPolicyPartner_Create: Another object with the same value for property tenantId already exists`, you might already have an existing configuration. For more information, see [Symptom - New-MgPolicyCrossTenantAccessPolicyPartner_Create error](#symptom---new-mgpolicycrosstenantaccesspolicypartner_create-error).
@@ -111,13 +111,24 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     $Params = @{
         TenantId = $SourceTenantId
     }
-    New-MgPolicyCrossTenantAccessPolicyPartner -BodyParameter $Params
+    New-MgPolicyCrossTenantAccessPolicyPartner -BodyParameter $Params | Format-List
     ```
 
     ```Output
-    IsServiceProvider TenantId
-    ----------------- --------
-                      <SourceTenantId>
+    AutomaticUserConsentSettings : Microsoft.Graph.PowerShell.Models.MicrosoftGraphInboundOutboundPolicyConfiguration
+    B2BCollaborationInbound      : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    B2BCollaborationOutbound     : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    B2BDirectConnectInbound      : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    B2BDirectConnectOutbound     : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    IdentitySynchronization      : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantIdentitySyncPolicyPartner
+    InboundTrust                 : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyInboundTrust
+    IsServiceProvider            :
+    TenantId                     : <SourceTenantId>
+    TenantRestrictions           : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyTenantRestrictions
+    AdditionalProperties         : {[@odata.context, https://graph.microsoft.com/beta/$metadata#policies/crossTenantAccessPolicy/partners/$entity],
+                                   [crossCloudMeetingConfiguration,
+                                   System.Collections.Generic.Dictionary`2[System.String,System.Object]], [protectedContentSharing,
+                                   System.Collections.Generic.Dictionary`2[System.String,System.Object]]}
     ```
 
 1. Use the [Invoke-MgGraphRequest](/powershell/microsoftgraph/authentication-commands?branch=main#using-invoke-mggraphrequest) command to enable user synchronization in the target tenant.
@@ -144,9 +155,9 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     -------------
     True
     ```
-::: zone-end
 
-::: zone pivot="ms-graph"
+# [Microsoft Graph](#tab/ms-graph)
+
 1. In the target tenant, use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?branch=main) API to create a new partner configuration in a cross-tenant access policy between the target tenant and the source tenant. Use the source tenant ID in the request.
 
     If you get an `Request_MultipleObjectsWithSameKeyValue` error, you might already have an existing configuration. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
@@ -215,13 +226,15 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     ```http
     HTTP/1.1 204 No Content
     ```
-::: zone-end
+
+---
 
 ## Step 3: Automatically redeem invitations in the target tenant
 
 ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
-::: zone pivot="ms-powershell"
+# [PowerShell](#tab/ms-powershell)
+
 1. In the target tenant, use the [Update-MgPolicyCrossTenantAccessPolicyPartner](/powershell/module/microsoft.graph.identity.signins/update-mgpolicycrosstenantaccesspolicypartner?view=graph-powershell-beta&preserve-view=true&branch=main) command to automatically redeem invitations and suppress consent prompts for inbound access.
 
     ```powershell
@@ -230,9 +243,9 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     }
     Update-MgPolicyCrossTenantAccessPolicyPartner -CrossTenantAccessPolicyConfigurationPartnerTenantId $SourceTenantId -AutomaticUserConsentSettings $AutomaticUserConsentSettings
     ```
-::: zone-end
 
-::: zone pivot="ms-graph"
+# [Microsoft Graph](#tab/ms-graph)
+
 1. In the target tenant, use the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?branch=main) API to automatically redeem invitations and suppress consent prompts for inbound access.
 
     **Request**
@@ -255,13 +268,15 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     ```http
     HTTP/1.1 204 No Content
     ```
-::: zone-end
+
+---
 
 ## Step 4: Sign in to the source tenant
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-::: zone pivot="ms-powershell"
+# [PowerShell](#tab/ms-powershell)
+
 1. Start an instance of PowerShell.
 
 1. Get the tenant ID of the source and target tenants and initialize variables.
@@ -280,7 +295,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     - `AuditLog.Read.All`
 
     ```powershell
-    Connect-MgGraph -TenantId $SourceTenantId -Scopes "Policy.Read.All","Policy.ReadWrite.CrossTenantAccess","Application.ReadWrite.All","Directory.ReadWrite.All"
+    Connect-MgGraph -TenantId $SourceTenantId -Scopes "Policy.Read.All","Policy.ReadWrite.CrossTenantAccess","Application.ReadWrite.All","Directory.ReadWrite.All","AuditLog.Read.All"
     ```
 
 1. Use the [Select-MgProfile](/powershell/microsoftgraph/authentication-commands?branch=main#using-select-mgprofile) command to change to the beta version.
@@ -288,9 +303,9 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     ```powershell
     Select-MgProfile -Name "beta"
     ```
-::: zone-end
 
-::: zone pivot="ms-graph"
+# [Microsoft Graph](#tab/ms-graph)
+
 1. Start an instance of [Microsoft Graph Explorer tool](https://aka.ms/ge).
 
 1. Sign in to the source tenant.
@@ -304,13 +319,15 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     - `AuditLog.Read.All`
 
     If you see a **Need admin approval** page, you'll need to sign in with a user that has been assigned the Global Administrator role to consent.
-::: zone-end
+
+---
 
 ## Step 5: Automatically redeem invitations in the source tenant
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-::: zone pivot="ms-powershell"
+# [PowerShell](#tab/ms-powershell)
+
 1. In the source tenant, use the [New-MgPolicyCrossTenantAccessPolicyPartner](/powershell/module/microsoft.graph.identity.signins/new-mgpolicycrosstenantaccesspolicypartner?view=graph-powershell-beta&preserve-view=true&branch=main) command to create a new partner configuration in a cross-tenant access policy between the source tenant and the target tenant. Use the target tenant ID in the request.
 
     If you get the error `New-MgPolicyCrossTenantAccessPolicyPartner_Create: Another object with the same value for property tenantId already exists`, you might already have an existing configuration. For more information, see [Symptom - New-MgPolicyCrossTenantAccessPolicyPartner_Create error](#symptom---new-mgpolicycrosstenantaccesspolicypartner_create-error).
@@ -319,13 +336,25 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     $Params = @{
         TenantId = $TargetTenantId
     }
-    New-MgPolicyCrossTenantAccessPolicyPartner -BodyParameter $Params
+    New-MgPolicyCrossTenantAccessPolicyPartner -BodyParameter $Params | Format-List
     ```
 
     ```Output
-    IsServiceProvider TenantId
-    ----------------- --------
-                      <TargetTenantId>
+    AutomaticUserConsentSettings : Microsoft.Graph.PowerShell.Models.MicrosoftGraphInboundOutboundPolicyConfiguration
+    B2BCollaborationInbound      : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    B2BCollaborationOutbound     : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    B2BDirectConnectInbound      : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    B2BDirectConnectOutbound     : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    IdentitySynchronization      : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantIdentitySyncPolicyPartner
+    InboundTrust                 : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyInboundTrust
+    IsServiceProvider            :
+    TenantId                     : <TargetTenantId>
+    TenantRestrictions           : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyTenantRestrictions
+    AdditionalProperties         : {[@odata.context, https://graph.microsoft.com/beta/$metadata#policies/crossTenantAccessPolicy/partners/$entity],
+                                   [crossCloudMeetingConfiguration,
+                                   System.Collections.Generic.Dictionary`2[System.String,System.Object]], [protectedContentSharing,
+                                   System.Collections.Generic.Dictionary`2[System.String,System.Object]]}
+    
     ```
 
 1. Use the [Update-MgPolicyCrossTenantAccessPolicyPartner](/powershell/module/microsoft.graph.identity.signins/update-mgpolicycrosstenantaccesspolicypartner?view=graph-powershell-beta&preserve-view=true&branch=main) command to automatically redeem invitations and suppress consent prompts for outbound access.
@@ -336,9 +365,9 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     }
     Update-MgPolicyCrossTenantAccessPolicyPartner -CrossTenantAccessPolicyConfigurationPartnerTenantId $TargetTenantId -AutomaticUserConsentSettings $AutomaticUserConsentSettings
     ```
-::: zone-end
 
-::: zone pivot="ms-graph"
+# [Microsoft Graph](#tab/ms-graph)
+
 1. In the source tenant, use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?branch=main) API to create a new partner configuration in a cross-tenant access policy between the source tenant and the target tenant. Use the target tenant ID in the request.
 
     If you get an `Request_MultipleObjectsWithSameKeyValue` error, you might already have an existing configuration. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
@@ -404,13 +433,15 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     ```http
     HTTP/1.1 204 No Content
     ```
-::: zone-end
+
+---
 
 ## Step 6: Create a configuration application in the source tenant
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-::: zone pivot="ms-powershell"
+# [PowerShell](#tab/ms-powershell)
+
 1. In the source tenant, use the [Invoke-MgInstantiateApplicationTemplate](/powershell/module/microsoft.graph.applications/invoke-mginstantiateapplicationtemplate?view=graph-powershell-beta&preserve-view=true&branch=main) command to add an instance of a configuration application from the Azure AD application gallery into your tenant.
 
     ```powershell
@@ -420,17 +451,46 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 1. Use the [Get-MgServicePrincipal](/powershell/module/microsoft.graph.applications/get-mgserviceprincipal?branch=main) command to get the service principal ID.
 
     ```powershell
-    Get-MgServicePrincipal -Filter "DisplayName eq 'Fabrikam'"
+    Get-MgServicePrincipal -Filter "DisplayName eq 'Fabrikam'" | Format-List
     ```
 
     ```Output
-    Id                      DisplayName AppId      SignInAudience PublisherName
-    --                      ----------- -----      -------------- -------------
-    <ServicePrincipalId>    Fabrikam    <AppId>    AzureADMyOrg   Contoso
+    AccountEnabled                      : True
+    AddIns                              : {}
+    AlternativeNames                    : {}
+    AppDescription                      :
+    AppDisplayName                      : Fabrikam
+    AppId                               : <AppId>
+    AppManagementPolicies               :
+    AppOwnerOrganizationId              : <AppOwnerOrganizationId>
+    AppRoleAssignedTo                   :
+    AppRoleAssignmentRequired           : True
+    AppRoleAssignments                  :
+    AppRoles                            : {<AppRolesId>}
+    ApplicationTemplateId               : 518e5f48-1fc8-4c48-9387-9fdf28b0dfe7
+    ClaimsMappingPolicies               :
+    CreatedObjects                      :
+    CustomSecurityAttributes            : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
+    DelegatedPermissionClassifications  :
+    DeletedDateTime                     :
+    Description                         :
+    DisabledByMicrosoftStatus           :
+    DisplayName                         : Fabrikam
+    Endpoints                           :
+    ErrorUrl                            :
+    FederatedIdentityCredentials        :
+    HomeRealmDiscoveryPolicies          :
+    Homepage                            : https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=aad2aadsync|ISV9.1|primary|z
+    Id                                  : <ServicePrincipalId>
+    Info                                : Microsoft.Graph.PowerShell.Models.MicrosoftGraphInformationalUrl
+    KeyCredentials                      : {}
+    LicenseDetails                      :
+    
+    ...
     ```
-::: zone-end
 
-::: zone pivot="ms-graph"
+# [Microsoft Graph](#tab/ms-graph)
+
 1. In the source tenant, use the [applicationTemplate: instantiate](/graph/api/applicationtemplate-instantiate?branch=main) API to add an instance of a configuration application from the Azure AD application gallery into your tenant.
     
     **Request**
@@ -504,13 +564,14 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     ```
 
 1. Save the service principal object ID.
-::: zone-end
+
+---
 
 ## Step 7: Test the connection to the target tenant
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-::: zone pivot="ms-powershell"
+# [PowerShell](#tab/ms-powershell)
 
 1. Initialize a variable with the service principal ID from the previous step.
 
@@ -539,9 +600,9 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     }
     Invoke-MgGraphRequest -Method POST -Uri "https://graph.microsoft.com/beta/servicePrincipals/$ServicePrincipalId/synchronization/jobs/validateCredentials" -Body $Params
     ```
-::: zone-end
 
-::: zone pivot="ms-graph"
+# [Microsoft Graph](#tab/ms-graph)
+
 1. Get the service principal object ID from the previous step.
 
     Be sure to use the service principal object ID instead of the application ID.
@@ -575,7 +636,8 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     ```http
     HTTP/1.1 204 No Content
     ```
-::: zone-end
+
+---
 
 ## Step 8: Create a provisioning job in the source tenant
 
@@ -583,7 +645,8 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 In the source tenant, to enable provisioning, create a provisioning job.
 
-::: zone pivot="ms-powershell"
+# [PowerShell](#tab/ms-powershell)
+
 1. Determine the synchronization template to use, such as `Azure2Azure`.
 
     A template has pre-configured synchronization settings. 
@@ -591,13 +654,18 @@ In the source tenant, to enable provisioning, create a provisioning job.
 1. In the source tenant, use the [New-MgServicePrincipalSynchronizationJob](/powershell/module/microsoft.graph.applications/new-mgserviceprincipalsynchronizationjob?view=graph-powershell-beta&preserve-view=true&branch=main) command to create a provisioning job based on a template.
 
     ```powershell
-    New-MgServicePrincipalSynchronizationJob -ServicePrincipalId $ServicePrincipalId -TemplateId "Azure2Azure"
+    New-MgServicePrincipalSynchronizationJob -ServicePrincipalId $ServicePrincipalId -TemplateId "Azure2Azure" | Format-List
     ```
 
     ```Output
-    Id         TemplateId
-    --         ----------
-    <JobId>    Azure2Azure
+    Id                         : <JobId>
+    Schedule                   : Microsoft.Graph.PowerShell.Models.MicrosoftGraphSynchronizationSchedule
+    Schema                     : Microsoft.Graph.PowerShell.Models.MicrosoftGraphSynchronizationSchema
+    Status                     : Microsoft.Graph.PowerShell.Models.MicrosoftGraphSynchronizationStatus
+    SynchronizationJobSettings : {AzureIngestionAttributeOptimization, LookaheadQueryEnabled}
+    TemplateId                 : Azure2Azure
+    AdditionalProperties       : {[@odata.context, https://graph.microsoft.com/beta/$metadata#servicePrincipals('<ServicePrincipalId>')/synchro
+                                 nization/jobs/$entity]}
     ```
 
 1. Initialize the job ID for a later step.
@@ -605,9 +673,9 @@ In the source tenant, to enable provisioning, create a provisioning job.
     ```powershell
     $JobId = "<JobId>"
     ```
-::: zone-end
 
-::: zone pivot="ms-graph"
+# [Microsoft Graph](#tab/ms-graph)
+
 1. Determine the [synchronization template](/graph/api/resources/synchronization-synchronizationtemplate?branch=main) to use, such as `Azure2Azure`.
 
     A template has pre-configured synchronization settings. 
@@ -666,13 +734,15 @@ In the source tenant, to enable provisioning, create a provisioning job.
         ]
     }
     ```
-::: zone-end
+
+---
 
 ## Step 9: Save your credentials
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-::: zone pivot="ms-powershell"
+# [PowerShell](#tab/ms-powershell)
+
 1. In the source tenant, use the [Invoke-MgGraphRequest](/powershell/microsoftgraph/authentication-commands?branch=main#using-invoke-mggraphrequest) command to save your credentials.
 
     ```powershell
@@ -690,9 +760,9 @@ In the source tenant, to enable provisioning, create a provisioning job.
     }
     Invoke-MgGraphRequest -Method PUT -Uri "https://graph.microsoft.com/beta/servicePrincipals/$ServicePrincipalId/synchronization/secrets" -Body $Params
     ```
-::: zone-end
 
-::: zone pivot="ms-graph"
+# [Microsoft Graph](#tab/ms-graph)
+
 1. In the source tenant, use the [Add synchronization secrets](/graph/api/synchronization-synchronization-secrets?branch=main) API to save your credentials.
 
     **Request**
@@ -728,7 +798,8 @@ In the source tenant, to enable provisioning, create a provisioning job.
     ```http
     HTTP/1.1 204 No Content
     ```
-::: zone-end
+
+---
 
 ## Step 10: Assign a user to the configuration
 
@@ -736,7 +807,8 @@ In the source tenant, to enable provisioning, create a provisioning job.
 
 For cross-tenant synchronization to work, at least one internal user must be assigned to the configuration.
 
-::: zone pivot="ms-powershell"
+# [PowerShell](#tab/ms-powershell)
+
 1. In the source tenant, use the [New-MgServicePrincipalAppRoleAssignedTo](/powershell/module/microsoft.graph.applications/new-mgserviceprincipalapproleassignedto?branch=main) command to assign an internal user to the configuration.
 
     ```powershell
@@ -759,9 +831,9 @@ For cross-tenant synchronization to work, at least one internal user must be ass
     ResourceId           : <ServicePrincipalId>
     AdditionalProperties : {[@odata.context, https://graph.microsoft.com/beta/$metadata#appRoleAssignments/$entity]}
     ```
-::: zone-end
 
-::: zone pivot="ms-graph"
+# [Microsoft Graph](#tab/ms-graph)
+
 1. In the source tenant, use the [Grant an appRoleAssignment for a service principal](/graph/api/serviceprincipal-post-approleassignedto?branch=main) API to assign an internal user to the configuration.
 
     **Request**
@@ -795,7 +867,8 @@ For cross-tenant synchronization to work, at least one internal user must be ass
         "resourceId": "{servicePrincipalId}"
     }
     ```
-::: zone-end
+
+---
 
 ## Step 11: Test provision on demand
 
@@ -803,7 +876,8 @@ For cross-tenant synchronization to work, at least one internal user must be ass
 
 Now that you have a configuration, you can test on-demand provisioning with one of your users.
 
-::: zone pivot="ms-powershell"
+# [PowerShell](#tab/ms-powershell)
+
 1. In the source tenant, use the [New-MgServicePrincipalSynchronizationJobOnDemand](/powershell/module/microsoft.graph.applications/new-mgserviceprincipalsynchronizationjobondemand?view=graph-powershell-beta&preserve-view=true&branch=main) command to provision a test user on demand.
 
     ```powershell
@@ -831,9 +905,9 @@ Now that you have a configuration, you can test on-demand provisioning with one 
                            ...
     AdditionalProperties : {[@odata.context, https://graph.microsoft.com/beta/$metadata#microsoft.graph.stringKeyStringValuePair]}
     ```
-::: zone-end
 
-::: zone pivot="ms-graph"
+# [Microsoft Graph](#tab/ms-graph)
+
 1. In the source tenant, use the [synchronizationJob: provisionOnDemand](/graph/api/synchronization-synchronizationjob-provision-on-demand?branch=main) API to provision a test user on demand.
 
     **Request**
@@ -856,21 +930,23 @@ Now that you have a configuration, you can test on-demand provisioning with one 
         ]
     }
     ```
-::: zone-end
+
+---
 
 ## Step 12: Start the provisioning job
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-::: zone pivot="ms-powershell"
+# [PowerShell](#tab/ms-powershell)
+
 1. Now that the provisioning job is configured, in the source tenant, use the [Start-MgServicePrincipalSynchronizationJob](/powershell/module/microsoft.graph.applications/start-mgserviceprincipalsynchronizationjob?view=graph-powershell-beta&preserve-view=true&branch=main) command to start the provisioning job.
 
     ```powershell
     Start-MgServicePrincipalSynchronizationJob -ServicePrincipalId $ServicePrincipalId -SynchronizationJobId $JobId
     ```
-::: zone-end
 
-::: zone pivot="ms-graph"
+# [Microsoft Graph](#tab/ms-graph)
+
 1. Now that the provisioning job is configured, in the source tenant, use the [Start synchronizationJob](/graph/api/synchronization-synchronizationjob-start?branch=main) API to start the provisioning job.
 
     **Request**
@@ -885,13 +961,15 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     ```http
     HTTP/1.1 204 No Content
     ```
-::: zone-end
+
+---
 
 ## Step 13: Monitor provisioning
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-::: zone pivot="ms-powershell"
+# [PowerShell](#tab/ms-powershell)
+
 1. Now that the provisioning job is running, in the source tenant, use the [Get-MgServicePrincipalSynchronizationJob](/powershell/module/microsoft.graph.applications/get-mgserviceprincipalsynchronizationjob?view=graph-powershell-beta&preserve-view=true&branch=main) command to monitor the progress of the current provisioning cycle as well as statistics to date such as the number of users and groups that have been created in the target system.
 
     ```powershell
@@ -916,40 +994,55 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     ```
 
     ```Output
-    ActivityDateTime     : 5/20/2023 8:40:20 PM
-    ActivityDisplayName  : Synchronization rule action
+    ActivityDateTime     : 5/21/2023 12:08:17 AM
+    ActivityDisplayName  : Export
     AdditionalDetails    : {Details, ErrorCode, EventName, ipaddr...}
     Category             : ProvisioningManagement
     CorrelationId        : cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec
-    Id                   : Sync_cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec_DXMK5_110895927
+    Id                   : Sync_cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec_L5BFV_161778479
     InitiatedBy          : Microsoft.Graph.PowerShell.Models.MicrosoftGraphAuditActivityInitiator1
     LoggedByService      : Account Provisioning
     OperationType        :
     Result               : success
-    ResultReason         : The state of the entry in both the source and target systems already match. No change to the User
-                           'user4@fabrikam.com' currently needs to be made.
+    ResultReason         : User 'user2@fabrikam.com' was created in Azure Active Directory (target tenant)
     TargetResources      : {<ServicePrincipalId>, }
     UserAgent            :
     AdditionalProperties : {}
     
-    ActivityDateTime     : 5/20/2023 8:40:19 PM
-    ActivityDisplayName  : Import
+    ActivityDateTime     : 5/21/2023 12:08:17 AM
+    ActivityDisplayName  : Export
     AdditionalDetails    : {Details, ErrorCode, EventName, ipaddr...}
     Category             : ProvisioningManagement
     CorrelationId        : cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec
-    Id                   : Sync_cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec_DXMK5_1108962569
+    Id                   : Sync_cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec_L5BFV_161778264
     InitiatedBy          : Microsoft.Graph.PowerShell.Models.MicrosoftGraphAuditActivityInitiator1
     LoggedByService      : Account Provisioning
     OperationType        :
     Result               : success
-    ResultReason         : Retrieved  'user5@fabrikam.com' from Azure Active Directory (target tenant)
+    ResultReason         : User 'user2@fabrikam.com' was updated in Azure Active Directory (target tenant)
+    TargetResources      : {<ServicePrincipalId>, }
+    UserAgent            :
+    AdditionalProperties : {}
+    
+    ActivityDateTime     : 5/21/2023 12:08:14 AM
+    ActivityDisplayName  : Synchronization rule action
+    AdditionalDetails    : {Details, ErrorCode, EventName, ipaddr...}
+    Category             : ProvisioningManagement
+    CorrelationId        : cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec
+    Id                   : Sync_cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec_L5BFV_161778395
+    InitiatedBy          : Microsoft.Graph.PowerShell.Models.MicrosoftGraphAuditActivityInitiator1
+    LoggedByService      : Account Provisioning
+    OperationType        :
+    Result               : success
+    ResultReason         : User 'user2@fabrikam.com' will be created in Azure Active Directory (target tenant) (User is active and assigned
+                           in Azure Active Directory, but no matching User was found in Azure Active Directory (target tenant))
     TargetResources      : {<ServicePrincipalId>, }
     UserAgent            :
     AdditionalProperties : {}
     ```
-::: zone-end
 
-::: zone pivot="ms-graph"
+# [Microsoft Graph](#tab/ms-graph)
+
 1. Now that the provisioning job is running, in the source tenant, use the [Get synchronizationJob](/graph/api/synchronization-synchronizationjob-get?branch=main) API to monitor the progress of the current provisioning cycle as well as statistics to date such as the number of users and groups that have been created in the target system.
 
     **Request**
@@ -1130,9 +1223,12 @@ Now that you have a configuration, you can test on-demand provisioning with one 
         ]
     }
     ```
-::: zone-end
+
+---
 
 ## Troubleshooting tips
+
+# [PowerShell](#tab/ms-powershell)
 
 #### Symptom - Insufficient privileges error
 
@@ -1151,15 +1247,8 @@ Either the signed-in user doesn't have sufficient privileges, or you need to con
 
 1. Make sure you're assigned the required roles. See [Prerequisites](#prerequisites) earlier in this article.
 
-::: zone pivot="ms-powershell"
 2. When you sign in with [Connect-MgGraph](/powershell/microsoftgraph/authentication-commands?branch=main#using-connect-mggraph), make sure you specify the required scopes. See [Step 1: Sign in to the target tenant](#step-1-sign-in-to-the-target-tenant) and [Step 4: Sign in to the source tenant](#step-4-sign-in-to-the-source-tenant) earlier in this article.
-::: zone-end
 
-::: zone pivot="ms-graph"
-2. In [Microsoft Graph Explorer tool](https://aka.ms/ge), make sure you consent to the required permissions. See [Step 1: Sign in to the target tenant](#step-1-sign-in-to-the-target-tenant) and [Step 4: Sign in to the source tenant](#step-4-sign-in-to-the-source-tenant) earlier in this article.
-::: zone-end
-
-::: zone pivot="ms-powershell"
 #### Symptom - New-MgPolicyCrossTenantAccessPolicyPartner_Create error
 
 When you try to create a new partner configuration, you receive an error message similar to the following:
@@ -1179,11 +1268,9 @@ You are likely trying to create a configuration or object that already exists, p
 1. Use the [Get-MgPolicyCrossTenantAccessPolicyPartner](/powershell/module/microsoft.graph.identity.signins/get-mgpolicycrosstenantaccesspolicypartner?view=graph-powershell-beta&preserve-view=true&branch=main) command to list the existing object.
 
 1. If you have an existing object, you might need to make an update using [Update-MgPolicyCrossTenantAccessPolicyPartner](/powershell/module/microsoft.graph.identity.signins/update-mgpolicycrosstenantaccesspolicypartner?view=graph-powershell-beta&preserve-view=true&branch=main)
-::: zone-end
 
 #### Symptom - Request_MultipleObjectsWithSameKeyValue error
 
-::: zone pivot="ms-powershell"
 When you try to enable user synchronization, you receive an error message similar to the following:
 
 ```
@@ -1217,9 +1304,30 @@ You are likely trying to create a policy that already exists, possibly from a pr
     }
     Update-MgPolicyCrossTenantAccessPolicyPartnerIdentitySynchronization -CrossTenantAccessPolicyConfigurationPartnerTenantId $SourceTenantId -BodyParameter $Params
     ```
-::: zone-end
 
-::: zone pivot="ms-graph"
+# [Microsoft Graph](#tab/ms-graph)
+
+#### Symptom - Insufficient privileges error
+
+When you try to perform an action, you receive an error message similar to the following:
+
+```
+code: Authorization_RequestDenied
+message: Insufficient privileges to complete the operation.
+```
+
+**Cause**
+
+Either the signed-in user doesn't have sufficient privileges, or you need to consent to one of the required permissions.
+
+**Solution**
+
+1. Make sure you're assigned the required roles. See [Prerequisites](#prerequisites) earlier in this article.
+
+2. In [Microsoft Graph Explorer tool](https://aka.ms/ge), make sure you consent to the required permissions. See [Step 1: Sign in to the target tenant](#step-1-sign-in-to-the-target-tenant) and [Step 4: Sign in to the source tenant](#step-4-sign-in-to-the-source-tenant) earlier in this article.
+
+#### Symptom - Request_MultipleObjectsWithSameKeyValue error
+
 When you try to make a Graph API call, you receive an error message similar to the following:
 
 ```
@@ -1265,7 +1373,8 @@ You are likely trying to update an object that doesn't exist using `PATCH`.
 1. If object doesn't exist, instead of making an update request using `PATCH`, you might need to make a create request using `POST` or `PUT`, such as:
 
     - [Create identitySynchronization](/graph/api/crosstenantaccesspolicyconfigurationpartner-put-identitysynchronization?branch=main)
-::: zone-end
+
+---
 
 ## Next steps
 

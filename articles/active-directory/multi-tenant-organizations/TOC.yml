@@ -21,8 +21,6 @@
       href: cross-tenant-synchronization-configure.md
     - name: PowerShell or Graph API
       href: cross-tenant-synchronization-configure-graph.md
-    - name: PowerShell or Graph API (tabs)
-      href: cross-tenant-synchronization-configure-graph-tabs.md
   - name: Scoping users or groups to be provisioned
     href: ../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md?toc=/azure/active-directory/multi-tenant-organizations/toc.json&pivots=cross-tenant-synchronization
   - name: Skip deletion for out-of-scope users
