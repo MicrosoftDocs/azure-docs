@@ -159,6 +159,9 @@ The scope is made up of the following two parts:
 
 [![Extra expressions.](media/understanding-lifecycle-workflows/workflow-8.png)](media/understanding-lifecycle-workflows/workflow-8.png#lightbox)
 
+>[!NOTE]
+> The rule evaluation is case-sensitive.
+
 For a detailed guide on setting the execution conditions for a workflow, see: [Create a lifecycle workflow.](create-lifecycle-workflow.md)
 
 ## Scheduling

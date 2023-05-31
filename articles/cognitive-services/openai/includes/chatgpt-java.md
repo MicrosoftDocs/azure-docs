@@ -25,6 +25,9 @@ keywords:
 
 <sup>1</sup> **GPT-4 models are currently only available by request.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
+
 ## Set up
 
 1. Install [Apache Maven](https://maven.apache.org/install.html). Then run `mvn -v` to confirm successful installation. The `README.txt` file from the installation has instructions on adding the Maven bin directory to your PATH variable. If you don't set this the `mvn` command will instead need to run like `c:\apache-maven-3.9.2-bin\apache-maven-3.9.2\mvn -v`.
@@ -114,6 +117,9 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ```
 ---
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up-the-environment)
+
 ## Create a sample application
 
 Create a new file named `GetChatCompletionsSample.java` and place it in `quickstart/src/main/java/com/azure/ai/openai/usage` folder. Copy the following code into the file.
@@ -196,6 +202,9 @@ Yes, most of the Azure Cognitive Services support customer managed keys. However
 
 Usage: number of prompt token is 59, number of completion token is 36, and number of total tokens in request and response is 95.
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the code sample.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Create-application)
 
 ## Clean up resources
 
