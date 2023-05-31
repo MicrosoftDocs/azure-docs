@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Explore an Azure IoT Central industrial scenario
-description: This tutorial shows you how to deploy an end-to-end industrial IoT solution. You install an IoT Edge gateway, an IoT Central application, and an Azure Data Explorer workspace.
+description: This tutorial shows you how to deploy an end-to-end industrial IoT solution by using IoT Edge, IoT Central, and Azure Data Explorer.
 author: dominicbetts
 ms.author: dobett
 ms.date: 09/15/2022

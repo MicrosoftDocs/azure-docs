@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Connect a generic client app to Azure IoT Central
-description: This tutorial shows you how to connect a device running either a C, C#, Java, JavaScript, or Python client app to your Azure IoT Central application. You modify the automatically generated device template by adding views that let an operator interact with a connected device.
+title: Tutorial - Connect a client app to Azure IoT Central
+description: This tutorial shows you how to connect a device running either a C, C#, Java, JavaScript, or Python client app to your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/26/2022

@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot data exports from Azure IoT Central
-description: Troubleshoot issues with data exports in IoT Central
+description: Troubleshoot data exports in IoT Central for issues such as managed identity permissions and virtual network configuration
 services: iot-central
 author: dominicbetts
 ms.author: dobett
