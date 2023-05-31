@@ -15,7 +15,7 @@ Built-in connectors enable connection to the broader security ecosystem for non-
 
 Learn about [types of Microsoft Sentinel data connectors](data-connectors-reference.md) or learn about the [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
-The Microsoft Sentinel **Data connectors** page shows the full list of connectors and their status in your workspace and their status. Soon this page will only show the list of in-use data connectors. For more information on this upcoming change, see [Out-of-the-box content centralization changes](sentinel-content-centralize.md)
+The Microsoft Sentinel **Data connectors** page shows the full list of connectors and their status for your workspace. Soon this page will only show the list of in-use data connectors. For more information on this upcoming change, see [Out-of-the-box content centralization changes](sentinel-content-centralize.md)
 
 :::image type="content" source="media/connect-data-sources/open-data-connector-page.png" alt-text="Screenshot of the data connectors gallery." lightbox="media/connect-data-sources/open-data-connector-page.png":::
 
