@@ -403,7 +403,7 @@ If your company's network architure involves the use of private endpoints and fo
           bypassonlocal="True"
           />
       </defaultProxy>
-  </system.net>
+    </system.net>
     ```
 
 ### Possible symptoms for issues related to the firewall and proxy server
