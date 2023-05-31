@@ -21,6 +21,7 @@ services: azure-communication-services
 Securing the delivery of messages from end to end is crucial for ensuring the confidentiality, integrity, and trustworthiness of sensitive information transmitted between systems. Your ability and willingness to trust information received from a remote system relies on the sender providing their identity. Call Automation has two ways of communicating events that can be secured; the shared IncomingCall event sent by Azure Event Grid, and all other mid-call events sent by the Call Automation platform via webhook.
 
 ## Incoming Call Event
+
 Azure Communication Services relies on Azure Event Grid subscriptions to deliver the [IncomingCall event](../../concepts/call-automation/incoming-call-notification.md). You can refer to the Azure Event Grid team for their [documentation about how to secure a webhook subscription](../../../event-grid/secure-webhook-delivery.md).
 
 ## Call Automation webhook events
@@ -33,7 +34,7 @@ A common way you can improve this security is by implementing an API KEY mechani
 
 Each mid-call webhook callback sent by Call Automation uses a signed JSON Web Token (JWT) in the Authentication header of the inbound HTTPS request. You can use standard Open ID Connect (OIDC) JWT validation techniques to ensure the integrity of the token as follows. The lifetime of the JWT is five (5) minutes and a new token is created for every event sent to the callback URI.
 
-1. Obtain the Open ID configuration URL: https://acscallautomation.communication.azure.com/calling/.well-known/acsopenidconfiguration
+1. Obtain the Open ID configuration URL: <https://acscallautomation.communication.azure.com/calling/.well-known/acsopenidconfiguration>
 2. Install the [Microsoft.AspNetCore.Authentication.JwtBearer NuGet](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer) package.
 3. Configure your application to validate the JWT using the NuGet package and the configuration of your ACS resource. You need the `audience` values as it is present in the JWT payload.
 4. Validate the issuer, audience and the JWT token.
@@ -41,7 +42,9 @@ Each mid-call webhook callback sent by Call Automation uses a signed JSON Web To
    - The JSON Web Key Set (JWKS) endpoint in the OpenId configuration contains the keys used to validate the JWT token. When the signature is valid and the token hasn't expired (within 5 minutes of generation), the client can use the token for authorization.
 
 This sample code demonstrates how to use `Microsoft.IdentityModel.Protocols.OpenIdConnect` to validate webhook payload
+
 ## [csharp](#tab/csharp)
+
 ```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Protocols;
@@ -98,4 +101,5 @@ app.Run();
 ```
 
 ## Next steps
+
 - Learn more about [How to control and steer calls with Call Automation](../call-automation/actions-for-call-control.md).
