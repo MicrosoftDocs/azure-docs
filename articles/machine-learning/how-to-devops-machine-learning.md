@@ -128,7 +128,7 @@ Select the following tabs depending on whether you are using an Azure Resource M
  * `<variable-name-for-resource-group>`
  * `<variable-name-for-workspace>`
 
-# [Using Azure Resource manager Service connection](#tab/arm)
+# [Using Azure Resource manager service connection](#tab/arm)
 
 ```yaml
 name: submit-azure-machine-learning-job
