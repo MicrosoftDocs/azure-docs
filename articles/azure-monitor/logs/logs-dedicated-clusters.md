@@ -205,7 +205,10 @@ The managed identity service generates the *principalId* GUID when you create th
 
 ## Link a workspace to a cluster
 
-When a Log Analytics workspace is linked to a dedicated cluster, new data ingested to the workspace, is routed to the cluster while existing data remains in the existing Log Analytics cluster. If the dedicated cluster is configured with customer-managed keys (CMK), new ingested data is encrypted with your key. The system abstracts the data location, you can query data as usual while the system performs cross-cluster queries in the background.
+When a Log Analytics workspace is linked to a dedicated cluster, the workspace billing plan in workspace is changed per cluster plan, new data ingested to the workspace is routed to the cluster, and existing data remains in Log Analytics cluster. Linking a workspace has no affect on data ingestion and query experiences.
+
+Queries and experiences aren't affected by the  
+If the dedicated cluster is configured with customer-managed keys (CMK), new ingested data is encrypted with your key. The system abstracts the data location, you can query data as usual while the system performs cross-cluster queries in the background.
 
 A cluster can be linked to up to 1,000 workspaces. Linked workspaces can be located in the same region as the cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
 
@@ -544,7 +547,7 @@ Content-type: application/json
 
 ### Unlink a workspace from cluster
 
-You can unlink a workspace from a cluster at any time. The workspace pricing tier is changed to per-GB, data ingested to cluster before the unlink operation remains in the cluster, and new data to workspace get ingested to Log Analytics. 
+You can unlink a workspace from a cluster at any time. The workspace pricing tier is changed to per-GB, data ingested to cluster before the unlink operation remains in the cluster, and new data to workspace get ingested to Log Analytics.
 
 > [!WARNING]
 > Unlinking a workspace does not move workspace data out of the cluster. Any data collected for workspace while linked to cluster, remains in cluster for the retention period defined in workspace, and accessible as long as cluster isn't deleted.
