@@ -166,6 +166,12 @@ For more information about how to determine potential data loss during storage a
 
 Keep in mind that other storage account features require change feed such as [operational backup of Azure Blob Storage](../../backup/blob-backup-support-matrix.md#limitations), [Object replication](../blobs/object-replication-overview.md) and [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md).
 
+### Point-in-time restore
+
+Performing a customer-managed failover on a storage account resets the earliest possible restore point for the account. Data for [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md) is only consistent up to the failover completion time. You can check the failover completion time in the redundancy tab of your storage account in the Azure Portal.
+
+For example, suppose you have set the retention period to 30 days. If more than 30 days have elapsed since the failover, then you can restore to any point within that 30 days. However, if fewer than 30 days have elapsed since the failover, then you can't restore to a point prior to the failover, regardless of the retention period. For example, if it's been 10 days since the failover, then the earliest possible restore point is 10 days in the past, not 30 days in the past.
+
 ## Unsupported features and services
 
 The following features and services are not supported for account failover:
