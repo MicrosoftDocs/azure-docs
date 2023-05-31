@@ -455,7 +455,7 @@
             - name: Configure optional claims
               href: optional-claims.md
             - name: Configure role claim
-              href: active-directory-enterprise-app-role-management.md
+              href: enterprise-app-role-management.md
             - name: Customize JWT claims
               href: jwt-claims-customization.md
             - name: Customize SAML claims
