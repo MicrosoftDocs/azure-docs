@@ -15,7 +15,7 @@ This page explains how you can use alerts suppression rules to suppress false po
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Free<br>(Most security alerts are only available with [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads))|
+|Pricing:|For pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).<br>Most security alerts are only available with [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads).|
 |Required roles and permissions:|**Security admin** and **Owner** can create/delete rules.<br>**Security reader** and **Reader** can view rules.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
@@ -49,7 +49,7 @@ To create a rule for a specific alert in the Azure portal:
 1. In the **New suppression rule** pane, enter the details of your new rule.
 
     - **Entities** - The resources that the rule applies to. You can specify a single resource, multiple resources, or resources that contain a partial resource ID. If you don't specify any resources, the rule applies to all resources in the subscription.
-    - **Name** - A name for the rule. Rule names must begin with a letter or a number, be between 2 and 50 characters, and contain no symbols other than dashes (-) or underscores (_). 
+    - **Name** - A name for the rule. Rule names must begin with a letter or a number, be between 2 and 50 characters, and contain no symbols other than dashes (-) or underscores (_).
     - **State** - Enabled or disabled.
     - **Reason** - Select one of the built-in reasons or 'other' to specify your own reason in the comment.
     - **Expiration date** - An end date and time for the rule. Rules can run for up to six months.
@@ -80,16 +80,16 @@ To delete a rule, use the same three dots menu and select **Remove**.
 
 ## Create and manage suppression rules with the API
 
-You can create, view, or delete alert suppression rules using the Defender for Cloud REST API. 
+You can create, view, or delete alert suppression rules using the Defender for Cloud REST API.
 
 The relevant HTTP methods for suppression rules in the REST API are:
 
 - **PUT**: To create or update a suppression rule in a specified subscription.
 - **GET**:
 
-    - To list all rules configured for a specified subscription. This method returns an array of the applicable rules.
-    - To get the details of a specific rule on a specified subscription. This method returns one suppression rule.
-    - To simulate the impact of a suppression rule still in the design phase. This call identifies which of your existing alerts would have been dismissed if the rule had been active.
+  - To list all rules configured for a specified subscription. This method returns an array of the applicable rules.
+  - To get the details of a specific rule on a specified subscription. This method returns one suppression rule.
+  - To simulate the impact of a suppression rule still in the design phase. This call identifies which of your existing alerts would have been dismissed if the rule had been active.
 
 - **DELETE**: Deletes an existing rule (but doesn't change the status of alerts already dismissed by it).
 

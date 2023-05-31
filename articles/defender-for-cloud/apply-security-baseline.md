@@ -19,14 +19,14 @@ Use the security recommendations described in this article to assess the machine
 - Learn how to remediate those gaps
 
 ## Availability
+
 |Aspect|Details|
 |----|:----|
 |Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
-|Pricing:|Free|
+|Pricing:|For pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).|
 |Prerequisites:|Machines must (1) be members of a workgroup, (2) have the Guest Configuration extension, (3) have a system-assigned managed-identity, and (4) be running a supported OS:<br>• Windows Server 2012, 2012r2, 2016 or 2019<br>• Ubuntu 14.04, 16.04, 17.04, 18.04 or 20.04<br>• Debian 7, 8, 9, or 10<br>• CentOS 7 or 8<br>• Red Hat Enterprise Linux (RHEL) 7 or 8<br>• Oracle Linux 7 or 8<br>• SUSE Linux Enterprise Server 12|
 |Required roles and permissions:|To install the Guest Configuration extension and its prerequisites, **write** permission is required on the relevant machines.<br>To **view** the recommendations and explore the OS baseline data, **read** permission is required at the subscription level.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-
 
 ## What are the hardening recommendations?
 
@@ -40,8 +40,8 @@ These recommendations use the guest configuration feature of Azure Policy to com
 ## Compare machines in your subscriptions with the OS security baselines
 
 To compare machines with the OS security baselines:
- 
-1. From Defender for Cloud's portal pages, open the **Recommendations** page. 
+
+1. From Defender for Cloud's portal pages, open the **Recommendations** page.
 1. Select the relevant recommendation:
     - For **Windows** machines, [Vulnerabilities in security configuration on your Windows machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda)
     - For **Linux** machines, [Vulnerabilities in security configuration on your Linux machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6)
@@ -63,7 +63,6 @@ To compare machines with the OS security baselines:
     - To view the list of machines that have been assessed, open **Affected resources**.
     - To view the list of findings for one machine, select a machine from the **Unhealthy resources** tab. A page will open listing only the findings for that machine.
 
-
 ## FAQ - Hardening an OS according to the security baseline
 
 - [Apply Azure security baselines to machines](#apply-azure-security-baselines-to-machines)
@@ -83,7 +82,6 @@ To deploy the Guest Configuration extension with its prerequisites:
 
 - At scale, assign the policy initiative **Deploy prerequisites to enable Guest Configuration policies on virtual machines**.
 
-
 ### Why is a machine shown as not applicable?
 
 The list of resources in the **Not applicable** tab includes a **Reason** column. Some of the common reasons include:
@@ -95,8 +93,8 @@ The list of resources in the **Not applicable** tab includes a **Reason** column
 | **System managed identity is not configured on the machine**      | A system-assigned, managed identity must be deployed on the machine.                                                                                                           |
 | **The recommendation is disabled in policy**                      | The policy definition that assesses the OS baseline is disabled on the scope that includes the relevant machine.                                                               |
 
-
 ## Next steps
+
 In this document, you learned how to use Defender for Cloud's guest configuration recommendations to compare the hardening of your OS with the Azure security baseline.
 
 To learn more about these configuration settings, see:

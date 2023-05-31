@@ -7,13 +7,13 @@ author: dcurwin
 ms.date: 11/09/2021
 ms.custom: mode-other
 ---
-# Quickstart: Configure email notifications for security alerts 
+# Quickstart: Configure email notifications for security alerts
 
 Security alerts need to reach the right people in your organization. By default, Microsoft Defender for Cloud emails subscription owners whenever a high-severity alert is triggered for their subscription. This page explains how to customize these notifications.
 
 Use Defender for Cloud's **Email notifications** settings page to define preferences for notification emails including:
 
-- ***who* should be notified** - Emails can be sent to select individuals or to anyone with a specified Azure role for a subscription. 
+- ***who* should be notified** - Emails can be sent to select individuals or to anyone with a specified Azure role for a subscription.
 - ***what* they should be notified about** - Modify the severity levels for which Defender for Cloud should send out notifications.
 
 To avoid alert fatigue, Defender for Cloud limits the volume of outgoing mails. For each subscription, Defender for Cloud sends:
@@ -23,19 +23,18 @@ To avoid alert fatigue, Defender for Cloud limits the volume of outgoing mails. 
 - approximately **one email per day** for **low-severity** alerts
 
 :::image type="content" source="./media/configure-email-notifications/email-notification-settings.png" alt-text="Configuring the details of the contact who will receive emails about security alerts." :::
- 
+
 ## Availability
 
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Email notifications are free; for security alerts, enable the enhanced security plans ([plan pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/)) |
+|Pricing:|For pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). |
 |Required roles and permissions:|**Security Admin**<br>**Subscription Owner** |
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
-
-
 ## Customize the security alerts email notifications via the portal<a name="email"></a>
+
 You can send email notifications to individuals or to all users with specific Azure roles.
 
 1. From Defender for Cloud's **Environment settings** area, select the relevant subscription, and open **Email notifications**.
@@ -48,6 +47,7 @@ You can send email notifications to individuals or to all users with specific Az
 1. To apply the security contact information to your subscription, select **Save**.
 
 ## Customize the alerts email notifications through the API
+
 You can also manage your email notifications through the supplied REST API. For full details see the [SecurityContacts API documentation](/rest/api/defenderforcloud/security-contacts).
 
 This is an example request body for the PUT request when creating a security contact configuration:
@@ -71,8 +71,8 @@ URI: `https://management.azure.com/subscriptions/<SubscriptionId>/providers/Micr
 }
 ```
 
-
 ## See also
+
 To learn more about security alerts, see the following pages:
 
 - [Security alerts - a reference guide](alerts-reference.md)--Learn about the security alerts you might see in Microsoft Defender for Cloud's Threat Protection module

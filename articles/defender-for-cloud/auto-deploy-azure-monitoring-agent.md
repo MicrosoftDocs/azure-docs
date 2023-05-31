@@ -53,7 +53,7 @@ To deploy the Azure Monitor Agent with Defender for Cloud:
     1. For the **Log Analytics agent/Azure Monitor Agent**, select **Edit configuration**.
 
     1. For the Auto-provisioning configuration agent type, select **Azure Monitor Agent**.
-      
+
         :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision.png" alt-text="Screenshot showing selecting Azure Monitor Agent for auto-provisioning." lightbox="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision.png":::  
 
     By default:
@@ -104,12 +104,12 @@ To configure a custom destination workspace for the Azure Monitor Agent:
 
 ### Log analytics workspace solutions
 
-The Azure Monitor Agent requires Log analytics workspace solutions. These solutions are automatically installed when you auto-provision the Azure Monitor Agent with the default workspace. 
+The Azure Monitor Agent requires Log analytics workspace solutions. These solutions are automatically installed when you auto-provision the Azure Monitor Agent with the default workspace.
 
 The required [Log Analytics workspace solutions](/previous-versions/azure/azure-monitor/insights/solutions) for the data that you're collecting are:
 
-  - Security posture management (CSPM) – **SecurityCenterFree solution**
-  - Defender for Servers Plan 2 – **Security solution**
+- Security posture management (CSPM) – **SecurityCenterFree solution**
+- Defender for Servers Plan 2 – **Security solution**
 
 ### Additional extensions for Defender for Cloud
 
