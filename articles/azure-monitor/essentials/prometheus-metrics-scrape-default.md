@@ -145,6 +145,7 @@ The following metrics are collected by default from each default target. All oth
    - `kube_deployment_status_replicas_available`
    - `kube_deployment_status_replicas_updated`
    - `kube_job_status_active`
+   - `kubernetes_build_info`
    - `kube_pod_container_info`
    - `kube_replicaset_owner`
 
