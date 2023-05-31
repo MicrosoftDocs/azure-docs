@@ -135,7 +135,7 @@ After you understand the traffic you want to mirror to Defender for IoT, create 
 
 For each sensor, list:
 
-- Whether the sensor will be a [cloud-connected or locally-managed sensor](../architecture.md#cloud-connected-vs-local-ot-sensors)
+- Whether the sensor will be a [cloud-connected or locally managed sensor](../architecture.md#cloud-connected-vs-local-ot-sensors)
 
 - For cloud-connected sensors, the [cloud connection method](../architecture-connections.md) you'll be using.
 

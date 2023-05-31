@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Manage OT plans and licenses
 
-Your Microsoft Defender for IoT deployment for OT monitoring is managed through a site-based license, purchased in the Microsoft 365 Admin center. After you've purchased your license, apply that license to your OT plan in the Azure portal.
+Your Microsoft Defender for IoT deployment for OT monitoring is managed through a site-based license, purchased in the Microsoft 365 admin center. After you've purchased your license, apply that license to your OT plan in the Azure portal.
 
 If you're looking to manage Enterprise IoT plans, see [Manage Defender for IoT plans for Enterprise IoT security monitoring](manage-subscriptions-enterprise.md).
 
