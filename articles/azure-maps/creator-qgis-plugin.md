@@ -18,13 +18,13 @@ The [Azure Maps QGIS Plugin] is used to view and edit [datasets] in [QGIS]. It e
 
 ## Prerequisites
 
-* A basic working knowledge of [QGIS]
-* An [Azure Maps account]
-* A [subscription key]
+- Understanding of [Creator concepts].
+- An Azure Maps Creator [dataset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps] tutorial helpful.
+- A basic working knowledge of [QGIS]
 
 ## Get started
 
-This section provides information on how to install QGIS and the [Azure Maps QGIS Plugin], then how to fetch and view a dataset.
+This section provides information on how to install QGIS and the [Azure Maps QGIS Plugin], then how to open and view a dataset.
 
 ### Install QGIS
 
@@ -44,7 +44,7 @@ To install the Azure Maps QGIS Plugin:
 
 For detailed instructions on installing a plugin in QGIS, see [Installing New Plugins] in the QGIS Documentation.
 
-Once you have the plugin installed, you'll see the AzureMaps symbol on the plugins toolbar.
+Once you have the plugin installed, the AzureMaps symbol appears on the plugins toolbar.
 
 :::image type="content" source="./media/creator-indoor-maps/qgis/azure-maps-symbol.png"alt-text="A screenshot showing The Azure Maps QGIS plugin symbol on the QGIS toolbar.":::
 
@@ -54,7 +54,7 @@ Your Azure Maps dataset contains the data describing your indoor map. A dataset 
 
 A `featureClass` is a collection of similar features. A building has facility and level feature classes, containing features such as rooms and furniture. For example, a building has a facility `featureClass`, containing facility features. It also has a levels `featureClass` that defines the levels of the building, each level is a feature with its own set of properties that describe that level. Another `featureClass` could be furniture, with each individual piece of furniture described as a feature of the `featureClass` with its own unique set of properties.
 
-### Open Dataset
+### Open dataset
 
 The following steps describe how to open your dataset in QGIS using the Azure Maps QGIS Plugin.
 
@@ -128,8 +128,6 @@ Dataset edits involve editing feature geometries and properties.
 
     :::image type="content" source="./media/creator-indoor-maps/qgis/vertex-tool.png"alt-text="A screenshot showing the Vertex Tool button on the digitizing toolbar.":::
 
-1. Hover over the feature you want to edit, QGIS should show the feature vertices. Drag a vertical to edit the shape.
-
 1. Once you're done with your changes, select the save button in the digitizing toolbar.
 
 #### Edit a feature property
@@ -171,15 +169,15 @@ Azure Maps QGIS Plugin logs information related to the requests made to Azure Ma
 
 You can view your log files in two ways:
 
-1. **QGIS**. You can view the Logs in QGIS by activating the **Logs Message Panel**. You'll then see:
+1. **QGIS**. You can view the Logs in QGIS by activating the **Logs Message Panel**:
 
     :::image type="content" source="./media/creator-indoor-maps/qgis/logs-message-panel.png"alt-text="A screenshot of the Logs Message Panel.":::
 
 Logs contain:
 
-* Information about server requests and response.
-* Errors received from the server or QGIS.
-* Statistics about the number of features loaded
+- Information about server requests and response.
+- Errors received from the server or QGIS.
+- Statistics about the number of features loaded
 
 ### Error logs for Edits
 
@@ -191,19 +189,18 @@ Any errors received from the QGIS framework are displayed in the **Python Logs**
 
 ## Additional information
 
-* If you have suggestions for new features, enter them in the Azure Maps section of [Microsoft Azure | Share your Ideas].
-* If you have question related to Azure Maps, see [Stack Overflow]. Be sure and tag your search and questions with "Azure Maps".
+If you have question related to Azure Maps, see [MICROSOFT Q&A]. Be sure and tag your questions with "Azure Maps".
 
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Creator concepts]: creator-indoor-maps.md
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [QGIS]: https://qgis.org/en/site/
 [geographic information system (GIS)]: https://www.usgs.gov/faqs/what-geographic-information-system-gis
 [datasets]: creator-indoor-maps.md#datasets
+[dataset]: creator-indoor-maps.md#datasets
 [Download QGIS]: https://qgis.org/en/site/forusers/download.html
 [layer definition]: /rest/api/maps/2023-03-01-preview/features/get-collection-definition?tabs=HTTP
 [Advanced digitizing]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#advanced-digitizing
 [Azure Maps QGIS Plugin]: https://plugins.qgis.org/plugins/QGISPlugin
 [Installing New Plugins]: https://docs.qgis.org/3.28/en/docs/training_manual/qgis_plugins/fetching_plugins.html#basic-fa-installing-new-plugins
 [Digitizing an existing layer]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html?highlight=digitizing%20toolbar#digitizing-an-existing-layer
-[Microsoft Azure | Share your Ideas]: https://feedback.azure.com/d365community/forum/fc834083-0925-ec11-b6e6-000d3a4f09d0
-[Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-maps
+[MICROSOFT Q&A]: https://learn.microsoft.com/answers/questions/ask/
