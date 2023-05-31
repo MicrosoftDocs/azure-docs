@@ -444,7 +444,7 @@ Check the following configurations:
 - [Materialization Identity not having proper RBAC permission on the feature store](#materialization-identity-not-having-proper-rbac-permission-on-the-feature-store)
 - [Materialization Identity not having proper RBAC permission to Read from the Storage](#materialization-identity-not-having-proper-rbac-permission-to-read-from-the-storage)
 - [Materialization identity not having proper RBAC permission to write data to the offline store](#materialization-identity-not-having-proper-rbac-permission-to-write-data-to-the-offline-store)
-- [Stream job results to notebook fail](#stream-job-results-to-notebook-fail)
+- [Streaming job results to notebook fails](#streaming-job-results-to-notebook-fails)
 - [Invalid Spark configuration](#invalid-spark-configuration)
 
 When the feature materialization job fails, user can follow these steps to check the job failure details.
