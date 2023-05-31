@@ -115,7 +115,6 @@ Troubleshooting:
 
 - [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
 - [Configure SAP Transport Management System](configure-transport.md)
-- [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md)
 
 Reference files:
 

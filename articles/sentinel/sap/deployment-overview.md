@@ -11,6 +11,9 @@ ms.date: 04/12/2022
 
 This article introduces you to the process of deploying the Microsoft Sentinel solution for SAP® applications. The full process is detailed in a whole set of articles linked under [Deployment milestones](#deployment-milestones).
 
+> [!TIP]
+> Learn how to [monitor the health and role of your SAP systems](../monitor-sap-system-health.md).
+
 Microsoft Sentinel solution for SAP® applications is certified for SAP S/4HANA® Cloud, Private Edition RISE with SAP and SAP S/4 on-premise. Learn more about this [certification](solution-overview.md#certification).
 
 > [!NOTE]
@@ -51,7 +54,7 @@ Follow your deployment journey through this series of articles, in which you'll 
 | **6. Deploy data connector agent** | [Deploy and configure the container hosting the data connector agent](deploy-data-connector-agent-container.md) |
 | **7. Deploy SAP security content** | [Deploy SAP security content](deploy-sap-security-content.md)
 | **8. Configure the solution** | [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md) |
-| **9. Optional steps** | - [Monitor the health of your SAP system](../monitor-sap-system-health.md)<br> - [Configure Microsoft Sentinel for SAP data connector to use SNC](configure-snc.md)<br>- [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)<br>- [Configure audit log monitoring rules](configure-audit-log-rules.md)<br>- [Deploy SAP connector manually](sap-solution-deploy-alternate.md)<br>- [Select SAP ingestion profiles](select-ingestion-profiles.md) |
+| **9. Optional steps** |- [Configure Microsoft Sentinel for SAP data connector to use SNC](configure-snc.md)<br>- [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)<br>- [Configure audit log monitoring rules](configure-audit-log-rules.md)<br>- [Deploy SAP connector manually](sap-solution-deploy-alternate.md)<br>- [Select SAP ingestion profiles](select-ingestion-profiles.md) |
 
 ## Next steps
 
