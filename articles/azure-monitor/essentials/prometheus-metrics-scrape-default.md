@@ -109,45 +109,42 @@ The following metrics are collected by default from each default target. All oth
    - `node_uname_info"`
 
    **kube-state-metrics (job=kube-state-metrics)**<br>
-   - `kube_node_status_capacity`
    - `kube_job_status_succeeded`
    - `kube_job_spec_completions`
    - `kube_daemonset_status_desired_number_scheduled`
    - `kube_daemonset_status_number_ready`
-   - `kube_deployment_spec_replicas`
    - `kube_deployment_status_replicas_ready`
    - `kube_pod_container_status_last_terminated_reason`
-   - `kube_node_status_condition`
+   - `kube_pod_container_status_waiting_reason`
    - `kube_pod_container_status_restarts_total`
+   - `kube_node_status_allocatable`
+   - `kube_pod_owner`
    - `kube_pod_container_resource_requests`
    - `kube_pod_status_phase`
    - `kube_pod_container_resource_limits`
-   - `kube_node_status_allocatable`
-   - `kube_pod_info`
-   - `kube_pod_owner`
+   - `kube_replicaset_owner`
    - `kube_resourcequota`
-   - `kube_statefulset_status_replicas`
-   - `kube_statefulset_status_replicas_ready`
-   - `kube_statefulset_status_replicas_updated`
    - `kube_namespace_status_phase`
+   - `kube_node_status_capacity`
    - `kube_node_info`
-   - `kube_pod_annotations`
-   - `kube_horizontalpodautoscaler_status_current_replicas`
-   - `kube_horizontalpodautoscaler_status_desired_replicas`
-   - `kube_horizontalpodautoscaler_spec_min_replicas`
-   - `kube_horizontalpodautoscaler_spec_max_replicas`
-   - `kube_node_status_condition`
-   - `kube_node_spec_taint`
-   - `kube_pod_container_status_waiting_reason`
-   - `kube_job_failed`
-   - `kube_job_status_start_time`
+   - `kube_pod_info`
    - `kube_deployment_spec_replicas`
    - `kube_deployment_status_replicas_available`
    - `kube_deployment_status_replicas_updated`
+   - `kube_statefulset_status_replicas_ready`
+   - `kube_statefulset_status_replicas`
+   - `kube_statefulset_status_replicas_updated`
+   - `kube_job_status_start_time`
    - `kube_job_status_active`
+   - `kube_job_failed`
+   - `kube_horizontalpodautoscaler_status_desired_replicas`
+   - `kube_horizontalpodautoscaler_status_current_replicas`
+   - `kube_horizontalpodautoscaler_spec_min_replicas`
+   - `kube_horizontalpodautoscaler_spec_max_replicas`
    - `kubernetes_build_info`
+   - `kube_node_status_condition`
+   - `kube_node_spec_taint`
    - `kube_pod_container_info`
-   - `kube_replicaset_owner`
 
 ## Default targets scraped for Windows
 Following Windows targets are configured to scrape, but scraping is not enabled (**disabled/OFF**) by default - meaning you don't have to provide any scrape job configuration for scraping these targets but they are disabled/OFF by default and you need to turn ON/enable scraping for these targets using [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-scrape-settings-enabled` section
