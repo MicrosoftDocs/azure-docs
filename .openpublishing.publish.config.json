@@ -1103,6 +1103,7 @@
   "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
   "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
   "articles/dev-box/.openpublishing.redirection.dev-box.json",
-  "articles/deployment-environments/.openpublishing.redirection.deployment-environments.json"
+  "articles/deployment-environments/.openpublishing.redirection.deployment-environments.json",
+  "articles/network-watcher/.openpublishing.redirection.network-watcher.json"
 ]
 }
