@@ -84,7 +84,3 @@ Visit the following support links to create or track support ticket and monitor 
 ## Next steps
 
 - [Migration process](migrate-adfs-apps-to-azure.md)
-
-https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/decommission/adfs-decommission-guide
-
-/graph/tutorial-applications-basics?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context

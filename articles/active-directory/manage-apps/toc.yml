@@ -163,6 +163,7 @@
       - name: Hide an application
         href: hide-application-from-user-portal.md
     - name: Migrate applications
+      items:
       - name: Migrate applications from Okta to Azure AD 
         items:
         - name: Migrate applications from Okta to Azure AD
@@ -173,7 +174,7 @@
           href: migrate-okta-sync-provisioning-to-azure-active-directory.md
         - name: Migrate Okta federation to Azure AD managed authentication
           href: migrate-okta-federation-to-azure-active-directory.md
-    - name: Secure legacy apps 
+    - name: Secure legacy apps
       items:
       - name: Secure hybrid access with Azure AD 
         href: secure-hybrid-access.md
