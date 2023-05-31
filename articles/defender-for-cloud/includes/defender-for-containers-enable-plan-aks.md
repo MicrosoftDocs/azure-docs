@@ -3,11 +3,10 @@ ms.author: dacurwin
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 11/08/2022
+ms.date: 05/31/2023
 ---
 
 ## Enable the plan
-
 
 **To enable the plan**:
 
