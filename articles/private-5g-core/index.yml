@@ -120,6 +120,8 @@ landingContent:
             url: configure-sim-policy-azure-portal.md
           - text: Configure a service and SIM policy - ARM template
             url: configure-service-sim-policy-arm-template.md
+          - text: Configure UE to UE internal forwarding - Azure portal
+            url: configure-internal-forwarding.md
   # Card
   - title: Provision and manage SIMs
     linkLists:
