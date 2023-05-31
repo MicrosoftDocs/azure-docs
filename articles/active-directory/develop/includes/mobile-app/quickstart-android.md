@@ -115,7 +115,7 @@ Single account apps are only used by a single user. For example, you might just 
 
 #### Single account MSAL initialization
 
-In `auth_config_single_account.json`, in `onCreateView()`, a single account `PublicClientApplication` is created using the config information stored in the `auth_config_single_account.json` file. This is how you initialize the MSAL library for use in a single-account MSAL app:
+In `SingleAccountModeFragment.java`, in `onCreateView()` method, a single account `PublicClientApplication` is created using the config information stored in the `auth_config_single_account.json` file. This is how you initialize the MSAL library for use in a single-account MSAL app:
 
 ```java
 ...
@@ -173,7 +173,7 @@ mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallb
 
 #### Get a token interactively or silently
 
-To present the fewest number of prompts to the user, you'll typically get a token silently. Then, if there's an error, attempt to get to token interactively. The first time the app calls `signIn()`, it effectively acts as a call to `acquireToken()`, which will prompt the user for credentials.
+To present the fewest number of prompts to the user, you'll typically get a token silently. Then, if there's an error, attempt to get a token interactively. The first time the app calls `signIn()`, it effectively acts as a call to `acquireToken()`, which will prompt the user for credentials.
 
 Some situations when the user may be prompted to select their account, enter their credentials, or consent to the permissions your app has requested are:
 
