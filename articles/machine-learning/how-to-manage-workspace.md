@@ -309,7 +309,7 @@ When you no longer need a workspace, delete it.
 
 [!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
 
-If you accidentally deleted your workspace, you may still be able to retrieve your notebooks. For details, see [Failover for business continuity and disaster recovery](./how-to-high-availability-machine-learning.md#workspace-deletion).
+If you accidentally deleted your workspace, you may still be able to retrieve your notebooks. For details, see [Failover for business continuity and disaster recovery](./v1/how-to-high-availability-machine-learning.md#workspace-deletion).
 
 # [Python SDK](#tab/python)
 
