@@ -68,7 +68,7 @@ You'll need an Azure Resource Manager connection to authenticate with Azure port
 
 1. Select the default authentication method, **Service principal (automatic)**.
 
-1. Create your service connection. Set your preferred Scope level, subscription, resource group, and connection name. 
+1. Create your service connection. Set your preferred scope level, subscription, resource group, and connection name. 
 
     :::image type="content" source="media/how-to-devops-machine-learning/machine-learning-arm-connection.png" alt-text="Screenshot of ARM service connection.":::
 
