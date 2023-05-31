@@ -317,7 +317,7 @@ All remote participants are available through the `RemoteParticipants` collectio
         }
 ```
 
-A video stream will transit through a sequence of internal states. `VideoStreamState.Available` is the perferred state to bind the video stream to UI element for rendering the video stream, such as `MediaPlayerElement`, and `VideoStreamState.Stopped` is typically where the cleanup tasks such as stopping video preview should be done.
+A video stream will transit through a sequence of internal states. `VideoStreamState.Available` is the preferred state to bind the video stream to UI element for rendering the video stream, such as `MediaPlayerElement`, and `VideoStreamState.Stopped` is typically where the cleanup tasks such as stopping video preview should be done.
 
 ```C#
         private async void OnIncomingVideoStreamStateChangedAsync(IncomingVideoStream incomingVideoStream)
@@ -719,7 +719,7 @@ All remote participants are available through the `RemoteParticipants` collectio
         }
 ```
 
-A video stream will transit through a sequence of internal states. `VideoStreamState.Available` is the perferred state to bind the video stream to UI element for rendering the video stream, such as `MediaPlayerElement`, and `VideoStreamState.Stopped` is typically where the cleanup tasks such as stopping video preview should be done.
+A video stream will transit through a sequence of internal states. `VideoStreamState.Available` is the preferred state to bind the video stream to UI element for rendering the video stream, such as `MediaPlayerElement`, and `VideoStreamState.Stopped` is typically where the cleanup tasks such as stopping video preview should be done.
 
 ```C#
         private async void OnIncomingVideoStreamStateChangedAsync(IncomingVideoStream incomingVideoStream)
