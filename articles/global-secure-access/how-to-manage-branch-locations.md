@@ -32,7 +32,7 @@ There are multiple ways to connect a branch location to Global Secure Access. In
 Branch office locations are configured on three tabs. To work through each tab, either select the tab from the top of the page, or select the **Next** button at the bottom of the page.
 
 ### Basics
-The first step is to provide the basic details of your branch office, including the name, location, and bandwidth capacity. 
+The first step is to provide the basic details of your branch office, including the name, location, and bandwidth capacity. Completing this tab is required to create a new branch office.
 <!--- need correct role here --->
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator. 
 1. Browse to **Devices** > **Branches**.
@@ -44,7 +44,7 @@ The first step is to provide the basic details of your branch office, including 
 
 ### Connectivity
 <!---Can't test this section because I need valid sample IP addresses, BGP addresses, and ASNs --->
-The connectivity tab is where you add the device links for the branch office location. You need to provide the device type, IP address, border gateway protocol (BGP) address, and autonomous system number (ASN) for each device link. 
+The connectivity tab is where you add the device links for the branch office location. You need to provide the device type, IP address, border gateway protocol (BGP) address, and autonomous system number (ASN) for each device link. You can add device links after creating the branch office location. For more information on device links, see [How to manage branch location device links](how-to-manage-branch-location-device-links.md).
 
 1. Select the **Add a link** button. The **Add a link pane** opens with three tabs to complete.
 1. Under the **General** tab, enter the following details: 
@@ -141,6 +141,43 @@ To update a branch using the Microsoft Graph API in Graph Explorer.
     ``` 
 1. Select **Run query** to update the branch. 
 
+## Link ASN
+
+The link ASN is the autonomous system number of the CPE. The ASN is a unique number that identifies a network on the internet. The ASN is used to exchange routing information between the CPE and the Microsoft network. The ASN must be a 32-bit integer between 1 and 4294967295. The ASN must be unique for each device link.
+
+The following ASNs are reserved by Azure and cannot be used for your on-premises VPN devices when connecting to Azure VPN gateways:
+- 8075
+- 8076
+- 12076 (public)
+- 65517
+- 65518
+- 65519
+- 65520 (private)
+
+<!--- need to understand what this means - pulled it from the tooltip --->
+While setting up IPsec connectivity from virtual network gateways to Azure virtual WAN VPN, the ASN for Local Network Gateway is required to be 65515.
+
+## Delete a branch
+
+### Delete a branch using the Entra portal
+1. Navigate to the Microsoft Entra admin center at [https://entra.microsoft.com](https://entra.microsoft.com) and login with administrator credentials.
+1. In the left hand navigation, choose **Global Secure Access**. 
+1. Select **Connect**. 
+1. Select **Branch**.
+1. Select a desired branch. 
+1. Select the **Delete** icon, which looks like a trash can, from command bar at top of the screen. 
+1. Select **Delete** from in the confirmation pane. 
+
+### Delete a branch using the API
+1. Open a web browser and navigate to the Graph Explorer at https://aka.ms/ge.
+1. Select **PATCH** as the HTTP method from the dropdown. 
+1. Select the API version to **beta**. 
+1. Enter the query:
+    ```
+    DELETE https://graph.microsoft.com/beta/networkaccess/branches/97e2a6ea-c6c4-4bbe-83ca-add9b18b1c6b 
+    ```
+1. Select **Run query** to delete the branch. 
+ 
 ## Next steps
 
 - [List branch locations](how-to-list-branch-locations.md)

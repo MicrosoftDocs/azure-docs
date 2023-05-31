@@ -12,9 +12,17 @@ ms.custom:
 
 # How to use the Global Secure Access traffic logs
 
-Monitoring the traffic for Global Secure Access is an important activity for ensuring your tenant is configured correctly and that your users are getting the best experience possible. This article describes how to use the traffic logs to monitor the traffic for Global Secure Access.
+Monitoring the traffic for Global Secure Access is an important activity for ensuring your tenant is configured correctly and that your users are getting the best experience possible. The Global Secure Access traffic logs provide insight into who is accessing what resources, where they're accessing them from, and what action took place.
+
+This article describes how to use the traffic logs to monitor the traffic for Global Secure Access.
 
 ## Prerequisites
+
+## Understanding transactions and connections
+
+To better understand the information provided in the logs, it may help to understand the details that make up the logs. There are two concepts associated with these logs: transactions and connections.
+
+Transactions are request and response pairs that contain detailed information on the device, user, and how much data was transferred in each direction. 
 
 ## How to view the traffic logs
 
