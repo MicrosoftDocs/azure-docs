@@ -1,6 +1,6 @@
 ---
 title: Use the REST API to manage devices in Azure IoT Central
-description: How to use the IoT Central REST API to control devices in an application
+description: How to use the IoT Central REST API to control devices in an application by using properties and commands.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/20/2022

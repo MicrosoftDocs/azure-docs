@@ -149,7 +149,7 @@ Avoid issues while setting up customer-managed data encryption during restore or
 - On the restored/replica server, you can change the customer-managed key and\or Azure Active Directory (Azure AD) identity used to access Azure Key Vault in the data encryption settings. Ensure that the newly created server is given list, wrap and unwrap permissions to the key stored in Key Vault.
 
 -  Don't revoke the original key after restoring, as at this time we don't support key revocation after restoring CMK enabled server to another server
-- 
+
 ## Using Azure Key Vault Managed HSM
 
 **Hardware security modules (HSMs)** are hardened, tamper-resistant hardware devices that secure cryptographic processes by generating, protecting, and managing keys used for encrypting and decrypting data and creating digital signatures and certificates. HSMs are tested, validated and certified to the highest security standards including FIPS 140-2 and Common Criteria. Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. 
