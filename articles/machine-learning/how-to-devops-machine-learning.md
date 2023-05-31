@@ -119,7 +119,7 @@ Delete the starter pipeline and replace it with the following YAML code. In this
 
 * Use the Python version task to set up Python 3.8 and install the SDK requirements.
 * Use the Bash task to run bash scripts for the Azure Machine Learning SDK and CLI.
-* Use the Azure CLI task to submit ans Azure Machine Learning job. 
+* Use the Azure CLI task to submit an Azure Machine Learning job. 
 
 You can choose appropriate tab depending on if you are using an ARM service connection or Generic service connection. As applicable in YAML pipeline, replace `<name of-service-connection>`, `<variable-for-subscription-id>`,`<variable-name-for-resource-group>` and `<variable-name-for-workspace>` with name of variables, you have set in Step 5.
 
