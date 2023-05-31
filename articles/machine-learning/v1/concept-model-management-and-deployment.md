@@ -141,7 +141,7 @@ When deploying to Azure Kubernetes Service, you can use controlled rollout to en
 * Perform A/B testing by routing traffic to different versions of the endpoint.
 * Switch between endpoint versions by updating the traffic percentage in endpoint configuration.
 
-For more information, see [Controlled rollout of ML models](../how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
+For more information, see [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
 
 ### Analytics
 
@@ -187,7 +187,7 @@ There is no universal answer to "How do I know if I should retrain?" but Azure M
 - Compare the outputs of your new model to those of your old model
 - Use predefined criteria to choose whether to replace your old model 
 
-A theme of the above steps is that your retraining should be automated, not ad hoc. [Azure Machine Learning pipelines](../concept-ml-pipelines.md) are a good answer for creating workflows relating to data preparation, training, validation, and deployment. Read [Retrain models with Azure Machine Learning designer](../how-to-retrain-designer.md) to see how pipelines and the Azure Machine Learning designer fit into a retraining scenario. 
+A theme of the above steps is that your retraining should be automated, not ad hoc. [Azure Machine Learning pipelines](../concept-ml-pipelines.md) are a good answer for creating workflows relating to data preparation, training, validation, and deployment. Read [Retrain models with Azure Machine Learning designer](how-to-retrain-designer.md) to see how pipelines and the Azure Machine Learning designer fit into a retraining scenario. 
 
 ## Automate the ML lifecycle 
 
