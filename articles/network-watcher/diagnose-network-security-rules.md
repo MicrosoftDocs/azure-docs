@@ -317,10 +317,10 @@ az network nsg rule create --name 'DenyVnetInBound' --resource-group 'myResource
 --destination-address-prefixes '*' --destination-port-ranges '*'
 ```
 
+---
+
 > [!NOTE]
 > The **VirtualNetwork** service tag represents the address space of the virtual network, all connected on-premises address spaces, peered virtual networks, virtual networks connected to a virtual network gateway, the virtual IP address of the host, and address prefixes used on user-defined routes. For more information, see [Service tags](../virtual-network/service-tags-overview.md).
-
----
 
 ## Check security rules applied to a virtual machine traffic
 
@@ -334,9 +334,9 @@ Use NSG diagnostics to check the security rules applied to the traffic originate
 
 1. On the **NSG diagnostics** page, enter or select the following values:
 
-    | Setting | Value  | Details |
-    | ------- | ------ | ------- |
-    | Subscription | Select the Azure subscription that has the virtual machine that you want to test the connection with.| 
+    | Setting | Value  |
+    | ------- | ------ |
+    | Subscription | Select the Azure subscription that has the virtual machine that you want to test the connection with. | 
     | Resource group | Select the resource group that has the virtual machine that you want to test the connection with.  |
     | Supported resource type | Select **Virtual machine**. |
     | Resource | Select the virtual machine that you want to test the connection with. |
@@ -362,6 +362,8 @@ Use NSG diagnostics to check the security rules applied to the traffic originate
 1. Select **myVM-nsg** to see details about the security rules that this network security group has and which rule denied the traffic. 
 
     :::image type="content" source="./media/diagnose-network-security-rules/nsg-diagnostics-vm-test-result-denied-details.png" alt-text="Screenshot showing the details of the network security group that denied the traffic to the virtual machine." lightbox="./media/diagnose-network-security-rules/nsg-diagnostics-vm-test-result-denied-details.png":::  
+
+    In **myVM-nsg** network security group, the security rule **DenyVnetInBound** denies any traffic coming from the address space of **VirtualNetwork** service tag to the virtual machine. The Bastion host uses IP addresses from **10.0.1.0/26**, which are included **VirtualNetwork** service tag, to connect to the virtual machine. Therefore, the connection from the Bastion host is denied by the **DenyVnetInBound** security rule.
 
 # [**PowerShell**](#tab/powershell)
 
@@ -451,11 +453,11 @@ ResultsText : [
 
 The result shows that there are three security rules assessed for the inbound connection from the Bastion subnet:
 
-  - **GlobalRules**: this security admin rule is applied at the virtual network level using Azure Virtual Network Manage. The rule allows inbound TCP traffic from the Bastion subnet to the virtual machine.
-  - **mySubnet-nsg**: this network security group is applied at the subnet level (subnet of the virtual machine). The rule allows inbound TCP traffic from the Bastion subnet to the virtual machine.
-  - **myVM-nsg**: this network security group is applied at the network interface (NIC) level. The rule denies inbound TCP traffic from the Bastion subnet to the virtual machine.
+- **GlobalRules**: this security admin rule is applied at the virtual network level using Azure Virtual Network Manage. The rule allows inbound TCP traffic from the Bastion subnet to the virtual machine.
+- **mySubnet-nsg**: this network security group is applied at the subnet level (subnet of the virtual machine). The rule allows inbound TCP traffic from the Bastion subnet to the virtual machine.
+- **myVM-nsg**: this network security group is applied at the network interface (NIC) level. The rule denies inbound TCP traffic from the Bastion subnet to the virtual machine.
 
-
+In **myVM-nsg** network security group, the security rule **DenyVnetInBound** denies any traffic coming from the address space of **VirtualNetwork** service tag to the virtual machine. The Bastion host uses IP addresses from **10.0.1.0/26**, which are included **VirtualNetwork** service tag, to connect to the virtual machine. Therefore, the connection from the Bastion host is denied by the **DenyVnetInBound** security rule.
 # [**Azure CLI**](#tab/cli)
 
 Use [az network watcher run-configuration-diagnostic](/cli/azure/network/watcher#az-network-watcher-run-configuration-diagnostic) to start the NSG diagnostics session.
@@ -543,13 +545,15 @@ Output similar to the following example output is returned:
 ```
 The result shows that there are three security rules assessed for the inbound connection from the Bastion subnet:
 
-  - **GlobalRules**: this security admin rule is applied at the virtual network level using Azure Virtual Network Manage. The rule allows inbound TCP traffic from the Bastion subnet to the virtual machine.
-  - **mySubnet-nsg**: this network security group is applied at the subnet level (subnet of the virtual machine). The rule allows inbound TCP traffic from the Bastion subnet to the virtual machine.
-  - **myVM-nsg**: this network security group is applied at the network interface (NIC) level. The rule denies inbound TCP traffic from the Bastion subnet to the virtual machine.
+- **GlobalRules**: this security admin rule is applied at the virtual network level using Azure Virtual Network Manage. The rule allows inbound TCP traffic from the Bastion subnet to the virtual machine.
+- **mySubnet-nsg**: this network security group is applied at the subnet level (subnet of the virtual machine). The rule allows inbound TCP traffic from the Bastion subnet to the virtual machine.
+- **myVM-nsg**: this network security group is applied at the network interface (NIC) level. The rule denies inbound TCP traffic from the Bastion subnet to the virtual machine.
+
+In **myVM-nsg** network security group, the security rule **DenyVnetInBound** denies any traffic coming from the address space of **VirtualNetwork** service tag to the virtual machine. The Bastion host uses IP addresses from **10.0.1.0/26**, which are included **VirtualNetwork** service tag, to connect to the virtual machine. Therefore, the connection from the Bastion host is denied by the **DenyVnetInBound** security rule.
 
 ---
 
-In **myVM-nsg** network security group, the security rule **DenyVnetInBound** denies any traffic coming from IP addresses in **VirtualNetwork** service tag to the virtual machine. The Bastion host uses IP addresses from **10.0.1.0/26**, which is included **VirtualNetwork** service tag, to connect to the virtual machine. Therefore, the connection from the Bastion host is denied by the **DenyVnetInBound** security rule.
+
 
 ## Add a security rule to allow traffic from the Bastion subnet
 
@@ -778,5 +782,5 @@ You can add the security rule to the network security group from the Network Wat
 The security rule **AllowBastionConnections** allows the traffic from any IP address in **10.0.1.0/26** to the virtual machine. Because the Bastion host uses IP addresses from **10.0.1.0/26**, its connection to the virtual machine is allowed by the **AllowBastionConnections** security rule.
 
 ## Next steps
-- To learn about other Network Watcher tools, see [What is Azure Network Watcher?](network-watcher-monitoring-overview.md).
+- To learn about other Network Watcher tools, see [Azure Network Watcher overview](network-watcher-monitoring-overview.md).
 - To learn how to troubleshoot virtual machine routing problems, see [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).
