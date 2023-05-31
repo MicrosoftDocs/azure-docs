@@ -10,16 +10,16 @@ ms.author: rolyon
 AuthorizationResources
 | where type =~ "microsoft.authorization/roleassignments"
 | where id startswith "/subscriptions"
-| extend RoleDefinitionId = tostring(split(tolower(properties.roleDefinitionId), "roledefinitions/", 1)[0])
+| extend RoleDefinitionId = tostring(tolower(properties.roleDefinitionId))
 | extend PrincipalId = tolower(properties.principalId)
 | extend RoleDefinitionId_PrincipalId = strcat(RoleDefinitionId, "_", PrincipalId)
 | join kind = leftouter (
   AuthorizationResources
   | where type =~ "microsoft.authorization/roledefinitions"
   | extend RoleDefinitionName = tostring(properties.roleName)
-  | extend RoleId = name
-  | project RoleDefinitionName, RoleId
-) on $left.RoleDefinitionId == $right.RoleId
+  | extend rdId = tolower(id)
+  | project RoleDefinitionName, rdId
+) on $left.RoleDefinitionId == $right.rdId
 | summarize count_ = count(), Scopes = make_set(tolower(properties.scope)) by RoleDefinitionId_PrincipalId,RoleDefinitionName
 | project RoleDefinitionId = split(RoleDefinitionId_PrincipalId, "_", 0)[0], RoleDefinitionName, PrincipalId = split(RoleDefinitionId_PrincipalId, "_", 1)[0], count_, Scopes
 | where count_ > 1

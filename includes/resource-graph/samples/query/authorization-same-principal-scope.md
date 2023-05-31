@@ -9,22 +9,18 @@ ms.author: rolyon
 ```kusto
 AuthorizationResources
 | where type =~ "microsoft.authorization/roleassignments"
-| extend RoleDefinitionId = tolower(properties.roleDefinitionId)
-| extend PrincipalId = tolower(properties.principalId)
+| where id startswith "/subscriptions"
+| extend PrincipalId = tostring(properties.principalId) 
 | extend Scope = tolower(properties.scope)
-| join kind = leftouter (
-AuthorizationResources
-| where type =~ "microsoft.authorization/roledefinitions"
-| extend RoleId = tolower(id)
-) on $left.RoleDefinitionId == $right.RoleId
+| extend RoleDefinitionId = tostring(tolower(properties.roleDefinitionId))
 | join kind = leftouter (
   AuthorizationResources
   | where type =~ "microsoft.authorization/roledefinitions"
   | extend RoleName = tostring(properties.roleName)
   | extend RoleId = tolower(id)
-  | extend RoleType = tostring(properties.type)
+  | extend RoleType = tostring(properties.type) 
   | where RoleType == "BuiltInRole"
-  | extend RoleId_RoleName = pack(name, RoleName)
+  | extend RoleId_RoleName = pack(RoleId, RoleName)
 ) on $left.RoleDefinitionId == $right.RoleId
 | summarize count_ = count(), AllRD = make_set(RoleId_RoleName) by PrincipalId, Scope
 | where count_ > 1

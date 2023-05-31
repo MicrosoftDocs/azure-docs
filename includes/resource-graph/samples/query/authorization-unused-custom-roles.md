@@ -10,12 +10,12 @@ ms.author: rolyon
 AuthorizationResources
 | where type =~ "microsoft.authorization/roledefinitions"
 | where tolower(properties.type) == "customrole"
-| extend rdId = tostring(split(tolower(id), "roledefinitions/", 1)[0])
+| extend rdId = tolower(id)
 | extend Scope = tolower(properties.assignableScopes)
 | join kind = leftouter (
 AuthorizationResources
   | where type =~ "microsoft.authorization/roleassignments"
-  | extend RoleId = name
+  | extend RoleId = tostring(tolower(properties.roleDefinitionId))
   | summarize RoleAssignmentCount = count() by RoleId
 ) on $left.rdId == $right.RoleId
 | where isempty(RoleAssignmentCount)
