@@ -9,12 +9,9 @@ ms.author: varundhawan
 ms.date: 4/1/2023
 ---
 
-# Query Performance Insight Preview
+# Query Performance Insight
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
-
-> [!NOTE]
-> Query Performance Insight for PostgreSQL Flexible Server is currently in preview.
 
 Query Performance Insight provides intelligent query analysis for Azure Postgres Flexible server databases. It helps identify the top resource consuming and long-running queries in your workload. This helps you find the queries to optimize to improve overall workload performance and efficiently use the resource that you are paying for. Query Performance Insight helps you spend less time troubleshooting database performance by providing:
 
