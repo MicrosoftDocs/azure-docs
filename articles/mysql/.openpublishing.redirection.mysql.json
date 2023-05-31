@@ -787,7 +787,7 @@
     },
     {
         "source_path_from_root": "/articles/mysql/single-server/how-to-troubleshoot-replication-latency.md",
-        "redirect_url": "/azure/mmysql/how-to-troubleshoot-replication-latency",
+        "redirect_url": "/azure/mysql/how-to-troubleshoot-replication-latency",
         "redirect_document_id": true
     }
   ]
