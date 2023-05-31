@@ -46,7 +46,6 @@ This section lists the Azure resource types that Azure Load Testing supports for
 * Azure SQL Database
 * Azure SQL elastic pool
 * Azure SQL Managed Instance
-* Azure SQL Managed Instance
 * Azure Synapse Analytics
 * Event Hubs cluster
 * Event Hubs namespace
