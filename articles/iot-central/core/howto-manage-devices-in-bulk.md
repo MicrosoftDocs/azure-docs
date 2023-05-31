@@ -76,7 +76,7 @@ The following example shows you how to create and run a job to set the light thr
 
     When the job is complete, you can select **Results log** to download a CSV file of your job details, including the devices and their status values. This information can be useful for troubleshooting:
 
-    :::image type="content" source="media/howto-manage-devices-in-bulk/download-details.png" alt-text="Screenshot that shows device status." lightbox="media/howto-manage-devices-in-bulk/download-details.png":::
+    :::image type="content" source="media/howto-manage-devices-in-bulk/download-details.png" alt-text="Screenshot that shows the device status in IoT Central." lightbox="media/howto-manage-devices-in-bulk/download-details.png":::
 
 1. The job now appears in **Last 30 days** list on the **Jobs** page. This page shows currently running jobs and the history of any previously run or saved jobs.
 
