@@ -74,6 +74,16 @@ The following example reads data from a file and stages blocks to be committed a
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_blocks":::
 
+### Set a blob's access tier on upload
+
+You can set a blob's access tier on upload by passing the `standard_blob_tier` keyword argument to [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob). The following code example shows how to set the access tier when uploading a blob:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_access_tier":::
+
+Setting the access tier is only allowed for block blobs. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`.
+
+To learn more about access tiers, see [Access tiers overview](access-tiers-overview.md).
+
 ## Resources
 
 To learn more about uploading blobs using the Azure Blob Storage client library for Python, see the following resources.
