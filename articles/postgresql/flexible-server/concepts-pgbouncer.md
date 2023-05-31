@@ -51,13 +51,6 @@ By using the benefits of built-in PgBouncer with Flexible Server, users can enjo
  * The built-in PgBouncer in Flexible Server provides support for both public and private connections. This functionality allows users to establish secure connections over private networks or connect externally, depending on their specific requirements. 
  * In the event of a failover, where a standby server is promoted to the primary role, PgBouncer seamlessly restarts on the newly promoted standby without any changes required to the application connection string. This ability ensures continuous availability and minimizes disruption to the application's connection pool. 
 
- There are following limitations with using this feature today:
- * PgBouncer is currently not supported with Burstable server compute tier. 
- * Transaction and statement connection pooling modes can't be used along with prepared statements.
- * Only a subset of configuration parameters is available with built-in PGBouncer vs. standalone product. 
- * Whenever the server is restarted, the PgBouncer is also restarted along with the server. Hence, existing connections must be re-established. 
-
-For those customers that are looking for simplified management, built-in high availability, easy connectivity with containerized applications and are interested in utilizing most popular configuration parameters with PGBouncer built-in PGBouncer feature is good choice. For customers looking for full control of all parameters and debugging experience another choice could be setting up PGBouncer on Azure VM as an alternative. 
 ## Monitoring PgBouncer
 
 ### PgBouncer Metrics
@@ -127,6 +120,8 @@ Utilizing an application side pool together with PgBouncer on the database serve
 * Transaction and statement pool modes can't be used along with prepared statements. Refer to the [PgBouncer documentation](https://www.pgbouncer.org/features.html) to check other limitations of chosen pool mode.
 
   
+For those customers that are looking for simplified management, built-in high availability, easy connectivity with containerized applications and are interested in utilizing most popular configuration parameters with PGBouncer built-in PGBouncer feature is good choice. For customers looking for full control of all parameters and debugging experience another choice could be setting up PGBouncer on Azure VM as an alternative. 
+
 ## Next steps
 
 - Learn about [networking concepts](./concepts-networking.md)

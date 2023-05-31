@@ -227,7 +227,9 @@ items:
       - name: Collect SNMP traps
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-snmp-data.md
-      - name: Forward syslog data to workspace
+      - name: Collect syslog data
+        href: agents/data-collection-syslog.md
+      - name: Forward syslog data with Sentinel
         href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json        
     - name: Define network settings
       href: agents/azure-monitor-agent-data-collection-endpoint.md
@@ -341,7 +343,7 @@ items:
         href: agents/use-azure-monitor-agent-troubleshooter.md
       - name: Linux VM
         href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
-      - name: Linux Rsyslog issues
+      - name: Linux Syslog issues
         href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
       - name: Windows VM
         href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
