@@ -7,7 +7,7 @@ ms.date: 6/01/2023
 
 # Troubleshoot error: "Failed To Initialize Run From Package"
 
-The Azure Functions Runtime is Unreachable, is an error which has many causes. The most common reason is that the function app has lost access to its storage account, but there are many other causes. For more information see, [Troubleshoot error: "Azure Functions Runtime is unreachable"](./azure-functions-runtime-is-unreachable-overview.md)
+The Azure Functions Runtime is Unreachable, is an error which has many causes. The most common reason is that the function app has lost access to its storage account, but there are many other causes. For more information see, [Troubleshoot error: "Azure Functions Runtime is unreachable"](azure-functions-runtime-is-unreachable-overview.md)
 
 In this article, we will help you troubleshoot an Azure Functions Runtime is Unreachable scenario due to failing to initialize run from package, including how to identify and resolve the issue.
 
@@ -17,7 +17,7 @@ A Function App in this state is likely caused:
   * Some deployment method will add the app setting "WEBSITE_RUN_FROM_PACKAGE" and if it failed to deploy the zip package successfully, you can run into this issue. 
   * A user has added the app setting by mistake. 
 
-For more information on using the WEBSITE_RUN_FROM_PACKAGE, see [Run your functions from a package file in Azure](../../run-functions-from-deployment-package.md#using-website_run_from_package--1)
+For more information on using the WEBSITE_RUN_FROM_PACKAGE, see [Run your functions from a package file in Azure](run-functions-from-deployment-package.md#using-website_run_from_package--1)
 
 ## Investigation Steps:
 
