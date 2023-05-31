@@ -311,7 +311,7 @@ If you're not going to continue to use your pipeline, delete your Azure DevOps p
 
 ## Key points regarding "AzureML Job Wait" task used in Step 7 to wait for Azure Machine Learning job completion
 
-* The AzureML Job Wait task runs on a **server job** which does not use up expensive agent pool resources and requires no additional charges. Server jobs (indicated by `pool: server`) runs on the same machine as your pipeline. More information can be found in [here](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml#server-jobs).
+* The Azure Machine Learning job wait task runs on a **server job**, which doesn't use up expensive agent pool resources and requires no additional charges. Server jobs (indicated by `pool: server`) run on the same machine as your pipeline. For more information, see [Server jobs](/azure/devops/pipelines/process/phases#server-jobs).
 
 * One AzureML Job Wait task can only wait on one job. You will need to set up a separate task for each job that you want to wait on.
 
