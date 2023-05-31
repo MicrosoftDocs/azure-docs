@@ -62,7 +62,7 @@ You can use an existing Service connection.
 
 You'll need an Azure Resource Manager connection to authenticate with Azure portal. 
 
-1. In Azure DevOps, click on **Project Settings** and open the **Service connections** page.
+1. In Azure DevOps, select **Project Settings** and open the **Service connections** page.
 
 1. Choose **+ New service connection** and select **Azure Resource Manager**.
 
