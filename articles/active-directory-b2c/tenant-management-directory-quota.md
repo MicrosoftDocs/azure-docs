@@ -72,11 +72,6 @@ The API will respond whit the following json:
 1. Alert if the ratio between used and total is higher that 90% 
 
 
-## Python sample
-
-[NEED TO POINT TO THE REPO]
-
-
 # Manage inactive users 
 
 It's recommended that inactive user accounts are monitored and managed properly. To reduce the number of objects and the overall attack surface area it's recommended to delete inactive accounts if possible. You can run the a Graph API to check for the last sign-in date using the following command. Then, for example, you can delete users that the last sign-in date is greater than a year.
