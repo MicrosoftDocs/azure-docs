@@ -179,6 +179,8 @@
           href: front-door-url-redirect.md?pivots=front-door-standard-premium
       - name: Understand billing
         href: billing.md
+      - name: Price comparison between tiers
+        href: understanding-pricing.md
       - name: Logs and metrics
         href: front-door-diagnostics.md?pivots=front-door-standard-premium
       - name: Best practices
