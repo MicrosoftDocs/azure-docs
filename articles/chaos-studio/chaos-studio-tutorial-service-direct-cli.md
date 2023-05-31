@@ -35,21 +35,21 @@ If you want to install and use the CLI locally, this tutorial requires Azure CLI
 
 ## Enable Chaos Studio on your Azure Cosmos DB account
 
-Chaos Studio can't inject faults against a resource unless that resource has been onboarded to Chaos Studio first. You onboard a resource to Chaos Studio by creating a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Azure Cosmos DB accounts have only one target type (service-direct) and one capability (failover). Other resources might have up to two target types. One target type is for service-direct faults. Another target type is for agent-based faults. Other resources might have  many other capabilities.
+Chaos Studio can't inject faults against a resource unless that resource was added to Chaos Studio first. You add a resource to Chaos Studio by creating a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Azure Cosmos DB accounts have only one target type (service-direct) and one capability (failover). Other resources might have up to two target types. One target type is for service-direct faults. Another target type is for agent-based faults. Other resources might have  many other capabilities.
 
-1. Create a target by replacing `$RESOURCE_ID` with the resource ID of the resource you're onboarding and `$TARGET_TYPE` with the [target type you're onboarding](chaos-studio-fault-providers.md):
+1. Create a target by replacing `$RESOURCE_ID` with the resource ID of the resource you're adding. Replace `$TARGET_TYPE` with the [target type you're adding](chaos-studio-fault-providers.md):
 
     ```azurecli-interactive
     az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/$TARGET_TYPE?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
     ```
 
-    For example, if you're onboarding a virtual machine as a service-direct target:
+    For example, if you're adding a virtual machine as a service-direct target:
 
     ```azurecli-interactive
     az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
     ```
 
-1. Create the capabilities on the target by replacing `$RESOURCE_ID` with the resource ID of the resource you're onboarding. Replace `$TARGET_TYPE` with the [target type you're onboarding](chaos-studio-fault-providers.md). Replace `$CAPABILITY` with the [name of the fault capability you're enabling](chaos-studio-fault-library.md).
+1. Create the capabilities on the target by replacing `$RESOURCE_ID` with the resource ID of the resource you're adding. Replace `$TARGET_TYPE` with the [target type you're adding](chaos-studio-fault-providers.md). Replace `$CAPABILITY` with the [name of the fault capability you're enabling](chaos-studio-fault-library.md).
     
     ```azurecli-interactive
     az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/$TARGET_TYPE/capabilities/$CAPABILITY?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
@@ -61,12 +61,12 @@ Chaos Studio can't inject faults against a resource unless that resource has bee
     az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine/capabilities/shutdown-1.0?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
     ```
 
-You've now successfully onboarded your Azure Cosmos DB account to Chaos Studio.
+You've now successfully added your Azure Cosmos DB account to Chaos Studio.
 
 ## Create an experiment
-With your Azure Cosmos DB account now on board, you can create your experiment. A chaos experiment defines the actions you want to take against target resources. The actions are organized and run in sequential steps. The chaos experiment also defines the actions you want to take against branches, which run in parallel.
+Now you can create your experiment. A chaos experiment defines the actions you want to take against target resources. The actions are organized and run in sequential steps. The chaos experiment also defines the actions you want to take against branches, which run in parallel.
 
-1. Formulate your experiment JSON starting with the following JSON sample. Modify the JSON to correspond to the experiment you want to run by using the [Create Experiment API](/rest/api/chaosstudio/experiments/create-or-update) and the [fault library](chaos-studio-fault-library.md)
+1. Formulate your experiment JSON starting with the following JSON sample. Modify the JSON to correspond to the experiment you want to run by using the [Create Experiment API](/rest/api/chaosstudio/experiments/create-or-update) and the [fault library](chaos-studio-fault-library.md).
 
     ```json
     {

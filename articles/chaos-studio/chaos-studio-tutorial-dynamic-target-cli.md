@@ -14,7 +14,7 @@ ms.devlang: azurecli
 
 You can use dynamic targeting in a chaos experiment to choose a set of targets to run an experiment against. In this article, we show you how to dynamically target virtual machine scale sets to shut down based on availability zone. Running this experiment can help you test failover to an Azure Virtual Machine Scale Sets instance in a different region if there's an outage.
 
-You can use these same steps to set up and run an experiment for any fault that supports dynamic targeting. Currently, only Virtual Machine Scale Sets Shutdown supports dynamic targeting.
+You can use these same steps to set up and run an experiment for any fault that supports dynamic targeting. Currently, only virtual machine scale set shutdown supports dynamic targeting.
 
 ## Prerequisites
 
@@ -34,23 +34,23 @@ If you want to install and use the CLI locally, this tutorial requires Azure CLI
 
 ## Enable Chaos Studio on your Virtual Machine Scale Sets instance
 
-Azure Chaos Studio Preview can't inject faults against a resource unless that resource is onboarded to Chaos Studio first. To onboard a resource to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource.
+Azure Chaos Studio Preview can't inject faults against a resource unless that resource was added to Chaos Studio first. To add a resource to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource.
 
 Virtual Machine Scale Sets has only one target type (`Microsoft-VirtualMachineScaleSet`) and one capability (`shutdown`). Other resources might have up to two target types. One target type is for service-direct faults. Another target type is for agent-based faults. Other resources also might have many other capabilities.
 
-1. Create a [target for your virtual machine scale set](chaos-studio-fault-providers.md) resource. Replace `$RESOURCE_ID` with the resource ID of the virtual machine scale set you're onboarding:
+1. Create a [target for your virtual machine scale set](chaos-studio-fault-providers.md) resource. Replace `$RESOURCE_ID` with the resource ID of the virtual machine scale set you're adding:
 
     ```azurecli-interactive  
     az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachineScaleSet?api-version=2022-10-01-preview" --body "{\"properties\":{}}"
     ```
 
-1. Create the capabilities on the virtual machine scale set target. Replace `$RESOURCE_ID` with the resource ID of the resource you're onboarding. Specify the `VirtualMachineScaleSet` target and the `Shutdown-2.0` capability.
+1. Create the capabilities on the virtual machine scale set target. Replace `$RESOURCE_ID` with the resource ID of the resource you're adding. Specify the `VirtualMachineScaleSet` target and the `Shutdown-2.0` capability.
 
     ```azurecli-interactive
     az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachineScaleSet/capabilities/Shutdown-2.0?api-version=2022-10-01-preview" --body "{\"properties\":{}}"
     ```
 
-You've now successfully onboarded your virtual machine scale set to Chaos Studio.
+You've now successfully added your virtual machine scale set to Chaos Studio.
 
 ## Create an experiment
 
@@ -147,6 +147,6 @@ You're now ready to run your experiment. To see the effect, check the portal to 
 1. The response includes a status URL that you can use to query experiment status as the experiment runs.
 
 ## Next steps
-Now that you've run a dynamically targeted Virtual Machine Scale Sets Shutdown experiment, you're ready to:
+Now that you've run a dynamically targeted virtual machine scale set shutdown experiment, you're ready to:
 - [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based-portal.md)
 - [Manage your experiment](chaos-studio-run-experiment.md)

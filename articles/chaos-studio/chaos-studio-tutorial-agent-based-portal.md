@@ -24,7 +24,7 @@ You can use these same steps to set up and run an experiment for any agent-based
 
 ## Enable Chaos Studio on your virtual machine
 
-Chaos Studio can't inject faults against a VM unless that VM was onboarded to Chaos Studio first. To onboard a VM to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Then you install the chaos agent.
+Chaos Studio can't inject faults against a VM unless that VM was added to Chaos Studio first. To add a VM to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Then you install the chaos agent.
 
 Virtual machines have two target types. One target type enables service-direct faults (where no agent is required). Another target type enables agent-based faults (which requires the installation of an agent). The chaos agent is an application installed on your VM as a [VM extension](../virtual-machines/extensions/overview.md). You use it to inject faults in the guest operating system.
 
@@ -66,10 +66,10 @@ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.
    ![Screenshot that shows a notification that shows the target was successfully enabled.](images/tutorial-agent-based-targets-enable-confirm.png)
 1. If you're enabling a virtual machine scale set, upgrade instances to the latest model by going to the virtual machine scale set resource pane. Select **Instances**, and then select all instances. Select **Upgrade** if you're not on the latest model.
 
-You've now successfully brought on board your Linux VM to Chaos Studio. In the **Targets** view, you can also manage the capabilities enabled on this resource. Select the **Manage actions** link next to a resource to display the capabilities enabled for that resource.
+You've now successfully added your Linux VM to Chaos Studio. In the **Targets** view, you can also manage the capabilities enabled on this resource. Select the **Manage actions** link next to a resource to display the capabilities enabled for that resource.
 
 ## Create an experiment
-With your VM now on board, you can create your experiment. A chaos experiment defines the actions you want to take against target resources. The actions are organized and run in sequential steps. The chaos experiment also defines the actions you want to take against branches, which run in parallel.
+Now you can create your experiment. A chaos experiment defines the actions you want to take against target resources. The actions are organized and run in sequential steps. The chaos experiment also defines the actions you want to take against branches, which run in parallel.
 
 1. Select the **Experiments** tab in Chaos Studio. In this view, you can see and manage all your chaos experiments. Select **Add an experiment**.
 

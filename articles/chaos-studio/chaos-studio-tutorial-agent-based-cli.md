@@ -52,7 +52,7 @@ az vmss identity assign --ids $VMSS_RESOURCE_ID --identities $MANAGED_IDENTITY_R
 
 ## Enable Chaos Studio on your virtual machine
 
-Chaos Studio can't inject faults against a VM unless that VM was onboarded to Chaos Studio first. To onboard a VM to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Then you install the chaos agent.
+Chaos Studio can't inject faults against a VM unless that VM was added to Chaos Studio first. To add a VM to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Then you install the chaos agent.
 
 Virtual machines have two target types. One target type enables service-direct faults (where no agent is required). The other target type enables agent-based faults (which requires the installation of an agent). The chaos agent is an application installed on your VM as a [VM extension](../virtual-machines/extensions/overview.md). You use it to inject faults in the guest operating system.
 
@@ -160,7 +160,7 @@ The chaos agent is an application that runs in your VM or virtual machine scale 
 
 ## Create an experiment
 
-With your VM now on board, you can create your experiment. A chaos experiment defines the actions you want to take against target resources. The actions are organized and run in sequential steps. The chaos experiment also defines the actions you want to take against branches, which run in parallel.
+After you've successfully deployed your VM, now you can create your experiment. A chaos experiment defines the actions you want to take against target resources. The actions are organized and run in sequential steps. The chaos experiment also defines the actions you want to take against branches, which run in parallel.
 
 1. Formulate your experiment JSON starting with the following JSON sample. Modify the JSON to correspond to the experiment you want to run by using the [Create Experiment API](/rest/api/chaosstudio/experiments/create-or-update) and the [fault library](chaos-studio-fault-library.md).
 
