@@ -6,7 +6,6 @@ ms.custom: subject-monitoring
 ms.date: 10/11/2022
 ---
 
-
 # Monitoring Azure Service Bus data reference
 See [Monitoring Azure Service Bus](monitor-service-bus.md) for details on collecting and analyzing monitoring data for Azure Service Bus.
 
@@ -107,25 +106,32 @@ Operational log entries include elements listed in the following table:
 | `EventName` | Operation name |
 | `ResourceId` | Azure Resource Manager resource ID |
 | `SubscriptionId` | Subscription ID |
-| `EventTimeString` | Operation time |
+| TimeGenerated [UTC]|Time of executed operation (in UTC)|
 | `EventProperties` | Operation properties |
 | `Status` | Operation status |
 | `Caller` | Caller of operation (the Azure portal or management client) |
-| `Category` | OperationalLogs |
+| `Provider`|Name of Service emitting the logs e.g., ServiceBus |
+|  `Type`  | AZMSOperationalLogs|
 
 Here's an example of an operational log JSON string:
 
+
+
 ```json
+
+
 {
+
   "ActivityId": "0000000000-0000-0000-0000-00000000000000",
-  "EventName": "Create Queue",
+  "EventName": "Retrieve Queue",
   "resourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
   "SubscriptionId": "0000000000-0000-0000-0000-00000000000000",
-  "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
+  "TimeGenerated(UTC)": "9/28/2023 8:40:06 PM +00:00",
   "EventProperties": "{\"SubscriptionId\":\"0000000000-0000-0000-0000-00000000000000\",\"Namespace\":\"mynamespace\",\"Via\":\"https://mynamespace.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
   "Status": "Succeeded",
   "Caller": "ServiceBus Client",
-  "category": "OperationalLogs"
+  "type": "AZMSOperationalLogs"
+
 }
 ```
 
@@ -139,10 +145,10 @@ The following management operations are captured in operational logs:
 
 | Scope | Operation|
 |-------| -------- |
-| `Namespace` | <ul> <li> Create Namespace</li> <li> Update Namespace </li> <li> Delete Namespace </li> <li> Update Namespace SharedAccess Policy </li> </ul> | 
-| `Queue` | <ul> <li> Create Queue</li> <li> Update Queue</li> <li> Delete Queue </li> <li> AutoDelete Delete Queue </li> </ul> | 
-| `Topic` | <ul> <li> Create Topic </li> <li> Update Topic </li> <li> Delete Topic </li> <li> AutoDelete Delete Topic </li> </ul> |
-| `Subscription` | <ul> <li> Create Subscription </li> <li> Update Subscription </li> <li> Delete Subscription </li> <li> AutoDelete Delete Subscription </li> </ul> |
+| `Namespace` | <ul> <li> Create Namespace</li> <li> Update Namespace </li> <li> Delete Namespace </li> <li> Update Namespace </li> <li> Retrieve Namespace</li> <li> SharedAccess Policy </li> </ul> |
+| `Queue` | <ul> <li> Create Queue</li> <li> Update Queue</li> <li> Delete Queue </li> <li> AutoDelete Delete Queue </li> <li> Retrieve Queue </li> </ul> |
+| `Topic` | <ul> <li> Create Topic </li> <li> Update Topic </li> <li> Delete Topic </li> <li> AutoDelete Delete Topic </li> <li> Retrieve Topic </li> </ul> |
+| `Subscription` | <ul> <li> Create Subscription </li> <li> Update Subscription </li> <li> Delete Subscription </li> <li> AutoDelete Delete Subscription </li> <li> Retrieve Subscription </li> </ul> |
 
 > [!NOTE]
 > Currently, *Read* operations aren't tracked in the operational logs.
@@ -155,7 +161,8 @@ Service Bus virtual network (VNet) connection event JSON includes elements liste
 | `SubscriptionId` | Azure subscription ID |
 | `NamespaceName` | Namespace name |
 | `IPAddress` | IP address of a client connecting to the Service Bus service |
-| `Action` | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. |
+| TimeGenerated [UTC]|Time of executed operation (in UTC)|
+| `Action` | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and Deny Connection**. |
 | `Reason` | Provides a reason why the action was done |
 | `Count` | Number of occurrences for the given action |
 | `ResourceId` | Azure Resource Manager resource ID. |
@@ -229,3 +236,5 @@ Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these
 ## Next steps
 - For details on monitoring Azure Service Bus, see [Monitoring Azure Service Bus](monitor-service-bus.md).
 - For details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
+
+
