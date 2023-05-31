@@ -31,6 +31,8 @@
     href: storage-files-networking-overview.md
   - name: Disaster recovery and failover
     href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/files/toc.json
+  - name: Geo-redundancy for large file shares
+    href: geo-redundant-storage-for-large-file-shares.md
   - name: Azure file share snapshots
     href: storage-snapshots-files.md
   - name: Performance and scale

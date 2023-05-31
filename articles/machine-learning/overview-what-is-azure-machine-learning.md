@@ -9,7 +9,7 @@ author: frogglew
 ms.author: saoh
 ms.reviewer: sgilley
 ms.date: 09/22/2022
-ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022, build-2023, build-2023-dataai
 adobe-target: true
 ---
 
@@ -20,7 +20,7 @@ Azure Machine Learning is a cloud service for accelerating and managing the mach
 You can create a model in Azure Machine Learning or use a model built from an open-source platform, such as Pytorch, TensorFlow, or scikit-learn. MLOps tools help you monitor, retrain, and redeploy models. 
 
 > [!Tip]
-> **Free trial!**  If you don’t have an Azure subscription, create a free account before you begin. [Try the free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/machine-learning/search/). You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
+> **Free trial!**  If you don't have an Azure subscription, create a free account before you begin. [Try the free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/machine-learning/search/). You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
 
 ## Who is Azure Machine Learning for?
 
@@ -63,7 +63,7 @@ The [Azure Machine Learning studio](https://ml.azure.com) offers multiple author
 
     :::image type="content" source="media/overview-what-is-azure-machine-learning/metrics.png" alt-text="Screenshot of metrics for a training run.":::
 
-* Azure Machine Learning designer: use the designer to train and deploy machine learning models without writing any code. Drag and drop datasets and components to create ML pipelines. Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
+* Azure Machine Learning designer: use the designer to train and deploy machine learning models without writing any code. Drag and drop datasets and components to create ML pipelines.
 
 * Automated machine learning UI: Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) with an easy-to-use interface.
 
@@ -90,6 +90,7 @@ Other integrations with Azure services support a machine learning project from e
 * Azure Arc, where you can run Azure services in a Kubernetes environment
 * Storage and database options, such as Azure SQL Database, Azure Storage Blobs, and so on
 * Azure App Service allowing you to deploy and manage ML-powered apps
+* [Microsoft Purview allows you to discover and catalog data assets across your organization](../purview/register-scan-azure-machine-learning.md)
 
 > [!Important]
 > Azure Machine Learning doesn't store or process your data outside of the region where you deploy.

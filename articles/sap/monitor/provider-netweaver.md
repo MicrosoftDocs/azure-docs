@@ -66,7 +66,7 @@ This step is **mandatory** when configuring SAP NetWeaver Provider. To fetch spe
 1. Select the profile parameter `service/protectedwebmethods`.
 1. Change the value to:    
     ```Value field 
-    SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList -GetEnvironment
+    SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList -GetEnvironment -ABAPGetSystemWPTable
 1. Select **Copy**.
 1. Select **Profile** &gt; **Save** to save the changes.
 1. Restart the **SAPStartSRV** service on each instance in the SAP system. Restarting the services doesn't restart the entire system. This process only restarts **SAPStartSRV** (on Windows) or the daemon process (in Unix or Linux).
@@ -78,7 +78,10 @@ This step is **mandatory** when configuring SAP NetWeaver Provider. To fetch spe
     sapcontrol -nr <instance number> -function RestartService
     ```    
     3. Repeat the previous steps for each instance profile.
-
+    
+    **Powershell script to unprotect web-methods** 
+    
+    You can refer to the [link](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/tree/main/Provider_Pre_Requisites/SAP_NetWeaver_Pre_Requisites/Windows) to unprotect the web-methods in the SAP windows virtual machine.
 
 ### Prerequisite to enable RFC metrics
 
@@ -90,6 +93,10 @@ For AS ABAP applications only, you can set up the NetWeaver RFC metrics. This st
     1. Upload the **Z_AMS_NETWEAVER_MONITORING.SAP** file from the ZIP file.
     1. Select **Execute** to generate the role. (ensure the profile is also generated as part of the role upload)
 
+     **Transport to import role in SAP System** 
+    
+    You can also refer to the [link](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/tree/main/Provider_Pre_Requisites/SAP_NetWeaver_Pre_Requisites/SAP%20Role%20Transport) to import role in PFCG and generate profile for successfully configuring Netweaver provider for you SAP system.
+    
 2. **Create and authorize a new RFC user**.
     1. Create an RFC user.
     1. Assign the role **Z_AMS_NETWEAVER_MONITORING** to the user. It's the role that you uploaded in the previous section.
@@ -148,6 +155,10 @@ Ensure all the pre-requisites are successfully completed. To add the NetWeaver p
     10. For **SAP password**, enter the password for the user.
     11. For **Host file entries**, provide the DNS mappings for all SAP VMs associated with the SID
         Enter **all SAP application servers and ASCS** host file entries in **Host file entries**. Enter host file mappings in comma-separated format. The expected format for each entry is IP address, FQDN, hostname. For example: **192.X.X.X sapservername.contoso.com sapservername,192.X.X.X sapservername2.contoso.com sapservername2**. Make sure that host file entries are provided for all hostnames that the [command returns](#determine-all-hostname-associated-with-an-sap-system)
+        
+     **Scripts to generate hostfiles entries** 
+    
+    We highly recommend to follow the detailed instructions in the [link](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/tree/main/Provider_Pre_Requisites/SAP_NetWeaver_Pre_Requisites/GenerateHostfileMappings) for generating hostfile entries. These entries are crucial for the successful creation of the Netweaver provider for your SAP system.
 
 ## Troubleshooting for SAP Netweaver Provider
 
@@ -187,7 +198,7 @@ After you restart the SAP service, check that your updated rules are applied to 
     sapcontrol -nr <instance number> -function ParameterValue service/protectedwebmethods -user "<admin user>" "<admin password>"
     ```
 
-1. Review the output. Ensure in the output you see the name of methods **GetQueueStatistic ABAPGetWPTable EnqGetStatistic GetProcessList GetEnvironment**
+1. Review the output. Ensure in the output you see the name of methods **GetQueueStatistic ABAPGetWPTable EnqGetStatistic GetProcessList GetEnvironment ABAPGetSystemWPTable**
 
 1. Repeat the previous steps for each instance profile.
 
@@ -285,7 +296,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 1. Select the appropriate profile (*DEFAULT.PFL*).
 1. Select **Extended Maintenance** &gt; **Change**.
 1. Select the profile parameter `service/protectedwebmethods`.
-1. Change the value to `SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList -GetEnvironment`.
+1. Change the value to `SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList -GetEnvironment -ABAPGetSystemWPTable`.
 1. Select **Copy**.
 1. Go back and select **Profile** &gt; **Save**.
 

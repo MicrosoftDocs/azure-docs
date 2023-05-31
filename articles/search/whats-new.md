@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 04/10/2023
+ms.date: 05/16/2023
 ms.custom: references_regions 
 ---
 
@@ -17,6 +17,13 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 > [!NOTE]
 > Looking for preview features? Previews are announced here, but we also maintain a [preview features list](search-api-preview.md) so you can find them in one place.
+
+## May 2023
+
+| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
+|-----------------------------|------|--------------|
+| [**Azure RBAC (role-based access control)**](search-security-rbac.md) | Feature | Announcing general availability. |
+| [**2022-09-01 Management REST API**](/rest/api/searchmanagement) | API | New stable version of the Management REST APIs, with support for configuring search to use Azure RBAC. The **Az.Search** module of Azure PowerShell and **Az search** module of the Azure CLI are updated to support search service authentication options. You can also use the [**Terraform provider**](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/search_service) to configure authentication options (see this [Terraform quickstart](search-get-started-terraform.md) for details). |
 
 ## April 2023
 
@@ -34,7 +41,7 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 | Month | Item |
 |-------|---------|
-| November | **Add search to websites** updated versions of React and Azure SDK client libraries: <ul><li>[C#](tutorial-csharp-overview.md)</li><li>[Python](tutorial-python-overview.md)</li><li>[JavaScript](tutorial-javascript-overview.md) </li></ul> "Add search to websites" is a tutorial series with sample code available in three languages. This series was . If you're integrating client code with a search index, these samples demonstrate an end-to-end approach to integration. |
+| November | **Add search to websites** series, updated versions of React and Azure SDK client libraries: <ul><li>[C#](tutorial-csharp-overview.md)</li><li>[Python](tutorial-python-overview.md)</li><li>[JavaScript](tutorial-javascript-overview.md) </li></ul> "Add search to websites" is a tutorial series with sample code available in three languages. If you're integrating client code with a search index, these samples demonstrate an end-to-end approach to integration. |
 | November | **Retired** - [Visual Studio Code extension for Azure Cognitive Search](https://github.com/microsoft/vscode-azurecognitivesearch/blob/master/README.md). |
 | November | [Query performance dashboard](https://github.com/Azure-Samples/azure-samples-search-evaluation). This Application Insights sample demonstrates an approach for deep monitoring of query usage and performance of an Azure Cognitive Search index. It includes a JSON template that creates a workbook and dashboard in Application Insights and a Jupyter Notebook that populates the dashboard with simulated data. |
 | October | [Compliance risk analysis using Azure Cognitive Search](/azure/architecture/guide/ai/compliance-risk-analysis). Published on Azure Architecture Center, this guide covers the implementation of a compliance risk analysis solution that uses Azure Cognitive Search. |
