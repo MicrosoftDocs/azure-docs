@@ -572,7 +572,7 @@ Assign the `Storage Blob Data Contributor` role on the offline store storage to 
 
 For more information about RBAC configuration, see [Permissions required for the `feature store materialization managed identity` role](how-to-setup-access-control-feature-store.md#permissions-required-for-the-feature-store-materialization-managed-identity-role)..
 
-### Stream job results to notebook fail
+### Streaming job results to notebook fails
 
 #### Symptom:
 
