@@ -53,6 +53,9 @@ For more information about Azure AD integration, Kubernetes RBAC, and Azure RBAC
 >
 > Add a network policy in all user namespaces to block pod egress to the metadata endpoint.
 
+> Note: For Network Policy Cluster needs to be created with attribute `--network-policy azure`
+> Example: `az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity --network-plugin azure --network-policy azure`
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
