@@ -1,66 +1,70 @@
 ---
-title: VMware Tanzu components in Azure Spring Apps
-description: Learn about VMware Tanzu components in the Azure Spring Apps Enterprise plan
+title: VMware Tanzu components in the Azure Spring Apps Enterprise plan
+description: Learn about VMware Tanzu components in the Azure Spring Apps Enterprise plan.
 author: karlerickson
 ms.author: taoxu
 ms.service: spring-apps
 ms.topic: conceptual
-ms.date: 05/30/2023
+ms.date: 06/01/2023
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagement-fy23, references_regions
 ---
 
-# VMware Tanzu components in Azure Spring Apps
+# VMware Tanzu components in the Azure Spring Apps Enterprise plan
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-VMware Tanzu components are a rich set of developer tools in the VMware Tanzu Application Platform. The Azure Spring Apps Enterprise plan provides the following Tanzu components:
+This article describes the VMware Tanzu components offered by the Azure Spring Apps Enterprise plan.
 
-- VMware Tanzu Build Service
-- Spring Cloud Gateway for VMware Tanzu
-- API portal for VMware Tanzu
-- Application Configuration Service for VMware Tanzu
-- Tanzu Service Registry
-- Application Live View for VMware Tanzu
-- Application Accelerator for VMware Tanzu
+VMware Tanzu components are commercial products in the VMware Tanzu Application Platform, which is an application development platform with a rich set of developer tools. In the Azure Spring Apps Enterprise plan, you develop with Tanzu components as managed resources with no extra operational costs. You can use Tanzu components for a wide range of developer scenarios, including the following scenarios:
 
-In Azure Spring Apps Enterprise, you develop with Tanzu components as managed resources with no extra operational costs. You can use Tanzu components for the following wide-rage of developer scenarios:
+- Routing requests.
+- Managing APIs.
+- Managing application configuration.
+- Registering and discovering services.
+- Monitoring applications in real-time.
+- Accelerating development with project templates.
 
-- Route requests.
-- Manage APIs and application configuration.
-- Register and discovering services.
-- Monitor applications in real-time.
-- Accelerate development with project templates.
+The Azure Spring Apps Enterprise plan offers the following components:
 
-You also have the flexibility to enable only the components that you really need at any time.
+- VMware Tanzu® Build Service™
+- Spring Cloud Gateway for VMware Tanzu®
+- API portal for VMware Tanzu®
+- Application Configuration Service for VMware Tanzu®
+- VMware Tanzu® Service Registry
+- Application Live View for VMware Tanzu®
+- Application Accelerator for VMware Tanzu®
+
+You also have the flexibility to enable only the components that you need at any time.
 
 ## Tanzu Build Service
 
-Tanzu Build Service uses the open-source Cloud Native Buildpacks project to turn polyglot application source code into container images. These container images facilitate quick deployment into the public cloud for your Spring, Java, NodeJS, Python, Go and .NET Core applications.
+Tanzu Build Service uses the open-source Cloud Native Buildpacks project to turn polyglot application source code into container images. These container images facilitate quick deployment into the public cloud for your Spring, Java, NodeJS, Python, Go, and .NET Core applications.
 
-Tanzu Build Service gives you a high-level abstraction and balance of control for building applications that provides the following benefits:
+Tanzu Build Service provides the following benefits:
 
-- Automate container creation, management and governance at enterprise scale.
+- Automates container creation, management, and governance at enterprise scale.
+- Offers a high-level abstraction and balance of control for building applications.
 - Reduces the operational burden on developers.
-- Support enterprise IT operators who manage applications at scale.
+- Supports enterprise IT operators who manage applications at scale.
 
 For more information, see [Use Tanzu Build Service](how-to-enterprise-build-service.md).
 
 ## Spring Cloud Gateway
 
-Spring Cloud Gateway is an API gateway solution based on the open-source Spring Cloud Gateway project. You can simplify the routing for internal or external API requests to application services. Spring Cloud Gateway addresses cross-cutting considerations for applications that operate behind the gateway. These considerations include securing, caching, monitoring, and hiding applications. You can make the following configurations:
+Spring Cloud Gateway is an API gateway solution based on the open-source Spring Cloud Gateway project. You can simplify the routing for internal or external API requests to application services that expose APIs. Spring Cloud Gateway addresses cross-cutting considerations for applications that operate behind the gateway. These considerations include securing, routing, rate limiting, caching, monitoring, resiliency, and hiding applications. You can configure the following features:
 
-- Single sign-on integration with your preferred identity provider, without more code or dependencies.
+- Single sign-on integration with your preferred identity provider without any additional code or dependencies.
 - Dynamic routing rules to applications without any application redeployment.
-- Throttling without any backing services.
+- Request throttling without any backing services.
 
 For more information, see [Configure VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md).
 
 ## API Portal
 
-You can find APIs to use for your applications by using detailed API documentation with the API Portal. You can also use API portal to assemble APIs exposed by Spring Cloud Gateway.
+API portal enables you to find APIs you can use in your own applications. You can view detailed API documentation and try out an API to see if it meets your needs. API portal assembles APIs exposed by Spring Cloud Gateway.
 
 For more information, see [Use API portal for VMware Tanzu](how-to-use-enterprise-api-portal.md).
 
@@ -84,6 +88,10 @@ For more information, see [Use Application Live View with the Azure Spring Apps 
 
 ## Application Accelerator
 
-Application Accelerator helps application developers and operators create application accelerators. Accelerators are templates that codify best practices and ensure that important configurations and structures are in place. You can bootstrap your applications and immediately get started with feature development. You can create custom accelerators that reflect their desired architectures and configurations and enable fleets of developers to use them. Application Accelerator helps ease operator concerns about whether developers are implementing their best practices.
+Application Accelerator helps application developers and operators create application accelerators. Accelerators are templates that codify best practices and ensure that important configurations and structures are in place. Developers can bootstrap their applications and immediately get started with feature development. Application operators can create custom accelerators that reflect their desired architectures and configurations and enable fleets of developers to use them. Application Accelerator helps ease operator concerns about whether developers are implementing their best practices.
 
 For more information, see [Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise plan](how-to-use-accelerator.md).
+
+## Next steps
+
+- [Launch your first app](./quickstart.md)
