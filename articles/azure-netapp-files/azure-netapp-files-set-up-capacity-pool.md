@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 06/20/2023
 ms.author: anfdocs
 ---
 # Create a capacity pool for Azure NetApp Files
@@ -44,7 +44,7 @@ You must have already [created a NetApp account](azure-netapp-files-create-netap
     * **Size**     
      Specify the size of the capacity pool that you are purchasing.        
      The minimum capacity pool size is 2 TiB. You can change the size of a capacity pool in 1-TiB increments.
-
+    
     >[!NOTE]
     >[!INCLUDE [Limitations for capacity pool minimum of 2 TiB](includes/2-tib-capacity-pool.md)]
 
@@ -56,15 +56,14 @@ You must have already [created a NetApp account](azure-netapp-files-create-netap
      > [!IMPORTANT] 
      > Setting **QoS type** to **Manual** is permanent. You cannot convert a manual QoS capacity pool to use auto QoS. However, you can convert an auto QoS capacity pool to use manual QoS. See [Change a capacity pool to use manual QoS](manage-manual-qos-capacity-pool.md#change-to-qos).   
 
-   * **Encryption type**   
+   * **Encryption type** <a name="encryption_type"></a>      
         Specify whether you want the volumes in this capacity pool to use **single** or **double** encryption. See [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) for details.   
-        > [!NOTE] 
-        > After the capacity pool is created, you can’t modify the setting for encryption type.  
-
         > [!IMPORTANT] 
-        > Double encryption at rest is supported only on volumes using [Standard network features](azure-netapp-files-network-topologies.md#configurable-network-features). Volumes created with Basic network features need to first be migrated to new volumes that use Standard network features before you can enable them for double encryption at rest.
+        > Azure NetApp Files double encryption at rest supports [Standard network features](azure-netapp-files-network-topologies.md#configurable-network-features), but not Basic network features. See [considerations](double-encryption-at-rest.md#considerations) for using Azure NetApp Files double encryption at rest.  
+        >
+        > After the capacity pool is created, you can’t modify the setting (switching between `single` or `double`) for encryption type.  
 
-        The feature of double encryption at rest is currently in preview. If you are using this feature for the first time, you need to register the feature first. 
+        Azure NetApp Files double encryption at rest is currently in preview. If you are using this feature for the first time, you need to register the feature first. 
         1. Register the feature: 
             ```azurepowershell-interactive
             Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDoubleEncryption

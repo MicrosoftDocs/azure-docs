@@ -1,6 +1,6 @@
 ---
 title: Azure NetApp Files double encryption at rest | Microsoft Docs
-description: Explains what double encryption at rest does to help you determine whether to use this feature.  
+description: Explains Azure NetApp Files double encryption at rest to help you use this feature.  
 services: azure-netapp-files
 documentationcenter: ''
 author: b-hchen
@@ -12,27 +12,41 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 06/20/2023
 ms.author: anfdocs
 ms.custom: 
 ---
 # Azure NetApp Files double encryption at rest
 
-By default, an Azure NetApp Files capacity pool uses single encryption at rest. When you create a capacity pool, you can configure double encryption at rest for the volumes in the capacity pool. You do so by selecting **double** as the **encryption type** for the pool that you're creating. 
+By default, Azure NetApp Files capacity pools use single encryption at rest. When you create a capacity pool, you have the option to use double encryption at rest for the volumes in the capacity pool. You can do so by selecting `double` as the **encryption type** for the capacity pool that you are creating.  
 
-This article explains what double encryption at rest does to help you determine whether to use this feature.  
+Critical data is often found in places such as financial institutions, military users, business customer data, government records, health care medical records, and so on.  While single encryption at rest may be considered sufficient for some data, you should use double encryption at rest for data where a breach of confidentiality would be catastrophic. Leaks of information such as customer sensitive data, names, addresses, and government identification can result in extremely high liability, and it can be mitigated by having data confidentiality protected by double encryption at rest.
 
-## Uses of double encryption at rest
+When data is transported over networks, additional encryption such as Transport Layer Security (TLS) can help to protect the transit of data. But once the data has arrived, protection of that data at rest helps to address the vulnerability. Using Azure NetApp Files double encryption at rest complements the security that’s inherent with the physically secure cloud storage in Azure data centers.
 
-Critical data is often found in places such as financial institutions, military users, customer data, government records, and health care medical records.  While single encryption at rest may be sufficient for most data, consider using double encryption at rest for data where a breach of confidentiality would be catastrophic. Leaks of information such as customer sensitive data, names, addresses, and government identification can result in extremely high liability, and it can be mitigated by having data confidentiality protected by double encryption at rest.
+Azure NetApp Files double encryption at rest provides two levels of encryption protection: both a hardware-based encryption layer (encrypted SSD drives) and a software-encryption layer. The hardware-based encryption layer resides at the physical storage level, using FIPS 140-2 certified drives. The software-based encryption layer is at the volume level completing the second level of encryption protection.
 
-When data is transported over networks, extra encryption such as TLS Transport Layer Security can help to protect the transit of data. But once the data has arrived, protection of that data at rest helps to address the vulnerability. For Azure NetApp Files, using double encryption at rest complements the security that’s inherent with the physically secure cloud storage in Azure data centers.
+If you are using this feature for the first time, you need to [register for the feature](azure-netapp-files-set-up-capacity-pool.md#encryption_type) and then create a double-encryption capacity pool. For details, see [Create a capacity pool for Azure NetApp Files](azure-netapp-files-set-up-capacity-pool.md).
+
+When you create a volume in a double-encryption capacity pool, the default key management (the **Encryption key source** field) is `Microsoft Managed Keys`, and the other choice is `Customer Managed Keys`. Using customer-managed keys requires additional preparation of an Azure Key Vault and other details.  For more information about using volume encryption with customer managed keys, see [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md).
+
+:::image type="content" source="../media/azure-netapp-files/double-encryption-create-volume.png" alt-text="Screenshot of the Create Volume page in a double-encryption capacity pool." lightbox="../media/azure-netapp-files/double-encryption-create-volume.png.png":::
+
+## Supported regions
+
+Azure NetApp File double encryption at rest is supported for the following regions:  
+
+* West Europe
+* East US 2 
+* East Asia
 
 ## Considerations
 
-Double encryption at rest is supported only on volumes using [Standard network features](azure-netapp-files-network-topologies.md#configurable-network-features). Volumes created with Basic network features need to first be migrated to new volumes that use Standard network features before you can enable them for double encryption at rest.
+* Azure NetApp Files double encryption at rest supports [Standard network features](azure-netapp-files-network-topologies.md#configurable-network-features), but not Basic network features. 
+* Using Azure NetApp Files double encryption at rest incurs a charge. See the [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/) page.
+* You can't convert volumes in a single-encryption capacity pool volumes to use double encryption at rest. But you can copy data in a single-encryption volume to a volume created in a capacity pool that is configured with double encryption.  
+* For capacity pools created with double encryption at rest, volume names in the capacity pool are visible only to volume owners for maximum security.
 
-The feature of double encryption at rest is currently in preview. If you're using this feature for the first time, you need to register the feature first. See [Create a capacity pool for Azure NetApp Files](azure-netapp-files-set-up-capacity-pool.md) for details. 
 
 ## Next steps
 
