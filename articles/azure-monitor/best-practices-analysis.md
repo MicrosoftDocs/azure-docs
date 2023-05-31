@@ -67,9 +67,8 @@ The [out-of-the-box Grafana Azure alerts dashboard](https://grafana.com/grafana/
 
 ## Choose the right visualization tool
 
-
 |Visualization tool|Benefits|Recommended uses|
-|:---------|:---------|:---------|:---------|
+|:---------|:---------|:---------|
 |[Azure Workbooks](./visualize/workbooks-overview.md)|Native Azure dashboarding platform   |Use as a tool for engineering and technical teams to visualize and investigate scenarios.    
 |    |Autorefresh    |Use as a reporting tool for App developers, Cloud engineers, and other technical personnel|
 |    |Out-of-the-box and public GitHub templates and reports     |    |    |
