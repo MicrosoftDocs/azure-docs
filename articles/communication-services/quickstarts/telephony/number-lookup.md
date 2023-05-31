@@ -16,7 +16,7 @@ ms.author: ericasp
 Get started with the Phone Numbers client library for C# to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number.  Follow these steps to install the package and look up operator information about a phone number.
 
 > [!NOTE]
-> Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/LookupPhoneNumber).
+> Find the code for this quickstart on [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
 
 ## Prerequisites
 
@@ -47,12 +47,6 @@ cd NumberLookupQuickstart
 dotnet build
 ```
 
-### Connect to the nuget package dev feed
-```
-nuget sources add -Name "Azure SDK for .NET Dev Feed" -Source "https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json"
-```
-[This guide](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed) has more information about the nuget package dev feed.
-
 ### Install the package
 
 While still in the application directory, install the Azure Communication Services PhoneNumbers client library for .NET package by using the following command.
@@ -72,9 +66,12 @@ using Azure.Communication.PhoneNumbers;
 Update `Main` function signature to be async.
 
 ```csharp
-static async Task Main(string[] args)
+internal class Program
 {
-  ...
+    static async Task Main(string[] args)
+    {
+        ...
+    }
 }
 ```
 
@@ -87,7 +84,7 @@ It's recommended to use a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment
 
 ```csharp
 // This code retrieves your connection string from an environment variable.
-string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
+string? connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
   
 PhoneNumbersClient client = new PhoneNumbersClient(connectionString, new PhoneNumbersClientOptions(PhoneNumbersClientOptions.ServiceVersion.V2023_05_01_Preview));
 ```
@@ -136,7 +133,7 @@ dotnet run
 
 ## Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/LookupPhoneNumber).
+You can download the sample app from [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
 
 ## Troubleshooting
 
