@@ -88,7 +88,7 @@ To gather data for planning your deployment to Azure, it's important to:
 - Determine what SAP products and versions are supported in Azure.
 - Evaluate whether the operating system releases you plan to use are supported with the Azure VMs you would choose for your SAP products.
 - Determine what DBMS releases on specific VMs are supported for your SAP products.
-- Evaluate whether the operating system releases and DBMS release you need means upgrading or updating your SAP landscape to get the supported configuration.
+- Evaluate whether upgrading or updating your SAP landscape is necessary to align with the required operating system and DBMS releases for achieving a supported configuration.
 - Evaluate whether you need to move to different operating systems to deploy in Azure.
 
 Details about supported SAP components on Azure, Azure infrastructure units, and related operating system releases and DBMS releases are explained in [SAP software that is supported for Azure deployments](./supported-product-on-azure.md). The knowledge that you gain from evaluating support and dependencies between SAP releases, operating system releases, and DBMS releases has a substantial impact on your efforts to move your SAP systems to Azure. You learn whether significant preparation efforts are involved, for example, whether you need to upgrade your SAP release or switch to a different operating system.
