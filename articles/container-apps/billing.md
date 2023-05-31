@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 03/30/2023
+ms.date: 05/31/2023
 ms.author: cshoe
 ---
 
@@ -79,9 +79,10 @@ When a revision is scaled above the [minimum replica count](scale-app.md), all o
 
 ### Request charges
 
-In addition to resource consumption, Azure Container Apps also charges based on the number of HTTP requests received by your container app.
+In addition to resource consumption, Azure Container Apps also charges based on the number of HTTP requests received by your container app. Only requests that come from outside a Container Apps environment are billable. 
 
-The first 2 million requests in each subscription per calendar month are free.
+- The first 2 million requests in each subscription per calendar month are free.
+- [Health probe](./health-probes.md) requests are not billable.
 
 <a id="consumption-dedicated"></a>
 
@@ -98,7 +99,12 @@ The billing for apps running in the Dedicated plan within the Consumption + Dedi
 - **Dedicated plan management**: You're billed a fixed cost for the Dedicated management plan when using Dedicated workload profiles. This cost is the same regardless of how many Dedicated workload profiles in use.
 
 For instance, you are not billed any charges for Dedicated unless you use a Dedicated workload profile in your environment.
+
+### Request charges
+
+Only requests that come from outside a Container Apps environment running the Consumption workload profile are billable. [Health probe](./health-probes.md) requests are not billable.
  
+## General terms
 
 For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 
