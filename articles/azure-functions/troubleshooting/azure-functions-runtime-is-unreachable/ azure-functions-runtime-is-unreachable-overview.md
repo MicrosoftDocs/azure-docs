@@ -19,7 +19,7 @@ The rest of this article helps you troubleshoot specific causes of this error, i
 
 Every function app requires a storage account to operate. If that account is deleted, your functions won't work.
 
-Start by looking up your storage account name in your application settings. Either `AzureWebJobsStorage` or `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contains the name of your storage account as part of a connection string. For more information, see [App settings reference for Azure Functions](./functions-app-settings.md#azurewebjobsstorage).
+Start by looking up your storage account name in your application settings. Either `AzureWebJobsStorage` or `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contains the name of your storage account as part of a connection string. For more information, see [App settings reference for Azure Functions](./././functions-app-settings.md#azurewebjobsstorage).
 
 Search for your storage account in the Azure portal to see whether it still exists. If it has been deleted, re-create the storage account and replace your storage connection strings. Your function code is lost, and you need to redeploy it.
 
