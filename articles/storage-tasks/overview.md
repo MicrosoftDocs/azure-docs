@@ -16,41 +16,49 @@ ms.author: normesta
 
 Put something here.
 
-## Storage tasks scenarios
+> [!IMPORTANT]
+> Storage Tasks is currently in PREVIEW and is available in the following regions: \<List regions here\>.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> To enroll, see \<sign-up form link here\>.
+
+## When to use
 
 Give customers some example of tasks they might accomplish by using tasks. For example:
 
 - Move data to different tiers
 - Set tags on blobs
 
-## Creating and editing storage tasks
+## Key capabilities
 
-Create them by using the Azure portal, PowerShell, or the Azure CLI. See [Quickstart: Create, assign, and run a Storage Task by using the Azure portal](storage-task-quickstart-portal.md).
+- Capability 1
+- Capability 2
+- Capability 3
 
-Edit them anytime by using the Storage Task editor. You can use the editor to:
+## How it works
 
-- List thing 1
-- List thing 2
-- Preview a condition and it's impact without having to pay to run it.
-- List thing 4 etc.
+\<Show diagram here\>
 
-See [Edit Storage Task Conditions](storage-task-condition-edit.md).
+By referring to diagram, describe the flow of activities
 
-## Assigning a task to storage accounts
+- You create a task and define the conditions
+- You assign a task to operate on one or more storage accounts
+  Perhaps describe the permissions model a bit here with managed identities
+- Tasks run asynchronously. If the task lacks permission to perform operations on any of the storage accounts, then \<describe how the failure manifests to the user\>
+- You can check on the results
+- You can monitor task activity
 
-You deploy a task by assigning it to one or more storage accounts.
+See these articles for step-by-step guidance:
 
-- Assign a task
-- Preview a task
-- Enable an assignment
-- Check on the results
+- [Quickstart: Create, assign, and run a Storage Task by using the Azure portal](storage-task-quickstart-portal.md)
+- [Edit Storage Task Conditions](storage-task-condition-edit.md)
+- [Manage Storage Task Assignments](storage-task-assignment-manage.md)
+- [Monitor Storage Tasks](monitor-storage-tasks.md)
 
-See [Manage Storage Task Assignments](storage-task-assignment-manage.md).
+## Supported Regions
 
-## Monitoring tasks
-
-Something here. See `Put link here`.
+List supported regions here.
 
 ## Next steps
 
-- [Do something cool with Storage Tasks](storage-task-how-to.md)
+- [Quickstart: Create, assign, and run a Storage Task by using the Azure portal](storage-task-quickstart-portal.md)
+- [Known issues with Azure Storage Tasks](storage-task-known-issues.md)
