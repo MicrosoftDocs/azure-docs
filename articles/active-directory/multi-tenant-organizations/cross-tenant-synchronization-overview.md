@@ -150,10 +150,6 @@ If a user is removed from the scope of sync in a source tenant, will cross-tenan
 
 - Yes. If a user is removed from the scope of sync in a source tenant, cross-tenant synchronization will soft delete them in the target tenant.
 
-If the sync relationship is severed, are external users previously managed by cross-tenant synchronization deleted in the target tenant?
-
-- No. No changes are made to the external users previously managed by cross-tenant synchronization if the relationship is severed (for example, if the cross-tenant synchronization policy is deleted).
-
 #### Object types
 
 What object types can be synchronized?
@@ -260,12 +256,12 @@ Does cross-tenant synchronization use System for Cross-Domain Identity Managemen
 #### Deprovisioning
 Does cross-tenant synchronization support deprovisioning users?
 
-- Yes, when the below actions occur in the source tenant, the user will be [soft deleted](https://learn.microsoft.com/azure/active-directory/fundamentals/recover-from-deletions#soft-deletions) in the target tenant. 
+- Yes, when the below actions occur in the source tenant, the user will be [soft deleted](../fundamentals/recover-from-deletions.md#soft-deletions) in the target tenant. 
 
   - Delete the user in the source tenant
   - Unassign the user from the cross-tenant synchronization configuration
   - Remove the user from a group that is assigned to the cross-tenant synchronization configuration
-  - An attribute on the user changes such that they do not meet meet the scoping filter conditions defined on the cross-tenant synchronization configuration anymore 
+  - An attribute on the user changes such that they do not meet the scoping filter conditions defined on the cross-tenant synchronization configuration anymore 
 
 - Currently only regular users, Helpdesk Admins and User Account Admins can be deleted. Users with other Azure AD roles such as directory reader currently cannot be deleted by cross-tenant synchronization. This is subject to change in the future.
 
@@ -273,12 +269,18 @@ Does cross-tenant synchronization support deprovisioning users?
 
 Does cross-tenant synchronization support restoring users? 
 
-- If the user in the source tenant is restored, reassigned to the app, meets the scoping condition again withn 30 days of soft deletion, it will be restored in the target tenant.
-- IT admins can also manually [restore](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) the user directly in the target tenant.
+- If the user in the source tenant is restored, reassigned to the app, meets the scoping condition again within 30 days of soft deletion, it will be restored in the target tenant.
+- IT admins can also manually [restore](/azure/active-directory/fundamentals/active-directory-users-restore
+../fundamentals/active-directory-users-restore.md) the user directly in the target tenant.
 
 How can I deprovision all the users that are currently in scope of cross-tenant synchronization? 
 
-- Unassign all users and / or groups from the cross-tenant synchronization configuration. This will trigger all the users that were unassigned, either directly or through group membership, to be deprovisioned in subsequent sync cycles. Please note that the target tenant will need to keep the inbound policy for sync enabled until deprovisioning is complete. If the scope is set to sync `all users and groups`, you will also need to change it to `assigned users and groups`. The users will be automatically soft deleted by cross-tenant synchronization. The users will be automatically hard deleted after 30 days or you can choose to hard delete the users directly from the target tenant. You can choose to hard delete the users directly in the target tenant or wait 30 days for the users to be automatically hard deleted. 
+- Unassign all users and / or groups from the cross-tenant synchronization configuration. This will trigger all the users that were unassigned, either directly or through group membership, to be deprovisioned in subsequent sync cycles. Please note that the target tenant will need to keep the inbound policy for sync enabled until deprovisioning is complete. If the scope is set to **Sync all users and groups**, you will also need to change it to **Sync only assigned users and groups**. The users will be automatically soft deleted by cross-tenant synchronization. The users will be automatically hard deleted after 30 days or you can choose to hard delete the users directly from the target tenant. You can choose to hard delete the users directly in the target tenant or wait 30 days for the users to be automatically hard deleted. 
+
+If the sync relationship is severed, are external users previously managed by cross-tenant synchronization deleted in the target tenant?
+
+- No. No changes are made to the external users previously managed by cross-tenant synchronization if the relationship is severed (for example, if the cross-tenant synchronization policy is deleted).
+
 
 ## Next steps
 
