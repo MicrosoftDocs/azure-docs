@@ -2,7 +2,7 @@
 title: Securing IoT devices in the enterprise with Microsoft Defender for Endpoint
 description: Learn how integrating Microsoft Defender for Endpoint and Microsoft Defender for IoT's security content and network sensors enhances your IoT network security.
 ms.topic: concept-article
-ms.date: 05/30/2023
+ms.date: 05/31/2023
 ms.custom: enterprise-iot
 ---
 
@@ -18,9 +18,9 @@ While the number of IoT devices continues to grow, they often lack the security 
 
 Defender for IoT provides IoT security functionality across both the Microsoft 365 Defender and [Azure portals](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started).
 
- Add [an Enterprise IoT plan](#security-value-in-microsoft-365-defender) in the **Settings** \> **Device discovery** \> **Enterprise IoT** page in Microsoft 365 Defender to view IoT-specific alerts, recommendations, and vulnerability data in Microsoft 365 Defender. The extra security value is provided for IoT devices detected by Defender for Endpoint.  
+[Add an Enterprise IoT plan](eiot-defender-for-endpoint.md) in the **Settings** \> **Device discovery** \> **Enterprise IoT** page in Microsoft 365 Defender to view IoT-specific alerts, recommendations, and vulnerability data in Microsoft 365 Defender. The extra security value is provided for IoT devices detected by Defender for Endpoint.  
 
-### Prerequisites
+Integrating your Enterprise IoT plan with Microsoft 365 Defender requires the following:
 
 - A Microsoft Defender for Endpoint P2 license
 - Microsoft 365 Defender access as a [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator)
@@ -47,9 +47,6 @@ For more information, see:
 - [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
 - [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses)
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
-- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
-- [Microsoft Defender for IoT alert types and descriptions](alert-engine-messages.md)
-- [Enhance security posture with security recommendations](recommendations.md)
 
 ## Next steps
 
