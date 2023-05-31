@@ -25,7 +25,7 @@ sections:
       - question: |
           How does burst capacity work with autoscale?
         answer: |
-          Autoscale and burst capacity are compatible. Autoscale gives you a guaranteed instant 10 times scale range. Burst capacity allows you to take advantage of unused, idle capacity to handle temporary spikes, potentially beyond your autoscale max RU/s. For example, suppose we have an autoscale container with one physical partition that scales between 100 - 1000 RU/s. Without burst capacity, any requests that consume beyond 1000 RU/s would be rate limited. With burst capacity however, the partition can accumulate a maximum of 1000 RU/s of idle capacity each second. Burst capacity allows the partition to burst at a maximum rate of 3000 RU/s for a limited amount of time.
+          Autoscale and burst capacity are compatible. Autoscale gives you a guaranteed instant 10 times scale range. Burst capacity allows you to take advantage of unused, idle capacity to handle temporary spikes, potentially beyond your autoscale max RU/s. For example, suppose we have an autoscale container with one physical partition that scales between 100 - 1000 RU/s. Without burst capacity, any requests that consume beyond 1000 RU/s would be rate limited. With burst capacity however, the partition can accumulate a maximum of 100 RU/s of idle capacity each second. Burst capacity allows the partition to burst at a maximum rate of 3000 RU/s for a limited amount of time.
 
           Accumulation of burst is based on the maximum autoscale RU/s.
 
