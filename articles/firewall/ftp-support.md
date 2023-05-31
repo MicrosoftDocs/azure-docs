@@ -28,6 +28,8 @@ However, you can enable Active FTP when you deploy using Azure PowerShell, the A
 
 The following table shows the configuration required to support various FTP scenarios:
 
+> [!TIP]
+> Remember that it may also be necessary to configure firewall rules on the client side to support the connection.
 
 |Firewall Scenario  |Active FTP mode   |Passive FTP mode  |
 |---------|---------|---------|
