@@ -25,7 +25,7 @@ This article explains how this works.
 
 - An [Azure AD joined device](concept-azure-ad-join.md).
 - On-premises SSO requires line-of-sight communication with your on-premises AD DS domain controllers. If Azure AD joined devices aren't connected to your organization's network, a VPN or other network infrastructure is required. 
-- Azure AD Connect or Azure AD Connect cloud sync: To synchronize default user attributes like SAM Account Name, Domain Name, and UPN. For more information, see the article [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
+- Azure AD Connect or Azure AD Connect cloud sync: OnPremises User attributes SAM Account Name, Domain Name, Domain Netbios Name and UPN are Mandatory. For more information, see the article [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
 
 ## How it works 
 
