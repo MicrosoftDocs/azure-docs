@@ -34,16 +34,19 @@ The following Azure services are used to monitor Kubernetes clusters.
 ### Metrics
  Sources | Description |
 |:---|:---|:---|:---|
-| Platform metrics | [Platform metrics](../aks/monitor-aks-reference.md#metrics) are automatically collected for AKS clusters at no cost. You can analyze these metrics with [metrics explorer](../essentials/metrics-getting-started.md) or use them for [metric alerts](../alerts/alerts-types.md#metric-alerts). |
-| Prometheus metrics | Prometheus metrics are stored in [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). 
-
-Use Arc and Managed Prometheus for hybrid. |
+| Platform metrics | [Platform metrics](../aks/monitor-aks-reference.md#metrics) are automatically collected for AKS clusters at no cost. You can analyze these metrics with [metrics explorer](../essentials/metrics-getting-started.md) or use them for [metric alerts](../alerts/alerts-types.md#metric-alerts). Platform metrics are not collected tor hybrid clusters. |
+| Prometheus metrics | Prometheus metrics are stored in [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). Scrape this data from your cluster using the Azure Monitor agent. Use Azure Arc for Kubernetes with the Azure Monitor agent for hybrid clusters. |
 
 
-| Activity logs | |
-| stderr/stdout | ContainerLogv2 in Container insights. |
+### Logs
+
+| Activity logs | [Activity log](../../aks/monitor-aks-reference.md) is collected automatically for  AKS clusters at no cost. These logs track information such as when a cluster is created or has a configuration change. Activity logs are not collected for hybrid clusters.   |
+| Cluster inventory | Container insights collects  |
+
+| stderr/stdout logs |  ContainerLogv2 in Container insights. |
+
+
 | Control plane logs | Diagnostic setting |
-| Cluster inventory | Container insights |
 | Application | Application insights |
 
 
