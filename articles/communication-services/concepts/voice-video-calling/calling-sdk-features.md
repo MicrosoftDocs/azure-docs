@@ -76,7 +76,7 @@ The following list presents the set of features that are currently available in 
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
 
-1. The Share Screen capability can be achieved using Raw Media (this feature is in Public Preview), if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
+1. The Share Screen capability can be achieved using Raw Media, if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
 2. The Calling SDK doesn't have an explicit API, you need to use the OS (android & iOS) API to achieve it.
 
 ## UI Library
