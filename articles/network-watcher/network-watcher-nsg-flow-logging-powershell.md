@@ -1,7 +1,7 @@
 ---
 title: Manage NSG flow logs - Azure PowerShell
 titleSuffix: Azure Network Watcher
-description: Learn how to create, change, disable, or delete NSG flow logs in Azure Network Watcher using Azure PowerShell.
+description: Learn how to create, change, disable, or delete Azure Network Watcher NSG flow logs using Azure PowerShell.
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
