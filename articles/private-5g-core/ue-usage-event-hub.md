@@ -42,13 +42,13 @@ When configured, AP5GC will send data usage reports per QoS flow level for all P
 |**Packet Core Control Plane ARM ID** |String |The identifier of the packet core control plane ARM associated with the UE.|
 |**Packet Core Data Plane ARM ID** |String |The identifier of the packet core data plane ARM associated with the UE.|
 |**ARP**|String|The address resolution protocol, including the: priority level, preemption capability and preemption vulnerability. See [5G quality of service (QoS) and QoS flows](policy-control.md#5g-quality-of-service-qos-and-qos-flows) for more information. |
-|- **ArpPriorityLevel**|Int (1-15) |See above.|
-|- **Preemption Capability**|String |See above.|
-|- **Preemption Vulnerability**|String |See above.|
+|- **ArpPriorityLevel**|Int (1-15) |See **ARP** above.|
+|- **Preemption Capability**|String |See **ARP** above.|
+|- **Preemption Vulnerability**|String |See **ARP** above.|
 
 ## UE usage schema
 
-The following schema is used deserialize the UE usage messages - see [Azure Schema Registry in Azure Event Hubs](/azure/event-hubs/schema-registry-overview) for more information:
+The following schema is used by Event Hubs to deserialize the UE usage messages - see [Azure Schema Registry in Azure Event Hubs](/azure/event-hubs/schema-registry-overview) for more information:
 
 ```json
 {
