@@ -24,14 +24,15 @@ Azure Front Door has three tiers: Standard, Premium, and (classic). This article
 | Outbound data transfer from edge location to client (per GB) | Varies by 8 zones | Same as standard | - Varies by 5 zones </br>- Higher unit rates when compared to Standard/Premium |
 | Outbound data transfer from edge to the origin (per GB) | Varies by 8 zones | Same as standard | Free |
 | Incoming requests from client to Front Door’s edge location (per 10,000 requests) | Varies by 8 zones | - Varies by 8 zones </br>- Higher unit rate than Standard | Free |
-| Routing rules (per hour) | Free | Free | $0.01 |
-| Per additional routing rule (per hour) | Free | Free | $0.01 |
+| First 5 routing rules (per hour) | Free | Free | $0.03 |
+| Per additional routing rule (per hour) | Free | Free | $0.012 |
 | Inbound data transfer (per GB) | Free | Free | $0.01 |
 | Web Application Firewall custom rules | Free | Free | - $5/month/policy </br>- $1/month & $0.06 per million requests </br></br>For more information, see [Azure Web Application Firewall pricing](https://azure.microsoft.com/pricing/details/web-application-firewall/) |
 | Web Application Firewall managed rules | Free | Free | - $5/month/policy </br>- $20/month +$1/million requests </br></br>For more information, see [Azure Web Application Firewall pricing](https://azure.microsoft.com/pricing/details/web-application-firewall/) |
 | Data transfer from an origin in Azure data center to Front Door's edge location | Free | Free | See [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) |
 | Private link to origin | Not supported | Free | Not supported |
-
+| First 100 custom domains per month | Free | Free | Free |
+| Per additional custom domain (per month) | Free | Free | $5 |
 
 ## Cost assessment
 
