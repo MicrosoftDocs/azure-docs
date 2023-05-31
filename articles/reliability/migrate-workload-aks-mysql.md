@@ -27,7 +27,7 @@ This migration guidance focuses mainly on the infrastructure and availability co
 
 To provide full workload support for availability zones, each service dependency in the workload must support availability zones. 
 
-There are two approaches types of availability zone supported services: [zonal or zone-redundant](availability-zones-service-support.md#azure-services-with-availability-zone-support). Most services support one or the other. However, in some cases, there are options for choosing either a zonal or zone-redundant resource for that service. We'll indicate which services zonal and zone-redundant resources n the recommendations below.  We'll also indicate which services are global and regional.
+There are two approaches types of availability zone supported services: [zonal or zone-redundant](availability-zones-service-support.md#azure-services-with-availability-zone-support). Most services support one or the other. However, in some cases, there are options for choosing either a zonal or zone-redundant resource for that service. We indicate which services support zonal and zone-redundant resources in the following recommendations.  We also indicate which services are global and regional.
 
 The AKS and MySQL workload architecture consists of the following component dependencies:
 
@@ -72,7 +72,7 @@ Using the Application Gateway Ingress Controller add-on with your AKS cluster is
 
 #### Azure Firewall 
 
-*Zonal*: To use the benefits of availability zones, we recommend that the Application Gateway resource be created in multiple zones, such as zone 1, 2, and 3. We recommend that you select all three zones for best intra-region resiliency strategy.  
+*Zonal*: To use the benefits of availability zones, we recommend that the Azure Firewall resource be created in multiple zones, such as zone 1, 2, and 3. We recommend that you select all three zones for the best intra-region resiliency strategy.  
 
 #### Azure Bastion 
 

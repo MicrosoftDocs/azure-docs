@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 06/17/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv1, sdkv1, event-tier1-build-2022, build-2023
 ---
 
 # Secure an Azure Machine Learning workspace with virtual networks (v1)
@@ -21,20 +21,21 @@ ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, 
 > * [v1](how-to-secure-workspace-vnet.md)
 > * [v2 (current version)](../how-to-secure-workspace-vnet.md?view=azureml-api-2&preserve-view=true)
 
-In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in a virtual network.
+In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in an Azure Virtual Network.
 
-> [!TIP]
-> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
->
-> * [Virtual network overview](../how-to-network-security-overview.md)
-> * [Secure the training environment](how-to-secure-training-vnet.md)
-> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
-> * [Enable studio functionality](../how-to-enable-studio-virtual-network.md)
-> * [Use custom DNS](../how-to-custom-dns.md)
-> * [Use a firewall](../how-to-access-azureml-behind-firewall.md)
-> * [API platform network isolation](../how-to-configure-network-isolation-with-v2.md)
->
-> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](../tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](../tutorial-create-secure-workspace-template.md).
+[!INCLUDE [managed-vnet-note](../includes/managed-vnet-note.md)]
+
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+
+* [Virtual network overview](../how-to-network-security-overview.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Enable studio functionality](../how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](../how-to-custom-dns.md)
+* [Use a firewall](../how-to-access-azureml-behind-firewall.md)
+* [API platform network isolation](../how-to-configure-network-isolation-with-v2.md)
+
+For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](../tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](../tutorial-create-secure-workspace-template.md).
 
 In this article you learn how to enable the following workspaces resources in a virtual network:
 > [!div class="checklist"]

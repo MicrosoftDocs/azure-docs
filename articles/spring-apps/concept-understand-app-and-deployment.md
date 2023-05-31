@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 **App** and **Deployment** are the two key concepts in the resource model of Azure Spring Apps. In Azure Spring Apps, an *App* is an abstraction of one business app.  One version of code or binary deployed as the *App* runs in a *Deployment*.  Apps run in an *Azure Spring Apps Service Instance*, or simply *service instance*, as shown next.
 
@@ -24,7 +24,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 You can have multiple service instances within a single Azure subscription, but the Azure Spring Apps Service is easiest to use when all of the Apps that make up a business app reside within a single service instance. One reason is that the Apps are likely to communicate with each other. They can easily do that by using Eureka service registry in the service instance.
 
-Azure Spring Apps standard tier allows one App to have one production deployment and one staging deployment, so that you can do blue/green deployment on it easily.
+The Azure Spring Apps Standard plan allows one App to have one production deployment and one staging deployment, so that you can do blue/green deployment on it easily.
 
 ## App
 
@@ -56,7 +56,7 @@ The following features/properties are defined on Deployment level, and will be e
 
 * **An App must have one production Deployment**: Deleting a production Deployment is blocked by the API. It should be swapped to staging before deleting.
 * **An App can have at most two Deployments**: Creating more than two deployments is blocked by the API. Deploy your new binary to either the existing production or staging deployment.
-* **Deployment management is not available in Basic Tier**: Use Standard tier or Enterprise tier for Blue-Green deployment capability.
+* **Deployment management is not available in the Basic plan**: Use the Standard or Enterprise plan for Blue-Green deployment capability.
 
 ## Next steps
 

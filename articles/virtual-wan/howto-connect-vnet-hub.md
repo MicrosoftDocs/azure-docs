@@ -5,7 +5,7 @@ description: Learn how to connect a VNet to a Virtual WAN hub using the portal.
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 10/18/2022
+ms.date: 05/24/2023
 ms.author: cherylmc
 
 ---
@@ -24,6 +24,10 @@ This article helps you connect your virtual network to your virtual hub using th
 ## Add a connection
 
 [!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+
+> [!NOTE]
+>
+> * To delete a virtual network connected to the virtual hub, you must delete both the virtual network connection and virtual network resource. 
 
 ## Next steps
 

@@ -10,7 +10,7 @@ ms.reviewer: ssalgado
 ms.subservice: training
 ms.topic: conceptual
 ms.date: 08/30/2022
-ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022, ignite-2022, build-2023
 ms.devlang: azurecli
 ---
 
@@ -82,7 +82,7 @@ The Azure training lifecycle consists of:
     > [!TIP]
     > [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 
-1. Scaling up your compute cluster 
+1. Scaling up your compute cluster (or [serverless compute](./how-to-use-serverless-compute.md) (preview))
 1. Building or downloading the dockerfile to the compute node 
     1. The system calculates a hash of: 
         - The base image 

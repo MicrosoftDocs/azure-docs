@@ -2,7 +2,7 @@
 title: Overview of Cloud Security Posture Management (CSPM)
 description: Learn more about the new Defender CSPM plan and the other enhanced security features that can be enabled for your multicloud environment through the Defender Cloud Security Posture Management (CSPM) plan.
 ms.topic: conceptual
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.date: 05/08/2023
 ---
 
@@ -63,7 +63,7 @@ The following table summarizes each plan and their cloud availability.
 | [Attack path analysis](how-to-manage-attack-path.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
 | [Agentless scanning for machines](concept-agentless-data-collection.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
 | [Agentless discovery for Kubernetes](concept-agentless-containers.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure |
-| [Agentless vulnerability assessments for container images](defender-for-containers-vulnerability-assessment-azure.md), including registry scanning (\* Up to 20 unique images per billable resource) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure |
+| [Container registries vulnerability assessment](concept-agentless-containers.md), including registry scanning | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure |
 | [Data aware security posture](concept-data-security-posture.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
 | EASM insights in network exposure | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
 

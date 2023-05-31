@@ -43,7 +43,7 @@ When you're ready to use the data in your cloud-based storage solution, we recom
 
         **OR** 
 
-    * Consume it directly in Azure Machine Learning solutions like, automated machine learning (automated ML) experiment runs, machine learning pipelines, or the [Azure Machine Learning designer](../concept-designer.md).
+    * Consume it directly in Azure Machine Learning solutions like, automated machine learning (automated ML) experiment runs, machine learning pipelines, or the [Azure Machine Learning designer](concept-designer.md).
 
 4. Create [dataset monitors](#monitor-model-performance-with-data-drift) for your model output dataset to detect for data drift. 
 

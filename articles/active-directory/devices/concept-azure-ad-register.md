@@ -15,6 +15,7 @@ ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
 ---
+
 # Azure AD registered devices
 
 The goal of Azure AD registered - also known as Workplace joined - devices is to provide your users with support for bring your own device (BYOD) or mobile device scenarios. In these scenarios, a user can access your organization’s resources using a personal device.
@@ -26,11 +27,11 @@ The goal of Azure AD registered - also known as Workplace joined - devices is to
 |   | Bring your own device |
 |   | Mobile devices |
 | **Device ownership** | User or Organization |
-| **Operating Systems** | Windows 10 or newer, iOS, Android, macOS, Ubuntu 20.04/22.04 |
+| **Operating Systems** | Windows 10 or newer, iOS, Android, macOS, Ubuntu 20.04/22.04 LTS|
 | **Provisioning** | Windows 10 or newer – Settings |
 |   | iOS/Android – Company Portal or Microsoft Authenticator app |
 |   | macOS – Company Portal |
-|   | Linux - Intune Agent | 
+|   | Linux - Intune Agent |
 | **Device sign in options** | End-user local credentials |
 |   | Password |
 |   | Windows Hello |
@@ -62,3 +63,5 @@ Another user wants to access their organizational email on their personal Androi
 - [Manage device identities using the Azure portal](device-management-azure-portal.md)
 - [Manage stale devices in Azure AD](manage-stale-devices.md)
 - [Register your personal device on your work or school network](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8)
+
+

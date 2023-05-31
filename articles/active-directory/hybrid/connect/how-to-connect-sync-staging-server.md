@@ -113,9 +113,9 @@ You may need to perform a failover of the Sync Servers for several reasons, such
 
 #### Change currently Active Sync Server to staging mode
 
-We need to ensure that only one Sync Server is syncing changes at any given time throughout this process. If the currently Active Sync Server is reachable you can perform the below steps to move it to Staging Mode. If it is not reachable, ensure that the server or VM does not regain access unexpectedly either by shutting down the server or isolating it from outbound connections and proceed to the steps on how to change the currently Staging Sync Server to Active Mode.
+We need to ensure that only one Sync Server is syncing changes at any given time throughout this process. If the currently active Sync Server is reachable you can perform the below steps to move it to Staging Mode. If it is not reachable, ensure that the server or VM does not regain access unexpectedly either by shutting down the server or isolating it from outbound connections.
 
-1. For the currently Active Azure AD Connect server, open the Azure AD Connect Console and click "Configure staging mode" then Next:  
+1. For the currently active Azure AD Connect server, open the Azure AD Connect wizard and click "Configure staging mode" then Next:  
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot shows Staging Mode highlighted in the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-menu.png)
@@ -130,37 +130,43 @@ We need to ensure that only one Sync Server is syncing changes at any given time
    > [!div class="mx-imgBorder"]
    > ![Screenshot shows Staging Mode configuration in the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-staging-mode.png)
 
-4. The Azure AD Connect server will check for installed components and then prompt you whether you want to start the sync process:  
+4. The Azure AD Connect server will check for installed components and then prompt you whether you want to start the sync process when the configuration change completes:  
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot shows Ready to Configure screen in the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-config.png)  
 
 Since the server will be in staging mode, it will not write changes to Azure AD, but retain any changes to the AD in its Connector Space, ready to write them.  
-It is recommended to leave the sync process on for the server in Staging Mode, so if it becomes active, it will quickly take over and won't have to do a large sync to catch up to the current state of the AD/Azure AD sync.
+It is recommended to leave the sync process on for the server in Staging Mode, so if it becomes active, it will quickly take over and won't have to do a large sync to catch up to the current state of the AD/Azure AD objects in scope.
 
-5. After selecting whether to start or stop the sync process and clicking Configure, the Azure AD Connect server will configure itself into Staging Mode.  
+5. After selecting to start the sync process and clicking Configure, the Azure AD Connect server will be configured into Staging Mode.  
 When this is completed, you will be prompted with a screen that confirms Staging Mode is enabled.  
-You can click Exit to finish this.
+You can click Exit to finish.
 
-6. You can confirm that the server is successfully in Staging Mode by opening the Synchronization Service console.  
-From here, there should be no more Export jobs since the change and Full & Delta Imports will be suffixed with "(Stage Only)" like below:  
+6. You can confirm that the server is successfully in Staging Mode by opening Windows PowerShell, load the "ADSync" module and verify the ADSync Scheduler configuration, using the following commands:
+
+```powershell
+Import-Module ADSync
+Get-ADSyncScheduler
+``` 
+  
+From the results, verify the value of the "StagingModeEnabled" setting. If the server was successfully switched to staging mode the value of this setting should be _**True**_ like in the example below:  
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot shows Sync Service console on the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-sync-server-mgmr.png)
+   > ![Screenshot shows Sync Service console on the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/staging-server-verification.png)
 
 #### Change current Staging Sync server to active mode
 
 At this point, all of our Azure AD Connect Sync Servers should be in Staging Mode and not exporting changes.
 We can now move our Staging Sync Server to Active mode and actively sync changes.
 
-1. Now move to the Azure AD Connect server that was originally in Staging Mode and open the Azure AD Connect console.  
+1. Now move to the Azure AD Connect server that was originally in Staging Mode and open the Azure AD Connect wizard.  
 
    Click on "Configure staging mode" and click Next:  
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot shows Staging Mode highlighted in the Staging Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/staging-server-menu.png)  
 
-   The message at the bottom of the Console indicates this server is in Staging Mode.
+   The message at the bottom of the wizard indicates this server is in Staging Mode.
 
 2. Sign into Azure AD, then go to the Staging Mode screen.
 
@@ -183,7 +189,7 @@ We can now move our Staging Sync Server to Active mode and actively sync changes
    > [!div class="mx-imgBorder"]
    > ![Screenshot shows Confirmation screen in the Staging Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/staging-server-confirmation.png)
 
-5. You can again confirm that this is working by opening the Sync Service Console and checking if Export jobs are running:
+5. You can confirm that this is working by opening the Sync Service Console and checking if Export jobs are running:
   
    > [!div class="mx-imgBorder"]
    > ![Screenshot shows Sync Service console on the Staging Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/staging-server-sync-server-mgmr.png)

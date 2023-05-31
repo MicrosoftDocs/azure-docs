@@ -124,6 +124,8 @@ items:
       href: configure-sim-policy-azure-portal.md
     - name: Configure a service and SIM policy - ARM template
       href: configure-service-sim-policy-arm-template.md
+    - name: Configure UE to UE internal forwarding - Azure portal
+      href: configure-internal-forwarding.md
   - name: SIMs
     items:
     - name: Provision new SIMs - Azure portal
