@@ -515,6 +515,8 @@
           href: sql-azure-vulnerability-assessment-rules-changelog.md
         - name: Store vulnerability scans in storage
           href: /azure/azure-sql/database/sql-database-vulnerability-assessment-storage?toc=/azure/defender-for-cloud/toc.json
+        - name: Consume and export scan results
+          href: defender-for-sql-scan-results.md  
       - name: Investigate threats
         items:
         - name: Overview
@@ -529,8 +531,6 @@
       - name: Scan your SQL resources for vulnerabilities
         href: defender-for-sql-on-machines-vulnerability-assessment.md
         displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
-      - name: Consume and export scan results
-        href: defender-for-sql-scan-results.md
     - name: Defender for open-source relational databases
       items: 
       - name: Overview

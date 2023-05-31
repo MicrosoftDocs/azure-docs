@@ -2,7 +2,7 @@
 title: How to consume and export scan results
 description: Learn how to consume and export Defender for SQL's scan results.
 ms.topic: how-to
-ms.date: 05/29/2023
+ms.date: 05/31/2023
 ---
 
 # How to consume and export scan results
