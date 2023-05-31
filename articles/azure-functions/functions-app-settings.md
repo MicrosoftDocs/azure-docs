@@ -518,7 +518,7 @@ Connection string for storage account where the function app code and configurat
 
 This setting is required for Consumption plan apps on Windows and for Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
 
-Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](azure-functions-runtime-is-unreachable-overview.md#storage-account-application-settings-were-deleted).
 
 ## WEBSITE\_CONTENTOVERVNET
 
@@ -540,7 +540,7 @@ The file path to the function app code and configuration in an event-driven scal
 
 This setting is required for Consumption and Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
 
-Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](azure-functions-runtime-is-unreachable-overview.md#storage-account-application-settings-were-deleted).
 
 The following considerations apply when using an Azure Resource Manager (ARM) template to create a function app during deployment: 
 
@@ -628,7 +628,7 @@ The [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](#website_contentazurefileconnecti
 |---|------------|
 |WEBSITE_SKIP_CONTENTSHARE_VALIDATION|`1`|
 
-If validation is skipped and either the connection string or content share isn't valid, the app won't be able to start properly. In this case, functions return HTTP 500 errors. For more information, see [Troubleshoot error: "Azure Functions Runtime is unreachable"](functions-recover-storage-account.md)
+If validation is skipped and either the connection string or content share isn't valid, the app won't be able to start properly. In this case, functions return HTTP 500 errors. For more information, see [Troubleshoot error: "Azure Functions Runtime is unreachable"](azure-functions-runtime-is-unreachable-overview.md)
 
 ## WEBSITE\_SLOT\_NAME
 
