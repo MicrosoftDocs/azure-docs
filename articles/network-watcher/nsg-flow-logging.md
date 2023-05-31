@@ -73,7 +73,7 @@ Create a flow log for your network security group. This NSG flow log is saved in
     | Storage Accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
     | Retention (days) | Enter a retention time for the logs. Enter *0* if you want to retain the flow logs data in the storage account forever (until you delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
-    :::image type="content" source="./media/nsg-flow-logging/create-nsg-flow-log.png" alt-text="Screenshot of creating an NSG flow log in the Azure portal." lightbox="./media/nsg-flow-logging/create-nsg-flow-log.png":::
+    :::image type="content" source="./media/nsg-flow-logging/create-nsg-flow-log.png" alt-text="Screenshot of creating an NSG flow log in the Azure portal.":::
 
     > [!NOTE]
     > If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
@@ -101,13 +101,13 @@ Create a flow log for your network security group and enable traffic analytics. 
     | **Project details** |   |
     | Subscription | Select the Azure subscription of your network security group that you want to log. |
     | Network security group | Select **+ Select resource**. <br> In **Select network security group**, select **myNSG**. Then, select **Confirm selection**. |
-    | Flow Log Name | Enter a name for the flow log or leave the default name. By default, Azure portal creates *<network-security-group>-<resource-group>-flowlog* flow log in **NetworkWatcherRG** resource group. |
+    | Flow Log Name | Enter a name for the flow log or leave the default name. By default, Azure portal creates *{network-security-group}-{resource-group}-flowlog* flow log in **NetworkWatcherRG** resource group. |
     | **Instance details** |   |
     | Subscription | Select the Azure subscription of your storage account. |
     | Storage Accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
     | Retention (days) | Enter a retention time for the logs. Enter *0* if you want to retain the flow logs data in the storage account forever (until you delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
-    :::image type="content" source="./media/nsg-flow-logging/create-nsg-flow-log-basics.png" alt-text="Screenshot of the Basics tab of Create a flow log in the Azure portal." lightbox="./media/nsg-flow-logging/create-nsg-flow-log-basics.png":::
+    :::image type="content" source="./media/nsg-flow-logging/create-nsg-flow-log-basics.png" alt-text="Screenshot of the Basics tab of Create a flow log in the Azure portal.":::
 
     > [!NOTE]
     > If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
@@ -121,9 +121,9 @@ Create a flow log for your network security group and enable traffic analytics. 
     | Enable Traffic Analytics | Select the checkbox to enable traffic analytics for your flow log. |
     | Traffic Analytics processing interval  | Select the processing interval that you prefer, available options are: **Every 1 hour** and **Every 10 mins**. The default processing interval is every one hour. For more information, see [Traffic Analytics](traffic-analytics.md). |
     | Subscription | Select the Azure subscription of your Log Analytics workspace. |
-    | Log Analytics Workspace | Select your Log Analytics workspace. By default, Azure portal creates and selects *DefaultWorkspace-<subscription-id>-<region>* Log Analytics workspace in *defaultresourcegroup-<Region>* resource group.  |
+    | Log Analytics Workspace | Select your Log Analytics workspace. By default, Azure portal creates and selects *DefaultWorkspace-{subscription-id}-{region}* Log Analytics workspace in *defaultresourcegroup-{Region}* resource group. |
 
-    :::image type="content" source="./media/nsg-flow-logging/enable-traffic-analytics.png" alt-text="Screenshot of enabling traffic analytics for a flow log in the Azure portal." lightbox="./media/nsg-flow-logging/enable-traffic-analytics.png":::
+    :::image type="content" source="./media/nsg-flow-logging/enable-traffic-analytics.png" alt-text="Screenshot of enabling traffic analytics for a flow log in the Azure portal.":::
 
 1. Select **Review + create**.
 
@@ -203,7 +203,7 @@ You can temporarily disable an NSG flow log without deleting it. Disabling a flo
     :::image type="content" source="./media/nsg-flow-logging/disable-flow-log.png" alt-text="Screenshot shows how to disable a flow log in the Azure portal." lightbox="./media/nsg-flow-logging/disable-flow-log.png":::
 
 > [!NOTE]
-> If traffic analytics is enabled for a flow log, it must disabled before you can disable the flow log.
+> If traffic analytics is enabled for a flow log, it must disabled before you can disable the flow log. To disable traffic analytics, see [Change a flow log](#change-a-flow-log).
 
 ## Delete a flow log
 
@@ -220,7 +220,7 @@ You can permanently delete an NSG flow log. Deleting a flow log deletes all its 
     :::image type="content" source="./media/nsg-flow-logging/delete-flow-log.png" alt-text="Screenshot shows how to delete a flow log in the Azure portal." lightbox="./media/nsg-flow-logging/delete-flow-log.png":::
 
 > [!NOTE]
-> Deleting a flow log does not delete the flow log data from the storage account. Flow logs data stored in the storage account follow the configured retention policy.
+> Deleting a flow log does not delete the flow log data from the storage account. Flow logs data stored in the storage account follows the configured retention policy or stays stored in the storage account until manually deleted (in case no retention policy is configured).
 
 ## Next Steps
 
