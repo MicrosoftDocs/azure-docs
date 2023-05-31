@@ -4,7 +4,7 @@ description: Learn how to install and configure Azure Container Storage Preview 
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 05/30/2023
+ms.date: 05/31/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -81,7 +81,7 @@ Before you create your cluster, you should understand which back-end storage opt
 
 To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
 
-If you intend to use Azure Elastic SAN Preview or Azure Disks with Azure Container Storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes. The VMs must have standard hard disk drives (HDD), not SSD.
+If you intend to use Azure Elastic SAN Preview or Azure Disks with Azure Container Storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes. The VMs must have standard hard disk drives for the data disks.
 
 If you intend to use Ephemeral Disk, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) with NVMe drives such as **standard_l8s_v3**. In order to use Ephemeral Disk, the VMs must have NVMe drives.
 
