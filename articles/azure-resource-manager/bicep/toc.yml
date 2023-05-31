@@ -391,7 +391,7 @@
         href: scenarios-virtual-networks.md
   - name: Provide parameters
     items:
-    - name: Parameter file
+    - name: Parameters file
       displayName: comments,metadata,
       href: parameter-files.md
     - name: Sensitive values
