@@ -22,9 +22,72 @@ Learn more about [compliance considerations](best-practices-workspace-architectu
 
 Microsoft Sentinel is a [non-regional service](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview). However, Microsoft Sentinel is built on top of Azure Monitor Logs, which is a regional service. Note that:
 
-- Sentinel can run on workspaces in most [regions where Log Analytics is generally available](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=monitor).
+- Microsoft Sentinel can run on workspaces in most [regions where Log Analytics is generally available](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=monitor).
 - Regions where Log Analytics is newly available may take some time to onboard the Microsoft Sentinel service.
 - Microsoft Sentinel stores customer data in the same geography as the Log Analytics workspace associated with Microsoft Sentinel.
 - Microsoft Sentinel processes customer data in one of two locations:
     - If the Log Analytics workspace is located in Europe, customer data is processed in Europe.
     - For all other locations, customer data is processed in the US
+
+### Regions
+
+Microsoft Sentinel can run on workspaces in the following regions:
+
+- West US 2
+- South Central US
+- UK South
+- Southeast Asia
+- West Europe
+- East US
+- Australia East
+- East US 2	
+- North Europe
+- West US 3
+- Japan East
+- Brazil South
+- Central US
+- Norway East
+- China East 2
+- East Asia
+- Switzerland North
+- South Africa North
+- France Central
+- North Central US
+- West US
+- Central India
+- Korea Central
+- UAE North
+- Germany West Central
+- USGov Virginia
+- Canada Central
+- USGov Arizona
+- USSec East
+- USNat West
+- Jio India West
+- China North 3
+- Norway West
+- Germany North	
+- Australia Central 2
+- UK West
+- Australia Southeast
+- South India
+- Korea South
+- China North 2
+- France South
+- South Africa West	
+- West Central US
+- Canada East
+- West India
+- USGov Texas
+- Switzerland West
+- Australia Central	
+- UAE Central
+- Japan West
+- Central US EUAP
+- East US 2 EUAP
+- USSec West
+- USNat East
+- Jio India Central
+- Brazil Southeast
+- China East 3
+- Malaysia South
