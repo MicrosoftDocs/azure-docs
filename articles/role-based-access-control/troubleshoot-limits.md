@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/15/2023
+ms.date: 06/01/2023
 ms.author: rolyon
 ---
 
@@ -118,8 +118,6 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
 1. Run the following query to get the role assignments with the same role and same principal, but at different scopes.
 
-    This query checks active role assignments and doesn't consider eligible role assignments in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
-
     [!INCLUDE [azure-resource-graph-samples-query-authorization-same-role-principal](../../includes/resource-graph/samples/query/authorization-same-role-principal.md)]
 
     The following shows an example of the results. The **count_** column is the number of different scopes for role assignments with the same role and same principal. The count is sorted in descending order.
@@ -205,6 +203,12 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Assign the new custom role to the principal. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
 
+    Now you can remove the built-in role assignments.
+
+1. On the **Access control (IAM)** page at the same scope, select the **Role assignments** tab.
+
+1. Find the principal and built-in role assignments.
+
 1. Remove the built-in role assignments from the principal. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
 #### Solution 4 - Make role assignments eligible
@@ -247,6 +251,8 @@ Follow these steps to find and delete unused Azure custom roles.
 1. Sign in to the [Azure portal](https://portal.azure.com) and open the Azure Resource Graph Explorer.
 
 1. Run the following query to get all custom roles that don't have any role assignments:
+
+    This query checks active role assignments and doesn't consider eligible role assignments in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
     [!INCLUDE [azure-resource-graph-samples-query-authorization-unused-custom-roles](../../includes/resource-graph/samples/query/authorization-unused-custom-roles.md)]
 
