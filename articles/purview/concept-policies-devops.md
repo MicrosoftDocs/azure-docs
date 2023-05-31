@@ -65,7 +65,7 @@ Bob and Alice are involved with the DevOps process at their company. Given their
 |||
 
 ## DevOps policies API
-Many sophisticated customers prefer to interface with Microsoft Purview via scripts rather than via the UI. Now Microsoft Purview DevOps policies supports a REST API offering full CRUD capability (listing, policies for SQL Performance Monitor, policies for SQL Security Auditor). See the spec [here]( /rest/api/purview/devopspolicydataplane/devops-policy).
+Many sophisticated customers prefer to interface with Microsoft Purview via scripts rather than via the UI. Microsoft Purview DevOps policies now support a REST API offering full CRUD capability (listing, policies for SQL Performance Monitor, policies for SQL Security Auditor). See the spec [here]( /rest/api/purview/devopspolicydataplane/devops-policy).
 
 ![Diagram shows where to find the DevOps API in the Azure REST API menu.](./media/concept-policies-devops/devops-policy-API.png).
 
@@ -101,7 +101,7 @@ SQL dynamic metadata includes a list of more than 700 DMVs/DMFs. We list here as
 |||[sys.dm_audit_class_type_map](/sql/relational-databases/system-dynamic-management-views/sys-dm-audit-class-type-map-transact-sql) |
 ||||
 
-Check these documents for more on what you IT support personnel can do when granted access via these Purview roles:
+Check these documents for more on what your IT support personnel can do when granted access via these Purview roles:
 - SQL Performance Monitor: [Use Microsoft Purview to provide at-scale access to performance data in Azure SQL and SQL Server](https://techcommunity.microsoft.com/t5/azure-sql-blog/use-microsoft-purview-to-provide-at-scale-access-to-performance/ba-p/3812839)
 - SQL Security Auditor: [Security-Related Dynamic Management Views and Functions](/sql/relational-databases/system-dynamic-management-views/security-related-dynamic-management-views-and-functions-transact-sql)
 
