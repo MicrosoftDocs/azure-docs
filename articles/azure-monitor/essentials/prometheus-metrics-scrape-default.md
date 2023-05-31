@@ -126,15 +126,11 @@ The following metrics are collected by default from each default target. All oth
    - `kube_pod_info`
    - `kube_pod_owner`
    - `kube_resourcequota`
-   - `kube_statefulset_replicas`
    - `kube_statefulset_status_replicas`
    - `kube_statefulset_status_replicas_ready`
-   - `kube_statefulset_status_replicas_current`
    - `kube_statefulset_status_replicas_updated`
    - `kube_namespace_status_phase`
    - `kube_node_info`
-   - `kube_statefulset_metadata_generation`
-   - `kube_pod_labels`
    - `kube_pod_annotations`
    - `kube_horizontalpodautoscaler_status_current_replicas`
    - `kube_horizontalpodautoscaler_status_desired_replicas`
@@ -149,7 +145,6 @@ The following metrics are collected by default from each default target. All oth
    - `kube_deployment_status_replicas_available`
    - `kube_deployment_status_replicas_updated`
    - `kube_job_status_active`
-   - `kubernetes_build_info`
    - `kube_pod_container_info`
    - `kube_replicaset_owner`
 
