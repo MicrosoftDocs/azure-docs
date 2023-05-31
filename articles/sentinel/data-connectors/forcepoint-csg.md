@@ -93,7 +93,7 @@ This integration requires the Linux Syslog agent to collect your Forcepoint Clou
 
    Your Data Connector Syslog Agent Installation Command is:
 
-   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}
+   `sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}`
 
 2. Implementation options
 
@@ -131,7 +131,7 @@ If the logs are not received, run the following connectivity validation script:
 
    Run the following command to validate your connectivity:
 
-   sudo wget  -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}
+   `sudo wget  -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}`
 
 4. Secure your machine 
 
