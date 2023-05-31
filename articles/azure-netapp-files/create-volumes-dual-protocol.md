@@ -130,7 +130,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 
-    * **Encryption Key Source** 
+    * **Encryption key source** 
         See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) about using this field. 
 
     * **Availability zone**   
