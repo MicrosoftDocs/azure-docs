@@ -128,7 +128,7 @@ In this section, we describe the interface and behavioral changes you can expect
 
 TODO: how to show the entire signature of the suborchestrator CmdLet.
 
-* `Invoke-DurableSubOrchestratorE` is a new CmdLet that allows users to leverage suborchestrators in their workflows.
+* `Invoke-DurableSubOrchestrator` is a new CmdLet that allows users to leverage suborchestrators in their workflows.
 
 #### Modified CmdLets
 
