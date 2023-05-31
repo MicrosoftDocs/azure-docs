@@ -913,9 +913,9 @@
   - name: Remoteapp
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/
-  - name: Resiliency
-    tocHref: /azure/resiliency/
-    topicHref: /azure/architecture/framework/resiliency/app-design
+  - name: Reliability
+    tocHref: /azure/reliability/
+    topicHref: /azure/reliability
   - name: Role-based access control
     tocHref: /azure/role-based-access-control/
     topicHref: /azure/role-based-access-control/

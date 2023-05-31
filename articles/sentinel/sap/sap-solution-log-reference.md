@@ -1071,4 +1071,5 @@ For more information, see:
 - [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Microsoft Sentinel solution for SAP® applications: built-in security content](sap-solution-security-content.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
