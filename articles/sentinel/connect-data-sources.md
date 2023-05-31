@@ -13,14 +13,13 @@ After you onboard Microsoft Sentinel into your workspace, use data connectors to
 
 Built-in connectors enable connection to the broader security ecosystem for non-Microsoft products. For example, use [Syslog](#syslog), [Common Event Format (CEF)](#common-event-format-cef), or [REST APIs](#rest-api-integration-for-data-connectors) to connect your data sources with Microsoft Sentinel.
 
-
 Learn about [types of Microsoft Sentinel data connectors](data-connectors-reference.md) or learn about the [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
-The Microsoft Sentinel **Data connectors** page shows the full list of connectors and their status in your workspace and their status. Soon this page will only show the list of in-use data connectors.
+The Microsoft Sentinel **Data connectors** page shows the full list of connectors and their status in your workspace and their status. Soon this page will only show the list of in-use data connectors. For more information on this upcoming change, see [Out-of-the-box content centralization changes](sentinel-content-centralize.md)
 
 :::image type="content" source="media/connect-data-sources/open-data-connector-page.png" alt-text="Screenshot of the data connectors gallery." lightbox="media/connect-data-sources/open-data-connector-page.png":::
 
-For more data connectors, install the solution or standalone content items from the content hub. For more information, see the following articles:
+To add more data connectors, install the solution associated with the data connector from the **Content Hub**. For more information, see the following articles:
 - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
 - [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md)
 - [Microsoft Sentinel content hub catalog](sentinel-solutions-catalog.md)
@@ -33,7 +32,7 @@ For more data connectors, install the solution or standalone content items from 
 
 ## Enable a data connector
 
-From the **Data connectors** page, select the active or custom connector you want to connect, and then select **Open connector page**. If you don't see the data connector you want, install the solution or standalone content items from the **Content Hub**. 
+From the **Data connectors** page, select the active or custom connector you want to connect, and then select **Open connector page**. If you don't see the data connector you want, install the solution associated with it from the **Content Hub**. 
 
 - Once you fulfill all the prerequisites listed in the **Instructions** tab, the connector page describes how to ingest the data to Microsoft Sentinel. It may take some time for data to start arriving.
 - After you connect, you see a summary of the data in the **Data received** graph, and the connectivity status of the data types.  
