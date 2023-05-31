@@ -155,8 +155,6 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 |---------------------|-----------------------|
 | 3.0.x               | 2022.0.x          |
 | 2.7.x               | 2021.0.3+ aka Jubilee |
-| 2.6.x               | 2021.0.0+ aka Jubilee |
-| 2.5.x               | 2020.3+ aka Ilford+        |
 
 ### [Enterprise tier](#tab/enterprise-tier)
 
