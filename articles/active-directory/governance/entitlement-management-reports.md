@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 01/25/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
@@ -35,23 +35,23 @@ This report enables you to list all of the access packages a user can request an
 
 **Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
-1. Click **Azure Active Directory** and then click **Identity Governance**.
+1. Select **Azure Active Directory** and then select **Identity Governance**.
 
-1. In the left menu, click **Reports**.
+1. In the left menu, select **Reports**.
 
-1. Click **Access packages for a user**.
+1. Select **Access packages for a user**.
 
-1. Click **Select users** to open the Select users pane.
+1. Select **Select users** to open the Select users pane.
 
-1. Find the user in the list and then click **Select**.
+1. Find the user in the list and then select **Select**.
 
     The **Can request** tab displays a list of the access packages the user can request. This list is determined by the [request policies](entitlement-management-access-package-request-policy.md#for-users-in-your-directory) defined for the access packages. 
 
     ![Access packages for a user](./media/entitlement-management-reports/access-packages-report.png)
 
-1. If there are more than one resource roles or policies for an access package, click the resource roles or policies entry to see selection details.
+1. If there are more than one resource roles or policies for an access package, select the resource roles or policies entry to see selection details.
 
-1. Click the **Assigned** tab to see a list of the access packages currently assigned to the user. When an access package is assigned to a user, it means that the user has access to all of the resource roles in the access package.
+1. Select the **Assigned** tab to see a list of the access packages currently assigned to the user. When an access package is assigned to a user, it means that the user has access to all of the resource roles in the access package.
 
 ## View resource assignments for a user
 
@@ -59,19 +59,19 @@ This report enables you to list the resources currently assigned to a user in en
 
 **Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
-1. Click **Azure Active Directory** and then click **Identity Governance**.
+1. Select **Azure Active Directory** and then select **Identity Governance**.
 
-1. In the left menu, click **Reports**.
+1. In the left menu, select **Reports**.
 
-1. Click **Resource assignments for a user**.
+1. Select **Resource assignments for a user**.
 
-1. Click **Select users** to open the Select users pane.
+1. Select **Select users** to open the Select users pane.
 
-1. Find the user in the list and then click **Select**.
+1. Find the user in the list and then select **Select**.
 
     A list of the resources currently assigned to the user is displayed. The list also shows the access package and policy they got the resource role from, along with start and end date for access.
     
-    If a user got access to the same resource in two or more packages, you can click an arrow to see each package and policy.
+    If a user got access to the same resource in two or more packages, you can select an arrow to see each package and policy.
 
     ![Resource assignments for a user](./media/entitlement-management-reports/resource-assignments-report.png)
 
@@ -79,13 +79,13 @@ This report enables you to list the resources currently assigned to a user in en
 
 To get additional details on how a user requested and received access to an access package, you can use the Azure AD audit log. In particular, you can use the log records in the `EntitlementManagement` and `UserManagement` categories to get additional details on the processing steps for each request.  
 
-1. Click **Azure Active Directory** and then click **Audit logs**.
+1. Select **Azure Active Directory** and then select **Audit logs**.
 
 1. At the top, change the **Category** to either `EntitlementManagement` or `UserManagement`, depending on the audit record you're looking for.  
 
-1. Click **Apply**.
+1. Select **Apply**.
 
-1. To download the logs, click **Download**.
+1. To download the logs, select **Download**.
 
 When Azure AD receives a new request, it writes an audit record, in which the **Category** is `EntitlementManagement` and the **Activity** is typically `User requests access package assignment`.  In the case of a direct assignment created in the Azure portal, the **Activity** field of the audit record is `Administrator directly assigns user to access package`, and the user performing the assignment is identified by the **ActorUserPrincipalName**.
 
