@@ -6,13 +6,13 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 05/19/2023
+ms.date: 05/31/2023
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
 
-# Diagnose security rules
+# Diagnose network security rules
 
-You can use network security groups to filter and control inbound and outbound network traffic to and from your Azure resources. You can also use Azure Virtual Network Manager to apply admin security rules to your Azure resources to control network traffic.
+You can use [network security groups](../virtual-network/network-security-groups-overview.md) to filter and control inbound and outbound network traffic to and from your Azure resources. You can also use [Azure Virtual Network Manager](../virtual-network-manager/overview.md) to apply admin security rules to your Azure resources to control network traffic.
 
 In this article, you learn how to use Azure Network Watcher [NSG diagnostics](network-watcher-network-configuration-diagnostics-overview.md) to check and troubleshoot security rules applied to your Azure traffic. NSG diagnostics checks if the traffic is allowed or denied by applied security rules.
 
@@ -280,10 +280,10 @@ In this section, you add a security rule to the network security group associate
     | --- | --- |
     | Source | Select **Service Tag**. |
     | Source service tag | Select **VirtualNetwork**. |
-    | Source port ranges | Enter ***. |
+    | Source port ranges | Enter *. |
     | Destination | Select **Any**. |
     | Service | Select **Custom**. |
-    | Destination port ranges | Enter ***. |
+    | Destination port ranges | Enter *. |
     | Protocol | Select **Any**. |
     | Action | Select **Deny**. |
     | Priority | Enter *1000*. |
@@ -317,6 +317,9 @@ az network nsg rule create --name 'DenyVnetInBound' --resource-group 'myResource
 --destination-address-prefixes '*' --destination-port-ranges '*'
 ```
 
+> [!NOTE]
+> The **VirtualNetwork** service tag represents the address space of the virtual network, all connected on-premises address spaces, peered virtual networks, virtual networks connected to a virtual network gateway, the virtual IP address of the host, and address prefixes used on user-defined routes. For more information, see [Service tags](../virtual-network/service-tags-overview.md).
+
 ---
 
 ## Check security rules applied to a virtual machine traffic
@@ -342,7 +345,7 @@ Use NSG diagnostics to check the security rules applied to the traffic originate
     | Source type | Select **IPv4 address/CIDR**. Other available option is: **Service Tag**. |
     | IPv4 address/CIDR | Enter *10.0.1.0/26*, which is the IP address range of the Bastion subnet. Acceptable values are: single IP address, multiple IP addresses, single IP prefix, multiple IP prefixes. |
     | Destination IP address | Enter *10.0.0.4*, which is the IP address of **myVM**. |
-    | Destination port | Enter *** to include all ports. |
+    | Destination port | Enter * to include all ports. |
 
     :::image type="content" source="./media/diagnose-network-security-rules/nsg-diagnostics-vm-values.png" alt-text="Screenshot showing required values for NSG diagnostics to test inbound connections to a virtual machine in the Azure portal." lightbox="./media/diagnose-network-security-rules/nsg-diagnostics-vm-values.png":::
 
@@ -354,13 +357,11 @@ Use NSG diagnostics to check the security rules applied to the traffic originate
 
     - **GlobalRules**: this security admin rule is applied at the virtual network level using Azure Virtual Network Manage. The rule allows inbound TCP traffic from the Bastion subnet to the virtual machine.
     - **mySubnet-nsg**: this network security group is applied at the subnet level (subnet of the virtual machine). The rule allows inbound TCP traffic from the Bastion subnet to the virtual machine.
-    - **myVM-nsg**: this network security group is applied at the network interface (NIC) level. The rule denies inbound TCP traffic from the Bastion subnet to the virtual machine.     
+    - **myVM-nsg**: this network security group is applied at the network interface (NIC) level. The rule denies inbound TCP traffic from the Bastion subnet to the virtual machine.
 
 1. Select **myVM-nsg** to see details about the security rules that this network security group has and which rule denied the traffic. 
 
-    :::image type="content" source="./media/diagnose-network-security-rules/nsg-diagnostics-vm-test-result-denied-details.png" alt-text="Screenshot showing the details of the network security group that denied the traffic to the virtual machine." lightbox="./media/diagnose-network-security-rules/nsg-diagnostics-vm-test-result-denied-details.png":::
-
-    The security rule **DenyVnetInBound** denies any TCP traffic coming from IP addresses in **10.0.1.0/26** to the virtual machine. The Bastion host uses IP addresses from **10.0.1.0/26** to connect to the virtual machine.  
+    :::image type="content" source="./media/diagnose-network-security-rules/nsg-diagnostics-vm-test-result-denied-details.png" alt-text="Screenshot showing the details of the network security group that denied the traffic to the virtual machine." lightbox="./media/diagnose-network-security-rules/nsg-diagnostics-vm-test-result-denied-details.png":::  
 
 # [**PowerShell**](#tab/powershell)
 
@@ -448,6 +449,12 @@ ResultsText : [
               ]
 ```
 
+The result shows that there are three security rules assessed for the inbound connection from the Bastion subnet:
+
+  - **GlobalRules**: this security admin rule is applied at the virtual network level using Azure Virtual Network Manage. The rule allows inbound TCP traffic from the Bastion subnet to the virtual machine.
+  - **mySubnet-nsg**: this network security group is applied at the subnet level (subnet of the virtual machine). The rule allows inbound TCP traffic from the Bastion subnet to the virtual machine.
+  - **myVM-nsg**: this network security group is applied at the network interface (NIC) level. The rule denies inbound TCP traffic from the Bastion subnet to the virtual machine.
+
 
 # [**Azure CLI**](#tab/cli)
 
@@ -534,7 +541,15 @@ Output similar to the following example output is returned:
   ]
 }
 ```
+The result shows that there are three security rules assessed for the inbound connection from the Bastion subnet:
+
+  - **GlobalRules**: this security admin rule is applied at the virtual network level using Azure Virtual Network Manage. The rule allows inbound TCP traffic from the Bastion subnet to the virtual machine.
+  - **mySubnet-nsg**: this network security group is applied at the subnet level (subnet of the virtual machine). The rule allows inbound TCP traffic from the Bastion subnet to the virtual machine.
+  - **myVM-nsg**: this network security group is applied at the network interface (NIC) level. The rule denies inbound TCP traffic from the Bastion subnet to the virtual machine.
+
 ---
+
+In **myVM-nsg** network security group, the security rule **DenyVnetInBound** denies any traffic coming from IP addresses in **VirtualNetwork** service tag to the virtual machine. The Bastion host uses IP addresses from **10.0.1.0/26**, which is included **VirtualNetwork** service tag, to connect to the virtual machine. Therefore, the connection from the Bastion host is denied by the **DenyVnetInBound** security rule.
 
 ## Add a security rule to allow traffic from the Bastion subnet
 
@@ -550,10 +565,10 @@ You can add the security rule to the network security group from the Network Wat
     | --- | --- |
     | Source | Select **IP Addresses**. |
     | Source IP addresses/CIDR ranges | Enter *10.0.1.0/26*, which is the IP address range of the Bastion subnet. |
-    | Source port ranges | Enter ***. |
+    | Source port ranges | Enter *. |
     | Destination | Select **Any**. |
     | Service | Select **Custom**. |
-    | Destination port ranges | Enter ***. |
+    | Destination port ranges | Enter *. |
     | Protocol | Select **Any**. |
     | Action | Select **Allow**. |
     | Priority | Enter *900*, which is higher priority than **1000** used for **DenyVnetInBound** rule. |
@@ -759,6 +774,8 @@ You can add the security rule to the network security group from the Network Wat
     ```
 
 ---
+
+The security rule **AllowBastionConnections** allows the traffic from any IP address in **10.0.1.0/26** to the virtual machine. Because the Bastion host uses IP addresses from **10.0.1.0/26**, its connection to the virtual machine is allowed by the **AllowBastionConnections** security rule.
 
 ## Next steps
 - To learn about other Network Watcher tools, see [What is Azure Network Watcher?](network-watcher-monitoring-overview.md).
