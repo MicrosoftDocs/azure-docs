@@ -194,6 +194,7 @@ For more information, see:
 - [OT threat monitoring in enterprise SOCs](../concept-sentinel-integration.md)
 - [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../iot-solution.md)
 - [Integrations with Microsoft and partner services](../integrate-overview.md)
+- [Stream Defender for IoT cloud alerts to a partner SIEM](../integrations/send-cloud-data-to-partners.md)
 
 After integrating Defender for IoT with a SIEM, we recommend the following next steps to fine tune which alerts are forwarded to the SIEM to reduce alert fatigue. 
 
