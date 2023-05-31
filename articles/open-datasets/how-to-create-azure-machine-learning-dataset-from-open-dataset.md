@@ -115,7 +115,7 @@ You can also create Azure Machine Learning datasets from Azure Open Datasets wit
 
 ## Access datasets for your experiments
 
-Use your datasets in your machine learning experiments for training ML models. [Learn more about how to train with datasets](../machine-learning/how-to-train-with-datasets.md).
+Use your datasets in your machine learning experiments for training ML models. [Learn more about how to train with datasets](../machine-learning/v1/how-to-train-with-datasets.md).
 
 ## Example notebooks
 
@@ -125,6 +125,6 @@ For examples and demonstrations of Open Datasets functionality,  see these [samp
 
 * [Train your first ML model](../machine-learning/tutorial-1st-experiment-sdk-train.md).
 
-* [Train with datasets](../machine-learning/how-to-train-with-datasets.md).
+* [Train with datasets](../machine-learning/v1/how-to-train-with-datasets.md).
 
 * [Create an Azure machine learning dataset](../machine-learning/v1/how-to-create-register-datasets.md).

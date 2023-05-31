@@ -3,7 +3,7 @@ title: "RSA® SecurID (Authentication Manager) connector for Microsoft Sentinel"
 description: "Learn how to install the connector RSA® SecurID (Authentication Manager) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 05/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -37,7 +37,7 @@ RSASecurIDAMEvent
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected [**RSASecurIDAMEvent**](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/RSA%20SecurID/Parsers/RSASecurIDAMEvent.txt) which is deployed with the Microsoft Sentinel Solution.
+   >  This data connector depends on a parser based on a Kusto Function to work as expected [**RSASecurIDAMEvent**](https://aka.ms/sentinel-rsasecuridam-parser) which is deployed with the Microsoft Sentinel Solution.
 
 
 > [!NOTE]
