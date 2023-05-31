@@ -29,7 +29,7 @@ A rollout may take several weeks before the agent is available in all environmen
 
 This update was released at the end of May 2023 and includes the following changes:
 
-- Fixed an issue that made RD Agent incorrectly report Hybrid Azure Active Directory (AD) Join virtual machines (VMs) as domain-joined.
+- Fixed an issue that made the Remote Desktop Agent incorrectly report Hybrid Azure Active Directory (AD) Join virtual machines (VMs) as domain-joined.
 - General improvements and bug fixes.
 
 ## Version 1.0.6425.1200
