@@ -3,7 +3,7 @@ title: Azure Automation data security
 description: This article helps you learn how Azure Automation protects your privacy and secures your data.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 04/02/2023
+ms.date: 05/26/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -60,7 +60,7 @@ When you delete an Automation account in Azure, all objects in the account are d
 
 ### Runbooks
 
-You can export your runbooks to script files using either the Azure portal or the [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure.service/get-azureautomationrunbookdefinition) cmdlet in Windows PowerShell. You can import these script files into another Automation account, as discussed in [Manage runbooks in Azure Automation](manage-runbooks.md).
+You can export your runbooks to script files using either the Azure portal or the [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) cmdlet in Windows PowerShell. You can import these script files into another Automation account, as discussed in [Manage runbooks in Azure Automation](manage-runbooks.md).
 
 ### Integration modules
 
