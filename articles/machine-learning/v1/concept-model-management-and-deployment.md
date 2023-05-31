@@ -56,7 +56,7 @@ Use ML pipelines from Azure Machine Learning to stitch together all of the steps
 
 An ML pipeline can contain steps from data preparation to feature extraction to hyperparameter tuning to model evaluation. For more information, see [ML pipelines](../concept-ml-pipelines.md).
 
-If you use the [Designer](../concept-designer.md) to create your ML pipelines, you may at any time click the **"..."** at the top-right of the Designer page and then select **Clone**. Cloning your pipeline allows you to iterate your pipeline design without losing your old versions.  
+If you use the [Designer](concept-designer.md) to create your ML pipelines, you may at any time click the **"..."** at the top-right of the Designer page and then select **Clone**. Cloning your pipeline allows you to iterate your pipeline design without losing your old versions.  
 
 ## Create reusable software environments
 

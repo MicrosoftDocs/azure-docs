@@ -4,7 +4,7 @@ description: Learn how to install and configure Azure Container Storage Preview 
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 05/15/2023
+ms.date: 05/30/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -143,7 +143,9 @@ az aks nodepool update --resource-group <resource group> --cluster-name <cluster
 
 ## Assign Contributor role to AKS managed identity
 
-Azure Container Service is a separate service from AKS, so you'll need to grant permissions to allow Azure Container Storage to provision storage for your cluster. Specifically, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
+Azure Container Service is a separate service from AKS, so you'll need to grant permissions to allow Azure Container Storage to provision storage for your cluster. Specifically, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity. You can do this using the Azure portal or Azure CLI. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
+
+# [Azure portal](#tab/portal)
 
 1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true), and search for and select **Kubernetes services**.
 1. Locate and select your AKS cluster. Select **Settings** > **Properties** from the left navigation.
@@ -156,6 +158,17 @@ Azure Container Service is a separate service from AKS, so you'll need to grant 
 1. Under **Managed identity**, select **User-assigned managed identity**.
 1. Under **Select**, search for and select the managed identity with your cluster name and `-agentpool` appended.
 1. Select **Review + assign**.
+
+# [Azure CLI](#tab/cli)
+
+Run the following commands to assign Contributor role to AKS managed identity. Remember to replace `<resource-group>` and `<cluster-name>` with your own values.
+
+```azurecli-interactive
+export AKS_MI_OBJECT_ID=$(az aks show --name <cluster-name> --resource-group <resource-group> --query "identityProfile.kubeletidentity.objectId" -o tsv)
+export AKS_NODE_RG=$(az aks show --name <cluster-name> --resource-group <resource-group> --query "nodeResourceGroup" -o tsv)
+az role assignment create --assignee $AKS_MI_OBJECT_ID --role "Contributor" --resource-group "$AKS_NODE_RG"
+```
+---
 
 ## Install Azure Container Storage
 

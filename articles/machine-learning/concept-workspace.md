@@ -5,7 +5,7 @@ description: The workspace is the top-level resource for Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: event-tier1-build-2022, ignite-2022, build-2023
 ms.topic: conceptual
 ms.author: deeikele
 author: deeikele
@@ -54,7 +54,7 @@ For machine learning team leads and administrators, workspaces serve as containe
 + **Create a workspace per project**: While a workspace can be used for multiple projects, limiting it to one project per workspace allows for cost reporting accrued to a project level. It also allows you to manage configurations like datastores in the scope of each project.
 + **Share Azure resources**: Workspaces require you to create several [associated resources](#associated-resources). Share these resources between workspaces to save repetitive setup steps.
 + **Enable self-serve**: Pre-create and secure [associated resources](#associated-resources) as an IT admin, and use [user roles](how-to-assign-roles.md) to let data scientists create workspaces on their own.
-+ **Share assets**: You can share assets between workspaces using [Azure Machine Learning registries (preview)](how-to-share-models-pipelines-across-workspaces-with-registries.md).
++ **Share assets**: You can share assets between workspaces using [Azure Machine Learning registries](how-to-share-models-pipelines-across-workspaces-with-registries.md).
 
 ## How is my content stored in a workspace?
 

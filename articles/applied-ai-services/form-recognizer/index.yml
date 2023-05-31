@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: laujan
   ms.author: lajanuar
-  ms.date: 08/22/2022
+  ms.date: 05/23/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 # Limits: https://review.learn.microsoft.com/help/contribute/contribute-how-to-write-landing-page?branch=main#limits
@@ -24,7 +24,7 @@ landingContent:
      linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Form Recognizer?
+          - text: 🆕 What is Azure Form Recognizer?
             url: overview.md
       - linkListType: whats-new
         links:
@@ -34,49 +34,83 @@ landingContent:
         links:
            - text: Language support
              url: language-support.md
+           - text: 🆕 SDK overview (preview)
+             url: sdk-preview.md
+           - text: SDK overview (GA)
+             url: sdk-overview.md
            - text: Help and support
              url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
-      - linkListType: concept
-        links:
-          - text: Read model 
-            url: concept-read.md
-          - text: General document model 
-            url: concept-general-document.md
-          - text: Layout model
-            url: concept-layout.md
-          - text: Custom model
-            url: concept-custom.md
-          - text: W-2 Form model 
-            url: concept-w2.md
-          - text: Invoice model
-            url: concept-invoice.md
-          - text: Receipt model
-            url: concept-receipt.md
-          - text: ID document model
-            url: concept-id-document.md
-          - text: Business card model
-            url: concept-business-card.md
 
   #Card 2
+   - title: Azure Form Recognizer features
+     linkLists:
+         - linkListType: concept
+           links:
+             - text: Read model
+               url: concept-read.md
+             - text: General document model
+               url: concept-general-document.md
+             - text: Layout model
+               url: concept-layout.md
+         - linkListType: concept
+           links:
+             - text: 🆕 Query field extraction (preview)
+               url:  concept-query-fields.md
+             - text: 🆕 Add-on capabilities (preview)
+               url:  concept-add-on-capabilities.md
+             - text: 🆕 Health insurance card model
+               url:  concept-insurance-card.md
+             - text: Custom model
+               url: concept-custom.md
+             - text: W-2 Form model
+               url: concept-w2.md
+             - text: Invoice model
+               url: concept-invoice.md
+             - text: Receipt model
+               url: concept-receipt.md
+             - text: ID document model
+               url: concept-id-document.md
+             - text: Business card model
+               url: concept-business-card.md
+
+  #Card 3
+   - title: Azure Form Recognizer Studio 
+     linkLists:
+      - linkListType: overview
+        links:
+          - text: Studio overview
+            url: form-recognizer-studio-overview.md
+      - linkListType: get-started
+        links:
+          - text: Read model
+            url: https://formrecognizer.appliedai.azure.com/studio/read
+          - text: General document model
+            url: https://formrecognizer.appliedai.azure.com/studio/document
+          - text:  Layout model
+            url: https://formrecognizer.appliedai.azure.com/studio/layout
+          - text:  Custom model
+            url: https://formrecognizer.appliedai.azure.com/studio/custommodel/projects
+          - text: 🆕 Health insurance card model
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us
+          - text: W2 model
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2
+          - text:  Invoice model
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice
+          - text:  Receipt model
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt
+          - text:  ID Document model
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument
+          - text:  Business Card model
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard
+  #Card 4
    - title: Quickstarts and how-to-guides
      linkLists:
       - linkListType: quickstart
         links:
-        - text: Form Recognizer Studio 
+        - text: Form Recognizer Studio
           url: quickstarts/try-v3-form-recognizer-studio.md
-        - text: Form Recognizer Sample Labeling tool
-          url: quickstarts/try-sample-label-tool.md
-        - text: REST API
+        - text: Form Recognizer SDK
           url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
-        - text: C# SDK
-          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
-        - text: Java SDK
-          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
-        - text: JavaScript SDK
-          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
-        - text: Python SDK
-          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
-
       - linkListType: how-to-guide
         links:
           - text: Create a Form Recognizer resource
@@ -96,36 +130,7 @@ landingContent:
           - text: Create and use managed identities
             url: managed-identities.md
 
-  #Card 3
-   - title: Form Recognizer Studio (v3.0)
-     linkLists:
-      - linkListType: overview
-        links:
-          - text: Studio overview
-            url: form-recognizer-studio-overview.md
-      - linkListType: get-started
-        links:
-          - text: Read model 
-            url: https://formrecognizer.appliedai.azure.com/studio/read
-          - text: General document model 
-            url: https://formrecognizer.appliedai.azure.com/studio/document
-          - text:  Layout model
-            url: https://formrecognizer.appliedai.azure.com/studio/layout
-          - text:  Custom model
-            url: https://formrecognizer.appliedai.azure.com/studio/custommodel/projects
-          - text: W2 model 
-            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2
-          - text:  Invoice model
-            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice
-          - text:  Receipt model
-            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt
-          - text:  ID Document model
-            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument
-          - text:  Business Card model
-            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard
-
-
-  #Card 4
+  #Card 5
    - title: Online presentations and community support
      linkLists:
       - linkListType: video
@@ -151,7 +156,7 @@ landingContent:
           - text: Extract values and line items from invoices with Form Recognizer now generally available
             url:  https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/extract-values-and-line-items-from-invoices-with-form-recognizer/ba-p/2414729
 
-# Card 5
+# Card 6
    - title: Responsible AI
      linkLists:
       - linkListType: reference

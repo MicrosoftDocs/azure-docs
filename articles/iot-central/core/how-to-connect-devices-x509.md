@@ -1,6 +1,5 @@
 ---
 title: Connect devices with X.509 certificates to your application
-titleSuffix: Azure IoT Central
 description: This article describes how devices can use X.509 certificates to authenticate to your application.
 author: dominicbetts
 ms.author: dobett

@@ -25,22 +25,19 @@ The Rubrik Security Cloud data connector enables security operations teams to in
 
 **Rubrik Anomaly Events - Anomaly Events for all severity types.**
    ```kusto
-Rubrik_Anomaly_Data_CL
- 
+   Rubrik_Anomaly_Data_CL
    | sort by TimeGenerated desc
    ```
 
 **Rubrik Ransomware Analysis Events - Ransomware Analysis Events for all severity types.**
    ```kusto
-Rubrik_Ransomware_Data_CL
- 
+   Rubrik_Ransomware_Data_CL
    | sort by TimeGenerated desc
    ```
 
 **Rubrik ThreatHunt Events - Threat Hunt Events for all severity types.**
    ```kusto
-Rubrik_ThreatHunt_Data_CL
- 
+   Rubrik_ThreatHunt_Data_CL
    | sort by TimeGenerated desc
    ```
 
@@ -132,7 +129,7 @@ If you're already signed in, go to the next step.
 		RansomwareAnalysis_table_name
 		ThreatHunts_table_name
 		logAnalyticsUri (optional)
- - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: https://<CustomerId>.ods.opinsights.azure.us. 
+ - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`. 
 4. Once all application settings have been entered, click **Save**.
 
 
