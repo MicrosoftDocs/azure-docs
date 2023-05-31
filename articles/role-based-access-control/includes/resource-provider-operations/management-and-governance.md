@@ -38,7 +38,7 @@ Azure service: [Azure Advisor](../../../advisor/index.yml)
 
 ### Microsoft.Authorization
 
-Azure service: [Azure Policy](../../../governance/policy/overview.md), [Azure RBAC](overview.md), [Azure Resource Manager](../../../azure-resource-manager/index.yml)
+Azure service: [Azure Policy](../../../governance/policy/overview.md), [Azure RBAC](../../overview.md), [Azure Resource Manager](../../../azure-resource-manager/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
