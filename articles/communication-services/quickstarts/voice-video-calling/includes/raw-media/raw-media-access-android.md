@@ -221,7 +221,7 @@ Because the app generates the video frames, the app must inform the Azure Commun
         VideoStreamFormat videoStreamFormat = args.Format;
     });
 
-6. Create and instance of the following helper class to generate random `RawVideoFrame`'s using `VideoStreamPixelFormat.RGBA`
+6. Create an instance of the following helper class to generate random `RawVideoFrame`'s using `VideoStreamPixelFormat.RGBA`
 
     ```java
     public class VideoFrameSender

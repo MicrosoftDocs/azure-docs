@@ -195,7 +195,7 @@ Because the app generates the video frames, the app must inform the Azure Commun
         VideoStreamFormat videoStreamFormat = args.Format;
     }
     ```
-6. Create and instance of the following helper class to access the buffer data
+6. Create an instance of the following helper class to access the buffer data
     ```csharp
     [ComImport]
     [Guid("5B0D3235-4DBA-4D44-865E-8F1D0E4FD04D")]
@@ -233,7 +233,8 @@ Because the app generates the video frames, the app must inform the Azure Commun
         }
     }
     ```
-7. Create and instance of the following helper class to generate random `RawVideoFrame`'s using `VideoStreamPixelFormat.Rgba`
+
+7. Create an instance of the following helper class to generate random `RawVideoFrame`'s using `VideoStreamPixelFormat.Rgba`
     ```csharp
     public class VideoFrameSender
     {

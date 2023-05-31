@@ -403,7 +403,7 @@ Because the app generates the video frames, the app must inform the Azure Commun
     virtualOutgoingVideoStream.delegate = /* Attach delegate and implement didChangeFormat */
     ```
 
-5. Create and instance of the following helper class to access `CVPixelBuffer` data
+5. Create an instance of the following helper class to access `CVPixelBuffer` data
 
     ```swift
     final class BufferExtensions: NSObject {
@@ -426,7 +426,7 @@ Because the app generates the video frames, the app must inform the Azure Commun
     }
     ```
 
-6. Create and instance of the following helper class to generate random `RawVideoFrameBuffer`'s using `VideoStreamPixelFormat.rgba`
+6. Create an instance of the following helper class to generate random `RawVideoFrameBuffer`'s using `VideoStreamPixelFormat.rgba`
 
     ```swift
     final class VideoFrameSender : NSObject
