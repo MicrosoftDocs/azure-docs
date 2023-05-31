@@ -119,33 +119,68 @@ Create a new `RoomsClient` object that will be used to create new `rooms` and ma
 String connectionString = "<connection string>";
 RoomsClient roomsClient = new RoomsClientBuilder().connectionString(connectionString).buildClient();
 
+```
+
+## Create a room
+
+### Set up room participants
+In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-csharp) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
+
+To use `CommunicationIdentityClient`, add the following package:
+
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-communication-identity</artifactId>
+</dependency>
+```
+
+Import the package on top on your `App.java` file:
+```java
+import com.azure.communication.identity.CommunicationIdentityClient;
+import com.azure.communication.identity.CommunicationIdentityClientBuilder;
+```
+
+Now, the `CommunicationIdentityClient` can be initialized and used to create users:
+```java
 // Create communication identities
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
     .connectionString(connectionString)
     .buildClient();
 
 //Create Participants
-RoomParticipant participant_1 = new RoomParticipant(communicationClient.createUser());
-RoomParticipant participant_2 = new RoomParticipant(communicationClient.createUser());
-RoomParticipant participant_3 = new RoomParticipant(communicationClient.createUser());
-
-
+CommunicationUserIdentifier user1 = communicationClient.createUser();
+CommunicationUserIdentifier user2 = communicationClient.createUser();
+CommunicationUserIdentifier user3 = communicationClient.createUser();
 ```
 
-## Create a room
-
-Create a new `room` with default properties using the code snippet below:
-
+Then, create the list of room participants by referencing those users:
 ```java
-
-// Create room
-OffsetDateTime validFrom = OffsetDateTime.now();
-OffsetDateTime validUntil = validFrom.plusDays(30);
+// Create communication identities
+CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
+    .connectionString(connectionString)
+    .buildClient();
+    
+    
+RoomParticipant participant_1 = new RoomParticipant(user1);
+RoomParticipant participant_2 = new RoomParticipant(user2);
+RoomParticipant participant_3 = new RoomParticipant(user3);
 
 List<RoomParticipant> roomParticipants = new ArrayList<RoomParticipant>();
 
 roomParticipants.add(participant_1);
 roomParticipants.add(participant_2.setRole(ParticipantRole.CONSUMER));
+
+```
+
+
+### Initialize the room
+Create a new `room` using the `participants` defined in the code snippet above:
+
+```java
+// Create room
+OffsetDateTime validFrom = OffsetDateTime.now();
+OffsetDateTime validUntil = validFrom.plusDays(30);
 
 CreateRoomOptions roomOptions = new CreateRoomOptions()
     .setValidFrom(validFrom)
@@ -263,10 +298,10 @@ try {
     int count = 0;
     
     for (CommunicationRoom room : rooms) {
-        System.out.println("\nFirst room ID in the list of rooms: " + room.getRoomId());
+        System.out.println("\nFirst two room ID's in the list of rooms: " + room.getRoomId());
         count++;
         
-        if (count >= 1) {
+        if (count >= 2) {
                 break;
         }
     }
