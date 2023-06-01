@@ -123,7 +123,7 @@ Now you can use your private AKS cluster with Chaos Studio. To learn how to inst
 
 1. When you enable targets for the AKS cluster so that you can use it in Chaos experiments, set the `properties.subnets.containerSubnetId` and `properties.subnets.relaySubnetId` properties by using the new subnets you created in step 3.
 
-    Replace `$SUBSCRIPTION_ID` with your Azure subscription ID. Replace `$RESOURCE_GROUP` and `$AKS_CLUSTER` with the resource group name and your AKS cluster resource name. Also, replace `$AKS_INFRA_RESOURCE_GROUP` and `$AKS_VNET` with your AKS's infrastructure resource group name and virtual network name. Replace `$URL` with the corresponding `https://management.azure.com/` URL used for onboarding the target.
+    Replace `$SUBSCRIPTION_ID` with your Azure subscription ID. Replace `$RESOURCE_GROUP` and `$AKS_CLUSTER` with the resource group name and your AKS cluster resource name. Also, replace `$AKS_INFRA_RESOURCE_GROUP` and `$AKS_VNET` with your AKS infrastructure resource group name and virtual network name. Replace `$URL` with the corresponding `https://management.azure.com/` URL used for onboarding the target.
 
     ```azurecli
     CONTAINER_SUBNET_ID=/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$AKS_INFRA_RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/$AKS_VNET/subnets/ChaosStudioContainerSubnet
