@@ -154,16 +154,6 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
    > Default access role is not supported as this will break provisioning, so the default role cannot be selected while assigning user.
 
 ## Configure Zscaler ZSCloud SSO
-
-1. To automate the configuration within Zscaler ZSCloud, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
-
-   ![My apps extension](common/install-myappssecure-extension.png)
-
-2. After adding extension to the browser, click on **Setup Zscaler ZSCloud** will direct you to the Zscaler ZSCloud application. From there, provide the admin credentials to sign into Zscaler ZSCloud. The browser extension will automatically configure the application for you and automate steps 3-6.
-
-   ![Setup sso](common/setup-sso.png)
-
-
 1. In a different web browser window, sign in to your Zscaler ZSCloud company site as an administrator
 
 4. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:

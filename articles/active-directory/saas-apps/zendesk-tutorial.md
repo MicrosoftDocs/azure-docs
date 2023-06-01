@@ -131,13 +131,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ## Configure Zendesk SSO
 
 You can set up one SAML configuration for team members and a second SAML configuration for end users.
-
-1. To automate the configuration within **Zendesk**, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
-
-	![Screenshot shows the Install the extension button.](./media/target-process-tutorial/install_extension.png)
-
-
-
 1. In a different web browser window, sign in to your up Zendesk company site as an administrator
 
 1. In the **Zendesk Admin Center**, go to **Account -> Security -> Single sign-on**, then click **Create SSO configuration** and select **SAML**.

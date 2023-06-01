@@ -134,11 +134,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure EasySSO for Confluence SSO
-
-
-
-
-1. In a different web browser window, sign in to your EasySSO for Confluence company site as an administrator
+1. In a different web browser window, sign in to your EasySSO for Confluence company site as an administrator and navigate to the **Manage Apps** section. 
 
     ![Manage Apps](./media/easysso-for-confluence-tutorial/confluence-admin-1.png)
 

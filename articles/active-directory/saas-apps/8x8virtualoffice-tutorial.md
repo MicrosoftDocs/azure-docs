@@ -129,10 +129,7 @@ The next part of the tutorial depends on what kind of subscription you have with
 
 ### Configure 8x8 Admin Console
 
-
-
-
-1. In a different web browser window, sign in to your 8x8 company site as an administrator
+1. In a different web browser window, sign in to the 8x8 [Admin Console](https://admin.8x8.com/) as an administrator.
 
 1. From the home page click **Identity Management**.
 

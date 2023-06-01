@@ -162,11 +162,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure SAP Cloud Identity Services SSO
-
-
-
-
-1. In a different web browser window, sign in to your up SAP Cloud Identity Services company site as an administrator
+1. In a different web browser window,go to the SAP Cloud Identity Services administration console. The URL has the following pattern: `https://<tenant-id>.accounts.ondemand.com/admin`. Then read the documentation about SAP Cloud Identity Services at [Integration with Microsoft Azure AD](https://developers.sap.com/tutorials/cp-ias-azure-ad.html).
 
 2. In the Azure portal, select the **Save** button.
 

@@ -115,11 +115,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure SAP Concur Travel and Expense SSO
-
-
-
-
-1. In a different web browser window, sign in to your SAP Concur Travel and Expense company site as an administrator
+1. In a different web browser window, you need to upload the downloaded **Federation Metadata XML** to [Concur SSO Self-Service Tool](https://www.concursolutions.com/nui/authadmin/ssoadmin) and sign in to your SAP Concur Travel and Expense company site as an administrator.
 
 1. Click **Add**.
 1. Enter a custom name for your IdP, for example "Azure AD (US)". 
