@@ -124,7 +124,7 @@ RoomsClient roomsClient = new RoomsClientBuilder().connectionString(connectionSt
 ## Create a room
 
 ### Set up room participants
-In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-csharp) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
+In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-java) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
 
 To use `CommunicationIdentityClient`, add the following package:
 
@@ -143,12 +143,10 @@ import com.azure.communication.identity.CommunicationIdentityClientBuilder;
 
 Now, the `CommunicationIdentityClient` can be initialized and used to create users:
 ```java
-// Create communication identities
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
     .connectionString(connectionString)
     .buildClient();
 
-//Create Participants
 CommunicationUserIdentifier user1 = communicationClient.createUser();
 CommunicationUserIdentifier user2 = communicationClient.createUser();
 CommunicationUserIdentifier user3 = communicationClient.createUser();
@@ -156,12 +154,6 @@ CommunicationUserIdentifier user3 = communicationClient.createUser();
 
 Then, create the list of room participants by referencing those users:
 ```java
-// Create communication identities
-CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
-    .connectionString(connectionString)
-    .buildClient();
-    
-    
 RoomParticipant participant_1 = new RoomParticipant(user1);
 RoomParticipant participant_2 = new RoomParticipant(user2);
 RoomParticipant participant_3 = new RoomParticipant(user3);
@@ -170,15 +162,13 @@ List<RoomParticipant> roomParticipants = new ArrayList<RoomParticipant>();
 
 roomParticipants.add(participant_1);
 roomParticipants.add(participant_2.setRole(ParticipantRole.CONSUMER));
-
 ```
 
 
 ### Initialize the room
-Create a new `room` using the `participants` defined in the code snippet above:
+Create a new `room` using the `roomParticipants` defined in the code snippet above:
 
 ```java
-// Create room
 OffsetDateTime validFrom = OffsetDateTime.now();
 OffsetDateTime validUntil = validFrom.plusDays(30);
 
@@ -213,7 +203,6 @@ The lifetime of a `room` can be modified by issuing an update request for the `V
 
 ```java
 
-// Update room lifetime
 OffsetDateTime validFrom = OffsetDateTime.now().plusDays(1);
 OffsetDateTime validUntil = validFrom.plusDays(1);
 
@@ -232,7 +221,6 @@ To add or update participants to a `room`, use the `addOrUpdateParticipants` met
 
 ```java
 
-// Add participants to room
 List<RoomParticipant> participantsToAddAOrUpdate = new ArrayList<>();
 
 // Adding new participant
