@@ -203,10 +203,6 @@ A custom control plane managed identity enables access to the existing identity 
 
 ### Update control plane identity on an existing cluster 
 
-#### Prerequisites
-
-Make sure you have Azure CLI version 2.49.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
 * If you don't have a managed identity, create one using the [`az identity create`][az-identity-create] command.
 
     ```azurecli-interactive
@@ -261,10 +257,6 @@ Make sure you have Azure CLI version 2.49.0 or later installed. Run `az --versio
 ## Use a pre-created kubelet managed identity
 
 A kubelet identity enables access to the existing identity prior to cluster creation. This feature enables scenarios such as connection to ACR with a pre-created managed identity.
-
-### Prerequisites
-
-Make sure you have Azure CLI version 2.26.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ### Pre-created kubelet identity limitations
 
