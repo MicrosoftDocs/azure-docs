@@ -1199,6 +1199,8 @@ items:
     href: summarization/overview.md
   - name: Summarization quickstart
     href: summarization/quickstart.md
+  - name: Custom summarization quickstart
+    href: summarization/custom/quickstart.md
   - name: Summarization language support
     href: summarization/language-support.md
   - name: Responsible use of AI
@@ -1220,6 +1222,8 @@ items:
       href: summarization/how-to/document-summarization.md
     - name: Call the conversation summarization API
       href: summarization/how-to/conversation-summarization.md
+    - name: Utilize custom summarization data formats
+      href: summarization/custom/how-to/data-formats.md
   - name: Reference
     items:
     - name: REST API
