@@ -65,7 +65,7 @@ In this tutorial, you use these tools:
 ||[Plotly](https://plotly.com/python/)| An open source graphing library for Python. |
 ||[Scikit-learn](https://scikit-learn.org/stable/)|An open source Python library that implements machine learning algorithms for predictive data analysis.|    
 
-## Integrate your Log Analytics workspace with your notebook 
+## 1. Integrate your Log Analytics workspace with your notebook 
 
 1. Install the Azure Monitor Query, Azure Identity and Azure Monitor Ingestion client libraries along with the Pandas data analysis library, Plotly visualization library, and Scikit-learn machine learning library:
 
@@ -141,7 +141,7 @@ In this tutorial, you use these tools:
         graph.show()
     ```
 
-## Explore and visualize data from your Log Analytics workspace in your notebook
+## 2. Explore and visualize data from your Log Analytics workspace in your notebook
 
 Now that you've integrated your Log Analytics workspace with your notebook, let's look at some data in the workspace by running a query from the notebook:
 
@@ -179,7 +179,7 @@ Now that you've integrated your Log Analytics workspace with your notebook, let'
 
     You've successfully queried and visualized log data from your Log Analytics workspace in your notebook.
     
-## Run the steps of the machine learning lifecycle
+## 3. Run the steps of the machine learning lifecycle
 
 > [!NOTE]
 > Model training is an iterative process that begins with data preparation and cleaning, and usually involves experimenting with several models until you find a model that's a good fit for your data set.
@@ -187,7 +187,7 @@ Now that you've integrated your Log Analytics workspace with your notebook, let'
 >- Skip the data cleaning step.
 >- Experiment with only two models to see which best fits our data set.
 
-### Prepare data for model training
+### 4. Prepare data for model training
 
 After exploring the available data, let's use a subset of the data for model training: 
 
