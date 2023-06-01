@@ -53,7 +53,7 @@ Customers can change the value maximum number of connections using either of the
 
 * Scale your Azure Postgres instance up to a SKU with more memory size. 
 
-**Note**: Scaling up Azure Postgres instances impacts the account’s billing. To learn more, refer [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/en-us/pricing/details/postgresql/flexible-server/).
+**Note**: Scaling up Azure Postgres instances impacts the account’s billing. To learn more, refer [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
 
 When connections exceed the limit, you may receive the following error:
 > FATAL:  sorry, too many clients already.
