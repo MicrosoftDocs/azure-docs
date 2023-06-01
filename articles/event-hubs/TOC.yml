@@ -53,6 +53,9 @@
           items:
           - name: Java
             href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+        - name: Send events using Data Generator
+          href: send-and-receive-events-using-data-generator.md
+          displayName: No Code, Sample data
     - name: Capture events
       items:
         - name: Use the Azure portal to enable Event Hubs Capture
@@ -280,16 +283,18 @@
             href: event-hubs-kafka-mirrormaker-2-tutorial.md
           - name: Using Apache Kafka Mirror Maker 1
             href: event-hubs-kafka-mirror-maker-tutorial.md
-        - name: Connect Apache Spark to an event hub
-          href: event-hubs-kafka-spark-tutorial.md
-        - name: Connect Apache Flink to an event hub
-          href: event-hubs-kafka-flink-tutorial.md
-        - name: Integrate Apache Kafka Connect 
-          href: event-hubs-kafka-connect-tutorial.md
-        - name: Integrate Apache Kafka Connect with Debezium
-          href: event-hubs-kafka-connect-debezium.md
-        - name: Connect Akka Streams to an event hub
-          href: event-hubs-kafka-akka-streams-tutorial.md
+        - name: Kafka Connect with Event Hubs
+          items:
+          - name: Connect Apache Spark to an event hub
+            href: event-hubs-kafka-spark-tutorial.md
+          - name: Connect Apache Flink to an event hub
+            href: event-hubs-kafka-flink-tutorial.md
+          - name: Integrate Apache Kafka Connect 
+            href: event-hubs-kafka-connect-tutorial.md
+          - name: Integrate Apache Kafka Connect with Debezium
+            href: event-hubs-kafka-connect-debezium.md
+          - name: Connect Akka Streams to an event hub
+            href: event-hubs-kafka-akka-streams-tutorial.md
         - name: FAQ - Event Hubs for Kafka
           href: apache-kafka-frequently-asked-questions.yml
     - name: Manage and monitor

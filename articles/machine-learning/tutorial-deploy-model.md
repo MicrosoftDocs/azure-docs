@@ -251,6 +251,8 @@ from azure.ai.ml.entities import ManagedOnlineDeployment
 model = ml_client.models.get(name=registered_model_name, version=latest_model_version)
 
 # define an online deployment
+# if you run into an out of quota error, change the instance_type to a comparable VM that is available.\
+# Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
 blue_deployment = ManagedOnlineDeployment(
     name="blue",
     endpoint_name=online_endpoint_name,
@@ -367,6 +369,8 @@ Deploy the model as a second deployment called `green`. In practice, you can cre
 model = ml_client.models.get(name=registered_model_name, version=latest_model_version)
 
 # define an online deployment using a more powerful instance type
+# if you run into an out of quota error, change the instance_type to a comparable VM that is available.\
+# Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
 green_deployment = ManagedOnlineDeployment(
     name="green",
     endpoint_name=online_endpoint_name,

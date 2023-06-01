@@ -31,11 +31,11 @@ In this tutorial:
 
 ## Install the notation CLI and AKV plugin
 
-1. Install notation v1.0.0-rc.4 on a Linux environment. You can also download the package for other environments by following the [Notation installation guide](https://notaryproject.dev/docs/installation/cli/).
+1. Install notation v1.0.0-rc.5 on a Linux environment. You can also download the package for other environments by following the [Notation installation guide](https://notaryproject.dev/docs/installation/cli/).
 
     ```bash
     # Download, extract and install
-    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.0.0-rc.4/notation_1.0.0-rc.4_linux_amd64.tar.gz
+    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.0.0-rc.5/notation_1.0.0-rc.5_linux_amd64.tar.gz
     tar xvzf notation.tar.gz
             
     # Copy the notation cli to the desired bin directory in your PATH

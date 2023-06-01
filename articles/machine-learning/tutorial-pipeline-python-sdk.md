@@ -172,6 +172,9 @@ except Exception:
     print("Creating a new cpu compute target...")
 
     # Let's create the Azure Machine Learning compute object with the intended parameters
+    # if you run into an out of quota error, change the size to a comparable VM that is available.\
+    # Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
+
     cpu_cluster = AmlCompute(
         name=cpu_compute_target,
         # Azure Machine Learning Compute is the on-demand VM service

@@ -20,7 +20,7 @@ Azure Machine Learning is a cloud service for accelerating and managing the mach
 You can create a model in Azure Machine Learning or use a model built from an open-source platform, such as Pytorch, TensorFlow, or scikit-learn. MLOps tools help you monitor, retrain, and redeploy models. 
 
 > [!Tip]
-> **Free trial!**  If you don’t have an Azure subscription, create a free account before you begin. [Try the free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/machine-learning/search/). You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
+> **Free trial!**  If you don't have an Azure subscription, create a free account before you begin. [Try the free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/machine-learning/search/). You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
 
 ## Who is Azure Machine Learning for?
 
@@ -90,6 +90,7 @@ Other integrations with Azure services support a machine learning project from e
 * Azure Arc, where you can run Azure services in a Kubernetes environment
 * Storage and database options, such as Azure SQL Database, Azure Storage Blobs, and so on
 * Azure App Service allowing you to deploy and manage ML-powered apps
+* [Microsoft Purview allows you to discover and catalog data assets across your organization](../purview/register-scan-azure-machine-learning.md)
 
 > [!Important]
 > Azure Machine Learning doesn't store or process your data outside of the region where you deploy.

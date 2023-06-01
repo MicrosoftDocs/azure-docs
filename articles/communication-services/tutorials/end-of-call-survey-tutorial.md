@@ -30,11 +30,9 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 -	[Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
 
 -	An active Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
--	An active Log Analytics Workspace, also known as Azure Monitor Logs. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md).
+-	An active Log Analytics Workspace, also known as Azure Monitor Logs. See [End of Call Survey Logs](../concepts/analytics/logs/end-of-call-survey-logs.md).
 -	To conduct a survey with custom questions using free form text, you will need an [App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
 
-
-<!-- -	An active Log Analytics Workspace, also known as Azure Monitor Logs, to ensure you don't lose your survey results. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md). -->
 
 > [!IMPORTANT]
 > End of Call Survey is available starting on the version [1.13.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.1) of the Calling SDK. Make sure to use that version or later when trying the instructions.
@@ -165,7 +163,7 @@ Screenshare. However, each API value can be customized from a minimum of
 In addition to using the End of Call Survey API you can create your own survey questions and incorporate them with the End of Call Survey results. Below you'll find steps to incorporate your own customer questions into a survey and query the results of the End of Call Survey API and your own survey questions.
 -  [Create App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
 -  Embed Azure AppInsights into your application [Click here to know more about App Insight initialization using plain JavaScript](../../azure-monitor/app/javascript-sdk.md). Alternatively, you can use NPM to get the App Insights dependences. [Click here to know more about App Insight initialization using NPM](../../azure-monitor/app/javascript-sdk-advanced.md).
--  Build an UI in your application that will serve custom questions to the user and gather their input, lets assume that your application gathered responses as a string in the `improvementSuggestion` variable
+-  Build a UI in your application that will serve custom questions to the user and gather their input, lets assume that your application gathered responses as a string in the `improvementSuggestion` variable
 
 -  Submit survey results to ACS and send user response using App Insights:
 	``` javascript
@@ -208,19 +206,18 @@ User responses that were sent using AppInsights will be available under your App
 -  Finally merge these two queries by surveyId. Create new query (+Add -> Add query).
 -  Make suer the `Data source` is Merge and select `Merge type` as needed
 
-<!-- 
+
 ## Collect survey data
 
 > [!IMPORTANT]
-> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost. To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md)
+> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost. To enable these logs for your Communications Services, see: [End of Call Survey Logs](../concepts/analytics/logs/end-of-call-survey-logs.md)
 	
 
 ### View survey data with a Log Analytics workspace
 
-You need to enable a Log Analytics Workspace to both store the log data of your surveys and access survey results. To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md). Follow the steps to add a diagnostic setting. Select the “ACSCallSurvey” data source when choosing category details. Also, choose “Send to Log Analytics workspace” as your destination detail.
+You need to enable a Log Analytics Workspace to both store the log data of your surveys and access survey results. To enable these logs for your Communications Service, see: [End of Call Survey Logs](../concepts/analytics/logs/end-of-call-survey-logs.md). 
 
--	You can also integrate your Log Analytics workspace with Power BI, see: [Integrate Log Analytics with Power BI](../../../articles/azure-monitor/logs/log-powerbi.md)
- -->
+-	You can also integrate your Log Analytics workspace with Power BI, see: [Integrate Log Analytics with Power BI](../../../articles/azure-monitor/logs/log-powerbi.md).
 
 ## Best practices
 Here are our recommended survey flows and suggested question prompts for consideration. Your development can use our recommendation or use customized question prompts and flows for your visual interface.
@@ -238,17 +235,18 @@ If a survey participant responded to Question 1 with a score at or below the cut
 -	Suggested prompt: “What could have been better?” 
 -	API Question Values: Audio, Video, and Screenshare 
 
-Surveying Guidelines
+### Surveying Guidelines
 -	Avoid survey burnout, don’t survey all call participants.
 -	The order of your questions matters. We recommend you randomize the sequence of optional tags in Question 2 in case respondents focus most of their feedback on the first prompt they visually see.
-<!-- -	Consider using surveys for separate Azure Communication Services Resources in controlled experiments to identify release impacts.   -->
+-	Consider using surveys for separate Azure Communication Services Resources in controlled experiments to identify release impacts.
 
 
 ## Next steps
 
+- Analyze your survey data, see: [End of Call Survey Logs](../concepts/analytics/logs/end-of-call-survey-logs.md)
+
 - Learn more about the End of Call Survey, see: [End of Call Survey overview](../concepts/voice-video-calling/end-of-call-survey-concept.md)
 
-<!-- -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
+-	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
--	Create your own queries in Log Analytics, see: [Get Started Queries](../../../articles/azure-monitor/logs/get-started-queries.md) -->
-
+-	Create your own queries in Log Analytics, see: [Get Started Queries](../../../articles/azure-monitor/logs/get-started-queries.md)

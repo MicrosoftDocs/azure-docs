@@ -201,3 +201,4 @@ For the supported regions for Azure Firewall, see [Azure products available by r
 - [Learn about Azure Firewall Premium certificates](premium-certificates.md)
 - [Deploy and configure Azure Firewall Premium](premium-deploy.md)
 - [Migrate to Azure Firewall Premium](premium-migrate.md)
+- [Learn more about Azure network security](../networking/security/index.yml)

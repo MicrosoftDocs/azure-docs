@@ -66,6 +66,15 @@ The following table shows locations by service provider. If you want to view ava
 | **China Telecom Global** |Supported |Supported | Hong Kong, Hong Kong2 |
 | **[China Unicom Global](https://cloudbond.chinaunicom.cn/home-en)** | Supported | Supported | Frankfurt, Hong Kong, Singapore2, Tokyo2 |
 | **Chunghwa Telecom** |Supported |Supported | Taipei |
+| **Claro** |Supported |Supported | Miami |
+| **Cloudflare** |Supported |Supported | Los Angeles |
+| **[Cologix](https://cologix.com/connectivity/cloud/cloud-connect/microsoft-azure/)** |Supported |Supported | Chicago, Dallas, Minneapolis, Montreal, Toronto, Vancouver, Washington DC |
+| **[Colt](https://www.colt.net/direct-connect/azure/)** |Supported |Supported | Amsterdam, Amsterdam2, Berlin, Chicago, Dublin, Frankfurt, Geneva, Hong Kong, London, London2, Marseille, Milan, Munich, Newport, Osaka, Paris, Seoul, Silicon Valley, Singapore2, Tokyo, Tokyo2, Washington DC, Zurich |
+| **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Supported |Supported | Chicago, Silicon Valley, Washington DC |
+| **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Supported |Supported | Chicago, Chicago2, Denver, Los Angeles, New York, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
+| **[Cox Business Cloud Port](https://www.cox.com/business/networking/cloud-connectivity.html)** |Supported |Supported | Dallas, Phoenix, Silicon Valley, Washington DC |
+| **Crown Castle** |Supported |Supported | New York |
+| **[DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service)** | Supported |Supported | Amsterdam2, Chennai, Chicago2, Dallas, Dubai2, Frankfurt, Frankfurt2, Kuala Lumpur, Madrid, Marseille, Mumbai, Munich, New York, Phoenix, Singapore2 |
 | **[Cirion Technologies](https://lp.ciriontechnologies.com/cloud-connect-lp-latam?c_campaign=HOTSITE&c_tactic=&c_subtactic=&utm_source=SOLUCIONES-CTA&utm_medium=Organic&utm_content=&utm_term=&utm_campaign=HOTSITE-ESP)** | Supported | Supported | Bogota, Queretaro, Rio De Janeiro |
 | **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** |Supported |Supported | Miami |
 | **Cloudflare** |Supported |Supported | Los Angeles |
@@ -75,7 +84,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Supported | Supported | Chicago, Chicago2, Denver, Los Angeles, New York, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
 | **[Cox Business Cloud Port](https://www.cox.com/business/networking/cloud-connectivity.html)** | Supported | Supported | Dallas, Phoenix, Silicon Valley, Washington DC |
 | **Crown Castle** | Supported | Supported | New York, Washington DC |
-| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Supported |Supported | Amsterdam2, Chennai, Chicago2, Dallas, Dubai2, Frankfurt, Frankfurt2, Kuala Lumpur, Madrid, Marseille, Mumbai, Munich, New York, Phoenix, Singapore2 |
+| **[DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service)** | Supported |Supported | Amsterdam2, Chennai, Chicago2, Dallas, Dubai2, Frankfurt, Frankfurt2, Kuala Lumpur, Madrid, Marseille, Mumbai, Munich, New York, Phoenix, Singapore2 |
 | **[Devoli](https://devoli.com/expressroute)** | Supported |Supported | Auckland, Melbourne, Sydney |
 | **[Deutsche Telekom AG IntraSelect](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | Supported |Supported | Frankfurt |
 | **[Deutsche Telekom AG](https://www.t-systems.com/de/en/cloud-services/managed-platform-services/azure-managed-services/cloudconnect-for-azure)** | Supported |Supported | Frankfurt2, Hong Kong2 |
@@ -131,13 +140,22 @@ The following table shows locations by service provider. If you want to view ava
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** | Supported | Supported | Amsterdam, Hong Kong SAR, London, Los Angeles, New York, Osaka, Singapore, Sydney, Tokyo, Washington DC |
 | **NTT Communications India Network Services Pvt Ltd** | Supported | Supported | Chennai, Mumbai |
 | **NTT Communications - Flexible InterConnect** |Supported |Supported | Jakarta, Osaka, Singapore2, Tokyo, Tokyo2 |
+| **[NTT EAST](https://business.ntt-east.co.jp/service/crossconnect/)** |Supported |Supported | Tokyo |
+| **[NTT Global DataCenters EMEA](https://hello.global.ntt/)** |Supported |Supported | Amsterdam2, Berlin, Frankfurt, London2 |
+| **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |Supported |Supported | Osaka |
+| **[Ooredoo Cloud Connect](https://www.ooredoo.com.kw/portal/en/b2bOffConnAzureExpressRoute)** |Supported |Supported | Doha, Doha2, London2, Marseille |
+| **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link/)** |Supported |Supported | Melbourne, Sydney |
+| **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Supported |Supported | Amsterdam, Amsterdam2, Chicago, Dallas, Dubai2, Frankfurt, Hong Kong SAR, Johannesburg, London, London2, Mumbai2, Melbourne, Paris, Sao Paulo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
+| **[Orixcom](https://www.orixcom.com/solutions/azure-expressroute)** | Supported | Supported | Dubai2 |
+| **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Supported |Supported | Amsterdam, Chicago, Dallas, Denver, Las Vegas, London, Los Angeles2, Miami, New York, Silicon Valley, Toronto, Washington DC |
+| **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Supported |Supported | Chicago, Hong Kong, Hong Kong2, London, Singapore, Singapore2, Tokyo2 |
 | **[NTT EAST](https://business.ntt-east.co.jp/service/crossconnect/)** | Supported | Supported | Tokyo |
 | **[NTT Global DataCenters EMEA](https://hello.global.ntt/)** | Supported | Supported | Amsterdam2, Berlin, Frankfurt, London2 |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** | Supported | Supported | Osaka |
 | **[Ooredoo Cloud Connect](https://www.ooredoo.com.kw/portal/en/b2bOffConnAzureExpressRoute)** | Supported | Supported | Doha, Doha2, London2, Marseille |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link/)** | Supported | Supported | Melbourne, Sydney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** | Supported | Supported | Amsterdam, Amsterdam2, Chicago, Dallas, Dubai2, Dublin2 Frankfurt, Hong Kong SAR, Johannesburg, London, London2, Mumbai2, Melbourne, Paris, Sao Paulo, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
-| **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Supported | Supported | Dubai2 |
+| **[Orixcom](https://www.orixcom.com/solutions/azure-expressroute)** | Supported | Supported | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** | Supported | Supported | Amsterdam, Chicago, Dallas, Denver, Las Vegas, London, Los Angeles2, Miami, New York, Seattle, Silicon Valley, Toronto, Washington DC |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** | Supported | Supported | Chicago, Hong Kong, Hong Kong2, London, Singapore, Singapore2, Tokyo2 |
 | **PitChile** | Supported | Supported | Santiago |
@@ -216,7 +234,7 @@ To learn more, see [ExpressRoute in China](https://www.azure.cn/home/features/ex
 | --- | --- | --- | --- |
 | **[Colt](https://www.colt.net/direct-connect/azure/)** |Supported |Not Supported |Frankfurt |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supported |Not Supported |Frankfurt |
-| **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroute)** |Supported |Not Supported |Berlin |
+| **e-shelter** |Supported |Not Supported |Berlin |
 | **Interxion** |Supported |Not Supported |Frankfurt |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported  | Not Supported | Berlin |
 | **[T-Systems](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** |Supported |Not Supported |Berlin |
@@ -228,7 +246,7 @@ If your connectivity provider isn't listed in previous sections, you can still c
 * Check with your connectivity provider to see if they're connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
-  * [DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange)
+  * [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service)
   * [Equinix Cloud Exchange](https://www.equinix.com/interconnection-services/equinix-fabric)
   * [Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
   * [IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)
@@ -253,7 +271,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 
 | Connectivity provider | Exchange | Locations |
 | --- | --- | --- |
-| **[1CLOUDSTAR](https://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** | Equinix |Singapore |
+| **[1CLOUDSTAR](https://www.1cloudstar.com/services/cloudconnect-azure-expressroute.html)** | Equinix |Singapore |
 | **[Airgate Technologies, Inc.](https://www.airgate.ca/)** | Equinix, Cologix | Toronto, Montreal |
 | **[Alaska Communications](https://www.alaskacommunications.com/Business)** |Equinix |Seattle |
 | **[Altice Business](https://lightpathfiber.com/applications/cloud-connect)** |Equinix |New York, Washington DC |
@@ -267,7 +285,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[C3ntro Telecom](https://www.c3ntro.com/)** | Equinix, Megaport | Dallas |
 | **[Chief](https://www.chief.com.tw/)** | Equinix | Hong Kong SAR |
 | **[Cinia](https://www.cinia.fi/palvelutiedotteet)** | Equinix, Megaport | Frankfurt, Hamburg |
-| **[CloudXpress](https://www2.telenet.be/business/nl/sme-le/aanbod/verbinden/bedrijfsnetwerk/cloudxpress.html)** | Equinix | Amsterdam | 
+| **CloudXpress** | Equinix | Amsterdam | 
 | **[CMC Telecom](https://cmctelecom.vn/san-pham/value-added-service-and-it/cmc-telecom-cloud-express-en/)** | Equinix | Singapore | 
 | **[CoreAzure](https://www.coreazure.com/)**| Equinix | London |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)**| Equinix | Dallas, Silicon Valley, Washington DC |
@@ -319,7 +337,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 
 | Provider | Exchange |
 | --- | --- |
-| **[CyrusOne](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | Megaport, PacketFabric |
+| **[CyrusOne](https://www.cyrusone.com/cloud-solutions/microsoft-azure)** | Megaport, PacketFabric |
 | **[Cyxtera](https://www.cyxtera.com/data-center-services/interconnection)** | Megaport, PacketFabric |
 | **[Databank](https://www.databank.com/platforms/connectivity/cloud-direct-connect/)** | Megaport |
 | **[DataFoundry](https://www.datafoundry.com/services/cloud-connect/)** | Megaport |
@@ -365,7 +383,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[MOQdigital](https://www.moqdigital.com/insights)** | Australia |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europe (Germany) |
 | **[Nelite](https://www.exakis-nelite.com/offres/)** | Europe |
-| **[New Signature](http://newsignature.com/technologies/express-route/)** | Europe |
+| **[New Signature](https://www.cognizant.com/us/en/services/cloud-solutions/microsoft-business-group)** | Europe |
 | **[OneAs1a](https://www.oneas1a.com/connectivity.html)** | Asia |
 | **[Orange Networks](https://www.orange-networks.com/blog/88-azureexpressroute)** | Europe |
 | **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | North America |
@@ -380,5 +398,3 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Location map"
-
-

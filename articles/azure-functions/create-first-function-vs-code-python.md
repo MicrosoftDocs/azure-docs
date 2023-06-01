@@ -15,7 +15,7 @@ In this article, you use Visual Studio Code to create a Python function that res
 This article covers both Python programming models supported by Azure Functions. Use the selector at the top to choose your programming model.  
 
 >[!NOTE]
->The Python v2 programming model for Functions is currently in Preview. To learn more about the v2 programming model, see the [Developer Reference Guide](functions-reference-python.md).
+>The v2 programming model provides a decorator based approach to create functions. To learn more about the v2 programming model, see the [Developer Reference Guide](functions-reference-python.md).
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -165,7 +165,6 @@ In this section, you create a function app and related resources in your Azure s
     |**Select a location for new resources**| Choose a region for your function app.|
 
     ::: zone pivot="python-mode-decorators" 
-    In the current v2 programming model preview, choose a region from one of the following locations: France Central, West Central US, North Europe, China East, East US, or North Central US.
     ::: zone-end
 
     The extension shows the status of individual resources as they're being created in Azure in the **Azure: Activity Log** panel.

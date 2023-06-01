@@ -166,3 +166,4 @@ Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SO
 ## Next steps
 
 - [Azure Firewall Premium features](premium-features.md)
+- [Learn more about Azure network security](../networking/security/index.yml)

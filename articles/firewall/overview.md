@@ -140,3 +140,4 @@ Untrusted customer signed certificates|Customer signed certificates aren't trust
 - [Quickstart: Deploy Azure Firewall with Availability Zones - ARM template](deploy-template.md)
 - [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
 - [Learn module: Introduction to Azure Firewall](/training/modules/introduction-azure-firewall/)
+- [Learn more about Azure network security](../networking/security/index.yml)

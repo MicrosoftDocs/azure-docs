@@ -128,6 +128,9 @@ except Exception:
     cpu_cluster = AmlCompute(
         name=cpu_compute_target,
         # Azure Machine Learning Compute is the on-demand VM service
+        # if you run into an out of quota error, change the size to a comparable VM that is available.\
+        # Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
+
         type="amlcompute",
         # VM Family
         size="STANDARD_DS3_V2",

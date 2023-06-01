@@ -36,7 +36,8 @@ The following limits apply only for networking resources managed through **Azure
 | NSG rules per NSG |1,000 |
 | IP addresses and ranges specified for source or destination in a security group |4,000 |
 | Application security groups |3,000 |
-| Application security groups per IP configuration, per NIC |20 |
+| Application security groups per IP configuration, per NIC | 20 |
+| Application security groups referenced as source/destination per NSG rule | 10 |
 | IP configurations per application security group |4,000 |
 | Application security groups that can be specified within all security rules of a network security group |100 |
 | User-defined route tables |200 |

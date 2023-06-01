@@ -785,6 +785,8 @@
     items:
     - name: Enable MDTI data connector
       href: connect-mdti-data-connector.md
+    - name: Connect threat intelligence upload API
+      href: connect-threat-intelligence-upload-api.md
     - name: Connect threat intelligence platforms
       href: connect-threat-intelligence-tip.md
     - name: Connect to STIX/TAXII feeds
@@ -1120,6 +1122,8 @@
         href: hunting-with-rest-api.md
       - name: Enrich entities with geolocation data with REST-API
         href: geolocation-data-api.md
+      - name: Upload indicator API reference
+        href: upload-indicators-api.md
     - name: Defender for Cloud Apps alerts not onboarded to Microsoft 365 Defender
       href: ./microsoft-365-defender-sentinel-integration.md#microsoft-365-defender-incidents-and-microsoft-incident-creation-rules
   - name: Automation and response references

@@ -1179,6 +1179,22 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+- id: acs-js-csharp-java-python-portal-rest
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: azure-portal
+    title: Azure Portal
+  - id: programming-language-rest
+    title: REST
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
 - id: acs-js-csharp-java-python-swift
   title: Programming languages
   prompt: Choose a programming language
@@ -1618,6 +1634,10 @@ groups:
     title: Studio
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
   - id: rest-api
@@ -2425,6 +2445,28 @@ groups:
     title: Azure CLI
   - id: method-bicep
     title: Bicep template
+# Owner: juliakm, ggailey777
+- id: functions-task-versions
+  title: Select your version of the Pipelines task
+  prompt: Choose an option
+  pivots: 
+  - id: v1
+    title: AzureFunctionApp@1
+  - id: v2
+    title: AzureFunctionApp@2
+# Owner: juliakm, ggailey777
+- id: github-actions-deployment-options
+  title: GitHub Actions deployment options
+  prompt: Choose how to create the workflow configuration
+  pivots:
+  - id: method-manual
+    title: Manual
+  - id: method-portal
+    title: Azure portal
+  - id: method-cli
+    title: Azure CLI
+  - id: method-template
+    title: GitHub Actions template
 # Owner: sidandrews
 - id: azure-cosmos-db-apis-nosql-mongodb-gremlin-table
   title: Azure Cosmos DB APIs
@@ -2438,3 +2480,14 @@ groups:
     title: Apache Gremlin
   - id: api-table
     title: Table
+# Owner: franlanglois
+- id: cache-redis-zone-pivot-group
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
