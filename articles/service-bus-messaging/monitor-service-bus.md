@@ -180,9 +180,10 @@ Following are sample queries that you can use to help you monitor your Azure Ser
     | where EventName_s startswith "AutoDelete"
     | summarize count() by EventName_s, _ResourceId    
     ```
- ### [Resource Specific Table](#tab/Resource specific table)
+ ### [Resource Specific Table](#tab/Resourcespecifictable)
 
 + Get deny connection events for namespace
+
   ```kusto
    AZMSVNetConnectionEvents
    | extend NamespaceName = tostring(split(_ResourceId, "/")[8])
@@ -193,6 +194,7 @@ Following are sample queries that you can use to help you monitor your Azure Ser
     ```
 
 + Get failed operation logs  for namespace
+
   ```kusto
    AZMSOperationalLogs
    | extend NamespaceName = tostring(split(_ResourceId, "/")[8])
@@ -203,6 +205,7 @@ Following are sample queries that you can use to help you monitor your Azure Ser
     ```
 
 + Get failed send message events for namespace
+
   ```kusto
   AZMSRunTimeAuditLogs
   | extend NamespaceInfo = tostring(split(_ResourceId, "/")[8])
@@ -212,14 +215,15 @@ Following are sample queries that you can use to help you monitor your Azure Ser
   | summarize by NamespaceInfo, ActivityName
     ```
 + Get Failed authorization results for SAS key
+
  ```kusto
-  AZMSRunTimeAuditLogs
-  | extend NamespaceInfo = tostring(split(_ResourceId, "/")[8])
-  | where Provider =~ "ServiceBus"
-  | where isnotnull(NamespaceInfo) and isnotnull(AuthKey) and AuthType == "AAD" and Status != "Success" 
-  | project NamespaceInfo, AuthKey, ActivityName, Protocol, NetworkType, ClientIp, ResourceId
-  | summarize by NamespaceInfo, AuthKey, ActivityName
-    ```
+ AZMSRunTimeAuditLogs
+ | extend NamespaceInfo = tostring(split(_ResourceId, "/")[8])
+ | where Provider =~ "ServiceBus"
+ | where isnotnull(NamespaceInfo) and isnotnull(AuthKey) and AuthType == "AAD" and Status != "Success" 
+ | project NamespaceInfo, AuthKey, ActivityName, Protocol, NetworkType, ClientIp, ResourceId
+ | summarize by NamespaceInfo, AuthKey, ActivityName
+   ```
 
 ## Alerts
 You can access alerts for Azure Service Bus by selecting **Alerts** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md) for details on creating alerts.
