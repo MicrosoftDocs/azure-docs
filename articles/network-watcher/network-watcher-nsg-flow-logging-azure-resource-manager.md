@@ -74,7 +74,7 @@ The following examples present complete templates to enable NSG flow logs.
 
 #### Example 1
 
-Example 1 uses the simplest version of the ARM template with minimum parameters passed. The following template enables NSG flow logs on a target NSG and stores them in a given storage account.
+Example 1 uses the simplest version of the ARM template with minimum parameters passed. The following template enables NSG flow logs on a target network security group and stores them in a given storage account.
 
 ```json
 {
@@ -102,9 +102,8 @@ Example 1 uses the simplest version of the ARM template with minimum parameters 
 ```
 
 > [!NOTE]
-> * The name of the resource has the format "Parent Resource_Child resource". The parent resource is the regional Network Watcher instance (Format: NetworkWatcher_RegionName. Example: NetworkWatcher_eastus)
-> * targetResourceId is the resource ID of the target NSG
-> * storageId is the resource ID of the destination storage account
+> * `targetResourceId` is the resource ID of the target network security group.
+> * `storageId` is the resource ID of the destination storage account.
 
 #### Example 2
 Example 2 uses the following template to enable NSG flow logs (version 2) with retention of 5 days and traffic analytics with a processing interval of 10 minutes.
@@ -144,6 +143,11 @@ Example 2 uses the following template to enable NSG flow logs (version 2) with r
   ]
 }
 ```
+
+> [!NOTE]
+> * `targetResourceId` is the resource ID of the target network security group.
+> * `storageId` is the resource ID of the destination storage account.
+> * `workspaceResourceId` is is the resource ID of the traffic analytics workspace.
 
 ## Deploy your Azure Resource Manager template
 
