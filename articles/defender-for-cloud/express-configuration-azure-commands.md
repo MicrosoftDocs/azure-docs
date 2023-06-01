@@ -4,33 +4,25 @@ description: In this article, you can review the Express configuration Azure Com
 ms.topic: sample
 author: ElazarK
 ms.author: elkrieger
-ms.date: 05/30/2023
+ms.date: 06/01/2023
 ---
 
 # Express configuration Azure Command Line Interface (CLI) commands reference
 
 - [Set SQL vulnerability assessment baseline on system database](#set-sql-vulnerability-assessment-baseline-on-system-database)
 - [Get SQL vulnerability assessment baseline on system database](#get-sql-vulnerability-assessment-baseline-on-system-database)
-- [Get List of Sql Vulnerability Assessment Baseline On System Database](#get-list-of-sql-vulnerability-assessment-baseline-on-system-database)
 - [Set SQL vulnerability assessment baseline on user database](#set-sql-vulnerability-assessment-baseline-on-user-database)
 - [Get SQL vulnerability assessment baseline on user database](#get-sql-vulnerability-assessment-baseline-on-user-database)
-- [Get list SQL vulnerability assessment baseline on user database](#get-list-sql-vulnerability-assessment-baseline-on-user-database)
 - [Set SQL vulnerability assessment baseline rule on system database](#set-sql-vulnerability-assessment-baseline-rule-on-system-database)
 - [Get SQL vulnerability assessment baseline rule on system database](#get-sql-vulnerability-assessment-baseline-rule-on-system-database)
-- [Get list SQL vulnerability assessment baseline rule on system database](#get-list-sql-vulnerability-assessment-baseline-rule-on-system-database)
 - [Remove SQL vulnerability assessment baseline rule on system database](#remove-sql-vulnerability-assessment-baseline-rule-on-system-database)
 - [Set SQL vulnerability assessment baseline rule on user database](#set-sql-vulnerability-assessment-baseline-rule-on-user-database)
 - [Get SQL vulnerability assessment baseline rule on user database](#get-sql-vulnerability-assessment-baseline-rule-on-user-database)
-- [Get list SQL vulnerability assessment baseline rule on user database](#get-list-sql-vulnerability-assessment-baseline-rule-on-user-database)
 - [Remove SQL vulnerability assessment baseline rule on user database](#remove-sql-vulnerability-assessment-baseline-rule-on-user-database)
 - [Get SQL vulnerability assessment scan results on system database](#get-sql-vulnerability-assessment-scan-results-on-system-database)
-- [Get list SQL vulnerability assessment scan results on system database](#get-list-sql-vulnerability-assessment-scan-results-on-system-database)
 - [Get SQL vulnerability assessment scan results on user database](#get-sql-vulnerability-assessment-scan-results-on-user-database)
-- [Get list SQL vulnerability assessment scan results on user database](#get-list-sql-vulnerability-assessment-scan-results-on-user-database)
 - [Get SQL vulnerability assessment scans on system database](#get-sql-vulnerability-assessment-scans-on-system-database)
-- [Get list SQL vulnerability assessment scans on system database](#get-list-sql-vulnerability-assessment-scans-on-system-database)
 - [Get SQL vulnerability assessment scans on user database](#get-sql-vulnerability-assessment-scans-on-user-database)
-- [Get list SQL vulnerability assessment scans on user database](#get-list-sql-vulnerability-assessment-scans-on-user-database)
 - [Invoke SQL vulnerability assessment scan on system database](#invoke-sql-vulnerability-assessment-scan-on-system-database)
 - [Invoke SQL vulnerability assessment scan on user database](#invoke-sql-vulnerability-assessment-scan-on-user-database)
 - [Get SQL vulnerability assessment server setting](#get-sql-vulnerability-assessment-server-setting)
@@ -90,6 +82,8 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 
 ### Get SQL vulnerability assessment baseline on system database
 
+**Example 1**:
+
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/baselines/default?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
 
@@ -114,7 +108,7 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-### Get List of SQL Vulnerability Assessment Baseline On System Database
+**Example 2**:
 
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/baselines?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
@@ -195,6 +189,8 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 
 ### Get SQL vulnerability assessment baseline on user database
 
+**Example 1**:
+
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/baselines/default?api-version=2022-02-01-preview
 {
@@ -218,7 +214,7 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-### Get list SQL vulnerability assessment baseline on user database
+**Example 2**:
 
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/baselines?api-version=2022-02-01-preview
@@ -271,6 +267,8 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 
 ### Get SQL vulnerability assessment baseline rule on system database
 
+**Example 1**:
+
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
 {
@@ -289,7 +287,7 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-### Get list SQL vulnerability assessment baseline rule on system database
+**Example 2**:
 
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/baselines/default/rules?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
@@ -367,6 +365,8 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 
 ### Get SQL vulnerability assessment baseline rule on user database
 
+**Example 1**:
+
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId?api-version=2022-02-01-preview
 
@@ -386,7 +386,7 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-### Get list SQL vulnerability assessment baseline rule on user database
+**Example 2**:
 
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/baselines/default/rules?api-version=2022-02-01-preview
@@ -428,6 +428,8 @@ az rest --method Delete --uri /subscriptions/00000000-1111-2222-3333-44444444444
 ```
 
 ### Get SQL vulnerability assessment scan results on system database
+
+**Example 1**:
 
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/scans/$ScanId/scanresults/$RuleId?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
@@ -471,7 +473,7 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-### Get list SQL vulnerability assessment scan results on system database
+**Example 2**:
 
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/scans/$ScanId/scanresults?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
@@ -582,6 +584,8 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 
 ### Get SQL vulnerability assessment scan results on user database
 
+**Example 1**:
+
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/scans/$ScanId/scanresults/$RuleId?api-version=2022-02-01-preview
 {
@@ -644,7 +648,7 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-### Get list SQL vulnerability assessment scan results on user database
+**Example 2**:
 
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/scans/$ScanId/scanresults?api-version=2022-02-01-preview
@@ -741,6 +745,8 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 
 ### Get SQL vulnerability assessment scans on system database
 
+**Example 1**:
+
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/scans/$ScanId?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
 
@@ -768,7 +774,7 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-### Get list SQL vulnerability assessment scans on system database
+**Example 2**:
 
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/scans?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
@@ -848,6 +854,8 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 
 ### Get SQL vulnerability assessment scans on user database
 
+**Example 1**:
+
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/scans/$ScanId?api-version=2022-02-01-preview
 
@@ -875,7 +883,7 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-### Get list SQL vulnerability assessment scans on user database
+**Example 2**:
 
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/scans?api-version=2022-02-01-preview

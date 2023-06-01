@@ -4,7 +4,7 @@ description: In this article, you can review the express configuration SQL vulne
 ms.topic: sample
 author: ElazarK
 ms.author: elkrieger
-ms.date: 05/30/2023
+ms.date: 06/01/2023
 ---
 
 # Express configuration PowerShell wrapper module
@@ -125,45 +125,6 @@ function Get-SqlVulnerabilityAssessmentBaseline([parameter(mandatory)] [string] 
     return SendRestRequest -Method "Get" -Uri $Uri
 }
 
-# List
-function Get-ListSqlVulnerabilityAssessmentBaseline([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName) {
-    <#
-        .SYNOPSIS
-        Lists vulnerability assessment baselines for the user database.
-
-        .DESCRIPTION
-        Lists vulnerability assessment baselines for the user database.
-
-        .PARAMETER SubscriptionId
-        Subscription id.
-
-        .PARAMETER ResourceGroupName
-        Resource group name.
-
-        .PARAMETER ServerName
-        Server name.
-
-        .PARAMETER DatabaseName
-        Database name.
-
-        .EXAMPLE
-        Get-SqlVulnerabilityAssessmentBaseline -SubscriptionId 00000000-1111-2222-3333-444444444444-ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db
-        Headers    : {[Pragma, System.String[]], [x-ms-request-id, System.String[]], [x-ms-ratelimit-remaining-subscription-reads, System.String[]], [x-ms-correlation-request-id, System.String[]]...}
-        Version    : 1.1
-        StatusCode : 200
-        Method     : GET
-        Content    : {"value":[{"properties":{"results":{"VA1143":[["True"]],"VA1219":[["False"]]}},"id":"/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsof
-                    t.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default/baselines/Default","name":"Default","type":"Microsoft.Sql/servers/databases/sqlVulnerabilityAssessments/baselines
-                    "}]}
-    #>
-    if ($DatabaseName -eq 'master'){
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/baselines?api-version=2022-02-01-preview&systemDatabaseName=master"
-    } else {
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/baselines?api-version=2022-02-01-preview"
-    }
-    return SendRestRequest -Method "Get" -Uri $Uri
-}
-
 ###Database Sql Vulnerability Assessment Rule Baselines###
 
 # Create Or Update
@@ -225,7 +186,7 @@ function Set-SqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [stri
 }
 
 # Get
-function Get-SqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName, [parameter(mandatory)] [string] $RuleId) {
+function Get-SqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName, $RuleId) {
     <#
         .SYNOPSIS
         Gets vulnerability assessment baseline for a specific rule from the database.
@@ -258,39 +219,9 @@ function Get-SqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [stri
         Content    : {"properties":{"results":[["AllowAll","0.0.0.0","255.255.255.255"]]},"id":"/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/dat
                     abases/db/sqlVulnerabilityAssessments/Default/baselines/default/rules/VA2062","name":"VA2062","type":"Mic
                     rosoft.Sql/servers/databases/sqlVulnerabilityAssessments/baselines"}
-    #>
-    if ($DatabaseName -eq 'master'){
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
-    } else {
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId" + "?api-version=2022-02-01-preview"
-    }
-
-    return SendRestRequest -Method "Get" -Uri $Uri
-}
-
-# List
-function Get-ListSqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName) {
-    <#
-        .SYNOPSIS
-        Lists vulnerability assessment baseline for a specific rule from the database.
-
-        .DESCRIPTION
-        Lists vulnerability assessment baseline for a specific rule from the database.
-
-        .PARAMETER SubscriptionId
-        Subscription id.
-
-        .PARAMETER ResourceGroupName
-        Resource group name.
-
-        .PARAMETER ServerName
-        Server name.
-
-        .PARAMETER DatabaseName
-        Database name.
 
         .EXAMPLE
-        Get-ListSqlVulnerabilityAssessmentBaselineRule -SubscriptionId 00000000-1111-2222-3333-444444444444-ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db
+        Get-SqlVulnerabilityAssessmentBaselineRule -SubscriptionId 00000000-1111-2222-3333-444444444444-ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db
         Headers    : {[Cache-Control, System.String[]], [Pragma, System.String[]], [x-ms-request-id, System.String[]], [Server,
                     System.String[]]…}
         Version    : 1.1
@@ -308,10 +239,18 @@ function Get-ListSqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [
                     bilityAssessments/Default/baselines/default/rules/VA2062","name":"VA2062","type":"Microsoft.Sql/servers/da
                     tabases/sqlVulnerabilityAssessments/baselines"}]}
     #>
-    if ($DatabaseName -eq 'master'){
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/baselines/default/rules" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
+    if (![string]::IsNullOrEmpty($RuleId)) {
+        if ($DatabaseName -eq 'master'){
+            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
+        } else {
+            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId" + "?api-version=2022-02-01-preview"
+        }
     } else {
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/baselines/default/rules" + "?api-version=2022-02-01-preview"
+        if ($DatabaseName -eq 'master'){
+            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/baselines/default/rules" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
+        } else {
+            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/baselines/default/rules" + "?api-version=2022-02-01-preview"
+        }
     }
 
     return SendRestRequest -Method "Get" -Uri $Uri
@@ -362,7 +301,7 @@ function Remove-SqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [s
 ###Sql Vulnerability Assessment Scan Result###
 
 # Get
-function Get-SqlVulnerabilityAssessmentScanResults([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName, [parameter(mandatory)] [string] $ScanId, [parameter(mandatory)] [string] $RuleId) {
+function Get-SqlVulnerabilityAssessmentScanResults([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName, [parameter(mandatory)] [string] $ScanId, $RuleId) {
     <#
         .SYNOPSIS
         Gets vulnerability assessment scan results for a specific rule from the database.
@@ -423,41 +362,9 @@ function Get-SqlVulnerabilityAssessmentScanResults([parameter(mandatory)] [strin
                     Groups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAs
                     sessments/Default/scans/VA2062/scanResults/VA2062","name":"VA2062","type":"Microsoft.Sql/servers/databases
                     /sqlVulnerabilityAssessments/scans/scanResults"}
-    #>
-    if ($DatabaseName -eq 'master'){
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/scans/$ScanId/scanResults/$RuleId" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
-    } else {
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/scans/$ScanId/scanResults/$RuleId" + "?api-version=2022-02-01-preview"
-    }
-    return SendRestRequest -Method "Get" -Uri $Uri
-}
-
-# List
-function Get-ListSqlVulnerabilityAssessmentScanResults([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName, [parameter(mandatory)] [string] $ScanId) {
-    <#
-        .SYNOPSIS
-        Lists vulnerability assessment scan results from the database.
-
-        .DESCRIPTION
-        Lists vulnerability assessment scan results from the database.
-
-        .PARAMETER SubscriptionId
-        Subscription id.
-
-        .PARAMETER ResourceGroupName
-        Resource group name.
-
-        .PARAMETER ServerName
-        Server name.
-
-        .PARAMETER DatabaseName
-        Database name.
-
-        .PARAMETER ScanId
-        Scan id.
 
         .EXAMPLE
-        Get-ListSqlVulnerabilityAssessmentScanResults -SubscriptionId 00000000-1111-2222-3333-444444444444-ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -ScanId latest
+        Get-SqlVulnerabilityAssessmentScanResults -SubscriptionId 00000000-1111-2222-3333-444444444444-ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -ScanId latest
         Headers    : {[Cache-Control, System.String[]], [Pragma, System.String[]], [x-ms-request-id, System.String[]], [Server,
                     System.String[]]…}
         Version    : 1.1
@@ -498,19 +405,26 @@ function Get-ListSqlVulnerabilityAssessmentScanResults([parameter(mandatory)] [s
                     3/scanResults/VA1223","name":"VA1223","type":"Microsoft.Sql/servers/databases/sqlVulnerabilityAssessments/
                     scans/scanResults"}]}
     #>
-    if ($DatabaseName -eq 'master'){
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/scans/$ScanId/scanResults" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
+    if (![string]::IsNullOrEmpty($RuleId)) {
+        if ($DatabaseName -eq 'master'){
+            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/scans/$ScanId/scanResults/$RuleId" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
+        } else {
+            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/scans/$ScanId/scanResults/$RuleId" + "?api-version=2022-02-01-preview"
+        }
     } else {
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/scans/$ScanId/scanResults" + "?api-version=2022-02-01-preview"
+        if ($DatabaseName -eq 'master'){
+            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/scans/$ScanId/scanResults" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
+        } else {
+            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/scans/$ScanId/scanResults" + "?api-version=2022-02-01-preview"
+        }
     }
-
     return SendRestRequest -Method "Get" -Uri $Uri
 }
 
 ###Sql Vulnerability Assessment Scans###
 
 # Get
-function Get-SqlVulnerabilityAssessmentScans([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName, [parameter(mandatory)] [string] $ScanId) {
+function Get-SqlVulnerabilityAssessmentScans([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName, $ScanId) {
     <#
         .SYNOPSIS
         Gets vulnerability assessment scan summary from the database.
@@ -548,38 +462,9 @@ function Get-SqlVulnerabilityAssessmentScans([parameter(mandatory)] [string] $Su
                     igrationscripttests/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/vulnerabilityAssessments/D
                     efault/scans/f64d81a1-9d7b-4516-a623-a1bfc845ed7e","name":"f64d81a1-9d7b-4516-a623-a1bfc845ed7e","type":"M
                     icrosoft.Sql/servers/databases/vulnerabilityAssessments/scans"}
-    #>
-    if ($DatabaseName -eq 'master'){
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/scans/$ScanId" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
-    } else {
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/scans/$ScanId" + "?api-version=2022-02-01-preview"
-    }
-    return SendRestRequest -Method "Get" -Uri $Uri
-}
-
-# List
-function Get-ListSqlVulnerabilityAssessmentScans([parameter(mandatory)] [string] $SubscriptionId, [parameter(mandatory)] [string] $ResourceGroupName, [parameter(mandatory)] [string] $ServerName, [parameter(mandatory)] [string] $DatabaseName) {
-    <#
-        .SYNOPSIS
-        Lists vulnerability assessment scan summary from the database.
-
-        .DESCRIPTION
-        Lists vulnerability assessment scan summary from the database.
-
-        .PARAMETER SubscriptionId
-        Subscription id.
-
-        .PARAMETER ResourceGroupName
-        Resource group name.
-
-        .PARAMETER ServerName
-        Server name.
-
-        .PARAMETER DatabaseName
-        Database name.
 
         .EXAMPLE
-        Get-ListSqlVulnerabilityAssessmentScans -SubscriptionId 00000000-1111-2222-3333-444444444444-ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -ScanId latest
+        Get-SqlVulnerabilityAssessmentScans -SubscriptionId 00000000-1111-2222-3333-444444444444-ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -ScanId latest
         Headers    : {[Cache-Control, System.String[]], [Pragma, System.String[]], [x-ms-request-id, System.String[]], [Server,
                     System.String[]]…}
         Version    : 1.1
@@ -594,11 +479,20 @@ function Get-ListSqlVulnerabilityAssessmentScans([parameter(mandatory)] [string]
                     essments/Default/scans/f64d81a1-9d7b-4516-a623-a1bfc845ed7e","name":"f64d81a1-9d7b-4516-a623-a1bfc845ed7e"
                     ,"type":"Microsoft.Sql/servers/databases/vulnerabilityAssessments/scans"}]}
     #>
-    if ($DatabaseName -eq 'master'){
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/scans" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
+    if (![string]::IsNullOrEmpty($ScanId)) {
+        if ($DatabaseName -eq 'master'){
+            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/scans/$ScanId" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
+        } else {
+            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/scans/$ScanId" + "?api-version=2022-02-01-preview"
+        }
     } else {
-        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/scans" + "?api-version=2022-02-01-preview"
-    }    return SendRestRequest -Method "Get" -Uri $Uri
+        if ($DatabaseName -eq 'master'){
+            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/scans" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
+        } else {
+            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/scans" + "?api-version=2022-02-01-preview"
+        }
+    }
+    return SendRestRequest -Method "Get" -Uri $Uri
 }
 
 
@@ -790,19 +684,14 @@ function SendRestRequest(
 # Exported functions
 Export-ModuleMember -Function Set-SqlVulnerabilityAssessmentBaseline
 Export-ModuleMember -Function Get-SqlVulnerabilityAssessmentBaseline
-Export-ModuleMember -Function Get-ListSqlVulnerabilityAssessmentBaseline
 
 Export-ModuleMember -Function Set-SqlVulnerabilityAssessmentBaselineRule
 Export-ModuleMember -Function Get-SqlVulnerabilityAssessmentBaselineRule
-Export-ModuleMember -Function Get-ListSqlVulnerabilityAssessmentBaselineRule
 Export-ModuleMember -Function Remove-SqlVulnerabilityAssessmentBaselineRule
 
-
 Export-ModuleMember -Function Get-SqlVulnerabilityAssessmentScanResults
-Export-ModuleMember -Function Get-ListSqlVulnerabilityAssessmentScanResults
 
 Export-ModuleMember -Function Get-SqlVulnerabilityAssessmentScans
-Export-ModuleMember -Function Get-ListSqlVulnerabilityAssessmentScans
 
 Export-ModuleMember -Function Invoke-SqlVulnerabilityAssessmentScan
 
