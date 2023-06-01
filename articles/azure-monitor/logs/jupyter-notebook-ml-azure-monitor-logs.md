@@ -17,7 +17,7 @@ ms.date: 02/28/2023
 
 Integrating a notebook with a Log Analytics workspace lets you create a multi-step process, running code in each step based on the results of the previous step. You can use such streamlined, multi-step processes to build and run machine learning pipelines, and for other purposes, such as conducting advanced analysis and creating troubleshooting guides (TSGs) for support needs.
 
-In this tutorial, we integrate an Azure Machine Learning notebook with a Log Analytics workspace and train a custom machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs. This is one of several ways you can [build your own machine learning pipeline without exporting data out of Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#implement-the-steps-of-the-machine-learning-lifecycle-in-azure-monitor-logs). 
+In this tutorial, we integrate an Azure Machine Learning notebook with a Log Analytics workspace and train a custom machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs. This is one of several ways you can [build your own machine learning pipeline without exporting data out of Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). 
 
 ## Process overview
 
@@ -28,11 +28,6 @@ In this tutorial, you learn how to:
 > * Run the steps of the machine learning lifecycle (sample implementation using popular open source libraries)
 > * Ingest anomalies into a custom table in your Log Analytics workspace for further analysis (optional) 
 
-> [!NOTE]
-> Model training is an iterative process that begins with data preparation and cleaning, and usually involves experimenting with several models until you find a model that's a good fit for your data set.
-> In this tutorial, to shorten the process, we'll: 
->- Skip the data cleaning step.
->- Experiment with only two models to see which best fits our data set.
 ## Limitations 
 
 - [API-related limitations](/azure/azure-monitor/service-limits#la-query-api), which you can work around to a certain degree if you [split larger queries into multiple smaller queries](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-query/samples/notebooks/sample_large_query.ipynb). 
@@ -185,6 +180,12 @@ Now that you've integrated your Log Analytics workspace with your notebook, let'
     You've successfully queried and visualized log data from your Log Analytics workspace in your notebook.
     
 ## Run the steps of the machine learning lifecycle
+
+> [!NOTE]
+> Model training is an iterative process that begins with data preparation and cleaning, and usually involves experimenting with several models until you find a model that's a good fit for your data set.
+> In this tutorial, to shorten the process, we'll: 
+>- Skip the data cleaning step.
+>- Experiment with only two models to see which best fits our data set.
 
 ### Prepare data for model training
 
