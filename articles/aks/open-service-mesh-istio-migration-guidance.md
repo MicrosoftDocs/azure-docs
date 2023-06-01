@@ -20,9 +20,9 @@ If you are not using OSM and are new to Istio, start with [Istio's own Getting S
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli).
-- OSM is uninstalled from your Kubernetes cluster
+- The OSM AKS add-on is uninstalled from your AKS cluster
 - Any existing OSM Bookstore application, including namespaces, is uninstalled and deleted from your cluster
-- [Install the Istio AKS service mesh add-on](/azure/aks/istio-deploy-addon.md)
+- [Install the Istio AKS service mesh add-on](istio-deploy-addon.md)
 
 ## Modifications needed to the OSM Sample Bookstore Application
 

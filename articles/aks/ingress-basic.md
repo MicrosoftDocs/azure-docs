@@ -228,7 +228,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
     --set defaultBackend.image.registry=$ACR_URL \
     --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
     --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG \
-    --set defaultBackend.image.digest="" \
+    --set defaultBackend.image.digest="" 
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
