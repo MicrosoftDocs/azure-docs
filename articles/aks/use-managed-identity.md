@@ -3,7 +3,7 @@ title: Use a managed identity in Azure Kubernetes Service (AKS)
 description: Learn how to use a system-assigned or user-assigned managed identity in Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 05/24/2023
+ms.date: 06/01/2023
 
 ---
 
@@ -19,6 +19,8 @@ AKS doesn't automatically create a [service principal](kubernetes-service-princi
 ## Before you begin
 
 Make sure you have Azure CLI version 2.23.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+For [Use a pre-created kubelet managed identity][Use a pre-created kubelet managed identity], you need Azure CLI version 2.26.0 or later installed
+For [Update control plane identity on an existing cluster][Update control plane identity on an existing cluster ], you need Azure CLI version 2.49.0 or later installed
 
 ## Limitations
 
