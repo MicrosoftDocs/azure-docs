@@ -87,9 +87,3 @@ To ensure effective failover management, it is recommended to enable autoscaling
 > * In the data plane, a primary Azure Web PubSub resource functions identically to its replicas
 
 ----
-<!--
-## Pricing
-Replica is a feature of [Premium tier](https://azure.microsoft.com/en-us/pricing/details/web-pubsub/) of Azure Web PubSub Service. When you create a replica in desired regions, you incur Premium fees for each region.
-
-In the preceding example, Contoso added one replica in Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
--->
