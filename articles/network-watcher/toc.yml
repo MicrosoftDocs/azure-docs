@@ -79,7 +79,7 @@
     href: resource-move.md
 - name: How-to guides
   items:
-  - name: Manage Network Watcher
+  - name: Enable Network Watcher
     href: network-watcher-create.md
   - name: Connection monitor using Azure Monitor agent
     items: 
@@ -155,10 +155,12 @@
           href: network-watcher-intrusion-detection-open-source-tools.md
         - name: Visualize network traffic patterns using open source tools
           href: network-watcher-using-open-source-tools.md
-  - name: Flow log traffic monitoring
+  - name: Flow logging
     items:
     - name: Manage NSG flow logs
       items:
+      - name: Azure portal
+        href: nsg-flow-logging.md
       - name: PowerShell
         href: network-watcher-nsg-flow-logging-powershell.md
       - name: Azure CLI

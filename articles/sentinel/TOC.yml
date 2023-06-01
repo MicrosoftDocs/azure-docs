@@ -965,6 +965,8 @@
         href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
       - name: Prepare SAP environment
         href: sap/preparing-sap.md
+      - name: Configure auditing
+        href: sap/configure-audit.md
       - name: Deploy data connector agent
         href: sap/deploy-data-connector-agent-container.md
       - name: Deploy SAP security content
@@ -979,9 +981,7 @@
     - name: Optional deployment steps
       items: 
       - name: Configure SAP data connector to use SNC
-        href: sap/configure-snc.md
-      - name: Configure auditing
-        href: sap/configure-audit.md
+        href: sap/configure-snc.md      
       - name: Collect SAP HANA audit logs
         href: sap/collect-sap-hana-audit-logs.md
       - name: Deploy SAP connector manually

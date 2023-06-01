@@ -276,6 +276,6 @@ After you set the domain to managed authentication, you've defederated your Offi
 
 ## Next steps
 
-- [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory.md)
+- [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning.md)
 - [Tutorial: Migrate Okta sign-on policies to Azure AD Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
 - [Tutorial: Migrate your applications from Okta to Azure AD](migrate-applications-from-okta-to-azure-active-directory.md)

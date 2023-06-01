@@ -1007,7 +1007,7 @@
     {
       "path_to_root": "azure-actions-workflow-samples",
       "url": "https://github.com/Azure/actions-workflow-samples",
-      "branch": "main",
+      "branch": "master",
       "branch_mapping": {}
     }  
   ],
