@@ -16,12 +16,13 @@ KEDA is a Kubernetes-based Event Driven Autoscaler. KEDA lets you drive the scal
 To integrate KEDA into your Azure Kubernetes Service, you have to deploy and configure a workload identity or pod identity on your cluster. The identity allows KEDA to authenticate with Azure and retrieve metrics for scaling from your Monitor workspace. 
 
 This article walks you through the steps to integrate KEDA into your AKS cluster using a workload identity.
- Note
 
 > [!NOTE]
 > We recommend using Azure Active Directory workload identity. This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities to federate with any external identity providers on behalf of the application.
 >
 > The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022, and the project will be archived in Sept. 2023. For more information, see the deprecation notice. The AKS Managed add-on begins deprecation in Sept. 2023.
+>
+> Azure Managed Prometheus support starts from KEDA v2.10. If you have an older version of KEDA installed, you must upgrade in order to work with Azure Managed Prometheus.
 
 ## Prerequisites
 
