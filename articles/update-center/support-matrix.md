@@ -1,6 +1,6 @@
 ---
 title: Update management center (preview) support matrix
-description: Provides a summary of supported regions and operating system settings
+description: Provides a summary of supported regions and operating system settings.
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -89,7 +89,9 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 > [!NOTE]
 > Currently, update management center has the following limitations regarding the operating system support: 
 > - Marketplace images other than the [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images) are currently not supported.
-> - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and VMs created by Azure Migrate, Azure Backup, Azure Site Recovery aren't fully supported for now. However, you can use on-demand operations such as one-time update and check for updates in update management center (preview). We recommend that you use [Automation update management](../automation/update-management/overview.md) till the support is available in Update management center (preview). [Learn more](#supported-operating-systems).
+> - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and VMs created by Azure Migrate, Azure Backup, Azure Site Recovery aren't fully supported for now. However, you can use on-demand operations such as one-time update and check for updates in update management center (preview). 
+>
+> For the above limitations, We recommend that you use [Automation update management](../automation/update-management/overview.md) till the support is available in Update management center (preview). [Learn more](overview.md#vm-images).
 
 **Marketplace/PIR images**
 
