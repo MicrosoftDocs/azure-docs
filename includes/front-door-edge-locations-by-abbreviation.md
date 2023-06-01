@@ -48,14 +48,14 @@
 | DEN | Denver, Colorado, USA | Central US, United States |
 | DFW | Dallas, Texas, USA | Central US, United States |
 | DM  | Des Moines, Iowa, USA | Central US, United States |
-| DOH | Doha, Qatar | Qatar Central, Qater |
+| DOH | Doha, Qatar | Qatar Central, Qatar |
 | DTT | Detroit, Michigan, USA | East US, United States |
 | DUB | Dublin, Ireland | North Europe, Europe |
 | DUS | Duesseldorf, Germany | Germany West Central, Europe |
 | DXB | Dubai, United Arab Emirates | United Arab Emirates North, Asia |
 | EWR | Newark, New Jersey, USA | East US, United States |
 | FRA | Frankfurt, Germany | Germany West Central, Europe |
-| GRU | Sau Paulo, Brazil | Brazil South |
+| GRU | Sao Paulo, Brazil | Brazil South |
 | GVA | Geneva, Switzerland | Switzerland North, Europe |
 | GVX | Sandviken, Sweden | Sweden Central, Europe |
 | HEL | Helsinki, Finland | West Europe |
