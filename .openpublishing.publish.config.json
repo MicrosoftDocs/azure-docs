@@ -747,6 +747,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "web-apps-node-iot-hub-data-visualization",
+      "url": "https://github.com/azure-samples/web-apps-node-iot-hub-data-visualization",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "ImmersiveReaderSdk",
       "url": "https://github.com/microsoft/immersive-reader-sdk",
       "branch": "master",
@@ -1001,7 +1007,7 @@
     {
       "path_to_root": "azure-actions-workflow-samples",
       "url": "https://github.com/Azure/actions-workflow-samples",
-      "branch": "main",
+      "branch": "master",
       "branch_mapping": {}
     }  
   ],
@@ -1097,6 +1103,7 @@
   "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
   "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
   "articles/dev-box/.openpublishing.redirection.dev-box.json",
-  "articles/deployment-environments/.openpublishing.redirection.deployment-environments.json"
+  "articles/deployment-environments/.openpublishing.redirection.deployment-environments.json",
+  "articles/network-watcher/.openpublishing.redirection.network-watcher.json"
 ]
 }

@@ -28,6 +28,27 @@ Check this article regularly to learn about:
 > [!TIP]
 > To be notified of updates to this page, add this URL to your RSS feed reader:<br/>`https://learn.microsoft.com/api/search/rss?search=%22Azure+Active+Directory+breaking+changes+reference%22&locale=en-us`
 
+## May 2023
+
+### The Power BI administrator role will be renamed to Fabric Administrator.
+
+**Effective date**: June 2023
+
+**Endpoints impacted**: 
+-	List roleDefinitions - Microsoft Graph v1.0
+-	List directoryRoles - Microsoft Graph v1.0
+
+**Change**
+
+The Power BI Administrator role will be renamed to Fabric Administrator.  
+ 
+On May 23, 2023, Microsoft unveiled Microsoft Fabric, which provides a Data Factory-powered data integration experience, Synapse-powered data engineering, data warehouse, data science, and real-time analytics experiences and business intelligence (BI) with Power BI — all hosted on a lake-centric SaaS solution. The tenant and capacity administration for these experiences are centralized in the Fabric Admin portal (previously known as the Power BI admin portal).  
+
+Starting June 2023, the Power BI Administrator role will be renamed to Fabric Administrator to align with the changing scope and responsibility of this role. All applications including Azure Active Directory, Microsoft Graph APIs, Microsoft 365, and GDAP will start to reflect the new role name over the course of several weeks. 
+ 
+As a reminder, your application code and scripts shouldn't make decisions based on role name or display name.
+
+
 ## December 2021
 
 ### AD FS users will see more login prompts to ensure that the correct user is signed in.

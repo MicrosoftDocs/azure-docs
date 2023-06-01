@@ -111,7 +111,7 @@ items:
                         - name: Prepare app
                           href: how-to-single-page-application-react-prepare-app.md
                         - name: Sign in and sign out
-                          href: how-to-single-page-application-react-prepare-app.md
+                          href: how-to-single-page-application-react-sign-in-out.md
             - name: Web app
               items: 
                 - name: Node/Express.js
@@ -258,6 +258,10 @@ items:
           href: how-to-manage-admin-accounts.md
         - name: Manage customer accounts
           href: how-to-manage-customer-accounts.md
+    - name: Troubleshoot
+      items:
+        - name: Known issues
+          href: troubleshooting-known-issues.md
     - name: Management APIs
       items:
         - name: Overview
@@ -266,7 +270,7 @@ items:
           href: microsoft-graph-operations-user-flow.md
         - name: Company branding operations
           href: microsoft-graph-operations-branding.md
-        - name: Customer extensions
+        - name: Custom extensions
           href: microsoft-graph-operations-custom-extensions.md
         - name: Tenant management operations
           href: azure-rest-api-operations-tenant-management.md 

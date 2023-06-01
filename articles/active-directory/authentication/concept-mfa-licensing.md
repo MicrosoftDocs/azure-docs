@@ -43,7 +43,7 @@ The following table provides a list of the features that are available in the va
 | --- |:---:|:---:|:---:|:---:|:---:|
 | Protect Azure AD tenant admin accounts with MFA | ● | ● (*Azure AD Global Administrator* accounts only) | ● | ● | ● |
 | Mobile app as a second factor | ● | ● | ● | ● | ● |
-| Phone call as a second factor | | ● | ● | ● | ● |
+| Phone call as a second factor | | | ● | ● | ● |
 | SMS as a second factor | | ● | ● | ● | ● |
 | Admin control over verification methods | | ● | ● | ● | ● |
 | Fraud alert | | | | ● | ● |

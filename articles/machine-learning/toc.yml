@@ -107,14 +107,16 @@
             - name: Forecast demand (Bike share data)
               displayName: automl, automated, auto ml, portal, studio, ui
               href: tutorial-automated-ml-forecast.md
+        # v1
         - name: Designer (drag-n-drop)
           items:
             - name: 1. Train a regression model
               displayName: studio
-              href: tutorial-designer-automobile-price-train-score.md
+              href: ./v1/tutorial-designer-automobile-price-train-score.md
             - name: 2. Deploy the model
               displayName: studio
-              href: tutorial-designer-automobile-price-deploy.md
+              href: ./v1/tutorial-designer-automobile-price-deploy.md
+        # end v1
         - name: Use Visual Studio Code
           href: tutorial-train-deploy-image-classification-model-vscode.md
     - name: Develop and operationalize features
@@ -162,9 +164,11 @@
     - name: Examples repository (v1)
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/azure/machinelearningnotebooks
+      # v1
     - name: Designer examples & datasets
       displayName: example, examples, studio, pipelines, data sets, modules, components
-      href: samples-designer.md
+      href: ./v1/samples-designer.md
+    # end v1
     - name: End-to-end MLOps examples
       href: https://github.com/Azure/mlops-v2
 - name: Concepts
@@ -245,15 +249,17 @@
             - name: Overfitting & imbalanced data
               displayName: automl, auto ml, risks
               href: concept-manage-ml-pitfalls.md
+        # v1
         - name: Designer (drag-n-drop ML)
           items:
             - name: Designer overview
               displayName: studio
-              href: concept-designer.md
+              href: ./v1/concept-designer.md
             - name: Algorithm cheat sheet
-              href: algorithm-cheat-sheet.md
+              href: ./v1/algorithm-cheat-sheet.md
             - name: How to select algorithms
-              href: how-to-select-algorithms.md
+              href: ./v1/how-to-select-algorithms.md
+        # end v1
     - name: Deploy to production
       items:
         - name: Endpoints for inference
@@ -285,9 +291,9 @@
         - name: MLflow models
           displayName: tracking models, mlflow, custom, flavors
           href: concept-mlflow-models.md
-    - name: Foundation Models
+    - name: Model Catalog
       items:
-        - name: Foundation Models
+        - name: Foundation Models in Model Catalog
           href: concept-foundation-models.md
     - name: Manage the ML lifecycle (MLOps)
       items:
@@ -306,6 +312,8 @@
           href: concept-ml-pipelines.md
         - name: ML components
           href: concept-component.md
+        - name: Designer (drag-n-drop ML)
+          href: concept-designer.md
         - name: Git integration
           displayName: github gitlab
           href: concept-train-model-git-integration.md
@@ -1145,9 +1153,9 @@
                   href: how-to-mlflow-batch.md
                 - name: Deploy and run MLflow models in Spark jobs
                   href: how-to-deploy-mlflow-model-spark-jobs.md
-    - name: Work with Foundation Models
+    - name: Work with Foundation Models in Model Catalog
       items:
-        - name: How to use Foundation Models
+        - name: Open Source Models curated by AzureML 
           href: how-to-use-foundation-models.md
         - name: Hugging Face Hub community partner models
           href: how-to-deploy-models-from-huggingface.md
@@ -1182,14 +1190,18 @@
               href: how-to-create-component-pipelines-ui.md
             - name: How to use sweep in pipelines (v2)
               href: how-to-use-sweep-in-pipeline.md
-            - name: Build and debug pipelines (UI)
-              href: how-to-use-pipeline-ui.md
             - name: How to use parallel job in pipeline
               href: how-to-use-parallel-job-in-pipeline.md
-            - name: How to use pipeline component in pipeline
+            - name: How to use pipeline component
               href: how-to-use-pipeline-component.md
+            - name: How to debug pipeline failure
+              href: how-to-debug-pipeline-failure.md
             - name: How to debug pipeline reuse issues
               href: how-to-debug-pipeline-reuse-issues.md
+            - name: How to use debug pipeline performance 
+              href: how-to-debug-pipeline-performance.md
+            - name: Deploy pipeline component as batch 
+              href: how-to-deploy-pipeline-component-as-batch-endpoint.md
             # v1
             - name: Create ML pipelines (Python)
               href: ./v1/how-to-create-machine-learning-pipelines.md
@@ -1205,23 +1217,25 @@
             - name: Trigger a pipeline
               href: ./v1/how-to-trigger-published-pipeline.md
             # end v1
+            # v1
             - name: Designer (drag-n-drop)
               items:
                 - name: Transform data
                   displayName: pipeline
-                  href: how-to-designer-transform-data.md
+                  href: ./v1/how-to-designer-transform-data.md
                 - name: Use pipeline parameters
                   displayName: designer, pipeline parameters
-                  href: how-to-use-pipeline-parameter.md
+                  href: ./v1/how-to-use-pipeline-parameter.md
                 - name: Retrain using published pipelines
                   displayName: retrain, designer, published pipeline
-                  href: how-to-retrain-designer.md
+                  href: ./v1/how-to-retrain-designer.md
                 - name: Batch predictions
                   displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-                  href: how-to-run-batch-predictions-designer.md
+                  href: ./v1/how-to-run-batch-predictions-designer.md
                 - name: Execute Python code
                   displayName: feature extraction, feature engineering
-                  href: how-to-designer-python.md
+                  href: ./v1/how-to-designer-python.md
+            # end v1
         # v1
         - name: Convert notebook code into Python scripts
           displayName: mlops, mlopspython, production
@@ -1349,10 +1363,10 @@
           items: 
             - name: Job
               href: reference-yaml-schedule.md
+            - name: Data Import
+              href: reference-yaml-schedule-data-import.md
             - name: Monitor
               href: reference-yaml-monitor.md
-        - name: Pipeline component
-          href: reference-yaml-component-pipeline.md
         - name: Compute
           items:
             - name: Compute cluster (AmlCompute)
