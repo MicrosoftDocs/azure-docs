@@ -4,6 +4,7 @@ description: This article provides guidance on how to enable Azure Monitor on ap
 ms.topic: conceptual
 ms.date: 05/20/2023
 ms.devlang: csharp, javascript, typescript, python
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
 ---
 
