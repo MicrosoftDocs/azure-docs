@@ -99,7 +99,7 @@ Here is an example:
     <Console name="Console" target="SYSTEM_OUT">
       <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
       <Filters>
-            <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
+        <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
       </Filters>
     </Console>
   </Appenders>
@@ -117,7 +117,7 @@ Add the following filter to your logback.xml:
 
 ```xml
 <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-        <level>OFF</level>
+  <level>OFF</level>
 </filter>  
 ```
 
@@ -131,7 +131,7 @@ Here is an example:
     <encoder>
       <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%kvp- %msg%n</pattern>
       <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>OFF</level>
+        <level>OFF</level>
       </filter>  
     </encoder>
   </appender>
