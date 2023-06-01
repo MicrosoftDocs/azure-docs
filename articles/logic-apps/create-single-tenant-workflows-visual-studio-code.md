@@ -268,7 +268,7 @@ Maps can be added to a VS Code project by adding map files in `Artifacts/Schemas
 
 ### Adding Assemblies
 Logic app currently has 3 different types of assemblies. Namely `Client/SDK Assembly (.NET Framework)`, `Client/SDK Assembly (Java)`, `Custom Assembly (.NET Framework)`. You can upload those assemblies from portal through assemblies tab under artifacts shown above.
-![Screenshot shows assembly upload GUI on Portal.](./media/create-single-tenant-workflows-visual-studio-code/show-artifact-in-portal.jpg)
+![Screenshot shows assembly upload GUI on Portal.](./media/create-single-tenant-workflows-visual-studio-code/assembly-upload-on-portal.jpg)
 Lets go over each type of assemblies and where they can be placed in VS Code.
   1. Client/SDK Assembly (.NET Framework):
   These are used to provide custom .NET Framework SDK. For example [SAP Connector](https://learn.microsoft.com/en-us/azure/logic-apps/connectors/built-in/reference/sap/) use these assemblies to find .NCo DLL's that are not distributable. Those assemblies can be placed under `\lib\builtinOperationSdks\net472`.
