@@ -267,7 +267,7 @@ The task has four inputs: `Service Connection`, `Azure Resource Group Name`, `Az
 
 # [Using generic service connection](#tab/generic)
 
-If you are using the Generic Service connection, you can't use the task provided by Azure Machine Learning extension. Instead, call the API directly using an `InvokeRESTAPI` task. The following YAML example demonstrates how to use the API.
+If you're using the Generic Service connection, you can't use the task provided by Azure Machine Learning extension. Instead, call the API directly using an `InvokeRESTAPI` task. The following YAML example demonstrates how to use the API.
 
 ```yml
 - job: WaitForJobCompletion
