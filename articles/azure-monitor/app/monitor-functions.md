@@ -84,64 +84,62 @@ If you are using log4j or logback to log to the console, then distributed tracin
 
 Add the following filter to your log4j.xml: 
 
-
-```xml
-    <Filters>
-        <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
-    </Filters>
-```
+    ```xml
+        <Filters>
+            <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
+        </Filters>
+    ```
     
 Here is an example:
     
-```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <Configuration status="WARN">
-      <Appenders>
-        <Console name="Console" target="SYSTEM_OUT">
-          <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-          <Filters>
-                <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
-          </Filters>
-        </Console>
-      </Appenders>
-      <Loggers>
-        <Root level="error">
-          <AppenderRef ref="Console"/>
-        </Root>
-      </Loggers>
-    </Configuration>
-```
+    ```xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <Configuration status="WARN">
+          <Appenders>
+            <Console name="Console" target="SYSTEM_OUT">
+              <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+              <Filters>
+                    <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
+              </Filters>
+            </Console>
+          </Appenders>
+          <Loggers>
+            <Root level="error">
+              <AppenderRef ref="Console"/>
+            </Root>
+          </Loggers>
+        </Configuration>
+    ```
 
 ##### Logback
 
 Add the following filter to your logback.xml: 
 
-```xml
-    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>OFF</level>
-    </filter>  
-```
+    ```xml
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+                <level>OFF</level>
+        </filter>  
+    ```
 
 Here is an example:
 
-
-```xml
-    <configuration debug="true">
-      <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <!-- encoders are  by default assigned the type
-             ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
-        <encoder>
-          <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%kvp- %msg%n</pattern>
-          <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-                <level>OFF</level>
-          </filter>  
-        </encoder>
-      </appender>
-      <root level="debug">
-        <appender-ref ref="STDOUT" />
-      </root>
-    </configuration>
-```
+    ```xml
+        <configuration debug="true">
+          <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <!-- encoders are  by default assigned the type
+                 ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+            <encoder>
+              <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%kvp- %msg%n</pattern>
+              <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+                    <level>OFF</level>
+              </filter>  
+            </encoder>
+          </appender>
+          <root level="debug">
+            <appender-ref ref="STDOUT" />
+          </root>
+        </configuration>
+    ```
 
 ## Distributed tracing for Python function apps
 
