@@ -117,15 +117,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure productboard SSO
 
-1. To automate the configuration within productboard, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
-
-	![My apps extension](common/install-myappssecure-extension.png)
 
 1. After adding the extension to the browser, click **Set up productboard**, which directs you to the productboard application. From there, provide the admin credentials to sign in to productboard. The browser extension will automatically configure the application for you.
 
 	![Setup configuration](common/setup-sso.png)
 
-1. If you want to set up single sign-on on **productboard**  manually, you need to send the **App Federation Metadata Url** to [productboard support team](mailto:support@productboard.com). They set this setting to have the SAML SSO connection set properly on both sides.
+
+1. In a different web browser window, sign in to your up single sign-on on **productboard**  company site as an administrator
 
 ### Create productboard test user
 

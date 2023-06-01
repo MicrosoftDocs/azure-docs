@@ -149,7 +149,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    ![Setup configuration](common/setup-sso.png)
 
-3. If you want to setup Meraki Dashboard manually, in a different web browser window, sign in to your Meraki Dashboard company site as an administrator.
+
+1. In a different web browser window, sign in to your Meraki Dashboard company site as an administrator
 
 4. Navigate to **Organization** -> **Settings**.
 

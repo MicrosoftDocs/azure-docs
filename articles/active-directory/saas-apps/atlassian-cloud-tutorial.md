@@ -67,15 +67,13 @@ To configure and test Azure AD SSO with Atlassian Cloud, perform the following s
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. To automate the configuration within Atlassian Cloud, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
-
-    ![My apps extension](common/install-myappssecure-extension.png)
 
 1. After adding extension to the browser, click on **Set up Atlassian Cloud** will direct you to the Atlassian Cloud application. From there, provide the admin credentials to sign into Atlassian Cloud. The browser extension will automatically configure the application for you.
 
     ![Setup configuration](common/setup-sso.png)
 
-1. If you want to set up Atlassian Cloud manually, log in to your Atlassian Cloud company site as an administrator and perform the following steps.
+
+1. In a different web browser window, sign in to your up Atlassian Cloud company site as an administrator
 
 1. In the **ATLASSIAN Admin** portal, navigate to **Security** > **Identity providers** > **Microsoft Azure AD**.
 

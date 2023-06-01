@@ -129,15 +129,10 @@ The next part of the tutorial depends on what kind of subscription you have with
 
 ### Configure 8x8 Admin Console
 
-1. To automate the configuration within 8x8, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up 8x8** will direct you to the 8x8 application. From there, provide the admin credentials to sign into 8x8. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup 8x8 manually, sign in to 8x8 [Admin Console](https://admin.8x8.com/) as an administrator.
+1. In a different web browser window, sign in to your 8x8 company site as an administrator
 
 1. From the home page click **Identity Management**.
 

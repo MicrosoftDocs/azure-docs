@@ -116,9 +116,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot shows the Install the extension button.](./media/target-process-tutorial/install_extension.png)
 
-1. After adding extension to the browser, click on **setup Yodeck** will direct you to the Yodeck application. From there, provide the admin credentials to sign into Yodeck. The browser extension will automatically configure the application for you and automate steps 3-5.
-
-	![Setup configuration](common/setup-sso.png)
 
 	**If you want to configure the application manually perform the following steps:**
 

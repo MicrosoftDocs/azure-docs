@@ -141,7 +141,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    ![Setup configuration](common/setup-sso.png)
 
-3. If you want to setup Check Point CloudGuard Posture Management manually, open a new web browser window and sign into your Check Point CloudGuard Posture Management company site as an administrator and perform the following steps:
+
+1. In a different web browser window, sign in to your Check Point CloudGuard Posture Management company site as an administrator
 
 4. Click on the **Profile Settings** on the right top corner and then click **Account Settings**.
 

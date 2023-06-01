@@ -116,15 +116,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure SAP Concur Travel and Expense SSO
 
-1. To automate the configuration within SAP Concur Travel and Expense, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Set up SAP Concur Travel and Expense** will direct you to the SAP Concur Travel and Expense application. From there, provide the admin credentials to sign into SAP Concur Travel and Expense. The browser extension will automatically configure the application for you and automate steps 3-7.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup SAP Concur Travel and Expense manually, in a different web browser window, you need to upload the downloaded **Federation Metadata XML** to [Concur SSO Self-Service Tool](https://www.concursolutions.com/nui/authadmin/ssoadmin) and sign in to your SAP Concur Travel and Expense company site as an administrator.
+1. In a different web browser window, sign in to your SAP Concur Travel and Expense company site as an administrator
 
 1. Click **Add**.
 1. Enter a custom name for your IdP, for example "Azure AD (US)". 

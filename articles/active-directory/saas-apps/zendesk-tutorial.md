@@ -136,11 +136,9 @@ You can set up one SAML configuration for team members and a second SAML configu
 
 	![Screenshot shows the Install the extension button.](./media/target-process-tutorial/install_extension.png)
 
-1. After adding extension to the browser, click on **setup Zendesk** will direct you to the Zendesk application. From there, provide the admin credentials to sign into Zendesk. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![Setup configuration](common/setup-sso.png)
 
-1. If you want to set up Zendesk manually, open a new web browser window and sign into your Zendesk company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your up Zendesk company site as an administrator
 
 1. In the **Zendesk Admin Center**, go to **Account -> Security -> Single sign-on**, then click **Create SSO configuration** and select **SAML**.
 

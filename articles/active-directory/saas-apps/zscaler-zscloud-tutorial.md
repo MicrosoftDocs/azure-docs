@@ -163,7 +163,8 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
    ![Setup sso](common/setup-sso.png)
 
-3. If you want to setup Zscaler ZSCloud manually, open a new web browser window and sign into your Zscaler ZSCloud company site as an administrator and perform the following steps:
+
+1. In a different web browser window, sign in to your Zscaler ZSCloud company site as an administrator
 
 4. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
 

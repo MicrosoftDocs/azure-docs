@@ -145,7 +145,8 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
     ![Setup configuration](common/setup-sso.png)
 
-3. If you want to set up DocuSign manually, open a new web browser window and sign in to your DocuSign company site as an administrator.
+
+1. In a different web browser window, sign in to your up DocuSign company site as an administrator
 
 4. In the upper-left corner of the page, select the  app launcher (9 dots), and then select **Admin**.
   

@@ -157,7 +157,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    ![Setup sso](common/setup-sso.png)
 
-3. If you want to setup Zscaler Two manually, open a new web browser window and sign into your Zscaler Two company site as an administrator and perform the following steps:
+
+1. In a different web browser window, sign in to your Zscaler Two company site as an administrator
 
 4. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
 

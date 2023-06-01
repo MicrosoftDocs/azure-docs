@@ -146,7 +146,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    ![Setup SSO](common/setup-sso.png)
 
-1. If you want to setup Zscaler manually, open a new web browser window and sign into your Zscaler company site as an administrator and perform the following steps:
+
+1. In a different web browser window, sign in to your Zscaler company site as an administrator
 
 1. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
 
