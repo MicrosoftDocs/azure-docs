@@ -72,7 +72,7 @@ Use the following steps to define autoscale settings and rules.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the following commands to create an application in Azure Spring Apps with an autoscaling rule. The replicas count is adjusted automatically according to the count of messages in Azure Service Bus Queue. When there's no messages in the queue, your application will be scaled to 0 replica. When there's messages in the queue, the application will be scaled out according to the message count.
+Use the following commands to create an application in Azure Spring Apps with an autoscaling rule. The replicas count is adjusted automatically according to the count of messages in Azure Service Bus Queue. When there are no messages in the queue, your application is scaled to 0 replicas. When there are messages in the queue, the application is scaled out according to the message count.
 
 ```azurecli-interactive
 az spring app create \
