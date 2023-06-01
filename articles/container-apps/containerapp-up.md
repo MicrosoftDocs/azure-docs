@@ -2,11 +2,11 @@
 title: Deploy Azure Container Apps with the az containerapp up command
 description: How to deploy a container app with the az containerapp up command
 services: container-apps
-author: lanceleonard
+author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
 ms.date: 11/08/2022
-ms.author: v-laleonard
+ms.author: cshoe
 ---
 
 # Deploy Azure Container Apps with the az containerapp up command
