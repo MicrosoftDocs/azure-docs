@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.date: 04/18/2023
+ms.date: 05/23/2023
 ms.reviewer: cynthn
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
@@ -53,7 +53,7 @@ The following parameters determine which types of image versions they can contai
 - Hyper-V generation - specify whether the image was created from a generation 1 or [generation 2](generation-2.md) Hyper-V VHD. Default is generation 1.
 
 
-The following are other parameters that can be set on your image definition so that you can more easily track your resources:
+Image definitions contain metadata for the image to allow grouping of images that support the same features, plan, OS State, OS type and others. The following are other parameters that can be set on your image definition so that you can more easily track your resources:
 
 - Description - use description to give more detailed information on why the image definition exists. For example, you might have an image definition for your front-end server that has the application pre-installed.
 - EULA - can be used to point to an end-user license agreement specific to the image definition.
@@ -63,24 +63,30 @@ The following are other parameters that can be set on your image definition so t
 - Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
 - Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
 - Purchase plan information for Marketplace images - `-PurchasePlanPublisher`, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](./windows/cli-ps-findimage.md) and [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).
+- Features are features that are supported, based on the type of gallery:
 
-Image definition contains metadata of the image to allow grouping of images that support same features, plan, os state., os type etc. Some of the features, securitytype can be defined 
-
--Features
- - Accelerated Networking: Image supports Accelerated Networking
+   | Features | Accepted Values | Definition | Supported in |
+   |--|--|--|--|
+   | IsHibernateSupported | True, False | Create VMs with support for hibernation. | Private, direct shared, community |
+   | IsAcceleratedNetworkSupported | True, False | Create VM's with accelerated networking enabled. When set to `True` on Image definition, capturing VMs that don't support accelerated networking is not supported. | Private, direct shared, community |
+   | DiskControllerType | ["SCSI", "NVMe"], ["SCSI"] | Set this to use either SCSI or NVMe disk type. NVMe VMs and disks can only be captured in image definitions that are tagged to be supporting NVMe. | Private, direct shared, community |
+ 
 
 -Architecture
  - x64 or ARM64 [Architecture](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
 
--SecurityType
- - TrustedLaunch - Image is capable of creating Trusted VMs 
- - TrustedLaunchSupported - Image capable of creating either a Gen2 VM (or) Trusted Launch VM
- - [Confidential VM](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-images) - Image capable of creating Confidential VMs
- - [ConfidentialVMSupported](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-supported-images) - Image capable of creating either a Gen2 VM (or) Confidential VM
- - TrustedLaunchAndConfidentialVmSupported - Image capable of creating a Gen 2 VM (or) [Trusted VM](trusted-launch.md) (or) Confidential VM
+- SecurityType determines the security features that are enabled on the VM. Some types limited, based on the type of gallery that they are stored in:
 
--Examples
- - CLI examples for adding [Image Definition features](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
+   | Accepted Values | Definition | Supported in |
+   |--|--|--|
+   | [ConfidentialVMSupported](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-supported-images) | It's a generic Gen2 image that does not contain VMGS blob. Gen2 VM or Confidential VM can be created from this image type | Private, Direct shared, Community |
+   | [Confidential VM](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-images) | Only Confidential VMs can be created from this image type | Private |
+   | TrustedLaunchSupported | It's a generic Gen2 image that does not contain the VMGS blob. Gen2 VM or TrustedLaunch VM can be created from this image type. | Private, direct shared, community |
+   | TrustedLaunch | Only TrustedLaunch VM can be   created from this image type | Private |
+   | TrustedLaunchAndConfidentialVmSupported | It's a generic Gen2 image that does not contain the VMGS blob. Gen2 VM, TrustedLaunch VM, or a ConfidentialVM can be created from this image type. | Private, direct shared, community |
+
+
+For more information, see the CLI examples for adding [image definition features](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create).
 
 ## Image versions
 
