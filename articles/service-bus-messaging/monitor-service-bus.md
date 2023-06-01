@@ -124,6 +124,8 @@ For a detailed reference of the logs and metrics, see [Azure Service Bus monitor
 
 Following are sample queries that you can use to help you monitor your Azure Service Bus resources: 
 
+### [AzureDiagnostics](#tab/AzureDiagnostics)
+
 + Get management operations in the last 7 days. 
 
     ```Kusto
@@ -141,8 +143,6 @@ Following are sample queries that you can use to help you monitor your Azure Ser
     | where ResourceProvider =="MICROSOFT.SERVICEBUS"
     | where Category == "RuntimeAuditLogs"    
     ```
-
-
 + Get access attempts to a key vault that resulted in "key not found" error.
 
     ```Kusto
@@ -180,7 +180,47 @@ Following are sample queries that you can use to help you monitor your Azure Ser
     | where EventName_s startswith "AutoDelete"
     | summarize count() by EventName_s, _ResourceId    
     ```
-    
+ ### [Resource Specific Table](#tab/Resource specific table)
+
++ Get deny connection events for namespace
+  ```kusto
+   AZMSVNetConnectionEvents
+   | extend NamespaceName = tostring(split(_ResourceId, "/")[8])
+   | where Provider =~ "ServiceBus"
+   | where Action == "Deny Connection"
+   | project Action, SubscriptionId, NamespaceName, AddressIp, Reason, Count
+   | summarize by Action, NamespaceName 
+    ```
+
++ Get failed operation logs  for namespace
+  ```kusto
+   AZMSOperationalLogs
+   | extend NamespaceName = tostring(split(_ResourceId, "/")[8])
+   | where Provider =~ "ServiceBus"
+   | where isnotnull(NamespaceName) and Status != "Succeeded"
+   | project NamespaceName, ResourceId, EventName, Status, Caller, SubscriptionId
+   | summarize by NamespaceName, EventName
+    ```
+
++ Get failed send message events for namespace
+  ```kusto
+  AZMSRunTimeAuditLogs
+  | extend NamespaceInfo = tostring(split(_ResourceId, "/")[8])
+  | where Provider =~ "ServiceBus"
+  | where isnotnull(NamespaceInfo) and Status != "Success" and ActivityName = "SendMessage"
+  | project NamespaceInfo, ActivityName, Protocol, NetworkType, ClientIp, ResourceId
+  | summarize by NamespaceInfo, ActivityName
+    ```
++ Get Failed authorization results for SAS key
+ ```kusto
+  AZMSRunTimeAuditLogs
+  | extend NamespaceInfo = tostring(split(_ResourceId, "/")[8])
+  | where Provider =~ "ServiceBus"
+  | where isnotnull(NamespaceInfo) and isnotnull(AuthKey) and AuthType == "AAD" and Status != "Success" 
+  | project NamespaceInfo, AuthKey, ActivityName, Protocol, NetworkType, ClientIp, ResourceId
+  | summarize by NamespaceInfo, AuthKey, ActivityName
+    ```
+
 ## Alerts
 You can access alerts for Azure Service Bus by selecting **Alerts** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md) for details on creating alerts.
 
