@@ -228,9 +228,6 @@ A lifecycle management policy must be read or written in full. Partial updates a
 > [!NOTE]
 > The delete action of a lifecycle management policy won't work with any blob in an immutable container. With an immutable policy, objects can be created and read, but not modified or deleted. For more information, see [Store business-critical blob data with immutable storage](./immutable-storage-overview.md).
 
-> [!NOTE]
-> Kindly Note that while configuring the life cycle management policy if you add blob type as append blob, in that case for applying rule on base blob last accessed days option would not be available as it is not supported for append blob.
-
 ## See also
 
 - [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
