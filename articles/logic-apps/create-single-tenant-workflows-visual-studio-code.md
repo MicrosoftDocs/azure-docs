@@ -256,12 +256,28 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
 ## Adding custom artifacts
 In Logic app, Some connectors use dependent resources like Maps, Schemas or Assemblies. Those artifacts can be provided from the portal through Artifacts tab as shown below:
+![Screenshot shows artifact tab on portal.](./media/create-single-tenant-workflows-visual-studio-code/show-artifact-in-portal.jpg)
 
 ### Adding Maps
+Maps can be added to a VS Code project by adding map files in `Artifacts/Maps`. The screenshot below shows the place where Maps should be placed.
+![Screenshot shows maps upload directory in VS Code.](./media/create-single-tenant-workflows-visual-studio-code/map-upload-in-vs-code.jpg)
 
 ### Adding Schemas
+Maps can be added to a VS Code project by adding map files in `Artifacts/Schemas`. The screenshot below shows the place where Maps should be placed.
+![Screenshot shows schema upload directory in VS Code.](./media/create-single-tenant-workflows-visual-studio-code/schema-upload-in-vs-code.jpg)
 
 ### Adding Assemblies
+Logic app currently has 3 different types of assemblies. Namely `Client/SDK Assembly (.NET Framework)`, `Client/SDK Assembly (Java)`, `Custom Assembly (.NET Framework)`. You can upload those assemblies from portal through assemblies tab under artifacts shown above.
+![Screenshot shows assembly upload GUI on Portal.](./media/create-single-tenant-workflows-visual-studio-code/show-artifact-in-portal.jpg)
+Lets go over each type of assemblies and where they can be placed in VS Code.
+  1. Client/SDK Assembly (.NET Framework):
+  These are used to provide custom .NET Framework SDK. For example [SAP Connector](https://learn.microsoft.com/en-us/azure/logic-apps/connectors/built-in/reference/sap/) use these assemblies to find .NCo DLL's that are not distributable. Those assemblies can be placed under `\lib\builtinOperationSdks\net472`.
+  3. Client/SDK Assembly (Java)
+  These are used to provide custom JAVA SDK. For example [JDBC Connector](https://learn.microsoft.com/en-us/azure/logic-apps/connectors/built-in/reference/jdbc/) use these JAR's to find JDBC Drivers for custom RDB(Relational Database). Those assemblies can be placed under `\lib\builtinOperationSdks\JAR`.
+  5. Custom Assembly (.NET Framework)
+  These are used to provide custom DLLs. For example, Transform XML operation use these assemblies for custom transformation functions required for XML Transformation. Those assemblies can be placed under `\lib\custom\net472`.
+The screenshot below shows where each of the above assemblies can be placed in VS Code:
+![Screenshot shows assembly upload in VS Code.](./media/create-single-tenant-workflows-visual-studio-code/schema-upload-in-vs-code.jpg)
 
 <a name="open-workflow-definition-designer"></a>
 
