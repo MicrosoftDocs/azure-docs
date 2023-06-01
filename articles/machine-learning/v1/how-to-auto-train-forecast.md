@@ -19,7 +19,7 @@ show_latex: true
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning SDK you are using:"]
-> * [v1](how-to-auto-train-forecast-v1.md)
+> * [v1](how-to-auto-train-forecast.md)
 > * [v2 (current version)](../how-to-auto-train-forecast.md?view=azureml-api-2&preserve-view=true)
 
 In this article, you learn how to set up AutoML training for time-series forecasting models with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
@@ -52,7 +52,7 @@ The most important difference between a forecasting regression task type and reg
 > [!IMPORTANT]
 > When training a model for forecasting future values, ensure all the features used in training can be used when running predictions for your intended horizon. For example, when creating a demand forecast, including a feature for current stock price could massively increase training accuracy. However, if you intend to forecast with a long horizon, you may not be able to accurately predict future stock values corresponding to future time-series points, and model accuracy could suffer.
 
-You can specify separate [training data and validation data](concept-automated-ml-v1.md#training-validation-and-test-data) directly in the `AutoMLConfig` object. Learn more about the [AutoMLConfig](#configure-experiment).
+You can specify separate [training data and validation data](concept-automated-ml.md#training-validation-and-test-data) directly in the `AutoMLConfig` object. Learn more about the [AutoMLConfig](#configure-experiment).
 
 For time series forecasting, only **Rolling Origin Cross Validation (ROCV)** is used for validation by default. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and eliminates the risk of data leakage.
 
