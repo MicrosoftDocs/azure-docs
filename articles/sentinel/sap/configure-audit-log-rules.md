@@ -63,8 +63,12 @@ You can further configure event types that produce too many incidents using the 
 |Determinism or anomalies     |If you know the event’s characteristics, you can use the deterministic capabilities. If you aren't sure how to correctly configure the event, the machine learning capabilities can decide.         |
 |SOAR capabilities     |You can use Microsoft Sentinel to further orchestrate, automate and respond to incidents that can be applied to the SAP audit log dynamic alerts. Learn about [Security Orchestration, Automation, and Response (SOAR)](../automation.md).  |
 
+## Next steps
 
+In this article, you learned how to monitor the SAP audit log using Microsoft Sentinel built-in analytics rules.
 
+- [Learn more about the SAP Audit log monitor rules](sap-solution-security-content.md#monitoring-the-sap-audit-log)
+- [Learn about the SAP Audit Log workbook](sap-audit-log-workbook.md)
 
  
 

@@ -12,10 +12,10 @@ ms.assetid:
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
+ms.custom: devx-track-extended-java
 ms.topic: tutorial
 ms.date: 04/11/2023
 ms.author: mametcal
-
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration using push refresh in a Java Spring app
