@@ -4,6 +4,7 @@ description: This article describes limits in Azure Database for PostgreSQL - Fl
 ms.author: sunila
 author: sunilagarwal
 ms.service: postgresql
+ms.reviewer: kabharati
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 5/31/2023
