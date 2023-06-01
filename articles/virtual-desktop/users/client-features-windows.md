@@ -240,6 +240,7 @@ To deploy the Remote Desktop client in an enterprise, you can use `msiexec` to i
    ```cmd
    msiexec /i <path to the MSI> /qn ALLUSERS=2 MSIINSTALLPERUSER=1
    ```
+For detailed deployment instructions to install on a per-user basis, see [Install the Remote Desktop client for Windows on a per-user basis](../install-client-per-user.md).
 
 ### Update behavior
 
