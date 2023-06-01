@@ -12,10 +12,7 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
  # Integrate with CallKit
 
   In this document, we'll go through how to integrate CallKit with your iOS application. 
-
-  > [!NOTE]
-  > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling iOS SDK
-
+  
   ## Prerequisites
 
   - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -142,8 +139,7 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
   }
   ```
 
-  We can use `reportIncomingCallFromKillState` to handle push notifications when the app is closed. 
-  `reportIncomingCallFromKillState` API shouldn't be called if `CallAgent` instance is already available when push is received.
+  We can use `reportIncomingCall` to handle push notifications when the app is closed or otherwise.
 
   ```Swift
   if let agent = self.callAgent {
@@ -151,7 +147,7 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
     agent.handlePush(notification: callNotification) { (error) in }
   } else {
     /* App is in a killed state */
-    CallClient.reportIncomingCallFromKillState(with: callNotification, callKitOptions: callKitOptions) { (error) in
+    CallClient.reportIncomingCall(with: callNotification, callKitOptions: callKitOptions) { (error) in
         if (error == nil) {
             DispatchQueue.global().async {
                 self.callClient = CallClient()
@@ -170,7 +166,7 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
                 })
             }
         } else {
-            os_log("SDK couldn't handle push notification KILL mode reportToCallKit FAILED", log:self.log)
+            os_log("SDK couldn't handle push notification", log:self.log)
         }
     }
   }
@@ -178,16 +174,19 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
   
  ## CallKit Integration (within App)
   
-  If you wish to integrate the CallKit within the app and not use the CallKit implementation in the SDK, please take a look at the quickstart sample [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling).
+  If you wish to integrate the CallKit within the app and not use the CallKit implementation in the SDK, please take a look at the quickstart sample [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-video-calling).
   But one of the important things to take care of is to start the audio at the right time. Like following
   
  ```Swift
-let mutedAudioOptions = AudioOptions()
-mutedAudioOptions.speakerMuted = true
-mutedAudioOptions.muted = true
+let outgoingAudioOptions = OutgoingAudioOptions()
+outgoingAudioOptions.muted = true
 
-let copyStartCallOptions = StartCallOptions()
-copyStartCallOptions.audioOptions = mutedAudioOptions
+let incomingAudioOptions = IncomingAudioOptions()
+incomingAudioOptions.muted = true
+
+var copyAcceptCallOptions = AcceptCallOptions()
+copyStartCallOptions.outgoingAudioOptions = outgoingAudioOptions
+copyStartCallOptions.incomingAudioOptions = incomingAudioOptions
 
 callAgent.startCall(participants: participants,
                     options: copyStartCallOptions,
@@ -195,21 +194,49 @@ callAgent.startCall(participants: participants,
 ```
 
 Muting speaker and microphone will ensure that physical audio devices aren't used until the CallKit calls the `didActivateAudioSession` on `CXProviderDelegate`. Otherwise the call may get dropped or no audio will be flowing.
+When `didActivateAudioSession` is recieved then start the audio streams.
 
 ```Swift
 func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
-   activeCall.unmute { error in
-       if error == nil {
-           print("Successfully unmuted mic")
-           activeCall.speaker(mute: false) { error in
-               if error == nil {
-                   print("Successfully unmuted speaker")
-               }
-           }
-       }
-   }
+    Task {
+        guard let activeCall = await self.callKitHelper.getActiveCall() else {
+            print("No active calls found when activating audio session !!")
+            return
+        }
+
+        try await startAudio(call: activeCall)
+    }
 }
+
+func provider(_ provider: CXProvider, didDeactivate audioSession: AVAudioSession) {
+    Task {
+        guard let activeCall = await self.callKitHelper.getActiveCall() else {
+            print("No active calls found when deactivating audio session !!")
+            return
+        }
+
+        try await stopAudio(call: activeCall)
+    }
+}
+
+private func stopAudio(call: Call) async throws {
+    try await self.callKitHelper.muteCall(callId: call.id, isMuted: true)
+    try await call.stopAudio(stream: call.activeOutgoingAudioStream)
+
+    try await call.stopAudio(stream: call.activeIncomingAudioStream)
+    try await call.muteIncomingAudio()
+}
+
+private func startAudio(call: Call) async throws {
+    try await call.startAudio(stream: LocalOutgoingAudioStream())
+    try await self.callKitHelper.muteCall(callId: call.id, isMuted: false)
+
+    try await call.startAudio(stream: RemoteIncomingAudioStream())
+    try await call.unmuteIncomingAudio()
+}
+    
 ```
+It's very important to also mute the outgoing audio before stopping the audio in cases when CallKit does not invoke `didActivateAudioSession`. The user can then manually unmute the microphone.
 
 > [!NOTE]
 > In some cases CallKit doesn't call `didActivateAudioSession` even though the app has elevated audio permissions, in that case the audio will stay muted until the call back is received. And the UI has to reflect the state of the speaker and microphone. The remote participant/s in the call will see that the user has muted audio as well. User will have to manually unmute in those cases.
