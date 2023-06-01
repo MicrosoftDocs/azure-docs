@@ -113,7 +113,7 @@ We support [generalized](../virtual-machines/linux/imaging.md#generalized-images
 
    |**Linux Operating System**|
    |-- |
-   |CentOS 7.8|
+   |CentOS 7, 8|
    |Oracle Linux 7.x, 8x|
    |Red Hat Enterprise 7, 8, 9|
    |SUSE Linux Enterprise Server 12.x, 15.0-15.4|
