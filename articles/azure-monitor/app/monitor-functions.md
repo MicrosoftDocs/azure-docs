@@ -86,7 +86,7 @@ Add the following filter to your log4j.xml:
 
 ```xml
 <Filters>
-    <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
+  <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
 </Filters>
 ```
     
