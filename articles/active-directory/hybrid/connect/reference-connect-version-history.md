@@ -24,7 +24,7 @@ This article helps you keep track of the versions that have been released and un
 
 You can upgrade your Azure AD Connect server from all supported versions with the latest versions:
 
-You can download the latest version of Azure AD Connect 2.0 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47594). See the [release notes for the latest V2.0 release](reference-connect-version-history.md#20280).\
+You can download the latest version of Azure AD Connect 2.0 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47594). See the [release notes for the latest V2.0 release](reference-connect-version-history.md#21200).\
 
 Get notified about when to revisit this page for updates by copying and pasting this URL: `https://aka.ms/aadconnectrss` into your ![RSS feed reader icon](media/reference-connect-version-history/feed-icon-16x16.png) feed reader.
 
@@ -103,7 +103,7 @@ To read more about autoupgrade, see [Azure AD Connect: Automatic upgrade](how-to
 
 ### Bug fixes
 
- - We fixed a bug where the new employeeLeaveDateTime attribute was not syncing correctly in version 2.1.19.0. Note that if the incorrect attribute was already used in a rule, then the rule must be updated with the new attribute and any objects in the AAD connector space that have the incorrect attribute must be removed with the "Remove-ADSyncCSObject" cmdlet, and then a full sync cycle must be run.
+ - We fixed a bug where the new employeeLeaveDateTime attribute wasn't syncing correctly in version 2.1.19.0. Note that if the incorrect attribute was already used in a rule, then the rule must be updated with the new attribute and any objects in the AAD connector space that have the incorrect attribute must be removed with the "Remove-ADSyncCSObject" cmdlet, and then a full sync cycle must be run.
 
 ## 2.1.19.0
 
@@ -144,7 +144,7 @@ To read more about autoupgrade, see [Azure AD Connect: Automatic upgrade](how-to
 > We have discovered a security vulnerability in the Azure AD Connect Admin Agent. If you have installed the Admin Agent previously it is important that you update your Azure AD Connect server(s) to this version to mitigate the vulnerability.
 
 ### Functional changes
- - We have removed the public preview functionality for the Admin Agent from Azure AD Connect. We will not provide this functionality going forward.
+ - We have removed the public preview functionality for the Admin Agent from Azure AD Connect. We won't provide this functionality going forward.
  - We added support for two new attributes: employeeOrgDataCostCenter and employeeOrgDataDivision.
  - We added CertificateUserIds attribute to AAD Connector static schema.
  - The AAD Connect wizard will now abort if write event logs permission is missing.
@@ -163,11 +163,11 @@ To read more about autoupgrade, see [Azure AD Connect: Automatic upgrade](how-to
  - We made the following Accessibility fixes:
    - Fixed a bug where Focus is lost during keyboard navigation on Domain and OU Filtering page.
    - We updated the accessible name of Clear Runs drop down.
-   - We fixed a bug where the tooltip of the "Help" button is not accessible through keyboard if navigated with arrow keys. 
+   - We fixed a bug where the tooltip of the "Help" button isn't accessible through keyboard if navigated with arrow keys. 
    - We fixed a bug where the underline of hyperlinks was missing on the Welcome page of the wizard.
-   - We fixed a bug in Sync Service Manager's About dialog where the Screen reader is not announcing the information about the data appearing under the "About" dialog box.
-   - We fixed a bug where the Management Agent Name was not mentioned in logs when an error occurred while validating MA Name.
-   - We fixed several accessibility issues with the keyboard navigation and custom control type fixes. The Tooltip of the "help" button is not collapsing by pressing "Esc" key. There was an Illogical keyboard focus on the User Sign In radio buttons and there was an invalid control type on the help popups.
+   - We fixed a bug in Sync Service Manager's About dialog where the Screen reader isn't announcing the information about the data appearing under the "About" dialog box.
+   - We fixed a bug where the Management Agent Name wasn't mentioned in logs when an error occurred while validating MA Name.
+   - We fixed several accessibility issues with the keyboard navigation and custom control type fixes. The Tooltip of the "help" button isn't collapsing by pressing "Esc" key. There was an Illogical keyboard focus on the User Sign In radio buttons and there was an invalid control type on the help popups.
    - We fixed a bug where an empty label was causing an accessibility error.
 
 ## 2.1.1.0
@@ -176,8 +176,8 @@ To read more about autoupgrade, see [Azure AD Connect: Automatic upgrade](how-to
 3/24/2022: Released for download only, not available for auto upgrade
 
 ### Bug fixes
- - Fixed an issue where some sync rule functions were not parsing surrogate pairs properly.
- - Fixed an issue where, under certain circumstances, the sync service would not start due to a model db corruption. You can read more about the model db corruption issue in [this article](/troubleshoot/azure/active-directory/resolve-model-database-corruption-sqllocaldb)
+ - Fixed an issue where some sync rule functions weren't parsing surrogate pairs properly.
+ - Fixed an issue where, under certain circumstances, the sync service wouldn't start due to a model db corruption. You can read more about the model db corruption issue in [this article](/troubleshoot/azure/active-directory/resolve-model-database-corruption-sqllocaldb)
 
 ## 2.0.91.0
 
@@ -341,7 +341,7 @@ Under certain circumstances, the installer for this version displays an error th
 
 ### Bug fixes
 
-We fixed a bug that occurred when a domain was renamed and Password Hash Sync failed with an error that indicated "a specified cast is not valid" in the Event log. This regression is from earlier builds.
+We fixed a bug that occurred when a domain was renamed and Password Hash Sync failed with an error that indicated "a specified cast isn't valid" in the Event log. This regression is from earlier builds.
 
 ## 1.6.13.0
 
@@ -352,7 +352,7 @@ We fixed a bug that occurred when a domain was renamed and Password Hash Sync fa
 
 ### Bug fixes
 
-We fixed a bug that occurred when a domain was renamed and Password Hash Sync failed with an error that indicated "a specified cast is not valid" in the Event log. This regression is from earlier builds.
+We fixed a bug that occurred when a domain was renamed and Password Hash Sync failed with an error that indicated "a specified cast isn't valid" in the Event log. This regression is from earlier builds.
 
 ### Functional changes
 
