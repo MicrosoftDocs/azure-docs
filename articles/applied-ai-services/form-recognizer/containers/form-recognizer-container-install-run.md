@@ -31,7 +31,7 @@ In this article you learn how to download, install, and run Form Recognizer cont
 
 * **Read**, **Layout**, **General Document**, **ID Document**,  **Receipt**, **Invoice**, and **Custom** models are supported by Form Recognizer v3.0 containers.
 
-* **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** models are currently only supported in the [v2.1 containers](form-recognizer-container-install-run.md?view=form-recog-2.1.0&preserve-view=true).
+* **Business Card** model is currently only supported in the [v2.1 containers](form-recognizer-container-install-run.md?view=form-recog-2.1.0&preserve-view=true).
 
 ::: moniker-end
 

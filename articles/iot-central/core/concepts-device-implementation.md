@@ -1,6 +1,5 @@
 ---
 title: Device implementation
-titleSuffix: Azure IoT Central
 description: This article introduces the key concepts and best practices for implementing a device that connects to your IoT Central application.
 author: dominicbetts
 ms.author: dobett

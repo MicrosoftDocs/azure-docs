@@ -5,6 +5,7 @@ author: eskot
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
+ms.custom: devx-track-dotnet, devx-track-python
 ms.date: 11/17/2022
 ms.author: eskot 
 ms.reviewer: eskot

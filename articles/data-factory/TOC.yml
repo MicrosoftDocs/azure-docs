@@ -854,6 +854,8 @@ items:
       href: how-to-use-azure-key-vault-secrets-pipeline-activities.md
     - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
+    - name: Configure outbound allow lists (Preview)
+      href: configure-outbound-allow-list-azure-policy.md
       displayName: self hosted
     - name: Credentials in Data Factory
       href: credentials.md

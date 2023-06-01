@@ -433,14 +433,13 @@ As described in the [Azure TLS 1.2 migration announcement](https://azure.microso
 
 ### "Data is temporarily inaccessible" status message
 
-When navigating to Live Metrics, you may see a banner with the status message: "Data is temporarily inaccessible. The updates on our status are posted here https://aka.ms/aistatus" 
+When navigating to Live Metrics, you may see a banner with the status message: "Data is temporarily inaccessible. The updates on our status are posted here https://aka.ms/aistatus"
 
-Verify if any firewalls or browser extensions are blocking access to Live Metrics. For example, some popular ad-blocker extensions block connections to \*.monitor.azure.com. In order to use the full capabilities of Live Metrics, either disable the ad-blocker extension or add an exclusion rule for the domain \*.livediagnostics.monitor.azure.com to your ad-blocker, firewall, etc. 
+Follow the link to the *Azure status* page and check if there's an activate outage affecting Application Insights. If there's no outage, verify if any firewalls or browser extensions are blocking access to Live Metrics. For example, some popular ad-blocker extensions block connections to `*.monitor.azure.com`. In order to use the full capabilities of Live Metrics, either disable the ad-blocker extension or add an exclusion rule for the domain `*.livediagnostics.monitor.azure.com` to your ad-blocker, firewall, etc.
 
 ### Unexpected large number of requests to livediagnostics.monitor.azure.com
 
-Heavier traffic is expected while the LiveMetrics pane is open. Navigate away from the LiveMetrics pane to restore normal traffic flow of traffic.
-Application Insights SDKs poll QuickPulse endpoints with REST API calls once every five seconds to check if the LiveMetrics pane is being viewed.
+Heavier traffic is expected while the LiveMetrics pane is open. Navigate away from the LiveMetrics pane to restore normal traffic flow of traffic. Application Insights SDKs poll QuickPulse endpoints with REST API calls once every five seconds to check if the LiveMetrics pane is being viewed.
 
 The SDKs will send new metrics to QuickPulse every one second while the LiveMetrics pane is open.
 

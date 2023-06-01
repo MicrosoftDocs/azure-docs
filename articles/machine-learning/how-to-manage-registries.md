@@ -1,5 +1,5 @@
 ---
-title: Create and manage registries (preview)
+title: Create and manage registries
 titleSuffix: Azure Machine Learning
 description: Learn how create registries with the CLI, REST API, Azure portal and Azure Machine Learning studio 
 services: machine-learning
@@ -8,12 +8,12 @@ ms.subservice: mlops
 ms.author: kritifaujdar
 author: fkriti
 ms.reviewer: larryfr
-ms.date: 04/12/2023
+ms.date: 05/23/2023
 ms.topic: how-to
-ms.custom: devx-track-python, ignite-2022
+ms.custom: devx-track-python, ignite-2022, build-2023
 ---
 
-# Manage Azure Machine Learning registries (preview)
+# Manage Azure Machine Learning registries
 
 Azure Machine Learning entities can be grouped into two broad categories:
 
@@ -22,11 +22,9 @@ Azure Machine Learning entities can be grouped into two broad categories:
 
 Assets lend themselves to being stored in a central repository and used in different workspaces, possibly in different regions. Resources are workspace specific. 
 
-Azure Machine Learning registries (preview) enable you to create and use those assets in different workspaces. Registries support multi-region replication for low latency access to assets, so you can use assets in workspaces located in different Azure regions. Creating a registry provisions Azure resources required to facilitate replication. First, Azure blob storage accounts in each supported region. Second, a single Azure Container Registry with replication enabled to each supported region. 
+Azure Machine Learning registries enable you to create and use those assets in different workspaces. Registries support multi-region replication for low latency access to assets, so you can use assets in workspaces located in different Azure regions. Creating a registry provisions Azure resources required to facilitate replication. First, Azure blob storage accounts in each supported region. Second, a single Azure Container Registry with replication enabled to each supported region. 
 
 :::image type="content" source="./media/how-to-manage-registries/machine-learning-registry-block-diagram.png" alt-text="Diagram of the relationships between assets in workspace and registry.":::
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -78,6 +76,7 @@ replication_locations:
   - location: westus
 ```
 
+For more information on the structure of the YAML file, see the [registry YAML reference](reference-yaml-registry.md) article.
 
 > [!TIP]
 > You typically see display names of Azure regions such as 'East US' in the Azure Portal but the registry creation YAML needs names of regions without spaces and lower case letters. Use `az account list-locations -o table` to find the mapping of region display names to the name of the region that can be specified in YAML.
@@ -265,4 +264,5 @@ Microsoft.MachineLearningServices/registries/delete | Allows the user to delete 
 
 ## Next steps
 
-* [Learn how to share models, components and environments across workspaces with registries (preview)](./how-to-share-models-pipelines-across-workspaces-with-registries.md)
+* [Learn how to share models, components and environments across workspaces with registries](./how-to-share-models-pipelines-across-workspaces-with-registries.md)
+* [Network isolation with registries](./how-to-registry-network-isolation.md)

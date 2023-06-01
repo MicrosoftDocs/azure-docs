@@ -459,6 +459,12 @@
           href: flexible-server/connect-java.md
         - name: .NET
           href: flexible-server/connect-csharp.md
+    - name: Database deployment
+      items:
+      - name: GitHub Actions
+        href: how-to-deploy-github-action.md
+      - name: Azure Pipelines
+        href: flexible-server/azure-pipelines-deploy-database-task.md
   - name: Concepts
     items:
     - name: Servers
@@ -596,14 +602,38 @@
         href: ../app-service/tutorial-python-postgresql-app.md
   - name: How-to guides
     items:
-    - name: Manage a server
+    - name: Server administration
       items:
-      - name: Azure portal
-        href: flexible-server/how-to-manage-server-portal.md
-      - name: Azure CLI
-        href: flexible-server/how-to-manage-server-cli.md
-      - name: Connect and query guide
-        href: flexible-server/how-to-connect-query-guide.md
+      - name: Manage a server
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-server-cli.md
+        - name: Connect and query guide
+          href: flexible-server/how-to-connect-query-guide.md
+      - name: Scale a server
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-scale-compute-storage-portal.md
+      - name: Restart a server
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-restart-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-restart-server-cli.md
+      - name: Restore a server
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-restore-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-restore-server-cli.md
+      - name: Stop/start a server
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-stop-start-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-stop-start-server-cli.md
     - name: Encryption with CMK
       items:
       - name: Azure CLI
@@ -612,12 +642,6 @@
         href: flexible-server/how-to-create-server-customer-managed-key-portal.md
       - name: Azure REST API
         href: flexible-server/how-to-create-server-customer-managed-key-azure-api.md
-    - name: Database deployment
-      items:
-      - name: GitHub Actions
-        href: how-to-deploy-github-action.md
-      - name: Azure pipelines
-        href: flexible-server/azure-pipelines-deploy-database-task.md
     - name: Scheduled maintenance
       items:
       - name: Azure portal
@@ -653,34 +677,12 @@
         href: flexible-server/how-to-connect-with-managed-identity.md
       - name: Manage Azure AD users
         href: flexible-server/how-to-manage-azure-ad-users.md
-    - name: Scale a server
-      items:
-      - name: Azure portal
-        href: flexible-server/how-to-scale-compute-storage-portal.md
-    - name: Restart a server
-      items:
-      - name: Azure portal
-        href: flexible-server/how-to-restart-server-portal.md
-      - name: Azure CLI
-        href: flexible-server/how-to-restart-server-cli.md
     - name: Major Version Upgrade
       items:
       - name: Azure portal
         href: flexible-server/how-to-perform-major-version-upgrade-portal.md
       - name: Azure CLI
         href: flexible-server/how-to-perform-major-version-upgrade-cli.md
-    - name: Restore a server
-      items:
-      - name: Azure portal
-        href: flexible-server/how-to-restore-server-portal.md
-      - name: Azure CLI
-        href: flexible-server/how-to-restore-server-cli.md
-    - name: Stop/start a server
-      items:
-      - name: Azure portal
-        href: flexible-server/how-to-stop-start-server-portal.md
-      - name: Azure CLI
-        href: flexible-server/how-to-stop-start-server-cli.md
     - name: Manage high availability
       items:
       - name: Azure portal
@@ -707,6 +709,14 @@
         href: flexible-server/how-to-cost-optimization.md
     - name: Troubleshooting guides
       href: flexible-server/how-to-troubleshooting-guides.md
+    - name: Use vectors and embeddings
+      items:
+        - name: Basics of pgvector
+          href: flexible-server/how-to-use-pgvector.md
+          displayName: pgvector
+        - name: Optimize performance when using pgvector
+          href: flexible-server/howto-optimize-performance-pgvector.md
+          displayName: pgvector
 - name: Hyperscale (Citus)
   items:
   - name: Where is Hyperscale (Citus)?
@@ -779,6 +789,6 @@
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"
   - name: Partners
-    href: partners-migration-postgresql.md
+    href: migrate/partners-migration-postgresql.md
   - name: Database Migration Guide
     href: /data-migration/

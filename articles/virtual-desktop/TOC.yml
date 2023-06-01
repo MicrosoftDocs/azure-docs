@@ -202,20 +202,18 @@
           href: publish-apps.md
         - name: MSIX app attach
           items:
+          - name: Create an MSIX image
+            href: msix-app-attach-create-msix-image.md
+          - name: Set up a file share
+            href: app-attach-file-share.md
+          - name: Use Azure NetApp Files and MSIX app attach
+            href: create-netapp-files.md
           - name: Set up MSIX app attach with the Azure portal
             href: app-attach-azure-portal.md
           - name: Set up MSIX app attach with PowerShell
             href: app-attach-powershell.md
           - name: Test and troubleshoot MSIX packages
             href: app-attach.md
-          - name: Prepare an MSIX image
-            href: app-attach-image-prep.md
-          - name: Set up a file share
-            href: app-attach-file-share.md
-          - name: Use Azure NetApp Files and MSIX app attach
-            href: create-netapp-files.md
-          - name: Set up the MSIXMGR tool
-            href: app-attach-msixmgr.md
           - name: MSIXMGR tool parameters
             href: msixmgr-tool-syntax-description.md 
         - name: Use Microsoft Teams
@@ -264,8 +262,6 @@
           href: fslogix-profile-container-configure-azure-files-active-directory.md
         - name: Use Azure Files and Azure AD
           href: create-profile-container-azure-ad.md
-        - name: Install Office with FSLogix app containers
-          href: fslogix-office-app-rule-editor.md
       - name: Language packages
         items:
         - name: Windows 10 multi-session images

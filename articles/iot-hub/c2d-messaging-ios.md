@@ -8,7 +8,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devland: swift
 ms.topic: how-to
-ms.date: 04/19/2018
+ms.date: 05/30/2023
 ms.custom: mqtt
 ---
 
@@ -20,7 +20,7 @@ Azure IoT Hub is a fully managed service that helps enable reliable and secure b
 
 This article shows you how to:
 
-* Receive cloud-to-device messages on a device
+* Receive cloud-to-device (C2D) messages on a device
 
 At the end of this article, you run the following Swift iOS project:
 

@@ -69,7 +69,7 @@ Before you connect to Azure Machine Learning, you need an Azure Machine Learning
 1. In the window that appears, follow the prompts. Select the Azure Machine Learning workspace you’ve created previously under the same Azure subscription. Enter a name for the new Azure Machine Learning project that will be created to enable labeling in Azure Machine Learning.
 
     >[!TIP]
-    > Make sure your workspace is linked to the same Azure Blob Storage account and Language resource before continuing. You can create a new workspace and link to your storage account through the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices). Ensure that the storage account 
+    > Make sure your workspace is linked to the same Azure Blob Storage account and Language resource before continuing. You can create a new workspace and link to your storage account through the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices). Ensure that the storage account is properly linked to the workspace.
 
 1. (Optional) Turn on the vendor labeling toggle to use labeling vendor companies. Before choosing the vendor labeling companies, contact the vendor labeling companies on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services?search=AzureMLVend) to finalize a contract with them. For more information about working with vendor companies, see [How to outsource data labeling](/azure/machine-learning/how-to-outsource-data-labeling). 
 

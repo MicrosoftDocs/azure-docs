@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 02/16/2023
+ms.date: 05/11/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -37,7 +37,12 @@ The following example deletes a blob and its snapshots with a response:
 
 Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period has expired, the blob is permanently deleted. For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
 
-You can use the Azure Storage client libraries to restore a soft-deleted blob or snapshot. 
+You can use the Azure Storage client libraries to restore a soft-deleted blob or snapshot.
+
+How you restore a soft-deleted blob depends on whether or not your storage account has blob versioning enabled. For more information on blob versioning, see [Blob versioning](../../storage/blobs/versioning-overview.md). See one of the following sections, depending on your scenario:
+
+- [Blob versioning is not enabled](#restore-soft-deleted-objects-when-versioning-is-disabled)
+- [Blob versioning is enabled](#restore-soft-deleted-objects-when-versioning-is-enabled)
 
 #### Restore soft-deleted objects when versioning is disabled
 
@@ -45,7 +50,7 @@ To restore deleted blobs, call the following method:
 
 - [undelete](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
-This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect. 
+This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobDelete.java" id="Snippet_RestoreBlob":::
 
@@ -55,7 +60,7 @@ To restore a soft-deleted blob when versioning is enabled, copy a previous versi
 
 - [copyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
-This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect. 
+This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobDelete.java" id="Snippet_RestoreBlobVersion":::
 

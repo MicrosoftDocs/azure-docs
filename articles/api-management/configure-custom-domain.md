@@ -45,6 +45,7 @@ There are several API Management endpoints to which you can assign a custom doma
 | **Developer portal (legacy)** | Default is: `<apim-service-name>.portal.azure-api.net` |
 | **Developer portal** | Default is: `<apim-service-name>.developer.azure-api.net` |
 | **Management** | Default is: `<apim-service-name>.management.azure-api.net` |
+| **Configuration API (v2)** | Default is: `<apim-service-name>.configuration.azure-api.net` |
 | **SCM** | Default is: `<apim-service-name>.scm.azure-api.net` |
 
 ### Considerations
@@ -161,7 +162,7 @@ Choose the steps according to the [domain certificate](#domain-certificate-optio
 > [!NOTE]
 > The process of assigning the certificate may take 15 minutes or more depending on size of deployment. Developer tier has downtime, while Basic and higher tiers do not.
 
-[!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
+---
 
 ## DNS configuration
 
@@ -178,6 +179,9 @@ Configure a CNAME record that points from your custom domain name (for example, 
 > [!NOTE]
 > Some domain registrars only allow you to map subdomains when using a CNAME record, such as `www.contoso.com`, and not root names, such as `contoso.com`. For more information on CNAME records, see the documentation provided by your registrar or [IETF Domain Names - Implementation and Specification](https://tools.ietf.org/html/rfc1035).
 
+> [!CAUTION]
+> When you use the free, managed certificate and configure a CNAME record with your DNS provider, make sure that it resolves to the default API Management service hostname (`<apim-service-name>.azure-api.net`). Currently, API Management doesn't automatically renew the certificate if the CNAME record doesn't resolve to the default API Management hostname. For example, if you're using the free, managed certificate and you use Cloudflare as your DNS provider, make sure that DNS proxy isn't enabled on the CNAME record. 
+
 ### TXT record 
 
 When enabling the free, managed certificate for API Management, also configure a TXT record in your DNS zone to establish your ownership of the domain name. 
@@ -188,6 +192,8 @@ When enabling the free, managed certificate for API Management, also configure a
 When you use the portal to configure the free, managed certificate for your custom domain, the name and value of the necessary TXT record are automatically displayed.
 
 You can also get a domain ownership identifier by calling the [Get Domain Ownership Identifier](/rest/api/apimanagement/current-ga/api-management-service/get-domain-ownership-identifier) REST API.
+
+[!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
 ## Next steps
 

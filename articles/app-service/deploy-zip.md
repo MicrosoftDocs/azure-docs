@@ -207,7 +207,7 @@ curl -X POST -u <username> -T @"<startup-file-path>" https://<app-name>.scm.azur
 The following example uses the cURL tool to deploy a library file for their application. Replace the placeholders `<username>`, `<lib-file-path>`, and `<app-name>`. When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
 
 ```bash
-curl -X POST -u <username> -T @"<lib-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=lib&path="/home/site/deployments/tools/my-lib.jar"
+curl -X POST -u <username> -T @"<lib-file-path>" "https://<app-name>.scm.azurewebsites.net/api/publish?type=lib&path=/home/site/deployments/tools/my-lib.jar"
 ```
 
 ### Deploy a static file
@@ -215,7 +215,7 @@ curl -X POST -u <username> -T @"<lib-file-path>" https://<app-name>.scm.azureweb
 The following example uses the cURL tool to deploy a config file for their application. Replace the placeholders `<username>`, `<config-file-path>`, and `<app-name>`. When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
 
 ```bash
-curl -X POST -u <username> -T @"<config-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=static&path="/home/site/deployments/tools/my-config.json"
+curl -X POST -u <username> -T @"<config-file-path>" "https://<app-name>.scm.azurewebsites.net/api/publish?type=static&path=/home/site/deployments/tools/my-config.json"
 ```
 
 # [Kudu UI](#tab/kudu-ui)

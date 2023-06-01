@@ -20,11 +20,11 @@ Azure Cognitive Service for Speech is updated on an ongoing basis. To stay up-to
 ## Recent highlights
 
 * Speech SDK 1.28.0 was released in May 2023.
-* Speech-to-text and text-to-speech container versions were updated in March 2023.
+* Speech to text and text to speech container versions were updated in March 2023.
 * Some Speech Studio [scenarios](speech-studio-overview.md#speech-studio-scenarios) are available to try without an Azure subscription.
-* Custom Speech-to-Text container disconnected mode was released in January 2023.
-* Text-to-speech Batch synthesis API is available in public preview.
-* Speech-to-text REST API version 3.1 is generally available.
+* Custom Speech to text container disconnected mode was released in January 2023.
+* Text to speech Batch synthesis API is available in public preview.
+* Speech to text REST API version 3.1 is generally available.
 
 ## Release notes
 
@@ -38,13 +38,13 @@ Azure Cognitive Service for Speech is updated on an ongoing basis. To stay up-to
 
 [!INCLUDE [speech-cli](./includes/release-notes/release-notes-cli.md)]
 
-# [Text-to-speech service](#tab/text-to-speech)
+# [Text to speech service](#tab/text-to-speech)
 
-[!INCLUDE [text-to-speech](./includes/release-notes/release-notes-tts.md)]
+[!INCLUDE [text to speech](./includes/release-notes/release-notes-tts.md)]
 
-# [Speech-to-text service](#tab/speech-to-text)
+# [Speech to text service](#tab/speech-to-text)
 
-[!INCLUDE [speech-to-text](./includes/release-notes/release-notes-stt.md)]
+[!INCLUDE [speech to text](./includes/release-notes/release-notes-stt.md)]
 
 # [Containers](#tab/containers)
 

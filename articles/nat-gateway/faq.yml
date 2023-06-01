@@ -53,6 +53,14 @@ sections:
         answer: |
           A zone-redundant public IP address can be attached to a "no zone" NAT gateway only. A NAT gateway designated to a specific zone must be attached to a public IP address from the same zone.      
       
+      - question: Can an IPv6 public IP address be used with NAT gateway?
+        answer: |
+          No, NAT gateway does not support IPv6 public IP addresses. You can however have a dual-stack configuration with NAT gateway and Load balancer to provide IPv4 and IPv6 outbound connectivity. See [configure dual stack outbound connectivity with a NAT gateway and a public Load balancer](/azure/nat-gateway/tutorial-dual-stack-outbound-nat-load-balancer?tabs=dual-stack-outbound-portal) for more information. 
+      
+      - question: Can public IP addresses with routing preference "internet" be used with NAT gateway?
+        answer: |
+          No, NAT gateway does not support public IP addresses with routing preference "internet". To see a list of Azure services that do support routing configuration type "internet" on public IPs, see [supported services for routing over the public internet](/azure/virtual-network/ip-services/routing-preference-overview#supported-services). 
+      
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |
           No, the address of an existing public IP can't be changed.  Associate either an existing or newly created public IP address to the NAT gateway resource.  Disassociate the old IP address. See [add or remove a public IP address](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.

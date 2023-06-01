@@ -17,13 +17,13 @@ Cloud Shell allocates machines on a per-request basis and as a result machine st
 persist across sessions. Since Cloud Shell is built for interactive sessions, shells automatically
 terminate after 20 minutes of shell inactivity.
 
-Azure Cloud Shell runs on **Common Base Linux - Mariner** (CBL-Mariner), Microsoft's Linux
-distribution for cloud-infrastructure-edge products and services.
+Azure Cloud Shell runs on **Azure Linux**, Microsoft's Linux distribution for
+cloud-infrastructure-edge products and services.
 
-Microsoft internally compiles all the packages included in the **CBL-Mariner** repository to help
-guard against supply chain attacks. Tooling has been updated to reflect the new base image
-CBL-Mariner. If these changes affected your Cloud Shell environment, contact Azure Support or create
-an issue in the [Cloud Shell repository][17].
+Microsoft internally compiles all the packages included in the **Azure Linux** repository to help
+guard against supply chain attacks. Tooling has been updated to reflect the new base image for Azure
+Linux. If these changes affected your Cloud Shell environment, contact Azure Support or create an
+issue in the [Cloud Shell repository][17].
 
 ## Features
 

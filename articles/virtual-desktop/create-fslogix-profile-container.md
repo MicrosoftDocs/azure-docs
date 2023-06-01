@@ -186,7 +186,7 @@ This section is based on [Create a profile container for a host pool using a fil
      >[!WARNING]
      >Be careful when creating the *DeleteLocalProfileWhenVHDShouldApply* value. When the FSLogix Profiles system determines a user should have an FSLogix profile, but a local profile already exists, Profile Container will permanently delete the local profile. The user will then be signed in with the new FSLogix profile.
 
-## Make sure users can access the Azure NetApp File share
+## Make sure users can access the Azure NetApp Files share
 
 1. Browse to <https://rdweb.wvd.microsoft.com/arm/webclient>.
 

@@ -12,7 +12,7 @@ ms.author: pauljewell
 ms.reviewer: ozgun
 ms.subservice: common
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Create a stored access policy with .NET
