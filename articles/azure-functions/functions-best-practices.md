@@ -39,7 +39,7 @@ It's important that you choose the correct plan when you create your function ap
 
 Functions requires a storage account be associated with your function app. The storage account connection is used by the Functions host for operations such as managing triggers and logging function executions. It's also used when dynamically scaling function apps. To learn more, see [Storage considerations for Azure Functions](storage-considerations.md).
 
-A misconfigured file system or storage account in your function app can affect the performance and availability of your functions. For help with troubleshooting an incorrectly configured storage account, see the [storage troubleshooting](functions-recover-storage-account.md) article. 
+A misconfigured file system or storage account in your function app can affect the performance and availability of your functions. For help with troubleshooting an incorrectly configured storage account, see the [storage troubleshooting](azure-functions-runtime-is-unreachable-overview.md) article. 
 
 ### Storage connection settings
 
