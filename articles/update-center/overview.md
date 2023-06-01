@@ -18,7 +18,7 @@ Update management center (preview) is a unified service to help manage and gover
 
 You can use the update management center (preview) in Azure to:
 
-- Oversee update compliance for your entire fleet of machines in Azure, on- premises, and other cloud environments.
+- Oversee update compliance for your entire fleet of machines in Azure, on-premises, and other cloud environments.
 - Instantly deploy critical updates to help secure your machines.
 - Leverage flexible patching options such as [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hot patching](../automanage/automanage-hotpatch.md), and customer-defined maintenance schedules. 
 
