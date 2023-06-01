@@ -17,7 +17,7 @@ You can enable a managed bot protection rule set for your WAF to block or log re
 
 ## Prerequisites
 
-Create a basic WAF policy for Application Gateway by following the instructions described in [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md).
+Create a WAF policy for Application Gateway by following the instructions described in [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md).
 
 ## Enable bot protection rule set
 
