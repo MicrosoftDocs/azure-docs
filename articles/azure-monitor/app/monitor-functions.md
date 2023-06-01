@@ -114,6 +114,8 @@ Here is an example:
 
 Add the following filter to your logback.xml: 
 
+
+```xml
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>OFF</level>
     </filter>  
