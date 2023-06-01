@@ -67,7 +67,7 @@ items:
   - name: Improve your security posture
     href: concept-secure-remote-workers.md
   - name: Integrating all your apps with Azure AD
-    href: five-steps-to-full-application-integration-with-azure-ad.md
+    href: five-steps-to-full-application-integration.md
   - name: Security defaults
     href: concept-fundamentals-security-defaults.md
   - name: Block less secure authentications
@@ -88,7 +88,7 @@ items:
     - name: What's new in Azure Active Directory
       href: whats-new.md
     - name: What's deprecated in Azure Active Directory?
-      href: whats-deprecated-azure-ad.md
+      href: what-is-deprecated.md
     - name: What's new in sovereign clouds?
       href: whats-new-sovereign-clouds.md  
     - name: Archive for What's new? in Azure AD
@@ -103,7 +103,7 @@ items:
     expanded: false
     items:
     - name: Azure AD and data residency
-      href: azure-ad-data-residency.md
+      href: data-residency.md
     - name: Data operational considerations
       href: data-operational-considerations.md
     - name: Data protection considerations
@@ -362,13 +362,13 @@ items:
     - name: Secure service accounts
       items:
       - name: Introduction to Azure service accounts
-        href: service-accounts-introduction-azure.md
+        href: secure-service-accounts.md
       - name: Secure managed identities
         href: service-accounts-managed-identities.md
       - name: Secure service principals
         href: service-accounts-principal.md
       - name: Govern Azure service accounts
-        href: service-accounts-governing-azure.md
+        href: govern-service-accounts.md
       - name: Introduction to on-premises service accounts
         href: service-accounts-on-premises.md
       - name: Secure group MSAs

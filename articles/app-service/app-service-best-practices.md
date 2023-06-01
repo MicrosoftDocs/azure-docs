@@ -7,8 +7,7 @@ ms.assetid: f3359464-fa44-4f4a-9ea6-7821060e8d0d
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
-ms.custom: seodec18
-
+ms.custom: seodec18, devx-track-js
 ---
 # Best Practices for Azure App Service
 This article summarizes best practices for using [Azure App Service](./overview.md). 
