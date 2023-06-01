@@ -1,7 +1,7 @@
 ---
 title: Manage NSG flow logs - ARM template
 titleSuffix: Azure Network Watcher
-description: Learn how to create or delete Azure Network Watcher NSG flow logs using an Azure Resource Manager (ARM) template.
+description: Learn how to create or delete Azure Network Watcher NSG flow logs using an Azure Resource Manager template (ARM template).
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
@@ -31,8 +31,7 @@ An [Azure Resource Manager template](../azure-resource-manager/templates/overvie
 
 ## NSG flow logs object
 
-The NSG flow logs object with all parameters is shown below.
-For a complete overview of the properties, see [NSG flow logs template reference](/azure/templates/microsoft.network/networkwatchers/flowlogs).
+The NSG flow logs object with all parameters is shown in the following example. For a complete overview of the object properties, see [NSG flow logs template reference](/azure/templates/microsoft.network/networkwatchers/flowlogs).
 
 ```json
 {
@@ -71,7 +70,7 @@ To learn more about using Azure Resource Manager templates, see:
 - [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 - [Tutorial: Create and deploy your first Azure Resource Manager template](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
-Below are two examples of complete templates to set up NSG flow logs.
+The following examples present complete templates to enable NSG flow logs.
 
 #### Example 1
 
