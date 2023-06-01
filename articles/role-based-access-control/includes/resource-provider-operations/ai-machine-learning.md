@@ -186,8 +186,8 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/AudioContentCreation/Synthesis/Speak/action | TTS synthesis API for all ACC voices. |
 > | Microsoft.CognitiveServices/accounts/AudioContentCreation/Synthesis/PredictSsmlTagsRealtime/action | Realtime API for predict ssml tag. |
 > | Microsoft.CognitiveServices/accounts/AudioContentCreation/TuneSsml/ConfigureSsmlFileReferenceFiles/action | Add/update/delete item(s) of SSML reference file plugin. |
-> | Microsoft.CognitiveServices/accounts/AudioContentCreation/TuneSsml/ApplySequenceTuneOnFiles/action | Apply serveral ssml tag tune on one ssml file sequencly. |
-> | Microsoft.CognitiveServices/accounts/AudioContentCreation/TuneSsml/SequenceTune/action | Apply serveral ssml tag tune on one ssml sequencly. |
+> | Microsoft.CognitiveServices/accounts/AudioContentCreation/TuneSsml/ApplySequenceTuneOnFiles/action | Apply several ssml tag tune on one ssml file sequentially. |
+> | Microsoft.CognitiveServices/accounts/AudioContentCreation/TuneSsml/SequenceTune/action | Apply several ssml tag tune on one ssml sequentially. |
 > | Microsoft.CognitiveServices/accounts/AudioContentCreation/TuneSsml/MultiSequenceTune/action | Process several ssml tag sequence tune into one request. |
 > | Microsoft.CognitiveServices/accounts/AudioContentCreation/TuneSsml/MultiTune/action | Process several ssml tag tune into one request. |
 > | Microsoft.CognitiveServices/accounts/AudioContentCreation/TuneSsml/SplitSsmls/action | Split ssml with specified options. |
@@ -219,7 +219,7 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/ComputerVision/models/:cancel/action | Cancel model training. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/models/delete | Delete a custom model. A model can be deleted if it is in one of the 'Succeeded', 'Failed', or 'Canceled' states. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/models/write | Start training a custom model. |
-> | Microsoft.CognitiveServices/accounts/ComputerVision/operations/imageanalysis:analyze/action | Analyze the input image of incoming request without deployment. The request either contains image stream |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/operations/imageanalysis:analyze/action | Analyze the input image of incoming request without deployment. The request contains an image stream. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/operations/read | Get information about a specific operation. Get a list of the available operations. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/operations/contentgeneration-backgrounds:generate/action | Generates a background from a specified query, style, and size. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/read/analyze/action | Use this interface to perform a Read operation, employing the state-of-the-art Optical Character Recognition (OCR) algorithms optimized for text-heavy documents.<br>It can handle hand-written, printed or mixed documents.<br>When you use the Read interface, the response contains a header called 'Operation-Location'.<br>The 'Operation-Location' header contains the URL that you must use for your Get Read Result operation to access OCR results.** |

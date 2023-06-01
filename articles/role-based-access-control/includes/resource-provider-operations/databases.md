@@ -295,11 +295,11 @@ Azure service: [Azure Database Migration Service](../../../dms/index.yml)
 > | Microsoft.DataMigration/services/stop/action | Stop the Azure Database Migration Service to minimize its cost |
 > | Microsoft.DataMigration/services/start/action | Start the Azure Database Migration Service to allow it to process migrations again |
 > | Microsoft.DataMigration/services/checkStatus/action | Check whether the service is deployed and running |
-> | Microsoft.DataMigration/services/configureWorker/action | Configures a Azure Database Migration Service worker to the Service's availiable workers |
-> | Microsoft.DataMigration/services/addWorker/action | Adds a Azure Database Migration Service worker to the Service's availiable workers |
-> | Microsoft.DataMigration/services/removeWorker/action | Removes a Azure Database Migration Service worker to the Service's availiable workers |
+> | Microsoft.DataMigration/services/configureWorker/action | Configures an Azure Database Migration Service worker to the Service's availiable workers |
+> | Microsoft.DataMigration/services/addWorker/action | Adds an Azure Database Migration Service worker to the Service's availiable workers |
+> | Microsoft.DataMigration/services/removeWorker/action | Removes an Azure Database Migration Service worker to the Service's availiable workers |
 > | Microsoft.DataMigration/services/updateAgentConfig/action | Updates Azure Database Migration Service agent configuration with provided values. |
-> | Microsoft.DataMigration/services/getHybridDownloadLink/action | Gets a Azure Database Migration Service worker package download link from RP Blob Storage. |
+> | Microsoft.DataMigration/services/getHybridDownloadLink/action | Gets an Azure Database Migration Service worker package download link from RP Blob Storage. |
 > | Microsoft.DataMigration/services/projects/read | Read information about resources |
 > | Microsoft.DataMigration/services/projects/write | Run tasks Azure Database Migration Service tasks |
 > | Microsoft.DataMigration/services/projects/delete | Deletes a resource and all of its children |

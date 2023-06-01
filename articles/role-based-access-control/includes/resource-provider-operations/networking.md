@@ -660,7 +660,7 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/write | Creates or updates a Web Application Firewall Policy |
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/delete | Deletes a Web Application Firewall Policy |
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/join/action | Joins a Web Application Firewall Policy. Not Alertable. |
-> | Microsoft.Network/internalPublicIpAddresses/read | Returns internal public ip addresses in subscription |
+> | Microsoft.Network/internalPublicIpAddresses/read | Returns internal public IP addresses in subscription |
 > | Microsoft.Network/ipAllocations/read | Get The IpAllocation |
 > | Microsoft.Network/ipAllocations/write | Creates A IpAllocation Or Updates An Existing IpAllocation |
 > | Microsoft.Network/ipAllocations/delete | Deletes A IpAllocation |
@@ -686,7 +686,7 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Gets a load balancer frontend IP configuration definition |
 > | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Joins a Load Balancer Frontend IP Configuration. Not alertable. |
 > | Microsoft.Network/loadBalancers/frontendIPConfigurations/loadBalancerPools/read | Gets a load balancer frontend IP address backend pool definition |
-> | Microsoft.Network/loadBalancers/frontendIPConfigurations/loadBalancerPools/write | Creates a load balancer frontend IP address backend pool or updates an existing public IP Address load balancer backend pool |
+> | Microsoft.Network/loadBalancers/frontendIPConfigurations/loadBalancerPools/write | Creates a load balancer frontend IP address backend pool or updates an existing public IP address load balancer backend pool |
 > | Microsoft.Network/loadBalancers/frontendIPConfigurations/loadBalancerPools/delete | Deletes a load balancer frontend IP address backend pool |
 > | Microsoft.Network/loadBalancers/frontendIPConfigurations/loadBalancerPools/join/action | Joins a load balancer frontend IP address backend pool. Not alertable. |
 > | Microsoft.Network/loadBalancers/inboundNatPools/read | Gets a load balancer inbound nat pool definition |
@@ -987,18 +987,18 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/privateLinkServices/privateEndpointConnections/write | Creates a new private endpoint connection, or updates an existing private endpoint connection. |
 > | Microsoft.Network/privateLinkServices/privateEndpointConnections/delete | Deletes an private endpoint connection. |
 > | Microsoft.Network/privateLinkServices/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Private Link Service |
-> | Microsoft.Network/publicIPAddresses/read | Gets a public ip address definition. |
-> | Microsoft.Network/publicIPAddresses/write | Creates a public Ip address or updates an existing public Ip address.  |
-> | Microsoft.Network/publicIPAddresses/delete | Deletes a public Ip address. |
-> | Microsoft.Network/publicIPAddresses/join/action | Joins a public ip address. Not Alertable. |
-> | Microsoft.Network/publicIPAddresses/ddosProtectionStatus/action | Gets the effective Ddos protection status for a Public IP Address resource. |
-> | Microsoft.Network/publicIPAddresses/dnsAliases/read | Gets a Public Ip Address Dns Alias resource |
-> | Microsoft.Network/publicIPAddresses/dnsAliases/write | Creates a Public Ip Address Dns Alias resource |
-> | Microsoft.Network/publicIPAddresses/dnsAliases/delete | Deletes a Public Ip Address Dns Alias resource |
-> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | Get the diagnostic settings of Public IP Address |
-> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | Create or update the diagnostic settings of Public IP Address |
-> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | Get the log definitions of Public IP Address |
-> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read | Get the metrics definitions of Public IP Address |
+> | Microsoft.Network/publicIPAddresses/read | Gets a public IP address definition. |
+> | Microsoft.Network/publicIPAddresses/write | Creates a public IP address or updates an existing public IP address.  |
+> | Microsoft.Network/publicIPAddresses/delete | Deletes a public IP address. |
+> | Microsoft.Network/publicIPAddresses/join/action | Joins a public IP address. Not Alertable. |
+> | Microsoft.Network/publicIPAddresses/ddosProtectionStatus/action | Gets the effective Ddos protection status for a Public IP address resource. |
+> | Microsoft.Network/publicIPAddresses/dnsAliases/read | Gets a Public IP address Dns Alias resource |
+> | Microsoft.Network/publicIPAddresses/dnsAliases/write | Creates a Public IP address Dns Alias resource |
+> | Microsoft.Network/publicIPAddresses/dnsAliases/delete | Deletes a Public IP address Dns Alias resource |
+> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | Get the diagnostic settings of Public IP address |
+> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | Create or update the diagnostic settings of Public IP address |
+> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | Get the log definitions of Public IP address |
+> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read | Get the metrics definitions of Public IP address |
 > | Microsoft.Network/publicIPPrefixes/read | Gets a Public Ip Prefix Definition |
 > | Microsoft.Network/publicIPPrefixes/write | Creates A Public Ip Prefix Or Updates An Existing Public Ip Prefix |
 > | Microsoft.Network/publicIPPrefixes/delete | Deletes A Public Ip Prefix |
@@ -1121,7 +1121,7 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/virtualNetworks/listDnsResolvers/action | Gets the DNS Resolver for Virtual Network, in JSON format |
 > | Microsoft.Network/virtualNetworks/listDnsForwardingRulesets/action | Gets the DNS Forwarding Ruleset for Virtual Network, in JSON format |
 > | Microsoft.Network/virtualNetworks/bastionHosts/default/action | Gets Bastion Host references in a Virtual Network. |
-> | Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read | Check if Ip Address is available at the specified virtual network |
+> | Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read | Check if IP address is available at the specified virtual network |
 > | Microsoft.Network/virtualNetworks/customViews/read | Get definition of a custom view of Virtual Network |
 > | Microsoft.Network/virtualNetworks/customViews/get/action | Get a Virtual Network custom view content |
 > | Microsoft.Network/virtualNetworks/privateDnsZoneLinks/read | Get the Private DNS zone link to a virtual network properties, in JSON format. |

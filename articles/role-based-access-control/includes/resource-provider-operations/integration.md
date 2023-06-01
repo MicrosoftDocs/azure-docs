@@ -170,7 +170,7 @@ Azure service: [API Management](../../../api-management/index.yml)
 > | Microsoft.ApiManagement/service/identityProviders/delete | Deletes the specified identity provider configuration. |
 > | Microsoft.ApiManagement/service/identityProviders/listSecrets/action | Gets Identity Provider secrets. |
 > | Microsoft.ApiManagement/service/issues/read | Lists a collection of issues in the specified service instance. or Gets API Management issue details |
-> | Microsoft.ApiManagement/service/locations/networkstatus/read | Gets the network access status of resources on which the service depends on in the location. |
+> | Microsoft.ApiManagement/service/locations/networkstatus/read | Gets the network access status of resources on which the service depends in the location. |
 > | Microsoft.ApiManagement/service/loggers/read | Lists a collection of loggers in the specified service instance. or Gets the details of the logger specified by its identifier. |
 > | Microsoft.ApiManagement/service/loggers/write | Creates or Updates a logger. or Updates an existing logger. |
 > | Microsoft.ApiManagement/service/loggers/delete | Deletes the specified logger. |
@@ -179,7 +179,7 @@ Azure service: [API Management](../../../api-management/index.yml)
 > | Microsoft.ApiManagement/service/namedValues/delete | Deletes specific named value from the API Management service instance. |
 > | Microsoft.ApiManagement/service/namedValues/listValue/action | Gets the secret of the named value specified by its identifier. |
 > | Microsoft.ApiManagement/service/namedValues/refreshSecret/action | Refreshes named value by fetching it from Key Vault. |
-> | Microsoft.ApiManagement/service/networkstatus/read | Gets the network access status of resources on which the service depends on. |
+> | Microsoft.ApiManagement/service/networkstatus/read | Gets the network access status of resources on which the service depends. |
 > | Microsoft.ApiManagement/service/notifications/read | Lists a collection of properties defined within a service instance. or Gets the details of the Notification specified by its identifier. |
 > | Microsoft.ApiManagement/service/notifications/write | Create or Update API Management publisher notification. |
 > | Microsoft.ApiManagement/service/notifications/recipientEmails/read | Gets the list of the Notification Recipient Emails subscribed to a notification. |
@@ -193,7 +193,7 @@ Azure service: [API Management](../../../api-management/index.yml)
 > | Microsoft.ApiManagement/service/openidConnectProviders/delete | Deletes specific OpenID Connect Provider of the API Management service instance. |
 > | Microsoft.ApiManagement/service/openidConnectProviders/listSecrets/action | Gets specific OpenID Connect Provider secrets. |
 > | Microsoft.ApiManagement/service/operationresults/read | Gets current status of long running operation |
-> | Microsoft.ApiManagement/service/outboundNetworkDependenciesEndpoints/read | Gets the outbound network dependency status of resources on which the service depends on. |
+> | Microsoft.ApiManagement/service/outboundNetworkDependenciesEndpoints/read | Gets the outbound network dependency status of resources on which the service depends. |
 > | Microsoft.ApiManagement/service/policies/read | Lists all the Global Policy definitions of the Api Management service. or Get the Global policy definition of the Api Management service. |
 > | Microsoft.ApiManagement/service/policies/write | Creates or updates the global policy configuration of the Api Management service. |
 > | Microsoft.ApiManagement/service/policies/delete | Deletes the global policy configuration of the Api Management Service. |

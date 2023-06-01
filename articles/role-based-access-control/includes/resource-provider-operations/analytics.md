@@ -325,7 +325,7 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/CheckNameAvailability/action | Checks the cluster name availability. |
 > | Microsoft.Kusto/Clusters/DetachFollowerDatabases/action | Detaches follower's databases. |
 > | Microsoft.Kusto/Clusters/ListFollowerDatabases/action | Lists the follower's databases. |
-> | Microsoft.Kusto/Clusters/DiagnoseVirtualNetwork/action | Diagnoses network connectivity status for external resources on which the service is dependent on. |
+> | Microsoft.Kusto/Clusters/DiagnoseVirtualNetwork/action | Diagnoses network connectivity status for external resources on which the service is dependent. |
 > | Microsoft.Kusto/Clusters/ListLanguageExtensions/action | Lists language extensions. |
 > | Microsoft.Kusto/Clusters/AddLanguageExtensions/action | Add language extensions. |
 > | Microsoft.Kusto/Clusters/RemoveLanguageExtensions/action | Remove language extensions. |
