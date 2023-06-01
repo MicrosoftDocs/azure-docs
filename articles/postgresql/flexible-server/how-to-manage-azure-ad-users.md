@@ -65,6 +65,8 @@ select * from pgaadauth_list_principals(true);
 
 ```sql
 select * from pgaadauth_create_principal('<roleName>', <isAdmin>, <isMfa>);
+
+For example: select * from pgaadauth_create_principal('mary@contoso.com', false, false);
 ```
 
 **Parameters:**
