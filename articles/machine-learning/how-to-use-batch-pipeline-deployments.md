@@ -57,17 +57,17 @@ The `hello-component/hello.yml` file contains the configuration for the pipeline
 
 __hello-component/hello.yml__
 
-:::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/hello-component/hello.yml" :::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/hello-component/hello.yml" :::
 
 Register the component:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="register_component" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="register_component" :::
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=register_component)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=register_component)]
 
 ---
 
@@ -77,11 +77,11 @@ Register the component:
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="name_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="name_endpoint" :::
 
     # [Python](#tab/python)
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=name_endpoint)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=name_endpoint)]
 
 1. Configure the endpoint:
 
@@ -91,31 +91,31 @@ Register the component:
 
     __endpoint.yml__
     
-    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/endpoint.yml" :::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/endpoint.yml" :::
 
     # [Python](#tab/python)
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=configure_endpoint)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=configure_endpoint)]
 
 1. Create the endpoint:
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="create_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="create_endpoint" :::
 
     # [Python](#tab/python)
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=create_endpoint)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=create_endpoint)]
 
 1. Query the endpoint URI:
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="query_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="query_endpoint" :::
 
     # [Python](#tab/python)
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=query_endpoint)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=query_endpoint)]
 
 ## Deploy the pipeline component
 
@@ -125,25 +125,25 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="create_compute" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="create_compute" :::
     
     # [Python](#tab/python)
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=create_compute)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=create_compute)]
 
 1. Configure the deployment:
 
     # [Azure CLI](#tab/cli)
     
-    The `deployment.yml` file contains the deployment's configuration.
+    The `deployment.yml` file contains the deployment's configuration. You can check the [full batch endpoint YAML schema](reference-yaml-endpoint-batch.md) for extra properties.
 
     __deployment.yml__
 
-    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deployment.yml" :::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deployment.yml" :::
     
     # [Python](#tab/python)
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=configure_deployment)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=configure_deployment)]
     
 1. Create the deployment:
 
@@ -151,7 +151,7 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="create_deployment" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="create_deployment" :::
     
     > [!TIP]
     > Notice the use of the `--set-default` flag to indicate that this new deployment is now the default.
@@ -160,11 +160,11 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
 
     This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=create_deployment)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=create_deployment)]
     
     Once created, let's configure this new deployment as the default one:
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=update_default_deployment)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=update_default_deployment)]
 
 1. Your deployment is ready for use.
 
@@ -174,11 +174,11 @@ Once the deployment is created, it's ready to receive jobs. You can invoke the d
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="invoke_deployment_inline" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="invoke_deployment_inline" :::
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=invoke_deployment_inline)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=invoke_deployment_inline)]
 
 ---
 
@@ -189,15 +189,15 @@ You can monitor the progress of the show and stream the logs using:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="stream_job_logs" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="stream_job_logs" :::
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=get_job)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=get_job)]
 
 To wait for the job to finish, run the following code:
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=stream_job_logs)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=stream_job_logs)]
 ---
 
 ## Clean up resources
@@ -208,13 +208,13 @@ Once you're done, delete the associated resources from the workspace:
 
 Run the following code to delete the batch endpoint and its underlying deployment. `--yes` is used to confirm the deletion.
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="delete_endpoint" :::
 
 # [Python](#tab/python)
 
 Delete the endpoint:
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=delete_endpoint)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=delete_endpoint)]
 ---
 
 (Optional) Delete compute, unless you plan to reuse your compute cluster with later deployments.

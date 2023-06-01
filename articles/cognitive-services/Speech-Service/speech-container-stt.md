@@ -7,6 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 04/18/2023
 ms.author: eur
@@ -180,4 +181,3 @@ For more information about `docker run` with Speech containers, see [Install and
 * See the [Speech containers overview](speech-container-overview.md)
 * Review [configure containers](speech-container-configuration.md) for configuration settings
 * Use more [Azure Cognitive Services containers](../cognitive-services-container-support.md)
-

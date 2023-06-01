@@ -25,6 +25,7 @@ ms.author: eur
 |Portuguese (Brazil)|`pt-BR`<sup>1</sup>|
 |Spanish (Mexico)|`es-MX` | 
 |Spanish (Spain)|`es-ES` | 
+|Tamil (India)|`ta-IN`<sup>1</sup> | 
 |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
 
 <sup>1</sup> The language is in public preview for pronunciation assessment.
