@@ -1,7 +1,7 @@
 ---
-title: Routing rule matching
+title: How requests are matched to a route configuration
 titleSuffix: Azure Front Door
-description: This article helps you understand how Azure Front Door matches incoming requests to a routing rule.
+description: This article helps you understand how Azure Front Door matches incoming requests to a route configuration.
 services: front-door
 author: duongau
 ms.service: frontdoor
@@ -12,7 +12,7 @@ ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
-# How requests are matched to a routing rule
+# How requests are matched to a route configuration
 
 ::: zone pivot="front-door-standard-premium"
 
