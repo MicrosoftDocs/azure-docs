@@ -1,6 +1,6 @@
 ---
-title: Manage assets with metamodel
-description: Manage asset types with Microsoft Purview metamodel
+title: Manage business assets with the metamodel
+description: Manage asset types with Microsoft Purview's metamodel
 author: evangelinew
 ms.author: evwhite
 ms.service: purview
