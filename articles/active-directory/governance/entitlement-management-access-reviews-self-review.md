@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 01/25/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -51,7 +51,7 @@ Once you open the access review, you can see your access. Use the following proc
     >[!NOTE]
     >If you stated that you no longer need access, you aren't removed from the access package immediately. You will be removed from the access package when the review ends or if an administrator stops the review.
 
-1.	If you clicked **Yes**, you may need to include a justification statement in the **Reason** box.
+1.	If you chose **Yes**, you may need to include a justification statement in the **Reason** box.
 
 1.	Select **Submit**.
 
