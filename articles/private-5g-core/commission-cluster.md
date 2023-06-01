@@ -186,12 +186,18 @@ The page should now look like the following image:
 :::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview-enabled.png" alt-text="Screenshot showing Kubernetes (Preview) with two tables. The first table is called Compute virtual switch and the second is called Virtual network. A green tick shows that the virtual networks are enabled for Kubernetes.":::
 :::zone-end
 
-## Start the cluster and set up Arc
+## Enable VM management on the ASE
 
-Access the Azure portal and go to the **Azure Stack Edge** resource created in the Azure portal.
+1. Access the Azure portal and go to the **Azure Stack Edge** resource created in the Azure portal.
+1. Select **Edge services**.
+1. Select **Virtual machines**.
+1. Select **Enable**.
+
+## Start the cluster and set up Arc
 
 If you're running other VMs on your Azure Stack Edge, we recommend that you stop them now, and start them again once the cluster is deployed. The cluster requires access to specific CPU resources that running VMs may already be using.
 
+1. Access the Azure portal and go to the **Azure Stack Edge** resource created in the Azure portal.
 1. To deploy the cluster, select the **Kubernetes** option and then select the **Add** button to configure the cluster.
 
    :::image type="content" source="media/commission-cluster/commission-cluster-add-kubernetes.png" alt-text="Screenshot of Kubernetes Overview pane, showing the Add button to configure Kubernetes service.":::
@@ -203,7 +209,7 @@ If you're running other VMs on your Azure Stack Edge, we recommend that you stop
 
 The creation of the Kubernetes cluster takes about 20 minutes. During creation, there may be a critical alarm displayed on the **Azure Stack Edge** resource. This alarm is expected and should disappear after a few minutes.
 
-Once deployed, the portal should show  **Kubernetes service is healthy** on the overview page.
+Once deployed, the portal should show  **Kubernetes service is running** on the overview page.
 
 ## Set up kubectl access
 
