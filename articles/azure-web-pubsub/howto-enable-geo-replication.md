@@ -51,10 +51,9 @@ To create a replica in an Azure region, go to your Web PubSub resource and find 
 After creation, you would be able to view/edit your replica on the portal by clicking the replica name.
 
 ![Replica_example1-click_replica drawio](https://github.com/Azure/azure-signalr-specs/assets/16233725/a705e9d5-8ba8-4d27-9b44-d30b45396ee2)
-
 > [!NOTE]
 > * Geo-replication is a feature available in premium tier.
-> * A replica is considered a separate resource when it comes to billing. See pricing for more details. {Link to pricing page???} 
+> * A replica is considered a separate resource when it comes to billing. See [Pricing](concept-billing-model.md/#how-replica-is-billed) for more details. 
 
 ## Delete a replica
 After you've created a replica for a Web PubSub resource, you can delete it at any time if it's no longer needed. 
