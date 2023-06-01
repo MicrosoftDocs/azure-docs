@@ -1,3 +1,13 @@
+---
+title: Azure Web PubSub service Geo-Replication
+description:  Learn about how Azure Geo-Replication works
+author: biqian
+ms.author: biqian
+ms.service: azure-web-pubsub
+ms.topic: conceptual
+ms.date: 06/01/2023
+---
+
 # Azure Web PubSub Geo-Replication
 
 Companies seeking local presence or requiring a robust failover system often choose to deploy services across multiple Azure regions. With the integration of geo-replication in Azure Web PubSub, managing multi-region scenarios has become significantly easier.
@@ -8,67 +18,6 @@ A geo-replicated Azure Web PubSub Service provides the following benefits:
 * **Cross Region Communication**. Different replicas could communicate with each other as if they are the same instance.
 * **Enhanced Network Speed via Azure BackBone:** Geographically dispersed clients will connect to the nearest replica instance. These instances communicate through Azure BackBone, ensuring fast, stable network quality..
 * **Shared configurations**. All replicas retain the primary Azure Web PubSub Service resource's configuration. 
-
-## Prerequisites
-
-* An Azure Web PubSub Service in [Premium tier](https://azure.microsoft.com/en-us/pricing/details/web-pubsub/).
-* The user needs following permissions to operate on replicas:
-
-    | Permission                                        | Description                                       |
-    |---------------------------------------------------|---------------------------------------------------|
-    | Microsoft.SignalRService/webpubsub/replicas/write   | create, update or delete a replica. |
-    | Microsoft.SignalRService/webpubsub/replicas/read    | get meta data of a replica.|
-    | Microsoft.SignalRService/webpubsub/replicas/action  | perform actions on a replica, such as restarting. |
-
-
-## Example use case
-Contoso is a social media company with its customer base spread across the US and Canada. To serve those customers and let them communicate with each other, Contoso runs its services in Central US. Azure Web PubSub Service is used to handle user connections and facilitate communication among users. Contoso's end users are mostly phone users. Due to the long geographical distances, end-users in Canada might experience high latency and poor network quality.
-
-<img width="633" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/5a4a3460-161a-4fe4-b254-f2cd5e59db87">
-
-Before the advent of the geo-replication feature, Contoso could setup another Azure Web PubSub Service in Canada Central to serve its Canadian users. By setting up a geographically closer Azure Web PubSub Service, end users now have better network quality and lower latency. 
-
-However, managing multiple Azure Web PubSub Services brings some challenges:
-1. A cross-region communication mechanism would be required to enable conversation between Canada and US users.
-2. The development team would need to manage two separate Azure Web PubSub Services, each with distinct domains and connection strings.
-3. If a regional outage happens, the traffic needs to be switched to another region.
-
-<img width="633" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/dd9b491c-0c09-49dd-aa73-9f78fbd41b4c">
-
-
-## Harnessing Geo-replication
-With the new geo-replication feature, Contoso can now establish a replica in Canada Central, effectively overcoming the above-mentioned hurdles.
-
-<img width="633" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/abad4c0e-0cc7-4c24-a286-9440d3c3a13c">
-
-The geo-replication feature of Azure Web PubSub Service has following benefits:
-
-1. Communication across region is handled by Azure Web PubSub Service. 
-2. There is only one Azure Web PubSub Service. The replicas in different regions share the configuration and domain.
-3. It is more resilient to regional outages.
-
-## Create a Web PubSub Replica
-
-To create a replica, Navigate to the Web PubSub **Replicas** blade on the Azure portal and click **Add** to create a replica. It will be automatically enabled upon creation.
-
-![Web PubSub Replica Creation](https://github.com/bjqian/azure-docs/assets/16233725/ecc24f6f-7b14-452f-9a69-65c3cd80ef8a)
-> [!NOTE]
-> * The replica feature is available only for Premium tier.
-> * Creating a replica incurs additional cost. Refer to below **Pricing** section for details. 
-
-## Pricing
-Replica is a feature of [Premium tier](https://azure.microsoft.com/en-us/pricing/details/web-pubsub/) of Azure Web PubSub Service. When you create a replica in desired regions, you incur Premium fees for each region.
-
-In the preceding example, Contoso added one replica in Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
-
-
-## Delete a replica
-After you've created a replica for your Azure Web PubSub Service, you can delete it at any time if it's no longer needed. 
-
-To delete a replica in the Azure portal:
-
-1. Navigate to your Azure Web PubSub Service, and select **Replicas** blade. Click the replica you want to delete.
-2. Click Delete button on the replica overview blade.
 
 ## Understanding how the Web PubSub Replica Works
 
