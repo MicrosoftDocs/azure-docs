@@ -172,7 +172,7 @@
   - name: Azure Machine Learning CLI and Python SDK
     href: concept-v2.md
   - name: Azure Machine Learning UI
-    - items:
+    items:
       - name: Searching for Assets and Resources
         href: how-to-search-assets.md
   - name: Compute instance
