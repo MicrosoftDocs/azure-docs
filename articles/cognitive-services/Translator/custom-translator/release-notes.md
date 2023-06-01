@@ -21,19 +21,19 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 
 #### Custom Translator platform upgrade
 
-🆕 The **model upgrade wizard** is added to **Workspace settings** to guide customers during V1 model upgrade to new platform process. For more information, *see* [Custom Translator platform upgrade](platform-upgrade.md)
+&emsp; 🆕 The **model upgrade wizard** is added to **Workspace settings** to guide customers during V1 model upgrade to new platform process. For more information, *see* [Custom Translator platform upgrade](platform-upgrade.md)
 
 #### Custom Translator copy model
 
-🆕 The **Copy model** feature is added to **Model details** to enable the copying of a model from one workspace to another. This feature enables model lifecycle management (development → testing → production) and/or scaling. For more information, *see* [Copy a custom model](how-to/copy-model.md)
+&emsp; 🆕 The **Copy model** feature is added to **Model details** to enable the copying of a model from one workspace to another. This feature enables model lifecycle management (development → testing → production) and/or scaling. For more information, *see* [Copy a custom model](how-to/copy-model.md)
 
 #### Restrict access to published models
 
- Published model security is enhanced  and restricted access is enabled in Workspace settings to allow only linked Translator resources to request translation.
+ &emsp; Published model security is enhanced  and restricted access is enabled in Workspace settings to allow only linked Translator resources to request translation.
 
 #### Language model updates
 
-Supported language pairs are listed in the following table. For higher quality, we encourage you to retrain your models accordingly.
+&emsp; Supported language pairs are listed in the following table. For higher quality, we encourage you to retrain your models accordingly.
 
 |Source Language|Target Language|
 |:----|:----|
