@@ -84,6 +84,8 @@ If you are using log4j or logback to log to the console, then distributed tracin
 
 Add the following filter to your log4j.xml: 
 
+
+```xml
     <Filters>
         <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
     </Filters>
