@@ -15,7 +15,7 @@ Azure Files is updated regularly to offer new features and enhancements. This ar
 ## What's new in 2023
 
 ### 2023 quarter 2 (April, May, June)
-#### Azure Files scalability improvement for Azure Virtual Desktop and other workloads is generally available
+#### Azure Files scalability improvement for Azure Virtual Desktop and other workloads that open root directory handles is generally available
 Azure Files has increased the root directory handle limit per share from 2,000 to 10,000 for standard and premium file shares. This improvement benefits applications that keep an open handle on the root directory. For example, Azure Virtual Desktop with FSLogix profile containers now supports 10,000 active users per share (5x improvement). 
 
 Note: The number of active users supported per share is dependent on the applications that are accessing the share. If your applications are not opening a handle on the root directory, Azure Files can support more than 10,000 active users per share.

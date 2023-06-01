@@ -29,6 +29,7 @@ In this tutorial, you learn how to:
   - You can use the Windows Subsystem for Linux and follow Ubuntu instructions, if necessary.
 - An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
 - A GitHub account. If you don't have one, you can [create an account for free](https://github.com/join).
+- A Git setup installed. If you don't have one, you can [install Git](https://www.git-scm.com/downloads). 
 
 ## Create Jekyll App
 
