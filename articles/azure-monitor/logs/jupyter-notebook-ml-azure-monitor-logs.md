@@ -24,10 +24,8 @@ In this tutorial, we integrate a notebook with a Log Analytics workspace and tra
 In this tutorial, you learn how to: 
 > [!div class="checklist"]
 > * Integrate a notebook into your Log Analytics workspace using the [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) and the [Azure Identity client library](https://pypi.org/project/azure-identity/) 
-> * Explore and visualize data from your Log Analytics workspace in notebook
-> * Prepare data for model training 
-> * Train and test regression models on historical data
-> * Score new data, or predict new values, using a trained model and identify anomalies
+> * Explore and visualize data from your Log Analytics workspace in a notebook
+> * Run the steps of the machine learning lifecycle (sample implementation using popular open source libraries)
 > * Ingest anomalies into a custom table in your Log Analytics workspace for further analysis (optional) 
 
 > [!NOTE]
@@ -186,7 +184,9 @@ Now that you've integrated your Log Analytics workspace with your notebook, let'
 
     You've successfully queried and visualized log data from your Log Analytics workspace in your notebook.
     
-## Prepare data for model training
+## Run the steps of the machine learning lifecycle
+
+### Prepare data for model training
 
 After exploring the available data, let's use a subset of the data for model training: 
 
@@ -299,7 +299,7 @@ After exploring the available data, let's use a subset of the data for model tra
         )
     ```
     
-## Train and test regression models on historical data
+### Train and test regression models on historical data
 
 Let's experiment with two types of regression models and check which of the models most closely predicts the data in our testing set:
 
@@ -396,7 +396,7 @@ Let's experiment with two types of regression models and check which of the mode
     joblib.dump(gbrt_pipeline, filename)
     ```
 
-## Predict new values and identify anomalies
+### Predict new values and identify anomalies
 
 Now that we have a trained model, let's use the model to predict new values, compare the predicted values with actual values, and identify anomalies: 
 
