@@ -97,21 +97,25 @@ This section lists the types of resource logs you can collect for Azure Service 
 - Operational logs
 - Virtual network and IP filtering logs
 
+Azure Service Bus now supports sending to any of two destination tables- Azure Diagnostic and Resource specific tables. 
+
 ### Operational logs
 Operational log entries include elements listed in the following table:
 
-| Name | Description |
-| ------- | ------- |
-| `ActivityId` | Internal ID, used to identify the specified activity |
-| `EventName` | Operation name |
-| `ResourceId` | Azure Resource Manager resource ID |
-| `SubscriptionId` | Subscription ID |
-| TimeGenerated [UTC]|Time of executed operation (in UTC)|
-| `EventProperties` | Operation properties |
-| `Status` | Operation status |
-| `Caller` | Caller of operation (the Azure portal or management client) |
-| `Provider`|Name of Service emitting the logs e.g., ServiceBus |
-|  `Type`  | AZMSOperationalLogs|
+| Name | Description | Supported in Azure Diagnostics | Supported in Resource Specific table 
+| ------- | ------- |---| ---|
+| `ActivityId` | Internal ID, used to identify the specified activity | Yes | Yes 
+| `EventName` | Operation name | Yes | Yes
+| `ResourceId` | Azure Resource Manager resource ID | Yes | Yes
+| `SubscriptionId` | Subscription ID | Yes | Yes
+| `TimeGenerated [UTC]`|Time of executed operation (in UTC)| No | Yes
+| `EventProperties` | Operation properties | Yes | Yes
+| `Status` | Operation status | Yes | Yes 
+| `Caller` | Caller of operation (the Azure portal or management client) | Yes | Yes 
+| `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
+|  `Type`  | AZMSOperationalLogs| No | Yes
+| `Category'| Category of logs | Yes | No
+
 
 Here's an example of an operational log JSON string:
 
@@ -161,7 +165,7 @@ Service Bus virtual network (VNet) connection event JSON includes elements liste
 | `SubscriptionId` | Azure subscription ID |
 | `NamespaceName` | Namespace name |
 | `IPAddress` | IP address of a client connecting to the Service Bus service |
-| TimeGenerated [UTC]|Time of executed operation (in UTC)|
+| `TimeGenerated [UTC]`|Time of executed operation (in UTC)|
 | `Action` | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and Deny Connection**. |
 | `Reason` | Provides a reason why the action was done |
 | `Count` | Number of occurrences for the given action |
