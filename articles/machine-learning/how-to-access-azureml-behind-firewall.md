@@ -371,7 +371,7 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 | Compute instance | `*.instances.azureml.ms` | TCP | 443, 8787, 18881 |
 | Compute instance | `<region>.tundra.azureml.ms` | UDP | 5831 |
 | Compute instance | `*.<region>.batch.azure.com` | ANY | 443 |
-| Compute instance | `*.<region>.service.batch.com` | ANY | 443 | 
+| Compute instance | `*.<region>.service.batch.azure.com` | ANY | 443 | 
 | Microsoft storage access | `*.blob.core.windows.net` | TCP | 443 |
 | Microsoft storage access | `*.table.core.windows.net` | TCP | 443 |
 | Microsoft storage access | `*.queue.core.windows.net` | TCP | 443 |

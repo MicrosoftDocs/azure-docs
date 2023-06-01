@@ -5,7 +5,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 03/07/2023
+ms.date: 05/26/2023
 ms.author: allensu
 ms.custom: fasttrack-edit
 ---
@@ -30,6 +30,7 @@ You can use the following options to configure your DNS settings for private end
 > Existing Private DNS Zones tied to a single service should not be associated with two different Private Endpoints as it will not be possible to properly resolve two different A-Records that point to the same service. However, Private DNS Zones tied to multiple services would not face this resolution constraint.
 
 ## Azure services DNS zone configuration
+
 Azure creates a canonical name DNS record (CNAME) on the public DNS. The CNAME record redirects the resolution to the private domain name. You can override the resolution with the private IP address of your private endpoints.
 
 Your applications don't need to change the connection URL. When resolving to a public DNS service, the DNS server will resolve to your private endpoints. The process doesn't affect your existing applications.
@@ -83,7 +84,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Web Apps (Microsoft.Web/sites) / sites | privatelink.azurewebsites.net </br> scm.privatelink.azurewebsites.net | azurewebsites.net </br> scm.azurewebsites.net  |
 | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>instances.azureml.ms<br/>aznbcontent.net<br/>inference.ml.azure.com |
 | SignalR (Microsoft.SignalRService/SignalR) / signalR | privatelink.service.signalr.net | service.signalr.net |
-| Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net <br/> privatelink.blob.core.windows.net <br/> privatelink.applicationinsights.azure.com| monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net <br/> blob.core.windows.net <br/> applicationinsights.azure.com |
+| Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net <br/> privatelink.blob.core.windows.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net <br/> blob.core.windows.net |
 | Cognitive Services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.com <br/> privatelink.openai.azure.com   | cognitiveservices.azure.com <br/> openai.azure.com  |
 | Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs | {regionName}.privatelink.afs.azure.net  |  {regionName}.afs.azure.net  |
 | Azure Data Factory (Microsoft.DataFactory/factories) / dataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
@@ -104,7 +105,9 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Bot Service (Microsoft.BotService/botServices) / Bot | privatelink.directline.botframework.com | directline.botframework.com </br> europe.directline.botframework.com |
 | Azure Bot Service (Microsoft.BotService/botServices) / Token | privatelink.token.botframework.com | token.botframework.com </br> europe.token.botframework.com |
 | Azure Health Data Services (Microsoft.HealthcareApis/workspaces) / healthcareworkspace | privatelink.workspace.azurehealthcareapis.com </br> privatelink.fhir.azurehealthcareapis.com </br> privatelink.dicom.azurehealthcareapis.com | workspace.azurehealthcareapis.com </br> fhir.azurehealthcareapis.com </br> dicom.azurehealthcareapis.com |
-| Azure Databricks (Microsoft.Databricks/workspaces) / databricks_ui_api, browser_authentication | privatelink.azuredatabricks.net | azuredatabricks.net
+| Azure Databricks (Microsoft.Databricks/workspaces) / databricks_ui_api, browser_authentication | privatelink.azuredatabricks.net | azuredatabricks.net |
+| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) / global | privatelink-global.wvd.microsoft.com  | azuredatabricks.net |
+| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces and Microsoft.DesktopVirtualization/hostpools) / feed, connection | privatelink.wvd.microsoft.com  | azuredatabricks.net |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
 
@@ -149,6 +152,8 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.usgovcloudapi.net | redis.cache.usgovcloudapi.net |
 | Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.us | azurehdinsight.us |
 | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / amlworkspace | privatelink.api.ml.azure.us<br/>privatelink.notebooks.usgovcloudapi.net | api.ml.azure.us<br/>notebooks.usgovcloudapi.net<br/>instances.azureml.us<br/>aznbcontent.net<br/>inference.ml.azure.us |
+| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) / global  | privatelink-global.wvd.azure.us | wvd.azure.us  |
+| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces and Microsoft.DesktopVirtualization/hostpools) / feed, connection  | privatelink.wvd.azure.us | wvd.azure.us  |
 
 >[!Note]
 >In the above text, `{region}` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
@@ -195,6 +200,8 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.chinacloudapi.cn | redis.cache.chinacloudapi.cn |
 | Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.cn | azurehdinsight.cn |
 | Azure Data Explorer (Microsoft.Kusto) | privatelink.{regionName}.kusto.windows.cn | {regionName}.kusto.windows.cn |
+| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) / global  | privatelink-global.wvd.azure.cn  | wvd.azure.us  |
+| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces and Microsoft.DesktopVirtualization/hostpools) / feed, connection  | privatelink.wvd.azure.cn | wvd.azure.us |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
 

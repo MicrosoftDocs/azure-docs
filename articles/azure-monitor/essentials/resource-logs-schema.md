@@ -2,7 +2,7 @@
 title: Azure resource logs supported services and schemas
 description: Understand the supported services and event schemas for Azure resource logs.
 ms.topic: reference
-ms.date: 05/10/2021
+ms.date: 05/26/2023
 ms.reviewer: lualderm
 ---
 
@@ -88,12 +88,14 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Power BI Embedded | [Logging for Power BI Embedded in Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Data model for Azure Backup](../../backup/backup-azure-reports-data-model.md)|
 | Azure Service Bus |[Azure Service Bus logs](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
+| Azure SignalR | [Monitoring Azure SignalR Service data reference](../../azure-signalr/signalr-howto-monitor-reference.md) |
 | Azure SQL Database | [Azure SQL Database logging](/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure) |
 | Azure Storage | [Blobs](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [Files](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [Queues](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview),  [Tables](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
 | Azure Stream Analytics |[Job logs](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Azure Traffic Manager | [Traffic Manager log schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Azure Video Indexer|[Monitor Azure Video Indexer data reference](../../azure-video-indexer/monitor-video-indexer-data-reference.md)|
 | Azure Virtual Network | Schema not available |
+| Azure Web PubSub | [Monitoring Azure Web PubSub data reference](../../azure-web-pubsub/howto-monitor-data-reference.md) |
 | Virtual network gateways | [Logging for Virtual Network Gateways](../../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md)|
 
 

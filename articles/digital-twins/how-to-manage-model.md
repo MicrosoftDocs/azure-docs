@@ -91,7 +91,7 @@ If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/c
 
 ### Upload large model sets with the Jobs API
 
-For large model sets, you can use the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api) to upload many models at once in a single API call. The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for models and bulk jobs.
+For large model sets, you can use the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api) (currently in preview) to upload many models at once in a single API call. The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for models and bulk jobs.
 
 >[!TIP]
 >The Jobs API also allows twins and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk with the Jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-jobs-api).

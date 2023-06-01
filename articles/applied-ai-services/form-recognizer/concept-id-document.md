@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
 
 ms.custom: references.regions
@@ -100,7 +100,9 @@ Form Recognizer v2.1 supports the following tools:
 ::: moniker range="form-recog-2.1.0"
 
 * Supported file formats: JPEG, PNG, PDF, and TIFF
+
 * Form Recognizer processes PDF and TIFF files up to 2000 pages or only the first two pages for free-tier subscribers.
+
 * The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 
 ::: moniker-end

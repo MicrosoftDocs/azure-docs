@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/31/2022
+ms.date: 05/22/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 
@@ -36,13 +36,13 @@ For full details on SLA coverage and instructions on requesting a service credit
 
 ## No planned downtime 
 
-You rely on Azure AD to provide identity and access management for your vital systems. To ensure Azure AD is available when business operations require it, Microsoft does not plan downtime for Azure AD system maintenance. Instead, maintenance is performed as the service runs, without customer impact. 
+You rely on Azure AD to provide identity and access management for your vital systems. To ensure Azure AD is available when business operations require it, Microsoft doesn't plan downtime for Azure AD system maintenance. Instead, maintenance is performed as the service runs, without customer impact. 
 
 ## Recent worldwide SLA performance 
 
 To help you plan for moving workloads to Azure AD, we publish past SLA performance. These numbers show the level at which Azure AD met the requirements in the [SLA for Azure Active Directory (Azure AD)](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/), for all tenants. 
 
-The SLA attainment is truncated at three places after the decimal. Numbers are not rounded up, so actual SLA attainment is higher than indicated. 
+The SLA attainment is truncated at three places after the decimal. Numbers aren't rounded up, so actual SLA attainment is higher than indicated. 
 
 | Month     | 2021    | 2022    | 2023    |
 | ---       | ---     | ---     | ---     |
@@ -61,16 +61,29 @@ The SLA attainment is truncated at three places after the decimal. Numbers are n
 
 ### How is Azure AD SLA measured? 
 
-The Azure AD SLA is measured in a way that reflects customer authentication experience, rather than simply reporting on whether the system is available to outside connections. This means that the calculation is based on whether:
+The Azure AD SLA is measured in a way that reflects customer authentication experience, rather than simply reporting on whether the system is available to outside connections. This distinction means that the calculation is based on if:
 
 - Users can authenticate 
 - Azure AD successfully issues tokens for target apps after authentication
   
-The numbers above are a global total of Azure AD authentications across all customers and geographies. 
+The numbers in the table are a global total of Azure AD authentications across all customers and geographies. 
   
 ## Incident history 
 
-All incidents that seriously impact Azure AD performance are documented in the [Azure status history](https://azure.status.microsoft/status/history/). Not all events documented in Azure status history are serious enough to cause Azure AD to go below its SLA. You can view information about the impact of incidents, as well as a root cause analysis of what caused the incident and what steps Microsoft took to prevent future incidents. 
+All incidents that seriously impact Azure AD performance are documented in the [Azure status history](https://azure.status.microsoft/status/history/). Not all events documented in Azure status history are serious enough to cause Azure AD to go below its SLA. You can view information about the impact of incidents, and a root cause analysis of what caused the incident and what steps Microsoft took to prevent future incidents. 
+
+## Tenant-level SLA (preview)
+
+In addition to providing global SLA performance, Azure AD now provides tenant-level SLA performance. This feature is currently in preview.
+
+To access your tenant-level SLA performance:
+
+1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com) using the Reports Reader role (or higher).
+1. Go to **Azure AD** and select **Scenario Health** from the side menu.
+1. Select the **SLA Monitoring** tab.
+1. Hover over the graph to see the SLA performance for that month.
+
+![Screenshot of the tenant-level SLA results.](media/reference-azure-ad-sla-performance/tenent-level-sla.png)
 
 ## Next steps
 

@@ -3,13 +3,13 @@ title: Webhook actions for log alerts in Azure alerts
 description: This article describes how to configure log alert pushes with webhook action and available customizations.
 services: monitoring
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 05/02/2023
 ms.reviewer: yalavi
 ---
 
 # Webhook actions for log alert rules
 
-[Log alerts](alerts-log.md) support [configuring webhook action groups](./action-groups.md#webhook). In this article, we describe the properties that are available. You can use webhook actions to invoke a single HTTP POST request. The service that's called should support webhooks and know how to use the payload it receives.
+[Log alerts](alerts-log.md) support [configuring action groups to use webhooks](./action-groups.md). In this article, we describe the properties that are available. You can use webhook actions to invoke a single HTTP POST request. The service that's called should support webhooks and know how to use the payload it receives.
 
 We recommend that you use [common alert schema](../alerts/alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
 
