@@ -89,6 +89,7 @@ Add the following filter to your log4j.xml:
     <Filters>
         <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
     </Filters>
+```
     
 Here is an example:
     
@@ -109,16 +110,17 @@ Here is an example:
         </Root>
       </Loggers>
     </Configuration>
+```
 
 ##### Logback
 
 Add the following filter to your logback.xml: 
 
-
 ```xml
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>OFF</level>
     </filter>  
+```
 
 Here is an example:
 
@@ -139,6 +141,7 @@ Here is an example:
         <appender-ref ref="STDOUT" />
       </root>
     </configuration>
+```
 
 ## Distributed tracing for Python function apps
 
