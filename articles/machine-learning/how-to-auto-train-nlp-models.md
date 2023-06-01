@@ -18,7 +18,7 @@ ms.date: 03/15/2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of the developer platform of Azure Machine Learning  you are using:"]
-> * [v1](./v1/how-to-auto-train-nlp-models-v1.md?view=azureml-api-1&preserve-view=true)
+> * [v1](./v1/how-to-auto-train-nlp-models.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-auto-train-nlp-models.md)
  
 
