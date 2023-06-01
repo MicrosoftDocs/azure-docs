@@ -20,11 +20,9 @@ ID tokens are [JSON web tokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token)
 * v1.0: `https://login.microsoftonline.com/common/oauth2/authorize`
 * v2.0: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
-## Claims in an ID token
-
 All JWT claims listed in the following sections appear in both v1.0 and v2.0 tokens unless stated otherwise. ID tokens consist of a header, payload, and signature. The header and signature are used to verify the authenticity of the token, while the payload contains the information about the user requested by your client.
 
-### Header claims
+## Header claims
 
 The following table shows header claims present in ID tokens.
 
@@ -35,7 +33,7 @@ The following table shows header claims present in ID tokens.
 | `kid` | String | Specifies the thumbprint for the public key that can be used to validate the token's signature. Emitted in both v1.0 and v2.0 ID tokens. |
 | `x5t` | String | Functions the same (in use and value) as `kid`. `x5t` is a legacy claim emitted only in v1.0 ID tokens for compatibility purposes. |
 
-### Payload claims
+## Payload claims
 
 The following table shows the claims that are in most ID tokens by default (except where noted).  However, your app can use [optional claims](active-directory-optional-claims.md) to request more claims in the ID token. Optional claims can range from the `groups` claim to information about the user's name.
 
@@ -65,18 +63,18 @@ The following table shows the claims that are in most ID tokens by default (exce
 | `hasgroups` | Boolean | If present, always true, denoting the user is in at least one group. Used in place of the groups claim for JWTs in implicit grant flows when the full groups claim extends the URI fragment beyond the URL length limits (currently six or more groups). Indicates that the client should use the Microsoft Graph API to determine the user's groups (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`). |
 | `groups:src1` | JSON object | For token requests that aren't limited in length (see `hasgroups`) but still too large for the token, a link to the full groups list for the user is included. For JWTs as a distributed claim, for SAML as a new claim in place of the `groups` claim. <br><br>**Example JWT Value**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> For more info, see [Groups overage claim](#groups-overage-claim).|
 
-### Use claims to reliably identify a user
+## Use claims to reliably identify a user
 
 When identifying a user, it's critical to use information that remains constant and unique across time. Legacy applications sometimes use fields like the email address, phone number, or UPN. All of these fields can change over time, and can also be reused over time. For example, when an employee changes their name, or an employee is given an email address that matches that of a previous, no longer present employee. Your application mustn't use human-readable data to identify a user - human readable generally means someone can read it, and want to change it. Instead, use the claims provided by the OIDC standard, or the extension claims provided by Microsoft - the `sub` and `oid` claims.
 
-To correctly store information per-user, use `sub` or `oid` alone (which as GUIDs are unique), with `tid` used for routing or sharding if needed. If you need to share data across services, `oid` and `tid` is best as all apps get the same `oid` and `tid` claims for a user acting in a tenant. The `sub` claim is "pair-wise" and it's unique based on a combination of the token recipient, tenant, and user. Two apps that request ID tokens for a user receive different `sub` claims, but the same `oid` claims for that user.
+To correctly store information per-user, use `sub` or `oid` alone (which as GUIDs are unique), with `tid` used for routing or sharding if needed. If you need to share data across services, `oid` and `tid` is best as all apps get the same `oid` and `tid` claims for a user acting in a tenant. The `sub` claim is a pair-wise value that's unique based on a combination of the token recipient, tenant, and user. Two apps that request ID tokens for a user receive different `sub` claims, but the same `oid` claims for that user.
 
 >[!NOTE]
 > Don't use the `idp` claim to store information about a user in an attempt to correlate users across tenants. It doesn't work, as the `oid` and `sub` claims for a user change across tenants, by design, to ensure that applications can't track users across tenants.  
 
 Guest scenarios, where a user is homed in one tenant, and authenticates in another, should treat the user as if they're a brand new user to the service. Your documents and privileges in one tenant shouldn't apply in another tenant. This restriction is important to prevent accidental data leakage across tenants, and enforcement of data lifecycles. Evicting a guest from a tenant should also remove their access to the data they created in that tenant. 
 
-### Groups overage claim
+## Groups overage claim
 
 To ensure that the token size doesn't exceed HTTP header size limits, the number of object IDs that it includes in the `groups` claim is limited. If a user is a member of more groups than the overage limit (150 for SAML tokens, 200 for JWT tokens), the groups claim isn't included in the token. Instead, it includes an overage claim in the token that indicates to the application to query the Microsoft Graph API to retrieve the user's group membership.
 
