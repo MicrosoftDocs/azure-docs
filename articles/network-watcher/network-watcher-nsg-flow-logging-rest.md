@@ -48,11 +48,11 @@ armclient login
 
 ## Register Insights provider
 
-In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. If you aren't sure if the **Microsoft.Insights** provider is registered, run the following script.
+*Microsoft.Insights* provider must be registered to successfully log traffic flowing through a network security group. If you aren't sure if the *Microsoft.Insights* provider is registered, use [Providers - Register](/rest/api/resources/providers/register) REST API to register it.
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
-armclient post "https://management.azure.com//subscriptions/${subscriptionId}/providers/Microsoft.Insights/register?api-version=2016-09-01"
+armclient post "https://management.azure.com//subscriptions/${subscriptionId}/providers/Microsoft.Insights/register?api-version=2021-04-01"
 ```
 
 ## Enable NSG flow logs
@@ -83,7 +83,7 @@ $requestBody = @"
 }
 "@
 
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/configureFlowLog?api-version=2016-12-01" $requestBody
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/configureFlowLog?api-version=2022-11-01" $requestBody
 ```
 
 The response returned from the preceding example is as follows:
@@ -107,8 +107,8 @@ The response returned from the preceding example is as follows:
 ```
 
 > [!NOTE]
-> - The API [Network Watchers - Set Flow Log Configuration](/rest/api/network-watcher/network-watchers/set-flow-log-configuration) used in the previous example is old and may soon be deprecated.
-> - It is recommended to use the new [Flow Logs - Create Or Update](/rest/api/network-watcher/flow-logs/create-or-update) rest API instead.
+> - The [Network Watchers - Set Flow Log Configuration](/rest/api/network-watcher/network-watchers/set-flow-log-configuration) REST API used in the previous example, is old and may soon be deprecated.
+> - It is recommended to use the new [Flow Logs - Create Or Update](/rest/api/network-watcher/flow-logs/create-or-update) REST API to create or update flow logs.
 
 ## Disable NSG flow logs
 
@@ -138,7 +138,7 @@ $requestBody = @"
 }
 "@
 
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/configureFlowLog?api-version=2016-12-01" $requestBody
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/configureFlowLog?api-version=2022-11-01" $requestBody
 ```
 
 The response returned from the preceding example is as follows:
@@ -162,8 +162,8 @@ The response returned from the preceding example is as follows:
 ```
 
 > [!NOTE]
-> - The API [Network Watchers - Set Flow Log Configuration](/rest/api/network-watcher/network-watchers/set-flow-log-configuration) used in the previous example is old and may soon be deprecated.
-> - It is recommended to use the new [Flow Logs - Create Or Update](/rest/api/network-watcher/flow-logs/create-or-update) rest api to disable flow logs and the [Flow Logs - Delete](/rest/api/network-watcher/flow-logs/delete) to delete flow logs resource.
+> - The [Network Watchers - Set Flow Log Configuration](/rest/api/network-watcher/network-watchers/set-flow-log-configuration) REST API used in the previous example, is old and may soon be deprecated.
+> - It is recommended to use the new [Flow Logs - Create Or Update](/rest/api/network-watcher/flow-logs/create-or-update) REST API to disable flow logs and the [Flow Logs - Delete](/rest/api/network-watcher/flow-logs/delete) REST API to delete flow logs resource.
 
 ## Query flow logs
 
@@ -180,7 +180,7 @@ $requestBody = @"
 }
 "@
 
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/queryFlowLogStatus?api-version=2016-12-01" $requestBody
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/queryFlowLogStatus?api-version=2022-11-01" $requestBody
 ```
 
 The following example shows the response returned:
@@ -204,8 +204,8 @@ The following example shows the response returned:
 ```
 
 > [!NOTE]
-> - The api [Network Watchers - Get Flow Log Status](/rest/api/network-watcher/network-watchers/get-flow-log-status) used in the previous example, requires an additional *reader* permission in the resource group of the network watcher. Additionally, this api is old and may soon be deprecated.
-> - It is recommended to use the new [Flow Logs - Get](/rest/api/network-watcher/flow-logs/get) rest api instead.
+> - The [Network Watchers - Get Flow Log Status](/rest/api/network-watcher/network-watchers/get-flow-log-status) REST API used in the previous example, requires an additional *reader* permission in the resource group of the network watcher. Additionally, this API is old and may soon be deprecated.
+> - It is recommended to use the new [Flow Logs - Get](/rest/api/network-watcher/flow-logs/get) REST API to query flow logs.
 
 ## Download a flow log
 
