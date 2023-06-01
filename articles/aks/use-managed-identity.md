@@ -19,8 +19,10 @@ AKS doesn't automatically create a [service principal](kubernetes-service-princi
 ## Before you begin
 
 Make sure you have Azure CLI version 2.23.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-For [Use a pre-created kubelet managed identity][Use a pre-created kubelet managed identity], you need Azure CLI version 2.26.0 or later installed
-For [Update control plane identity on an existing cluster][Update control plane identity on an existing cluster ], you need Azure CLI version 2.49.0 or later installed
+
+For [use a pre-created kubelet managed identity][Use a pre-created kubelet managed identity], you need Azure CLI version 2.26.0 or later installed.
+
+For [update control plane identity on an existing cluster][Update control plane identity on an existing cluster], you need Azure CLI version 2.49.0 or later installed.
 
 ## Limitations
 
@@ -494,6 +496,7 @@ Use [Azure Resource Manager templates][aks-arm-template] to create a managed ide
 [managed-identity-resources-overview]: ../active-directory/managed-identities-azure-resources/overview.md
 [Bring your own control plane managed identity]: use-managed-identity.md#bring-your-own-control-plane-managed-identity
 [Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
+[Update control plane identity on an existing cluster]: use-managed-identity.md#update-control-plane-identity-on-an-existing-cluster
 [workload-identity-overview]: workload-identity-overview.md
 [aad-pod-identity]: use-azure-ad-pod-identity.md
 [add role assignment for control plane identity]: use-managed-identity.md#add-role-assignment-for-control-plane-identity
