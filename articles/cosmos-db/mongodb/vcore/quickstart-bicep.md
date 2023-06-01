@@ -10,11 +10,6 @@ author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: nayakshweta
 ms.date: 03/07/2023
-
-ms.custom: devx-track-bicep
-
-ms.custom: devx-track-bicep
-
 ms.custom: devx-track-bicep
 ---
 
