@@ -38,12 +38,12 @@ Once your resource and storage account are configured, create a new custom Summa
 [!INCLUDE [Create custom Summarization project](../../../includes/custom/language-studio/create-project.md)]
 
 ### Trigger import project job
-<!--- incomplete --->
-[!INCLUDE [Import a project using the REST API]()]
+
+[!INCLUDE [Import a project using the REST API](../custom/rest-api/import-project.md)]
 
 ### Get import job status
-<!--- incomplete --->
-[!INCLUDE [get import project status]()]
+<!--- find reference --->
+[!INCLUDE [get import project status](../custom/rest-api/import-status.md)]
 
 ## Train your model
 
@@ -52,16 +52,16 @@ After you create a project, you go ahead and start training your model.
 [!INCLUDE [Train a model using Language Studio](../../../includes/custom/language-studio/train-your-model.md)]
 
 ### Start training job
-<!--- incomplete --->
+
 After your project has been imported, you can start training your model. 
 
-[!INCLUDE [train model](../rest-api/train-model.md)]
+[!INCLUDE [train model](../custom/rest-api/train-model.md)]
 
 ### Get training job status
-<!--- incomplete --->
+
 Training could take a some time. You can use the following request to keep polling the status of the training job until it is successfully completed.
 
-[!INCLUDE [get training model status]()]
+[!INCLUDE [get training model status](../custom/rest-api/get-training-status.md)]
 
 ## Deploy your model
 
@@ -70,20 +70,20 @@ Generally after training a model you would review its [evaluation details](../..
 [!INCLUDE [Deploy a model using Language Studio](../language-studio/deploy-model.md)]
 
 ### Start deployment job
-<!--- incomplete --->
-[!INCLUDE [deploy model]()]
+
+[!INCLUDE [deploy model](../custom/rest-api/deploy-model.md)]
 
 ### Get deployment job status
-<!--- incomplete --->
-[!INCLUDE [get deployment status]()]
+
+[!INCLUDE [get deployment status](../custom/rest-api/get-deployment-status.md)]
 
 ## Submit a custom Summarization task
-<!--- incomplete --->
-[!INCLUDE [submit a custom summarization task using the REST API]()]
+
+[!INCLUDE [submit a custom summarization task using the REST API](../custom/rest-api/submit-task.md)]
 
 ## Get task results
-<!--- incomplete --->
-[!INCLUDE [get custom summarization task results]()]
+
+[!INCLUDE [get custom summarization task results](../custom/rest-api/get-results.md)]
 
 ## Clean up resources
 
