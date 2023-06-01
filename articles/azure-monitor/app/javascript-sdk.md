@@ -139,7 +139,7 @@ For example:
    crossOrigin: "anonymous",
    // onInit: null,
    cfg: { // Application Insights Configuration
-    connectionString: "YOUR_CONNECTION_STRING",
+    connectionString: "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://eastus-6.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/",
     disableExceptionTracking: true,
     enableDebug: true
    }});
