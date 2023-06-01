@@ -12,7 +12,7 @@ ms.date: 06/01/2023
 
 # Time travel in Azure Synapse Link for Azure Cosmos DB for NoSQL (preview)
 
-[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
+[!INCLUDE[NoSQL, MongoDB](../includes/appliesto-nosql-mongodb.md)]
 
 Time travel enables you to access Azure Cosmos DB data in the analytical store, precisely as it appeared at specific points in time in history (down to the millisecond level). With time-travel, you can effortlessly query past data that has been updated or deleted, analyze trends, and compare differences between two points of interest.
 
