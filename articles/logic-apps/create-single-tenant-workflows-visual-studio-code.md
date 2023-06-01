@@ -281,8 +281,17 @@ The screenshot below shows where each of the above assemblies can be placed in V
 ![Screenshot shows assembly upload in VS Code.](./media/create-single-tenant-workflows-visual-studio-code/schema-upload-in-vs-code.jpg)
 
 #### Migrating old NuGet based projects to use `lib\*` assemblies
-If your VS Code project was created when Assemblies support was not added to the Logic app standard. You can add the lines below in your `<Project Name>.csproj` file to make it work with nre projects.
-
+If your VS Code project was created when Assemblies support was not added to the Logic app standard. You can add the lines below in your `<Project Name>.csproj` file to make it work with projects with assemblies. 
+```msbuild
+  <ItemGroup>
+    <LibDirectory Include="$(MSBuildProjectDirectory)\lib\**\*"/>
+  </ItemGroup>
+  <Target Name="CopyDynamicLibraries" AfterTargets="_GenerateFunctionsExtensionsMetadataPostPublish">
+    <Copy SourceFiles="@(LibDirectory)" DestinationFiles="@(LibDirectory->'$(MSBuildProjectDirectory)\$(PublishUrl)\lib\%(RecursiveDir)%(Filename)%(Extension)')"/>
+  </Target>
+```
+Please make sure to update the directory separator in case of project running on Linus or MacOS. You can see the screenshot below to see the above code being added to `<Project Name>.csproj`.
+![Screenshot shows migration of assembly upload in VS Code.](./media/create-single-tenant-workflows-visual-studio-code/migrating-old-projects-to-assemblies.jpg)
 
 <a name="open-workflow-definition-designer"></a>
 
