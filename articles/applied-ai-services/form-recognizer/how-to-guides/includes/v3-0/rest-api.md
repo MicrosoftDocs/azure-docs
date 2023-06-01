@@ -43,8 +43,8 @@ ms.author: lajanuar
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=prerequisites)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=prerequisites) -->
 
 [!INCLUDE [environment-variables](set-environment-variables.md)]
 
@@ -89,8 +89,8 @@ You receive a `202 (Success)` response that includes an **Operation-location** h
 
 :::image type="content" source="../../../media/how-to/rest-get-response.png" alt-text="{alt-text}":::
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the POST request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=post-request-analyze)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the POST request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=post-request-analyze) -->
 
 ### Get analyze results (GET Request)
 
@@ -123,8 +123,8 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 
   ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the GET request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=windows&Product=FormRecognizer&Page=how-to&Section=format-json)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the GET request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=windows&Product=FormRecognizer&Page=how-to&Section=format-json) -->
 
 #### [macOS](#tab/macOS)
 
@@ -138,8 +138,8 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
   curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/6f000000-a2xx-4dxx-95xx-869xyxyxyxyx?api-version=2022-08-31"-H "Ocp-Apim-Subscription-Key: {subscription key}" | json_pp
   ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with formatting.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=macos&Product=FormRecognizer&Page=how-to&Section=format-json)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with formatting.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=macos&Product=FormRecognizer&Page=how-to&Section=format-json) -->
 
 #### [Linux](#tab/linux)
 
@@ -153,8 +153,8 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
   curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/6f000000-a2xx-4dxx-95xx-869xyxyxyxyx?api-version=2022-08-31"-H "Ocp-Apim-Subscription-Key: {subscription key}" | json_pp
   ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with formatting.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=linux&Product=FormRecognizer&Page=how-to&Section=format-json)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with formatting.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=linux&Product=FormRecognizer&Page=how-to&Section=format-json) -->
 
 ---
 
@@ -176,8 +176,8 @@ Before you run the following command, make these changes:
 curl -i -X GET "{POST response}" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" | `{json-tool}`
 ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with formatting.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=get-request-results)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with formatting.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=get-request-results) -->
 
 ### Examine the response
 
