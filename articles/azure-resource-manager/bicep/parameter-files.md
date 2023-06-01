@@ -8,7 +8,7 @@ ms.date: 06/01/2023
 
 # Create parameters files for Bicep deployment
 
-Rather than passing parameters as inline values in your script, you can use a Bicep parameters file or a JSON parameters file that contains the parameter values. This article shows how to create parameters files.
+Rather than passing parameters as inline values in your script, you can use a Bicep parameters file with the `.bicepparam` file extension or a JSON parameters file that contains the parameter values. This article shows how to create parameters files.
 
 A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is intended for one particular Bicep file. This relationship is established using the `using` statement within the Bicep parameters file. For more information, see [Bicep parameters file](#parameters-file).
 
@@ -23,11 +23,11 @@ A parameters file uses the following format:
 ```bicep
 using '<path>/<file-name>.bicep'
 
-param <first-parameter-name> = <first-value>/<expression>
-param <second-parameter-name> = <second-value>/<expression>
+param <first-parameter-name> = <first-value>
+param <second-parameter-name> = <second-value>
 ```
 
-Expressions are supported. For example:
+You can use expressions with the default value. For example:
 
 ```bicep
 using 'storageaccount.bicep'
@@ -141,12 +141,6 @@ To deploy to different environments, you create more than one parameters file. W
 
 ## Define parameter values
 
-Visual Studio Code is preferred editor for creating parameters files with these benefits:
-
-- Intellisense support that mirros Bicep files.
-- Validation on parameters value s before deployment to Azure.
-- Syntax highlighting consistent with existing Bicep file highlighting.
-
 To determine how to define the parameter names and values, open your Bicep file. Look at the parameters section of the Bicep file. The following examples show the parameters from a Bicep file called `main.bicep`.
 
 ```bicep
@@ -173,7 +167,9 @@ param storagePrefix
 param storageAccountType
 ```
 
-After typing the keyword `param` in Visual Studio Code, it will prompt you the available parameters and their descriptions from the linked Bicep file:
+The `using` statement ties the Bicep parameters file to a Bicep file.
+
+After typing the keyword `param` in Visual Studio Code, it prompts you the available parameters and their descriptions from the linked Bicep file:
 
 :::image type="content" source="./media/parameter-files/bicep-parameters-file-visual-studio-code-prompt.png" alt-text="Screenshot of the prompt of the available parameters.":::
 
@@ -296,24 +292,22 @@ param storageAccountType = 'Standard_ZRS'
 
 ## Generate parameters file
 
-From Visual Studio Code, See [Generate parameters file](./visual-studio-code.md#generate-parameters-file).
-
-From Bicep CLI, see [Generate parameters file](./bicep-cli.md#generate-params).
+To generate a parameters file, you have two options: either through Visual Studio Code or by using the Bicep CLI. Both methods allow you to derive the parameters file from a Bicep file. From Visual Studio Code, See [Generate parameters file](./visual-studio-code.md#generate-parameters-file). From Bicep CLI, see [Generate parameters file](./bicep-cli.md#generate-params).
 
 ## Build Bicep parameters file
 
-From Bicep CLI, you can build a Bicep parameters file into a JSON parameters file.  for more inforamtion, see [Build parameters file](./bicep-cli.md#build-params).
+From Bicep CLI, you can build a Bicep parameters file into a JSON parameters file.  for more information, see [Build parameters file](./bicep-cli.md#build-params).
 
 ## Deploy Bicep file with parameters file
 
-From Azure CLI, pass a local parameters file using `@` and the parameters file name. For example, `@storage.parameters.json`.
+From Azure CLI, pass a local parameters file using `@` and the parameters file name. For example, `storage.bicepparam` or `@storage.parameters.json`.
 
 ```azurecli
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.bicep \
-  --parameters @storage.parameters.json
+  --parameters @storage.bicepparam
 ```
 
 For more information, see [Deploy resources with Bicep and Azure CLI](./deploy-cli.md#parameters). To deploy _.bicep_ files you need Azure CLI version 2.20 or higher.
@@ -323,7 +317,7 @@ From Azure PowerShell, pass a local parameters file using the `TemplateParameter
 ```azurepowershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile C:\MyTemplates\storage.bicep `
-  -TemplateParameterFile C:\MyTemplates\storage.parameters.json
+  -TemplateParameterFile C:\MyTemplates\storage.bicepparam
 ```
 
 For more information, see [Deploy resources with Bicep and Azure PowerShell](./deploy-powershell.md#parameters). To deploy _.bicep_ files you need Azure PowerShell version 5.6.0 or higher.
