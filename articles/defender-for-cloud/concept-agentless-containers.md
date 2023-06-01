@@ -23,9 +23,6 @@ Agentless Container Posture provides the following capabilities:
 - Using [cloud security explorer](how-to-manage-cloud-security-explorer.md) for risk hunting by querying various risk scenarios. 
 - Viewing security insights, such as internet exposure, and other predefined security scenarios. For more information, search for `Kubernetes` in the [list of Insights](attack-path-reference.md#insights).
 
-> [!NOTE]
-> This feature supports scanning of images in the Azure Container Registry (ACR) only. If you want to find vulnerabilities stored in other container registries, you can import the images into ACR, after which the imported images are scanned by the built-in vulnerability assessment solution. Learn how to [import container images to a container registry](https://learn.microsoft.com/azure/container-registry/container-registry-import-images?tabs=azure-cli).
-
 All of these capabilities are available as part of the [Defender Cloud Security Posture Management](concept-cloud-security-posture-management.md) plan. 
 
 ## Agentless discovery and visibility within Kubernetes components
@@ -63,6 +60,9 @@ Agentless information in Defender CSPM is updated through a snapshot mechanism. 
 
 ## Agentless Container registry vulnerability assessment
 
+> [!NOTE]
+> This feature supports scanning of images in the Azure Container Registry (ACR) only. If you want to find vulnerabilities stored in other container registries, you can import the images into ACR, after which the imported images are scanned by the built-in vulnerability assessment solution. Learn how to [import container images to a container registry](https://learn.microsoft.com/azure/container-registry/container-registry-import-images?tabs=azure-cli).
+
 - Container registry vulnerability assessment scans images in your Azure Container Registry (ACR) to provide recommendations for improving your posture by remediating vulnerabilities.
 
 - Vulnerability assessment for Containers in Defender Cloud Security Posture Management (CSPM) gives you frictionless, wide, and instant visibility on actionable posture issues without the need for installed agents, network connectivity requirements, or container performance impact.
@@ -76,7 +76,7 @@ Container vulnerability assessment powered by MDVM (Microsoft Defender Vulnerabi
 - **Scanning OS packages** - container vulnerability assessment has the ability to scan vulnerabilities in packages installed by the OS package manager in Linux. See the [full list of the supported OS and their versions](support-agentless-containers-posture.md#registries-and-images).   
 - **Language specific packages** – support for language specific packages and files, and their dependencies installed or copied without the OS package manager. See the [complete list of supported languages](support-agentless-containers-posture.md#registries-and-images).  
 - **Image scanning in Azure Private Link** - Azure container vulnerability assessment provides the ability to scan images in container registries that are accessible via Azure Private Links. This capability requires access to trusted services and authentication with the registry. Learn how to [connect privately to an Azure container registry using Azure Private Link](/azure/container-registry/container-registry-private-link#set-up-private-endpoint---portal-recommended).   
-- **Gaining intel for existing exploits of a vulnerability** - While vulnerability reporting tools can report the ever growing volume of vulnerabilities, the capacity to efficiently remediate them remains a challenge. These tools typically prioritize their remediation processes according to the severity of the vulnerability. MDVM provides extra context on the risk related with each vulnerability, leveraging intelligent assessment and risk-based prioritization  against industry security benchmarks, based on three data sources: [exploit DB](https://www.exploit-db.com/), [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), and [MSRC](https://www.microsoft.com/msrc?SilentAuth=1&wa=wsignin1.0)
+- **Exploitability information** - Each vulnerability report is searched through exploitability databases to assist our customers with determining actual risk associated with each reported vulnerability.  
 - **Reporting** - Defender for Containers powered by Microsoft Defender Vulnerability Management (MDVM)  reports the vulnerabilities as the following recommendation: 
  
     | Recommendation | Description |
@@ -107,7 +107,9 @@ Container registry vulnerability assessment scans container images stored in you
 1. Vulnerability reports for known vulnerabilities (CVEs) are generated for each software that is present on an image inventory. 
 1. Vulnerability reports are refreshed daily for any image pushed during the last 90 days to a registry or currently running on a Kubernetes cluster monitored by Defender CSPM Agentless discovery and visibility for Kubernetes, or monitored by the Defender for Containers agent (profile or extension).
  
-If you delete an image from the ACR, it currently takes 3 days to remove the findings for an image after it was deleted. Considerations for improving the freshness interval are part of our areas of focus.
+### If I remove an image from my registry, how long before vulnerabilities reports on that image would be removed?
+
+It currently takes 3 days to remove findings for a deleted image. We are working on providing quicker deletion for removed images.
 
 ## Next steps
 - Learn about [support and prerequisites for agentless containers posture](support-agentless-containers-posture.md)

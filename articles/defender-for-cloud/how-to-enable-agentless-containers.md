@@ -34,7 +34,7 @@ A notification message pops up in the top right corner that will verify that the
 
 There are two extensions that provide agentless CSPM functionality:
 
-- **Container registries vulnerability assessments**: Provides containers registries vulnerability assessments. Recommendations are available based on the vulnerability assessment timeline. Learn more about [image scanning](defender-for-containers-vulnerability-assessment-azure.md).
+- **Container registries vulnerability assessments**: Provides containers registries vulnerability assessments. Recommendations are available based on the vulnerability assessment timeline. Learn more about [image scanning](concept-agentless-containers.md#agentless-container-registry-vulnerability-assessment).
 - **Agentless discovery for Kubernetes**: Provides API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup.
 
 ## How can I onboard multiple subscriptions at once?
