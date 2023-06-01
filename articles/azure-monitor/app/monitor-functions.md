@@ -74,6 +74,53 @@ Your Java functions might have slow startup times if you adopted this feature be
 > [!NOTE]
 > If the latest version of the Application Insights Java agent isn't available in Azure Functions, upload it manually by following [these instructions](https://github.com/Azure/azure-functions-java-worker/wiki/Distributed-Tracing-for-Java-Azure-Functions#customize-distribute-agent).
 
+#### Duplicate Logs
+
+If you are using log4j or logback to log to the console, then distributed tracing for Java Functions will store a duplicate copy of your log4j or logback logs. To avoid this, add a filter to your log4j.xml or logback.xml file as shown below.
+
+##### Log4j
+
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Configuration status="WARN">
+      <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+          <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+          <Filters>
+                <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
+          </Filters>
+        </Console>
+      </Appenders>
+      <Loggers>
+        <Root level="error">
+          <AppenderRef ref="Console"/>
+        </Root>
+      </Loggers>
+    </Configuration>
+    ```
+
+##### Logback
+
+    ```
+   <configuration debug="true">
+
+      <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are  by default assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+        <encoder>
+          <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%kvp- %msg%n</pattern>
+          <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+                <level>OFF</level>
+          </filter>  
+        </encoder>
+      </appender>
+
+      <root level="debug">
+        <appender-ref ref="STDOUT" />
+      </root>
+    </configuration>
+    ```
+
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Distributed tracing for Python function apps
