@@ -67,7 +67,7 @@ When you're specifying the language to use for the expression, the following val
 | JSONPath            | `JsonPath` |
 | JMESPath            | `JmesPath` |
 
-Because JSONPath is the default expression language, it's not required to include the expression language within the CalculatedContent templates:
+Because JSONPath is the default expression language, it's not required to include the expression language within a CalculatedContent template:
 
 ```json
 "templateType": "CalculatedContent",
@@ -78,7 +78,7 @@ Because JSONPath is the default expression language, it's not required to includ
 }
 ```
 
-You can explicitly set the default expression language for the CalculatedContent templates by using the `defaultExpressionLanguage` parameter:
+You can also explicitly set the default expression language for a CalculatedContent template by using the `defaultExpressionLanguage` parameter:
 
 ```json
 "templateType": "CalculatedContent",
@@ -91,9 +91,9 @@ You can explicitly set the default expression language for the CalculatedContent
 ```
 
 > [!TIP]
-> For more information on JSONPath, see [JSONPath - XPath for JSON](https://goessner.net/articles/JsonPath/). CalculatedContent mappings use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
+> For more information on JSONPath, see [JSONPath - XPath for JSON](https://goessner.net/articles/JsonPath/). CalculatedContent templates use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
 >
-> For more information on JMESPath, see [JMESPath Specification](https://jmespath.org/specification.html). CalculatedContent mappings use the [JMESPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JMESPath expressions.
+> For more information on JMESPath, see [JMESPath Specification](https://jmespath.org/specification.html). CalculatedContent templates use the [JMESPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JMESPath expressions.
 
 ## Custom functions
 
@@ -101,7 +101,7 @@ A set of custom functions for the MedTech service is also available. The MedTech
 
 ## Example
 
-When the MedTech service is processing the device message, the templates in the CollectionContent are used to evaluate the message. The `typeMatchExpression` is used to determine whether or not the template should be used to create a normalized message from the device message. If the `typeMatchExpression` evaluates to true, then the `deviceIdExpression`, `timestampExpression`, and `valueExpression` values are used to locate and extract the JSON values from the device message and create a normalized message. In this example, all expressions are written in JSONPath, however, it would be valid to write all the expressions in JMESPath. It's up to the template author to determine which expression language is most appropriate.
+When the MedTech service is processing a device message, the templates in the CollectionContent are used to evaluate the message. The `typeMatchExpression` is used to determine whether or not the template should be used to create a normalized message from the device message. If the `typeMatchExpression` evaluates to true, then the `deviceIdExpression`, `timestampExpression`, and `valueExpression` values are used to locate and extract the JSON values from the device message and create a normalized message. In this example, all expressions are written in JSONPath, however, it would be valid to write all the expressions in JMESPath. It's up to the template author to determine which expression language is most appropriate.
 
 > [!TIP]
 > You can use the MedTech service [Mapping debugger](how-to-use-mapping-debugger.md) for assistance creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
@@ -200,7 +200,7 @@ The resulting normalized message will look like this after the normalization sta
 
 ## Next steps
 
-In this article, you learned how to use CalculatedContent mappings with the MedTech service device mapping.
+In this article, you learned how to use CalculatedContent templates with the MedTech service device mapping.
 
 To learn how to use the MedTech service custom functions, see:
 
