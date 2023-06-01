@@ -171,7 +171,7 @@ There are a couple of ways to check if your deployment has succeeded. Your Power
 
 ## Delete your resource
 
-Azure enables resource deletion through the *Complete* deployment mode. To delete a flow logs resource, specify a deployment in Complete mode without including the resource you wish to delete. Read more about the [Complete deployment mode](../azure-resource-manager/templates/deployment-modes.md#complete-mode).
+Azure enables resource deletion through the *Complete* deployment mode. To delete a flow logs resource, specify a deployment in Complete mode without including the resource you wish to delete. For more information, see [Complete deployment mode](../azure-resource-manager/templates/deployment-modes.md#complete-mode).
 
 ## Next steps
 
