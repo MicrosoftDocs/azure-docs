@@ -13,11 +13,11 @@ ms.author: jboback
 zone_pivot_groups: usage-custom-language-features
 ---
 
-# Quickstart: custom Summarization
+# Quickstart: custom summarization
 
 Use this article to get started with creating a custom Summarization project where you can train custom models on top of Summarization. A model is artificial intelligence software that's trained to do a certain task. For this system, the models summarize text and are trained by learning from imported data.
 
-In this article, we use Language Studio to demonstrate key concepts of custom Summarization. As an example we’ll build a custom Summarization model to extract the Facility or treatment location from short discharge notes.
+In this article, we use Language Studio to demonstrate key concepts of custom summarization. As an example we’ll build a custom summarization model to extract the Facility or treatment location from short discharge notes.
 
 ::: zone pivot="language-studio"
 
@@ -33,4 +33,4 @@ In this article, we use Language Studio to demonstrate key concepts of custom Su
 
 ## Next steps
 
-* [Summarization overview](./overview.md)
+* [Summarization overview](../overview.md)

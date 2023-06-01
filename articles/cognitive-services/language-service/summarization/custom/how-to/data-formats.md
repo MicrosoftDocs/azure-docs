@@ -10,9 +10,10 @@ ms.subservice: language-service
 ms.topic: how-to
 ms.date: 06/01/2022
 ms.author: jboback
+
 ---
 
-## Format data for custom Summarization
+# Format data for custom Summarization
 
 This page contains information about how to select and prepare data in order to be successful in creating custom summarization projects.
 
