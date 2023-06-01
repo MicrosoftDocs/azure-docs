@@ -140,10 +140,13 @@ Currently, we offer three families of Embeddings models for different functional
 
 Each family includes models across a range of capability. The following list indicates the length of the numerical vector returned by the service, based on model capability:
 
-- Ada: 1024 dimensions
-- Babbage: 2048 dimensions
-- Curie: 4096 dimensions
-- Davinci: 12288 dimensions
+|  Base Model  |  Model(s)  |  Dimensions  |
+|---|---|---|
+| Ada | models ending in -001 (Version 1) | 1024 |
+| Ada | text-embedding-ada-002 (Version 2) | 1536 |
+| Babbage |  | 2048 |
+| Curie |  | 4096 |
+| Davinci |  | 12288 |
 
 Davinci is the most capable, but is slower and more expensive than the other models. Ada is the least capable, but is both faster and cheaper.
 
