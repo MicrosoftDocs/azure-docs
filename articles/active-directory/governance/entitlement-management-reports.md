@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # View reports and logs in entitlement management
 
-The entitlement management reports and Azure AD audit log provide additional details about what resources users have access to. As an administrator, you can view the access packages and resource assignments for a user and view request logs for auditing purposes or to determine the status of a user's request. This article describes how to use the entitlement management reports and Azure AD audit logs.
+The entitlement management reports and Azure AD audit log provide additional details about what resources users have access to. As an administrator, you can view the access packages and resource assignments for a user and view request logs for auditing purposes or  determining the status of a user's request. This article describes how to use the entitlement management reports and Azure AD audit logs.
 
 Watch the following video to learn how to view what resources users have access to in entitlement management:
 
@@ -55,7 +55,7 @@ This report enables you to list all of the access packages a user can request an
 
 ## View resource assignments for a user
 
-This report enables you to list the resources currently assigned to a user in entitlement management. Note that this report is for resources managed with entitlement management. The user might have access to other resources in your directory outside of entitlement management.
+This report enables you to list the resources currently assigned to a user in entitlement management. This report is for resources managed with entitlement management. The user might have access to other resources in your directory outside of entitlement management.
 
 **Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
@@ -89,19 +89,19 @@ To get additional details on how a user requested and received access to an acce
 
 When Azure AD receives a new request, it writes an audit record, in which the **Category** is `EntitlementManagement` and the **Activity** is typically `User requests access package assignment`.  In the case of a direct assignment created in the Azure portal, the **Activity** field of the audit record is `Administrator directly assigns user to access package`, and the user performing the assignment is identified by the **ActorUserPrincipalName**.
 
-Azure AD will write additional audit records while the request is in progress, including:
+Azure AD writes additional audit records while the request is in progress, including:
 
 | Category | Activity | Request status |
 | :---- | :------------ | :------------ |
-| `EntitlementManagement` | `Auto approve access package assignment request` | Request does not require approval |
+| `EntitlementManagement` | `Auto approve access package assignment request` | Request doesn't require approval |
 | `UserManagement` | `Create request approval` | Request requires approval |
 | `UserManagement` | `Add approver to request approval` | Request requires approval |
 | `EntitlementManagement` | `Approve access package assignment request` | Request approved |
-| `EntitlementManagement` | `Ready to fulfill access package assignment request` |Request approved, or does not require approval |
+| `EntitlementManagement` | `Ready to fulfill access package assignment request` |Request approved, or doesn't require approval |
 
 When a user is assigned access, Azure AD writes an audit record for the `EntitlementManagement` category with **Activity** `Fulfill access package assignment`.  The user who received the access is identified by **ActorUserPrincipalName** field.
 
-If access was not assigned, then Azure AD writes an audit record for the `EntitlementManagement` category with **Activity** either `Deny access package assignment request`, if the request was denied by an approver, or `Access package assignment request timed out (no approver action taken)`, if the request timed out before an approver could approve.
+If access wasn't assigned, then Azure AD writes an audit record for the `EntitlementManagement` category with **Activity** either `Deny access package assignment request`, if the request was denied by an approver, or `Access package assignment request timed out (no approver action taken)`, if the request timed out before an approver could approve.
 
 When the user's access package assignment expires, is canceled by the user, or removed by an administrator, then Azure AD writes an audit record for the `EntitlementManagement` category with **Activity** of `Remove access package assignment`.
 
