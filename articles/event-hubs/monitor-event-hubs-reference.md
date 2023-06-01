@@ -92,21 +92,25 @@ Runtime audit logs capture aggregated diagnostic information for all data plane 
 
 Runtime audit logs include the elements listed in the following table:
 
-Name | Description
-------- | -------
-`ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. 
-`ActivityName` | Runtime operation name.  
-`ResourceId` | Resource associated with the activity. 
-`Timestamp` | Aggregation time.
-`Status` | Status of the activity (success or failure).
-`Protocol` | Type of the protocol associated with the operation.
-`AuthType` | Type of authentication (Azure Active Directory or SAS Policy).
-`AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource.
-`NetworkType` | Type of the network access: `Public` or `Private`.
-`ClientIP` | IP address of the client application.
-`Count` | Total number of operations performed during the aggregated period of 1 minute. 
-`Properties` | Metadata that are specific to the data plane operation. 
-`Category` | Log category
+Name | Description | Supported in Azure Diagnostics | Supported in Resource Specific table
+------- | -------| -----| -----|
+`ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes 
+`ActivityName` | Runtime operation name.| Yes | Yes 
+`ResourceId` | Resource associated with the activity. | Yes | Yes
+`Timestamp` | Aggregation time. | Yes | Yes
+ `TimeGenerated [UTC]`|Time of executed operation (in UTC)| No | Yes
+`Status` | Status of the activity (success or failure). | Yes | Yes 
+`Protocol` | Type of the protocol associated with the operation. | Yes | Yes 
+`AuthType` | Type of authentication (Azure Active Directory or SAS Policy). | Yes | Yes 
+`AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource. | Yes | Yes 
+`NetworkType` | Type of the network access: `Public` or `Private`. | Yes | Yes
+`ClientIP` | IP address of the client application. | Yes | Yes 
+`Count` | Total number of operations performed during the aggregated period of 1 minute. | Yes | Yes 
+`Properties` | Metadata that are specific to the data plane operation. | Yes | Yes 
+`Category` | Log category | Yes | NO
+ `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
+ `Type`  | AZMSOperationalLogs| No | Yes
+
 
 Here's an example of a runtime audit log entry:
 
@@ -144,6 +148,8 @@ Name | Description
 `IncomingBytes` | Details of Publisher throughput sent to Event Hubs
 `OutgoinMessages` | Details of number of messages consumed from Event Hubs. 
 `OutgoingBytes` | Details of Consumer throughput from Event Hubs.
+
+Application Metric logs shares partial common schema to Runtime Audit logs and is specifically built to track runtime operations for Application Groups.
 
 
 ## Azure Monitor Logs tables
