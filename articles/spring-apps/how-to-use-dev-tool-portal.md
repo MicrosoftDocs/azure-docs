@@ -39,7 +39,7 @@ This article describes how to configure VMware Tanzu Dev Tools. Dev Tools includ
 Dev Tools Portal supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) that supports the OpenID Connect Discovery protocol.
 
 > [!NOTE]
-> Azure Spring Apps supports only authorization servers that support the OpenID Connect Discovery protocol. Make sure to configure the external authorization server to allow redirects back to the Dev Tools Portal. See your authorization server's documentation and add *https://dev-tool-portal-external-url/api/auth/oidc/handler/frame* to the list of allowed redirect URIs.
+> Azure Spring Apps supports only authorization servers that support the OpenID Connect Discovery protocol. Make sure to configure the external authorization server to allow redirects back to the Dev Tools Portal. See your authorization server's documentation and add *https://dev-tool-portal-external-url/oauth2/callback* to the list of allowed redirect URIs.
 
 The following table describes SSO properties:
 
