@@ -60,7 +60,7 @@ Use the following steps to prepare your project.
 ## Bind your app to the Azure Database for PostgreSQL instance
 
 > [!NOTE]
-> Select only one way of the following step to create connection. If you already create tables with one of the connection, the tables can't be accessed/modified by other users. When you try the other way, application will throw error like "Permission denied". To fix this issue, please connect to a new database or delete/recreate existing one.
+> Be sure to select only one of the following approaches to create a connection. If you've already created tables with one connection, other users can't access or modify the tables. When you try the other approach, the application will throw errors such as "Permission denied". To fix this issue, connect to a new database or delete and recreate an existing one.
 
 ### [Passwordless (Recommended)](#tab/Passwordlessflex)
 
