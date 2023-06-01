@@ -1,5 +1,5 @@
 ---
-title: Azure Modeling and Simulation Workbench user personas
+title: "User personas: Azure Modeling and Simulation Workbench"
 description: Overview of Azure Modeling and Simulation Workbench user personas.
 author: lynnar
 ms.author: lynnar
@@ -10,24 +10,24 @@ ms.date: 01/01/2023
 # Customer intent: As a Modeling and Simulation Workbench user, I want to understand the user personas.
 ---
 
-# Azure Modeling and Simulation Workbench user personas
+# User personas: Azure Modeling and Simulation Workbench
 
-User personas within the Modeling and Simulation Workbench are outlined in this article as well as  the activities and responsibilities they're associated with.
+There are three user personas within Azure Modeling and Simulation Workbench:  IT Admin, Project Manager, and Design Engineer. This article explains the user personas, and the activities and responsibilities associated with each one."
 
-## Workbench user personas - an introduction
+## IT Admin (Workbench Owner)
 
-The three key user personas for the Azure Modeling and Simulation Workbench are:
+The IT Admin is responsible for infrastructure deployment and user provisioning, referenced as the *Workbench Owner*. The Workbench Owner initializes the service in the customer tenant and has full administrative rights to manage chambers and users in the environment. They have Azure 'Owner' role assignment, or 'Contributor' and 'User Access Administrator' role assignments.
 
-- IT Admin (Workbench Owner) – The IT Admin is responsible for infrastructure deployment and user provisioning, referenced as the Workbench Owner. The Workbench Owner initializes the service in the customer tenant and has full administrative rights to manage chambers and users in the environment. The Workbench Owner can create and delete chambers; invite, remove, or change user roles and define the connectivity methods by which users connect into the workload. The Workbench Owner is also responsible for approving all data export requests and costs accrued by resource consumption during workbench usage. A Workbench Owner has 'Owner' role assignment, or 'Contributor' and 'User Access Administrator' role assignments.
+A Workbench Owner can create and delete chambers, and invite, remove, or change user roles. They can also define the connectivity methods that their users employ to connect into the workload. The Workbench Owner is also responsible for approving all data export requests and costs accrued by resource consumption during workbench usage.
 
-- Project Manager (Chamber Admin)– The Project Manager is responsible for installing and managing applications and licenses. They also own the installation and configuration of tools related to compute, network, and storage within the chamber and are referred to as the Chamber Admin. Chamber Admins set up and manage the chamber and enjoy a higher elevated access within the workloads and the environment. They're responsible for procuring the licenses from the software vendors to enable design teams to run simulations on the deployed workloads.
+## Project Manager (Chamber Admin)
 
-- Design Engineer (Chamber User) – The design engineer is responsible for execution of the workflows and simulations leading up to final design approval, also known as the Chamber User. Chamber Users have a lower level of access to the environment, but can deploy workloads, execute scripts and schedulers based on their access permissions to chamber storages. They can also utilize the data pipeline, bringing data into the chamber and requesting data to be exported from chamber.
+The Project Manager, also known as the *Chamber Admin*, is responsible for installing and managing applications and licenses. They also own the installation and configuration of tools related to compute, network, and storage within the chamber. Chamber Admins set up and manage the chamber and have a higher elevated access within the workloads and the environment. They're responsible for procuring the licenses from the software vendors to enable design teams to run simulations on the deployed workloads.
+
+## Design Engineer (Chamber User)
+
+The Design Engineer is responsible for execution of the workflows and simulations leading up to the final design approval. This role is referred to as the *Chamber User*. Chamber Users have a lower level of access to the environment, but can deploy workloads, execute scripts and schedulers based on their access permissions to chamber storages. They can also use the [data pipeline](./conecept-data-pipeline.md), to bring data into the chamber and request data to be exported from chamber.
 
 ## Next steps
 
-- [What's next - Chamber](./concept-chamber.md)
-
-Choose an article to know more:
-
-- [Workbench](./concept-workbench.md)
+- [Chamber](./concept-chamber.md)

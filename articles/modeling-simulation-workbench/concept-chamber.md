@@ -1,5 +1,5 @@
 ---
-title: Azure Modeling and Simulation Workbench chamber
+title: "Chamber: Azure Modeling and Simulation Workbench"
 description: Overview of Azure Modeling and Simulation Workbench chamber component.
 author: lynnar
 ms.author: lynnar
@@ -10,7 +10,7 @@ ms.date: 01/01/2023
 # Customer intent: As a Modeling and Simulation Workbench user, I want to understand the chamber component.
 ---
 
-# Azure Modeling and Simulation Workbench chamber
+# Chamber: Azure Modeling and Simulation Workbench
 
 ## Chamber - an introduction
 
@@ -40,10 +40,4 @@ Know more about reducing service costs using [Azure Advisor](/azure/advisor/advi
 
 ## Next steps
 
-- [What's next - Connector](./concept-connector.md)
-
-Choose an article to know more:
-
-- [Workbench](./concept-workbench.md)
-
-- [User Personas](./concept-user-personas.md)
+- [Connector](./concept-connector.md)
