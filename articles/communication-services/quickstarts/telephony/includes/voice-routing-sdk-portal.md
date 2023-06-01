@@ -63,7 +63,7 @@ Status - The overall health status of a Trunk:
 - Inactive - Indicates inactive connection. 
 
 > [!IMPORTANT]
-> Before placing or receiving calls, make sure that SBC status is *Online* 
+> Before placing or receiving calls, make sure that SBC status is *Online*
 
 ## Create voice routing rules
 
