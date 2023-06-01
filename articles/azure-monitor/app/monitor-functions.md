@@ -112,7 +112,7 @@ Here is an example:
 
 ##### Logback
 
-Add the following filter to your logback.xml file
+Add the following filter to your logback.xml: 
 
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>OFF</level>
