@@ -98,7 +98,7 @@ To add the application ID:
    * [Access token](how-to-manage-users.md#prerequisites)
    * Application ID of the managed identity
 
-2. Use the [Add Member API](https://microsoft.github.io/meds-samples/rest-apis/index.html?page=/meds-samples/rest-apis/entitlements_openapi.yaml#/add-member-api/addMemberUsingPOST) to add the application ID of the user-assigned managed identity to the appropriate entitlement groups. 
+2. Use the [Add Member API](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M12/entitlements_openapi.yaml#/add-member-api) to add the application ID of the user-assigned managed identity to the appropriate entitlement groups. 
 
    > [!NOTE]
    > In the following commands, be sure to use the application ID of the managed identity and not the object ID. 

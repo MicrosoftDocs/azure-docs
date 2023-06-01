@@ -5,6 +5,7 @@ description: Dive in to the process of training a model
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: build-2023
 ms.topic: tutorial
 ms.reviewer: ssalgado
 author: ssalgadodev
@@ -95,6 +96,9 @@ ml_client = MLClient(
 
 ## Create a compute cluster to run your job
 
+> [!NOTE]
+> To try [serverless compute (preview)](how-to-use-serverless-compute.md), skip this step and proceed to [create a job environment](#create-a-job-environment).
+
 In Azure, a job can refer to several tasks that Azure allows its users to do: training, pipeline creation, deployment, etc. For this tutorial and our purpose of training a machine learning model, we'll use *job* as a reference to running training computations (*training job*).
 
 You need a compute resource for running any job in Azure Machine Learning. It can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark. In Azure, there are two compute resources that you can choose from: instance and cluster. A compute instance contains one node of computation resources while a *compute cluster* contains several. A *compute cluster* contains more memory for the computation task. For training, we recommend using a compute cluster because it allows the user to distribute calculations on multiple nodes of computation, which results in a faster training experience. 
@@ -124,6 +128,9 @@ except Exception:
     cpu_cluster = AmlCompute(
         name=cpu_compute_target,
         # Azure Machine Learning Compute is the on-demand VM service
+        # if you run into an out of quota error, change the size to a comparable VM that is available.\
+        # Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
+
         type="amlcompute",
         # VM Family
         size="STANDARD_DS3_V2",
@@ -355,6 +362,8 @@ Here, create input variables to specify the input data, split ratio, learning ra
 * Use the environment created earlier - you can use the `@latest` notation to indicate the latest version of the environment when the command is run.
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
 
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code.
 
 ```python
 from azure.ai.ml import command
@@ -375,7 +384,7 @@ job = command(
     code="./src/",  # location of source code
     command="python main.py --data ${{inputs.data}} --test_train_ratio ${{inputs.test_train_ratio}} --learning_rate ${{inputs.learning_rate}} --registered_model_name ${{inputs.registered_model_name}}",
     environment="aml-scikit-learn@latest",
-    compute="cpu-cluster",
+    compute="cpu-cluster", #delete this line to use serverless compute
     display_name="credit_default_prediction",
 )
 ```

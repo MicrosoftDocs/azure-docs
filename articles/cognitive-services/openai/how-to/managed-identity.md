@@ -1,5 +1,5 @@
 ---
-title: How to Configure Azure OpenAI Service with Managed Identities
+title: How to configure Azure OpenAI Service with managed identities
 titleSuffix: Azure OpenAI
 description: Provides guidance on how to set managed identity with Azure Active Directory
 ms.service: cognitive-services
@@ -12,7 +12,7 @@ recommendations: false
 ms.custom: devx-track-azurecli
 ---
 
-# How to Configure Azure OpenAI Service with Managed Identities
+# How to configure Azure OpenAI Service with managed identities
 
 More complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Azure Active Directory (Azure AD).
 
@@ -65,7 +65,7 @@ Assigning yourself to the Cognitive Services User role will allow you to use you
 Use the access token to authorize your API call by setting the `Authorization` header value.
 
     ```bash
-    curl ${endpoint%/}/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01 \
+    curl ${endpoint%/}/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2023-05-15 \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $accessToken" \
     -d '{ "prompt": "Once upon a time" }'

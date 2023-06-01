@@ -225,21 +225,20 @@ const call = callAgent.startCall(userId);
 const callStateChangedHandler = async () => {
     if (call.state === "Connected") {
         const remoteVideoStream = remoteParticipants[0].videoStreams[0];
-
-	const processMediaStream = async () => {
-		if (remoteVideoStream.isAvailable) {
-	  		const mediaStream = await remoteVideoStream.getMediaStream();
-			// remote video stream is turned on, process the video's raw media stream.
-		} else {
-			// remote video stream is turned off, handle it
-		}
-	}
-
-	remoteVideoStream.on('isAvailableChanged', async () => {
-		await processMediaStream();
-	})
-
-       	await processMediaStream();
+        const processMediaStream = async () => {
+            if (remoteVideoStream.isAvailable) {
+                // remote video stream is turned on, process the video's raw media stream.
+                const mediaStream = await remoteVideoStream.getMediaStream();
+            } else {
+                // remote video stream is turned off, handle it
+            }
+        };
+	
+        remoteVideoStream.on('isAvailableChanged', async () => {
+            await processMediaStream();
+        });
+	
+        await processMediaStream();
     }
 };
 

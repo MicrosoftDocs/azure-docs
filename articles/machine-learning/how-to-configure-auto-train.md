@@ -298,7 +298,7 @@ The following table shows the accepted settings for featurization.
 
 |Featurization Configuration | Description |
 | ------------- | ------------- |
-|`"mode": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](how-to-configure-auto-features.md#featurization) are performed automatically. **Default setting**.|
+|`"mode": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](./v1/how-to-configure-auto-features.md#featurization) are performed automatically. **Default setting**.|
 |`"mode": 'off'`| Indicates featurization step shouldn't be done automatically.|
 |`"mode":`&nbsp;`'custom'`| Indicates customized featurization step should be used.|
 
@@ -376,7 +376,7 @@ Automated ML offers options for you to monitor and evaluate your training result
 
 * For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md).
 
-* To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency). 
+* To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](./v1/how-to-configure-auto-features.md#featurization-transparency). 
 
 From Azure Machine Learning UI at the model's page you can also view the hyperparameters used when training a particular model and also view and customize the internal model's training code used. 
 

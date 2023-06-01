@@ -160,7 +160,7 @@ Learn more: [Tutorial: Secure user sign-in events with Azure AD MFA](../authenti
 
 To enable SSO in the Oracle PeopleSoft environment:
 
-1. Sign in to the PeopleSoft Consol `http://{your-peoplesoft-fqdn}:8000/psp/ps/?cmd=start` using Admin credentials, for example, PS/PS.
+1. Sign in to the PeopleSoft Console `http://{your-peoplesoft-fqdn}:8000/psp/ps/?cmd=start` using Admin credentials, for example, PS/PS.
 
    ![Screenshot that shows Oracle PeopleSoft console.](./media/access-oracle-peoplesoft-using-datawiza/peoplesoft-console.png)
 

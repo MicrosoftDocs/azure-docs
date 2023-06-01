@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 03/31/2023
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: references_regions, cosmos-db-video, ignite-2022
+ms.custom: references_regions, cosmos-db-video, ignite-2022, build-2023
 ---
 
 # Continuous backup with point-in-time restore in Azure Cosmos DB
@@ -20,7 +20,6 @@ Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios incl
 * Restoring a deleted account, database, or a container.
 * Restoring into any region (where backups existed) at the restore point in time.
 
->
 > [!VIDEO https://aka.ms/docs.continuous-backup-restore]
 
 Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database. Continuous backups are taken in every region where the account exists. For example, an account can have a write region in West US and read regions in East US and East US 2. These replica regions can then be backed up to a remote Azure Storage account in each respective region. By default, each region stores the backup in Locally Redundant storage accounts. If the region has [Availability zones](/azure/architecture/reliability/architect) enabled  then the backup is stored in Zone-Redundant storage accounts.
@@ -39,7 +38,10 @@ Currently, you can restore an Azure Cosmos DB account (API for NoSQL or MongoDB,
 
 By default, Azure Cosmos DB stores continuous mode backup data in locally redundant storage blobs. For the regions that have zone redundancy configured, the backup is stored in zone-redundant storage blobs. In continuous backup mode, you can't update the backup storage redundancy.
 
-## What is restored?
+## Different ways to restore
+Continuous backup mode supports two ways to restore deleted containers, databases. Existing restore mechanism restores into a [new account](restore-account-continuous-backup.md) as documented here. Restore into existing account is described [here](restore-account-continuous-backup.md). The choice between two depends on the scenarios and impact. Most of the deleted containers, databases can prefer in-account (existing) account restore to prevent data transfer which is required in case you restored to a new account. For scenarios where you have modified the data accidently restore into new account is the right thing to do. 
+
+## What is restored into a new account?
 
 In a steady state, all mutations performed on the source account (which includes databases, containers, and items) are backed up asynchronously within 100 seconds. If the Azure Storage backup media is down or unavailable, the mutations are persisted locally until the media is available. Then the mutations are flushed out to prevent any loss in fidelity of operations that can be restored.
 

@@ -8,7 +8,7 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: faq
-  ms.date: 03/15/2023
+  ms.date: 05/23/2023
   ms.author: godonnell
   ms.subservice: B2C
   ms.custom: "b2c-support"
@@ -17,6 +17,20 @@ summary: This page answers frequently asked questions about the Azure Active Dir
 
 
 sections:
+  - name: Microsoft Entra External ID preview
+    questions:
+      - question: |
+          What is Microsoft Entra External ID?
+        answer: |
+          We announced early preview of our next generation Microsoft Entra External ID solution. This early preview represents an evolutionary step in unifying secure and engaging experiences across all external identities including partners, customers, citizens, patients, and others within a single, integrated platform. For more information about the preview, see [What is Microsoft Entra External ID for customers?](../active-directory/external-identities/customers/overview-customers-ciam.md). 
+      - question: |
+          How does this preview affect me?
+        answer: |
+          No action is required on your part at this time. The next generation platform is currently in early preview only. We remain fully committed to support of your current Azure AD B2C solution. There are no requirements for Azure AD B2C customers to migrate at this time and no plans to discontinue the current Azure AD B2C service. As the next generation platform approaches GA, details will be made available to all our valued B2C customers on available options including migration to the new platform.
+      - question: |
+          How do I participate in the preview?
+        answer: |
+          As the next generation platform represents our future for customer identity and access management (CIAM), we welcome and encourage your participation and feedback during early preview. If you're interested in joining the early preview, contact your sales team for details. 
   - name: General
     questions:
       - question: |
@@ -27,7 +41,7 @@ sections:
       - question: |
           Can I use Azure AD B2C features in my existing, employee-based Azure AD tenant?
         answer: |
-          Azure AD and Azure AD B2C are separate product offerings and can’t coexist in the same tenant. An Azure AD tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. By adding **New OpenID Connect provider** under **Azure AD B2C > Identity providers** or with custom policies, Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
+          Azure AD and Azure AD B2C are separate product offerings. To use Azure AD B2C features, create a separate Azure AD B2C tenant from your existing employee-based Azure AD tenant. An Azure AD tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. By adding **New OpenID Connect provider** under **Azure AD B2C > Identity providers** or with custom policies, Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
 
       - question: |
           Can I use Azure AD B2C to provide social sign in (Facebook and Google+) into Microsoft 365?
@@ -164,7 +178,7 @@ sections:
           If the TOTP authenticator app codes aren't working with your Android or iPhone mobile phone or device, your device's clock time might be incorrect. In your device's settings, select the option to use the network-provided time or to set the time automatically.
           
       - question: |
-          How do I know that the Go-Local add-on available in my country/region? 
+          How do I know that the Go-Local add-on is available in my country/region? 
         answer: |
           While [creating your Azure AD B2C tenant](tutorial-create-tenant.md), if the Go-Local add-on is available in your country, you're asked to enable it if you need it. 
       

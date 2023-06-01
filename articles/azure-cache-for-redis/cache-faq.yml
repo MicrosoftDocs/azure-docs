@@ -56,7 +56,9 @@ sections:
             
           - Migrate to a new cache in a new Azure Resource Manager VNet subnet.  
 
-             This option will fix the underlying dependency on Cloud Services while maintaining a similar VNet experience. We have migrated most caches from being built on Cloud Services (class) to being built on Azure Virtual Machine Scale Sets. To migrate, delete the existing cache and create a new cache in a new Azure Resource Manager VNet subnet. For recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md).  
+             Creating a cache within a Classic VNET creates a Cloud Services (classic) cache and not an Azure Virtual Machine Scale Sets cache. Migrating to a new cache in a new Azure Resource Manager VNet subnet fixes the underlying dependency on Cloud Services while maintaining a similar VNet experience. 
+             
+             We have migrated most caches from being built on Cloud Services (classic) to being built on Azure Virtual Machine Scale Sets. To migrate, delete the existing cache and create a new cache in a new Azure Resource Manager VNet subnet. We highly recommend not using old subnets while migrating caches. For recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md).  
 
       - question: My cache isn't using VNet injection, but I received notice that I need to migrate. What should I do? 
         answer: |

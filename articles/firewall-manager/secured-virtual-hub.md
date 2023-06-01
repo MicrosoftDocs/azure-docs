@@ -26,15 +26,11 @@ You can choose the required security providers to protect and govern your networ
 
 Using Firewall Manager in the Azure portal, you can either create a new secured virtual hub, or convert an existing virtual hub that you previously created using Azure Virtual WAN.
 
-## Public preview features
-
-The following features are in public preview:
-
-| Feature | Description |
-| ---------- | --------- |
-| Routing Intent and Policies enabling Inter-hub security | This feature allows you to configure internet-bound, private or inter-hub traffic flow through Azure Firewall. For more information, see [Routing Intent and Policies](../virtual-wan/how-to-routing-policies.md). |
+You may configure Virtual WAN to enable inter-region security use cases in the hub by configuring routing intent. For more information on routing intent see [Routing Intent documentation](../virtual-wan/how-to-routing-policies.md).
 
 ## Next steps
 
 - Review Firewall Manager architecture options: [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md)
 - To create a secured virtual hub and use it  to secure and govern a hub and spoke network, see [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md).
+- [Learn more about Azure network security](../networking/security/index.yml)
+

@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 10/27/2022
+ms.date: 5/18/2023
 ms.topic: how-to
 ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, sdkv2
 ---
@@ -21,7 +21,7 @@ ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, sdkv2
 
 In this article, you'll learn how to deploy a new version of a machine learning model in production without causing any disruption. You'll use a blue-green deployment strategy (also known as a safe rollout strategy) to introduce a new version of a web service to production. This strategy will allow you to roll out your new version of the web service to a small subset of users or requests before rolling it out completely.
 
-This article assumes you're using online endpoints, that is, endpoints that are used for online (real-time) inferencing. There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. For more information on endpoints and the differences between managed online endpoints and Kubernetes online endpoints, see [What are Azure Machine Learning endpoints?](concept-endpoints.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
+This article assumes you're using online endpoints, that is, endpoints that are used for online (real-time) inferencing. There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. For more information on endpoints and the differences between managed online endpoints and Kubernetes online endpoints, see [What are Azure Machine Learning endpoints?](concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
 
 The main example in this article uses managed online endpoints for deployment. To use Kubernetes endpoints instead, see the notes in this document that are inline with the managed online endpoint discussion.
 
@@ -32,7 +32,7 @@ In this article, you'll learn to:
 > * Scale the blue deployment so that it can handle more requests
 > * Deploy version 2 of the model (called the "green" deployment) to the endpoint, but send the deployment no live traffic
 > * Test the green deployment in isolation
-> * Mirror a percentage of live traffic to the green deployment to validate it (preview)
+> * Mirror a percentage of live traffic to the green deployment to validate it
 > * Send a small percentage of live traffic to the green deployment
 > * Send over all live traffic to the green deployment
 > * Delete the now-unused v1 blue deployment
@@ -180,7 +180,7 @@ The following table lists key attributes to specify when you define an endpoint.
 | Description    | Description of the endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Tags           | Dictionary of tags for the endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Traffic        | Rules on how to route traffic across deployments. Represent the traffic as a dictionary of key-value pairs, where key represents the deployment name and value represents the percentage of traffic to that deployment. You can set the traffic only when the deployments under an endpoint have been created. You can also update the traffic for an online endpoint after the deployments have been created. For more information on how to use mirrored traffic, see [Allocate a small percentage of live traffic to the new deployment](#allocate-a-small-percentage-of-live-traffic-to-the-new-deployment). |
-| Mirror traffic (preview) | Percentage of live traffic to mirror to a deployment. For more information on how to use mirrored traffic, see [Test the deployment with mirrored traffic (preview)](#test-the-deployment-with-mirrored-traffic-preview).                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Mirror traffic | Percentage of live traffic to mirror to a deployment. For more information on how to use mirrored traffic, see [Test the deployment with mirrored traffic](#test-the-deployment-with-mirrored-traffic).                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 To see a full list of attributes that you can specify when you create an endpoint, see [CLI (v2) online endpoint YAML schema](/azure/machine-learning/reference-yaml-endpoint-online) or [SDK (v2) ManagedOnlineEndpoint Class](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint).
 
@@ -567,8 +567,7 @@ Though `green` has 0% of traffic allocated, you can still invoke the endpoint an
 
 ---
 
-## Test the deployment with mirrored traffic (preview)
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+## Test the deployment with mirrored traffic
 
 Once you've tested your `green` deployment, you can *mirror* (or copy) a percentage of the live traffic to it. Traffic mirroring (also called shadowing) doesn't change the results returned to clients—requests still flow 100% to the `blue` deployment. The mirrored percentage of the traffic is copied and submitted to the `green` deployment so that you can gather metrics and logging without impacting your clients. Mirroring is useful when you want to validate a new deployment without impacting clients. For example, you can use mirroring to check if latency is within acceptable bounds or to check that there are no HTTP errors. Testing the new deployment with traffic mirroring/shadowing is also known as [shadow testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/shadow-testing/). The deployment receiving the mirrored traffic (in this case, the `green` deployment) can also be called the *shadow deployment*.
 
@@ -638,7 +637,7 @@ After testing, you can set the mirror traffic to zero to disable mirroring:
 To mirror 10% of the traffic to the `green` deployment:
 
 1. From the endpoint Details page, Select **Update traffic**.
-1. Slide the button to **Enable mirrored traffic (Preview)**.
+1. Slide the button to **Enable mirrored traffic**.
 1. Select the **green** deployment in the "Deployment name" dropdown menu.
 1. Keep the default traffic allocation of 10%.
 1. Select **Update**.
@@ -654,7 +653,7 @@ To test mirrored traffic, see the Azure CLI or Python tabs to invoke the endpoin
 After testing, you can disable mirroring:
 
 1. From the endpoint Details page, Select **Update traffic**.
-1. Slide the button next to **Enable mirrored traffic (Preview)** again to disable mirrored traffic.
+1. Slide the button next to **Enable mirrored traffic** again to disable mirrored traffic.
 1. Select **Update**.
 
 :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/endpoint-details-showing-disabled-mirrored-traffic.png" alt-text="Endpoint details page showing no mirrored traffic in the deployment summary." lightbox="media/how-to-safely-rollout-managed-endpoints/endpoint-details-showing-disabled-mirrored-traffic.png":::
