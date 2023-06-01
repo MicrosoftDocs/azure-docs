@@ -1,6 +1,6 @@
 ---
-title: Use the REST API to manage users and roles in Azure IoT Central
-description: How to use the IoT Central REST API to manage users and roles in an application
+title: Manage users and roles with the Azure IoT Central REST API
+description: How to use the IoT Central REST API to manage users and roles in an application and control access to resources
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/16/2022

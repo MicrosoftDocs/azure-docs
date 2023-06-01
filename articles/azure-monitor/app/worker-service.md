@@ -407,29 +407,28 @@ The Application Insights SDK for Worker Service supports both [fixed-rate sampli
 To configure other sampling settings, you can use the following example:
 
 ```csharp
+using Microsoft.ApplicationInsights.AspNetCore.Extensions;
 using Microsoft.ApplicationInsights.Extensibility;
-using Microsoft.ApplicationInsights.WorkerService;
 
-public void ConfigureServices(IServiceCollection services)
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<TelemetryConfiguration>(telemetryConfiguration =>
 {
-    // ...
+   var telemetryProcessorChainBuilder = telemetryConfiguration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 
-    var aiOptions = new ApplicationInsightsServiceOptions();
-    
-    // Disable adaptive sampling.
-    aiOptions.EnableAdaptiveSampling = false;
-    services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
+   // Using adaptive sampling
+   telemetryProcessorChainBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 5);
 
-    // Add Adaptive Sampling with custom settings.
-    // The following adds adaptive sampling with 15 items per sec.
-    services.Configure<TelemetryConfiguration>((telemetryConfig) =>
-        {
-            var builder = telemetryConfig.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
-            builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 15);
-            builder.Build();
-        });
-    //...
-}
+   // Alternately, the following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling:
+   // telemetryProcessorChainBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
+});
+
+builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
+{
+   EnableAdaptiveSampling = false,
+});
+
+var app = builder.Build();
 ```
 
 For more information, see the [Sampling](#sampling) document.
