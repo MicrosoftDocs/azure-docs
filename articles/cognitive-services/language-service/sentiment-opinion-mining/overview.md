@@ -37,7 +37,7 @@ Opinion mining is a feature of sentiment analysis. Also known as aspect-based se
 
 #### [Custom model](#tab/custom)
 
-Custom sentiment analysis enables users to build custom AI models to classify text into sentiment types classes pre-defined by the user. By creating a Custom sentiment analysis project, developers can iteratively label data, train, evaluate, and improve model performance before making it available for consumption. The quality of the labeled data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
+Custom sentiment analysis enables users to build custom AI models to classify text into sentiments pre-defined by the user. By creating a Custom sentiment analysis project, developers can iteratively label data, train, evaluate, and improve model performance before making it available for consumption. The quality of the labeled data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
 
 
 ## Project development lifecycle
@@ -58,7 +58,7 @@ Follow these steps to get the most out of your model:
 
 5. **Deploy the model**: Deploying a model makes it available for use via the [Analyze API](https://aka.ms/ct-runtime-swagger).
 
-6. **Classify text**: Use your custom model for Custom sentiment analysis tasks.
+6. **Classify text**: Use your custom model for sentiment analysis tasks.
 
 ## Reference documentation
 

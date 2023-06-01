@@ -45,7 +45,7 @@ Use the following JSON in your request. Replace the placeholder values below wit
     "storageInputContainerName": "text-sentiment",
     "projectName": "TestSentiment",
     "multilingual": false,
-    "description": "This is to test Sentiment project.",
+    "description": "This is a Custom sentiment analysis project.",
     "language": "en-us"
   },
   "assets": {
@@ -95,13 +95,12 @@ Use the following JSON in your request. Replace the placeholder values below wit
 | api-version | `{API-VERSION}` | The version of the API you are calling. The version used here must be the same API version in the URL. Learn more about other available [API versions](../../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) | `2023-04-15-preview` |
 | projectName | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive. | `myProject` |
 | projectKind | `CustomTextSentiment` | Your project kind. | `CustomTextSentiment` |
-| language | `{LANGUAGE-CODE}` |  A string specifying the language code for the documents used in your project. If your project is a multilingual project, choose the language code of the majority of the documents. <!--See [language support](../../language-support.md#multi-lingual-option) to learn more about multilingual support.--> |`en-us`|
-| multilingual | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents. <!--See [language support](../../language-support.md#multi-lingual-option) to learn more about multilingual support.--> | `true`|
+| language | `{LANGUAGE-CODE}` |  A string specifying the language code for the documents used in your project. If your project is a multilingual project, choose the language code of the majority of the documents. See [language support](../../language-support.md#multi-lingual-option) to learn more about multilingual support. |`en-us`|
+| multilingual | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language not necessarily included in your training documents. <!--See [language support](../../language-support.md#multi-lingual-option) to learn more about multilingual support.--> | `true`|
 | storageInputContainerName | `{CONTAINER-NAME}` | The name of your Azure storage container where you have uploaded your documents.   | `myContainer` |
-| classes | [] | Array containing all the classes you have in the project. These are the classes you want to classify your documents into.| [] |
 | documents | [] | Array containing all the documents in your project and what the classes labeled for this document. | [] |
 | location | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container this should be the document name.|`doc1.txt`|
-| dataset | `{DATASET}` |  The test set to which this document will go to when split before training. <!--See [How to train a model](../../how-to/train-model.md#data-splitting) for more information on data splitting.--> Possible values for this field are `Train` and `Test`.      |`Train`|
+| sentimentSpans | `{sentimentSpans}` |  The sentiment of a document (positive, neutral, negative), the position where the sentiment begins, and its length.     | [] |
 
 Once you send your API request, you’ll receive a `202` response indicating that the job was submitted correctly. In the response headers, extract the `operation-location` value. It will be formatted like this: 
 
