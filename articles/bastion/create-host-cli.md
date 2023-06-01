@@ -18,7 +18,9 @@ This article shows you how to deploy Azure Bastion using CLI. Azure Bastion is a
 
 Once you deploy Bastion to your virtual network, you can connect to your VMs via private IP address. This seamless RDP/SSH experience is available to all the VMs in the same virtual network. If your VM has a public IP address that you don't need for anything else, you can remove it. 
 
-In this article, you deploy a virtual network (if you don't already have one) and Azure Bastion using CLI. You can also deploy Bastion by using the following other methods:
+:::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
+
+In this article, you create a virtual network (if you don't already have one), deploy Azure Bastion using CLI, and connect to a VM. You can also deploy Bastion by using the following other methods:
 
 * [Azure portal](./tutorial-create-host-portal.md)
 * [Azure PowerShell](bastion-create-host-powershell.md)
