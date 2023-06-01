@@ -105,7 +105,7 @@ Delete the starter pipeline and replace it with the following YAML code. In this
 * Use the Bash task to run bash scripts for the Azure Machine Learning SDK and CLI.
 * Use the Azure CLI task to submit an Azure Machine Learning job. 
 
-Select the following tabs depending on whether you are using an Azure Resource Manager service connection or a generic service connection. In the pipeline YAML, replace the value of variables with your resources.
+Select the following tabs depending on whether you're using an Azure Resource Manager service connection or a generic service connection. In the pipeline YAML, replace the value of variables with your resources.
 
 # [Using Azure Resource Manager service connection](#tab/arm)
 
