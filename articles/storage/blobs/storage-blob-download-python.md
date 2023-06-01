@@ -33,7 +33,7 @@ You can use the following method to download a blob:
 
 - [BlobClient.download_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-download-blob)
 
-The `download_blob` method returns a [StorageStreamDownloader](/python/api/azure-storage-blob/azure.storage.blob.storagestreamdownloader) object.
+The `download_blob` method returns a [StorageStreamDownloader](/python/api/azure-storage-blob/azure.storage.blob.storagestreamdownloader) object. During a download, the client libraries split the download request into chunks depending on the total size of the blob and the specified [data transfer options](#specify-data-transfer-options-on-download).
  
 ## Download to a file path
 
