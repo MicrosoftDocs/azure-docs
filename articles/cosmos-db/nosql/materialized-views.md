@@ -246,8 +246,7 @@ Once your account and Materialized View Builder is set up, you should be able to
         ```azurecli
         az rest \
             --method PUT \
-            --uri "https://management.azure.com$accountIdsqlDatabases/";\
-        URL6="$databaseName/containers/$materializedViewName?api-version=2022-11-15-preview" \
+            --uri "https://management.azure.com$accountId/sqlDatabases/$databaseName/containers/$materializedViewName?api-version=2022-11-15-preview" \
             --body @definition.json \
             --headers content-type=application/json
         ```
@@ -257,8 +256,7 @@ Once your account and Materialized View Builder is set up, you should be able to
         ```azurecli
         az rest \
             --method GET \
-            --uri "https://management.azure.com$accountIdsqlDatabases/";\
-        URL6="$databaseName/containers/$materializedViewName?api-version=2022-11-15-preview" \
+            --uri "https://management.azure.com$accountId/sqlDatabases/$databaseName/containers/$materializedViewName?api-version=2022-11-15-preview" \
             --headers content-type=application/json \
             --query "{mvCreateStatus: properties.Status}"
         ```
