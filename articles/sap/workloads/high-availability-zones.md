@@ -9,6 +9,7 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/01/2023
 ms.author: juergent
+ms.custom: references_regions
 ---
 
 # SAP workload configurations with Azure Availability Zones
