@@ -34,7 +34,9 @@ Two methods are available to add the code to enable Application Insights via the
 The benefits of this method are:
  
 - You never have to update the SDK because you get the latest updates automatically.
-- You have control over which pages you add the Application Insights JavaScript SDK to. 
+- You have control over which pages you add the Application Insights JavaScript SDK to.
+
+To add the SDK Loader Script, follow these steps: 
 
 1. Paste the SDK Loader Script at the top of each page for which you want to enable Application Insights. 
 
@@ -123,9 +125,7 @@ To add your connection string, follow these steps:
 
 ### 3. (Optional) Add SDK configuration
 
-The optional [SDK configuration](./javascript-sdk-advanced.md#sdk-configuration) is passed to the Application Insights JavaScript SDK during initialization.
-
-To add SDK configuration, add each configuration option directly under `connectionString`.
+The optional [SDK configuration](./javascript-sdk-advanced.md#sdk-configuration) is passed to the Application Insights JavaScript SDK during initialization. To add SDK configuration, add each configuration option directly under `connectionString`.
 
 For example:
 
@@ -167,6 +167,7 @@ dataset
 
 Additional information is available for the following advanced scenarios:
 
+- [JavaScript SDK advanced topics](javascript-sdk-advanced.md)
 - [React plugin](javascript-framework-extensions.md?tabs=react)
 - [React native plugin](javascript-framework-extensions.md?tabs=reactnative)
 - [Angular plugin](javascript-framework-extensions.md?tabs=reactnative)
