@@ -5,20 +5,20 @@ author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: overview
-ms.date: 05/24/2023
+ms.date: 05/30/2023
 ms.service: network-access
 ms.custom: 
 ---
 
 # Understand branch connectivity
 
-Global Secure Access supports two connectivity options. The first is to install a client on each device. The second is to configure equipment, such as a router, in a branch office.
+Global Secure Access supports two connectivity options: installing a client on end-user device and configuring customer premises equipment (CPE), such as a router, in a branch office. Branch office connectivity streamlines how your end-users and guests connect from a branch office.
 
 This article describes the key concepts of branch connectivity along with common scenarios where it may be useful.
 
 ## What is a branch office? 
 
-Branches are remote locations or networks that require internet connectivity. For example, many organizations have a central headquarters and also have branch office locations in different geographic areas. These branch offices need access to corporate data and services. They need a secure way to talk to the data center, headquarters, and remote workers. Hence, the security of branch offices is crucial for organizations.
+Branches are remote locations or networks that require internet connectivity. For example, many organizations have a central headquarters and branch office locations in different geographic areas. These branch offices need access to corporate data and services. They need a secure way to talk to the data center, headquarters, and remote workers. The security of branch offices is crucial for many types of organizations.
 
 Branch offices are typically connected to the corporate network through a dedicated Wide Area Network (WAN) or a Virtual Private Network (VPN) connection. Employees in the branch connect to the network using customer premises equipment (CPE).
 

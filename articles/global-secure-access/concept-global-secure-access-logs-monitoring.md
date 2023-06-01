@@ -20,7 +20,7 @@ Audit logs are available for all services that you have licensed. Streaming logs
 
 ## Network traffic dashboard
 
-The Global Secure Access network traffic dashboard provides you with visualizations of the traffic flowing through the Microsoft Entra Private Access and Microsoft Entra Internet Access services. The dashboard provides a summary of the data related to network deployment, product deployment, and product insights. Within these categories you can see the number of users, devices, and applications seen in the last 24 hours. You can also see device activity and cross-tenant access.
+The Global Secure Access network traffic dashboard provides you with visualizations of the traffic flowing through the Microsoft Entra Private Access and Microsoft Entra Internet Access services. The dashboard provides a summary of the data related to product deployment and insights. Within these categories you can see the number of users, devices, and applications seen in the last 24 hours. You can also see device activity and cross-tenant access.
 
 For more information, see [Global Secure Access network traffic dashboard](concept-traffic-dashboard.md).
 
@@ -34,15 +34,18 @@ For more information, see [Global Secure Access audit logs](how-to-access-audit-
 
 The *Enriched Office 365 logs* provide you with the information you need to gain insights into the performance, experience, and availability of the Microsoft 365 apps your organization uses. You can integrate the logs with a Log Analytics workspace or third-party SIEM tool for further analysis.
 
+Customers use existing *Office Audit logs* for monitoring, detection, investigation, and analytics. We understand the importance of these logs and have partnered with Microsoft 365 to include SharePoint logs. These enriched logs include details like client information and original public IP details that can be used for troubleshooting security scenarios.
+
+Customers use the existing Office Audit logs for monitoring, detection, investigation, and analytics. The *Enriched Office 365 logs* build on these logs by adding information from SharePoint logs, such as client information and original public IP details, that can be used for security scenarios. 
+
 For more information, see [Enriched Office 365 logs](how-to-view-enriched-logs.md).
 
-## Sign-in logs
+## Traffic logs
 
-Reviewing and analyzing sign-in logs is a common task for IT administrators. These logs are the starting point for troubleshooting sign-in issues for users. You can review sign-in activity to determine if there are any risky sign-ins or sign-ins from unfamiliar locations. When source IP restoration is enabled for Global Secure Access, you can review the IP addresses of sign-ins.
+The Global Secure Access traffic logs provide a summary of the network connections and transactions that are occurring in your environment. These logs look at *who* accessed *what* traffic from *where* to *where* and with what *result*. The traffic logs provide a snapshot of all connections in your environment and breaks that down into traffic that applies to your traffic forwarding profiles. The logs details provide the traffic type destination, source IP, and more.
 
-For more information, see [Source IP restoration](overview-what-is-global-secure-access.md).
+For more information, see [Global Secure Access traffic logs](how-to-view-traffic-logs.md).
 
 ## Next steps
 
 - [Learn how to access, store, and analyze Azure AD activity logs](../active-directory/reports-monitoring/howto-access-activity-logs.md)
-- [Troubleshoot sign-in errors](../active-directory/reports-monitoring/howto-troubleshoot-sign-in-errors.md)
