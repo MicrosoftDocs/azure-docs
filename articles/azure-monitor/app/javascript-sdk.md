@@ -20,21 +20,23 @@ ms.reviewer: mmcc
 
 ## Enable Application Insights
 
-Two methods are available to manually enable Application Insights via the Application Insights JavaScript SDK.
+To enable Application Insights, follow these steps.
 
 > [!TIP] 
 > Good news! We're making it even easier to enable JavaScript. Check out where [SDK Loader Script injection by configuration is available](./codeless-overview.md#sdk-loader-script-injection-by-configuration)!
 
-### [SDK Loader Script](#tab/sdkloaderscript)
+### 1. Add the JavaScript code
 
-Use this method if you want to:
+Two methods are available to add the code to enable Application Insights via the Application Insights JavaScript SDK.
 
-- Load the SDK from the CDN instead of including the Application Insights code with your application code.
-- Have control over which pages you add the Application Insights JavaScript SDK to. 
+#### [SDK Loader Script](#tab/sdkloaderscript)
 
-To use this method, you must manually paste the SDK Loader Script at the top of each applicable page.
+The benefits of this method are:
+ 
+- You never have to update the SDK because you get the latest updates automatically.
+- You have control over which pages you add the Application Insights JavaScript SDK to.
 
-Use the following steps to enable Application Insights:
+To add the SDK Loader Script and its optional configuration, follow these steps: 
 
 1. Paste the SDK Loader Script at the top of each page for which you want to enable Application Insights. 
 
@@ -60,24 +62,7 @@ Use the following steps to enable Application Insights:
 
    :::image type="content" source="media/javascript-sdk/sdk-loader-script-configuration.png" alt-text="Screenshot of the SDK Loader Script. The parameters for configuring the SDK Loader Script are highlighted." lightbox="media/javascript-sdk/sdk-loader-script-configuration.png":::
 
-1. (Optional) Add optional [SDK configuration](#sdk-configuration), which is passed to the Application Insights JavaScript SDK during initialization.
-
-   :::image type="content" source="media/javascript-sdk/sdk-loader-script-sdk-configuration.png" alt-text="Screenshot of the SDK Loader Script. The cfg object, which is used to configure the Application Insights JavaScript SDK, is highlighted." lightbox="media/javascript-sdk/sdk-loader-script-sdk-configuration.png":::
-
-1. Add your connection string:
-
-   1. Navigate to the **Overview** pane of your Application Insights resource.
-   1. Locate the **Connection String**.
-   1. Select the **Copy to clipboard** icon to copy the connection string to the clipboard.
-
-      :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
-
-   1. Replace the placeholder `"YOUR_CONNECTION_STRING"` in the SDK Loader Script with your connection string copied to the clipboard.
-
-      > [!NOTE]
-      > An Application Insights [connection string](sdk-connection-string.md) contains information to connect to the Azure cloud and associate telemetry data with a specific Application Insights resource. The connection string includes the Instrumentation Key (a unique identifier), the endpoint suffix (to specify the Azure cloud), and optional explicit endpoints for individual services. The connection string isn't considered a security token or key.
-
-### SDK Loader Script configuration
+#### SDK Loader Script configuration
 
    | Name | Type | Required? | Description
    |------|------|-----------|------------
@@ -88,17 +73,7 @@ Use the following steps to enable Application Insights:
    | crossOrigin | string  | Optional | By including this setting, the script tag added to download the SDK includes the crossOrigin attribute with this string value. Use this setting when you need to provide support for CORS. When not defined (the default), no crossOrigin attribute is added. Recommended values are not defined (the default), "", or "anonymous". For all valid values, see the [cross origin HTML attribute](https://developer.mozilla.org/docs/Web/HTML/Attributes/crossorigin) documentation.
    | onInit | function(aiSdk) { ... } | Optional | This callback function is called after the main SDK script has been successfully loaded and initialized from the CDN (based on the src value). This callback function is useful when you need to insert a telemetry initializer. It's passed one argument, which is a reference to the SDK instance that's being called for and is also called before the first initial page view. If the SDK has already been loaded and initialized, this callback is still called. NOTE: During the processing of the sdk.queue array, this callback is called. You CANNOT add any more items to the queue because they're ignored and dropped. (Added as part of SDK Loader Script version 5--the sv:"5" value within the script). |
 
-#### JavaScript telemetry initializers
-
-See [JavaScript telemetry initializers](./api-filtering-sampling.md#javascript-telemetry-initializers).
-
-### SDK configuration
-
-   | Name | Type | Required? | Description
-   |------|------|-----------|------------
-   | cfg | object | Required | The required connection string and optional [SDK configuration](./javascript-sdk-advanced.md#sdk-configuration) passed to the Application Insights JavaScript SDK during initialization.
-
-### [npm Package](#tab/npmpackage)
+#### [npm package](#tab/npmpackage)
 
 Use this method if you're creating your own bundles and you want to include the Application Insights code in your own bundle. 
 
@@ -124,14 +99,18 @@ This option is only needed for developers who require more custom events and con
    import { ApplicationInsights } from '@microsoft/applicationinsights-web'
 
    const appInsights = new ApplicationInsights({ config: {
-     connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE'
+     connectionString: 'YOUR_CONNECTION_STRING'
      /* ...Other Configuration Options... */
    } });
    appInsights.loadAppInsights();
    appInsights.trackPageView();
    ```
 
-1. Add your connection string:
+---
+
+### 2. Add your connection string
+
+To add your connection string, follow these steps:
 
    1. Navigate to the **Overview** pane of your Application Insights resource.
    1. Locate the **Connection String**.
@@ -139,45 +118,29 @@ This option is only needed for developers who require more custom events and con
 
       :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
-   1. Replace the placeholder `'YOUR_CONNECTION_STRING_GOES_HERE'` in the JavaScript code with your connection string pasted to the clipboard.
-  
+   1. Replace the placeholder `"YOUR_CONNECTION_STRING"` in the JavaScript code with your connection string copied to the clipboard.
+
       > [!NOTE]
       > An Application Insights [connection string](sdk-connection-string.md) contains information to connect to the Azure cloud and associate telemetry data with a specific Application Insights resource. The connection string includes the Instrumentation Key (a unique identifier), the endpoint suffix (to specify the Azure cloud), and optional explicit endpoints for individual services. The connection string isn't considered a security token or key.
 
-1. (Optional) Add [SDK configuration](./javascript-sdk-advanced.md#sdk-configuration).
+### 3. (Optional) Add SDK configuration
 
----
+The optional [SDK configuration](./javascript-sdk-advanced.md#sdk-configuration) is passed to the Application Insights JavaScript SDK during initialization.
 
-## What is collected automatically?
+To add SDK configuration, add each configuration option directly under `connectionString`. For example:
 
-When you enable the App Insights JavaScript SDK, the following data classes are collected automatically:
+:::image type="content" source="media/javascript-sdk/example-sdk-configuration.png" alt-text="Screenshot of JavaScript code with SDK configuration options added and highlighted." lightbox="media/javascript-sdk/example-sdk-configuration.png":::
 
-- Uncaught exceptions in your app, including information on
-    - Stack trace
-    - Exception details and message accompanying the error
-    - Line & column number of error
-    - URL where error was raised
-- Network Dependency Requests made by your app XHR and Fetch (fetch collection is disabled by default) requests, include information on
-    - Url of dependency source
-    - Command & Method used to request the dependency
-    - Duration of the request
-    - Result code and success status of the request
-    - ID (if any) of user making the request
-    - Correlation context (if any) where request is made
-- User information (for example, Location, network, IP)
-- Device information (for example, Browser, OS, version, language, model)
-- Session information
+### 4. Confirm data is flowing
 
-> [!Note]
-> For some applications, such as single-page applications (SPAs), the duration may not be recorded and will default to 0.
+1. Go to your Application Insights resource that you've enabled the SDK for. 
+1. In the Application Insights resource menu on the left, under **Investigate**, select the **Transaction search** pane.
+1. Open the **Event types** dropdown menu and select **Select all** to clear the checkboxes in the menu. 
+1. From the **Event types** dropdown menu, select **Page View**.
 
-For more information, see the following link: https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-monitor/app/data-retention-privacy.md
+   It might take a few minutes for data to show up in the portal.
 
-## Confirm data is flowing
-
-Check the data flow by going to the Azure portal and navigating to the Application Insights resource that you've enabled the SDK for. From there, you can view the data in the "Transaction search" or "Metrics" sections. 
-
-Additionally, you can use the SDK's trackPageView() method to manually send a page view event and verify that it appears in the portal.
+   :::image type="content" source="media/javascript-sdk/confirm-data-flowing.png" alt-text="Screenshot of the Application Insights Transaction search pane in the Azure portal with the Page View option selected. The page views are highlighted." lightbox="media/javascript-sdk/confirm-data-flowing.png":::
 
 If you can't run the application or you aren't getting data as expected, see the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
 
@@ -204,6 +167,7 @@ dataset
 
 Additional information is available for the following advanced scenarios:
 
+- [JavaScript SDK advanced topics](javascript-sdk-advanced.md)
 - [React plugin](javascript-framework-extensions.md?tabs=react)
 - [React native plugin](javascript-framework-extensions.md?tabs=reactnative)
 - [Angular plugin](javascript-framework-extensions.md?tabs=reactnative)
@@ -253,6 +217,31 @@ Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<
 
 Distributed tracing can be disabled in configuration.
 
+#### What is collected automatically?
+
+When you enable the App Insights JavaScript SDK, the following data classes are collected automatically:
+
+- Uncaught exceptions in your app, including information on
+    - Stack trace
+    - Exception details and message accompanying the error
+    - Line & column number of error
+    - URL where error was raised
+- Network Dependency Requests made by your app XHR and Fetch (fetch collection is disabled by default) requests, include information on
+    - Url of dependency source
+    - Command & Method used to request the dependency
+    - Duration of the request
+    - Result code and success status of the request
+    - ID (if any) of user making the request
+    - Correlation context (if any) where request is made
+- User information (for example, Location, network, IP)
+- Device information (for example, Browser, OS, version, language, model)
+- Session information
+
+> [!Note]
+> For some applications, such as single-page applications (SPAs), the duration may not be recorded and will default to 0.
+
+For more information, see the following link: https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-monitor/app/data-retention-privacy.md
+
 ## Troubleshooting
 
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
@@ -264,6 +253,8 @@ Detailed release notes regarding updates and bug fixes can be found on [GitHub](
 ## Next steps
 
 * [Track usage](usage-overview.md)
+* [Track page views](api-custom-events-metrics.md#page-views)
 * [Custom events and metrics](api-custom-events-metrics.md)
+* [JavaScript telemetry initializers](api-filtering-sampling.md#javascript-telemetry-initializers)
 * [Build-measure-learn](usage-overview.md)
 * [JavaScript SDK advanced topics](javascript-sdk-advanced.md)
