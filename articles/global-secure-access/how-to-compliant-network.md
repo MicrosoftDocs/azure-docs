@@ -5,7 +5,7 @@ description: Require known compliant network locations with Conditional Access.
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 06/01/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -16,7 +16,7 @@ ms.reviewer: mamkumar
 
 Using Conditional Access along with Global Secure Access customers can prevent malicious access to Microsoft apps, third-party SaaS apps, and private line-of-business (LoB) apps using multiple conditions to provide defense-in-depth. These conditions may include device compliance, location, and more to provide protection against user identity or token theft. Global Secure Access introduces the concept of a compliant network within Conditional Access and continuous access evaluation. This compliant network check ensures users connect from a verified network connectivity model for their specific tenant and are compliant with security policies enforced by administrators. 
 
-The Global Secure Access client installed on devices or configured branch office locations allows administrators to secure resources behind a compliant network with advanced Conditional Access controls. This compliant network makes it easier for administrators to manage and maintain, without having to maintain a list of all of an organization's locations IP addresses. Administrators don't need to hairpin traffic through their organization's VPN egress points to ensure security.
+The Global Secure Access client installed on devices or configured remote network allows administrators to secure resources behind a compliant network with advanced Conditional Access controls. This compliant network makes it easier for administrators to manage and maintain, without having to maintain a list of all of an organization's locations IP addresses. Administrators don't need to hairpin traffic through their organization's VPN egress points to ensure security.
 
 This compliant network check is specific to each tenant. 
 
@@ -32,7 +32,7 @@ The compliant network is different than [IPv4, IPv6, or country locations](/azur
 * Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
    * Global Secure Access Administrator role
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
-* A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](how-to-manage-branch-locations.md).
+* A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [remote network configured](how-to-manage-remote-networks.md).
 * You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [How to enable the Microsoft 365 profile](how-to-enable-m365-profile.md).
 
 <!--- Remove to this to general page

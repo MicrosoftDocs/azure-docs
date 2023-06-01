@@ -1,17 +1,17 @@
 ---
-title: How to create branch office locations
-description: Learn how to create branch office location for Global Secure Access.
+title: How to create remote networks
+description: Learn how to create remote networks for Global Secure Access.
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: how-to
-ms.date: 05/30/2023
+ms.date: 06/01/2023
 ms.service: network-access
 ms.custom: 
 ---
-# Manage branch locations
+# Manage remote networks
 
-Branches are remote locations or networks that require internet connectivity. Setting up branch office locations connects your users in that location to Global Secure Access. Once a branch is configured, you can assign it to a traffic forwarding profile to manage your corporate network traffic.
+Remote networks are remote locations or networks that require internet connectivity. Setting up remote networks connects your users in that location to Global Secure Access. Once a branch is configured, you can assign it to a traffic forwarding profile to manage your corporate network traffic.
 
 This article explains how to create a branch office location for Global Secure Access.
 

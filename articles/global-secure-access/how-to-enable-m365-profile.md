@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 05/17/2023
+ms.date: 06/01/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -62,16 +62,16 @@ Conditional Access policies are created and applied to the profile in the Condit
 
     ![Screenshot of the Conditional Access fields that relate to traffic forwarding profiles.](media/how-to-enable-m365-profile/conditional-access-menu-options.png)
 
-## M365 branch assignments
+## M365 remote network assignments
 
-Traffic profiles can be assigned to branches, so that the network traffic is forwarded to Global Secure Access without having to install the client on end user devices. As long as the device is behind the customer premises equipment (CPE), the client isn't required.  You must create a branch before you can add it to the profile. For more information, see [How to create a branch](how-to-manage-branch-locations.md).
+Traffic profiles can be assigned to remote networks, so that the network traffic is forwarded to Global Secure Access without having to install the client on end user devices. As long as the device is behind the customer premises equipment (CPE), the client isn't required.  You must create a remote network before you can add it to the profile. For more information, see [How to create a remote network](how-to-manage-remote-networks.md).
 
-**To assign a branch to the M365 profile**:
+**To assign a remote network to the M365 profile**:
 
 1. Go to **Microsoft Entra ID** > **Global Secure Access** > **Traffic forwarding**.
 1. Select the **Add assignments** button for the profile. 
-    - If you're editing the branch assignments, select the **Add/edit assignments** button.
-1. Select a branch from the list and select **Add**.
+    - If you're editing the remote network assignments, select the **Add/edit assignments** button.
+1. Select a remote network from the list and select **Add**.
 
 ## Next steps
 

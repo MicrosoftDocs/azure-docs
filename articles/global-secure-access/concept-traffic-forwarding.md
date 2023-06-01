@@ -30,7 +30,7 @@ For each traffic forwarding profile, you can configure three main details:
 
 - The IP addresses, IP address ranges, and fully qualified domain names (FQDN) to either forward to the service or bypass the service
 - Conditional Access policies to apply
-- Branch locations to assign
+- Remote network locations to assign
 
 ## Microsoft 365
 

@@ -1,20 +1,20 @@
 ---
-title: How to manage device links for branch locations
-description: Learn how to create, edit, and delete device links for branch locations for Global Secure Access.
+title: How to manage device links for remote networks
+description: Learn how to create, edit, and delete device links for remote networks for Global Secure Access.
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 06/01/2023
 ms.service: network-access
 ms.custom: 
 ---
 
-# Manage device links on branch locations
+# Manage device links on remote networks
 
-Device links are the customer premises equipment (CPE) used in your branch office locations. End users and guests connect to Global Secure Access through the device links. You can create device links when you create a new branch office or manage the device links after the office is created.
+Device links are the customer premises equipment (CPE) used in your remote networks. End users and guests connect to Global Secure Access through the device links. You can create device links when you create a new remote networks or manage the device links after the office is created.
 
-This article explains how to add, edit, and delete device links for a branch office location for Global Secure Access.
+This article explains how to add, edit, and delete device links for a remote networks for Global Secure Access.
 
 ## Prerequisites 
 - **Microsoft Entra Internet Access Premium license** for your Microsoft Entra Identity tenant
@@ -22,15 +22,15 @@ This article explains how to add, edit, and delete device links for a branch off
 - The **Microsoft Graph** module must be installed to use PowerShell
 - Administrator consent is required when using Microsoft Graph Explorer for the Microsoft Graph API
 
-## Add a device link to a branch location
+## Add a device link to a remote networks
 
-If you didn't add device links when you created the branch location or you want to add a new device link, you can add a device link at any time.
+If you didn't add device links when you created the remote networks or you want to add a new device link, you can add a device link at any time.
 
-<!--- need correct role and need to update the steps to match "how-to-manage-branch-locations" article --->
+<!--- need correct role and need to update the steps to match "how-to-manage-remote-networks" article --->
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator. 
-1. Go to **Global Secure Access (preview)** > **Devices** > **Branches**.
-1. Select the branch location you need to add the device link to.
+1. Go to **Global Secure Access (preview)** > **Devices** > **Remote networks**.
+1. Select the remote network you need to add the device link to.
 1. Select **Links** from the menu.
 1. Select **Add a link**.
 1. Under the **General** tab, enter the following details: 
@@ -61,7 +61,7 @@ If you didn't add device links when you created the branch location or you want 
 
 ## Manage device links
 
-If your branch location has device links added, they appear in the **Links** column on the list of branches. Select the link from the column to navigate directly to the device link details page.
+If your remote network has device links added, they appear in the **Links** column on the list of remote networks. Select the link from the column to navigate directly to the device link details page.
 
 <!--- not sure how to actually edit - there's no edit button --->
 
@@ -85,4 +85,4 @@ The following ASNs are reserved by Azure and cannot be used for your on-premises
 While setting up IPsec connectivity from virtual network gateways to Azure virtual WAN VPN, the ASN for Local Network Gateway is required to be 65515.
 
 ## Next steps
-- [List office branch locations](how-to-list-branch-locations.md)
+- [List remote networks](how-to-list-remote networks.md)

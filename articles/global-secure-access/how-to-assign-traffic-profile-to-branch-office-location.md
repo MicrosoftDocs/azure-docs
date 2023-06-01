@@ -1,18 +1,18 @@
 ---
-title: How to assign a traffic profile to a branch location
-description: Learn how to assign a traffic profile to a branch office location for Global Secure Access.
+title: How to assign a traffic forwarding profile to a remote network
+description: Learn how to assign a traffic forwarding profile to a remote network for Global Secure Access.
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: how-to
-ms.date: 04/25/2023
+ms.date: 06/01/2023
 ms.service: network-access
 ms.custom: 
 ---
 
-# Learn how to assign a traffic profile to a branch office location for Global Secure Access.
+# Assign a traffic forwarding profile to a remote network for Global Secure Access.
 
-Learn how to assign a traffic profile to a branch office location for Global Secure Access.
+Learn how to assign a traffic profile to a remote network for Global Secure Access.
 
 ## Prerequisites 
 - Global Secure Access license for your Microsoft Entra Identity tenant.  
