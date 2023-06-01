@@ -36,7 +36,7 @@ ms.author: eur
   <sup>1</sup> The language is in public preview for pronunciation assessment.
 
 - You can now use the standard Speech to Text commitment tier for pronunciation assessment on all public regions. If you purchase a commitment tier for standard Speech to text, the spend for pronunciation assessment goes towards meeting the commitment. See [commitment tier pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). 
-- 
+
 ### February 2023 release
 
 #### Pronunciation Assessment
