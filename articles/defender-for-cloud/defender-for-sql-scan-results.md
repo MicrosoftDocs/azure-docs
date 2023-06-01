@@ -122,7 +122,7 @@ Sample email from your server:
 
 You can use [workflow automations](workflow-automation.md) to trigger actions based on changes to the recommendation's status.
 
-You can also use the [Vulnerability Assessments workbook](defender-for-sql-on-machines-vulnerability-assessment#view-vulnerabilities-in-graphical-interactive-reports) to view an interactive report of your findings. The data from the workbook can be exported, and a copy of the workbook can be customized and stored. Learn how to [create rich, interactive reports of Defender for Cloud data](custom-dashboards-azure-workbooks.md)
+You can also use the [Vulnerability Assessments workbook](defender-for-sql-on-machines-vulnerability-assessment.md#view-vulnerabilities-in-graphical-interactive-reports) to view an interactive report of your findings. The data from the workbook can be exported, and a copy of the workbook can be customized and stored. Learn how to [create rich, interactive reports of Defender for Cloud data](custom-dashboards-azure-workbooks.md)
 
 You can also enable [Continuous export](continuous-export.md) to stream alerts and recommendations as they're generated or to define a schedule to send periodic snapshots of all of the new data.
 
