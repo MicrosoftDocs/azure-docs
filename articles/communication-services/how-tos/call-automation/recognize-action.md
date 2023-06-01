@@ -7,7 +7,7 @@ ms.service: azure-communication-services
 ms.topic: how-to
 ms.date: 09/16/2022
 ms.author: kpunjabi
-ms.custom: public_preview
+ms.custom: public_preview, devx-track-extended-java
 services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
