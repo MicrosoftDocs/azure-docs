@@ -61,6 +61,18 @@ When you get this error, either run the `build` command without the `--no-restor
 
 To use the `--no-restore` switch, you must have Bicep CLI version **0.4.1008 or later**.
 
+## build-params
+
+jgao: need to test the following sample. Verify the outfile name.
+
+The `build-params` command builds .bicepparam files into JSON parameters files.
+
+```azurecli
+az bicep build-params params.bicepparam
+```
+
+This command converts a params.bicepparam parameters file into a params.json JSON parameters file.
+
 ## decompile
 
 The `decompile` command converts ARM template JSON to a Bicep file.
@@ -75,12 +87,18 @@ For more information about using this command, see [Decompiling ARM template JSO
 
 ## generate-params
 
-jgao: update this section to include the Bicep parameter file option.
+jgao: need to test the following samples.
 
-The `generate-params` command builds *.parameters.json* file from the given bicep file, updates if there is an existing parameters.json file.
+The `generate-params` command builds a parameters file from the given bicep file, updates if there is an existing parameters file.
 
 ```azurecli
-az bicep generate-params --file main.bicep
+az bicep generate-params --file main.bicep --output-format bicepparam --include-params all
+```
+
+The command creates a Bicep parameters file named _main.bicepparam_. The parameter file contains all parameters in the Bicep file, whether configured with default values or not.
+
+```azurecli
+az bicep generate-params --file main.bicep --outfile main.parameters.json
 ```
 
 The command creates a parameter file named _main.parameters.json_. The parameter file only contains the parameters without default values configured in the Bicep file.
