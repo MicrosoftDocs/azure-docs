@@ -529,6 +529,10 @@ JavaScript and Java functions load the entire blob into memory, and C# functions
 
 The [host.json](functions-host-json.md#blobs) file contains settings that control blob trigger behavior. See the [host.json settings](functions-bindings-storage-blob.md#hostjson-settings) section for details regarding available settings.
 
+## Note of Blob trigger
+
+Please allow Azure Function to access not only a blob but also a queue as Blob trigger uses Storage Queue. The queue is usually in a storage account defined by an app settings AzureWebJobsStorage.
+
 ## Next steps
 
 - [Read blob storage data when a function runs](./functions-bindings-storage-blob-input.md)
