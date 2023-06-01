@@ -52,7 +52,7 @@ sections:
           You can search for the scheduled or deprecated image in your subscription in the following ways:
           
           
-          - If you are notified that an image is deprecated on only the Offer or plan (SKU) level, you can search for all virtual machines from the search bar in the Azure portal. Use the **Add filter** button to filter the results. You can also edit the columns to include Publisher, Offer, and Plan using **Manage view** > **Edit columns**. This will not give the version information, only up to the Plan information.
+          - If you are notified that an image is deprecated on only the Offer or plan (SKU) level, you can search for all virtual machines from the search bar in the Azure Portal. Use the **Add filter** button to filter the results. You can also edit the columns to include Publisher, Offer, and Plan using **Manage view** > **Edit columns**. This will not give the version information, only up to the Plan information.
            
                         
           - If you are notified that an image is deprecated on the offer, plan (SKU) or version level, you can use Azure Resource Graph Explorer on the Azure portal to find the specific version for images in your subscription that your VM or scale set is running on.
@@ -212,7 +212,7 @@ sections:
            
       - question: How can I check if a specific image is deprecated or scheduled for deprecation?
         answer: |
-          You can check if an image is deprecated or scheduled for deprecation using the [REST API](/rest/api/compute/virtual-machine-images/get?tabs=HTTP) and via Azure CLI or Powershell.
+          You can check if an image is deprecated or scheduled for deprecation using the [REST API](/rest/api/compute/virtual-machine-images/get?tabs=HTTP). 
           
 
           If the image is deprecated,  you'll get a **VM Image is Deprecated** response. If the image is scheduled for deprecation, the response would show the date of the scheduled deprecation.
@@ -226,39 +226,6 @@ sections:
               "code": "ImageVersionDeprecated",
               "message": "VM Image from publisher: MicrosoftWindowsServer with - Offer: WindowsServer, Sku: 2016-Datacenter, Version: 14393.4169.2101090332 is deprecated."
             }
-         
-          
-          
-          To check if an image is deprecated via Azure CLI or Powershell:
-          
-          
-          Azure CLI:
-          
-          ```azurecli
-          az vm image show --location eastus --urn MicrosoftWindowsServer:WindowsServer:2016-Datacenter:14393.4169.2101090332 --query [imageDeprecationStatus]
+          }
           ```
-          
-          Powershell:
-          
-          ```powershell
-          Get-AzVMImage -Location "eastus" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer" -Skus "2016-Datacenter" -Version "14393.4169.2101090332" | Select-Object -ExpandProperty "ImageDeprecationStatus"
-          ```
-          
-          The response indicates that this image is deprecated: 
-          
-          ```
-          Get-AzVMImage: VM Image from publisher: MicrosoftWindowsServer with - Offer: WindowsServer, Sku: 2016-Datacenter, Version: 14393.4169.2101090332 is deprecated.
-          ErrorCode: ImageVersionDeprecated
-          ErrorMessage: VM Image from publisher: MicrosoftWindowsServer with - Offer: WindowsServer, Sku: 2016-Datacenter, Version: 14393.4169.2101090332 is deprecated.
-          ErrorTarget:
-          StatusCode: 404
-          ReasonPhrase: Not Found
-          
-          ```
-          
-          
-          
-          
-          
-          
           
