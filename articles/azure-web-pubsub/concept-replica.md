@@ -10,14 +10,15 @@ ms.date: 06/01/2023
 
 # Azure Web PubSub Geo-Replication
 
-Companies seeking local presence or requiring a robust failover system often choose to deploy services across multiple Azure regions. With the integration of geo-replication in Azure Web PubSub, managing multi-region scenarios has become significantly easier.
+## What is geo-replication feature?
+Mission critial apps often need to have a robust failover system and serve users closer to where they are. Before the release of the geo-replication feature, developers needed to deploy multiple Web PubSub resources and write custom code to orchestrate communcation across resources. Now, with quick configuration through Azure portal, you can easily enable this feature. 
 
-A geo-replicated Azure Web PubSub Service provides the following benefits:
+## Benefits of using geo-replication
+* **More resilient to regional outage:** If a regional outage happens, clients will be automatically routed to a healthy replica.
+* **Cross-region communication:** Developers use a geo-replication-enabled resource as usual, even though behind-the-scenes there are more than one resource. The communication across replicas is handled by the service. 
+* **Enhanced network speed:** Geographically dispersed clients will connect to the nearest replica. These replicas communicate through [Azure global network backbone](https://azure.microsoft.com/en-us/explore/global-infrastructure/global-network), ensuring fast and stable networking.
+* **Ease of management**. All replicas share the configuration of the primary Web PubSub resource.
 
-* **More resilient to regional outage:** If a regional outage happens, the Azure Web PubSub DNS will be resolved to healthy replicas in other regions.
-* **Cross Region Communication**. Different replicas could communicate with each other as if they are the same instance.
-* **Enhanced Network Speed via Azure BackBone:** Geographically dispersed clients will connect to the nearest replica instance. These instances communicate through Azure BackBone, ensuring fast, stable network quality..
-* **Shared configurations**. All replicas retain the primary Azure Web PubSub Service resource's configuration. 
 
 ## Understanding how the Web PubSub Replica Works
 

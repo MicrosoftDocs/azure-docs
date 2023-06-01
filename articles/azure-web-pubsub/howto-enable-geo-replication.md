@@ -11,15 +11,6 @@ ms.topic: how-to
 
 # Geo-replication in Azure Web PubSub 
 
-## What is geo-replication feature?
-Mission critial apps often need to have a robust failover system and serve users closer to where they are. Before the release of the geo-replication feature, developers needed to deploy multiple Web PubSub resources and write custom code to orchestrate communcation across resources. Now, with quick configuration through Azure portal, you can easily enable this feature. 
-
-## Benefits of using geo-replication
-* **More resilient to regional outage:** If a regional outage happens, clients will be automatically routed to a healthy replica.
-* **Cross-region communication:** Developers use a geo-replication-enabled resource as usual, even though behind-the-scenes there are more than one resource. The communication across replicas is handled by the service. 
-* **Enhanced network speed:** Geographically dispersed clients will connect to the nearest replica. These replicas communicate through [Azure global network backbone](https://azure.microsoft.com/en-us/explore/global-infrastructure/global-network), ensuring fast and stable networking.
-* **Ease of management**. All replicas share the configuration of the primary Web PubSub resource.
-
 ## Prerequisites
 * A Web PubSub resource in [premium tier](https://azure.microsoft.com/en-us/pricing/details/web-pubsub/).
 
