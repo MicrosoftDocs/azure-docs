@@ -194,7 +194,7 @@ The following table shows the cost breakdown for migrating 60 Azure Front Door (
 | Cost dimensions | Azure Front Door (classic) | Azure Front Door Premium |
 |--|--|--|
 | Configuration | 60 profiles | 30 production microservices, 300 routing rules (30 endpoints * 10 routing rules) </br> - 2 profiles with 15 endpoints and 150 routing rules per profile </br>30 dev/testing microservices, 300 routing rules (30 endpoints * 10 routing rules)</br> - 2 profiles with 15 endpoints and 150 routing rules per profile |
-| Base fee | $0 | | $1320 = $330 * 4 profiles |
+| Base fee | $0 | $1320 = $330 * 4 profiles |
 | Egress from Azure Front Door edge to client | $7,700 = (10 TB * $0.17/GB) + (40 TB * $0.15/GB) | $3,470 = (10 TB * $0.083/GB) + (40 TB * $0.066/GB) |
 | Egress from Azure Front Door edge to origin | $0 | $20 = 1 TB * $0.02/GB  | 
 | Ingress from client to Azure Front Door edge | $10 = 1 TB * $.01/GB | $0 |
