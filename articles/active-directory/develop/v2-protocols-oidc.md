@@ -161,7 +161,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Parameter | Description |
 | --- | --- |
-| `id_token` | The ID token that the app requested. You can use the `id_token` parameter to verify the user's identity and begin a session with the user. For more information about ID tokens and their contents, see the [ID token reference](id-token-claims-references.md). |
+| `id_token` | The ID token that the app requested. You can use the `id_token` parameter to verify the user's identity and begin a session with the user. For more information about ID tokens and their contents, see the [ID token reference](id-token-claims-reference.md). |
 | `state` | If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 ### Error response
@@ -280,7 +280,7 @@ Response parameters mean the same thing regardless of the flow used to acquire t
 | `token_type` | Always "Bearer" |
 | `expires_in`| How long until the access token expires, in seconds. |
 | `scope` | The permissions granted on the access token. Because the UserInfo endpoint is hosted on Microsoft Graph, it's possible for `scope` to contain others previously granted to the application (for example, `User.Read`). |
-| `id_token` | The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [ID token reference](id-token-claims-references.md). |
+| `id_token` | The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [ID token reference](id-token-claims-reference.md). |
 | `state` | If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 [!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
