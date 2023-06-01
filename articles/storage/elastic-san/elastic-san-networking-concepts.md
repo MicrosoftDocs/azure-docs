@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN Preview networking options, includ
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 06/01/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: 
@@ -38,9 +38,13 @@ To use a service endpoint with your Elastic SAN, you must enable it within the v
 
 For details on how to configure service endpoints, see [Enable Storage service endpoint](elastic-san-networking.md#configure-storage-service-endpoint).
 
-### Available virtual network regions
+#### Available virtual network regions
 
-Cross-region service endpoints for Azure Storage became generally available in April of 2023. Now, service endpoints for Azure Storage work between virtual networks and service instances in different regions. All traffic from subnets with cross-region service endpoints to storage services, such as Elastic SAN, will use a private IP address as a source IP instead of a public one.
+Service endpoints for Azure Storage work between virtual networks and service instances in any region. They also work between virtual networks and service instances in [paired regions](../../availability-zones/cross-region-replication-azure.md) to allow continuity during a regional failover. When planning for disaster recovery during a regional outage, you should create the virtual networks in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your zone-redundant SANs.
+
+##### Azure Storage cross-region service endpoints
+
+Cross-region service endpoints for Azure became generally available in April of 2023. With cross-region service endpoints, subnets will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
 
 To use cross-region service endpoints, it might be necessary to delete existing **Microsoft.Storage** endpoints and recreate them as cross-region (**Microsoft.Storage.Global**).
 
