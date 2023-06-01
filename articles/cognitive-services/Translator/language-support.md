@@ -7,7 +7,6 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.custom: event-tier1-build-2022
 ms.topic: reference
 ms.date: 06/01/2023
 ms.author: lajanuar
@@ -361,11 +360,11 @@ The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Trans
 
 ## Other Cognitive Services
 
-Add more capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language lists for other services are below:
+Add more capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language support for other services:
 
-* [Computer Vision](../computer-vision/language-support.md) 
-* [Speech](../speech-service/language-support.md) 
-* [Language service](../language-service/concepts/language-support.md) 
+* [Computer Vision](../computer-vision/language-support.md)
+* [Speech](../speech-service/language-support.md)
+* [Language service](../language-service/concepts/language-support.md)
 
 View all [Cognitive Services](../index.yml).
 
