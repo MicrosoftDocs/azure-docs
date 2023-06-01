@@ -278,7 +278,7 @@ Lets go over each type of assemblies and where they can be placed in VS Code.
   These are used to provide custom DLLs. For example, Transform XML operation use these assemblies for custom transformation functions required for XML Transformation. Those assemblies can be placed under `\lib\custom\net472`.
 
 The screenshot below shows where each of the above assemblies can be placed in VS Code:
-![Screenshot shows assembly upload in VS Code.](./media/create-single-tenant-workflows-visual-studio-code/schema-upload-in-vs-code.jpg)
+![Screenshot shows assembly upload in VS Code.](./media/create-single-tenant-workflows-visual-studio-code/assembly-upload-in-vs-code.jpg)
 
 #### Migrating old NuGet based projects to use `lib\*` assemblies
 > [!IMPORTANT]
