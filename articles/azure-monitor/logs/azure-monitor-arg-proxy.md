@@ -50,6 +50,17 @@ union AzureActivity, CL1 | take 10
 ```
 :::image type="content" source="media/azure-arg-monitor-proxy/azure-monitor-union-cross-query.png" alt-text="Screenshot that shows a cross-service query example with the union command.":::
 
+> [!TIP]
+> Shorthand format is allowed: *ClusterName*/*InitialCatalog*. For example, `adx('help/Samples')` is translated to `adx('help.kusto.windows.net/Samples')`.
+
+When you use the [`join` operator](/azure/data-explorer/kusto/query/joinoperator) instead of union, you're required to use a [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) to combine the data in the Azure Data Explorer cluster with the Log Analytics workspace. Use `Hint.remote={Direction of the Log Analytics Workspace}`. For example:
+
+```kusto
+Perf | where ObjectName == "Memory" and (CounterName == "Available MBytes Memory"
+| extend _ResourceId = replace_string(replace_string(replace_string(_ResourceId, 'microsoft.compute', 'Microsoft.Compute'), 'virtualmachines','virtualMachines'),"resourcegroups","resourceGroups")
+| join hint.remote=left (arg("").Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project _ResourceId=id, tags) on _ResourceId | project-away _ResourceId1 | where tostring(tags.env) == "prod"
+```
+
 ## Next steps
 * [Write queries](/azure/data-explorer/write-queries)
 * [Azure Resource Graph Overview](../../governance/resource-graph/overview.md)
