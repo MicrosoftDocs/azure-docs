@@ -167,7 +167,7 @@ Content    : {"value":[{"properties":{"results":[["True"]]},"id":"/subscriptions
 ```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
-Remove-SqlVulnerabilityAssessmentBaselineRuleOnUserDatabase -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -RuleId VA2062
+Remove-SqlVulnerabilityAssessmentBaselineRule -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -RuleId VA2062
 
 Headers    : {[Cache-Control, System.String[]], [Pragma, System.String[]], [x-ms-request-id, System.String[]], [Server,
               System.String[]]…}
@@ -276,7 +276,7 @@ Content    : {"value":[
 ```azurepowershell-interactive
 Connect-AzAccount -Subscription 00000000-1111-2222-3333-444444444444
 Import-Module .\SqlVulnerabilityAssessmentCommands.psm1
-Get-SqlVulnerabilityAssessmentScansOnUserDatabase -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -ScanId latest
+Get-SqlVulnerabilityAssessmentScans -SubscriptionId 00000000-1111-2222-3333-444444444444 -ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -ScanId latest
 
 Headers    : {[Cache-Control, System.String[]], [Pragma, System.String[]], [x-ms-request-id, System.String[]], [Server,
               System.String[]]…}

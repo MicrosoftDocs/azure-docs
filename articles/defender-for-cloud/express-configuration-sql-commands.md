@@ -464,7 +464,7 @@ function Get-SqlVulnerabilityAssessmentScans([parameter(mandatory)] [string] $Su
                     icrosoft.Sql/servers/databases/vulnerabilityAssessments/scans"}
 
         .EXAMPLE
-        Get-SqlVulnerabilityAssessmentScans -SubscriptionId 00000000-1111-2222-3333-444444444444-ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db -ScanId latest
+        Get-SqlVulnerabilityAssessmentScans -SubscriptionId 00000000-1111-2222-3333-444444444444-ResourceGroupName vulnerabilityaseessmenttestRg -ServerName vulnerabilityaseessmenttest -DatabaseName db
         Headers    : {[Cache-Control, System.String[]], [Pragma, System.String[]], [x-ms-request-id, System.String[]], [Server,
                     System.String[]]…}
         Version    : 1.1
