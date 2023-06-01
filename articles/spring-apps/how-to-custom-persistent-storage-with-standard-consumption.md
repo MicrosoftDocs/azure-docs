@@ -1,5 +1,5 @@
 ---
-title: How to enable your own persistent storage in Azure Spring Apps with the Standard consumption plan
+title: How to enable your own persistent storage in Azure Spring Apps with the Standard consumption and dedicated plan
 description: Learn how to enable your own persistent storage in Azure Spring Apps.
 author: karlerickson
 ms.author: yitaopan
@@ -9,12 +9,12 @@ ms.date: 03/21/2023
 ms.custom: devx-track-java
 ---
 
-# How to enable your own persistent storage in Azure Spring Apps with the Standard consumption plan
+# How to enable your own persistent storage in Azure Spring Apps with the Standard consumption and dedicated plan
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 
 This article describes how to enable your own persistent storage in Azure Spring Apps.
 
@@ -30,7 +30,7 @@ You can also mount your own persistent storage not only to Azure Spring Apps but
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
-- An Azure Spring Apps Standard consumption plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption plan service instance](quickstart-provision-standard-consumption-service-instance.md).
+- An Azure Spring Apps Standard consumption and dedicated plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](quickstart-provision-standard-consumption-service-instance.md).
 - A Spring app deployed to Azure Spring Apps. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
 
 ## Set up the environment
@@ -127,7 +127,7 @@ az spring app append-persistent-storage \
 
 ## Clean up resources
 
-Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternately, to delete the resource group by using Azure CLI, use the following commands:
+Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternatively, to delete the resource group by using Azure CLI, use the following commands:
 
 ```azurecli
 echo "Enter the Resource Group name:" &&
@@ -138,4 +138,4 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-- [Customer responsibilities for Azure Spring Apps Standard consumption plan in a virtual network](./standard-consumption-customer-responsibilities.md)
+- [Customer responsibilities for Azure Spring Apps Standard consumption and dedicated plan in a virtual network](./standard-consumption-customer-responsibilities.md)

@@ -5,7 +5,7 @@ description: Learn about the different model capabilities that are available wit
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 05/15/2023
-ms.custom: event-tier1-build-2022, references_regions
+ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
@@ -197,7 +197,7 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 | text-davinci-fine-tune-002 | N/A | N/A |  |  |
 | gpt-35-turbo<sup>1</sup> (ChatGPT) | East US, France Central, South Central US, West Europe | N/A | 4,096 | Sep 2021 |
 
-<br><sup>1</sup> Currently, only version `0301` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
+<br><sup>1</sup> Currently, only version `0301` of this model is available.
 
 ### GPT-4 Models
 

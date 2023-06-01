@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: training
 ms.date: 08/25/2022
 ms.topic: how-to
-ms.custom: sdkv2, ignite-2022
+ms.custom: sdkv2, ignite-2022, build-2023
 ---
 
 # Train models with Azure Machine Learning CLI, SDK, and REST API
@@ -130,7 +130,12 @@ When you train using the REST API, data and training scripts must be uploaded to
 
 ### 2. Create a compute resource for training
 
+> [!NOTE]
+> To try [serverless compute (preview)](./how-to-use-serverless-compute.md), skip this step and proceed to [ 4. Submit the training job](#4-submit-the-training-job).
+
 An Azure Machine Learning compute cluster is a fully managed compute resource that can be used to run the training job. In the following examples, a compute cluster named `cpu-compute` is created.
+
+
 
 # [Python SDK](#tab/python)
 
@@ -177,6 +182,9 @@ curl -X PUT \
 
 To run this script, you'll use a `command` that executes main.py Python script located under ./sdk/python/jobs/single-step/lightgbm/iris/src/. The command will be run by submitting it as a `job` to Azure ML. 
 
+> [!NOTE]
+> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code.
+
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=create-command)]
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=run-command)]
@@ -195,7 +203,12 @@ When you submit the job, a URL is returned to the job status in the Azure Machin
 
 The `az ml job create` command used in this example requires a YAML job definition file. The contents of the file used in this example are:
 
+
+> [!NOTE]
+> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster"` in this code.
+
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job.yml":::
+
 In the above, you configured:
 - `code` - path where the code to run the command is located
 - `command` - command that needs to be run
@@ -261,6 +274,9 @@ As part of job submission, the training scripts and data must be uploaded to a c
 
     > [!TIP]
     > The job name must be unique. In this example, `uuidgen` is used to generate a unique value for the name.
+
+    > [!NOTE]
+    > To use [serverless compute (preview)](./how-to-use-serverless-compute.md), delete the `\"computeId\":` line in this code.
 
     ```bash
     run_id=$(uuidgen)

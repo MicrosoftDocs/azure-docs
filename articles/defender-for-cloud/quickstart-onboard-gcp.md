@@ -363,6 +363,9 @@ To view all the active recommendations for your resources by resource type, use 
 ### Is there an API for connecting my GCP resources to Defender for Cloud?
 Yes. To create, edit, or delete Defender for Cloud cloud connectors with a REST API, see the details of the [Connectors API](/rest/api/defenderforcloud/security-connectors).
 
+### What GCP regions are supported by Defender for Cloud?
+Defender for Cloud supports and scans all available regions on GCP public cloud.
+
 ## Next steps
 
 Connecting your GCP project is part of the multicloud experience available in Microsoft Defender for Cloud. For related information, see the following pages:

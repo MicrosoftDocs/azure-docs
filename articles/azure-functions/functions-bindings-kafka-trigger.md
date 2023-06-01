@@ -2,6 +2,7 @@
 title: Apache Kafka trigger for Azure Functions
 description: Use Azure Functions to run your code based on events from an Apache Kafka stream.
 ms.topic: reference
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 05/14/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---

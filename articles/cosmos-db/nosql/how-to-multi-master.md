@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/10/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, "seo-nov-2020"
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, seo-nov-2020, devx-track-dotnet, devx-track-extended-java
 ---
 
 # Configure multi-region writes in your applications that use Azure Cosmos DB

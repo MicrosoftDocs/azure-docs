@@ -5,10 +5,9 @@ author: flang-msft
 
 ms.author: franlanglois
 ms.service: cache
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 04/10/2023
-
-
 ---
 # Configure data persistence for an Azure Cache for Redis instance
 
@@ -100,7 +99,7 @@ On the **Enterprise** and **Enterprise Flash** tiers, data is persisted to a man
     The first backup starts once the backup frequency interval elapses.
   
    > [!NOTE]
-   > When RDB files are backed up to storage, they are stored in the form of page blobs.
+   > When RDB files are backed up to storage, they are stored in the form of page blobs. If you're using a storage account with HNS enabled, persistence will tend to fail because page blobs aren't supported in storage accounts with HNS enabled (ADLS Gen2). 
   
 9. To enable AOF persistence, select **AOF** and configure the settings.
 

@@ -6,6 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
+ms.custom: build-2023
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: lajanuar
@@ -42,7 +43,7 @@ To get started, you need:
 
 * A brief understanding of [**Azure role-based access control (`Azure RBAC`)**](../../../../role-based-access-control/role-assignments-portal.md) using the Azure portal.
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Translator resource. You also need to create containers to store and organize your blob data within your storage account.
+* An [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Translator resource. You also need to create containers to store and organize your blob data within your storage account.
 
 * **If your storage account is behind a firewall, you must enable the following configuration**:
     1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
@@ -74,7 +75,7 @@ There are two types of managed identities: **system-assigned** and **user-assign
 
 * The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity is deleted as well.
 
-In the following steps, we enable a system-assigned managed identity and grant your Translator resource limited access to your Azure blob storage account.
+In the following steps, we enable a system-assigned managed identity and grant your Translator resource limited access to your Azure Blob Storage account.
 
 ## Enable a system-assigned managed identity
 

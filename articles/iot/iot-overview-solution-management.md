@@ -106,5 +106,5 @@ Use Azure DevOps tools to automate the management of your IoT solution. For exam
 
 Now that you've seen an overview of the extensibility options available to your IoT solution, some suggested next steps include:
 
-- [What Azure technologies and services can you use to create IoT solutions?](iot-services-and-technologies.md)
+- [Scalability, high availability, and disaster recovery](iot-overview-scalability-high-availability.md)
 - [IoT solution options](iot-introduction.md#solution-options)
