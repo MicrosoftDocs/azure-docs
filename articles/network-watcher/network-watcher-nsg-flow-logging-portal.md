@@ -196,7 +196,7 @@ In this section, you create an NSG flow log that's saved into the storage accoun
 
 1. Review the settings, and then select **Create**.
 
-1. Once the deployment is complete, select **Go to resource** to confirm the flow created and listed in the **Flow logs** page.
+1. Once the deployment is complete, select **Go to resource** to confirm the flow log created and listed in the **Flow logs** page.
 
     :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/flow-logs-list.png" alt-text="Screenshot of Flow logs page in the Azure portal showing the newly created flow log." lightbox="./media/network-watcher-nsg-flow-logging-portal/flow-logs-list.png":::
 
