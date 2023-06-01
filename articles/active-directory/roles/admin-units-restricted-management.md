@@ -26,14 +26,14 @@ Restricted management administrative units allow you to protect specific objects
 
 ## Why use restricted management administrative units?
 
-Here are some reason why you might use restricted management administrative units to help manage access in your tenant.
+Here are some reasons why you might use restricted management administrative units to help manage access in your tenant.
 
 - You want to protect your C-level executive accounts and their devices from Helpdesk Administrators who would otherwise be able to reset their passwords or access BitLocker recovery keys. You can add your C-level user accounts in a restricted management administrative unit and enable a specific trusted set of administrators who can reset their passwords and access BitLocker recovery keys when needed.
-- You are implementing a compliance control to ensure that certain resources can only be managed by administrators in a specific country. You can add those resources in a restricted management administrative unit and assign local administrators to manage those objects.  Even Global Administrators will not be allowed to modify the objects unless they assign themselves explicitly to a role scoped to the restricted management administrative unit (which is an auditable event).
-- You are using security groups to control access to sensitive applications in your organization, and you don’t want to allow your tenant-scoped administrators who can modify groups to be able to control who can access the applications.  You can add those security groups to a restricted management administrative unit and then be sure that only the specific administrators you assign can manage them.
+- You're implementing a compliance control to ensure that certain resources can only be managed by administrators in a specific country. You can add those resources in a restricted management administrative unit and assign local administrators to manage those objects. Even Global Administrators won't be allowed to modify the objects unless they assign themselves explicitly to a role scoped to the restricted management administrative unit (which is an auditable event).
+- You're using security groups to control access to sensitive applications in your organization, and you don’t want to allow your tenant-scoped administrators who can modify groups to be able to control who can access the applications.  You can add those security groups to a restricted management administrative unit and then be sure that only the specific administrators you assign can manage them.
 
 > [!NOTE]
-> Placing objects in restricted management administrative units severely restricts who can make changes to the objects.  This may cause existing workflows to break.
+> Placing objects in restricted management administrative units severely restricts who can make changes to the objects. This restriction can cause existing workflows to break.
 
 ## What objects can be members?
 
@@ -50,7 +50,7 @@ Here are the objects that can be members of restricted management administrative
 
 ## What types of operations are blocked?
 
-For administrators not explicitly assigned at the restricted management administrative unit scope, operations that directly modify the Azure AD properties of objects in restricted management administrative units are blocked, whereas operations on related objects in Microsoft 365 services are not affected.
+For administrators not explicitly assigned at the restricted management administrative unit scope, operations that directly modify the Azure AD properties of objects in restricted management administrative units are blocked, whereas operations on related objects in Microsoft 365 services aren't affected.
 
 | Operation type | Blocked | Allowed |
 | --- | :---: | :---: |
@@ -82,15 +82,15 @@ Only administrators with an explicit assignment at the scope of a restricted man
 
 Here are some of the limits and constraints for restricted management administrative units.
 
-- The restricted management setting must be applied during group creation and cannot be changed once the administrative unit is created
-- Groups in a restricted management administrative unit cannot be managed via PIM
-- Role-assignable groups, when added to a restricted management administrative unit, cannot have their membership modified.  Group owners are not allowed to manage groups in restricted management administrative units and only Global Administrators and Privileged Role Administrators (neither of which can be assigned at administrative unit scope) can modify membership.
-- Certain actions may not be possible when an object is in a restricted management administrative unit, if the required role is not one of the roles that can be assigned at administrative unit scope.  For example, a Global Administrator in a restricted management administrative unit cannot have their password reset by any other administrator in the system, because there is no admin role that can be assigned at the administrative unit scope that can reset the password of a Global Admin.  In such scenarios, the Global Administrator would need to be removed from the restricted management administrative unit first, and then have their password reset by another Global Administrator or Privileged Role Administrator.
+- The restricted management setting must be applied during administrative unit creation and can't be changed once the administrative unit is created.
+- Groups in a restricted management administrative unit can't be managed with [Azure AD Privileged Identity Management](../privileged-identity-management/groups-discover-groups.md).
+- Role-assignable groups, when added to a restricted management administrative unit, can't have their membership modified.  Group owners aren't allowed to manage groups in restricted management administrative units and only Global Administrators and Privileged Role Administrators (neither of which can be assigned at administrative unit scope) can modify membership.
+- Certain actions may not be possible when an object is in a restricted management administrative unit, if the required role isn't one of the roles that can be assigned at administrative unit scope.  For example, a Global Administrator in a restricted management administrative unit can't have their password reset by any other administrator in the system, because there's no admin role that can be assigned at the administrative unit scope that can reset the password of a Global Administrator. In such scenarios, the Global Administrator would need to be removed from the restricted management administrative unit first, and then have their password reset by another Global Administrator or Privileged Role Administrator.
 - When deleting a restricted management administrative unit, it can take up to 30 minutes to remove all protections from the former members.
 
 ## Programmability
 
-Applications cannot modify objects in restricted management administrative units by default. To grant an application access to manage objects in a restricted management administrative unit, you must assign the *Directory.Write.Restricted* [permission in Microsoft Graph](/graph/permissions-reference?branch=main#directory-permissions).
+Applications can't modify objects in restricted management administrative units by default. To grant an application access to manage objects in a restricted management administrative unit, you must assign the *Directory.Write.Restricted* [permission in Microsoft Graph](/graph/permissions-reference?branch=main#directory-permissions).
 
 ## License requirements
 
