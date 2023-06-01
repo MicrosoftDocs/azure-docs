@@ -2,14 +2,14 @@
 title: Plan CIAM deployment
 description: Learn how to plan your CIAM deployment.
 services: active-directory
-author: csmulligan
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: conceptual
-ms.date: 05/24/2023
-ms.author: cmulligan
+ms.date: 05/31/2023
+ms.author: mimart
 ms.custom: it-pro
 
 ---
@@ -90,9 +90,9 @@ When sign-up is complete, Azure AD generates a token and redirects the customer 
 
 When planning your sign-up and sign-in experience, determine your requirements:
 
-- **Number of user flows**. Each application can have just one sign-up and sign-in user flow. If you have several applications, you can use a single user flow for all of them. Or, if you want a different experience for each application, you can create multiple user flows.
+- **Number of user flows**. Each application can have just one sign-up and sign-in user flow. If you have several applications, you can use a single user flow for all of them. Or, if you want a different experience for each application, you can create multiple user flows. The maximum is 10 user flows per customer tenant.
 
-- **Company branding and language customizations**. Although we describe configuring company branding and language customizations later in Step 4, you can configure them anytime, either before or after you integrate an app with a user flow. If you configure company branding before you create the user flow, the sign in pages reflect that branding. Otherwise, the sign in pages reflect the default, neutral branding.
+- **Company branding and language customizations**. Although we describe configuring company branding and language customizations later in Step 4, you can configure them anytime, either before or after you integrate an app with a user flow. If you configure company branding before you create the user flow, the sign-in pages reflect that branding. Otherwise, the sign-in pages reflect the default, neutral branding.
 
 - **Attributes to collect**. In the user flow settings, you can select from a set of built-in user attributes you want to collect from customers. The customer enters the information on the sign-up page, and it's stored with their profile in your directory. If you want to collect more information, you can [define custom attributes](how-to-define-custom-attributes.md) and add them to your user flow.
 

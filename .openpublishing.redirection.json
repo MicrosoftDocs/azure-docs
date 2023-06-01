@@ -7865,6 +7865,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-maps/power-bi-visual-migrate-from-bing-maps.md",
+            "redirect_url": "/azure/azure-maps/power-bi-visual-conversion",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-portal/resource-group-portal-linked-resources.md",
             "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
             "redirect_document_id": false
@@ -22595,11 +22600,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/data-connectors/microsoft-defender-threat-intelligence.md",
-            "redirect_url": "/azure/sentinel/understand-threat-intelligence",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/principles-for-ai-generated-content.md",
             "redirect_url": "https://aka.ms/ai-content-principles",
             "redirect_document_id": false
@@ -22776,11 +22776,6 @@
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cisco-asa-ftd-via-ama.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
         },
