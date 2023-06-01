@@ -154,6 +154,7 @@ CommunicationUserIdentifier user3 = communicationClient.createUser();
 
 Then, create the list of room participants by referencing those users:
 ```java
+//The default participant role is ParticipantRole.Attendee
 RoomParticipant participant_1 = new RoomParticipant(user1);
 RoomParticipant participant_2 = new RoomParticipant(user2);
 RoomParticipant participant_3 = new RoomParticipant(user3);
@@ -163,7 +164,6 @@ List<RoomParticipant> roomParticipants = new ArrayList<RoomParticipant>();
 roomParticipants.add(participant_1);
 roomParticipants.add(participant_2.setRole(ParticipantRole.CONSUMER));
 ```
-
 
 ### Initialize the room
 Create a new `room` using the `roomParticipants` defined in the code snippet above:
