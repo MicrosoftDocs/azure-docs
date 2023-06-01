@@ -57,12 +57,12 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
   options.callKitRemoteInfo = CallKitRemoteInfo()
   ```
 
-  1. Assign value for `callKitRemoteInfo.displayNameForCallKit` to customize display name for call recipients and configure `CXHandle` value. This value specified in `displayNameForCallKit` is exactly how it will show up in the last dialed call log.
+  1. Assign value for `callKitRemoteInfo.displayNameForCallKit` to customize display name for call recipients and configure `CXHandle` value. This value specified in `displayNameForCallKit` is exactly how it shows up in the last dialed call log. in the last dialed call log.
 
   ```Swift
   options.callKitRemoteInfo.displayNameForCallKit = "DISPLAY_NAME"
   ```
-  2. Assign the `cxHandle` value is what the application will receive when user calls back on that contact
+  2. Assign the `cxHandle` value is what the application receives when user calls back on that contact
   ```Swift
   options.callKitRemoteInfo.cxHandle = CXHandle(type: .generic, value: "VALUE_TO_CXHANDLE")
   ```
@@ -119,11 +119,11 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
       return nil
   }
   ```
-  if `nil` is provided for `configureAudioSession` then SDK will call the default implementation in the SDK.
+  if `nil` is provided for `configureAudioSession` then SDK calls the default implementation in the SDK.
 
   ### Handle incoming push notification payload
 
-  When the app receives incoming push notification payload, we need to call `handlePush` to process it. ACS Calling SDK will then raise the `IncomingCall` event.
+  When the app receives incoming push notification payload, we need to call `handlePush` to process it. ACS Calling SDK will raise the `IncomingCall` event.
 
   ```Swift
   public func handlePushNotification(_ pushPayload: PKPushPayload)
@@ -174,7 +174,7 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
   
  ## CallKit Integration (within App)
   
-  If you wish to integrate the CallKit within the app and not use the CallKit implementation in the SDK, please take a look at the quickstart sample [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-video-calling).
+  If you wish to integrate the CallKit within the app and not use the CallKit implementation in the SDK, refer to the quickstart sample [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-video-calling).
   But one of the important things to take care of is to start the audio at the right time. Like following
   
  ```Swift
@@ -193,8 +193,8 @@ callAgent.startCall(participants: participants,
                     completionHandler: completionBlock)
 ```
 
-Muting speaker and microphone will ensure that physical audio devices aren't used until the CallKit calls the `didActivateAudioSession` on `CXProviderDelegate`. Otherwise the call may get dropped or no audio will be flowing.
-When `didActivateAudioSession` is recieved then start the audio streams.
+Muting speaker and microphone ensure that physical audio devices aren't used until the CallKit calls the `didActivateAudioSession` on `CXProviderDelegate`. Otherwise the call may get dropped or audio will not work.
+When `didActivateAudioSession` is when the audio streams should be started.
 
 ```Swift
 func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
@@ -236,7 +236,7 @@ private func startAudio(call: Call) async throws {
 }
     
 ```
-It's very important to also mute the outgoing audio before stopping the audio in cases when CallKit does not invoke `didActivateAudioSession`. The user can then manually unmute the microphone.
+It's important to also mute the outgoing audio before stopping the audio in cases when CallKit does not invoke `didActivateAudioSession`. The user can then manually unmute the microphone.
 
 > [!NOTE]
 > In some cases CallKit doesn't call `didActivateAudioSession` even though the app has elevated audio permissions, in that case the audio will stay muted until the call back is received. And the UI has to reflect the state of the speaker and microphone. The remote participant/s in the call will see that the user has muted audio as well. User will have to manually unmute in those cases.
