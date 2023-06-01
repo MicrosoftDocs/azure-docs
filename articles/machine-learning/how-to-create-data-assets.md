@@ -455,7 +455,7 @@ ml_client.data.archive(name="<DATA ASSET NAME>")
 1. On the **Data assets** tab, select the data asset you want to archive.
 1. Select **Archive**, followed by **Archive** in the confirmation dialog box.
 
-:::image type="content" source="media/how-to-create-data-assets/data-asset-container-archive.png" alt-text="Archive all versions of a data asset":::
+:::image type="content" source="media/how-to-create-data-assets/data-asset-container-archive.png" alt-text="Screenshot that shows an archive of all data asset versions.":::
 
 ---
 
@@ -535,10 +535,10 @@ ml_client.data.restore(name="<DATA ASSET NAME>")
 
 1. In the Studio UI, select **Data** from the left-hand menu.
 1. On the **Data assets** tab, enable **Include Archived**.
-   :::image type="content" source="media/how-to-create-data-assets/data-asset-restore-incarc.png" alt-text="Include archive":::
+   :::image type="content" source="media/how-to-create-data-assets/data-asset-restore-incarc.png" alt-text="Screenshot showing Include archived as selected.":::
 1. Select the data asset name.
 1. Next, on the data asset details page, select **Restore**.
-   :::image type="content" source="media/how-to-create-data-assets/data-asset-restore.png" alt-text="Restore data asset":::
+   :::image type="content" source="media/how-to-create-data-assets/data-asset-restore.png" alt-text="Screenshot showing Restore as selected.":::
 
 ---
 
@@ -589,11 +589,11 @@ Data lineage is broadly understood as the lifecycle that spans the data’s orig
 
 In an Azure Machine Learning Pipeline, your data assets show how the origin of the data and how it was processed, for example:
 
-:::image type="content" source="media/how-to-create-data-assets/data-asset-job-inputs.png" alt-text="Job details show the data lineage":::
+:::image type="content" source="media/how-to-create-data-assets/data-asset-job-inputs.png" alt-text="Screenshot showing data lineage in the job details.":::
 
 You can view the jobs that consume the data asset in the Studio UI. First, select **Data** from the left-hand menu and then select the data asset name. You can see the jobs consuming the data asset:
 
-:::image type="content" source="media/how-to-create-data-assets/data-asset-job-listing.png" alt-text="View jobs consuming a data asset":::
+:::image type="content" source="media/how-to-create-data-assets/data-asset-job-listing.png" alt-text="Screenshot that shows the jobs that consume a data asset.":::
 
 The jobs view in Data assets makes it easier to find job failures and do route cause analysis in your ML pipelines and debugging.
 
@@ -748,7 +748,7 @@ ml_client.data.create_or_update(data)
 1. Select the **Data Assets** tab.
 1. Select the data asset you would like to add tags to.
 1. In the data asset details, select the **Edit** button under **Tags**:
-    :::image type="content" source="media/how-to-create-data-assets/data-asset-tags.png" alt-text="Add tags to a data asset in the Studio UI":::
+    :::image type="content" source="media/how-to-create-data-assets/data-asset-tags.png" alt-text="Screenshot that shows selection of add tags to a data asset in the Studio UI.":::
 1. Add your key-value pair
 1. Select **Save**.
 
