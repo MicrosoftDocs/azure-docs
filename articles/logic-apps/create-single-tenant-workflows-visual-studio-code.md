@@ -281,6 +281,9 @@ The screenshot below shows where each of the above assemblies can be placed in V
 ![Screenshot shows assembly upload in VS Code.](./media/create-single-tenant-workflows-visual-studio-code/schema-upload-in-vs-code.jpg)
 
 #### Migrating old NuGet based projects to use `lib\*` assemblies
+> [!IMPORTANT]
+> This action is only needed for NuGet based Logic App Projects.
+
 If your VS Code project was created when Assemblies support was not added to the Logic app standard. You can add the lines below in your `<Project Name>.csproj` file to make it work with projects with assemblies. 
 ```msbuild
   <ItemGroup>
