@@ -10,7 +10,7 @@ author: ositanachi
 ms.author: osiotugo
 ms.reviewer: larryfr
 ms.date: 04/05/2022
-ms.custom: sdkv2, event-tier1-build-2022
+ms.custom: sdkv2, event-tier1-build-2022, build-2023
 ---
 # Git integration for Azure Machine Learning
 
@@ -23,7 +23,7 @@ When submitting a job to Azure Machine Learning, if source files are stored in a
 Since Azure Machine Learning tracks information from a local git repo, it isn't tied to any specific central repository. Your repository can be cloned from GitHub, GitLab, Bitbucket, Azure DevOps, or any other git-compatible service.
 
 > [!TIP]
-> Use Visual Studio Code to interact with Git through a graphical user interface. To connect to an Azure Machine Learning remote compute instance using Visual Studio Code, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code (preview)](how-to-set-up-vs-code-remote.md)
+> Use Visual Studio Code to interact with Git through a graphical user interface. To connect to an Azure Machine Learning remote compute instance using Visual Studio Code, see [Launch Visual Studio Code integrated with Azure Machine Learning (preview)](how-to-launch-vs-code-remote.md)
 >
 > For more information on Visual Studio Code version control features, see [Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol) and [Working with GitHub in VS Code](https://code.visualstudio.com/docs/editor/github).
 

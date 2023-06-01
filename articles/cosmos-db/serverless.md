@@ -5,7 +5,7 @@ description: Learn how to use Azure Cosmos DB in a consumption-based manner with
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: event-tier1-build-2022, ignite-2022, build-2023
 ms.topic: conceptual
 ms.date: 03/16/2023
 ms.reviewer: thweiss
@@ -24,9 +24,6 @@ Every database operation in Azure Cosmos DB has a cost expressed in [Request Uni
 
 - In [provisioned throughput](set-throughput.md) mode, you have to commit to a certain amount of throughput (expressed in Request Units per second or RU/s) that is provisioned on your databases and containers. The cost of your database operations is then deducted from the number of Request Units available every second. At the end of your billing period, you get billed for the amount of throughput you've provisioned.
 - In serverless mode, you don't have to configure provisioned throughput when creating containers in your Azure Cosmos DB account. At the end of your billing period, you get billed for the number of Request Units your database operations consumed.
-
-> [!NOTE]
-> Serverless containers can currently deliver a maximum throughput of 5,000 RU/s.
 
 ## Use-cases
 
@@ -52,14 +49,8 @@ Any container that is created in a serverless account is a serverless container.
   - You can't pass any throughput when creating a serverless container and doing so returns an error.
   - You can't read or update the throughput on a serverless container and doing so returns an error.
   - You can't create a shared throughput database in a serverless account and doing so returns an error.
-- Serverless containers can store a maximum of 50 GB of data and indexes.
-- Serverless containers offer throughput up to a service maximum of 5,000 RU/s. For more information, see [Azure Cosmos DB service quotas](concepts-limits.md).
-
-### Serverless 1-TB container preview
-
-Azure Cosmos DB serverless now offers 1-TB container size. With this feature, you can store up-to 1 TB of data in a serverless container.
-
-For more information, see [Azure Cosmos DB Serverless 1-TB container](serverless-1TB.md)
+- Serverless container can store a maximum of 1 TB of data and indexes.
+- Serverless container offers a maximum throughput ranging from 5000 RU/s to 20,000 RU/s, depending on the number of available partitions. In the ideal scenario, a 1 TB data set would require 20,000 RU/s, but the available throughput can exceed this. For further details, please refer to the documentation on [Serverless Performance](serverless-performance.md).
 
 ## Monitoring your consumption
 
@@ -71,16 +62,10 @@ When browsing the **Metrics** pane of your account, you find a chart named **Req
 
 You can find the same chart when using Azure Monitor, as described [here](monitor-request-unit-usage.md). Azure Monitor enables the ability to configure [alerts](../azure-monitor/alerts/alerts-metric-overview.md), which can be used to notify you when your Request Unit consumption has passed a certain threshold.
 
-## Performance
-
-Serverless resources yield specific performance characteristics that are different from what provisioned throughput resources deliver. Serverless containers don't offer predictable throughput or latency guarantees. If your container\[s\] requires these guarantees, use provisioned throughput.
-
-For more information, see [provisioned throughput](set-throughput.md).
-
 ## Next steps
 
 Get started with serverless with the following articles:
 
-- [Azure Cosmos DB Serverless 1-TB container](serverless-1TB.md)
+- [Azure Cosmos DB Serverless performance](serverless-performance.md)
 - [Choose between provisioned throughput and serverless](throughput-serverless.md)
 - [Pricing model in Azure Cosmos DB](how-pricing-works.md)

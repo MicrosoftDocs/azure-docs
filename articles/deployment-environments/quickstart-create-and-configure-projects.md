@@ -5,19 +5,16 @@ description: Learn how to create a project in Azure Deployment Environments and 
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.topic: quickstart
 ms.date: 04/25/2023
 ---
 
 # Quickstart: Create and configure a project
 
-This quickstart shows you how to create a project in Azure Deployment Environments Preview. Then, you associate the project with the dev center you created in [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md).
+This quickstart shows you how to create a project in Azure Deployment Environments. Then, you associate the project with the dev center you created in [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md).
 
 An enterprise development infrastructure team typically creates projects and provides project access to development teams. Development teams then create [environments](concept-environments-key-concepts.md#environments) by using [catalog items](concept-environments-key-concepts.md#catalog-items), connect to individual resources, and deploy applications.
-
-> [!IMPORTANT]
-> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

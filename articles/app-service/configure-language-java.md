@@ -60,7 +60,7 @@ az webapp list-runtimes --os linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
 With the [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), you can prepare your Maven Java project for Azure Web App easily with one command in your project root:
 
 ```shell
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.11.0:config
 ```
 
 This command adds a `azure-webapp-maven-plugin` plugin and related configuration by prompting you to select an existing Azure Web App or create a new one. Then you can deploy your Java app to Azure using the following command:
@@ -75,7 +75,7 @@ Here is a sample configuration in `pom.xml`:
 <plugin> 
   <groupId>com.microsoft.azure</groupId>  
   <artifactId>azure-webapp-maven-plugin</artifactId>  
-  <version>2.2.0</version>  
+  <version>2.11.0</version>  
   <configuration>
     <subscriptionId>111111-11111-11111-1111111</subscriptionId>
     <resourceGroup>spring-boot-xxxxxxxxxx-rg</resourceGroup>
@@ -108,7 +108,7 @@ Here is a sample configuration in `pom.xml`:
 
     ```groovy
     plugins {
-      id "com.microsoft.azure.azurewebapp" version "1.2.0"
+      id "com.microsoft.azure.azurewebapp" version "1.7.1"
     }
     ```
 

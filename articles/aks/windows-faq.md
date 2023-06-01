@@ -3,8 +3,8 @@ title: Windows Server node pools FAQ
 titleSuffix: Azure Kubernetes Service
 description: See the frequently asked questions when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.custom: build-2023
 ms.date: 04/13/2023
-
 #Customer intent: As a cluster operator, I want to see frequently asked questions when running Windows node pools and application workloads.
 ---
 
@@ -33,6 +33,10 @@ Historically, Kubernetes is Linux-focused. Many examples used in the upstream [K
 ## What kind of disks are supported for Windows?
 
 Azure Disks and Azure Files are the supported volume types, and are accessed as NTFS volumes in the Windows Server container.
+
+## Do Linux and Windows support generation 2 virtual machines (VMs)?
+
+Generation 2 VMs are supported on Linux and Windows for WS2022 only. For more information, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
 ## Can I run Windows only clusters in AKS?
 
@@ -120,7 +124,7 @@ $cluster | Set-AzAksCluster
 
 > [!IMPORTANT]
 > Performing the `Set-AzAksCluster` operation upgrades only Windows Server node pools. Linux node pools are not affected.
-> 
+>
 > When you're changing the Windows administrator password, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
 
 ---

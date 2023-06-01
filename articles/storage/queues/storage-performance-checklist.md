@@ -10,7 +10,7 @@ ms.topic: overview
 ms.service: storage
 ms.subservice: queues
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 <!-- docutune:casing "Timeout and Server Busy errors" -->

@@ -1,11 +1,11 @@
 ---
 title: Push and pull OCI artifact references
 description: Push and pull Open Container Initiative (OCI) artifacts using a container registry in Azure
-author: SteveLasker
+author: tejaswikolli-web
 manager: gwallace
 ms.topic: article
 ms.date: 01/03/2023
-ms.author: stevelas
+ms.author: tejaswikolli
 ---
 
 # Push and pull OCI artifacts using an Azure container registry
@@ -210,9 +210,9 @@ To remove the artifact from your registry, use the `oras manifest delete` comman
 
 <!-- LINKS - external -->
 [iana-mediatypes]:          https://www.rfc-editor.org/rfc/rfc6838
-[oras-install-docs]:        https://oras.land/cli/
-[oras-cli]:                 https://oras.land/cli_reference/
-[oras-push-multifiles]:     https://oras.land/cli/1_pushing/#pushing-artifacts-with-multiple-files
+[oras-install-docs]:        https://oras.land/docs/category/cli
+[oras-cli]:                 https://oras.land/docs/category/cli-reference
+[oras-push-multifiles]:     https://oras.land/docs/cli/pushing/#pushing-artifacts-with-multiple-files
 
 <!-- LINKS - internal -->
 [acr-landing]:              https://aka.ms/acr

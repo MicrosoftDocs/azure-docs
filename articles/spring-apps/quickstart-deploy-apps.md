@@ -337,7 +337,7 @@ The following steps show you how to generate configurations and deploy to Azure 
 1. Generate configurations by running the following command in the root folder of Pet Clinic containing the parent POM. If you've already signed-in with Azure CLI, the command automatically picks up the credentials. Otherwise, it signs you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
    ```bash
-   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.10.0:config
+   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config
    ```
 
    You're asked to select:
@@ -355,7 +355,7 @@ The following steps show you how to generate configurations and deploy to Azure 
            <plugin>
                <groupId>com.microsoft.azure</groupId>
                <artifactId>azure-spring-apps-maven-plugin</artifactId>
-               <version>1.10.0</version>
+               <version>1.17.0</version>
                <configuration>
                    <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                    <clusterName>v-spr-cld</clusterName>
