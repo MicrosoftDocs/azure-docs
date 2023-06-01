@@ -10,11 +10,11 @@ ms.subservice: nosql
 ms.date: 06/01/2023
 ---
 
-# Time Travel in Azure Synapse Link for Azure Cosmos DB for NoSQL (preview)
+# Time travel in Azure Synapse Link for Azure Cosmos DB for NoSQL (preview)
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-enables you to access Azure Cosmos DB data in the analytical store, precisely as it appeared at specific points in time in history (down to the millisecond level). With time-travel, you can effortlessly query past data that has been updated or deleted, analyze trends, and compare differences between two points of interest.
+Time travel enables you to access Azure Cosmos DB data in the analytical store, precisely as it appeared at specific points in time in history (down to the millisecond level). With time-travel, you can effortlessly query past data that has been updated or deleted, analyze trends, and compare differences between two points of interest.
 
 This article covers how to do time travel analysis on your Azure Cosmos DB data stored in the analytical store. The analytical store is created when you enable Azure Synapse Link in your containers.
 
@@ -94,7 +94,7 @@ display(df)
 
 ## Pricing
 
-There's no extra cost for this feature. The cost for using this feature contains the [Azure Synapse Link pricing](../synapse-link.md#pricing), and the [Azure Synapse Apache Synapse SparK pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing) for running time travel jobs on analytical store.
+There's no extra cost for this feature. The cost for using this feature contains the [Azure Synapse Link pricing](../synapse-link.md#pricing), and the [Azure Synapse Apache Synapse Spark pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing) for running time travel jobs on analytical store.
 
 ## Next steps
 
