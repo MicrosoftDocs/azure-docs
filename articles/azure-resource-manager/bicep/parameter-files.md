@@ -288,24 +288,13 @@ param storageAccountType = 'Standard_ZRS'
 
 From Visual Studio Code, See [Generate parameters file](./visual-studio-code.md#generate-parameters-file).
 
-jgao: test this function when it is available.
-
 From Bicep CLI, see [Generate parameters file](./bicep-cli.md#generate-params).
 
-## Convert between JSON parameters files and  Bicep parameters files
+## Build Bicep parameters file
 
-jgao: test this function when it is available.
-
-```command
-Bicep decompile-params params.json --bicep-file main.bicep
-```
-
-Bicep build-params params.bicepparam
---bicep-file <file> - don't document this feature.
+From Bicep CLI, you can build a Bicep parameters file into a JSON parameters file.  for more inforamtion, see [Build parameters file](./bicep-cli.md#build-params).
 
 ## Deploy Bicep file with parameters file
-
-jgao: test this function when it is available.
 
 From Azure CLI, pass a local parameters file using `@` and the parameters file name. For example, `@storage.parameters.json`.
 
