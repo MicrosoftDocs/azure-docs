@@ -157,3 +157,7 @@ conn_string = secret.value
 
 print("Connection string retrieved:", conn_string)
 ```
+---
+
+## Next Steps
+[Azure Key Vault client libraries](../../key-vault/general/client-libraries.md)
