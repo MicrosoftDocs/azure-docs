@@ -125,15 +125,6 @@ The `Disk` logging provider supports the following configuration settings:
 
 | Name | Data type | Description |
 |------|-----------|-------------|
-|`Format` | String | The output format for log files. |
-
-
-
-
-**Note:** This value must be set to `json` to enable the logging provider. If this value is specified without also specifying an output mount while instantiating a container, an error occurs. |
-| `MaxFileSize` | Integer | The maximum size, in megabytes (MB), of a log file. 
-When the size of the current log file meets or exceeds this value, a new log file is started by the logging provider.
- If -1 is specified, the size of the log file is limited only by the maximum file size, if any, for the output mount. The default value is 1. |
-
-
+|`Format` | String | The output format for log files. Note: This value must be set to `json` to enable the logging provider. If this value is specified without also specifying an output mount while instantiating a container, an error occurs. |
+| `MaxFileSize` | Integer | The maximum size, in megabytes (MB), of a log file. When the size of the current log file meets or exceeds this value, a new log file is started by the logging provider. If -1 is specified, the size of the log file is limited only by the maximum file size, if any, for the output mount. The default value is 1. |
 
