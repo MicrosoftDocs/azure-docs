@@ -94,6 +94,10 @@ The default Azure Front Door tier selected for migration gets determined by the 
 > [!NOTE]
 > To avoid creating duplicate WAF policies during migration, the migration capability provides the option to either create copies or use an existing Azure Front Door Standard or Premium WAF policy.
 
+### Azure Policy for Azure Front Door WAF
+
+[Azure Policy for WAF](../web-application-firewall/shared/waf-azure-policy.md) is not available for Azure Front Door Standard and Premium. Azure Policy lets you set and check WAF standards for your organization at a large scale. This feature will be available in the near future.
+
 ## Naming convention used for migration
 
 During the migration, a default profile name is used in the format of `<endpointprefix>-migrated`. For example, an Azure Front Door (classic) endpoint named `myEndpoint.azurefd.net`, has the default name of `myEndpoint-migrated`. 
