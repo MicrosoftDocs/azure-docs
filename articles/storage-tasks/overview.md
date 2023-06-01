@@ -58,6 +58,10 @@ See these articles for step-by-step guidance:
 
 List supported regions here.
 
+## Pricing and billing
+
+Put any costs associated with using this service here.
+
 ## Next steps
 
 - [Quickstart: Create, assign, and run a Storage Task by using the Azure portal](storage-task-quickstart-portal.md)
