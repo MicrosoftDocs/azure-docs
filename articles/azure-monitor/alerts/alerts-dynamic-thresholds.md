@@ -5,7 +5,7 @@ author: AbbyMSFT
 ms.author: abbyweisberg
 ms.reviewer: yalavi
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 05/28/2023
 ---
 
 # Dynamic thresholds in metric alerts

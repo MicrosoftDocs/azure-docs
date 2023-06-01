@@ -228,7 +228,7 @@ Additionally, some checks can be configured through an [application setting], re
 
 Requests that fail these built-in checks are given an HTTP `403 Forbidden` response.
 
-[Microsoft Identity Platform claims reference]: ../active-directory/develop/access-tokens.md#payload-claims
+[Microsoft Identity Platform claims reference]: ../active-directory/develop/access-token-claims-reference.md#payload-claims
 
 ## Configure client apps to access your App Service
 
