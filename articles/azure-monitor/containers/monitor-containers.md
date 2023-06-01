@@ -40,10 +40,9 @@ The following Azure services are used to monitor Kubernetes clusters.
 
 ### Logs
 
-| Activity logs | [Activity log](../../aks/monitor-aks-reference.md) is collected automatically for  AKS clusters at no cost. These logs track information such as when a cluster is created or has a configuration change. Activity logs are not collected for hybrid clusters.   |
+| Activity logs | [Activity log](../../aks/monitor-aks-reference.md) is collected automatically for  AKS clusters at no cost. These logs track information such as when a cluster is created or has a configuration change. Activity logs are not collected for hybrid clusters. |
 | Cluster inventory | Container insights collects  |
-
-| stderr/stdout logs |  ContainerLogv2 in Container insights. |
+| stderr/stdout logs | Containerized applications in the cluster send their logs to standard output (stdout) and standard error (stderr) streams. Container insights  |
 
 
 | Control plane logs | Diagnostic setting |
