@@ -11,7 +11,6 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/30/2023
 ms.author: robiro
-ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Plan and implement an SAP deployment on Azure
 
