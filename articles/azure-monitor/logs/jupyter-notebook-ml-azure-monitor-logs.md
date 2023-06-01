@@ -1,5 +1,5 @@
 ---
-title: Train and evaluate a regression model for detecting anomalies in Azure Monitor Logs by using Jupyter Notebook
+title: Train and evaluate a regression model for detecting anomalies in Azure Monitor Logs by using a notebook
 description: This tutorial shows how to use Jupyter Notebook to explore data and fit a custom machine learning algorithm to detect anomalies in Azure Monitor Logs. 
 ms.service: azure-monitor
 ms.topic: tutorial 
@@ -8,23 +8,23 @@ ms.author: guywild
 ms.reviewer: ilanawaitser
 ms.date: 02/28/2023
 
-# Customer intent:  As a data scientist, I want to use to run custom code on data in Azure Monitor Logs using Jupyter Notebook to gain insights without having to export data outside of Azure Monitor.
+# Customer intent: As a data scientist, I want to run custom code on data in Azure Monitor Logs using to gain insights without having to export data outside of Azure Monitor.
 
 ---
-# Tutorial: Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook
+# Tutorial: Train a regression model on data in Azure Monitor Logs by using a notebook
 
-[Jupyter Notebook](https://jupyter.org/) is an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and text. 
+Azure and Visual Studio Code support [Jupyter notebooks](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/), an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and text. 
 
-Integrating Jupyter Notebook with a Log Analytics workspace lets you create a multi-step process, running code in each step based on the results of the previous step. You can use such streamlined, multi-step processes to build and run machine learning pipelines, and for other purposes, such as conducting advanced analysis and creating troubleshooting guides (TSGs) for support needs.
+Integrating a notebook with a Log Analytics workspace lets you create a multi-step process, running code in each step based on the results of the previous step. You can use such streamlined, multi-step processes to build and run machine learning pipelines, and for other purposes, such as conducting advanced analysis and creating troubleshooting guides (TSGs) for support needs.
 
-In this tutorial, we integrate Jupyter Notebook with a Log Analytics workspace and train a custom machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs. This is one of several ways you can [build your own machine learning pipeline without exporting data out of Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). 
+In this tutorial, we integrate notebook with a Log Analytics workspace and train a custom machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs. This is one of several ways you can [build your own machine learning pipeline without exporting data out of Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). 
 
 ## Process overview
 
 In this tutorial, you learn how to: 
 > [!div class="checklist"]
-> * Integrate your Log Analytics workspace with Jupyter Notebook using the [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) and the [Azure Identity client library](https://pypi.org/project/azure-identity/) 
-> * Explore and visualize data from your Log Analytics workspace in Jupyter Notebook
+> * Integrate a notebook into your Log Analytics workspace using the [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) and the [Azure Identity client library](https://pypi.org/project/azure-identity/) 
+> * Explore and visualize data from your Log Analytics workspace in notebook
 > * Prepare data for model training 
 > * Train and test regression models on historical data
 > * Score new data, or predict new values, using a trained model and identify anomalies
@@ -161,7 +161,7 @@ import sys
     display_options()
     ```
 
-## Explore and visualize data from your Log Analytics workspace in Jupyter Notebook
+## Explore and visualize data from your Log Analytics workspace in your notebook
 
 Now that you've integrated your Log Analytics workspace with your notebook, let's look at some data in the workspace by running a query from the notebook:
 
@@ -185,7 +185,7 @@ Now that you've integrated your Log Analytics workspace with your notebook, let'
 
     This query generates a DataFrame that shows the hourly ingestion in each of the tables in the Log Analytics workspace:  
     
-    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables-dataframe.png" alt-text="A DataFrame generated in Jupyter Notebook with log ingestion data retrieved from a Log Analytics workspace." 
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables-dataframe.png" alt-text="A DataFrame generated in a notebook with log ingestion data retrieved from a Log Analytics workspace." 
 
 1. Now, let's view the data as a graph using the helper function we defined above:
 
@@ -586,7 +586,7 @@ Send the anomalies you identify to a custom table in your Log Analytics workspac
 
 1. Verify that the anomaly data now appears in your custom table.
 
-    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-anomalies-in-azure-monitor-log-analytics-workspace.png" alt-text="Screenshot that shows a query in Log Analytics on a custom table into which the anomalies found in Jupyter Notebook were ingested." lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-anomalies-in-azure-monitor-log-analytics-workspace.png":::
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-anomalies-in-azure-monitor-log-analytics-workspace.png" alt-text="Screenshot that shows a query in Log Analytics on a custom table into which the anomalies found in the notebook were ingested." lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-anomalies-in-azure-monitor-log-analytics-workspace.png":::
 
 ## Next steps
 
