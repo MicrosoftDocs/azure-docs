@@ -100,8 +100,6 @@ Response code `404` might indicate "no records," which can be part of regular fl
 
 Partially accepted content `206` might indicate a failure of an overall request. For instance, an Application Insights endpoint might receive a batch of telemetry items as a single request. It returns `206` when some items in the batch weren't processed successfully. An increasing rate of `206` indicates a problem that needs to be investigated. Similar logic applies to `207` Multi-Status, where the success might be the worst of separate response codes.
 
-You can read more about the request result code and status code in the [blog post](https://apmtips.com/posts/2016-12-03-request-success-and-response-code/).
-
 ### Custom properties
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]

@@ -10,7 +10,9 @@ items:
     href: whats-new.md
   - name: Packet core release notes
     items:
-    - name: 2303 - Current
+    - name: 2305 - Current
+      href: azure-private-5g-core-release-notes-2305.md  
+    - name: 2303
       href: azure-private-5g-core-release-notes-2303.md  
     - name: 2302
       href: azure-private-5g-core-release-notes-2302.md
@@ -124,6 +126,8 @@ items:
       href: configure-sim-policy-azure-portal.md
     - name: Configure a service and SIM policy - ARM template
       href: configure-service-sim-policy-arm-template.md
+    - name: Configure UE to UE internal forwarding - Azure portal
+      href: configure-internal-forwarding.md
   - name: SIMs
     items:
     - name: Provision new SIMs - Azure portal

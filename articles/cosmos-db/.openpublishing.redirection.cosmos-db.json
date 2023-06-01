@@ -6039,6 +6039,11 @@
       "source_path_from_root": "/articles/cosmos-db/graph/use-regional-endpoints.md",
       "redirect_url": "/azure/cosmos-db/gremlin/use-regional-endpoints",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/serverless-1TB.md",
+      "redirect_url": "/azure/cosmos-db/serverless-performance",
+      "redirect_document_id": false
     }
   ]
 }

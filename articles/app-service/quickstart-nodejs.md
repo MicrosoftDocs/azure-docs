@@ -11,7 +11,7 @@ ms.devlang: javascript
 #zone_pivot_groups: app-service-ide-oss
 zone_pivot_groups: app-service-vscode-cli-portal
 ---
-# Create a Node.js web app in Azure
+# Deploy a Node.js web app in Azure
 
 In this quickstart, you'll learn how to create and deploy your first Node.js ([Express](https://www.expressjs.com)) web app to [Azure App Service](overview.md). App Service supports various versions of Node.js on both Linux and Windows. 
 

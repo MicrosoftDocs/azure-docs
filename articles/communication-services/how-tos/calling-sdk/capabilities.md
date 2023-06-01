@@ -22,6 +22,9 @@ Do I have permission to turn video on, do I have permission to turn mic on, do I
 ## Supported Platform - Web
 [!INCLUDE [Capabilities JavaScript](./includes/capabilities/capabilities-web.md)]
 
+## Supported Calltype
+The feature is currently supported only for ACS Rooms call type.
+
 ## Next steps
 - [Learn how to manage video](./manage-video.md)
 - [Learn how to manage calls](./manage-calls.md)

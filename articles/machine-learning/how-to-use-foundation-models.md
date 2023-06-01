@@ -1,7 +1,7 @@
 ---
-title: How to use Foundation Models in Azure Machine Learning (preview)
+title: How to use Open Source Foundation Models curated by Azure Machine Learning (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to use, evaluate, and fine-tune Foundation Models in Azure Machine Learning
+description: Learn how to discover, evaluate, fine-tune and deploy Open Source Foundation Models in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.topic: how-to
@@ -11,41 +11,42 @@ ms.author: swatig
 ms.date: 04/25/2023
 ---
 
-# How to use Foundation Models in Azure Machine Learning (preview)
+# How to use Open Source Foundation Models curated by Azure Machine Learning (preview)
 
 > [!IMPORTANT]
 > Items marked (preview) in this article are currently in public preview.
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, you learn how to set up and evaluate foundation models using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-azure-machine-learning.md#studio). Additionally, you learn how to fine-tune each model and how to deploy the model at scale.
+In this article, you learn how to access and evaluate Foundation Models using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-azure-machine-learning.md#studio). Additionally, you learn how to fine-tune each model and how to deploy the model at scale.
 
-**Foundation Models in Azure Machine Learning** provides Azure Machine Learning native capabilities that enable customers to build and operationalize open-source foundation models at scale. Foundation models are trained machine learning model that is designed to perform a specific task. Foundation models accelerate the model building process by serving as a starting point for custom models. Azure Machine Learning provides the capability to easily integrate these pre-trained models into your applications.
+Foundation Models are machine learning models that have been pre-trained on vast amounts of data, and that can be fine tuned for specific tasks with relatively small amount of domain specific data. These models serve as a starting point for custom models and accelerate the model building process for a variety of tasks including natural language processing, computer vision, speech and generative AI tasks. Azure Machine Learning provides the capability to easily integrate these pre-trained Foundation Models into your applications. **Foundation Models in Azure Machine Learning** provides Azure Machine Learning native capabilities that enable customers to discover, evaluate, fine tune, deploy and operationalize open-source Foundation Models at scale. 
 
 
-## How to access foundation models in Azure Machine Learning
+## How to access Foundation Models in Azure Machine Learning
 
-The 'Model catalog' (preview) provides a catalog view of all models that you have access to via system registries. You can view the complete list of supported open source foundation models in the [Model catalog](https://ml.azure.com/model/catalog), under the `azureml` registry.
+The 'Model catalog' (preview) in Azure Machine Learning Studio is a hub for discovering Foundation Models. The Open Source Models collection is a repository of the most popular open source Foundation Models curated by Azure Machine Learning. These models are packaged for out of the box usage and are optimized for use in Azure Machine Learning. Currently, it includes the top open source large language models, with support for other tasks coming soon. You can view the complete list of supported open source Foundation Models in the [Model catalog](https://ml.azure.com/model/catalog), under the `Open Source Models` collection.
 
 :::image type="content" source="./media/how-to-use-foundation-models/model-catalog.png" lightbox="./media/how-to-use-foundation-models/model-catalog.png" alt-text="Screenshot showing the model catalog section in Azure Machine Learning studio." :::
 
-You can filter the list of models in the Model catalog by Task, or by license. Select a specific model name and the UI shows a model card for the selected model, which lists detailed information about the model. For example:
+You can filter the list of models in the Model catalog by Task, or by license. Select a specific model name and the see a model card for the selected model, which lists detailed information about the model. For example:
 
-:::image type="content" source="./media/how-to-use-foundation-models/model-card.png" lightbox="./media/how-to-use-foundation-models/model-card.png" alt-text="Screenshot showing the model card for gpt2 in Azure Machine Learning studio. The model card shows a description of the model and samples of what the model outputs. ":::
+:::image type="content" source="./media/how-to-use-foundation-models\model-card.png" lightbox="./media/how-to-use-foundation-models\model-card.png" alt-text="Screenshot showing the model card for gpt2 in Azure Machine Learning studio. The model card shows a description of the model and samples of what the model outputs. ":::
 
 `Task` calls out the inferencing task that this pre-trained model can be used for. `Finetuning-tasks` list the tasks that this model can be fine tuned for. `License` calls out the licensing info.
 
 > [!NOTE] 
 >Models from Hugging Face are subject to third party license terms available on the Hugging Face model details page. It is your responsibility to comply with the model's license terms.
 
-Additionally, the model card for each model includes a brief description of the model and links to samples for code based inferencing, finetuning and evaluation of the model.
+
+You can quickly test out any pre-trained model using the Sample Inference widget on the model card, providing your own sample input to test the result. Additionally, the model card for each model includes a brief description of the model and links to samples for code based inferencing, finetuning and evaluation of the model.
 
 > [!NOTE]
->If you are using a private workspace, your virtual network needs to allow outbound access in order to use foundation models in Azure Machine Learning
+>If you are using a private workspace, your virtual network needs to allow outbound access in order to use Foundation Models in Azure Machine Learning
 
-## How to evaluate foundation models using your own test data
+## How to evaluate Foundation Models using your own test data
 
-You can evaluate a foundation model against your test dataset, using either the Evaluate UI wizard or by using the code based samples, linked from the model card.
+You can evaluate a Foundation Model against your test dataset, using either the Evaluate UI wizard or by using the code based samples, linked from the model card.
 
 ### Evaluating using UI wizard
 
@@ -62,7 +63,7 @@ Each model can be evaluated for the specific inference task that the model can b
 1. Pass in the test data you would like to use to evaluate your model. You can choose to either upload a local file (in JSONL format) or select an existing registered dataset from your workspace.
 1. Once you've selected the dataset, you need to map the columns from your input data, based on the schema needed for the task. For example, map the column names that correspond to the 'sentence' and 'label' keys for Text Classification
 
-:::image type="content" source="./media/how-to-use-foundation-models/evaluate-map-data-columns.png" lightbox="./media/how-to-use-foundation-models/evaluate-map-data-columns.png"  alt-text="Screenshot showing the evaluation map in the foundation models evaluate wizard.":::
+:::image type="content" source="./media/how-to-use-foundation-models/evaluate-map-data-columns.png" lightbox="./media/how-to-use-foundation-models/evaluate-map-data-columns.png"  alt-text="Screenshot showing the evaluation map in the Foundation Models evaluate wizard.":::
 
 **Compute:** 
 
@@ -78,9 +79,9 @@ Each model can be evaluated for the specific inference task that the model can b
 
 To enable users to get started with model evaluation, we have published samples (both Python notebooks and CLI examples) in the [Evaluation samples in azureml-examples git repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/evaluation). Each model card also links to Evaluation samples for corresponding tasks
 
-## How to finetune foundation models using your own training data
+## How to finetune Foundation Models using your own training data
 
-In order to improve model performance in your workload, you might want to fine tune a foundation model using your own training data. You can easily finetune these foundation models by using either the Finetune UI wizard or by using the code based samples linked from the model card.
+In order to improve model performance in your workload, you might want to fine tune a foundation model using your own training data. You can easily finetune these Foundation Models by using either the Finetune UI wizard or by using the code based samples linked from the model card.
 		
 ### Finetuning using the UI wizard
 
@@ -88,12 +89,12 @@ You can invoke the Finetune UI wizard by clicking on the 'Finetune' button on th
 
 **Finetuning Settings:**
 
-:::image type="content" source="./media/how-to-use-foundation-models/finetune-quick-wizard.png" alt-text="Screenshot showing the finetune settings options in the foundation models finetune wizard.":::
+:::image type="content" source="./media/how-to-use-foundation-models/finetune-quick-wizard.png" alt-text="Screenshot showing the finetune settings options in the Foundation Models finetune wizard.":::
 
 
 **Finetuning task type**
 
-* Every pre-trained model from the model catalog can be finetuned for a specific set of tasks (For Example: Text classification, Token classification, Question answering). Select the task you would like to use from the drop down.
+* Every pre-trained model from the model catalog can be finetuned for a specific set of tasks (For Example: Text classification, Token classification, Question answering). Select the task you would like to use from the drop-down.
 
 **Training Data**
     
@@ -101,7 +102,7 @@ You can invoke the Finetune UI wizard by clicking on the 'Finetune' button on th
 
 1. Once you've selected the dataset, you need to map the columns from your input data, based on the schema needed for the task. For example: map the column names that correspond to the 'sentence' and 'label' keys for Text Classification
 
-:::image type="content" source="./media/how-to-use-foundation-models/finetune-map-data-columns.png" lightbox="./media/how-to-use-foundation-models/finetune-map-data-columns.png" alt-text="Screenshot showing the finetune map in the foundation models evaluate wizard.":::
+:::image type="content" source="./media/how-to-use-foundation-models/finetune-map-data-columns.png" lightbox="./media/how-to-use-foundation-models/finetune-map-data-columns.png" alt-text="Screenshot showing the finetune map in the Foundation Models evaluate wizard.":::
 
 
 * Validation data: Pass in the data you would like to use to validate your model. Selecting 'Automatic split' reserves an automatic split of training data for validation. Alternatively, you can provide a different validation dataset.
@@ -126,9 +127,9 @@ Currently, Azure Machine Learning supports finetuning models for the following l
 
 To enable users to quickly get started with fine tuning, we have published samples (both Python notebooks and CLI examples) for each task in the [azureml-examples git repo Finetune samples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune). Each model card also links to Finetuning samples for supported finetuning tasks.
 
-## Deploying foundation models to endpoints for inferencing
+## Deploying Foundation Models to endpoints for inferencing
 
-You can deploy foundation models (both pre-trained models from the model catalog, and finetuned models, once they're registered to your workspace) to an endpoint that can then be used for inferencing. Deployment to both real time endpoints and batch endpoints is supported. You can deploy these models by using either the Deploy UI wizard or by using the code based samples linked from the model card.
+You can deploy Foundation Models (both pre-trained models from the model catalog, and finetuned models, once they're registered to your workspace) to an endpoint that can then be used for inferencing. Deployment to both real time endpoints and batch endpoints is supported. You can deploy these models by using either the Deploy UI wizard or by using the code based samples linked from the model card.
 
 ### Deploying using the UI wizard
 
@@ -145,9 +146,9 @@ Since the scoring script and environment are automatically included with the fou
 
 To enable users to quickly get started with deployment and inferencing, we have published samples in the [Inference samples in the azureml-examples git repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/inference). The published samples include Python notebooks and CLI examples. Each model card also links to Inference samples for Real time and Batch inferencing.
 
-## Importing foundation models
+## Import Foundation Models
 
-If you're looking to use an open source model that isn't included in the Model Catalog, you can import the model from Hugging Face into your Azure Machine Learning workspace. Hugging Face is an open-source library for natural language processing (NLP) that provides pre-trained models for popular NLP tasks. Currently, model import supports importing models for the following tasks:
+If you're looking to use an open source model that isn't included in the Model Catalog, you can import the model from Hugging Face into your Azure Machine Learning workspace. Hugging Face is an open-source library for natural language processing (NLP) that provides pre-trained models for popular NLP tasks. Currently, model import supports importing models for the following tasks, as long as the model meets the requirements listed in the Model Import Notebook:
 
 * fill-mask
 * token-classification

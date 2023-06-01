@@ -50,9 +50,9 @@ This article describes the process of managing alert rules created in the previo
 1. Select **Done**.
 1. You can edit the rule **Description** and **Severity**. These details are used in all alert actions. You can also choose to not activate the alert rule on creation by selecting **Enable rule upon creation**.
 1. Use the [Suppress Alerts](./alerts-unified-log.md#state-and-resolving-alerts) option if you want to suppress rule actions for a specified time after an alert is fired. The rule will still run and create alerts, but actions won't be triggered to prevent noise. The **Mute actions** value must be greater than the frequency of the alert to be effective.
-1. To make alerts stateful, select **Automatically resolve alerts (preview)**.
 
    ![Screenshot that shows the Alert Details pane.](media/alerts-log/AlertsPreviewSuppress.png)
+1. To make alerts stateful, select **Automatically resolve alerts (preview)**.
 1. Specify if the alert rule should trigger one or more [action groups](./action-groups.md) when the alert condition is met.
     > [!NOTE]
     > For limits on the actions that can be performed, see [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md).

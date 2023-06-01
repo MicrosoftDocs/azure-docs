@@ -14,15 +14,15 @@ description: This reference architecture is a foundation using a typical enterpr
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Standard ✔️ Enterprise
 
 This reference architecture is a foundation using a typical enterprise hub and spoke design for the use of Azure Spring Apps. In the design, Azure Spring Apps is deployed in a single spoke that's dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenets in the [Microsoft Azure Well-Architected Framework][16].
 
-There are two flavors of Azure Spring Apps: Standard tier and Enterprise tier.
+There are two flavors of Azure Spring Apps: Standard plan and Enterprise plan.
 
-Azure Spring Apps Standard tier is composed of the Spring Cloud Config Server, the Spring Cloud Service Registry, and the kpack build service.
+The Azure Spring Apps Standard plan is composed of the Spring Cloud Config Server, the Spring Cloud Service Registry, and the kpack build service.
 
-Azure Spring Apps Enterprise tier is composed of the VMware Tanzu® Build Service™, Application Configuration Service for VMware Tanzu®, VMware Tanzu® Service Registry, Spring Cloud Gateway for VMware Tanzu®, and API portal for VMware Tanzu®.
+The Azure Spring Apps Enterprise plan is composed of the VMware Tanzu® Build Service™, Application Configuration Service for VMware Tanzu®, VMware Tanzu® Service Registry, Spring Cloud Gateway for VMware Tanzu®, and API portal for VMware Tanzu®.
 
 For an implementation of this architecture, see the [Azure Spring Apps Reference Architecture][10] on GitHub.
 
@@ -95,13 +95,13 @@ The following list describes the Azure services in this reference architecture:
 
 The following diagrams represent a well-architected hub and spoke design that addresses the above requirements:
 
-### [Standard tier](#tab/azure-spring-standard)
+### [Standard plan](#tab/azure-spring-standard)
 
-:::image type="content" source="media/reference-architecture/architecture-private-standard.png" alt-text="Diagram showing the reference architecture for private applications using Azure Spring Apps Standard tier." lightbox="media/reference-architecture/architecture-private-standard.png" border="false":::
+:::image type="content" source="media/reference-architecture/architecture-private-standard.png" alt-text="Diagram showing the reference architecture for private applications using the Azure Spring Apps Standard plan." lightbox="media/reference-architecture/architecture-private-standard.png" border="false":::
 
-### [Enterprise tier](#tab/azure-spring-enterprise)
+### [Enterprise plan](#tab/azure-spring-enterprise)
 
-:::image type="content" source="media/reference-architecture/architecture-private-enterprise.png" alt-text="Diagram showing the reference architecture for private applications using Azure Spring Apps Enterprise tier." lightbox="media/reference-architecture/architecture-private-enterprise.png" border="false":::
+:::image type="content" source="media/reference-architecture/architecture-private-enterprise.png" alt-text="Diagram showing the reference architecture for private applications using the Azure Spring Apps Enterprise plan." lightbox="media/reference-architecture/architecture-private-enterprise.png" border="false":::
 
 ---
 
@@ -157,13 +157,13 @@ The following list describes the Azure services in this reference architecture:
 
 The following diagrams represent a well-architected hub and spoke design that addresses the above requirements. Only the hub-virtual-network communicates with the internet:
 
-### [Standard tier](#tab/azure-spring-standard)
+### [Standard plan](#tab/azure-spring-standard)
 
-:::image type="content" source="media/reference-architecture/architecture-public-standard.png" alt-text="Diagram showing the reference architecture for public applications using Azure Spring Apps Standard tier." lightbox="media/reference-architecture/architecture-public-standard.png" border="false":::
+:::image type="content" source="media/reference-architecture/architecture-public-standard.png" alt-text="Diagram showing the reference architecture for public applications using the Azure Spring Apps Standard plan." lightbox="media/reference-architecture/architecture-public-standard.png" border="false":::
 
-### [Enterprise tier](#tab/azure-spring-enterprise)
+### [Enterprise plan](#tab/azure-spring-enterprise)
 
-:::image type="content" source="media/reference-architecture/architecture-public-enterprise.png" alt-text="Diagram showing the reference architecture for public applications using Azure Spring Apps Enterprise tier." lightbox="media/reference-architecture/architecture-public-enterprise.png" border="false":::
+:::image type="content" source="media/reference-architecture/architecture-public-enterprise.png" alt-text="Diagram showing the reference architecture for public applications using the Azure Spring Apps Enterprise plan." lightbox="media/reference-architecture/architecture-public-enterprise.png" border="false":::
 
 ---
 
