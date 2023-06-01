@@ -252,39 +252,64 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
 1. To continue, review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
-<a name="adding-custom-artifacts"></a>
+<a name="add-custom-artifacts"></a>
 
-## Adding custom artifacts
-In Logic app, Some connectors use dependent resources like Maps, Schemas or Assemblies. Those artifacts can be provided from the portal through Artifacts tab as shown below:
-![Screenshot shows artifact tab on portal.](./media/create-single-tenant-workflows-visual-studio-code/show-artifact-in-portal.jpg)
+## Add custom artifacts to your project
 
-### Adding Maps
-Maps can be added to a VS Code project by adding map files in `Artifacts/Maps`. The screenshot below shows the place where Maps should be placed.
-![Screenshot shows maps upload directory in VS Code.](./media/create-single-tenant-workflows-visual-studio-code/map-upload-in-vs-code.jpg)
+In a logic app workflow, some connectors have dependencies on artifacts such as maps, schemas, or assemblies. In Visual Studio Code, you can upload these artifacts to your logic app project, similar to how you can upload these artifacts in the Azure portal through the logic app resource menu under **Artifacts**, for example:
 
-### Adding Schemas
-Maps can be added to a VS Code project by adding map files in `Artifacts/Schemas`. The screenshot below shows the place where Maps should be placed.
-![Screenshot shows schema upload directory in VS Code.](./media/create-single-tenant-workflows-visual-studio-code/schema-upload-in-vs-code.jpg)
+![Screenshot shows Azure portal and Standard logic app resource menu with Artifacts section highlighted.](./media/create-single-tenant-workflows-visual-studio-code/show-artifact-in-portal.jpg)
 
-### Adding Assemblies
-Logic app currently has 3 different types of assemblies. Namely `Client/SDK Assembly (.NET Framework)`, `Client/SDK Assembly (Java)`, `Custom Assembly (.NET Framework)`. You can upload those assemblies from portal through assemblies tab under artifacts shown above.
-![Screenshot shows assembly upload GUI on Portal.](./media/create-single-tenant-workflows-visual-studio-code/assembly-upload-on-portal.jpg)
-Lets go over each type of assemblies and where they can be placed in VS Code.
-  1. Client/SDK Assembly (.NET Framework):
-  These are used to provide custom .NET Framework SDK. For example [SAP Connector](/azure/logic-apps/connectors/built-in/reference/sap/) use these assemblies to find .NCo DLL's that are not distributable. Those assemblies can be placed under `\lib\builtinOperationSdks\net472`.
-  3. Client/SDK Assembly (Java)
-  These are used to provide custom JAVA SDK. For example [JDBC Connector](/azure/logic-apps/connectors/built-in/reference/jdbc/) use these JAR's to find JDBC Drivers for custom RDB(Relational Database). Those assemblies can be placed under `\lib\builtinOperationSdks\JAR`.
-  5. Custom Assembly (.NET Framework)
-  These are used to provide custom DLLs. For example, Transform XML operation use these assemblies for custom transformation functions required for XML Transformation. Those assemblies can be placed under `\lib\custom\net472`.
+### Add maps to your project
 
-The screenshot below shows where each of the above assemblies can be placed in VS Code:
-![Screenshot shows assembly upload in VS Code.](./media/create-single-tenant-workflows-visual-studio-code/assembly-upload-in-vs-code.jpg)
+To add maps to your project, in your project hierarchy, expand **Artifacts** > **Maps**, which is the folder where you can put your maps.
 
-#### Migrating old NuGet based projects to use `lib\*` assemblies
+![Screenshot shows Visual Studio Code project hierarchy with Artifacts and Maps folders expanded.](./media/create-single-tenant-workflows-visual-studio-code/map-upload-in-vs-code.jpg)
+
+### Add schemas to your project
+
+To add schemas to your project, in your project hierarchy, expand **Artifacts** > **Schemas**, which is the folder where you can put your schemas.
+
+![Screenshot shows Visual Studio Code project hierarchy with Artifacts and Schemas folders expanded.](./media/create-single-tenant-workflows-visual-studio-code/schema-upload-in-vs-code.jpg)
+
+### Add assemblies to your project
+
+A Standard logic app can currently use or reference the following assembly types:
+
+- Client/SDK assembly (.NET Framework)
+- Client/SDK assembly (Java)
+- Custom assembly (.NET Framework) 
+
+You can upload these assemblies to your project in Visual Studio Code, similar how you upload them in the Azure portal through your logic app resource menu under **Artifacts** > **Assemblies**.
+
+![Screenshot shows Azure portal, logic app resource menu, under Artifacts, with Assemblies selected.](./media/create-single-tenant-workflows-visual-studio-code/assembly-upload-on-portal.jpg)
+
+The following section provides more information about each assembly type and where exactly to put them in your project.
+
+- Client/SDK assembly (.NET Framework):
+
+  This assembly provides the Custom .NET Framework SDK. For example, the [SAP built-in connector](/azure/logic-apps/connectors/built-in/reference/sap/) uses these assemblies to find the SAP NCo non-distributable DLL files. You can add these assemblies in the following folder:  **\lib\builtinOperationSdks\net472**
+ 
+- Client/SDK assembly (Java)
+
+  This assembly provides the Custom Java SDK. For example, the [JDBC built-in connector](/azure/logic-apps/connectors/built-in/reference/jdbc/) uses these JAR files to find JDBC drivers for custom relational databases (RDBs). You can add these assemblies in the following folder: **\lib\builtinOperationSdks\JAR**
+  
+  - Custom assembly (.NET Framework)
+  
+  This assembly provides custom DLLs. For example, the **Transform XML** operation uses these assemblies for the custom transformation functions that are required for XML transformation. You can add these assemblies in the following folder: **\lib\custom\net472**
+
+
+The following image shows where to put each assembly type in your project:
+
+![Screenshot shows Visual Studio Code, logic app project, and where to upload assemblies.](./media/create-single-tenant-workflows-visual-studio-code/assembly-upload-in-vs-code.jpg)
+
+### Migrate NuGet-based projects to use "lib\*" assemblies
+
 > [!IMPORTANT]
-> This action is only needed for NuGet based Logic App Projects.
+> This task is required only for NuGet-based logic app projects.
 
-If your VS Code project was created when Assemblies support was not added to the Logic app standard. You can add the lines below in your `<Project Name>.csproj` file to make it work with projects with assemblies. 
+If you created your logic app project when assemblies support wasn't available for Standard logic app workflows, you can add the following lines to your **<*project-name*>.csproj** file to work with projects that use assemblies:
+ 
 ```msbuild
   <ItemGroup>
     <LibDirectory Include="$(MSBuildProjectDirectory)\lib\**\*"/>
@@ -293,8 +318,13 @@ If your VS Code project was created when Assemblies support was not added to the
     <Copy SourceFiles="@(LibDirectory)" DestinationFiles="@(LibDirectory->'$(MSBuildProjectDirectory)\$(PublishUrl)\lib\%(RecursiveDir)%(Filename)%(Extension)')"/>
   </Target>
 ```
-Please make sure to update the directory separator in case of project running on Linus or MacOS. You can see the screenshot below to see the above code being added to `<Project Name>.csproj`.
-![Screenshot shows migration of assembly upload in VS Code.](./media/create-single-tenant-workflows-visual-studio-code/migrating-old-projects-to-assemblies.jpg)
+
+> [!IMPORTANT]
+>
+> For a project that runs on Linux or MacOS, make sure to update the directory separator. For example, 
+> review the following image that shows the previous code added to the **<*project-name*>.csproj** file.
+>
+> ![Screenshot shows migrated assemblies and added code in csproj file.](./media/create-single-tenant-workflows-visual-studio-code/migrating-old-projects-to-assemblies.jpg)
 
 <a name="open-workflow-definition-designer"></a>
 
