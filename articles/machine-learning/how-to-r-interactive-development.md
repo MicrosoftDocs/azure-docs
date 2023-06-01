@@ -73,7 +73,7 @@ The install script performs the following steps:
 
 ### Read tabular data from registered data assets or datastores
 
-When your data is stored in a data asset [created in Azure Machine Learning](how-to-create-data-assets.md?tabs=cli#create-a-file-asset), use these steps to read that tabular file into a Pandas DataFrame or an R `data.frame`:
+When your data is stored in a data asset [created in Azure Machine Learning](how-to-create-data-assets.md#create-a-data-asset-file-type), use these steps to read that tabular file into a Pandas DataFrame or an R `data.frame`:
 > [!NOTE]
 > Reading a file with `reticulate` only works with tabular data.
 
