@@ -171,6 +171,8 @@ Select-MgProfile -Name beta
 
 # Query a user, using its user ID, and return the desired properties
 Get-MgUser -UserId "44198096-38ea-440d-9497-bb6b06bcaf9b" | Select-Object DisplayName, EmployeeLeaveDateTime
+```
+![Screenshot of the result.](media/how-to-lifecycle-workflow-sync-attributes/user-lifecycle-properties-return.png)
 
 ## Next steps
 - [What are lifecycle workflows?](what-are-lifecycle-workflows.md)
