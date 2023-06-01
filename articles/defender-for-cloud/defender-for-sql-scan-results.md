@@ -2,7 +2,7 @@
 title: How to consume and export scan results
 description: Learn how to consume and export Defender for SQL's scan results.
 ms.topic: how-to
-ms.date: 05/31/2023
+ms.date: 06/01/2023
 ---
 
 # How to consume and export scan results
@@ -27,8 +27,8 @@ This article describes several ways to consume and export your scan results.
 
 1. Select either
 
-    - **Query returning affected resources** - Returns a list of the resources that are currently affected.
-    - **Query returning security findings** -  Returns a list of all security findings.
+    - **Query returning affected resources** - Returns a list of the resources that are currently affected (recommendation status per resource).
+    - **Query returning security findings** -  Returns a list of all security findings (findings and sub-assessments aggregated per applicable resources).
 
 1. Select **Run query**.
 
@@ -47,28 +47,52 @@ These queries are editable and can be customized to a specific resource, set of 
 1. Edit and enter the following query:
 
     ```bash
-    // All findings status per DB
-    let dbresourceid="/subscriptions/<your subscription ID>/resourcegroups/rgname/providers/microsoft.sql/servers/servername/databases/dbname";
-    securityresources | where type =~ "microsoft.security/assessments/subassessments"
-        | extend assessmentKey=extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id), subAssessmentId=tostring(properties.id), parentResourceId= extract("(.+)/providers/Microsoft.Security", 1, id)
-        | extend resourceId = tostring(properties.resourceDetails.id)
-        | extend subAssessmentName=tostring(properties.displayName),
-            subAssessmentDescription=tostring(properties.description),
-            subAssessmentRemediation=tostring(properties.remediation),
-            subAssessmentCategory=tostring(properties.category),
-            subAssessmentImpact=tostring(properties.impact),
-            severity=tostring(properties.status.severity),
-            status=tostring(properties.status.code),
-            cause=tostring(properties.status.cause),
-            statusDescription=tostring(properties.status.description),
-            additionalData=tostring(properties.additionalData)
-        | where resourceId == dbresourceid
-        | where assessmentKey == "82e20e14-edc5-4373-bfc4-f13121257c37"
-        | project timeGenerated=todatetime(properties.timeGenerated), assessmentKey, subAssessmentId, subAssessmentName, subAssessmentCategory, severity, status, cause, statusDescription, subAssessmentDescription, subAssessmentRemediation, subAssessmentImpact
+    securityresources
+    | where type =~ "microsoft.security/assessments/subassessments"
+    | extend assessmentKey=extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id), subAssessmentId=tostring(properties.id), parentResourceId= extract("(.+)/providers/Microsoft.Security", 1, id)
+    | extend resourceIdTemp = iff(properties.resourceDetails.id != "", properties.resourceDetails.id, extract("(.+)/providers/Microsoft.Security", 1, id))
+    | extend resourceId = iff(properties.resourceDetails.source =~ "OnPremiseSql", strcat(resourceIdTemp, "/servers/", properties.resourceDetails.serverName, "/databases/" , properties.resourceDetails.databaseName), resourceIdTemp)
+    | where resourceId =~ "/subscriptions/resourcegroups/rgname/providers/microsoft.sql/servers/servername/databases/dbname"
+    | where assessmentKey =~ "82e20e14-edc5-4373-bfc4-f13121257c37"
+    | project resourceId,
+    assessmentKey,
+    subAssessmentId,
+    name=properties.displayName,
+    description=properties.description,
+    severity=properties.status.severity,
+    status=properties.status.code,
+    cause=properties.status.cause,
+    category=properties.category,
+    impact=properties.impact,
+    remediation=properties.remediation,
+    benchmarks=properties.additionalData.benchmarks
     ```
+
 1. Select **Run query**.
 
 1. Select **Download a CSV**, to export your results to a CSV file.
+
+    :::image type="content" source="media/defender-for-sql-scan-results/run-and-download.png" alt-text="Screenshot that shows you where the run query button and the download  as csv button are located." lightbox="media/defender-for-sql-scan-results/run-and-download.png":::
+
+This query is editable and can be customized to a specific resource, set of findings, findings status or more.
+
+## Open a Query from your SQL database
+
+**To open a query from your SQL database**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to `Your SQL database` > **Microsoft Defender for Cloud**.
+
+1. Select **Open Query**.
+
+    :::image type="content" source="media/defender-for-sql-scan-results/open-query.png" alt-text="Screenshot that shows where the open query button is located." lightbox="media/defender-for-sql-scan-results/open-query.png":::
+
+1. Select **Run query**.
+
+1. Select **Download a CSV**, to export your results to a CSV file.
+
+    :::image type="content" source="media/defender-for-sql-scan-results/run-and-download.png" alt-text="Screenshot that shows you where the run query button and the download  as csv button are located." lightbox="media/defender-for-sql-scan-results/run-and-download.png":::
 
 This query is editable and can be customized to a specific resource, set of findings, findings status or more.
 
@@ -89,6 +113,10 @@ Sample email Azure SQL server:
 Sample email SQL VM:
 
 :::image type="content" source="media/defender-for-sql-scan-results/sample-email-sql-vm.png" alt-text="Screenshot of a sample SQL virtual machine results email.." lightbox="media/defender-for-sql-scan-results/sample-email-sql-vm.png":::
+
+Sample email from your server:
+
+:::image type="content" source="media/defender-for-sql-scan-results/sample-va-email.png" alt-text="Screenshot of a sample email vulnerability assessment report from a server." lightbox="media/defender-for-sql-scan-results/sample-va-email.png":::
 
 ## Other options
 
