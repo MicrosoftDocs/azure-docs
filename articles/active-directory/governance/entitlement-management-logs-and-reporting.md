@@ -35,23 +35,23 @@ Archiving Azure AD audit logs requires you to have Azure Monitor in an Azure sub
 
 1. Sign in to the Azure portal as a user who is a Global Administrator. Make sure you have access to the resource group containing the Azure Monitor workspace.
  
-1. Select **Azure Active Directory** then click **Diagnostic settings** under Monitoring in the left navigation menu. Check if there's already a setting to send the audit logs to that workspace.
+1. Select **Azure Active Directory** then select **Diagnostic settings** under Monitoring in the left navigation menu. Check if there's already a setting to send the audit logs to that workspace.
 
-1. If there isn't already a setting, click **Add diagnostic setting**. Use the instructions in [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md#send-logs-to-azure-monitor) to send the Azure AD audit log to the Azure Monitor workspace.
+1. If there isn't already a setting, select **Add diagnostic setting**. Use the instructions in [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md#send-logs-to-azure-monitor) to send the Azure AD audit log to the Azure Monitor workspace.
 
     ![Diagnostics settings pane](./media/entitlement-management-logs-and-reporting/audit-log-diagnostics-settings.png)
 
 1. After the log is sent to Azure Monitor, select **Log Analytics workspaces**, and select the workspace that contains the Azure AD audit logs.
 
-1. Select **Usage and estimated costs** and click **Data Retention**. Change the slider to the number of days you want to keep the data to meet your auditing requirements.
+1. Select **Usage and estimated costs** and select **Data Retention**. Change the slider to the number of days you want to keep the data to meet your auditing requirements.
 
     ![Log Analytics workspaces pane](./media/entitlement-management-logs-and-reporting/log-analytics-workspaces.png)
 
 1. Later, to see the range of dates held in your workspace, you can use the *Archived Log Date Range* workbook:  
     
-    1. Select **Azure Active Directory** then click **Workbooks**. 
+    1. Select **Azure Active Directory** then select **Workbooks**. 
     
-    1. Expand the section **Azure Active Directory Troubleshooting**, and click on **Archived Log Date Range**. 
+    1. Expand the section **Azure Active Directory Troubleshooting**, and select on **Archived Log Date Range**. 
 
 ## View events for an access package  
 
@@ -65,7 +65,7 @@ To view events for an access package, you must have access to the underlying Azu
 
 Use the following procedure to view events: 
 
-1. In the Azure portal, select **Azure Active Directory** then click **Workbooks**. If you only have one subscription, move on to step 3. 
+1. In the Azure portal, select **Azure Active Directory** then select **Workbooks**. If you only have one subscription, move on to step 3. 
 
 1. If you have multiple subscriptions, select the subscription that contains the workspace.  
 
