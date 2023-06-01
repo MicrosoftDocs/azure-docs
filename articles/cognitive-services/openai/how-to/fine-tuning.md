@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
-ms.custom: build-2023, build-2023-dataai
+ms.custom: build-2023, build-2023-dataai, devx-track-python
 ms.topic: how-to
 ms.date: 04/05/2023
 author: ChrisHMSFT
