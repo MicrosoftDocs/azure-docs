@@ -2,7 +2,7 @@
 title: Onboard non-Azure machines with Defender for Endpoint
 description: Learn how to connect your non-Azure machines directly to Microsoft Defender for Cloud with Microsoft Defender for Endpoint.
 ms.topic: quickstart
-ms.date: 05/30/2023
+ms.date: 06/01/2023
 author: dcurwin
 ms.author: dacurwin
 
@@ -21,23 +21,23 @@ This tenant-level setting allows you to automatically and natively onboard any n
 | Aspect                          | Details                                                      |
 | ------------------------------- | ------------------------------------------------------------ |
 | Release state                   | GA                                                           |
-| Supported operating systems     | All Windows and Linux server operating systems supported by Defender for Endpoint |
+| Supported operating systems     | All [Windows](/microsoft-365/security/defender-endpoint/minimum-requirements#supported-windows-versions) and [Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements) **Server** operating systems supported by Defender for Endpoint |
 | Required roles and  permissions | To manage this setting, you need **Subscription Owner** (on the chosen subscription), and  **AAD Global Administrator** or  **AAD Security Administrator** |
 | Environments                    | On-premises servers  <br />Multicloud VMs – limited  support |
 | Supported plans                 | Defender for Servers P1  <br />Defender for Servers P2 –  limited features |
 
 ## How it works
 
-Direct onboarding is a seamless integration between Defender for Endpoint and Defender for Cloud that doesn’t require extra software deployment on your servers. Once enabled, it also shows your non-Azure server devices onboarded to Defender for Endpoint in Defender for Cloud, under a designated Azure Subscription you configure (in addition to their regular representation in  the Microsoft 365 Defender portal). The Azure Subscription is used for licensing, billing, data alerts, and data integration  but doesn't provide server management capabilities such as Azure Policy, Extensions, or Guest configuration. To enable server management capabilities, refer to the deployment of Azure Arc.
+Direct onboarding is a seamless integration between Defender for Endpoint and Defender for Cloud that doesn’t require extra software deployment on your servers. Once enabled, it also shows your non-Azure server devices onboarded to Defender for Endpoint in Defender for Cloud, under a designated Azure Subscription you configure (in addition to their regular representation in  the Microsoft 365 Defender portal). The Azure Subscription is used for licensing, billing, alerts, and security insights but doesn't provide server management capabilities such as Azure Policy, Extensions, or Guest configuration. To enable server management capabilities, refer to the deployment of Azure Arc.
 
 ## Enabling direct onboarding
 
-Enabling direct onboarding is an opt-in setting at the tenant level. It affects both existing and new servers onboarded to Defender for Endpoint in the same Azure AD tenant. Shortly after enabling this setting your server devices will show under the designated subscription. Alerts, software inventory, and vulnerability data are integrated with Defender for Cloud, in a similar way to how it works with Azure VMs.
+Enabling direct onboarding is an opt-in setting at the tenant level. It affects both existing and new servers onboarded to Defender for Endpoint in the same Azure AD tenant. Shortly after enabling this setting, your server devices will show under the designated subscription. Alerts, software inventory, and vulnerability data are integrated with Defender for Cloud, in a similar way to how it works with Azure VMs.
 
 Before you begin:
 
 - Make sure you have the [required permissions](#availability)
-- If you have a Microsoft Defender for Endpoint for Servers license – [make sure to indicate it](faq-defender-for-servers.yml#can-i-get-a-discount-if-i-already-have-a-microsoft-defender-for-endpoint-license-) in Defender for Cloud
+- If you have a Microsoft Defender for Endpoint for Servers license on your tenant, [make sure to indicate it](faq-defender-for-servers.yml#can-i-get-a-discount-if-i-already-have-a-microsoft-defender-for-endpoint-license-) in Defender for Cloud
 - Review the [limitations section](#current-limitations)
 
 ### Enabling in the Defender for Cloud portal
@@ -59,11 +59,11 @@ Deploying the Defender for Endpoint agent on your on-premises Windows and Linux 
 
 - **Plan support**: Direct onboarding provides access to all Defender for Servers Plan 1 features. However, certain features in Plan 2 still require the deployment of the Azure Monitor Agent, which is only available with Azure Arc on non-Azure machines. If you enable Plan 2 on your designated subscription, machines onboarded directly with Defender for Endpoint have access to all Defender for Servers Plan 1 features and the Defender Vulnerability Management Addon features included in Plan 2.
 
-- **Multi-cloud support**: You can directly onboard VMs in AWS and GCP with using the Defender for Endpoint agent. However, if you plan to connect your AWS or GCP account to Defender for Servers using multicloud connectors,  it's still recommended to deploy Azure Arc.
+- **Multi-cloud support**: You can directly onboard VMs in AWS and GCP using the Defender for Endpoint agent. However, if you plan to simultaneously connect your AWS or GCP account to Defender for Servers using multicloud connectors, it's currently still recommended to deploy Azure Arc.
 
 - **Simultaneous onboarding limited support**: Defender for Cloud makes a best effort to correlate servers onboarded using multiple billing methods. However, in certain server deployment use cases, there may be limitations where Defender for Cloud is unable to correlate your machines. This may result in overcharges on certain devices if direct onboarding is also enabled on your tenant.
 
-  The following are deployment use cases currently with this limitation:
+  The following are deployment use cases currently with this limitation when used with direct onboarding of your tenant:
 
   | Location                             | Deployment use case                                          |
   | ------------------------------------ | ------------------------------------------------------------ |
