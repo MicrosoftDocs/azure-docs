@@ -109,7 +109,7 @@ Here is an example:
 
 ##### Logback
 
-Add the following filter to your log4j.xml file
+Add the following filter to your logback.xml file
 
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>OFF</level>
