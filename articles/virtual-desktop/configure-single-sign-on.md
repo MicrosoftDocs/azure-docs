@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 06/06/2023
 ms.author: helohr
 ---
 # Configure single sign-on for Azure Virtual Desktop using Azure AD Authentication
@@ -42,21 +42,28 @@ You must [Create a Kerberos Server object](../active-directory/authentication/ho
 - Hybrid Azure AD-joined. Azure AD Kerberos is needed to complete the authentication to the domain controller.
 - Azure AD-joined and your environment contains Active Directory Domain Controllers. Azure AD Kerberos is required in this case for users to access on-premises resources, like SMB shares, and Windows-integrated authentication to websites.
   
-Clients currently supported:  
+Clients currently supported:
 
 - [Windows Desktop client](users/connect-windows.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to a domain or Azure AD.
 - [Web client](users/connect-web.md).
+- [macOS client](users/connect-macos.md) version 10.8.2 or later.
 
 ## Enable single sign-on
 
 To enable SSO on your host pool, you must [customize an RDP property](customize-rdp-properties.md). You can find the **Azure AD Authentication** property under the **Connection information** tab in the Azure portal or set the **enablerdsaadauth** property to **1** using PowerShell.
 
 > [!IMPORTANT]
-> If you enable SSO on your Hybrid Azure AD-joined VMs before you create the Kerberos server object, you won't be able to connect to the VMs, and you'll see an error message saying the specific log on session doesn't exist.
+> If you enable SSO on your Hybrid Azure AD-joined VMs before you [create a Kerberos server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object), you'll either see an error message saying the specific log on session doesn't exist or SSO will not work and you'll see a standard authentication dialog for the session host. In both cases, create the Kerberos server object before trying again.
 
 ### Allow remote desktop connection dialog
 
 When enabling single sign-on, you'll currently be prompted to authenticate to Azure AD and allow the Remote Desktop connection when launching a connection to a new host. Azure AD remembers up to 15 hosts for 30 days before prompting again. If you see this dialogue, select **Yes** to connect.
+
+### Using an Active Directory domain admin account with single sign-on
+
+In environments with an Active Directory (AD) and Hybrid user accounts, the default security policy doesn't grant Azure AD permission to sign in high privilege accounts to on-premises resources. This will prevent domain admin accounts from signing in to Hybrid Azure AD-joined hosts and from accessing on-prem resources from Azure AD-joined hosts.
+
+To unblock the accounts, use **Active Directory Users and Computers** to modify the *msDS-NeverRevealGroup* property of the *Azure AD Kerberos Computer object (CN=AzureADKerberos,OU=Domain Controllers,\<domain-DN>)*.
 
 ### Disconnection when the session is locked
 
