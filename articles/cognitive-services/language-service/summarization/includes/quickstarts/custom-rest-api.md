@@ -29,7 +29,7 @@ Before you can use custom Summarization, you'll need to create an Azure Language
 
 ### Get your resource keys and endpoint
 
-
+[!INCLUDE [Get keys and endpoint Azure Portal](../../../includes/key-endpoint-page-azure-portal.md)]
 
 ## Create a custom summarization project
 
@@ -38,8 +38,12 @@ Once your resource and storage account are configured, create a new custom Summa
 [!INCLUDE [Create custom Summarization project](../../../includes/custom/language-studio/create-project.md)]
 
 ### Trigger import project job
+<!--- incomplete --->
+[!INCLUDE [Import a project using the REST API]()]
 
 ### Get import job status
+<!--- incomplete --->
+[!INCLUDE [get import project status]()]
 
 ## Train your model
 
@@ -48,8 +52,16 @@ After you create a project, you go ahead and start training your model.
 [!INCLUDE [Train a model using Language Studio](../../../includes/custom/language-studio/train-your-model.md)]
 
 ### Start training job
+<!--- incomplete --->
+After your project has been imported, you can start training your model. 
+
+[!INCLUDE [train model](../rest-api/train-model.md)]
 
 ### Get training job status
+<!--- incomplete --->
+Training could take a some time. You can use the following request to keep polling the status of the training job until it is successfully completed.
+
+[!INCLUDE [get training model status]()]
 
 ## Deploy your model
 
@@ -58,12 +70,20 @@ Generally after training a model you would review its [evaluation details](../..
 [!INCLUDE [Deploy a model using Language Studio](../language-studio/deploy-model.md)]
 
 ### Start deployment job
+<!--- incomplete --->
+[!INCLUDE [deploy model]()]
 
 ### Get deployment job status
+<!--- incomplete --->
+[!INCLUDE [get deployment status]()]
 
 ## Submit a custom Summarization task
+<!--- incomplete --->
+[!INCLUDE [submit a custom summarization task using the REST API]()]
 
 ## Get task results
+<!--- incomplete --->
+[!INCLUDE [get custom summarization task results]()]
 
 ## Clean up resources
 
