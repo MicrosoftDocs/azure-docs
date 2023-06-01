@@ -154,7 +154,7 @@ Use the following steps to enable a log streaming endpoint on the public network
 
 1. Switch the status of **Dataplane resources on public network** to **enable** to enable a log streaming endpoint on the public network. This process will take a few minutes.
 
-   :::image type="content" source="media/how-to-vnet-dataplane-public-endpoint/dataplane-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet Injection page." lightbox="media/how-to-vnet-dataplane-public-endpoint/dataplane-public-endpoint.png":::
+   :::image type="content" source="media/how-to-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet Injection page." lightbox="media/how-to-log-streaming/dataplane-public-endpoint.png":::
 
 #### [CLI](#tab/azure-CLI)
 
