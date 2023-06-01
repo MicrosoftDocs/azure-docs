@@ -192,6 +192,9 @@ In this section, you create an NSG flow log that's saved into the storage accoun
 
     :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/create-nsg-flow-log.png" alt-text="Screenshot of create NSG flow log page in the Azure portal.":::
 
+> [!NOTE]
+> The Azure portal creates the NSG flow logs in **NetworkWatcherRG** resource group.
+
 1. Select **Review + create**.
 
 1. Review the settings, and then select **Create**.
@@ -278,7 +281,7 @@ The comma-separated information for **flowTuples** is as follows:
 
 ## Clean up resources
 
-When no longer needed, delete **myVM-nsg-myResourceGroup-flowlog** flow log and **myResourceGroup** resource group and all of the resources it contains:
+When no longer needed, delete **myResourceGroup** resource group and all of the resources it contains and **myVM-nsg-myResourceGroup-flowlog** flow log:
 
 To delete the flow log:
 
