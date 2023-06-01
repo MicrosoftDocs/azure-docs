@@ -3,7 +3,7 @@ title: Troubleshooting Elastic Cloud (Elasticsearch) - An Azure Native ISV Servi
 description: This article provides information about troubleshooting Elastic integration with Azure
 
 ms.topic: conceptual
-ms.date: 05/19/2023
+ms.date: 06/01/2023
 author: flang-msft
 ms.author: franlanglois
 
@@ -15,7 +15,7 @@ This document contains information about troubleshooting your solutions that use
 
 ## Unable to create an Elastic resource
 
-Elastic integration with Azure can only be set up by users who have *Owner* or *Contributor* access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md).
+Only users who have *Owner* or *Contributor* access on the Azure subscription can set up the Elastic resource. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md).
 
 ## Logs not being emitted to Elastic
 
@@ -30,7 +30,7 @@ Elastic integration with Azure can only be set up by users who have *Owner* or *
 
 - Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md?tabs=portal)
 
-- Export of Metrics data is not supported currently by the partner solutions under Azure Monitor diagnostic settings.
+- Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings.
 
 ## Purchase errors
 

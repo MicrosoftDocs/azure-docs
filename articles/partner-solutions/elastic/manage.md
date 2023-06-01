@@ -41,7 +41,7 @@ The **Logs to Elastic** column indicates whether the resource is sending Logs to
 
 You can install Elastic agents on virtual machines as an extension. To see the available virtual machines in your subscription, select **Virtual Machines** from the left pane of your Elastic resource.
 
-:::image type="content" source="media/manage/vm-agents.png" alt-text="View virtual machines":::
+:::image type="content" source="media/manage/vm-agents.png" alt-text="Screenshot showing  a list of virtual machines where you can install the Elastic VM extension and status information.":::
 
 For each virtual machine, the following data is displayed:
 
@@ -53,6 +53,8 @@ For each virtual machine, the following data is displayed:
 - Sending logs – Whether the Elastic agent is sending logs to Elastic.
 
 To install the Elastic agent, select a virtual machine and select **Install Extension**.
+
+:::image type="content" source="media/manage/elastic-install-extension.png" alt-text="Screenshot showing a virtual machine selected for an installation of the Elastic VM extension.":::
 
 The portal asks for confirmation that you want to install the agent with the default authentication. Select **OK** to begin installation. The portal shows the status as **Installing** until the agent is installed and provisioned.
 
@@ -66,7 +68,7 @@ To uninstall the Elastic agent on a virtual machine, select the virtual machine 
 
 To configure the diagnostic settings for a resource, select that resource. In the left pane, select **Diagnostic settings**.
 
-In the destination details section, check the option to send to partner solutions to select Elastic as a destination target. This option is only available after an Elastic resource has been created.
+In the destination details section, check the option to send to partner solutions to select Elastic as a destination target. The option is only available after an Elastic resource has been created.
 
 :::image type="content" source="media/manage/diagnostic-settings.png" alt-text="Configure diagnostic settings":::
 
@@ -80,7 +82,6 @@ You can limit network access to a [private link](../../private-link/private-link
 
 To manage how Elastic deployments can be accessed, you can set Traffic filters for Azure Private Links.
 
-<!-- Screenshot - added if primitive -->
 :::image type="content" source="media/manage/elastic-traffic-filter.png" alt-text="Screenshot showing Traffic Filter selected in the Resource menu.":::
 
 There are two types of filters available:
@@ -88,7 +89,7 @@ There are two types of filters available:
 - IP traffic filter
 - Private Link traffic filter
 
-Select **Add** to set up and this automatically associates a new traffic filter to Elastic deployment.
+Select **Add** to set up and automatically associate a new traffic filter to and Elastic deployment.
 
 To associate an already existing traffic filter to the current deployment, you select **Link**. The traffic filter must be in the same region as the deployment.
 
