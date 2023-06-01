@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 author: nikhilpatel909
 ms.author: erd
-ms.date: 03/10/2023
+ms.date: 06/01/2023
 ms.topic: how-to  
 ms.reviewer: erd
 ms.custom: devx-track-azurecli
@@ -114,7 +114,7 @@ You can use one of the [built-in roles](../../role-based-access-control/built-in
 
 ## Action Run Command Linux troubleshooting
 
-When troubleshooting action run command for Linux environments, refer to the *handler* log file typically located in the following directory: `/var/log/azure/run-command/handler.log` for further details.
+When troubleshooting action run command for Linux environments, refer to the *handler* log file typically located in the following directory: `/var/log/azure/run-command-handler/handler.log` for further details.
 
 ### Known issues
 The Linux action run command logs have a few notable differences compared to the action run command Windows logs:
