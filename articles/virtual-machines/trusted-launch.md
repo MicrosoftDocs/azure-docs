@@ -46,7 +46,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 
 | OS | Version |
 |:--- |:--- |
-| CBL-Mariner | 1.0, 2.0 |
+| Azure Linux | 1.0, 2.0 |
 | CentOS | 8.3, 8.4 |
 | Debian |11 |
 | Oracle Linux |8.3, 8.4, 8.5, 8.6, 9.0 LVM |
