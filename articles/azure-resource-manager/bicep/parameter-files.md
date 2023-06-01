@@ -27,12 +27,21 @@ param <first-parameter-name> = <first-value>/<expression>
 param <second-parameter-name> = <second-value>/<expression>
 ```
 
-You can reference environment variables as parameter values. For example,
+Expressions are supported. For example:
+
+```bicep
+using 'storageaccount.bicep'
+
+param storageName = toLower('MyStorageAccount')
+param intValue = 2 + 2
+```
+
+You can reference environment variables as parameter values. For example:
 
 ```bicep
 using './main.bicep'
 
-param intfromEnvironmentVariables = int(readEnvironmentVariable('intEnvVariableName'))
+param intFromEnvironmentVariables = int(readEnvironmentVariable('intEnvVariableName'))
 ```
 
 # [JSON parameters file](#tab/JSON)
@@ -120,7 +129,7 @@ Use Bicep syntax to declare [objects](./data-types.md#objects) and [arrays](./da
 
 Bicep parameters file has the file extension of `.bicepparam`.
 
-To deploy to different environments, you create more than one parameters file. When you name the parameters files, identify their use such as development and production. For example, use _main.dev.biceparm_ and _main.prod.json_ to deploy resources.
+To deploy to different environments, you create more than one parameters file. When you name the parameters files, identify their use such as development and production. For example, use _main.dev.biceparam_ and _main.prod.json_ to deploy resources.
 
 # [JSON parameters file](#tab/JSON)
 

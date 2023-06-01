@@ -65,13 +65,13 @@ To use the `--no-restore` switch, you must have Bicep CLI version **0.4.1008 or 
 
 jgao: need to test the following sample. Verify the outfile name.
 
-The `build-params` command builds .bicepparam files into JSON parameters files.
+The `build-params` command builds a _.bicepparam_ file into a JSON parameters file.
 
 ```azurecli
 az bicep build-params params.bicepparam
 ```
 
-This command converts a params.bicepparam parameters file into a params.json JSON parameters file.
+This command converts a _params.bicepparam_ parameters file into a _params.json_ JSON parameters file.
 
 ## decompile
 
@@ -89,7 +89,7 @@ For more information about using this command, see [Decompiling ARM template JSO
 
 jgao: need to test the following samples.
 
-The `generate-params` command builds a parameters file from the given bicep file, updates if there is an existing parameters file.
+The `generate-params` command builds a parameters file from the given Bicep file, updates if there is an existing parameters file.
 
 ```azurecli
 az bicep generate-params --file main.bicep --output-format bicepparam --include-params all
