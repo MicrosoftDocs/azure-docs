@@ -294,7 +294,7 @@ The following section provides more information about each assembly type and whe
 
   This assembly provides the Custom Java SDK. For example, the [JDBC built-in connector](/azure/logic-apps/connectors/built-in/reference/jdbc/) uses these JAR files to find JDBC drivers for custom relational databases (RDBs). You can add these assemblies in the following folder: **\lib\builtinOperationSdks\JAR**
   
-  - Custom assembly (.NET Framework)
+- Custom assembly (.NET Framework)
   
   This assembly provides custom DLLs. For example, the **Transform XML** operation uses these assemblies for the custom transformation functions that are required for XML transformation. You can add these assemblies in the following folder: **\lib\custom\net472**
 
