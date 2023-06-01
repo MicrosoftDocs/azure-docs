@@ -32,7 +32,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/introduction.md",
-        "redirect_url": "/azure/machine-learning/introduction.md",
+        "redirect_url": "/azure/machine-learning/introduction",
         "redirect_document_id": true
     },
     {
