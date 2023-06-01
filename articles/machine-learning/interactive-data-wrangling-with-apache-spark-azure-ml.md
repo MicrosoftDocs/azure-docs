@@ -85,7 +85,7 @@ The Notebooks UI also provides options for Spark session configuration, for the 
 
     :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/stop-current-session.png" alt-text="Screenshot showing the stop current session dialog box.":::
 
-The session configuration changes will persist and will become available to another notebook session that is started using the serverless Spark compute.
+The session configuration changes persist and becomes available to another notebook session that is started using the serverless Spark compute.
 
 ### Import and wrangle data from Azure Data Lake Storage (ADLS) Gen 2
 
