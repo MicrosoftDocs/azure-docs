@@ -4,7 +4,7 @@ description: Configure collection of Windows Firewall logs on virtual machines w
 ms.topic: how-to
 ms.date: 6/1/2023
 author: jeffreywolford
-ms.author: jefwo
+ms.author: jeffwo
 ms.reviewer: jeffwo
 
 ---
@@ -41,7 +41,7 @@ To create the data collection rule in the Azure portal:
 1. Enter a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, and **Platform Type**:
     - **Region** specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
     - **Platform Type** specifies the type of resources this rule can apply to. The **Custom** option allows for both Windows and Linux types.
-    -**Data Collection End Point** select a previously created data [collection end point]( ./essentials/data-collection-endpoint-overview).
+    -**Data Collection End Point** select a previously created data [collection end point](../essentials/data-collection-endpoint-overview.md).
     [ ![Screenshot that shows the Basics tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
 1. On the **Resources** tab: 
     1. Select **+ Add resources** and associate resources with the data collection rule. Resources can be Virtual Machines, Virtual Machine Scale Sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
