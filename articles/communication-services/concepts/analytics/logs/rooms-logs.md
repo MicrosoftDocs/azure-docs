@@ -47,12 +47,13 @@ Communication Services offers the following types of logs that you can enable:
 
 | Property | Description |
 | -------- | ---------------|
-| `Correlation ID` | The ID of the room, which is a distinguished identifier for an existing room. |
+| `Correlation ID` | The ID for correlated events. Can be used to identify correlated events between multiple tables |
 | `Level` | The severity level of the event. |
 | `Operation Name` | The operation associated with log record. e.g., CreateRoom, PatchRoom, GetRoom, ListRooms, DeleteRoom, GetParticipants, AddParticipants, UpdateParticipants, or RemoveParticipants. |
 | `Operation Version` | The API-version associated with the operation or version of the operation (if there is no API version). |
 | `ResultType` | The status of the operation. |
 | `ResultSignature` | The sub status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
+|.`RoomId` | The ID of the room, which is a distinguished identifier for an existing room. |
 | `RoomLifeSpan` | The Room lifespan in minutes. |
 | `AddedRoomParticipantsCount` | The count of participants added to a room. |
 | `UpsertedRoomParticipantsCount` | The count of participants upserted in a room. |
@@ -65,12 +66,13 @@ Communication Services offers the following types of logs that you can enable:
 ```json
     [
       {
-      "CorrelationId": "99466898241024408",
+      "CorrelationId": "Y4x6ZabFE0+E8ERwMpd68w",
       "Level": "Informational",
       "OperationName": "CreateRoom",
       "OperationVersion": "2022-03-31-preview",
       "ResultType": "Succeeded",
       "ResultSignature": 201,
+      "RoomId": "99466898241024408",
       "RoomLifespan": 61,
       "AddedRoomParticipantsCount": 4,
       "TimeGenerated [UTC]": "5/25/2023, 4:32:49.469 AM",
@@ -83,12 +85,13 @@ Communication Services offers the following types of logs that you can enable:
 ```json
     [
       {
-      "CorrelationId": "99466387192310000",
+      "CorrelationId": "CNiZIX7fvkumtBSpFq7fxg",
       "Level": "Informational",
       "OperationName": "GetRoom",
       "OperationVersion": "2022-03-31-preview",
       "ResultType": "Succeeded",
       "ResultSignature": "200",
+      "RoomId": "99466387192310000",
       "RoomLifespan": 61,
       "TimeGenerated": "2022-08-19T17:07:30.2400300Z",
       },
@@ -100,12 +103,13 @@ Communication Services offers the following types of logs that you can enable:
 ```json
     [
       {
-      "CorrelationId": "99466387192310000",
+      "CorrelationId": "Bwqzh0pdnkGPDwNcMnBkng",
       "Level": "Informational",
       "OperationName": "UpdateRoom",
       "OperationVersion": "2022-03-31-preview",
       "ResultType": "Succeeded",
       "ResultSignature": "200",
+      "RoomId": "99466387192310000",
       "RoomLifespan": 121,
       "TimeGenerated": "2022-08-19T17:07:30.3543160Z",
       },
@@ -117,12 +121,13 @@ Communication Services offers the following types of logs that you can enable:
 ```json
     [
       {
-      "CorrelationId": "99466387192310000",
+      "CorrelationId": "x7rMXmihYEe3GFho9T/H2w",
       "Level": "Informational",
       "OperationName": "DeleteRoom",
       "OperationVersion": "2022-02-01",
       "ResultType": "Succeeded",
       "ResultSignature": "204",
+      "RoomId": "99466387192310000",
       "RoomLifespan": 121,
       "TimeGenerated": "2022-08-19T17:07:30.5393800Z",
       },
@@ -134,12 +139,13 @@ Communication Services offers the following types of logs that you can enable:
 ```json
     [
       {
-      "CorrelationId": "99466387192310000",
+      "CorrelationId": "zHT8snnUMkaXCRDFfjQDJw",
       "Level": "Informational",
       "OperationName": "UpdateParticipants",
       "OperationVersion": "2022-03-31-preview",
       "ResultType": "Succeeded",
       "ResultSignature": "200",
+      "RoomId": "99466387192310000",
       "RoomLifespan": 121,
       "UpsertedRoomParticipantsCount": 5,
       "RemovedRoomParticipantsCount": 1,
