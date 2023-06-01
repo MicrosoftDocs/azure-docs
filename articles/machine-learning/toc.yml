@@ -75,7 +75,7 @@
       href: quickstart-create-resources.md
     - name: Set up dev environments
       href: how-to-configure-environment.md
-    - name: Intall and setup the CLI(v2)
+    - name: Install and setup the CLI(v2)
       href: how-to-configure-cli.md
     - name: Set up studio environment
       items:
@@ -165,439 +165,35 @@
         - name: "Train and deploy models"
           href: ./v1/tutorial-power-bi-custom-model.md
     # end v1
-- name: Samples
+- name: Interact with Azure Machine Learning (WIP)
   items:
-    - name: Jupyter Notebooks
-      displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
-      href: samples-notebooks.md
-    # v1
-    - name: Jupyter Notebooks
-      displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
-      href: ./v1/samples-notebooks-v1.md
-    # end v1
-    - name: Examples repository (v2)
-      displayName: example, examples, jupyter, python, notebook, github
-      href: https://github.com/Azure/azureml-examples
-    - name: Examples repository (v1)
-      displayName: example, examples, jupyter, python, notebook, github
-      href: https://github.com/azure/machinelearningnotebooks
-      # v1
-    - name: Designer examples & datasets
-      displayName: example, examples, studio, pipelines, data sets, modules, components
-      href: ./v1/samples-designer.md
-    # end v1
-    - name: End-to-end MLOps examples
-      href: https://github.com/Azure/mlops-v2
-- name: Concepts
-  items:
-    - name: What is v2?
-      href: concept-v2.md
-    - name: Work with Data
-      items:
-        # v1
-        - name: Data access
-          href: ./v1/concept-data.md
-        - name: Studio network data access
-          href: ./v1/concept-network-data-access.md
-        # end v1
-        - name: Apache Spark in Azure Machine Learning
-          href: apache-spark-azure-ml-concepts.md
-        - name: Data concepts in Azure Machine Learning
-          href: concept-data.md
-        - name: Sourcing human data responsibly
-          href: concept-sourcing-human-data.md
-        - name: Compliance
-          items:
-            - name: Export and delete data
-              displayName: GDPR
-              href: how-to-export-delete-data.md
-    - name: Managed feature store
-      items:
-        - name: What is a managed feature store?
-          href: concept-what-is-managed-feature-store.md
-        - name: Top-level entities in managed feature store
-          href: concept-top-level-entities-in-managed-feature-store.md
-    - name: Train models
-      items:
-        - name: Model training
-          displayName: run config, machine learning pipeline, ml pipeline, train model
-          href: concept-train-machine-learning-model.md
-        # v1
-        - name: Model training
-          displayName: run config, machine learning pipeline, ml pipeline, train model
-          href: ./v1/concept-train-machine-learning-model-v1.md
-        # end v1
-        - name: Distributed training
-          displayName: parallellization, deep learning, deep neural network, dnn
-          href: concept-distributed-training.md
-        - name: Deep learning
-          displayName: deep learning vs machine learning, deep learning, vs, versus
-          href: concept-deep-learning-vs-machine-learning.md
-        - name: MLflow models
-          displayName: tracking models, mlflow, custom, flavors
-          href: concept-mlflow-models.md
-        - name: AutoML
-          items:
-            - name: Automated ML overview
-              displayName: automl, auto ml
-              href: concept-automated-ml.md
-            # v1
-            - name: Automated ML overview
-              displayName: automl, auto ml
-              href: ./v1/concept-automated-ml-v1.md
-            # end v1
-            - name: Time series forecasting
-              items:
-                - name: Forecasting methods
-                  displayName: auto ML, time series, forecasting, methods
-                  href: concept-automl-forecasting-methods.md
-                - name: Deep learning models
-                  displayName: auto ML, time series, forecasting, deep learning, TCN
-                  href: concept-automl-forecasting-deep-learning.md
-                - name: Model sweeping and selection
-                  displayName: auto ML, time series, forecasting, model selection, sweeping
-                  href: concept-automl-forecasting-sweeping.md
-                - name: Calendar features
-                  displayName: auto ML, time series, calendar features, holiday features
-                  href: concept-automl-forecasting-calendar-features.md
-                - name: Lag features
-                  displayName: auto ML, time series, lags
-                  href: concept-automl-forecasting-lags.md
-            - name: Overfitting & imbalanced data
-              displayName: automl, auto ml, risks
-              href: concept-manage-ml-pitfalls.md
-        # v1
-        - name: Designer (drag-n-drop ML)
-          items:
-            - name: Designer overview
-              displayName: studio
-              href: ./v1/concept-designer.md
-            - name: Algorithm cheat sheet
-              href: ./v1/algorithm-cheat-sheet.md
-            - name: How to select algorithms
-              href: ./v1/how-to-select-algorithms.md
-        # end v1
-    - name: Deploy to production
-      items:
-        - name: Endpoints for inference
-          href: concept-endpoints.md
-        - name: Endpoints
-          items:
-            - name: Online endpoints
-              href: concept-endpoints-online.md
-            - name: Batch endpoints
-              href: concept-endpoints-batch.md
-        - name: Model portability (ONNX)
-          href: concept-onnx.md
-        - name: Prebuilt docker images for inference
-          href: concept-prebuilt-docker-images-inference.md
-    - name: Monitor models
-      items:
-        - name: Model data collection
-          href: concept-data-collection.md
-        - name: Model monitoring
-          href: concept-model-monitoring.md
-    - name: MLflow
-      items:
-        - name: MLflow and Azure Machine Learning
-          href: concept-mlflow.md
-        # v1
-        - name: MLflow
-          href: ./v1/concept-mlflow-v1.md
-        # end v1
-        - name: MLflow models
-          displayName: tracking models, mlflow, custom, flavors
-          href: concept-mlflow-models.md
-    - name: Model Catalog
-      items:
-        - name: Foundation Models in Model Catalog
-          href: concept-foundation-models.md
-    - name: Manage the ML lifecycle (MLOps)
-      items:
-        - name: MLOps capabilities
-          displayName: deploy, deployment, publish, production, operationalize, operationalization
-          href: concept-model-management-and-deployment.md
-        # v1
-        - name: MLOps capabilities
-          displayName: deploy, deployment, publish, production, operationalize, operationalization
-          href: ./v1/concept-model-management-and-deployment.md
-        # end v1
-        - name: Registries
-          displayName: collaborate share
-          href: concept-machine-learning-registries-mlops.md
-        - name: ML pipelines
-          href: concept-ml-pipelines.md
-        - name: ML components
-          href: concept-component.md
-        - name: Designer (drag-n-drop ML)
-          href: concept-designer.md
-        - name: Git integration
-          displayName: github gitlab
-          href: concept-train-model-git-integration.md
-    - name: Responsible AI
-      items:
-        - name: Responsible AI overview
-          displayName: responsible, ml
-          href: concept-responsible-ai.md
-        - name: Implement Responsible AI in Practice
-          items:
-            - name: Responsible AI dashboard
-              href: concept-responsible-ai-dashboard.md
-            - name: Responsible AI scorecard
-              href: concept-responsible-ai-scorecard.md
-            - name: Model interpretability
-              displayName: explainability, explanations, interpretability
-              href: how-to-machine-learning-interpretability.md
-            - name: Fairness in Machine Learning
-              displayName: fairness, bias, model performance, disparity metrics, unfairness
-              href: concept-fairness-ml.md
-            - name: Causal analysis
-              displayName: causal analysis, causal inference
-              href: concept-causal-inference.md
-            - name: Assess errors in ML models
-              displayName: error analysis, model error
-              href: concept-error-analysis.md
-            - name: Understand your datasets
-              displayName: exploratory data analysis, EDA, dataset explorer
-              href: concept-data-analysis.md
-            - name: Counterfactual analysis and what-if
-              href: concept-counterfactual-analysis.md
-    - name: Workspace & compute resources
-      items:
-        - name: Workspace
-          href: concept-workspace.md
-        - name: Environments
-          href: concept-environments.md
-        - name: Compute instance
-          displayName: resource, dsvm, Data Science Virtual Machine
-          href: concept-compute-instance.md
-        - name: Compute target
-          displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
-          href: concept-compute-target.md
-    - name: Security
-      items:
-        - name: Enterprise security overview
-          displayName: authorization authentication encryption aad azure active directory
-          href: concept-enterprise-security.md
-        - name: Secured workspace traffic flow
-          href: concept-secure-network-traffic-flow.md
-        - name: Security baseline
-          href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
-        - name: Security controls by Azure Policy
-          href: ./security-controls-policy.md
-        - name: Data encryption
-          href: concept-data-encryption.md
-        - name: Customer-managed keys
-          href: concept-customer-managed-keys.md
-        - name: Vulnerability management
-          href: concept-vulnerability-management.md
-- name: Infrastructure & security
-  items:
-    - name: Tutorials & templates
-      items:
-        - name: "Tutorial: Create a secure workspace in Azure portal"
-          href: tutorial-create-secure-workspace.md
-        - name: "Tutorial: Create a secure workspace with templates"
-          href: tutorial-create-secure-workspace-template.md
-    - name: Identity & access management
-      items:
-        - name: Set up authentication
-          displayName: authentication, auth, oauth
-          href: how-to-setup-authentication.md
-        - name: Set up service authentication
-          displayName: managed identity
-          href: how-to-identity-based-service-authentication.md
-        # v1
-        - name: Use managed identities for access control
-          href: ./v1/how-to-use-managed-identities.md
-        - name: Authenticate from the SDK v1
-          href: ./v1/how-to-setup-authentication.md
-        # end v1
-        - name: Manage users and roles
-          href: how-to-assign-roles.md
-    - name: Network security
-      items:
-        - name: Plan for network isolation
-          href: how-to-network-isolation-planning.md
-        - name: Virtual network overview
-          displayName: vnet, blob
-          href: how-to-network-security-overview.md
-        - name: Use managed virtual network
-          displayName: vnet, workspace, network isolation
-          href: how-to-managed-network.md
-        - name: Troubleshoot managed virtual network
-          href: how-to-troubleshoot-managed-network.md
-        - name: Use Azure Virtual Network
-          items:
-          - name: Secure workspace resources
-            displayName: vnet, workspace, network isolation, container registry
-            href: how-to-secure-workspace-vnet.md
-          - name: Secure machine learning registry
-            href: how-to-registry-network-isolation.md
-          - name: Secure training environment
-            displayName: vnet, No public IP
-            href: how-to-secure-training-vnet.md
-          - name: Secure inference environment
-            displayName: vnet, Managed Endpoint, AKS
-            href: how-to-secure-inferencing-vnet.md
-          # v1 stuff
-          - name: Secure workspace resources
-            displayName: vnet, workspace, container instance, container registry
-            href: ./v1/how-to-secure-workspace-vnet.md
-          - name: Secure training environment
-            displayName: vnet, No public IP
-            href: ./v1/how-to-secure-training-vnet.md
-          - name: Secure inference environment
-            displayName: vnet, Managed Endpoint, AKS
-            href: ./v1/how-to-secure-inferencing-vnet.md
-          # end v1
-          - name: Use studio in a virtual network
-            displayName: vnet
-            href: how-to-enable-studio-virtual-network.md
-          - name: Use private endpoint
-            displayName: private endpoint
-            href: how-to-configure-private-link.md
-          # v1
-          - name: Use private endpoint
-            displayName: private endpoint
-            href: ./v1/how-to-configure-private-link.md
-          - name: Configure secure web services (v1)
-            displayName: ssl, tls
-            href: ./v1/how-to-secure-web-service.md
-          # end v1
-          - name: Use custom DNS
-            href: how-to-custom-dns.md
-          - name: Configure required network traffic
-            displayName: firewall, user-defined route, udr
-            href: how-to-access-azureml-behind-firewall.md
-          - name: Data exfiltration prevention
-            displayName: loss
-            href: how-to-prevent-data-loss-exfiltration.md
-          - name: Configure network isolation with v2
-            href: how-to-configure-network-isolation-with-v2.md
-          - name: Securely attach Azure Databricks
-            href: how-to-securely-attach-databricks.md
-    # v1 for now - need PM update to v2
-    - name: Data protection
-      items:
-        - name: Failover & disaster recovery
-          displayName: high availability
-          href: ./v1/how-to-high-availability-machine-learning.md
-        - name: Regenerate storage access keys
-          href: ./v1/how-to-change-storage-access-key.md
-    # end v1
-    - name: Create & manage workspaces
-      items:
-        - name: Use Azure portal or Python SDK
-          href: how-to-manage-workspace.md
-        - name: Use Azure CLI
-          href: how-to-manage-workspace-cli.md
-        # v1
-        - name: Use Azure CLI
-          href: ./v1/how-to-manage-workspace-cli.md
-        # v2
-        - name: Use Azure PowerShell
-          href: how-to-manage-workspace-powershell.md
-        - name: Use Resource Manager template
-          displayName: arm
-          href: how-to-create-workspace-template.md
-        - name: Use Terraform
-          href: how-to-manage-workspace-terraform.md
-        - name: Use REST
-          href: how-to-manage-rest.md
-        - name: Recover workspace after deletion
-          displayName: soft-delete
-          href: concept-soft-delete.md
-        - name: How to move a workspace
-          href: how-to-move-workspace.md
-        - name: Securely integrate Azure Synapse & Azure Machine Learning
-          href: how-to-private-endpoint-integration-synapse.md
-        - name: Workspace Diagnostics
-          href: how-to-workspace-diagnostic-api.md
-        - name: Customer-managed keys
-          href: how-to-setup-customer-managed-keys.md
-    - name: Create & manage registries
-      href: how-to-manage-registries.md
-    - name: Create & manage compute resources
-      items:
-        - name: Compute instance
-          displayName: compute target, No public IP
-          href: how-to-create-manage-compute-instance.md
-        # v1
-        - name: Compute instance
-          displayName: compute target
-          href: ./v1/how-to-create-manage-compute-instance.md
-        # end v1
-        - name: Customize compute instance with a script
-          href: how-to-customize-compute-instance.md
-        - name: Compute cluster
-          displayName: compute target, low priority, managed identity
-          href: how-to-create-attach-compute-cluster.md
-        # v1
-        - name: Compute cluster
-          displayName: compute target, low priority, managed identity
-          href: ./v1/how-to-create-attach-compute-cluster.md
-        # end v1
-        - name: Serverless compute
-          displayName: compute target, low priority, managed identity
-          href: how-to-use-serverless-compute.md
-        - name: Manage compute resources
-          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
-          href: how-to-create-attach-compute-studio.md
-        # v1
-        - name: Azure Kubernetes Service
-          displayName: AKS, inference
-          href: ./v1/how-to-create-attach-kubernetes.md
-        # end v1
-        - name: Attach and Manage a Synapse Spark pool
-          displayName: Attach and Manage a Synapse Spark pool
-          href: how-to-manage-synapse-spark-pool.md
-        # v1
-        - name: Link to Azure Synapse Analytics workspace
-          href: ./v1/how-to-link-synapse-ml-workspaces.md
-        # end v1
-    - name: AKS and Azure Arc-enabled Kubernetes
-      items:
-        - name: What is Kubernetes compute target
-          displayName: compute target, Azure Kuberentes Service, Azure Arc-enabled Kubernetes, AKS, on-premises, multi-cloud
-          href: how-to-attach-kubernetes-anywhere.md
-        - name: Step 1 - Deploy Azure Machine Learning extension
-          displayName: AKS, Arc Kubernetes, inference router
-          href: how-to-deploy-kubernetes-extension.md
-        - name: Step 2 - Attach cluster to workspace
-          displayName: AKS, Arc Kubernetes, attach
-          href: how-to-attach-kubernetes-to-workspace.md
-        - name: Create and manage instance types
-          displayName: compute target, instance types, AKS, Arc Kubernetes
-          href: how-to-manage-kubernetes-instance-types.md
-        - name: Manage Azure Machine Learning inference router
-          displayName: AKS, Arc Kubernetes, inference, compute target
-          href: how-to-kubernetes-inference-routing-azureml-fe.md
-        - name: Secure inferencing environment
-          displayName: AKS, Arc Kubernetes, HTTPS, private IP, no-public IP, private link, private endpoint, inference
-          href: how-to-secure-kubernetes-inferencing-environment.md
-        - name: Configure a secure online endpoint with TLS/SSL
-          displayName: AKS, Arc Kubernetes, HTTPS, TSL, SSL, Cname, DNS, Certificate, inference
-          href: how-to-secure-kubernetes-online-endpoint.md
-        - name: Troubleshoot Azure Machine Learning extension
-          displayName: AKS, Arc Kubernetes, Azure Machine Learning extension, troubleshoot
-          href: how-to-troubleshoot-kubernetes-extension.md
-        - name: Troubleshoot Kubernetes compute
-          displayName: AKS, Arc Kubernetes, Kubernetes compute, training, online endpoint, troubleshoot
-          href: how-to-troubleshoot-kubernetes-compute.md
-        - name: Reference for configuring Kubernetes cluster
-          href: reference-kubernetes.md
-    - name: Plan and manage costs
-      displayName: low priority VM
-      href: concept-plan-manage-cost.md
-    - name: Monitor Azure Machine Learning
-      href: monitor-azure-machine-learning.md
-    - name: Secure coding
-      displayName: security threat
-      href: concept-secure-code-best-practice.md
-    - name: Audit and manage
-      displayName: policy
-      href: how-to-integrate-azure-policy.md
+  - name: Workspace
+    href: concept-workspace.md
+  - name: Azure Machine Learning CLI and Python SDK
+    href: concept-v2.md
+  - name: Azure Machine Learning UI
+    - items:
+      - name: Searching for Assets and Resources
+        href: how-to-search-assets.md
+  - name: Compute instance
+    displayName: resource, dsvm, Data Science Virtual Machine
+    href: concept-compute-instance.md
+  - name: VS Code (TBD)
+    href: 
+  - name: MLFlow 
+    href: how-to-use-mlflow-configure-tracking.md
+  - name: Use R with Azure Machine Learning
+    items:
+      - name: Bring R workloads
+        href: how-to-r-overview-r-capabilities.md
+      - name: Interactive R development
+        href: how-to-r-interactive-development.md
+      - name: Adapt R scripts for production
+        href: how-to-r-modify-script-for-production.md
+      - name: Train R model
+        href: how-to-r-train-model.md
+      - name: Deploy R model
+        href: how-to-r-deploy-r-model.md
 - name: Work with data
   items:
   - name: Data Administration
@@ -834,7 +430,7 @@
     displayName: run config, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
   # v1
-  - name: Model training
+  - name: Overview
     displayName: run config, machine learning pipeline, ml pipeline, train model
     href: ./v1/concept-train-machine-learning-model-v1.md
   # end v1
@@ -870,23 +466,34 @@
     items:
     - name: Monitor and analyze jobs in studio
       href: how-to-track-monitor-analyze-runs.md
-    - name: Log and track jobs using MLFlow
-      href: 
     - name: Query and compare runs
       href: how-to-track-experiments-mlflow.md
   - name: Debug jobs
     href: how-to-interactive-jobs.md
   - name: Schedule jobs
     href: how-to-schedule-pipeline-job.md
-  - name: Common issues and FAQ
-- name: Evaluate your models (RAI)
+- name: Responsibly develop & monitor (RAI)
   items: 
-  - name: Configure RAI model evaluation dashboard
-    href: how-to-responsible-ai-insights-ui.md
-  - name: Customize RAI components
-    href: how-to-responsible-ai-insights-sdk-cli.md
-  - name: Create RAI dashboard
-    href: how-to-responsible-ai-dashboard.md
+  - name: Responsible AI Overview
+    href: concept-responsible-ai.md 
+  - name: Configure RAI evalutation
+    items:
+    - name: Responsible AI dashboard
+      href: concept-responsible-ai-dashboard.md    
+    - name: Generate responsible AI insights (UI)
+      href: how-to-responsible-ai-insights-ui.md
+    - name: Understand your datasets
+      href: concept-data-analysis.md
+    - name: Model interpretability
+      href: how-to-machine-learning-interpretability.md
+    - name: Causal analysis
+      href: concept-causal-inference.md
+    - name: Assess errors in ML models
+      href: concept-error-analysis.md
+    - name: Counterfactuals analysis and what-if
+      href: concept-counterfactual-analysis.md
+    - name: Model explanations
+      href: how-to-responsible-ai-dashboard.md#feature-importances-model-explanations
   - name: Generate and configure an RAI scorecard
     items:
       - name: Generate Responsible AI insights
@@ -903,6 +510,17 @@
       href: concept-component.md
     - name: What is Designer
       href: concept-designer.md
+  # v1
+  - name: Designer (drag-n-drop ML)
+    items:
+      - name: Designer overview
+        displayName: studio
+        href: ./v1/concept-designer.md
+      - name: Algorithm cheat sheet
+        href: ./v1/algorithm-cheat-sheet.md
+      - name: How to select algorithms
+        href: ./v1/how-to-select-algorithms.md
+  # end v1
   - name: How to create pipelines with components
     items: 
     - name: Create ML pipelines using components (Python SDK v2)
@@ -925,7 +543,7 @@
       href: how-to-use-pipeline-ui.md
   - name: Schedule a pipeline job
     href: how-to-schedule-pipeline-job.md
-- name: Deploy with Inferencing
+- name: Deploy with inferencing
   items:
     - name: Online endpoints (real-time)
       items:
@@ -1043,10 +661,6 @@
       href: concept-onnx.md
     - name: Prebuilt Docker images for inference
       href: concept-prebuilt-docker-images-inference.md
-- name: Monitor your models
-  items:
-    - name: Data collection
-    - name: Model monitoring
 - name: Operationalize with MLOps
   items: 
     - name: Overview
@@ -1104,105 +718,217 @@
         href: how-to-setup-mlops-azureml.md
       - name: Set up MLOps with Github Actions
         href: how-to-setup-mlops-github-azure-ml.md
-- name: Use R with Azure Machine Learning
+- name: Monitor your models
   items:
-    - name: Bring R workloads
-      href: how-to-r-overview-r-capabilities.md
-    - name: Interactive R development
-      href: how-to-r-interactive-development.md
-    - name: Adapt R scripts for production
-      href: how-to-r-modify-script-for-production.md
-    - name: Train R model
-      href: how-to-r-train-model.md
-    - name: Deploy R model
-      href: how-to-r-deploy-r-model.md
-- name: Concepts
+    - name: Data collection
+    - name: Model monitoring
+- name: Infrastructure & security
   items:
-    - name: What is v2?
-      href: concept-v2.md
-    - name: Work with Data
+    - name: Tutorials & templates
       items:
-        - name: Data concepts in Azure Machine Learning
-          href: concept-data.md
-        - name: Sourcing human data responsibly
-          href: concept-sourcing-human-data.md
-        - name: Compliance
-          items:
-            - name: Export and delete data
-              displayName: GDPR
-              href: how-to-export-delete-data.md
-    - name: Deploy models
+        - name: "Tutorial: Create a secure workspace in Azure portal"
+          href: tutorial-create-secure-workspace.md
+        - name: "Tutorial: Create a secure workspace with templates"
+          href: tutorial-create-secure-workspace-template.md
+    - name: Identity & access management
       items:
-    - name: MLflow
-      items:
+        - name: Set up authentication
+          displayName: authentication, auth, oauth
+          href: how-to-setup-authentication.md
+        - name: Set up service authentication
+          displayName: managed identity
+          href: how-to-identity-based-service-authentication.md
         # v1
-        - name: MLflow
-          href: ./v1/concept-mlflow-v1.md
+        - name: Use managed identities for access control
+          href: ./v1/how-to-use-managed-identities.md
+        - name: Authenticate from the SDK v1
+          href: ./v1/how-to-setup-authentication.md
         # end v1
-
-    - name: Foundation Models
+        - name: Manage users and roles
+          href: how-to-assign-roles.md
+    - name: Network security
       items:
-        - name: Foundation Models in Model Catalog
-          href: concept-foundation-models.md
-    - name: Manage the ML lifecycle (MLOps)
-      items:
-    - name: Responsible AI
-      items:
-        - name: Responsible AI overview
-          displayName: responsible, ml
-          href: concept-responsible-ai.md
-        - name: Implement Responsible AI in Practice
+        - name: Plan for network isolation
+          href: how-to-network-isolation-planning.md
+        - name: Virtual network overview
+          displayName: vnet, blob
+          href: how-to-network-security-overview.md
+        - name: Use managed virtual network
+          displayName: vnet, workspace, network isolation
+          href: how-to-managed-network.md
+        - name: Troubleshoot managed virtual network
+          href: how-to-troubleshoot-managed-network.md
+        - name: Use Azure Virtual Network
           items:
-            - name: Responsible AI dashboard
-              href: concept-responsible-ai-dashboard.md
-            - name: Responsible AI scorecard
-              href: concept-responsible-ai-scorecard.md
-            - name: Model interpretability
-              displayName: explainability, explanations, interpretability
-              href: how-to-machine-learning-interpretability.md
-            - name: Fairness in Machine Learning
-              displayName: fairness, bias, model performance, disparity metrics, unfairness
-              href: concept-fairness-ml.md
-            - name: Causal analysis
-              displayName: causal analysis, causal inference
-              href: concept-causal-inference.md
-            - name: Assess errors in ML models
-              displayName: error analysis, model error
-              href: concept-error-analysis.md
-            - name: Understand your datasets
-              displayName: exploratory data analysis, EDA, dataset explorer
-              href: concept-data-analysis.md
-            - name: Counterfactual analysis and what-if
-              href: concept-counterfactual-analysis.md
-    - name: Workspace & compute resources
+          - name: Secure workspace resources
+            displayName: vnet, workspace, network isolation, container registry
+            href: how-to-secure-workspace-vnet.md
+          - name: Secure machine learning registry
+            href: how-to-registry-network-isolation.md
+          - name: Secure training environment
+            displayName: vnet, No public IP
+            href: how-to-secure-training-vnet.md
+          - name: Secure inference environment
+            displayName: vnet, Managed Endpoint, AKS
+            href: how-to-secure-inferencing-vnet.md
+          # v1 stuff
+          - name: Secure workspace resources
+            displayName: vnet, workspace, container instance, container registry
+            href: ./v1/how-to-secure-workspace-vnet.md
+          - name: Secure training environment
+            displayName: vnet, No public IP
+            href: ./v1/how-to-secure-training-vnet.md
+          - name: Secure inference environment
+            displayName: vnet, Managed Endpoint, AKS
+            href: ./v1/how-to-secure-inferencing-vnet.md
+          # end v1
+          - name: Use studio in a virtual network
+            displayName: vnet
+            href: how-to-enable-studio-virtual-network.md
+          - name: Use private endpoint
+            displayName: private endpoint
+            href: how-to-configure-private-link.md
+          # v1
+          - name: Use private endpoint
+            displayName: private endpoint
+            href: ./v1/how-to-configure-private-link.md
+          - name: Configure secure web services (v1)
+            displayName: ssl, tls
+            href: ./v1/how-to-secure-web-service.md
+          # end v1
+          - name: Use custom DNS
+            href: how-to-custom-dns.md
+          - name: Configure required network traffic
+            displayName: firewall, user-defined route, udr
+            href: how-to-access-azureml-behind-firewall.md
+          - name: Data exfiltration prevention
+            displayName: loss
+            href: how-to-prevent-data-loss-exfiltration.md
+          - name: Configure network isolation with v2
+            href: how-to-configure-network-isolation-with-v2.md
+          - name: Securely attach Azure Databricks
+            href: how-to-securely-attach-databricks.md
+    # v1 for now - need PM update to v2
+    - name: Data protection
       items:
-        - name: Workspace
-          href: concept-workspace.md
-        - name: Environments
-          href: concept-environments.md
-        - name: Compute instance
-          displayName: resource, dsvm, Data Science Virtual Machine
-          href: concept-compute-instance.md
-        - name: Compute target
-          displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
-          href: concept-compute-target.md
-    - name: Security
+        - name: Failover & disaster recovery
+          displayName: high availability
+          href: ./v1/how-to-high-availability-machine-learning.md
+        - name: Regenerate storage access keys
+          href: ./v1/how-to-change-storage-access-key.md
+    # end v1
+    - name: Create & manage workspaces
       items:
-        - name: Enterprise security overview
-          displayName: authorization authentication encryption aad azure active directory
-          href: concept-enterprise-security.md
-        - name: Secured workspace traffic flow
-          href: concept-secure-network-traffic-flow.md
-        - name: Security baseline
-          href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
-        - name: Security controls by Azure Policy
-          href: ./security-controls-policy.md
-        - name: Data encryption
-          href: concept-data-encryption.md
+        - name: Use Azure portal or Python SDK
+          href: how-to-manage-workspace.md
+        - name: Use Azure CLI
+          href: how-to-manage-workspace-cli.md
+        # v1
+        - name: Use Azure CLI
+          href: ./v1/how-to-manage-workspace-cli.md
+        # v2
+        - name: Use Azure PowerShell
+          href: how-to-manage-workspace-powershell.md
+        - name: Use Resource Manager template
+          displayName: arm
+          href: how-to-create-workspace-template.md
+        - name: Use Terraform
+          href: how-to-manage-workspace-terraform.md
+        - name: Use REST
+          href: how-to-manage-rest.md
+        - name: Recover workspace after deletion
+          displayName: soft-delete
+          href: concept-soft-delete.md
+        - name: How to move a workspace
+          href: how-to-move-workspace.md
+        - name: Securely integrate Azure Synapse & Azure Machine Learning
+          href: how-to-private-endpoint-integration-synapse.md
+        - name: Workspace Diagnostics
+          href: how-to-workspace-diagnostic-api.md
         - name: Customer-managed keys
-          href: concept-customer-managed-keys.md
-        - name: Vulnerability management
-          href: concept-vulnerability-management.md
+          href: how-to-setup-customer-managed-keys.md
+    - name: Create & manage registries
+      href: how-to-manage-registries.md
+    - name: Create & manage compute resources
+      items:
+        - name: Compute instance
+          displayName: compute target, No public IP
+          href: how-to-create-manage-compute-instance.md
+        # v1
+        - name: Compute instance
+          displayName: compute target
+          href: ./v1/how-to-create-manage-compute-instance.md
+        # end v1
+        - name: Customize compute instance with a script
+          href: how-to-customize-compute-instance.md
+        - name: Compute cluster
+          displayName: compute target, low priority, managed identity
+          href: how-to-create-attach-compute-cluster.md
+        # v1
+        - name: Compute cluster
+          displayName: compute target, low priority, managed identity
+          href: ./v1/how-to-create-attach-compute-cluster.md
+        # end v1
+        - name: Serverless compute
+          displayName: compute target, low priority, managed identity
+          href: how-to-use-serverless-compute.md
+        - name: Manage compute resources
+          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
+          href: how-to-create-attach-compute-studio.md
+        # v1
+        - name: Azure Kubernetes Service
+          displayName: AKS, inference
+          href: ./v1/how-to-create-attach-kubernetes.md
+        # end v1
+        - name: Attach and Manage a Synapse Spark pool
+          displayName: Attach and Manage a Synapse Spark pool
+          href: how-to-manage-synapse-spark-pool.md
+        # v1
+        - name: Link to Azure Synapse Analytics workspace
+          href: ./v1/how-to-link-synapse-ml-workspaces.md
+        # end v1
+    - name: AKS and Azure Arc-enabled Kubernetes
+      items:
+        - name: What is Kubernetes compute target
+          displayName: compute target, Azure Kuberentes Service, Azure Arc-enabled Kubernetes, AKS, on-premises, multi-cloud
+          href: how-to-attach-kubernetes-anywhere.md
+        - name: Step 1 - Deploy Azure Machine Learning extension
+          displayName: AKS, Arc Kubernetes, inference router
+          href: how-to-deploy-kubernetes-extension.md
+        - name: Step 2 - Attach cluster to workspace
+          displayName: AKS, Arc Kubernetes, attach
+          href: how-to-attach-kubernetes-to-workspace.md
+        - name: Create and manage instance types
+          displayName: compute target, instance types, AKS, Arc Kubernetes
+          href: how-to-manage-kubernetes-instance-types.md
+        - name: Manage Azure Machine Learning inference router
+          displayName: AKS, Arc Kubernetes, inference, compute target
+          href: how-to-kubernetes-inference-routing-azureml-fe.md
+        - name: Secure inferencing environment
+          displayName: AKS, Arc Kubernetes, HTTPS, private IP, no-public IP, private link, private endpoint, inference
+          href: how-to-secure-kubernetes-inferencing-environment.md
+        - name: Configure a secure online endpoint with TLS/SSL
+          displayName: AKS, Arc Kubernetes, HTTPS, TSL, SSL, Cname, DNS, Certificate, inference
+          href: how-to-secure-kubernetes-online-endpoint.md
+        - name: Troubleshoot Azure Machine Learning extension
+          displayName: AKS, Arc Kubernetes, Azure Machine Learning extension, troubleshoot
+          href: how-to-troubleshoot-kubernetes-extension.md
+        - name: Troubleshoot Kubernetes compute
+          displayName: AKS, Arc Kubernetes, Kubernetes compute, training, online endpoint, troubleshoot
+          href: how-to-troubleshoot-kubernetes-compute.md
+        - name: Reference for configuring Kubernetes cluster
+          href: reference-kubernetes.md
+    - name: Plan and manage costs
+      displayName: low priority VM
+      href: concept-plan-manage-cost.md
+    - name: Monitor Azure Machine Learning
+      href: monitor-azure-machine-learning.md
+    - name: Secure coding
+      displayName: security threat
+      href: concept-secure-code-best-practice.md
+    - name: Audit and manage
+      displayName: policy
+      href: how-to-integrate-azure-policy.md
 - name: How-to guides
   items:
     - name: Understand resources and assets
@@ -1521,9 +1247,11 @@
     - name: Examples repository (v1)
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/azure/machinelearningnotebooks
+    # v1
     - name: Designer examples & datasets
       displayName: example, examples, studio, pipelines, data sets, modules, components
-      href: samples-designer.md
+      href: ./v1/samples-designer.md
+    # end v1
     - name: End-to-end MLOps examples
       href: https://github.com/Azure/mlops-v2
 - name: Reference
