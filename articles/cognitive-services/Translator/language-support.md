@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: event-tier1-build-2022
 ms.topic: reference
-ms.date: 05/24/2022
+ms.date: 06/01/2023
 ms.author: lajanuar
 ---
 # Translator language support
@@ -304,6 +304,60 @@ The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Trans
 | Thai | `th` | Thai `Thai` | --> | Latin `Latn` |
 |Ukrainian| `uk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 |Urdu| `ur` | Arabic `Arab`  | <--> | Latin `Latn` |
+
+## Custom Translator language pairs
+
+|Source Language|Target Language|
+|:----|:----|
+| Czech (cs-cz)     | English (en-us) |
+| Danish (da-dk)     | English (en-us) |
+| German (de-&#8203;de)     | English (en-us) |
+| Greek (el-gr)     | English (en-us) |
+| English (en-us)     | Arabic (ar-sa) |
+| English (en-us)     | Czech (cs-cz) |
+| English (en-us)     | Danish (da-dk) |
+| English (en-us)     | German (de-&#8203;de) |
+| English (en-us)     | Greek (el-gr) |
+| English (en-us)     | Spanish (es-es) |
+| English (en-us)     | French (fr-fr) |
+| English (en-us)     | Hebrew (he-il) |
+| English (en-us)     | Hindi (hi-in) |
+| English (en-us)     | Croatian (hr-hr) |
+| English (en-us)     | Hungarian (hu-hu) |
+| English (en-us)     | Indonesian (id-id) |
+| English (en-us)     | Italian (it-it) |
+| English (en-us)     | Japanese (ja-jp) |
+| English (en-us)     | Korean (ko-kr) |
+| English (en-us)     | Lithuanian (lt-lt) |
+| English (en-us)     | Latvian (lv-lv) |
+| English (en-us)     | Norwegian (nb-no) |
+| English (en-us)     | Polish (pl-pl) |
+| English (en-us)     | Portuguese (pt-pt) |
+| English (en-us)     | Russian (ru-ru) |
+| English (en-us)     | Slovak (sk-sk) |
+| English (en-us)     | Swedish (sv-se) |
+| English (en-us)     | Ukrainian (uk-ua) |
+| English (en-us)     | Vietnamese (vi-vn) |
+| English (en-us)     | Chinese Simplified (zh-cn) |
+| Spanish (es-es)     | English (en-us) |
+| French (fr-fr)     | English (en-us) |
+| Hindi (hi-in)     | English (en-us) |
+| Hungarian (hu-hu)     | English (en-us) |
+| Indonesian (id-id)     | English (en-us) |
+| Italian (it-it)     | English (en-us) |
+| Japanese (ja-jp)     | English (en-us) |
+| Korean (ko-kr)     | English (en-us) |
+| Norwegian (nb-no)     | English (en-us) |
+| Dutch (nl-nl)     | English (en-us) |
+| Polish (pl-pl)     | English (en-us) |
+| Portuguese (pt-br)     | English (en-us) |
+| Russian (ru-ru)     | English (en-us) |
+| Swedish (sv-se)     | English (en-us) |
+| Thai (th-th)     | English (en-us) |
+| Turkish (tr-tr)     | English (en-us) |
+| Vietnamese (vi-vn)     | English (en-us) |
+| Chinese Simplified (zh-cn)     | English (en-us) |
+||
 
 ## Other Cognitive Services
 
