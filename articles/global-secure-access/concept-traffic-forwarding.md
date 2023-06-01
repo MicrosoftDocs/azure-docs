@@ -32,6 +32,14 @@ For each traffic forwarding profile, you can configure three main details:
 - Conditional Access policies to apply
 - Branch locations to assign
 
+## Microsoft 365
+
+The Microsoft 365 traffic forwarding profile includes SharePoint Online, Exchange Online, and Microsoft 365 apps. All of the destinations for these apps are automatically included in the profile. Within each of the three main groups of destinations, you can choose to forward that traffic to Global Secure Access or bypass the service.
+
+## Private access
+
+With the Private Access profile you can route traffic to your private apps and resources. 
+
 ## Next steps
 
 - [Enable the M365 traffic profile](how-to-enable-m365-profile.md)
