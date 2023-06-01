@@ -102,7 +102,7 @@ Use one of the following monitoring methods:
 
 Use the following screenshot to see service principal sign-ins.
 
-![Screenshot of service principal sign-ins.](./media/securing-service-accounts/service-accounts-govern-azure-1.png)
+![Screenshot of service principal sign-ins.](./media/govern-service-accounts/service-accounts-govern-1.png)
 
 #### Sign-in log details
 
@@ -155,7 +155,7 @@ Deprovision service accounts under the following circumstances:
 * Account script or application is retired
 * Account script or application function is retired. For example, access to a resource.
 * Service account is replaced by another service account
-* Credentials expired, or the account is non-functional, and there aren’t complaints
+* Credentials expired, or the account is non-functional, and there aren't complaints
 
 Deprovisioning includes the following tasks:
 
@@ -169,6 +169,6 @@ After the associated application or script is deprovisioned:
 
 ## Next steps
 
-* [Securing cloud-based service accounts](service-accounts-introduction-azure.md)
+* [Securing cloud-based service accounts](secure-service-accounts.md)
 * [Securing managed identities](service-accounts-managed-identities.md)
 * [Securing service principal](service-accounts-principal.md)
