@@ -288,7 +288,7 @@ The following section provides more information about each assembly type and whe
 
 - Client/SDK assembly (.NET Framework):
 
-  This assembly provides the Custom .NET Framework SDK. For example, the [SAP built-in connector](/azure/logic-apps/connectors/built-in/reference/sap/) uses these assemblies to find the SAP NCo non-distributable DLL files. You can add these assemblies in the following folder:  **\lib\builtinOperationSdks\net472**
+  This assembly provides the Custom .NET Framework SDK. For example, the [SAP built-in connector](/azure/logic-apps/connectors/built-in/reference/sap/) uses these assemblies to find the SAP NCo non-distributable DLL files. You can add these assemblies in the following folder: **\lib\builtinOperationSdks\net472**
  
 - Client/SDK assembly (Java)
 
@@ -303,7 +303,7 @@ The following image shows where to put each assembly type in your project:
 
 ![Screenshot shows Visual Studio Code, logic app project, and where to upload assemblies.](./media/create-single-tenant-workflows-visual-studio-code/assembly-upload-in-vs-code.jpg)
 
-### Migrate NuGet-based projects to use "lib\*" assemblies
+### Migrate NuGet-based projects to use "lib\\*" assemblies
 
 > [!IMPORTANT]
 > This task is required only for NuGet-based logic app projects.
