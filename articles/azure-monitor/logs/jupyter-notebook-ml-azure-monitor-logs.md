@@ -11,13 +11,13 @@ ms.date: 02/28/2023
 # Customer intent: As a data scientist, I want to run custom code on data in Azure Monitor Logs using to gain insights without having to export data outside of Azure Monitor.
 
 ---
-# Tutorial: Train a regression model on data in Azure Monitor Logs by using a notebook
+# Tutorial: Create a machine learning pipeline in Azure Monitor Logs by using a notebook
 
-Azure and Visual Studio Code support [Jupyter notebooks](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/), an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and text. 
+Azure supports [Jupyter notebooks](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/), which let you create and share documents that contain live code, equations, visualizations, and text. 
 
 Integrating a notebook with a Log Analytics workspace lets you create a multi-step process, running code in each step based on the results of the previous step. You can use such streamlined, multi-step processes to build and run machine learning pipelines, and for other purposes, such as conducting advanced analysis and creating troubleshooting guides (TSGs) for support needs.
 
-In this tutorial, we integrate notebook with a Log Analytics workspace and train a custom machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs. This is one of several ways you can [build your own machine learning pipeline without exporting data out of Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). 
+In this tutorial, we integrate a notebook with a Log Analytics workspace and train a custom machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs. This is one of several ways you can [build your own machine learning pipeline without exporting data out of Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). 
 
 ## Process overview
 
@@ -68,22 +68,21 @@ In this tutorial, you use these tools:
 ||[Azure Identity client library](/python/api/overview/azure/identity-readme)|Enables Azure SDK clients to authenticate with Azure Active Directory.|
 ||[Azure Monitor Ingestion client library](/python/api/overview/azure/monitor-ingestion-readme)| Lets you send custom logs to Azure Monitor using the Logs Ingestion API. Required to [Ingest anomalies into a custom table in your Log Analytics workspace (optional)](#ingest-anomalies-into-a-custom-table-in-your-log-analytics-workspace-optional)|
 ||[Data collection rule](../essentials/data-collection-rule-overview.md), [data collection endpoint](../essentials/data-collection-endpoint-overview.md), and a [registered application](../logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application) | Required to [Ingest anomalies into a custom table in your Log Analytics workspace (optional)](#ingest-anomalies-into-a-custom-table-in-your-log-analytics-workspace-optional) |
-|Open source|[Jupyter Notebook](https://jupyter.org/) | Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or [Azure Synapse](/azure/synapse-analytics/spark/apache-spark-notebook-concept), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.<br> For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).|
-||[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool for Python. |
+|Open source|[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool for Python. |
 ||[Plotly](https://plotly.com/python/)| An open source graphing library for Python. |
 ||[Scikit-learn](https://scikit-learn.org/stable/)|An open source Python library that implements machine learning algorithms for predictive data analysis.|    
- ## Install required libraries
 
-Install the Azure Monitor Query, Azure Identity and Azure Monitor Ingestion client libraries along with the Pandas data analysis library, Plotly visualization library, and Scikit-learn machine learning library:
+## Integrate your Log Analytics workspace with your notebook 
 
-```python
-import sys
+1. Install the Azure Monitor Query, Azure Identity and Azure Monitor Ingestion client libraries along with the Pandas data analysis library, Plotly visualization library, and Scikit-learn machine learning library:
 
-!{sys.executable} -m pip install --upgrade azure-monitor-query azure-identity azure-monitor-ingestion
-
-!{sys.executable} -m pip install --upgrade pandas numpy plotly scikit-learn nbformat
-```
- ## Integrate your Log Analytics workspace with your notebook 
+    ```python
+    import sys
+    
+    !{sys.executable} -m pip install --upgrade azure-monitor-query azure-identity azure-monitor-ingestion
+    
+    !{sys.executable} -m pip install --upgrade pandas numpy plotly scikit-learn nbformat
+    ```
 
 1. Set the `LOGS_WORKSPACE_ID` variable below to the ID of your Log Analytics workspace. The variable is currently set to use the [Azure Monitor Demo workspace](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which you can use to demo the notebook.
 
@@ -147,18 +146,6 @@ import sys
         df = df.sort_values(by="TimeGenerated")
         graph = px.line(df, x='TimeGenerated', y="ActualUsage", color='DataType', title=title)
         graph.show()
-    
-    
-    # Set display options for visualizing
-    def display_options():
-        display = pd.options.display
-        display.max_columns = 10
-        display.max_rows = 10
-        display.max_colwidth = 300
-        display.width = None
-        return None
-     
-    display_options()
     ```
 
 ## Explore and visualize data from your Log Analytics workspace in your notebook
