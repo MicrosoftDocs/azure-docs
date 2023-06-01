@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.author: franlanglois
 ms.topic: conceptual
-ms.date: 05/30/2023
+ms.date: 06/01/2023
 ---
 
 # Manage a Datadog - An Azure Native ISV Service resource
@@ -62,7 +62,7 @@ The column **Logs to Datadog** indicates whether the resource is sending logs to
 - Region not supported. The Azure resource is in a region that doesn't currently support sending logs to Datadog.
 - Datadog agent not configured. Virtual machines without the Datadog agent installed don't emit logs to Datadog.
 
-## Monitor Multiple Subscriptions
+## Monitor multiple subscriptions
 
 While monitoring resources in a subscription is straightforward, observing multiple subscriptions, each with their own set of resources becomes tricky. Instead, you can monitor multiple subscriptions by linking them to a single Datadog resource that is tied to a Datadog organization. This provides a single pane of glass view for all resources across multiple subscriptions.
 
@@ -76,7 +76,7 @@ If the subscription you want to monitor has a resource already linked to the sam
 
 Select the subscriptions you want to monitor through the Datadog resource and select **Add**.
 
-:::image type="content" source="media/manage/datadog-add-subscription.png" alt-text="Screenshot showing subcriptions to add.":::
+:::image type="content" source="media/manage/datadog-add-subscription.png" alt-text="Screenshot showing subscriptions to add.":::
 
 If the list doesn’t get updated automatically, select **Refresh**  to view the subscriptions and their monitoring status. You might see an intermediate status of _In Progress_ while a subscription gets added. When the subscription is successfully added, you see the status is updated to **Active**. If a subscription fails to get added, **Monitoring Status** shows as **Failed**.
 
@@ -84,13 +84,13 @@ If the list doesn’t get updated automatically, select **Refresh**  to view the
 
 The set of tag rules for metrics and logs defined for the Datadog resource apply to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the Datadog resource. To reconfigure the rules, check [Reconfigure rules for metrics and logs](#reconfigure-rules-for-metrics-and-logs).
 
-### Remove/Unlink Subscriptions from a Datadog Resource
+### Remove/unlink subscriptions from a Datadog resource
 
 You can unlink subscriptions you don't want monitored through the Datadog resource by selecting **Monitored Subscriptions** from the Resource menu. Then, select any subscription you want to remove, and select **Remove subscriptions**. Select **Refresh** to view the updated list of subscriptions being monitored.
 
 :::image type="content" source="media/manage/datadog-remove-subscriptions.png" alt-text="Screenshot showing subscriptions to remove.":::
 
-## API Keys
+## API keys
 
 To view the list of API keys for your Datadog resource, select the **Keys** in the left pane. You see information about the keys.
 
