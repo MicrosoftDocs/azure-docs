@@ -101,7 +101,7 @@ If you are using log4j or logback to log to the console, then distributed tracin
 
 ##### Logback
 
-    ```
+   ```
    <configuration debug="true">
 
       <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -119,7 +119,7 @@ If you are using log4j or logback to log to the console, then distributed tracin
         <appender-ref ref="STDOUT" />
       </root>
     </configuration>
-    ```
+   ```
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
