@@ -39,29 +39,12 @@ For more information, see [About Azure Key Vault secrets](../../key-vault/secret
 In the Key Vault settings, configure the appropriate access policies to grant access to the users or applications that need to retrieve the MySQL connection string from the Key Vault. Ensure that the necessary permissions are granted for "Get" operations on secrets.
 
 1.	In the [Azure portal](https://portal.azure.com), navigate to the Key Vault resource. 
-
-1.	Select **Access policies**, then select **Create**:
-
-	![Select Access policies, selecting Add role assignment](../../key-vault/media/authentication/assign-access-01.png)
-
+1.	Select **Access policies**, then select **Create**.
 1.	Select the permissions you want under **Key permissions**, **Secret permissions**, and **Certificate permissions**. 
-
-	![Specifying access policy permissions](../../key-vault/media/authentication/assign-access-02.png)
-
-1. Under the **Principal** selection pane, enter the name of the user, app or service principal in the search field and select the appropriate result.
-
-	![Selecting the security principal for the access policy](../../key-vault/media/authentication/assign-access-03.png)
-
-    If you're using a managed identity for the app, search for and select the name of the app itself. (For more information on security principals, see [Key Vault authentication](authentication.md).
- 
+1.	Under the **Principal** selection pane, enter the name of the user, app or service principal in the search field and select the appropriate result. If you're using a managed identity for the app, search for and select the name of the app itself. 
 1.	Review the access policy changes and select **Create** to save the access policy.
-
-	![Adding the access policy with the security principal assigned](../../key-vault/media/authentication/assign-access-04.png)
-
 1. Back on the **Access policies** page, verify that your access policy is listed. 
-
-	![Saving the access policy changes](../../key-vault/media/authentication/assign-access-05.png)
-
+ 
 ## Retrieve the MySQL connection string
 In your application or script, use the Azure Key Vault SDK or client libraries to authenticate and retrieve the MySQL connection string from the Key Vault. You need to provide the appropriate authentication credentials and access permissions to access the Key Vault. Once you have retrieved the MySQL connection string from Azure Key Vault, you can use it in your application to establish a connection to the MySQL database. Pass the retrieved connection string as a parameter to your database connection code.
 
