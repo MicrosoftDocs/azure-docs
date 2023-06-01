@@ -1,7 +1,7 @@
 ---
-title: Configure Azure Health Insights containers
-titleSuffix: Azure Health Insights
-description: Azure Health Insights containers use a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
+title: Configure Project Health Insights containers
+titleSuffix: Project Health Insights
+description: Project Health Insights containers use a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -11,9 +11,9 @@ ms.date: 03/14/2023
 ms.author: behoorne
 ---
 
-# Configure Azure Health Insights docker containers
+# Configure Project Health Insights docker containers
 
-Azure Health Insights provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers. Several [example docker run commands](use-containers.md#run-the-container-with-docker-run) are also available.
+Project Health Insights provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers. Several [example docker run commands](use-containers.md#run-the-container-with-docker-run) are also available.
 
 ## Configuration settings
 
@@ -32,11 +32,11 @@ The container has the following configuration settings:
 
 ## ApiKey configuration setting
 
-The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Language_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
+The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Health Insights_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
 
 This setting can be found in the following place:
 
-* Azure portal: **Language** resource management, under **Keys and endpoint**
+* Azure portal: **Health Insights** resource management, under **Keys and endpoint**
 
 ## ApplicationInsights setting
 
@@ -54,7 +54,7 @@ The `Billing` setting specifies the endpoint URI of the resource on Azure used t
 
 This setting can be found in the following place:
 
-* Azure portal: **Azure Health Insights** Overview, labeled `Endpoint`
+* Azure portal: **Health Insights** Overview, labeled `Endpoint`
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
@@ -68,7 +68,7 @@ The `Eula` setting indicates that you've accepted the license for the container.
 |--|------|-----------|-------------|
 |Yes| `Eula` | String | License acceptance **Example:** `Eula=accept` |
 
-Azure Health Insights containers are licensed under [your agreement](https://go.microsoft.com/fwlink/?linkid=2018657) governing your use of Azure. If you don't have an existing agreement governing your use of Azure, you agree that your agreement use of Azure is the [Microsoft Online Subscription Agreement](https://go.microsoft.com/fwlink/?linkid=2018755), which incorporates the [Online Services Terms](https://go.microsoft.com/fwlink/?linkid=2018760). For previews, you also agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://go.microsoft.com/fwlink/?linkid=2018815). By using the container, you agree to these terms.
+Project Health Insights containers are licensed under [your agreement](https://go.microsoft.com/fwlink/?linkid=2018657) governing your use of Azure. If you don't have an existing agreement governing your use of Azure, you agree that your agreement use of Azure is the [Microsoft Online Subscription Agreement](https://go.microsoft.com/fwlink/?linkid=2018755), which incorporates the [Online Services Terms](https://go.microsoft.com/fwlink/?linkid=2018760). For previews, you also agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://go.microsoft.com/fwlink/?linkid=2018815). By using the container, you agree to these terms.
 
 ## RAI-Terms setting
 
@@ -106,7 +106,7 @@ Logging:Disk:Format=json \
 Mounts:Output=/output
 ```
 
-This container command shows debugging information, prefixed with `dbug`, while the container is running:
+This container command shows debugging information, prefixed with `debug`, while the container is running:
 
 ```bash
 docker run --rm -it -p 5000:5000 \
@@ -125,7 +125,9 @@ The `Disk` logging provider supports the following configuration settings:
 
 | Name | Data type | Description |
 |------|-----------|-------------|
-| `Format` | String | The output format for log files.
+|`Format` | String | The output format for log files. |
+
+
 
 
 **Note:** This value must be set to `json` to enable the logging provider. If this value is specified without also specifying an output mount while instantiating a container, an error occurs. |

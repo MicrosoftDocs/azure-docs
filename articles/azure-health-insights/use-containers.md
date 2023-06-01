@@ -51,7 +51,7 @@ Project Health Insights container images can be found on the `mcr.microsoft.com`
 - Clinical Trial Matcher: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/clinical-matching`
 - Onco-Phenotype: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/cancer-profiling`
 
-To use the latest version of the container, you can use the `latest` tag. You can  find a full list of tags on the MCR via `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/clinical-matching/tags/list` and `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/clinical-matching/tags/list`.
+To use the latest version of the container, you can use the `latest` tag. You can  find a full list of tags on the MCR via `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/clinical-matching/tags/list` and `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/cancer-profiling/tags/list`.
 
 - Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry. You can find the featured tags on the [dockerhub clinical matching page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-clinical-matching) and [dockerhub cancer profiling page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-cancer-profiling)  
 
@@ -106,7 +106,7 @@ To run the container in your own environment after downloading the container ima
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
-mcr.microsoft.com/azure-cognitive-services/azure-cognitive-services/health-insights/<model-name>:<tag-name> \
+mcr.microsoft.com/azure-cognitive-services/health-insights/<model-name>:<tag-name> \
 Eula=accept \
 rai_terms=accept \
 Billing={ENDPOINT_URI} \
@@ -151,7 +151,7 @@ services:
     ports:
       - 5000:5000/tcp
     networks:
-      - ds4hvnet
+      - hivnet
  azure-cognitive-service-ta4h:
     container_name: azure-cognitive-service-ta4h
     image: {TA4H_IMAGE_ID}
@@ -161,7 +161,7 @@ services:
       - billing={TA4H_ENDPOINT_URI}
       - ApiKey={TA4H_API_KEY}
     networks:
-      - ds4hvnet
+      - hivnet
 networks:
  ds4hvnet:
     driver: bridge
