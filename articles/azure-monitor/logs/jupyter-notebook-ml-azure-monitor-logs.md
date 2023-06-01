@@ -188,7 +188,7 @@ Now that you've integrated your Log Analytics workspace with your notebook, let'
 >- Skip the data cleaning step.
 >- Experiment with only two models to see which best fits our data set.
 
-### 4. Prepare data for model training
+### Prepare data for model training
 
 After exploring the available data, let's use a subset of the data for model training: 
 
