@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Create and manage Azure IoT Central applications from the CSP portal | Microsoft Docs
-description: As a CSP, how to create an Azure IoT Central application on behalf of your customer.
+title: Manage Azure IoT Central applications from the CSP portal
+description: As a CSP, learn how to create and manage an Azure IoT Central application on behalf of your customer.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
