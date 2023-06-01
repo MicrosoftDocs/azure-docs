@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Sign in users in single-page apps (SPA) with authorization code"
-description: In this quickstart, learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow.
+title: "Quickstart: Sign in users in single-page apps (SPA) by using the authorization code with Proof Key for Code Exchange (PKCE)"
+description: In this quickstart, learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow with Proof Key for Code Exchange (PKCE).
 services: active-directory
 author: Dickson-Mwendia
 manager: CelesteDG
@@ -16,7 +16,7 @@ zone_pivot_groups: single-page-app-quickstart
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my single-page app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
-# Quickstart: Sign in users in single-page apps (SPA) via the authorization code flow
+# Quickstart: Sign in users in single-page apps (SPA) via the authorization code flow with Proof Key for Code Exchange (PKCE)
 
 ::: zone pivot="devlang-angular"
 [!INCLUDE [angular](./includes/single-page-app/quickstart-angular.md)]
