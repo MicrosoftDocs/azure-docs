@@ -78,7 +78,7 @@ Your Java functions might have slow startup times if you adopted this feature be
 
 #### Duplicate Logs
 
-If you are using log4j or logback to log to the console, then distributed tracing for Java Functions will store a duplicate copy of your log4j or logback logs. To avoid this, follow the workarounds shown below.
+If you are using log4j or logback to log to the console, then distributed tracing for Java Functions will create a duplicate copy of your log4j or logback logs sent to Application Insights. To avoid this, follow the workarounds shown below.
 
 ##### Log4j
 
