@@ -91,7 +91,7 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 > - Marketplace images other than the [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images) are currently not supported.
 > - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and VMs created by Azure Migrate, Azure Backup, Azure Site Recovery aren't fully supported for now. However, you can use on-demand operations such as one-time update and check for updates in update management center (preview). 
 >
-> For the above limitations, We recommend that you use [Automation update management](../automation/update-management/overview.md) till the support is available in Update management center (preview). [Learn more](overview.md#vm-images).
+> For the above limitations, we recommend that you use [Automation update management](../automation/update-management/overview.md) till the support is available in Update management center (preview).
 
 **Marketplace/PIR images**
 
