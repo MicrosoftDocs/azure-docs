@@ -1,5 +1,5 @@
 ---
-title: Integrate - create a chat app using Azure Web PubSub and deploy to Azure Static Web Apps
+title: Integrate - Create a chat app using Azure Web PubSub and deploy to Azure Static Web Apps
 description: A tutorial about how to use Azure Web PubSub service and Azure Static Web Apps to build a serverless chat application.
 author: JialinXin
 ms.author: jixin

@@ -10,7 +10,7 @@ ms.date: 05/15/2023
 ms.custom: mode-ui
 zone_pivot_groups: azure-web-pubsub-samples-authenticate-and-connect
 ---
-# Azure Web PubSub samples - authenticate and connect
+# Azure Web PubSub samples - Authenticate and connect
 
 To make use of your Azure Web PubSub resource, you need to authenticate and connect to the service first. Azure Web PubSub service distinguishes two roles and they're given a different set of capabilities.
  
@@ -26,7 +26,7 @@ While the client's role is often limited, the application server's role goes bey
 | [Using connection string](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp/Startup.cs#L29) | Applies to application server only. 
 | [Using Client Access Token](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp/wwwroot/index.html#L13) | Applies to client only. Client Access Token is generated on the application server. 
 | [Using Azure Active Directory](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp-aad/Startup.cs#L26) | Using Azure AD for authorization offers improved security and ease of use compared to Access Key authorization.
-| [Annoymous connection](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/clientWithCert/client/Program.cs#L15) | Annoymous connection allows clients to connect with Azure Web PubSub directly without going to an application server for a Client Access Token first. This is useful for clients that have limited networking capabilities, like an EV charging point. 
+| [Anonymous connection](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/clientWithCert/client/Program.cs#L15) | Anonymous connection allows clients to connect with Azure Web PubSub directly without going to an application server for a Client Access Token first. This is useful for clients that have limited networking capabilities, like an EV charging point. 
 ::: zone-end
 
 ::: zone pivot="method-sdk-javascript"

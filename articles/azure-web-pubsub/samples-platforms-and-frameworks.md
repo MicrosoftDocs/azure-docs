@@ -9,25 +9,14 @@ ms.topic: sample
 ms.date: 05/15/2023
 ms.custom: mode-ui
 ---
-# Azure Web PubSub samples - platforms and frameworks
+# Azure Web PubSub samples - Platforms and frameworks
 
 As Azure Web PubSub is built on top of WebSocket, the only requirement is having the support of WebSocket, which is available in all modern browsers and major app development platforms.
 
 ## Web front-end
-:::row:::
-   :::column span="":::
-      [Blazor WebAssembly](https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/blazor-webassembly)
-   :::column-end:::
-   :::column span="":::
-      [React](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp/react)
-   :::column-end:::
-:::row-end:::
-
-:::row:::
-   :::column span="":::
-      [Vue](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/scoreboard)
-   :::column-end:::
-:::row-end:::
+- [Blazor WebAssembly](https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/blazor-webassembly)
+- [React](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp/react)
+- [Vue](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/scoreboard)
 
 <!-- ## Cross-platform
 :::row:::
@@ -37,11 +26,8 @@ As Azure Web PubSub is built on top of WebSocket, the only requirement is having
 :::row-end::: -->
 
 ## Gaming
-:::row:::
-   :::column span="":::
-      [Unity](https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/unity-multiplayer-sample)
-   :::column-end:::
-:::row-end:::
+- [Unity](https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/unity-multiplayer-sample)
+
 
 <!-- ## Low-code / no-code platform
 :::row:::

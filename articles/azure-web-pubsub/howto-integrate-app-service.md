@@ -1,5 +1,5 @@
 ---
-title: Integrate - build a real-time collaborative whiteboard using Azure Web PubSub and deploy it to Azure App Service
+title: Integrate - Build a real-time collaborative whiteboard using Azure Web PubSub and deploy it to Azure App Service
 description: A how-to guide about how to use Azure Web PubSub to enable real-time collaboration on a digital whiteboard and deploy as a Web App using Azure App Service
 author: KevinGuo-ed
 ms.author: kevinguo
@@ -10,12 +10,12 @@ ms.date: 05/17/2023
 ---
 # How-to: build a real-time collaborative whiteboard using Azure Web PubSub and deploy it to Azure App Service
 
-A new class of applications is reimagining what modern work could be. While [Microsoft Word](https://www.microsoft.com/en-ww/microsoft-365/word) brings editors together, [Figma](https://www.figma.com) gathers up designers on the same creative endeavor. This class of applications builds on a user experience that makes us feel connected with our remote collaborators. From a technical point of view, user's activities need to be synchronized across users' screens at a low latency.
+A new class of applications is reimagining what modern work could be. While [Microsoft Word](https://www.microsoft.com/microsoft-365/word) brings editors together, [Figma](https://www.figma.com) gathers up designers on the same creative endeavor. This class of applications builds on a user experience that makes us feel connected with our remote collaborators. From a technical point of view, user's activities need to be synchronized across users' screens at a low latency.
 
 ## Overview
 In this how-to guide, we take a cloud-native approach and use Azure services to build a real-time collaborative whiteboard and we deploy the project as a Web App to Azure App Service. The whiteboard app is accessible in the browser and allows anyone can draw on the same canvas.
 
-:::image type="content" source="./media/howto-integrate-app-service/result.gif" alt-text="GIT of finished project":::
+:::image type="content" source="./media/howto-integrate-app-service/result.gif" alt-text="Gif of finished project.":::
 
 > [!div class="nextstepaction"]
 > [Check out live whiteboard demo](https://azure.github.io/azure-webpubsub/demos/whiteboard)
@@ -27,7 +27,7 @@ In this how-to guide, we take a cloud-native approach and use Azure services to 
 |[Azure App Service](https://learn.microsoft.com/azure/app-service/)  | Provides the hosting environment for the backend application, which is built with [Express](https://expressjs.com/) | Fully managed environment for application backends, with no need to worry about infrastructure where the code runs 
 |[Azure Web PubSub](https://learn.microsoft.com/azure/azure-web-pubsub/overview) | Provides low-latency, bi-directional data exchange channel between the backend application and clients | Drastically reduces server load by freeing server from managing persistent WebSocket connections and scales to 100 K concurrent client connections with just one resource
 
-:::image type="content" source="./media/howto-integrate-app-service/architecture.jpg" alt-text="Architecture diagram of the collaborative whiteboard app":::
+:::image type="content" source="./media/howto-integrate-app-service/architecture.jpg" alt-text="Architecture diagram of the collaborative whiteboard app.":::
 
 ## Prerequisites
 You can find detailed explanation of the [data flow](#data-flow) at the end of this how-to guide as we're going to focus on building and deploying the whiteboard app first.
@@ -38,7 +38,7 @@ In order to follow the step-by-step guide, you need
 > * [Azure CLI](/cli/azure/install-azure-cli) (version 2.29.0 or higher) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources.
 
 ## Create Azure resources using Azure CLI
-# [1. Sign in](#tab/signin-cli)
+### 1. Sign in
 1. Sign in to Azure CLI by running the following command.
     ```azurecli-interactive
     az login
@@ -51,7 +51,7 @@ In order to follow the step-by-step guide, you need
       --name "whiteboard-group"
     ```
 
-# [2. Create a Web App resource](#tab/create-web-app)
+### 2. Create a Web App resource
 1. Create a free App Service plan.
     ```azurecli-interactive
     az appservice plan create \ 
@@ -70,7 +70,7 @@ In order to follow the step-by-step guide, you need
       --runtime "NODE:18-lts"
     ```
 
-# [3. Create a Web PubSub resource](#tab/create-web-pubsub)
+### 3. Create a Web PubSub resource
 1. Create a Web PubSub resource.
     ```azurecli-interactive
     az webpubsub create \
@@ -157,7 +157,7 @@ At any point in time, there maybe more than one client drawing. If the Web App w
         The client, built with [Vue](https://vuejs.org/), makes an HTTP request for a Client Access Token to an endpoint `/negotiate`. The backend application is an [Express app](https://expressjs.com/) and hosted as a Web App using Azure App Service.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/howto-integrate-app-service/dataflow-1.jpg" alt-text="Step one of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-1.jpg":::
+        :::image type="content" source="./media/howto-integrate-app-service/dataflow-1.jpg" alt-text="Screenshot of step one of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-1.jpg":::
     :::column-end:::
 :::row-end:::
 
@@ -166,7 +166,7 @@ At any point in time, there maybe more than one client drawing. If the Web App w
         When the backend application successfully [returns the Client Access Token](https://github.com/Azure/awps-webapp-sample/blob/main/whiteboard/server.js#L62) to the connecting client, the client uses it to establish a WebSocket connection with Azure Web PubSub.  
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/howto-integrate-app-service/dataflow-2.jpg" alt-text="Step two of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-2.jpg":::
+        :::image type="content" source="./media/howto-integrate-app-service/dataflow-2.jpg" alt-text="Screenshot of step two of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-2.jpg":::
     :::column-end:::
 :::row-end:::
 
@@ -175,7 +175,7 @@ At any point in time, there maybe more than one client drawing. If the Web App w
         If the handshake with Azure Web PubSub is successful, the client is added to a group named `draw`, effectively subscribing to messages published to this group. Also, the client is given the permission to send messages to the [`draw` group](https://github.com/Azure/awps-webapp-sample/blob/main/whiteboard/server.js#L64). 
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/howto-integrate-app-service/dataflow-3.jpg" alt-text="Step three of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-3.jpg":::
+        :::image type="content" source="./media/howto-integrate-app-service/dataflow-3.jpg" alt-text="Screenshot of step three of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-3.jpg":::
     :::column-end:::
 :::row-end:::
 > [!NOTE]
@@ -186,7 +186,7 @@ At any point in time, there maybe more than one client drawing. If the Web App w
         Azure Web PubSub notifies the backend application that a client has connected. The backend application handles the `onConnected` event by calling the `sendToAll()`, with a payload of the latest number of connected clients.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/howto-integrate-app-service/dataflow-4.jpg" alt-text="Step four of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-4.jpg":::
+        :::image type="content" source="./media/howto-integrate-app-service/dataflow-4.jpg" alt-text="Screenshot of step four of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-4.jpg":::
     :::column-end:::
 :::row-end:::
 > [!NOTE]
@@ -197,7 +197,7 @@ At any point in time, there maybe more than one client drawing. If the Web App w
         As soon as a client establishes a persistent connection with Web PubSub, it makes an HTTP request to the backend application to fetch the latest shape and background data at [`/diagram`](https://github.com/Azure/awps-webapp-sample/blob/main/whiteboard/server.js#L70). An HTTP service hosted on App Service can be combined with Web PubSub. App Service takes care serving HTTP endpoints, while Web PubSub takes care of managing WebSocket connections. 
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/howto-integrate-app-service/dataflow-5.jpg" alt-text="Step five of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-5.jpg":::
+        :::image type="content" source="./media/howto-integrate-app-service/dataflow-5.jpg" alt-text="Screenshot of step five of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-5.jpg":::
     :::column-end:::
 :::row-end:::
 
@@ -206,7 +206,7 @@ At any point in time, there maybe more than one client drawing. If the Web App w
         Now that the clients and backend application have two ways to exchange data. One is the conventional HTTP request-response cycle and the other is the persistent, bi-directional channel through Web PubSub. The drawing actions, which originate from one user and need to be broadcasted to all users as soon as it takes place, are delivered through Web PubSub. It doesn't require involvement of the backend application.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/howto-integrate-app-service/dataflow-6.jpg" alt-text="Step six of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-6.jpg":::
+        :::image type="content" source="./media/howto-integrate-app-service/dataflow-6.jpg" alt-text="Screenshot of step six of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-6.jpg":::
     :::column-end:::
 :::row-end:::
 
