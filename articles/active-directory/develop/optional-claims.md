@@ -173,7 +173,7 @@ Configure claims using the manifest:
 
 1. When finished, select **Save**. Now the specified optional claims are included in the tokens for your application.
 
-The `oprionalClaims` object declares the optional claims requested by an application. An application can configure optional claims that are returned in ID tokens, access tokens, and SAML 2 tokens. The application can configure a different set of optional claims to be returned in each token type.
+The `optionalClaims` object declares the optional claims requested by an application. An application can configure optional claims that are returned in ID tokens, access tokens, and SAML 2 tokens. The application can configure a different set of optional claims to be returned in each token type.
 
 | Name | Type | Description |
 |------|------|-------------|
