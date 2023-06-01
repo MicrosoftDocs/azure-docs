@@ -122,6 +122,8 @@ Add the following filter to your logback.xml:
 
 Here is an example:
 
+
+```xml
     <configuration debug="true">
       <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!-- encoders are  by default assigned the type
