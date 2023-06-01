@@ -1,5 +1,5 @@
 ---
-title: Get started started with Azure Container Apps
+title: Get started with Azure Container Apps
 description: First steps in working Azure Container Apps
 services: container-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 06/01/2023
 ms.author: cshoe
 ---
 
-# Get started started with Azure Container Apps
+# Get started with Azure Container Apps
 
 ## Introduction
 
