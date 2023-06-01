@@ -3,7 +3,7 @@ title: Agentless Container Posture for Microsoft Defender for Cloud
 description: Learn how Agentless Container Posture offers discovery, visibility, and vulnerability assessment for Containers without installing an agent on your machines.
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 05/30/2023
+ms.date: 06/01/2023
 ms.custom: template-concept
 ---
 
@@ -57,6 +57,9 @@ When you enable the Agentless discovery for Kubernetes extension, the following 
 
 - **Bind**: Upon discovery of an AKS cluster, MDC performs an AKS bind operation between the created identity and the Kubernetes role “Microsoft.Security/pricings/microsoft-defender-operator”. The role is visible via API and gives MDC data plane read permission inside the cluster.
 
+### What's the refresh interval?
+
+Agentless information in Defender CSPM is updated through a snapshot mechanism. It can take up to **24 hours** to see results in Cloud Security Explorer and Attack Path.
 
 ## Agentless Container registry vulnerability assessment
 

@@ -3,13 +3,14 @@ title: How-to enable Agentless Container posture in Microsoft Defender CSPM
 description: Learn how to onboard Agentless Containers
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 05/30/2023
+ms.date: 06/01/2023
 ---
 
 # Onboard Agentless Container posture in Defender CSPM
 
 Onboarding Agentless Container posture in Defender CSPM will allow you to gain all its [capabilities](concept-agentless-containers.md#agentless-container-posture-preview).
 
+Defender CSPM includes [two extensions](#what-are-the-extensions-for-agentless-container-posture-management) that allow for agentless visibility into Kubernetes and containers registries across your organization's SDLC and runtime.
 
 **To onboard Agentless Container posture in Defender CSPM:**
 
@@ -29,13 +30,27 @@ Onboarding Agentless Container posture in Defender CSPM will allow you to gain a
 
 A notification message pops up in the top right corner that will verify that the settings were saved successfully.
 
+## What are the extensions for Agentless Container Posture management?
+
+There are two extensions that provide agentless CSPM functionality:
+
+- **Container registries vulnerability assessments**: Provides containers registries vulnerability assessments. Recommendations are available based on the vulnerability assessment timeline. Learn more about [image scanning](defender-for-containers-vulnerability-assessment-azure.md).
+- **Agentless discovery for Kubernetes**: Provides API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup.
+
+## How can I onboard multiple subscriptions at once?
+
+To onboard multiple subscriptions at once, you can use this [script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/Agentless%20Container%20Posture).
+
+
 ## Why don't I see results from my clusters?
+
 If you don't see results from your clusters, check the following:
 
 - Do you have stopped clusters?
-- Are your clusters Read only (locked)?
+- Are your [resource groups, subscriptions, or clusters locked](#what-do-i-do-if-i-have-locked-resource-groups-subscriptions-or-clusters)?
 
 ## What can I do if I have stopped clusters?
+
 We do not support or charge stopped clusters. To get the value of agentless capabilities on a stopped cluster, you can rerun the cluster. 
 
 ## What do I do if I have locked resource groups, subscriptions, or clusters? 
@@ -65,18 +80,17 @@ We suggest that you unlock the locked resource group/subscription/cluster, make 
 For locked clusters, you can also do one of the following: 
 
 - Remove the lock. 
-- Perform the bind operation manually by doing an API request. 
+- Perform the bind operation manually by making an API request. 
 
- 
+Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json).
 
-## Support for exemptions
+ ## Support for exemptions
 
 You can customize your vulnerability assessment experience by exempting management groups, subscriptions, or specific resources from your secure score. Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
 
 ## Next Steps
 
-- Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json). 
 - Learn more about [Trusted Access](/azure/aks/trusted-access-feature). 
 - Learn how to [view and remediate vulnerability assessment findings for registry images and running images](view-and-remediate-vulnerability-assessment-findings.md).
 - Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
-
+- Learn more about [Cloud Security Posture Management](concept-cloud-security-posture-management.md).
