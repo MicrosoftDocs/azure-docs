@@ -56,7 +56,7 @@ Zero Trust Network Access (ZTNA) is the result of applying Zero Trust principles
 
 Microsoft Entra provides two products that encompass the Security Service Edge (SSE) solution: Microsoft Entra Private Access and Microsoft Entra Internet Access. Global Secure Access is the centralized location in Microsoft Entra to manage both. It provides modern network access control for users and devices.
 
-To address the challenges of the traditional network described previously, Microsoft Entra Private Access and Microsoft Entra Internet Access create a new path for employees to access corporate resources. Through Global Secure Access, employees can access resources from corporate headquarters, a branch location, or from their home office. Global Secure Access is built upon the core principles of Zero Trust to use least privilege, verify explicitly, and assume breach.
+To address the challenges of the traditional network described previously, Microsoft Entra Private Access and Microsoft Entra Internet Access create a new path for employees to access corporate resources. Through Global Secure Access, employees can access resources from corporate headquarters, a remote network such as a branch location, or from their home office. Global Secure Access is built upon the core principles of Zero Trust to use least privilege, verify explicitly, and assume breach.
 
 ### Microsoft Entra Private Access
 
@@ -76,7 +76,7 @@ The following diagram illustrates the new network traffic flow with Global Secur
 
 ![Diagram of the new network traffic flow with Global Secure Access.](media/overview-what-is-global-secure-access/global-secure-access-traffic.png)
 
-The features of Global Secure Access are all accessed from the Microsoft Entra admin center. With this centralized experience you can set up your branch and client connectivity, manage your traffic profiles, and view network and usage logs. Extra security measures can be enforced using Conditional Access policies.
+The features of Global Secure Access are all accessed from the Microsoft Entra admin center. With this centralized experience you can set up your remote network and client connectivity, manage your traffic profiles, and view network and usage logs. Extra security measures can be enforced using Conditional Access policies.
 
 ### License and role requirements
 

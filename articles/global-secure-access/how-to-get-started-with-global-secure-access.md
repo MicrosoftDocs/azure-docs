@@ -79,7 +79,7 @@ You can configure adaptive access controls and universal tenant restrictions fro
 Select the **Enable Quick Access to your private resources** to configure your Quick access settings. Quick access provides the ability to identify the internal, private apps and websites that you want to include in your private access traffic profile. For more information, see the following articles:
 
 - [Learn about traffic forwarding profiles](concept-traffic-forwarding.md)
-- [How to define quick access ranges](how-to-define-quick-access-ranges.md)
+- [How to configure Quick access](how-to-configure-quick-access.md)
 
 ### Configure enhanced monitoring and logging
 
@@ -88,5 +88,5 @@ Select the link.
 ## Next steps
 
 - [Learn about remote network connectivity](concept-understand-remote-network-connectivity.md)
-- [Define quick access ranges](how-to-define-quick-access-ranges.md)
+- [Configure quick access](how-to-configure-quick-access.md)
 

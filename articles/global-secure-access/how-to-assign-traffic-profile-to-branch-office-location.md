@@ -60,4 +60,4 @@ To update a branch using the Microsoft Graph API in Graph Explorer.
 1. Select **Run query** to update the branch. 
 
 ## Next steps
-- [List office branch locations](how-to-list-branch-locations.md)
+- [List remote networks](how-to-list-remote-networks.md)

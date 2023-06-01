@@ -54,5 +54,5 @@ Sometimes, clients can't be installed on all devices. Global Secure Access curre
 The guest devices on your network may not have the client installed. To ensure that those devices adhere to your network security policies, you need their traffic routed through the Global Secure Access endpoint. Remote network connectivity solves this problem. No more clients need to be installed on guest devices. All outgoing traffic from the remote network is going through security evaluation by default.  
 
 ## Next steps
-- [List all branch office locations](how-to-list-branch-locations.md)
-- [Manage branch locations](how-to-manage-branch-locations.md)
+- [List all remote networks](how-to-list-remote-networks.md)
+- [Manage remote networks](how-to-manage-remote-networks.md)

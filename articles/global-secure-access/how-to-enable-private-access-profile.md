@@ -12,7 +12,7 @@ ms.custom:
 
 # How to enable the Private access profile
 
-The **Private access profile** looks at traffic going to your organization's private, internal applications and sites. Your [Quick access groups](how-to-define-quick-access-ranges.md) define the apps and sites that make up your Private access profile.
+The **Private access profile** looks at traffic going to your organization's private, internal applications and sites. Your [Quick access groups](how-to-configure-quick-access.md) define the apps and sites that make up your Private access profile.
 
 Quick access groups are similar to the M365 traffic policies, except the IP addresses and FQDNs in the M365 profile are predefined. Quick access groups allow you to create your own collection of fully qualified domain names (FQDN), IP addresses, and IP address ranges. Just like with the M365 profile, you can also apply a Conditional Access policy or assign the profile to specific remote network.
 
@@ -27,5 +27,5 @@ Because remote networks can't be assigned to the Private access traffic forwardi
 
 ## Next steps
 
-- [Define Quick access ranges](how-to-define-quick-access-ranges.md)
+- [Configure Quick access](how-to-configure-quick-access.md)
 - [Learn about traffic forwarding](concept-traffic-forwarding.md)

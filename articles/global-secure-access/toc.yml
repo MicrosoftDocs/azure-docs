@@ -13,10 +13,10 @@ items:
       href: how-to-get-started-with-global-secure-access.md
     - name: Learn about traffic forwarding
       href: concept-traffic-forwarding.md
-    - name: Manage branch office locations
-      href: how-to-manage-branch-locations.md
+    - name: Manage remote networks
+      href: how-to-manage-remote-networks.md
     - name: Define quick access ranges
-      href: how-to-define-quick-access-ranges.md
+      href: how-to-configure-quick-access.md
     - name: Install Windows client
       href: how-to-install-windows-client.md
     - name: Explore the network traffic dashboard
@@ -24,19 +24,19 @@ items:
 - name: How-to guides
   expanded: true
   items:
-  - name: Branches
+  - name: Remote networks
     expanded: false
     items:
-      - name: Assign traffic profile to branch office location
-        href: how-to-assign-traffic-profile-to-branch-office-location.md
-      - name: List branch locations
-        href: how-to-list-branch-locations.md
-      - name: Manage branch location device links
-        href: how-to-manage-branch-location-device-links.md
-      - name: Test branch connectivity
-        href: how-to-test-branch-connectivity.md 
-      - name: How to manage branch locations with the Microsoft Graph API
-        href: how-to-manage-branch-locations-microsoft-graph-api.md
+      - name: Assign a traffic forwarding profile to remote networks
+        href: how-to-assign-traffic-profile-to-remote-networks.md
+      - name: List remote networks
+        href: how-to-list-remote-networks.md
+      - name: Manage remote networks device links
+        href: how-to-manage-remote-network-device-links.md
+      - name: Test remote network connectivity
+        href: how-to-test-remote-network-connectivity.md 
+      - name: How to manage remote networks with the Microsoft Graph API
+        href: how-to-manage-remote-network-microsoft-graph-api.md
   - name: Conditional Access
     expanded: false
     items:
@@ -48,7 +48,7 @@ items:
         href: how-to-compliant-network.md
       - name: Universal tenant restrictions
         href: how-to-universal-tenant-restrictions.md
-  - name: Network traffic
+  - name: Traffic forwarding profiles
     expanded: false
     items:
       - name: Enable Microsoft 365 profile
@@ -74,7 +74,7 @@ items:
 - name: Concepts
   expanded: true
   items:
-  - name: Branch connectivity
-    href: concept-understand-branch-connectivity.md
+  - name: Remote network connectivity
+    href: concept-remote-network-connectivity.md
   - name: Traffic forwarding profiles
     href: concept-traffic-forwarding.md

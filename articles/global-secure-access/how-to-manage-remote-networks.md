@@ -11,9 +11,9 @@ ms.custom:
 ---
 # Manage remote networks
 
-Remote networks are remote locations or networks that require internet connectivity. Setting up remote networks connects your users in that location to Global Secure Access. Once a branch is configured, you can assign it to a traffic forwarding profile to manage your corporate network traffic.
+Remote networks are remote locations or networks that require internet connectivity. Setting up remote networks connects your users in that location to Global Secure Access. Once a remote network is configured, you can assign it to a traffic forwarding profile to manage your corporate network traffic.
 
-This article explains how to create a branch office location for Global Secure Access.
+This article explains how to create a remote network for Global Secure Access.
 
 ## Prerequisites
 <!--- confirm and make consistent with all articles --->
@@ -22,19 +22,19 @@ This article explains how to create a branch office location for Global Secure A
 - The **Microsoft Graph** module must be installed to use PowerShell
 - Administrator consent is required when using Microsoft Graph Explorer for the Microsoft Graph API
 
-## Create a branch location
-Global Secure Access provides branch connectivity so you can connect a branch office to Global Secure Access. Once a branch is connected, you can set up network security policies. These policies are applied on all outbound traffic. 
+## Create a remote network
+Global Secure Access provides remote network connectivity so you can connect a remote network to Global Secure Access. Network security policies are then applied on all outbound traffic. 
 
-There are multiple ways to connect a branch location to Global Secure Access. In a nutshell, you're creating an Internet Protocol Security (IPSec) tunnel between a core router at your branch location and the nearest Microsoft VPN service. The network traffic is routed with the core router at the branch location so installation of a client isn't required on individual devices.
+There are multiple ways to connect remote networks to Global Secure Access. In a nutshell, you're creating an Internet Protocol Security (IPSec) tunnel between a core router at your remote network and the nearest Microsoft VPN service. The network traffic is routed with the core router at the remote network so installation of a client isn't required on individual devices.
 
-Branch office locations are configured on three tabs. To work through each tab, either select the tab from the top of the page, or select the **Next** button at the bottom of the page.
+Remote networks are configured on three tabs. To work through each tab, either select the tab from the top of the page, or select the **Next** button at the bottom of the page.
 
 ### Basics
-The first step is to provide the basic details of your branch office, including the name, location, and bandwidth capacity. Completing this tab is required to create a new branch office.
+The first step is to provide the basic details of your remote network, including the name, location, and bandwidth capacity. Completing this tab is required to create a new remote network.
 <!--- need correct role here --->
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator. 
-1. Browse to **Devices** > **Branches**.
-1. Select the **Create branch office** button and provide the following details:
+1. Browse to **Devices** > **Remote networks**.
+1. Select the **Create remote network** button and provide the following details:
     - **Name**
     - **Country**
     - **Region**
@@ -42,7 +42,7 @@ The first step is to provide the basic details of your branch office, including 
 
 ### Connectivity
 <!---Can't test this section because I need valid sample IP addresses, BGP addresses, and ASNs --->
-The connectivity tab is where you add the device links for the branch office location. You need to provide the device type, IP address, border gateway protocol (BGP) address, and autonomous system number (ASN) for each device link. You can add device links after creating the branch office location. For more information on device links, see [How to manage branch location device links](how-to-manage-branch-location-device-links.md).
+The connectivity tab is where you add the device links for the remote network. You need to provide the device type, IP address, border gateway protocol (BGP) address, and autonomous system number (ASN) for each device link. You can add device links after creating the remote network. For more information on device links, see [How to manage remote network device links](how-to-manage-remote-network-device-links.md).
 
 1. Select the **Add a link** button. The **Add a link pane** opens with three tabs to complete.
 
@@ -77,34 +77,34 @@ The connectivity tab is where you add the device links for the branch office loc
 
 ### Traffic profiles
 
-You can assign the branch office to a traffic forwarding profile when you create the branch. You can also assign the branch at a later time. For more information, see [Traffic forwarding profiles](concept-traffic-forwarding.md).
+You can assign the remote network to a traffic forwarding profile when you create the remote network. You can also assign the remote network at a later time. For more information, see [Traffic forwarding profiles](concept-traffic-forwarding.md).
 
 1. Select the appropriate traffic forwarding profile.
 1. Select the **Review + Create** button.
 
-## Update branch locations
+## Update remote networks
 
-All details of your branch locations can be updated at any time.
+All details of your remote networks can be updated at any time.
 
 1. Sign in to the Microsoft Entra admin center at [https://entra.microsoft.com](https://entra.microsoft.com).
-1. Go to **Global Secure Access (preview)** > **Devices** > **Branches**.
-1. Select the branch you need to update.
+1. Go to **Global Secure Access (preview)** > **Devices** > **Remote networks**.
+1. Select the remote network you need to update.
 
 ### Basics
 
-On the Basics page you can update the branch name, country, region, and bandwidth. Select the pencil icon to edit the details.
+On the Basics page you can update the remote network name, country, region, and bandwidth. Select the pencil icon to edit the details.
 
-![Screenshot of the edit branch details option.](media/how-to-manage-branch-locations/update-branch-details.png)
+![Screenshot of the edit remote network details option.](media/how-to-manage-remote-network/update-branch-details.png)
 
-## Delete a branch
+## Delete a remote network
 
 1. Sign in to the Microsoft Entra admin center at [https://entra.microsoft.com](https://entra.microsoft.com).
-1. Go to **Global Secure Access (preview)** > **Devices** > **Branches**.
-1. Select the branch you need to delete.
+1. Go to **Global Secure Access (preview)** > **Devices** > **Remote networks**.
+1. Select the remote network you need to delete.
 1. Select the **Delete** button. 
 1. Select **Delete** from the confirmation message.
 
-![Screenshot of the delete branch button.](media/how-to-manage-branch-locations/delete-branch.png)
+![Screenshot of the delete remote network button.](media/how-to-manage-remote-networks/delete-branch.png)
 
 ## Link ASN
 
@@ -125,5 +125,5 @@ While setting up IPsec connectivity from virtual network gateways to Azure virtu
 
 ## Next steps
 
-- [List branch locations](how-to-list-branch-locations.md)
+- [List remote networks](how-to-list-remote-networks.md)
 
