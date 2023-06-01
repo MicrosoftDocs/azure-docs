@@ -252,6 +252,17 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
 1. To continue, review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
+<a name="adding-custom-artifacts"></a>
+
+## Adding custom artifacts
+In Logic app, Some connectors use dependent resources like Maps, Schemas or Assemblies. Those artifacts can be provided from the portal through Artifacts tab as shown below:
+
+### Adding Maps
+
+### Adding Schemas
+
+### Adding Assemblies
+
 <a name="open-workflow-definition-designer"></a>
 
 ## Open the workflow definition file in the designer
