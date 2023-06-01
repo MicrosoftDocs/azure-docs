@@ -61,8 +61,6 @@
       href: traffic-analytics.md
     - name: Supported regions
       href: supported-region-traffic-analytics.md
-    - name: Network Watcher and flow log settings
-      href: enable-network-watcher-flow-log-settings.md
     - name: Usage scenarios
       href: usage-scenarios-traffic-analytics.md
     - name: Frequently asked questions
