@@ -258,7 +258,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     This example creates an "Additional Details" tag with data refarding the "window start time" and "window end time".
 
     - **Name:** "Additional Details"
-    - **Value:** "Evaluation windowStartTime: \${data.alertContext.condition.windowStartTime}. windowEndTime: \${data.alertContext.condition.windowEndTime}"
+    - **Value:** "Evaluation windowStartTime: \${data.context.condition.windowStartTime}. windowEndTime: \${data.context.condition.windowEndTime}"
     - **Result:** "AdditionalDetails:Evaluation windowStartTime: 2023-04-04T14:39:24.492Z. windowEndTime: 2023-04-04T14:44:24.492Z"
 
 
@@ -266,7 +266,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     This example add the data regarding the reason of resolving or firing the alert. 
 
     - **Name:** "Alert \${data.essentials.monitorCondition} reason"
-    - **Value:** "\${data.alertContext.condition.allOf[0].metricName} \${data.alertContext.condition.allOf[0].operator} \${data.alertContext.condition.allOf[0].threshold} \${data.essentials.monitorCondition}. The value is \${data.alertContext.condition.allOf[0].metricValue}"
+    - **Value:** "\${data.context.condition.allOf[0].metricName} \${data.context.condition.allOf[0].operator} \${data.context.condition.allOf[0].threshold} \${data.essentials.monitorCondition}. The value is \${data.context.condition.allOf[0].metricValue}"
     - **Result:**  Example results could be something like:
         - "Alert Resolved reason: Percentage CPU GreaterThan5 Resolved. The value is 3.585"
         - “Alert Fired reason": "Percentage CPU GreaterThan5 Fired. The value is 10.585"
