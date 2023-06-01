@@ -38,7 +38,10 @@ To install the client on a per-user basis using a batch file:
    ```
 
    >[!NOTE]
-   >The RemoteDesktop_x64.msi installer name must match the MSI contained in the folder.  
+   >The RemoteDesktop_x64.msi installer name must match the MSI contained in the folder. 
+
+   >[!NOTE]
+   >If you are trying to install the per-user client over the top of a per-machine client, you will need to remove the per-machine client first. This also applies if your per-user client prompted for administrator credentials to update, and these credentials were entered.
 
 1. Follow the directions in [Prepare Win32 app content for upload](/mem/intune/apps/apps-win32-prepare) to convert the folder into an `.intunewin` file.
 
@@ -52,9 +55,9 @@ To install the client on a per-user basis using a batch file:
 
 1. Toggle the **Install behavior** to **User**.
 
-1. In the **Detection rules** tab, enter the MSI product code `msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)`, as shown in the following screenshot.
+1. In the **Detection rules** tab, enter the MSI product code `msiexec /x {6C651C03-2F30-4123-82D1-738907961A01}`, as shown in the following screenshot.
    
-    :::image type="content" source="./media/install-client-per-user/uninstall-command.png" alt-text="A screenshot of the Detection Rules tab. The product code in the MSI product code field is msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)." lightbox="./media/install-client-per-user/uninstall-command.png" :::
+    :::image type="content" source="./media/install-client-per-user/uninstall-command.png" alt-text="A screenshot of the Detection Rules tab. The product code in the MSI product code field is msiexec /x {6C651C03-2F30-4123-82D1-738907961A01}." lightbox="./media/install-client-per-user/uninstall-command.png" :::
 
 1.  Follow the rest of the prompts until you complete the workflow.
 
@@ -87,13 +90,13 @@ To install the client on a per-user basis using a batch file:
 
 1. Enter the path of the install.bat file in the **Installation program** field.
 
-1. Enter the MSI product ID `msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)` into the **Uninstall program** field.
+1. Enter the MSI product ID `msiexec /x {6C651C03-2F30-4123-82D1-738907961A01}` into the **Uninstall program** field.
 
-    :::image type="content" source="./media/install-client-per-user/content-location-uninstall-id.png" alt-text="A screenshot of the Specify information about the content to be delivered to target devices window. The MSI product ID entered into the Uninstall program field is msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)." lightbox="./media/install-client-per-user/content-location-uninstall-id.png" :::
+    :::image type="content" source="./media/install-client-per-user/content-location-uninstall-id.png" alt-text="A screenshot of the Specify information about the content to be delivered to target devices window. The MSI product ID entered into the Uninstall program field is msiexec /x {6C651C03-2F30-4123-82D1-738907961A01}." lightbox="./media/install-client-per-user/content-location-uninstall-id.png" :::
 
 1. Next, enter the same MSI product ID you used in the previous step into the **Detection program** field.
 
-    :::image type="content" source="./media/install-client-per-user/msi-product-code.png" alt-text="A screenshot of the Specify how this deployment type is detected window. In the rules box, the clause lists the product ID msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)." lightbox="./media/install-client-per-user/msi-product-code.png" :::
+    :::image type="content" source="./media/install-client-per-user/msi-product-code.png" alt-text="A screenshot of the Specify how this deployment type is detected window. In the rules box, the clause lists the product ID msiexec /x {6C651C03-2F30-4123-82D1-738907961A01}." lightbox="./media/install-client-per-user/msi-product-code.png" :::
 
 1. For User Experience, toggle the installation behavior to **Install for user**.
 
