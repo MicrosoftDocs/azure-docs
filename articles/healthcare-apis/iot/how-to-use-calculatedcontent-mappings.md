@@ -97,7 +97,7 @@ You can also explicitly set the default expression language for a CalculatedCont
 
 ## Custom functions
 
-A set of custom functions for the MedTech service is also available. The MedTech service custom functions are outside the functions provided as part of the JMESPath specification. For more information on the MedTech service custom functions, see [How to use custom functions](how-to-use-custom-functions.md).
+A set of custom functions for the MedTech service is also available. The MedTech service custom functions are outside the functions provided as part of the JMESPath specification. For more information on the MedTech service custom functions, see [How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md).
 
 ## Example
 
