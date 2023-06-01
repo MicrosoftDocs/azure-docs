@@ -10,7 +10,7 @@ ms.date: 06/01/2023
 
 Rather than passing parameters as inline values in your script, you can use a Bicep parameters file or a JSON parameters file that contains the parameter values. This article shows how to create parameters files.
 
-A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is specifically intended for one particular Bicep file. This relationship is established using the `using` statement within the Bicep parameters file. For more information, see [Bicep parameters file](#parameters-file).
+A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is intended for one particular Bicep file. This relationship is established using the `using` statement within the Bicep parameters file. For more information, see [Bicep parameters file](#parameters-file).
 
 jgao: list the versions for supporting Bicep parameters file. You can compile Bicep parameters files into JSON parameters files to deploy with a Bicep file.
 
@@ -54,7 +54,7 @@ param intfromEnvironmentVariables = int(readEnvironmentVariable('intEnvVariableN
 
 ---
 
-It's worth noting that the parameters file saves parameter values as plain text. For security reasons, this approach is not recommended for sensitive values such as passwords. If you must pass a parameter with a sensitive value, keep the value in a key vault. Instead of adding the sensitive value to your parameters file, use the [getSecret function](bicep-functions-resource.md#getsecret) to retrieve it. For more information, see [Use Azure Key Vault to pass secure parameter value during Bicep deployment](key-vault-parameter.md).
+It's worth noting that the parameters file saves parameter values as plain text. For security reasons, this approach isn't recommended for sensitive values such as passwords. If you must pass a parameter with a sensitive value, keep the value in a key vault. Instead of adding the sensitive value to your parameters file, use the [getSecret function](bicep-functions-resource.md#getsecret) to retrieve it. For more information, see [Use Azure Key Vault to pass secure parameter value during Bicep deployment](key-vault-parameter.md).
 
 ## Parameter type formats
 
@@ -164,11 +164,11 @@ param storagePrefix
 param storageAccountType
 ```
 
-After typing the keyword `param` in visual Studio code, it will prompt you the available parameters and their descriptions from the linked Bicep file:
+After typing the keyword `param` in Visual Studio Code, it will prompt you the available parameters and their descriptions from the linked Bicep file:
 
 :::image type="content" source="./media/parameter-files/bicep-parameters-file-visual-studio-code-prompt.png" alt-text="Screenshot of the prompt of the available parameters.":::
 
-When hovering over a param name, you can see the parameter data type and scription.
+When hovering over a param name, you can see the parameter data type and description.
 
 :::image type="content" source="./media/parameter-files/bicep-parameters-file-visual-studio-code-hover.png" alt-text="Screenshot of the parameter data type and description.":::
 
@@ -216,9 +216,10 @@ param storageAccountType = ''
   }
 }
 ```
+
 ---
 
-Check the Bicep file for parameters with a default value. If a parameter has a default value, you can provide a value in the parameters file but it's not required. The parameters file value overrides the Bicep file's default value.
+Check the Bicep file for parameters with a default value. If a parameter has a default value, you can provide a value in the parameters file,  but it's not required. The parameters file value overrides the Bicep file's default value.
 
 # [Bicep parameters file](#tab/Bicep)
 

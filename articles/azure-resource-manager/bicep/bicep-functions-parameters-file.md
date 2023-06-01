@@ -8,19 +8,13 @@ ms.date: 06/01/2023
 
 # Parameters file function for Bicep
 
-Bicep supports a function called `readEnvironmentVariable()` to load environment variable values. This function can only be using in the `.bicepparam` files. For more information see [Bicep parameters file](./parameter-files.md).
-
-
-
-readEnvironmentVariable(variableName: string): string
-Reads the specified Environment variable as bicep string. Variable loading occurs during compilation, not at runtime.
-
+Bicep supports a function called `readEnvironmentVariable()` to load environment variable values. This function can only be using in the `.bicepparam` files. For more information, see [Bicep parameters file](./parameter-files.md).
 
 ## readEnvironmentVariable()
 
 `readEnvironmentVariable(variableName)`
 
-Returns the value of the environment variable.
+Returns the value of the environment variable. Variable loading occurs during compilation, not at runtime.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
