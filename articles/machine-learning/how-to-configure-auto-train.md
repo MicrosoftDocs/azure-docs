@@ -639,21 +639,24 @@ Now, you launch the pipeline run using the following command, assuming the pipel
 
 For large data scenarios, AutoML supports distributed training for a limited set of models:
 
-Distributed algorithm | Supported tasks
---|--  
-[LightGBM](https://lightgbm.readthedocs.io/en/latest/Parallel-Learning-Guide.html) | Classification, regression
-[TCNForecaster](concept-automl-forecasting-deep-learning.md#introduction-to-tcnforecaster) | Forecasting
+Distributed algorithm | Supported tasks | Data size limit (approximate)
+--|--|--  
+[LightGBM](https://lightgbm.readthedocs.io/en/latest/Parallel-Learning-Guide.html) | Classification, regression | 1TB
+[TCNForecaster](concept-automl-forecasting-deep-learning.md#introduction-to-tcnforecaster) | Forecasting | 200GB
 
-Distributed training algorithms automatically partition and distribute your data across multiple compute cores, on possibly multiple nodes, for model training.
+Distributed training algorithms automatically partition and distribute your data across multiple compute nodes for model training.
+
+> [!NOTE]
+> Cross-validation, ensemble models, ONNX support, and code generation are not currently supported in the distributed training mode. Also, AutoML may make choices such as restricting available featurizers and sub-sampling data used for validation, explainability and model evaluation.
 
 ### Distributed training for classification and regression
 
-To use distributed training for classification, you need to set the `training_mode` and `max_nodes` properties of the job object. 
+To use distributed training for classification or regression, you need to set the `training_mode` and `max_nodes` properties of the job object. 
 
 Property | Description
 -- | --
-training_mode | Indicates training mode; distributed or non-distributed. Defaults to non-distributed.
-max_nodes | The number of nodes to use for training by each AutoML trial
+training_mode | Indicates training mode; `distributed` or `non_distributed`. Defaults to `non_distributed`.
+max_nodes | The number of nodes to use for training by each AutoML trial. This setting must be greater than or equal to 4.
 
 The following code samples shows an example of these settings for a classification job:
 
@@ -690,16 +693,19 @@ limits:
 
 ---
 
+> [!NOTE]
+> Distributed training for classification and regression tasks does not currently support multiple concurrent trials. Model trials execute sequentially with each trial using `max_nodes` nodes. The `max_concurrent_trials` limit setting is currently ignored. 
+
 ### Distributed training for forecasting
 
 To learn how distributed training works for forecasting tasks, see our [forecasting at scale](concept-automl-forecasting-at-scale.md#distributed-dnn-training) article. To use distributed training for forecasting, you need to set set the `training_mode`, `enable_dnn_training`, `max_nodes`, and optionally the `max_concurrent_trials` properties of the job object.
 
 Property | Description
 -- | --
-training_mode | Indicates training mode; distributed or non-distributed. Defaults to non-distributed.
-enable_dnn_training | Flag to enable deep neural network
+training_mode | Indicates training mode; `distributed` or `non_distributed`. Defaults to `non_distributed`.
+enable_dnn_training | Flag to enable deep neural network models.
 max_concurrent_trials | This is the maximum number of trial models to train in parallel. Defaults to 1.
-max_nodes | The total number of nodes to use for training. For forecasting, each trial model is trained using $\text{max}\left(2, \text{floor}( \text{max\_nodes} / \text{max\_concurrent\_trials}) \right)$ nodes.
+max_nodes | The total number of nodes to use for training. This setting must be greater than or equal to 2. For forecasting, each trial model is trained using $\text{max}\left(2, \text{floor}( \text{max\_nodes} / \text{max\_concurrent\_trials}) \right)$ nodes.
 
 The following code samples shows an example of these settings for a forecasting job:
 

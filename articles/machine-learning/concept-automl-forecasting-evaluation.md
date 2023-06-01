@@ -90,9 +90,9 @@ Importantly, the context advances along with the forecasting window. This means 
 With a table like this, we can visualize the forecasts vs. the actuals and compute desired evaluation metrics. AutoML pipelines can generate rolling forecasts on a test set with an [inference component](how-to-auto-train-forecast.md#orchestrating-training-inference-and-evaluation-with-components-and-pipelines).
 
 > [!NOTE]
-> When the test period is the same length as the forecast horizon, a rolling forecast gives a single window of forecasts up to the horizon. Hence, it's equivalent to ["normal" forecasting model inference](#inference-scenarios) in this case.
+> When the test period is the same length as the forecast horizon, a rolling forecast gives a single window of forecasts up to the horizon.
 
-### Evaluation metrics
+## Evaluation metrics
 
 The choice of evaluation summary or metric is usually driven by the specific business scenario. Some common choices include the following:
 
@@ -101,7 +101,7 @@ The choice of evaluation summary or metric is usually driven by the specific bus
 * RMSE (root mean squared error), possibly with a normalization, between actual and forecasted values,
 * MAE (mean absolute error) , possibly with a normalization, between actual and forecasted values.
 
-There are many other possibilities, depending on the business scenario. You may need to create your own post-processing utilities for computing evaluation metrics from inference results and rolling forecasts. For more information on metrics, see our [regression and forecasting metrics](how-to-understand-automated-ml.md#regressionforecasting-metrics) article section. 
+There are many other possibilities, depending on the business scenario. You may need to create your own post-processing utilities for computing evaluation metrics from inference results or rolling forecasts. For more information on metrics, see our [regression and forecasting metrics](how-to-understand-automated-ml.md#regressionforecasting-metrics) article section. 
 
 ## Next steps
 

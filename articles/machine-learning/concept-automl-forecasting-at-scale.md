@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022
-ms.date: 05/17/2023
+ms.date: 05/31/2023
 show_latex: true
 ---
 
@@ -18,7 +18,7 @@ show_latex: true
 
 This article is about training forecasting models on large quantities of historical data. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
-Time series data can be large due to the number of series in the data, the number of historical observations, or both. **Many models** and hierarchical time series, or **HTS**, are scaling solutions for the former scenario, where the data consists of a large number of time series. Here, it can be beneficial for model accuracy and scalability to partition the data into groups and train a large number of independent models in parallel on the groups. Conversely, there are scenarios where one or a small number of high-capacity models is better. **Distributed DNN training** targets this case. We review concepts around these scenarios in the remainder of the article. 
+Time series data can be large due to the number of series in the data, the number of historical observations, or both. **Many models** and hierarchical time series, or **HTS**, are scaling solutions for the former scenario, where the data consists of a large number of time series. In these cases, it can be beneficial for model accuracy and scalability to partition the data into groups and train a large number of independent models in parallel on the groups. Conversely, there are scenarios where one or a small number of high-capacity models is better. **Distributed DNN training** targets this case. We review concepts around these scenarios in the remainder of the article. 
 
 ## Many models
 
