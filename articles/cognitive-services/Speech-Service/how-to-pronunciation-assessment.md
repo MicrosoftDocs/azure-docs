@@ -36,6 +36,55 @@ You can get pronunciation assessment scores for:
 >
 > For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
 
+## Learning language configuration
+
+The default learning language is en-US. You should specify the language that you are learning or practicing to improve pronunciation. The default language is set as `en-US`. If you know your target learning language, set the locale accordingly. For example, if you are learning British English, you should specify the language as `en-GB`. If you are teaching a broader language, such as Spanish, and are uncertain about which locale to select, you can run various accent models (`es-ES`, `es-MX`) to determine the one that achieves the highest score to suit your specific scenario.
+
+::: zone pivot="programming-language-csharp"
+
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#LL1086C13-L1086C98).
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L624).
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#LL937C1-L937C1).
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/pronunciationAssessmentContinue.js#LL37C4-L37C52).
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L862).
+
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/speech-samples/speech-samples/ViewController.swift#L224).
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+::: zone-end
+
 
 ## Configuration parameters
 
@@ -498,7 +547,7 @@ This table lists some of the key pronunciation assessment results.
 Pronunciation assessment results for the spoken word "hello" are shown as a JSON string in the following example. Here's what you should know:
 - The phoneme [alphabet](#phoneme-alphabet-format) is IPA.
 - The [syllables](#syllable-groups) are returned alongside phonemes for the same word. 
-- You can use the `Offset` and `Duration` values to align syllables with their corresponding phonemes. For example, the starting offset (11700000) of the second syllable ("loʊ") aligns with the third phoneme ("l").
+- You can use the `Offset` and `Duration` values to align syllables with their corresponding phonemes. For example, the starting offset (11700000) of the second syllable ("loʊ") aligns with the third phoneme ("l"). The offset represents the time at which the recognized speech begins in the audio stream, and it is measured in 100-nanosecond units. To learn more about `Offset` and `Duration`, see [Response properties](rest-speech-to-text-short.md#response-properties).
 - There are five `NBestPhonemes` corresponding to the number of [spoken phonemes](#spoken-phoneme) requested.
 - Within `Phonemes`, the most likely [spoken phonemes](#spoken-phoneme) was `"ə"` instead of the expected phoneme `"ɛ"`. The expected phoneme `"ɛ"` only received a confidence score of 47. Other potential matches received confidence scores of 52, 17, and 2. 
 
@@ -702,6 +751,7 @@ For how to use Pronunciation Assessment in streaming mode in your own applicatio
 
 ::: zone pivot="programming-language-python"
 
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#L915).
 
 ::: zone-end
 
@@ -713,9 +763,13 @@ For how to use Pronunciation Assessment in streaming mode in your own applicatio
 
 ::: zone pivot="programming-language-objectivec"
 
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L831).
+
 ::: zone-end
 
 ::: zone pivot="programming-language-swift"
+
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/speech-samples/speech-samples/ViewController.swift#L191).
 
 ::: zone-end
 
