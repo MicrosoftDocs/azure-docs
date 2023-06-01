@@ -72,6 +72,11 @@ Communication Services offers the following types of logs that you can enable:
 | `CorrelationID` | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mapped to the MessageId, which is returned from a successful SendMail request. |
 | `RecipientId` | The email address for the targeted recipient. If this is a message-level event, the property will be empty. |
 | `DeliveryStatus` | The terminal status of the message. |
+| `SmtpStatusCode` | SMTP status code returned from the recipient email server in response to a send mail request.
+| `EnhancedSmtpStatusCode` | Enhanced SMTP status code returned from the recipient email server.
+| `SenderDomain` | The domain portion of the SenderAddress used in sending emails.
+| `SenderUsername` | The username portion of the SenderAddress used in sending emails.
+| `IsHardBounce` | Signifies whether a delivery failure was due to a permanent or temporary issue. IsHardBounce == true means a permanent mailbox issue preventing emails from being delivered.
 
 ## Email User Engagement operational logs
 
