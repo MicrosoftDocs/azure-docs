@@ -20,7 +20,7 @@ There are three types of service accounts native to Azure Active Directory: Mana
 
 ## Types of Azure Active Directory service accounts
 
-For services hosted in Azure, we recommend using a managed identity if possible, and a service principal if not. Managed identities can’t be used for services hosted outside of Azure. In that case, we recommend a service principal. If you can use a managed identity or a service principal, do so. We recommend that you not use an Azure Active Directory user account as a service account. See the following table for a summary.
+For services hosted in Azure, we recommend using a managed identity if possible, and a service principal if not. Managed identities can't be used for services hosted outside of Azure. In that case, we recommend a service principal. If you can use a managed identity or a service principal, do so. We recommend that you not use an Azure Active Directory user account as a service account. See the following table for a summary.
 
 | Service hosting| Managed identity| Service principal| Azure user account |
 | - | - | - | - |
@@ -42,7 +42,7 @@ For more information, see [Securing managed identities](service-accounts-managed
 
 If you can't use a managed identity to represent your application, use a service principal. Service principals can be used with both single tenant and multi-tenant applications. 
 
-A service principal is the local representation of an application object in a single Azure AD tenant. It functions as the identity of the application instance, defines who can access the application, and what resources the application can access. A service principal is created in (local to) each tenant where the application is used and references the globally unique application object. The tenant secures the service principal’s sign-in and access to resources.
+A service principal is the local representation of an application object in a single Azure AD tenant. It functions as the identity of the application instance, defines who can access the application, and what resources the application can access. A service principal is created in (local to) each tenant where the application is used and references the globally unique application object. The tenant secures the service principal's sign-in and access to resources.
 
 There are two mechanisms for authentication using service principals—client certificates and client secrets. Certificates are more secure: use client certificates if possible. Unlike client secrets, client certificates cannot accidentally be embedded in code.
 
@@ -56,4 +56,4 @@ For more information on securing Azure service accounts, see:
 
 [Securing service principals](service-accounts-principal.md)
 
-[Governing Azure service accounts](service-accounts-governing-azure.md)
+[Governing Azure service accounts](govern-service-accounts.md)
