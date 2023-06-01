@@ -77,16 +77,16 @@ Use the following procedure to view events:
 
     Each row includes the time, access package ID, the name of the operation, the object ID, UPN, and the display name of the user who started the operation.  Additional details are included in JSON.
 
-1. If you would like to see if there have been changes to application role assignments for an application that were not due to access package assignments, such as by a global administrator directly assigning a user to an application role, then you can select the workbook named *Application role assignment activity*.
+1. If you would like to see if there have been changes to application role assignments for an application that weren't due to access package assignments, such as by a global administrator directly assigning a user to an application role, then you can select the workbook named *Application role assignment activity*.
 
     ![View app role assignments](./media/entitlement-management-access-package-incompatible/workbook-ara.png)
 
 ## Create custom Azure Monitor queries using the Azure portal
 You can create your own queries on Azure AD audit events, including entitlement management events.  
 
-1. In Azure Active Directory of the Azure portal, click **Logs** under the Monitoring section in the left navigation menu to create a new query page.
+1. In Azure Active Directory of the Azure portal, select **Logs** under the Monitoring section in the left navigation menu to create a new query page.
 
-1. Your workspace should be shown in the upper left of the query page. If you have multiple Azure Monitor workspaces, and the workspace you're using to store Azure AD audit events isn't shown, click **Select Scope**. Then, select the correct subscription and workspace.
+1. Your workspace should be shown in the upper left of the query page. If you have multiple Azure Monitor workspaces, and the workspace you're using to store Azure AD audit events isn't shown, select **Select Scope**. Then, select the correct subscription and workspace.
 
 1. Next, in the query text area, delete the string "search *" and replace it with the following query:
 
@@ -94,11 +94,11 @@ You can create your own queries on Azure AD audit events, including entitlement 
     AuditLogs | where Category == "EntitlementManagement"
     ```
 
-1. Then click **Run**. 
+1. Then select **Run**. 
 
     ![Click Run to start query](./media/entitlement-management-logs-and-reporting/run-query.png)
 
-The table will show the Audit log events for entitlement management from the last hour by default. You can change the "Time range" setting to view older events. However, changing this setting will only show events that occurred after Azure AD was configured to send events to Azure Monitor.
+The table shows the Audit log events for entitlement management from the last hour by default. You can change the "Time range" setting to view older events. However, changing this setting will only show events that occurred after Azure AD was configured to send events to Azure Monitor.
 
 If you would like to know the oldest and newest audit events held in Azure Monitor, use the following query:
 
@@ -123,7 +123,7 @@ To set the role assignment and create a query, do the following steps:
 
 1. Select **Access Control (IAM)**.
 
-1. Then click **Add** to add a role assignment.
+1. Then select **Add** to add a role assignment.
 
     ![Add a role assignment](./media/entitlement-management-logs-and-reporting/workspace-set-role-assignment.png)
 
@@ -147,7 +147,7 @@ $wks = Get-AzOperationalInsightsWorkspace
  
 ### Retrieve Log Analytics ID with multiple Azure subscriptions
 
- [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) operates in one subscription at a time. So, if you have multiple Azure subscriptions, you'll want to make sure you connect to the one that has the Log Analytics workspace with the Azure AD logs. 
+ [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) operates in one subscription at a time. So, if you have multiple Azure subscriptions, you want to make sure you connect to the one that has the Log Analytics workspace with the Azure AD logs. 
  
  The following cmdlets display a list of subscriptions, and find the ID of the subscription that has the Log Analytics workspace:
  
