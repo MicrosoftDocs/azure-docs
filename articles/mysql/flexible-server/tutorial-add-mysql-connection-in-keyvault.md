@@ -80,7 +80,6 @@ namespace KeyVaultDemo
     }
 }
 ```
----
 
 ### [Java](#tab/java)
 In this Java code, we use the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java) to interact with Azure Key Vault. We first define the Key Vault URL and the name of the secret (connection string) we want to retrieve. Then, we create a SecretClient object using the SecretClientBuilder class. We set the Key Vault URL and provide the DefaultAzureCredential to authenticate with Azure AD. The DefaultAzureCredential automatically authenticates using the available credentials, such as environment variables, managed identities, or Visual Studio Code authentication.
@@ -111,7 +110,6 @@ public class KeyVaultDemo {
     }
 }
 ```
----
 
 ### [PHP](#tab/php)
 In this PHP code, we first require the necessary autoload file and import the required classes from the Azure SDK. We define the $keyVaultUrl variable with the URL of your Azure Key Vault and $secretName variable with the name of the secret (connection string) you want to retrieve. Next, we create a DefaultAzureCredential object to authenticate with Azure AD, which automatically picks up the available credentials from your environment. Then, we create a SecretClient object, passing the Key Vault URL and the credential object to authenticate with the Key Vault.
@@ -135,7 +133,6 @@ $connString = $secret->getValue();
 
 echo 'Connection string retrieved: ' . $connString;
 ```
----
 
 ### [Python](#tab/python)
 In this Python code, we first import the necessary modules from the Azure SDK. We define the key_vault_url variable with the URL of your Azure Key Vault and secret_name variable with the name of the secret (connection string) you want to retrieve. Next, we create a DefaultAzureCredential object to authenticate with Azure AD. The DefaultAzureCredential automatically authenticates using the available credentials, such as environment variables, managed identities, or Visual Studio Code authentication.
@@ -157,7 +154,7 @@ conn_string = secret.value
 
 print("Connection string retrieved:", conn_string)
 ```
----
+-----
 
 ## Next Steps
 [Azure Key Vault client libraries](../../key-vault/general/client-libraries.md)
