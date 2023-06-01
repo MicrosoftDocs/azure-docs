@@ -22,7 +22,7 @@ In this section, we review the step-by-step process of setting up a private link
 
 1. Go to **Create a resource** in the Azure portal and search for **Azure Monitor Private Link Scope**.
 
-:::image type="content" source="./media/private-link-security/ampls-find-1c.png" lightbox="./media/private-link-security/ampls-find-1c.png" alt-text="Screenshot showing finding Azure Monitor Private Link Scope.":::
+   :::image type="content" source="./media/private-link-security/ampls-find-1c.png" lightbox="./media/private-link-security/ampls-find-1c.png" alt-text="Screenshot showing finding Azure Monitor Private Link Scope.":::
 
 1. Select **Create**.
 1. Select a subscription and resource group.
@@ -69,7 +69,7 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
 
     :::image type="content" source="./media/private-link-security/create-private-endpoint-resource.png" alt-text="Screenshot that shows the Create a private endpoint page in the Azure portal with the Resource tab selected." lightbox="./media/private-link-security/create-private-endpoint-resource.png":::
 
-1. On the **Virtual Network** tab, select the** Virtual network** and **Subnet** that you want to connect to your Azure Monitor resources.
+1. On the **Virtual Network** tab, select the **Virtual network** and **Subnet** that you want to connect to your Azure Monitor resources.
 1. For **Network policy for private endpoints**, select **edit** if you want to apply network security groups or Route tables to the subnet that contains the private endpoint.  
 
     In **Edit subnet network policy**, select the checkboxes next to **Network security groups** and **Route tables**, and select **Save**.  For more information, see [Manage network policies for private endpoints](../../private-link/disable-private-endpoint-network-policy.md).
