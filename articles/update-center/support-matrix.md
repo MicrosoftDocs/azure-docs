@@ -97,7 +97,7 @@ Currently, we support a combination of Offer, Publisher, and Sku of the image. E
 
 **Custom images**
 
-We support [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#generalized-images). Table below lists the operating systems that we support for generalized Azure Compute Gallery images. Refer to [Azure Compute Gallery (SIG) custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update manage center to manage updates on custom images.
+We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. Table below lists the operating systems that we support for generalized images. Refer to [custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update manage center to manage updates on custom images.
 
    |**Windows Operating System**|
    |-- |
