@@ -271,9 +271,9 @@ Logic app currently has 3 different types of assemblies. Namely `Client/SDK Asse
 ![Screenshot shows assembly upload GUI on Portal.](./media/create-single-tenant-workflows-visual-studio-code/assembly-upload-on-portal.jpg)
 Lets go over each type of assemblies and where they can be placed in VS Code.
   1. Client/SDK Assembly (.NET Framework):
-  These are used to provide custom .NET Framework SDK. For example [SAP Connector](https://learn.microsoft.com/en-us/azure/logic-apps/connectors/built-in/reference/sap/) use these assemblies to find .NCo DLL's that are not distributable. Those assemblies can be placed under `\lib\builtinOperationSdks\net472`.
+  These are used to provide custom .NET Framework SDK. For example [SAP Connector](/azure/logic-apps/connectors/built-in/reference/sap/) use these assemblies to find .NCo DLL's that are not distributable. Those assemblies can be placed under `\lib\builtinOperationSdks\net472`.
   3. Client/SDK Assembly (Java)
-  These are used to provide custom JAVA SDK. For example [JDBC Connector](https://learn.microsoft.com/en-us/azure/logic-apps/connectors/built-in/reference/jdbc/) use these JAR's to find JDBC Drivers for custom RDB(Relational Database). Those assemblies can be placed under `\lib\builtinOperationSdks\JAR`.
+  These are used to provide custom JAVA SDK. For example [JDBC Connector](/azure/logic-apps/connectors/built-in/reference/jdbc/) use these JAR's to find JDBC Drivers for custom RDB(Relational Database). Those assemblies can be placed under `\lib\builtinOperationSdks\JAR`.
   5. Custom Assembly (.NET Framework)
   These are used to provide custom DLLs. For example, Transform XML operation use these assemblies for custom transformation functions required for XML Transformation. Those assemblies can be placed under `\lib\custom\net472`.
 
