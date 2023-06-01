@@ -37,7 +37,7 @@ Even though the correct H265 codec might be installed, security properties on th
 
 ## Devices
 
-Azure Remote Rendering currently only supports **HoloLens 2** and Windows desktop as a target device. See the [platform limitations](../reference/limits.md#platform-limitations) section.
+Azure Remote Rendering currently supports **HoloLens 2**, **Android** and Windows desktop as a target device. See the [platform limitations](../reference/limits.md#platform-limitations) section.
 
 On desktop, it's required to install the latest [Microsoft Visual C++ Redistributable package](https://aka.ms/vs/17/release/vc_redist.x64.exe) to be able to run any Azure Remote Rendering application.
 

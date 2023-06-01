@@ -1,0 +1,52 @@
+---
+title: Deploy Unity sample to Android
+description: Quickstart that shows how to get the Unity sample onto an Android device
+author: jakrams
+ms.author: jakras
+ms.date: 06/01/2023
+ms.topic: quickstart
+ms.custom: mode-other
+---
+
+# Quickstart: Deploy Unity sample to Android
+
+This quickstart covers how to deploy and run the quickstart sample app for Unity to an Android device.
+
+In this quickstart you'll learn how to:
+
+> [!div class="checklist"]
+>
+>* Build the quickstart sample app for Android
+>* Deploy the sample to the device
+>* Run the sample on the device
+
+## Prerequisites
+
+In this quickstart, we'll deploy the sample project from [Quickstart: Render a model with Unity](render-model.md).
+Make sure your credentials are saved properly with the scene and you can connect to a session from within the Unity editor.
+
+You need to have the [Android SDK](https://developer.android.com/studio) installed, so that tools like the [Android Debug Bridge (ADB)](https://developer.android.com/tools/adb) are available. You should also make sure these are in your `PATH` environment variable.
+
+Make sure your Android device is connected to the PC and side-loading APKs via `adb` works.
+
+## Build the sample project
+
+1. Open *File > Build Settings*.
+1. Change *Platform* to **Android**
+1. If you want to be able to debug the APK, enable *Development Build*.
+1. Select **Switch to Platform**
+    ![Solution configuration](media/unity-deploy-config-android.png)
+1. When pressing **Build** (or 'Build And Run'), you'll be asked to select some folder where the APK will be stored.
+1. Once the APK file is finished, it needs to be deployed to your Android device using `adb`.
+1. Open a command prompt, navigate to the APK file and run `adb install <YourFileName.apk>`
+
+## Launch the sample project
+
+Once your APK is installed on the device, you should be able to find and launch it from the Quest's app menu.
+
+## Next steps
+
+In the next quickstart, we'll take a look at converting a custom model.
+
+> [!div class="nextstepaction"]
+> [Quickstart: Convert a model for rendering](convert-model.md)

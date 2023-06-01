@@ -53,3 +53,7 @@ For detailed information on this limitation, see the [server size](../reference/
 **HoloLens 2**
 
 * The [render from PV camera](/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature isn't supported.
+
+**Android**
+
+* Currently Azure Remote Rendering is optimized to be used with *Meta Quest 2* devices.
