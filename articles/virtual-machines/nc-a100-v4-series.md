@@ -52,7 +52,7 @@ Note: The Ubuntu-HPC 18.04-ncv4 image is only valid during preview and deprecate
 
 
 
-| Size | vCPU | Memory (GiB) | Temp Storage SSD (GiB)  | NVMe Disks | GPU | GPU Memory (GiB) | Max data disks | Max uncached disk throughput (IOPS / MBps) | Max NICs/network bandwidth (MBps) |
+| Size | vCPU | Memory (GiB) | Temp Disk (GiB)  | NVMe Disks | GPU | GPU Memory (GiB) | Max data disks | Max uncached disk throughput (IOPS / MBps) | Max NICs/network bandwidth (MBps) |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_NC24ads_A100_v4   | 24  | 220 |64 | 960 GB | 1 | 80  | 12 | 30000/1000 | 2/20,000  |
 | Standard_NC48ads_A100_v4   | 48 | 440 | 128| 2x960 GB| 2 | 160 | 24 | 60000/2000 | 4/40,000  | 
