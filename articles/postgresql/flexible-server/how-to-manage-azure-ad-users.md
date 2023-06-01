@@ -81,7 +81,7 @@ For example: select * from pgaadauth_create_principal('mary@contoso.com', false,
 ```sql
 select * from pgaadauth_create_principal_with_oid('<roleName>', '<objectId>', '<objectType>', <isAdmin>, <isMfa>);
 
-for example: select * from pgaadauth_create_principal_with_oid('accounting_application', '00000000-0000-0000-0000-000000000000', 'service', false, false);
+For example: select * from pgaadauth_create_principal_with_oid('accounting_application', '00000000-0000-0000-0000-000000000000', 'service', false, false);
 ```
 
 **Parameters:**
