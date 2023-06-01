@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/14/2022
+ms.date: 05/22/2023
 ms.author: ryanwi
 ms.custom: contperf-fy21q4-portal, aaddev, identityplatformtop40
 ms.reviewer: sureshja
@@ -73,6 +73,33 @@ An application object has:
 - A one-to-many relationship with its corresponding service principal object(s)
 
 A service principal must be created in each tenant where the application is used, enabling it to establish an identity for sign-in and/or access to resources being secured by the tenant. A single-tenant application has only one service principal (in its home tenant), created and consented for use during application registration. A multi-tenant application also has a service principal created in each tenant where a user from that tenant has consented to its use.
+
+### List service principals associated with an app
+
+You can find the service principals associated with an application object.
+
+# [Browser](#tab/browser)
+
+In the [Azure portal](https://portal.azure.com), navigate to the application registration overview.  Select **Managed application in local directory**.
+
+:::image type="content" alt-text="Screen shot that shows the Managed application in local directory option in the overview." source="./media/app-objects-and-service-principals/find-service-principal.png" border="false":::
+
+# [PowerShell](#tab/azure-powershell)
+
+Using PowerShell:
+
+```azurepowershell
+Get-AzureADServicePrincipal -Filter "appId eq '{AppId}'"
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Using Azure CLI:
+
+```azurecli
+az ad sp list --filter "appId eq '{AppId}'"
+```
+---
 
 ### Consequences of modifying and deleting applications
 

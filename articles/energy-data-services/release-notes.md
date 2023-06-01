@@ -21,9 +21,19 @@ Azure Data Manager for Energy Preview is updated on an ongoing basis. To stay up
 - Deprecated functionality
 - Plans for changes
 
+This page will be updated with the details about the upcoming release approximately a week before the actual deployment.
+
 <hr width = 100%>
 
 ## April 2023
+
+### Support for Private Links during instance provisioning
+
+Azure Private link enables access to Azure Data Manager for Energy instance over a private endpoint in your virtual network, which ensures restricted access to the service. With this feature, you can now configure private endpoints to your Azure Data Manager for Energy instance during the instance creation. Your service instance can now have private connectivity from the very beginning. Learn more about [how to set up private links](how-to-set-up-private-links.md).
+
+### Enabled Monitoring of OSDU Service Logs
+
+Now you can configure diagnostic settings of your Azure Data Manager for Energy Preview to export OSDU Service Logs to Azure Monitor. You can access, query, & analyze the logs in a Log Analytics Workspace. You can archive them in a storage account for later use. Learn more about [how to integrate OSDU service logs with Azure Monitor](how-to-integrate-osdu-service-logs-with-azure-monitor.md)
 
 ### Monitoring and investigating actions with Audit logs
 
@@ -42,7 +52,7 @@ Billing for Azure Data Manager for Energy Preview is enabled. During Preview, th
 
 ### Available on Azure Marketplace
 
-You can go directly to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftEnergyDataServices?tab=Overview) to create an Azure Data Manager for Energy Preview instance in your subscription. You don't need to raise a support ticket with Microsoft to provision an instance anymore. 
+You can go directly to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureDataManagerforEnergy?tab=Overview) to create an Azure Data Manager for Energy Preview resource in your subscription. You don't need to raise a support ticket with Microsoft to provision an instance anymore. 
 
 ### Support for Petrel Data Services
 Azure Data Manager for Energy Preview supports [Petrel Data Services](overview-ddms.md#) that allows you to use [Petrel](https://www.software.slb.com/products/petrel) from SLB&trade; with Azure Data Manager from Energy as its data store. You can view your Petrel projects, liberate data from Petrel, and collaborate in real time with data permanently stored in Azure Data Manager for Energy. 

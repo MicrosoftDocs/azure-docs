@@ -42,7 +42,7 @@ For more information, see [Set up backup and restore files](back-up-restore-sens
     |**E1800**     |Default storage is 40 GB; limit is 100 GB.        |
     |**L500**     |   Default storage is 20 GB; limit is 50 GB.     |
     |**L100**     |  Default storage is 10 GB; limit is 25 GB.       |
-    |**L60**     |    Default storage is 10 GB; limit is 25 GB.     |
+    |**L60** [*](ot-appliance-sizing.md#l60)        |    Default storage is 10 GB; limit is 25 GB.     |
 
     **If you're storing backup files on an external server**, there's no maximum storage. However, keep in mind:
 

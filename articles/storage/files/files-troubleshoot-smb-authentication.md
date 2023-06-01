@@ -4,7 +4,7 @@ description: Troubleshoot problems using identity-based authentication to connec
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 03/31/2023
+ms.date: 05/15/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -102,7 +102,10 @@ This error is most likely triggered by a syntax error in the `Join-AzStorageAcco
 
 ## Azure Files on-premises AD DS Authentication support for AES-256 Kerberos encryption
 
-Azure Files supports AES-256 Kerberos encryption for AD DS authentication beginning with the AzFilesHybrid module v0.2.2. AES-256 is the recommended authentication method. If you've enabled AD DS authentication with a module version lower than v0.2.2, you'll need to [download the latest AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases) and run the PowerShell below. If you haven't enabled AD DS authentication on your storage account yet, follow this [guidance](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module) for enablement. 
+Azure Files supports AES-256 Kerberos encryption for AD DS authentication beginning with the AzFilesHybrid module v0.2.2. AES-256 is the recommended encryption method, and it's the default encryption method beginning in AzFilesHybrid module v0.2.5. If you've enabled AD DS authentication with a module version lower than v0.2.2, you'll need to [download the latest AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases) and run the PowerShell below. If you haven't enabled AD DS authentication on your storage account yet, follow this [guidance](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module).
+
+> [!IMPORTANT]
+> If you were previously using RC4 encryption and update the storage account to use AES-256, you should run `klist purge` on the client and then remount the file share to get new Kerberos tickets with AES-256.
 
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
@@ -233,7 +236,7 @@ To mitigate this, you have two options: either rotate the service principal pass
 
 #### Option 1: Update the service principal password using PowerShell
 
-1. Install the latest Az.Storage and AzureAD modules. Use PowerShell 5.1, because currently the AzureAD module doesn't work in PowerShell 7. Azure Cloud Shell won't work in this scenario. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
+1. Install the latest Az.Storage and AzureAD modules. Use PowerShell 5.1, because currently the AzureAD module doesn't work in PowerShell 7. Azure Cloud Shell won't work in this scenario. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell).
 
 To install the modules, open PowerShell with elevated privileges and run the following commands:
 
@@ -339,6 +342,7 @@ The solution is to add the privateLink FQDN to the storage account's Azure AD ap
 1. Select **Manifest** in the left pane.
 1. Copy and paste the existing content so you have a duplicate copy. Replace all instances of `<storageaccount>.file.core.windows.net` with `<storageaccount>.privatelink.file.core.windows.net`.
 1. Review the content and select **Save** to update the application object with the new identifierUris.
+1. Update any internal DNS references to point to the private link.
 1. Retry mounting the share.
 
 ## Need help?

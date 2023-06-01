@@ -2,15 +2,15 @@
 title: Modify a packet core instance
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal. 
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 03/31/2023
 ms.custom: template-how-to
 ---
 
-# Modify the packet core instance in a site
+# Modify a packet core instance
 
 Each Azure Private 5G Core site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal; this includes modifying the packet core's custom location, connected Azure Stack Edge (ASE) device, and access network configuration. You'll also learn how to add and modify the data networks attached to the packet core instance.
 
@@ -101,6 +101,9 @@ To modify the packet core and/or access network configuration:
    - If you want to make changes to a data network that's already attached to the packet core instance, go to [Modify attached data network configuration](#modify-attached-data-network-configuration).
 
 ## Attach a data network
+
+> [!IMPORTANT]
+> You must configure the ASE device with interfaces corresponding to the data networks before you can attach them to the packet core. See [Changing ASE configuration after deployment](commission-cluster.md#changing-ase-configuration-after-deployment).
 
 To configure a new or existing data network and attach it to your packet core instance:
 

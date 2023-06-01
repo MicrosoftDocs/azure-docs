@@ -4,7 +4,7 @@ description: How to authenticate requests and use the Azure Monitor REST API to 
 author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 01/30/2023
-ms.custom: has-adal-ref, devx-track-azurepowershell
+ms.custom: has-adal-ref
 ms.reviewer: edbaynash
 ---
 
@@ -23,7 +23,7 @@ Once you've created a service principal, retrieve an access token using a REST c
 
 ```HTTP
 
-    POST /<appId>/oauth2/v2.0/token
+    POST /<tenant-id>/oauth2/token
     Host: https://login.microsoftonline.com
     Content-Type: application/x-www-form-urlencoded
     

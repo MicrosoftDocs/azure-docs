@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 01/13/2023
 ms.author: gasinh
 ms.subservice: app-mgmt
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Migrate Okta sign-on policies to Azure Active Directory Conditional Access
@@ -186,7 +187,7 @@ Learn more: [Enable combined security information registration in Azure Active D
 
 1. To test, change the created policies to **Enabled test user login**.
 
-   ![Screenshot of policies on the Conditinal Access, Policies screen.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enable-test-user.png)
+   ![Screenshot of policies on the Conditional Access, Policies screen.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enable-test-user.png)
 
 2. On the Office 365 **Sign-In** pane, the test user John Smith is prompted to sign in with Okta MFA and Azure AD MFA.
 
@@ -231,4 +232,4 @@ To avoid double-prompting between Azure AD MFA and Okta MFA, opt out from Okta M
 
 - [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta-to-azure-active-directory.md)
 - [Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication](migrate-okta-federation-to-azure-active-directory.md)
-- [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory.md)
+- [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning.md)

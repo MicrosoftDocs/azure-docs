@@ -6,11 +6,11 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: quickstart
 ms.date: 11/18/2022
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
-recommendations: false
 ---
 
 # Get started with Form Recognizer

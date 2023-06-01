@@ -330,7 +330,7 @@ Below are the user and group settings that can be locked down if there isn't an 
 ![Administration portal restricted access](./media/active-directory-ops-guide/active-directory-ops-img13.png)
 
 > [!NOTE]
-> Non-adminstrators can still access to the Azure AD management interfaces via command-line and other programmatic interfaces.
+> Non-administrators can still access to the Azure AD management interfaces via command-line and other programmatic interfaces.
 
 #### Group settings
 

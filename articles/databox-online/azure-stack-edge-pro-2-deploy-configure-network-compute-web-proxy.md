@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/31/2022
+ms.date: 04/27/2023
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -160,7 +160,7 @@ Follow these steps to configure advanced network settings such as creating a swi
 
     1. Select a **Virtual switch** to which you'll add a virtual network.
     1. Provide a **Name** for the virtual network.
-    1. Supply a unique number from 1-4096 as your **VLAN ID**.
+    1. Supply a unique number from 1-4096 as your **VLAN ID**. You must specify a valid VLAN that's configured on the network.
     1. Enter a **Subnet mask** and a **Gateway** depending on the configuration of your physical network in the environment.
     1. Select **Apply**.
 
@@ -518,7 +518,7 @@ You can add or delete virtual networks associated with your virtual switches. To
 
     1. Select a virtual switch for which you want to create a virtual network.
     1. Provide a **Name** for your virtual network.
-    1. Enter a **VLAN ID** as a unique number in 1-4094 range.
+    1. Enter a **VLAN ID** as a unique number in 1-4094 range. You must specify a valid VLAN that's configured on the network. 
     1. Specify the **Subnet mask** and **Gateway** for your virtual LAN network as per the physical network configuration.
     1. Select **Apply**.
 

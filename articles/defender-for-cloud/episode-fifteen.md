@@ -3,7 +3,7 @@ title: Remediate security recommendations with governance
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about the new governance feature in Defender for Cloud, and how to drive security posture improvement.
 ms.topic: reference
-ms.date: 01/24/2023
+ms.date: 04/27/2023
 ---
 
 # Remediate security recommendations with governance

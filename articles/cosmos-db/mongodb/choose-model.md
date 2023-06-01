@@ -2,8 +2,8 @@
 title: Choose between RU-based and vCore-based models
 titleSuffix: Azure Cosmos DB for MongoDB
 description: Choose whether the RU-based or vCore-based option for Azure Cosmos DB for MongoDB is ideal for your workload.
-author: nayakshweta
-ms.author: shwetn
+author: seesharprun
+ms.author: sidandrews
 ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb

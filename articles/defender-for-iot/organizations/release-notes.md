@@ -38,6 +38,7 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **22.3** | | | |
+| 22.3.9 | 05/2023 | Patch | 04/2024 |
 | 22.3.8 | 04/2023 | Patch | 03/2024 |
 | 22.3.7 | 03/2023 | Patch | 02/2024 |
 | 22.3.6 | 03/2023 | Patch | 02/2024 |
@@ -96,6 +97,14 @@ To understand whether a feature is supported in your sensor version, check the r
 
 ## Versions 22.3.x
 
+### 22.3.9
+
+**Release date**: 05/2023
+
+**Supported until**: 04/2024
+
+This version includes bug fixes for stability improvements.
+
 ### 22.3.8
 
 **Release date**: 04/2023
@@ -142,6 +151,7 @@ This version includes bug fixes for stability improvements.
 **Supported until**: 12/2023
 
 - [Azure connectivity status shown on OT sensors](how-to-manage-individual-sensors.md#validate-connectivity-status)
+- [Configure Active Directory and NTP settings in the Azure portal](configure-sensor-settings-portal.md#active-directory)
 
 ## Versions 22.2.x
 

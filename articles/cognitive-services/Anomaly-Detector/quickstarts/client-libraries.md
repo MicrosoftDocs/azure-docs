@@ -14,7 +14,7 @@ ms.author: mbullwin
 keywords: anomaly detection, algorithms
 ms.devlang: csharp, javascript, python
 recommendations: false
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-api, devx-track-dotnet, devx-track-extended-java
 ---
 
 # Quickstart: Use the Univariate Anomaly Detector client library

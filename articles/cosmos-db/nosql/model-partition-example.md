@@ -9,7 +9,7 @@ ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 02/27/2023
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # How to model and partition data on Azure Cosmos DB using a real-world example
@@ -44,7 +44,7 @@ Adding more requirements to our specification:
 
 To start, we give some structure to our initial specification by identifying our solution's access patterns. When designing a data model for Azure Cosmos DB, it's important to understand which requests our model has to serve to make sure that the model serves those requests efficiently.
 
-To make the overall process easier to follow, we categorize those different requests as either commands or queries, borrowing some vocabulary from [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_query_responsibility_segregation). In CQRTS, commands are write requests (that is, intents to update the system) and queries are read-only requests.
+To make the overall process easier to follow, we categorize those different requests as either commands or queries, borrowing some vocabulary from [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_query_responsibility_segregation). In CQRS, commands are write requests (that is, intents to update the system) and queries are read-only requests.
 
 Here's the list of requests that our platform exposes:
 

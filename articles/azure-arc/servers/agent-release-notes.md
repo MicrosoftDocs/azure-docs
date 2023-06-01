@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 04/06/2023
+ms.date: 05/08/2023
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,15 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 - Bug fixes
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
+
+## Version 1.30 - May 2023
+
+Download for [Windows](https://download.microsoft.com/download/7/7/9/779eae73-a12b-4170-8c5e-abec71bc14cf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Fixed
+
+- Resolved an issue that could cause the agent to go offline after rotating its connectivity keys.
+- `azcmagent show` no longer shows an incomplete resource ID or Azure portal page URL when the agent isn't configured.
 
 ## Version 1.29 - April 2023
 
@@ -58,31 +67,6 @@ Download for [Windows](https://download.microsoft.com/download/8/4/5/845d5e04-bb
 - Improved reliability when changing the [agent configuration mode](security-overview.md#local-agent-security-controls) from "monitor" mode to "full" mode.
 - Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Sentinel DNS extension to improve log collection reliability
 - Tenant IDs are better validated when connecting the server
-
-## Version 1.26 - January 2023
-
-Download for [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
-
-> [!NOTE]
-> Version 1.26 is only available for Linux operating systems.
-
-### Fixed
-
-- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Defender for Endpoint extension (MDE.Linux) on Linux to improve installation reliability
-
-## Version 1.25 - January 2023
-
-Download for [Windows](https://download.microsoft.com/download/2/a/5/2a5b7d19-bc35-443e-80b2-63087577236e/AzureConnectedMachineAgent%20(1).msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
-
-### New features
-
-- Red Hat Enterprise Linux (RHEL) 9 is now a [supported operating system](prerequisites.md#supported-operating-systems)
-
-### Fixed
-
-- Reliability improvements in the machine (guest) configuration policy engine
-- Improved error messages in the Windows MSI installer
-- Additional improvements to the detection logic for machines running on Azure Stack HCI
 
 ## Next steps
 

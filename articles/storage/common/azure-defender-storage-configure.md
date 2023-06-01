@@ -348,7 +348,7 @@ To enable and configure Microsoft Defender for Storage at the storage account le
 
 ```http
 PUT
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Storage/storageAccounts/{accountName}/providers/Microsoft.Security/defenderForStorageSettings/current?api-version=2022-12-01-preview
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/providers/Microsoft.Security/defenderForStorageSettings/current?api-version=2022-12-01-preview
 ```
 
 And add the following request body:
@@ -504,7 +504,7 @@ To override Defender for Storage subscription-level settings to configure settin
 
         1. Switch the "**On-upload malware scanning**" to **On** if it’s not already enabled.
 
-        1. Check the relevant boxes underneath and change the settings. If you wish to permit unlimited scanning, assign the value `-1`.
+        1. To adjust the monthly threshold for malware scanning in your storage accounts, you can modify the parameter called "Set limit of GB scanned per month" to your desired value. This parameter determines the maximum amount of data that can be scanned for malware each month, specifically for each storage account. If you wish to allow unlimited scanning, you can uncheck this parameter. By default, the limit is set at `5,000` GB.
 
     Learn more about [malware scanning settings](../../defender-for-cloud/defender-for-storage-configure-malware-scan.md).
 

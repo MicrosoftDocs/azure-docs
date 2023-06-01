@@ -1,22 +1,22 @@
 ---
-title: How to use IotJsonPathContent mappings in the MedTech service device mappings - Azure Health Data Services
-description: This article describes how to use IotJsonPathContent mappings with the MedTech service device mappings. 
+title: How to use IotJsonPathContent mappings with the MedTech service device mapping - Azure Health Data Services
+description: Learn how to use IotJsonPathContent mappings with the MedTech service device mapping. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 04/14/2023
+ms.date: 05/04/2023
 ms.author: jasteppe
 ---
 
-# How to use IotJsonPathContent mappings
+# How to use IotJsonPathContent mappings with the MedTech service device mapping
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 This article describes how to use IoTJsonPathContent mappings with the MedTech service [device mapping](overview-of-device-mapping.md).
 
-## IotJsonPathContent
+## Overview of IotJsonPathContent mappings
 
 The IotJsonPathContent is similar to the JsonPathContent except the `DeviceIdExpression` and `TimestampExpression` aren't required.
 

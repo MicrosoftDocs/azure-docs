@@ -47,7 +47,7 @@ ORDER BY <sort_specification>
   
 ## Remarks  
   
-   The `ORDER BY` clause requires that the indexing policy include an index for the fields being sorted. The Azure Cosmos DB query runtime supports sorting against a property name and not against computed properties. Azure Cosmos DB supports multiple `ORDER BY` properties. In order to run a query with multiple ORDER BY properties, you should define a [composite index](../../index-policy.md#composite-indexes) on the fields being sorted.
+   The `ORDER BY` clause requires that the indexing policy include an index for the fields being sorted. The Azure Cosmos DB query runtime supports sorting against a property name or [computed properties](./computed-properties.md). Azure Cosmos DB supports multiple `ORDER BY` properties. In order to run a query with multiple ORDER BY properties, you should define a [composite index](../../index-policy.md#composite-indexes) on the fields being sorted.
 
 > [!Note]
 > If the properties being sorted might be undefined for some documents and you want to retrieve them in an ORDER BY query, you must explicitly include this path in the index. The default indexing policy won't allow for the retrieval of the documents where the sort property is undefined. [Review example queries on documents with some missing fields](#documents-with-missing-fields).

@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 04/20/2023
+  ms.date: 05/16/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -37,17 +37,17 @@ landingContent:
       - linkListType: overview
         links:
           - text: Choose a deployment method
-            url: deploy-new-choose.md
+            url: deploy-choose-method.md
       - linkListType: quickstart
         links:     
           - text: ARM template
-            url: deploy-new-arm.md
+            url: deploy-arm-template.md
           - text: Azure PowerShell or the Azure CLI
-            url: deploy-new-powershell-cli.md
-          - text: Azure Bicep
-            url: deploy-new-bicep-powershell-cli.md
+            url: deploy-json-powershell-cli.md
+          - text: Bicep
+            url: deploy-bicep-powershell-cli.md
           - text: Azure portal
-            url: deploy-new-manual.md
+            url: deploy-manual-portal.md
 
   - title: Configure the MedTech service mappings
     linkLists:

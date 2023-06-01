@@ -17,7 +17,7 @@ ms.custom: cogserv-non-critical-speech
 
 Direct Line Speech is a robust, end-to-end solution for creating a flexible, extensible voice assistant. It is powered by the Bot Framework and its Direct Line Speech channel, that is optimized for voice-in, voice-out interaction with bots.
 
-[Voice assistants](voice-assistants.md) listen to users and take an action in response, often speaking back. They use [speech-to-text](speech-to-text.md) to transcribe the user's speech, then take action on the natural language understanding of the text. This action frequently includes spoken output from the assistant generated with [text-to-speech](text-to-speech.md).
+[Voice assistants](voice-assistants.md) listen to users and take an action in response, often speaking back. They use [speech to text](speech-to-text.md) to transcribe the user's speech, then take action on the natural language understanding of the text. This action frequently includes spoken output from the assistant generated with [text to speech](text-to-speech.md).
 
 Direct Line Speech offers the highest levels of customization and sophistication for voice assistants. It's designed for conversational scenarios that are open-ended, natural, or hybrids of the two with task completion or command-and-control use. This high degree of flexibility comes with a greater complexity, and scenarios that are scoped to well-defined tasks using natural language input may want to consider [Custom Commands](custom-commands.md) for a streamlined solution experience.
 
@@ -48,7 +48,7 @@ Sample code for creating a voice assistant is available on GitHub. These samples
 
 ## Customization
 
-Voice assistants built using Speech service can use the full range of customization options available for [speech-to-text](speech-to-text.md), [text-to-speech](text-to-speech.md), and [custom keyword selection](./custom-keyword-basics.md).
+Voice assistants built using Speech service can use the full range of customization options available for [speech to text](speech-to-text.md), [text to speech](text-to-speech.md), and [custom keyword selection](./custom-keyword-basics.md).
 
 > [!NOTE]
 > Customization options vary by language/locale (see [Supported languages](./language-support.md?tabs=stt)).

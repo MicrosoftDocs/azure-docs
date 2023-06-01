@@ -854,6 +854,8 @@ items:
       href: how-to-use-azure-key-vault-secrets-pipeline-activities.md
     - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
+    - name: Configure outbound allow lists (Preview)
+      href: configure-outbound-allow-list-azure-policy.md
       displayName: self hosted
     - name: Credentials in Data Factory
       href: credentials.md
@@ -1302,8 +1304,6 @@ items:
     items:
     - name: Run an existing pipeline with Airflow
       href: tutorial-run-existing-pipeline-with-airflow.md
-    - name: Refresh a Power BI dataset with Airflow
-      href: tutorial-refresh-power-bi-dataset-with-airflow.md
   - name: Concepts
     href: concept-managed-airflow.md
   - name: How-to

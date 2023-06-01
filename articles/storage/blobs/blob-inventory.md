@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 03/30/2023
+ms.date: 06/01/2023
 ms.topic: conceptual
 ms.author: normesta
 ms.subservice: blobs
@@ -15,6 +15,12 @@ ms.custom: references_regions
 # Azure Storage blob inventory
 
 Azure Storage blob inventory provides a list of the containers, blobs, blob versions, and snapshots in your storage account, along with their associated properties. It generates an output report in either comma-separated values (CSV) or Apache Parquet format on a daily or weekly basis. You can use the report to audit retention, legal hold or encryption status of your storage account contents, or you can use it to understand the total data size, age, tier distribution, or other attributes of your data. You can also use blob inventory to simplify your business workflows or speed up data processing jobs, by using blob inventory as a scheduled automation of the [List Containers](/rest/api/storageservices/list-containers2) and [List Blobs](/rest/api/storageservices/list-blobs) APIs. Blob inventory rules allow you to filter the contents of the report by blob type, prefix, or by selecting the blob properties to include in the report.
+
+Azure Storage blob inventory is available for the following types of storage accounts:
+
+- Standard general-purpose v2
+- Premium block blob storage
+- Blob storage
 
 ## Inventory features
 
@@ -315,7 +321,7 @@ Each inventory run for a rule generates the following files:
 - **Inventory file:** An inventory run for a rule generates one or more CSV or Apache Parquet formatted files. If the matched object count is large, then multiple files are generated instead of a single file. Each such file contains matched objects and their metadata. 
 
   > [!NOTE]
-  > Reports in the Apache Parquet format present dates in the following format: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`.
+  > Reports in the Apache Parquet format present dates in the following format: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`].
 
   For a CSV formatted file, the first row is always the schema row. The following image shows an inventory CSV file opened in Microsoft Excel.
 

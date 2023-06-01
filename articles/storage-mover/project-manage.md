@@ -75,7 +75,7 @@ The first step in defining a migration job is the creation of a project resource
    Install-Module -Name Az.StorageMover -Scope CurrentUser -Repository PSGallery -Force
    ```
 
-   The [Install Azure PowerShell](/powershell/azure/install-az-ps) article has more details.
+   The [Install Azure PowerShell](/powershell/azure/install-azure-powershell) article has more details.
 
    You'll need to supply values for the required `-Name`, `-ResourceGroupName`, and `-StorageMoverName` parameters. The `-Description` parameter is optional.   
 

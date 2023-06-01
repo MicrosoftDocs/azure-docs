@@ -37,7 +37,7 @@ For resource types that don't have a built-in policy, you need to create a custo
 
 The script [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) creates policy files for a particular resource type that you can install by using PowerShell or the Azure CLI. Use the following procedure to create a custom policy definition for diagnostic settings:
 
-1. Ensure that you have [Azure PowerShell](/powershell/azure/install-az-ps) installed.
+1. Ensure that you have [Azure PowerShell](/powershell/azure/install-azure-powershell) installed.
 2. Install the script by using the following command:
   
     ```azurepowershell

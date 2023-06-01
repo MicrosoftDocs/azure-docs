@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 04/21/2023
+ms.date: 05/01/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -38,25 +38,41 @@ To upload a blob using a stream or a binary object, use the following method:
 
 The following example uploads a file to a block blob using a `BlobClient` object:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_upload_blob_file":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_file":::
 
 ## Upload a block blob from a stream
 
 The following example creates random bytes of data and uploads a `BytesIO` object to a block blob using a `BlobClient` object:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_upload_blob_stream":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_stream":::
 
 ## Upload binary data to a block blob
 
 The following example uploads binary data to a block blob using a `BlobClient` object:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_upload_blob_data":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_data":::
 
 ## Upload a block blob with index tags
 
 The following example uploads a block blob with index tags:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_upload_blob_tags":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_tags":::
+
+## Upload a block blob by staging blocks and committing
+
+You can have greater control over how to divide uploads into blocks by manually staging individual blocks of data. When all of the blocks that make up a blob are staged, you can commit them to Blob Storage.
+
+Use the following method to create a new block to be committed as part of a blob:
+
+- [stage_block](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-stage-block)
+
+Use the following method to write a blob by specifying the list of block IDs that make up the blob:
+
+- [commit_block_list](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-commit-block-list)
+
+The following example reads data from a file and stages blocks to be committed as part of a blob:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_blocks":::
 
 ## Resources
 

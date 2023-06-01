@@ -137,6 +137,14 @@ For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQ
 
 For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for PostgreSQL](../../postgresql/concepts-limits.md).
 
+## Azure Deployment Environments limits
+
+[!INCLUDE [Deployment Environments limits](../../../includes/deployment-environments-limits.md)]
+
+## Azure Files and Azure File Sync
+
+To learn more about the limits for Azure Files and File Sync, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).
+
 ## Azure Functions limits
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
@@ -206,6 +214,37 @@ The following limits apply to [Azure role-based access control (Azure RBAC)](../
 ## Azure Spring Apps limits
 
 To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/quotas.md).
+
+## Azure Storage limits
+
+This section lists the following limits for Azure Storage:
+
+- [Standard storage account limits](#standard-storage-account-limits)
+- [Azure Storage resource provider limits](#azure-storage-resource-provider-limits)
+- [Azure Blob Storage limits](#azure-blob-storage-limits)
+- [Azure Queue storage limits](#azure-queue-storage-limits)
+- [Azure Table storage limits](#azure-table-storage-limits)
+
+### Standard storage account limits
+
+<!--like # storage accts -->
+[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
+
+### Azure Storage resource provider limits
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
+
+### Azure Blob Storage limits
+
+[!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
+
+### Azure Queue storage limits
+
+[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
+
+### Azure Table storage limits
+
+[!INCLUDE [storage-tables-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## Azure subscription creation limits
 
@@ -393,47 +432,47 @@ The latest values for Microsoft Purview quotas can be found in the [Microsoft Pu
 
 ## Microsoft Sentinel limits
 
-This section lists the most common service limits you might encounter as you use Microsoft Sentinel.
-
-### Analytics rule limits
-
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-analytics-rules.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-analytics-rules.md)]
 
 ### Incident limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-incidents.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-incidents.md)]
 
 ### Machine learning-based limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-machine-learning.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-machine-learning.md)]
 
 ### Multi workspace limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-multi-workspace.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-multi-workspace.md)]
 
 ### Notebook limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-notebooks.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-notebooks.md)]
 
 ### Repositories limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-repositories.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-repositories.md)]
 
 ### Threat intelligence limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-threat-intelligence.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-threat-intelligence.md)]
+
+## TI upload indicators API limits
+
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-ti-upload-api.md)]
 
 ### User and Entity Behavior Analytics (UEBA) limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-ueba.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-ueba.md)]
 
 ### Watchlist limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-watchlists.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-watchlists.md)]
 
 ### Workbook limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-workbooks.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-workbooks.md)]
 
 ## Service Bus limits
 
@@ -452,32 +491,6 @@ The maximum number of private endpoints per Azure SQL Database logical server is
 ## Azure Synapse Analytics limits
 
 [!INCLUDE [synapse-analytics-limits](../../../includes/synapse-analytics-limits.md)]
-
-## Azure Files and Azure File Sync
-To learn more about the limits for Azure Files and File Sync, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).
-
-## Storage limits
-
-<!--like # storage accts -->
-[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
-
-For more information on limits for standard storage accounts, see [Scalability targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md).
-
-### Storage resource provider limits
-
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
-
-### Azure Blob storage limits
-
-[!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
-
-### Azure Queue storage limits
-
-[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
-
-### Azure Table storage limits
-
-[!INCLUDE [storage-tables-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ### Virtual machine disk limits
@@ -538,7 +551,7 @@ There are limits, per subscription, for deploying resources using Compute Galler
 
 ## See also
 
-* [Understand Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+* [Understand Azure limits and increases](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)
 * [Virtual machine and cloud service sizes for Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Sizes for Azure Cloud Services](../../cloud-services/cloud-services-sizes-specs.md)
 * [Naming rules and restrictions for Azure resources](resource-name-rules.md)

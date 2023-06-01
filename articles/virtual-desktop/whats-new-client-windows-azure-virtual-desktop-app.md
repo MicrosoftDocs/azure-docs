@@ -4,7 +4,7 @@ description: Learn about recent changes to the Azure Virtual Desktop Store app f
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 04/05/2023
+ms.date: 04/27/2023
 ---
 
 # What's new in the Azure Virtual Desktop Store app for Windows (preview)
@@ -13,9 +13,9 @@ ms.date: 04/05/2023
 > The Azure Virtual Desktop Store app for Windows is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article you'll learn about the latest updates for the Azure Virtual Desktop Store app for Windows. To learn more about using the Azure Virtual Desktop Store app for Windows with Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Azure Virtual Desktop Store app for Windows](users/connect-windows.md) and [Use features of the Azure Virtual Desktop Store app for Windows when connecting to Azure Virtual Desktop](users/client-features-windows.md).
+In this article you'll learn about the latest updates for the Azure Virtual Desktop Store app for Windows. To learn more about using the Azure Virtual Desktop Store app for Windows with Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Azure Virtual Desktop Store app for Windows](users/connect-windows.md) and [Use features of the Azure Virtual Desktop Store app for Windows when connecting to Azure Virtual Desktop ](users/client-features-windows.md).
 
-## March 7, 2023*
+## March 7, 2023
 
 In this release, we've made the following changes:
 

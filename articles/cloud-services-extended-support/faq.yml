@@ -4,8 +4,8 @@ metadata:
   description: Frequently asked questions for Azure Cloud Services (extended support)
   ms.topic: faq
   ms.service: cloud-services-extended-support
-  author: gachandw
-  ms.author: gachandw
+  author: hirshah
+  ms.author: hirshah
   ms.reviewer: mimckitt
   ms.date: 10/13/2020
   ms.custom: references_regions
@@ -90,6 +90,12 @@ sections:
           Are there any pricing differences between Cloud Services (classic) and Cloud Services (extended support)?
         answer: |
           Cloud Services (extended support) uses Azure Key Vault and Basic (ARM) Public IP addresses. Customers requiring certificates need to use Azure Key Vault for certificate management ([learn more](https://azure.microsoft.com/pricing/details/key-vault/) about Azure Key Vault pricing.)  Each Public IP address for Cloud Services (extended support) is charged separately ([learn more](https://azure.microsoft.com/pricing/details/ip-addresses/) about Public IP Address pricing.) 
+          
+      - question: |
+          Why do I see a change in billing amount after November 2022 for Cloud Services (extended support) deployments?
+        answer: |
+          A bug in Bandwidth billing was fixed in November 2022, resulting in customers possibly seeing increased billing based on their data transfer out to other regions or internet. For additional reference, visit the [Azure bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/).  
+          
   - name: Resources 
     questions:
       - question: |
@@ -128,6 +134,11 @@ sections:
           Does Cloud Services (extended support) allow CTP package format?
         answer: |
           CTP package format is not supported in Cloud Services (extended support). However, it allows an enhanced package size limit of 800 MB
+                    
+      - question: |
+          CSES requires its package files to be stored in a storage account. Can the storage account be set as "enable access from selected virtual networks"
+        answer: |
+          CSES does not support Managed Identity Support. So, Storage account by design does not allow CSES to access the package files when storage account is enabled only selected VNet in the setting.
 
   - name: Migration
     questions:

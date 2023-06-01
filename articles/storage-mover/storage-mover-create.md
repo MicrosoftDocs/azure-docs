@@ -70,7 +70,7 @@ Install-Module -Name Az.StorageMover -Scope CurrentUser -Repository PSGallery -F
 
 ```
 
-The [Install Azure PowerShell](/powershell/azure/install-az-ps) article has more details.
+The [Install Azure PowerShell](/powershell/azure/install-azure-powershell) article has more details.
 
 To deploy a storage mover resource, you'll need to supply values for the required `-Name`, `-ResourceGroupName`, and `-Region` parameters. The `-Description` parameter is optional.
 

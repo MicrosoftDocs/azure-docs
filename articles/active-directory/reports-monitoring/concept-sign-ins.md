@@ -126,7 +126,7 @@ If a sign-in failed, you can get more information about the reason in the **Basi
 
 ![Screenshot of a sign-in error code.](./media/concept-sign-ins/error-code.png)
 
-For a list of error codes related to Azure AD authentication and authorization, see the [Azure AD authentication and authorization error codes](../develop/reference-aadsts-error-codes.md) article. In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button. 
+For a list of error codes related to Azure AD authentication and authorization, see the [Azure AD authentication and authorization error codes](../develop/reference-error-codes.md) article. In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button. 
 
 ![Screenshot of the error code lookup tool.](./media/concept-sign-ins/error-code-lookup-tool.png)
 

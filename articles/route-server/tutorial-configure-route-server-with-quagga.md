@@ -120,7 +120,7 @@ To configure the Quagga network virtual appliance, you'll need to deploy a Linux
     | Region | Select **(US) East US**. |
     | Availability options | Select **No infrastructure required**. |
     | Security type | Select **Standard**. |
-    | Image | Select **Ubuntu 18.04 LTS - Gen 2**. |
+    | Image | Select an **Ubuntu**, **SUSE** or **RHEL** image. |
     | Size | Select **Standard_B2s - 2vcpus, 4GiB memory**. |
     | **Administrator account** |  |
     | Authentication type | Select **Password**. |

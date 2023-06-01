@@ -1,6 +1,6 @@
 ---
-title: How to configure VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier
-description: Shows you how to configure VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier.
+title: How to configure VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan
+description: Shows you how to configure VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan.
 author: karlerickson
 ms.author: xiading
 ms.service: spring-apps
@@ -14,9 +14,9 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to configure Spring Cloud Gateway for VMware Tanzu with Azure Spring Apps Enterprise tier.
+This article shows you how to configure Spring Cloud Gateway for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 
 [VMware Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is a commercial VMware Tanzu component based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles the cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns using your choice of programming language for API development.
 
@@ -35,7 +35,7 @@ To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway autom
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier service instance with VMware Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise plan service instance with VMware Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 
   > [!NOTE]
   > You must enable VMware Spring Cloud Gateway when you provision your Azure Spring Apps service instance. You can't enable VMware Spring Cloud Gateway after provisioning.
@@ -56,14 +56,17 @@ To assign an endpoint in the Azure portal, use the following steps:
 
 After a few minutes, **URL** shows the configured endpoint URL. Save the URL to use later.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway overview page for an Azure Spring Apps instance with the Assign endpoint buttons highlighted and the configured endpoint URL displayed." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of the Azure portal showing the Spring Cloud Gateway overview page with Assign endpoint highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
 Use the following command to assign the endpoint.
 
 ```azurecli
-az spring gateway update --assign-endpoint
+az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --assign-endpoint true
 ```
 
 ---
@@ -89,14 +92,14 @@ You can use the Azure portal and the Azure CLI to edit metadata properties.
 
 #### [Azure portal](#tab/Azure-portal)
 
-To edit metadata in the Azure portal, do these steps:
+To edit metadata in the Azure portal, use the following steps:
 
 1. Open your Azure Spring Apps instance.
 1. Select **Spring Cloud Gateway** in the navigation pane, and then select **Configuration**.
 1. Specify values for the properties listed for **API**.
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway configuration page for an Azure Spring Apps instance with the API section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway configuration page for an Azure Spring Apps instance, with the API section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -104,6 +107,8 @@ Use the following command to configure VMware Spring Cloud Gateway metadata prop
 
 ```azurecli
 az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --api-description "<api-description>" \
     --api-title "<api-title>" \
     --api-version "v0.1" \
@@ -137,7 +142,7 @@ To edit SSO properties in the Azure portal, use the following steps:
 1. Specify values for the properties listed for **SSO**.
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway configuration page for an Azure Spring Apps instance with the Single Sign On section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway configuration page for an Azure Spring Apps instance, with the Single Sign On section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -145,6 +150,8 @@ Use the following command to configure SSO properties for VMware Spring Cloud Ga
 
 ```azurecli
 az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --client-id <client-id> \
     --client-secret <client-secret> \
     --issuer-uri <issuer-uri> \
@@ -182,7 +189,7 @@ The following steps describe an example of how to implement the function in your
 
 ### Log out just the SSO session
 
-If you send the `GET` request to the `/scg-logout` endpoint using a `XMLHttpRequest` (XHR), then the `302` redirect could be swallowed and not handled in the response handler. In this case, the user would only be logged out of the SSO session on the gateway service instance and would still have a valid IdP session. The behavior typically seen in this case is that if the user attempts to log in again, they're automatically sent back to the gateway as authenticated from IdP.
+If you send the `GET` request to the `/scg-logout` endpoint using a `XMLHttpRequest` (XHR), then the `302` redirect could be swallowed and not handled in the response handler. In this case, the user would only be logged out of the SSO session on the gateway service instance and would still have a valid IdP session. The behavior typically seen is that if the user attempts to log in again, they're automatically sent back to the gateway as authenticated from IdP.
 
 You need to have a route configuration to route the logout request to your application, as shown in the following example. This code makes a gateway-only logout SSO session.
 
@@ -266,6 +273,8 @@ Use the following command to set up APM using Azure CLI:
 
 ```azurecli
 az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --apm-types <APM-type> \
     --properties <key=value> \
     --secrets <key=value>
@@ -275,6 +284,8 @@ The allowed values for `--apm-types` are `ApplicationInsights`, `AppDynamics`, `
 
 ```azurecli
 az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --apm-types ApplicationInsights \
     --properties APPLICATIONINSIGHTS_CONNECTION_STRING=<THE CONNECTION STRING OF YOUR APPINSIGHTS> APPLICATIONINSIGHTS_SAMPLE_RATE=10
 ```
@@ -288,6 +299,108 @@ You can also put environment variables in the `--secrets` parameter instead of `
 >
 > By default, Azure Spring Apps prints the logs of the APM Java agent to `STDOUT`. These logs are included with the Spring Cloud Gateway logs. You can check the version of the APM agent used in the logs. You can query these logs in Log Analytics to troubleshoot.
 > To make the APM agents work correctly, increase the CPU and memory of Spring Cloud Gateway.
+
+## Configure TLS between gateway and applications
+
+To enhance security and protect sensitive information from interception by unauthorized parties, you can enable Transport Layer Security (TLS) between Spring Cloud Gateway and your applications. This section explains how to configure TLS between a gateway and applications.
+
+Before configuring TLS, you need to have a TLS-enabled application and a TLS certificate. To prepare a TLS certificate, generate a certificate from a trusted certificate authority (CA). The certificate verifies the identity of the server and establishes a secure connection.
+
+After you have a TLS-enabled application running in Azure Spring Apps, upload the certificate to Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+
+With the certificate updated to Azure Spring Apps, you can now configure the TLS certificate for the gateway and enable certificate verification. You can configure the certification in the Azure portal or by using the Azure CLI.
+
+#### [Azure portal](#tab/Azure-portal)
+
+Use the following steps to configure the certificate in the Azure portal:
+
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation pane.
+1. On the **Spring Cloud Gateway** page, select **Certificate management**.
+1. Select **Enable cert verification**.
+1. Select the TLS certificate in **Certificates**.
+1. Select **Save**.
+
+Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
+
+#### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to enable or disable certificate verification using the Azure CLI. Be sure to replace the *`<value>`* placeholder with *true* to enable or *false* to disable verification.
+
+```azurecli
+az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --enable-cert-verify <value> \
+    --certificate-names <certificate-name-in-Azure-Spring-Apps>
+```
+
+---
+
+### Prepare the route configuration
+
+You must specify the protocol as HTTPS in the route configuration. The following JSON object instructs the gateway to use the HTTPS protocol for all traffic between the gateway and the app.
+
+1. Create a file named *test-tls-route.json* with the following content.
+
+   ```json
+   {
+       "routes": [
+         {
+           "title": "Test TLS app",
+           "predicates": [
+             "Path=/path/to/your/app",
+             "Method=GET"
+           ]
+         }
+        ],
+       "uri": "https://<app-custom-domain-name>"
+   }
+   ```
+
+1. Use the following command to apply the rule to the application:
+
+   ```azurecli
+   az spring gateway route-config create \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name test-tls-app \
+       --routes-file test-tls-route.json
+   ```
+
+You can now test whether the application is TLS enabled with the endpoint of the gateway. For more information, see the [Configure routes](how-to-use-enterprise-spring-cloud-gateway.md#configure-routes) section of [Use Spring Cloud Gateway](how-to-use-enterprise-spring-cloud-gateway.md).
+
+### Rotate certificates
+
+As certificates expire, you need to rotate certificates in Spring Cloud Gateway by using the following steps:
+
+1. Generate new certificates from a trusted CA.
+1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+1. Synchronize the certificates, using the Azure portal or the Azure CLI.
+
+The gateway restarts accordingly to ensure that the gateway uses the new certificate for all connections.
+
+#### [Azure portal](#tab/Azure-portal)
+
+Use the following steps to synchronize certificates.
+
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation pane.
+1. On the **Spring Cloud Gateway** page, select **Certificate management**.
+1. Select the certificate you imported in **Certificates**.
+1. Select **sync certificate**, and confirm the operation.
+
+   :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png" alt-text="Screenshot of the Azure portal showing the Spring Cloud Gateway page for Certificate Management with the sync certificate prompt highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png":::
+
+#### [Azure CLI](#tab/Azure-CLI) 
+
+Use the following command to synchronize a certificate for Spring Cloud Gateway.
+
+```azurecli
+az spring gateway sync-cert \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name>
+```
+
+---
 
 ## Next steps
 

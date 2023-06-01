@@ -51,20 +51,29 @@ With Azure Spring Apps, you can connect selected Azure services to your applicat
 
 Follow these steps to configure your Spring app to connect to an Azure Database for MySQL Flexible Server with a system-assigned managed identity.
 
-1. Install the Service Connector passwordless extension for the Azure CLI.
+1. Use the following command to install the Service Connector passwordless extension for the Azure CLI.
 
    ```azurecli
    az extension add --name serviceconnector-passwordless --upgrade
    ```
 
-1. Run the `az spring connection create` command, as shown in the following example.
+1. Then, use the following command to create a user-assigned managed identity for Azure Active Directory authentication. Be sure to replace the variables in the example with actual values. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad.md).
+
+   ```azurecli
+   AZ_IDENTITY_RESOURCE_ID=$(az identity create \
+    --name $AZURE_USER_IDENTITY_NAME \
+    --resource-group $AZURE_IDENTITY_RESOURCE_GROUP \
+    --query id \
+    --output tsv)
+   ```
+
+1. Run the `az spring connection create` command, as shown in the following example. Be sure to replace the variables in the example with actual values.
 
    ```azurecli
    az spring connection create mysql-flexible \
        --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
        --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
        --app $APP_NAME \
-       --deployment $DEPLOYMENT_NAME \
        --target-resource-group $MYSQL_RESOURCE_GROUP \
        --server $MYSQL_SERVER_NAME \
        --database $DATABASE_NAME \

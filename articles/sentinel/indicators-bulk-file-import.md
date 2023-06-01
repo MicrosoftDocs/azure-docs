@@ -150,7 +150,7 @@ Here's an example ipv4-addr indicator using the JSON template.
       "lang": "",
       "external_references": [],
       "object_marking_refs": [],
-      "granular_markings": [],
+      "granular_markings": []
     }
 ]
 ```

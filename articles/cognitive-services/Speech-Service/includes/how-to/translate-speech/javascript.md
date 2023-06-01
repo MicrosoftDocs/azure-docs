@@ -67,7 +67,7 @@ The [TranslationRecognizer class](/javascript/api/microsoft-cognitiveservices-sp
 * *Single-shot translation (async)*: Performs translation in a nonblocking (asynchronous) mode. It translates a single utterance. It determines the end of a single utterance by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
 * *Continuous translation (async)*: Asynchronously initiates a continuous translation operation. The user registers to events and handles various application states. To stop asynchronous continuous translation, call [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#stopcontinuousrecognitionasync).
 
-To learn more about how to choose a speech recognition mode, see [Get started with speech-to-text](../../../get-started-speech-to-text.md).
+To learn more about how to choose a speech recognition mode, see [Get started with speech to text](../../../get-started-speech-to-text.md).
 
 ### Specify a target language
 

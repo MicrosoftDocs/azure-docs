@@ -158,7 +158,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	
 	 * give the **Name Attribute** value as **displayName**.
 
-	 * give the **Email Attribute** value as **emailAdress**.
+	 * give the **Email Attribute** value as **emailAddress**.
 
 	 * give the **Badge Attribute** value as **badgeID**.
 

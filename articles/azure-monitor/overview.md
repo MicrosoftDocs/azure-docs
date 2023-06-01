@@ -107,7 +107,7 @@ Click on the picture to see a larger version of the data collection diagram in c
 
 |Collection method|Description  |
 |---------|---------|
-|[Application instrumentation](app/app-insights-overview.md)| Application Insights is enabled through either [Auto-Instrumentation (agent)](app/codeless-overview.md#what-is-auto-instrumentation-for-azure-monitor-application-insights) or by adding the Application Insights SDK to your application code. For more information, reference [How do I instrument an application?](app/app-insights-overview.md#how-do-i-instrument-an-application).|
+|[Application instrumentation](app/app-insights-overview.md)| Application Insights is enabled through either [Autoinstrumentation (agent)](app/codeless-overview.md#what-is-autoinstrumentation-for-azure-monitor-application-insights) or by adding the Application Insights SDK to your application code. For more information, reference [How do I instrument an application?](app/app-insights-overview.md#how-do-i-instrument-an-application).|
 |[Agents](agents/agents-overview.md)|Agents can collect monitoring data from the guest operating system of Azure and hybrid virtual machines.|
 |[Data collection rules](essentials/data-collection-rule-overview.md)|Use data collection rules to specify what data should be collected, how to transform it, and where to send it.|
 |Internal| Data is automatically sent to a destination without user configuration.  |

@@ -48,7 +48,7 @@ To follow the steps described in this article, you must have:
      - A CER file for the root certificate of the PFX certificates.
      
     For more information, see [Certificates for the back end](../application-gateway/certificates-for-backend-authentication.md). For testing purposes, optionally generate [self-signed certificates](../application-gateway/self-signed-certificates.md).
-* The latest version of Azure PowerShell. If you haven't already, [install Azure PowerShell](/powershell/azure/install-az-ps).
+* The latest version of Azure PowerShell. If you haven't already, [install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Scenario
 
@@ -179,7 +179,7 @@ The following example shows how to create a virtual network by using Resource Ma
 
 The following example shows how to create an API Management instance in a virtual network configured for internal access only.
 
-1. API Management stv2 requires a public IP with a `DomainNameLabel`:
+1. API Management stv2 requires a public IP with a unique `DomainNameLabel`:
 
     ```powershell
     $apimPublicIpAddressId = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "pip-apim" -location $location `
@@ -213,17 +213,17 @@ To set up custom domain names in API Management:
 1. Initialize the following variables with the details of the certificates with private keys for the domains and the trusted root certificate. In this example, we use `api.contoso.net`, `portal.contoso.net`, and `management.contoso.net`.  
 
     ```powershell
-    $gatewayHostname = "api.$domain"                 # API gateway host
-    $portalHostname = "portal.$domain"               # API developer portal host
-    $managementHostname = "management.$domain"               # API management endpoint host
-    $gatewayCertPfxPath = "C:\Users\Contoso\gateway.pfx" # Full path to api.contoso.net .pfx file
-    $portalCertPfxPath = "C:\Users\Contoso\portal.pfx"   # Full path to portal.contoso.net .pfx file
-    $managementCertPfxPath = "C:\Users\Contoso\management.pfx"   # Full path to management.contoso.net .pfx file
-    $gatewayCertPfxPassword = "certificatePassword123"   # Password for api.contoso.net pfx certificate
-    $portalCertPfxPassword = "certificatePassword123"    # Password for portal.contoso.net pfx certificate
-    $managementCertPfxPassword = "certificatePassword123"    # Password for management.contoso.net pfx certificate
+    $gatewayHostname = "api.$domain"                                # API gateway host
+    $portalHostname = "portal.$domain"                              # API developer portal host
+    $managementHostname = "management.$domain"                      # API management endpoint host
+    $gatewayCertPfxPath = "C:\Users\Contoso\gateway.pfx"            # Full path to api.contoso.net .pfx file
+    $portalCertPfxPath = "C:\Users\Contoso\portal.pfx"              # Full path to portal.contoso.net .pfx file
+    $managementCertPfxPath = "C:\Users\Contoso\management.pfx"      # Full path to management.contoso.net .pfx file
+    $gatewayCertPfxPassword = "certificatePassword123"              # Password for api.contoso.net pfx certificate
+    $portalCertPfxPassword = "certificatePassword123"               # Password for portal.contoso.net pfx certificate
+    $managementCertPfxPassword = "certificatePassword123"           # Password for management.contoso.net pfx certificate
     # Path to trusted root CER file used in Application Gateway HTTP settings
-    $trustedRootCertCerPath = "C:\Users\Contoso\trustedroot.cer" # Full path to contoso.net trusted root .cer file
+    $trustedRootCertCerPath = "C:\Users\Contoso\trustedroot.cer"    # Full path to contoso.net trusted root .cer file
     
     $certGatewayPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -Force
     $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainText -Force
