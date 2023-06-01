@@ -78,7 +78,7 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
    Optionally, you can select or create an **Application security group**. You can use application security groups to group virtual machines and define network security policies based on those groups.
 1. Select **Next: DNS**.
    
-    :::image type="content" source="./media/private-link-security/create-private-endpoint-virtual-network.png" alt-text="Screenshot that shows the Create a private endpoint page in the Azure portal with the Virtual Network tab selected." lightbox="./media/private-link-security/ampls-select-private-endpoint-create-5.png":::
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-virtual-network.png" alt-text="Screenshot that shows the Create a private endpoint page in the Azure portal with the Virtual Network tab selected." lightbox="./media/private-link-security/create-private-endpoint-virtual-network.png":::
 
 1. On the **DNS** tab, select **Yes** for **Integrate with private DNS zone**, and let it automatically create a new private DNS zone. The actual DNS zones might be different from what's shown in the following screenshot.
 
@@ -87,7 +87,7 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
 
 1. Select **Next: Tags**, then select **Review + create**.
 
-    :::image type="content" source="./media/private-link-security/create-private-endpoint-dns.png" alt-text="Screenshot that shows the Create a private endpoint page in the Azure portal with the DNS tab selected." lightbox="./media/private-link-security/ampls-select-private-endpoint-create-6.png":::
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-dns.png" alt-text="Screenshot that shows the Create a private endpoint page in the Azure portal with the DNS tab selected." lightbox="./media/private-link-security/create-private-endpoint-dns.png":::
 
 1. On the **Review + create** , once the validation passes select **Create**.
 
