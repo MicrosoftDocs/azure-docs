@@ -42,7 +42,7 @@ Storage accounts secured by using firewalls or virtual private networks also can
 
 ## Storage account guidance
 
-Every function app requires a storage account to operate. When that account is deleted, your function app won't run. To troubleshoot storage-related issues, see [How to troubleshoot storage-related issues](functions-recover-storage-account.md). The following other considerations apply to the Storage account used by function apps.
+Every function app requires a storage account to operate. When that account is deleted, your function app won't run. To troubleshoot storage-related issues, see [How to troubleshoot storage-related issues](azure-functions-runtime-is-unreachable-overview.md). The following other considerations apply to the Storage account used by function apps.
 
 ### Storage account location
 
