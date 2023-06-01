@@ -566,7 +566,7 @@ This is useful for debugging because you see exactly what state an orchestration
 
 ## Durable Functions troubleshooting guide
 
-To troubleshoot common orchestrations problems such as orchestrations being stuck in the same state, start slowly, don't complete, etc., refer to this [troubleshooting guide](durable-functions-troubleshooting-guide.md). 
+To troubleshoot common problem symptoms such as orchestrations being stuck, failing to start, running slowly, etc., refer to this [troubleshooting guide](durable-functions-troubleshooting-guide.md). 
 
 ## 3rd party tools
 
