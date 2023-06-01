@@ -1,5 +1,5 @@
 ---
-title: Lumenisity University of Southhampton Patents
+title: Lumenisity University of Southampton Patents
 description: List of Lumenisity UoS Patents as of April 19, 2023.
 ms.prod: azure
 author: duongau
@@ -8,7 +8,7 @@ ms.date: 05/31/2023
 ms.author: duau
 ---
 
-# Lumenisity University of Southhampton Patents
+# Lumenisity University of Southampton Patents
 
 The following is a list of patents owned by Lumenisity UoS (University of Southampton) as of April 19, 2023. This list is subject to change without notice.
 
