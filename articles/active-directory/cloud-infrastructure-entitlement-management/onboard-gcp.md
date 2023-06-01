@@ -64,7 +64,7 @@ There are several moving parts across GCP and Azure, which are required to be co
 
     Optionally, specify **G-Suite IDP Secret Name** and **G-Suite IDP User Email** to enable G-Suite integration.
 
-    You can either download and run the script at this point or you can do it in the Google Cloud Shell, as described [later in this article](onboard-gcp.md#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
+    You can either download and run the script at this point or you can do it in the Google Cloud Shell.
 1. Select **Next**.
 
 Choose from 3 options to manage GCP projects. 
