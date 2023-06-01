@@ -10,8 +10,9 @@ ms.date: 05/31/2023
 ---
 
 # Introduction to Autoscaling on Service Fabric managed clusters
-[Autoscaling](../azure-monitor/autoscale/autoscale-overview.md) gives great elasticity and enables addition or reduction of nodes on demand on a secondary node type. This automated and elastic behavior reduces the management overhead and potential business impact by monitoring and optimizing the number of nodes servicing your workload. You configure rules for your workload and let autoscaling handle the rest. When those defined thresholds are met, autoscale rules take action to adjust the capacity of your node type. Autoscaling can be enabled, disabled, or configured at any time. This article provides an example deployment, how to enable or disable autoscaling, and how to configure an example autoscale policy.
+Gives great elasticity and enables addition or reduction of nodes on demand on a secondary node type. This automated and elastic behavior reduces the management overhead and potential business impact by monitoring and optimizing the number of nodes servicing your workload. You configure rules for your workload and let autoscaling handle the rest. When those defined thresholds are met, autoscale rules take action to adjust the capacity of your node type. Autoscaling can be enabled, disabled, or configured at any time. This article provides an example deployment, how to enable or disable autoscaling, and how to configure an example autoscale policy.
 
+![Overview][overviewimage]
 
 **Requirements and supported metrics:**
 * The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
@@ -242,7 +243,5 @@ Once you've been through these steps, if you're still having autoscale problems,
 > [!div class="nextstepaction"]
 > [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
 
-[autoscale-are-tree]: ./media/how-to-managed-cluster-autoscale/autoscale-are-tree.png
-[autoscale-nt-details]: ./media/how-to-managed-cluster-autoscale/autoscale-nt-details.png
-
+[overviewimage]: ./media/maintenance-control-sfmc/overview.png
 
