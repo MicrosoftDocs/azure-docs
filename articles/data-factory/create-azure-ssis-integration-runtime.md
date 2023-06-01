@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 04/12/2023
 author: chugugrace
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Create an Azure-SSIS integration runtime

@@ -11,7 +11,7 @@ ms.subservice: content-moderator
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 #Customer intent: As a C# developer of content-providing software, I want to analyze text content for terms that are particular to my product, so that I can categorize and handle it accordingly.
 ---
 
