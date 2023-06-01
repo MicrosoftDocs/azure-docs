@@ -97,8 +97,8 @@ This script uses following commands to create a managed disk from a snapshot. Ea
 
 | Command | Notes |
 |---|---|
-| [az snapshot show](/cli/azure/snapshot) | Gets all the properties of a snapshot using the name and resource group properties of the snapshot. Id property is used to create managed disk.  |
-| [az disk create](/cli/azure/disk) | Creates a managed disk using snapshot Id of a managed snapshot |
+| [az snapshot show](/cli/azure/snapshot) | Gets all the properties of a snapshot using the name and resource group properties of the snapshot. ID property is used to create managed disk.  |
+| [az disk create](/cli/azure/disk) | Creates a managed disk using snapshot ID of a managed snapshot |
 
 ## Next steps
 
