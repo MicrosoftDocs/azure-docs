@@ -65,3 +65,4 @@ If you want to clean up and remove a Communication Services subscription, you ca
 - Learn how to [redirect inbound telephony calls](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md) with Call Automation.
 - Learn more about [Play action](../../concepts/call-automation/play-action.md).
 - Learn more about [Recognize action](../../concepts/call-automation/recognize-action.md).
+- Learn more about [Handling Call Automation Events with EventProcessor](../../how-tos/call-automation/handling-events-with-event-processor.md).
