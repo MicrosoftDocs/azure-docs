@@ -275,7 +275,7 @@
         - name: Change data capture (CDC)
           href: ../analytical-store-change-data-capture.md
         - name: Time travel (preview)
-          href: synapse-link-time-travel.md
+          href: ../synapse-link-time-travel.md
     - name: Back up and restore
       items:
         - name: Back up and restore introduction
