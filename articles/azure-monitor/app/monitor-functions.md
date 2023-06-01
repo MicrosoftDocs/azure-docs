@@ -82,7 +82,7 @@ If you are using log4j or logback to log to the console, then distributed tracin
 
 ##### Log4j
 
-Add the following filter to your log4j.xml file
+Add the following filter to your log4j.xml: 
 
     <Filters>
         <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
