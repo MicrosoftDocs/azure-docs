@@ -33,7 +33,7 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 
 #### Language model updates
 
-* Supported language pairs are listed in the following table. For higher quality, we encourage you to retrain your models accordingly.
+Supported language pairs are listed in the following table. For higher quality, we encourage you to retrain your models accordingly.
 
 |Source Language|Target Language|
 |:----|:----|
