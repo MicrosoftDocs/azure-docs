@@ -432,6 +432,24 @@
                   href: how-to-dotnet-read-item.md
                 - name: Query items
                   href: how-to-dotnet-query-items.md
+        - name: JavaScript
+          items:
+            - name: Get started
+              href: how-to-javascript-get-started.md
+            - name: Work with databases
+              items:
+                - name: Create a database
+                  href: how-to-javascript-create-database.md
+            - name: Work with containers
+              items:
+                - name: Create a container
+                  href: how-to-javascript-create-container.md
+            - name: Work with items
+              items:
+                - name: Create an item
+                  href: how-to-javascript-create-item.md
+                - name: Query items
+                  href: how-to-javascript-query-items.md
         - name: Python
           items:
             - name: Get started

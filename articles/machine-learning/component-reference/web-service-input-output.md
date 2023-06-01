@@ -21,7 +21,7 @@ The Web Service Input component indicates where user data enters the pipeline. T
 
 ## How to use Web Service Input and Output
 
-When you [create a real-time inference pipeline](../tutorial-designer-automobile-price-deploy.md#create-a-real-time-inference-pipeline) from your training pipeline, the Web Service Input and Web Service Output components will be automatically added to show where user data enters the pipeline and where data is returned. 
+When you [create a real-time inference pipeline](../v1/tutorial-designer-automobile-price-deploy.md#create-a-real-time-inference-pipeline) from your training pipeline, the Web Service Input and Web Service Output components will be automatically added to show where user data enters the pipeline and where data is returned. 
 
 > [!NOTE]
 > Automatically generating a real-time inference pipeline is a rule-based, best-effort process. There's no guarantee of correctness. 
@@ -37,12 +37,12 @@ The following example shows how to manually create real-time inference pipeline 
 
 ![Example](media/module/web-service-input-output-example.png)
    
-After you submit the pipeline and the run finishes successfully, you can [deploy the real-time endpoint](../tutorial-designer-automobile-price-deploy.md#deploy-the-real-time-endpoint).
+After you submit the pipeline and the run finishes successfully, you can [deploy the real-time endpoint](../v1/tutorial-designer-automobile-price-deploy.md#deploy-the-real-time-endpoint).
    
 > [!NOTE]
 >  In the preceding example, **Enter Data Manually** provides the data schema for web service input and is necessary for deploying the real-time endpoint. Generally, you should always connect a component or dataset to the port where **Web Service Input** is connected to provide the data schema.
    
 ## Next steps
-Learn more about [deploying the real-time endpoint](../tutorial-designer-automobile-price-deploy.md#deploy-the-real-time-endpoint).
+Learn more about [deploying the real-time endpoint](../v1/tutorial-designer-automobile-price-deploy.md#deploy-the-real-time-endpoint).
 
 See the [set of components available](component-reference.md) to Azure Machine Learning.
