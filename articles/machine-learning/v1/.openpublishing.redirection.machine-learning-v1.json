@@ -1,0 +1,19 @@
+{
+    "redirections": [
+    {
+        "source_path_from_root": "/articles/machine-learning/v1/concept-automated-ml-v1.md",
+        "redirect_url": "/azure/machine-learning/v1/concept-automated-ml",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v1/concept-mlflow-v1.md",
+        "redirect_url": "/azure/machine-learning/v1/concept-mlflow",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v1/concept-train-machine-learning-model-v1.md",
+        "redirect_url": "/azure/machine-learning/v1/concept-train-machine-learning-model",
+        "redirect_document_id": true
+    }
+    ]
+}
