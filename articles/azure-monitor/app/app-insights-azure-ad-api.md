@@ -44,7 +44,7 @@ Now that your app is registered and has permissions to use the API, grant your a
 
 Before you begin, make sure you have all the values required to make the request successfully. All requests require:
 - Your Azure AD tenant ID.
-- Your App Insights App ID - If you are currently using API Keys, this is the same app id.
+- Your App Insights App ID - If you are currently using API Keys, this is the same app ID.
 - Your Azure AD client ID for the app.
 - An Azure AD client secret for the app.
 
