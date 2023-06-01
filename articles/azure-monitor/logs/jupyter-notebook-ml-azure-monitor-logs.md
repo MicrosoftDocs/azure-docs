@@ -13,13 +13,11 @@ ms.date: 02/28/2023
 ---
 # Tutorial: Create a machine learning pipeline in Azure Monitor Logs by using a notebook
 
-[Azure machine learning services support notebooks](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/), which let you create and share documents that contain live code, equations, visualizations, and text. 
-
-Integrating a notebook with a Log Analytics workspace lets you create a multi-step process, running code in each step based on the results of the previous step. You can use such streamlined, multi-step processes to build and run machine learning pipelines, and for other purposes, such as conducting advanced analysis and creating troubleshooting guides (TSGs) for support needs.
+Integrating a [notebook](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/) with a Log Analytics workspace lets you create a multi-step process that runs code in each step based on the results of the previous step. You can use such streamlined processes to build machine learning pipelines, advanced analysis tools, troubleshooting guides (TSGs) for support needs, and more.
 
 In this tutorial, we integrate an Azure Machine Learning notebook with a Log Analytics workspace to create a machine learning pipeline that detects anomalies in Azure Monitor Logs. We then send the anomalies we identify back to our Log Analytics workspace.  
 
-There are several ways you to [query data in Azure Monitor Logs from a notebook](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), including using the [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme), [Kqlmagic library](https://pypi.org/project/Kqlmagic/), and [MSTICPY library](https://msticpy.readthedocs.io/en/latest/index.html). In this tutorial, we use the Azure Monitor Query client library.
+There are several ways to [query data in Azure Monitor Logs from a notebook](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), including using the [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme), [Kqlmagic library](https://pypi.org/project/Kqlmagic/), and [MSTICPY library](https://msticpy.readthedocs.io/en/latest/index.html). In this tutorial, we use the Azure Monitor Query client library.
 
 
 ## Process overview
