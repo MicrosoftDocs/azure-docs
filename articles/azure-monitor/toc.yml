@@ -1458,7 +1458,7 @@ items:
         items:
         - name: Detect and analyze anomalies in log data with KQL
           href: logs/kql-machine-learning-azure-monitor.md
-        - name: Create your own ML pipeline using Jupyter Notebook
+        - name: Create your own ML pipeline using notebooks
           href: logs/jupyter-notebook-ml-azure-monitor-logs.md      
 - name: Reference
   items:
