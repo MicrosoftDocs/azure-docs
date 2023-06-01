@@ -67,5 +67,22 @@ If your branch location has device links added, they appear in the **Links** col
 
 To delete a device link, navigate to the device link details page and select the **Delete** icon. A confirmation dialog appears. Select **Delete** to confirm the deletion.
 
+## Link ASN
+
+The link ASN is the autonomous system number of the CPE. The ASN is a unique number that identifies a network on the internet. The ASN is used to exchange routing information between the CPE and the Microsoft network. The ASN must be a 32-bit integer between 1 and 4294967295. The ASN must be unique for each device link.
+
+The following ASNs are reserved by Azure and cannot be used for your on-premises VPN devices when connecting to Azure VPN gateways:
+- 8075
+- 8076
+- 12076 (public)
+- 65517
+- 65518
+- 65519
+- 65520 (private)
+
+<!--- need to understand what this means - pulled it from the tooltip --->
+
+While setting up IPsec connectivity from virtual network gateways to Azure virtual WAN VPN, the ASN for Local Network Gateway is required to be 65515.
+
 ## Next steps
 - [List office branch locations](how-to-list-branch-locations.md)
