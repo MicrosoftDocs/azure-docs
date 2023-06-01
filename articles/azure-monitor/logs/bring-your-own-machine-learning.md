@@ -47,7 +47,7 @@ This table compares the advantages and limitations of using KQL's built-in machi
 |**Performance**|Optimal performance, using the Azure Data Explorer platform, running at high scales in a distributed manner. |Introduces a small amount of latency when querying or exporting data, depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). |
 |**Model type** |Linear regression model and other models supported by KQL time series functions with a set of configurable parameters.|Completely customizable machine learning model or anomaly detection method.  |
 |**Cost**|No extra cost.| Depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), you might incur charges for [exporting data](../logs/logs-data-export.md#pricing-model), ingesting scored data into Azure Monitor Logs, and the use of other Azure services.|
-|**Tutorial**|[Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md)|[Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md)|
+|**Tutorial**|[Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md)|[Create a machine learning pipeline in Azure Monitor Logs by using a notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md)|
 
 ## Create your own machine learning pipeline on data in Azure Monitor Logs
 
