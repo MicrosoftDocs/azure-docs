@@ -29,22 +29,14 @@ After configuring endpoints, network rules can be configured to further control 
 
 [Azure Virtual Network (VNet) service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) provide secure and direct connectivity to Azure services using an optimized route over the Azure backbone network. Service endpoints allow you to secure your critical Azure service resources to only your specific virtual networks.
 
-Service endpoints enable private IP addresses in the virtual network to reach the endpoint of an Azure service without needing a public IP address on the virtual network. The service endpoint routes traffic from the virtual network over an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the volume group that allow requests to be received from specific subnets in a virtual network.
+Service endpoints for Azure Storage work between virtual networks and service instances in any region. Cross-region service endpoints for Azure became generally available in April of 2023. Cross-region service endpoints enable private IP addresses in the virtual network to reach the endpoint of an Azure service without needing a public IP address on the virtual network. The service endpoint routes traffic from the virtual network over an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the volume group that allow requests to be received from specific subnets in a virtual network.
+
+Region-bound service endpoints are still supported for backward compatibility, but Microsoft recommends creating cross-region endpoints instead.
 
 To use a service endpoint with your Elastic SAN, you must enable it within the virtual network where you want to grant access. The service endpoint names for Azure Storage are:
 
-- **Microsoft.Storage** - classic Azure Storage endpoints
 - **Microsoft.Storage.Global** - new cross-region Azure Storage endpoints
-
-For details on how to configure service endpoints, see [Enable Storage service endpoint](elastic-san-networking.md#configure-storage-service-endpoint).
-
-#### Available virtual network regions
-
-Service endpoints for Azure Storage work between virtual networks and service instances in any region. They also work between virtual networks and service instances in [paired regions](../../availability-zones/cross-region-replication-azure.md) to allow continuity during a regional failover. When planning for disaster recovery during a regional outage, you should create the virtual networks in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your zone-redundant SANs.
-
-##### Azure Storage cross-region service endpoints
-
-Cross-region service endpoints for Azure became generally available in April of 2023. With cross-region service endpoints, subnets will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
+- **Microsoft.Storage** - classic Azure Storage endpoints (only for backward compatibility)
 
 To use cross-region service endpoints, it might be necessary to delete existing **Microsoft.Storage** endpoints and recreate them as cross-region (**Microsoft.Storage.Global**).
 
