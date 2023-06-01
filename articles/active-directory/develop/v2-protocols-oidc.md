@@ -4,7 +4,7 @@ description: Sign in Azure AD users by using the Microsoft identity platform's i
 author: OwenRichards1
 manager: CelesteDG
 ms.custom: aaddev, identityplatformtop40
-ms.date: 02/14/2023
+ms.date: 05/30/2023
 ms.author: owenrichards
 ms.reviewer: ludwignick
 ms.service: active-directory
@@ -133,7 +133,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --- | --- | --- |
 | `tenant` | Required | You can use the `{tenant}` value in the path of the request to control who can sign in to the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [protocol basics](active-directory-v2-protocols.md#endpoints). Critically, for guest scenarios where you sign a user from one tenant into another tenant, you *must* provide the tenant identifier to correctly sign them into the resource tenant.|
 | `client_id` | Required | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
-| `response_type` | Required | Must include `code` for OpenID Connect sign-in. |
+| `response_type` | Required | Must include `id_token` for OpenID Connect sign-in. |
 | `redirect_uri` | Recommended | The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL-encoded. If not present, the endpoint will pick one registered `redirect_uri` at random to send the user back to. |
 | `scope` | Required | A space-separated list of scopes. For OpenID Connect, it must include the scope `openid`, which translates to the **Sign you in** permission in the consent UI. You might also include other scopes in this request for requesting consent. |
 | `nonce` | Required | A value generated and sent by your app in its request for an ID token. The same `nonce` value is included in the ID token returned to your app by the Microsoft identity platform. To mitigate token replay attacks, your app should verify the `nonce` value in the ID token is the same value it sent when requesting the token. The value is typically a unique, random string. |
