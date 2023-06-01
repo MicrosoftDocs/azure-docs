@@ -52,7 +52,7 @@ sections:
           You can search for the scheduled or deprecated image in your subscription in the following ways:
           
           
-          - If you are notified that an image is deprecated on only the Offer or plan (SKU) level, you can search for all virtual machines from the search bar in the Azure Portal. Use the **Add filter** button to filter the results. You can also edit the columns to include Publisher, Offer, and Plan using **Manage view** > **Edit columns**. This will not give the version information, only up to the Plan information.
+          - If you are notified that an image is deprecated on only the Offer or plan (SKU) level, you can search for all virtual machines from the search bar in the Azure portal. Use the **Add filter** button to filter the results. You can also edit the columns to include Publisher, Offer, and Plan using **Manage view** > **Edit columns**. This will not give the version information, only up to the Plan information.
            
                         
           - If you are notified that an image is deprecated on the offer, plan (SKU) or version level, you can use Azure Resource Graph Explorer on the Azure portal to find the specific version for images in your subscription that your VM or scale set is running on.
