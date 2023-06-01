@@ -73,7 +73,7 @@ As a result, you'll be billed with 6.25 standard units and 8.75 additional messa
 
 Replica is a feature of Premium tier of Azure Web PubSub Service. When you create a replica in desired regions, you incur Premium fees for each region.
 
-Each replica is billed separately accorrding to its own units and outbound traffic. 
+Each replica is billed separately accorrding to its own units and outbound traffic. Free message quota is also calculated separately.
 
 ## Pricing 
 
