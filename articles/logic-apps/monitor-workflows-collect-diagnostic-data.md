@@ -365,6 +365,10 @@ Actions have a **Tracked Properties** section where you can specify a custom pro
 
 Tracked properties can track only a single action's inputs and outputs, but you can use the `correlation` properties of events to correlate across actions in a workflow run.
 
+Tracked properties can only reference the parameters, inputs, and outputs for its own trigger or action.
+
+Tracked properties aren't allowed on a trigger or action that has secure inputs, secure outputs, or both. They're also not allowed to reference another trigger or action that has secure inputs, secure outputs, or both.
+
 The following examples shows where custom properties appear in your Log Analytics workspace:
 
 ### [Consumption](#tab/consumption)

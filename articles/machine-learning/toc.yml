@@ -124,14 +124,16 @@
             - name: Forecast demand (Bike share data)
               displayName: automl, automated, auto ml, portal, studio, ui
               href: tutorial-automated-ml-forecast.md
+        # v1
         - name: Designer (drag-n-drop)
           items:
             - name: 1. Train a regression model
               displayName: studio
-              href: tutorial-designer-automobile-price-train-score.md
+              href: ./v1/tutorial-designer-automobile-price-train-score.md
             - name: 2. Deploy the model
               displayName: studio
-              href: tutorial-designer-automobile-price-deploy.md
+              href: ./v1/tutorial-designer-automobile-price-deploy.md
+        # end v1
         - name: Use Visual Studio Code
           href: tutorial-train-deploy-image-classification-model-vscode.md
     - name: Develop and operationalize features
@@ -163,34 +165,232 @@
         - name: "Train and deploy models"
           href: ./v1/tutorial-power-bi-custom-model.md
     # end v1
-- name: Interact with AzureML
-  items: 
-  - name: Workspace
-    href: 
-  - name: AzureML CLI and Python SDK
-    href: concept-v2.md
-  - name: AzureML UI
-    items: 
-      - name: Searching for Assets and Resources
-        href: how-to-search-assets.md
-  - name: Compute Instance
-    href: concept-compute-instance.md
-  - name: VS Code
-    href: 
-  - name: MLFlow
-    href: 
-  - name: Use R with Azure Machine Learning
-    items:
-    - name: Bring R workloads
-      href: how-to-r-overview-r-capabilities.md
-    - name: Interactive R development
-      href: how-to-r-interactive-development.md
-    - name: Adapt R scripts for production
-      href: how-to-r-modify-script-for-production.md
-    - name: Train R model
-      href: how-to-r-train-model.md
-    - name: Deploy R model
-      href: how-to-r-deploy-r-model.md
+- name: Samples
+  items:
+    - name: Jupyter Notebooks
+      displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
+      href: samples-notebooks.md
+    # v1
+    - name: Jupyter Notebooks
+      displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
+      href: ./v1/samples-notebooks-v1.md
+    # end v1
+    - name: Examples repository (v2)
+      displayName: example, examples, jupyter, python, notebook, github
+      href: https://github.com/Azure/azureml-examples
+    - name: Examples repository (v1)
+      displayName: example, examples, jupyter, python, notebook, github
+      href: https://github.com/azure/machinelearningnotebooks
+      # v1
+    - name: Designer examples & datasets
+      displayName: example, examples, studio, pipelines, data sets, modules, components
+      href: ./v1/samples-designer.md
+    # end v1
+    - name: End-to-end MLOps examples
+      href: https://github.com/Azure/mlops-v2
+- name: Concepts
+  items:
+    - name: What is v2?
+      href: concept-v2.md
+    - name: Work with Data
+      items:
+        # v1
+        - name: Data access
+          href: ./v1/concept-data.md
+        - name: Studio network data access
+          href: ./v1/concept-network-data-access.md
+        # end v1
+        - name: Apache Spark in Azure Machine Learning
+          href: apache-spark-azure-ml-concepts.md
+        - name: Data concepts in Azure Machine Learning
+          href: concept-data.md
+        - name: Sourcing human data responsibly
+          href: concept-sourcing-human-data.md
+        - name: Compliance
+          items:
+            - name: Export and delete data
+              displayName: GDPR
+              href: how-to-export-delete-data.md
+    - name: Managed feature store
+      items:
+        - name: What is a managed feature store?
+          href: concept-what-is-managed-feature-store.md
+        - name: Top-level entities in managed feature store
+          href: concept-top-level-entities-in-managed-feature-store.md
+    - name: Train models
+      items:
+        - name: Model training
+          displayName: run config, machine learning pipeline, ml pipeline, train model
+          href: concept-train-machine-learning-model.md
+        # v1
+        - name: Model training
+          displayName: run config, machine learning pipeline, ml pipeline, train model
+          href: ./v1/concept-train-machine-learning-model-v1.md
+        # end v1
+        - name: Distributed training
+          displayName: parallellization, deep learning, deep neural network, dnn
+          href: concept-distributed-training.md
+        - name: Deep learning
+          displayName: deep learning vs machine learning, deep learning, vs, versus
+          href: concept-deep-learning-vs-machine-learning.md
+        - name: MLflow models
+          displayName: tracking models, mlflow, custom, flavors
+          href: concept-mlflow-models.md
+        - name: AutoML
+          items:
+            - name: Automated ML overview
+              displayName: automl, auto ml
+              href: concept-automated-ml.md
+            # v1
+            - name: Automated ML overview
+              displayName: automl, auto ml
+              href: ./v1/concept-automated-ml-v1.md
+            # end v1
+            - name: Time series forecasting
+              items:
+                - name: Forecasting methods
+                  displayName: auto ML, time series, forecasting, methods
+                  href: concept-automl-forecasting-methods.md
+                - name: Deep learning models
+                  displayName: auto ML, time series, forecasting, deep learning, TCN
+                  href: concept-automl-forecasting-deep-learning.md
+                - name: Model sweeping and selection
+                  displayName: auto ML, time series, forecasting, model selection, sweeping
+                  href: concept-automl-forecasting-sweeping.md
+                - name: Calendar features
+                  displayName: auto ML, time series, calendar features, holiday features
+                  href: concept-automl-forecasting-calendar-features.md
+                - name: Lag features
+                  displayName: auto ML, time series, lags
+                  href: concept-automl-forecasting-lags.md
+            - name: Overfitting & imbalanced data
+              displayName: automl, auto ml, risks
+              href: concept-manage-ml-pitfalls.md
+        # v1
+        - name: Designer (drag-n-drop ML)
+          items:
+            - name: Designer overview
+              displayName: studio
+              href: ./v1/concept-designer.md
+            - name: Algorithm cheat sheet
+              href: ./v1/algorithm-cheat-sheet.md
+            - name: How to select algorithms
+              href: ./v1/how-to-select-algorithms.md
+        # end v1
+    - name: Deploy to production
+      items:
+        - name: Endpoints for inference
+          href: concept-endpoints.md
+        - name: Endpoints
+          items:
+            - name: Online endpoints
+              href: concept-endpoints-online.md
+            - name: Batch endpoints
+              href: concept-endpoints-batch.md
+        - name: Model portability (ONNX)
+          href: concept-onnx.md
+        - name: Prebuilt docker images for inference
+          href: concept-prebuilt-docker-images-inference.md
+    - name: Monitor models
+      items:
+        - name: Model data collection
+          href: concept-data-collection.md
+        - name: Model monitoring
+          href: concept-model-monitoring.md
+    - name: MLflow
+      items:
+        - name: MLflow and Azure Machine Learning
+          href: concept-mlflow.md
+        # v1
+        - name: MLflow
+          href: ./v1/concept-mlflow-v1.md
+        # end v1
+        - name: MLflow models
+          displayName: tracking models, mlflow, custom, flavors
+          href: concept-mlflow-models.md
+    - name: Model Catalog
+      items:
+        - name: Foundation Models in Model Catalog
+          href: concept-foundation-models.md
+    - name: Manage the ML lifecycle (MLOps)
+      items:
+        - name: MLOps capabilities
+          displayName: deploy, deployment, publish, production, operationalize, operationalization
+          href: concept-model-management-and-deployment.md
+        # v1
+        - name: MLOps capabilities
+          displayName: deploy, deployment, publish, production, operationalize, operationalization
+          href: ./v1/concept-model-management-and-deployment.md
+        # end v1
+        - name: Registries
+          displayName: collaborate share
+          href: concept-machine-learning-registries-mlops.md
+        - name: ML pipelines
+          href: concept-ml-pipelines.md
+        - name: ML components
+          href: concept-component.md
+        - name: Designer (drag-n-drop ML)
+          href: concept-designer.md
+        - name: Git integration
+          displayName: github gitlab
+          href: concept-train-model-git-integration.md
+    - name: Responsible AI
+      items:
+        - name: Responsible AI overview
+          displayName: responsible, ml
+          href: concept-responsible-ai.md
+        - name: Implement Responsible AI in Practice
+          items:
+            - name: Responsible AI dashboard
+              href: concept-responsible-ai-dashboard.md
+            - name: Responsible AI scorecard
+              href: concept-responsible-ai-scorecard.md
+            - name: Model interpretability
+              displayName: explainability, explanations, interpretability
+              href: how-to-machine-learning-interpretability.md
+            - name: Fairness in Machine Learning
+              displayName: fairness, bias, model performance, disparity metrics, unfairness
+              href: concept-fairness-ml.md
+            - name: Causal analysis
+              displayName: causal analysis, causal inference
+              href: concept-causal-inference.md
+            - name: Assess errors in ML models
+              displayName: error analysis, model error
+              href: concept-error-analysis.md
+            - name: Understand your datasets
+              displayName: exploratory data analysis, EDA, dataset explorer
+              href: concept-data-analysis.md
+            - name: Counterfactual analysis and what-if
+              href: concept-counterfactual-analysis.md
+    - name: Workspace & compute resources
+      items:
+        - name: Workspace
+          href: concept-workspace.md
+        - name: Environments
+          href: concept-environments.md
+        - name: Compute instance
+          displayName: resource, dsvm, Data Science Virtual Machine
+          href: concept-compute-instance.md
+        - name: Compute target
+          displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
+          href: concept-compute-target.md
+    - name: Security
+      items:
+        - name: Enterprise security overview
+          displayName: authorization authentication encryption aad azure active directory
+          href: concept-enterprise-security.md
+        - name: Secured workspace traffic flow
+          href: concept-secure-network-traffic-flow.md
+        - name: Security baseline
+          href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
+        - name: Security controls by Azure Policy
+          href: ./security-controls-policy.md
+        - name: Data encryption
+          href: concept-data-encryption.md
+        - name: Customer-managed keys
+          href: concept-customer-managed-keys.md
+        - name: Vulnerability management
+          href: concept-vulnerability-management.md
 - name: Infrastructure & security
   items:
     - name: Tutorials & templates
@@ -1200,8 +1400,26 @@
         - name: Build & use ML pipelines
           displayName: pipelines
           items:
+            - name: Create ML pipelines using components (CLI v2)
+              href: how-to-create-component-pipelines-cli.md
+            - name: Create ML pipelines using components (Python SDK v2)
+              href: how-to-create-component-pipeline-python.md
+            - name: Create ML pipelines using components (UI)
+              href: how-to-create-component-pipelines-ui.md
+            - name: How to use sweep in pipelines (v2)
+              href: how-to-use-sweep-in-pipeline.md
+            - name: How to use parallel job in pipeline
+              href: how-to-use-parallel-job-in-pipeline.md
+            - name: How to use pipeline component
+              href: how-to-use-pipeline-component.md
+            - name: How to debug pipeline failure
+              href: how-to-debug-pipeline-failure.md
             - name: How to debug pipeline reuse issues
               href: how-to-debug-pipeline-reuse-issues.md
+            - name: How to use debug pipeline performance 
+              href: how-to-debug-pipeline-performance.md
+            - name: Deploy pipeline component as batch 
+              href: how-to-deploy-pipeline-component-as-batch-endpoint.md
             # v1
             - name: Create ML pipelines (Python)
               href: ./v1/how-to-create-machine-learning-pipelines.md
@@ -1217,20 +1435,25 @@
             - name: Trigger a pipeline
               href: ./v1/how-to-trigger-published-pipeline.md
             # end v1
+            # v1
             - name: Designer (drag-n-drop)
               items:
                 - name: Transform data
                   displayName: pipeline
-                  href: how-to-designer-transform-data.md
+                  href: ./v1/how-to-designer-transform-data.md
+                - name: Use pipeline parameters
+                  displayName: designer, pipeline parameters
+                  href: ./v1/how-to-use-pipeline-parameter.md
                 - name: Retrain using published pipelines
                   displayName: retrain, designer, published pipeline
-                  href: how-to-retrain-designer.md
+                  href: ./v1/how-to-retrain-designer.md
                 - name: Batch predictions
                   displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-                  href: how-to-run-batch-predictions-designer.md
+                  href: ./v1/how-to-run-batch-predictions-designer.md
                 - name: Execute Python code
                   displayName: feature extraction, feature engineering
-                  href: how-to-designer-python.md
+                  href: ./v1/how-to-designer-python.md
+            # end v1
         # v1
         - name: Convert notebook code into Python scripts
           displayName: mlops, mlopspython, production
@@ -1335,10 +1558,10 @@
           items: 
             - name: Job
               href: reference-yaml-schedule.md
+            - name: Data Import
+              href: reference-yaml-schedule-data-import.md
             - name: Monitor
               href: reference-yaml-monitor.md
-        - name: Pipeline component
-          href: reference-yaml-component-pipeline.md
         - name: Compute
           items:
             - name: Compute cluster (AmlCompute)

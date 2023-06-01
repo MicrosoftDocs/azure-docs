@@ -398,10 +398,10 @@
                   href: csi-secrets-store-nginx-tls.md
     - name: Configure private clusters
       items:
-      - name: Create a private cluster
-        href: private-clusters.md
-      - name: Access a private cluster remotely
-        href: command-invoke.md
+        - name: Create a private cluster
+          href: private-clusters.md
+        - name: Access a private cluster remotely
+          href: command-invoke.md
     - name: Configure networking
       items:
         - name: Create or use existing virtual network
@@ -612,6 +612,8 @@
       items:
         - name: About Open Service Mesh
           href: open-service-mesh-about.md
+        - name: Migration Guidance to Istio AKS add-on
+          href: open-service-mesh-istio-migration-guidance.md
         - name: Use the Azure CLI
           href: open-service-mesh-deploy-addon-az-cli.md
         - name: Use Bicep template

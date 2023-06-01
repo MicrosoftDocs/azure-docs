@@ -531,7 +531,7 @@ For details on how to create a deployment configuration and deploy a registered 
 
 Model interpretability allows you to understand why your models made predictions, and the underlying feature importance values. The SDK includes various packages for enabling model interpretability features, both at training and inference time, for local and deployed models.
 
-See how to [enable interpretability features](../how-to-machine-learning-interpretability-automl.md) specifically within automated ML experiments.
+See how to [enable interpretability features](how-to-machine-learning-interpretability-automl.md) specifically within automated ML experiments.
 
 For general information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept article on interpretability](../how-to-machine-learning-interpretability.md) .
 

@@ -25,6 +25,10 @@ This article helps you connect your virtual network to your virtual hub using th
 
 [!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
+> [!NOTE]
+>
+> * To delete a virtual network connected to the virtual hub, you must delete both the virtual network connection and virtual network resource. 
+
 ## Next steps
 
 For more information about Virtual WAN, see the [Virtual WAN FAQ](virtual-wan-faq.md).
