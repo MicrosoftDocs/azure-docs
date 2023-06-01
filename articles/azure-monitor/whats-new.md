@@ -36,7 +36,7 @@ Essentials|[Azure Monitor Metrics overview](essentials/data-platform-metrics.md)
 General|[Cost optimization in Azure Monitor](best-practices-cost.md)|Rewritten to match organization of Well Architected Framework service guides|
 General|[Best practices for Azure Monitor Logs](best-practices-logs.md)|New article with consolidated list of best practices for Logs organized by WAF pillar.|
 General|[Migrate from System Center Operations Manager (SCOM) to Azure Monitor](azure-monitor-operations-manager.md)|Migrate from SCOM to Azure Monitor|
-Logs|[Application Insights API Access with Microsoft Azure Active Directory (Azure AD) Authentication](logs/api/app-insights-azure-ad-api.md)|New article that explains how to authenticate and access the Azure Monitor Application Insights APIs using Azure AD.|
+Logs|[Application Insights API Access with Microsoft Azure Active Directory (Azure AD) Authentication](app/app-insights-azure-ad-api.md)|New article that explains how to authenticate and access the Azure Monitor Application Insights APIs using Azure AD.|
 Logs|[Tutorial: Replace custom fields in Log Analytics workspace with KQL-based custom columns](logs/custom-fields-migrate.md)|Guidance for migrate legacy custom fields to KQL-based custom columns using transformations.|
 Logs|[Monitor Log Analytics workspace health](logs/log-analytics-workspace-health.md)|View Log Analytics workspace health metrics, including query success metrics, directly from the Log Analytics workspace screen in the Azure portal.|
 Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Dedicated SQL Pool tables and Kubernetes services tables now support Basic logs.|
