@@ -258,6 +258,10 @@ items:
           href: how-to-manage-admin-accounts.md
         - name: Manage customer accounts
           href: how-to-manage-customer-accounts.md
+    - name: Troubleshoot
+      items:
+        - name: Known issues
+          href: troubleshooting-known-issues.md
     - name: Management APIs
       items:
         - name: Overview

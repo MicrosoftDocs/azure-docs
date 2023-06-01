@@ -1407,6 +1407,16 @@ groups:
     title: Android
   - id: platform-ios
     title: iOS
+- id: acs-plat-ios-android-windows
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
+  - id: platform-windows
+    title: Windows
 - id: acs-plat-web-android-windows
   title: Platform
   prompt: Choose a platform
@@ -2006,6 +2016,14 @@ groups:
     title: REST
   - id: static-web-apps-graphql
     title: GraphQL
+- id: static-web-apps-afd-methods
+  title: Azure Front Door integration method
+  prompt: Select an Azure Front Door configuration method
+  pivots:
+  - id: swa-afd-enterprise-grade-edge
+    title: Enterprise-grade edge (recommended)
+  - id: swa-afd-manual-afd
+    title: Manual Azure Front Door configuration
 # Owner: cshoe
 - id: container-apps-config-types
   title: Configuration method
