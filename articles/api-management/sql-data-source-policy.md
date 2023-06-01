@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 05/31/2023
+ms.date: 06/01/2023
 ms.author: danlep
 ---
 
@@ -25,7 +25,7 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 <sql-data-source> 
     <connection-info>
         <get-authorization-context>...get-authorization-context policy configuration...</get-authorization-context>
-        <connection-string use-managed-identity="true | false" client-id="Client ID of identity used for connection">
+        <connection-string use-managed-identity="true | false" scope="identity scope" client-id="Client ID of identity used for connection">
             SQL Azure connection string
         </connection-string>
         <include-fragment>...include-fragment policy configuration...</include-fragment>
@@ -37,8 +37,8 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
         <set-body>...set-body policy configuration...</set-body>
         <sql-statement>T-SQL query string</sql-statement>
         <sql-parameters>
-            <parameter sql-type="parameter type" name="Query parameter name in @ notation"
-                "Value of query parameter"
+            <parameter sql-type="parameter type" name="Query parameter name in @ notation">
+                "Query parameter value or expression"
             </parameter>
             <!-- if there are multiple parameters, then add additional parameter elements -->
         </sql-parameters>
@@ -69,7 +69,7 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 |Element|Description|Required|
 |----------|-----------------|--------------|
 | [get-authorization-context](get-authorization-context-policy.md) | Gets an authorization context for the resolver's SQL request.  | No |
-| [connection-string](#connection-string-attributes) | Specifies the SQL Azure connection string. If the `use-managed-identity` attribute is set to `false` (default), the connection string must include a username and password. |  Yes |
+| [connection-string](#connection-string-attributes) | Specifies the SQL Azure connection string. The connection string uses either SQL authentication (username and password) or Azure AD authentication if an API Management managed identity is configured. |  Yes |
 | [include-fragment](include-fragment-policy.md) | Inserts a policy fragment in the policy definition. If there are multiple fragments, then add additional `include-fragment` elements. | No |
 | [authentication-certificate](authentication-certificate-policy.md)  | Authenticates using a client certificate in the resolver's SQL request.  | No  | 
 
@@ -77,8 +77,9 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| use-managed-identity | Boolean. Specifies whether to use a [managed identity](api-management-howto-use-managed-service-identity.md) assigned to the API Management instance for connection to the Azure SQL database in place of a username and password in the connection string. Policy expressions are allowed. <br/><br/>The identity must be [configured](#configure-managed-identity-integration-with-sql-azure) to perform the request on the Azure SQL database.  | No  | `false`   |
-| client-id | If `use-managed-identity` is `true` and a user-assigned managed identity is used, the client ID of the identity.<br/><br/>The identity must be [configured](#configure-managed-identity-integration-with-sql-azure) to perform the request on the Azure SQL database. | No | N/A |
+| use-managed-identity | Boolean. Specifies whether to use a [managed identity](api-management-howto-use-managed-service-identity.md) assigned to the API Management instance for connection to the Azure SQL database in place of a username and password in the connection string. Policy expressions are allowed. <br/><br/>The identity must be [configured](#configure-managed-identity-integration-with-sql-azure) to access the Azure SQL database.  | No  | `false`   |
+| scope | String. If `use-managed-identity` is `true`, the scope of the identity. | No | `https://database.windows.net/.default` |
+| client-id | If `use-managed-identity` is `true` and a user-assigned managed identity is used, the client ID of the identity.<br/><br/>The identity must be [configured](#configure-managed-identity-integration-with-sql-azure) to access the Azure SQL database. | No | N/A |
 
 ### request attribute
 
@@ -163,13 +164,13 @@ Enable Azure Active Directory authentication to SQL Database by assigning an Azu
 
 ### Resolver for GraphQL query using single T-SQL request
 
-The following example resolves a GraphQL query by making a single T-SQL request to a backend database. The connection string uses SQL authentication with username and password. The response is returned as a raw string.
+The following example resolves a GraphQL query by making a single T-SQL request to a backend database. The connection string uses SQL authentication with username and password and is provided using a named value. The response is returned as a raw string.
 
 ```xml
 <sql-data-source>
     <connection-info>
         <connection-string>
-            Server=tcp:{your_server_name}.database.windows.net,1433;Initial Catalog={your_database_name};User ID={your_username}@{your_server_name};Password={your_password};[...];
+            {{my-connection-string}}
         </connection-string>
     </connection-info>
     <request single-result="true">
@@ -210,7 +211,7 @@ The query parameter is accessed using the `context.GraphQL.Arguments` context va
         </sql-statement> 
         <sql-parameters> 
             <parameter name="@familyId">       
-                @(context.GraphQL.Arguments.["id"])
+                {context.GraphQL.Arguments.["id"]}
             </parameter> 
         </sql-parameters> 
     </request> 

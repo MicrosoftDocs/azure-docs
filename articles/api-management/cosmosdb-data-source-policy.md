@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 05/26/2023
+ms.date: 06/01/2023
 ms.author: danlep
 ---
 
@@ -26,10 +26,10 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
     <!-- Required information that specifies connection to Cosmos DB -->
     <connection-info> 
         <connection-string use-managed-identity="true | false" client-id= "Client ID of a user-assigned managed identity"> 
-            "Connection string to CosmosDB account" 
+            AccountEndpoint=...;[AccountKey=...;]
         </connection-string> 
-        <database-name>"Cosmos DB database name"</database-name> 
-        <container-name>"Name of container in Cosmos DB database"</container-name>     
+        <database-name>Cosmos DB database name</database-name> 
+        <container-name>Name of container in Cosmos DB database</container-name>     
     </connection-info>
 
     <!-- Settings to query using a SQL statement and optional query parameters -->
@@ -39,7 +39,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
         </sql-statement> 
         <query-parameters> 
             <parameter type="parameter type" name="Query parameter name in @ notation"> 
-                "Value of query parameter"
+                "Query parameter value or expression"
             </parameter>
             <!-- if there are multiple parameters, then add additional parameter elements --> 
         </query-parameters> 
@@ -48,10 +48,10 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
         </partition-key> 
         <paging> 
             <max-item-count template="liquid" > 
-                "Maximum number of items returned by query"
+                Maximum number of items returned by query
             </max-item-count> 
             <continuation-token template="liquid"> 
-                "Continuation token for paging" 
+                Continuation token for paging 
             </continuation-token> 
         </paging>
     </query-request>
@@ -110,7 +110,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 | [query-request](#query-request-attributes)    |   Specifies settings for a [query request](../cosmos-db/nosql/how-to-dotnet-query-items.md) to Cosmos DB container.    |  No      |
 | [read-request](#read-request-elements)    |  Specifies settings for a [read request](../cosmos-db/nosql/how-to-dotnet-read-item.md) to Cosmos DB container.    |    No   |
 | [delete-request](#delete-request-attributes)    |  Specifies settings for a delete request to Cosmos DB container.    |   No     |
-| [write-request](#write-request-attributes) | Specifies settings for write request to Cosmos DB contIf the `use-managed-identity` attribute is set to `false` (default), the connection string must include aainer.  |  No |
+| [write-request](#write-request-attributes) | Specifies settings for a write request to Cosmos DB container. If the `use-managed-identity` attribute is set to `false` (default), the connection string must include an account key.  |  No |
 | [response](#response-elements)  |  Optionally specifies child policies to configure the resolver's response.  |    No |
 
 
@@ -118,7 +118,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| [connection-string](#connection-string-attributes) | Connection string for Cosmos DB account. n account key.   | Yes    |
+| [connection-string](#connection-string-attributes) | Specifies the connection string for Cosmos DB account. The connection string either includes an account key or omits the key if an API Management managed identity is configured. | Yes    |
 | database-name | String. Name of Cosmos DB database. | Yes  |
 | container-name | String. Name of container in Cosmos DB database. | Yes  |
 
@@ -126,8 +126,8 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| use-managed-identity | Boolean. Specifies whether to use a [managed identity](api-management-howto-use-managed-service-identity.md) assigned to the API Management instance for connection to the Cosmos DB account in place of an account key in the connection string. The identity must be [configured](#configure-managed-identity-integration-with-cosmos-db) to perform the request on the Cosmos DB container. | No  | `false`   |
-| client-id | If `use-managed-identity` is `true` and a user-assigned managed identity is used, the client ID of the identity.<br/><br/>The identity must have an Azure RBAC [role assignment](#configure-managed-identity-integration-with-cosmos-db) or equivalent permissions to perform the request on the Cosmos DB container.  | No | N/A |
+| use-managed-identity | Boolean. Specifies whether to use a [managed identity](api-management-howto-use-managed-service-identity.md) assigned to the API Management instance for connection to the Cosmos DB account in place of an account key in the connection string. The identity must be [configured](#configure-managed-identity-integration-with-cosmos-db) to access the Cosmos DB container. | No  | `false`   |
+| client-id | If `use-managed-identity` is `true` and a user-assigned managed identity is used, the client ID of the identity.<br/><br/>The identity must be [configured](#configure-managed-identity-integration-with-cosmos-db) or to access the Cosmos DB container.  | No | N/A |
 
 ### query-request attributes
 
@@ -246,7 +246,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 
 ## Configure managed identity integration with Cosmos DB
 
-You can configure an API Management managed identity to connect to a Cosmos DB account, instead of configuring an account key in a connection string.
+You can configure an API Management managed identity to access a Cosmos DB account, instead of providing an account key in the connection string.
 
 Follow these steps to use the Azure CLI to configure the managed identity.
 
@@ -324,7 +324,7 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
         <container-name>myContainer</container-name>
     </connection-info>
     <query-request>
-        <sql-statement>SELECT * FROM c</sqlstatement>
+        <sql-statement>SELECT * FROM c </sqlstatement>
     </query-request>
 </cosmosdb-data-source>
 ```
@@ -351,6 +351,8 @@ documents.azure.com:443/;
         </id>
         <partition-key>
             @(context.GraphQL.Arguments["category"].ToString())
+    <read-request>
+</cosmosdb-data-source>
 ```
 
 ### Cosmos DB delete request
@@ -411,7 +413,7 @@ documents.azure.com:443/;
 
 ### Construct parameter input for Cosmos DB query
 
-The following examples show ways to construct Cosmos DB [parameterized queries](../cosmos-db/nosql/query/parameterized-queries.md) using policy expressions. 
+The following examples show ways to construct Cosmos DB [parameterized queries](../cosmos-db/nosql/query/parameterized-queries.md) using policy expressions. Choose a method based on the form of your parameter input.
 
 The examples are based on the following sample GraphQL schema, and generate the corresponding Cosmos DB parameterized query.
 

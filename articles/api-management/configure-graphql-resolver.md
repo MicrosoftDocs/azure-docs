@@ -64,7 +64,8 @@ The following steps create a resolver using an HTTP-based data source. The gener
     :::image type="content" source="media/configure-graphql-resolver/list-resolvers.png" alt-text="Screenshot of the resolvers list for GraphQL API in the portal." lightbox="media/configure-graphql-resolver/list-resolvers.png":::
 
     > [!TIP]
-    > The **Linked** column indicates whether or not the resolver is configured for a field that's currently in the GraphQL schema. If a resolver isn't linked, it can't be invoked.
+    > * The **Linked** column indicates whether the resolver is configured for a field that's currently in the GraphQL schema. If a resolver isn't linked, it can't be invoked.
+    > * You can clone a listed resolver to quickly create a similar resolver that targets a different type and field. In the context menu (**...**), select **Clone**. 
 
 
 

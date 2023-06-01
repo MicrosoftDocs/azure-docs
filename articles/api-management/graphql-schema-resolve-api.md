@@ -91,7 +91,7 @@ type User {
     1. Update the **Name** property if you want to, optionally enter a **Description**, and confirm or update the **Type** and **Field** selections.
     1. In **Data source**, select **HTTP API**. 
 
-1. In the **Resolver policy** editor, update the `<http-data-source>` element with child elements for your scenario. For example, the following resolver retrieves the *users* field by using a `GET` call on an existing HTTP data source.
+1. In the **Resolver policy** editor, update the `<http-data-source>` element with child elements for your scenario. For example, the following resolver retrieves the *users* field by making a `GET` call to an existing HTTP data source.
 
     
     ```xml
