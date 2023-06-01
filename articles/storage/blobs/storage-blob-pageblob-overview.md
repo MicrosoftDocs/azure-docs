@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/15/2020
+ms.date: 05/11/2023
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
@@ -111,7 +111,12 @@ An alternative option is to use the page blobs directly via Azure Storage REST A
 
 ### Durability and high availability
 
-Both Standard and premium storage are durable storage where the page blob data is always replicated to ensure durability and high availability. For more information about Azure Storage Redundancy, see this [documentation](../common/storage-redundancy.md). Azure has consistently delivered enterprise-grade durability for IaaS disks and page blobs, with an industry-leading zero percent [Annualized Failure Rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
+Both standard and premium storage are durable storage where the page blob data is always replicated to ensure durability and high availability.Azure has consistently delivered enterprise-grade durability for IaaS disks and page blobs, with an industry-leading zero percent [Annualized Failure Rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
+
+For more information about Azure Storage redundancy for standard and premium storage accounts, see [Azure Storage redundancy](../common/storage-redundancy.md), and these two sections specifically:
+
+- [Supported Azure Storage services](../common/storage-redundancy.md#supported-azure-storage-services)
+- [Supported storage account types](../common/storage-redundancy.md#supported-storage-account-types)
 
 ### Seamless migration to Azure
 

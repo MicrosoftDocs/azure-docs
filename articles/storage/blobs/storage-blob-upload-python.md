@@ -62,6 +62,14 @@ The following example uploads a block blob with index tags:
 
 You can have greater control over how to divide uploads into blocks by manually staging individual blocks of data. When all of the blocks that make up a blob are staged, you can commit them to Blob Storage.
 
+Use the following method to create a new block to be committed as part of a blob:
+
+- [stage_block](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-stage-block)
+
+Use the following method to write a blob by specifying the list of block IDs that make up the blob:
+
+- [commit_block_list](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-commit-block-list)
+
 The following example reads data from a file and stages blocks to be committed as part of a blob:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_blocks":::

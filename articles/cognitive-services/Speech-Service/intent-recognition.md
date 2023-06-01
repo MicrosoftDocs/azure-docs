@@ -34,7 +34,7 @@ Conversational language understanding (CLU) enables users to build custom natura
 Both a Speech resource and Language resource are required to use CLU with the Speech SDK. The Speech resource is used to transcribe the user's speech into text, and the Language resource is used to recognize the intent of the utterance. To get started, see the [quickstart](get-started-intent-recognition-clu.md).
 
 > [!IMPORTANT]
-> When you use conversational language understanding with the Speech SDK, you are charged both for the Speech-to-text recognition request and the Language service request for CLU. For more information about pricing for conversational language understanding, see [Language service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/).
+> When you use conversational language understanding with the Speech SDK, you are charged both for the Speech to text recognition request and the Language service request for CLU. For more information about pricing for conversational language understanding, see [Language service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/).
 
 For information about how to use conversational language understanding without the Speech SDK and without speech recognition, see the [Language service documentation](../language-service/conversational-language-understanding/overview.md).
 

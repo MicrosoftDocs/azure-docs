@@ -389,7 +389,7 @@ Use the following information to correct sign-in problems.
 
 You can view the device and single sign-on (SSO) state by running `dsregcmd /status`. The goal is for the device state to show as `AzureAdJoined : YES` and for the SSO state to show `AzureAdPrt : YES`.
 
-RDP sign-in via Azure AD accounts is captured in Event Viewer under the *AAD\Operational* event logs.
+RDP sign-in via Azure AD accounts is captured in Event Viewer under the *Applications and Services Logs\Windows\AAD\Operational* event logs.
 
 ### Azure role not assigned
 

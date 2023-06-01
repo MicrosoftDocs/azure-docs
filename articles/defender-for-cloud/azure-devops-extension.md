@@ -124,9 +124,9 @@ The pipeline will run for a few minutes and save the results.
 
 ## Learn more
 
-- Learn how to [create your first pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
+- Learn how to [create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 
-- Learn how to [deploy pipelines to Azure](/azure/devops/pipelines/overview-azure?toc=%2Fazure%2Fdevops%2Fcross-service%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fcross-service%2Fbreadcrumb%2Ftoc.json&view=azure-devops).
+- Learn how to [deploy pipelines to Azure](/azure/devops/pipelines/overview-azure).
 
 ## Next steps
 

@@ -20,6 +20,9 @@ ms.date: 04/21/2023
 
 [Protected actions](./protected-actions-overview.md) in Azure Active Directory (Azure AD) are permissions that have been assigned Conditional Access polices that are enforced when a user attempts to perform an action. This article describes how to add, test, or remove protected actions.
 
+> [!NOTE]
+> You should perform these steps in the following sequence to ensure that protected actions are properly configured and enforced. If you don't follow this order, you may get unexpected behavior, such as [getting repeated requests to reauthenticate](#symptom---policy-is-never-satisfied).
+
 ## Prerequisites
 
 To add or remove protected actions, you must have:
@@ -27,7 +30,7 @@ To add or remove protected actions, you must have:
 - Azure AD Premium P1 or P2 license
 - [Conditional Access Administrator](permissions-reference.md#conditional-access-administrator) or [Security Administrator](permissions-reference.md#security-administrator) role
 
-## Configure Conditional Access policy
+## Step 1: Configure Conditional Access policy
 
 Protected actions use a Conditional Access authentication context, so you must configure an authentication context and add it to a Conditional Access policy. If you already have a policy with an authentication context, you can skip to the next section.
 
@@ -49,7 +52,7 @@ Protected actions use a Conditional Access authentication context, so you must c
 
     :::image type="content" source="media/protected-actions-add/policy-authentication-context.png" alt-text="Screenshot of New policy page to create a new policy with an authentication context." lightbox="media/protected-actions-add/policy-authentication-context.png":::
 
-## Add protected actions
+## Step 2: Add protected actions
 
 To add protection actions, assign a Conditional Access policy to one or more permissions using a Conditional Access authentication context.
 
@@ -77,7 +80,7 @@ To add protection actions, assign a Conditional Access policy to one or more per
 
     The new protected actions appear in the list of protected actions
 
-## Test protected actions
+## Step 3: Test protected actions
 
 When a user performs a protected action, they'll need to satisfy Conditional Access policy requirements. This section shows the experience for a user being prompted to satisfy a policy. In this example, the user is required to authenticate with a FIDO security key before they can update Conditional Access policies.
 

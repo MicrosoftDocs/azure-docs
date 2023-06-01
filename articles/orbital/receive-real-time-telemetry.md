@@ -100,6 +100,14 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
       "type": [ "null", "double" ]
     },
     {
+      "name": "contactTleLine1",
+      "type": "string"
+    },
+    {
+      "name": "contactTleLine2",
+      "type": "string"
+    },
+    {
       "name": "antennaType",
       "type": {
         "name": "antennaTypeEnum",

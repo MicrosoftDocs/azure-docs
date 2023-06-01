@@ -14,7 +14,7 @@ ms.subservice: common
 
 # Storage account overview
 
-An Azure storage account contains all of your Azure Storage data objects, including blobs, file shares, queues, tables, and disks. The storage account provides a unique namespace for your Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. Data in your storage account is durable and highly available, secure, and massively scalable.
+An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, and tables.The storage account provides a unique namespace for your Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. Data in your storage account is durable and highly available, secure, and massively scalable.
 
 To learn how to create an Azure Storage account, see [Create a storage account](storage-account-create.md).
 
@@ -91,18 +91,18 @@ When your account is created with standard endpoints, you can easily construct t
 
 When you create an Azure Storage account with  Azure DNS zone endpoints (preview), Azure Storage dynamically selects an Azure DNS zone and assigns it to the storage account when it is created. The new storage account's endpoints are created in the dynamically selected Azure DNS zone. For more information about Azure DNS zones, see [DNS zones](../../dns/dns-zones-records.md#dns-zones).
 
-An Azure DNS zone service endpoint in Azure Storage includes the protocol (HTTPS is recommended), the storage account name as the subdomain, and a domain that includes the name of the service and the identifier for the DNS zone. The identifier for the DNS zone always begins with `z` and can range from `z00` to `z99`.
+An Azure DNS zone service endpoint in Azure Storage includes the protocol (HTTPS is recommended), the storage account name as the subdomain, and a domain that includes the name of the service and the identifier for the DNS zone. The identifier for the DNS zone always begins with `z` and can range from `z00` to `z50`.
 
-The following table lists the format for Azure DNS Zone endpoints for each of the Azure Storage services, where the zone is `z5`.
+The following table lists the format for Azure DNS Zone endpoints for each of the Azure Storage services:
 
 | Storage service | Endpoint |
 |--|--|
-| Blob Storage | `https://<storage-account>.z[00-99].blob.storage.azure.net` |
-| Static website (Blob Storage) | `https://<storage-account>.z[00-99].web.storage.azure.net` |
-| Data Lake Storage Gen2 | `https://<storage-account>.z[00-99].dfs.storage.azure.net` |
-| Azure Files | `https://<storage-account>.z[00-99].file.storage.azure.net` |
-| Queue Storage | `https://<storage-account>.z[00-99].queue.storage.azure.net` |
-| Table Storage | `https://<storage-account>.z[00-99].table.storage.azure.net` |
+| Blob Storage | `https://<storage-account>.z[00-50].blob.storage.azure.net` |
+| Static website (Blob Storage) | `https://<storage-account>.z[00-50].web.storage.azure.net` |
+| Data Lake Storage Gen2 | `https://<storage-account>.z[00-50].dfs.storage.azure.net` |
+| Azure Files | `https://<storage-account>.z[00-50].file.storage.azure.net` |
+| Queue Storage | `https://<storage-account>.z[00-50].queue.storage.azure.net` |
+| Table Storage | `https://<storage-account>.z[00-50].table.storage.azure.net` |
 
 > [!IMPORTANT]
 > You can create up to 5000 accounts with Azure DNS Zone endpoints per subscription. However, you may need to update your application code to query for the account endpoint at runtime. You can call the [Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation to query for the storage account endpoints.
@@ -173,3 +173,5 @@ The following table describes the legacy storage account types. These account ty
 - [Create a storage account](storage-account-create.md)
 - [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
 - [Recover a deleted storage account](storage-account-recover.md)
+
+

@@ -1,5 +1,5 @@
 ---
-title: Submit Spark jobs in Azure Machine Learning (preview)
+title: Submit Spark jobs in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to submit standalone and pipeline Spark jobs in Azure Machine Learning 
 author: fbsolo-ms1
@@ -8,13 +8,11 @@ ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to 
-ms.date: 03/08/2023
+ms.date: 05/22/2023
 ms.custom: template-how-to 
 ---
 
-# Submit Spark jobs in Azure Machine Learning (preview)
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+# Submit Spark jobs in Azure Machine Learning
 
 Azure Machine Learning supports submission of standalone machine learning jobs and creation of [machine learning pipelines](./concept-ml-pipelines.md) that involve multiple machine learning workflow steps. Azure Machine Learning handles both standalone Spark job creation, and creation of reusable Spark components that Azure Machine Learning pipelines can use. In this article, you'll learn how to submit Spark jobs using:
 - Azure Machine Learning studio UI
@@ -45,11 +43,6 @@ For more information about **Apache Spark in Azure Machine Learning** concepts, 
 These prerequisites cover the submission of a Spark job from Azure Machine Learning studio UI:
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
-- To enable this feature:
-  1. Navigate to Azure Machine Learning studio UI.
-  2. Select **Manage preview features** (megaphone icon) from the icons on the top right side of the screen.
-  3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
-  :::image type="content" source="media/how-to-submit-spark-jobs/how-to-enable-managed-spark-preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
 - [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 
 ---
@@ -98,6 +91,7 @@ These prerequisites cover the submission of a Spark job from Azure Machine Learn
 > [!NOTE]
 > - To ensure successful execution of the Spark job, assign the **Contributor** and **Storage Blob Data Contributor** roles, on the Azure storage account used for data input and output, to the identity that the Spark job uses
 > - If an [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md) points to a Synapse Spark pool, in an Azure Synapse workspace that has a managed virtual network associated with it, [a managed private endpoint to storage account should be configured](../synapse-analytics/security/connect-to-a-secure-storage-account.md) to ensure data access.
+> - Serverless Spark compute supports a managed virtual network (preview). If a [managed network is provisioned for the serverless Spark compute, the corresponding private endpoints for the storage account should also be provisioned](./how-to-managed-network.md#configure-for-serverless-spark-jobs) to ensure data access.
 
 ## Submit a standalone Spark job
 A Python script developed by [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md) can be used to submit a batch job to process a larger volume of data, after making necessary changes for Python script parameterization. A simple data wrangling batch job can be submitted as a standalone Spark job.
@@ -221,7 +215,7 @@ To create a job, a standalone Spark job can be defined as a YAML specification f
         path: azureml://datastores/workspaceblobstore/paths/data/wrangled/
         mode: direct
     ```
-- `identity` - this optional property defines the identity used to submit this job. It can have `user_identity` and `managed` values. If no identity is defined in the YAML specification, the Spark job will use the default identity.
+- `identity` - this optional property defines the identity used to submit this job. It can have `user_identity` and `managed` values. If the YAML specification does not define an identity, the Spark job uses the default identity.
 
 ### Standalone Spark job
 
@@ -293,7 +287,7 @@ To create a standalone Spark job, use the `azure.ai.ml.spark` function, with the
 - `jars` - a list of `.jar` files to include in the Spark driver and executor `CLASSPATH`, for successful execution of the job. This parameter is optional.
 - `files` - a list of files that should be copied to the working directory of each executor, for successful execution of the job. This parameter is optional.
 - `archives` - a list of archives that is automatically extracted and placed in the working directory of each executor, for successful execution of the job. This parameter is optional.
-- `conf` - a dictionary with pre-defined Spark configuration key-value pairs.
+- `conf` - a dictionary with predefined Spark configuration key-value pairs.
 - `driver_cores`: the number of cores allocated for the Spark driver.
 - `driver_memory`: the allocated memory for the Spark driver, with a size unit suffix `k`, `m`, `g` or `t` (for example, `512m`, `2g`).
 - `executor_cores`: the number of cores allocated for the Spark executor.
@@ -339,7 +333,7 @@ To create a standalone Spark job, use the `azure.ai.ml.spark` function, with the
   - `azure.ai.ml.entities.UserIdentityConfiguration`
   or
   - `azure.ai.ml.entities.ManagedIdentityConfiguration`
-  for user identity and managed identity respectively. If no identity is defined, the Spark job will use the default identity.
+  for user identity and managed identity respectively. If no identity is defined, the Spark job uses the default identity.
 
 You can submit a standalone Spark job from:
 - an Azure Machine Learning Notebook connected to an Azure Machine Learning compute instance. 
@@ -402,70 +396,72 @@ ml_client.jobs.stream(returned_spark_job.name)
 
 # [Studio UI](#tab/ui)
 
-### Submit a standalone Spark job from Azure Machine Learning studio UI
+### Submit a standalone Spark job from Azure Machine Learning studio UI (preview)
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 To submit a standalone Spark job using the Azure Machine Learning studio UI:
 
 :::image type="content" source="media/how-to-submit-spark-jobs/create-standalone-spark-job.png" alt-text="Screenshot showing creation of a new Spark job in Azure Machine Learning studio UI.":::
 
-- In the left pane, select **+ New**.
+- Near the top right side of the screen, select **+ New**.
 - Select **Spark job (preview)**.
 - On the **Compute** screen:
  
 :::image type="content" source="media/how-to-submit-spark-jobs/create-standalone-spark-job-compute.png" alt-text="Screenshot showing compute selection screen for a new Spark job in Azure Machine Learning studio UI.":::
 
-1. Under **Select compute type**, select **Spark automatic compute (Preview)** for serverless Spark compute, or **Attached compute** for an attached Synapse Spark pool.
-1. If you selected **Spark automatic compute (Preview)**:
+1. Under **Select compute type**, select **Spark serverless** for serverless Spark compute, or **Attached compute** for an attached Synapse Spark pool.
+2. If you selected **Spark serverless**:
     1. Select **Virtual machine size**.
-    1. Select **Spark runtime version**.
+    2. Select **Spark runtime version**.
        > [!IMPORTANT]
        >
        > End of life announcement (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 was made on January 26, 2023. In accordance, Apache Spark 3.1 will not be supported after July 31, 2023. We recommend that you use Apache Spark 3.2.
-1. If you selected **Attached compute**:
+3. If you selected **Attached compute**:
     1. Select an attached Synapse Spark pool from the **Select Azure Machine Learning attached compute** menu.
-1. Select **Next**.
-1. On the **Environment** screen:
+4. Select **Next**.
+5. On the **Environment** screen:
     1. Select one of the available environments from the list. Environment selection is optional.
-    1. Select **Next**.
-1. On **Job settings** screen:
+    2. Select **Next**.
+6. On the **Job settings** screen:
     1. Provide a job **Name**. You can use the job **Name**, which is generated by default.
-    1. Select **Experiment name** from the dropdown menu.
-    1. Under **Add tags**, provide **Name** and **Value**, then select **Add**. Adding tags is optional.
-    1. Under the **Code** section:
+    2. Select **Experiment name** from the dropdown menu.
+    3. Under **Add tags**, provide **Name** and **Value**, then select **Add**. Adding tags is optional.
+    4. Under the **Code** section:
         1. Select an option from **Choose code location** dropdown. Choose **Upload local file** or **Azure Machine Learning workspace default blob storage**.
-        1. If you selected **Choose code location**:
+        2. If you selected **Choose code location**:
             - Select **Browse**, and navigate to the location containing the code file(s) on your local machine.
-        1. If you selected **Azure Machine Learning workspace default blob storage**:
+        3. If you selected **Azure Machine Learning workspace default blob storage**:
             1. Under **Path to code file to upload**, select **Browse**.
-            1. In the pop-up screen titled **Path selection**, select the path of code files on the workspace default blob storage.
-            1. Select **Save**.
-        1. Input the name of **Entry file** for the standalone job. This file should contain the Python code that takes arguments.
-        1. To add any another Python file(s) required by the standalone job at runtime, select **+ Add file** under **Py files** and input the name of the `.zip`, `.egg`, or `.py` file to be placed in the `PYTHONPATH` for successful execution of the job. Multiple files can be added.
-        1. To add any Jar file(s) required by the standalone job at runtime, select **+ Add file** under **Jars** and input the name of the `.jar` file to be included in the Spark driver and the executor `CLASSPATH` for successful execution of the job. Multiple files can be added.
-        1. To add archive(s) that should be extracted into the working directory of each executor for successful execution of the job, select **+ Add file** under **Archives** and input the name of the archive. Multiple archives can be added.
-        1. Adding **Py files**, **Jars**, and **Archives** is optional.
-        1. To add an input, select **+ Add input** under **Inputs** and
+            2. In the pop-up screen titled **Path selection**, select the path of code files on the workspace default blob storage.
+            3. Select **Save**.
+        4. Input the name of **Entry file** for the standalone job. This file should contain the Python code that takes arguments.
+        5. To add any other Python file(s) that the standalone job requires at runtime, select **+ Add file** under **Py files** and input the name of the `.zip`, `.egg`, or `.py` file to be placed in the `PYTHONPATH` for successful job execution. Multiple files can be added.
+        6. To add any Jar file(s) that the standalone job requires at runtime, select **+ Add file** under **Jars** and input the name of the `.jar` file to be included in the Spark driver. Also, add the executor `CLASSPATH` for successful job execution. Multiple files can be added.
+        7. To add archive(s) that should be extracted into the working directory of each executor for successful job execution, select **+ Add file** under **Archives**, and input the name of the archive. Multiple archives can be added.
+        8. Adding **Py files**, **Jars**, and **Archives** is optional.
+        9. To add an input, select **+ Add input** under **Inputs** and
             1. Enter an **Input name**. The input should refer to this name later in the **Arguments**.
-            1. Select an **Input type**.
-            1. For type **Data**:
+            2. Select an **Input type**.
+            3. For type **Data**:
                 1. Select **Data type** as **File** or **Folder**.
-                1. Select **Data source** as **Upload from local**, **URI**, or **Datastore**.
+                2. Select **Data source** as **Upload from local**, **URI**, or **Datastore**.
                     - For **Upload from local**, select **Browse** under **Path to upload**, to choose the input file or folder.
                     - For **URI**, enter a storage data URI (for example, `abfss://` or `wasbs://` URI), or enter a data asset `azureml://`.
                     - For **Datastore**:
                         1. **Select a datastore** from the dropdown menu.
-                        1. Under **Path to data**, select **Browse**.
-                        1. In the pop-up screen titled **Path selection**, select the path of the code files on the workspace default blob storage.
-                        1. Select **Save**.
-            1. For type **Integer**, enter an integer value as **Input value**.
-            1. For type **Number**, enter a numeric value as **Input value**.
-            1. For type **Boolean**, select **True** or **False** as **Input value**.
-            1. For type **String**, enter a string as **Input value**.
-        1. To add an input, select **+ Add output** under **Outputs** and
+                        2. Under **Path to data**, select **Browse**.
+                        3. In the pop-up screen titled **Path selection**, select the path of the code files on the workspace default blob storage.
+                        4. Select **Save**.
+            4. For type **Integer**, enter an integer value as **Input value**.
+            5. For type **Number**, enter a numeric value as **Input value**.
+            6. For type **Boolean**, select **True** or **False** as **Input value**.
+            7. For type **String**, enter a string as **Input value**.
+        10. To add an input, select **+ Add output** under **Outputs** and
             1. Enter an **Output name**. The output should refer to this name later to in the **Arguments**.
-            1. Select **Output type** as **File** or **Folder**.
-            1. For **Output URI destination**, enter a storage data URI (for example, `abfss://` or `wasbs://` URI) or enter a data asset `azureml://`.
-        1. Enter **Arguments** by using the names defined in the **Input name** and **Output name** fields in the earlier steps, and the names of input and output arguments used in the Python script **Entry file**. For example, if the **Input name** and **Output name** are defined as `job_input` and `job_output`, and the arguments are added in the **Entry file** as shown here
+            2. Select **Output type** as **File** or **Folder**.
+            3. For **Output URI destination**, enter a storage data URI (for example, `abfss://` or `wasbs://` URI) or enter a data asset `azureml://`.
+        11. Enter **Arguments** by using the names defined in the **Input name** and **Output name** fields in the earlier steps, and the names of input and output arguments used in the Python script **Entry file**. For example, if the **Input name** and **Output name** are defined as `job_input` and `job_output`, and the arguments are added in the **Entry file** as shown here
 
             ``` python
             import argparse
@@ -476,19 +472,19 @@ To submit a standalone Spark job using the Azure Machine Learning studio UI:
             ```
 
     then enter **Arguments** as `--input_param ${{inputs.job_input}} --output_param ${{outputs.job_output}}`.
-    1. Under the **Spark configurations** section:
+    5. Under the **Spark configurations** section:
         1. For **Executor size**:
             1. Enter the number of executor **Cores** and executor **Memory (GB)**, in gigabytes.
-            1. For **Dynamically allocated executors**, select the **Disabled** or **Enabled** option.
+            2. For **Dynamically allocated executors**, select the **Disabled** or **Enabled** option.
         - If dynamic allocation of executors is **Disabled**, enter the number of **Executor instances**.
         - If dynamic allocation of executors is **Enabled**, use the slider to select the minimum and maximum number of executors.
         1. For **Driver size**:
             1. Enter number of driver **Cores** and driver **Memory (GB)**, in gigabytes.
-            1. Enter **Name** and **Value** pairs for any **Additional configurations**, then select **Add**. Providing **Additional configurations** is optional.
-    1. Select **Next**.
-1. On the **Review** screen:
+            2. Enter **Name** and **Value** pairs for any **Additional configurations**, then select **Add**. Providing **Additional configurations** is optional.
+    6. Select **Next**.
+7. On the **Review** screen:
     1. Review the job specification before submitting it.
-    1. Select **Create** to submit the standalone Spark job.
+    2. Select **Create** to submit the standalone Spark job.
 
 ---
 

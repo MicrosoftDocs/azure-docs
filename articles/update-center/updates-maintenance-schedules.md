@@ -2,7 +2,7 @@
 title: Updates and maintenance in update management center (preview).
 description: The article describes the updates and maintenance options available in Update management center (preview).
 ms.service: update-management-center
-ms.date: 05/02/2023
+ms.date: 05/22/2023
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -14,6 +14,7 @@ ms.author: sudhirsneha
 
 > [!IMPORTANT]
 > - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules (Preview)**. If you fail to update the patch orchestration, you can experience a disruption in business continuity because the schedules will fail to patch the VMs. [Learn more](prerequsite-for-schedule-patching.md).
+> - For Arc-enabled servers, the updates and maintenance options such as Automatic VM Guest patching in Azure, Windows automatic updates and Hotpatching aren't supported.
 
 
 This article provides an overview of the various update and maintenance options available by update management center (preview). 
@@ -32,7 +33,7 @@ Update management center (preview) uses maintenance control schedule instead of 
 Start using [scheduled patching](scheduled-patching.md) to create and save recurring deployment schedules.
 
 > [!NOTE]
-> Patch orchestration property for Azure machines is set to **Customer Managed Schedules (Preview)** as it is a prerequisite for scheduled patching. For more information, see the [list of prerequisites](../update-center/scheduled-patching.md#prerequisites-for-scheduled-patching).
+> Patch orchestration property for Azure machines should be set to **Customer Managed Schedules (Preview)** as it is a prerequisite for scheduled patching. For more information, see the [list of prerequisites](../update-center/scheduled-patching.md#prerequisites-for-scheduled-patching).
 
 
 ## Automatic VM Guest patching in Azure

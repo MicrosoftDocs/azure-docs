@@ -26,7 +26,7 @@ sections:
       - question: |
           Does Azure OpenAI support GPT-4?
         answer: |
-          Azure OpenAI supports the latest GPT-4 models. These models are currently in preview. For access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4).
+          Azure OpenAI supports the latest GPT-4 models. These models are currently only available by request. For access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4).
       - question: |
           How do the capabilities of Azure OpenAI compare to OpenAI?
         answer: | 
@@ -34,11 +34,11 @@ sections:
           
           With Azure OpenAI, customers get the security capabilities of Microsoft Azure while running the same models as OpenAI. 
       - question: |
-          Does Azure OpenAI support VNET's and Private Endpoints?
+          Does Azure OpenAI support VNETs and Private Endpoints?
         answer: | 
-          Yes, as part of Azure Cognitive Services, Azure OpenAI supports VNET's and Private Endpoints. To learn more consult the [Cognitive Services virtual networking guidance](../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/openai/context/context) 
+          Yes, as part of Azure Cognitive Services, Azure OpenAI supports VNETs and Private Endpoints. To learn more consult the [Cognitive Services virtual networking guidance](../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/openai/context/context) 
       - question: |
-          Do the GPT-4 preview models currently support image input?
+          Do the GPT-4 models currently support image input?
         answer: | 
           No, GPT-4 is designed by OpenAI to be multimodal, but currently only text input and output are supported.
       - question: |

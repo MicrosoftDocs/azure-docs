@@ -28,7 +28,7 @@ Choose whether each site in the private mobile network should provide coverage f
 
 ## Allocate subnets and IP addresses
 
-Azure Private 5G Core requires a management network, access network, and one or more data networks. These networks can all be part of the same, larger network, or they can be separate. The approach you use depends on your traffic separation requirements.
+Azure Private 5G Core requires a management network, access network, and up to three data networks. These networks can all be part of the same, larger network, or they can be separate. The approach you use depends on your traffic separation requirements.
 
 For each of these networks, allocate a subnet and then identify the listed IP addresses. If you're deploying multiple sites, you'll need to collect this information for each site.
 
@@ -210,7 +210,7 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 Review and apply the firewall recommendations for the following services:
 
 - [Azure Stack Edge](../databox-online/azure-stack-edge-gpu-system-requirements.md#url-patterns-for-firewall-rules)
-- [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli%2cazure-cloud)
+- [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/network-requirements.md?tabs=azure-cloud)
 - [Azure Network Function Manager](../network-function-manager/requirements.md)
 
 The following table contains the URL patterns for Azure Private 5G Core's outbound traffic.
