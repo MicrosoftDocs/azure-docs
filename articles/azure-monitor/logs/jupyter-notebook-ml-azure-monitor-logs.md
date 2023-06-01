@@ -17,7 +17,8 @@ ms.date: 02/28/2023
 
 Integrating a notebook with a Log Analytics workspace lets you create a multi-step process, running code in each step based on the results of the previous step. You can use such streamlined, multi-step processes to build and run machine learning pipelines, and for other purposes, such as conducting advanced analysis and creating troubleshooting guides (TSGs) for support needs.
 
-In this tutorial, we integrate an Azure Machine Learning notebook with a Log Analytics workspace and train a custom machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs. This is one of several ways you can [build your own machine learning pipeline without exporting data out of Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). 
+In this tutorial, we integrate an Azure Machine Learning notebook with a Log Analytics workspace, train a custom machine learning model to detect log ingestion anomalies based on historical data in Azure Monitor Logs, and send the anomalies we identify back to the workspace. 
+This is one of several ways you can [build your own machine learning pipeline without exporting data out of Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). We implement a sample machine learning process using popular open source libraries, but you can use any libraries you want.  
 
 ## Process overview
 
