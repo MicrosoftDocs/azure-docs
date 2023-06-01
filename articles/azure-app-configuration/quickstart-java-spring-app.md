@@ -38,13 +38,27 @@ Now that you have an App Configuration store, you can use the Spring Cloud Azure
 
 To install the Spring Cloud Azure Config starter module, add the following dependency to your *pom.xml* file:
 
+### [Spring Boot 3](#tab/spring-boot-3)
+
 ```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-    <version>4.7.0</version>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+    <version>5.2.0</version>
 </dependency>
 ```
+
+### [Spring Boot 2](#tab/spring-boot-2)
+
+```xml
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+    <version>4.8.0</version>
+</dependency>
+```
+
+---
 
 ### Code the application
 
