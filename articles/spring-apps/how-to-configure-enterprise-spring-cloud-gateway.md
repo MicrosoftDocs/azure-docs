@@ -424,7 +424,7 @@ You can set Autoscale modes using the Azure CLI. The following commands create a
        --autoscale-name <autoscale-setting-name> \
        --scale out 1 \
        --cooldown 1 \
-       --condition "GatewayHttpServerRequestsSecondsCount > 100 avg 1m
+       --condition "GatewayHttpServerRequestsSecondsCount > 100 avg 1m"
    ```
 
 For information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
