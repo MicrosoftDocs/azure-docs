@@ -240,7 +240,7 @@ Additionally, if your ExpressRoute circuit is advertising a non-RFC1918 prefix t
 
 To use Encrypted ExpressRoute (Site-to-site VPN tunnel running over an ExpressRoute circuit) with routing intent private routing policies, configure a firewall rule to **allow** traffic between the tunnel private IP addresses of the Virtual WAN Site-to-site VPN Gateway (source) and the on-premises VPN device (destination). For customers that are using deep-packet inspection on the Firewall device, it is recommended to exclude traffic between these private IP's from deep-packet inspection.
 
-You can obtain the tunnel private IP addresses of the Virtual WAN Site-to-site VPN Gateway by [downloading the VPN config](virtual-wan-site-to-site-portal.md#download-vpn-configuration) and looking at **vpnSiteConnections -> hubConfiguration -> gatewayConfiguration -> IPAddresses**. The IP addresses listed in the IPAddresses field are the private IP addresses assigned to each instance of the Site-to-site VPN Gateway that is used  to terminate VPN tunnels over ExpressRoute. In the example below, the tunnel IPs on the Gateway are 192.168.1.4 and 192.168.1.5.
+You can obtain the tunnel private IP addresses of the Virtual WAN Site-to-site VPN Gateway by [downloading the VPN config](virtual-wan-site-to-site-portal.md) and viewing **vpnSiteConnections -> hubConfiguration -> gatewayConfiguration -> IPAddresses**. The IP addresses listed in the IPAddresses field are the private IP addresses assigned to each instance of the Site-to-site VPN Gateway that is used  to terminate VPN tunnels over ExpressRoute. In the example below, the tunnel IPs on the Gateway are 192.168.1.4 and 192.168.1.5.
 
 ```json
  "vpnSiteConnections": [
