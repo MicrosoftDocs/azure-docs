@@ -101,7 +101,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Korea Central | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :heavy_check_mark: |
 | Korea South | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | North Central US | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| North Europe | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Norway East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Qatar Central | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :x: |
 | South Africa North | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -116,7 +116,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | US Gov Virginia | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | UK West | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| West Central US | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| West Central US | :heavy_check_mark: (v3/v4 only)  | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | West Europe | :heavy_check_mark: | :x: $ | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US 2 | :x: $$ | :x: $ | :x: $ | :heavy_check_mark:|
