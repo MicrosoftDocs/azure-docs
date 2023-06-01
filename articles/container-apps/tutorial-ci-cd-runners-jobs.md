@@ -143,8 +143,8 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 
     Replace the placeholders with the following values:
     - `<GITHUB_PAT>`: The GitHub PAT you generated.
-    - `<REPO_OWNER>`: The owner of the repository you created earlier.
-    - `<REPO_NAME>`: The name of the repository you created earlier.
+    - `<REPO_OWNER>`: The owner of the repository you created earlier. This is usually your GitHub username.
+    - `<REPO_NAME>`: The name of the repository you created earlier. This is the same name you entered in the *Repository name* field.
 
 ## Build the GitHub Actions runner container image
 
@@ -169,8 +169,7 @@ To create a self-hosted runner, you need to build a container image that runs th
         --name "$CONTAINER_REGISTRY_NAME" \
         --resource-group "$RESOURCE_GROUP" \
         --location "$LOCATION" \
-        --sku Basic \
-        --admin-enabled true
+        --sku Basic
     ```
 
 1. The Dockerfile for creating the runner image is available on [GitHub](https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial/tree/main/github-actions-runner). Run the following command to clone the repository and build the container image in the cloud using the `az acr build` command.
