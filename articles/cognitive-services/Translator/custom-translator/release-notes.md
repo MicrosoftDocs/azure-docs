@@ -13,7 +13,7 @@ ms.custom: cogserv-non-critical-translator
 ---
 # Custom Translator release notes
 
-This page presents the latest release notes for features, improvements, bug fixes, and known issues for Custom Translator service.
+This page presents the latest feature, improvement, bug fix, and known issue release notes for Custom Translator service.
 
 ## 2023-June release
 
@@ -21,19 +21,19 @@ This page presents the latest release notes for features, improvements, bug fixe
 
 #### Custom Translator platform upgrade
 
-* 🆕 Model **upgrade wizard** added to **Workspace settings** to guide customers during V1 model upgrade to new platform. For more information, *see* [Custom Translator platform upgrade](platform-upgrade.md)
+🆕 The **model upgrade wizard** is added to **Workspace settings** to guide customers during V1 model upgrade to new platform process. For more information, *see* [Custom Translator platform upgrade](platform-upgrade.md)
 
 #### Custom Translator copy model
 
-* 🆕 **Copy model** feature added to **Model details** to provide model copy from one workspace to another. This feature enables model lifecycle management (development → testing → production) and/or scaling. For more information, *see* [Copy a custom model](how-to/copy-model.md)
+🆕 The **Copy model** feature is added to **Model details** to enable the copying of a model from one workspace to another. This feature enables model lifecycle management (development → testing → production) and/or scaling. For more information, *see* [Copy a custom model](how-to/copy-model.md)
 
 #### Restrict access to published models
 
-* Published model security is enhanced  and restricted access in enabled in Workspace settings to allow only linked Translator resources to request translation.
+ Published model security is enhanced  and restricted access is enabled in Workspace settings to allow only linked Translator resources to request translation.
 
 #### Language model updates
 
-* Language pairs are listed in the following table. For higher quality, we encourage you to retrain your models accordingly.
+* Supported language pairs are listed in the following table. For higher quality, we encourage you to retrain your models accordingly.
 
 |Source Language|Target Language|
 |:----|:----|
