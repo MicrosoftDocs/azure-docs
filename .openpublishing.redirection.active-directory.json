@@ -12506,7 +12506,7 @@
         "source_path_from_root": "/articles/active-directory-domain-services/migrate-from-classic-vnet.md",
         "redirect_url": "/azure/active-directory-domain-services/overview",
         "redirect_document_id": false
-      }
+      },
 
       {
         "source_path_from_root": "articles/active-directory/external-identities/customers/microsoft-graph-operations-custom-extensions.md",
@@ -12530,7 +12530,7 @@
         "source_path_from_root": "articles/active-directory/external-identities/customers/how-to-management-apis-overview.md.md",
         "redirect_url": "articles/active-directory/external-identities/customers/microsoft-graph-operations.md",
         "redirect_document_id": false
-      },
+      }
 
       ]
 }
