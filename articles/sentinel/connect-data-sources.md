@@ -130,4 +130,4 @@ Both Microsoft and other organizations author Microsoft Sentinel data connectors
 - To get started with Microsoft Sentinel, you need a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
 - Learn how to [onboard your data to Microsoft Sentinel](quickstart-onboard.md) and [get visibility into your data and potential threats](get-visibility.md).
 - To learn about custom data connectors, see [Resources for creating Microsoft Sentinel custom connectors](create-custom-connector.md).
-- For a basic Infrasctructure as Code (IaC) reference of Bicep, ARM and Terraform to deploy data connectors in Microsoft Sentinel, see [Microsoft Sentinel data connector IaC reference](/azure/templates/microsoft.securityinsights/dataconnectors).
+- For a basic Infrastructure as Code (IaC) reference of Bicep, ARM and Terraform to deploy data connectors in Microsoft Sentinel, see [Microsoft Sentinel data connector IaC reference](/azure/templates/microsoft.securityinsights/dataconnectors).
