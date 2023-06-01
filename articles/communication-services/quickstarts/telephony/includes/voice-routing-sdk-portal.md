@@ -3,10 +3,9 @@ title: include file
 description: Learn how to use the Azure portal to configure direct routing.
 services: azure-communication-services
 author: boris-bazilevskiy
-
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.date: 03/11/2023
+ms.date: 06/01/2023
 ms.topic: include
 ms.custom: include file
 ms.author: nikuklic
@@ -62,6 +61,9 @@ Status - The overall health status of a Trunk:
 - Unknown - Indicates an unknown health status. 
 - Online - Indicates that SBC connection is healthy. 
 - Inactive - Indicates inactive connection. 
+
+> [!IMPORTANT]
+> Before placing or receiving calls, make sure that SBC status is *Online* 
 
 ## Create voice routing rules
 

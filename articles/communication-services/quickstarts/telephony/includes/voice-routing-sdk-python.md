@@ -3,10 +3,9 @@ title: include file
 description: Learn how to use the Number Management Python SDK to configure direct routing.
 services: azure-communication-services
 author: boris-bazilevskiy
-
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.date: 03/11/2023
+ms.date: 06/01/2023
 ms.topic: include
 ms.custom: include file
 ms.author: nikuklic
@@ -140,6 +139,9 @@ sip_routing_client.set_trunk(new_trunk)
 ```
 
 You use the same method to create and update routing rules. When you update routes, send all of them in a single update. The new routing configuration fully overwrites the former one.
+
+> [!IMPORTANT]
+> Before placing or receiving calls, make sure that [SBC status](./voice-routing-sdk-portal.md#session-border-controller-connection-status) is *Online* 
 
 ## Remove a direct routing configuration
 
