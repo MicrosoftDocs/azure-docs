@@ -90,7 +90,7 @@ With the cross-lingual feature (preview), you can transfer your custom neural vo
 
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 
-The table in this section summarizes the locales supported for Pronunciation assessment, and each language is available on all [Speech to text regions](regions.md#speech-service).
+The table in this section summarizes the locales supported for Pronunciation assessment, and each language is available on all [Speech to text regions](regions.md#speech-service). You should specify the language that you are learning or practicing to improve pronunciation. The default language is set as `en-US`. If you know your target learning language, set the locale accordingly. For example, if you are learning British English, you should specify the language as `en-GB`. If you are teaching a broader language, such as Spanish, and are uncertain about which locale to select, you can run various accent models (`es-ES`, `es-MX`) to determine the one that achieves the highest score to suit your specific scenario.
 
 [!INCLUDE [Language support include](includes/language-support/pronunciation-assessment.md)]
 
