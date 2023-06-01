@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 05/01/2023
+ms.date: 06/01/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -80,9 +80,6 @@ The following example reads data from a file and stages blocks to be committed a
 
 You can define client library configuration options when uploading a blob. These options can be tuned to improve performance, enhance reliability, and optimize costs. The following code examples show how to define configuration options for an upload when instantiating a [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient). These options can also be configured for a [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) instance or a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) instance.
 
-> [!NOTE]
-> Configuration options need to be passed to the constructor for each client instance that the options apply to. The optional configuration arguments are *not* inherited by a client object that is created from a client for a higher level resource. For example, if you specify configuration options for a new `ContainerClient` instance, those options are *not* applied to a `BlobClient` instance created from the container client using `get_blob_client`. You should construct a new `BlobClient` instance with the desired configuration options.
-
 ### Specify data transfer options for upload
 
 You can set configuration options when instantiating a client to optimize performance for data transfer operations. You can pass the following keyword arguments when constructing a client object in Python:
@@ -94,7 +91,7 @@ For upload operations, you can also pass the `max_concurrency` argument when cal
 
 The following code example shows how to specify data transfer options when creating a `BlobClient` object, and how to upload data using that client object:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_blocks":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_transfer_options":::
 
 ## Resources
 
