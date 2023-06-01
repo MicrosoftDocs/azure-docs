@@ -503,4 +503,4 @@ Use [Azure Resource Manager templates][aks-arm-template] to create a managed ide
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [az-version]: /cli/azure/reference-index#az_version
 [az-upgrade]: /cli/azure/reference-index#az_upgrade
-[managed-identity-operator]: ../role-based-access-control/built-in-roles#managed-identity-operator.md
+[managed-identity-operator]: ../role-based-access-control/built-in-roles.md#managed-identity-operator
