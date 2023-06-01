@@ -58,7 +58,7 @@ The following snippet is a sample deployment that creates a cluster with KEDA en
     "contentVersion": "1.0.0.0",
     "resources": [
         {
-            "apiVersion": "2022-05-02-preview",
+            "apiVersion": "2023-03-01",
             "dependsOn": [],
             "type": "Microsoft.ContainerService/managedClusters",
             "location": "westcentralus",
