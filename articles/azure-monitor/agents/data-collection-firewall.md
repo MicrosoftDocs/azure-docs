@@ -58,7 +58,7 @@ To create the data collection rule in the Azure portal:
 1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
 1. Select **Firewall Logs**.
 
-    [ ![Screenshot that shows the Azure portal form to select firewall logs in a data collection rule.](media/data-collection-firewall/firewall-data-collection-rule.png)](media/data-collection-firewall/firewall-data-collection-rule.png#lightbox)
+    [ ![Screenshot that shows the Azure portal form to select firewall logs in a data collection rule.](media/data-collection-rule-azure-monitor-agent/firewall-data-collection-rule.png)](media/data-collection-firewall/firewall-data-collection-rule.png#lightbox)
 
 1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
 
