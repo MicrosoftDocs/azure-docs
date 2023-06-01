@@ -77,7 +77,8 @@ Container vulnerability assessment powered by MDVM (Microsoft Defender Vulnerabi
     | Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. |
 
 - **Query vulnerability information via the Azure Resource Graph** - Ability to query vulnerability information via the [Azure Resource Graph](/azure/governance/resource-graph/overview#how-resource-graph-complements-azure-resource-manager). Learn how to [query recommendations via the ARG](review-security-recommendations.md#review-recommendation-data-in-azure-resource-graph-arg). 
-- **Query vulnerability information via sub-assessment API** - You can get scan results via REST API. See the [sub-assessment list](/rest/api/defenderforcloud/sub-assessments/get?tabs=HTTP).   
+- **Query vulnerability information via sub-assessment API** - You can get scan results via REST API. See the [sub-assessment list](/rest/api/defenderforcloud/sub-assessments/get?tabs=HTTP).  
+- **Support for exemptions** - Learn how to  [create exemption rules for a management group, resource group, or subscription](how-to-enable-agentless-containers.md#support-for-exemptions). 
    
 ### Scan Triggers 
 

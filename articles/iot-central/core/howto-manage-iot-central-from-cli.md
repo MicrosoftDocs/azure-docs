@@ -1,6 +1,6 @@
 ---
-title: Manage IoT Central from Azure CLI or PowerShell | Microsoft Docs
-description: This article describes how to create and manage your IoT Central application using the Azure CLI or PowerShell. You can view, modify, and remove the application using these tools. You can also configure a managed system identity that can you can use to set up secure data export.
+title: Manage IoT Central from Azure CLI or PowerShell
+description: How to create and manage your IoT Central application using the Azure CLI or PowerShell and configure a managed system identity for secure data export.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
