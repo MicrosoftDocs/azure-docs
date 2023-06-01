@@ -13,7 +13,7 @@ You can submit a query request by using the Azure Monitor Application Insights e
 
 To access the API, you register a client app with Azure AD and request a token.
 
-1. [Register an app in Azure AD](./register-app-for-token.md).
+1. [Register an app in Azure AD](../logs/api/register-app-for-token.md).
 
 1. On the app's overview page, select **API permissions**.
 1. Select **Add a permission**.
@@ -55,7 +55,7 @@ The Application Insights API supports Azure AD authentication with three differe
 
 ### Client credentials flow
 
-In the client credentials flow, the token is used with the Application Insights endpoint. A single request is made to receive a token by using the credentials provided for your app in the previous step when you [register an app in Azure AD](./register-app-for-token.md).
+In the client credentials flow, the token is used with the Application Insights endpoint. A single request is made to receive a token by using the credentials provided for your app in the previous step when you [register an app in Azure AD](../logs/api/register-app-for-token.md).
 
 Use the `https://api.applicationinsights.io` endpoint.
 
