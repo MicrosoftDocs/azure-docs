@@ -2,7 +2,7 @@
 title: Key Vault secret with template
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 05/22/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -171,31 +171,32 @@ The following template deploys a SQL server that includes an administrator passw
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "sqlServerName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
     "adminLogin": {
       "type": "string"
     },
     "adminPassword": {
       "type": "securestring"
-    },
-    "sqlServerName": {
-      "type": "string"
     }
   },
-  "resources": [
-    {
+  "resources": {
+    "sqlServer": {
       "type": "Microsoft.Sql/servers",
-      "apiVersion": "2015-05-01-preview",
+      "apiVersion": "2021-11-01",
       "name": "[parameters('sqlServerName')]",
-      "location": "[resourceGroup().location]",
-      "tags": {},
+      "location": "[parameters('location')]",
       "properties": {
         "administratorLogin": "[parameters('adminLogin')]",
         "administratorLoginPassword": "[parameters('adminPassword')]",
         "version": "12.0"
       }
     }
-  ],
-  "outputs": {
   }
 }
 ```
@@ -338,7 +339,7 @@ The following template dynamically creates the key vault ID and passes it as a p
           "resources": [
             {
               "type": "Microsoft.Sql/servers",
-              "apiVersion": "2018-06-01-preview",
+              "apiVersion": "2021-11-01",
               "name": "[variables('sqlServerName')]",
               "location": "[parameters('location')]",
               "properties": {
@@ -372,9 +373,7 @@ The following template dynamically creates the key vault ID and passes it as a p
         }
       }
     }
-  ],
-  "outputs": {
-  }
+  ]
 }
 ```
 

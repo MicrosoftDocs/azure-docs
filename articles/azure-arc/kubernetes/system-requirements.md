@@ -1,6 +1,6 @@
 ---
 title: "Azure Arc-enabled Kubernetes system requirements"
-ms.date: 03/08/2023
+ms.date: 04/27/2023
 ms.topic: conceptual
 description: Learn about the system requirements to connect Kubernetes clusters to Azure Arc.
 ---
@@ -20,7 +20,7 @@ The cluster must have at least one node with operating system and architecture t
 > [!IMPORTANT]
 > Many Arc-enabled Kubernetes features and scenarios are supported on ARM64 nodes, such as [cluster connect](cluster-connect.md) and [viewing Kubernetes resources in the Azure portal](kubernetes-resource-view.md). However, if using Azure CLI to enable these scenarios, [Azure CLI must be installed](/cli/azure/install-azure-cli) and run from an AMD64 machine.
 >
-> Currently, Azure Arc-enabled Kubernetes [cluster extensions](conceptual-extensions.md) aren't supported on ARM64-based clusters. To [install and use cluster extensions](extensions.md), the cluster must have at least one node of operating system and architecture type `linux/amd64`.
+> Currently, Azure Arc-enabled Kubernetes [cluster extensions](conceptual-extensions.md) aren't supported on ARM64-based clusters, except for [Flux (GitOps)](conceptual-gitops-flux2.md). To [install and use other cluster extensions](extensions.md), the cluster must have at least one node of operating system and architecture type `linux/amd64`.
 
 ## Compute and memory requirements
 
@@ -48,7 +48,7 @@ For Azure CLI:
 
 For Azure PowerShell:
 
-- Install [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-az-ps).
+- Install [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-azure-powershell).
 - Install the **Az.ConnectedKubernetes** PowerShell module:
 
     ```azurepowershell-interactive

@@ -8,6 +8,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
+ms.custom: devx-track-arm-template
 ms.topic: sample
 ms.date: 01/29/2023
 ms.author: justinha 
@@ -23,7 +24,7 @@ This article shows you how to create a managed domain using an Azure Resource Ma
 To complete this article, you need the following resources:
 
 * Install and configure Azure PowerShell.
-    * If needed, follow the instructions to [install the Azure PowerShell module and connect to your Azure subscription](/powershell/azure/install-az-ps).
+    * If needed, follow the instructions to [install the Azure PowerShell module and connect to your Azure subscription](/powershell/azure/install-azure-powershell).
     * Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet.
 * Install and configure Azure AD PowerShell.
     * If needed, follow the instructions to [install the Azure AD PowerShell module and connect to Azure AD](/powershell/azure/active-directory/install-adv2).

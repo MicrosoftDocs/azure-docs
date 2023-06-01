@@ -7,11 +7,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 03/22/2023
+ms.date: 04/17/2023
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
-ms.custom: mode-other
+ms.custom: mode-other, build-2023
 ---
 
 # Use REST APIs programmatically
@@ -31,7 +31,7 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You also need to [create containers](#create-azure-blob-storage-containers) in your Azure blob storage account for your source and target files:
+* An [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You also need to [create containers](#create-azure-blob-storage-containers) in your Azure Blob Storage account for your source and target files:
 
   * **Source container**. This container is where you upload your files for translation (required).
   * **Target container**. This container is where your translated files are stored (required).
@@ -84,9 +84,9 @@ Requests to the Translator service require a read-only key for authenticating ac
 
 :::image type="content" source="../../media/translator-keys.png" alt-text="Image of the get your key field in Azure portal.":::
 
-## Create Azure blob storage containers
+## Create Azure Blob Storage containers
 
-You need to  [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
+You need to  [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
 
 * **Source container**. This container is where you upload your files for translation (required).
 * **Target container**. This container is where your translated files are stored (required).
@@ -111,6 +111,8 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 ## HTTP requests
 
 A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the service creates a batch request. The translated documents are listed in your target container.
+
+For detailed information regarding Azure Translator Service request limits, _see_ [**Document Translation request limits**](../../request-limits.md#document-translation).
 
 ### HTTP headers
 
@@ -1272,22 +1274,6 @@ func main() {
 
 ---
 
-## Content limits
-
-This table lists the limits for data that you send to Document Translation:
-
-|Attribute | Limit|
-|---|---|
-|Document size| ≤ 40 MB |
-|Total number of files.|≤ 1000 |
-|Total content size in a batch | ≤ 250 MB|
-|Number of target languages in a batch| ≤ 10 |
-|Size of Translation memory file| ≤ 10 MB|
-
-Document Translation can't be used to translate secured documents such as those with an encrypted password or with restricted access to copy content.
-
-## Troubleshooting
-
 ### Common HTTP status codes
 
 | HTTP status code | Description | Possible reason |
@@ -1307,5 +1293,3 @@ Document Translation can't be used to translate secured documents such as those 
 
 > [!div class="nextstepaction"]
 > [Create a customized language system using Custom Translator](../../custom-translator/overview.md)
->
->

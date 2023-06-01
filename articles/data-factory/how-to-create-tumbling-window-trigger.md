@@ -206,7 +206,7 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
 
 - **Azure subscription**. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
-- **Azure PowerShell**. Follow the instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps). 
+- **Azure PowerShell**. Follow the instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell). 
 
 - **Azure Data Factory**. Follow the instructions in [Create an Azure Data Factory using PowerShell](./quickstart-create-data-factory-powershell.md) to create a data factory and a pipeline.
 

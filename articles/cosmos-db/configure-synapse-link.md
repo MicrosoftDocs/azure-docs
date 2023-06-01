@@ -223,16 +223,15 @@ except exceptions.CosmosResourceExistsError:
     print('A container with already exists')
 ```
 
-## Optional - Disable analytical store in a SQL API container
+## Optional - Disable analytical store
 
-Analytical store can be disabled in SQL API containers using Azure CLI or PowerShell, by setting `analytical TTL` to `0`.
+Analytical store can be disabled in SQL API containers or in MongoDB API collections, using Azure CLI or PowerShell. It is done by setting `analytical TTL` to `0`.
 
 > [!NOTE]
 > Please note that currently this action can't be undone. If analytical store is disabled in a container, it can never be re-enabled.
 
 > [!NOTE]
-> Please note that disabling analytical store is not available for MongoDB API collections.
-
+> Please note that currently it is not possible to disable Synapse Link from a database account.
 
 ## <a id="connect-to-cosmos-database"></a> Connect to a Synapse workspace
 

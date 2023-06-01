@@ -16,7 +16,7 @@ ms.custom:
 
 Image Analysis 4.0 allows you to train a custom model using your own training images. By manually labeling your images, you can train a model to apply custom tags to the images (image classification) or detect custom objects (object detection). Image Analysis 4.0 models are especially effective at few-shot learning, so you can get accurate models with less training data.
 
-This guide shows you how to create and train a custom image classification model. The few differences between this and object detection models are noted.
+This guide shows you how to create and train a custom image classification model. The few differences between training an image classification model and object detection model are noted.
 
 ## Prerequisites
 
@@ -243,14 +243,16 @@ logging.info(f'Prediction: {prediction}')
 
 ## Create a new custom model
 
-Begin by going to [Vision Studio](https://portal.vision.cognitive.azure.com/) and selecting the **Image analysis** tab. Then select either the **Extract common tags from images** tile for image classification or the **Extract common objects in images** tile for object detection. This guide demonstrates a custom image classification model. 
+Begin by going to [Vision Studio](https://portal.vision.cognitive.azure.com/) and selecting the **Image analysis** tab. Then select the **Customize models** tile.
+
+:::image type="content" source="../media/customization/customization-tile.png" alt-text="Screenshot of the Customize models tile.":::
+
+Then, sign in with your Azure account and select your Computer Vision resource. If you don't have one, you can create one from this screen.
 
 > [!IMPORTANT]
 > To train a custom model in Vision Studio, your Azure subscription needs to be approved for access. Please request access using [this form](https://aka.ms/visionaipublicpreview).
 
-On the next screen, the **Choose the model you want to try out** drop-down lets you select the Pretrained Vision model (to do ordinary Image Analysis) or a custom trained model. Since you don't have a custom model yet, select **Train a custom model**.
-
-![Choose Resource Page]( ../media/customization/custom-model.png)
+:::image type="content" source="../media/customization/select-resource.png" alt-text="Screenshot of the select resource screen.":::
 
 ## Prepare training images
 
@@ -337,7 +339,11 @@ If an evaluation set isn't provided when training the model, the reported perfor
 
 ## Test custom model in Vision Studio
 
-Once you've built a custom model, you can go back to the **Extract common tags from images** tile in Vision Studio and test it by selecting it in the drop-down menu and then uploading new images.
+Once you've built a custom model, you can test by selecting the **Try it out** button on the model evaluation screen.
+
+:::image type="content" source="../media/customization/custom-try-it-out.png" alt-text="Screenshot of the model evaluation screen with Try it out button outlined.":::
+
+This takes you to the **Extract common tags from images** page. Choose your custom model from the drop-down menu and upload a test image.
 
 ![Screenshot of selecing test model in Vision Studio.]( ../media/customization/quick-test.png)
 
@@ -428,8 +434,8 @@ The `imageanalysis:analyze` API does ordinary Image Analysis operations. By spec
 1. In the request body, set `"url"` to the URL of a remote image you want to test your model on.
 
 ```bash
-curl.exe -v -X POST "https://<endpoint>/computervision/imageanalysis:analyze?model-version=<model-name>&api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
-{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png'
+curl.exe -v -X POST "https://<endpoint>/computervision/imageanalysis:analyze?model-name=<model-name>&api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+{'url':'https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png'
 }"
 ```
 
@@ -468,5 +474,5 @@ The API call returns an **ImageAnalysisResult** JSON object, which contains all 
 
 In this guide, you created and trained a custom image classification model using Image Analysis. Next, learn more about the Analyze Image 4.0 API, so you can call your custom model from an application using REST or library SDKs.
 
-* [Call the Analyze Image API](./call-analyze-image-40.md#use-a-custom-model)
 * See the [Model customization concepts](../concept-model-customization.md) guide for a broad overview of this feature and a list of frequently asked questions.
+* [Call the Analyze Image API](./call-analyze-image-40.md). Note the sections [Set model name when using a custom model](./call-analyze-image-40.md#set-model-name-when-using-a-custom-model) and [Get results using custom model](./call-analyze-image-40.md#get-results-using-custom-model).

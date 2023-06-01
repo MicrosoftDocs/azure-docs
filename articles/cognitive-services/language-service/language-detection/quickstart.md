@@ -55,8 +55,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Language-detection&Page=quickstart&Section=Clean-up-resources" target="_target" target="_target">I ran into an issue</a>
+
 
 ## Next steps
 

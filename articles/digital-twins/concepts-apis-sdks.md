@@ -27,43 +27,15 @@ Azure Digital Twins comes equipped with control plane APIs, data plane APIs, and
 
 ## Control plane APIs
 
-The control plane APIs are [ARM](../azure-resource-manager/management/overview.md) APIs used to manage your Azure Digital Twins instance as a whole, so they cover operations like creating or deleting your entire instance. You'll also use these APIs to create and delete endpoints.
+[!INCLUDE [digital-twins-sdks-control-plane](../../includes/digital-twins-sdks-control-plane.md)]
 
-To call the APIs directly, reference the latest Swagger folder in the [control plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable). This folder also includes a folder of examples that show the usage.
-
-Here are the SDKs currently available for the Azure Digital Twins control APIs.
-
-| SDK language | Package link | Reference documentation | Source code |
-| --- | --- | --- | --- |
-| .NET (C#) | [Azure.ResourceManager.DigitalTwins on NuGet](https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins) | [Reference for Azure DigitalTwins SDK for .NET](/dotnet/api/overview/azure/digitaltwins) | [Microsoft Azure Digital Twins management client library for .NET on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins/Azure.ResourceManager.DigitalTwins) |
-| Java | [azure-resourcemanager-digitaltwins on Maven](https://repo1.maven.org/maven2/com/azure/resourcemanager/azure-resourcemanager-digitaltwins/) | [Reference for Resource Management - Digital Twins](/java/api/overview/azure/digital-twins) | [Azure Resource Manager AzureDigitalTwins client library for Java on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/digitaltwins) |
-| JavaScript | [AzureDigitalTwinsManagement client library for JavaScript on npm](https://www.npmjs.com/package/@azure/arm-digitaltwins) | | [AzureDigitalTwinsManagement client library for JavaScript on GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/digitaltwins/arm-digitaltwins) |
-| Python | [azure-mgmt-digitaltwins on PyPI](https://pypi.org/project/azure-mgmt-digitaltwins/) | | [Microsoft Azure SDK for Python on GitHub](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins) |
-| Go | [azure-sdk-for-go/services/digitaltwins/mgmt](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt) | | [Azure SDK for Go on GitHub](https://github.com/Azure/azure-sdk-for-go)
-
-You can also exercise control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](/cli/azure/dt).
+You can also exercise the control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](/cli/azure/dt).
 
 ## Data plane APIs
 
-The data plane APIs are the Azure Digital Twins APIs used to manage the elements within your Azure Digital Twins instance. They include operations like creating routes, uploading models, creating relationships, and managing twins, and can be broadly divided into the following categories:
-* `DigitalTwinModels` - The DigitalTwinModels category contains APIs to manage the [models](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, retrieval, and deletion of models authored in DTDL.
-* `DigitalTwins` - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
-* `Query` - The Query category lets developers [find sets of digital twins in the twin graph](how-to-query-graph.md) across relationships.
-* `Event Routes` - The Event Routes category contains APIs to [route data](concepts-route-events.md), through the system and to downstream services.
-* `Import Jobs` - The Jobs API lets you manage a long running, asynchronous action to [import models, twins, and relationships in bulk](#bulk-import-with-the-jobs-api).
+[!INCLUDE [digital-twins-sdks-data-plane](../../includes/digital-twins-sdks-data-plane.md)]
 
-To call the APIs directly, reference the latest Swagger folder in the [data plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This folder also includes a folder of examples that show the usage. You can also view the [data plane API reference documentation](/rest/api/azure-digitaltwins/).
-
-Here are the SDKs currently available for the Azure Digital Twins control APIs.
-
-| SDK language | Package link | Reference documentation | Source code |
-| --- | --- | --- | --- |
-| .NET (C#) | [Azure.DigitalTwins.Core on NuGet](https://www.nuget.org/packages/Azure.DigitalTwins.Core) | [Reference for Azure IoT Digital Twins client library for .NET](/dotnet/api/overview/azure/digitaltwins.core-readme) | [Azure IoT Digital Twins client library for .NET on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins/Azure.DigitalTwins.Core) |
-| Java | [com.azure:azure-digitaltwins-core on Maven](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar) | [Reference for Azure Digital Twins SDK for Java](/java/api/overview/azure/digital-twins) | [Azure IoT Digital Twins client library for Java on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/digitaltwins/azure-digitaltwins-core) |
-| JavaScript | [Azure Azure Digital Twins Core client library for JavaScript on npm](https://www.npmjs.com/package/@azure/digital-twins-core) | [Reference for @azure/digital-twins-core](/javascript/api/@azure/digital-twins-core) | [Azure Azure Digital Twins Core client library for JavaScript on GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/digitaltwins/digital-twins-core) |
-| Python | [Azure Azure Digital Twins Core client library for Python on PyPI](https://pypi.org/project/azure-digitaltwins-core/) | [Reference for azure-digitaltwins-core](/python/api/azure-digitaltwins-core/azure.digitaltwins.core) | [Azure Azure Digital Twins Core client library for Python on GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/digitaltwins/azure-digitaltwins-core) |
-
-You can also exercise date plane APIs by interacting with Azure Digital Twins through the [CLI](/cli/azure/dt).
+You can also exercise the data plane APIs by interacting with Azure Digital Twins through the [CLI](/cli/azure/dt).
 
 ## Usage notes
 
@@ -101,7 +73,7 @@ The available helper classes are:
 
 ## Bulk import with the Jobs API
 
-The [Jobs API](/rest/api/digital-twins/dataplane/import-jobs) is a data plane API that allows you to import a set of models, twins, and/or relationships in a single API call. Jobs API operations are also included with the [CLI commands](/cli/azure/dt/job) and [data plane SDKs](#data-plane-apis). Using the Jobs API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
+The [Jobs API](/rest/api/digital-twins/dataplane/import-jobs) (currently in preview) is a data plane API that allows you to import a set of models, twins, and/or relationships in a single API call. Jobs API operations are also included with the [CLI commands](/cli/azure/dt/job) and [data plane SDKs](#data-plane-apis). Using the Jobs API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
 
 ### Check permissions
 

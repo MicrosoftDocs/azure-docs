@@ -7,16 +7,23 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
-ms.date: 03/07/2023
+ms.date: 04/15/2023
 ms.author: eur
-ms.devlang: python
+zone_pivot_groups: programming-languages-csharp-python
 keywords: speech to text, openai
 ---
 
 # Azure OpenAI speech to speech chat 
 
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [C# include](./includes/quickstarts/openai-speech/csharp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
 [!INCLUDE [Python include](./includes/quickstarts/openai-speech/python.md)]
+::: zone-end
 
 ## Next steps
 

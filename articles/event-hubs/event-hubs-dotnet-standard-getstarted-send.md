@@ -412,5 +412,5 @@ For complete .NET library reference, see our [SDK documentation](/dotnet/api/ove
 See the following tutorial: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs](event-hubs-tutorial-visualize-anomalies.md)
+> [Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs](../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=%2Fazure%2Fevent-hubs%2FTOC.json)
 

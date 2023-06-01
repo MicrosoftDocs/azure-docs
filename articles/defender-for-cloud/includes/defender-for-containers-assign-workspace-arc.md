@@ -2,8 +2,8 @@
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 07/14/2022
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ---
 
 ## Default Log Analytics workspace for Arc
@@ -85,6 +85,6 @@ If the policy has already been assigned to a workspace, you'll see `Assignments 
 
    :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the dropdown menu is located for ARC." lightbox="../media/defender-for-containers/drop-down-menu-arc.png"::: 
 
-1. Select **Review + create**.
+1. Select **Review + save**.
 
-1. Select **Create**.
+1. Select **Save**.

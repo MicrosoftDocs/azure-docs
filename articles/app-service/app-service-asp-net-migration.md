@@ -42,6 +42,35 @@ Bulk migration provides the following key capabilities:
 - Download CSV with details of target web app and app service plan name 
 - Track progress of migration using ARM template deployment experience 
 
+### Move .NET apps to Azure App Service
+
+Azure App Service is a cloud platform that offers a fast, easy, and cost-effective way to migrate your .NET web apps from on-premises to the cloud. Start learning today about how Azure empowers you to modernize your .NET apps with the following resources.
+
+Ready for a migration assessment? Select one of the following options to get started.
+
+- [Self-service assessment](https://azure.microsoft.com/products/app-service/migration-tools/)
+- [Partner assessment](https://aka.ms/app-service-migration-dotnet)
+
+Want to learn more? 
+
+| More resources to migrate .NET apps to the cloud |
+|----------------|
+| **Video** |
+| [.NET on Azure for Beginners](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVSBX3Lde8owu6dSgZLIXfu) |
+| [Start Your Cloud Journey with Azure App Service](https://aka.ms/cloudjourney/start/video) |
+| **Blog** |
+| [Reliable web app pattern for .NET](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/announcing-the-reliable-web-app-pattern-for-net/ba-p/3745270) |
+| [Start your cloud journey with Azure App Service](https://aka.ms/cloudjourney/start/part1) |
+| [Start your cloud journey with Azure App Service - Move your code](https://aka.ms/cloudjourney/start/part2) |
+| [Learn how to modernize your .NET apps from the pros](https://devblogs.microsoft.com/dotnet/learn-how-to-modernize-your-dotnet-apps/) |
+| **On-demand event** |
+| [Azure Developers - .NET Day](/events/learn-events/azuredeveloper-dotnetday/)
+| **Learning path** |
+| [Migrate ASP.NET Apps to Azure](/training/paths/migrate-dotnet-apps-azure/) |
+| [Host a web application with Azure App Service](/training/modules/host-a-web-app-with-azure-app-service/) |
+| [Publish a web app to Azure with Visual Studio](/training/modules/publish-azure-web-app-with-visual-studio/) |
+
+
 ### At-scale migration resources
 
 | How-tos |

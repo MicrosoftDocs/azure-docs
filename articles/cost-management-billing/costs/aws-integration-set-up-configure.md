@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/28/2022
+ms.date: 04/05/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management

@@ -64,7 +64,7 @@ If you're copying blobs between storage accounts, consider setting the value of 
 
 #### Decrease the number of logs generated
 
-You can improve performance by reducing the number of log entries that AzCopy creates as it completes an operation. By default, AzCopy logs all activity related to an operation. To achieve optimal performance, consider setting the `log-level` parameter of your copy, sync, or remove command to `ERROR`. That way, AzCopy logs only errors. By default, the value log level is set to `INFO`.
+You can improve performance by reducing the number of log entries that AzCopy creates as it completes an operation. By default, AzCopy logs all activity related to an operation. To achieve optimal performance, consider setting the `--log-level` parameter of your copy, sync, or remove command to `ERROR`. That way, AzCopy logs only errors. By default, the value log level is set to `INFO`.
 
 #### Turn off length checking
 

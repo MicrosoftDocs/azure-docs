@@ -55,8 +55,11 @@ We provide a variety of container images for self-hosted gateways to meet your n
 | `v{major}` | Use this tag to always run a major version of the gateway with every new feature and patch. |`v2` | ✔️ |  ❌ |
 | `v{major}-preview` | Use this tag if you always want to run our latest preview container image. | `v2-preview` | ✔️ |  ❌ |
 | `latest` | Use this tag if you want to evaluate the self-hosted gateway. | `latest` | ✔️ |  ❌ |
+| `beta`<sup>1</sup> | Use this tag if you want to evaluate preview versions of the self-hosted gateway. | `beta` | ✔️ |  ❌ |
 
 You can find a full list of available tags [here](https://mcr.microsoft.com/product/azure-api-management/gateway/tags).
+
+<sup>1</sup>Preview versions are not officially supported and are for experimental purposes only.<br/> 
 
 ### Use of tags in our official deployment options
 
@@ -201,6 +204,7 @@ As of v2.1.1 and above, you can manage the ciphers that are being used through t
 ## Next steps
 
 -   Learn more about the various gateways in our [API gateway overview](api-management-gateways-overview.md)
+-   Learn more about the support policy for the [self-hosted gateway](self-hosted-gateway-support-policies.md)
 -   Learn more about [API Management in a Hybrid and Multi-Cloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   Learn more about guidance for [running the self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md)
 -   [Deploy self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)

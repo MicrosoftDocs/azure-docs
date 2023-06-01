@@ -12,6 +12,7 @@ ms.date: 12/13/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.reviewer: v-nisba
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO

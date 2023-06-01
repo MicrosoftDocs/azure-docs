@@ -100,6 +100,8 @@ items:
       href: custom-text-classification/how-to/tag-data.md
     - name: Auto label your data (preview)
       href: custom-text-classification/how-to/use-autolabeling.md
+    - name: Label data with Azure Machine Learning 
+      href: custom/azure-machine-learning-labeling.md
     - name: Train a model
       href: custom-text-classification/how-to/train-model.md
     - name: Model performance (preview)
@@ -196,6 +198,8 @@ items:
       href: custom-named-entity-recognition/how-to/tag-data.md
     - name: Auto label your data (preview)
       href: custom-named-entity-recognition/how-to/use-autolabeling.md
+    - name: Label data with Azure Machine Learning 
+      href: custom/azure-machine-learning-labeling.md
     - name: Train a model
       href: custom-named-entity-recognition/how-to/train-model.md
     - name: Model performance (preview)
@@ -206,6 +210,16 @@ items:
       href: custom-named-entity-recognition/how-to/call-api.md
     - name: Back up and recover your models
       href: custom-named-entity-recognition/fail-over.md
+    - name: Use Custom NER containers
+      items:
+      - name: Use Custom NER Docker containers
+        href: custom-named-entity-recognition/how-to/use-containers.md
+      - name: Configure containers
+        href: concepts/configure-containers.md
+      - name: Use container instances
+        href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+      - name: Cognitive Services containers documentation
+        href: ../containers/index.yml
   - name: Tutorials
     items:
       - name: Enrich a Cognitive Search index with custom entities
@@ -1073,6 +1087,62 @@ items:
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
             href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
+- name: Custom text analytics for health (preview)
+  items:
+  - name: Custom text analytics for health overview
+    href: custom-text-analytics-for-health/overview.md  
+  - name: Custom text analytics for health quickstart
+    href: custom-text-analytics-for-health/quickstart.md
+  - name: Custom text analytics for health language support
+    href: custom-text-analytics-for-health/language-support.md
+  - name: How-to guides
+    items:
+    - name: Create projects
+      href: custom-text-analytics-for-health/how-to/create-project.md
+    - name: Data selection and schema designa
+      href: custom-text-analytics-for-health/how-to/design-schema.md
+    - name: Label data
+      href: custom-text-analytics-for-health/how-to/label-data.md
+    - name: Train a model
+      href: custom-text-analytics-for-health/how-to/train-model.md 
+    - name: View model evaluation
+      href: custom-text-analytics-for-health/how-to/view-model-evaluation.md
+    - name: Deploy a model
+      href: custom-text-analytics-for-health/how-to/deploy-model.md
+    - name: Call the API
+      href: custom-text-analytics-for-health/how-to/call-api.md
+    - name: Back up and recover your models
+      href: custom-text-analytics-for-health/how-to/fail-over.md
+  - name: Concepts
+    items:
+    - name: Data formats
+      href: custom-text-analytics-for-health/concepts/data-formats.md
+    - name: Entity components 
+      href: custom-text-analytics-for-health/concepts/entity-components.md
+    - name: Evaluation metrics
+      href: custom-text-analytics-for-health/concepts/evaluation-metrics.md
+  - name: Reference
+    items:
+    - name: Service limits
+      href: custom-text-analytics-for-health/reference/service-limits.md
+    - name: Authoring API
+      items:
+      - name: REST API
+        href: https://aka.ms/ct-authoring-apis
+    - name: Runtime prediction API
+      items:
+      - name: REST API
+        href: https://aka.ms/ct-runtime-api
+      - name: SDK
+        items:
+        - name: C#
+          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+        - name: Java
+          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+        - name: JavaScript
+          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+        - name: Python
+          href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
 - name: Summarization (preview)
   items:
   - name: Summarization overview

@@ -1,12 +1,12 @@
 ---
-title: Manage a dev box definition
+title: Create, update, delete dev box definitions
 titleSuffix: Microsoft Dev Box
-description: Learn how to create and delete Microsoft Dev Box Preview dev box definitions.
+description: Microsoft Dev Box dev box definitions define a source image, compute size, and storage size for your dev boxes with. Learn how to manage dev box definitions.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/10/2022
+ms.date: 04/25/2023
 ms.topic: how-to
 #Customer intent: As a dev infrastructure manager, I want to be able to manage dev box definitions so that I can provide appropriate dev boxes to my users.
 ---
@@ -81,6 +81,9 @@ The following steps show you how to create a dev box definition by using an exis
    :::image type="content" source="./media/how-to-manage-dev-box-definitions/recommended-test-image.png" alt-text="Screenshot that shows the pane for creating a dev box definition.":::
 
 1. Select **Create**.
+
+> [!NOTE]
+> Dev box definitions with 4 core SKUs are no longer supported. You will need to update to an 8 core SKU or delete the dev box definition.
 
 ## Update a dev box definition
 

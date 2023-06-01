@@ -9,20 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/13/2023
+ms.date: 03/29/2023
 ms.author: jeedes
 
 ---
 
 # Azure Active Directory SSO integration with Signiant Media Shuttle
 
-In this article, you learn how to integrate Signiant Media Shuttle with Azure Active Directory (Azure AD). Media Shuttle is a solution for securely moving large files and data sets to, and from, cloud-based or on-premises storage. Transfers are accelerated and can be up to 100 s of times faster than FTP. When you integrate Signiant Media Shuttle with Azure AD, you can:
+In this article, you learn how to integrate Signiant Media Shuttle with Azure Active Directory (Azure AD). Media Shuttle is a solution for securely moving large files and data sets to, and from, cloud-based or on-premises storage. Transfers are accelerated and can be up to hundreds of times faster than FTP. 
+
+When you integrate Signiant Media Shuttle with Azure AD, you can:
 
 * Control in Azure AD who has access to Signiant Media Shuttle.
 * Enable your users to be automatically signed-in to Signiant Media Shuttle with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You need to configure and test Azure AD single sign-on for Signiant Media Shuttle in a test environment. Signiant Media Shuttle supports only **SP** initiated single sign-on and **Just In Time** user provisioning.
+You must configure and test Azure AD single sign-on for Signiant Media Shuttle in a test environment. Signiant Media Shuttle supports **SP** initiated single sign-on and **Just In Time** user provisioning.
 
 ## Prerequisites
 
@@ -31,7 +33,7 @@ To integrate Azure Active Directory with Signiant Media Shuttle, you need:
 * An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Signiant Media Shuttle single sign-on (SSO) enabled subscription.
+* A Signiant Media Shuttle subscription with a SAML Web SSO license, and access to the IT and Operations Administration Consoles.
 
 ## Add application and assign a test user
 
@@ -39,13 +41,13 @@ Before you begin the process of configuring single sign-on, you need to add the 
 
 ### Add Signiant Media Shuttle from the Azure AD gallery
 
-Add Signiant Media Shuttle from the Azure AD application gallery to configure single sign-on with Signiant Media Shuttle. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](../manage-apps/add-application-portal.md).
+Add Signiant Media Shuttle from the Azure AD application gallery to configure single sign-on for Signiant Media Shuttle. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](../manage-apps/add-application-portal.md).
 
 ### Create and assign Azure AD test user
 
 Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+You can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
@@ -61,24 +63,24 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	a. In the **Identifier** textbox, type a value or URL using one of the following patterns:
 
-	| **Identifier** |
-	|------------|
-	| `https://<PORTALNAME>.mediashuttle.com` |
-	| `mediashuttle` |
+   | **Configuration Type** | **Identifier**  |
+   | ----------------- | ----------------- |
+   | Account Level  | `mediashuttle` |
+   | Portal Level  | `https://<PORTALNAME>.mediashuttle.com` |
 
 	b. In the **Reply URL** textbox, type a URL using one of the following patterns:
 
-	| **Reply URL**|
-	|------------|
-	| `https://portals.mediashuttle.com/auth` |
-	| `https://<PORTALNAME>.mediashuttle.com/auth` |
+   | **Configuration Type** | **Reply URL**  |
+   | ----------------- | ----------------- |
+   | Account Level |`https://portals.mediashuttle.com.auth` |
+   | Portal Level | `https://<PORTALNAME>.mediashuttle.com/auth`|
 
-	c. In the **Sign on URL** textbox, type a URL using one of the following patterns:
+   c. In the **Sign on URL** textbox, type a URL using one of the following patterns:
 
-	| **Sign on URL**|
-	|------------|
-	| `https://portals.mediashuttle.com/auth` |
-	| `https://<PORTALNAME>.mediashuttle.com/auth` |
+   | **Configuration Type** | **Sign on URL** |
+   | ---------------------- | ----------------- |
+   | Account Level | `https://portals.mediashuttle.com/auth` |
+   | Portal Level | `https://<PORTALNAME>.mediashuttle.com/auth` |
 
 	> [!Note]
     > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Signiant Media Shuttle support team](mailto:support@signiant.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
@@ -93,11 +95,23 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Signiant Media Shuttle SSO
 
-To configure single sign-on on **Signiant Media Shuttle** side, you need to send the **App Federation Metadata Url** to [Signiant Media Shuttle support team](mailto:support@signiant.com). They set this setting to have the SAML SSO connection set properly on both sides.
+Once you have the **App Federation Metadata Url**, sign in to the Media Shuttle IT Administration Console.
+
+To add Azure AD Metadata in Media Shuttle:
+
+1. Log into your IT Administration Console.
+
+2. On the Security page, in the Identity Provider Metadata field, paste the **App Federation Metadata Url** which you've copied from the Azure portal.
+
+3. Click **Save**.
+
+Once you have set up Azure AD for Media Shuttle, assigned users and groups can sign in to Media Shuttle portals through single sign-on using Azure AD authentication.
 
 ### Create Signiant Media Shuttle test user
 
 In this section, a user called Britta Simon is created in Signiant Media Shuttle. Signiant Media Shuttle supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in Signiant Media Shuttle, a new one is created after authentication.
+
+If **Auto-add SAML authenticated members to this portal** is not enabled as part of the SAML configuration, you must add users through the **Portal Administration** console at `https://<PORTALNAME>.mediashuttle.com/admin`.
 
 ## Test SSO 
 

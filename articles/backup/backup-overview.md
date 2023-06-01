@@ -2,7 +2,7 @@
 title: What is Azure Backup?
 description: Provides an overview of the Azure Backup service, and how it contributes to your business continuity and disaster recovery (BCDR) strategy.
 ms.topic: overview
-ms.date: 03/11/2022
+ms.date: 04/01/2023
 ms.custom: mvc
 author: jyothisuri
 ms.author: jsuri
@@ -48,7 +48,9 @@ Azure Backup delivers these key benefits:
 
 ## How Azure Backup protects from ransomware?
 
-Azure Backup helps protect your critical business systems and backup data against a ransomware attack by implementing preventive measures and providing tools that protect your organization from every step that attackers take to infiltrate your systems. It provides security to your backup environment, both when your data is in transit and at rest. [Learn more](../security/fundamentals/backup-plan-to-protect-against-ransomware.md)
+Azure Backup helps protect your critical business systems and backup data against a ransomware attack by implementing preventive measures and providing tools that protect your organization from every step that attackers take to infiltrate your systems. It provides security to your backup environment, both when your data is in transit and at rest. 
+
+In addition to various security features offered by default, you can also leverage several enhanced features that can provide you with highest levels of security for your backed-up data. Learn more about [security in Azure Backup](security-overview.md). Also, [learn](../security/fundamentals/backup-plan-to-protect-against-ransomware.md) about how backups can help you protect backups against ransomware better and how Azure helps you ensure rapid recovery.
 
 ## Next steps
 

@@ -1,6 +1,5 @@
 ---
 title: Security best practices
-titleSuffix: Azure IoT
 description: Security best practices for building, deploying, and operating your IoT solution. Includes recommendations for devices, data, and infrastructure
 author: dominicbetts
 ms.service: iot

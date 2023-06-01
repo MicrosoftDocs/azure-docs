@@ -4,10 +4,10 @@ description: Create and deploy an ARM Template for Static Web Apps
 services: static-web-apps
 author: petender
 ms.service: static-web-apps
+ms.custom: devx-track-arm-template
 ms.topic:  tutorial
 ms.date: 07/13/2021
 ms.author: petender
-
 ---
 
 # Tutorial: Publish Azure Static Web Apps using an ARM Template
@@ -30,7 +30,7 @@ In this tutorial, you learn to:
   - [Install Azure CLI on Windows OS](/cli/azure/install-azure-cli-windows)
   - [Install Azure CLI on Linux OS](/cli/azure/install-azure-cli-linux)
   - [Install Azure CLI on macOS](/cli/azure/install-azure-cli-macos)
-  - [Install Azure PowerShell](/powershell/azure/install-az-ps)
+  - [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## Create a GitHub personal access token
 

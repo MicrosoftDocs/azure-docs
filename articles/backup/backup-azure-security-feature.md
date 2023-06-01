@@ -3,7 +3,7 @@ title: Security features that protect hybrid backups
 description: Learn how to use security features in Azure Backup to make backups more secure
 ms.reviewer: utraghuv
 ms.topic: how-to
-ms.date: 11/30/2022
+ms.date: 03/01/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -120,13 +120,13 @@ The security features mentioned in this article provide defense mechanisms again
 
 When [immutability](backup-azure-immutable-vault-concept.md?tabs=recovery-services-vault) for your Recovery Services vault is enabled, operations that reduce the cloud backup retention or remove cloud backup for on-premises data sources are blocked.
 
-### Immutability support for DPM
+### Immutability support for DPM and MABS
 
-This feature is supported from DPM 2022 UR1 with MARS agent version *2.0.9250.0* and higher.
+This feature is supported with MARS agent version *2.0.9250.0* and higher from DPM 2022 UR1 and MABS v4.
 
 The following table lists the disallowed operations on DPM connected to an immutable Recovery:
 
-| Operation on Immutable vault | Result with DPM 2022 UR1 and latest MARS agent | Result with older DPM and or MARS agent |
+| Operation on Immutable vault | Result with DPM 2022 UR1, MABS v4, and latest MARS agent | Result with older DPM/MABS and or MARS agent |
 | --- | --- | --- |
 | **Remove Data Source from protection group configured for online backup** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault. | 130001: Microsoft Azure Backup encountered an internal error. |
 | **Stop protection with delete data** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault. | 130001: Microsoft Azure Backup encountered an internal error. |
@@ -149,5 +149,4 @@ The following table lists the disallowed operations for MARS when immutability i
 
 - [Get started with Azure Recovery Services vault](backup-azure-vms-first-look-arm.md) to enable these features.
 - [Download the latest Azure Recovery Services agent](https://aka.ms/azurebackup_agent) to help protect Windows computers and guard your backup data against attacks.
-- [Download the latest Azure Backup Server](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3) to help protect workloads and guard your backup data against attacks.
-- [Download UR12 for System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) or [download UR2 for System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) to help protect workloads and guard your backup data against attacks.
+

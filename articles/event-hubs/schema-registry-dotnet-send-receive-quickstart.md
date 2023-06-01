@@ -1,13 +1,14 @@
 ---
-title: 'Quickstart: Validate schema when sending or receiving events'
+title: 'Validate schema when sending or receiving events'
 description: In this quickstart, you create a .NET Core application that sends/receives events to/from Azure Event Hubs with schema validation using Schema Registry.
 ms.topic: quickstart
-ms.date: 03/20/2023
+ms.date: 04/26/2023
 ms.devlang: csharp
-ms.custom: devx-track-csharp, ignite-fall-2021, mode-other
+author: kasun04
+ms.author: kindrasiri
 ---
 
-# Quickstart: Validate schema when sending and receiving events - AMQP and .NET 
+# Validate using an Avro schema when streaming events using Event Hubs .NET SDKs (AMQP) 
 In this quickstart, you learn how to send events to and receive events from an event hub with schema validation using the **Azure.Messaging.EventHubs** .NET library. 
 
 > [!NOTE]
@@ -96,7 +97,7 @@ Add your user account to the **Schema Registry Reader** role at the namespace le
     Install-Package Azure.ResourceManager.Compute
     ```
 1. Authenticate producer applications to connect to Azure via Visual Studio as shown [here](/dotnet/api/overview/azure/identity-readme#authenticating-via-visual-studio).  
-1. Sign-in to Azure using the user account that's a member of the `Schema Registry Reader` role at the namespace level. For information about schema registry roles, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md#azure-role-based-access-control). 
+1. Sign-in to Azure using the user account that's a member of the `Schema Registry Reader` role at the namespace level. For information about schema registry roles, see [Azure Schema Registry in Event Hubs](schema-registry-concepts.md#azure-role-based-access-control). 
 
 ### Code generation using the Avro schema  
 1. Use the same content you used to create the schema to create a file named ``Order.avsc``. Save the file in the project or solution folder. 
@@ -221,7 +222,7 @@ This section shows how to write a .NET Core console application that receives ev
     Install-Package Azure.ResourceManager.Compute
     ```
 1. Authenticate producer applications to connect to Azure via Visual Studio as shown [here](/dotnet/api/overview/azure/identity-readme#authenticating-via-visual-studio). 
-1. Sign-in to Azure using the user account that's a member of the `Schema Registry Reader` role at the namespace level. For information about schema registry roles, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md#azure-role-based-access-control). 
+1. Sign-in to Azure using the user account that's a member of the `Schema Registry Reader` role at the namespace level. For information about schema registry roles, see [Azure Schema Registry in Event Hubs](schema-registry-concepts.md#azure-role-based-access-control). 
 1. Add the `Order.cs` file you generated as part of creating the producer app to the **OrderConsumer** project. 
 1. Right-click **OrderConsumer** project, and select **Set as Startup project**. 
 

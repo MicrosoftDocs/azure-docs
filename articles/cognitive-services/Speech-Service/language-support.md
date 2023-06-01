@@ -1,7 +1,7 @@
 ---
 title: Language support - Speech service
 titleSuffix: Azure Cognitive Services
-description: The Speech service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
+description: The Speech service supports numerous languages for speech to text and text to speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -15,39 +15,39 @@ ms.custom: references_regions
 
 # Language and voice support for the Speech service
 
-The following tables summarize language support for [speech-to-text](speech-to-text.md), [text-to-speech](text-to-speech.md), [pronunciation assessment](how-to-pronunciation-assessment.md), [speech translation](speech-translation.md), [speaker recognition](speaker-recognition-overview.md), and additional service features.
+The following tables summarize language support for [speech to text](speech-to-text.md), [text to speech](text-to-speech.md), [pronunciation assessment](how-to-pronunciation-assessment.md), [speech translation](speech-translation.md), [speaker recognition](speaker-recognition-overview.md), and additional service features.
 
-You can also get a list of locales and voices supported for each specific region or endpoint through the [Speech SDK](speech-sdk.md), [Speech-to-text REST API](rest-speech-to-text.md), [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) and [Text-to-speech REST API](rest-text-to-speech.md#get-a-list-of-voices).
+You can also get a list of locales and voices supported for each specific region or endpoint through the [Speech SDK](speech-sdk.md), [Speech to text REST API](rest-speech-to-text.md), [Speech to text REST API for short audio](rest-speech-to-text-short.md) and [Text to speech REST API](rest-text-to-speech.md#get-a-list-of-voices).
 
 ## Supported languages
 
 Language support varies by Speech service functionality. 
 
 > [!NOTE]
-> See [Speech Containers](speech-container-howto.md#available-speech-containers) and [Embedded Speech](embedded-speech.md#models-and-voices) separately for their supported languages.
+> See [Speech Containers](speech-container-overview.md#available-speech-containers) and [Embedded Speech](embedded-speech.md#models-and-voices) separately for their supported languages.
 
 **Choose a Speech feature**
 
-# [Speech-to-text](#tab/stt)
+# [Speech to text](#tab/stt)
 
-The table in this section summarizes the locales and voices supported for Speech-to-text. Please see the table footnotes for more details. 
+The table in this section summarizes the locales and voices supported for Speech to text. Please see the table footnotes for more details. 
 
-Additional remarks for Speech-to-text locales are included in the [Custom Speech](#custom-speech) section below. 
+Additional remarks for Speech to text locales are included in the [Custom Speech](#custom-speech) section below. 
 
 > [!TIP]
-> Try out the [Real-time Speech-to-text tool](https://speech.microsoft.com/portal/speechtotexttool) without having to use any code.
+> Try out the [Real-time Speech to text tool](https://speech.microsoft.com/portal/speechtotexttool) without having to use any code.
 
 [!INCLUDE [Language support include](includes/language-support/stt.md)]
 
 ### Custom Speech
 
-To improve Speech-to-text recognition accuracy, customization is available for some languages and base models. Depending on the locale, you can upload audio + human-labeled transcripts, plain text, structured text, and pronunciation data. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
+To improve Speech to text recognition accuracy, customization is available for some languages and base models. Depending on the locale, you can upload audio + human-labeled transcripts, plain text, structured text, and pronunciation data. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
 
-# [Text-to-speech](#tab/tts)
+# [Text to speech](#tab/tts)
 
-The tables in this section summarizes the locales and voices supported for Text-to-speech. Please see the table footnotes for more details.
+The tables in this section summarizes the locales and voices supported for Text to speech. Please see the table footnotes for more details.
 
-Additional remarks for Text-to-speech locales are included in the [Voice styles and roles](#voice-styles-and-roles), [Prebuilt neural voices](#prebuilt-neural-voices), and [Custom Neural Voice](#custom-neural-voice) sections below. 
+Additional remarks for Text to speech locales are included in the [Voice styles and roles](#voice-styles-and-roles), [Prebuilt neural voices](#prebuilt-neural-voices), and [Custom Neural Voice](#custom-neural-voice) sections below. 
 
 > [!TIP]
 > Check the the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery) and determine the right voice for your business needs. 
@@ -56,9 +56,9 @@ Additional remarks for Text-to-speech locales are included in the [Voice styles 
 
 ### Voice styles and roles
 
-In some cases, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. With roles, the same voice can act as a different age and gender.
+In some cases, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm. All prebuilt voices with speaking styles and multi-style custom voices support style degree adjustment. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. With roles, the same voice can act as a different age and gender.
 
-To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup-voice.md#speaking-styles-and-roles).
+To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup-voice.md#speaking-styles-and-roles). 
 
 Use the following table to determine supported styles and roles for each neural voice.
 
@@ -75,12 +75,12 @@ Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. 
 
 Please note that the following neural voices are retired.
 
-- The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021. If you're using container Neural TTS, [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from October 30, 2021, all requests with previous versions will not succeed.
+- The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021. If you're using container Neural TTS, [download](speech-container-ntts.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from October 30, 2021, all requests with previous versions will not succeed.
 - The `en-US-JessaNeural` voice is retired and replaced by `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria." 
 
 ### Custom Neural Voice
 
-Custom Neural Voice lets you create synthetic voices that are rich in speaking styles. You can create a unique brand voice in multiple languages and styles by using a small set of recording data. There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (preview). 
+Custom Neural Voice lets you create synthetic voices that are rich in speaking styles. You can create a unique brand voice in multiple languages and styles by using a small set of recording data. Multi-style custom neural voices support style degree adjustment. There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (preview). 
 
 Select the right locale that matches your training data to train a custom neural voice model. For example, if the recording data is spoken in English with a British accent, select `en-GB`. 
 
@@ -90,17 +90,17 @@ With the cross-lingual feature (preview), you can transfer your custom neural vo
 
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 
-The table in this section summarizes the locales supported for Pronunciation assessment, and each language is available on all [Speech-to-text regions](regions.md#speech-service).
+The table in this section summarizes the locales supported for Pronunciation assessment, and each language is available on all [Speech to text regions](regions.md#speech-service).
 
 [!INCLUDE [Language support include](includes/language-support/pronunciation-assessment.md)]
 
 # [Speech translation](#tab/speech-translation)
 
-The table in this section summarizes the locales supported for Speech translation. Speech translation supports different languages for speech-to-speech and speech-to-text translation. The available target languages depend on whether the translation target is speech or text. 
+The table in this section summarizes the locales supported for Speech translation. Speech translation supports different languages for speech-to-speech and speech to text translation. The available target languages depend on whether the translation target is speech or text. 
 
 #### Translate from language
 
-To set the input speech recognition language, specify the full locale with a dash (`-`) separator. See the [speech-to-text language table](?tabs=stt#supported-languages). The default language is `en-US` if you don't specify a language.
+To set the input speech recognition language, specify the full locale with a dash (`-`) separator. See the [speech to text language table](?tabs=stt#supported-languages). The default language is `en-US` if you don't specify a language.
 
 #### Translate to text language
 

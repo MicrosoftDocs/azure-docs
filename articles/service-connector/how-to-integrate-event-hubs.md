@@ -1,8 +1,8 @@
 ---
 title: Integrate Azure Event Hubs with Service Connector
 description: Integrate Azure Event Hubs into your application with Service Connector
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 08/11/2022

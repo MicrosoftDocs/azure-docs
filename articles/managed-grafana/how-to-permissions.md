@@ -1,8 +1,8 @@
 ---
 title: How to modify access permissions to Azure Monitor
 description: Learn how to manually set up permissions that allow your Azure Managed Grafana instance to access a data source
-author: maud-lv 
-ms.author: malev 
+author: mcleanbyron 
+ms.author: mcleans 
 ms.service: managed-grafana 
 ms.custom: engagement-fy23
 ms.topic: how-to 

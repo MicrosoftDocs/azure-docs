@@ -34,7 +34,7 @@ This article lists the curated environments with latest framework versions in Az
 
 ### Azure Container for PyTorch (ACPT)
 
-**Description**: Recommended environment for Deep Learning with PyTorch on Azure containing the Azure Machine Learning SDK with the latest compatible versions of Ubuntu, Python, PyTorch, CUDA\RocM,NebulaML combined with optimizers like ORT Training,+DeepSpeed+MSCCL+ORT MoE, and checkpointing using NebulaML and more.
+**Description**: Recommended environment for Deep Learning with PyTorch on Azure containing the Azure Machine Learning SDK with the latest compatible versions of Ubuntu, Python, PyTorch, CUDA\RocM, and NebulaML combined with optimizers like ORT Training, +DeepSpeed+MSCCL+ORT MoE, and checkpointing using NebulaML and more.
 
 To learn more, see [Azure Container for PyTorch (ACPT)](resource-azure-container-for-pytorch.md).
 

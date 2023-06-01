@@ -27,7 +27,7 @@ This quickstart shows how to use PowerShell to access and start managing resourc
 
 ## Install PowerShell
 
-Install PowerShell on your local machine. For more information, including how to check your PowerShell version, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+Install PowerShell on your local machine. For more information, including how to check your PowerShell version, see [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 ## Specifying Azure Government as the *environment* to connect to
 

@@ -13,7 +13,12 @@ Application Insights now supports [Azure Active Directory (Azure AD) authenticat
 
 Using various authentication systems can be cumbersome and risky because it's difficult to manage credentials at scale. You can now choose to [opt out of local authentication](#disable-local-authentication) to ensure only telemetry exclusively authenticated by using [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your resource. This feature is a step to enhance the security and reliability of the telemetry used to make critical operational ([alerting](../alerts/alerts-overview.md#what-are-azure-monitor-alerts)and [autoscale](../autoscale/autoscale-overview.md#overview-of-autoscale-in-azure)) and business decisions.
 
+> [!NOTE]
+> Note
+> This document is used to cover data ingestion into Application Insights using Azure AD. authentication. If you are looking for information on querying data within Application Insights, please refer to **[Query Application Insights using Azure AD Authentication](/azure/azure-monitor/logs/api/app-insights-azure-ad-api)**.
+
 ## Prerequisites
+> 
 
 The following prerequisites enable Azure AD authenticated ingestion. You need to:
 
@@ -273,9 +278,9 @@ tracer = Tracer(
 )
 ...
 ```
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 ---
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+-
 
 ## Disable local authentication
 
@@ -407,6 +412,22 @@ The following example shows the Azure Resource Manager template you can use to c
 
 ```
 
+### Token audience
+
+When developing a custom client to obtain an access token from Azure AD for the purpose of submitting telemetry to Application Insights, refer to the table provided below to determine the appropriate audience string for your particular host environment.
+
+| Azure cloud version | Token audience value |
+| --- | --- |
+| Azure public cloud | `https://monitor.azure.com` |
+| Azure China cloud | `https://monitor.azure.cn` |
+| Azure US Government cloud | `https://monitor.azure.us` |
+
+If you're using sovereign clouds, you can find the audience information in the connection string as well. The connection string follows this structure:
+
+_InstrumentationKey={profile.InstrumentationKey};IngestionEndpoint={ingestionEndpoint};LiveEndpoint={liveDiagnosticsEndpoint};AADAudience={aadAudience}_
+
+Please note that the audience parameter, AADAudience, may vary depending on your specific environment.
+
 ## Troubleshooting
 
 This section provides distinct troubleshooting scenarios and steps that you can take to resolve an issue before you raise a support ticket.
@@ -527,5 +548,9 @@ This error usually occurs when the provided credentials don't grant access to in
 
 ---
 ## Next steps
+
 * [Monitor your telemetry in the portal](overview-dashboard.md)
 * [Diagnose with Live Metrics Stream](live-stream.md)
+* [Query Application Insights using Azure AD Authentication](/azure/azure-monitor/logs/api/app-insights-azure-ad-api)
+
+

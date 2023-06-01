@@ -144,7 +144,7 @@ Return status codes:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Before using PowerShell, [install or update the latest Azure PowerShell module](/powershell/azure/install-az-ps). 
+Before using PowerShell, [install or update the latest Azure PowerShell module](/powershell/azure/install-azure-powershell). 
 
 To run sync, use [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 

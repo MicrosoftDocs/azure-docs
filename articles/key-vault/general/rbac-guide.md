@@ -18,10 +18,9 @@ ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 > [!NOTE]
 > Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. You can use Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Secrets User** and **Key Vault Reader** role assignemnts for 'Microsoft Azure App Service' global indentity.
 
-
 Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) that provides fine-grained access management of Azure resources.
 
-Azure RBAC allows users to manage Key, Secrets, and Certificates permissions. It provides one place to manage all permissions across all key vaults. 
+Azure RBAC allows users to manage Key, Secrets, and Certificates permissions. It provides one place to manage all permissions across all key vaults.
 
 The Azure RBAC model allows uses to set permissions on different scope levels: management group, subscription, resource group, or individual resources.  Azure RBAC for key vault also allows users to have separate permissions on individual keys, secrets, and certificates
 
@@ -35,7 +34,7 @@ Our recommendation is to use a vault per application per environment
 Individual keys, secrets, and certificates permissions should be used
 only for specific scenarios:
 
--   Sharing individual secrets between multiple applications, for example, one application needs to access data from the other application
+- Sharing individual secrets between multiple applications, for example, one application needs to access data from the other application
 
 More about Azure Key Vault management guidelines, see:
 
@@ -336,7 +335,7 @@ For more Information about how to create custom roles, see:
 ## Known limits and performance
 
 -   Key Vault data plane RBAC is not supported in multi tenant scenarios like with Azure Lighthouse
--   2000 Azure role assignments per subscription
+-   4000 Azure role assignments per subscription
 -   Role assignments latency: at current expected performance, it will take up to 10 minutes (600 seconds) after role assignments is changed for role to be applied
 
 ## Frequently Asked Questions:

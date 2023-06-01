@@ -48,7 +48,7 @@ QualysKB
 
 To integrate with Qualys VM KnowledgeBase (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **Qualys API Key**: A Qualys VM API username and password is required. [See the documentation to learn more about Qualys VM API](https://www.qualys.com/docs/qualys-api-vmpc-user-guide.pdf).
 
 
@@ -61,7 +61,7 @@ To integrate with Qualys VM KnowledgeBase (using Azure Function) make sure you h
 >This data connector depends on a parser based on a Kusto Function to work as expected. [Follow the steps](https://aka.ms/sentinel-qualyskb-parser) to use the Kusto function alias, **QualysKB**
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 **STEP 1 - Configuration steps for the Qualys API**
@@ -91,7 +91,7 @@ Use this method for automated deployment of the Qualys KB connector using an ARM
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
 3. Enter the **Workspace ID**, **Workspace Key**, **API Username**, **API Password** , update the **URI**, and any additional URI **Filter Parameters** (This value should include a "&" symbol between each parameter and should not include any spaces) 
 > - Enter the URI that corresponds to your region. The complete list of API Server URLs can be [found here](https://www.qualys.com/docs/qualys-api-vmpc-user-guide.pdf#G4.735348)
-> - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) for further details. 
+> - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
  - Note: If deployment failed due to the storage account name being taken, change the **Function Name** to a unique value and redeploy.
@@ -133,7 +133,7 @@ This method provides the step-by-step instructions to deploy the Qualys KB conne
 		logAnalyticsUri (optional)
 > - Enter the URI that corresponds to your region. The complete list of API Server URLs can be [found here](https://www.qualys.com/docs/qualys-api-vmpc-user-guide.pdf#G4.735348). The `uri` value must follow the following schema: `https://<API Server>/api/2.0` 
 > - Add any additional filter parameters, for the `filterParameters` variable, that need to be appended to the URI. The `filterParameter` value should include a "&" symbol between each parameter and should not include any spaces.
-> - Note: If using Azure Key Vault, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) for further details.
+> - Note: If using Azure Key Vault, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details.
  - Use logAnalyticsUri to override the log analytics API endpoint for delegated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
 4. Once all application settings have been entered, click **Save**.
 

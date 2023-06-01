@@ -1,6 +1,6 @@
 ---
-title: What are device templates in Azure IoT Central | Microsoft Docs
-description: Azure IoT Central device templates let you specify the behavior of the devices connected to your application. A device template specifies the telemetry, properties, and commands the device must implement. A device template also defines the UI for the device in IoT Central such as the forms and views an operator uses.
+title: What are device templates in Azure IoT Central
+description: Device templates let you specify the behavior of the devices connected to your application. They also define a UI for the device in IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/03/2022
@@ -60,8 +60,7 @@ Use the following DPS payload to assign the device to a device template:
 }
 ```
 
-To lean more about the DPS payload, see the sample code used in the [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
- 
+To learn more about the DPS payload, see the sample code used in the [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 
 ## Device models
 
@@ -78,7 +77,7 @@ A typical IoT device is made up of:
 - Custom parts, which are the things that make your device unique.
 - Standard parts, which are things that are common to all devices.
 
-These parts are called _interfaces_ in a device model. Interfaces define the details of each part your device implements. Interfaces are reusable across device models. In DTDL, a component refers to another interface, which may defined in a separate DTDL file or in a separate section of the file.
+These parts are called _interfaces_ in a device model. Interfaces define the details of each part your device implements. Interfaces are reusable across device models. In DTDL, a component refers to another interface, which may be defined in a separate DTDL file or in a separate section of the file.
 
 The following example shows the outline of device model for a [temperature controller device](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/temperaturecontroller-2.json). The root component includes definitions for `workingSet`, `serialNumber`, and `reboot`. The device model also includes two `thermostat` components and a `deviceInformation` component. The contents of the three components have been removed for the sake of brevity:
 

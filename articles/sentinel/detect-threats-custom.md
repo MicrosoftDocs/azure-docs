@@ -4,7 +4,8 @@ description: Learn how to create custom analytics rules to detect security threa
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 01/08/2023
+ms.custom: devx-track-arm-template
+ms.date: 05/28/2023
 ---
 
 # Create custom analytics rules to detect threats
@@ -294,8 +295,8 @@ A permanent failure occurs due to a change in the conditions that allow the rule
 - The target table (on which the rule query operated) has been deleted.
 - Microsoft Sentinel had been removed from the target workspace.
 - A function used by the rule query is no longer valid; it has been either modified or removed.
-- Permissions to one of the data sources of the rule query were changed.
-- One of the data sources of the rule query was deleted or disconnected.
+- Permissions to one of the data sources of the rule query were changed ([see example below](#permanent-failure-due-to-lost-access-across-subscriptionstenants)).
+- One of the data sources of the rule query was deleted.
 
 **In the event of a predetermined number of consecutive permanent failures, of the same type and on the same rule,** Microsoft Sentinel stops trying to execute the rule, and also takes the following steps:
 
@@ -307,6 +308,27 @@ You can easily determine the presence of any auto-disabled rules, by sorting the
 
 SOC managers should be sure to check the rule list regularly for the presence of auto-disabled rules.
 
+#### Permanent failure due to resource drain
+
+Another kind of permanent failure occurs due to an **improperly built query** that causes the rule to consume **excessive computing resources** and risks being a performance drain on your systems. When Microsoft Sentinel identifies such a rule, it takes the same three steps mentioned above for the other permanent failures&mdash;disables the rule, prepends **"AUTO DISABLED"** to the rule name, and adds the reason for the failure to the description.
+
+To re-enable the rule, you must address the issues in the query that cause it to use too many resources. See the following articles for best practices to optimize your Kusto queries:
+
+- [Query best practices - Azure Data Explorer](/azure/data-explorer/kusto/query/best-practices)
+- [Optimize log queries in Azure Monitor](../azure-monitor/logs/query-optimization.md)
+
+Also see [Useful resources for working with Kusto Query Language in Microsoft Sentinel](kusto-resources.md) for further assistance.
+
+#### Permanent failure due to lost access across subscriptions/tenants
+
+One particular example of when a permanent failure could occur due to a permissions change on a data source ([see list above](#permanent-failure---rule-auto-disabled)) concerns the case of an MSSP&mdash;or any other scenario where analytics rules query across subscriptions or tenants.
+
+When you create an analytics rule, an access permissions token is applied to the rule and saved along with it. This token ensures that the rule can access the workspace that contains the data queried by the rule, and that this access will be maintained even if the rule's creator loses access to that workspace.
+
+There is one exception to this, however: when a rule is created to access workspaces in other subscriptions or tenants, such as what happens in the case of an MSSP, Microsoft Sentinel takes extra security measures to prevent unauthorized access to customer data. For these kinds of rules, the credentials of the user that created the rule are applied to the rule instead of an independent access token, so that when the user no longer has access to the other tenant, the rule will stop working.
+
+If you operate Microsoft Sentinel in a cross-subscription or cross-tenant scenario, be aware that if one of your analysts or engineers loses access to a particular workspace, any rules created by that user will stop working. You will get a health monitoring message regarding "insufficient access to resource", and the rule will be [auto-disabled according to the procedure described above](#permanent-failure---rule-auto-disabled).
+
 ## Next steps
 
 When using analytics rules to detect threats from Microsoft Sentinel, make sure that you enable all rules associated with your connected data sources in order to ensure full security coverage for your environment. The most efficient way to enable analytics rules is directly from the data connector page, which lists any related rules. For more information, see [Connect data sources](connect-data-sources.md).
@@ -316,6 +338,7 @@ You can also push rules to Microsoft Sentinel via [API](/rest/api/securityinsigh
 For more information, see:
 
 - [Tutorial: Investigate incidents with Microsoft Sentinel](investigate-cases.md)
+- [Navigate and investigate incidents in Microsoft Sentinel - Preview](investigate-incidents.md)
 - [Classify and analyze data using entities in Microsoft Sentinel](entities.md)
 - [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 

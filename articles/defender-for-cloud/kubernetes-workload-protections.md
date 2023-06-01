@@ -2,8 +2,8 @@
 title: Kubernetes data plane hardening
 description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes data plane hardening security recommendations
 ms.topic: how-to
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.custom: ignite-2022
 ms.date: 03/08/2022
 ---
@@ -21,14 +21,16 @@ Microsoft Defender for Cloud includes a bundle of recommendations that are avail
 
 ## Prerequisites
 
--  Add the [Required FQDN/application rules for Azure policy](../aks/limit-egress-traffic.md#azure-policy).
+-  Add the [Required FQDN/application rules for Azure policy](../aks/outbound-rules-control-egress.md#azure-policy).
 - (For non AKS clusters) [Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
 
 ## Enable Kubernetes data plane hardening
 
-When you enable Microsoft Defender for Containers, Azure Kubernetes Service clusters, and Azure Arc enabled Kubernetes clusters (Preview) protection are both enabled by default. You can configure your Kubernetes data plane hardening, when you enable Microsoft Defender for Containers.
+When you enable Microsoft Defender for Containers, the "Azure Policy for Kubernetes" setting is enabled by default for the Azure Kubernetes Service, and for Azure Arc-enabled Kubernetes clusters in the relevant subscription. If you disable the setting, you can re-enable it later. Either in the Defender for Containers plan settings, or with  Azure Policy.
 
-**To enable Azure Kubernetes Service clusters and Azure Arc enabled Kubernetes clusters (Preview)**:
+When you enable this setting, the Azure Policy for Kubernetes pods are installed on the cluster. This allocates a small amount of CPU and memory for the pods to use. This allocation might reach maximum capacity, but it doesn't affect the rest of the CPU and memory on the resource.
+
+To enable Azure Kubernetes Service clusters and Azure Arc enabled Kubernetes clusters (Preview):
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 

@@ -279,6 +279,6 @@ The next tutorial demonstrates how to display a route between two locations.
 [MapControlCredential]: /javascript/api/azure-maps-rest/atlas.service.mapcontrolcredential
 [pipeline]: /javascript/api/azure-maps-rest/atlas.service.pipeline
 [searchURL]: /javascript/api/azure-maps-rest/atlas.service.searchurl
-[Search API] /rest/api/maps/search
+[Search API]: /rest/api/maps/search
 [Fuzzy Search service]: /rest/api/maps/search/get-search-fuzzy
 [setCamera]: /javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-

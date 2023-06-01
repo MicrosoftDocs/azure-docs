@@ -2,7 +2,7 @@
 title: OpenTelemetry with Azure Monitor overview 
 description: This article provides an overview of how to use OpenTelemetry with Azure Monitor.
 ms.topic: conceptual
-ms.date: 01/10/2023
+ms.date: 05/10/2023
 ms.reviewer: mmcc
 ---
 
@@ -20,7 +20,7 @@ Telemetry, the data collected to observe your application, can be broken into th
 - Metrics
 - Logs
 
-Initially, the OpenTelemetry community took on Distributed Tracing. Metrics and Logs are still in progress. A complete observability story includes all three pillars, but currently our [Azure Monitor OpenTelemetry-based exporter preview offerings for .NET, Python, and JavaScript](opentelemetry-enable.md) only include Distributed Tracing.
+A complete observability story includes all three pillars. Our [Azure Monitor OpenTelemetry Distros for ASP.NET Core, Java, JavaScript (Node.js), and Python](opentelemetry-enable.md) include everything you need to power Application Performance Monitoring on Azure. The Distro itself is free to install, and you only pay for the data you ingest in Azure Monitor.
 
 The following sources explain the three pillars:
 
@@ -39,14 +39,14 @@ There are two methods to instrument your application:
 - Manual instrumentation
 - Automatic instrumentation (auto-instrumentation)
 
-Manual instrumentation is coding against the OpenTelemetry API. In the context of a user, it typically refers to installing a language-specific SDK in an application. Manual instrumentation packages consist of [Azure Monitor OpenTelemetry-based exporter preview offerings for .NET, Python, and JavaScript](opentelemetry-enable.md).
+Manual instrumentation is coding against the OpenTelemetry API. In the context of a user, it typically refers to installing a language-specific SDK in an application. Manual instrumentation packages consist of [Azure Monitor OpenTelemetry Distros for .NET, Python, and JavaScript (Node.js)](opentelemetry-enable.md).
 
 > [!IMPORTANT]
 > "Manual" doesn't mean you'll be required to write complex code to define spans for distributed traces, although it remains an option. A rich and growing set of instrumentation libraries maintained by OpenTelemetry contributors will enable you to effortlessly capture telemetry signals across common frameworks and libraries.
 >
-> A subset of OpenTelemetry instrumentation libraries will be supported by Azure Monitor, informed by customer feedback. We're also working to [instrument the most popular Azure Service SDKs using OpenTelemetry](https://devblogs.microsoft.com/azure-sdk/introducing-experimental-opentelemetry-support-in-the-azure-sdk-for-net/).
+> A subset of OpenTelemetry instrumentation libraries are included in the Azure Monitor OpenTelemetry Distros, informed by customer feedback. We're also working to [instrument the most popular Azure Service SDKs using OpenTelemetry](https://devblogs.microsoft.com/azure-sdk/introducing-experimental-opentelemetry-support-in-the-azure-sdk-for-net/).
 
-Auto-instrumentation enables telemetry collection through configuration without touching the application's code. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. The Azure Monitor OpenTelemetry-based auto-instrumentation offering consists of the [Java 3.X OpenTelemetry-based GA offering](opentelemetry-enable.md?tabs=java). We continue to invest in it informed by customer feedback. The OpenTelemetry community is also experimenting with C# and Python auto-instrumentation, but Azure Monitor is focused on creating a simple and effective manual instrumentation story in the near term.
+Auto-instrumentation enables telemetry collection through configuration without touching the application's code. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. The [Azure Monitor OpenTelemetry Java Distro](opentelemetry-enable.md?tabs=java) uses the auto-instrumentation method.
 
 ### Send your telemetry
 
@@ -57,12 +57,12 @@ There are two ways to send your data to Azure Monitor (or any vendor):
 
 A direct exporter sends telemetry in-process (from the application's code) directly to the Azure Monitor ingestion endpoint. The main advantage of this approach is onboarding simplicity.
 
-*All currently supported OpenTelemetry-based offerings in Azure Monitor use a direct exporter*.
+*The currently available Azure Monitor OpenTelemetry Distros rely on a direct exporter*.
 
 Alternatively, sending telemetry via an agent will provide a path for any OpenTelemetry-supported language to send to Azure Monitor via [Open Telemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). Receiving OTLP will enable customers to observe applications written in languages beyond our [supported languages](platforms.md).
 
 > [!NOTE]
-> Some customers have begun to use the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative even though Microsoft doesn't officially support the "via an agent" approach for application monitoring yet. In the meantime, the open-source community has contributed an OpenTelemetry-Collector Azure Monitor exporter that some customers are using to send data to Azure Monitor Application Insights.
+> For Azure Monitor's position on the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md), see the [OpenTelemetry FAQ](../faq.yml#can-i-use-the-opentelemetry-collector-).
 
 ## Terms
 
@@ -79,9 +79,11 @@ Traces | Logs
 
 ## Next steps
 
-The following websites consist of language-by-language guidance to enable and configure Microsoft's OpenTelemetry-based offerings. The available functionality and limitations of each offering are explained so that you can determine whether OpenTelemetry is right for your project.
+1. The following websites consist of language-by-language guidance to enable and configure Microsoft's OpenTelemetry-based offerings.
 
 - [.NET](opentelemetry-enable.md?tabs=net)
 - [Java](opentelemetry-enable.md?tabs=java)
 - [JavaScript](opentelemetry-enable.md?tabs=nodejs)
 - [Python](opentelemetry-enable.md?tabs=python)
+
+2. Check out the [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).

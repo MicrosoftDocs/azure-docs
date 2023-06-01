@@ -4,6 +4,7 @@ description: Create parameter file for passing in values during deployment of a 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 11/14/2022
 ---
 

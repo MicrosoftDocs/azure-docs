@@ -8,7 +8,7 @@ ms.author: greglin
 ms.date: 04/14/2022
 ms.topic: quickstart
 ms.service: application-gateway
-ms.custom: mvc, subject-armqs, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Bicep

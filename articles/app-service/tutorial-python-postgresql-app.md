@@ -546,18 +546,34 @@ Follow the steps below to setup the Azure Developer CLI and provision and deploy
 
     ---
 
-1. Run the `azd up` command to clone, provision and deploy the app resources. Provide the name of the template you wish to use for the `--template` parameter. The `azd up` command will also prompt you to login to Azure and provide a name and location for the app.
+1. Run the `azd init` command to initialize the `azd` app template. Include the `--template` parameter to specify the name of an existing `azd` template you wish to use. More information about working with templates is available on the [choose an `azd` template](/azure/developer/azure-developer-cli/azd-templates) page.
 
     ### [Flask](#tab/flask)
+
+    For this tutorial, Flask users should specify the [Python (Flask) web app with PostgresSQL](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app.git) template.
     
     ```bash
-    azd up --template msdocs-flask-postgresql-sample-app
+    azd init --template msdocs-flask-postgresql-sample-app
     ```
     
     ### [Django](#tab/django)
-    
+
+    For this tutorial, Django users should specify the [Python (Django) web app with PostgresSQL](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git) template.
+
     ```bash
-    azd up --template msdocs-django-postgresql-sample-app
+    azd init --template msdocs-django-postgresql-sample-app
+    ```
+
+1. Run the `azd auth login` command to sign-in to Azure.
+
+    ```bash
+    azd auth login
+    ```
+
+1. Run the `azd up` command to provision the necessary Azure resources and deploy the app code. The `azd up` command will also prompt you to select the desired subscription and location to deploy to.
+
+    ```bash
+    azd up
     ```
 
 1. When the `azd up` command finishes running, the URL for your deployed web app in the console will be printed. Click, or copy and paste the web app URL into your browser to explore the running app and verify that it is working correctly. All of the Azure resources and application code were set up for you by the `azd up` command.
@@ -577,7 +593,7 @@ The sections ahead review the steps that `azd` handled for you in more depth. Yo
 
 ### 1. Cloned and initialized the project
 
-The `azd up` command cloned the sample app project template to your machine. The project template includes the following components:
+The `azd init` command cloned the sample app project template to your machine. The project template includes the following components:
 
 * **Source code**: The code and assets for a Flask or Django web app that can be used for local development or deployed to Azure.
 * **Bicep files**: Infrastructure as code (IaC) files that are used by `azd` to create the necessary resources in Azure.
@@ -591,7 +607,7 @@ The `azd up` command created all of the resources for the sample application in 
 * **Azure Virtual Network**: A virtual network was created to enable the provisioned resources to securely connect and communicate with one another. Related configurations such as setting up a private DNS zone link were also applied.
 * **Azure App Service plan**: An App Service plan was created to host App Service instances. App Service plans define what compute resources are available for one or more web apps.
 * **Azure App Service**: An App Service instance was created in the new App Service plan to host and run the deployed application. In this case a Linux instance was created and configured to run Python apps. Additional configurations were also applied to the app service, such as setting the Postgres connection string and secret keys. 
-* **Azure Database for PostgresSQL**: A Postgres database and server were created for the app hosted on App Service to connect to. The required admin user, network and connection settings were also configured.
+* **Azure Database for PostgreSQL**: A Postgres database and server were created for the app hosted on App Service to connect to. The required admin user, network and connection settings were also configured.
 * **Azure Application Insights**: Application insights was set up and configured for the app hosted on the App Service. This service enables detailed telemetry and monitoring for your application.
 
 You can inspect the Bicep files in the [`infra`](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/tree/main/infra) folder of the project to understand how each of these resources were provisioned in more detail. The `resources.bicep` file defines most of the different services created in Azure. For example, the App Service plan and App Service web app instance were created and connected using the following Bicep code:

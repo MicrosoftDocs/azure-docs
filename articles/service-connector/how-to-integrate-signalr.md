@@ -1,8 +1,8 @@
 ---
 title: Integrate Azure SignalR Service with Service Connector
 description: Integrate Azure SignalR Service into your application with Service Connector. Learn about authentication types and client types of Azure SignalR Service.
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 08/11/2022

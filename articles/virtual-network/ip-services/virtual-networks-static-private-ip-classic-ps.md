@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/22/2023
 ms.author: allensu
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 ---
 
 # Configure private IP addresses for a virtual machine (Classic) using PowerShell

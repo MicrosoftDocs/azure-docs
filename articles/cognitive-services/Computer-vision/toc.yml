@@ -16,7 +16,7 @@ items:
     href: whats-new.md
   - name: Computer Vision FAQ
     href: FAQ.yml
-- name: Use cases
+- name: Scenario deep-dives
   items:
   - name: Generate alt text for images
     href: use-case-alt-text.md
@@ -127,7 +127,7 @@ items:
       - name: Cognitive Services Python SDK samples
         href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples
       - name: Cognitive Services Go SDK Samples
-        href: https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/cognitiveservices
+        href: https://github.com/microsoft/cognitive-services-speech-sdk-go
   - name: Responsible use of AI
     items:
     - name: Transparency note
@@ -142,17 +142,29 @@ items:
       items:
       - name: Call the Analyze API
         href: how-to/call-analyze-image-40.md
-      - name: Create a custom model
-        href: how-to/model-customization.md
-      - name: Migrate a Custom Vision project to Image Analysis
-        href: how-to/migrate-from-custom-vision.md
-      - name: Verify a custom model COCO file
-        href: how-to/coco-verification.md
+      - name: Model customization
+        items:
+        - name: Create a custom model
+          href: how-to/model-customization.md
+        - name: Migrate a Custom Vision project to Image Analysis
+          href: how-to/migrate-from-custom-vision.md
+        - name: Verify a custom model COCO file
+          href: how-to/coco-verification.md
+      - name: Product Recognition
+        items:
+        - name: Prepare images for Product Recognition
+          href: how-to/shelf-modify-images.md
+        - name: Product Recognition with prebuilt model
+          href: how-to/shelf-analyze.md
+        - name: Product Recognition with custom model
+          href: how-to/shelf-model-customization.md
+        - name: Check planogram compliance
+          href: how-to/shelf-planogram.md
       - name: Call the Image retrieval APIs
         href: how-to/image-retrieval.md
       - name: Call the Background removal API
         href: how-to/background-removal.md
-      - name: Configure storage account
+      - name: Configure a storage account
         href: how-to/blob-storage-search.md
     - name: Version 3.2
       items:
@@ -180,6 +192,8 @@ items:
         href: concept-people-detection.md
       - name: Model customization
         href: concept-model-customization.md
+      - name: Product Recognition
+        href: concept-shelf-analysis.md
       - name: Image retrieval
         href: concept-image-retrieval.md
       - name: Background removal
@@ -290,7 +304,7 @@ items:
         href: how-to/find-similar-faces.md
       - name: Specify a face recognition model version
         href: how-to/specify-recognition-model.md
-      - name: Add faces to a group
+      - name: Add faces to a PersonGroup
         href: how-to/add-faces.md
       - name: Use the large-scale feature
         href: how-to/use-large-scale.md
@@ -300,6 +314,8 @@ items:
         href: how-to/mitigate-latency.md
       - name: Migrate face data
         href: how-to/migrate-face-data.md
+      - name: Use limited access tokens
+        href: how-to/identity-access-token.md
       - name: Use customer-managed keys
         href: identity-encrypt-data-at-rest.md
   - name: Concepts
@@ -321,7 +337,7 @@ items:
     - name: Face REST API
       href: identity-api-reference.md
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/face-readme
+      href: /dotnet/api/overview/azure/cognitiveservices/face
     - name: Java
       href: /java/api/overview/azure/cognitiveservices/client/faceapi
     - name: Node.js

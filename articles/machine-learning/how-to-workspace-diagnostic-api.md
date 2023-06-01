@@ -11,14 +11,17 @@ ms.reviewer: larryfr
 ms.date: 09/14/2022
 ms.topic: how-to
 ms.custom: sdkv2, event-tier1-build-2022
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # How to use workspace diagnostics
 
+:::moniker range="azureml-api-2"
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-> [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
-> * [v1](v1/how-to-workspace-diagnostic-api.md)
-> * [v2 (current version)](how-to-workspace-diagnostic-api.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+:::moniker-end
 
 Azure Machine Learning provides a diagnostic API that can be used to identify problems with your workspace. Errors returned in the diagnostics report include information on how to resolve the problem.
 
@@ -26,7 +29,13 @@ You can use the workspace diagnostics from the Azure Machine Learning studio or 
 
 ## Prerequisites
 
+:::moniker range="azureml-api-2"
 [!INCLUDE [sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
+:::moniker-end
+:::moniker range="azureml-api-1"
+* An Azure Machine Learning workspace. If you don't have one, see [Create a workspace](quickstart-create-resources.md).
+* The [Azure Machine Learning SDK v1 for Python](/python/api/overview/azure/ml).
+:::moniker-end
 
 ## Diagnostics from studio
 
@@ -40,6 +49,7 @@ After diagnostics run, a list of any detected problems is returned. This list in
 
 The following snippet demonstrates how to use workspace diagnostics from Python
 
+:::moniker range="azureml-api-2"
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
@@ -55,6 +65,24 @@ ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group)
 resp = ml_client.workspaces.begin_diagnose(workspace)
 print(resp)
 ```
+:::moniker-end
+:::moniker range="azureml-api-1"
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+
+diag_param = {
+      "value": {
+      }
+    }
+
+resp = ws.diagnose_workspace(diag_param)
+print(resp)
+```
+:::moniker-end
 
 The response is a JSON document that contains information on any problems detected with the workspace. The following JSON is an example response:
 
@@ -80,7 +108,12 @@ The response is a JSON document that contains information on any problems detect
 
 If no problems are detected, an empty JSON document is returned.
 
+:::moniker range="azureml-api-2"
 For more information, see the [Workspace](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace) reference.
+:::moniker-end
+:::moniker range="azureml-api-1"
+For more information, see the [Workspace.diagnose_workspace()](/python/api/azureml-core/azureml.core.workspace(class)#diagnose-workspace-diagnose-parameters-) reference.
+:::moniker-end
 
 ## Next steps
 

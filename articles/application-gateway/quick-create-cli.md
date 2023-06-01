@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 07/22/2022
+ms.date: 04/27/2023
 ms.author: greglin
 ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
 ---

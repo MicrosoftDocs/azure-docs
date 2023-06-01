@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/16/2023
+ms.date: 04/12/2023
 ---
 
 # Manage Azure Data Factory studio preview experience
@@ -144,6 +144,9 @@ The monitoring experience remains the same as detailed [here](monitor-visually.m
 
 #### Error message relocation to Status column
 
+> [!NOTE]
+> This feature is now generally available in the ADF studio.  
+
 To make it easier for you to view errors when you see a **Failed** pipeline run, error messages have been relocated to the **Status** column.
 
 Find the error icon in the pipeline monitoring page and in the pipeline **Output** tab after debugging your pipeline. 
@@ -155,7 +158,7 @@ Find the error icon in the pipeline monitoring page and in the pipeline **Output
 #### Container view
 
 > [!NOTE]
-> This feature will now be generally available in the ADF studio.  
+> This feature is now generally available in the ADF studio.  
 
 When monitoring your pipeline run, you have the option to enable the container view, which will provide a consolidated view of the activities that ran.
 This view is available in the output of your pipeline debug run and in the detailed monitoring view found in the monitoring tab. 
@@ -190,7 +193,7 @@ Click the button next to the iteration or conditional activity to collapse the n
 
 #### Simplified default monitoring view 
 
-The default monitoring view has been simplified with fewer default columns. You can add/remove columns if you’d like to personalize your monitoring view. Changes to the default will be cached. 
+The default monitoring view has been simplified with fewer default columns. You can add/remove columns if you’d like to personalize your monitoring view. Changes to the default will be cached.
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-20.png" alt-text="Screenshot of the new default column view on the monitoring page.":::
 
@@ -214,6 +217,10 @@ You can edit your default view by clicking **Edit Columns**.
 Add columns by clicking **Add column** or remove columns by clicking the trashcan icon. 
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-22.png" alt-text="Screenshot of the Add column button and trashcan icon to edit column view.":::
+
+You can also now view **Pipeline run details** in a new pane in the detailed pipeline monitoring view by clicking **View run detail**.
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-41.png" alt-text="Screenshot of the new Pipeline run details pane in the detailed monitoring view.":::
 
 ## Provide feedback
 

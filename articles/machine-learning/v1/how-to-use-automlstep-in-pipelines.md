@@ -366,6 +366,10 @@ print("Registered version {0} of model {1}".format(model.version, model.name))
 
 ### Write the PythonScriptStep code
 
+
+> [!WARNING]
+> If you are using the Azure Machine Learning SDK v1, and your workspace is configured for network isolation (VNet), you may receive an error when running this step. For more information, see [HyperdriveStep and AutoMLStep fail with network isolation](how-to-debug-pipelines.md#hyperdrivestep-and-automlstep-fail-with-network-isolation).
+
 The model-registering `PythonScriptStep` uses a `PipelineParameter` for one of its arguments. Pipeline parameters are arguments to pipelines that can be easily set at run-submission time. Once declared, they're passed as normal arguments. 
 
 ```python

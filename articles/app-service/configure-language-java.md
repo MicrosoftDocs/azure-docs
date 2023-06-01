@@ -60,7 +60,7 @@ az webapp list-runtimes --os linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
 With the [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), you can prepare your Maven Java project for Azure Web App easily with one command in your project root:
 
 ```shell
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.11.0:config
 ```
 
 This command adds a `azure-webapp-maven-plugin` plugin and related configuration by prompting you to select an existing Azure Web App or create a new one. Then you can deploy your Java app to Azure using the following command:
@@ -75,7 +75,7 @@ Here is a sample configuration in `pom.xml`:
 <plugin> 
   <groupId>com.microsoft.azure</groupId>  
   <artifactId>azure-webapp-maven-plugin</artifactId>  
-  <version>2.2.0</version>  
+  <version>2.11.0</version>  
   <configuration>
     <subscriptionId>111111-11111-11111-1111111</subscriptionId>
     <resourceGroup>spring-boot-xxxxxxxxxx-rg</resourceGroup>
@@ -108,7 +108,7 @@ Here is a sample configuration in `pom.xml`:
 
     ```groovy
     plugins {
-      id "com.microsoft.azure.azurewebapp" version "1.2.0"
+      id "com.microsoft.azure.azurewebapp" version "1.7.1"
     }
     ```
 
@@ -206,61 +206,11 @@ The built-in Java images are based on the [Alpine Linux](https://alpine-linux.re
 
 ::: zone-end
 
-### Flight Recorder
+### Java Profiler
 
-All Java runtimes on App Service using the Azul JVMs come with the Zulu Flight Recorder. You can use this to record JVM, system, and application events and troubleshoot problems in your Java applications.
+All Java runtimes on Azure App Service come with the JDK Flight Recorder for profiling Java workloads. You can use this to record JVM, system, and application events and troubleshoot problems in your applications.
 
-::: zone pivot="platform-windows"
-
-#### Timed Recording
-
-To take a timed recording, you'll need the PID (Process ID) of the Java application. To find the PID, open a browser to your web app's SCM site at `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID (Process ID).
-
-Next, open the **Debug Console** in the top toolbar of the SCM site and run the following command. Replace `<pid>` with the process ID you copied earlier. This command will start a 30-second profiler recording of your Java application and generate a file named `timed_recording_example.jfr` in the `D:\home` directory.
-
-```
-jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="D:\home\timed_recording_example.JFR"
-```
-
-::: zone-end
-::: zone pivot="platform-linux"
-
-SSH into your App Service and run the `jcmd` command to see a list of all the Java processes running. In addition to jcmd itself, you should see your Java application running with a process ID number (pid).
-
-```shell
-078990bbcd11:/home# jcmd
-Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
-147 sun.tools.jcmd.JCmd
-116 /home/site/wwwroot/app.jar
-```
-
-Execute the command below to start a 30-second recording of the JVM. This will profile the JVM and create a JFR file named *jfr_example.jfr* in the home directory. (Replace 116 with the pid of your Java app.)
-
-```shell
-jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
-```
-
-During the 30-second interval, you can validate the recording is taking place by running `jcmd 116 JFR.check`. This will show all recordings for the given Java process.
-
-#### Continuous Recording
-
-You can use Zulu Flight Recorder to continuously profile your Java application with minimal impact on runtime performance. To do so, run the following Azure CLI command to create an App Setting named JAVA_OPTS with the necessary configuration. The contents of the JAVA_OPTS App Setting are passed to the `java` command when your app is started.
-
-```azurecli
-az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
-```
-
-Once the recording has started, you can dump the current recording data at any time using the `JFR.dump` command.
-
-```shell
-jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
-```
-
-::: zone-end
-
-#### Analyze `.jfr` files
-
-Use [FTPS](deploy-ftp.md) to download your JFR file to your local machine. To analyze the JFR file, download and install [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). For instructions on Zulu Mission Control, see the [Azul documentation](https://docs.azul.com/zmc/) and the [installation instructions](/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
+To learn more about the Java Profiler, visit the [Azure Application Insights documentation](/azure/azure-monitor/app/java-standalone-profiler).
 
 ### App logging
 
@@ -304,7 +254,7 @@ To configure the app setting from the Maven plugin, add setting/value tags in th
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>-Xms512m -Xmx1204m</value>
+        <value>-Xms1024m -Xmx1024m</value>
     </property>
 </appSettings>
 ```
@@ -1161,13 +1111,13 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 
 | Java Version | Linux            | Windows              |
 |--------------|------------------|----------------------|
-| Java 8       | 1.8.0_312 (Zulu) * | 1.8.0_312 (Adoptium) |
-| Java 11      | 11.0.13 (MSFT)   | 11.0.13 (MSFT)       |
-| Java 17      | 17.0.1 (MSFT)    | 17.0.1 (MSFT)        |
+| Java 8       | 1.8.0_312 (Adoptium) * | 1.8.0_312 (Adoptium) |
+| Java 11      | 11.0.13 (Microsoft)   | 11.0.13 (Microsoft)       |
+| Java 17      | 17.0.1 (Microsoft)    | 17.0.1 (Microsoft)        |
 
 \* In following releases, Java 8 on Linux will be distributed from Adoptium builds of the OpenJDK.
 
-If you are [pinned](#choosing-a-java-runtime-version) to an older minor version of Java your site may be using the [Zulu for Azure](https://www.azul.com/downloads/azure-only/zulu/) binaries provided through [Azul Systems](https://www.azul.com/). You can continue to use these binaries for your site, but any security patches or improvements will only be available in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
+If you are [pinned](#choosing-a-java-runtime-version) to an older minor version of Java, your site may be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries provided through [Azul Systems](https://www.azul.com/). You can continue to use these binaries for your site, but any security patches or improvements will only be available in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
 
 Major version updates will be provided through new runtime options in Azure App Service. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
 
@@ -1190,7 +1140,7 @@ If a supported Java runtime will be retired, Azure developers using the affected
 
 ### Local development
 
-Developers can download the Production Edition of Azul Zulu Enterprise JDK for local development from [Azul's download site](https://www.azul.com/downloads/azure-only/zulu/).
+Developers can download the Microsoft Build of OpenJDK for local development from [our download site](/java/openjdk/download).
 
 ### Development support
 

@@ -4,6 +4,7 @@ description: Describes how to set the name and type for child resources in Bicep
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 09/13/2021
 ---
 

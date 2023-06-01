@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article describes how to enable log streaming in Azure CLI to get real-time application console logs for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
@@ -31,7 +31,7 @@ This section provides examples of using Azure CLI to produce tail logs. To avoid
 
 ```azurecli
 az config set defaults.group=<service-group-name>
-az config set defaults.spring-cloud=<service-instance-name>
+az config set defaults.spring=<service-instance-name>
 ```
 
 The resource group and service name are omitted in the following examples.

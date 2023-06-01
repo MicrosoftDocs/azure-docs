@@ -13,6 +13,7 @@ ms.author: jomondi
 ms.reviewer: ergreenl, lenalepa
 ms.collection: M365-identity-device-management
 zone_pivot_groups: enterprise-apps-all
+ms.custom: enterprise-apps
 
 #customer intent: As an admin, I want to hide an enterprise application from user's experience so that it is not listed in the user's Active directory access portals or Microsoft 365 launchers
 ---

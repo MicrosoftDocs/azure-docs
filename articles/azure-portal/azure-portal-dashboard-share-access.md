@@ -26,7 +26,7 @@ To expand access to a dashboard beyond the access granted at the subscription le
 
 ## Publish a dashboard
 
-To share access to a dashboard, you must first publish it. When you do so, other users in your organization will be access and modify the dashboard based on their Azure RBAC roles.
+To share access to a dashboard, you must first publish it. When you do so, other users in your organization will be able to access and modify the dashboard based on their Azure RBAC roles.
 
 1. In the dashboard, select **Share**.
 

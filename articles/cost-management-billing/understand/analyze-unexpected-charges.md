@@ -7,9 +7,8 @@ ms.reviewer: micflan
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 04/05/2023
 ms.author: banders
-ms.custom: contperf-fy21q1
 ---
 
 # Identify anomalies and unexpected changes in cost

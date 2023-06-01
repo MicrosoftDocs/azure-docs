@@ -6,19 +6,55 @@ ms.date: 02/28/2023
 ms.author: eur
 ---
 
+### April 2023 release
+
+#### Prebuilt Neural TTS Voices
+- The following features of these voices moved from public preview to GA:
+
+| Style | Text to speech voices |
+| ----- | ----- |
+| style="chat" | `en-GB-RyanNeural`, `es-MX-JorgeNeural`, and `it-IT-IsabellaNeural`|
+| style="cheerful" | `en-GB-RyanNeural`, `en-GB-SoniaNeural`, `es-MX-JorgeNeural`, `fr-FR-DeniseNeural`, `fr-FR-HenriNeural`, and `it-IT-IsabellaNeural` |
+| style="sad" | `en-GB-SoniaNeural`, `fr-FR-DeniseNeural` and `fr-FR-HenriNeural` |
+
+- Improve the English pronunciation for `hi-IN`, `ta-IN` and `te-IN` voices, now is flighting in public preview regions
+
+For more information, see the [language and voice list](../../language-support.md?tabs=tts).
+
 ### March 2023 release
 
+#### New features
+
+Speech Synthesis Markup Language (SSML) has been updated to support audio effect processor elements that optimize the quality of the synthesized speech output for specific scenarios on devices. Learn more at [speech synthesis markup](../../speech-synthesis-markup-voice.md#voice-element).
+
 #### Custom neural voice
+
 Added support for the `nl-BE` locale with [Custom Neural Voice](../../custom-neural-voice.md) Pro. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
 
-### February 2023 release
-
-#### Prebuilt Neural TTS Voices (GA)
+#### Prebuilt Neural TTS Voices
 
 The following voices are now generally available. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
 
-| Locale (BCP-47) | Language | Text-to-speech voices |
-| ----- | ----- | ----- | ----- |
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- |
+| `en-AU` | English (Australia) | `en-AU-AnnetteNeural` (Female)<br/>`en-AU-CarlyNeural` (Female)<br/>`en-AU-DarrenNeural` (Male)<br/>`en-AU-DuncanNeural` (Male)<br/>`en-AU-ElsieNeural` (Female)<br/>`en-AU-FreyaNeural` (Female)<br/>`en-AU-JoanneNeural` (Female)<br/>`en-AU-KenNeural` (Male)<br/>`en-AU-KimNeural` (Female)<br/>`en-AU-NeilNeural` (Male)<br/>`en-AU-TimNeural` (Male)<br/>`en-AU-TinaNeural` (Female)<br/>`en-AU-WilliamNeural` (Male) |
+| `en-GB` | English (United Kingdom) | `en-GB-RyanNeural` (Male)<br/>`en-GB-SoniaNeural` (Female) |
+| `es-ES` | Spanish (Spain) | `es-ES-AbrilNeural` (Female)<br/>`es-ES-ArnauNeural` (Male)<br/>`es-ES-DarioNeural` (Male)<br/>`es-ES-EliasNeural` (Male)<br/>`es-ES-EstrellaNeural` (Female)<br/>`es-ES-IreneNeural` (Female)<br/>`es-ES-LaiaNeural` (Female)<br/>`es-ES-LiaNeural` (Female)<br/>`es-ES-NilNeural` (Male)<br/>`es-ES-SaulNeural` (Male)<br/>`es-ES-TeoNeural` (Male)<br/>`es-ES-TrianaNeural` (Female)<br/>`es-ES-VeraNeural` (Female) |
+| `es-MX` | Spanish (Mexico) | `es-MX-JorgeNeural` (Male) |
+| `fr-FR` | French (France) | `fr-FR-HenriNeural` (Male) |
+| `it-IT` | Italian (Italy) | `it-IT-IsabellaNeural` (Female) |
+| `ja-JP` | Japanese (Japan) | `ja-JP-AoiNeural` (Female)<br/>`ja-JP-DaichiNeural` (Male)<br/>`ja-JP-MayuNeural` (Female)<br/>`ja-JP-NaokiNeural` (Male)<br/>`ja-JP-ShioriNeural` (Female) |
+
+Added support for the `cheerful` style with the `de-DE-ConradNeural` voice.
+
+### February 2023 release
+
+#### Prebuilt Neural TTS Voices
+
+The following voices are now generally available. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- | 
 | `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaomengNeural` (Female)<br/>`zh-CN-XiaoyiNeural` (Female)<br/>`zh-CN-XiaozhenNeural` (Female)<br/>`zh-CN-YunfengNeural` (Male)<br/>`zh-CN-YunhaoNeural` (Male)<br/>`zh-CN-YunjianNeural` (Male)<br/>`zh-CN-YunxiaNeural` (Male)<br/>`zh-CN-YunzeNeural` (Male) |
 | `zh-CN-henan` | Chinese (Zhongyuan Mandarin Henan, Simplified) | `zh-CN-henan-YundengNeural` (Male) |
 
@@ -34,9 +70,9 @@ The Batch synthesis API is currently in public preview. Once it's generally avai
 
 The following voices are now generally available. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
 
-| Locale (BCP-47) | Language | Text-to-speech voices |
-| ----- | ----- | ----- | ----- |
-| `es-MX` | Spanish (Mexico) | `es-MX-BeatrizNeural` (Female)<br/>`es-MX-CandelaNeural` (Female)<br/>`es-MX-CarlotaNeural` (Female)<br/>`es-MX-CecilioNeural` (Male)<br/>`es-MX-GerardoNeural` (Male)<br/>`es-MX-LarissaNeural` (Female)<br/>`es-MX-LibertoNeural` (Male)<br/>`es-MX-LucianoNeural` (Male)<br/>`es-MX-MarinaNeural` (Female)<br/>`es-MX-NuriaNeural` (Female)<br/>`es-MX-PelayoNeural` (Male)<br/>`es-MX-RenataNeural` (Female)<br/>`es-MX-YagoNeural` (Male) | 
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- |
+| `es-MX` | Spanish (Mexico) | `es-MX-BeatrizNeural` (Female)<br/> `es-MX-CandelaNeural` (Female)<br/> `es-MX-CarlotaNeural` (Female)<br/>`es-MX-CecilioNeural` (Male)<br/>`es-MX-GerardoNeural` (Male)<br/>`es-MX-LarissaNeural` (Female)<br/>`es-MX-LibertoNeural` (Male)<br/>`es-MX-LucianoNeural` (Male)<br/>`es-MX-MarinaNeural` (Female)<br/>`es-MX-NuriaNeural` (Female)<br/>`es-MX-PelayoNeural` (Male)<br/>`es-MX-RenataNeural` (Female)<br/>`es-MX-YagoNeural` (Male) | 
 | `it-IT` | Italian (Italy) | `it-IT-BenignoNeural` (Male)<br/>`it-IT-CalimeroNeural` (Male)<br/>`it-IT-CataldoNeural` (Male)<br/>`it-IT-FabiolaNeural` (Female)<br/>`it-IT-FiammaNeural` (Female)<br/>`it-IT-GianniNeural` (Male)<br/>`it-IT-ImeldaNeural` (Female)<br/>`it-IT-IrmaNeural` (Female)<br/>`it-IT-LisandroNeural` (Male)<br/>`it-IT-PalmiraNeural` (Female)<br/>`it-IT-PierinaNeural` (Female)<br/>`it-IT-RinaldoNeural` (Male) | 
 | `pt-BR` | Portuguese (Brazil) | `pt-BR-BrendaNeural` (Female)<br/>`pt-BR-DonatoNeural` (Male)<br/>`pt-BR-ElzaNeural` (Female)<br/>`pt-BR-FabioNeural` (Male)<br/>`pt-BR-GiovannaNeural` (Female)<br/>`pt-BR-HumbertoNeural` (Male)<br/>`pt-BR-JulioNeural` (Male)<br/>`pt-BR-LeilaNeural` (Female)<br/>`pt-BR-LeticiaNeural` (Female)<br/>`pt-BR-ManuelaNeural` (Female)<br/>`pt-BR-NicolauNeural` (Male)<br/>`pt-BR-ValerioNeural` (Male)<br/>`pt-BR-YaraNeural` (Female) | 
 
@@ -53,8 +89,8 @@ The following locale support is added for [Custom Neural Voice](../../custom-neu
 
 The following voices are now generally available. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
 
-| Locale (BCP-47) | Language | Text-to-speech voices |
-| ----- | ----- | ----- | ----- |
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- | 
 | `eu-ES` | Basque | `eu-ES-AinhoaNeural` (Female)<br/>`eu-ES-AnderNeural` (Male) | 
 | `hy-AM` | Armenian (Armenia) | `hy-AM-AnahitNeural` (Female)<br/>`hy-AM-HaykNeural` (Male) | 
 
@@ -62,8 +98,8 @@ The following voices are now generally available. See the [full language and voi
 
 The following voices are now available in public preview. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
 
-| Locale (BCP-47) | Language | Text-to-speech voices |
-| ----- | ----- | ----- | ----- |
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- |
 | `en-AU` | English (Australia) | `en-AU-AnnetteNeural`(Female)<br/>`en-AU-CarlyNeural`(Female)<br/>`en-AU-DarrenNeural`(Male)<br/>`en-AU-DuncanNeural`(Male)<br/>`en-AU-ElsieNeural`(Female)<br/>`en-AU-FreyaNeural`(Female)<br/>`en-AU-JoanneNeural`(Female)<br/>`en-AU-KenNeural`(Male)<br/>`en-AU-KimNeural`(Female)<br/>`en-AU-NeilNeural`(Male)<br/>`en-AU-TimNeural`(Male)<br/>`en-AU-TinaNeural`(Female) | 
 | `es-ES` | Spanish (Spain) | `es-ES-AbrilNeural`(Female)<br/>`es-ES-AlvaroNeural`(Male)<br/>`es-ES-ArnauNeural`(Male)<br/>`es-ES-DarioNeural`(Male)<br/>`es-ES-EliasNeural`(Male)<br/>`es-ES-EstrellaNeural`(Female)<br/>`es-ES-IreneNeural`(Female)<br/>`es-ES-LaiaNeural`(Female)<br/>`es-ES-LiaNeural`(Female)<br/>`es-ES-NilNeural`(Male)<br/>`es-ES-SaulNeural`(Male)<br/>`es-ES-TeoNeural`(Male)<br/>`es-ES-TrianaNeural`(Female)<br/>`es-ES-VeraNeural`(Female) | 
 | `ja-JP` | Japanese (Japan) | `ja-JP-AoiNeural`(Female)<br/>`ja-JP-DaichiNeural`(Male)<br/>`ja-JP-MayuNeural`(Female)<br/>`ja-JP-NaokiNeural`(Male)<br/>`ja-JP-ShioriNeural`(Female) | 
@@ -95,7 +131,7 @@ The following voices are now available in public preview. See the [full language
 
 Released new voices in public preview:
 * Voices for English (United States): `en-US-AIGenerate1Neural` and `en-US-AIGenerate2Neural`.
-* Voices for Chinese dialects: `zh-CN-henan-YundengNeural`, `zh-CN-shaanxi-XiaoniNeural`, and `zh-CN-shandong-YunxiangNeural`. 
+* Voices for Chinese regional languages: `zh-CN-henan-YundengNeural`, `zh-CN-shaanxi-XiaoniNeural`, and `zh-CN-shandong-YunxiangNeural`. 
 
 For more information, see the [language and voice list](../../language-support.md?tabs=tts).
 
@@ -133,7 +169,7 @@ For more information, see the [language and voice list](../../language-support.m
 
 #### Prebuilt Neural TTS Voice
 
-* Added 9 new languages and variants for Neural text-to-speech:
+* Added 9 new languages and variants for Neural text to speech:
 
 | Language | Locale | Gender | Voice name | Style support |
 |---|---|---|---|---|
@@ -318,7 +354,7 @@ For more information, see the [language and voice list](../../language-support.m
 
 #### New languages and voices
 
-Added 10 new languages and variants for Neural text-to-speech:
+Added 10 new languages and variants for Neural text to speech:
 
 | Language | Locale | Gender | Voice name | Style support |
 |---|---|---|---|---|
@@ -405,7 +441,7 @@ For the full list of available voices, see [Language support](../../language-sup
 
 #### New languages and voices
 
-Added 49 new languages and 98 voices for Neural text-to-speech:
+Added 49 new languages and 98 voices for Neural text to speech:
 
 Adri in `af-ZA` Afrikaans (South Africa), Willem in `af-ZA` Afrikaans (South Africa), Mekdes in `am-ET` Amharic (Ethiopia), Ameha in `am-ET` Amharic (Ethiopia), Fatima in `ar-AE` Arabic (United Arab Emirates), Hamdan in `ar-AE` Arabic (United Arab Emirates), Laila in `ar-BH` Arabic (Bahrain), Ali in `ar-BH` Arabic (Bahrain), Amina in `ar-DZ` Arabic (Algeria), Ismael in `ar-DZ` Arabic (Algeria), Rana in `ar-IQ` Arabic (Iraq), Bassel in `ar-IQ` Arabic (Iraq), Sana in `ar-JO` Arabic (Jordan), Taim in `ar-JO` Arabic (Jordan), Noura in `ar-KW` Arabic (Kuwait), Fahed in `ar-KW` Arabic (Kuwait), Iman in `ar-LY` Arabic (Libya), Omar in `ar-LY` Arabic (Libya), Mouna in `ar-MA` Arabic (Morocco), Jamal in `ar-MA` Arabic (Morocco), Amal in `ar-QA` Arabic (Qatar), Moaz in `ar-QA` Arabic (Qatar), Amany in `ar-SY` Arabic (Syria), Laith in `ar-SY` Arabic (Syria), Reem in `ar-TN` Arabic (Tunisia), Hedi in `ar-TN` Arabic (Tunisia), Maryam in `ar-YE` Arabic (Yemen), Saleh in `ar-YE` Arabic (Yemen), Nabanita in `bn-BD` Bangla (Bangladesh), Pradeep in `bn-BD` Bangla (Bangladesh), Asilia in `en-KE` English (Kenya), Chilemba in `en-KE` English (Kenya), Ezinne in `en-NG` English (Nigeria), Abeo in `en-NG` English (Nigeria), Imani in `en-TZ` English (Tanzania), Elimu in `en-TZ` English (Tanzania), Sofia in `es-BO` Spanish (Bolivia), Marcelo in `es-BO` Spanish (Bolivia), Catalina in `es-CL` Spanish (Chile), Lorenzo in `es-CL` Spanish (Chile), Maria in `es-CR` Spanish (Costa Rica), Juan in `es-CR` Spanish (Costa Rica), Belkys in `es-CU` Spanish (Cuba), Manuel in `es-CU` Spanish (Cuba), Ramona in `es-DO` Spanish (Dominican Republic), Emilio in `es-DO` Spanish (Dominican Republic), Andrea in `es-EC` Spanish (Ecuador), Luis in `es-EC` Spanish (Ecuador), Teresa in `es-GQ` Spanish (Equatorial Guinea), Javier in `es-GQ` Spanish (Equatorial Guinea), Marta in `es-GT` Spanish (Guatemala), Andres in `es-GT` Spanish (Guatemala), Karla in `es-HN` Spanish (Honduras), Carlos in `es-HN` Spanish (Honduras), Yolanda in `es-NI` Spanish (Nicaragua), Federico in `es-NI` Spanish (Nicaragua), Margarita in `es-PA` Spanish (Panama), Roberto in `es-PA` Spanish (Panama), Camila in `es-PE` Spanish (Peru), Alex in `es-PE` Spanish (Peru), Karina in `es-PR` Spanish (Puerto Rico), Victor in `es-PR` Spanish (Puerto Rico), Tania in `es-PY` Spanish (Paraguay), Mario in `es-PY` Spanish (Paraguay), Lorena in `es-SV` Spanish (El Salvador), Rodrigo in `es-SV` Spanish (El Salvador), Valentina in `es-UY` Spanish (Uruguay), Mateo in `es-UY` Spanish (Uruguay), Paola in `es-VE` Spanish (Venezuela), Sebastian in `es-VE` Spanish (Venezuela), Dilara in `fa-IR` Persian (Iran), Farid in `fa-IR` Persian (Iran), Blessica in `fil-PH` Filipino (Philippines), Angelo in `fil-PH` Filipino (Philippines), Sabela in `gl-ES` Galician (Spain), Roi in `gl-ES` Galician (Spain), Siti in `jv-ID` Javanese (Indonesia), Dimas in `jv-ID` Javanese (Indonesia), Sreymom in `km-KH` Khmer (Cambodia), Piseth in `km-KH` Khmer (Cambodia), Nilar in `my-MM` Burmese (Myanmar), Thiha in `my-MM` Burmese (Myanmar), Ubax in `so-SO` Somali (Somalia), Muuse in `so-SO` Somali (Somalia), Tuti in `su-ID` Sundanese (Indonesia), Jajang in `su-ID` Sundanese (Indonesia), Rehema in `sw-TZ` Swahili (Tanzania), Daudi in `sw-TZ` Swahili (Tanzania), Saranya in `ta-LK` Tamil (Sri Lanka), Kumar in `ta-LK` Tamil (Sri Lanka), Venba in `ta-SG` Tamil (Singapore), Anbu in `ta-SG` Tamil (Singapore), Gul in `ur-IN` Urdu (India), Salman in `ur-IN` Urdu (India), Madina in `uz-UZ` Uzbek (Uzbekistan), Sardor in `uz-UZ` Uzbek (Uzbekistan), Thando in `zu-ZA` Zulu (South Africa), Themba in `zu-ZA` Zulu (South Africa).
 
@@ -417,7 +453,7 @@ Adri in `af-ZA` Afrikaans (South Africa), Willem in `af-ZA` Afrikaans (South Afr
 
 ### July 2021 release
 
-**Neural text-to-speech updates**
+**Neural text to speech updates**
 - Reduced pronunciation errors in Hebrew by 20%.
 
 **Speech Studio updates**
@@ -443,9 +479,9 @@ Adri in `af-ZA` Afrikaans (South Africa), Willem in `af-ZA` Afrikaans (South Afr
 
 ### April 2021 release
 
-**Neural text-to-speech is available across 21 regions**
+**Neural text to speech is available across 21 regions**
 
-- **Twelve new regions added** - Neural text-to-speech is now available in these new 12 regions: `Japan East`, `Japan West`, `Korea Central`, `North Central US`, `North Europe`, `South Central US`, `Southeast Asia`, `UK South`, `west Central US`, `West Europe`, `West US`, `West US 2`. Check [here](../../regions.md#speech-service) for full list of 21 supported regions.
+- **Twelve new regions added** - Neural text to speech is now available in these new 12 regions: `Japan East`, `Japan West`, `Korea Central`, `North Central US`, `North Europe`, `South Central US`, `Southeast Asia`, `UK South`, `west Central US`, `West Europe`, `West US`, `West US 2`. Check [here](../../regions.md#speech-service) for full list of 21 supported regions.
 
 ### March 2021 release
 
@@ -463,7 +499,7 @@ With this release, we now support a total of 142 neural voices across 60 languag
 
 **Get facial pose events to animate characters**
 
-Neural Text-to-Speech now includes the [viseme event](../../how-to-speech-synthesis-viseme.md). Viseme events allow users to get a sequence of facial poses along with synthesized speech. Visemes can be used to control the movement of 2D and 3D avatar models, matching mouth movements to synthesized speech. Viseme events are only available for `en-US-AriaNeural` voice at this time.
+Neural Text to speech now includes the [viseme event](../../how-to-speech-synthesis-viseme.md). Viseme events allow users to get a sequence of facial poses along with synthesized speech. Visemes can be used to control the movement of 2D and 3D avatar models, matching mouth movements to synthesized speech. Viseme events are only available for `en-US-AriaNeural` voice at this time.
 
 **Add the bookmark element in Speech Synthesis Markup Language (SSML)**
 
@@ -505,13 +541,13 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 ### November 2020 release
 
 **New locales and voices in preview**
-- **Five new voices and languages** are introduced to the Neural text-to-speech portfolio. They are: Grace in Maltese (Malta), Ona in Lithuanian (Lithuania), Anu in Estonian (Estonia), Orla in Irish (Ireland) and Everita in Latvian (Latvia).
+- **Five new voices and languages** are introduced to the Neural text to speech portfolio. They are: Grace in Maltese (Malta), Ona in Lithuanian (Lithuania), Anu in Estonian (Estonia), Orla in Irish (Ireland) and Everita in Latvian (Latvia).
 - **Five new `zh-CN` voices with multiple styles and roles support**: Xiaohan, Xiaomo, Xiaorui, Xiaoxuan and Yunxi.
 
 > These voices are available in public preview in three Azure regions: EastUS, SouthEastAsia and WestEurope.
 
-**Neural text-to-speech Container GA**
-- With Neural text-to-speech Container, developers can run speech synthesis with the most natural digital voices in their own environment for specific security and data governance requirements. Check [how to install Speech Containers](../../speech-container-howto.md).
+**Neural text to speech Container GA**
+- With Neural text to speech Container, developers can run speech synthesis with the most natural digital voices in their own environment for specific security and data governance requirements. Check [how to install Speech Containers](../../speech-container-howto.md).
 
 #### New features
 - **Custom Voice**: enabled users to copy a voice model from one region to another; supported endpoint suspension and resuming. Go to the [portal](https://speech.microsoft.com/customvoice) here.
@@ -538,12 +574,12 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 
 #### New features
 
-* **Neural text-to-speech**
+* **Neural text to speech**
     * **Extended to support 18 new languages/locales.** They are Bulgarian, Czech, German (Austria),  German (Switzerland), Greek, English (Ireland), French (Switzerland), Hebrew, Croatian, Hungarian, Indonesian, Malay, Romanian, Slovak, Slovenian, Tamil, Telugu and Vietnamese.
     * **Released 14 new voices to enrich the variety in the existing languages.** See [full language and voice list](../../language-support.md?tabs=tts).
     * **New speaking styles for `en-US` and `zh-CN` voices.** Jenny, the new voice in English (US), supports chatbot, customer service, and assistant styles. 10 new speaking styles are available with our zh-CN voice, XiaoXiao. In addition, the XiaoXiao neural voice supports `StyleDegree` tuning. See [how to use the speaking styles in SSML](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles).
 
-* **Containers: Neural text-to-speech Container released in public preview with 16 voices available in 14 languages.** Learn more on [how to deploy Speech Containers for Neural text-to-speech](../../speech-container-howto.md)
+* **Containers: Neural text to speech Container released in public preview with 16 voices available in 14 languages.** Learn more on [how to deploy Speech Containers for Neural text to speech](../../speech-container-howto.md)
 
 Read the [full announcement of the TTS updates for Ignite 2020](https://techcommunity.microsoft.com/t5/azure-ai/ignite-neural-tts-updates-new-language-support-more-voices/ba-p/1698544)
 
@@ -551,7 +587,7 @@ Read the [full announcement of the TTS updates for Ignite 2020](https://techcomm
 
 #### New features
 
-* **Neural text-to-speech: new speaking style for `en-US` Aria voice**. AriaNeural can sound like a news caster when reading news. The 'newscast-formal' style sounds more serious, while the 'newscast-casual' style is more relaxed and informal. See [how to use the speaking styles in SSML](../../speech-synthesis-markup.md).
+* **Neural text to speech: new speaking style for `en-US` Aria voice**. AriaNeural can sound like a news caster when reading news. The 'newscast-formal' style sounds more serious, while the 'newscast-casual' style is more relaxed and informal. See [how to use the speaking styles in SSML](../../speech-synthesis-markup.md).
 
 * **Custom Voice: a new feature is released to automatically check training data quality**. When you upload your data, the system will examine various aspects of your audio and transcript data, and automatically fix or filter issues to improve the quality of the voice model. This covers the volume of your audio, the noise level, the pronunciation accuracy of speech, the alignment of speech with the normalized text, silence in the audio, in addition to the audio and script format.
 

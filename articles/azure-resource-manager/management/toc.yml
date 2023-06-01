@@ -68,7 +68,7 @@
         - name: Azure App Service
           href: ../../app-service/manage-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Automation
-          href: ../../automation/automation-managing-data.md?toc=/azure/azure-resource-manager/management/toc.json#geo-replication-in-azure-automation
+          href: ../../automation/automation-managing-data.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Backup (Recovery Services vault)
           href: ../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Batch
@@ -124,9 +124,23 @@
   - name: Tags
     items:
     - name: Decision guide
-      href: /azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json
-    - name: Use tags
+      href: /azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming-and-tagging-decision-guide?toc=/azure/azure-resource-manager/management/toc.json
+    - name: Guidance and limits
       href: tag-resources.md
+    - name: Use tags
+      items:
+      - name: Portal
+        href: tag-resources-portal.md
+      - name: Azure CLI
+        href: tag-resources-cli.md
+      - name: Azure PowerShell
+        href: tag-resources-powershell.md
+      - name: Python
+        href: tag-resources-python.md
+      - name: ARM templates
+        href: tag-resources-templates.md
+      - name: Bicep
+        href: tag-resources-bicep.md
     - name: Azure Policy definitions - compliance
       href: tag-policies.md
     - name: Supported resource types
@@ -166,6 +180,12 @@
     - name: Azure PowerShell
       displayName: open,delete,deploy,move,lock,tag
       href: manage-resources-powershell.md
+    - name: Python
+      displayName: open,delete,deploy,move,lock,tag
+      href: manage-resources-python.md
+    - name: REST API
+      displayName: open,delete,deploy
+      href: manage-resources-rest.md
   - name: Resource providers and types
     href: resource-providers-and-types.md
   - name: Preview features

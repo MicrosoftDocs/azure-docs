@@ -60,7 +60,7 @@ Create a [BlobBatchClient](/javascript/api/@azure/storage-blob/blobbatchclient).
  
 ## Code samples
 
-* [Set blob's access tier during upload](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-string-with-access-tier.js)
+* [Set blob's access tier during upload](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-string-with-access-tier.js)
 * [Change blob's access tier after upload](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-change-access-tier.ts)
 * [Copy blob into different access tier](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-copy-to-different-access-tier.ts)
 * [Use a batch to change access tier for many blobs](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-batch-set-access-tier-for-container.ts)

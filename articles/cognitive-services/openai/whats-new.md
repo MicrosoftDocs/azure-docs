@@ -7,13 +7,36 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
-ms.topic: overview
-ms.date: 03/21/2023
+ms.topic: whats-new
+ms.date: 05/15/2023
 recommendations: false
 keywords:  
 ---
 
 # What's new in Azure OpenAI Service
+
+## May 2023
+
+### Azure OpenAI Chat Completion General Availability (GA)
+
+- General availability support for:
+  - Chat Completion API version `2023-05-15`.
+  - GPT-35-Turbo models.
+  - GPT-4 model series. Due to high demand access to this model series is currently only available by request. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
+  
+If you are currently using the `2023-03-15-preview` API, we recommend migrating to the GA `2023-05-15` API. If you are currently using API version `2022-12-01` this API remains GA, but does not include the latest Chat Completion capabilities.
+
+> [!IMPORTANT]
+> Using the current versions of the GPT-35-Turbo models with the completion endpoint remains in preview.
+  
+### France Central
+
+- Azure OpenAI is now available in the France Central region. Check the [models page](concepts/models.md), for the latest information on model availability in each region.  
+
+## April 2023
+
+- **Inactive deployments of customized models will now be deleted after 15 days; models will remain available for redeployment.** If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#deploy-a-customized-model).
+
 
 ## March 2023
 

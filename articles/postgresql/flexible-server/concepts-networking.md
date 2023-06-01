@@ -57,7 +57,7 @@ Here are some concepts to be familiar with when you're using virtual networks wi
 * **Delegated subnet**. A virtual network contains subnets (sub-networks). Subnets enable you to segment your virtual network into smaller address spaces. Azure resources are deployed into specific subnets within a virtual network. 
 
   Your flexible server must be in a subnet that's *delegated*. That is, only Azure Database for PostgreSQL - Flexible Server instances can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as `Microsoft.DBforPostgreSQL/flexibleServers`.
- The smallest CIDR range you can specify for a subnet is /28, which provides fourteen IP addresses, however the first and last address in any network or subnet can't be assigned to any individual host. Azure reserves five IPs to be utilized internally by Azure networking, which include two IPs that cannot be assigned to host,  mentioned above. This leaves you eleven available IP addresses for /28 CIDR range,  whereas a single Flexible Server with High Availability features utilizes 4 addresses. 
+ The smallest CIDR range you can specify for the subnet is /28, which provides sixteen IP addresses, however the first and last address in any network or subnet can't be assigned to any individual host. Azure reserves five IPs to be utilized internally by Azure networking, which include two IPs that cannot be assigned to host, mentioned above. This leaves you eleven available IP addresses for /28 CIDR range, whereas a single Flexible Server with High Availability features utilizes 4 addresses. 
 
   > [!IMPORTANT]
   > The names `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet`, and `GatewaySubnet` are reserved within Azure. Don't use any of these as your subnet name.
@@ -103,7 +103,14 @@ The custom DNS server should be inside the virtual network or reachable via the 
 Private DNS zone settings and virtual network peering are independent of each other. If you want to connect to the flexible server from a client that's provisioned in another virtual network from the same region or a different region, you have to link the private DNS zone with the virtual network. For more information, see [Link the virtual network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network).
 
 > [!NOTE]
-> Only private DNS zone names that end with `postgres.database.azure.com` can be linked. Your DNS zone name cannot be the same as your flexible server(s) otherwise name resolution will fail. 
+> Only private DNS zone names that end with **'postgres.database.azure.com'**  can be linked. Your DNS zone name cannot be the same as your flexible server(s) otherwise name resolution will fail. 
+
+To map a Server name to the DNS record you can run *nslookup* command in [Azure Cloud Shell](../../cloud-shell/overview.md) using Azure PowerShell or Bash, substituting name of your server for <server_name> parameter in example below:
+
+```bash
+nslookup -debug <server_name>.postgres.database.azure.com | grep 'canonical name'
+
+```
 
 
 ### Using Hub and Spoke private networking design 

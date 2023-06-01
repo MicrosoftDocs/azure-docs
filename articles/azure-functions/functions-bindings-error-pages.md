@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 Handling errors in Azure Functions is important to help you avoid lost data, avoid missed events, and monitor the health of your application. It's also an important way to help you understand the retry behaviors of event-based triggers.
 
-This article describes general strategies for error handling and the available retry strategies. 
+This article describes general strategies for error handling and the available retry strategies.
 
 > [!IMPORTANT]
 > We're removing retry policy support in the runtime for triggers other than Timer, Kafka, and Event Hubs after this feature becomes generally available (GA). Preview retry policy support for all triggers other than Timer and Event Hubs was removed in December 2022. For more information, see the [Retries](#retries) section.
@@ -44,31 +44,31 @@ The occurrence of errors when you're processing data can be a problem for your f
 
 ## Retries
 
-There are two kinds of retries available for your functions: 
+There are two kinds of retries available for your functions:
 * Built-in retry behaviors of individual trigger extensions
 * Retry policies provided by the Functions runtime
 
 The following table indicates which triggers support retries and where the retry behavior is configured. It also links to more information about errors that come from the underlying services.
 
-| Trigger/binding | Retry source | Configuration | 
-| ---- | ---- | ----- | 
+| Trigger/binding | Retry source | Configuration |
+| ---- | ---- | ----- |
 | Azure Cosmos DB | [Retry policies](#retry-policies) | Function-level |
 | Azure Blob Storage | [Binding extension](functions-bindings-storage-blob-trigger.md#poison-blobs) |  [host.json](functions-bindings-storage-queue.md#host-json) |
-| Azure Event Grid | [Binding extension](../event-grid/delivery-and-retry.md) | Event subscription | 
-| Azure Event Hubs | [Retry policies](#retry-policies) | Function-level | 
-| Azure Queue Storage | [Binding extension](functions-bindings-storage-queue-trigger.md#poison-messages) | [host.json](functions-bindings-storage-queue.md#host-json) | 
-| RabbitMQ | [Binding extension](functions-bindings-rabbitmq-trigger.md#dead-letter-queues) | [Dead letter queue](https://www.rabbitmq.com/dlx.html) | 
-| Azure Service Bus | [Binding extension](../service-bus-messaging/service-bus-dead-letter-queues.md) | [Dead letter queue](../service-bus-messaging/service-bus-dead-letter-queues.md#maximum-delivery-count) | 
+| Azure Event Grid | [Binding extension](../event-grid/delivery-and-retry.md) | Event subscription |
+| Azure Event Hubs | [Retry policies](#retry-policies) | Function-level |
+| Azure Queue Storage | [Binding extension](functions-bindings-storage-queue-trigger.md#poison-messages) | [host.json](functions-bindings-storage-queue.md#host-json) |
+| RabbitMQ | [Binding extension](functions-bindings-rabbitmq-trigger.md#dead-letter-queues) | [Dead letter queue](https://www.rabbitmq.com/dlx.html) |
+| Azure Service Bus | [Binding extension](../service-bus-messaging/service-bus-dead-letter-queues.md) | [Dead letter queue](../service-bus-messaging/service-bus-dead-letter-queues.md#maximum-delivery-count) |
 |Timer | [Retry policies](#retry-policies) | Function-level |
 |Kafka | [Retry policies](#retry-policies) | Function-level |
 
 ### Retry policies
 
-Starting with version 3.x of the Azure Functions runtime, you can define retry policies for Timer, Kafka, and Event Hubs triggers that are enforced by the Functions runtime. 
+Starting with version 3.x of the Azure Functions runtime, you can define retry policies for Timer, Kafka, and Event Hubs triggers that are enforced by the Functions runtime.
 
-The retry policy tells the runtime to rerun a failed execution until either successful completion occurs or the maximum number of retries is reached.   
+The retry policy tells the runtime to rerun a failed execution until either successful completion occurs or the maximum number of retries is reached.
 
-A retry policy is evaluated when a Timer, Kafka, or Event Hubs-triggered function raises an uncaught exception. As a best practice, you should catch all exceptions in your code and rethrow any errors that you want to result in a retry. 
+A retry policy is evaluated when a Timer, Kafka, or Event Hubs-triggered function raises an uncaught exception. As a best practice, you should catch all exceptions in your code and rethrow any errors that you want to result in a retry.
 
 > [!IMPORTANT]
 > Event Hubs checkpoints won't be written until the retry policy for the execution has finished. Because of this behavior, progress on the specific partition is paused until the current batch has finished.
@@ -81,19 +81,19 @@ You can configure two retry strategies that are supported by policy:
 
 # [Fixed delay](#tab/fixed-delay)
 
-A specified amount of time is allowed to elapse between each retry. 
+A specified amount of time is allowed to elapse between each retry.
 
-# [Exponential backoff](#tab/exponential-backoff) 
+# [Exponential backoff](#tab/exponential-backoff)
 
-The first retry waits for the minimum delay. On subsequent retries, time is added exponentially to the initial duration for each retry, until the maximum delay is reached. Exponential back-off adds some small randomization to delays to stagger retries in high-throughput scenarios. 
+The first retry waits for the minimum delay. On subsequent retries, time is added exponentially to the initial duration for each retry, until the maximum delay is reached. Exponential back-off adds some small randomization to delays to stagger retries in high-throughput scenarios.
 
 ---
 
 #### Max retry counts
 
-You can configure the maximum number of times that a function execution is retried before eventual failure. The current retry count is stored in memory of the instance. 
+You can configure the maximum number of times that a function execution is retried before eventual failure. The current retry count is stored in memory of the instance.
 
-It's possible for an instance to have a failure between retry attempts. When an instance fails during a retry policy, the retry count is lost. When there are instance failures, the Event Hubs trigger is able to resume processing and retry the batch on a new instance, with the retry count reset to zero. The timer trigger doesn't resume on a new instance. 
+It's possible for an instance to have a failure between retry attempts. When an instance fails during a retry policy, the retry count is lost. When there are instance failures, the Event Hubs trigger is able to resume processing and retry the batch on a new instance, with the retry count reset to zero. The timer trigger doesn't resume on a new instance.
 
 This behavior means that the maximum retry count is a best effort. In some rare cases, an execution could be retried more than the requested maximum number of times. For Timer triggers, the retries can be less than the maximum number requested.
 
@@ -115,13 +115,26 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 ```
 
 |Property  | Description |
-|---------|-------------| 
+|---------|-------------|
 |MaxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
 |DelayInterval|The delay that's used between retries. Specify it as a string with the format `HH:mm:ss`.|
 
 # [Isolated process](#tab/isolated-process/fixed-delay)
 
-Retry policies aren't yet supported when they're running in an isolated worker process.
+Function-level retries are supported with the following NuGet packages:
+
+- [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) >= 1.9.0
+- [Microsoft.Azure.Functions.Worker.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs) >= 5.2.0
+- [Microsoft.Azure.Functions.Worker.Extensions.Kafka](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka) >= 3.8.0
+- [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) >= 4.2.0
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" id="docsnippet_fixed_delay_retry_example" :::
+
+|Property  | Description |
+|---------|-------------|
+|MaxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
+|DelayInterval|The delay that's used between retries. Specify it as a string with the format `HH:mm:ss`.|
+
 
 # [C# script](#tab/csharp-script/fixed-delay)
 
@@ -144,7 +157,7 @@ Here's the retry policy in the *function.json* file:
 ```
 
 |*function.json*&nbsp;property  | Description |
-|---------|-------------| 
+|---------|-------------|
 |strategy|Use `fixedDelay`.|
 |maxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
 |delayInterval|The delay that's used between retries. Specify it as a string with the format `HH:mm:ss`.|
@@ -163,14 +176,21 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 ```
 
 |Property  | Description |
-|---------|-------------| 
+|---------|-------------|
 |MaxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
 |MinimumInterval|The minimum retry delay. Specify it as a string with the format `HH:mm:ss`.|
-|MaximumInterval|The maximum retry delay. Specify it as a string with the format `HH:mm:ss`.| 
+|MaximumInterval|The maximum retry delay. Specify it as a string with the format `HH:mm:ss`.|
 
 # [Isolated process](#tab/isolated-process/exponential-backoff)
 
-Retry policies aren't yet supported when they're running in an isolated worker process.
+Function-level retries are supported with the following NuGet packages:
+
+- [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) >= 1.9.0
+- [Microsoft.Azure.Functions.Worker.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs) >= 5.2.0
+- [Microsoft.Azure.Functions.Worker.Extensions.Kafka](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka) >= 3.8.0
+- [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) >= 4.2.0
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" id="docsnippet_exponential_backoff_retry_example" :::
 
 # [C# script](#tab/csharp-script/exponential-backoff)
 
@@ -194,15 +214,15 @@ Here's the retry policy in the *function.json* file:
 ```
 
 |*function.json*&nbsp;property  | Description |
-|---------|-------------| 
+|---------|-------------|
 |strategy|Use `exponentialBackoff`.|
 |maxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
 |minimumInterval|The minimum retry delay. Specify it as a string with the format `HH:mm:ss`.|
-|maximumInterval|The maximum retry delay. Specify it as a string with the format `HH:mm:ss`.| 
+|maximumInterval|The maximum retry delay. Specify it as a string with the format `HH:mm:ss`.|
 
 ---
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell" 
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
 
 Here's the retry policy in the *function.json* file:
 
@@ -224,7 +244,7 @@ Here's the retry policy in the *function.json* file:
 }
 ```
 
-# [Exponential backoff](#tab/exponential-backoff) 
+# [Exponential backoff](#tab/exponential-backoff)
 
 ```json
 {
@@ -246,14 +266,14 @@ Here's the retry policy in the *function.json* file:
 ---
 
 |*function.json* property  | Description |
-|---------|-------------| 
+|---------|-------------|
 |strategy|Required. The retry strategy to use. Valid values are `fixedDelay` or `exponentialBackoff`.|
 |maxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
 |delayInterval|The delay that's used between retries when you're using a `fixedDelay` strategy. Specify it as a string with the format `HH:mm:ss`.|
 |minimumInterval|The minimum retry delay when you're using an `exponentialBackoff` strategy. Specify it as a string with the format `HH:mm:ss`.|
-|maximumInterval|The maximum retry delay when you're using `exponentialBackoff` strategy. Specify it as a string with the format `HH:mm:ss`.| 
+|maximumInterval|The maximum retry delay when you're using `exponentialBackoff` strategy. Specify it as a string with the format `HH:mm:ss`.|
 
-::: zone-end 
+::: zone-end
 ::: zone pivot="programming-language-python"
 
 Here's a Python sample that uses the retry context in a function:
@@ -265,12 +285,12 @@ import logging
 
 def main(mytimer: azure.functions.TimerRequest, context: azure.functions.Context) -> None:
     logging.info(f'Current retry count: {context.retry_context.retry_count}')
-    
+
     if context.retry_context.retry_count == context.retry_context.max_retry_count:
         logging.warn(
             f"Max retries of {context.retry_context.max_retry_count} for "
             f"function {context.function_name} has been reached")
-   
+
 ```
 
 ::: zone-end
@@ -289,7 +309,7 @@ public void run(
 }
 ```
 
-# [Exponential backoff](#tab/exponential-backoff) 
+# [Exponential backoff](#tab/exponential-backoff)
 
 ```java
 @FunctionName("TimerTriggerJava1")
@@ -303,7 +323,7 @@ public void run(
 ```
 
 |Element  | Description |
-|---------|-------------| 
+|---------|-------------|
 |maxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
 |delayInterval|The delay that's used between retries when you're using a `fixedDelay` strategy. Specify it as a string with the format `HH:mm:ss`.|
 |minimumInterval|The minimum retry delay when you're using an `exponentialBackoff` strategy. Specify it as a string with the format `HH:mm:ss`.|

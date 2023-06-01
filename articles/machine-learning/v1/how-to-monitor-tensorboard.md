@@ -36,7 +36,7 @@ How you launch TensorBoard with Azure Machine Learning experiments depends on th
 * To launch TensorBoard and view your experiment job histories, your experiments need to have previously enabled logging to track its metrics and performance.  
 * The code in this document can be run in either of the following environments: 
     * Azure Machine Learning compute instance - no downloads or installation necessary
-        * Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+        * Complete [Create resources to get started](../quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
         * In the samples folder on the notebook server, find  two completed and expanded notebooks by navigating to these directories:
             * **SDK v1 > how-to-use-azureml > track-and-monitor-experiments > tensorboard > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb**
             * **SDK v1 > how-to-use-azureml > track-and-monitor-experiments > tensorboard > tensorboard > tensorboard.ipynb**

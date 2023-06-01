@@ -4,10 +4,10 @@ description: Learn how to identify the restore time and restore a live or delete
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/18/2022
+ms.date: 03/31/2023
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022, devx-track-arm-template
 ---
 
 # Restore an Azure Cosmos DB account that uses continuous backup mode
@@ -17,8 +17,7 @@ Azure Cosmos DB's point-in-time restore feature helps you to recover from an acc
 
 This article describes how to identify the restore time and restore a live or deleted Azure Cosmos DB account. It shows restore the account using [Azure portal](#restore-account-portal), [PowerShell](#restore-account-powershell), [CLI](#restore-account-cli), or an [Azure Resource Manager template](#restore-arm-template).
 
-> [!NOTE]
-> Currently in preview, the restore action for API for Table and Gremlin is supported via PowerShell and the Azure CLI.
+
 
 ## <a id="restore-account-portal"></a>Restore an account using Azure portal
 
@@ -107,7 +106,7 @@ Use the following steps to get the restore details from Azure portal:
 
 ## <a id="restore-account-powershell"></a>Restore an account using Azure PowerShell
 
-Before restoring the account, install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps) or version higher than 6.2.0. Next connect to your Azure account and select the required subscription with the following commands:
+Before restoring the account, install the [latest version of Azure PowerShell](/powershell/azure/install-azure-powershell) or version higher than 9.6.0. Next connect to your Azure account and select the required subscription with the following commands:
 
 1. Sign into Azure using the following command:
 
@@ -122,7 +121,7 @@ Before restoring the account, install the [latest version of Azure PowerShell](/
 
 ### <a id="trigger-restore-ps"></a>Trigger a restore operation for API for NoSQL account
 
-The following cmdlet is an example to trigger a restore operation with the restore command by using the target account, source account, location, resource group, and timestamp:
+The following cmdlet is an example to trigger a restore operation with the restore command by using the target account, source account, location, resource group, PublicNetworkAccess and timestamp:
 
 ```azurepowershell
 
@@ -132,6 +131,7 @@ Restore-AzCosmosDBAccount `
   -SourceDatabaseAccountName "SourceDatabaseAccountName" `
   -RestoreTimestampInUtc "UTCTime" `
   -Location "AzureRegionName"
+  -PublicNetworkAccess Disabled
 
 ```
 
@@ -145,8 +145,13 @@ Restore-AzCosmosDBAccount `
   -SourceDatabaseAccountName "source-sql" `
   -RestoreTimestampInUtc "2021-01-05T22:06:00" `
   -Location "West US"
+  -PublicNetworkAccess Disabled
 
 ```
+If `PublicNetworkAccess` is not set, restored account is accessible from public network, please ensure to pass Disabled to the `PublicNetworkAccess` option to disable public network access for restored account.
+
+> [!NOTE]
+> For restoring with public network access disabled, you'll need to install the preview of powershell module of CosmosDB by executing `Install-Module -Name Az.CosmosDB -AllowPrerelease`. You would also require version 5.1 of the Powershell.
 
 **Example 2:** Restoring specific collections and databases. This example restores the collections *MyCol1*, *MyCol2* from *MyDB1* and the entire database *MyDB2*, which, includes all the containers under it.
 
@@ -198,7 +203,7 @@ To restore Customer Managed Key (CMK) continuous account please refer to the ste
 
 ### <a id="get-the-restore-details-powershell"></a>Get the restore details from the restored account
 
-Import the `Az.CosmosDB` module and run the following command to get the restore details. The restoreTimestamp will be under the restoreParameters object:
+Import the `Az.CosmosDB` module version 1.10.0 and run the following command to get the restore details. The restoreTimestamp will be under the restoreParameters object:
 
 ```azurepowershell
 Get-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount 
@@ -345,7 +350,6 @@ Get-AzCosmosdbGremlinRestorableGraph `
    -DatabaseRId "AoQ13r==" ` 
    -Location "West US" 
 ```
- 
 #### Find databases or graphs that can be restored at any given timestamp 
 
 Use the following command to get the list of databases or graphs that can be restored at any given timestamp. This command only works with live accounts. 
@@ -371,7 +375,6 @@ Get-AzCosmosdbTableRestorableTable `
    -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68"   
    ` -Location "West US" 
 ```
- 
 #### Find tables that can be restored at any given timestamp 
 
 Use the following command to get the list of tables that can be restored at any given timestamp. This command only works with live accounts. 
@@ -385,14 +388,17 @@ Get-AzCosmosdbTableRestorableResource `
 ```
 
 
+
+
+
 ## <a id="restore-account-cli"></a>Restore an account using Azure CLI
 
 Before restoring the account, install Azure CLI with the following steps:
 
 1. Install the latest version of Azure CLI
 
-   * Install the latest version of [Azure CLI](/cli/azure/install-azure-cli) or version higher than 2.26.0.
-   * If you have already installed CLI, run `az upgrade` command to update to the latest version. This command will only work with CLI version higher than 2.11. If you have an earlier version, use the above link to install the latest version.
+   * Install the latest version of [Azure CLI](/cli/azure/install-azure-cli) or version higher than 2.46.0.
+   * If you have already installed CLI, run `az upgrade` command to update to the latest version. This command will only work with CLI version higher than 2.46.0. If you have an earlier version, use the above link to install the latest version.
 
 1. Sign in and select your subscription
 
@@ -405,57 +411,66 @@ The simplest way to trigger a restore is by issuing the restore command with nam
 
 #### Create a new Azure Cosmos DB account by restoring from an existing account
 
-   ```azurecli-interactive
 
-   az cosmosdb restore \
-    --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
-    --account-name MySourceAccount \
-    --restore-timestamp 2020-07-13T16:03:41+0000 \
-    --resource-group MyResourceGroup \
-    --location "West US"
+```azurecli-interactive
 
-   ```
+az cosmosdb restore \
+ --target-database-account-name <MyRestoredCosmosDBDatabaseAccount> \
+ --account-name <MySourceAccount> \
+ --restore-timestamp 2020-07-13T16:03:41+0000 \
+ --resource-group <MyResourceGroup> \
+ --location "West US" \
+ --enable-public-network False
+
+```
+
+If `**--enable-public-network**` is not set, restored account is accessible from public network. Please ensure to pass `` False` to the `**--enable-public-network** `` option to prevent public network access for restored account.
+
+ > [!NOTE]
+ > For restoring with public network access disabled, you'll need to install the cosmosdb-preview 0.23.0 of CLI extension   by executing `az extension update --name cosmosdb-preview `. You would also require version 2.17.1 of the CLI.
+
+
 
 #### Create a new Azure Cosmos DB account by restoring only selected databases and containers from an existing database account
 
-   ```azurecli-interactive
+```azurecli-interactive
 
-   az cosmosdb restore \
-    --resource-group MyResourceGroup \
-    --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
-    --account-name MySourceAccount \
-    --restore-timestamp 2020-07-13T16:03:41+0000 \
-    --location "West US" \
-    --databases-to-restore name=MyDB1 collections=Collection1 Collection2 \
-    --databases-to-restore name=MyDB2 collections=Collection3 Collection4
+az cosmosdb restore \
+ --resource-group MyResourceGroup \
+ --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
+ --account-name MySourceAccount \
+ --restore-timestamp 2020-07-13T16:03:41+0000 \
+ --location "West US" \
+ --databases-to-restore name=MyDB1 collections=Collection1 Collection2 \
+ --databases-to-restore name=MyDB2 collections=Collection3 Collection4
 
-   ```
+```
 #### Create a new Azure Cosmos DB API for Gremlin account by restoring only selected databases and graphs from an existing API for Gremlin account
 
-   ```azurecli-interactive
+```azurecli-interactive
 
-   az cosmosdb restore \
-    --resource-group MyResourceGroup \
-    --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
-    --account-name MySourceAccount \
-    --restore-timestamp 2022-04-13T16:03:41+0000 \
-    --location "West US" \
-    --gremlin-databases-to-restore name=MyDB1 graphs=graph1 graph2 \
-    --gremlin-databases-to-restore name=MyDB2 graphs =graph3 graph4 
-   ```
+az cosmosdb restore \
+ --resource-group MyResourceGroup \
+ --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
+ --account-name MySourceAccount \
+ --restore-timestamp 2022-04-13T16:03:41+0000 \
+ --location "West US" \
+ --gremlin-databases-to-restore name=MyDB1 graphs=graph1 graph2 \
+ --gremlin-databases-to-restore name=MyDB2 graphs =graph3 graph4 
+```
 
  #### Create a new Azure Cosmos DB API for Table account by restoring only selected tables from an existing API for Table account
 
-   ```azurecli-interactive
+```azurecli-interactive
 
-   az cosmosdb restore \
-    --resource-group MyResourceGroup \
-    --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
-    --account-name MySourceAccount \
-    --restore-timestamp 2022-04-14T06:03:41+0000 \
-    --location "West US" \
-    --tables-to-restore table1 table2 
-   ```
+az cosmosdb restore \
+ --resource-group MyResourceGroup \
+ --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
+ --account-name MySourceAccount \
+ --restore-timestamp 2022-04-14T06:03:41+0000 \
+ --location "West US" \
+ --tables-to-restore table1 table2 
+```
 
 ### <a id="get-the-restore-details-cli"></a>Get the restore details from the restored account
 
@@ -653,6 +668,14 @@ az cosmosdb mongodb restorable-resource list \
 
 
 
+
+
+
+
+
+
+
+
 #### List all the versions of databases in a live database account
 The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and graph resources. These commands only work for live accounts.
 
@@ -678,7 +701,7 @@ This command output now shows when a database was created and deleted.
     
   } 
 ] 
-``` 
+```
 
 #### List all the versions of Gremlin graphs of a database in a live database account 
 
@@ -705,7 +728,7 @@ This command output shows includes list of operations performed on all the conta
     "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableGraphs" 
   } 
 ] 
-``` 
+```
 
 #### Find databases or graphs that can be restored at any given timestamp 
 
@@ -806,7 +829,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
     {
       "name": "vinhpitrarmrestore-kal3",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2022-02-15-preview",
+      "apiVersion": "2023-04-15",
       "location": "West US",
       "properties": {
         "locations": [
@@ -837,7 +860,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
     {
       "name": "ademo-pitr1",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2022-02-15-preview",
+      "apiVersion": "2023-04-15",
       "location": "West US",
       "properties": {
         "locations": [
@@ -854,12 +877,12 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
             "restoreSource": "/subscriptions/2296c272-5d55-40d9-bc05-4d56dc2d7588/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/5cb9d82e-ec71-430b-b977-cd6641db85bc",
             "restoreMode": "PointInTime",
             "restoreTimestampInUtc": "2021-10-27T23:20:46Z",
-            "gremlinDatabasesToRestore": { 
+            "gremlinDatabasesToRestore": [{ 
                 "databaseName": "db1", 
                 "graphNames": [ 
                     "graph1", "graph2" 
                 ] 
-            }
+            }]
         }
       }
     }
@@ -877,7 +900,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
     {
       "name": "ademo-pitr1",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2022-02-15-preview",
+      "apiVersion": "2023-04-15",
       "location": "West US",
       "properties": {
         "locations": [
@@ -916,3 +939,5 @@ az deployment group create -g <ResourceGroup> --template-file <RestoreTemplateFi
 * [How to migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
+
+

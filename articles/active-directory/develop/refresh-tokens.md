@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/10/2022
+ms.date: 05/23/2023
 ms.author: shermanouko
 ms.reviewer: mmacy, ludwignick
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
@@ -54,10 +54,10 @@ Refresh tokens can be revoked by the server because of a change in credentials, 
 | User does SSPR                                                                                                             | Revoked               | Revoked              | Stays alive               | Stays alive              | Stays alive               |
 | Admin resets password                                                                                                      | Revoked               | Revoked              | Stays alive               | Stays alive              | Stays alive               |
 | User revokes their refresh tokens [via PowerShell](/powershell/module/microsoft.graph.users.actions/invoke-mginvalidateuserrefreshtoken)   | Revoked               | Revoked              | Revoked                   | Revoked                  | Revoked                   |
-| Admin revokes all refresh tokens for a user [via PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked               | Revoked              | Revoked                   | Revoked                  | Revoked                   |
+| Admin revokes all refresh tokens for a user [via PowerShell](/powershell/module/microsoft.graph.users.actions/invoke-mginvalidateuserrefreshtoken) | Revoked               | Revoked              | Revoked                   | Revoked                  | Revoked                   |
 | Single sign-out [on web](v2-protocols-oidc.md#single-sign-out)                                                             | Revoked               | Stays alive          | Revoked                   | Stays alive              | Stays alive               |
 
 ## Next steps
 
-- Learn about [configurable token lifetimes](active-directory-configurable-token-lifetimes.md)
+- Learn about [configurable token lifetimes](configurable-token-lifetimes.md)
 - Check out [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md) for more details on primary refresh tokens.

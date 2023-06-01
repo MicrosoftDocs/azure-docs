@@ -19,7 +19,7 @@ ms.devlang: azurecli
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](how-to-use-environments.md)
-> * [v2 (current version)](../how-to-manage-environments-v2.md)
+> * [v2 (current version)](../how-to-manage-environments-v2.md?view=azureml-api-2&preserve-view=true)
 
 In this article, learn how to create and manage Azure Machine Learning [environments](/python/api/azureml-core/azureml.core.environment.environment) using CLI v1. Use the environments to track and reproduce your projects' software dependencies as they evolve. The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) v1 mirrors most of the functionality of the Python SDK v1. You can use it to create and manage environments.
 
@@ -67,5 +67,5 @@ az ml environment download -n myenv -d downloaddir
 
 ## Next steps
 
-* After you have a trained model, learn [how and where to deploy models](../how-to-deploy-online-endpoints.md).
+* After you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
 * View the [`Environment` class SDK reference](/python/api/azureml-core/azureml.core.environment%28class%29).

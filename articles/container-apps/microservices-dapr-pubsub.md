@@ -1,11 +1,12 @@
 ---
 title: "Microservices communication using Dapr Publish and Subscribe"
+titleSuffix: "Azure Container Apps"
 description: Enable two sample Dapr applications to send and receive messages and leverage Azure Container Apps.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 05/15/2023
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
@@ -22,9 +23,6 @@ The sample pub/sub project includes:
 1. An (subscriber) `order-processor` service that listens for messages from the `checkout` service of a specific topic. 
 
 :::image type="content" source="media/microservices-dapr-azd/pubsub-quickstart.png" alt-text="Diagram of the Dapr pub/sub sample.":::
-
-> [!NOTE]
-> This tutorial uses [Azure Developer CLI (`azd`)](/azure/developer/azure-developer-cli/overview), which is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
 
 ## Prerequisites
 
@@ -679,4 +677,6 @@ azd down
 ## Next steps
 
 - Learn more about [deploying Dapr applications to Azure Container Apps](./microservices-dapr.md).
+- [Enable token authentication for Dapr requests.](./dapr-authentication-token.md)
 - Learn more about [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) and [making your applications compatible with `azd`](/azure/developer/azure-developer-cli/make-azd-compatible).
+- [Scale your Dapr applications using KEDA scalers](./dapr-keda-scaling.md)

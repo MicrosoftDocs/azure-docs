@@ -10,7 +10,7 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: chat
-zone_pivot_groups: acs-azcli-js-csharp-java-python-swift-android
+zone_pivot_groups: acs-azcli-js-csharp-java-python-swift-android-power-platform
 ms.custom: mode-other, devx-track-azurecli
 ---
 # Quickstart: Add Chat to your App
@@ -43,6 +43,10 @@ Get started with Azure Communication Services by using the Communication Service
 
 ::: zone pivot="programming-language-swift"
 [!INCLUDE [Chat with iOS SDK](./includes/chat-swift.md)]
+::: zone-end
+
+::: zone pivot="programming-language-power-platform"
+[!INCLUDE [Chat with Power Platform](./includes/chat-logic-app.md)]
 ::: zone-end
 
 ## Clean up resources

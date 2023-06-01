@@ -15,22 +15,27 @@ ms.date: 08/25/2022
 
 Azure Database for PostgreSQL - Flexible Server currently supports the following major versions:
 
+## PostgreSQL version 15 (Preview)
+
+PostgreSQL version 15 is now available in public preview in limited regions (West Europe, East US, West US2, South East Asia, UK SOuth, North Europe, Japan east). Refer to the [PostgreSQL documentation](https://www.postgresql.org/about/news/postgresql-15-released-2526/) to learn more about improvements and fixes in this release. New servers will be created with this minor version.
+
+
 ## PostgreSQL version 14
 
-The current minor release is **14.6**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/14.5/) to learn more about improvements and fixes in this release. New servers will be created with this minor version.
+The current minor release is **14.7**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/14.7/) to learn more about improvements and fixes in this release. New servers will be created with this minor version.
 
 
 ## PostgreSQL version 13
 
-The current minor release is **13.9**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/13.8/) to learn more about improvements and fixes in this release. New servers will be created with this minor version. 
+The current minor release is **13.9**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/13.9/) to learn more about improvements and fixes in this release. New servers will be created with this minor version. 
 
 ## PostgreSQL version 12
 
-The current minor release is **12.13**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/12.12/) to learn more about improvements and fixes in this release. New servers will be created with this minor version. Your existing servers will be automatically upgraded to the latest supported minor version in your future scheduled maintenance window.
+The current minor release is **12.13**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/12.13/) to learn more about improvements and fixes in this release. New servers will be created with this minor version. Your existing servers will be automatically upgraded to the latest supported minor version in your future scheduled maintenance window.
 
 ## PostgreSQL version 11
 
-The current minor release is **11.18**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/11.17/) to learn more about improvements and fixes in this release. New servers will be created with this minor version. Your existing servers will be automatically upgraded to the latest supported minor version in your future scheduled maintenance window.
+The current minor release is **11.18**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/11.18/) to learn more about improvements and fixes in this release. New servers will be created with this minor version. Your existing servers will be automatically upgraded to the latest supported minor version in your future scheduled maintenance window.
 
 ## PostgreSQL version 10 and older
 
@@ -41,6 +46,11 @@ We don't support PostgreSQL version 10 and older for Azure Database for PostgreS
 The PostgreSQL project regularly issues minor releases to fix reported bugs. Azure Database for PostgreSQL automatically patches servers with minor releases during the service's monthly deployments.
 
 Automation for major version upgrade isn't yet supported. For example, there's currently no automatic upgrade from PostgreSQL 11 to PostgreSQL 12.<!-- To upgrade to the next major version, create a [database dump and restore](howto-migrate-using-dump-and-restore.md) to a server that was created with the new engine version.-->
+
+## Supportability and retirement policy of the underlying operating system
+
+Azure Database for PostgreSQL - Flexible Server is a fully managed open-source database. The underlying operating system is an integral part of the service. Microsoft continually works to ensure ongoing security updates and maintenance for security compliance and vulnerability mitigation, regardless of whether it is provided by a third-party or an internal vendor. Automatic upgrades during scheduled maintenance keep your managed database secure, stable, and up-to-date.
+
 
 ## Managing PostgreSQL engine defects
 

@@ -2,6 +2,7 @@
 title: Import Bicep extensibility providers
 description: Describes how to import Bicep extensibility providers.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 02/21/2023
 ---
 

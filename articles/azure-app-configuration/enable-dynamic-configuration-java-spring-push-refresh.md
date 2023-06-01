@@ -13,7 +13,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/07/2022
+ms.date: 04/11/2023
 ms.author: mametcal
 
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
@@ -54,8 +54,8 @@ In this tutorial, you learn how to:
    ```xml
            <dependency>
                <groupId>com.azure.spring</groupId>
-               <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-               <version>2.6.0</version>
+               <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+               <version>4.7.0</version>
            </dependency>
    
            <!-- Adds the Ability to Push Refresh -->
@@ -116,11 +116,11 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 
 1. Update your `pom.xml` under the `azure-webapp-maven-plugin`'s `configuration` add
 
-```xml
-<appSettings>
-  <AppConfigurationConnectionString>${AppConfigurationConnectionString}</AppConfigurationConnectionString>
-</appSettings>
-```
+   ```xml
+   <appSettings>
+     <AppConfigurationConnectionString>${AppConfigurationConnectionString}</AppConfigurationConnectionString>
+   </appSettings>
+   ```
 
 1. Run the following command to build the console app:
 

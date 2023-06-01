@@ -3,14 +3,14 @@ title: Azure SQL input binding for Functions
 description: Learn to use the Azure SQL input binding in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.custom: event-tier1-build-2022
-ms.date: 11/10/2022
+ms.custom: event-tier1-build-2022, build-2023
+ms.date: 4/17/2023
 ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Azure SQL input binding for Azure Functions (preview)
+# Azure SQL input binding for Azure Functions
 
 When a function runs, the Azure SQL input binding retrieves data from a database and passes it to the input parameter of the function. 
 
@@ -64,10 +64,10 @@ namespace AzureSQLSamples
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitem")]
             HttpRequest req,
-            [Sql("select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
-                CommandType = System.Data.CommandType.Text,
-                Parameters = "@Id={Query.id}",
-                ConnectionStringSetting = "SqlConnectionString")]
+            [Sql(commandText: "select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
+                commandType: System.Data.CommandType.Text,
+                parameters: "@Id={Query.id}",
+                connectionStringSetting: "SqlConnectionString")]
             IEnumerable<ToDoItem> toDoItem)
         {
             return new OkObjectResult(toDoItem.FirstOrDefault());
@@ -96,10 +96,10 @@ namespace AzureSQLSamples
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitems/{priority}")]
             HttpRequest req,
-            [Sql("select [Id], [order], [title], [url], [completed] from dbo.ToDo where [Priority] > @Priority",
-                CommandType = System.Data.CommandType.Text,
-                Parameters = "@Priority={priority}",
-                ConnectionStringSetting = "SqlConnectionString")]
+            [Sql(commandText: "select [Id], [order], [title], [url], [completed] from dbo.ToDo where [Priority] > @Priority",
+                commandType: System.Data.CommandType.Text,
+                parameters: "@Priority={priority}",
+                connectionStringSetting: "SqlConnectionString")]
             IEnumerable<ToDoItem> toDoItems)
         {
             return new OkObjectResult(toDoItems);
@@ -161,10 +161,10 @@ namespace AzureSQLSamples
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitem")]
             HttpRequest req,
-            [Sql("select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
-                CommandType = System.Data.CommandType.Text,
-                Parameters = "@Id={Query.id}",
-                ConnectionStringSetting = "SqlConnectionString")]
+            [SqlInput(commandText: "select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
+                commandType: System.Data.CommandType.Text,
+                parameters: "@Id={Query.id}",
+                connectionStringSetting: "SqlConnectionString")]
             IEnumerable<ToDoItem> toDoItem)
         {
             return new OkObjectResult(toDoItem.FirstOrDefault());
@@ -194,10 +194,10 @@ namespace AzureSQLSamples
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitems/{priority}")]
             HttpRequest req,
-            [Sql("select [Id], [order], [title], [url], [completed] from dbo.ToDo where [Priority] > @Priority",
-                CommandType = System.Data.CommandType.Text,
-                Parameters = "@Priority={priority}",
-                ConnectionStringSetting = "SqlConnectionString")]
+            [SqlInput(commandText: "select [Id], [order], [title], [url], [completed] from dbo.ToDo where [Priority] > @Priority",
+                commandType: System.Data.CommandType.Text,
+                parameters: "@Priority={priority}",
+                connectionStringSetting: "SqlConnectionString")]
             IEnumerable<ToDoItem> toDoItems)
         {
             return new OkObjectResult(toDoItems);
@@ -227,8 +227,8 @@ namespace AzureSQL.ToDo
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "DeleteFunction")] HttpRequest req,
             ILogger log,
-            [Sql("DeleteToDo", CommandType = System.Data.CommandType.StoredProcedure, 
-                Parameters = "@Id={Query.id}", ConnectionStringSetting = "SqlConnectionString")] 
+            [SqlInput(commandText: "DeleteToDo", commandType: System.Data.CommandType.StoredProcedure, 
+                parameters: "@Id={Query.id}", connectionStringSetting: "SqlConnectionString")] 
                 IEnumerable<ToDoItem> toDoItems)
         {
             return new OkObjectResult(toDoItems);
@@ -237,10 +237,137 @@ namespace AzureSQL.ToDo
 }
 ```
 
-<!-- Uncomment to support C# script examples.
 # [C# Script](#tab/csharp-script)
 
--->
+
+More samples for the Azure SQL input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharpscript).
+
+This section contains the following examples:
+
+* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-csharpscript)
+* [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-csharpscript)
+
+The examples refer to a `ToDoItem` class and a corresponding database table:
+
+:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16":::
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
+
+<a id="http-trigger-look-up-id-from-query-string-csharpscript"></a>
+### HTTP trigger, get row by ID from query string
+
+The following example shows an Azure SQL input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function is triggered by an HTTP request that uses a query string to specify the ID. That ID is used to retrieve a `ToDoItem` record with the specified query.
+
+> [!NOTE]
+> The HTTP query string parameter is case-sensitive.
+>
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "get"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
+{
+    "name": "todoItem",
+    "type": "sql",
+    "direction": "in",
+    "commandText": "select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
+    "commandType": "Text",
+    "parameters": "@Id = {Query.id}",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the C# script code:
+
+```cs
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+
+public static IActionResult Run(HttpRequest req, ILogger log, IEnumerable<ToDoItem> todoItem)
+{
+    return new OkObjectResult(todoItem);
+}
+```
+
+
+<a id="http-trigger-delete-one-or-multiple-rows-csharpscript"></a>
+### HTTP trigger, delete rows
+
+The following example shows an Azure SQL input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding to execute a stored procedure with input from the HTTP request query parameter. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+
+The stored procedure `dbo.DeleteToDo` must be created on the SQL database.
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "get"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
+{
+    "name": "todoItems",
+    "type": "sql",
+    "direction": "in",
+    "commandText": "DeleteToDo",
+    "commandType": "StoredProcedure",
+    "parameters": "@Id = {Query.id}",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+:::code language="csharp" source="~/functions-sql-todo-sample/DeleteToDo.cs" range="4-30":::
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the C# script code:
+
+```cs
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+
+public static IActionResult Run(HttpRequest req, ILogger log, IEnumerable<ToDoItem> todoItems)
+{
+    return new OkObjectResult(todoItems);
+}
+```
+
 ---
 
 ::: zone-end
@@ -953,6 +1080,8 @@ The following table explains the binding configuration properties that you set i
 The attribute's constructor takes the SQL command text, the command type, parameters, and the connection string setting name. The command can be a Transact-SQL (T-SQL) query with the command type `System.Data.CommandType.Text` or stored procedure name with the command type `System.Data.CommandType.StoredProcedure`. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.
 
 Queries executed by the input binding are [parameterized](/dotnet/api/microsoft.data.sqlclient.sqlparameter) in Microsoft.Data.SqlClient to reduce the risk of [SQL injection](/sql/relational-databases/security/sql-injection) from the parameter values passed into the binding.
+
+If an exception occurs when a SQL input binding is executed then the function code will not execute.  This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.
 
 
 ::: zone-end

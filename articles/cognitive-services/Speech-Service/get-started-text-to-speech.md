@@ -1,5 +1,5 @@
 ---
-title: "Text-to-speech quickstart - Speech service"
+title: "Text to speech quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you convert text to speech. Learn about object construction and design patterns, supported audio output formats, and custom configuration options for speech synthesis.
 services: cognitive-services

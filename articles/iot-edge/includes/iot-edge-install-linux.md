@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 01/05/2023
+ms.date: 05/03/2023
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -61,6 +61,14 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 # [Red Hat Enterprise Linux](#tab/rhel)
 
 Installing can be done with a few commands. Open a terminal and run the following commands:
+
+* **9.x (amd64)**:
+
+   ```bash
+    wget https://packages.microsoft.com/config/rhel/9.0/packages-microsoft-prod.rpm -O packages-microsoft-prod.rpm
+    sudo yum localinstall packages-microsoft-prod.rpm
+    rm packages-microsoft-prod.rpm
+    ```
 
 * **8.x (amd64)**:
 

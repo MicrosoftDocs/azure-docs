@@ -11,7 +11,7 @@ ms.date: 03/22/2023
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
-ms.custom: mode-other
+ms.custom: mode-other, build-2023
 zone_pivot_groups: programming-languages-set-translator
 ---
 
@@ -32,7 +32,7 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You also need to [create containers](#create-azure-blob-storage-containers) in your Azure blob storage account for your source and target files:
+* An [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You also need to [create containers](#create-azure-blob-storage-containers) in your Azure Blob Storage account for your source and target files:
 
   * **Source container**. This container is where you upload your files for translation (required).
   * **Target container**. This container is where your translated files are stored (required).
@@ -80,9 +80,9 @@ To get started, you need:
 > [!div class="nextstepaction"]
 > [I ran into an issue retrieving my key and endpoint.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Retrieve-your-keys-and-endpoint)
 
-## Create Azure blob storage containers
+## Create Azure Blob Storage containers
 
-You need to [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
+You need to [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
 
 * **Source container**. This container is where you upload your files for translation (required).
 * **Target container**. This container is where your translated files are stored (required).
@@ -111,6 +111,8 @@ For this project, you need a **source document** uploaded to your **source conta
 ## HTTP request
 
 A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the service creates a batch request. The translated documents are listed in your target container.
+
+For detailed information regarding Azure Translator Service request limits, *see* [**Document Translation request limits**](../../request-limits.md#document-translation).
 
 ### Headers
 

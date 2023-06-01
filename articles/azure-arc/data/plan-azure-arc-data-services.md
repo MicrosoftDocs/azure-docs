@@ -139,6 +139,9 @@ As outlined in [Connectivity modes and requirements](./connectivity.md), you can
 
 After you've installed the Azure Arc data controller, you can create and access data services such as Azure Arc-enabled SQL Managed Instance or Azure Arc-enabled PostgreSQL server.
 
+## Known limitations
+Currently, only one Azure Arc data controller per Kubernetes cluster is supported. However, you can create multiple Arc data services, such as Arc-enabled SQL managed instances and Arc-enabled PostgreSQL servers, that are managed by the same Azure Arc data controller.
+
 ## Next steps
 
 You have several additional options for creating the Azure Arc data controller:

@@ -12,11 +12,13 @@ ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
 ms.custom: mode-api
 ---
-# Call recording: Bring your own storage quickstart
+# Call recording: Bring your own Azure storage quickstart
 
 [!INCLUDE [Private Preview](../../../includes/private-preview-include-section.md)]
 
-This quickstart gets you started with BYOS (Bring your own storage) for Call Recording. To start using BYOS, make sure you're familiar with the [Call Recording APIs](../../voice-video-calling/get-started-call-recording.md).
+This quickstart gets you started with Bring your own Azure storage for Call Recording. To start using Bring your own Azure Storage functionality, make sure you're familiar with the [Call Recording APIs](../../voice-video-calling/get-started-call-recording.md).
+
+You need to be part of the Azure Communication Services TAP program. It's likely that you’re already part of this program, and if you aren't, sign-up using https://aka.ms/acs-tap-invite. Bring your own Azure Storage uses Managed Identities, to access to this functionality for Call Recording, submit your Azure Communication Services Resource IDs by filling this - [Registration form](https://forms.office.com/r/njact5SiVJ). You need to fill the form every time you need a new resource ID allow-listed.
 
 ## Pre-requisite: Setting up Managed Identity and RBAC role assignments
 

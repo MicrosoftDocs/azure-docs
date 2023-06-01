@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
-ms.topic: how-to
+ms.topic: include
 ms.date: 06/30/2022
 author: ChrisHMSFT
 ms.author: chrhoder
@@ -241,6 +241,8 @@ From the model page, you can also select **Download training file** to download 
 
 When the fine-tune job has succeeded, you can deploy the customized model from the **Models** pane. You must deploy your customized model to make it available for use with completion calls.
 
+[!INCLUDE [Fine-tuning deletion](fine-tune.md)]
+
 > [!NOTE]
 > Only one deployment is permitted for a customized model. An error message is displayed if you select an already-deployed customized model.
 
@@ -286,6 +288,8 @@ The result file is a CSV file containing a header row and a row for each trainin
 When you're done with your customized model, you can delete the deployment and model. You can also delete the training and validation files you uploaded to the service, if needed. 
 
 ### Delete your model deployment
+
+[!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
 You can delete the deployment for your customized model from the **Deployments** page for Azure OpenAI Studio. Select the deployment to delete, and then select **Delete** to delete the deployment. 
 

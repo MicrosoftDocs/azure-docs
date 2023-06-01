@@ -14,13 +14,13 @@ ms.custom: devx-track-java
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
 This article describes how to troubleshoot build issues with your Azure Spring Apps deployment.
 
 ## Build exit codes
 
-Azure Spring Apps Enterprise tier uses Tanzu Buildpacks to transform your application source code into images. For more information, see [Tanzu Buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/index.html).
+The Azure Spring Apps Enterprise plan uses Tanzu Buildpacks to transform your application source code into images. For more information, see [Tanzu Buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/index.html).
 
 When you deploy your app in Azure Spring Apps using the [Azure CLI](/cli/azure/install-azure-cli), you'll see a build log in the Azure CLI console. If the build fails, Azure Spring Apps displays an exit code and error message in the CLI console indicating why the buildpack execution failed during different phases of the buildpack [lifecycle](https://buildpacks.io/docs/concepts/components/lifecycle/).
 

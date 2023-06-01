@@ -43,7 +43,7 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk</artifactId>
-            <version>1.26.0</version>
+            <version>1.28.0</version>
             </dependency>
         </dependencies>
     </project>
@@ -130,9 +130,6 @@ Enter some text that you want to speak. For example, type "I'm excited to try te
 Enter some text that you want to speak >
 I'm excited to try text to speech
 ```
-
-> [!WARNING]
-> There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. For more information, see the [troubleshooting guide](../../../troubleshooting.md#connection-closed-or-timeout).
 
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:

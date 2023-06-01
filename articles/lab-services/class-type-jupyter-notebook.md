@@ -190,10 +190,10 @@ Follow these steps to configure an SSH tunnel between a user's local machine and
 
 ## Cost estimate
 
-This section provides a cost estimate for running this class for 25 users. There are 20 hours of scheduled class time. Also, each user gets 10 hours quota for homework or assignments outside scheduled class time. The VM size we chose was small GPU (compute), which is 139 lab units. If you want to use the Small (20 lab units) or Medium size (42 lab units), you can replace the lab unit part in the equation below with the correct number.  
+This section provides a cost estimate for running this class for 25 lab users. There are 20 hours of scheduled class time. Also, each user gets 10 hours quota for homework or assignments outside scheduled class time. The VM size we chose was small GPU (compute), which is 139 lab units. If you want to use the Small (20 lab units) or Medium size (42 lab units), you can replace the lab unit part in the equation below with the correct number.  
 
 Here's an example of a possible cost estimate for this class:
-25 students \* (20 scheduled hours + 10 quota hours) \* 139 lab units \* 0.01 USD per hour = 1042.5 USD
+25 lab users \* (20 scheduled hours + 10 quota hours) \* 139 lab units \* 0.01 USD per hour = 1042.5 USD
 
 >[!IMPORTANT]
 >This cost estimate is for example purposes only. For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).

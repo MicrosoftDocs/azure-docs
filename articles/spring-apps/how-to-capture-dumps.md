@@ -2,7 +2,7 @@
 title: Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps
 description: Learn how to manually capture a heap dump, a thread dump, or start Java Flight Recorder.
 author: KarlErickson
-ms.author: yinglzh
+ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 01/21/2022
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article describes how to manually generate a heap dump or thread dump, and how to start Java Flight Recorder (JFR).
 

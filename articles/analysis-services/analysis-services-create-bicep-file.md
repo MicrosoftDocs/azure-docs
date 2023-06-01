@@ -7,7 +7,7 @@ ms.service: analysis-services
 ms.author: jgao
 author: mumian
 tags: azure-resource-manager, bicep
-
+ms.custom: devx-track-bicep
 #Customer intent: As a BI developer who is new to Azure, I want to use Azure Analysis Services to store and manage my organizations data models.
 ---
 

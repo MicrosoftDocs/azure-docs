@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-set-thirteen
 
 # Embedded Speech (preview)
 
-Embedded Speech is designed for on-device [speech-to-text](speech-to-text.md) and [text-to-speech](text-to-speech.md) scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in industrial equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should first consider [disconnected containers](../containers/disconnected-containers.md). 
+Embedded Speech is designed for on-device [speech to text](speech-to-text.md) and [text to speech](text-to-speech.md) scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in industrial equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should first consider [disconnected containers](../containers/disconnected-containers.md). 
 
 > [!IMPORTANT]
 > Microsoft limits access to embedded speech. You can apply for access through the Azure Cognitive Services [embedded speech limited access review](https://aka.ms/csgate-embedded-speech). For more information, see [Limited access for embedded speech](/legal/cognitive-services/speech-service/embedded-speech/limited-access-embedded-speech?context=/azure/cognitive-services/speech-service/context/context).
@@ -132,7 +132,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk-embedded</artifactId>
-            <version>1.26.0</version>
+            <version>1.28.0</version>
             </dependency>
         </dependencies>
     </project>
@@ -153,7 +153,7 @@ Be sure to use the `@aar` suffix when the dependency is specified in `build.grad
 
 ```
 dependencies {
-    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.26.0@aar'
+    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.28.0@aar'
 }
 ```
 ::: zone-end
@@ -161,13 +161,13 @@ dependencies {
 
 ## Models and voices
 
-For embedded speech, you'll need to download the speech recognition models for [speech-to-text](speech-to-text.md) and voices for [text-to-speech](text-to-speech.md). Instructions will be provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
+For embedded speech, you'll need to download the speech recognition models for [speech to text](speech-to-text.md) and voices for [text to speech](text-to-speech.md). Instructions will be provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
 
-The following [speech-to-text](speech-to-text.md) models are available: de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nl-NL, pt-BR, ru-RU, sv-SE, tr-TR, zh-CN, zh-HK, and zh-TW.
+The following [speech to text](speech-to-text.md) models are available: de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nl-NL, pt-BR, ru-RU, sv-SE, tr-TR, zh-CN, zh-HK, and zh-TW.
 
-The following [text-to-speech](text-to-speech.md) locales and voices are available:
+The following [text to speech](text-to-speech.md) locales and voices are available:
 
-| Locale (BCP-47) | Language | Text-to-speech voices |
+| Locale (BCP-47) | Language | Text to speech voices |
 | ----- | ----- | ----- |
 | `de-DE` | German (Germany) | `de-DE-KatjaNeural` (Female)<br/>`de-DE-ConradNeural` (Male)|
 | `en-AU` | English (Australia) | `en-AU-AnnetteNeural` (Female)<br/>`en-AU-WilliamNeural` (Male)|
@@ -181,14 +181,14 @@ The following [text-to-speech](text-to-speech.md) locales and voices are availab
 | `it-IT` | Italian (Italy) | `it-IT-IsabellaNeural` (Female)<br/>`it-IT-DiegoNeural` (Male)|
 | `ja-JP` | Japanese (Japan) | `ja-JP-NanamiNeural` (Female)<br/>`ja-JP-KeitaNeural` (Male)|
 | `ko-KR` | Korean (Korea) | `ko-KR-SunHiNeural` (Female)<br/>`ko-KR-InJoonNeural` (Male)|
-| `pr-BR` | Portuguese (Brazil) | `pt-BR-FranciscaNeural` (Female)<br/>`pt-BR-AntonioNeural` (Male)|
+| `pt-BR` | Portuguese (Brazil) | `pt-BR-FranciscaNeural` (Female)<br/>`pt-BR-AntonioNeural` (Male)|
 | `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoNeural` (Female)<br/>`zh-CN-YunxiNeural` (Male)|
 
 ## Embedded speech configuration
 
 For cloud connected applications, as shown in most Speech SDK samples, you use the `SpeechConfig` object with a Speech resource key and region. For embedded speech, you don't use a Speech resource. Instead of a cloud resource, you use the [models and voices](#models-and-voices) that you downloaded to your local device. 
 
-Use the `EmbeddedSpeechConfig` object to set the location of the models or voices. If your application is used for both speech-to-text and text-to-speech, you can use the same `EmbeddedSpeechConfig` object to set the location of the models and voices. 
+Use the `EmbeddedSpeechConfig` object to set the location of the models or voices. If your application is used for both speech to text and text to speech, you can use the same `EmbeddedSpeechConfig` object to set the location of the models and voices. 
 
 ::: zone pivot="programming-language-csharp"
 
@@ -199,12 +199,12 @@ paths.Add("C:\\dev\\embedded-speech\\stt-models");
 paths.Add("C:\\dev\\embedded-speech\\tts-voices");
 var embeddedSpeechConfig = EmbeddedSpeechConfig.FromPaths(paths.ToArray());
 
-// For speech-to-text
+// For speech to text
 embeddedSpeechConfig.SetSpeechRecognitionModel(
     "Microsoft Speech Recognizer en-US FP Model V8", 
     Environment.GetEnvironmentVariable("MODEL_KEY"));
 
-// For text-to-speech
+// For text to speech
 embeddedSpeechConfig.SetSpeechSynthesisVoice(
     "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
     Environment.GetEnvironmentVariable("VOICE_KEY"));
@@ -215,7 +215,7 @@ embeddedSpeechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.
 ::: zone pivot="programming-language-cpp"
 
 > [!TIP]
-> The `GetEnvironmentVariable` function is defined in the [speech-to-text quickstart](get-started-speech-to-text.md) and [text-to-speech quickstart](get-started-text-to-speech.md).
+> The `GetEnvironmentVariable` function is defined in the [speech to text quickstart](get-started-speech-to-text.md) and [text to speech quickstart](get-started-text-to-speech.md).
 
 ```cpp
 // Provide the location of the models and voices.
@@ -224,12 +224,12 @@ paths.push_back("C:\\dev\\embedded-speech\\stt-models");
 paths.push_back("C:\\dev\\embedded-speech\\tts-voices");
 auto embeddedSpeechConfig = EmbeddedSpeechConfig::FromPaths(paths);
 
-// For speech-to-text
+// For speech to text
 embeddedSpeechConfig->SetSpeechRecognitionModel((
     "Microsoft Speech Recognizer en-US FP Model V8", 
     GetEnvironmentVariable("MODEL_KEY"));
 
-// For text-to-speech
+// For text to speech
 embeddedSpeechConfig->SetSpeechSynthesisVoice(
     "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
     GetEnvironmentVariable("VOICE_KEY"));
@@ -247,12 +247,12 @@ paths.add("C:\\dev\\embedded-speech\\stt-models");
 paths.add("C:\\dev\\embedded-speech\\tts-voices");
 var embeddedSpeechConfig = EmbeddedSpeechConfig.fromPaths(paths);
 
-// For speech-to-text
+// For speech to text
 embeddedSpeechConfig.setSpeechRecognitionModel(
     "Microsoft Speech Recognizer en-US FP Model V8", 
     System.getenv("MODEL_KEY"));
 
-// For text-to-speech
+// For text to speech
 embeddedSpeechConfig.setSpeechSynthesisVoice(
     "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
     System.getenv("VOICE_KEY"));
@@ -269,6 +269,7 @@ embeddedSpeechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.
 You can find ready to use embedded speech samples at [GitHub](https://aka.ms/embedded-speech-samples). For remarks on projects from scratch, see samples specific documentation:
 
 - [C# (.NET 6.0)](https://aka.ms/embedded-speech-samples-csharp)
+- [C# (.NET MAUI)](https://aka.ms/embedded-speech-samples-csharp-maui)
 - [C# for Unity](https://aka.ms/embedded-speech-samples-csharp-unity)
 ::: zone-end
 
@@ -289,13 +290,13 @@ You can find ready to use embedded speech samples at [GitHub](https://aka.ms/emb
 
 Hybrid speech with the `HybridSpeechConfig` object uses the cloud speech service by default and embedded speech as a fallback in case cloud connectivity is limited or slow.
 
-With hybrid speech configuration for [speech-to-text](speech-to-text.md) (recognition models), embedded speech is used when connection to the cloud service fails after repeated attempts. Recognition may continue using the cloud service again if the connection is later resumed.
+With hybrid speech configuration for [speech to text](speech-to-text.md) (recognition models), embedded speech is used when connection to the cloud service fails after repeated attempts. Recognition may continue using the cloud service again if the connection is later resumed.
 
-With hybrid speech configuration for [text-to-speech](text-to-speech.md) (voices), embedded and cloud synthesis are run in parallel and the result is selected based on which one gives a faster response. The best result is evaluated on each synthesis request.
+With hybrid speech configuration for [text to speech](text-to-speech.md) (voices), embedded and cloud synthesis are run in parallel and the result is selected based on which one gives a faster response. The best result is evaluated on each synthesis request.
 
 ## Cloud speech
 
-For cloud speech, you use the `SpeechConfig` object, as shown in the [speech-to-text quickstart](get-started-speech-to-text.md) and [text-to-speech quickstart](get-started-text-to-speech.md). To run the quickstarts for embedded speech, you can replace `SpeechConfig` with `EmbeddedSpeechConfig` or `HybridSpeechConfig`. Most of the other speech recognition and synthesis code are the same, whether using cloud, embedded, or hybrid configuration.
+For cloud speech, you use the `SpeechConfig` object, as shown in the [speech to text quickstart](get-started-speech-to-text.md) and [text to speech quickstart](get-started-text-to-speech.md). To run the quickstarts for embedded speech, you can replace `SpeechConfig` with `EmbeddedSpeechConfig` or `HybridSpeechConfig`. Most of the other speech recognition and synthesis code are the same, whether using cloud, embedded, or hybrid configuration.
 
 
 ## Next steps

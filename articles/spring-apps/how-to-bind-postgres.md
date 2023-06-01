@@ -7,6 +7,8 @@ ms.topic: how-to
 ms.date: 09/26/2022
 ms.author: karler
 ms.custom: passwordless-java, devx-track-java
+zone_pivot_group_filename: spring-apps/postgresql-zone-pivot-groups.json
+zone_pivot_groups: passwordless-postgresql
 ---
 
 # Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps
@@ -16,9 +18,17 @@ ms.custom: passwordless-java, devx-track-java
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 With Azure Spring Apps, you can bind select Azure services to your applications automatically, instead of having to configure your Spring Boot application manually. This article shows you how to bind your application to your Azure Database for PostgreSQL instance.
+
+In this article, we include two authentication methods: Azure Active Directory (Azure AD) authentication and PostgreSQL authentication. The Passwordless tab shows the Azure AD authentication and the Password tab shows the PostgreSQL authentication.
+
+Azure AD authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+
+PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to use passwords as credentials for the accounts, these credentials are stored in the user table. Because these passwords are stored in PostgreSQL, you need to manage the rotation of the passwords by yourself.
+
+::: zone pivot="postgresql-passwordless-flexible-server"
 
 ## Prerequisites
 
@@ -49,7 +59,7 @@ Use the following steps to prepare your project.
 
 ## Bind your app to the Azure Database for PostgreSQL instance
 
-### [Service Connector for flexible server](#tab/Passwordlessflex)
+### [Passwordless (Recommended)](#tab/Passwordlessflex)
 
 1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
 
@@ -71,7 +81,64 @@ Use the following steps to prepare your project.
        --system-identity
    ```
 
-### [Service Connector for single server](#tab/Passwordlesssingle)
+### [Password](#tab/Secretsflex)
+
+Use the following steps to bind your app using a secret.
+
+1. Note the admin username and password of your Azure Database for PostgreSQL account.
+
+1. Connect to the server, create a database named **testdb** from a PostgreSQL client, and then create a new non-admin account.
+
+1. Run the following command to connect to the database with admin username and password.
+
+   ```azurecli
+   az spring connection create postgres-flexible \
+       --resource-group $AZ_SPRING_APPS_RESOURCE_GROUP \
+       --service $AZ_SPRING_APPS_SERVICE_INSTANCE_NAME \
+       --app $APP_NAME \
+       --deployment $DEPLOYMENT_NAME \
+       --target-resource-group $POSTGRES_RESOURCE_GROUP \
+       --server $POSTGRES_SERVER_NAME \
+       --database $DATABASE_NAME \
+       --secret name=$USERNAME secret=$PASSWORD
+   ```
+
+---
+
+::: zone-end
+
+::: zone pivot="postgresql-passwordless-single-server"
+
+## Prerequisites
+
+* An application deployed to Azure Spring Apps. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
+* An Azure Database for PostgreSQL Single Server instance.
+* [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
+
+## Prepare your Java project
+
+Use the following steps to prepare your project.
+
+1. In your project's *pom.xml* file, add the following dependency:
+
+   ```xml
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-data-jpa</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-cloud-azure-starter-jdbc-postgresql</artifactId>
+   </dependency>
+   ```
+
+1. In the *application.properties* file, remove any `spring.datasource.*` properties.
+
+1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
+
+## Bind your app to the Azure Database for PostgreSQL instance
+
+### [Passwordless](#tab/PasswordlessSingle)
 
 1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
 
@@ -93,7 +160,7 @@ Use the following steps to prepare your project.
        --system-identity
    ```
 
-### [Service Connector with password](#tab/Secrets)
+### [Password](#tab/SecretsSingle)
 
 Use the following steps to bind your app using a secret.
 
@@ -116,6 +183,8 @@ Use the following steps to bind your app using a secret.
    ```
 
 ---
+
+::: zone-end
 
 ## Next steps
 

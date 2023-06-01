@@ -127,6 +127,8 @@ After result is received if you want to do CPU intensive work on the result you 
 Based on the type of your work you should use the appropriate existing Reactor Scheduler for your work. Read here
 [``Schedulers``](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html).
 
+To further understand the threading and scheduling model of project Reactor, refer to this [blog post by Project Reactor](https://spring.io/blog/2019/12/13/flight-of-the-flux-3-hopping-threads-and-schedulers).
+
 For more information on Azure Cosmos DB Java SDK v4, please look at the [Azure Cosmos DB directory of the Azure SDK for Java monorepo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos).
 
 * **Optimize logging settings in your application**

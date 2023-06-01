@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 03/20/2023
+ms.date: 04/07/2023
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -90,6 +90,7 @@ If your App Service Environment doesn't pass the validation checks or you try to
 |`<ZoneRedundant><DedicatedHosts><ASEv3/ASE>` is not available in this location. |This error appears if you're trying to migrate an App Service Environment in a region that doesn't support one of your requested features. |Migrate using one of the [manual migration options](migration-alternatives.md) if you want to migrate immediately. Otherwise, wait for the migration feature to support this App Service Environment configuration.  |
 |Migrate cannot be called on this ASE until the active upgrade has finished.    |App Service Environments can't be migrated during platform upgrades. You can set your [upgrade preference](how-to-upgrade-preference.md) from the Azure portal. In some cases, an upgrade is initiated when visiting the migration page if your App Service Environment isn't on the current build.  |Wait until the upgrade finishes and then migrate.   |
 |App Service Environment management operation in progress.    |Your App Service Environment is undergoing a management operation. These operations can include activities such as deployments or upgrades. Migration is blocked until these operations are complete.   |You can migrate once these operations are complete.  |
+|Migrate is not available for this subscription|Support needs to be engaged for migrating this App Service Environment.|Open a support case to engage support to resolve your issue.|
 
 ## Overview of the migration process using the migration feature
 

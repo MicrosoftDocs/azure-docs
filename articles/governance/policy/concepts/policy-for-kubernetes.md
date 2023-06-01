@@ -4,8 +4,8 @@ description: Learn how Azure Policy uses Rego and Open Policy Agent to manage cl
 ms.date: 06/17/2022
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Understand Azure Policy for Kubernetes clusters
 
@@ -51,8 +51,6 @@ The following general limitations apply to the Azure Policy Add-on for Kubernete
 
 - Azure Policy Add-on for Kubernetes is supported on Kubernetes version **1.14** or higher.
 - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.
-- Only built-in policy definitions are supported. Custom policy definitions are a _public preview_
-  feature.
 - Maximum number of pods supported by the Azure Policy Add-on: **10,000**
 - Maximum number of Non-compliant records per policy per cluster: **500**
 - Maximum number of Non-compliant records per subscription: **1 million**
@@ -490,7 +488,7 @@ messages, see
 ## Logging
 
 As a Kubernetes controller/container, both the _azure-policy_ and _gatekeeper_ pods keep logs in the
-Kubernetes cluster. The logs can be exposed in the **Insights** page of the Kubernetes cluster. For
+Kubernetes cluster. In general, _azure-policy_ logs can be used to troubleshoot issues with policy ingestion onto the cluster and compliance reporting. The _gatekeeper-controller-manager_ pod logs can be used to troubleshoot runtime denies. The _gatekeeper-audit_ pod logs can be used to troubleshoot audits of existing resources. The logs can be exposed in the **Insights** page of the Kubernetes cluster. For
 more information, see
 [Monitor your Kubernetes cluster performance with Azure Monitor for containers](../../../azure-monitor/containers/container-insights-analyze.md).
 

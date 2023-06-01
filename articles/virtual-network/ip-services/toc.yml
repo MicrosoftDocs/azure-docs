@@ -80,6 +80,8 @@ items:
         href: create-custom-ip-address-prefix-powershell.md
       - name: CLI (IPv4)
         href: create-custom-ip-address-prefix-cli.md
+      - name: Portal (IPv6)
+        href: create-custom-ip-address-prefix-ipv6-portal.md   
       - name: PowerShell (IPv6)
         href: create-custom-ip-address-prefix-ipv6-powershell.md
       - name: CLI (IPv6)
