@@ -88,7 +88,7 @@ Azure Front Door Standard is ~45% cheaper than Azure Front Door (classic) for st
 
 ### Scenario 2: A static website with managed WAF rules
 
-* 30 routing rules amd 1 WAF managed rule set are configured.
+* 30 routing rules and 1 WAF managed rule set are configured.
 * 20 TB of outbound data transfer.
 * 200 million requests from client to Azure Front Door edge (Including 100 million managed WAF requests).
 * Cache hit ration = 95%.
@@ -132,7 +132,7 @@ Azure Front Door Standard is ~68% cheaper than Azure Front Door (classic) for fi
 
 ### Scenario 4: Request heavy scenario with WAF protection
 
-* 150 routing rules is configured to origins in different countries.
+* 150 routing rules are configured to origins in different countries.
 * 20 TB of outbound data transfer.
 * 10 TB of inbound data transfer.
 * 5 billion requests from client to Azure Front Door edge.
