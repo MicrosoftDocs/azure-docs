@@ -12,7 +12,7 @@ zone_pivot_groups: container-apps-jobs-self-hosted-ci-cd
 
 # Tutorial: Deploy self-hosted CI/CD runners and agents with Azure Container Apps jobs
 
-GitHub Actions and Azure Pipelines allow you to run CI/CD workflows with self-hosted runners and agents. Self-hosted runners are useful when you need to run workflows that require access to local resources or tools that are not available in a cloud-hosted runner. For example, your workflow might require access to resources inside the virtual network of your Container Apps environment that are not accessible from a cloud-hosted runner.
+GitHub Actions and Azure Pipelines allow you to run CI/CD workflows with self-hosted runners and agents. Self-hosted runners are useful when you need to run workflows that require access to local resources or tools that are not available in a cloud-hosted runner. For example, self-hosted runners running as a Container Apps job allow your workflow to access resources inside the job's virtual network that are not accessible from a cloud-hosted runner.
 
 In this tutorial, you learn how to run GitHub Actions runners as an [event-driven Container Apps job](jobs.md#event-driven-jobs).
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to run GitHub Actions runners as an [event-drive
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
-- See [Jobs preview limitations](../articles/container-apps/jobs.md#jobs-preview-restrictions) for a list of limitations.
+- See [Jobs preview limitations](jobs.md#jobs-preview-restrictions) for a list of limitations.
 
 ## Setup
 
