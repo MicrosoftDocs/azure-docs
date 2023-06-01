@@ -33,7 +33,7 @@ In a terminal or console window, create a new folder for your application and na
 mkdir acs-rooms-quickstart && cd acs-rooms-quickstart
 ```
 
-### Install the packages
+### Install the package
 
 You'll need to use the Azure Communication Rooms client library for Python [version 1.0.0b3](https://pypi.org/project/azure-communication-rooms/) or above.
 
@@ -41,7 +41,6 @@ From a console prompt, navigate to the directory containing the rooms.py file, t
 
 ```console
 pip install azure-communication-rooms
-pip install azure-communication-identity
 ```
 
 ### Set up the app framework
@@ -49,7 +48,6 @@ pip install azure-communication-identity
 Create a new file called `rooms-quickstart.py` and add the basic program structure.
 
 ```python
-
 import os
 from datetime import datetime, timedelta
 from azure.communication.rooms import (
@@ -57,10 +55,7 @@ from azure.communication.rooms import (
     RoomParticipant,
     ParticipantRole
 )
-from azure.communication.identity import (
-    CommunicationIdentityClient,
-    CommunicationUserIdentifier
-)
+
 class RoomsQuickstart(object):
     print("Azure Communication Services - Rooms Quickstart")
     #room method implementations goes here
@@ -81,22 +76,49 @@ self.rooms_client = RoomsClient.from_connection_string(self.connection_string)
 
 ## Create a room
 
-Create a new `room` with default properties using the code snippet below. When defining participants, if a role is not specified, then it will be set to `Attendee` as default.
+### Set up room participants
+In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-python) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
+
+To use the `CommunicationIdentityClient`, install the following package:
+
+```console
+pip install azure-communication-identity
+```
+
+Also, import the namespace of the package at the top of your `rooms-quickstart.py` file:
+
+```python
+from azure.communication.identity import (
+    CommunicationIdentityClient,
+    CommunicationUserIdentifier
+)
+```
+
+Now, the `CommunicationIdentityClient` can be initialized and used to create users:
+
+```python
+# Create identities for users who will join the room
+identity_client = CommunicationIdentityClient.from_connection_string(self.connection_string)
+user1 = identity_client.create_user()
+user2 = identity_client.create_user()
+user3 = identity_client.create_user()
+```
+
+Then, create the list of room participants by referencing those users:
+
+```python
+participant_1 = RoomParticipant(communication_identifier=self.user1, role=ParticipantRole.PRESENTER)
+participant_2 = RoomParticipant(communication_identifier=self.user2, role=ParticipantRole.CONSUMER)
+participants = [participant_1, participant_2]
+```
+
+### Initialize the room
+Create a new `room` using the `participants` defined in the code snippet above:
 
 ```python
 # Create a room
 valid_from = datetime.now()
 valid_until = valid_from + relativedelta(months=+1)
-
-# Create identities for users
-identity_client = CommunicationIdentityClient.from_connection_string(self.connection_string)
-user1 = identity_client.create_user()
-user2 = identity_client.create_user()
-user3 = identity_client.create_user()
-
-participant_1 = RoomParticipant(communication_identifier=self.user1, role=ParticipantRole.PRESENTER)
-participant_2 = RoomParticipant(communication_identifier=self.user2, role=ParticipantRole.CONSUMER)
-participants = [participant_1, participant_2]
 
 try:
     create_room = self.rooms_client.create_room(
