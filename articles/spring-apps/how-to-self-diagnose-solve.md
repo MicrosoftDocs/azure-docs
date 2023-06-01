@@ -27,7 +27,7 @@ Azure Spring Apps diagnostics is an interactive experience to troubleshoot your 
 To complete this exercise, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A deployed Azure Spring Apps service instance. Follow our [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md) to get started.
+* A deployed Azure Spring Apps service instance. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
 * At least one application already created in your service instance.
 
 ## Navigate to the diagnostics page
@@ -36,7 +36,7 @@ To complete this exercise, you need:
 2. Go to your Azure Spring Apps **Overview** page.
 3. Select **Diagnose and solve problems** in the navigation pane.
 
-:::image type="content" source="media/how-to-self-diagnose-solve/diagnose-solve-dialog.png" alt-text="Screenshot of the Azure portal showing the Diagnose and Solve problems page." lightbox="media/how-to-self-diagnose-solve/diagnose-solve-dialog.png":::
+   :::image type="content" source="media/how-to-self-diagnose-solve/diagnose-solve-dialog.png" alt-text="Screenshot of the Azure portal showing the Diagnose and Solve problems page." lightbox="media/how-to-self-diagnose-solve/diagnose-solve-dialog.png":::
 
 ## Search logged issues
 
