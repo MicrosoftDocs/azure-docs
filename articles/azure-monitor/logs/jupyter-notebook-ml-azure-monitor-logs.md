@@ -8,16 +8,16 @@ ms.author: guywild
 ms.reviewer: ilanawaitser
 ms.date: 02/28/2023
 
-# Customer intent: As a data scientist, I want to run custom code on data in Azure Monitor Logs using to gain insights without having to export data outside of Azure Monitor.
+# Customer intent: As a data scientist, I want to run custom code on data in Azure Monitor Logs to gain insights without having to export data outside of Azure Monitor.
 
 ---
 # Tutorial: Create a machine learning pipeline in Azure Monitor Logs by using a notebook
 
 Integrating a [notebook](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/) with a Log Analytics workspace lets you create a multi-step process that runs code in each step based on the results of the previous step. You can use such streamlined processes to build machine learning pipelines, advanced analysis tools, troubleshooting guides (TSGs) for support needs, and more.
 
-In this tutorial, you integrate an Azure Machine Learning notebook with a Log Analytics workspace to create a machine learning pipeline that detects anomalies in Azure Monitor Logs. You then send the anomalies we identify back to our Log Analytics workspace.  
+In this tutorial, you integrate an Azure Machine Learning notebook with a Log Analytics workspace to create a machine learning pipeline that detects anomalies in Azure Monitor Logs. You then send the anomalies you identify back to our Log Analytics workspace.  
 
-There are several ways to [query data in Azure Monitor Logs from a notebook](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), including using the [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme), [Kqlmagic library](https://pypi.org/project/Kqlmagic/), and [MSTICPY library](https://msticpy.readthedocs.io/en/latest/index.html). In this tutorial, we use the Azure Monitor Query client library.
+There are several ways to [query data in Azure Monitor Logs from a notebook](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), including using the [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme), [Kqlmagic library](https://pypi.org/project/Kqlmagic/), and [MSTICPY library](https://msticpy.readthedocs.io/en/latest/index.html). This tutorial uses the Azure Monitor Query client library.
 
 
 ## Process overview
@@ -106,7 +106,7 @@ In this tutorial, you use these tools:
 
     `LogsQueryClient` typically only supports authentication with Azure Active Directory (Azure AD) token credentials. However, we can pass a custom authentication policy to enable the use of API keys. This allows the client to [query the demo workspace](../logs/api/access-api.md#authenticate-with-a-demo-api-key). The availability and access to this demo workspace is subject to change, so we recommend using your own Log Analytics workspace.
 
-1. Define helper functions that we'll use throughout the notebook.
+1. Define helper functions that you'll use throughout the notebook.
 
     - `query_logs_workspace` - Runs a given query in the Log Analytics workspace and returns the results as a Pandas DataFrame.
     - `display_graph` - Displays a Plotly line graph showing hourly usage for various data types over time, based on a Pandas DataFrame.
@@ -243,7 +243,7 @@ After exploring the available data, let's use a subset of the data for model tra
 
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-dataframe.png" alt-text="Screenshot that shows a DataFrame with log ingestion data for the six tables we're exploring in this tutorial." 
 
-1. Now, let's view the data as a graph using the helper function we defined above:
+1. Now, let's view the data as a graph using the helper function defined above:
 
     ```python
     display_graph(my_data, "Selected Data Types - Historical Data Usage (3 weeks)")
