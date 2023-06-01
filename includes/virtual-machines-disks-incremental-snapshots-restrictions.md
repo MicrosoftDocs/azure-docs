@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 05/31/2023
  ms.author: rogarana
- ms.custom: include file
+ ms.custom: include file, references_regions
 ---
 
 - Incremental snapshots currently can't be moved between subscriptions.
