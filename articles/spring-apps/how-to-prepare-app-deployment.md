@@ -153,20 +153,17 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 | Spring Boot version | Spring Cloud version  |
 |---------------------|-----------------------|
-| 3.0.0               | 2022.0.0-RC2          |
+| 3.0.x               | 2022.0.x          |
 | 2.7.x               | 2021.0.3+ aka Jubilee |
-| 2.6.x               | 2021.0.0+ aka Jubilee |
 
 ### [Enterprise plan](#tab/enterprise-plan)
 
 | Spring Boot version | Spring Cloud version       |
 |---------------------|----------------------------|
-| 3.0.0               | 2022.0.0-RC2               |
+| 3.0.x               | 2022.0.x               |
 | 2.7.x               | 2021.0.3+ aka Jubilee      |
 | 2.6.x               | 2021.0.0+ aka Jubilee      |
 | 2.5.x               | 2020.3+ aka Ilford+        |
-| 2.4.x               | 2020.0+ aka Ilford+        |
-| 2.3.x               | Hoxton (starting with SR5) |
 
 ---
 
@@ -175,15 +172,14 @@ For more information, see the following pages:
 * [Spring Boot support](https://spring.io/projects/spring-boot#support)
 * [Spring Cloud Config support](https://spring.io/projects/spring-cloud-config#support)
 * [Spring Cloud Netflix support](https://spring.io/projects/spring-cloud-netflix#support)
-* [Spring Cloud 2020.0.0 (aka Ilford) Is Available](https://spring.io/blog/2020/12/22/spring-cloud-2020-0-0-aka-ilford-is-available)
 * [Adding Spring Cloud To An Existing Spring Boot Application](https://spring.io/projects/spring-cloud#adding-spring-cloud-to-an-existing-spring-boot-application)
 
 > [!NOTE]
 > - The support for Spring Boot 3.0 is still in preview, so you shouldn't use it in production.
 
-### Dependencies for Spring Boot version 2.4/2.5/2.6/2.7
+### Dependencies for Spring Boot version 2.5/2.6/2.7
 
-For Spring Boot version 2.4/2.5, add the following dependencies to the application POM file.
+For Spring Boot version 2.5, add the following dependencies to the application POM file.
 
 ```xml
 <!-- Spring Boot dependencies -->
@@ -199,7 +195,7 @@ For Spring Boot version 2.4/2.5, add the following dependencies to the applicati
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-dependencies</artifactId>
-            <version>2020.0.2</version>
+            <version>2020.0.6</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
@@ -214,7 +210,7 @@ For Spring Boot version 2.6/2.7, add the following dependencies to the applicati
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.2</version>
+    <version>2.7.8</version>
 </parent>
 
 <!-- Spring Cloud dependencies -->
@@ -223,7 +219,7 @@ For Spring Boot version 2.6/2.7, add the following dependencies to the applicati
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-dependencies</artifactId>
-            <version>2021.0.3</version>
+            <version>2021.0.6</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
