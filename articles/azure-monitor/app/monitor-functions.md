@@ -92,6 +92,7 @@ Add the following filter to your log4j.xml:
     
 Here is an example:
     
+```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <Configuration status="WARN">
       <Appenders>
