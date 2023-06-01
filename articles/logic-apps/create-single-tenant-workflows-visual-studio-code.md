@@ -276,8 +276,13 @@ Lets go over each type of assemblies and where they can be placed in VS Code.
   These are used to provide custom JAVA SDK. For example [JDBC Connector](https://learn.microsoft.com/en-us/azure/logic-apps/connectors/built-in/reference/jdbc/) use these JAR's to find JDBC Drivers for custom RDB(Relational Database). Those assemblies can be placed under `\lib\builtinOperationSdks\JAR`.
   5. Custom Assembly (.NET Framework)
   These are used to provide custom DLLs. For example, Transform XML operation use these assemblies for custom transformation functions required for XML Transformation. Those assemblies can be placed under `\lib\custom\net472`.
+
 The screenshot below shows where each of the above assemblies can be placed in VS Code:
 ![Screenshot shows assembly upload in VS Code.](./media/create-single-tenant-workflows-visual-studio-code/schema-upload-in-vs-code.jpg)
+
+#### Migrating old NuGet based projects to use `lib\*` assemblies
+If your VS Code project was created when Assemblies support was not added to the Logic app standard. You can add the lines below in your `<Project Name>.csproj` file to make it work with nre projects.
+
 
 <a name="open-workflow-definition-designer"></a>
 
