@@ -75,32 +75,9 @@ To update a remote network using the Microsoft Graph API in Graph Explorer.
 1. Select **Run query** to update the remote network. 
 
 
-## Edit a top-level remote network setting
-<!--- what IS a "top-level branch setting"? --->
-To edit the name, location, or region of a remote network:
 
-1. Open a web browser and navigate to the Graph Explorer at https://aka.ms/ge.
-1. Select **PATCH** as the HTTP method from the dropdown. 
-1. Select the API version to **beta**. 
-1. Enter the query:
-    ```
-    PATCH https://graph.microsoft.com/beta/networkaccess/branches/8d2b05c5-1e2e-4f1d-ba5a-1a678382ef16
-    {
-        "@odata.context": "#$delta",
-        "name": "ContosoBranch2"
-    }
-    ``` 
-1. Select **Run query** to update the remote network. 
 
-## Delete a remote network using the API
-1. Open a web browser and navigate to the Graph Explorer at https://aka.ms/ge.
-1. Select **PATCH** as the HTTP method from the dropdown. 
-1. Select the API version to **beta**. 
-1. Enter the query:
-    ```
-    DELETE https://graph.microsoft.com/beta/networkaccess/branches/97e2a6ea-c6c4-4bbe-83ca-add9b18b1c6b 
-    ```
-1. Select **Run query** to delete the remote network. 
+
 
 ## Next steps
 

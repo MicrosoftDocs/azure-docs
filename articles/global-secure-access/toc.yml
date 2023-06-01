@@ -15,9 +15,9 @@ items:
       href: concept-traffic-forwarding.md
     - name: Manage remote networks
       href: how-to-manage-remote-networks.md
-    - name: Define quick access ranges
+    - name: Configure quick access
       href: how-to-configure-quick-access.md
-    - name: Install Windows client
+    - name: Install the Windows client
       href: how-to-install-windows-client.md
     - name: Explore the network traffic dashboard
       href: concept-traffic-dashboard.md
@@ -78,3 +78,8 @@ items:
     href: concept-remote-network-connectivity.md
   - name: Traffic forwarding profiles
     href: concept-traffic-forwarding.md
+- name: Reference
+  expanded: true
+  items:
+  - name: Remote network valid configurations
+    href: reference-remote-network-configurations.md
