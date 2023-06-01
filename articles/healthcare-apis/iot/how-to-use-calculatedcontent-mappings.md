@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 05/31/2023
+ms.date: 06/01/2023
 ms.author: jasteppe
 ---
 
@@ -39,8 +39,8 @@ In the following example, `typeMatchExpression` is defined as:
 "template": {
    "typeName": "heartrate",
    "typeMatchExpression": {
-   "value" : "$..[?(@heartRate)]",
-   "language": "JsonPath"
+      "value" : "$..[?(@heartRate)]",
+      "language": "JsonPath"
    },
 ...
 }
@@ -72,8 +72,8 @@ Because JSONPath is the default expression language, it's not required to includ
 ```json
 "templateType": "CalculatedContent",
    "template": {
-   "typeName": "heartrate",
-   "typeMatchExpression": "$..[?(@heartRate)]",
+      "typeName": "heartrate",
+      "typeMatchExpression": "$..[?(@heartRate)]",
 ...
 }
 ```
@@ -83,9 +83,9 @@ You can also explicitly set the default expression language for a CalculatedCont
 ```json
 "templateType": "CalculatedContent",
    "template": {
-   "typeName": "heartrate",
-   "defaultExpressionLanguage": "JmesPath",
-   "typeMatchExpression": "[Body][?contains(keys(@), `heartRate`)] | @[0]",
+      "typeName": "heartrate",
+      "defaultExpressionLanguage": "JmesPath",
+      "typeMatchExpression": "[Body][?contains(keys(@), `heartRate`)] | @[0]",
 ...
 }
 ```
