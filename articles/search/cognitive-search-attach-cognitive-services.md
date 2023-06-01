@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 05/31/2023
 
 ---
 
@@ -118,7 +118,7 @@ SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skill
 
 Key-based billing applies when API calls to Cognitive Services resources exceed 20 API calls per indexer, per day. 
 
-The key is used for billing, but not connections. For connections, a search service [connects over the internal network](search-security-overview.md#internal-traffic) to a Cognitive Services resource that's co-located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Most regions that offer Cognitive Search also offer Cognitive Services.
+The key is used for billing, but not for enrichment operations' connections. For connections, a search service [connects over the internal network](search-security-overview.md#internal-traffic) to a Cognitive Services resource that's co-located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Most regions that offer Cognitive Search also offer Cognitive Services. Currently, billing operations of [built-in skills](cognitive-search-predefined-skills.md) need a public connection from Cognitive Search to Cognitive Services. This means that for this integration to work Cognitive Services resource being used can't have public networks disabled. If disabling public networks is a requirement, as an alternative you can configure a [Custom Web API skill](cognitive-search-custom-skill-interface.md) implemented with an [Azure Function](cognitive-search-create-custom-skill-example.md) that supports [private endpoints](../azure-functions/functions-create-vnet) and add the Cognitive Service resource to the same VNET. In this way, you can call Cognitive Services resource directly from the custom skill using private endpoints.
 
 If you attempt AI enrichment in a region that doesn't have both services, you'll see this message: "Provided key isn't a valid CognitiveServices type key for the region of your search service."
 
@@ -128,6 +128,7 @@ If you attempt AI enrichment in a region that doesn't have both services, you'll
 ### Key requirements special cases
 
 [Custom Entity Lookup](cognitive-search-skill-custom-entity-lookup.md) is metered by Azure Cognitive Search, not Cognitive Services, but it requires a Cognitive Services resource key to unlock transactions beyond 20 per indexer, per day. For this skill only, the resource key unblocks the number of transactions, but is unrelated to billing.
+
 
 ## Free enrichments
 
