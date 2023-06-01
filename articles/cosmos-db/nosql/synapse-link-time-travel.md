@@ -27,6 +27,8 @@ To perform time-travel operations on Azure Cosmos DB data, ensure that your Azur
 
 If an Analytical Time-To-Live (ATTL) is defined on the Azure Cosmos DB container, it serves as the maximum retention period for time-travel operations. If ATTL isn't defined or set as -1, you have maximum retention period. In other words, you can travel back to any time since when Azure Synapse Link was enabled.
 
+:::image type="content" source="media/synapse-link-time-travel/example-time-travel.png" alt-text="Screenshot of an example of time-travel with different data at various points in time.":::
+
 ## When to use?
 
 Here are some supported time travel scenarios:
@@ -73,6 +75,16 @@ display(df)
 ```
 
 ---
+
+## Configuration
+
+| Setting | Default | Description |
+| --- | --- | --- |
+| `spark.cosmos.timetravel.timestampAsOf` | *current timestamp* | Historical timestamp at millisecond-level precision to travel back in history to. |
+| `spark.cosmos.timetravel.startTimestamp` | *from the beginning* | Timestamp to start Time-Travel from. This config can be used in combination with “spark.cosmos.timetravel.timestampAsOf” to compare and analyze differences between two specific points in time for use cases such as trend analysis. |
+| `spark.cosmos.timetravel.ignoreTransactionalTTLDeletes` | `FALSE` | Ignore the records that got TTL-ed out from transactional store. Set this setting to `TRUE` if you would like to see the records in the time travel result set that got TTL-ed out from transactional store. |
+| `spark.cosmos.timetravel.ignoreTransactionalUserDeletes` | `FALSE` | Ignore the records the user deleted from the transactional store. Set this setting to `TRUE` if you would like to see the records in time travel result set that is deleted from the transactional store. |
+| `spark.cosmos.timetravel.fullFidelity` | `FALSE` | Set this setting to `TRUE` if you would like to access all versions of records (including intermediate updates) at a specific point in history. |
 
 ## Limitations
 
