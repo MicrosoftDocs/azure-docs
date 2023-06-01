@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/26/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -122,7 +122,7 @@ The ability for users to create tenants from the Manage Tenant overview has been
 
 ---
 
-### Public Preview - Devices Self-Help Capability for Pending Devices
+### General Availability - Devices Self-Help Capability for Pending Devices
 
 
 

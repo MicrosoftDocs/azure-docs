@@ -56,6 +56,7 @@ In many cases, AKS can determine if a node is unhealthy and attempt to repair th
 * A node status isn't being reported due to error in network configuration.
 * A node failed to initially register as a healthy node.
 
+Node Autodrain is a best effort service and cannot be guaranteed to operate perfectly in all scenarios
 ## Next steps
 
 Use [availability zones][availability-zones] to increase high availability with your AKS cluster workloads.

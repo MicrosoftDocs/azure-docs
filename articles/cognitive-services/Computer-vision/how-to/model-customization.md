@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 02/06/2023
 ms.author: pafarley
-ms.custom: 
+ms.custom: devx-track-python
 ---
 
 # Create a custom Image Analysis model (preview)
