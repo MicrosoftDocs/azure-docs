@@ -16,9 +16,9 @@ ms.custom: aaddev, curation-claims
 
 # ID tokens in the Microsoft identity platform
 
-ID tokens are issued by the authorization server and contain claims that carry information about the user. They can be sent alongside or instead of an access token. Information in ID tokens enables the client to verify that a user is who they claim to be. 
+The authorization server issues ID tokens that contain claims that carry information about the user. They can be sent alongside or instead of an access token. Information in ID tokens enables the client to verify that a user is who they claim to be. 
 
-ID tokens are intended to be understood by third-party applications. ID tokens should not be used for authorization purposes. Access tokens are used for authorization. The claims provided by ID tokens can be used for UX inside your application, as keys in a database, and providing access to the client application. For more information about the claims used in an ID token, see the [ID token claims reference](id-token-claims-reference.md).
+Third-party applications are intended to understand ID tokens. ID tokens shouldn't be used for authorization purposes. Access tokens are used for authorization. The claims provided by ID tokens can be used for UX inside your application, as keys in a database, and providing access to the client application. For more information about the claims used in an ID token, see the [ID token claims reference](id-token-claims-reference.md).
 
 ## Token formats
 
@@ -47,15 +47,15 @@ View this v2.0 sample token in [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1Q
 
 By default, an ID token is valid for one hour - after one hour, the client must acquire a new ID token.
 
-You can adjust the lifetime of an ID token to control how often the client application expires the application session, and how often it requires the user to re-authenticate either silently or interactively. For more information, read [Configurable token lifetimes](configurable-token-lifetimes.md).
+You can adjust the lifetime of an ID token to control how often the client application expires the application session, and how often it requires the user to authenticate again either silently or interactively. For more information, read [Configurable token lifetimes](configurable-token-lifetimes.md).
 
 ## Validate tokens
 
-To validate an ID token, your client can check whether the token has been tampered with. It can also validate the issuer to ensure that the correct issuer has sent back the token. Because ID tokens are always a JWT token, many libraries exist to validate these tokens - you should use one of these rather than doing it yourself. Only confidential clients (those with a secret) should validate ID tokens. For more information, see [Secure applications and APIs by validating claims](claims-validation.md).
+To validate an ID token, your client can check whether the token has been tampered with. It can also validate the issuer to ensure that the correct issuer has sent back the token. Because ID tokens are always a JWT token, many libraries exist to validate these tokens - you should use one of these libraries rather than doing it yourself. Only confidential clients should validate ID tokens. For more information, see [Secure applications and APIs by validating claims](claims-validation.md).
 
-Public applications (code running entirely on a device or network you don't control such as a user's browser or their home network) don't benefit from validating the ID token. This is because a malicious user can intercept and edit the keys used for validation of the token.
+Public applications (code running entirely on a device or network you don't control such as a user's browser or their home network) don't benefit from validating the ID token. In this instance, a malicious user can intercept and edit the keys used for validation of the token.
 
-The following JWT claims should be validated in the ID token after validating the signature on the token. These claims may also be validated by your token validation library:
+The following JWT claims should be validated in the ID token after validating the signature on the token. Your token validation library may also validate the following claims:
 
 * Timestamps: the `iat`, `nbf`, and `exp` timestamps should all fall before or after the current time, as appropriate.
 * Audience: the `aud` claim should match the app ID for your application.
