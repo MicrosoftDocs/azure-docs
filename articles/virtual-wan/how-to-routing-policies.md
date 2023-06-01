@@ -91,8 +91,8 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 
 * Routing Intent is currently Generally Available in Azure public cloud. Azure China Cloud and Azure Government Cloud are currently in roadmap.
 * Routing Intent simplifies routing by managing route table associations and propagations for all connections (Virtual Network, Site-to-site VPN, Point-to-site VPN and ExpressRoute). Virtual WANs with custom route tables and customized policies therefore can't be used with the Routing Intent constructs.
+* Encrypted ExpressRoute (Site-to-site VPN tunnels running over ExpressRoute circuits) is supported in hubs where routing intent is configured if Azure Firewall is configured to allow traffic between VPN tunnel endpoints (Site-to-site VPN Gateway private IP and on-premises VPN device private IP). For more information on the required configurations, see [Encrypted ExpressRoute with routing intent](#encryptedER).
 * The following connectivity use cases are **not** supported with Routing Intent:
-  * Encrypted ExpressRoute (Site-to-site VPN tunnels running over ExpressRoute circuits) is **not** supported in hubs where routing intent is configured. Connectivity between Encrypted ExpressRoute connected sites and Azure is impacted if routing intent is configured on a hub.
   * Static routes in the defaultRouteTable that point to a Virtual Network connection can't be used in conjunction with routing intent. However, you can use the [BGP peering feature](scenario-bgp-peering-hub.md).
   * The ability to deploy both a SD-WAN connectivity NVA and a separate Firewall NVA or SaaS solution in the **same** Virtual WAN hub is currently in the road-map. Once routing intent is configured with next hop SaaS solution or Firewall NVA, connectivity between the SD-WAN NVA and Azure is impacted. Instead, deploy the SD-WAN NVA and Firewall NVA or SaaS solution in different Virtual Hubs. Alternatively, you can also deploy the SD-WAN NVA in a spoke Virtual Network connected to the hub and leverage the virtual hub [BGP peering](scenario-bgp-peering-hub.md) capability.
   * Network Virtual Appliances (NVAs) can only be specified as the next hop resource for routing intent if they're Next-Generation Firewall or dual-role Next-Generation Firewall and SD-WAN NVAs. Currently, **checkpoint**, **fortinet-ngfw** and **fortinet-ngfw-and-sdwan** are the only NVAs eligible to be configured to be the next hop for routing intent. If you attempt to specify another NVA, Routing Intent creation fails. You can check the type of the NVA by navigating to your Virtual Hub -> Network Virtual Appliances and then looking at the **Vendor** field.
@@ -234,6 +234,68 @@ After transit connectivity across ExpressRoute circuits using a firewall applian
  Because of these route advertisement changes, this means that ExpressRoute-connected on-premises can't advertise exact address ranges for RFC1918 aggregate address ranges (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16). Please ensure you're advertising more specific subnets (within RFC1918 ranges) as opposed to aggregate super-nets and any prefixes in the Private Traffic text box.
 
 Additionally, if your ExpressRoute circuit is advertising a non-RFC1918 prefix to Azure, please make sure the address ranges that you put in the Private Traffic Prefixes text box are less specific than ExpressRoute advertised routes. For example, if the ExpressRoute Circuit is advertising 40.0.0.0/24 from on-premises, put a /23 CIDR range or larger in the Private Traffic Prefix text box (example: 40.0.0.0/23).
+
+
+### <a name="encryptedER"></a> Encrypted ExpressRoute
+
+To use Encrypted ExpressRoute (Site-to-site VPN tunnel running over an ExpressRoute circuit) with routing intent private routing policies, configure a firewall rule to **allow** traffic between the tunnel private IP addresses of the Virtual WAN Site-to-site VPN Gateway (source) and the on-premises VPN device (destination). For customers that are using deep-packet inspection on the Firewall device, it is recommended to exclude traffic between these private IP's from deep-packet inspection.
+
+You can obtain the tunnel private IP addresses of the Virtual WAN Site-to-site VPN Gateway by [downloading the VPN config](virtual-wan-site-to-site-portal.md#download-vpn-configuration) and looking at **vpnSiteConnections -> hubConfiguration -> gatewayConfiguration -> IPAddresses**. The IP addresses listed in the IPAddresses field are the private IP addresses assigned to each instance of the Site-to-site VPN Gateway that is used  to terminate VPN tunnels over ExpressRoute. In the example below, the tunnel IPs on the Gateway are 192.168.1.4 and 192.168.1.5.
+
+```json
+ "vpnSiteConnections": [
+      {
+        "hubConfiguration": {
+          "AddressSpace": "192.168.1.0/24",
+          "Region": "South Central US",
+          "ConnectedSubnets": [
+            "172.16.1.0/24",
+            "172.16.2.0/24",
+            "172.16.3.0/24",
+            "192.168.50.0/24",
+            "192.168.0.0/24"
+          ]
+        },
+        "gatewayConfiguration": {
+          "IpAddresses": {
+            "Instance0": "192.168.1.4",
+            "Instance1": "192.168.1.5"
+          },
+          "BgpSetting": {
+            "Asn": 65515,
+            "BgpPeeringAddresses": {
+              "Instance0": "192.168.1.15",
+              "Instance1": "192.168.1.12"
+            },
+            "CustomBgpPeeringAddresses": {
+              "Instance0": [
+                "169.254.21.1"
+              ],
+              "Instance1": [
+                "169.254.21.2"
+              ]
+            },
+            "PeerWeight": 0
+          }
+        }
+```
+
+The private IP addresses the on-premises devices uses for VPN termination are the IP addresses that are specified as part of the VPN site link connection.
+
+:::image type="content" source="./media/routing-policies/on-prem-device.png"alt-text="Screenshot showing VPN site on-premises device tunnel IP address."lightbox="./media/routing-policies/on-prem-device.png":::
+
+Using the sample VPN configuration and VPN site from above, create firewall rules to allow the following traffic. Note that the VPN Gateway IP's must be the source IP and the on-premises VPN device must be the destination IP in the configured rules.
+
+| Rule Parameter| Value|
+|--|--|
+|Source IP|192.168.1.4 and 192.168.1.5|
+|Source Port|*|
+| Destination IP|10.100.0.4|
+|Destination Port| * |
+|Protocol| ANY|
+
+In addition, if your firewall device supports deep-packet inspection, it is recommended to exclude traffic between 192.168.1.14, 192.168.1.5 and 10.100.0.4 from deep-packet inspection. For information on how to configure Azure Firewall to exclude traffic from deep-packet inspection, reference [IDPS bypass list documentation](../firewall/premium-features.md#idps).
+
 
 ## Configuring routing intent through Azure Portal
 
