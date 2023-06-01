@@ -25,7 +25,7 @@ To enable Application Insights, follow these steps.
 > [!TIP] 
 > Good news! We're making it even easier to enable JavaScript. Check out where [SDK Loader Script injection by configuration is available](./codeless-overview.md#sdk-loader-script-injection-by-configuration)!
 
-### 1. Add the code
+### 1. Add the JavaScript code
 
 Two methods are available to add the code to enable Application Insights via the Application Insights JavaScript SDK.
 
@@ -36,7 +36,7 @@ The benefits of this method are:
 - You never have to update the SDK because you get the latest updates automatically.
 - You have control over which pages you add the Application Insights JavaScript SDK to.
 
-To add the SDK Loader Script, follow these steps: 
+To add the SDK Loader Script and its optional configuration, follow these steps: 
 
 1. Paste the SDK Loader Script at the top of each page for which you want to enable Application Insights. 
 
@@ -73,7 +73,7 @@ To add the SDK Loader Script, follow these steps:
    | crossOrigin | string  | Optional | By including this setting, the script tag added to download the SDK includes the crossOrigin attribute with this string value. Use this setting when you need to provide support for CORS. When not defined (the default), no crossOrigin attribute is added. Recommended values are not defined (the default), "", or "anonymous". For all valid values, see the [cross origin HTML attribute](https://developer.mozilla.org/docs/Web/HTML/Attributes/crossorigin) documentation.
    | onInit | function(aiSdk) { ... } | Optional | This callback function is called after the main SDK script has been successfully loaded and initialized from the CDN (based on the src value). This callback function is useful when you need to insert a telemetry initializer. It's passed one argument, which is a reference to the SDK instance that's being called for and is also called before the first initial page view. If the SDK has already been loaded and initialized, this callback is still called. NOTE: During the processing of the sdk.queue array, this callback is called. You CANNOT add any more items to the queue because they're ignored and dropped. (Added as part of SDK Loader Script version 5--the sv:"5" value within the script). |
 
-#### [npm Package](#tab/npmpackage)
+#### [npm package](#tab/npmpackage)
 
 Use this method if you're creating your own bundles and you want to include the Application Insights code in your own bundle. 
 
@@ -125,9 +125,9 @@ To add your connection string, follow these steps:
 
 ### 3. (Optional) Add SDK configuration
 
-The optional [SDK configuration](./javascript-sdk-advanced.md#sdk-configuration) is passed to the Application Insights JavaScript SDK during initialization. To add SDK configuration, add each configuration option directly under `connectionString`.
+The optional [SDK configuration](./javascript-sdk-advanced.md#sdk-configuration) is passed to the Application Insights JavaScript SDK during initialization.
 
-For example:
+To add SDK configuration, add each configuration option directly under `connectionString`. For example:
 
 :::image type="content" source="media/javascript-sdk/example-sdk-configuration.png" alt-text="Screenshot of JavaScript code with SDK configuration options added and highlighted." lightbox="media/javascript-sdk/example-sdk-configuration.png":::
 
