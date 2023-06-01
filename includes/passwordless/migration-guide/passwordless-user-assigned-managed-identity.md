@@ -37,7 +37,7 @@ You need to configure your application code to look for the specific managed ide
 
     ```nodejs
     const credential = new DefaultAzureCredential({
-      managedIdentityClientId: managedIdentityClientId
+      managedIdentityClientId
     });
     ```
     
