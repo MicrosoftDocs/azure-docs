@@ -241,11 +241,12 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 
 ### Usage notes
 
+* To configure and manage a resolver with this policy, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 * This policy is invoked only when resolving a single field in a matching GraphQL query, mutation, or subscription.  
 
 ## Configure managed identity integration with Cosmos DB
 
-You can use an API Management managed identity to connect to a Cosmos DB account, instead of configuring an account key in a connection string.
+You can configure an API Management managed identity to connect to a Cosmos DB account, instead of configuring an account key in a connection string.
 
 Follow these steps to use the Azure CLI to configure the managed identity.
 
@@ -330,7 +331,7 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
 
 ### Cosmos DB read request
 
-The following example resolves a GraphQL query using a point read request to a Cosmos DB container. The connection to the Cosmos DB account uses the API Management instance's system-assigned managed identity. The identity must be assigned an Azure RBAC role or equivalent permissions to write to the Cosmos DB container.
+The following example resolves a GraphQL query using a point read request to a Cosmos DB container. The connection to the Cosmos DB account uses the API Management instance's system-assigned managed identity. The identity must be [configured](#configure-managed-identity-integration-with-cosmos-db) to access the Cosmos DB container.
 
 The `id` and `partition-key` used for the read request are passed as query parameters and accessed using the `Context.GraphQL.arguments` context variable.
 
@@ -346,13 +347,10 @@ documents.azure.com:443/;
     </connection-info>
     <read-request>
         <id>
-            @(context.GraphQL.Arguments["id"].ToString()
+            @(context.GraphQL.Arguments["id"].ToString())
         </id>
         <partition-key>
-            @(context.GraphQL.Arguments["category"].ToString()
-        </partition-key>
-    </read-request>
-</cosmosdb-data-source>
+            @(context.GraphQL.Arguments["category"].ToString())
 ```
 
 ### Cosmos DB delete request
@@ -382,9 +380,9 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
 
 ### Cosmos DB write request
 
-The following example resolves a GraphQL mutation by an upsert request to a Cosmos DB container. The connection to the Cosmos DB account uses the API Management instance's system-assigned managed identity. The identity must be assigned an Azure RBAC role or equivalent permissions to write to the Cosmos DB container. 
+The following example resolves a GraphQL mutation by an upsert request to a Cosmos DB container. The connection to the Cosmos DB account uses the API Management instance's system-assigned managed identity. The identity must be [configured](#configure-managed-identity-integration-with-cosmos-db) to access the Cosmos DB container. 
 
-The `partition-key` used for the write request is passed as a query parameter and accessed using the `Context.GraphQL.arguments` context variable. The upsert request has a pre-trigger operation named "validateInput". The request body is mapped using a liquid template.
+The `partition-key` used for the write request is passed as a query parameter and accessed using the `context.GraphQL.arguments` context variable. The upsert request has a pre-trigger operation named "validateInput". The request body is mapped using a liquid template.
 
 ```xml
 <cosmosdb-data-source>

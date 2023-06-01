@@ -6,13 +6,16 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 05/30/2023
+ms.date: 05/31/2023
 ms.author: danlep
 ---
 
 # Azure SQL data source for a resolver
 
-The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request to an Azure SQL database and optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management.  
+The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request to an [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) database and optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management.  
+
+> [!NOTE]
+> This policy is currently in preview.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -23,7 +26,7 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
     <connection-info>
         <get-authorization-context>...get-authorization-context policy configuration...</get-authorization-context>
         <connection-string use-managed-identity="true | false" client-id="Client ID of identity used for connection">
-            "SQL Azure connection string"
+            SQL Azure connection string
         </connection-string>
         <include-fragment>...include-fragment policy configuration...</include-fragment>
         <authentication-certificate>...authentication-certificate policy configuration...</authentication-certificate>     
@@ -77,7 +80,7 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 | use-managed-identity | Boolean. Specifies whether to use a [managed identity](api-management-howto-use-managed-service-identity.md) assigned to the API Management instance for connection to the Azure SQL database in place of a username and password in the connection string. Policy expressions are allowed. <br/><br/>The identity must be [configured](#configure-managed-identity-integration-with-sql-azure) to perform the request on the Azure SQL database.  | No  | `false`   |
 | client-id | If `use-managed-identity` is `true` and a user-assigned managed identity is used, the client ID of the identity.<br/><br/>The identity must be [configured](#configure-managed-identity-integration-with-sql-azure) to perform the request on the Azure SQL database. | No | N/A |
 
-## request attribute
+### request attribute
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
@@ -121,67 +124,110 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 
 ### Usage notes
 
+* To configure and manage a resolver with this policy, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 * This policy is invoked only when resolving a single field in a matching GraphQL query. 
 
 ## Configure managed identity integration with SQL Azure
 
-You can use an API Management managed identity to connect to a SQL Azure database, instead of configuring a username and password in a connection string.
+You can configure an API Management managed identity for access to Azure SQL instead of configuring SQL authentication with username and password.
 
-[...TBD...]
+### Prerequisites
+
+* Enable a system-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in your API Management instance. 
+
+### Enable Azure AD access
+
+Enable Azure Active Directory authentication to SQL Database by assigning an Azure AD user as the admin of the server.
+
+1. In the [portal](https://portal.azure.com), go to your Azure SQL server. 
+1. Select **Azure Active Directory**.
+1. Select **Set admin** and select yourself or a group to which you belong. 
+1. Select **Save**.
+
+### Assign roles
+
+1. In the portal, go to your Azure SQL database resource.
+1. Select **Query editor (preview)**.
+1. Login using Active Directory authentication.
+1. Execute the following SQL script. Replace <identity-name> with the name of your API Management instance.
+
+    ```sql
+    CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
+    ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
+    ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
+    ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
+    GO
+    ```
 
 ## Examples
 
-### Resolver for GraphQL query by making single T-SQL request
+### Resolver for GraphQL query using single T-SQL request
 
-The following example resolves a query by making a single T-SQL request to a backend database. The connection string uses username and password. The response is returned as a raw string.
-
-
-#### Example policy
+The following example resolves a GraphQL query by making a single T-SQL request to a backend database. The connection string uses SQL authentication with username and password. The response is returned as a raw string.
 
 ```xml
 <sql-data-source>
     <connection-info>
-        <connection-string>Azure SQL connection string</connection-string>
-        </connection-info>
-        <request single-result="true">
-            <sql-statement>
-                SELECT f.[Id] AS [id], f.[Name] AS [name] FROM [Family] f WHERE 1 = f.[Id]</sql-statement>
-        </request>
-        <response />
+        <connection-string>
+            Server=tcp:{your_server_name}.database.windows.net,1433;Initial Catalog={your_database_name};Persist Security Info=False;User ID={your_username}@{your_server_name};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+        </connection-string>
+    </connection-info>
+    <request single-result="true">
+        <sql-statement>
+            SELECT 
+                f.[Id] AS [id]
+                f.[Name] AS [name]
+            FROM [Family] f 
+            WHERE 1 = f.[Id]
+        </sql-statement>
+    </request>
+    <response />
 </sql-data-source>
 ```
 
-### Example for ....
+### Resolver for GraphQL query with transformed multi-row query response 
 
+The following example resolves a GraphQL query using a T-SQL query to a SQL Azure database. The connection to the database uses the API Management instance's system-assigned managed identity. The identity must be [configured](#configure-managed-identity-integration-with-sql-azure) to access the SQL Azure database.
 
-TBD
-
-#### Example policy
-
+The query parameter is accessed using the `context.GraphQL.Arguments` context variable. The multi-row query response is transformed using the `set-body` policy with a liquid template. 
 
 ```xml
 <sql-data-source> 
     <connection-info>
         <connection-string use-managed-identity="true">
-            Azure SQL connection string
+            Server=tcp:{your_server_name}.database.windows.net,1433;Database={your_database_name};
         </connection-string>
     </connection-info> 
-    <request single-result="true"> 
+    <request> 
         <sql-statement> 
             SELECT 
                 p.[Id] AS [Id] 
                 p.[FirstName] AS [FirstName] 
                 p.[LastName] AS [LastName] 
             FROM [Person] p 
-            WHERE @personId = p.[Id] 
-         </sql-statement> 
-         <parameters> 
-             <parameter name="@personId">{{context.GraphQL.Arguments.id}}</parameter> 
-          </parameters> 
-     </request>
+            JOIN [Family] f ON p.[FamilyId] = f.[Id] 
+            WHERE @familyId = f.[Id] 
+        </sql-statement> 
+        <sql-parameters> 
+            <parameter name="@familyId">       
+                @(context.GraphQL.Arguments.["id"])
+            </parameter> 
+        </sql-parameters> 
+    </request> 
+    <response> 
+        <set-body template="liquid"> 
+            { 
+                "items": [ 
+                    {% JSONArray For person in body.results %} 
+                        "id": "{{ person.id }}" 
+                        "name": "{{ person.firstName }} + "" "" + {{body.lastName}}" 
+                    {% endJSONArrayFor %} 
+                ] 
+            } 
+        </set-body> 
+  </response> 
 </sql-data-source>
 ```
-
 
 ## Related policies
 

@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 02/26/2023
+ms.date: 05/31/2023
 ms.author: danlep
 ---
 
@@ -77,7 +77,7 @@ API Management supports the following operation types in GraphQL schemas. For mo
 
 In API Management, you can create a *custom resolver* to map a field in an object type to a backend data source. You configure resolvers for fields in synthetic GraphQL API schemas, but you can also configure them to override the default field resolvers used by pass-through GraphQL APIs.
 
-API Management currently supports HTTP-based resolvers to return the data for fields in a GraphQL schema. To use an HTTP-based resolver, configure a [`http-data-source`](http-data-source-policy.md) policy that transforms the API request (and optionally the response) into an HTTP request/response.
+API Management currently supports resolvers based on HTTP API, Cosmos DB, and Azure SQL data sources to return the data for fields in a GraphQL schema. Each resolver uses a tailored policy to connect to the data source and retrieve the data. To use an HTTP-based resolver, configure a [`http-data-source`](http-data-source-policy.md) policy that transforms the API request (and optionally the response) into an HTTP request/response. To use a Cosmos DB or Azure SQL resolver, configure a [cosmosdb-data-source](cosmosdb-data-source-policy.md) or [sql-data-source](sql-data-source-policy.md) policy, respectively.
 
 For example, a resolver for the preceding `users` query might map to a `GET` operation in a backend REST API:
 

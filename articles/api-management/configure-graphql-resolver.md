@@ -1,20 +1,28 @@
 ---
 title: Configure GraphQL resolver in Azure API Management
-description: Configure a GraphQL resolver in Azure AI Management for a field in an object type specified in a GraphQL schema
+description: Configure a GraphQL resolver in Azure API Management for a field in an object type specified in a GraphQL schema
 services: api-management
 author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 02/22/2023
+ms.date: 05/31/2023
 ms.author: danlep
 ---
 
 # Configure a GraphQL resolver
 
-Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. Currently, API Management supports resolvers that use HTTP-based data sources (REST or SOAP APIs). 
+Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. 
 
-* A resolver is a resource containing a policy definition that's invoked only when a matching object type and field is executed. 
+Currently, API Management supports resolvers that can access the following data sources:
+
+* [HTTP-based data source](http-data-source-policy.md) (REST or SOAP API)
+* [Cosmos DB database](cosmosdb-data-source-policy.md)
+* [Azure SQL database](sql-data-source-policy.md) 
+
+## Things to know
+
+* A resolver is a resource containing a policy definition that's invoked only when a matching object type and field in the schema is executed. 
 * Each resolver resolves data for a single field. To resolve data for multiple fields, configure a separate resolver for each.
 * Resolver-scoped policies are evaluated *after* any `inbound` and `backend` policies in the policy execution pipeline. They don't inherit policies from other scopes. For more information, see [Policies in API Management](api-management-howto-policies.md).
 
@@ -30,15 +38,20 @@ Configure a resolver to retrieve or set data for a GraphQL field in an object ty
 
 ## Create a resolver
 
+The following steps create a resolver using an HTTP-based data source. The general steps are similar for resolvers that use other supported data sources.
+
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 
 1. In the left menu, select **APIs** and then the name of your GraphQL API.
-1. On the **Design** tab, review the schema for a field in an object type where you want to configure a resolver. 
+1. On the **Schema** tab, review the schema for a field in an object type where you want to configure a resolver. 
     1. Select a field, and then in the left margin, hover the pointer. 
     1. Select **+ Add Resolver**.
 
         :::image type="content" source="media/configure-graphql-resolver/add-resolver.png" alt-text="Screenshot of adding a resolver from a field in GraphQL schema in the portal.":::
-1. On the **Create Resolver** page, update the **Name** property if you want to, optionally enter a **Description**, and confirm or update the **Type** and **Field** selections.
+
+1. On the **Create Resolver** page:
+    1.  Update the **Name** property if you want to, optionally enter a **Description**, and confirm or update the **Type** and **Field** selections.
+    1. For this example, in **Data source**, select **HTTP API**. 
 1. In the **Resolver policy** editor, update the [`http-data-source`](http-data-source-policy.md) policy with child elements for your scenario. 
     1. Update the required `http-request` element with policies to transform the GraphQL operation to an HTTP request.
     1. Optionally add an `http-response` element, and add child policies to transform the HTTP response of the resolver. If the `http-response` element isn't specified, the response is returned as a raw string.
@@ -46,7 +59,7 @@ Configure a resolver to retrieve or set data for a GraphQL field in an object ty
     
         :::image type="content" source="media/configure-graphql-resolver/configure-resolver-policy.png" alt-text="Screenshot of resolver policy editor in the portal." lightbox="media/configure-graphql-resolver/configure-resolver-policy.png":::
 
-1. The resolver is attached to the field. Go to the **Resolvers** tab to list and manage the resolvers configured for the API.
+1. The resolver is attached to the field. Go to the **Resolvers** tab to list and manage the resolvers configured for the API. You can also create resolvers from the **Resolvers** tab.
 
     :::image type="content" source="media/configure-graphql-resolver/list-resolvers.png" alt-text="Screenshot of the resolvers list for GraphQL API in the portal." lightbox="media/configure-graphql-resolver/list-resolvers.png":::
 

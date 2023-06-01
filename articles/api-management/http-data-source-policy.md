@@ -93,6 +93,7 @@ The `http-data-source` resolver policy configures the HTTP request and optionall
 
 ### Usage notes
 
+* To configure and manage a resolver with this policy, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 * This policy is invoked only when resolving a single field in a matching GraphQL query, mutation, or subscription. 
 
 ## Examples
