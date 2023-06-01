@@ -15,10 +15,10 @@ Azure Monitor supports cross-service queries between Azure Resource Graph, [Appl
 
 You can run cross-resource queries by using client tools that support Kusto queries. Examples of these tools include the Log Analytics web UI, workbooks, PowerShell, and the REST API.
 
-Enter the `arg` pattern, followed by the Azure Resource Graph table.
+Enter the `arg("")` pattern, followed by the Azure Resource Graph table.
 
 ```kusto
-arg().Resources
+arg(״״).Resources
 ```
 :::image type="content" source="media/azure-arg-monitor-proxy/azure-arg-monitor-query-example.png" alt-text="Screenshot that shows an example of a cross-service query.":::
 
@@ -41,12 +41,12 @@ The following commands are supported with the cross-service query:
 Use the `union` command to combine cluster tables with a Log Analytics workspace.
 
 ```kusto
-union AzureActivity, arg().Resources
+union AzureActivity, arg("").Resources
 | take 10
 ```
 ```kusto
 let CL1 = adx('https://help.kusto.windows.net/Samples').StormEvents;
-union customEvents, CL1 | take 10
+union AzureActivity, CL1 | take 10
 ```
 :::image type="content" source="media/azure-arg-monitor-proxy/azure-monitor-union-cross-query.png" alt-text="Screenshot that shows a cross-service query example with the union command.":::
 
