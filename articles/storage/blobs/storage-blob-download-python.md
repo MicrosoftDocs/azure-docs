@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 04/21/2023
+ms.date: 06/01/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -63,9 +63,6 @@ The following example downloads blob contents as text. In this example, the `enc
 
 You can define client library configuration options when downloading a blob. These options can be tuned to improve performance and enhance reliability. The following code examples show how to define configuration options for a download both at the method level, and at the client level when instantiating [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient). These options can also be configured for a [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) instance or a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) instance.
 
-> [!NOTE]
-> Configuration options need to be passed to the constructor for each client instance that the options apply to. The optional configuration arguments are *not* inherited by a client object that is created from a client for a higher level resource. For example, if you specify configuration options for a new `ContainerClient` instance, those options are *not* applied to a `BlobClient` instance created from the container client using `get_blob_client`. You should construct a new `BlobClient` instance with the desired configuration options.
-
 ### Specify data transfer options on download
 
 You can set configuration options when instantiating a client to optimize performance for data transfer operations. You can pass the following keyword arguments when constructing a client object in Python:
@@ -78,14 +75,6 @@ For download operations, you can also pass the `max_concurrency` argument when c
 The following code example shows how to specify data transfer options when creating a `BlobClient` object, and how to download data using that client object. The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-download.py" id="Snippet_download_blob_transfer_options":::
-
-### Specify transfer validation options on download
-
-You can specify transfer validation options to help ensure that data is downloaded properly and hasn't been tampered with during transit. The following code example shows how to pass the `validate_content` keyword argument to [download_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-download-blob):
-
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-download.py" id="Snippet_download_blob_transfer_validation":::
-
-When `validate_content` is set to `True` as part of a download method, the service calculates an MD5 hash on each chunk of the blob being downloaded. The client library checks the hash of the content on arrival against the hash that was sent to ensure data integrity. The MD5 hash is not stored with the blob.
 
 ## Resources
 
