@@ -82,10 +82,6 @@ If you haven't changed your plan from a trial to a monthly commitment by the tim
 
 To change your plan from a trial to a monthly commitment before the end of the trial, you'll need to cancel your trial plan and onboard a new plan in Defender for Endpoint. For more information, see [Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
-## How is the Defender for IoT pricing affected now that support for Enterprise IoT networks is in general availability?
-
-For pricing information, see the [Microsoft Defender for IoT pricing](https://azure.microsoft.com/pricing/details/iot-defender/) page.
-
 ## How can I resolve billing issues associated with my Defender for IoT plan?
 
 For any billing or technical issues, create a support request in the Azure portal.
