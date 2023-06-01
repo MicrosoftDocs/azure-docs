@@ -47,7 +47,7 @@ If you don’t have an Azure subscription, create a free account before you begi
     1. Open the *SDK v1/tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* notebook.
     1. To run each cell in the tutorial, select **Clone this notebook**
 
-This article is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment-v1.md). 
+This article is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md). 
 To get the required packages, 
 * [Install the full `automl` client](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment).
 * Run `pip install azureml-opendatasets azureml-widgets` to get the required packages.
@@ -186,7 +186,7 @@ To automatically train a model, take the following steps:
 
 ### Define training settings
 
-Define the experiment parameter and model settings for training. View the full list of [settings](how-to-configure-auto-train-v1.md). Submitting the experiment with these default settings will take approximately 5-20 min, but if you want a shorter run time, reduce the `experiment_timeout_hours` parameter.
+Define the experiment parameter and model settings for training. View the full list of [settings](how-to-configure-auto-train.md). Submitting the experiment with these default settings will take approximately 5-20 min, but if you want a shorter run time, reduce the `experiment_timeout_hours` parameter.
 
 |Property| Value in this article |Description|
 |----|----|---|

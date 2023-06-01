@@ -16,7 +16,7 @@ ms.date: 01/18/2022
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
-> * [v1](reference-automl-images-hyperparameters-v1.md)
+> * [v1](reference-automl-images-hyperparameters.md)
 > * [v2 (current version)](../reference-automl-images-hyperparameters.md?view=azureml-api-2&preserve-view=true)
 
 Learn which hyperparameters are available specifically for computer vision tasks in automated ML experiments.
@@ -117,4 +117,4 @@ The following hyperparameters are for object detection and instance segmentation
 
 * Learn how to [Set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models-v1.md).
 
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models-v1.md).
+* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
