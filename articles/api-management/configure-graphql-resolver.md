@@ -38,7 +38,7 @@ Currently, API Management supports resolvers that can access the following data 
 
 ## Create a resolver
 
-The following steps create a resolver using an HTTP-based data source. The general steps are similar for resolvers that use other supported data sources.
+The following steps create a resolver using an HTTP-based data source. The general steps are similar for any resolver that uses one of the supported data sources.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 
@@ -178,4 +178,4 @@ For more resolver examples, see:
 
 * [GraphQL resolver policies](api-management-policies.md#graphql-resolver-policies)
 
-* [Samples APIs for Azure API Management](https://github.com/Azure-Samples/api-management-sample-apis)
+* [Sample APIs for Azure API Management](https://github.com/Azure-Samples/api-management-sample-apis)

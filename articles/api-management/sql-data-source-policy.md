@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Azure SQL data source for a resolver
 
-The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request to an [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) database and optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management.  
+The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request to an [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) database and an optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management.  
 
 > [!NOTE]
 > This policy is currently in preview.
@@ -149,7 +149,7 @@ Enable Azure Active Directory authentication to SQL Database by assigning an Azu
 1. In the portal, go to your Azure SQL database resource.
 1. Select **Query editor (preview)**.
 1. Login using Active Directory authentication.
-1. Execute the following SQL script. Replace <identity-name> with the name of your API Management instance.
+1. Execute the following SQL script. Replace `<identity-name>` with the name of your API Management instance.
 
     ```sql
     CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
@@ -169,7 +169,7 @@ The following example resolves a GraphQL query by making a single T-SQL request 
 <sql-data-source>
     <connection-info>
         <connection-string>
-            Server=tcp:{your_server_name}.database.windows.net,1433;Initial Catalog={your_database_name};Persist Security Info=False;User ID={your_username}@{your_server_name};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+            Server=tcp:{your_server_name}.database.windows.net,1433;Initial Catalog={your_database_name};User ID={your_username}@{your_server_name};Password={your_password};[...];
         </connection-string>
     </connection-info>
     <request single-result="true">
@@ -195,7 +195,7 @@ The query parameter is accessed using the `context.GraphQL.Arguments` context va
 <sql-data-source> 
     <connection-info>
         <connection-string use-managed-identity="true">
-            Server=tcp:{your_server_name}.database.windows.net,1433;Database={your_database_name};
+            Server=tcp:{your_server_name}.database.windows.net,1433;Initial Catalog={your_database_name};Authentication=Active Directory Managed Identity;[...];
         </connection-string>
     </connection-info> 
     <request> 
