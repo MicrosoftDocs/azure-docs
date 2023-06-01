@@ -107,7 +107,7 @@ You can download:
 
 Evaluate use of AD FS for authentication with SaaS apps, line-of-business apps, also Microsoft 365 and Azure AD apps. 
 
-   ![Diagram AD FS authenticating with SaaS apps, line-of-business apps, also Microsoft 365 and Azure AD apps](./media/five-steps-to-full-application-integration-with-azure-ad/adfs-integration-1.png)
+   ![Diagram AD FS authenticating with SaaS apps, line-of-business apps, also Microsoft 365 and Azure AD apps](./media/five-steps-to-full-application-integration/integration-1.png)
 
 Improve the configuration illustrated in the previous diagram by moving application authentication to Azure AD. Enable sign-on for apps and ease application discovery with the My Apps portal.
 
@@ -118,11 +118,11 @@ Learn more:
 
 See the following diagram of app authentication simplified by Azure AD.
 
-   ![Diagram of app authentication with Azure AD.](./media/five-steps-to-full-application-integration-with-azure-ad/adfs-integration-2.png)
+   ![Diagram of app authentication with Azure AD.](./media/five-steps-to-full-application-integration/integration-2.png)
 
 After Azure AD is the central IdP, you might be able to discontinue ADFS. 
 
-   ![Diagram of Azure AD integration with on-premises apps, LOB apps, SaaS apps, and Office 365.](./media/five-steps-to-full-application-integration-with-azure-ad/adfs-integration-3.png)
+   ![Diagram of Azure AD integration with on-premises apps, LOB apps, SaaS apps, and Office 365.](./media/five-steps-to-full-application-integration/integration-3.png)
 
 You can migrate apps that use a different cloud-based IdP. Your organization might have multiple Identity Access Management (IAM) solutions. Migrating to one Azure AD infrastructure can reduce dependencies on IAM licenses and infrastructure costs. If you paid for Azure AD with Microsoft 365 licenses, likely you don't have to purchase another IAM solution.
 
@@ -134,7 +134,7 @@ See, [Using Azure AD Application Proxy to publish on-premises apps for remote us
 
 The following diagram illustrates Application Proxy Service processing a user request.
 
-   ![Diagram of the Azure AD Application Proxy Service processing a user request.](./media/five-steps-to-full-application-integration-with-azure-ad/app-proxy.png)
+   ![Diagram of the Azure AD Application Proxy Service processing a user request.](./media/five-steps-to-full-application-integration/app-proxy.png)
 
 See, [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure AD](../app-proxy/application-proxy-add-on-premises-application.md) 
 
