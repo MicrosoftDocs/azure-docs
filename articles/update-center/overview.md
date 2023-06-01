@@ -101,7 +101,7 @@ For more information, see the [list of supported operating systems and VM images
 > [!NOTE]
 > Currently, update management center (preview) has the following limitations regarding the operating system support: 
 > - Marketplace images other than the [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images) are currently not supported.
-> - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and VMs created by Azure Migrate, Azure Backup, Azure Site Recovery aren't fully supported for now. However, you can use on-demand operations such as one-time update and check for updates in update management center (preview). 
+> - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and **VMs created by Azure Migrate, Azure Backup, Azure Site Recovery** aren't fully supported for now. However, you can **use on-demand operations such as one-time update and check for updates** in update management center (preview). 
 > 
 > For the above limitations, we recommend that you use [Automation update management](../automation/update-management/overview.md) till the support is available in Update management center (preview). [Learn more](support-matrix.md#supported-operating-systems).
 
