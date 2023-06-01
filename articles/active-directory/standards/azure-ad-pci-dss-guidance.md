@@ -57,7 +57,7 @@ CHD consists of:
 * **Primary account number (PAN)** - a unique payment card number (credit, debit, or prepaid cards, etc.)   that identifies the issuer and the cardholder account
 * **Cardholder name** – the card owner
 * **Card expiration date** – the day and month the card expires
-* **Service code** - a three- or four-digit value in the magnetic stripe that follows the expiration date of the payment card on the track data. It defines service attributes, differentiating between international and national interchange, or identifying usage restrictions.
+* **Service code** - a three- or four-digit value in the magnetic stripe that follows the expiration date of the payment card on the track data. It defines service attributes, differentiating between international and national/regional interchange, or identifying usage restrictions.
 
 SAD consists of security-related information used to authenticate cardholders and/or authorize payment card transactions. SAD includes, but isn't limited to:
 
@@ -180,7 +180,7 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
 PCI-DSS cites no specific geographic location for credit card data storage. However, it requires cardholder data is stored securely, which might include geographic restrictions, depending on the organization's security and regulatory requirements. Different countries and regions have data protection and privacy laws. Consult with a legal or compliance advisor to determine applicable data residency requirements. 
 
-Learn more: [Azure AD and data residency](../fundamentals/azure-ad-data-residency.md)
+Learn more: [Azure AD and data residency](../fundamentals/data-residency.md)
 
 ### Third-party security risks
 

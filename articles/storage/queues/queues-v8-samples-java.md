@@ -6,6 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.service: storage
 ms.subservice: queues
+ms.custom: devx-track-extended-java
 ms.topic: how-to
 ms.date: 04/26/2023
 ms.author: pauljewell

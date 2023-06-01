@@ -14,7 +14,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to start or stop your Azure Spring Apps service instance.
 
@@ -34,8 +34,8 @@ You can only start, view, or delete a stopped Azure Spring Apps service instance
 
 ## Prerequisites
 
-- An existing service instance in Azure Spring Apps. To create a new service instance, see [Quickstart: Deploy your first application in Azure Spring Apps](./quickstart.md).
-- (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.11.2 or later.
+- An existing service instance in Azure Spring Apps. To create a new service instance, see [Quickstart: Provision an Azure Spring Apps service instance](./quickstart-provision-service-instance.md).
+- (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or later.
 
 ## [Portal](#tab/azure-portal)
 

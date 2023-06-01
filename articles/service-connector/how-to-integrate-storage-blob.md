@@ -93,7 +93,7 @@ Use the connection details below to connect compute services to Blob Storage. Fo
 | AZURE_STORAGEBLOB_CLIENTSECRET     | Your client secret    | `<client-secret>`                                       |
 | AZURE_STORAGEBLOB_TENANTID         | Your tenant ID        | `<tenant-ID>`                                           |
 
-### Azure Spring Cloud
+### Azure Spring Apps
 
 #### secret / connection string
 

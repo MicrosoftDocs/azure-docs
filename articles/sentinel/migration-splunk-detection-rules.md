@@ -11,6 +11,8 @@ ms.date: 05/03/2022
 
 This article describes how to identify, compare, and migrate your Splunk detection rules to Microsoft Sentinel built-in rules.
 
+If you want to migrate your Splunk Observability deployment, learn more about how to [migrate from Splunk to Azure Monitor Logs](../azure-monitor/logs/migrate-splunk-to-azure-monitor-logs.md).
+
 ## Identify and migrate rules
 
 Microsoft Sentinel uses machine learning analytics to create high-fidelity and actionable incidents, and some of your existing detections may be redundant in Microsoft Sentinel. Therefore, don't migrate all of your detection and analytics rules blindly. Review these considerations as you identify your existing detection rules.

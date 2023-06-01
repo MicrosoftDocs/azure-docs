@@ -6,6 +6,8 @@
     href: service-bus-messaging-overview.md
   - name: Use Service Bus with Java Message Service (JMS) 2.0
     href: how-to-use-java-message-service-20.md
+  - name: Compare messaging services
+    href: compare-messaging-services.md
 - name: Quickstarts
   items:
   - name: Service Bus queues

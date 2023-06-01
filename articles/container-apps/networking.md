@@ -1,5 +1,5 @@
 ---
-title: Networking architecture in Azure Container Apps
+title: Networking environment in Azure Container Apps
 description: Learn how to configure virtual networks in Azure Container Apps.
 services: container-apps
 author: cachai
@@ -9,9 +9,9 @@ ms.date: 03/29/2023
 ms.author: cachai
 ---
 
-# Networking architecture in Azure Container Apps
+# Networking environment in Azure Container Apps
 
-Azure Container Apps run in the context of an [environment](environment.md), which is supported by a virtual network (VNet). By default, your Container App Environment is created with a VNet that is automatically generated for you. Generated VNets are inaccessible to you as they're created in Microsoft's tenant. This VNet is publicly accessible over the internet, can only reach internet accessible endpoints, and supports a limited subset of networking capabilities such as ingress IP restrictions and container app level ingress controls.
+Azure Container Apps run in the context of an [environment](environment.md), which is supported by a virtual network (VNet). By default, your Container App environment is created with a VNet that is automatically generated for you. Generated VNets are inaccessible to you as they're created in Microsoft's tenant. This VNet is publicly accessible over the internet, can only reach internet accessible endpoints, and supports a limited subset of networking capabilities such as ingress IP restrictions and container app level ingress controls.
 
 Use the Custom VNet configuration to provide your own VNet if you need more Azure networking features such as:
 
@@ -19,16 +19,16 @@ Use the Custom VNet configuration to provide your own VNet if you need more Azur
 - Network Security Groups
 - Communicating with resources behind private endpoints in your virtual network
 
-The features available depend on your architecture selection.
+The features available depend on your environment selection.
 
-## Architecture Selection
+## Environment Selection
 
-There are two architectures in Container Apps: the Consumption only architecture supports only the [Consumption plan (GA)](./plans.md) and the workload profiles architecture that supports both the [Consumption + Dedicated plan structure (preview)](./plans.md). The two architectures share many of the same networking characteristics. However, there are some key differences.
+There are two environments in Container Apps: the Consumption only environment supports only the [Consumption plan (GA)](./plans.md) and the workload profiles environment that supports both the [Consumption + Dedicated plan structure (preview)](./plans.md). The two environments share many of the same networking characteristics. However, there are some key differences.
 
-| Architecture Type | Description |
+| Environment Type | Description |
 |-----------|-------------|
-| Workload profiles architecture (preview) | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /27. <br /> <br /> As workload profiles are currently in preview, the number of supported regions is limited. To learn more, visit the [workload profiles overview](./workload-profiles-overview.md#supported-regions).|
-| Consumption only architecture | Doesn't support user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /23. |
+| Workload profiles environment (preview) | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /27. <br /> <br /> As workload profiles are currently in preview, the number of supported regions is limited. To learn more, visit the [workload profiles overview](./workload-profiles-overview.md#supported-regions).|
+| Consumption only environment | Doesn't support user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /23. |
 
 ## Accessibility Levels
 
@@ -103,7 +103,7 @@ IP addresses are broken down into the following types:
 | Type | Description |
 |--|--|
 | Public inbound IP address | Used for app traffic in an external deployment, and management traffic in both internal and external deployments. |
-| Outbound public IP | Used as the "from" IP for outbound connections that leave the virtual network. These connections aren't routed down a VPN. Outbound IPs aren't guaranteed and may change over time. Using a NAT gateway or other proxy for outbound traffic from a Container App environment is only supported on the workload profile architecture. |
+| Outbound public IP | Used as the "from" IP for outbound connections that leave the virtual network. These connections aren't routed down a VPN. Outbound IPs aren't guaranteed and may change over time. Using a NAT gateway or other proxy for outbound traffic from a Container App environment is only supported on the workload profile environment. |
 | Internal load balancer IP address | This address only exists in an internal deployment. |
 | App-assigned IP-based TLS/SSL addresses | These addresses are only possible with an external deployment, and when IP-based TLS/SSL binding is configured. |
 
@@ -111,24 +111,24 @@ IP addresses are broken down into the following types:
 
 Virtual network integration depends on a dedicated subnet. How IP addresses are allocated in a subnet and what subnet sizes are supported depends on which plan you're using in Azure Container Apps. Selecting an appropriately sized subnet for the scale of your Container Apps is important as subnet sizes can't be modified post creation in Azure.
 
-- Consumption only architecture:
+- Consumption only environment:
     - /23 is the minimum subnet size required for virtual network integration. 
     - Container Apps reserves a minimum of 60 IPs for infrastructure in your VNet, and the amount may increase up to 256 addresses as your container environment scales.
     - As your app scales, a new IP address is allocated for each new replica.
 
-- Workload profiles architecture:
+- Workload profiles environment:
     - /27 is the minimum subnet size required for virtual network integration. 
     - The subnet you're integrating your container app with must be delegated to `Microsoft.App/environments`.
     - 11 IP addresses are automatically reserved for integration with the subnet. When your apps are running on workload profiles, the number of IP addresses required for infrastructure integration doesn't vary based on the scale of your container apps. 
     - More IP addresses are allocated depending on your Container App's workload profile:
-        - When you're using Consumption workload profiles for your container app, IP address assignment behaves the same as when running on the Consumption only architecture. As your app scales, a new IP address is allocated for each new replica.
+        - When you're using Consumption workload profiles for your container app, IP address assignment behaves the same as when running on the Consumption only environment. As your app scales, a new IP address is allocated for each new replica.
         - When you're using the Dedicated workload profile for your container app, each node has 1 IP address assigned.
 
 As a Container Apps environment is created, you provide resource IDs for a single subnet.
 
 If you're using the CLI, the parameter to define the subnet resource ID is `infrastructure-subnet-resource-id`. The subnet hosts infrastructure components and user app containers.
 
-In addition, if you're using the Azure CLI with the Consumption only architecture and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
+In addition, if you're using the Azure CLI with the Consumption only environment and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
 
 ### Subnet Address Range Restrictions
 
@@ -139,7 +139,7 @@ Subnet address ranges can't overlap with the following ranges reserved by AKS:
 - 172.31.0.0/16
 - 192.0.2.0/24
 
-In addition, Container Apps on the workload profiles architecture reserve the following addresses:
+In addition, Container Apps on the workload profiles environment reserve the following addresses:
 
 - 100.100.0.0/17
 - 100.100.128.0/19
@@ -148,44 +148,70 @@ In addition, Container Apps on the workload profiles architecture reserve the fo
 
 ## Routes
 
-User Defined Routes (UDR) and controlled egress through NAT Gateway are supported in the workload profiles architecture, which is in preview. In the Consumption only architecture, these features aren't supported.
+User Defined Routes (UDR) and controlled egress through NAT Gateway are supported in the workload profiles environment, which is in preview. In the Consumption only environment, these features aren't supported.
 
 ### User defined routes (UDR) - preview
 
-You can use UDR on the workload profiles architecture to restrict outbound traffic from your container app through Azure Firewall or other network appliances.  Configuring UDR is done outside of the Container Apps environment scope. 
+> [!NOTE]
+> When using UDR with Azure Firewall in Azure Container Apps, you will need to add certain FQDN's and service tags to the allowlist for the firewall. To learn more, see [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall---preview).
+
+You can use UDR on the workload profiles architecture to restrict outbound traffic from your container app through Azure Firewall or other network appliances. Configuring UDR is done outside of the Container Apps environment scope. UDR isn't supported for external environments.
 
 :::image type="content" source="media/networking/udr-architecture.png" alt-text="Diagram of how UDR is implemented for Container Apps.":::
 
-Important notes for configuring UDR with Azure Firewall:
+Azure creates a default route table for your virtual networks upon create. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. For example, you can create a UDR that routes all traffic to the firewall.
 
-- You need to allow the `MicrosoftContainerRegistry` and its dependency `AzureFrontDoor.FirstParty` service tags to your Azure Firewall. Alternatively, you can add the following FQDNs: *mcr.microsoft.com* and **.data.mcr.microsoft.com*.
-- If you're using Azure Container Registry (ACR), you need to add the `AzureContainerRegistry` service tag and the **.blob.core.windows.net* FQDN in the Azure Firewall.
-- If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add the following FQDNs to your firewall: *hub.docker.com*, *registry-1.docker.io*, and *production.cloudflare.docker.com*.
-- If you're using [Azure Key Vault references](./manage-secrets.md#reference-secret-from-key-vault), you will need to add the `AzureKeyVault` service tag and the *login.microsoft.com* FQDN to the allow list for your firewall.
-- External environments aren't supported.
+#### Configuring UDR with Azure Firewall - preview:
 
-Azure creates a default route table for your virtual networks upon create. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. For example, you can create a UDR that routes all traffic to the firewall. For a guide on how to setup UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
+UDR is only supported on the workload profiles environment. The following application and network rules must be added to the allowlist for your firewall depending on which resources you are using.
+
+> [!Note] 
+> For a guide on how to setup UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
+
+##### Azure Firewall - Application Rules
+
+Application rules allow or deny traffic based on the application layer. The following outbound firewall application rules are required based on scenario.
+
+| Scenarios | FQDNs | Description | 
+|--|--|--|
+| All scenarios | *mcr.microsoft.com*, **.data.mcr.microsoft.com* | These FQDNs for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these application rules or the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. | 
+| Azure Container Registry (ACR) | *Your-ACR-address*, **.blob.windows.net* | These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. | 
+| Azure Key Vault | *Your-Azure-Key-Vault-address*, *login.microsoft.com* | These FQDNs are required in addition to the service tag required for the network rule for Azure Key Vault. | 
+| Docker Hub Registry | *hub.docker.com*, *registry-1.docker.io*, *production.cloudflare.docker.com* | If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add these FQDNs to the firewall. | 
+
+##### Azure Firewall - Network Rules
+
+Network rules allow or deny traffic based on the network and transport layer. The following outbound firewall network rules are required based on scenario.
+
+| Scenarios | Service Tag | Description | 
+|--|--|--|
+| All scenarios | *MicrosoftContainerRegistry*, *AzureFrontDoorFirstParty*  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these network rules or the application rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
+| Azure Container Registry (ACR) | *AzureContainerRegistry* | When using ACR with Azure Container Apps, you will need to configure these application rules used by Azure Container Registry. |
+| Azure Key Vault | *AzureKeyVault*, *AzureActiveDirectory* | These service tags are required in addition to the FQDN for the application rule for Azure Key Vault. |
+
+> [!Note]
+> For Azure resources you are using with Azure Firewall not listed above, please refer to the [service tags documentation](../virtual-network/service-tags-overview.md#available-service-tags).
 
 ### NAT gateway integration - preview
 
-You can use NAT Gateway to simplify outbound connectivity for your outbound internet traffic in your virtual network on the workload profiles architecture. NAT Gateway is used to provide a static public IP address, so when you configure NAT Gateway on your Container Apps subnet, all outbound traffic from your container app is routed through the NAT Gateway's static public IP address. 
+You can use NAT Gateway to simplify outbound connectivity for your outbound internet traffic in your virtual network on the workload profiles environment. NAT Gateway is used to provide a static public IP address, so when you configure NAT Gateway on your Container Apps subnet, all outbound traffic from your container app is routed through the NAT Gateway's static public IP address. 
 
 ### Lock down your Container App environment
 
 :::image type="content" source="media/networking/locked-down-network.png" alt-text="Diagram of how to fully lock down your network for Container Apps.":::
 
-With the workload profiles architecture (preview), you can fully secure your ingress/egress networking traffic. To do so, you should use the following features:
-- Create your internal container app environment on the workload profiles architecture. For steps, see [here](./workload-profiles-manage-cli.md).
+With the workload profiles environment (preview), you can fully secure your ingress/egress networking traffic. To do so, you should use the following features:
+- Create your internal container app environment on the workload profiles environment. For steps, see [here](./workload-profiles-manage-cli.md).
 - Integrate your Container Apps with an Application Gateway. For steps, see [here](./waf-app-gateway.md).
 - Configure UDR to route all traffic through Azure Firewall. For steps, see [here](./user-defined-routes.md).
 
 ## DNS
 
--	**Custom DNS**: If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. If you don't use the Azure recursive resolvers, the Container Apps environment can't function.
+-	**Custom DNS**: If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or Firewall, do not block the `168.63.129.16` address, otherwise, your Container Apps environment won't function.
 
 -	**VNet-scope ingress**: If you plan to use VNet-scope [ingress](ingress-overview.md) in an internal Container Apps environment, configure your domains in one of the following ways:
 
-    1. **Non-custom domains**: If you don't plan to use custom domains, create a private DNS zone that resolves the Container Apps environment's default domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server.  If you use Azure Private DNS, create a Private DNS Zone named as the Container App Environment’s default domain (`<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`), with an `A` record. The A record contains the name `*<DNS Suffix>` and the static IP address of the Container Apps environment.
+    1. **Non-custom domains**: If you don't plan to use custom domains, create a private DNS zone that resolves the Container Apps environment's default domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server.  If you use Azure Private DNS, create a Private DNS Zone named as the Container App environment’s default domain (`<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`), with an `A` record. The A record contains the name `*<DNS Suffix>` and the static IP address of the Container Apps environment.
 
     1. **Custom domains**: If you plan to use custom domains, use a publicly resolvable domain to [add a custom domain and certificate](./custom-domains-certificates.md#add-a-custom-domain-and-certificate) to the container app. Additionally, create a private DNS zone that resolves the apex domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server. If you use Azure Private DNS, create a Private DNS Zone named as the apex domain, with an `A` record that points to the static IP address of the Container Apps environment.
 
@@ -195,14 +221,14 @@ The static IP address of the Container Apps environment can be found in the Azur
 
 When you deploy an internal or an external environment into your own network, a new resource group is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and it shouldn't be modified.
 
-#### Consumption only architecture
+#### Consumption only environment
 The name of the resource group created in the Azure subscription where your environment is hosted is prefixed with `MC_` by default, and the resource group name *cannot* be customized during container app creation. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer.
 
 In addition to the [Azure Container Apps billing](./billing.md), you're billed for:
 - Two standard static [public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/), one for ingress and one for egress. If you need more IPs for egress due to SNAT issues, [open a support ticket to request an override](https://azure.microsoft.com/support/create-ticket/).
 - Two standard [Load Balancers](https://azure.microsoft.com/pricing/details/load-balancer/) if using an internal environment, or one standard [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) if using an external environment. Each load balancer has fewer than six rules. The cost of data processed (GB) includes both ingress and egress for management operations.
 
-#### Workload profiles architecture
+#### Workload profiles environment
 The name of the resource group created in the Azure subscription where your environment is hosted is prefixed with `ME_` by default, and the resource group name *can* be customized during container app environment creation. For external environments, the resource group contains a public IP address used specifically for inbound connectivity to your external environment and a load balancer. For internal environments, the resource group only contains a Load Balancer.
 
 In addition to the [Azure Container Apps billing](./billing.md), you're billed for:

@@ -22,7 +22,7 @@ items:
       href: deploy-new-arm.md
     - name: Azure PowerShell or the Azure CLI
       href: deploy-json-powershell-cli.md
-    - name: Azure Bicep
+    - name: Bicep
       href: deploy-bicep-powershell-cli.md
     - name: Azure portal
       href: deploy-manual-portal.md
@@ -37,11 +37,8 @@ items:
   - name: Map
     expanded: false
     items:
-    - name: Mapping debugger
-      expanded: false
-      items:
-        - name: Use the Mapping debugger
-          href: how-to-use-mapping-debugger.md
+    - name: Use the Mapping debugger
+      href: how-to-use-mapping-debugger.md
     - name: Device
       expanded: false
       items:
@@ -86,7 +83,7 @@ items:
 - name: Resources
   expanded: false
   items:
-  - name: FAQs - The MedTech service
+  - name: FAQs - MedTech service
     href: frequently-asked-questions.md
   - name: Open-source projects
     href: git-projects.md     

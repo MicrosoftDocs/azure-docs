@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 03/30/2023
 ms.reviewer: rijolly
 ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
+ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet, devx-track-extended-java
 ---
 
 # What is distributed tracing and telemetry correlation?
@@ -173,14 +173,14 @@ It's important to make sure the incoming and outgoing configurations are exactly
 
 This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by default. To enable it, use `distributedTracingMode` config. AI_AND_W3C is provided for backward compatibility with any legacy services instrumented by Application Insights.
 
-- **[npm-based setup](./javascript.md#npm-based-setup)**
+- **[npm-based setup](./javascript-sdk.md?tabs=npmpackage#enable-application-insights)**
 
    Add the following configuration:
   ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
   ```
 
-- **[Snippet-based setup](./javascript.md#snippet-based-setup)**
+- **[SDK Loader Script-based setup](./javascript-sdk.md?tabs=sdkloaderscript#enable-application-insights)**
 
    Add the following configuration:
   ```

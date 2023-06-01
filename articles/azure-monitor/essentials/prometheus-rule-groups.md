@@ -1,13 +1,14 @@
 ---
-title: Rule groups in Azure Monitor Managed Service for Prometheus (preview)
+title: Rule groups in Azure Monitor Managed Service for Prometheus
 description: Description of rule groups in Azure Monitor managed service for Prometheus which alerting and data computation.
-author: bwren 
+author: EdB-MSFT
+ms-author: edbaynash
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.date: 09/28/2022
 ---
 
-# Azure Monitor managed service for Prometheus rule groups (preview)
+# Azure Monitor managed service for Prometheus rule groups
 Rules in Prometheus act on data as it's collected. They're configured as part of a Prometheus rule group, which is stored in [Azure Monitor workspace](azure-monitor-workspace-overview.md). Rules are run sequentially in the order they're defined in the group.
 
 
@@ -17,7 +18,7 @@ There are two types of Prometheus rules as described in the following table.
 | Type | Description |
 |:---|:---|
 | Alert | Alert rules let you create an Azure Monitor alert based on the results of a Prometheus Query Language (Prom QL) query.  |
-| Recording | Recording rules allow you to pre-compute frequently needed or computationally extensive expressions and store their result as a new set of time series. Querying the precomputed result will then often be much faster than executing the original expression every time it's needed. This is especially useful for dashboards, which need to query the same expression repeatedly every time they refresh, or for use in alert rules, where multiple alert rules may be based on the same complex query. Time series created by recording rules are ingested back to your Azure Monitor workspace as new Prometheus metrics. |
+| Recording | Recording rules allow you to precompute frequently needed or computationally extensive expressions and store their result as a new set of time series. Querying the precomputed result will then often be much faster than executing the original expression every time it's needed. This is especially useful for dashboards, which need to query the same expression repeatedly every time they refresh, or for use in alert rules, where multiple alert rules may be based on the same complex query. Time series created by recording rules are ingested back to your Azure Monitor workspace as new Prometheus metrics. |
 
 ## View Prometheus rule groups
 You can view the rule groups and their included rules in the Azure portal by selecting **Rule groups** from the Azure Monitor workspace.
@@ -35,20 +36,24 @@ To enable or disable a rule, click on the rule in the Azure portal. Select eithe
 
 
 ## Create Prometheus rules
-In the public preview, rule groups, recording rules and alert rules are configured using Azure Resource Manager (ARM) templates, API, and provisioning tools. This uses a new resource called **Prometheus Rule Group**. You can create and configure rule group resources where the alert rules and recording rules are defined as part of the rule group properties. Azure Prometheus rule groups are defined with a scope of a specific [Azure Monitor workspace](azure-monitor-workspace-overview.md).
+In the public preview, rule groups, recording rules and alert rules are configured using Azure Resource Manager (ARM) templates, the API, and provisioning tools. This uses a new resource called **Prometheus Rule Group**. You can create and configure rule group resources where the alert rules and recording rules are defined as part of the rule group properties. Azure Monitor Managed Prometheus rule groups are defined with a scope of a specific [Azure Monitor workspace](azure-monitor-workspace-overview.md).
 
 
-You can use a Resource Manager template to create and configure Prometheus rule groups, alert rules and recording rules. Resource Manager templates enable you to programmatically set up alert and recording rules in a consistent and reproducible way across your environments.
+You can use a Resource Manager template to create and configure Prometheus rule groups, alert rules, and recording rules. Resource Manager templates enable you to programmatically set up alert and recording rules in a consistent and reproducible way across all your environments.
 
 The basic steps are as follows:
 
 1. Use the templates below as a JSON file that describes how to create the rule group.
 2. Deploy the template using any deployment method, such as [Azure portal](../../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md), or [Rest API](../../azure-resource-manager/templates/deploy-rest.md).
 
+> [!NOTE]
+> For your AKS or ARC Kubernetes clusters, you can use some of the recommended alerts rules. See pre-defined alert rules [here](../containers/container-insights-metric-alerts.md#enable-prometheus-alert-rules).
+
+
 ### Limiting rules to a specific cluster
 
-You can optionally limit the rules in a rule group to query data originating from a specific cluster, using  the rule group `clusterName`  property.
-You should try to limit rules to a single cluster if your monitoring workspace contains a large scale of data from multiple clusters, and there's a concern that running a single set of rules on all the data may cause performance or throttling issues. Using the `clusterName` property, you can create multiple rule groups, each configured with the same rules, limiting each group to cover a different cluster. 
+You can optionally limit the rules in a rule group to query data originating from a specific cluster, using the rule group `clusterName` property.
+You should try to limit rules to a single cluster if your Azure Monitor workspace contains a large amount of data from multiple clusters and if there's a concern that running a single set of rules on all the data may cause performance or throttling issues. By using the `clusterName` property, you can create multiple rule groups, each configured with the same rules, and therefore limit each group to cover a different cluster. 
 
 - The `clusterName` value must be identical to the `cluster` label that is added to the metrics from a specific cluster during data collection.
 - If `clusterName` is not specified for a specific rule group, the rules in the group will query all the data in the workspace from all clusters.
@@ -67,7 +72,7 @@ Below is a sample template that creates a Prometheus rule group, including one r
         {
            "name": "sampleRuleGroup",
            "type": "Microsoft.AlertsManagement/prometheusRuleGroups",
-           "apiVersion": "2021-07-22-preview",
+           "apiVersion": "2023-03-01",
            "location": "northcentralus",
            "properties": {
                 "description": "Sample Prometheus Rule Group",
@@ -120,13 +125,13 @@ Below is a sample template that creates a Prometheus rule group, including one r
 The following tables describe each of the properties in the rule definition.
 
 ### Rule group
-The rule group will have the following properties, whether it includes alerting rule, recording rule, or both.
+The rule group will always have the following properties, whether it includes an alerting rule, a recording rule, or both.
 
 | Name | Required | Type | Description |
 |:---|:---|:---|:---|
 | `name` | True | string | Prometheus rule group name |
 | `type` | True | string | `Microsoft.AlertsManagement/prometheusRuleGroups` |
-| `apiVersion` | True | string | `2021-07-22-preview` |
+| `apiVersion` | True | string | `2023-03-01` |
 | `location` | True | string | Resource location from regions supported in the preview |
 | `properties.description` | False | string | Rule group description |
 | `properties.scopes` | True | string[] | Target Azure Monitor workspace. Only one scope currently supported |
@@ -164,7 +169,6 @@ The `rules` section will have the following properties for alerting rules.
 
 ## Next steps
 
-- [Use preconfigured alert rules for your Kubernetes cluster](../containers/container-insights-metric-alerts.md).
 - [Learn more about the Azure alerts](../alerts/alerts-types.md).
 - [Prometheus documentation for recording rules](https://aka.ms/azureprometheus-promio-recrules).
 - [Prometheus documentation for alerting rules](https://aka.ms/azureprometheus-promio-alertrules).

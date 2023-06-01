@@ -10,8 +10,6 @@ ms.topic: how-to
 ms.date: 04/17/2023
 ms.author: bemabonsu
 monikerRange: '>=form-recog-2.1.0'
-recommendations: false
-#Customer intent: I want to learn how to use create a Form Recognizer service in the Azure portal.
 ---
 
 # Create a Form Recognizer resource

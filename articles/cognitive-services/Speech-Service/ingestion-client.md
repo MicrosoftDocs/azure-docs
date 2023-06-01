@@ -43,7 +43,7 @@ Internally, the tool uses Speech and Language services, and follows best practic
 
 The following Speech service feature is used by the Ingestion Client:
 
-- [Batch speech-to-text](./batch-transcription.md): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
+- [Batch speech to text](./batch-transcription.md): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
 
 Here are some Language service features that are used by the Ingestion Client:
 

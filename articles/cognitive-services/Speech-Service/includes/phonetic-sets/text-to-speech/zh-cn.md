@@ -1,3 +1,11 @@
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
 The Speech service phone set for `zh-CN` is based on the native phone <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank">Pinyin </a> set.
 
 ### Pinyin Initials for zh-CN

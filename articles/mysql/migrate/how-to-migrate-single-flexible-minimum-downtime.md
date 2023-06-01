@@ -4,24 +4,24 @@ description: This article describes how to perform a minimal-downtime migration 
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 12/16/2022
+ms.date: 05/03/2023
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: how-to
 ---
 
-# Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with open-source tools
+# Migrate Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server with open-source tools
 
-You can migrate an instance of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with minimum downtime to your applications by using a combination of open-source tools such as mydumper/myloader and Data-in replication.
+You can migrate an instance of Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server with minimum downtime to your applications by using a combination of open-source tools such as mydumper/myloader and Data-in replication.
 
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-Data-in replication is a technique that replicates data changes from the source server to the destination server based on the binary log file position method. In this scenario, the MySQL instance operating as the source (on which the database changes originate) writes updates and changes as “events” to the binary log. The information in the binary log is stored in different logging formats according to the database changes being recorded. Replicas are configured to read the binary log from the source and to execute the events in the binary sign in the replica's local database.
+Data-in replication is a technique that replicates data changes from the source server to the destination server based on the binary log file position method. In this scenario, the MySQL instance operating as the source (on which the database changes originate) writes updates and changes as "events" to the binary log. The information in the binary log is stored in different logging formats according to the database changes being recorded. Replicas are configured to read the binary log from the source and to execute the events in the binary sign in the replica's local database.
 
 If you set up Data-in replication to synchronize data from one instance of Azure Database for MySQL to another, you can do a selective cutover of your applications from the primary (or source database) to the replica (or target database).
 
-In this tutorial, you’ll use mydumper/myloader and Data-in replication to migrate a sample database ([classicmodels](https://www.mysqltutorial.org/mysql-sample-database.aspx)) from an instance of Azure Database for MySQL - Single Server to an instance of Azure Database for MySQL - Flexible Server, and then synchronize data.
+In this tutorial, you'll use mydumper/myloader and Data-in replication to migrate a sample database ([classicmodels](https://www.mysqltutorial.org/mysql-sample-database.aspx)) from an instance of Azure Database for MySQL - Single Server to an instance of Azure Database for MySQL - Flexible Server, and then synchronize data.
 
 In this tutorial, you learn how to:
 
@@ -88,14 +88,14 @@ To configure Data in replication, perform the following steps:
 
 4. Based on the SSL enforcement for the source server, create a user in the source server with the replication permission by running the appropriate command.
 
-    If you’re using SSL, run the following command:
+    If you're using SSL, run the following command:
 
     ```sql
     CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
     GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%' REQUIRE SSL;
     ```
 
-    If you’re not using SSL, run the following command:
+    If you're not using SSL, run the following command:
 
     ```sql
     CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
@@ -105,18 +105,18 @@ To configure Data in replication, perform the following steps:
 5. To back up the database using mydumper, run the following command on the Azure VM where we installed the mydumper\myloader:
 
     ```bash
-    $ mydumper --host=<primary_server>.mysql.database.azure.com --user=<username>@<primary_server> --password=<Password> --outputdir=./backup --rows=100000 -G -E -R -z --trx-consistency-only --compress --build-empty-files --threads=16 --compress-protocol --ssl  --regex '^(classicmodels\.)' -L mydumper-logs.txt
+    mydumper --host=<primary_server>.mysql.database.azure.com --user=<username>@<primary_server> --password=<Password> --outputdir=./backup --rows=100000 -G -E -R -z --trx-consistency-only --compress --build-empty-files --threads=16 --compress-protocol --ssl  --regex '^(classicmodels\.)' -L mydumper-logs.txt
     ```
 
     > [!TIP]
     > The option **--trx-consistency-only** is a required for transactional consistency while we take backup.
     >
-    > - The mydumper equivalent of mysqldump’s --single-transaction.
+    > - The mydumper equivalent of mysqldump's --single-transaction.
     > - Useful if all your tables are InnoDB.
-    > - The “main” thread only needs to hold the global lock until the “dump” threads can start a transaction.
+    > - The "main" thread only needs to hold the global lock until the "dump" threads can start a transaction.
     > - Offers the shortest duration of global locking
 
-    The “main” thread only needs to hold the global lock until the “dump” threads can start a transaction.
+    The "main" thread only needs to hold the global lock until the "dump" threads can start a transaction.
 
     The variables in this command are explained below:
 
@@ -129,7 +129,7 @@ To configure Data in replication, perform the following steps:
 6. Read the metadata file to determine the binary log file name and offset by running the following command:
 
     ```bash
-    $ cat ./backup/metadata 
+    cat ./backup/metadata 
     ```
 
     In this command, **./backup** refers to the output directory used in the command in the previous step.
@@ -143,7 +143,7 @@ To configure Data in replication, perform the following steps:
 7. Restore the database using myloader by running the following command:
 
     ```bash
-    $ myloader --host=<servername>.mysql.database.azure.com --user=<username> --password=<Password> --directory=./backup --queries-per-transaction=100 --threads=16 --compress-protocol --ssl --verbose=3 -e 2>myloader-logs.txt
+    myloader --host=<servername>.mysql.database.azure.com --user=<username> --password=<Password> --directory=./backup --queries-per-transaction=100 --threads=16 --compress-protocol --ssl --verbose=3 -e 2>myloader-logs.txt
     ```
 
     The variables in this command are explained below:
@@ -243,6 +243,7 @@ To ensure a successful cutover, perform the following tasks:
 
 At this point, your applications are connected to the new Azure Database for MySQL Flexible server and changes in the source will no longer replicate to the target.
 [Create and manage Azure Database for MySQL firewall rules by using the Azure portal](../single-server/how-to-manage-firewall-using-portal.md)
+
 ## Next steps
 
 - Learn more about Data-in replication [Replicate data into Azure Database for MySQL Flexible Server](../flexible-server/concepts-data-in-replication.md) and [Configure Azure Database for MySQL Flexible Server Data-in replication](../flexible-server/how-to-data-in-replication.md)

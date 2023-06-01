@@ -10,7 +10,6 @@ ms.topic: overview
 ms.date: 02/14/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
 <!-- markdownlint-disable MD033 -->

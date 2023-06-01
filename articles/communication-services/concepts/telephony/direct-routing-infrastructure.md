@@ -1,12 +1,12 @@
 ---
-title: Azure direct routing infrastructure requirements — Azure Communication Services
+title: Azure direct routing infrastructure requirements—Azure Communication Services
 description: Familiarize yourself with the infrastructure requirements for Azure Communication Services direct routing configuration
 author: boris-bazilevskiy
 manager: nmurav
 services: azure-communication-services
 
 ms.author: bobazile
-ms.date: 06/30/2021
+ms.date: 05/11/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
@@ -54,9 +54,6 @@ An example would be using `\*.contoso.com`, which would match the SBC FQDN `sbc.
  >[!NOTE]
  > SBC FQDN in Azure Communication Services direct routing must be different from SBC FQDN in Teams Direct Routing.
 
->[!IMPORTANT]
->During Public Preview only: if you plan to use a wildcard certificate for the domain that is not registered in Teams, please raise a support ticket, and our team will add it as a trusted domain.
-
 Communication Services only trusts certificates signed by Certificate Authorities (CAs) that are part of the Microsoft Trusted Root Certificate Program. Ensure that your SBC certificate is signed by a CA that is part of the program, and that Extended Key Usage (EKU) extension of your certificate includes Server Authentication.
 Learn more:
 
@@ -72,14 +69,14 @@ Learn more:
 >TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 i.e. ECDHE-RSA-AES256-SHA384 
 >TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 i.e. ECDHE-RSA-AES128-SHA256
 
-SBC pairing works on the Communication Services resource level. It means you can pair many SBCs to a single Communication Services resource. Still, you cannot pair a single SBC to more than one Communication Services resource. Unique SBC FQDNs are required for pairing to different resources.
+SBC pairing works on the Communication Services resource level. It means you can pair many SBCs to a single Communication Services resource. Still, you can't pair a single SBC to more than one Communication Services resource. Unique SBC FQDNs are required for pairing to different resources.
 
 
 ## SIP Signaling: FQDNs 
 
 The connection points for Communication Services direct routing are the following three FQDNs:
 
-- **sip.pstnhub.microsoft.com** — Global FQDN — must be tried first. When the SBC sends a request to resolve this name, the Microsoft Azure DNS servers return an IP address that points to the primary Azure datacenter assigned to the SBC. The assignment is based on performance metrics of the datacenters and geographical proximity to the SBC. The IP address returned corresponds to the primary FQDN.
+- **sip.pstnhub.microsoft.com — Global FQDN — must be tried first. When the SBC sends a request to resolve this name, the Microsoft Azure DNS servers return an IP address that points to the primary Azure datacenter assigned to the SBC. The assignment is based on performance metrics of the datacenters and geographical proximity to the SBC. The IP address returned corresponds to the primary FQDN.
 - **sip2.pstnhub.microsoft.com** — Secondary FQDN — geographically maps to the second priority region.
 - **sip3.pstnhub.microsoft.com** — Tertiary FQDN — geographically maps to the third priority region.
 

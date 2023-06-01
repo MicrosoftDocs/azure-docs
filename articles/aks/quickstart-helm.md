@@ -26,6 +26,9 @@ You'll need to store your container images in an Azure Container Registry (ACR) 
 
 The below example uses the [`az acr create`][az-acr-create] command to create an ACR named *myhelmacr* in *myResourceGroup* with the *Basic* SKU.
 
+> [!NOTE]
+> The ACR name that you choose must be unique across the `azurecr.io` domain. If you specify an existing ACR name, an error is returned and the ACR is not created.
+
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 az acr create --resource-group MyResourceGroup --name myhelmacr --sku Basic

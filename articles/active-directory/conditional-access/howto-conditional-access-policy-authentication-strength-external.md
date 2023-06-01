@@ -48,7 +48,7 @@ The authentication methods that external users can use to satisfy MFA requiremen
 Determine if one of the built-in authentication strengths will work for your scenario or if you'll need to create a custom authentication strength.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths (Preview)**.
+1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths**.
 1. Review the built-in authentication strengths to see if one of them meets your requirements.
 1. If you want to enforce a different set of authentication methods, [create a custom authentication strength](https://aka.ms/b2b-auth-strengths).
 

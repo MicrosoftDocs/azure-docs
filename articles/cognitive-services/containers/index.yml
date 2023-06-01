@@ -46,16 +46,18 @@ landingContent:
   linkLists:
       - linkListType: how-to-guide
         links:
-        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
+        - url: ../language-service/sentiment-opinion-mining/how-to/use-containers.md
           text: Sentiment Analysis
-        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
+        - url: ../language-service/key-phrase-extraction/how-to/use-containers.md
           text: Key phrase extraction
-        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
+        - url: ../language-service/language-detection/how-to/use-containers.md
           text: Text language detection
-        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare
+        - url: ../language-service/text-analytics-for-health/how-to/use-containers.md
           text: Text Analytics for health
         - url: ../luis/luis-container-howto.md
           text: LUIS container
+        - url: ../language-service/custom-named-entity-recognition/how-to/use-containers.md
+          text: Custom Named Entity Recognition
         - url: ../Translator/containers/translator-how-to-install-container.md
           text: Translator container
 - title: Speech containers

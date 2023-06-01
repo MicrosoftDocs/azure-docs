@@ -106,6 +106,8 @@ To create a personal host pool, workspace, application group, and session host V
 
 1. Select **Create**. A host pool, workspace, application group, and session host will be created. Once your deployment is complete, select **Go to resource**. This goes to the host pool overview.
 
+1. Finally, from the host pool overview select **Session hosts** and verify the status of the session hosts is **Available**.
+
 ## Assign users to the application group
 
 Once your host pool, workspace, application group, and session host VM(s) have been deployed, you need to assign users to the application group that was automatically created. After users are assigned to the application group, they'll automatically be assigned to an available session host VM because *Assignment type* was set to **Automatic** when the host pool was created.

@@ -61,6 +61,7 @@ Azure file shares backup is available in all regions, **except** for Germany Cen
 | Maximum number of restore per day                           | 10      |
 | Maximum  number of individual files or folders per restore, if ILR (Item level recovery)                         | 99      |
 | Maximum  recommended restore size per restore for large file shares | 15  TiB |
+| Maximum duration of a restore job                           | 15 days
 
 ## Retention limits
 

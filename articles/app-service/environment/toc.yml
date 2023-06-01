@@ -6,6 +6,8 @@
     href: overview.md
   - name: Version comparison
     href: version-comparison.md
+  - name: Upgrade to App Service Environment v3
+    href: upgrade-to-asev3.md
 - name: Quickstarts
   expanded: true
   items:

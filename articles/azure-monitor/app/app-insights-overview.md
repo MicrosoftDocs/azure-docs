@@ -2,7 +2,7 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 04/24/2023
+ms.date: 05/12/2023
 ---
 
 # Application Insights overview
@@ -26,7 +26,7 @@ Application Insights provides other features including, but not limited to:
 - [Usage](usage-overview.md): Understand which features are popular with users and how users interact and use your application.
 - [Smart detection](proactive-diagnostics.md): Detect failures and anomalies automatically through proactive telemetry analysis.
 
-Application Insights supports [distributed tracing](distributed-tracing.md), which is also known as distributed component correlation. This feature allows [searching for](diagnostic-search.md) and [visualizing](transaction-diagnostics.md) an end-to-end flow of a specific execution or transaction. The ability to trace activity from end to end is important for applications that were built as distributed components or [microservices](/azure/architecture/guide/architecture-styles/microservices).
+Application Insights supports [distributed tracing](distributed-tracing-telemetry-correlation.md), which is also known as distributed component correlation. This feature allows [searching for](diagnostic-search.md) and [visualizing](transaction-diagnostics.md) an end-to-end flow of a specific execution or transaction. The ability to trace activity from end to end is important for applications that were built as distributed components or [microservices](/azure/architecture/guide/architecture-styles/microservices).
 
 The [Application Map](app-map.md) allows a high-level, top-down view of the application architecture and at-a-glance visual references to component health and responsiveness.
 
@@ -34,7 +34,7 @@ To understand the number of Application Insights resources required to cover you
 
 ## How do I use Application Insights?
 
-Application Insights is enabled through either [autoinstrumentation](codeless-overview.md) (agent) or by adding the [Application Insights SDK](sdk-support-guidance.md) to your application code. [Many languages](#supported-languages) are supported. The applications could be on Azure, on-premises, or hosted by another cloud. To figure out which type of instrumentation is best for you, see [How do I instrument an application?](#how-do-i-instrument-an-application).
+Application Insights is enabled through either [autoinstrumentation](codeless-overview.md) (agent) or by adding the [Application Insights SDK](sdk-support-guidance.md) or [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md) to your application code. [Many languages](#supported-languages) are supported. The applications could be on Azure, on-premises, or hosted by another cloud. To figure out which type of instrumentation is best for you, see [How do I instrument an application?](#how-do-i-instrument-an-application).
 
 The Application Insights agent or SDK preprocesses telemetry and metrics before sending the data to Azure. Then it's ingested and processed further before it's stored in Azure Monitor Logs (Log Analytics). For this reason, an Azure account is required to use Application Insights.
 
@@ -173,6 +173,10 @@ Review [frequently asked questions](../faq.yml).
 Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/welcome-azure-monitor) for Application Insights.
 
 ## Help and support
+
+### Azure technical support
+
+For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 
 ### Microsoft Q&A questions forum
 
