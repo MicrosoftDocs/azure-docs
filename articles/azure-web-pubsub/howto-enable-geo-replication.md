@@ -11,6 +11,15 @@ ms.topic: how-to
 
 # Geo-replication in Azure Web PubSub 
 
+## What is geo-replication feature?
+Mission critial apps often need to have a robust failover system and serve users closer to where they are. Before the release of the geo-replication feature, developers needed to deploy multiple Web PubSub resources and write custom code to orchestrate communcation across resources. Now, with quick configuration through Azure portal, you can easily enable this feature. 
+
+## Benefits of using geo-replication
+* **More resilient to regional outage:** If a regional outage happens, clients will be automatically routed to a healthy replica.
+* **Cross-region communication:** Developers use a geo-replication-enabled resource as usual, even though behind-the-scenes there are more than one resource. The communication across replicas is handled by the service. 
+* **Enhanced network speed:** Geographically dispersed clients will connect to the nearest replica. These replicas communicate through [Azure global network backbone](https://azure.microsoft.com/en-us/explore/global-infrastructure/global-network), ensuring fast and stable networking.
+* **Ease of management**. All replicas share the configuration of the primary Web PubSub resource.
+
 ## Prerequisites
 * A Web PubSub resource in [premium tier](https://azure.microsoft.com/en-us/pricing/details/web-pubsub/).
 
@@ -60,8 +69,6 @@ After creating a replica, your clients will be distributed across selected Azure
 ## Best practices
 To ensure effective failover management, it is recommended to enable autoscaling for the resource. If there are two replias in a Web PubSub resource and one of the replicas is not available due to an outage, the available replica will receive all the traffic and handle all the WebSocket connections. Auto-scaling can scale up to meet the demand automatically. Like the geo-replication feature, auto-scaling can be easily configured on Azure portal. {image...} 
 
-
-{Move this to a page under "Concept"???}
 ## Understand how the geo-replication feature works
 
 ![replica_overview-Page-1 drawio](https://github.com/bjqian/azure-docs/assets/16233725/80241a26-d0cf-4dc6-876d-df29d441639a)

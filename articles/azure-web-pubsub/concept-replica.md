@@ -20,9 +20,7 @@ Mission critial apps often need to have a robust failover system and serve users
 * **Ease of management**. All replicas share the configuration of the primary Web PubSub resource.
 
 
-## Understanding how the Web PubSub Replica Works
-
-The diagram below provides a brief illustration of the Web PubSub Replicas' functionality:
+## Understand how the geo-replication feature works
 
 ![replica_overview-Page-1 drawio](https://github.com/bjqian/azure-docs/assets/16233725/80241a26-d0cf-4dc6-876d-df29d441639a)
 
@@ -30,6 +28,8 @@ The diagram below provides a brief illustration of the Web PubSub Replicas' func
 2. With this CNAME, the client establishes a websocket connection to the regional instance.
 3. The two replicas will synchronize data with each other. Messages sent to one replica would be transferred to other replicas if necessary.
 4. In case a replica fails the health check conducted by the Traffic Manager (TM), the TM will exclude the failed instance's endpoint from its domain resolution results.
+{connection count limit...}
+
 
 > [!NOTE]
 > * In the data plane, a primary Azure Web PubSub resource functions identically to its replicas
