@@ -60,7 +60,7 @@ You can configure Dev Tools Portal using the Azure portal or Azure CLI.
 Use the following steps to configure Dev Tools Portal using the Azure portal:
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Select **Developer Tools (Preview)**.
+1. Select **Developer Tools**.
 1. Select the **Configuration** tab.
 1. On the **Configuration** page, update **Scope**, **Client ID**, **Client Secret**, and **Metadata Url**, and then select **Save**.
 1. Select **Assign endpoint** to expose the public endpoint.
@@ -90,7 +90,7 @@ You can assign a public endpoint using the Azure portal or Azure CLI.
 
 Use the following steps to access Dev Tools Portal and assign a public endpoint:
 
-1. Select **Developer Tools (Preview)**.
+1. Select **Developer Tools**.
 1. Select **Assign endpoint** to assign a public endpoint. Azure Spring Apps generates a URL within a few minutes.
 1. Save the URL for use later. Application Live View and Application Accelerator will then get their corresponding endpoints.
 
