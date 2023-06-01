@@ -7,7 +7,7 @@ author: flang-msft
 ms.custom: references_regions
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/12/2023
+ms.date: 05/31/2023
 ms.author: franlanglois
 
 ---
@@ -23,9 +23,6 @@ Azure Cache for Redis offers two methods to authenticate to your cache instance:
 Although access key authentication is simple, it comes with a set of challenges around security and password management. In this article, you learn  how to use an Azure Active Directory (Azure AD) token for cache authentication.
 
 Azure Cache for Redis offers a password-free authentication mechanism by integrating with [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis). This integration also includes [role-based access control](/azure/role-based-access-control/) functionality provided through [access control lists (ACLs)](https://redis.io/docs/management/security/acl/) supported in open source Redis.
-
-> [!IMPORTANT]
-> The updates to Azure Cache for Redis that enable Azure Active Directory for authentication are available only in East US region.
 
 To use the ACL integration, your client application must assume the identity of an Azure Active Directory entity, like service principal or managed identity, and connect to your cache. In this article, you learn how to use your service principal or managed identity to connect to your cache, and how to grant your connection predefined permissions based on the Azure AD artifact being used for the connection.
 

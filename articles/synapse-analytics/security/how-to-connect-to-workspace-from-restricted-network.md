@@ -128,6 +128,8 @@ Required for workspace/pool management:
  - `{workspaceName}.[dev|sql].azuresynapse.net`
  - `{workspaceName}-ondemand.sql.azuresynapse.net`
 
+Required for Synapse notebook authoring:
+- `aznb.azuresandbox.ms`
 
 ## Appendix: DNS registration for private endpoint
 
