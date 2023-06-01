@@ -88,7 +88,8 @@ Make a `TMPDIR` for the `azacsnap` user:
                        AzAcSnap 7a (Build: 1AA8343)
 ```
 
-Changing the user's `TMPDIR` would need to be made permanent by changing the user's profile (e.g. `$HOME/.bashrc` or `$HOME/.bash_profile`).  There would also be a need to clean-up the `TMPDIR` on system reboot, this is typically automatic for `/tmp`.
+> [!IMPORTANT]
+> Changing the user's `TMPDIR` would need to be made permanent by changing the user's profile (e.g. `$HOME/.bashrc` or `$HOME/.bash_profile`).  There would also be a need to clean-up the `TMPDIR` on system reboot, this is typically automatic for `/tmp`.
 
 ## Check log files, result files, and syslog
 
