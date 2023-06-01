@@ -59,7 +59,7 @@ Learn more about [Azure Arc-enabled servers](../azure-arc/servers/overview.md).
 
     > [!TIP]
     > You can also open add machines from the **inventory** page's **Add non-Azure servers** button.
-    > 
+    >
     > :::image type="content" source="./media/quickstart-onboard-machines/onboard-inventory.png" alt-text="Adding non-Azure machines from the asset inventory page.":::
 
     A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Defender for Cloud when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
@@ -90,6 +90,7 @@ To add Linux machines, you need the WGET command from the **Agents management** 
 ### Onboard your Windows machines
 
 To add Windows machines, you need the information on the **Agents management** page and to download the appropriate agent file (32/64-bit).
+
 1. Select the **Download Windows Agent** link applicable to your computer processor type to download the setup file.
 1. From the **Agents management** page, copy the **Workspace ID** and **Primary Key** into Notepad.
 1. Copy the downloaded setup file to the target computer and run it.
