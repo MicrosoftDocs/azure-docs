@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: compliance
 ms.workload: identity
 ms.topic: tutorial 
-ms.date: 05/08/2023
+ms.date: 05/31/2023
 ms.custom: template-tutorial 
 ---
 
