@@ -15,6 +15,77 @@ ms.custom: cogserv-non-critical-translator
 
 This page has the latest release notes for features, improvements, bug fixes, and known issues for the Custom Translator service.
 
+## 2023-June release
+
+### June 2023 new features and model updates
+
+#### Custom Translator platform upgrade
+
+* We added model upgrade wizard to **Workspace settings** to guide customers during V1 model upgrade to new platform.
+
+#### Custom Translator model copy
+
+* We added model copy in **Model details** to provide model copy from one workspace to other, enabling model lifecycle management (dev->test->prod) or scaling.
+
+#### Restrict access to published models
+
+* We enahnced publish model security and enabled restricted access in Workspace settings to allow only linked Translator resources to request translation.
+
+#### Language model updates
+
+* Language pairs are listed in the table below. We encourage you to retrain your models accordingly for higher quality.
+
+|Source Language|Target Language|
+|:----|:----|
+| Czech (cs-cz) 	| English (en-us) |
+| Danish (da-dk) 	| English (en-us) |
+| German (de-de) 	| English (en-us) |
+| Greek (el-gr) 	| English (en-us) |
+| English (en-us) 	| Arabic (ar-sa) |
+| English (en-us) 	| Czech (cs-cz) |
+| English (en-us) 	| Danish (da-dk) |
+| English (en-us) 	| German (de-de) |
+| English (en-us) 	| Greek (el-gr) |
+| English (en-us) 	| Spanish (es-es) |
+| English (en-us) 	| French (fr-fr) |
+| English (en-us) 	| Hebrew (he-il) |
+| English (en-us) 	| Hindi (hi-in) |
+| English (en-us) 	| Croatian (hr-hr) |
+| English (en-us) 	| Hungarian (hu-hu) |
+| English (en-us) 	| Indonesian (id-id) |
+| English (en-us) 	| Italian (it-it) |
+| English (en-us) 	| Japanese (ja-jp) |
+| English (en-us) 	| Korean (ko-kr) |
+| English (en-us) 	| Lithuanian (lt-lt) |
+| English (en-us) 	| Latvian (lv-lv) |
+| English (en-us) 	| Norwegain (nb-no) |
+| English (en-us) 	| Polish (pl-pl) |
+| English (en-us) 	| Portuguese (pt-pt) |
+| English (en-us) 	| Russian (ru-ru) |
+| English (en-us) 	| Slovak (sk-sk) |
+| English (en-us) 	| Swedish (sv-se) |
+| English (en-us) 	| Ukrainian (uk-ua) |
+| English (en-us) 	| Vietnamese (vi-vn) |
+| English (en-us) 	| Chinese Simplified (zh-cn) |
+| Spanish (es-es) 	| English (en-us) |
+| French (fr-fr) 	| English (en-us) |
+| Hindi (hi-in) 	| English (en-us) |
+| Hungarian (hu-hu) 	| English (en-us) |
+| Indonesian (id-id) 	| English (en-us) |
+| Italian (it-it) 	| English (en-us) |
+| Japanese (ja-jp) 	| English (en-us) |
+| Korean (ko-kr) 	| English (en-us) |
+| Norwegain (nb-no) 	| English (en-us) |
+| Dutch (nl-nl) 	| English (en-us) |
+| Polish (pl-pl) 	| English (en-us) |
+| Portuguese (pt-br) 	| English (en-us) |
+| Russian (ru-ru) 	| English (en-us) |
+| Swedish (sv-se) 	| English (en-us) |
+| Thai (th-th) 	| English (en-us) |
+| Turkish (tr-tr) 	| English (en-us) |
+| Vietnamese (vi-vn) 	| English (en-us) |
+| Chinese Simplified (zh-cn) 	| English (en-us) |
+
 ## 2022-November release
 
 ### November 2022 improvements and fixes
