@@ -91,7 +91,8 @@ Along with simple string and number inputs, the SAP connector accepts the follow
 
 ### SAP built-in connector
 
-The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). Apart from this, you need to set these environment variables in your local system: 
+The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). You must also set up the following environment variables on the computer where you install Visual Studio Code:
+ 
  - **WEBSITE_PRIVATE_IP** : Set this environment variable with the value of localhost address **127.0.0.1**
  - **WEBSITE_PRIVATE_PORTS**: Set this environment variable with two free usable ports on your local system separated by **comma**. For Example: **8080,8088**
 
