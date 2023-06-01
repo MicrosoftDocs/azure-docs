@@ -1,7 +1,7 @@
 ---
 title: Zero downtime deployment in Azure Spring Apps
 description: Learn the zero downtime deployment in Azure Spring Apps
-author: haital
+author: karlerickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 04/14/2023
@@ -10,6 +10,9 @@ ms.custom: devx-track-java
 ---
 
 # Zero downtime deployment in Azure Spring Apps
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -21,34 +24,38 @@ Achieving zero-downtime deployments is a fundamental goal for mission-critical a
 
 ## Zero downtime with blue-green deployment strategy
 
-You can achieve zero downtime with [blue-green deployment strategy](concepts-blue-green-deployment-strategies.md) in Azure Spring Apps. 
+You can achieve zero downtime with [blue-green deployment strategies](concepts-blue-green-deployment-strategies.md) in Azure Spring Apps.
 
-Blue-green deployment eliminates downtime by running two deployment versions, and only one of the deployments can serve production traffic at any time. Blue-green deployment can enable zero downtime by allowing you to switch to the other deployment version if something bad happens to the live one. 
+A blue-green deployment eliminates downtime by running two deployment versions, with only one of the deployments to serve production traffic at any time. Blue-green deployment enables zero downtime by allowing you to switch to the other deployment version if something disrupts the live deployment.
 
-When you perform a blue-green switch, Azure Spring Apps does the following operations underlyingly:
-1. Override eureka registry status to **UP** for instances under `production` deployment, if eureka client is enabled for the deployment
-2. Override eureka registry status to **OUT_OF_SERVICE** for instances under `staging` deployment, if eureka client is enabled for the deployment
-3. Update ingress rules to route public traffic to instances under `production` deployment, if public endpoint is enabled for the app 
+When you perform a blue-green switch, Azure Spring Apps performs the following underlying operations:
+
+1. Overrides the eureka registry status to `UP` for instances under production deployment, and to `OUT_OF_SERVICE` for instances under staging deployment. This operation requires that the client is enabled for the deployment.
+1. Updates ingress rules to route public traffic to instances under production deployment, if the public endpoint is enabled for the application.
 
 > [!NOTE]
-> For blue-green deployment, you can achieve zero down time even for single replica deployment.
+> For blue-green deployment, you can achieve zero down time even for a single replica deployment.
 
 ## Zero downtime with rolling update strategy
 
-For deployment with replica number >= 2, you can achieve zero down time using the rolling update strategy from Azure Spring Apps. 
+For a deployment with a replica number two or higher, you can achieve zero downtime by using the rolling update strategy from Azure Spring Apps.
 
-When you deploy a new version to an existing deployment, or restart a deployment, Azure Spring Apps underlying uses K8S's [rolling update strategy](https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/) to do the update. Rolling updates allow deployments' update to take place with zero downtime by incrementally updating instances with new ones. Your application will continously serve production traffic when doing rolling update if deployment replica >= 2. 
+When you deploy a new version to an existing deployment, or restart a deployment, Azure Spring Apps uses underlying Kubernetes rolling updates to perform the update.
+
+Rolling updates allow deployment updates to take place with zero downtime by incrementally updating instances with new instances. Your application continues to serve production traffic when performing a rolling update if the deployment replica is two or more. For more information, see [Performing a Rolling Update](https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/).
 
 > [!WARNING]
-> For single replica deployment, you may see downtime during deployment update. To ensure application availability, it's highly suggested to deploy at least two replicas for your production workload.   
+> For a single replica deployment, you might see downtime during the deployment update. To ensure application availability, deploying with at least two replicas for your production workload is highly recommended.
 
 > [!NOTE]
-> To gracefully start or shutdown your application, you need to configure proper [health probes](./how-to-configure-health-probes-graceful-termination.md) for your deployments. Kubernetes will check these probes during the rolling update process, and Nginx ingress controller routes traffic to instances with succeeded readiness probe.
+> To gracefully start or shutdown your application, you must configure health probes for your deployments. For more information, see [How to configure health probes and graceful termination periods for apps hosted in Azure Spring Apps](./how-to-configure-health-probes-graceful-termination.md). Kubernetes checks these probes during the rolling update process, and Nginx ingress controller routes traffic to instances with a succeeded readiness probe.
 
-Also, when scale in your application instances, Azure Spring Apps underlyingly use K8S's [preStop hook](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/) to gracefully shutdown the pods. In the hook, the following operations are performed for a shutting down application container:
-1. Override the instance's eureka registry status to **OUT_OF_SERVICE**, if eureka client is enabled
-2. Wait some seconds to continue serve traffic (from Nginx or other apps if any) before K8S kills the application container 
+When you scale in your application instances, Azure Spring Apps uses underlying Kubernetes [Container Lifecycle Hooks](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/) to gracefully shut down the pods.
 
+In the hook, Azure Spring Apps performs the following operations for a shutting down an application container:
+
+1. Overrides the instance's eureka registry status to `OUT_OF_SERVICE`, if the eureka client is enabled.
+2. Waits a few seconds to continue to serve any traffic from Nginx or other applications before Kubernetes deletes the application container.
 
 ## Next steps
 
