@@ -49,24 +49,24 @@ Native applications are public client applications that run directly on desktop 
 
 Native applications are protected by the backup authentication system when all the following are true: 
 
-1. Your application persists the token cache for at least three days. Your application should use the device’s token cache location or the [token cache serialization API](../develop/msal-net-token-cache-serialization.md) to persist the token cache even when the user closes the application. 
+1. Your application persists the token cache for at least three days. Applications should use the device’s token cache location or the [token cache serialization API](../develop/msal-net-token-cache-serialization.md) to persist the token cache even when the user closes the application. 
 1. Your application makes use of the MSAL [AcquireTokenSilent API](../develop/msal-net-acquire-token-silently.md) to retrieve tokens using cached Refresh Tokens. The use of the [AcquireTokenInteractive API](../develop/scenario-desktop-acquire-token-interactive.md) may fail to acquire a token from the backup authentication system if user interaction is required. 
 
-The [device authorization grant](../develop/v2-oauth2-device-code.md) flow isn't currently supported by the backup authentication system.
+The backup authentication system doesn't currently support the [device authorization grant](../develop/v2-oauth2-device-code.md).
 
 ##### Single-page web applications 
 
 Single-page web applications (SPAs) have limited support in the backup authentication system. SPAs that use the [implicit grant flow](../develop/v2-oauth2-implicit-grant-flow.md) and request only OpenID Connect ID tokens are protected. Only apps that either use MSAL.js 1.x or implement the implicit grant flow directly can use this protection, as MSAL.js 2.x doesn't support the implicit flow.  
 
-The [authorization code flow with Proof Key for Code Exchange](../develop/v2-oauth2-auth-code-flow.md) isn't currently supported by the backup authentication system. 
+The backup authentication system doesn't currently support the [authorization code flow with Proof Key for Code Exchange](../develop/v2-oauth2-auth-code-flow.md).
 
 ##### Web applications & services 
 
-Web applications and services that are configured as confidential clients aren't yet supported by the backup authentication system. Protection for the [authorization code grant flow](../develop/v2-oauth2-auth-code-flow.md) and subsequent token acquisition using refresh tokens and client secrets or [certificate credentials](../develop/active-directory-certificate-credentials.md) is expected by September 2024. The OAuth 2.0 [on-behalf-of flow](../develop/v2-oauth2-on-behalf-of-flow.md) will be protected, although a date isn't yet available.  
+The backup authentication system doesn't currently support web applications and services that are configured as confidential clients. Protection for the [authorization code grant flow](../develop/v2-oauth2-auth-code-flow.md) and subsequent token acquisition using refresh tokens and client secrets or [certificate credentials](../develop/active-directory-certificate-credentials.md) isn't currently supported. The OAuth 2.0 [on-behalf-of flow](../develop/v2-oauth2-on-behalf-of-flow.md) isn't currently supported.  
 
 #### SAML 2.0 single sign-on (SSO) 
 
-The SAML 2.0 SSO protocol is currently partially supported by the backup authentication system. Flows that use the SAML 2.0 Identity Provider (IdP) Initiated flow are protected by the Backup Authentication Service. Most applications should and do use the [Service Provider (SP) Initiated flow](../develop/single-sign-on-saml-protocol.md), which isn't yet protected by the backup authentication system. The backup authentication system will support SP-Initiated SSO flows by March 2024.  
+The backup authentication system partially supports the SAML 2.0 SSO protocol. Flows that use the SAML 2.0 Identity Provider (IdP) Initiated flow are protected by the backup authentication system. Applications that use the [Service Provider (SP) Initiated flow](../develop/single-sign-on-saml-protocol.md), aren't currently protected by the backup authentication system.  
 
 ### Workload identity authentication protocols supported by the backup authentication system
 
@@ -78,6 +78,9 @@ Applications that use Managed Identities to acquire Azure Active Directory acces
 
 ##### Service principal 
 
-Service principal-based Workload identity authentication using the [client credentials grant flow](../develop/v2-oauth2-client-creds-grant-flow.md) isn't yet supported by the backup authentication system. Microsoft recommends using the version of MSAL appropriate to your platform so your application will be protected by the backup authentication system when the protection becomes available in December 2024. 
+The backup authentication system doesn't currently support service principal-based Workload identity authentication using the [client credentials grant flow](../develop/v2-oauth2-client-creds-grant-flow.md). Microsoft recommends using the version of MSAL appropriate to your platform so your application is protected by the backup authentication system when the protection becomes available. 
 
 ## Next steps
+
+- [Azure AD's backup authentication system](backup-authentication-system.md)
+- [Microsoft Authentication Library (MSAL)](../develop/msal-overview.md)
