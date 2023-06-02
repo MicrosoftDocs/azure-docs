@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 06/02/2023
 ms.author: cshoe
 ---
 
@@ -16,10 +16,11 @@ Billing in Azure Container apps is based on your [plan type](plans.md).
 
 | Plan type | Description |
 |--|--|
-| [Consumption](#consumption-plan) | Serverless environment where you're only billed for the resources your apps use when they're running. |
-| [Consumption + Dedicated workload profiles plan structure](#consumption-dedicated) | A fully managed environment that supports both Consumption-based apps and Dedicated workload profiles that offer customized compute options for your apps. You're billed for each node in each [workload profile](workload-profiles-overview.md).
+| [Consumption](#consumption-plan) | Serverless environment where you're only billed for the resources your apps use as they're running. |
+| [Consumption + Dedicated workload profiles plan structure](#consumption-dedicated) | A fully managed environment that supports both Consumption-based apps and Dedicated workload profiles that offer customized compute options for your apps. You're billed for each node in each [workload profile](workload-profiles-overview.md). Charges apply to resources allocated to each running replica. |
 
-Charges apply to resources allocated to each running replica. |
+- Your plan selection determines billing calculations.
+- Different applications in an environment can use different plans.
 
 ## Consumption plan
 
@@ -79,10 +80,10 @@ When a revision is scaled above the [minimum replica count](scale-app.md), all o
 
 ### Request charges
 
-In addition to resource consumption, Azure Container Apps also charges based on the number of HTTP requests received by your container app. Only requests that come from outside a Container Apps environment are billable. 
+In addition to resource consumption, Azure Container Apps also charges based on the number of HTTP requests received by your container app. Only requests that come from outside a Container Apps environment are billable.
 
 - The first 2 million requests in each subscription per calendar month are free.
-- [Health probe](./health-probes.md) requests are not billable.
+- [Health probe](./health-probes.md) requests aren't billable.
 
 <a id="consumption-dedicated"></a>
 
@@ -90,18 +91,22 @@ In addition to resource consumption, Azure Container Apps also charges based on 
 
 Azure Container Apps Consumption + Dedicated plan structure consists of two plans withing a single environment, each with their own billing model.
 
-The billing for apps running in the Consumption plan within the Consumption + Dedicated plan structure is the same as the Consumption plan.
+You're billed based on workload profile instances, not by individual applications.
 
 The billing for apps running in the Dedicated plan within the Consumption + Dedicated plan structure is as follows:
+
+- **Consumption plan**: Billing for the Consumption plan workload profile is calculated the same as for the standard Consumption plan.
 
 - **Dedicated workload profiles**: You're billed on a per-second basis for vCPU-seconds and GiB-seconds resources in all the workload profile instances in use. As profiles scale out, extra costs apply for the extra instances; as profiles scale in, billing is reduced.
 
 - **Dedicated plan management**: You're billed a fixed cost for the Dedicated management plan when using Dedicated workload profiles. This cost is the same regardless of how many Dedicated workload profiles in use.
 
-For instance, you are not billed any charges for Dedicated unless you use a Dedicated workload profile in your environment.
- 
+- **Management fee**: If you have one or more dedicated workload profiles in your environment, you're charged a management fee.
+
+For instance, you aren't billed any charges for Dedicated unless you use a Dedicated workload profile in your environment.
+
 ## General terms
 
 For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 
-For best results, maximize the use of your allocated resources by calculating the needs of your container apps. Often you can run multiple apps on a single instance of a workload profile.
+For best results, maximize your allocated resources by considering the needs of each container app in a workload profile. Often you can run multiple apps on a single instance of a workload profile.
