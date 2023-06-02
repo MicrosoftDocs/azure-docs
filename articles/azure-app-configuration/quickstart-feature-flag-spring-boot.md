@@ -70,6 +70,7 @@ To create a new Spring Boot project:
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
+    ```
 
     ### [Spring Boot 2](#tab/spring-boot-2)
 
