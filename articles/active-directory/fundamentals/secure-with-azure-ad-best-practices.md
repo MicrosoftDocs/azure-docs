@@ -44,7 +44,7 @@ When designing isolated environments, it's important to consider the following p
 
 * **Directory-level role assignments** - Avoid or reduce numbers of directory-level role assignments (User Administrator on directory scope instead of AU-scoping) or service-specific directory roles with control plane actions (Knowledge Admin with permissions to manage security group memberships).
 
-In addition to the guidance in the [Azure Active Directory general operations guide](../fundamentals/active-directory-ops-guide-ops.md), we also recommend the following considerations for isolated environments.
+In addition to the guidance in the [Azure Active Directory general operations guide](../fundamentals/ops-guide-ops.md), we also recommend the following considerations for isolated environments.
 
 ## Human identity provisioning
 
@@ -91,7 +91,7 @@ We recommend you use security groups to grant access to Microsoft services that 
 
 Azure AD cloud native groups can be natively governed from the cloud when combined with [Azure AD access reviews](../governance/access-reviews-overview.md) and [Azure AD entitlement management](../governance/access-reviews-overview.md). Organizations who already have on-premises group governance tools can continue to use those tools and rely on identity synchronization with Azure AD Connect to reflect group membership changes.
 
-Azure AD also supports direct user assignment to third-party SaaS services (for example, Salesforce, Service Now) for single sign-on and identity provisioning. Direct assignments to resources can be natively governed from the cloud when combined with [Azure AD access reviews](../governance/access-reviews-overview.md) and [Azure AD entitlement management](../fundamentals/active-directory-ops-guide-ops.md). Direct assignment might be a good fit for end-user facing assignment.
+Azure AD also supports direct user assignment to third-party SaaS services (for example, Salesforce, Service Now) for single sign-on and identity provisioning. Direct assignments to resources can be natively governed from the cloud when combined with [Azure AD access reviews](../governance/access-reviews-overview.md) and [Azure AD entitlement management](../fundamentals/ops-guide-ops.md). Direct assignment might be a good fit for end-user facing assignment.
 
 Some scenarios might require granting access to on-premises resources through on-premises Active Directory security groups. For those cases, consider the synchronization cycle to Azure AD when designing processes SLA.
 
@@ -276,7 +276,7 @@ Below are some considerations when designing a governed subscription lifecycle p
 
 ## Operations
 
-The following are additional operational considerations for Azure AD, specific to multiple isolated environments. Check the [Azure Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/), the [Microsoft cloud security benchmark](/security/benchmark/azure/) and [Azure AD Operations guide](./active-directory-ops-guide-ops.md) for detailed guidance to operate individual environments.
+The following are additional operational considerations for Azure AD, specific to multiple isolated environments. Check the [Azure Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/), the [Microsoft cloud security benchmark](/security/benchmark/azure/) and [Azure AD Operations guide](./ops-guide-ops.md) for detailed guidance to operate individual environments.
 
 ### Cross-environment roles and responsibilities
 

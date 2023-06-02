@@ -15,7 +15,7 @@ ms.author: martinco
 
 # Azure Active Directory Identity and access management operations reference guide
 
-This section of the [Azure AD operations reference guide](active-directory-ops-guide-intro.md) describes the checks and actions you should consider to secure and manage the lifecycle of identities and their assignments.
+This section of the [Azure AD operations reference guide](ops-guide-intro.md) describes the checks and actions you should consider to secure and manage the lifecycle of identities and their assignments.
 
 > [!NOTE]
 > These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their identity practices as Microsoft products and services evolve over time.
@@ -24,7 +24,7 @@ This section of the [Azure AD operations reference guide](active-directory-ops-g
 
 ### Assign owners to key tasks
 
-Managing Azure Active Directory requires the continuous execution of key operational tasks and processes that may not be part of a rollout project. It is still important you set up these tasks to maintain your environment. The key tasks and their recommended owners include:
+Managing Azure Active Directory requires the continuous execution of key operational tasks and processes that may not be part of a rollout project. It's still important you set up these tasks to maintain your environment. The key tasks and their recommended owners include:
 
 | Task | Owner |
 | :- | :- |
@@ -50,7 +50,7 @@ Microsoft recommends you have a good baseline and understanding of the issues in
 
 ### Azure AD Connect Sync configuration
 
-To enable all hybrid experiences, device-based security posture, and integration with Azure AD, it is required that you synchronize user accounts that your employees use to login to their desktops.
+To enable all hybrid experiences, device-based security posture, and integration with Azure AD, it's required that you synchronize user accounts that your employees use to login to their desktops.
 
 If you don't synchronize the forest users log into, then you should change the synchronization to come from the proper forest.
 
@@ -75,19 +75,19 @@ Examples of objects to exclude are:
 > [!NOTE]
 > If a single human identity has multiple accounts provisioned from something such as a legacy domain migration, merger, or acquisition, you should only synchronize the account used by the user on a day-to-day basis, for example, what they use to log in to their computer.
 
-Ideally, you will want to reach a balance between reducing the number of objects to synchronize and the complexity in the rules. Generally, a combination between OU/container [filtering](../hybrid/how-to-connect-sync-configure-filtering.md) plus a simple attribute mapping to the cloudFiltered attribute is an effective filtering combination.
+Ideally, you'll want to reach a balance between reducing the number of objects to synchronize and the complexity in the rules. Generally, a combination between OU/container [filtering](../hybrid/how-to-connect-sync-configure-filtering.md) plus a simple attribute mapping to the cloudFiltered attribute is an effective filtering combination.
 
 > [!IMPORTANT]
 > If you use group filtering in production, you should transition to another filtering approach.
 
 #### Sync failover or disaster recovery
 
-Azure AD Connect plays a key role in the provisioning process. If the Sync Server goes offline for any reason, changes to on-premises cannot be updated in the cloud and can result in access issues for users. Therefore, it is important to define a failover strategy that allows administrators to quickly resume synchronization after the sync server goes offline. Such strategies may fall into the following categories:
+Azure AD Connect plays a key role in the provisioning process. If the Sync Server goes offline for any reason, changes to on-premises can't be updated in the cloud and can result in access issues for users. Therefore, it's important to define a failover strategy that allows administrators to quickly resume synchronization after the sync server goes offline. Such strategies may fall into the following categories:
 
 - **Deploy Azure AD Connect Server(s) in Staging Mode** - allows an administrator to "promote" the staging server to production by a simple configuration switch.
 - **Use Virtualization** - If the Azure AD connect is deployed in a virtual machine (VM), admins can leverage their virtualization stack to live migrate or quickly redeploy the VM and therefore resume synchronization.
 
-If your organization is lacking a disaster recovery and failover strategy for Sync, you shouldn't hesitate to deploy Azure AD Connect in Staging Mode. Likewise, if there is a mismatch between your production and staging configuration, you should re-baseline Azure AD Connect staging mode to match the production configuration, including software versions and configurations.
+If your organization is lacking a disaster recovery and failover strategy for Sync, you shouldn't hesitate to deploy Azure AD Connect in Staging Mode. Likewise, if there's a mismatch between your production and staging configuration, you should re-baseline Azure AD Connect staging mode to match the production configuration, including software versions and configurations.
 
 ![A screenshot of Azure AD Connect staging mode configuration](./media/ops-guide-auth/ops-img1.png)
 
@@ -112,13 +112,13 @@ Azure AD Connect custom rules provide the ability to control the flow of attribu
 - Higher probability of divergence of configuration between the production server and staging server
 - Additional overhead when upgrading Azure AD Connect if custom rules are created within the precedence greater than 100 (used by built-in rules)
 
-If you are using overly complex rules, you should investigate the reasons for the complexity and find opportunities for simplification. Likewise, if you have created custom rules with precedence value over 100, you should fix the rules so they aren't at risk or conflict with the default set.
+If you're using overly complex rules, you should investigate the reasons for the complexity and find opportunities for simplification. Likewise, if you have created custom rules with precedence value over 100, you should fix the rules so they aren't at risk or conflict with the default set.
 
 Examples of misusing custom rules include:
 
-- **Compensate for dirty data in the directory** - In this case, it is recommended to work with the owners of the AD team and clean up the data in the directory as a remediation task, and adjust processes to avoid reintroduction of bad data.
-- **One-off remediation of individual users** - It is common to find rules that special case outliers, usually because of an issue with a specific user.
-- **Overcomplicated "CloudFiltering"** - While reducing the number of objects is a good practice, there is a risk of creating and overcomplicated sync scope using many sync rules. If there is complex logic to include/exclude objects beyond the OU filtering, it is recommended to deal with this logic outside of sync and label the objects with a simple "cloudFiltered" attribute that can flow with a simple Sync Rule.
+- **Compensate for dirty data in the directory** - In this case, it's recommended to work with the owners of the AD team and clean up the data in the directory as a remediation task, and adjust processes to avoid reintroduction of bad data.
+- **One-off remediation of individual users** - It's common to find rules that special case outliers, usually because of an issue with a specific user.
+- **Overcomplicated "CloudFiltering"** - While reducing the number of objects is a good practice, there's a risk of creating and overcomplicated sync scope using many sync rules. If there's complex logic to include/exclude objects beyond the OU filtering, it's recommended to deal with this logic outside of sync and label the objects with a simple "cloudFiltered" attribute that can flow with a simple Sync Rule.
 
 #### Azure AD Connect configuration documenter
 
@@ -140,9 +140,9 @@ Azure Active Directory streamlines the management of licenses through [group-bas
 
 - **Delegated ownership** - Groups can be created in the cloud and can be designated owners. This way, you can empower business owners, for example, Collaboration team or BI team, to define who should have access.
 
-If you are currently using a manual process to assign licenses and components to users, we recommend you implement group-based licensing. If your current process does not monitor licensing errors or what is Assigned versus Available, you should define improvements to the process to address licensing errors and monitor licensing assignment.
+If you're currently using a manual process to assign licenses and components to users, we recommend you implement group-based licensing. If your current process doesn't monitor licensing errors or what is Assigned versus Available, you should define improvements to the process to address licensing errors and monitor licensing assignment.
 
-Another aspect of license management is the definition of service plans (components of the license) that should be enabled based on job functions in the organization. Granting access to service plans that aren't necessary, can result in users seeing tools in the Office portal that they have not been trained for or should not be using. It can drive additional help desk volume, unnecessary provisioning, and put your compliance and governance at risk, for example, when provisioning OneDrive for Business to individuals that might not be allowed to share content.
+Another aspect of license management is the definition of service plans (components of the license) that should be enabled based on job functions in the organization. Granting access to service plans that aren't necessary, can result in users seeing tools in the Office portal that they haven't been trained for or shouldn't be using. It can drive additional help desk volume, unnecessary provisioning, and put your compliance and governance at risk, for example, when provisioning OneDrive for Business to individuals that might not be allowed to share content.
 
 Use the following guidelines to define service plans to users:
 
@@ -157,7 +157,7 @@ Use the following guidelines to define service plans to users:
 
 #### Lifecycle management
 
-If you are currently using a tool, such as [Microsoft Identity Manager](/microsoft-identity-manager/) or third-party system, that relies on an on-premises infrastructure, we recommend you offload assignment from the existing tool, implement group-based licensing and define a group lifecycle management based on [groups](../enterprise-users/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). Likewise, if your existing process doesn't account for new employees or employees that leave the organization, you should deploy group-based licensing based on dynamic groups and define a group membership lifecycle. Finally, if group-based licensing is deployed against on-premises groups that lack lifecycle management, consider using cloud groups to enable capabilities such as delegated ownership or attribute-based dynamic membership.
+If you're currently using a tool, such as [Microsoft Identity Manager](/microsoft-identity-manager/) or third-party system, that relies on an on-premises infrastructure, we recommend you offload assignment from the existing tool, implement group-based licensing and define a group lifecycle management based on [groups](../enterprise-users/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). Likewise, if your existing process doesn't account for new employees or employees that leave the organization, you should deploy group-based licensing based on dynamic groups and define a group membership lifecycle. Finally, if group-based licensing is deployed against on-premises groups that lack lifecycle management, consider using cloud groups to enable capabilities such as delegated ownership or attribute-based dynamic membership.
 
 ### Assignment of apps with "All users" group
 
@@ -170,13 +170,13 @@ Resource owners may believe that the **All users** group contains only **Enterpr
 
 [Automated user provisioning](../app-provisioning/user-provisioning.md) to applications is the best way to create a consistent provisioning, deprovisioning, and lifecycle of identities across multiple systems.
 
-If you are currently provisioning apps in an ad-hoc manner or using things like CSV files, JIT, or an on-premises solution that does not address lifecycle management, we recommend you [implement application provisioning](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) with Azure AD for supported applications and define a consistent pattern for applications that aren't yet supported by Azure AD.
+If you're currently provisioning apps in an ad-hoc manner or using things like CSV files, JIT, or an on-premises solution that doesn't address lifecycle management, we recommend you [implement application provisioning](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) with Azure AD for supported applications and define a consistent pattern for applications that aren't yet supported by Azure AD.
 
 ![Azure AD provisioning service](./media/ops-guide-auth/ops-img3.png)
 
 ### Azure AD Connect delta sync cycle baseline
 
-It is important to understand the volume of changes in your organization and make sure that it isn't taking too long to have a predictable synchronization time.
+It's important to understand the volume of changes in your organization and make sure that it isn't taking too long to have a predictable synchronization time.
 
 The [default delta sync](../hybrid/how-to-connect-sync-feature-scheduler.md) frequency is 30 minutes. If the delta sync is taking longer than 30 minutes consistently, or there are significant discrepancies between the delta sync performance of staging and production, you should investigate and review the [factors influencing the performance of Azure AD Connect](../hybrid/plan-connect-performance-factors.md).
 
