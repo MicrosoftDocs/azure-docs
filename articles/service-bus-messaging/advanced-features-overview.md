@@ -47,8 +47,7 @@ When an Azure region experiences downtime, the disaster recovery feature enables
 ## Security
 Service Bus supports standard [AMQP 1.0](service-bus-amqp-overview.md) and [HTTP or REST](/rest/api/servicebus/) protocols and their respective security facilities, including transport-level security (TLS). Clients can be authorized for access using [Shared Access Signature](service-bus-sas.md) or [Azure Active Directory](service-bus-authentication-and-authorization.md) role-based security. 
 
-For protection against unwanted 
-ic, Service Bus provides [security features](network-security.md) such as IP firewall and integration with virtual networks. 
+For protection against unwanted traffic, Service Bus provides [security features](network-security.md) such as IP firewall and integration with virtual networks.
 
 ## Next steps
 See [Service Bus messaging samples](service-bus-samples.md) that show how to use these Service Bus features.
