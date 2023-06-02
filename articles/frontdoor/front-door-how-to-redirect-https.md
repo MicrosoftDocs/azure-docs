@@ -40,7 +40,7 @@ This article shows you how to redirect traffic from HTTP to HTTPS for an Azure F
 
 1. Under the *Route Details* section, set the *Route Type* to **Forward**. Select a backend pool forward traffic to and set the *Forwarding Protocol* to **HTTPS only**. 
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-forward-route-example.png" alt-text="Screenshot of add a forward route for HTTPS traffic." border="false":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-forward-route-example.png" alt-text="Screenshot of add a forward route for HTTPS traffic.":::
 
 1. Select **Add** to create the forwarding route and then select **Save** to save the changes to the Front Door profile.
 
