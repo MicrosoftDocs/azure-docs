@@ -358,7 +358,9 @@ To authenticate the request, add an `Authorization` header with a valid bearer t
 
 ---
 
-To list all executions of a job or to get detailed output from a job, query the logs provider configured for your Container Apps environment.
+The execution history for Scheduled & Event jobs is limited to the most recent `100` successful and failed job executions.
+
+To list all executions of a job or to get detailed output from a job, query the logs provider configured for your Container Apps environment. 
 
 ## Advanced job configuration
 
