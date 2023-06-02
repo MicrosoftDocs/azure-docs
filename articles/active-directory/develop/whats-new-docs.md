@@ -24,7 +24,6 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 
 - [Access token claims reference](access-token-claims-reference.md)
 - [Directory extension attributes in claims](schema-extensions.md)
-- [Migrate away from using email claims for authorization](migrate-off-email-claim-authorization.md)
 - [Provide optional claims to your app](optional-claims.md)
 
 ### Updated articles
