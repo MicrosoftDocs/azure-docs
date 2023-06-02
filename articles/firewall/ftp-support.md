@@ -6,7 +6,7 @@ author: vhorne
 ms.service: firewall
 ms.custom: devx-track-arm-template, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 06/02/2023
 ms.author: victorh
 ---
 
@@ -42,7 +42,7 @@ The following table shows the configuration required to support various FTP scen
 
 ## Deploy using Azure PowerShell
 
-To deploy using Azure PowerShell, use the `AllowActiveFTP` parameter. For more information, see [Create a Firewall with Allow Active FTP](/powershell/module/az.network/new-azfirewall#16---create-a-firewall-with-allow-active-ftp-).
+To deploy using Azure PowerShell, use the `AllowActiveFTP` parameter. For more information, see [Create a Firewall with Allow Active FTP](/powershell/module/az.network/new-azfirewall#example-16-create-a-firewall-with-allow-active-ftp).
 
 ## Update an existing Azure Firewall by using Azure PowerShell
 
