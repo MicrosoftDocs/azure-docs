@@ -20,7 +20,7 @@ This page contains information about how to select and prepare data in order to 
 > [!NOTE]
 > Throughout this document, we refer to a summary of a document as a “label”.
 
-### csum-document-sample-format
+### Custom summarization document sample format
 
 In the abstractive document summarization scenario, each document (whether it has a provided label or not) is expected to be provided in a plain .txt file. The file contains one or more lines. If multiple lines are provided, each is assumed to be a paragraph of the document. The following is an example document with five paragraphs.
 
@@ -34,7 +34,7 @@ Lufthansa CityLine is a subsidiary of Lufthansa, one of the world's major airlin
 
 Outside of weather, delays stem from missteps during the tightly choreographed turnaround process. Like most industry players, Lufthansa CityLine relies on manual timestamps to understand when each step of the turnaround process starts and ends and uses that manual timestamp data to glean insights on where to make adjustments for faster, leaner turnarounds."_
 
-### csum-conv-sample-format
+### Custom summarization conversation sample format
 
 In the abstractive conversation summarization scenario, each conversation (whether it has a provided label or not) is expected to be provided in a plain .txt file. Each conversation turn must be provided in a single line that is formatted as Speaker + “: “ + text (I.e., Speaker and text are separated by a colon followed by a space). The following is an example conversation of three turns between two speakers (Agent and Customer).
 
@@ -42,7 +42,7 @@ Agent: Hello, how can I help you?
 Customer: How do I upgrade office? I have been getting error messages all day.
 Agent: Please press the upgrade button, then sign in and follow the instructions.
 
-### csum-doc-and-sample-mapping-json-format
+### custom summarization document and sample mapping JSON format
 
 In both document and conversation summarization scenarios, a set of documents and corresponding labels can be provided in a single JSON file that references individual document/conversation and summary files. The JSON file is expected to contain the following fields:
 
