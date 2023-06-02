@@ -25,6 +25,8 @@ Before you can use custom Summarization, you'll need to create an Azure Language
 
 ## Upload sample data to blob container
 
+If you need sample data, we've [provided some](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/language-service/Custom%20summarization/sample-docs-and-labels) for the purpose of this quickstart.
+
 [!INCLUDE [Uploading sample data for custom Summarization](../../../includes/custom/language-studio/upload-data-to-storage.md)]
 
 ## Create a custom summarization project
