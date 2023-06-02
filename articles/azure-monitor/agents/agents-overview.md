@@ -104,8 +104,8 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 
 ### Windows agents
 
-|		|		|	Azure Monitor Agent	|	Log Analytics Agent	|	Diagnostics extension (WAD)	|
-|	-	|	-	|	-	|	-	|	-	|
+|	Category |	Area	|	Azure Monitor Agent	|	Log Analytics Agent	|	Diagnostics extension (WAD)	|
+|:---|:---|:---|:---|:---|
 |	**Environments supported**	|		|		|		|		|
 |		|	Azure	|	X	|	X	|	X	|
 |		|	Other cloud (Azure Arc)	|	X	|	X	|		|
@@ -137,8 +137,8 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 
 ### Linux agents
 
-|		|		|	Azure Monitor Agent	|	Log Analytics Agent	|	Diagnostics extension (LAD)	|	Telegraf agent	|
-|	-	|	-	|	-	|	-	|	-	|	-	|
+|	Category	|	Area	|	Azure Monitor Agent	|	Log Analytics Agent	|	Diagnostics extension (LAD)	|	Telegraf agent	|
+|:---|:---|:---|:---|:---|:---|
 |	**Environments supported**	|		|		|		|		|		|
 |		|	Azure	|	X	|	X	|	X	|	X	|
 |		|	Other cloud (Azure Arc)	|	X	|	X	|		|	X	|
