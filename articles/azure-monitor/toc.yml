@@ -221,6 +221,9 @@ items:
       - name: Collect IIS logs
         displayName: data collection rule,Azure Monitor Agent,IIS logs
         href: agents/data-collection-iis.md
+      - name: Collect Windows Firewall logs
+        displayName: data collection rule,Azure Monitor Agent,firewall logs
+        href: agents/data-collection-firewall.md
       - name: Collect text logs
         displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
         href: agents/data-collection-text-log.md
