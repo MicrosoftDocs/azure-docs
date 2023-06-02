@@ -48,13 +48,13 @@ Only a user who has at least a data reader role on the Azure Synapse Analytics w
 
 1. On the **Register sources (Azure Synapse Analytics)** page, do the following:
 
-    a. For **Name**, enter a name for the data source to be listed in the data catalog.  
-    b. Optionally, for **Azure subscription**, choose a subscription to filter down to.  
-    c. For **Workspace name**, select the workspace that you're working with.  
+    1. For **Name**, enter a name for the data source to be listed in the data catalog.  
+    1. Optionally, for **Azure subscription**, choose a subscription to filter down to.  
+    1. For **Workspace name**, select the workspace that you're working with.
 
        The boxes for the SQL endpoints are automatically filled in based on your workspace selection.  
-    d. For **Select a collection**, choose the collection that you're working with, or create a new one.  
-    e. Select **Register** to finish registering the data source.
+    1. For **Select a collection**, choose the collection that you're working with, or create a new one.  
+    1. Select **Register** to finish registering the data source.
 
     :::image type="content" source="media/register-scan-synapse-workspace/register-synapse-source-details.png" alt-text="Screenshot of the page for entering details about the Azure Synapse source.":::
 
@@ -64,7 +64,7 @@ Use the following steps to scan Azure Synapse Analytics workspaces to automatica
 
 1. Set up authentication for enumerating your [dedicated](#authentication-for-enumerating-dedicated-sql-database-resources) or [serverless](#authentication-for-enumerating-serverless-sql-database-resources) resources. This step will allow Microsoft Purview to enumerate your workspace assets and perform scans.
 1. Apply [permissions to scan the contents of the workspace](#apply-permissions-to-scan-the-contents-of-the-workspace).
-1. Confirm that your [network is set up to allow access for Microsoft Purview](#set-up-azure-synapse-workspace-firewall-access).
+1. Confirm that your [network is set up to allow access for Microsoft Purview](#set-up-firewall-access-for-the-azure-synapse-analytics-workspace).
 
 ### Enumeration authentication
 
@@ -292,7 +292,7 @@ Repeat the previous steps for all dedicated SQL databases in your Azure Synapse 
 1. Select **Save**.
 
 > [!IMPORTANT]
-> If you can't enable **Allow Azure services and resources to access this workspace** on your Azure Synapse Analytics workspaces, when you set up a scan in the Microsoft Purview governance portal, you'll get a serverless database enumeration failure. In this case, you can choose the [Enter manually](#create-and-run-scan) option to specify the database names that you want to scan, and then proceed.
+> If you can't enable **Allow Azure services and resources to access this workspace** on your Azure Synapse Analytics workspaces, when you set up a scan in the Microsoft Purview governance portal, you'll get a serverless database enumeration failure. In this case, you can choose the [Enter manually](#create-and-run-a-scan) option to specify the database names that you want to scan, and then proceed.
 
 ### Create and run a scan
 
@@ -379,7 +379,7 @@ If you have any problems with scanning:
 - Confirm that you followed all [prerequisites](#prerequisites).
 - Confirm that you set up [enumeration authentication](#enumeration-authentication) for your resources.
 - Confirm that you set up [authentication](#apply-permissions-to-scan-the-contents-of-the-workspace).
-- Check the network by confirming [firewall settings](#set-up-azure-synapse-workspace-firewall-access).
+- Check the network by confirming [firewall settings](#set-up-firewall-access-for-the-azure-synapse-analytics-workspace).
 - Review the [scan troubleshooting documentation](troubleshoot-connections.md).
 
 ## Next steps
