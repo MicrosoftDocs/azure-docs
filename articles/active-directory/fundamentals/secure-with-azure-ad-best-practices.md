@@ -134,7 +134,7 @@ Check this example to [create service principals with self-signed certificate](.
 
 ### Access policies
 
-Below are some specific recommendations for Azure solutions. For general guidance on Conditional Access policies for individual environments, check the [CA Best practices](../conditional-access/overview.md), [Azure AD Operations Guide](../fundamentals/active-directory-ops-guide-auth.md), and [Conditional Access for Zero Trust](/azure/architecture/guide/security/conditional-access-zero-trust):
+Below are some specific recommendations for Azure solutions. For general guidance on Conditional Access policies for individual environments, check the [CA Best practices](../conditional-access/overview.md), [Azure AD Operations Guide](../fundamentals/ops-guide-auth.md), and [Conditional Access for Zero Trust](/azure/architecture/guide/security/conditional-access-zero-trust):
 
 * Define [Conditional Access policies](../conditional-access/workload-identity.md) for the [Microsoft Azure Management](../authentication/howto-password-smart-lockout.md) cloud app to enforce identity security posture when accessing Azure Resource Manager. This should include controls on MFA and device-based controls to enable access only through secure workstations (more on this in the Privileged Roles section under Identity Governance). Additionally, use [Conditional Access to filter for devices](../conditional-access/concept-condition-filters-for-devices.md).
 
