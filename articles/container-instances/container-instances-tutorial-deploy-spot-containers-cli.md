@@ -9,11 +9,11 @@ services: container-instances
 ms.date:  05/11/2023
 ---
 
-# Quickstart: Deploy a ACI Spot container in Azure using the Azure CLI
+# Quickstart: Deploy an ACI Spot container in Azure using the Azure CLI
 
 Spot Containers combine the simplicity of ACI with the low cost of Spot VMs making it easy and affordable for customers to run containerized interruptible workloads at scale.  Use Azure Container Instances to run serverless Spot containers. Deploy an application to a Spot container  on-demand when you want to run interruptible, containerized workloads on unused Azure capacity at low cost and you don't need a full container orchestration platform like Azure Kubernetes Service.
 
-In this quickstart, you use the Azure CLI to deploy an helloworld container using Spot containers. A few seconds after you execute a single deployment command, you can browse to the container logs:
+In this quickstart, you use the Azure CLI to deploy a helloworld container using Spot containers. A few seconds after you execute a single deployment command, you can browse to the container logs:
 
 - This quickstart requires version 2xxx later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -31,7 +31,7 @@ az group create --name myResourceGroup --location eastus
 
 Now that you have a resource group, you can run a Spot container in Azure. To create a Spot container group with the Azure CLI, provide a resource group name, container instance name, container image  and new property called 'priority' with value of 'Spot' to the [az container create][az-container-create] command. In this quickstart, you use the public `mcr.microsoft.com/azuredocs/aci-helloworld` image. This image packages a small web app written in Node.js that serves a static HTML page.
 
-You cannot expose your spot containers to the internet by specifying one or more ports to open, a DNS name label, or both. In this quickstart, you deploy a container using helloworld image without a DNS name label and it will not be publicly reachable. You can query the container logs to verify container is listening on default port 80.
+You can't expose your spot containers to the internet by specifying one or more ports to open, a DNS name label, or both. In this quickstart, you deploy a container using helloworld image without a DNS name label. It won't be publicly reachable. You can query the container logs to verify container is listening on default port 80.
 
 Execute a command similar to the following to start a container instance.  
 
@@ -81,7 +81,7 @@ First, execute the [az container attach][az-container-attach] command to attach 
 az container attach --resource-group acispotdemo --name acispotclitest
 ```
 
-Once attached, refresh your browser a few times to generate some additional output. When you're done, detach your console with `Control+C`. You should see output similar to the following:
+Once attached, refresh your browser a few times to generate some more output. When you're done, detach your console with `Control+C`. You should see output similar to the following:
 
 ```output
 Container 'acispotclitest' is in state 'Running'...
@@ -103,7 +103,7 @@ To verify that the container has been deleted, execute the [az container list](/
 az container list --resource-group acispotdemo --output table
 ```
 
-The **acispotclitest** container should not appear in the command's output. If you have no other containers in the resource group, no output is displayed.
+The **acispotclitest** container shouldn't appear in the command's output. If you have no other containers in the resource group, no output is displayed.
 
 If you're done with the *acispotdemo* resource group and all the resources it contains, delete it with the [az group delete][az-group-delete] command:
 

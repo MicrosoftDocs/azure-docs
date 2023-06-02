@@ -17,7 +17,7 @@ Spot containers offer the best of both worlds by combining the simplicity of ACI
 This feature is designed for customers who need to run interruptible workloads with no strict availability requirements. Azure Container Instances Spot Containers support both Linux and Windows containers, providing flexibility for different operating system environments.
 
 > [!NOTE]
->  The Azure Container Instances Spot containers (in preview) are currently available only in the following regions: West Europe, East US2, and West US. It's important to note that the preview release is not recommended for production environments.
+> The Azure Container Instances Spot containers (in preview) are currently available only in the following regions: West Europe, East US2, and West US. It's important to note that the preview release is not recommended for production environments.
 
 This article provides background about the feature, limitations, and resources.
 
@@ -25,20 +25,20 @@ This article provides background about the feature, limitations, and resources.
 
 ### Lift and shift applications
 
-ACI Spot containers are a cost-effective option for running containerized applications or parallelizable offline workloads including image rendering, Genomic processing, Monte Carlo simulations,etc. Customers can lift and shift their containerized Linux or Windows applications without needing to adopt specialized programming models to achieve the benefits of standard ACI containers along with low cost.
+ACI Spot containers are a cost-effective option for running containerized applications or parallelizable offline workloads including image rendering, Genomic processing, Monte Carlo simulations, etc. Customers can lift and shift their containerized Linux or Windows applications without needing to adopt specialized programming models to achieve the benefits of standard ACI containers along with low cost.
 
 ## Eviction policies
 
-In the case of ACI Spot containers, customers do not have the option to choose eviction types or policies like Spot VMs. If an eviction occurs, the container groups hosting the customer workloads will be automatically restarted without requiring any action from the customer.
+When using ACI Spot containers, customers can't choose eviction types or policies like Spot VMs. If an eviction occurs, the container groups hosting the customer workloads are automatically restarted without requiring any action from the customer.
 
 ## Unsupported features
 
 ACI Spot containers preview release includes these limitations such as
 
-* **Public IP Endpoint**: ACI Spot container groups will not be assigned a public IP endpoint. This means that the container    groups cannot be accessed directly from the internet.
-*  **Deployment Behind Virtual Network**: Spot container groups cannot be deployed behind a virtual network. 
-*  **Confidential SKU Support**: ACI Spot containers do not support the Confidential SKU, which means that you cannot use the  Confidential Computing capabilities provided by Azure.
-*  **Availability Zone Pinning**: ACI Spot containers do not support the ability to pin Availability Zones per container group deployment. 
+* **Public IP Endpoint**: ACI Spot container groups won't be assigned a public IP endpoint. This means that the container    groups can't be accessed directly from the internet.
+*  **Deployment Behind Virtual Network**: Spot container groups can't be deployed behind a virtual network. 
+*  **Confidential SKU Support**: ACI Spot containers don't support the Confidential SKU, which means that you can't use the  Confidential Computing capabilities provided by Azure.
+*  **Availability Zone Pinning**: ACI Spot containers don't support the ability to pin Availability Zones per container group deployment. 
 
 * ## Resources 
 * [Spot containers using Azure CLI](./container-instances-tutorial-deploy-spot-containers-cli.md )
