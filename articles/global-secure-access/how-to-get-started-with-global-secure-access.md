@@ -87,6 +87,6 @@ Select the link.
 
 ## Next steps
 
-- [Learn about remote network connectivity](concept-understand-remote-network-connectivity.md)
+- [Learn about remote network connectivity](concept-remote-network-connectivity.md)
 - [Configure quick access](how-to-configure-quick-access.md)
 

@@ -1,6 +1,6 @@
 ---
-title: How to create remote networks
-description: Learn how to create remote networks for Global Secure Access.
+title: How to update and delete remote networks
+description: Learn how to update and delete remote networks for Global Secure Access.
 author: kenwith
 ms.author: kenwith
 manager: amycolannino

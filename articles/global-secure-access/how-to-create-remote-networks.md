@@ -9,14 +9,14 @@ ms.date: 06/01/2023
 ms.service: network-access
 ms.custom: 
 ---
-# Create remote networks
+# How to create a remote network
 
 Remote networks are remote locations, such as a branch location, or networks that require internet connectivity. Setting up remote networks connects your users in remote locations to Global Secure Access. Once a remote network is configured, you can assign a traffic forwarding profile to manage your corporate network traffic.
 
 This article explains how to create a remote network for Global Secure Access.
 
 > [!IMPORTANT]
-> At this time, remote networks can only be assigned to the Microsoft 365 traffic forwarding profile. The Private access traffic forwarding profile requires that your end users connect to Global Secure Access with the Global Secure Access client.
+> At this time, remote networks can only be assigned to the Microsoft 365 traffic forwarding profile. The private access traffic forwarding profile requires that your end users connect to Global Secure Access with the Global Secure Access client.
 
 ## Prerequisites
 
@@ -25,7 +25,8 @@ This article explains how to create a remote network for Global Secure Access.
 - The **Microsoft Graph** module must be installed to use PowerShell
 - Administrator consent is required when using Microsoft Graph Explorer for the Microsoft Graph API
 
-## Create a remote network
+## Create a remote network with the Microsoft Entra admin center
+
 Global Secure Access provides remote network connectivity so you can connect a remote network to Global Secure Access. Network security policies are then applied on all outbound traffic. 
 
 There are multiple ways to connect remote networks to Global Secure Access. In a nutshell, you're creating an Internet Protocol Security (IPSec) tunnel between a core router at your remote network and the nearest Microsoft VPN service. The network traffic is routed with the core router at the remote network so installation of a client isn't required on individual devices.
