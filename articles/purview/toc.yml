@@ -465,6 +465,8 @@ items:
       href: reference-azure-purview-glossary.md
     - name: Supported browsers
       href: supported-browsers.md
+    - name: Azure policy exception
+      href: create-microsoft-purview-portal-faq.md
     - name: Limits
       href: how-to-manage-quotas.md
     - name: Java
