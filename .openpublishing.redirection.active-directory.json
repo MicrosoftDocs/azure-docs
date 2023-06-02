@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-enterprise-app-role-management.md",
+      "redirect_url": "/azure/active-directory/develop/enterprise-app-role-management",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-schema-extensions.md",
       "redirect_url": "/azure/active-directory/develop/schema-extensions",
       "redirect_document_id": false
@@ -10254,6 +10259,46 @@
       "source_path_from_root": "/articles/active-directory/active-directory-saas-xmatters-ondemand-provisioning-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/azure-ad-data-residency.md",
+      "redirect_url": "/azure/active-directory/fundamentals/data-residency",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad.md",
+      "redirect_url": "/azure/active-directory/fundamentals/five-steps-to-full-application-integration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/service-accounts-governing-azure.md",
+      "redirect_url": "/azure/active-directory/fundamentals/govern-service-accounts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/service-accounts-introduction-azure.md",
+      "redirect_url": "/azure/active-directory/fundamentals/secure-service-accounts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/whats-deprecated-azure-ad.md",
+      "redirect_url": "/azure/active-directory/fundamentals/what-is-deprecated",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-compare-azure-ad-to-ad.md",
+      "redirect_url": "/azure/active-directory/fundamentals/compare",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-auth.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-auth",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-govern.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-govern",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/clarizen-provisioning-tutorial.md",

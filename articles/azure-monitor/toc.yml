@@ -221,13 +221,18 @@ items:
       - name: Collect IIS logs
         displayName: data collection rule,Azure Monitor Agent,IIS logs
         href: agents/data-collection-iis.md
+      - name: Collect Windows Firewall logs
+        displayName: data collection rule,Azure Monitor Agent,firewall logs
+        href: agents/data-collection-firewall.md
       - name: Collect text logs
         displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
         href: agents/data-collection-text-log.md
       - name: Collect SNMP traps
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-snmp-data.md
-      - name: Forward syslog data to workspace
+      - name: Collect syslog data
+        href: agents/data-collection-syslog.md
+      - name: Forward syslog data with Sentinel
         href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json        
     - name: Define network settings
       href: agents/azure-monitor-agent-data-collection-endpoint.md
@@ -341,7 +346,7 @@ items:
         href: agents/use-azure-monitor-agent-troubleshooter.md
       - name: Linux VM
         href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
-      - name: Linux Rsyslog issues
+      - name: Linux Syslog issues
         href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
       - name: Windows VM
         href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
@@ -491,6 +496,9 @@ items:
         - name: Azure Active Directory pod identity
           displayName: Prometheus,remote-write
           href: essentials/prometheus-remote-write-azure-ad-pod-identity.md  
+      - name: KEDA integration
+        displayName: Prometheus
+        href: essentials/integrate-keda.md    
       - name: Prometheus Azure Active Directory authorization proxy
         displayName: Prometheus
         href: essentials/prometheus-authorization-proxy.md
@@ -1291,7 +1299,7 @@ items:
           - name: API access, authentication and authorization
             href: logs/api/access-api.md
           - name: Application Insights API access with Azure Active Directory
-            href: logs/api/app-insights-azure-ad-api.md
+            href: app/app-insights-azure-ad-api.md
           - name: Register an app for API access
             href: logs/api/register-app-for-token.md 
           - name: Request format

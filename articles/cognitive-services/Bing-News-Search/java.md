@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.devlang: java
-ms.custom: seodec2018, devx-track-java, mode-api
+ms.custom: seodec2018, devx-track-java, mode-api, devx-track-extended-java
 ---
 
 # Quickstart: Perform a news search using Java and the Bing News Search REST API

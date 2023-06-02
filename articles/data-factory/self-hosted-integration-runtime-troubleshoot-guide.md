@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 08/18/2022
+ms.date: 05/18/2023
 ms.author: lle
 ---
 
@@ -873,7 +873,7 @@ How to determine whether you're affected:
 
     The self-hosted IR couldn't connect to the Azure Data Factory or Azure Synapse service.
     
-    When you check the self-hosted IR event log or the client notification logs in the CustomLogEvent table, you'll find the following error message:
+    When you check the self-hosted IR event log after going to **Windows** > **Event viewer (logs)** > **Applications and Services Logs** > **Integration Runtime**, you'll find the following error message.
     
     "The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. The remote certificate is invalid according to the validation procedure."
     
