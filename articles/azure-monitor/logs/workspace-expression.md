@@ -14,19 +14,6 @@ Use the `workspace` expression in an Azure Monitor query to retrieve data from a
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-query-permissions.md)]
 
-### Require workspace permissions
-
-If this access control mode is enabled on the workspace, you must be granted the `Microsoft.OperationalInsights/workspaces/query/*/read` permission to the workspace.
-
-### Use resource or workspace permissions
-
-If this access control mode is enabled on the workspace, you must be assigned to one of the following roles:
-
-- [Log Analytics Contributor built-in role](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
-- [Log Analytics Reader built-in role](../../role-based-access-control/built-in-roles.md#log-analytics-reader)
-- Any other [built-in role](../../role-based-access-control/built-in-roles.md) with the `Microsoft.OperationalInsights/workspaces/query/*/read` or `*/read` action
-- Any [custom role](../../role-based-access-control/custom-roles.md) with the `Microsoft.OperationalInsights/workspaces/query/*/read` permission
-
 ## Syntax
 
 `workspace(`*Identifier*`)`
