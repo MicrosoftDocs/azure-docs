@@ -18,7 +18,7 @@ ms.devlang: azurecli
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
-> * [v1](concept-train-machine-learning-model-v1.md)
+> * [v1](concept-train-machine-learning-model.md)
 > * [v2 (current)](../concept-train-machine-learning-model.md?view=azureml-api-2&preserve-view=true)
 
 Azure Machine Learning provides several ways to train your models, from code-first solutions using the SDK to low-code solutions such as automated machine learning and the visual designer. Use the following list to determine which training method is right for you:
@@ -43,7 +43,7 @@ The Azure Machine Learning SDK for Python allows you to build and run machine le
 
 * [What is the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro)
 * [Install/update the SDK](/python/api/overview/azure/ml/install)
-* [Configure a development environment for Azure Machine Learning](how-to-configure-environment-v1.md)
+* [Configure a development environment for Azure Machine Learning](how-to-configure-environment.md)
 
 ### Run configuration
 
@@ -66,7 +66,7 @@ Define the iterations, hyperparameter settings, featurization, and other setting
 * [What is automated machine learning?](../concept-automated-ml.md)
 * [Tutorial: Create your first classification model with automated machine learning](../tutorial-first-experiment-automated-ml.md)
 * [Examples: Jupyter Notebook examples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
-* [How to: Configure automated ML experiments in Python](how-to-configure-auto-train-v1.md)
+* [How to: Configure automated ML experiments in Python](how-to-configure-auto-train.md)
 * [How to: Autotrain a time-series forecast model](../how-to-auto-train-forecast.md)
 * [How to: Create, explore, and deploy automated machine learning experiments with Azure Machine Learning studio](../how-to-use-automated-ml-for-ml-models.md)
 

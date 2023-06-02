@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/25/2021
 ms.author: dmwendia
-ms.custom: aaddev, devx-track-python, has-adal-ref
+ms.custom: aaddev, has-adal-ref
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 

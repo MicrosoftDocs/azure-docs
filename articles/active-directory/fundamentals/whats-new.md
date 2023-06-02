@@ -122,7 +122,7 @@ The ability for users to create tenants from the Manage Tenant overview has been
 
 ---
 
-### Public Preview - Devices Self-Help Capability for Pending Devices
+### General Availability - Devices Self-Help Capability for Pending Devices
 
 
 
