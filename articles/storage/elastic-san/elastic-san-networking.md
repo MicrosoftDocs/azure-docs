@@ -20,21 +20,21 @@ You can configure your Elastic SAN, and the volume groups that belong to it, to 
 
 The process for configuring network access to your Elastic SAN is as follows:
 
-1. [Configure network endpoint access](#configure-network-endpoint-access).
+1. [Configure the virtual network endpoint](#configure-virtual-network-endpoint).
 1. Configure endpoint access to the desired volume groups in the Elastic SAN.
 1. [Configure network rules](#configure-virtual-network-rules) to control the source and type of traffic to your Elastic SAN.
-1. [Configure client connections](#configure-client-connections)
+1. [Configure client connections](#configure-client-connections).
 
-## Configure network endpoint access
+## Configure virtual network endpoint
 
-You can allow access from two types of Azure network endpoints:
+You can allow access to your Elastic SAN from two types of Azure virtual network endpoints:
 
 - [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Private endpoints](../../private-link/private-endpoint-overview.md)
 
 To determine the type of endpoint that best suits your needs, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 
-To configure endpoint access to the Elastic SAN from a virtual network subnet endpoint, the endpoint must be enabled from the subnet and an administrator with the appropriate rights must approve access to the SAN and the desired volume groups. The process for doing so, varies by the endpoint type:
+To configure the endpoint, enable it from the virtual network subnet. An administrator with the appropriate rights must approve access to the SAN and the desired volume groups. The process for enabling each type of endpoint follows:
 
 - [Configure Storage service endpoint](#configure-storage-service-endpoint)
 - [Configure private endpoint](#configure-private-endpoint)
