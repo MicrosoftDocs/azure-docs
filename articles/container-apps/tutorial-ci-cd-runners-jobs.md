@@ -14,6 +14,8 @@ zone_pivot_groups: container-apps-jobs-self-hosted-ci-cd
 
 GitHub Actions and Azure Pipelines allow you to run CI/CD workflows with self-hosted runners and agents. Self-hosted runners are useful when you need to run workflows that require access to local resources or tools that are not available in a cloud-hosted runner. For example, self-hosted runners running as a Container Apps job allow your workflow to access resources inside the job's virtual network that are not accessible from a cloud-hosted runner.
 
+::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
+
 In this tutorial, you learn how to run GitHub Actions runners as an [event-driven Container Apps job](jobs.md#event-driven-jobs).
 
 > [!div class="checklist"]
@@ -26,12 +28,18 @@ In this tutorial, you learn how to run GitHub Actions runners as an [event-drive
 > [!IMPORTANT]
 > Self-hosted runners are only recommended for *private* repositories. Using them with public repositories can allow dangerous code to execute on your self-hosted runner. For more information, see [Self-hosted runner security](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security).
 
+::: zone-end
+
 ## Prerequisites
 
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 - See [Jobs preview limitations](jobs.md#jobs-preview-restrictions) for a list of limitations.
+::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
+- An Azure DevOps organization with an active subscription.
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/services/devops/).
+::: zone-end
 
 ## Setup
 
@@ -281,6 +289,8 @@ Once you're done, run the following command to delete the resource group that co
 az group delete \
     --resource-group $RESOURCE_GROUP
 ```
+
+To delete your GitHub repository, see [Deleting a repository](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/deleting-a-repository).
 
 ## Next steps
 
