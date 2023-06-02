@@ -12,7 +12,7 @@ ms.author: duau
 
 # Connect Azure Front Door Premium to an internal load balancer origin with Private Link
 
-This article will guide you through how to configure Azure Front Door Premium to connect to your internal load balancer origin using the Azure Private Link service.
+This article guides you through how to configure Azure Front Door Premium to connect to your internal load balancer origin using the Azure Private Link service.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ This article will guide you through how to configure Azure Front Door Premium to
 
 ## Enable private connectivity to an internal load balancer
  
-In this section, you'll map the Private Link service to a private endpoint created in Azure Front Door. 
+In this section, you map the Private Link service to a private endpoint created in Azure Front Door. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -41,20 +41,20 @@ In this section, you'll map the Private Link service to a private endpoint creat
     * **Origin type** - Select the **Custom** origin type.
     * **Host name** - The host name is used for SNI (SSL negotiation) and should match your server side certificate. |
     * **Origin host header** | The origin host header can be the private link private IP for the internal load balancer or a valid domain name.
-    * **Certificate subject name validation** - Select the checkbox to enable certificate subject name validation. This will validate the certificate subject name against the host name. If the certificate subject name does not match the host name, the connection will be rejected. **This validation is required if private link is enabled.**
+    * **Certificate subject name validation** - Select the checkbox to enable certificate subject name validation. This validation checks the certificate subject name against the host name. If the certificate subject name doesn't match the host name, the connection is rejected. **This validation is required if private link is enabled.**
     * **HTTP port** - 80 (default)
     * **HTTPS port** 443 (default)
     * **Priority** - You can determine if this origin has higher priority than other origins in the origin group. With this value you can set primary, secondary, and backup origins. Default value is **1** for all origins.
-    * **Weight** - 1000 (default). Assign weights to your origins to determine how traffic gets distributed. For example, if you have two origins with weights 1000 and 2000, then the second origin will receive twice as much traffic as the first origin.
+    * **Weight** - 1000 (default). Assign weights to your origins to determine how traffic gets distributed. For example, if you have two origins with weights 1000 and 2000, then the second origin receives twice as much traffic as the first origin.
     * **Private link** - Select the checkbox to enable private link for this origin.
     * **Select a private link**:
         * **In my directory** - Select this option if you want to use your own private link service.
             :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/in-directory.png" alt-text="Screenshot of selecting a private link service in your own directory.":::
-        * **By ID or alias** - Select this option if you want to use a private link service that is shared with you. You will need to enter the resource ID of the private link service.
+        * **By ID or alias** - Select this option if you want to use a private link service that is shared with you. You need to enter the resource ID of the private link service.
             :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/by-id-or-alias.png" alt-text="Screenshot of selecting a private link service using a resource ID.":::
     * **Region** - Select the region that is the same or closest to your origin.
-    * **Request message** - This message will be sent to the resource owner to assist them in the connection management process.
-    * **Status** - Leave this checked to enable the origin.
+    * **Request message** - This message is sent to the resource owner to assist them in the connection management process.
+    * **Status** - Leave checked to enable the origin.
 
 1. Select **Add** to add the internal load balancer origin and then select **Update** to save the origin group settings.
 
