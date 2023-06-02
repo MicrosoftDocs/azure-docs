@@ -1,12 +1,12 @@
 ---
 title: Intelligent tuning - Azure Database for PostgreSQL - Flexible Server
 description: This article describes the intelligent tuning feature in Azure Database for PostgreSQL - Flexible Server.
-author: nathan-wisner-ms
-ms.author: nathanwisner
+author: AwdotiaRomanowna
+ms.author: alkuchar
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 06/02/2023
 ---
 
 # Perform intelligent tuning in Azure Database for PostgreSQL - Flexible Server
@@ -49,6 +49,8 @@ Intelligent tuning adjusts five significant parameters related to autovacuum: `a
 > [!IMPORTANT] 
 > It's important to keep in mind that intelligent tuning modifies autovacuum-related parameters at the server level, not at individual table levels. Also, if autovacuum is turned off, intelligent tuning cannot operate correctly. For intelligent tuning to optimize the process, the autovacuum feature must be enabled.
 
+While the autovacuum daemon triggers two operations - VACUUM and ANALYZE, intelligent tuning only fine-tunes the VACUUM process. The ANALYZE process, which gathers statistics on table contents to help the PostgreSQL query planner choose the most suitable query execution plan, is currently not adjusted by this feature.
+
 One key feature of intelligent tuning is that it includes safeguards to measure resource utilization like CPU and IOPS. This means that it will not ramp up autovacuum activity when your instance is under heavy load. This way, intelligent tuning ensures a balance between effective cleanup operations and the overall performance of your system.
 
 When optimizing autovacuum, intelligent tuning considers the server's average bloat, using statistics about live and dead tuples. To lessen bloat, intelligent tuning might reduce parameters like the scale factor or naptime, triggering the VACUUM process sooner and, if necessary, decreasing the delay between rounds.
@@ -61,7 +63,7 @@ details needed!
 ## Limitations and known issues
 
 * Intelligent tuning makes optimizations only in specific ranges. It's possible that the feature won't make any changes.
-* Deleted databases in the query can cause slight delays in the feature's execution of improvements.
+* ANALYZE settings are not adjusted by intelligent tuning.
 
 ## Next Steps
 
