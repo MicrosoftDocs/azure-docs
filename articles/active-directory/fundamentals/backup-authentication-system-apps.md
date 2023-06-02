@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Application requirements for the backup authentication system
+description: How to configure your application to allow for backup authentication system support.
 
 services: active-directory
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: joroja
 
 ms.collection: M365-identity-device-management
 ---
-# Application support for the backup authentication system 
+# Application requirements for the backup authentication system
 
 The Azure AD backup authentication system provides resilience to applications that use supported protocols and flows. For more information about the backup authentication system, see the article [Azure AD's backup authentication system](backup-authentication-system.md).
 

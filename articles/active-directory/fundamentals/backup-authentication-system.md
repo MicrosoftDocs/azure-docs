@@ -36,7 +36,7 @@ Microsoft is continuously expanding the number of supported scenarios.
 
 ### Which non-Microsoft workloads are supported?
 
-The backup authentication system automatically provides incremental resilience to tens of thousands of supported non-Microsoft applications based on their authentication patterns. See Appendix B for a list of the most common non-Microsoft applications and their coverage status. For an in depth explanation of which authentication patterns are supported, see the article [Understanding Application Support for the backup authentication system](backup-authentication-system-apps.md) article. 
+The backup authentication system automatically provides incremental resilience to tens of thousands of supported non-Microsoft applications based on their authentication patterns. Seethe appendix for a list of the most [common non-Microsoft applications and their coverage status](#appendix). For an in depth explanation of which authentication patterns are supported, see the article [Understanding Application Support for the backup authentication system](backup-authentication-system-apps.md) article. 
 
 - Native applications using the OAuth 2.0 protocol to access resource applications, such as popular non-Microsoft e-mail and IM clients like: Apple Mail, Aqua Mail, Gmail, Samsung Email, Spark, and Thunderbird
 - Line of business web applications configured to authenticate with OpenID Connect using only ID tokens.
@@ -48,7 +48,6 @@ The following auth patterns aren't currently supported:
 
 - Web applications that authenticate using Open ID Connect and request access tokens
 - Web applications that use the SAML protocol for authentication, when configured as SP-Initiated SSO
-
 
 ### What makes a user supportable by the backup authentication system?
 
@@ -103,7 +102,7 @@ The backup authentication system is supported in all cloud environments except A
 [Resilience Defaults for Azure AD Conditional Access]()
 [Azure Active Directory SLA performance reporting](../reports-monitoring/reference-azure-ad-sla-performance.md)
 
-## Appendix – Reference lists of applications:
+## Appendix
 
 ### Popular Non-Microsoft native client apps and app gallery applications
 
@@ -256,3 +255,5 @@ The backup authentication system is supported in all cloud environments except A
 | microsoft.web | Web Apps | Protected |
 
 ## Next steps
+
+[Application requirements for the backup authentication system](backup-authentication-system-apps.md)
