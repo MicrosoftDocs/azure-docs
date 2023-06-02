@@ -323,7 +323,7 @@ You're currently signed in with a user that doesn't have permission to update cu
 
 **Solution**
 
-Check that you're currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinition/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+Check that you're currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
 
 ### Symptom - Unable to create or update a custom role
 
