@@ -12,7 +12,7 @@ ms.date: 06/01/2023
 
 # Time travel in Azure Synapse Link for Azure Cosmos DB for NoSQL (preview)
 
-[!INCLUDE[NoSQL, MongoDB](../includes/appliesto-nosql-mongodb.md)]
+[!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
 Time travel enables you to access Azure Cosmos DB data in the analytical store, precisely as it appeared at specific points in time in history (down to the millisecond level). With time-travel, you can effortlessly query past data that has been updated or deleted, analyze trends, and compare differences between two points of interest.
 
@@ -23,7 +23,7 @@ This article covers how to do time travel analysis on your Azure Cosmos DB data 
 
 ## How does it work?
 
-To perform time-travel operations on Azure Cosmos DB data, ensure that your Azure Cosmos DB account has been enabled for [Azure Synapse Link](../synapse-link.md). Also, ensure that you have enabled Azure Synapse Link in your container. Azure Synapse Link enables the [analytical store](../analytical-store-introduction.md) for your container, and is then used for Azure Synapse Link analysis including time travel.
+To perform time-travel operations on Azure Cosmos DB data, ensure that your Azure Cosmos DB account has been enabled for [Azure Synapse Link](synapse-link.md). Also, ensure that you have enabled Azure Synapse Link in your container. Azure Synapse Link enables the [analytical store](analytical-store-introduction.md) for your container, and is then used for Azure Synapse Link analysis including time travel.
 
 If an Analytical Time-To-Live (ATTL) is defined on the Azure Cosmos DB container, it serves as the maximum retention period for time-travel operations. If ATTL isn't defined or set as -1, you have maximum retention period. In other words, you can travel back to any time since when Azure Synapse Link was enabled.
 
@@ -94,12 +94,12 @@ display(df)
 
 ## Pricing
 
-There's no extra cost for this feature. The cost for using this feature contains the [Azure Synapse Link pricing](../synapse-link.md#pricing), and the [Azure Synapse Apache Synapse Spark pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing) for running time travel jobs on analytical store.
+There's no extra cost for this feature. The cost for using this feature contains the [Azure Synapse Link pricing](synapse-link.md#pricing), and the [Azure Synapse Apache Synapse Spark pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing) for running time travel jobs on analytical store.
 
 ## Next steps
 
 To learn more, see the following docs:
 
-- [Azure Synapse Link for Azure Cosmos DB](../synapse-link.md)
-- [Get started with Azure Synapse Link for Azure Cosmos DB](../configure-synapse-link.md)
-- [Frequently asked questions about Azure Synapse Link for Azure Cosmos DB](../synapse-link-frequently-asked-questions.yml)
+- [Azure Synapse Link for Azure Cosmos DB](synapse-link.md)
+- [Get started with Azure Synapse Link for Azure Cosmos DB](configure-synapse-link.md)
+- [Frequently asked questions about Azure Synapse Link for Azure Cosmos DB](synapse-link-frequently-asked-questions.yml)
