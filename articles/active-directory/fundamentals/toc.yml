@@ -117,7 +117,7 @@ items:
     - name: Identity data storage for Japan
       href: active-directory-data-storage-japan.md
   - name: Compare Azure AD with AD DS
-    href: active-directory-compare-azure-ad-to-ad.md
+    href: compare.md
   - name: Custom security attributes
     expanded: false
     items:
@@ -304,9 +304,9 @@ items:
     - name: Identity and access management
       href: active-directory-ops-guide-iam.md
     - name: Authentication management
-      href: active-directory-ops-guide-auth.md
+      href: ops-guide-auth.md
     - name: Identity governance
-      href: active-directory-ops-guide-govern.md
+      href: ops-guide-govern.md
     - name: Operations
       href: active-directory-ops-guide-ops.md
   - name: Security

@@ -3,7 +3,6 @@ title: Application Insights API Access with Microsoft Azure Active Directory (Az
 description: Learn how to authenticate and access the Azure Monitor Application Insights APIs using Azure AD
 ms.date: 04/11/2023
 author: CourtGoodson
-ms.author: cogoodson
 ms.topic: article
 ---
 # Application Insights API Access with Microsoft Azure Active Directory (Azure AD) Authentication
@@ -14,7 +13,7 @@ You can submit a query request by using the Azure Monitor Application Insights e
 
 To access the API, you register a client app with Azure AD and request a token.
 
-1. [Register an app in Azure AD](./register-app-for-token.md).
+1. [Register an app in Azure AD](../logs/api/register-app-for-token.md).
 
 1. On the app's overview page, select **API permissions**.
 1. Select **Add a permission**.
@@ -45,7 +44,7 @@ Now that your app is registered and has permissions to use the API, grant your a
 
 Before you begin, make sure you have all the values required to make the request successfully. All requests require:
 - Your Azure AD tenant ID.
-- Your App Insights App ID - If you are currently using API Keys, this is the same app id.
+- Your App Insights App ID - If you are currently using API Keys, this is the same app ID.
 - Your Azure AD client ID for the app.
 - An Azure AD client secret for the app.
 
@@ -56,7 +55,7 @@ The Application Insights API supports Azure AD authentication with three differe
 
 ### Client credentials flow
 
-In the client credentials flow, the token is used with the Application Insights endpoint. A single request is made to receive a token by using the credentials provided for your app in the previous step when you [register an app in Azure AD](./register-app-for-token.md).
+In the client credentials flow, the token is used with the Application Insights endpoint. A single request is made to receive a token by using the credentials provided for your app in the previous step when you [register an app in Azure AD](../logs/api/register-app-for-token.md).
 
 Use the `https://api.applicationinsights.io` endpoint.
 
