@@ -918,10 +918,10 @@ items:
   items:
   - name: Sentiment analysis and opinion mining overview
     href: sentiment-opinion-mining/overview.md
-  - name: Sentiment analysis and opinion mining quickstart
-    href: sentiment-opinion-mining/quickstart.md
   - name: Sentiment analysis and opinion mining language support
     href: sentiment-opinion-mining/language-support.md
+  - name: Sentiment analysis and opinion mining quickstart
+    href: sentiment-opinion-mining/quickstart.md
   - name: Samples
     items:
     - name: C#
@@ -999,7 +999,7 @@ items:
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
             href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
-
+        
 - name: Text Analytics for health
   items:
   - name: Text Analytics for health overview
@@ -1099,7 +1099,7 @@ items:
     items:
     - name: Create projects
       href: custom-text-analytics-for-health/how-to/create-project.md
-    - name: Data selection and schema designa
+    - name: Data selection and schema design
       href: custom-text-analytics-for-health/how-to/design-schema.md
     - name: Label data
       href: custom-text-analytics-for-health/how-to/label-data.md

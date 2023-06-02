@@ -40,7 +40,7 @@ Azure Machine Learning workspaces have a five built-in roles that are available 
 | **Contributor** | View, create, edit, or delete (where applicable) assets in a workspace. For example, contributors can create an experiment, create or attach a compute cluster, submit a run, and deploy a web service. |
 | **Owner** | Full access to the workspace, including the ability to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can change role assignments. |
 
-In addition, [Azure Machine Learning registries](how-to-manage-registries.md) have a **AzureML Registry User** role that can be assigned to a registry resource to grant data scientists user-level prermissions. For administrator-level permissions to create or delete registries, use **Contributor** or **Owner** role.
+In addition, [Azure Machine Learning registries](how-to-manage-registries.md) have a **AzureML Registry User** role that can be assigned to a registry resource to grant data scientists user-level permissions. For administrator-level permissions to create or delete registries, use **Contributor** or **Owner** role.
 
 | Role | Access level |
 | --- | --- |
@@ -66,7 +66,7 @@ If you're an owner of a workspace, you can add and remove roles for the workspac
 You can use Azure AD security groups to manage access to workspaces. This approach has following benefits:
  * Team or project leaders can manage user access to workspace as security group owners, without needing Owner role on the workspace resource directly.
  * You can organize, manage and revoke users' permissions on workspace and other resources as a group, without having to manage permissions on user-by-user basis.
- * Using Azure AD groups helps you to avoid reaching the [subscription limit](../role-based-access-control/troubleshooting.md#limits) on role assignments. 
+ * Using Azure AD groups helps you to avoid reaching the [subscription limit](../role-based-access-control/troubleshoot-limits.md) on role assignments. 
 
 To use Azure AD security groups:
  1. [Create a security group](../active-directory/fundamentals/active-directory-groups-view-azure-portal.md).
