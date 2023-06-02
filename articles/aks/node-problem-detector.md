@@ -7,11 +7,11 @@ ms.date: 05/31/2023
 
 # Node Problem Detector(NPD)
 
-[Node Problem Detector (NPD)](https://github.com/kubernetes/node-problem-detector) is a Kubernetes add-on that detects node-related problems and reports on them. It runs as a systemd serviced on each node in the cluster and collects various metrics and system information, such as CPU usage, disk usage, and network connectivity. When it detects a problem, it generates an Events and/or Node Conditions. NPD is used in AKS (Azure Kubernetes Service) to monitor and manage nodes in a Kubernetes cluster running on the Azure cloud platform. NPD is enabled by default as part of the AKS Linux Extension
+[Node Problem Detector (NPD)](https://github.com/kubernetes/node-problem-detector) is a Kubernetes add-on that detects node-related problems and reports on them. It runs as a systemd service on each node in the cluster and collects various metrics and system information, such as CPU usage, disk usage, and network connectivity. When it detects a problem, it generates an Events and/or Node Conditions. NPD is used in AKS (Azure Kubernetes Service) to monitor and manage nodes in a Kubernetes cluster running on the Azure cloud platform. NPD is enabled by default as part of the AKS Linux Extension
 
 
 ## Node Conditions
-AKS uses the following Node conditions from NPD to expose permanent problems on the node. In addition to these node conditions, corresponding kubernetes events are also emitted. Node conditions indiate a permanent problem that makes the node unavailable
+AKS uses the following Node conditions from NPD to expose permanent problems on the node. In addition to these node conditions, corresponding kubernetes events are also emitted. Node conditions indiate a permanent problem that makes the node unavailable.
 
 |Problem Daemon type| NodeCondition | Reason |  
 | --- | --- | --- | 
