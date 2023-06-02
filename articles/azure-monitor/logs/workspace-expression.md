@@ -12,9 +12,7 @@ ms.date: 04/20/2023
 
 Use the `workspace` expression in an Azure Monitor query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription. You can use this expression to include log data in an Application Insights query and to query data across multiple workspaces in a log query.
 
-## Permissions required
-
-To use the `workspace` expression, you must have read access to the workspace. The permissions required depend on which access control mode is enabled on the workspace.
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-query-permissions.md)]
 
 ### Require workspace permissions
 
