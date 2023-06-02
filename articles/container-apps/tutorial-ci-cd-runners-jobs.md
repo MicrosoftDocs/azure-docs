@@ -12,17 +12,19 @@ zone_pivot_groups: container-apps-jobs-self-hosted-ci-cd
 
 # Tutorial: Deploy self-hosted CI/CD runners and agents with Azure Container Apps jobs
 
-GitHub Actions and Azure Pipelines allow you to run CI/CD workflows with self-hosted runners and agents. Self-hosted runners are useful when you need to run workflows that require access to local resources or tools that aren't available in a cloud-hosted runner. For example, self-hosted runners running as a Container Apps job allow your workflow to access resources inside the job's virtual network that isn't accessible from a cloud-hosted runner.
+GitHub Actions and Azure Pipelines allow you to run CI/CD workflows with self-hosted runners and agents. You can run self-hosted runners and agents using event-driven Azure Container Apps jobs.
+
+Self-hosted runners are useful when you need to run workflows that require access to local resources or tools that aren't available in a cloud-hosted runner. For example, a self-hosted runner in a Container Apps job allows your workflow to access resources inside the job's virtual network that isn't accessible from a cloud-hosted runner.
 
 ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
 
 In this tutorial, you learn how to run GitHub Actions runners as an [event-driven Container Apps job](jobs.md#event-driven-jobs).
 
 > [!div class="checklist"]
-> * Create a Container Apps environment to deploy your job
+> * Create a Container Apps environment to deploy your self-hosted runner
 > * Create a GitHub repository for running a workflow that uses a self-hosted runner
 > * Build a container image that runs a GitHub Actions runner
-> * Deploy the runner job to the Container Apps environment
+> * Deploy the runner as a job to the Container Apps environment
 > * Create a workflow that uses the self-hosted runner and verify that it runs
 
 > [!IMPORTANT]
@@ -35,15 +37,15 @@ In this tutorial, you learn how to run GitHub Actions runners as an [event-drive
 In this tutorial, you learn how to run Azure Pipelines agents as an [event-driven Container Apps job](jobs.md#event-driven-jobs).
 
 > [!div class="checklist"]
-> * Create a Container Apps environment to deploy your job
+> * Create a Container Apps environment to deploy your self-hosted agent
 > * Create an Azure DevOps organization and project
-> * Create a GitHub repository for running a workflow that uses a self-hosted runner
 > * Build a container image that runs an Azure Pipelines agent
-> * Deploy the agent job to the Container Apps environment
+> * Use a manual job to create a placeholder agent in the Container Apps environment
+> * Deploy the agent as a job to the Container Apps environment
 > * Create a pipeline that uses the self-hosted agent and verify that it runs
 
 > [!IMPORTANT]
-> Self-hosted agents are only recommended for *private* repositories. Using them with public repositories can allow dangerous code to execute on your self-hosted agent. For more information, see [Self-hosted agent security](/azure/devops/pipelines/agents/linux-agent#permissions).
+> Self-hosted agents are only recommended for *private* projects. Using them with public projects can allow dangerous code to execute on your self-hosted agent. For more information, see [Self-hosted agent security](/azure/devops/pipelines/agents/linux-agent#permissions).
 
 ::: zone-end
 
@@ -54,9 +56,11 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
+
 - See [Jobs preview limitations](jobs.md#jobs-preview-restrictions) for a list of limitations.
-::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
+::: zone pivot="container-apps-jobs-self-hosted-ci-cd-azure-pipelines"
 - An Azure DevOps organization with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/services/devops/).
 ::: zone-end
@@ -138,7 +142,7 @@ The Azure Container Apps environment acts as a secure boundary around container 
 
 ## Create a GitHub repository for running a workflow
 
-To execute a workflow, you need to create a GitHub repository that contains the workflow definition. In this section, you create a GitHub repository and add a workflow.
+To execute a workflow, you need to create a GitHub repository that contains the workflow definition.
 
 1. Navigate to [GitHub](https://github.com) and sign in to your account or create a new one.
 
@@ -158,7 +162,7 @@ The workflow runs on the `ubuntu-latest` GitHub-hosted runner and prints a messa
 
 ## Obtain a GitHub personal access token
 
-To run a self-hosted runner, you need to create a personal access token (PAT) in GitHub. The PAT is used to authenticate the runner with GitHub.
+To run a self-hosted runner, you need to create a personal access token (PAT) in GitHub. Each time a runner starts, the PAT is used to generate a token to register the runner with GitHub. The PAT is also used by the GitHub Actions runner scale rule to monitor the repository's workflow queue and start runners as needed.
 
 1. In GitHub, select your profile picture in the upper-right corner and select **Settings**.
 
@@ -181,7 +185,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 
 1. Copy the token value.
 
-1. Define variables that are used to configure the Container Apps jobs later.
+1. Define variables that are used to configure the runner and scale rule later.
 
     ```bash
     GITHUB_PAT="<GITHUB_PAT>"
@@ -196,7 +200,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 
 ## Build the GitHub Actions runner container image
 
-To create a self-hosted runner, you need to build a container image that runs the runner. In this section, you build the container image and push it to a container registry.
+To create a self-hosted runner, you need to build a container image that executes the runner. In this section, you build the container image and push it to a container registry.
 
 > [!NOTE]
 > The image you build in this tutorial contains a basic self-hosted runner that's suitable for running as a Container Apps job. You can customize it to include additional tools or dependencies that your workflows require.
@@ -233,7 +237,7 @@ To create a self-hosted runner, you need to build a container image that runs th
 
     The image is now available in the container registry.
 
-## Create a job
+## Deploy a self-hosted runner as a job
 
 Now that you have a container image that runs a GitHub Actions runner, you can create a job that uses it. In this section, you create a job that executes the self-hosted runner and authenticates with GitHub using the PAT you generated earlier. It uses the [`github-runner` scale rule](https://keda.sh/docs/latest/scalers/github-runner/) to create job executions based on the number of pending workflow runs.
 
@@ -273,22 +277,20 @@ Now that you have a container image that runs a GitHub Actions runner, you can c
     | `--max-executions` | The maximum number of job executions to run per polling interval. |
     | `--polling-interval` | The polling interval at which to evaluate the scale rule. |
     | `--scale-rule-name` | The name of the scale rule. |
-    | `--scale-rule-type` | The type of scale rule to use. |
+    | `--scale-rule-type` | The type of scale rule to use. To learn more about the GitHub runner scaler, see the KEDA [documentation](https://keda.sh/docs/latest/scalers/github-runner/). |
     | `--scale-rule-metadata` | The metadata for the scale rule. |
     | `--scale-rule-auth` | The authentication for the scale rule. |
     | `--secrets` | The secrets to use for the job. |
     | `--env-vars` | The environment variables to use for the job. |
     | `--registry-server` | The container registry server to use for the job. For an Azure Container Registry, the command automatically configures authentication. |
 
-    The scale rule configuration defines the event source to monitor. It's evaluated on each polling interval and determines how many job executions to trigger. 
-
-    To learn more about the GitHub runner scaler, see the KEDA [documentation](https://keda.sh/docs/latest/scalers/github-runner/).
+    The scale rule configuration defines the event source to monitor. It's evaluated on each polling interval and determines how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
 
 The event-driven job is now created in the Container Apps environment. 
 
 ## Run a workflow and verify the job
 
-The job is configured to evaluate the scale rule every 30 seconds, which checks the number of pending workflow runs that require a self-hosted runner. For each evaluation period, it starts a new job execution for pending workflow, up to a maximum of 10 executions.
+The job is configured to evaluate the scale rule every 30 seconds. During each evaluation, it checks the number of pending workflow runs that require a self-hosted runner and starts a new job execution for pending workflow, up to a configured maximum of 10 executions.
 
 To verify the job was configured correctly, you modify the workflow to use a self-hosted runner and trigger a workflow run. You can then view the job execution logs to see the workflow run.
 
@@ -323,7 +325,7 @@ To verify the job was configured correctly, you modify the workflow to use a sel
 
 ## Create an Azure DevOps project and repository
 
-To execute a pipeline, you need to create an Azure DevOps project and repostory.
+To execute a pipeline, you need an Azure DevOps project and repostory.
 
 1. Navigate to [Azure DevOps](https://aex.dev.azure.com/) and sign in to your account.
 
@@ -336,7 +338,7 @@ To execute a pipeline, you need to create an Azure DevOps project and repostory.
 
 1. In the project overview page, select **Repos**.
 
-1. Under *Initialize main branch with a README or gitignore*, select **Add a README**.
+1. Under *Initialize main branch with a README or .gitignore*, select **Add a README**.
 
 1. Select **Initialize**.
 
@@ -357,7 +359,7 @@ Create a new agent pool to run the self-hosted runner.
 
 ## Obtain an Azure DevOps personal access token
 
-To run a self-hosted runner, you need to create a personal access token (PAT) in Azure DevOps. The PAT is used to authenticate the runner with Azure DevOps.
+To run a self-hosted runner, you need to create a personal access token (PAT) in Azure DevOps. The PAT is used to authenticate the runner with Azure DevOps. It is also used by the scale rule to determine the number of pending pipeline runs and trigger new job executions.
 
 1. In Azure DevOps, select *User settings* next to your profile picture in the upper-right corner. Select **Personal access tokens**.
 
@@ -368,6 +370,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     - Under *Scopes*, select **Custom defined**.
     - Select **Show all scopes**.
     - Select **Agent Pools (Read & manage)**.
+    - Select **Create**.
 
 1. Copy the token value.
 
@@ -455,6 +458,8 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
     | `--env-vars` | The environment variables to use for the job. |
     | `--registry-server` | The container registry server to use for the job. For an Azure Container Registry, the command automatically configures authentication. |
 
+    Setting the `AZP_PLACEHOLDER` environment variable configures the agent container to register as an offline placeholder agent without running a job.
+
 1. Execute the manual job to create the placeholder agent.
 
     ```azurecli
@@ -477,9 +482,7 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
 
 ## Create a self-hosted agent as an event-driven job
 
-Now that you have a placeholder agent, you can create a self-hosted agent as an event-driven job. In this section, you create a job that runs a self-hosted agent when a pipeline is triggered.
-
-Create an event-driven job in the Container Apps environment for the agent.
+Now that you have a placeholder agent, you can create a self-hosted agent. In this section, you create an event-driven job that runs a self-hosted agent when a pipeline is triggered.
 
 ```azurecli
 az containerapp job create -n $JOB_NAME -g $RESOURCE_GROUP --environment $ENVIRONMENT \
@@ -511,11 +514,11 @@ The following table describes the scale rule parameters used in the command.
 | `--max-executions` | The maximum number of job executions to run per polling interval. |
 | `--polling-interval` | The polling interval at which to evaluate the scale rule. |
 | `--scale-rule-name` | The name of the scale rule. |
-| `--scale-rule-type` | The type of scale rule to use. |
+| `--scale-rule-type` | The type of scale rule to use. To learn more about the Azure Pipelines scaler, see the KEDA [documentation](https://keda.sh/docs/latest/scalers/azure-pipelines/). |
 | `--scale-rule-metadata` | The metadata for the scale rule. |
 | `--scale-rule-auth` | The authentication for the scale rule. |
 
-To learn more about the Azure Pipelines scaler, see the KEDA [documentation](https://keda.sh/docs/latest/scalers/azure-pipelines/).
+The scale rule configuration defines the event source to monitor. It's evaluated on each polling interval and determines how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
 
 The event-driven job is now created in the Container Apps environment. 
 
