@@ -309,7 +309,7 @@ The following image shows where to put each assembly type in your project:
 
 If you created your logic app project when assemblies support wasn't available for Standard logic app workflows, you can add the following lines to your **<*project-name*>.csproj** file to work with projects that use assemblies:
  
-```msbuild
+```csproj
   <ItemGroup>
     <LibDirectory Include="$(MSBuildProjectDirectory)\lib\**\*"/>
   </ItemGroup>
