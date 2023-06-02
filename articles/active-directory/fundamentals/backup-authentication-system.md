@@ -33,40 +33,6 @@ Service to service authentication that relies on Azure AD managed identities or 
 
 Microsoft is continuously expanding the number of supported scenarios. 
 
-<!--- Hold aside for Jose for future.
-##### Native Applications 
-
-Native applications are those that are installed on a device, such as the Windows desktop versions of Office, or their iOS and Android counterparts. Since native applications often use different protocols than their web counterparts, the backup protection coverage may be different.
-
-For all apps listed as “protected”, some functionality of these apps may be degraded during an outage depending on user activity and policy conditions.
-
-| Application | Device platform | Protection state |
-| --- | --- | --- |
-| Word, Excel, PowerPoint | Windows, iOS, Android, macOS | Protected |
-| OneNote | Windows, iOS, Android, macOS | Not protected |
-| Outlook | Windows, Android, iOS | Protected |
-| OneDrive | Windows, iOS, macOS | Protected |
-| OneDrive | Android | Not protected |
-| SharePoint | Windows, iOS | Protected |
-| SharePoint | Android | Not protected |
-| Teams | Windows, iOS, Android, macOS | Limited support for active meeting access and active chats |
-| Azure Information Protection | All platforms | Protected |
-
-##### Web Applications
-
-Web Applications are accessed through a browser or browser control embedded within another application.
-
-| Application | Protection state |
-| --- | --- |
-| Microsoft 365 App | Protected |
-| Outlook Web Access | Protected |
-| SharePoint Online | Protected |
-| Teams Web | Not protected |
-| Microsoft 365 Admin Portal | Protected |
-| Azure portal | Not protected |
-| Azure App Service | Protected for user authentication |
-| My Apps Portal | Not protected |
---->
 
 ### Which non-Microsoft workloads are supported?
 
@@ -83,13 +49,7 @@ The following auth patterns aren't currently supported:
 - Web applications that authenticate using Open ID Connect and request access tokens
 - Web applications that use the SAML protocol for authentication, when configured as SP-Initiated SSO
 
-<!--- This whole section seems too future facing for my comfort. Blog post fine but not docs. Last asterisk section could remain.
-SAVE FOR JOSE
-| Web applications that authenticate using Open ID Connect and request access tokens | Not protected | Adobe Identity Management, Apple Business Manager, Apple School Manager, Line of Business (LOB) applications using MSAL, Smartsheet |
-| Web applications that use the SAML protocol for authentication, when configured as SP-Initiated SSO | Not protected | Blackboard Learn, Clever, DocuSign, FortiGate SSL VPN, Google Cloud G Suite Connector, Salesforce, Zoom |
 
-*As of June 2023, applications using IdP-initiated SAML flows are supported. Some applications (like Atlassian Cloud, and Workday can be configured as “SP or as IDP initiated.”)
---->
 ### What makes a user supportable by the backup authentication system?
 
 During an outage, a user can authenticate using the backup authentication system if the following conditions are met:
@@ -145,82 +105,7 @@ The backup authentication system is supported in all cloud environments except A
 
 ## Appendix – Reference lists of applications:
 
-### Appendix A - Microsoft Applications and protection level as of May 2023
-
-| AppName | Protected |
-| --- | --- |
-| Azure AD Identity Governance - Entitlement Management | Yes |
-| Azure Data Factory | Yes |
-| Azure Machine Learning Workbench Web App | Yes |
-| Azure portal | No |
-| Azure SQL Database and Data Warehouse | Yes |
-| Azure Synapse Studio | Yes |
-| Azure Virtual Desktop Client | Yes |
-| Device Management Client | Yes |
-| Field Service Mobile | Yes |
-| Kusto Web Explorer | Yes |
-| KustoClient | Yes |
-| Lens Explorer | Yes |
-| make.powerapps.com | Yes |
-| make.powerpages.microsoft.com | Yes |
-| Microsoft Azure CLI | Yes |
-| Microsoft Azure Information Protection | Yes |
-| Microsoft Azure PowerShell | Yes |
-| Microsoft Azure Purview Studio | Yes |
-| Microsoft Docs | Yes |
-| Microsoft Dynamics CRM for tablets and phones | Yes |
-| Microsoft Edge (Android) | No |
-| Microsoft Edge (Win, iOS, macOS) | Yes |
-| Microsoft Flow | Yes |
-| Microsoft Flow Portal | Yes |
-| Microsoft Flow Portal GCC | Yes |
-| Microsoft Intune Company Portal | No |
-| Microsoft Launcher (Android) | No |
-| Microsoft Mesh | Yes |
-| Microsoft Office | Yes |
-| Microsoft Planner | Yes |
-| Microsoft Power BI | Yes |
-| Microsoft Stream Mobile Native 2.0 (Android, iOS) | Yes |
-| Microsoft Stream Portal | No |
-| Microsoft Teams (Android) | No |
-| Microsoft Teams (iOS, macOS, Windows) | Partial scenario support |
-| Microsoft Teams Admin Portal Service | Yes |
-| Microsoft Teams Web Client | No |
-| Microsoft To-Do client (Android) | No |
-| Microsoft To-Do client (Win, iOS, macOS) | Yes |
-| Microsoft Todo web app | Yes |
-| Microsoft Whiteboard Services | Yes |
-| My Apps | No |
-| My Profile | Yes |
-| My Sign-Ins | Yes |
-| Office365 Shell WCSS-Client | Yes |
-| One Outlook Web | Yes |
-| OneDrive (Android) | No |
-| OneDrive iOS App | Yes |
-| OneDrive SyncEngine | Yes |
-| OneNote (macOS) | Yes |
-| OneNote (Win) | No |
-| Outlook Mobile (Android) | No |
-| Outlook Mobile (iOS) | Yes |
-| Portfolios | Yes |
-| Power BI Desktop | Yes |
-| Power Platform Admin Center | Yes |
-| PowerApps | Yes |
-| PowerApps - apps.gov.powerapps.us | Yes |
-| PowerApps - apps.powerapps.com (iOS, Android) | No |
-| PowerApps - apps.powerapps.com (Win, macOS) | Yes |
-| ProjectWorkManagement | Yes |
-| SharePoint | Yes |
-| SharePoint Android | No |
-| SharePoint Online Web Client Extensibility | Yes |
-| Visual Studio | Yes |
-| Viva Goals Web App | Yes |
-| Windows Search | Yes |
-| Windows Virtual Desktop Client | Yes |
-| Yammer iPhone | Yes |
-| Yammer Web | No |
-
-### Appendix B - Most popular common Non-Microsoft native client apps and app gallery applications
+### Popular Non-Microsoft native client apps and app gallery applications
 
 | App Name | Protected | Why Not protected? |
 | --- | --- | --- |
@@ -283,7 +168,7 @@ The backup authentication system is supported in all cloud environments except A
 
 *Note: Apps configured to authenticate with the SAML protocol are protected when using IDP-Initiated authentication. Service Provider (SP) initiated SAML configurations aren't supported
  
-### Appendix C - Azure Resources and their status on Backup protection
+### Azure resources and their status
 
 | resource | Azure Resource Name | Status |
 | microsoft.apimanagement | API Management service in Azure Government and China regions | Protected |
