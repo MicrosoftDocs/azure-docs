@@ -143,9 +143,6 @@ sipRoutingClient.setTrunk(new SipTrunk("sbc.us.contoso.com", 5063));
 
 You use the same method to create and update routing rules. When you update routes, send all of them in a single update. The new routing configuration fully overwrites the former one.
 
-> [!IMPORTANT]
-> Before placing or receiving calls, make sure that [SBC status](./voice-routing-sdk-portal.md#session-border-controller-connection-status) is *Online* 
-
 ## Remove a direct routing configuration
 
 You can't edit or remove a single voice route. You should overwrite the entire voice routing configuration. Here's an example of an empty list that removes all the routes and trunks.
