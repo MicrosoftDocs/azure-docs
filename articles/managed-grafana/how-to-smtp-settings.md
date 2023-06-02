@@ -105,7 +105,7 @@ To disable SMTP settings, follow the steps below.
 
 ### [Portal](#tab/azure-portal)
 
-1. In the Azure portal, go to **Configuration > Email Settings (Preview)** and toggle **SMTP Settings** off, so that **Disable** is displayed.
+1. In the Azure portal, go to **Configuration > Email Settings** and toggle **SMTP Settings** off, so that **Disable** is displayed.
 1. Select **Save** to validate and start updating the Azure Managed Grafana instance.
 
 ### [Azure CLI](#tab/azure-cli)
