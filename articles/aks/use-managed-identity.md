@@ -20,9 +20,9 @@ AKS doesn't automatically create a [service principal](kubernetes-service-princi
 
 Make sure you have Azure CLI version 2.23.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-For [use a pre-created kubelet managed identity][Use a pre-created kubelet managed identity], you need Azure CLI version 2.26.0 or later installed.
+For [use a pre-created kubelet managed identity][use-a-pre-created-kubelet-managed-identity], you need Azure CLI version 2.26.0 or later installed.
 
-For [update control plane identity on an existing cluster][Update control plane identity on an existing cluster], you need Azure CLI version 2.49.0 or later installed.
+For [update control plane identity on an existing cluster][update-control-plane-identity-on-an-existing-cluster], you need Azure CLI version 2.49.0 or later installed.
 
 ## Limitations
 
@@ -99,7 +99,7 @@ After updating your cluster, the control plane and pods use the managed identity
 
 When you create and use your own VNet, attached Azure disk, static IP address, route table, or user-assigned kubelet identity where the resources are outside of the worker node resource group, the Azure CLI adds the role assignment automatically. If you're using an ARM template or another method, you need to use the Principal ID of the cluster managed identity to perform a role assignment.
 
-If you're not using the Azure CLI, but you're using your own VNet, attached Azure disk, static IP address, route table, or user-assigned kubelet identity that's outside of the worker node resource group, we recommend using [user-assigned control plane identity][Bring your own control plane managed identity]. For system-assigned control plane identity, we can't get the identity ID before creating cluster, which delays the role assignment from taking effect.
+If you're not using the Azure CLI, but you're using your own VNet, attached Azure disk, static IP address, route table, or user-assigned kubelet identity that's outside of the worker node resource group, we recommend using [user-assigned control plane identity][bring-your-own-control-plane-managed-identity]. For system-assigned control plane identity, we can't get the identity ID before creating cluster, which delays the role assignment from taking effect.
 
 ### Get the principal ID of control plane identity
 
@@ -184,7 +184,7 @@ A custom control plane managed identity enables access to the existing identity 
 > [!NOTE]
 > It may take up to 60 minutes for the permissions granted to your cluster's managed identity to populate.
 
-* Before creating the cluster, [add the role assignment for control plane identity][add role assignment for control plane identity] using the [`az role assignment create`][az-role-assignment-create] command.
+* Before creating the cluster, [add the role assignment for control plane identity][add-role-assignment-for-control-plane-identity] using the [`az role assignment create`][az-role-assignment-create] command.
 
 * Create the cluster with user-assigned control plane identity.
 
@@ -226,7 +226,7 @@ A custom control plane managed identity enables access to the existing identity 
     }
     ```
   
-* After creating the identity, [add the role assignment for control plane identity][add role assignment for control plane identity] using the [`az role assignment create`][az-role-assignment-create] command.
+* After creating the identity, [add the role assignment for control plane identity][add-role-assignment-for-control-plane-identity] using the [`az role assignment create`][az-role-assignment-create] command.
 
 * Update your cluster with your existing identities using the [`az aks update`][az-aks-update] command. Make sure you provide the control plane identity resource ID for `assign-identity`.
 
@@ -486,12 +486,13 @@ Use [Azure Resource Manager templates][aks-arm-template] to create a managed ide
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-identity-show]: /cli/azure/identity#az_identity_show
 [managed-identity-resources-overview]: ../active-directory/managed-identities-azure-resources/overview.md
-[Bring your own control plane managed identity]: use-managed-identity.md#bring-your-own-control-plane-managed-identity
-[Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
-[Update control plane identity on an existing cluster]: use-managed-identity.md#update-control-plane-identity-on-an-existing-cluster
+[bring-your-own-control-plane-managed-identity]: use-managed-identity.md#bring-your-own-control-plane-managed-identity
+[use-a-pre-created-kubelet-managed-identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
+[update-control-plane-identity-on-an-existing-cluster]: use-managed-identity.md#update-control-plane-identity-on-an-existing-cluster
 [workload-identity-overview]: workload-identity-overview.md
 [aad-pod-identity]: use-azure-ad-pod-identity.md
 [add role assignment for control plane identity]: use-managed-identity.md#add-role-assignment-for-control-plane-identity
+[add-role-assignment-for-control-plane-identity]: use-managed-identity.md#add-role-assignment-for-control-plane-identity
 [az-group-create]: /cli/azure/group#az_group_create
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
