@@ -51,37 +51,6 @@ First you need to get your resource key and endpoint:
 
 [!INCLUDE [get Custom sentiment analysis task results](../../includes/custom/rest-api/get-results.md)]
 
-# [Client libraries (Azure SDK)](#tab/client)
-
-First you need to get your resource key and endpoint:
-
-[!INCLUDE [Get keys and endpoint Azure Portal](../../../includes/get-key-endpoint.md)]
-
-3. Download and install the client library package for your language of choice:
-    
-    |Language  |Package version  |
-    |---------|---------|
-    |.NET     | [5.2.0-beta.3](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0-beta.3)        |
-    |Java     | [5.2.0-beta.3](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0-beta.3)        |
-    |JavaScript     |  [6.0.0-beta.1](https://www.npmjs.com/package/@azure/ai-text-analytics/v/6.0.0-beta.1)       |
-    |Python     | [5.2.0b4](https://pypi.org/project/azure-ai-textanalytics/5.2.0b4/)         |
-    
-4. After you've installed the client library, use the following samples on GitHub to start calling the API.
-    
-    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample8_RecognizeCustomEntities.md)
-    * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/RecognizeCustomEntities.java)
-    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-text-analytics_6.0.0-beta.1/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js)
-    * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_custom_entities.py)
-    
-5. See the following reference documentation for more information on the client, and return object:
-    
-    * [C#](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)
-    * [Java](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)
-    * [JavaScript](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)
-    * [Python](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true)
-    
----
-
 ## Next steps
 
 * [Sentiment Analysis overview](../../overview.md)
