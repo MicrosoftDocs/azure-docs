@@ -24,42 +24,45 @@ Your Labels file should be in the `json` format below. This will enable you to [
 
 ```json
 {
-    "projectFileVersion": "2022-05-01",
-    "stringIndexType": "Utf16CodeUnit",
-    "metadata": {
-      "projectKind": "CustomMultiLabelClassification",
-      "storageInputContainerName": "{CONTAINER-NAME}",
-      "projectName": "{PROJECT-NAME}",
-      "multilingual": false,
-      "description": "Project-description",
-      "language": "en-us"
-    },
-    "assets": {
-      "projectKind": "CustomMultiLabelClassification",
-      "classes": [
-        {
-          "category": "Class1"
+  "projectFileVersion": "2023-04-15-preview",
+  "stringIndexType": "Utf16CodeUnit",
+  "metadata": {
+    "projectKind": "CustomTextSentiment",
+    "storageInputContainerName": "text-sentiment",
+    "projectName": "TestSentiment",
+    "multilingual": false,
+    "description": "A custom sentiment analysis project.",
+    "language": "en-us"
+  },
+  "assets": {
+    "projectKind": "CustomTextSentiment",
+    "documents": [
+      {
+            "location": "documents/document_1.txt",
+            "language": "en-us",
+            "sentimentSpans": [
+                {
+                    "category": "negative",
+                    "offset": 0,
+                    "length": 28
+                }
+            ]
         },
         {
-          "category": "Class2"
+            "location": "documents/document_2.txt",
+            "language": "en-us",
+            "sentimentSpans": [
+                {
+                    "category": "negative",
+                    "offset": 0,
+                    "length": 24
+                }
+            ]
         }
-      ],
-      "documents": [
-          {
-              "location": "{DOCUMENT-NAME}",
-              "language": "{LANGUAGE-CODE}",
-              "dataset": "{DATASET}",
-              "classes": [
-                  {
-                      "category": "Class1"
-                  },
-                  {
-                      "category": "Class2"
-                  }
-              ]
-          }
-      ]
+    ]
   }
+}
+
 ```
 
 |Key  |Placeholder  |Value  | Example |
