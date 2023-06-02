@@ -127,15 +127,70 @@ appInsights.loadAppInsights();
 
 > [!NOTE] 
 > To add React configuration, see [React configuration](./javascript-framework-extensions.md?tabs=react#configuration). For more information on the React plug-in, see [React plug-in](./javascript-framework-extensions.md?tabs=react#react-application-insights-javascript-sdk-plug-in).
+
 ### [React Native](#tab/reactnative)
 
-*<code here>*
+```typescript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
+import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
+
+var clickPluginInstance = new ClickAnalyticsPlugin();
+var clickPluginConfig = {
+  autoCapture: true
+};
+var RNPlugin = new ReactNativePlugin();
+var appInsights = new ApplicationInsights({
+    config: {
+       connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        extensions: [RNPlugin,  clickPluginInstance],
+        extensionConfig: {
+                  [clickPluginInstance.identifier]: clickPluginConfig
+         }
+    }
+});
+appInsights.loadAppInsights();
+```
 
 > [!NOTE] 
 > For more information on the React Native plug-in, see [React Native plug-in](./javascript-framework-extensions.md?tabs=reactnative#react-native-plugin-for-application-insights-javascript-sdk).
+
 ### [Angular](#tab/angular)
 
-*<code here>*
+```javascript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
+import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+    constructor(
+        private router: Router
+    ){
+        var angularPlugin = new AngularPlugin();
+        var clickPluginInstance = new ClickAnalyticsPlugin();
+        var clickPluginConfig = {
+          autoCapture: true
+        };
+        const appInsights = new ApplicationInsights({ config: {
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        extensions: [angularPlugin, clickPluginInstance],
+        extensionConfig: {
+            [angularPlugin.identifier]: { router: this.router },
+              [clickPluginInstance.identifier]: clickPluginConfig
+        }
+        } });
+        appInsights.loadAppInsights();
+    }
+}
+```
 
 For more information on the Angular plug-in, see [Angular plug-in](./javascript-framework-extensions.md?tabs=angular#angular-plugin-for-application-insights-javascript-sdk).
 
