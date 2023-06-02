@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 06/02/2023
 ---
 
-# How to monitor tenant statistics using Multi-Tenant Monitoring in Azure Cosmos DB for PostgreSQL
+# How to review tenant statistics using multi-tenant monitoring in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -28,10 +28,9 @@ You'll learn how to use the `citus_stat_tenants` view for making informed decisi
 > * Privileges (`execute`, `select`) on view is granted to the role `pg_monitor`.
 
 ## Monitor your top tenants with citus_stat_tenants
+[!INCLUDE [Introduction to `tenant tracking`](includes/tenant-monitoring.md)]
 
-When you enable this feature, accounting is activated for SQL commands such as `INSERT`, `UPDATE`, `DELETE`, and `SELECT`. This accounting is designed for `single tenant` queries. A query qualifies to be a single tenant query, if the query planner generates a query plan restricted to a single shard or to a single tenant.
-
-You can control the number of tenants tracked with the `citus.stat_tenants_limit` parameter. Additionally using `citus.stat_tenants_period`, you could also define the time bucket to monitor query and CPU, which are counted separately. Once a period ends, its statistics are stored in the last period, providing you with the ongoing and last completed period of data.
+You can control the number of tenants tracked with the `citus.stat_tenants_limit` parameter. Additionally using `citus.stat_tenants_period`, you can define the time bucket of monitoring. Once a period ends, its statistics are stored in the last period, providing you with the ongoing and last completed period of measurement.
 
 > [!Note]
 > * Default for citus.stat_tenants_period is `60 seconds`.
@@ -113,8 +112,8 @@ tenant_attribute | read_count_in_this_period | query_count_in_this_period | cpu_
 >
 > * set citus.stat_tenants_track = 'all' to enable tracking
 
-## Next Steps
-To learn about concepts related to multi-tenant monitoring
+## Next steps
+Learn about the concepts related to multi-tenant monitoring and rebalacing active tenants
 > [!div class="nextstepaction"]
 > [Multi-tenant monitoring](concepts-multi-tenant-monitoring.md)
 
