@@ -433,42 +433,39 @@ SELECT azure_storage.account_remove('pgquickstart');
 ```
 
 ### Adding access for a role to Azure Blob storage
-The example illustrates adding role `support` to query Azure Blob storage `pgquickstart`.
 
 ```sql
 SELECT * FROM azure_storage.account_user_add('pgquickstart', 'support');
 ```
 
 ### List all the roles with access on Azure Blob storage
-The example illustrates listing user created roles with access on Azure Blob storage `pgquickstart`
 
 ```sql
 SELECT * FROM azure_storage.account_list();
 ```
 
 ### Removing the roles with access on Azure Blob storage
-The example illustrates removing access for a role `support` on Azure Blob storage `pgquickstart`
 
 ```sql
 SELECT * FROM azure_storage.account_user_remove('pgquickstart', 'support');
 ```
 
-### List the objects within a `public` container on Azure storage account
-The example illustrates accessing the available files within the public container.
+### List the objects within a `public` container
 
 ```sql
 SELECT * FROM azure_storage.blob_list('pgquickstart','publiccontainer');
 ```
 
-### List the objects within a `private` container on Azure storage account (adding access key is mandatory)
-The example illustrates accessing the available files within the private container.
+### List the objects within a `private` container
 
 ```sql
 SELECT * FROM azure_storage.blob_list('pgquickstart','privatecontainer');
 ```
 
+> [!Note]
+> Adding access key is mandatory.
+
 ### List the objects with specific string initials within public container
-The example illustrates listing all the available files starting with a string initial.
 
 ```sql
 SELECT * FROM azure_storage.blob_list('pgquickstart','publiccontainer','e');
@@ -549,7 +546,7 @@ LIMIT 5;
 ```
 
 ### Query content from file with headers, custom separators, escape characters
-The example illustrates the use of `options` argument for processing files with headers, custom separators, escape characters, etc., you can either use the COPY command or pass COPY options to the blob_get function using the `azure_storage.options_copy` function.
+You can use custom separators and escape characters by passing the result of `azure_storage.options_copy` to the `options` argument.
 
 ```sql
 SELECT * FROM azure_storage.blob_get
@@ -562,7 +559,7 @@ SELECT * FROM azure_storage.blob_get
 ```
 
 ### Aggregation query on content of an object in the container
-The example illustrates the ability to directly perform analysis on the data without importing the set into the database.
+This way you can query data without importing it.
 
 ```sql
 SELECT event_type,COUNT(1) FROM azure_storage.blob_get
