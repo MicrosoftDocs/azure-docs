@@ -2,15 +2,15 @@
 title: Filled map in Azure Maps Power BI Visual
 titleSuffix: Microsoft Azure Maps
 description: In this article, you'll learn about the Filled map feature in Azure Maps Power BI Visual.
-author: eriklindeman
-ms.author: eriklind
+author: deniseatmicrosoft
+ms.author: limingchen
 ms.date: 04/11/2022
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---
 
-# Filled map in Azure Maps Power BI Visual (Preview)
+# Filled map in Azure Maps Power BI visual
 
 Filled maps use varying degrees of shading, tinting or different patterns to provide a visual display that quickly shows differences in values across a geography or region. Showing these relative differences with shading that ranges from light (less-frequent/lower) to dark (more-frequent/more) is a useful way to quickly convey pertinent information to viewers.
 
@@ -128,7 +128,7 @@ There are two places where you can adjust filled maps settings: Build and format
 Change how your data is displayed on the map:
 
 > [!div class="nextstepaction"]
-> [Add a bar chart layer](power-bi-visual-add-bar-chart-layer.md)
+> [Add a 3D column layer](power-bi-visual-add-3d-column-layer.md)
 
 > [!div class="nextstepaction"]
 > [Add a heat map layer](power-bi-visual-add-heat-map-layer.md)

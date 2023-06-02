@@ -6,7 +6,7 @@
  ms.topic: include
  ms.date: 09/10/2021
  ms.author: timlt
- ms.custom: include file, devx-track-azurecli 
+ ms.custom: include file, devx-track-azurecli
  ms.devlang: azurecli
 ---
 
@@ -35,14 +35,14 @@ Install the remaining prerequisites for your operating system.
 ### Linux or Raspberry Pi OS
 To complete this quickstart on Linux or Raspberry Pi OS, install the following software:
 
-Install **GCC**, **Git**, **cmake**, and the required dependencies using the `apt-get` command:
+Install **GCC**, **Git**, **CMake**, and the required dependencies using the `apt-get` command:
 
 ```sh
 sudo apt-get update
 sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
 ```
 
-Verify the version of `cmake` is above **2.8.12** and the version of **GCC** is above **4.4.7**.
+Verify the version of CMake is **3.13** or greater, and the version of **GCC** is **4.4.7** or greater.
 
 ```sh
 cmake --version
@@ -50,18 +50,18 @@ gcc --version
 ```
 
 ### Windows
-To complete this quickstart on Windows, install Visual Studio 2019 and add the required components for C and C++ development.
+To complete this quickstart on Windows, install Visual Studio 2022 and add the required components for C and C++ development.
 
-1. For new users, install [Visual Studio (Community, Professional, or Enterprise) 2019](https://visualstudio.microsoft.com/downloads/). Download the edition you want to install, and start the installer.
+1. For new users, install [Visual Studio (Community, Professional, or Enterprise) 2022](https://visualstudio.microsoft.com/downloads/). Download the edition you want to install, and start the installer.
     > [!NOTE]
-    > For existing Visual Studio 2019 users, select Windows **Start**, type *Visual Studio Installer*, and start the installer.
+    > For existing Visual Studio 2022 users, select Windows **Start**, type *Visual Studio Installer*, run the installer, and then select **Modify**. 
 1. In the installer **Workloads** tab, select the **Desktop Development with C++** workload.
 1. Run the installation.
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
 ## Run the device sample
-In this section, you use the C SDK to send messages from a device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
+In this section, you use the C SDK to send messages from a device to your IoT hub. You run a sample that implements a temperature controller with two thermostat sensors.
 
 ### Build the sample
 1. Open a new console to install the Azure IoT C device SDK and run the code sample. For Windows, select **Start**, type *Developer Command Prompt for VS 2019*, and open the console. For Linux and Raspberry Pi OS, open a terminal for Bash commands.

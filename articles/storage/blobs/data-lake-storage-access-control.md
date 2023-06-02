@@ -2,13 +2,13 @@
 title: Access control lists in Azure Data Lake Storage Gen2
 titleSuffix: Azure Storage
 description: Understand how POSIX-like ACLs access control lists work in Azure Data Lake Storage Gen2.
-author: jimmart-dev
+author: normesta
 
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/09/2023
-ms.author: jammart
+ms.date: 05/09/2023
+ms.author: normesta
 ms.reviewer: jamesbak
 ms.devlang: python
 ms.custom: engagement-fy23
@@ -309,7 +309,7 @@ The owning user can change the permissions of the file to give themselves any RW
 
 ### Why do I sometimes see GUIDs in ACLs?
 
-A GUID is shown if the entry represents a user and that user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Additionally, service principals and security groups do not have a User Principal Name (UPN) to identify them and so they are represented by their OID attribute (a guid).
+A GUID is shown if the entry represents a user and that user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Additionally, service principals and security groups do not have a User Principal Name (UPN) to identify them and so they are represented by their OID attribute (a guid). To clean up the ACLs, manually delete these GUID entries. 
 
 ### How do I set ACLs correctly for a service principal?
 

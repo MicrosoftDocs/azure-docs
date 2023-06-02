@@ -2,13 +2,13 @@
 title: Use the Azure portal to manage ACLs in Azure Data Lake Storage Gen2
 titleSuffix: Azure Storage
 description: Use the Azure portal to manage access control lists (ACLs) in storage accounts that have a hierarchical namespace (HNS) enabled.
-author: jimmart-dev
+author: normesta
 
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/09/2023
-ms.author: jammart
+ms.author: normesta
 ---
 
 # Use the Azure portal to manage ACLs in Azure Data Lake Storage Gen2

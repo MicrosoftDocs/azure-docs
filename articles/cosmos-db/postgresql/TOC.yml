@@ -94,6 +94,9 @@
         - name: Private access
           href: concepts-private-access.md
           displayName: private, link
+        - name: Customer managed keys
+          href: concepts-customer-managed-keys.md
+          displayName: customer-managed, keys, cmk
         - name: Row-level security
           href: concepts-row-level-security.md
           displayName: row, level, security, rls
@@ -105,6 +108,8 @@
           href: concepts-maintenance.md
         - name: Burstable compute
           href: concepts-burstable-compute.md
+        - name: Start and stop cluster compute
+          href: concepts-compute-start-stop.md
         - name: Upgrade
           href: concepts-upgrade.md
     - name: Business continuity
@@ -145,6 +150,8 @@
           href: howto-create-users.md
         - name: Schedule maintenance
           href: howto-maintenance.md
+        - name: Start and stop cluster compute
+          href: how-to-start-stop-cluster.md
         - name: Restart cluster
           href: howto-restart.md
         - name: Upgrade cluster
@@ -194,9 +201,20 @@
         - name: Manage private access
           href: howto-private-access.md
           displayName: network, private link
-        - name: Configure SSL
+        - name: Customer managed keys
+          href: how-to-customer-managed-keys.md
+          displayName: customer-managed, keys, cmk
+        - name: Configure TLS/SSL
           href: howto-ssl-connection-security.md
           displayName: ssl, tls
+    - name: Use vectors and embeddings
+      items:
+        - name: Basics of pgvector
+          href: howto-use-pgvector.md
+          displayName: pgvector
+        - name: Optimize performance when using pgvector
+          href: howto-optimize-performance-pgvector.md
+          displayName: pgvector
     - name: Troubleshoot
       items:
         - name: Troubleshoot connection errors
@@ -212,7 +230,14 @@
     - name: PostgreSQL versions
       href: reference-versions.md
     - name: PostgreSQL extensions
-      href: reference-extensions.md
+      items:
+        - name: Overview
+          href: reference-extensions.md
+        - name: Pg_azure_storage
+          href: reference-pg-azure-storage.md
+          displayName: pg_azure_storage, extensions
+    - name: Limits and limitations
+      href: reference-limits.md
     - name: Distributed SQL API
       items:
         - name: Overview
@@ -223,8 +248,13 @@
           href: reference-parameters.md
         - name: System tables
           href: reference-metadata.md
-    - name: Limits and limitations
-      href: reference-limits.md
+    - name: REST APIs
+      href: /rest/api/postgresqlhsc/
+    - name: ARM templates
+      href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-arm-template
+    - name: Bicep
+      href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-bicep
+
 - name: Resources
   items:
     - name: Pricing

@@ -84,7 +84,7 @@ You can upgrade your Virtual Machine Scale Sets instances with Azure CLI:
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
     ```
 
-For more information, see [How to bring VMs up-to-date with the latest scale set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
+For more information, see [How to bring VMs up-to-date with the latest scale set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md)
 
 ### AKS Chaos Mesh faults fail
 AKS Chaos Mesh faults may fail for various reasons related to missing prerequisites:

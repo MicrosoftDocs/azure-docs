@@ -277,7 +277,7 @@ Now the web app is deployed, let's go to the portal for **_WA1_** and make the f
     * **HTTPS Only**: **Off**. To Simplify the demo, we used the HTTP frontend protocol on Application Gateway. Therefore, we need to turn off this option to avoid changing the HTTP URL to HTTPs automatically.
 
 * Go to the **Overview** tab and get the URL of **_WA1_**. 
-* Get the URL, and replace scheme https with http, for example, http://wa1.azurewebsites.net, open the URL in the browser, now you can start chatting! Use F12 to open network traces, and you can see the SignalR connection is established through **_AG1_**.
+* Get the URL, and replace scheme https with http, for example, `http://wa1.azurewebsites.net`, open the URL in the browser, now you can start chatting! Use F12 to open network traces, and you can see the SignalR connection is established through **_AG1_**.
     > [!NOTE]
     >
     > Sometimes you need to disable browser's auto https redirection and browser cache to prevent the URL from redirecting to HTTPS automatically.

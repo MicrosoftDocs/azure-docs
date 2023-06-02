@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 09/09/2022
 ms.author: cwerner
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q2, devx-track-js
 ---
 
 # Application types for the Microsoft identity platform
@@ -112,7 +112,7 @@ In this flow, the app receives an authorization code from the Microsoft identity
 ![Shows the native app authentication flow](./media/v2-app-types/convergence-scenarios-native.svg)
 
 > [!NOTE]
-> If the application uses the default system webview, check the information about "Confirm My Sign-In" functionality and error code AADSTS50199 in [Azure AD authentication and authorization error codes](reference-aadsts-error-codes.md).
+> If the application uses the default system webview, check the information about "Confirm My Sign-In" functionality and error code AADSTS50199 in [Azure AD authentication and authorization error codes](reference-error-codes.md).
 
 ## Daemons and server-side apps
 

@@ -4,7 +4,7 @@ description: This article provides a walkthrough for creating a Python applicati
 ms.topic: quickstart
 ms.date: 01/08/2023
 ms.devlang: python
-ms.custom: mode-api, passwordless-python
+ms.custom: mode-api, passwordless-python, devx-track-python
 ---
 
 # Send events to or receive events from event hubs by using Python
@@ -65,7 +65,7 @@ In this section, create a Python script to send events to the event hub that you
     
     from azure.eventhub import EventData
     from azure.eventhub.aio import EventHubProducerClient
-    from azure.identity import DefaultAzureCredential
+    from azure.identity.aio import DefaultAzureCredential
     
     EVENT_HUB_FULLY_QUALIFIED_NAMESPACE = "EVENT_HUB_FULLY_QUALIFIED_NAMESPACE"
     EVENT_HUB_NAME = "EVENT_HUB_NAME"

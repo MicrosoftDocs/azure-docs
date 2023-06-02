@@ -9,4 +9,4 @@ ms.author: eur
 In this quickstart, you run an application that does text to speech synthesis. 
 
 > [!TIP]
-> You can try text-to-speech in [Speech Studio](https://aka.ms/speechstudio/voicegallery) without signing up or writing any code.
+> You can try text to speech in [Speech Studio](https://aka.ms/speechstudio/voicegallery) without signing up or writing any code.

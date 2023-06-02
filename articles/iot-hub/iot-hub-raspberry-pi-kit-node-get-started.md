@@ -183,7 +183,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    > [!NOTE]
    > The default username is `pi` and the password is `raspberry`.
 
-2. Install Node.js and NPM to your Pi.
+2. Install Node.js and npm to your Pi.
 
    First check your Node.js version.
 
@@ -249,7 +249,7 @@ You should see the following output that shows the sensor data and the messages 
 
 ## Read the messages received by your hub
 
-One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Tools for Visual Studio Code. To learn more, see [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Hub extension for Visual Studio Code. To learn more, see [Use the Azure IoT Hub extension for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 For more ways to process data sent by your device, continue on to the next section.
 

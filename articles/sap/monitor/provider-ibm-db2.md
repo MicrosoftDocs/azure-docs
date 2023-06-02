@@ -1,5 +1,5 @@
 ---
-title: Create IBM Db2 provider for Azure Monitor for SAP solutions (preview)
+title: Create IBM Db2 provider for Azure Monitor for SAP solutions 
 description: This article provides details to configure an IBM DB2 provider for Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: sap-on-azure
@@ -10,12 +10,9 @@ ms.author: sujaj
 #Customer intent: As a developer, I want to create an IBM Db2 provider so that I can monitor the resource through Azure Monitor for SAP solutions.
 ---
 
-# Create IBM Db2 provider for Azure Monitor for SAP solutions (preview)
+# Create IBM Db2 provider for Azure Monitor for SAP solutions 
 
-[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
-
-In this how-to guide, you'll learn how to create an IBM Db2 provider for Azure Monitor for SAP solutions through the Azure portal. This content applies only to Azure Monitor for SAP solutions, not the Azure Monitor for SAP solutions (classic) version.
-
+In this how-to guide, you'll learn how to create an IBM Db2 provider for Azure Monitor for SAP solutions through the Azure portal. 
 ## Prerequisites
 
 - An Azure subscription. 

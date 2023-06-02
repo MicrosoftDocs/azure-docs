@@ -13,7 +13,7 @@ Microsoft Sentinel can apply machine learning (ML) to Security events data to id
 
 - **Unusual IP** - the IP address has rarely or never been observed in the last 30 days
 
-- **Unusual geo-location** - the IP address, city, country, and ASN have rarely or never been observed in the last 30 days
+- **Unusual geo-location** - the IP address, city, country/region, and ASN have rarely or never been observed in the last 30 days
 
 - **New user** - a new user logs in from an IP address and geo-location, both or either of which were not expected to be seen based on data from the 30 days prior.
 

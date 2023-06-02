@@ -3,7 +3,7 @@ title: Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution
 description: Learn how to migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/17/2023
+ms.date: 3/20/2023
 ms.custom: engagement-fy23
 ---
 # Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution
@@ -35,9 +35,9 @@ The table below indicates the estimated downtime for each Microsoft SQL Server t
 
 | **Scenario** | **Downtime expected** | **Notes** |
 |:---|:-----|:-----|
-| **Standalone instance** | LOW | Migrate with VMware vMotion, the DB is available during migration, but it is not recommended to commit any critical data during it. |
-| **Always-On Availability Group** | LOW | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
-| **Failover Cluster Instance** | HIGH | All nodes of the cluster are shutdown and migrated using VMware HCX Cold Migration. Downtime duration depends upon database size and private network speed to Azure cloud. |
+| **Standalone instance** | Low | Migrate with VMware vMotion, the DB is available during migration, but it is not recommended to commit any critical data during it. |
+| **Always-On Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
+| **Failover Cluster Instance** | High | All nodes of the cluster are shutdown and migrated using VMware HCX Cold Migration. Downtime duration depends upon database size and private network speed to Azure cloud. |
 
 ## Windows Server Failover Cluster quorum considerations
 
@@ -65,32 +65,29 @@ For details about configuring and managing the quorum, see [Failover Clustering 
 ## Migrate Microsoft SQL Server Always-On cluster
 
 1. Access your Always-On cluster with SQL Server Management Studio using administration credentials.
-    1. Select your primary replica and open **Availability Group** **Properties**.
-
-
+   - Select your primary replica and open **Availability Group** **Properties**.
           :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-1.png" alt-text="Diagram showing Always On Availability Group properties." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-1.png":::
-
-     1. Change **Availability Mode** to **Asynchronous commit** only for the replica to be migrated.
-     1. Change **Failover Mode** to **Manual** for every member of the availability group.
+   - Change **Availability Mode** to **Asynchronous commit** only for the replica to be migrated.
+   - Change **Failover Mode** to **Manual** for every member of the availability group.
 1. Access the on-premises vCenter Server and proceed to HCX area.
 1. Under **Services** select **Migration** > **Migrate**. 
-      1. Select one virtual machine running the secondary replica of the database the is going to be migrated.
-      1. Set the vSphere cluster in the remote private cloud to run the migrated SQL cluster as the **Compute Container**.
-      1. Select the **vSAN Datastore** as remote storage.
-      1. Select a folder. This not mandatory, but is recommended to separate the different workloads in your Azure VMware Solution private cloud.
-      1. Keep **Same format as source**.
-      1. Select **vMotion** as **Migration profile**. 
-      1. In **Extended Options** select **Migrate Custom Attributes**.
-      1. Verify that on-premises network segments have the correct remote stretched segment in Azure.
-      1. Select **Validate** and ensure that all checks are completed with pass status. The most common error is related to the storage configuration. Verify again that there are no virtual SCSI controllers have the physical sharing setting. 
-      1. Click **Go** to start the migration. 
+   - Select one virtual machine running the secondary replica of the database the is going to be migrated.
+   - Set the vSphere cluster in the remote private cloud to run the migrated SQL cluster as the **Compute Container**.
+   - Select the **vSAN Datastore** as remote storage.
+   - Select a folder. This not mandatory, but is recommended to separate the different workloads in your Azure VMware Solution private cloud.
+   - Keep **Same format as source**.
+   - Select **vMotion** as **Migration profile**. 
+   - In **Extended Options** select **Migrate Custom Attributes**.
+   - Verify that on-premises network segments have the correct remote stretched segment in Azure.
+   - Select **Validate** and ensure that all checks are completed with pass status. The most common error is related to the storage configuration. Verify again that there are no virtual SCSI controllers have the physical sharing setting. 
+   - Click **Go** to start the migration. 
 1. Once the migration has been completed, access the migrated replica and verify connectivity with the rest of the members in the availability group.
 1. In SQL Server Management Studio, open the **Availability Group Dashboard** and verify that the replica appears as **Online**. 
       :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-2.png" alt-text="Diagram showing Always On Availability Group Dashboard." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-2.png":::
  
-   1. **Data Loss** status in the **Failover Readiness** column is expected since the replica has been out-of-sync with the primary during the migration. 
+   - **Data Loss** status in the **Failover Readiness** column is expected since the replica has been out-of-sync with the primary during the migration. 
 1. Edit the **Availability Group** **Properties** again and set **Availability Mode** back to **Synchronous commit**.
-      1. The secondary replica starts to synchronize back all the changes made to the primary replica during the migration. Wait until it appears in Synchronized state. 
+   - The secondary replica starts to synchronize back all the changes made to the primary replica during the migration. Wait until it appears in Synchronized state. 
 1. From the **Availability Group Dashboard** in SSMS click on **Start Failover Wizard**.
 1. Select the migrated replica and click **Next**.
 
@@ -114,34 +111,23 @@ For details about configuring and managing the quorum, see [Failover Clustering 
     >[!Note]
     > Migrate one replica at a time and verify that all changes are synchronized back to the replica after each migration. Do not migrate all the replicas at the same time using **HCX Bulk Migration**. 
 1. After the migration of all the replicas is completed, access your Always-On availability group with **SQL Server Management Studio**.
-    1. Open the Dashboard and verify there is no data loss in any of the replicas and that all are in a     **Synchronized** state.
-          :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-7.png" alt-text="Diagram showing availability Group Dashboard with new primary replica and all migrated secondary replicas in synchronized state." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-7.png":::
-    1. Edit the **Properties** of the availability group and set **Failover Mode** to **Automatic** in all replicas.
+   - Open the Dashboard and verify there is no data loss in any of the replicas and that all are in a     **Synchronized** state.
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-7.png" alt-text="Diagram showing availability Group Dashboard with new primary replica and all migrated secondary replicas in synchronized state." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-7.png":::
+   - Edit the **Properties** of the availability group and set **Failover Mode** to **Automatic** in all replicas.
     
        :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-8.png" alt-text="Diagram showing a setting for failover back to Automatic for all replicas." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-8.png":::
 
 ## Next steps 
 
-[Enable SQL Azure hybrid benefit for Azure VMware Solution](enable-sql-azure-hybrid-benefit.md).  
-
-[Create a placement policy in Azure VMware Solution](create-placement-policy.md)   
-
-[Windows Server Failover Clustering Documentation](https://learn.microsoft.com/windows-server/failover-clustering/failover-clustering-overview) 
-
-[Microsoft SQL Server 2019 Documentation](https://learn.microsoft.com/sql/sql-server/) 
-
-[Microsoft SQL Server 2022 Documentation](https://learn.microsoft.com/sql/sql-server/) 
-
-[Windows Server Technical Documentation](https://learn.microsoft.com/windows-server/) 
-
-[Planning Highly Available, Mission Critical SQL Server Deployments with VMware vSphere](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/vmware-vsphere-highly-available-mission-critical-sql-server-deployments.pdf)
-
-[Microsoft SQL Server on VMware vSphere Availability and Recovery Options](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-availability-and-recovery-options.pdf)
-
-[VMware KB 100 2951 – Tips for configuring Microsoft SQL Server in a virtual machine](https://kb.vmware.com/s/article/1002951)
-
-[Microsoft SQL Server 2019 in VMware vSphere 7.0 Performance Study](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/performance/vsphere7-sql-server-perf.pdf)
-
-[Architecting Microsoft SQL Server on VMware vSphere – Best Practices Guide](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-best-practices-guide.pdf)
-
-[Setup for Windows Server Failover Cluster in VMware vSphere 7.0](https://docs.vmware.com/en/VMware-vSphere/7.0/vsphere-esxi-vcenter-server-703-setup-wsfc.pdf)
+- [Enable SQL Azure hybrid benefit for Azure VMware Solution](enable-sql-azure-hybrid-benefit.md).  
+- [Create a placement policy in Azure VMware Solution](create-placement-policy.md)   
+- [Windows Server Failover Clustering Documentation](https://learn.microsoft.com/windows-server/failover-clustering/failover-clustering-overview) 
+- [Microsoft SQL Server 2019 Documentation](https://learn.microsoft.com/sql/sql-server/) 
+- [Microsoft SQL Server 2022 Documentation](https://learn.microsoft.com/sql/sql-server/) 
+- [Windows Server Technical Documentation](https://learn.microsoft.com/windows-server/) 
+- [Planning Highly Available, Mission Critical SQL Server Deployments with VMware vSphere](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/vmware-vsphere-highly-available-mission-critical-sql-server-deployments.pdf)
+- [Microsoft SQL Server on VMware vSphere Availability and Recovery Options](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-availability-and-recovery-options.pdf)
+- [VMware KB 100 2951 – Tips for configuring Microsoft SQL Server in a virtual machine](https://kb.vmware.com/s/article/1002951)
+- [Microsoft SQL Server 2019 in VMware vSphere 7.0 Performance Study](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/performance/vsphere7-sql-server-perf.pdf)
+- [Architecting Microsoft SQL Server on VMware vSphere – Best Practices Guide](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-best-practices-guide.pdf)
+- [Setup for Windows Server Failover Cluster in VMware vSphere 7.0](https://docs.vmware.com/en/VMware-vSphere/7.0/vsphere-esxi-vcenter-server-703-setup-wsfc.pdf)

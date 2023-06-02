@@ -35,7 +35,7 @@ A **road** map is a standard map that displays roads. It also displays natural a
 
 The **blank** and **blank_accessible** map styles provide a blank canvas for visualizing data. The **blank_accessible** style will continue to provide screen reader updates with map's location details, even though the base map isn't displayed.
 
-> [!Note]
+> [!NOTE]
 > In the Web SDK, you can change the background color of the map by setting the CSS `background-color` style of map DIV element.
 
 **Applicable APIs:**

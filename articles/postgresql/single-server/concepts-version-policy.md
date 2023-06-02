@@ -15,6 +15,8 @@ ms.custom: fasttrack-edit, ignite-2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 This page describes the Azure Database for PostgreSQL versioning policy, and is applicable to these deployment modes:
 
 * Single Server

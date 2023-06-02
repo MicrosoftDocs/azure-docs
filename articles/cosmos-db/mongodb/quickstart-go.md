@@ -8,7 +8,7 @@ ms.subservice: mongodb
 ms.devlang: golang
 ms.topic: quickstart
 ms.date: 04/26/2022
-ms.custom: mode-api, devx-track-azurecli, ignite-2022
+ms.custom: mode-api, devx-track-azurecli, ignite-2022, devx-track-go
 ---
 # Quickstart: Connect a Go application to Azure Cosmos DB's API for MongoDB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
@@ -76,8 +76,7 @@ The following snippets are all taken from the `todo.go` file.
 
     clientOptions := options.Client().ApplyURI(mongoDBConnectionString).SetDirect(true)
     
-    c, err := mongo.NewClient(clientOptions)
-    err = c.Connect(ctx)
+    c, err := mongo.Connect(ctx, clientOptions)
     if err != nil {
         log.Fatalf("unable to initialize connection %v", err)
     }

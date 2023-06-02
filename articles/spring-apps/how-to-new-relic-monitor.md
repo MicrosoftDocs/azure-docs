@@ -11,12 +11,12 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
-# How to monitor Spring Boot apps using New Relic Java agent (Preview)
+# How to monitor Spring Boot apps using New Relic Java agent
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to monitor of Spring Boot applications in Azure Spring Apps with the New Relic Java agent.
 
@@ -59,7 +59,7 @@ Use the following procedure to access the agent:
        --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
     ```
 
-Azure Spring Apps pre-installs the New Relic Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can activate the agent from applications' **JVM options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+Azure Spring Apps preinstalls the New Relic Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can activate the agent from applications' **JVM options**, and configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
 ## Azure portal
 
@@ -149,9 +149,13 @@ To configure the environment variables in an ARM template, add the following cod
 }
 ```
 
+## Forward application logs to New Relic
+
+The New Relic agent can collect application logs directly from your apps, and forward them to New Relic. For more information, see [Forward your logs to New Relic](https://docs.newrelic.com/docs/logs/forward-logs/enable-log-management-new-relic/) and [APM logs in context](https://docs.newrelic.com/docs/logs/logs-context/get-started-logs-context/).
+
 ## View New Relic Java Agent logs
 
-By default, Azure Spring Apps will print the logs of the New Relic Java agent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Apps prints the logs of the New Relic Java agent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
 
 You can also get the logs of the New Relic agent from the following locations:
 
@@ -159,21 +163,24 @@ You can also get the logs of the New Relic agent from the following locations:
 * Azure Spring Apps Application Insights
 * Azure Spring Apps LogStream
 
-You can leverage some environment variables provided by New Relic to configure the logging of the New Agent, such as, `NEW_RELIC_LOG_LEVEL` to control the level of logs. For more information, see [New Relic Environment Variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+You can use some environment variables provided by New Relic to configure the logging of the New Agent, such as, `NEW_RELIC_LOG_LEVEL` to control the level of logs. For more information, see [New Relic logging configuration](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#cfg-log_level).
+
+> [!NOTE]
+> Do not use `finer` or `finest` unless New Relic Support asks you to do that. These logging levels can generate excessive overhead. For most situations, use `info`.
 
 > [!CAUTION]
-> We strongly recommend that you *do not* override the logging default behavior provided by Azure Spring Apps for New Relic. If you do, the logging scenarios in above scenarios will be blocked, and the log file(s) may be lost. For example, you should not pass the following environment variables to your applications. Log file(s) may be lost after restart or redeployment of application(s).
+> We strongly recommend that you don't override the logging default behavior provided by Azure Spring Apps for New Relic. If you do, the logging scenarios previously described are blocked, and the log file(s) may be lost. For example, you shouldn't pass the following environment variables to your applications. Log file(s) may be lost after restart or redeployment of application(s).
 >
 > * NEW_RELIC_LOG
 > * NEW_RELIC_LOG_FILE_PATH
 
 ## New Relic Java Agent update/upgrade
 
-The New Relic Java agent will update/upgrade the JDK regularly. The agent update/upgrade may impact following scenarios.
+The New Relic Java agent update/upgrade the JDK regularly. The agent update/upgrade may impact following scenarios.
 
-* Existing applications that use the New Relic Java agent before update/upgrade will be unchanged.
+* Existing applications that use the New Relic Java agent before update/upgrade are unchanged.
 * Existing applications that use the New Relic Java agent before update/upgrade require restart or redeploy to engage the new version of the New Relic Java agent.
-* New applications created after update/upgrade will use the new version of the New Relic Java agent.
+* New applications created after update/upgrade use the new version of the New Relic Java agent.
 
 ## Vnet Injection Instance Outbound Traffic Configuration
 
@@ -181,4 +188,4 @@ For a vnet injection instance of Azure Spring Apps, you need to make sure the ou
 
 ## Next steps
 
-* [Distributed tracing and App Insights](how-to-distributed-tracing.md)
+* [Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md)

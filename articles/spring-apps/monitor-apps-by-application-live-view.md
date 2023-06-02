@@ -1,6 +1,6 @@
 ---
-title: Monitor apps using Application Live View with Azure Spring Apps Enterprise tier
-description: Learn how to monitor apps using Application Live View with Azure Spring Apps Enterprise tier.
+title: Monitor apps using Application Live View with the Azure Spring Apps Enterprise plan
+description: Learn how to monitor apps using Application Live View with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: yuwzho
 ms.service: spring-apps
@@ -9,14 +9,14 @@ ms.date: 12/01/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Monitor apps using Application Live View with Azure Spring Apps Enterprise tier
+# Monitor apps using Application Live View with the Azure Spring Apps Enterprise plan
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-[Application Live View for VMware Tanzu](https://docs.vmware.com/en/Application-Live-View-for-VMware-Tanzu/1.2/docs/GUID-index.html) is a lightweight insights and troubleshooting tool that helps app developers and app operators look inside running apps.
+[Application Live View for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/app-live-view-about-app-live-view.html) is a lightweight insights and troubleshooting tool that helps app developers and app operators look inside running apps.
 
 Application Live View provides visual insights into running apps by inspecting Spring Boot Actuator information. It provides a live view of the data from inside the app only. Application Live View doesn't store any of the app data for further analysis or historical views. The easy-to-use interface lets you troubleshoot, learn, and maintain an overview of certain aspects of the apps. It provides a certain level of control to users to let them change some parameters such as log levels and environment properties of running apps.
 

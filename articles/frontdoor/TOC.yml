@@ -70,6 +70,8 @@
       - name: Create profile and endpoint - ARM Template
         displayName: Resource Manager
         href: ../cdn/create-profile-endpoint-template.md?toc=/azure/frontdoor/TOC.json
+      - name: Create profile and endpoint - Terraform
+        href: ../cdn/create-profile-endpoint-terraform.md?toc=/azure/frontdoor/TOC.json
 - name: Tutorials
   items:
     - name: Front Door
@@ -177,6 +179,8 @@
           href: front-door-url-redirect.md?pivots=front-door-standard-premium
       - name: Understand billing
         href: billing.md
+      - name: Price comparison between tiers
+        href: understanding-pricing.md
       - name: Logs and metrics
         href: front-door-diagnostics.md?pivots=front-door-standard-premium
       - name: Best practices
@@ -249,6 +253,8 @@
       href: front-door-faq.yml
   - name: CDN
     items:
+    - name: Migrate CDN provider
+      href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/TOC.json
     - name: Security baseline
       href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/frontdoor/TOC.json
     - name: DDoS protection
@@ -628,11 +634,11 @@
     items:
     - name: HTTP headers protocol support
       href: front-door-http-headers-protocol.md
-    - name: Azure Front Door edge locations
+    - name: Azure Front Door POP locations
       items:
-      - name: Edge locations by region
+      - name: POP locations by region
         href: edge-locations-by-region.md
-      - name: Edge locations by abbreviation
+      - name: POP locations by abbreviation
         href: edge-locations-by-abbreviation.md
     - name: Standard/Premium
       items:

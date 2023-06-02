@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: conceptual
-ms.date: 03/12/2023
+ms.date: 05/30/2023
 ---
 
 # What can I accomplish with Microsoft Purview DevOps policies?
@@ -64,28 +64,46 @@ Bob and Alice are involved with the DevOps process at their company. Given their
 |                  |Supports the Principle of Least Privilege via data resource scopes and the role definitions.|
 |||
 
-## Mapping of popular DMVs and DMFs
-SQL dynamic metadata includes a list of more than 700 DMVs/DMFs. We list here as an illustration some of the most popular ones, mapped to their role definition in Microsoft Purview DevOps policies and linked to the URL, along with their description.
+## DevOps policies API
+Many sophisticated customers prefer to interface with Microsoft Purview via scripts rather than via the UI. Microsoft Purview DevOps policies now support a REST API offering full CRUD capability (listing, policies for SQL Performance Monitor, policies for SQL Security Auditor). See the spec [here]( /rest/api/purview/devopspolicydataplane/devops-policy).
 
-| **Accessible by DevOps role** | **Popular DMV / DMF** | **Description**|
+![Diagram shows where to find the DevOps API in the Azure REST API menu.](./media/concept-policies-devops/devops-policy-api.png).
+
+
+## Mapping of popular DMVs and DMFs
+SQL dynamic metadata includes a list of more than 700 DMVs/DMFs. We list here as an illustration some of the most popular ones, mapped to their role definition in Microsoft Purview DevOps policies and provide a URL link to the document that describes them.
+
+| **DevOps role** | **Category** | **Example DMV / DMF** |
 |-|-|-|
 ||||
-| *SQL Performance Monitor* | [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)|Monitors the current activity and performance of the server|
-||[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)|Identifies performance bottlenecks to enable system tuning|
-|| [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)|Identifies queries that are consuming a lot of resources or taking a long time to execute|
-|| [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql)|Shows information about all active user connections and internal tasks|
-|| [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql)|Helps identify and troubleshoot blocking issues within SQL Server|
-|| [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql)|Returns how many times a procedure was executed, the total duration, reads, writes and more|
+| **SQL Performance Monitor** | Query system parameters to understand your system | [sys.configurations](/sql/relational-databases/system-catalog-views/sys-configurations-transact-sql) |
+| | | [sys.dm_os_sys_info](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-sys-info-transact-sql) |
+|   | Identify performance bottlenecks | [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) |
+| | Analyze currently running queries | [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql) |
+| | Analyze blocking issues | [sys.dm_tran_locks](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql) |
+| | | [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) |
+| | | [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) |
+| | Analyze memory usage | [sys.dm_os_memory_clerks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-memory-clerks-transact-sql) |
+| | Analyze file-usage and performance| [sys.master_files](/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql) |
+| | | [sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) |
+| | Analyze index-usage and fragmentation | [sys.indexes](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql) |
+| | | [sys.dm_db_index_usage_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-index-usage-stats-transact-sql) |
+| | | [sys.dm_db_index_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-index-physical-stats-transact-sql) |
+| | Active user connections and internal tasks | [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) |
+| | Procedure execution stats | [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql) |
+| | Use the Query Store | [sys.query_store_plan](/sql/relational-databases/system-catalog-views/sys-query-store-plan-transact-sql) |
+| | | [sys.query_store_query](/sql/relational-databases/system-catalog-views/sys-query-store-query-transact-sql) |
+| | | [sys.query_store_query_text](/sql/relational-databases/system-catalog-views/sys-query-store-query-text-transact-sql) |
 ||||
-| *SQL Security Auditor* |[sys.dm_server_audit_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-server-audit-status-transact-sql)|Returns audit details such as the location of the target, size and status of the audit itself|
+| **SQL Security Auditor** | Returns audit details | [sys.dm_server_audit_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-server-audit-status-transact-sql) |
 ||||
-| Both *SQL Performance Monitor* and *SQL Security Auditor*|[sys.dm_audit_actions](/sql/relational-databases/system-dynamic-management-views/sys-dm-audit-actions-transact-sql)|Returns a row for every audit action that can be reported in the audit log and every audit action group that can be configured as part of SQL Server Audit|
-||[sys.dm_audit_class_type_map](/sql/relational-databases/system-dynamic-management-views/sys-dm-audit-class-type-map-transact-sql)|When events are fired, they record the object type, not the securable class. This DMV maps the class_type field in the audit log to the class_desc field in sys.dm_audit_actions|
+| Both **SQL Performance Monitor** and **SQL Security Auditor**| | [sys.dm_audit_actions](/sql/relational-databases/system-dynamic-management-views/sys-dm-audit-actions-transact-sql) |
+|||[sys.dm_audit_class_type_map](/sql/relational-databases/system-dynamic-management-views/sys-dm-audit-class-type-map-transact-sql) |
 ||||
 
-For more on these DMVs/DMFs you can check these docs
-- [Monitoring Microsoft Azure SQL Database performance using dynamic management views](/azure/azure-sql/database/monitoring-with-dmvs)
-- [Security-Related Dynamic Management Views and Functions](/sql/relational-databases/system-dynamic-management-views/security-related-dynamic-management-views-and-functions-transact-sql)
+Check these documents for more on what your IT support personnel can do when granted access via these Purview roles:
+- SQL Performance Monitor: [Use Microsoft Purview to provide at-scale access to performance data in Azure SQL and SQL Server](https://techcommunity.microsoft.com/t5/azure-sql-blog/use-microsoft-purview-to-provide-at-scale-access-to-performance/ba-p/3812839)
+- SQL Security Auditor: [Security-Related Dynamic Management Views and Functions](/sql/relational-databases/system-dynamic-management-views/security-related-dynamic-management-views-and-functions-transact-sql)
 
 ## More info
 - DevOps policies can be created, updated and deleted by any user holding *Policy Author* role at root collection level in Microsoft Purview.
@@ -94,4 +112,4 @@ For more on these DMVs/DMFs you can check these docs
 ## Next steps
 To get started with DevOps policies, consult the following blogs, videos and guides:
 * Try DevOps policies for Azure SQL Database: [Quick start guide](https://aka.ms/quickstart-DevOps-policies)
-See [other videos, blogs and documents](./how-to-policies-devops-authoring-generic.md#next-steps)
+* See [other videos, blogs and documents](./how-to-policies-devops-authoring-generic.md#next-steps)

@@ -2,7 +2,7 @@
 title: Environment variables and app settings reference
 description: Describes the commonly used environment variables, and which ones can be modified with app settings.
 ms.topic: article
-ms.date: 11/01/2022
+ms.date: 05/09/2023
 ---
 
 # Environment variables and app settings in Azure App Service
@@ -192,7 +192,7 @@ This section shows the configurable runtime settings for each supported language
 | `AZURE_TOMCAT90_HOME` | Read-only. For native Windows apps, path to the Tomcat 9 installation. | |
 | `AZURE_SITE_HOME` | The value added to the Java args as `-Dsite.home`. The default is the value of `HOME`. | |
 | `HTTP_PLATFORM_PORT` | Added to Java args as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `THORNTAIL_HTTP_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. ||
-| `AZURE_LOGGING_DIR` | Native Windows apps only. Added to Java args as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. ||
+| `AZURE_LOGGING_DIR` | For Windows Apps, added to Java args as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. Default value in Linux is `AZURE_LOGGING_DIR=/home/LogFiles`. ||
 
 <!-- 
 WEBSITE_JAVA_COPY_ALL
@@ -228,14 +228,11 @@ APPSVC_REMOTE_DEBUGGING_BREAK | debugArgs+=" -debugWait" -->
 | Setting name | Description | Example|
 |-|-|-|
 | `PHP_Extensions` | Comma-separated list of PHP extensions. | `extension1.dll,extension2.dll,Name1=value1` |
-| `PHP_ZENDEXTENSIONS` | For Windows native apps, set to the path of the XDebug extension, such as `D:\devtools\xdebug\2.6.0\php_7.2\php_xdebug-2.6.0-7.2-vc15-nts.dll`. For Linux apps, set to `xdebug` to use the XDebug version of the PHP container. ||
+| `PHP_ZENDEXTENSIONS` | For Linux apps, set to `xdebug` to use the XDebug version of the PHP container. ||
 | `PHP_VERSION` | Read-only. The selected PHP version. ||
-| `PORT` | Read-only. Port that Apache server listens to in the container. ||
+| `WEBSITE_PORT` | Read-only. Port that Apache server listens to in the container. ||
 | `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. ||
 | `WEBSITE_PROFILER_ENABLE_TRIGGER` | Set to `TRUE` to add `xdebug.profiler_enable_trigger=1` and `xdebug.profiler_enable=0` to the default `php.ini`. ||
-| `WEBSITE_ENABLE_PHP_ACCESS_LOGS` | Set to `TRUE` to log requests to the server (`CustomLog \dev\stderr combined` is added to `/etc/apache2/apache2.conf`). ||
-| `APACHE_SERVER_LIMIT` | Apache specific variable. The default is `1000`. ||
-| `APACHE_MAX_REQ_WORKERS` | Apache specific variable. The default is `256`. ||
 
 <!-- 
 ZEND_BIN_PATH
@@ -345,7 +342,6 @@ For more information on custom containers, see [Run a custom container in Azure]
 | `WEBSITES_PORT` | For a custom container, the custom port number on the container for App Service to route requests to. By default, App Service attempts automatic port detection of ports 80 and 8080. This setting isn't injected into the container as an environment variable. ||
 | `WEBSITE_CPU_CORES_LIMIT` | By default, a Windows container runs with all available cores for your chosen pricing tier. To reduce the number of cores, set to the number of desired cores limit. For more information, see [Customize the number of compute cores](configure-custom-container.md?pivots=container-windows#customize-the-number-of-compute-cores).||
 | `WEBSITE_MEMORY_LIMIT_MB` | By default all Windows Containers deployed in Azure App Service are limited to 1 GB RAM. Set to the desired memory limit in MB. The cumulative total of this setting across apps in the same plan must not exceed the amount allowed by the chosen pricing tier. For more information, see [Customize container memory](configure-custom-container.md?pivots=container-windows#customize-container-memory). ||
-| `CONTAINER_WINRM_ENABLED` | For a Windows containerized app, set to `1` to enable Windows Remote Management (WIN-RM). ||
 
 <!-- 
 CONTAINER_ENCRYPTION_KEY
@@ -587,7 +583,7 @@ The following environment variables are related to [health checks](monitor-insta
 | Setting name | Description |
 |-|-|
 | `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | The maximum number of failed pings before removing the instance. Set to a value between `2` and `100`. When you're scaling up or out, App Service pings the Health check path to ensure new instances are ready. For more information, see [Health check](monitor-instances-health-check.md).|
-| `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | To avoid overwhelming healthy instances, no more than half of the instances will be excluded. For example, if an App Service Plan is scaled to four instances and three are unhealthy, at most two will be excluded. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. To override this behavior, set to a value between `0` and `100`. A higher value means more unhealthy instances will be removed. The default is `50` (50%). |
+| `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | To avoid overwhelming healthy instances, no more than half of the instances will be excluded. For example, if an App Service Plan is scaled to four instances and three are unhealthy, at most two will be excluded. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. To override this behavior, set to a value between `1` and `100`. A higher value means more unhealthy instances will be removed. The default is `50` (50%). |
 
 ## Push notifications
 

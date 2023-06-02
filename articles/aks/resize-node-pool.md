@@ -159,7 +159,7 @@ Next, using `kubectl cordon <node-names>`, specify the desired nodes in a space-
 kubectl cordon aks-nodepool1-31721111-vmss000000 aks-nodepool1-31721111-vmss000001 aks-nodepool1-31721111-vmss000002
 ```
 
-```bash
+```output
 node/aks-nodepool1-31721111-vmss000000 cordoned
 node/aks-nodepool1-31721111-vmss000001 cordoned
 node/aks-nodepool1-31721111-vmss000002 cordoned

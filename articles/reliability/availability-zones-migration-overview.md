@@ -14,6 +14,8 @@ ms.custom: subject-reliability
 
 Azure services that support availability zones, including zonal and zone-redundant offerings, are continually expanding.  For that reason, resources that don't currently have availability zone support, may have an opportunity to gain that support. The Migration Guides section offers a collection of guides for each service that requires certain procedures in order to move a resource from non-availability zone support to availability support. You'll find information on prerequisites for migration, download requirements, important migration considerations and recommendations.
 
+To check the readiness of your application for availability zone support, see [Azure availability zone migration baseline](./availability-zones-baseline.md).
+
 The table below lists each product that offers migration guidance and/or information. 
 
 ## Azure services migration guides
@@ -24,9 +26,11 @@ The table below lists each product that offers migration guidance and/or informa
 | --- | 
 | [Azure Application Gateway (V2)](migrate-app-gateway-v2.md) |
 | [Azure Backup and Azure Site Recovery](migrate-recovery-services-vault.md)  | 
+| [Azure Service Fabric](migrate-service-fabric.md)  | 
 | [Azure Storage account: Blob Storage, Azure Data Lake Storage, Files Storage](migrate-storage.md) |
 | [Azure Storage: Managed Disks](migrate-vm.md)|
 | [Azure Virtual Machines and Azure Virtual Machine Scale Sets](migrate-vm.md)|  
+
 
 \*VMs that support availability zones: AV2-series, B-series, DSv2-series, DSv3-series, Dv2-series, Dv3-series, ESv3-series, Ev3-series, F-series, FS-series, FSv2-series, and M-series.
 
@@ -43,6 +47,9 @@ The table below lists each product that offers migration guidance and/or informa
 | [Azure Container Instances](migrate-container-instances.md)|
 | [Azure Database for MySQL - Flexible Server](migrate-database-mysql-flex.md)|
 | [Azure Monitor: Log Analytics](migrate-monitor-log-analytics.md)|
+| [Azure SQL Managed Instance](migrate-sql-managed-instance.md)|
+
+
 
 ## Workload and general guidance
 | **Workloads**   | 

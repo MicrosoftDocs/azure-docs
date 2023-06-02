@@ -70,11 +70,12 @@ All Cognitive Services API requests require an endpoint URL and a read-only key 
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
 1. Copy and paste your keys and endpoint URL in a convenient location, such as *Microsoft Notepad*.
 
-:::image type="content" source="../media/cognitive-services-apis-create-account/get-cog-serv-keys.png" alt-text="Get key and endpoint.":::
+:::image type="content" source="media/keys-and-endpoint-resource.png" alt-text="Get key and endpoint.":::
 
 ## How to delete a  resource or resource group
 
-> [!Warning]
+> [!WARNING]
+>
 > Deleting a resource group also deletes all resources contained in the group.
 
 To remove a Cognitive Services or Translator resource, you can **delete the resource** or **delete the resource group**.

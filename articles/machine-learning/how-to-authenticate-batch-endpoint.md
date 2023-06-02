@@ -91,7 +91,40 @@ In this case, we want to execute a batch endpoint using the identity of the user
 
 # [REST](#tab/rest)
 
-When working with REST APIs, we recommend to using either a [service principal](#running-jobs-using-a-service-principal) or a [managed identity](#running-jobs-using-a-managed-identity) to interact with the API.
+When working with REST, we recommend invoking batch endpoints using a service principal. However, if you want to test a particular deployment using REST with your own credentials, you can do it by generating an Azure AD token for your account. Follow these steps:
+
+1. The simplest way to get a valid token for your user account is to use the Azure CLI. In a console, run the following command:
+
+    ```azurecli
+    az account get-access-token --resource https://ml.azure.com --query "accessToken" --output tsv
+    ```
+    
+1. Take note of the generated output.
+
+1. Once authenticated, make a request to the invocation URI replacing `<TOKEN>` by the one you obtained before.
+    
+    __Request__:
+    
+    ```http
+    POST jobs HTTP/1.1
+    Host: <ENDPOINT_URI>
+    Authorization: Bearer <TOKEN>
+    Content-Type: application/json
+    ```
+    __Body:__
+        
+    ```json
+    {
+        "properties": {
+    	    "InputData": {
+    		"mnistinput": {
+    		    "JobInputType" : "UriFolder",
+    		    "Uri":  "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci"
+    	        }
+            }
+        }
+    }
+    ```
 
 ---
 
@@ -101,7 +134,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [Azure CLI](#tab/cli)
 
-1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret). 
+1. Create a secret to use for authentication as explained at [Option 32: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret). 
 1. To authenticate using a service principal, use the following command. For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
     ```azurecli
@@ -116,7 +149,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [Python](#tab/sdk)
 
-1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
+1. Create a secret to use for authentication as explained at [Option 3: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
 1. To authenticate using a service principal, indicate the tenant ID, client ID and client secret of the service principal using environment variables as demonstrated:
 
     ```python
@@ -145,7 +178,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [REST](#tab/rest)
 
-1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret). 
+1. Create a secret to use for authentication as explained at [Option 3: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret). 
 
 1. Use the login service from Azure to get an authorization token. Authorization tokens are issued to a particular scope. The resource type for Azure Machine Learning is `https://ml.azure.com`. The request would look as follows:
     

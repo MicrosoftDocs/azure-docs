@@ -596,6 +596,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/configure-periodic-backup-restore.md",
+      "redirect_url": "/azure/cosmos-db/periodic-backup-restore-introduction",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/update-backup-storage-redundancy.md",
+      "redirect_url": "/azure/cosmos-db/periodic-backup-update-storage-redundancy",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/create-documentdb-xamarin-dotnet.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-xamarin-dotnet",
       "redirect_document_id": true
@@ -6029,6 +6039,11 @@
       "source_path_from_root": "/articles/cosmos-db/graph/use-regional-endpoints.md",
       "redirect_url": "/azure/cosmos-db/gremlin/use-regional-endpoints",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/serverless-1TB.md",
+      "redirect_url": "/azure/cosmos-db/serverless-performance",
+      "redirect_document_id": false
     }
   ]
 }

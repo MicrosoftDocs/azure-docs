@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use ChatGPT (Preview) via the Azure OpenAI Studio'
+title: 'Quickstart: Use ChatGPT via the Azure OpenAI Studio'
 titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Azure OpenAI Studio. 
 services: cognitive-services
@@ -17,21 +17,26 @@ keywords:
 - Access granted to Azure OpenAI in the desired Azure subscription.
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true). Open an issue on this repo to contact us if you have an issue.
-- An Azure OpenAI Service resource with the `gpt-35-turbo` model deployed. This model is currently available in East US and South Central US. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4`<sup>1</sup> models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+
+<sup>1</sup> **GPT-4 models are currently only available by request.** To access these models, existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
 
 ## Go to Azure OpenAI Studio
 
 Navigate to Azure OpenAI Studio at [https://oai.azure.com/](https://oai.azure.com/) and sign-in with credentials that have access to your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-From the Azure OpenAI Studio landing page, select **ChatGPT playground (Preview)**
+From the Azure OpenAI Studio landing page, select **Chat playground**.
 
-:::image type="content" source="../media/quickstarts/chatgpt-playground.png" alt-text="Screenshot of the Azure OpenAI Studio landing page with ChatGPT playground highlighted." lightbox="../media/quickstarts/chatgpt-playground.png":::
+:::image type="content" source="../media/quickstarts/chatgpt-playground.png" alt-text="Screenshot of the Azure OpenAI Studio landing page with Chat playground highlighted." lightbox="../media/quickstarts/chatgpt-playground.png":::
 
 ## Playground
 
-Start exploring OpenAI capabilities with a no-code approach through the Azure OpenAI Studio ChatGPT playground. From this page, you can quickly iterate and experiment with the capabilities.
+Start exploring OpenAI capabilities with a no-code approach through the Azure OpenAI Studio Chat playground. From this page, you can quickly iterate and experiment with the capabilities.
 
-:::image type="content" source="../media/quickstarts/chatgpt-playground-load.png" alt-text="Screenshot of the ChatGPT playground page." lightbox="../media/quickstarts/chatgpt-playground-load.png":::
+:::image type="content" source="../media/quickstarts/chatgpt-playground-load.png" alt-text="Screenshot of the Chat playground page." lightbox="../media/quickstarts/chatgpt-playground-load.png":::
 
 ### Assistant setup
 
@@ -41,7 +46,7 @@ You can use the **Assistant setup** dropdown to select a few pre-loaded **System
 
 **Add few-shot examples** allows you to provide conversational examples that are used by the model for [in-context learning](/azure/cognitive-services/openai/overview#in-context-learning).
 
-At any time while using the ChatGPT playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and settings selections. You can then take this code and write an application to complete the same task you're currently performing with the playground.
+At any time while using the Chat playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and settings selections. You can then take this code and write an application to complete the same task you're currently performing with the playground.
 
 ### Chat session
 
@@ -73,9 +78,9 @@ By default there are three panels: assistant setup, chat session, and settings. 
 
     :::image type="content" source="../media/quickstarts/xbox.png" alt-text="Screenshot of a first question and answer in playground." lightbox="../media/quickstarts/xbox.png":::
 
-5. Enter a follow-up question like: "What models are available?"
+5. Enter a follow-up question like: "which models support 4K?"
 
-    :::image type="content" source="../media/quickstarts/xbox.png" alt-text="Screenshot of follow-up question and answer in playground." lightbox="../media/quickstarts/xbox.png":::
+    :::image type="content" source="../media/quickstarts/models.png" alt-text="Screenshot of follow-up question and answer in playground." lightbox="../media/quickstarts/models.png":::
 
 6. Now that you have a basic conversation select **View code** from under **Assistant setup** and you'll have a replay of the code behind the entire conversation so far:
 
@@ -85,20 +90,22 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = "https://docs-test-001.openai.azure.com/"
-openai.api_version = "2022-12-01"
+openai.api_version = "2023-05-15"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-response = openai.Completion.create(
-  engine="gpt-35-turbo",
-  prompt="<|im_start|>system\nYou are an Xbox customer support agent whose primary goal is to help users with issues they are experiencing with their Xbox devices. You are friendly and concise. You only provide factual answers to queries, and do not provide answers that are not related to Xbox.\n<|im_end|>\n<|im_start|>user\nI am interested in buying an Xbox?\n<|im_end|>\n<|im_start|>assistant\nGreat! Xbox is a popular gaming console that offers a wide variety of games and features. You can purchase an Xbox from various retailers such as Amazon, Best Buy, and the Microsoft Store. Additionally, you can also purchase an Xbox bundle that includes games and accessories. If you have any specific questions about the Xbox or the purchasing process, please let me know and I'll be happy to assist you.\n\n<|im_end|>\n<|im_start|>user\nWhat models are available?\n<|im_end|>\n<|im_start|>assistant\nCurrently, there are three Xbox models available for purchase: Xbox Series X, Xbox Series S, and Xbox One X. \n\nThe Xbox Series X is the most powerful Xbox console to date, with a custom-designed processor, 12 teraflops of processing power, and 16GB of memory. It also supports 4K gaming and has a built-in 4K Ultra HD Blu-ray player.\n\nThe Xbox Series S is a more affordable option, with a custom-\n<|im_end|>\n",
+response = openai.ChatCompletion.create(
+  engine="gpt-35-turbo", # replace this value with the deployment name you chose when you deployed the associated model.
+  messages = [{"role":"system","content":"You are an Xbox customer support agent whose primary goal is to help users with issues they are experiencing with their Xbox devices. You are friendly and concise. You only provide factual answers to queries, and do not provide answers that are not related to Xbox."},{"role":"user","content":"How much is a PS5?"},{"role":"assistant","content":"I apologize, but I do not have information about the prices of other gaming devices such as the PS5. My primary focus is to assist with issues regarding Xbox devices. Is there a specific issue you are having with your Xbox device that I may be able to help with?"},{"role":"user","content":"I am interested in buying an Xbox?"},{"role":"assistant","content":"Great! There are several Xbox models available in the market, including the Xbox Series X, Xbox Series S, and Xbox One. The Xbox Series X is the latest and most powerful console, while the Xbox Series S is a more affordable option that still offers great performance. The Xbox One is the previous generation console, but it still has a large library of games available to play.\n\nBefore purchasing an Xbox, you may want to consider factors such as your budget, the types of games you want to play, and whether you want to play games in 4K resolution. Once you have decided on a console, you can purchase it from a retailer or directly from the Xbox website. Let me know if you have any other questions or concerns!"},{"role":"user","content":"Which models are 4K?"},{"role":"assistant","content":"Both the Xbox Series X and Xbox One X support 4K resolution gaming. The Xbox Series S, on the other hand, supports up to 1440p resolution gaming, but it can upscale games to 4K. It's worth noting that in order to take advantage of 4K gaming, you'll need a 4K TV or monitor that supports HDR (High Dynamic Range) and HDMI 2.0 or higher."}],
   temperature=0,
-  max_tokens=100,
+  max_tokens=350,
   top_p=0.95,
   frequency_penalty=0,
   presence_penalty=0,
-  best_of=1,
-  stop=["<|im_end|>"])
+  stop=None)
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the playground.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
 
 ### Understanding the prompt structure
 
@@ -110,7 +117,7 @@ The [ChatGPT how-to guide](../how-to/chatgpt.md) provides an in-depth introducti
 
 ## Clean up resources
 
-Once you're done testing out the ChatGPT playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+Once you're done testing out the Chat playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 - [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
@@ -118,4 +125,4 @@ Once you're done testing out the ChatGPT playground, if you want to clean up and
 ## Next steps
 
 * Learn more about how to work with ChatGPT and the new `gpt-35-turbo` model with the [ChatGPT how-to guide](../how-to/chatgpt.md).
-* For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples)
+* For more examples check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)

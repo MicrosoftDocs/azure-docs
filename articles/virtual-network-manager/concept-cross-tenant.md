@@ -1,20 +1,23 @@
 ---
-title: 'Cross-tenant support in Azure Virtual Network Manager (Preview)'
+title: 'Cross-tenant support in Azure Virtual Network Manager'
 description: Learn about how cross-tenant connections are supported in Azure Virtual Network Manager.
 author: mbender-ms    
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 09/12/2022
-ms.custom: template-concept, ignite-fall-2022
+ms.date: 3/22/2023
+ms.custom: template-concept
 ---
 
 
-# Cross-tenant support in Azure Virtual Network Manager (Preview)
+# Cross-tenant support in Azure Virtual Network Manager
+
 In this article, you’ll learn about cross-tenant support in Azure Virtual Network Manager. Cross-tenant supports allows organizations to use a central Network Manager instance for managing virtual networks across different tenants and subscriptions.
- 
+
 > [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview.
+> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
+>
+> Mesh connectivity configurations and security admin rules remain in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -42,6 +45,17 @@ A cross-tenant connection can only be established and maintained when both objec
 
 > [!NOTE] 
 > Once a connection is removed from either side, the network manager will no longer be able to view or manage the tenant's resources under that former connection's scope.
+
+## Connection states
+The resources required to create the cross-tenant connection contain a state, which represents whether the associated scope has been added to the Network Manager scope. Possible state values include:
+
+* Connected: Both the Scope Connection and Network Manager Connection resources exist. The scope has been added to the Network Manager's scope.
+* Pending: One of the two approval resources has not been created. The scope has not yet been added to the Network Manager's scope.
+* Conflict: There is already a network manager with this subscription or management group defined within its scope. Two network managers with the same scope access cannot directly manage the same scope, therefore this subscription/management group cannot be added to the Network Manager scope. To resolve the conflict, remove the scope from the conflicting network manager's scope and recreate the connection resource.
+* Revoked: The scope was at one time added to the Network Nanager scope, but the removal of an approval resource has caused it to be revoked.
+
+The only state that represents the scope has been added to the Network Manager scope is 'Connected'.
+
 ## Required permissions 
 
 To use cross-tenant connection in Azure Virtual Network Manager, users need the following permissions: 

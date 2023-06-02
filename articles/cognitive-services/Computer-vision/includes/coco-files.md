@@ -119,3 +119,7 @@ The value for `absolute_url` can be found in your blob container's properties:
 |-|-|-|-|
 | `id` | integer | Unique ID for each category (label class). These should be present in the `annotations` section. | Yes |
 | `name`| string | Name of the category (label class) | Yes |
+
+### COCO file verification
+
+You can use our [Python sample code](/azure/cognitive-services/computer-vision/how-to/coco-verification) to check the format of a COCO file.

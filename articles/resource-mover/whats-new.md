@@ -5,6 +5,7 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.service: resource-mover
 ms.topic: whats-new 
+ms.custom: UpdateFrequency.5
 ms.date: 03/09/2023
 ---
 

@@ -38,19 +38,19 @@ Follow these steps to assign Azure AD roles using the Azure portal. Your experie
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
-    ![Roles and administrators page in Azure Active Directory.](./media/manage-roles-portal/roles-and-administrators.png)
+    ![Screenshot of Roles and administrators page in Azure Active Directory.](./media/common/roles-and-administrators.png)
 
 1. Find the role you need. You can use the search box or **Add filters** to filter the roles.
 
 1. Select the role name to open the role. Don't add a check mark next to the role.
 
-    ![Screenshot that shows selecting a role.](./media/manage-roles-portal/role-select-mouse.png)
+    ![Screenshot that shows selecting a role.](./media/common/role-select-mouse.png)
 
 1. Select **Add assignments** and then select the users you want to assign to this role.
 
     If you see something different from the following picture, you might have PIM enabled. See the next section.
 
-    ![Add assignments pane for selected role.](./media/manage-roles-portal/add-assignments.png)
+    ![Screenshot of Add assignments pane for selected role.](./media/manage-roles-portal/add-assignments.png)
 
 1. Select **Add** to assign the role.
 
@@ -64,19 +64,19 @@ Follow these steps to assign roles using the [Roles and administrators](https://
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
-    ![Roles and administrators page in Azure Active Directory when PIM enabled.](./media/manage-roles-portal/roles-and-administrators.png)
+    ![Screenshot of Roles and administrators page in Azure Active Directory when PIM enabled.](./media/common/roles-and-administrators.png)
 
 1. Find the role you need. You can use the search box or **Add filters** to filter the roles.
 
 1. Select the role name to open the role and see its eligible, active, and expired role assignments. Don't add a check mark next to the role.
 
-    ![Screenshot that shows selecting a role.](./media/manage-roles-portal/role-select-mouse.png)
+    ![Screenshot that shows selecting a role.](./media/common/role-select-mouse.png)
 
 1. Select **Add assignments**.
 
 1. Select **No member selected** and then select the users you want to assign to this role.
 
-    ![Add assignments page and Select a member pane with PIM enabled.](./media/manage-roles-portal/add-assignments-pim.png)
+    ![Screenshot of Add assignments page and Select a member pane with PIM enabled.](./media/manage-roles-portal/add-assignments-pim.png)
 
 1. Select **Next**.
 
@@ -84,7 +84,7 @@ Follow these steps to assign roles using the [Roles and administrators](https://
 
     An eligible role assignment means that the user must perform one or more actions to use the role. An active role assignment means that the user doesn't have to perform any action to use the role. For more information about what these settings mean, see [PIM terminology](../privileged-identity-management/pim-configure.md#terminology).
 
-    ![Add assignments page and Setting tab with PIM enabled.](./media/manage-roles-portal/add-assignments-pim-setting.png)
+    ![Screenshot of Add assignments page and Setting tab with PIM enabled.](./media/manage-roles-portal/add-assignments-pim-setting.png)
 
 1. Use the remaining options to set the duration for the assignment.
 

@@ -54,6 +54,8 @@ This feature should be used with HTTPS only. Ensure `allowInsecure` is disabled 
 
 You can configure your container app for authentication with or without restricting access to your site content and APIs. To restrict app access only to authenticated users, set its *Restrict access* setting to **Require authentication**. To authenticate but not restrict access, set its *Restrict access* setting to **Allow unauthenticated access**.
 
+Each container app issues its own unique cookie or token for authentication. A client cannot use the same cookie or token provided by one container app to authenticate with another container app, even within the same container app environment.
+
 ## Feature architecture
  
 The authentication and authorization middleware component is a feature of the platform that runs as a sidecar container on each replica in your application. When enabled, every incoming HTTP request passes through the security layer before being handled by your application.

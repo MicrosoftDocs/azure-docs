@@ -116,7 +116,7 @@ intended to expand.
 
 ## Do these licenses require individual workload identities assignment? 
 
-No, license assignment isn't required. One license in the tenant unlocks features for workload identities. 
+No, license assignment isn't required. 
 
 ## Can I get a free trial of Workload Identities Premium? 
 

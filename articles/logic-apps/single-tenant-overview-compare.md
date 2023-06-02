@@ -228,7 +228,7 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
   * **Logic App (Standard)** resources can run anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. Azure Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
 
-  * The **Logic App (Standard)** resource type supports having the [system-assigned managed identity *and* multiple user-assigned managed identities](create-managed-service-identity.md) enabled at the same time, though you still can only select one identity to use at any time.
+  * The **Logic App (Standard)** resource type supports having the [system-assigned managed identity *and* multiple user-assigned managed identities](create-managed-service-identity.md) enabled at the same time, though you still can only select one identity to use at any time. However, most [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) currently don't support selecting user-assigned managed identities for authentication.
 
     > [!NOTE]
     > By default, the system-assigned identity is already enabled to authenticate connections at run time. 
@@ -305,7 +305,7 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
   * Azure Active Directory Open Authentication (Azure AD OAuth) for inbound calls to request-based triggers, such as the Request trigger and HTTP Webhook trigger.
 
-  * User-assigned managed identity. Currently, only the system-assigned managed identity is available and automatically enabled.
+  * Managed identity authentication: Both system-assigned and user-assigned managed identity support is available. By default, the system-assigned managed identity is automatically enabled. However, most [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) don't currently support selecting user-assigned managed identities for authentication.
 
 * **XML transformation**: Support for referencing assemblies from maps is currently unavailable. Also, only XSLT 1.0 is currently supported.
 

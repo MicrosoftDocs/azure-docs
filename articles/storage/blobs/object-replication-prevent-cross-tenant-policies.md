@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/13/2022
+ms.date: 04/06/2023
 ms.author: normesta
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 Object replication asynchronously copies block blobs from a container in one storage account to a container in another storage account. When you configure an object replication policy, you specify the source account and container and the destination account and container. After the policy is configured, Azure Storage automatically copies the results of create, update, and delete operations on a source object to the destination object. For more information about object replication in Azure Storage, see [Object replication for block blobs](object-replication-overview.md).
 
-By default, an authorized user is permitted to configure an object replication policy where the source account is in one Azure Active Directory (Azure AD) tenant, and the destination account is in a different tenant. If your security policies require that you restrict object replication to storage accounts that reside within the same tenant only, you can disallow the creation of policies where the source and destination accounts are in different tenants. By default, cross-tenant object replication is enabled for a storage account unless you explicitly disallow it.
+By default, an authorized user is permitted to configure an object replication policy where the source account is in one Azure Active Directory (Azure AD) tenant and the destination account is in a different tenant. If your security policies require that you restrict object replication to storage accounts that reside within the same tenant only, you can disallow the creation of policies where the source and destination accounts are in different tenants. By default, cross-tenant object replication is enabled for a storage account unless you explicitly disallow it.
 
 This article describes how to remediate cross-tenant object replication for your storage accounts. It also describes how to create policies to enforce a prohibition on cross-tenant object replication for new and existing storage accounts.
 
@@ -275,3 +275,4 @@ The following image shows the error that occurs if you try to create a storage a
 
 - [Object replication for block blobs](object-replication-overview.md)
 - [Configure object replication for block blobs](object-replication-configure.md)
+- [Security recommendations for Blob storage](security-recommendations.md)

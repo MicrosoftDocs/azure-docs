@@ -142,7 +142,7 @@ The following example is a DCR for Azure Monitor Agent that sends data to the `S
                   "streams": [ 
                     "Microsoft-Syslog" 
                   ], 
-                  "transformKql": "source | where message contains 'error'", 
+                  "transformKql": "source | where message has 'error'", 
                   "destinations": [ 
                     "centralWorkspace" 
                   ] 
@@ -214,7 +214,7 @@ The following example is a DCR for data from the Logs Ingestion API that sends d
                         "destinations": [ 
                             "clv2ws1" 
                         ], 
-                        "transformKql": "source | where (AdditionalContext contains 'malicious traffic!' | project TimeGenerated = Time, Computer, Subject = AdditionalContext", 
+                        "transformKql": "source | where (AdditionalContext has 'malicious traffic!' | project TimeGenerated = Time, Computer, Subject = AdditionalContext", 
                         "outputStream": "Microsoft-SecurityEvent" 
                     } 
                 ] 

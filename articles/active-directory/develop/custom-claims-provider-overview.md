@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 04/10/2023
 ms.author: davidmu
 ms.reviewer: JasSuri
 ms.custom: aaddev 
@@ -25,7 +25,7 @@ When a user authenticates to an application, a custom claims provider can be use
 Key data about a user is often stored in systems external to Azure AD. For example, secondary email, billing tier, or sensitive information. Some applications may rely on these attributes for the application to function as designed. For example, the application may block access to certain features based on a claim in the token.
 
 The following short video provides an excellent overview of the Azure AD custom extensions and custom claims providers:
-> [!VIDEO https://www.youtube.com/embed/BYOMshjlwbc]
+> [!VIDEO https://www.youtube.com/embed/1tPA7B9ztz0]
 
 Use a custom claims provider for the following scenarios:
 
@@ -42,3 +42,4 @@ For an example using a custom claims provider with the **token issuance start** 
 
 - Learn how to [create and register a custom claims provider](custom-extension-get-started.md) with a sample Open ID Connect application.
 - If you already have a custom claims provider registered, you can configure a [SAML application](custom-extension-configure-saml-app.md) to receive tokens with claims sourced from an external store.
+- Learn more about custom claims providers with the [custom claims provider reference](custom-claims-provider-reference.md) article.

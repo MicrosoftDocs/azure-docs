@@ -28,11 +28,9 @@ Before performing the procedures in this article, make sure that you have:
 
     - **In Azure RBAC**:  [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) for the Azure subscription that you'll be using for the integration
 
-## Calculate committed devices for Enterprise IoT monitoring
+### Calculate committed devices for Enterprise IoT monitoring
 
-If you're adding an Enterprise IoT plan with a monthly commitment, you'll be asked to enter the number of committed devices.
-
-We recommend that you make an initial estimate of your committed devices when onboarding your plan. You can skip this procedure if you're adding a [trial plan](billing.md#free-trial).
+If you're working with a monthly commitment, you'll need to periodically update the number of *committed devices* in your plan as your network grows.
 
 **To calculate committed devices:**:
 
@@ -57,7 +55,7 @@ Use **1700** as the estimated number of committed devices.
 For more information, see the [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
 
 > [!NOTE]
-> Devices listed on the **Computers & Mobile** tab, including those managed by Defender for Endpoint or otherwise, are not included in the number of committed devices for Defender for IoT.
+> Devices listed on the **Computers & Mobile** tab, including those managed by Defender for Endpoint or otherwise, are not included in the number of [committed devices](billing.md#defender-for-iot-committed-devices) for Defender for IoT.
 
 ## Onboard an Enterprise IoT plan
 
@@ -78,7 +76,7 @@ This procedure describes how to add an Enterprise IoT plan to your Azure subscri
 
         Microsoft Defender for IoT provides a 30-day free trial for evaluation purposes, with an unlimited number of devices. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
-        Monthly commitments require that you enter the number of committed devices that you'd calculated earlier.
+        Monthly commitments require that you enter the number of [committed devices](#calculate-committed-devices-for-enterprise-iot-monitoring) that you'd calculated earlier.
 
 1. Select the **I accept the terms and conditions** option and then select **Save**.
 

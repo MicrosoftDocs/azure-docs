@@ -33,7 +33,7 @@ You need to create an Azure Active Directory App Registration and a Log Analytic
 
 You also need to install these two PowerShell modules before you get started:
 
-- [Azure PowerShell module](/powershell/azure/install-az-ps)
+- [Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - [Azure AD module](/powershell/azure/active-directory/install-adv2)
 
 Make sure you have your Subscription ID ready for when you sign in.

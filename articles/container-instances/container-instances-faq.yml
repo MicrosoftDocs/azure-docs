@@ -25,7 +25,7 @@ sections:
         answer: |
           Because one of the main determinants of deployment times is the image size, look for ways to reduce the size. Remove layers you don't need, or reduce the size of layers in the image (by picking a lighter base OS image). For example, if you're running Linux containers, consider using Alpine as your base image rather than a full Ubuntu Server. Similarly, for Windows containers, use a Nano Server base image if possible. 
           
-          You should also check the list of pre-cached images in Azure Container Images, available via the [List Cached Images](/rest/api/container-instances/location/listcachedimages) API. You might be able to switch out an image layer for one of the pre-cached images. 
+          You should also check the list of pre-cached images in Azure Container Images, available via the [List Cached Images](/rest/api/container-instances/2022-09-01/location/list-cached-images) API. You might be able to switch out an image layer for one of the pre-cached images. 
           
           See more [detailed guidance](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) on reducing container startup time.
           
@@ -163,7 +163,7 @@ sections:
         answer: |
           Meters stop running once your entire container group is stopped. As long as a container in your container group is running, we hold the resources in case you want to start the containers up again. 
 
-  - name: Confidential containers on Azure Container Instances (Preview)
+  - name: Confidential containers on Azure Container Instances
     questions:
       - question: | 
           What is Confidential computing and how is it being applied to Azure Container Instances?

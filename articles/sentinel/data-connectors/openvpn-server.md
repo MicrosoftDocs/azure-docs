@@ -3,7 +3,7 @@ title: "OpenVPN Server connector for Microsoft Sentinel"
 description: "Learn how to install the connector OpenVPN Server to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -17,7 +17,7 @@ The [OpenVPN](https://github.com/OpenVPN) data connector provides the capability
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | Syslog(OpenVPN)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples

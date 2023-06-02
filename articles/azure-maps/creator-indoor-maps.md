@@ -2,8 +2,8 @@
 title: Work with indoor maps in Azure Maps Creator
 titleSuffix: Azure Maps Creator
 description: This article introduces concepts that apply to Azure Maps Creator services
-author: eriklindeman
-ms.author: eriklind
+author: brendansco
+ms.author: Brendanc
 ms.date: 04/01/2022
 ms.topic: conceptual
 ms.service: azure-maps
@@ -64,7 +64,7 @@ Use [Data Upload] to upload a drawing package. After the Drawing packing is uplo
 
 ## Convert a drawing package
 
-The [Conversion service](/rest/api/maps/v2/conversion) converts an uploaded drawing package into indoor map data. The Conversion service also validates the package. Validation issues are classified into two types:
+The [Conversion service] converts an uploaded drawing package into indoor map data. The Conversion service also validates the package. Validation issues are classified into two types:
 
 - Errors: If any errors are detected, the conversion process fails. When an error occurs, the Conversion service provides a link to the [Azure Maps Drawing Error Visualizer] stand-alone web application. You can use the Drawing Error Visualizer to inspect [Drawing package warnings and errors] that occurred during the conversion process. After you fix the errors, you can attempt to upload and convert the package.
 - Warnings: If any warnings are detected, the conversion succeeds. However, we recommend that you review and resolve all warnings. A warning means that part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in later processes.
@@ -77,15 +77,15 @@ Azure Maps Creator provides the following services that support map creation:
 - [Dataset service].
 - [Tileset service].
 Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
-- [Custom styling service](#custom-styling-preview). Use the [style] service or [visual style editor] to customize the visual elements of an indoor map.
+- [Custom styling service]. Use the [style] service or [visual style editor] to customize the visual elements of an indoor map.
 - [Feature State service]. Use the Feature State service to support dynamic map styling. Applications can use dynamic map styling to reflect real-time events on spaces provided by the IoT system.
-- [Wayfinding service](#wayfinding-preview). Use the [wayfinding] API to generate a path between two points within a facility. Use the [routeset] API to create the data that the wayfinding service needs to generate paths.
+- [Wayfinding service]. Use the [wayfinding] API to generate a path between two points within a facility. Use the [routeset] API to create the data that the wayfinding service needs to generate paths.
 
 ### Datasets
 
-A dataset is a collection of indoor map features. The indoor map features represent facilities that are defined in a converted drawing package. After you create a dataset with the [Dataset service], you can create any number of [tilesets](#tilesets) or [feature statesets](#feature-statesets).
+A dataset is a collection of indoor map features. The indoor map features represent facilities that are defined in a converted drawing package. After you create a dataset with the [Dataset service], you can create any number of [tilesets] or [feature statesets].
 
-At any time, developers can use the [Dataset service] to add or remove facilities to an existing dataset. For more information about how to update an existing dataset using the API, see the append options in [Dataset service]. For an example of how to update a dataset, see [Data maintenance](#data-maintenance).
+At any time, developers can use the [Dataset service] to add or remove facilities to an existing dataset. For more information about how to update an existing dataset using the API, see the append options in [Dataset service]. For an example of how to update a dataset, see [Data maintenance].
 
 ### Tilesets
 
@@ -95,9 +95,9 @@ To reflect different content stages, you can create multiple tilesets from the s
 
 In addition to the vector data, the tileset provides metadata for map rendering optimization. For example, tileset metadata contains a minimum and maximum zoom level for the tileset. The metadata also provides a bounding box that defines the geographic extent of the tileset. An application can use a bounding box to programmatically set the correct center point. For more information about tileset metadata, see [Tileset List].
 
-After a tileset is created, it can be retrieved by the [Render V2 service](#render-v2-get-map-tile-api).
+After a tileset is created, it's retrieved using the [Render service].
 
-If a tileset becomes outdated and is no longer useful, you can delete the tileset. For information about how to delete tilesets, see [Data maintenance](#data-maintenance).
+If a tileset becomes outdated and is no longer useful, you can delete the tileset. For information about how to delete tilesets, see [Data maintenance].
 
 >[!NOTE]
 >A tileset is independent of the dataset from which it was created. If you create tilesets from a dataset, and then subsequently update that dataset, the tilesets isn't updated.
@@ -150,7 +150,7 @@ Example layer in the style.json file:
 | type | The rendering type for this layer.<br/>Some of the more common types include:<br/>**fill**: A filled polygon with an optional stroked border.<br/>**Line**: A stroked line.<br/>**Symbol**: An icon or a text label.<br/>**fill-extrusion**: An extruded (3D) polygon. |
 | filter          | Only features that match the filter criteria are displayed.       |
 | layout          | Layout properties for the layer.                                  |
-| minzoom | A number between 0 and 24 that represents the minimum zoom level for the layer. At zoom levels less than the minzoom, the layer will be hidden. |
+| minzoom | A number between 0 and 24 that represents the minimum zoom level for the layer. At zoom levels less than the minzoom, the layer is hidden. |
 | paint           | Default paint properties for this layer.                          |
 | source-layer | A source supplies the data, from a vector tile source, displayed on a map. Required for vector tile sources; prohibited for all other source types, including GeoJSON sources.|
 
@@ -158,9 +158,9 @@ Example layer in the style.json file:
 
 The map configuration is an array of configurations. Each configuration consists of a [basemap] and one or more layers, each layer consisting of a [style] + [tileset] tuple.
 
-The map configuration is used when you [Instantiate the Indoor Manager] of a Map object when developing applications in Azure Maps. It's referenced using the `mapConfigurationId` or `alias`. Map configurations are immutable. When making changes to an existing map configuration, a new map configuration will be created, resulting in a different `mapConfingurationId`. Anytime you create a map configuration using an alias already used by an existing map configuration, it will always point to the new map configuration.
+The map configuration is used when you [Instantiate the Indoor Manager] of a Map object when developing applications in Azure Maps. It's referenced using the `mapConfigurationId` or `alias`. Map configurations are immutable. When making changes to an existing map configuration, a new map configuration is created, resulting in a different `mapConfingurationId`. Anytime you create a map configuration using an alias already used by an existing map configuration, it points to the new map configuration.
 
-The following JSON is an example of a default map configuration. See the table below for a description of each element of the file:
+The following JSON is an example of a default map configuration. See the following table for a description of each element of the file:
 
 ```json
 {
@@ -203,15 +203,15 @@ The following JSON is an example of a default map configuration. See the table b
 | Name        | The name of the style.                     |
 | displayName | The display name of the style.             |
 | description | The user defined description of the style. |
-| thumbnail   | Use to specify the thumbnail used in the style picker for this style. For more information, see the [style picker control][style-picker-control]. |
+| thumbnail   | Use to specify the thumbnail used in the style picker for this style. For more information, see the [style picker control]. |
 | baseMap     | Use to Set the base map style.             |
 | layers      | The layers array consists of one or more *tileset + Style* tuples, each being a layer of the map. This enables multiple buildings on a map, each building represented in its own tileset. |
 
 #### Additional information
 
-- For more information how to modify styles using the style editor, see [Create custom styles for indoor maps][style-how-to].
+- For more information how to modify styles using the style editor, see [Create custom styles for indoor maps].
 - For more information on style Rest API, see [style] in the Maps Creator Rest API reference.
-- For more information on the map configuration Rest API, see [Creator - map configuration Rest API][map-config-api].
+- For more information on the map configuration Rest API, see [Creator - map configuration Rest API].
 
 ### Feature statesets
 
@@ -219,9 +219,9 @@ Feature statesets are collections of dynamic properties (*states*) that are assi
 
 You can use the [Feature State service] to create and manage a feature stateset for a dataset. The stateset is defined by one or more *states*. Each feature, such as a room, can have one *state* attached to it.
 
-The value of each *state* in a stateset can be updated or retrieved by IoT devices or other applications. For example, using the [Feature State Update API](/rest/api/maps/v2/feature-state/update-states), devices measuring space occupancy can systematically post the state change of a room.
+The value of each *state* in a stateset is updated or retrieved by IoT devices or other applications. For example, using the [Feature State Update API], devices measuring space occupancy can systematically post the state change of a room.
 
-An application can use a feature stateset to dynamically render features in a facility according to their current state and respective map style. For more information about using feature statesets to style features in a rendering map, see [Indoor Maps module](#indoor-maps-module).
+An application can use a feature stateset to dynamically render features in a facility according to their current state and respective map style. For more information about using feature statesets to style features in a rendering map, see [Indoor Maps module].
 
 >[!NOTE]
 >Like tilesets, changing a dataset doesn't affect the existing feature stateset, and deleting a feature stateset doesn't affect the dataset to which it's attached.
@@ -236,17 +236,17 @@ Creator wayfinding is powered by [Havok].
 
 When a [wayfinding path] is successfully generated, it finds the shortest path between two points in the specified facility. Each floor in the journey is represented as a separate leg, as are any stairs or elevators used to move between floors.
 
-For example, the first leg of the path might be from the origin to the elevator on that floor. The next leg will be the elevator, and then the final leg will be the path from the elevator to the destination. The estimated travel time is also calculated and returned in the HTTP response JSON.
+For example, the first leg of the path might be from the origin to the elevator on that floor. The next leg is the elevator, and then the final leg is the path from the elevator to the destination. The estimated travel time is also calculated and returned in the HTTP response JSON.
 
 ##### Structure
 
-For wayfinding to work, the facility data must contain a [structure][structures]. The wayfinding service calculates the shortest path between two selected points in a facility. The service creates the path by navigating around structures, such as walls and any other impermeable structures.
+For wayfinding to work, the facility data must contain a [structure]. The wayfinding service calculates the shortest path between two selected points in a facility. The service creates the path by navigating around structures, such as walls and any other impermeable structures.
 
 ##### Vertical penetration
 
-If the selected origin and destination are on different floors, the wayfinding service determines what [vertical penetration][verticalPenetration] objects such as stairs or elevators, are available as possible pathways for navigating vertically between levels. By default, the option that results in the shortest path will be used.
+If the selected origin and destination are on different floors, the wayfinding service determines what [verticalPenetration] objects such as stairs or elevators, are available as possible pathways for navigating vertically between levels. By default, the option that results in the shortest path is used.
 
-The Wayfinding service includes stairs or elevators in a path based on the value of the vertical penetration's `direction` property. For more information on the direction property, see [verticalPenetration][verticalPenetration] in the Facility Ontology article. See the `avoidFeatures` and `minWidth` properties in the [wayfinding] API documentation to learn about other factors that can affect the path selection between floor levels.
+The Wayfinding service includes stairs or elevators in a path based on the value of the vertical penetration's `direction` property. For more information on the direction property, see [verticalPenetration] in the Facility Ontology article. See the `avoidFeatures` and `minWidth` properties in the [wayfinding] API documentation to learn about other factors that can affect the path selection between floor levels.
 
 For more information, see the [Indoor maps wayfinding service] how-to article.
 
@@ -254,9 +254,9 @@ For more information, see the [Indoor maps wayfinding service] how-to article.
 
 ### Render V2-Get Map Tile API
 
-The Azure Maps [Render V2-Get Map Tile API](/rest/api/maps/render-v2/get-map-tile) has been extended to support Creator tilesets.
+The Azure Maps [Render V2-Get Map Tile API] has been extended to support Creator tilesets.
 
-Applications can use the Render V2-Get Map Tile API to request tilesets. The tilesets can then be integrated into a map control or SDK. For an example of a map control that uses the Render V2 service, see [Indoor Maps Module](#indoor-maps-module).
+Applications can use the Render V2-Get Map Tile API to request tilesets. The tilesets can then be integrated into a map control or SDK. For an example of a map control that uses the Render V2 service, see [Indoor Maps Module].
 
 ### Web Feature service API
 
@@ -264,7 +264,7 @@ You can use the [Web Feature service] (WFS) to query datasets. WFS follows the [
 
 ### Alias API
 
-Creator services such as Conversion, Dataset, Tileset and Feature State return an identifier for each resource that's created from the APIs. The [Alias API](/rest/api/maps/v2/alias) allows you to assign an alias to reference a resource identifier.
+Creator services such as Conversion, Dataset, Tileset and Feature State return an identifier for each resource that's created from the APIs. The [Alias API] allows you to assign an alias to reference a resource identifier.
 
 ### Indoor Maps module
 
@@ -289,7 +289,7 @@ As you begin to develop solutions for indoor maps, you can discover ways to inte
 
 The following example shows how to update a dataset, create a new tileset, and delete an old tileset:
 
-1. Follow steps in the [Upload a drawing package](#upload-a-drawing-package) and [Convert a drawing package](#convert-a-drawing-package) sections to upload and convert the new drawing package.
+1. Follow steps in the [Upload a drawing package] and [Convert a drawing package] sections to upload and convert the new drawing package.
 2. Use [Dataset Create] to append the converted data to the existing dataset.
 3. Use [Tileset Create] to generate a new tileset out of the updated dataset.
 4. Save the new **tilesetId** for the next step.
@@ -298,52 +298,70 @@ The following example shows how to update a dataset, create a new tileset, and d
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creating a Creator indoor map](tutorial-creator-indoor-maps.md)
+> [Tutorial: Creating a Creator indoor map]
 
 > [!div class="nextstepaction"]
 > [Create custom styles for indoor maps]
 
-[Azure Maps pricing]: https://aka.ms/CreatorPricing
-[Manage authentication in Azure Maps]: how-to-manage-authentication.md
-[Azure AD authentication]: azure-maps-authentication.md#azure-ad-authentication
-[Authorization with role-based access control]: azure-maps-authentication.md#authorization-with-role-based-access-control
-[Drawing package requirements]: drawing-requirements.md
-[Data Upload]: /rest/api/maps/data-v2/update
+<!-----	Internal Links	------->
+[Convert a drawing package]: #convert-a-drawing-package
+[Custom styling service]: #custom-styling-preview
+[Data maintenance]: #data-maintenance
+[feature statesets]: #feature-statesets
+[Indoor Maps module]: #indoor-maps-module
+[Render service]: #render-v2-get-map-tile-api
+[tilesets]: #tilesets
+[Upload a drawing package]: #upload-a-drawing-package
 
-[style layers]: https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#layout
-[sprites]: https://docs.mapbox.com/help/glossary/sprite/
-[Style - Create]: /rest/api/maps/v20220901preview/style/create
-[basemap]: supported-map-styles.md
-[Manage Azure Maps Creator]: how-to-manage-creator.md
-[Drawing package warnings and errors]: drawing-conversion-error-codes.md
-[Azure Maps Drawing Error Visualizer]: drawing-error-visualizer.md
-[Create custom styles for indoor maps]: how-to-create-custom-styles.md
-[style]: /rest/api/maps/v20220901preview/style
-[tileset]: /rest/api/maps/v20220901preview/tileset
-[Dataset service]: /rest/api/maps/v2/dataset
+<!-----	REST API Links	------->
+[Alias API]: /rest/api/maps/v2/alias
+[Conversion service]: /rest/api/maps/v2/conversion
+[Creator - map configuration Rest API]: /rest/api/maps/v20220901preview/map-configuration
+[Data Upload]: /rest/api/maps/data-v2/update
 [Dataset Create]: /rest/api/maps/v2/dataset/create
-[Tileset service]: /rest/api/maps/v2/tileset
+[Dataset service]: /rest/api/maps/v2/dataset
+[Feature State service]: /rest/api/maps/v2/feature-state
+[Feature State Update API]: /rest/api/maps/v2/feature-state/update-states
+[Geofence service]: /rest/api/maps/spatial/postgeofence
+[Render V2-Get Map Tile API]: /rest/api/maps/render-v2/get-map-tile
+[routeset]: /rest/api/maps/v20220901preview/routeset
+[Style - Create]: /rest/api/maps/v20220901preview/style/create
+[style]: /rest/api/maps/v20220901preview/style
 [Tileset Create]: /rest/api/maps/v2/tileset/create
 [Tileset List]: /rest/api/maps/v2/tileset/list
-[Feature State service]: /rest/api/maps/v2/feature-state
-[routeset]: /rest/api/maps/v20220901preview/routeset
-[wayfinding]: /rest/api/maps/v20220901preview/wayfinding
-[wayfinding service]: /rest/api/maps/v20220901preview/wayfinding
+[Tileset service]: /rest/api/maps/v2/tileset
+[tileset]: /rest/api/maps/v20220901preview/tileset
 [wayfinding path]: /rest/api/maps/v20220901preview/wayfinding/get-path
-[style-picker-control]: choose-map-style.md#add-the-style-picker-control
-[style-how-to]: how-to-create-custom-styles.md
-[map-config-api]: /rest/api/maps/v20220901preview/map-configuration
-[Instantiate the Indoor Manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
-[visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor
-[verticalPenetration]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
-[Indoor maps wayfinding service]: how-to-creator-wayfinding.md
-[Open Geospatial Consortium API Features]: https://docs.opengeospatial.org/DRAFTS/17-069r4.html
+[wayfinding service]: /rest/api/maps/v20220901preview/wayfinding
+[wayfinding]: /rest/api/maps/v20220901preview/wayfinding
 [Web Feature service]: /rest/api/maps/v2/wfs
-[Azure Maps Web SDK]: how-to-use-map-control.md
-[Use the Indoor Map module]: how-to-use-indoor-module.md
+
+<!--- learn.microsoft.com Links ------------>
+[Authorization with role-based access control]: azure-maps-authentication.md#authorization-with-role-based-access-control
+[Azure AD authentication]: azure-maps-authentication.md#azure-ad-authentication
+[Azure Maps Drawing Error Visualizer]: drawing-error-visualizer.md
 [Azure Maps services]: index.yml
-[structures]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure
-[Render V2-Get Map Tile API]: /rest/api/maps/render-v2/get-map-tile
+[Azure Maps Web SDK]: how-to-use-map-control.md
+[basemap]: supported-map-styles.md
+[Create custom styles for indoor maps]: how-to-create-custom-styles.md
+[Drawing package requirements]: drawing-requirements.md
+[Drawing package warnings and errors]: drawing-conversion-error-codes.md
+[Indoor maps wayfinding service]: how-to-creator-wayfinding.md
+[Instantiate the Indoor Manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
+[Manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Manage Azure Maps Creator]: how-to-manage-creator.md
+[structure]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure
+[style picker control]: choose-map-style.md#add-the-style-picker-control
+[Tutorial: Creating a Creator indoor map]: tutorial-creator-indoor-maps.md
 [Tutorial: Implement IoT spatial analytics by using Azure Maps]: tutorial-iot-hub-maps.md
-[Geofence service]: /rest/api/maps/spatial/postgeofence
+[Use the Indoor Map module]: how-to-use-indoor-module.md
+[verticalPenetration]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
+
+<!--- HTTP Links ------------>
+[Azure Maps pricing]: https://aka.ms/CreatorPricing
 [havok]: https://www.havok.com/
+[Open Geospatial Consortium API Features]: https://docs.opengeospatial.org/DRAFTS/17-069r4.html
+[sprites]: https://docs.mapbox.com/help/glossary/sprite/
+[style layers]: https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#layout
+[visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor
+

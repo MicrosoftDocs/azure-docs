@@ -6,7 +6,7 @@ documentationcenter: ''
 author: barclayn
 manager: amycolannino
 editor: daveba
-ms.custom: subject-rbac-steps, mode-other
+ms.custom: subject-rbac-steps, mode-other, devx-track-arm-template
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: quickstart

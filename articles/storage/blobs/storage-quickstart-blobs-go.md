@@ -28,6 +28,18 @@ Get started with the Azure Blob Storage client library for Go to manage blobs an
 
 This section walks you through preparing a project to work with the Azure Blob Storage client library for Go.
 
+### Download the sample application
+
+The [sample application](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) used in this quickstart is a basic Go application.
+
+Use [git](https://git-scm.com/) to download a copy of the application to your development environment.
+
+```console
+git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart 
+```
+
+This command clones the repository to your local git folder. To open the Go sample for Blob Storage, look for the file named `storage-quickstart.go`.
+
 ### Install the packages
 
 To work with blob and container resources in a storage account, install the [azblob](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/) package using the following command:
@@ -40,18 +52,6 @@ To authenticate with Azure Active Directory (recommended), install the [azidenti
 ```console
 go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ```
-
-### Download the sample application
-
-The [sample application](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) used in this quickstart is a basic Go application.
-
-Use [git](https://git-scm.com/) to download a copy of the application to your development environment.
-
-```console
-git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart 
-```
-
-This command clones the repository to your local git folder. To open the Go sample for Blob Storage, look for the file named `storage-quickstart.go`.
 
 ## Authenticate to Azure and authorize access to blob data
 

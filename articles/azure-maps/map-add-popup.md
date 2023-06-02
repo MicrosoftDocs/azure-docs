@@ -6,7 +6,7 @@ ms.author: eriklind
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
-ms.custom: codepen, devx-track-js
+ms.custom: codepen
 ---
 
 # Add a popup to the map
@@ -114,7 +114,7 @@ The String template replaces placeholders with values of the feature properties.
 
 The `numberFormat` option specifies the format of the number to display. If the `numberFormat` isn't specified, then the code will use the popup templates date format. The `numberFormat` option formats numbers using the [Number.toLocaleString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function. To format large numbers, consider using the `numberFormat` option with functions from [NumberFormat.format](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format). For instance, the code snippet below uses `maximumFractionDigits` to limit the number of fraction digits to two.
 
-> [!Note]
+> [!NOTE]
 > There's only one way in which the String template can render images. First, the String template needs to have an image tag in it. The value being passed to the image tag should be a URL to an image. Then, the String template needs to have `isImage` set to true in the `HyperLinkFormatOptions`. The `isImage` option specifies that the hyperlink is for an image, and the hyperlink will be loaded into an image tag. When the hyperlink is clicked, the image will open.
 
 ```javascript

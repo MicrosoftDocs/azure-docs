@@ -132,7 +132,7 @@ The inner error object contains error specific details useful to the developer t
 |Property |Type |Description |
 |---------|---------|---------|
 | `code` | string| The internal error code. Contains a standardized code, based on the type of the error |
-| `message`| string| The internal error message. Contains a detailed message of the error. In this example, the `inlcudeQRCode` field is of the wrong type.|
+| `message`| string| The internal error message. Contains a detailed message of the error. In this example, the `includeQRCode` field is of the wrong type.|
 | `target` | string| Optional. Target contains the field in the request that is causing this error. This field is optional and may not be present, depending on the error type. |
 
 

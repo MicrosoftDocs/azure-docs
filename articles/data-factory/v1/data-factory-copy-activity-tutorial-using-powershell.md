@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: v1
 ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ms.author: jianleishen
 robots: noindex
 ---
@@ -39,7 +39,7 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 - Complete prerequisites listed in the [tutorial prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article.
-- Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+- Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Steps
 Here are the steps you perform as part of this tutorial:
