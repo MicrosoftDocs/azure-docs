@@ -5,7 +5,7 @@ author: joharder
 ms.author: joharder
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 06/01/2023
 ---
 
 # Support lifecycle for Azure Red Hat OpenShift 4
@@ -25,7 +25,7 @@ Red Hat OpenShift Container Platform uses semantic versioning. Semantic versioni
 Each number in the version indicates general compatibility with the previous version:
 
 * **Major version**: No major version releases are planned at this time. Major versions change when incompatible API changes or backwards compatibility may be broken.
-* **Minor version**: Released approximately every three months. Minor version upgrades can include feature additions, enhancements, deprecations, removals, bug fixes, security enhancements, and other improvements.
+* **Minor version**: Released approximately every four months. Minor version upgrades can include feature additions, enhancements, deprecations, removals, bug fixes, security enhancements, and other improvements.
 * **Patches**: Typically released each week, or as needed. Patch version upgrades can include bug fixes, security enhancements, and other improvements.
 
 Customers should aim to run the latest minor release of the major version they're running. For example, if your production cluster is on 4.9, and 4.10 is the latest generally available minor version for the 4 series, you should upgrade to 4.10 as soon as you can. 
