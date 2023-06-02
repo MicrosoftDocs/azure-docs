@@ -21,10 +21,10 @@ sections:
           Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access.
           To learn more about specific features in each product, see [What is Global Secure Access?](overview-what-is-global-secure-access.md).
           
-  - name: Branch connectivity
+  - name: Remote network connectivity
     questions:
         - question: |
-            What happens if a client is installed on a device and a branch is connected too?
+            What happens if a client is installed on a device and a remote network is connected too?
           answer: |
             TBD      
 

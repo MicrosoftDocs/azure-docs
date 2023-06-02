@@ -26,7 +26,7 @@ For more information, see [Global Secure Access network traffic dashboard](conce
 
 ## Audit logs
 
-The Azure Active Directory (Azure AD) audit log is a valuable source of information when researching or troubleshooting changes to your Azure AD environment. Changes related to Global Secure Access are captured in the audit logs in several categories, such as filtering policy, forwarding profiles, branch management, and more.
+The Azure Active Directory (Azure AD) audit log is a valuable source of information when researching or troubleshooting changes to your Azure AD environment. Changes related to Global Secure Access are captured in the audit logs in several categories, such as filtering policy, forwarding profiles, remote network management, and more.
 
 For more information, see [Global Secure Access audit logs](how-to-access-audit-logs.md).
 
