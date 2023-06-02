@@ -15,7 +15,7 @@ ms.reviewer: joroja
 
 ms.collection: M365-identity-device-management
 ---
-# Application Support for the backup authentication system 
+# Application support for the backup authentication system 
 
 The Azure AD backup authentication system provides resilience to applications that use supported protocols and flows. For more information about the backup authentication system, see the article [Azure AD's backup authentication system](backup-authentication-system.md).
 
@@ -34,7 +34,7 @@ Applications must communicate with a supported hostname for the given Azure envi
 
 #### OAuth 2.0 and OpenID Connect (OIDC) 
 
-##### Common Guidance 
+##### Common guidance 
 
 All applications using the OAuth 2.0 and/or OIDC protocols should adhere to the following practices to ensure resilience: 
 
@@ -43,7 +43,7 @@ All applications using the OAuth 2.0 and/or OIDC protocols should adhere to the 
 - Your application doesn't use the [Resource Owner Password Credentials Grant](../develop/v2-oauth-ropc.md). **This grant type won't be supported** by the backup authentication system for any client type. Microsoft strongly recommends switching to alternative grant flows for better security and resilience. 
 - Your application doesn't rely upon the [UserInfo endpoint](../develop/userinfo.md). Switching to using an ID token instead reduces latency by eliminating up to two network requests, and use existing support for ID token resilience within the backup authentication system. 
 
-##### Native (Desktop or Mobile) Applications 
+##### Native applications 
 
 Native applications are public client applications that run directly on desktop or mobile devices and not in a web browser. They're registered as public clients in their application registration on the Microsoft Entra or Azure portal. 
 
@@ -60,26 +60,24 @@ Single-page web applications (SPAs) have limited support in the backup authentic
 
 The [authorization code flow with Proof Key for Code Exchange](../develop/v2-oauth2-auth-code-flow.md) isn't currently supported by the backup authentication system. 
 
-##### Web Applications & Services 
+##### Web applications & services 
 
-Web applications and services that are configured as confidential clients aren't yet supported by the backup authentication system. Protection for the authorization code grant flow and subsequent token acquisition using refresh tokens and client secrets or certificate credentials is expected by September 2024. The OAuth 2.0 on-behalf-of flow will be protected, although a date isn't yet available.  
+Web applications and services that are configured as confidential clients aren't yet supported by the backup authentication system. Protection for the [authorization code grant flow](../develop/v2-oauth2-auth-code-flow.md) and subsequent token acquisition using refresh tokens and client secrets or [certificate credentials](../develop/active-directory-certificate-credentials.md) is expected by September 2024. The OAuth 2.0 [on-behalf-of flow](../develop/v2-oauth2-on-behalf-of-flow.md) will be protected, although a date isn't yet available.  
 
 #### SAML 2.0 single sign-on (SSO) 
 
-The SAML 2.0 SSO protocol is currently partially supported by the backup authentication system. Flows that use the SAML 2.0 Identity Provider (IdP) Initiated flow are protected by the Backup Authentication Service. Most applications should and do use the Service Provider (SP) Initiated flow, which isn't yet protected by the backup authentication system. The backup authentication system will support SP-Initiated SSO flows by March 2024.  
+The SAML 2.0 SSO protocol is currently partially supported by the backup authentication system. Flows that use the SAML 2.0 Identity Provider (IdP) Initiated flow are protected by the Backup Authentication Service. Most applications should and do use the [Service Provider (SP) Initiated flow](../develop/single-sign-on-saml-protocol.md), which isn't yet protected by the backup authentication system. The backup authentication system will support SP-Initiated SSO flows by March 2024.  
 
- 
-
-### What Workload Identity authentication protocols are supported by the backup authentication system? 
+### Workload identity authentication protocols supported by the backup authentication system
 
 #### OAuth 2.0 
 
-##### Managed Identity 
+##### Managed identity 
 
-Applications that use Managed Identities to acquire Azure Active Directory access tokens are protected. Microsoft recommends the use of user-assigned managed identities in most scenarios, however this protection applies to both user and system-assigned managed identities. 
+Applications that use Managed Identities to acquire Azure Active Directory access tokens are protected. Microsoft recommends the use of user-assigned managed identities in most scenarios, however this protection applies to both [user and system-assigned managed identities](../managed-identities-azure-resources/overview.md). 
 
-##### Service Principal 
+##### Service principal 
 
-Service Principal-based Workload identity authentication using the client credentials grant flow isn't yet supported by the backup authentication system. Microsoft recommends using the version of MSAL appropriate to your platform so your application will be protected by the backup authentication system when the protection becomes available in December 2024. 
+Service principal-based Workload identity authentication using the [client credentials grant flow](../develop/v2-oauth2-client-creds-grant-flow.md) isn't yet supported by the backup authentication system. Microsoft recommends using the version of MSAL appropriate to your platform so your application will be protected by the backup authentication system when the protection becomes available in December 2024. 
 
 ## Next steps
