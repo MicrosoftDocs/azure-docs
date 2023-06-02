@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: language-service-custom-ta4h
 ---
 
-# Deploy a Custom sentiment analysis health model
+# Deploy a Custom sentiment analysis model
 
 Once you're satisfied with how your model performs, it's ready to be deployed and used to recognize entities in text. Deploying a model makes it available for use through the [prediction API](https://aka.ms/ct-runtime-swagger).
 

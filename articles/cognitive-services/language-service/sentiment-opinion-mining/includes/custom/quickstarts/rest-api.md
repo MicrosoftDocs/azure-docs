@@ -25,15 +25,17 @@ Before you can use Custom sentiment analysis, you'll need to create an Azure Lan
 
 [!INCLUDE [create a new resource from the Azure portal](../../../../includes/custom/resource-creation-azure-portal.md)]
     
+## Upload sample data to blob container
 
+After you have created an Azure storage account and connected it to your Language resource, you will need to upload the documents from the sample dataset to the root directory of your container. These documents will later be used to train your model.
 
-<!--## Upload sample data to blob container
+1. [Download the sample dataset for Custom sentiment analysis projects](https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/language-service/Custom%20sentiment%analysis).
 
-[!INCLUDE [Uploading sample data for custom tex classification](blob-storage-upload.md)]-->
-    
+1. Open the .zip file, and extract the folder containing the documents. 
 
+    The provided sample dataset contains documents, each of which is a short example of a customer review.
 
-### Get your resource keys and endpoint
+[!INCLUDE [Uploading sample data for Custom sentiment analysis](../../../../includes/custom/language-studio/upload-data-to-storage.md)]
 
 [!INCLUDE [Get keys and endpoint Azure Portal](../../../../includes/get-key-endpoint.md)]
 
