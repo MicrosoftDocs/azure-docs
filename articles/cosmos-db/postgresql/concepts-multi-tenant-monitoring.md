@@ -31,10 +31,10 @@ Total CPU time available on cluster, can be estimated as: (num_of_vcores X time_
 ## Node Parameters
 
 ### citus.stat_tenants_log_level (text)
-Controls the logging insights. Valid values are `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `DEBUG`, `LOG`, `INFO`, `NOTICE`, `WARNING`, `ERROR`. Default is `LOG`.
+Controls which message levels are written to the server log. Valid values are `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `DEBUG`, `LOG`, `INFO`, `NOTICE`, `WARNING`, `ERROR`. Default is `LOG`.
 
 ### citus.stat_tenants_limit (int)
-Controls the number of tenants (top `N`) to be tracked. Default is `100`.
+Controls the number of tenants (top `N`) tracked within a single time window. Default is `100`.
 
 ### citus.stat_tenants_period (int)
 Controls the time window (in seconds) to which tenant statistics are allocated. Default is `60 * 60 * 24` seconds.
@@ -69,9 +69,9 @@ The `citus_stat_tenants` view tracks these statistics within time buckets. Once 
 The function resets the collected metrics within citus_stat_tenants view.
 
 ## Operations tracked
-When you enable this feature, accounting is activated for SQL commands such as `INSERT`, `UPDATE`, `DELETE`, and `SELECT`. This accounting is specifically designed for a `single tenant`. A query qualifies to be a single tenant query, if the query planner could restrict the query to a single shard or single tenant.
+When you enable this feature, accounting is activated for SQL commands such as `INSERT`, `UPDATE`, `DELETE`, and `SELECT`. This accounting is specifically designed for a `single tenant`. A query qualifies to be a single tenant query, if the query planner can restrict the query to a single shard or single tenant.
 
-In a multi-tenant environment, each tenant typically has access to their own dataset, and as a result, queries are filtered based on tenant keys. Any query in such systems, which operates across tenants gets initiated by the system administrator or the landlord & aren't traced back to individual tenants. For example, if the landlord needs to generate a report that includes aggregated data from all tenants, a cross-tenant query gets initiated by the landlord and not associated\accounted against any specific tenant.
+In a multi-tenant environment, each tenant typically has access to their own dataset, and as a result, queries are filtered based on tenant keys. Any query in such systems, which operates across tenants gets initiated by the system administrator aren't traced back to individual tenants. For example, to generate a report that includes aggregated data from all tenants, a cross-tenant query needs to be executed which can't be associated\accounted against a specific tenant.
 
 ```postgresql
 CREATE TABLE organizations (id BIGSERIAL PRIMARY KEY, name TEXT);
@@ -83,26 +83,33 @@ INSERT INTO organizations (name) VALUES ('BloomThat'); -- tracked
 INSERT INTO organizations (name) VALUES ('UrbanStems');-- tracked
 
 SELECT COUNT(*) FROM organizations where id = 1; -- tracked
-
+```
+```text
  count 
 -------
      1
 (1 row)
-
+```
+```postgresql
 SELECT COUNT(*) FROM organizations where id IN (1,2); -- untracked
-
+```
+```text
  count
 -------
      1
 (1 row)
-
+```
+```postgresql
 UPDATE organizations SET name = 'Bloomers' WHERE id = 2; -- tracked
-
--- UPDATE 1
-
+```
+```text
+UPDATE 1
+```
+```postgresql
 DELETE FROM organizations WHERE id = 3; -- tracked
-
--- DELETE 1
+```
+```text
+DELETE 1
 ```
 
 ```postgresql
