@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Cosmos DB data source for a resolver
 
-The `cosmosdb-data-source` resolver policy resolves data for an object type and field in a GraphQL schema by using a Cosmos DB data source. The schema must be imported to API Management. Use the policy to configure a single query request, read request, delete request, or write request and an optional response from the Cosmos DB data source.   
+The `cosmosdb-data-source` resolver policy resolves data for an object type and field in a GraphQL schema by using a [Cosmos DB](../cosmos-db/introduction.md) data source. The schema must be imported to API Management. Use the policy to configure a single query request, read request, delete request, or write request and an optional response from the Cosmos DB data source.   
 
 > [!NOTE]
 > This policy is currently in preview.
@@ -81,7 +81,6 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
     
     <!-- Settings to write item -->
     <write-request type="insert | replace | upsert" consistency-level="bounded-staleness | consistent-prefix | eventual | session | strong" enable-content-response-on-write="true | false" indexing-directive="default" pre-trigger="myPreTrigger" post-trigger="myPostTrigger">
-        
         <id template="liquid">
             "Item ID in container"
         </id>       
@@ -107,10 +106,10 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 |Name|Description|Required|
 |----------|-----------------|--------------|
 | [connection-info](#connection-info-elements)  |  Specifies connection to container in Cosmos DB database.    |   Yes     |
-| [query-request](#query-request-attributes)    |   Specifies settings for a [query request](../cosmos-db/nosql/how-to-dotnet-query-items.md) to Cosmos DB container.    |  No      |
-| [read-request](#read-request-elements)    |  Specifies settings for a [read request](../cosmos-db/nosql/how-to-dotnet-read-item.md) to Cosmos DB container.    |    No   |
-| [delete-request](#delete-request-attributes)    |  Specifies settings for a delete request to Cosmos DB container.    |   No     |
-| [write-request](#write-request-attributes) | Specifies settings for a write request to Cosmos DB container. If the `use-managed-identity` attribute is set to `false` (default), the connection string must include an account key.  |  No |
+| [query-request](#query-request-attributes)    |   Specifies settings for a [query request](../cosmos-db/nosql/how-to-dotnet-query-items.md) to Cosmos DB container.    |  Configure one of `query-request`, `read-request`, `delete-request`, or `write-request`      |
+| [read-request](#read-request-elements)    |  Specifies settings for a [read request](../cosmos-db/nosql/how-to-dotnet-read-item.md) to Cosmos DB container.    |    Configure one of `query-request`, `read-request`, `delete-request`, or `write-request`   |
+| [delete-request](#delete-request-attributes)    |  Specifies settings for a delete request to Cosmos DB container.    |   Configure one of `query-request`, `read-request`, `delete-request`, or `write-request`     |
+| [write-request](#write-request-attributes) | Specifies settings for a write request to Cosmos DB container.  |  Configure one of `query-request`, `read-request`, `delete-request`, or `write-request` |
 | [response](#response-elements)  |  Optionally specifies child policies to configure the resolver's response.  |    No |
 
 
@@ -118,7 +117,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| [connection-string](#connection-string-attributes) | Specifies the connection string for Cosmos DB account. The connection string either includes an account key or omits the key if an API Management managed identity is configured. | Yes    |
+| [connection-string](#connection-string-attributes) | Specifies the connection string for Cosmos DB account. The connection string omits the account key if an API Management managed identity is configured. | Yes    |
 | database-name | String. Name of Cosmos DB database. | Yes  |
 | container-name | String. Name of container in Cosmos DB database. | Yes  |
 
@@ -200,7 +199,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | type | The type of write request: `insert`, `replace`, or `upsert`. | No  | `upsert`   |
 | consistency-level | String. Sets the Cosmos DB [consistency level](../cosmos-db/consistency-levels.md) of the write request.  | No  | N/A   |
-| enable-content-response-on-write | String. TODO  | No  | N/A   |
+| enable-content-response-on-write | String.  | No  | N/A   |
 | indexing-directive | The [indexing policy](../cosmos-db/index-policy.md) that determines how the container's items should be indexed.  | No  | `default`   |
 | pre-trigger | String. Identifier of a [pre-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) function that is registered in your Cosmos DB container. | No | N/A |
 | post-trigger | String. Identifier of a [post-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers) function that is registered in your Cosmos DB container. | No | N/A |
@@ -263,7 +262,7 @@ Follow these steps to use the Azure CLI to configure the managed identity.
 # Set variables
 
 # Variable for Azure Cosmos DB account name
-cosmosName="<MY-COSMOS-DB_ACCOUNT>"
+cosmosName="<MY-COSMOS-DB-ACCOUNT>"
 
 # Variable for resource group name
 resourceGroupName="<MY-RESOURCE-GROUP>"
@@ -293,10 +292,9 @@ az cosmosdb sql role definition list \
     --account-name $cosmosName \
     --subscription $subscriptionName \
 
-# Take note of the role you want to assign, such as "Cosmos DB Built-in Data Contributor"
+# Take note of the role you want to assign, such as "Cosmos DB Built-in Data Contributor" in this example
 
 # Assign desired Cosmos DB role to managed identity
-# "Cosmos DB Built-in Data Contributor" is an example
 
 az cosmosdb sql role assignment create \
     --resource-group $resourceGroupName \
@@ -333,7 +331,7 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
 
 The following example resolves a GraphQL query using a point read request to a Cosmos DB container. The connection to the Cosmos DB account uses the API Management instance's system-assigned managed identity. The identity must be [configured](#configure-managed-identity-integration-with-cosmos-db) to access the Cosmos DB container.
 
-The `id` and `partition-key` used for the read request are passed as query parameters and accessed using the `Context.GraphQL.arguments` context variable.
+The `id` and `partition-key` used for the read request are passed as query parameters and accessed using the `context.GraphQL.Arguments["id"]` context variable.
 
 ```xml
 <cosmosdb-data-source>
@@ -350,14 +348,14 @@ documents.azure.com:443/;
             @(context.GraphQL.Arguments["id"].ToString())
         </id>
         <partition-key>
-            @(context.GraphQL.Arguments["category"].ToString())
+            @(context.GraphQL.Arguments["id"].ToString())
     <read-request>
 </cosmosdb-data-source>
 ```
 
 ### Cosmos DB delete request
 
-The following example resolves a GraphQL mutation by a delete request to a Cosmos DB container. The `id` and `partition-key` used for the delete request are passed as query parameters and accessed using the `Context.GraphQL.arguments` context variable.
+The following example resolves a GraphQL mutation by a delete request to a Cosmos DB container. The `id` and `partition-key` used for the delete request are passed as query parameters and accessed using the `context.GraphQL.Arguments["id"]` context variable.
 
 ```xml
 <cosmosdb-data-source>
@@ -374,7 +372,7 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
             @(context.GraphQL.Arguments["id"].ToString())
         </id>
         <partition-key>
-            @(context.GraphQL.Arguments["category"].ToString())
+            @(context.GraphQL.Arguments["id"].ToString())
         </partition-key>
     </delete-request>
 </cosmosdb-data-source>
@@ -384,7 +382,7 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
 
 The following example resolves a GraphQL mutation by an upsert request to a Cosmos DB container. The connection to the Cosmos DB account uses the API Management instance's system-assigned managed identity. The identity must be [configured](#configure-managed-identity-integration-with-cosmos-db) to access the Cosmos DB container. 
 
-The `partition-key` used for the write request is passed as a query parameter and accessed using the `context.GraphQL.arguments` context variable. The upsert request has a pre-trigger operation named "validateInput". The request body is mapped using a liquid template.
+The `partition-key` used for the write request is passed as a query parameter and accessed using the `context.GraphQL.Arguments["id"]` context variable. The upsert request has a pre-trigger operation named "validateInput". The request body is mapped using a liquid template.
 
 ```xml
 <cosmosdb-data-source>
@@ -398,7 +396,7 @@ documents.azure.com:443/;
     </connection-info>
     <write-request type="upsert" pre-trigger="validateInput">
         <partition-key>
-            @(context.GraphQL.Arguments["category"].ToString())
+            @(context.GraphQL.Arguments["id"].ToString())
         </partition-key>
         <set-body template="liquid">
             {"id" : "{{body.arguments.id}}" ,
@@ -485,7 +483,7 @@ type Query {
     <parameters>
         <parameter name="@param">@(context.GraphQL.Arguments["stringInput"])</parameter>
     </parameters>
-    </query-request>
+</query-request>
 [...]
 ```
 

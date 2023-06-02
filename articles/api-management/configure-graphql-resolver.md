@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 05/31/2023
+ms.date: 06/02/2023
 ms.author: danlep
 ---
 
@@ -51,7 +51,7 @@ The following steps create a resolver using an HTTP-based data source. The gener
 
 1. On the **Create Resolver** page:
     1.  Update the **Name** property if you want to, optionally enter a **Description**, and confirm or update the **Type** and **Field** selections.
-    1. For this example, in **Data source**, select **HTTP API**. 
+    1. Select the resolver's **Data source**. For this example, select **HTTP API**. 
 1. In the **Resolver policy** editor, update the [`http-data-source`](http-data-source-policy.md) policy with child elements for your scenario. 
     1. Update the required `http-request` element with policies to transform the GraphQL operation to an HTTP request.
     1. Optionally add an `http-response` element, and add child policies to transform the HTTP response of the resolver. If the `http-response` element isn't specified, the response is returned as a raw string.
@@ -67,14 +67,12 @@ The following steps create a resolver using an HTTP-based data source. The gener
     > * The **Linked** column indicates whether the resolver is configured for a field that's currently in the GraphQL schema. If a resolver isn't linked, it can't be invoked.
     > * You can clone a listed resolver to quickly create a similar resolver that targets a different type and field. In the context menu (**...**), select **Clone**. 
 
-
-
 ## GraphQL context
 
-* The context for the HTTP request and HTTP response (if specified) differs from the context for the original gateway API request: 
+* The context for the resolver's request and response (if specified) differs from the context for the original gateway API request: 
   * `context.GraphQL` properties are set to the arguments (`Arguments`) and parent object (`Parent`) for the current resolver execution.
-  * The HTTP request context contains arguments that are passed in the GraphQL query as its body. 
-  * The HTTP response context is the response from the independent HTTP call made by the resolver, not the context for the complete response for the gateway request. 
+  * The request context contains arguments that are passed in the GraphQL query as its body. 
+  * The response context is the response from the independent call made by the resolver, not the context for the complete response for the gateway request. 
 The `context` variable that is passed through the request and response pipeline is augmented with the GraphQL context when used with a GraphQL resolver.
 
 ### context.GraphQL.parent

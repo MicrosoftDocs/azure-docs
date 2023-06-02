@@ -35,7 +35,7 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
     <request single-result="true | false">
         <include-fragment>...include-fragment policy configuration...</include-fragment>
         <set-body>...set-body policy configuration...</set-body>
-        <sql-statement>T-SQL query string</sql-statement>
+        <sql-statement>T-SQL query</sql-statement>
         <sql-parameters>
             <parameter sql-type="parameter type" name="Query parameter name in @ notation">
                 "Query parameter value or expression"
@@ -162,9 +162,9 @@ Enable Azure Active Directory authentication to SQL Database by assigning an Azu
 
 ## Examples
 
-### Resolver for GraphQL query using single T-SQL request
+### Resolver for GraphQL query using single-result T-SQL request
 
-The following example resolves a GraphQL query by making a single T-SQL request to a backend database. The connection string uses SQL authentication with username and password and is provided using a named value. The response is returned as a raw string.
+The following example resolves a GraphQL query by making a single-result T-SQL request to a backend Azure SQL database. The connection string uses SQL authentication with username and password and is provided using a named value. The response is returned as a raw string.
 
 ```xml
 <sql-data-source>
