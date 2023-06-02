@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 03/03/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 ---
 
@@ -143,7 +143,7 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 
 #### [Linux](#tab/linux)
 
-* The **json_pp** command line tool is pre-installed in most Linux distributions. If it's not included, you can use your distribution's package manager to install it.
+* The **json_pp** command line tool is preinstalled in most Linux distributions. If it's not included, you can use your distribution's package manager to install it.
 
 * Pretty print the JSON output by including `| json_pp` with your GET requests.
 

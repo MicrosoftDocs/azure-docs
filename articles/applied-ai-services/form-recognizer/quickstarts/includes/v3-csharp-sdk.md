@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/14/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 ---
 
@@ -76,7 +76,7 @@ In this quickstart, you use the following features to analyze and extract data a
 
  1. Select the Browse tab and type Azure.AI.FormRecognizer.
 
-     :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot of select pre-release NuGet package in Visual Studio.":::
+     :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot of select prerelease NuGet package in Visual Studio.":::
 
  1. Select version **4.0.0** from the dropdown menu and install the package in your project.
 <!-- --- -->

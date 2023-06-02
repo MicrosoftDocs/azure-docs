@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 03/17/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 recommendations: false
 ---

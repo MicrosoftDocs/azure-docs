@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/18/2022
+ms.date: 06/02/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->
@@ -20,7 +20,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained model.
+* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pretrained model.
 
 ## Prerequisites
 
