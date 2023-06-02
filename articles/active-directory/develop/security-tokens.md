@@ -19,7 +19,7 @@ ms.reviewer: jmprieur, saeeda, ludwignick
 
 A centralized identity provider is especially useful for apps that have worldwide users who don't necessarily sign in from the enterprise's network. The Microsoft identity platform authenticates users and provides security tokens, such as access tokens, refresh tokens, and ID tokens. Security tokens allow a client application to access protected resources on a resource server. 
 
- - **Access token** - An access token is a security token issued by an authorization server as part of an OAuth 2.0 flow. It contains information about the user and the resource for which the token is intended. The information can be used to access web APIs and other protected resources. Access tokens are validated by resources to grant access to a client application. For more information, see [Access tokens in the Microsoft identity platform](access-tokens.md).
+ - **Access token** - An access token is a security token issued by an authorization server as part of an OAuth 2.0 flow. It contains information about the user and the resource for which the token is intended. The information can be used to access web APIs and other protected resources. Resources validate access tokens to grant access to a client application. For more information, see [Access tokens in the Microsoft identity platform](access-tokens.md).
 - **Refresh token** - Because access tokens are valid for only a short period of time, authorization servers sometimes issue a refresh token at the same time the access token is issued. The client application can then exchange this refresh token for a new access token when needed. For more information, see [Refresh tokens in the Microsoft identity platform](refresh-tokens.md).
 - **ID token** - ID tokens are sent to the client application as part of an OpenID Connect flow. They can be sent alongside or instead of an access token. ID tokens are used by the client to authenticate the user. To learn more about how the Microsoft identity platform issues ID tokens, see [ID tokens in the Microsoft identity platform](id-tokens.md).
 
@@ -27,11 +27,11 @@ Many enterprise applications use SAML to authenticate users. For information on 
 
 ## Validate tokens
 
-It's up to the application for which the token was generated, the web app that signed in the user, or the web API being called to validate the token. The token is signed by the authorization server with a private key. The authorization server publishes the corresponding public key. To validate a token, the app verifies the signature by using the authorization server public key to validate that the signature was created using the private key.
+It's up to the application for which the token was generated, the web app that signed in the user, or the web API being called to validate the token. The authorization server signs the token with a private key. The authorization server publishes the corresponding public key. To validate a token, the app verifies the signature by using the authorization server public key to validate that the signature was created using the private key.
 
 Tokens are valid for only a limited amount of time, so the authorization server frequently provides a pair of tokens. An access token is provided, which accesses the application or protected resource. A refresh token is provided, which is used to refresh the access token when the access token is close to expiring.
 
-Access tokens are passed to a web API as the bearer token in the `Authorization` header. An app can provide a refresh token to the authorization server. If the user access to the app wasn't revoked, it recieves a new access token and a new refresh token. When the authorization server receives the refresh token, it won't issue another valid access token if the user is no longer authorized.
+Access tokens are passed to a web API as the bearer token in the `Authorization` header. An app can provide a refresh token to the authorization server. If the user access to the app wasn't revoked, it receives a new access token and a new refresh token. When the authorization server receives the refresh token, it issues another access token only if the user is still authorized.
 
 ## JSON Web Tokens and claims
 
@@ -39,7 +39,7 @@ The Microsoft identity platform implements security tokens as JSON Web Tokens (J
 
 A claim provides assertions about one entity, such as a client application or resource owner, to another entity, such as a resource server. A claim might also be referred to as a JWT claim or a JSON Web Token claim.
 
-Claims are name or value pairs that relay facts about the token subject. For example, a claim might contain facts about the security principal that was authenticated by the authorization server. The claims present in a specific token depend on many things, such as the type of token, the type of credential used to authenticate the subject, and the application configuration.
+Claims are name or value pairs that relay facts about the token subject. For example, a claim might contain facts about the security principal that the authorization server authenticated. The claims present in a specific token depend on many things, such as the type of token, the type of credential used to authenticate the subject, and the application configuration.
 
 Applications can use claims for the following various tasks:
 
