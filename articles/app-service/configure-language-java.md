@@ -6,7 +6,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
 ms.reviewer: cephalin
-ms.custom: seodec18, devx-track-java, devx-track-azurecli
+ms.custom: seodec18, devx-track-java, devx-track-azurecli, devx-track-extended-java
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
 ---

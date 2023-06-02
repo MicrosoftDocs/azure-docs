@@ -10,7 +10,9 @@ items:
     href: whats-new.md
   - name: Packet core release notes
     items:
-    - name: 2303 - Current
+    - name: 2305 - Current
+      href: azure-private-5g-core-release-notes-2305.md  
+    - name: 2303
       href: azure-private-5g-core-release-notes-2303.md  
     - name: 2302
       href: azure-private-5g-core-release-notes-2302.md
