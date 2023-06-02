@@ -18,7 +18,7 @@ This article provides an overview of how to use CalculatedContent templates with
 
 ## CalculatedContent template basics
 
-The MedTech service CalculatedContent template support two JSON expression languages: JSONPath and JMESPath. Expressions are used to identify which template to use with a given JSON device message (for example: TypeMatchExpression) and to extract specific values that are required to create a normalized message (for example: TimestampExpression, DeviceIdExpression, etc.).
+The MedTech service CalculatedContent template supports two JSON expression languages: JSONPath and JMESPath. Expressions are used to identify which template to use with a given JSON device message (for example: TypeMatchExpression) and to extract specific values that are required to create a normalized message (for example: TimestampExpression, DeviceIdExpression, etc.).
 
 > [!NOTE] 
 >If you don't define an expression language, the MedTech service device mapping templates use the default expression language that's configured for the template. The default is JSONPath, but you can overwrite it if necessary.
