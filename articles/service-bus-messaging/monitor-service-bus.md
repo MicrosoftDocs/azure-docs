@@ -204,25 +204,25 @@ Following are sample queries that you can use to help you monitor your Azure Ser
    | summarize by NamespaceName, EventName
     ```
 
-+ Get failed send message events for namespace
++ Get Send message events for namespace
 
   ```kusto
   AZMSRunTimeAuditLogs
   | extend NamespaceInfo = tostring(split(_ResourceId, "/")[8])
   | where Provider =~ "ServiceBus"
-  | where isnotnull(NamespaceInfo) and Status != "Success" and ActivityName = "SendMessage"
+  | where isnotnull(NamespaceInfo) and ActivityName = "SendMessage"
   | project NamespaceInfo, ActivityName, Protocol, NetworkType, ClientIp, ResourceId
   | summarize by NamespaceInfo, ActivityName
     ```
-+ Get Failed authorization results for SAS key
++ Get Failed authorization results for AAD
 
- ```kusto
- AZMSRunTimeAuditLogs
- | extend NamespaceInfo = tostring(split(_ResourceId, "/")[8])
- | where Provider =~ "ServiceBus"
- | where isnotnull(NamespaceInfo) and isnotnull(AuthKey) and AuthType == "AAD" and Status != "Success" 
- | project NamespaceInfo, AuthKey, ActivityName, Protocol, NetworkType, ClientIp, ResourceId
- | summarize by NamespaceInfo, AuthKey, ActivityName
+  ```kusto
+  AZMSRunTimeAuditLogs
+  | extend NamespaceInfo = tostring(split(_ResourceId, "/")[8])
+  | where Provider =~ "ServiceBus"
+  | where isnotnull(NamespaceInfo) and isnotnull(AuthKey) and AuthType == "AAD" and Status != "Success" 
+  | project NamespaceInfo, AuthKey, ActivityName, Protocol, NetworkType, ClientIp, ResourceId
+  | summarize by NamespaceInfo, AuthKey, ActivityName
    ```
 
 ## Alerts
