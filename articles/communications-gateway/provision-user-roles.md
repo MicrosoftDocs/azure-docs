@@ -15,7 +15,6 @@ This article will guide you through how to configure the permissions required fo
 - Deploy Azure Communications Gateway through the portal
 - Raise customer support requests (support tickets)
 - Monitor Azure Communications Gateway
-- Rotate secrets for Azure Communications Gateway
 - Use the API Bridge Number Management Portal for provisioning
 
 ## Prerequisites
@@ -33,7 +32,6 @@ Your staff might need different user roles, depending on the tasks they need to 
 | Deploying Azure Communications Gateway |**Contributor** access to your subscription|
 | Raising support requests |**Owner**, **Contributor** or **Support Request Contributor** access to your subscription or a custom role with `Microsoft.Support/*` access at the subscription level|
 |Monitoring logs and metrics | **Reader** access to your subscription|
-|Rotating secrets |**Storage Account Key Operator**, **Contributor** or **Owner** access to your subscription|
 |Using the API Bridge Number Management Portal|**NumberManagement.Read**, **NumberManagement.Write**, **PartnerSettings.Read**, and **PartnerSettings.Write** permissions for the Project Synergy enterprise application and **Reader** permissions to the Azure portal for your subscription|
 
 ## 2. Configure user roles
