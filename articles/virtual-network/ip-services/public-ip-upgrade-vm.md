@@ -1,5 +1,6 @@
 ---
 title: 'Upgrade a basic to a standard public IP address'
+titleSuffix: Azure Virtual Network
 description: This article shows you how to upgrade a public IP address attached to a VM to a standard public IP address
 author: mbender-ms
 ms.service: virtual-network
@@ -30,7 +31,7 @@ The module logs all upgrade activity to a file named `PublicIPUpgrade.log`, crea
 
 * **VMs without a Network Security Group**: VMs with IPs to be upgraded must have a Network Security Group (NSG) associated with either the subnet of each IP configuration with a Public IP, or with the NIC directly. This is because Standard SKU Public IPs are "secure by default", meaning that any traffic to the Public IP must be explicitly allowed at an NSG to reach the VM. Basic SKU Public IPs allow any traffic by default. Upgrading Public IP SKUs without an NSG would result in inbound internet traffic to the Public IP previously allowed with the Basic SKU being blocked post-migration. See: [Public IP SKUs](public-ip-addresses.md#sku)
 
-* **Virtual Machine Scale Sets with Public IP configurations**: If you have a virtual machine scale set (uniform model) with public IP configurations per instance, note these configurations aren't Public IP resources and as such cannot be upgraded. Instead, you can remove the Basic IP configuration and use the SKU property to specify that Standard IP configurations are required for each VMSS instance as shown [here](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine).
+* **Virtual Machine Scale Sets with Public IP configurations**: If you have a virtual machine scale set (uniform model) with public IP configurations per instance, note these configurations aren't Public IP resources and as such cannot be upgraded. Instead, you can remove the Basic IP configuration and use the SKU property to specify that Standard IP configurations are required for each virtual machine scale set instance as shown [here](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine).
 
 ### Prerequisites
 
@@ -80,7 +81,7 @@ To upgrade all VMs in a resource group, skipping VMs that do not have Network Se
     Get-AzVM -ResourceGroupName 'myRG' | Start-VMPublicIPUpgrade -skipVMMissingNSG
 ```
 
-### Recovering from a Failed Migration
+### Recovering from a failed migration
 
 If a migration fails due to a transient issue, such as a network outage or client system issue, the migration can be re-run to configure the VM and Public IPs in the goal state. At execution, the script outputs a recovery log file, which is used to ensure the VM is properly reconfigured. Review the log file `PublicIPUpgrade.log` created in the location where the script was executed.
 
