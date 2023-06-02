@@ -79,7 +79,8 @@ Confidential containers on ACI enables you to run containers in a trusted execut
 
 ## Spot container deployment
 
-<!-- Spot container overview info goes here -->
+ACI Spot containers allows customers to run interruptible, containerized workloads on unused Azure capacity at significantly discounted prices of up to 70% compared to regular-priority ACI containers. ACI spot containers may be preempted when Azure encounters a shortage of surplus capacity, and they are suitable for workloads without strict availability requirements. Customers are billed for per-second memory and core usage. To utilize ACI Spot containers, you can deploy your workload with a specific property flag indicating that you want to use Spot container groups and take advantage of the discounted pricing model. 
+For more information, see [spot container groups](container-instances-spot-container-overview.md).
 
 ## Considerations
 

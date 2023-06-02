@@ -6,6 +6,8 @@
     href: container-instances-overview.md
   - name: Resources and Quota Limits
     href: container-instances-resource-and-quota-limits.md
+  - name: About Azure Container Instances Spot containers
+    href: container-instances-spot-containers-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -54,7 +56,11 @@
     - name: Deploy a confidential container group - Portal
       href: container-instances-tutorial-deploy-confidential-container-default-portal.md 
   - name: Deploy a Spot container group
-    href: container-instances-tutorial-deploy-spot-containers-arm.md
+    items: 
+    - name: Deploy a Spot container group - Azure CLI
+      href: container-instances-tutorial-deploy-spot-containers-cli.md
+    - name: Deploy a Spot container group - Portal
+      href: container-instances-tutorial-deploy-spot-containers-portal.md 
 - name: Samples
   items:
   - name: Code samples
