@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 06/01/2023
+ms.date: 06/02/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -34,7 +34,7 @@ To upload a blob using a stream or a binary object, use the following method:
 
 - [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob)
 
-This method creates a new blob from a data source with automatic chunking. The client library may call either [Put Blob](/rest/api/storageservices/put-blob) or [Put Block](/rest/api/storageservices/put-block), depending on the overall size of the object and how the [data transfer options](#specify-data-transfer-options-for-upload) are set.
+This method creates a new blob from a data source with automatic chunking, meaning that the data source may be split into smaller chunks and uploaded. To perform the upload, the client library may use either [Put Blob](/rest/api/storageservices/put-blob) or a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [Put Block List](/rest/api/storageservices/put-block-list). This behavior depends on the overall size of the object and how the [data transfer options](#specify-data-transfer-options-for-upload) are set.
 
 ## Upload a block blob from a local file path
 
@@ -69,7 +69,7 @@ You can define client library configuration options when uploading a blob. These
 You can set configuration options when instantiating a client to optimize performance for data transfer operations. You can pass the following keyword arguments when constructing a client object in Python:
 
 - `max_block_size` - The maximum chunk size for uploading a block blob in chunks. Defaults to 4 MiB.
-- `max_single_put_size` - If the blob size is less than or equal to `max_single_put_size`, the blob is uploaded with a single `Put Blob` request. If the blob size is larger than `max_single_put_size`, the blob is uploaded in chunks using `Put Block` and committed using `Put Block List`. Defaults to 64 MiB.
+- `max_single_put_size` - If the blob size is less than or equal to `max_single_put_size`, the blob is uploaded with a single `Put Blob` request. If the blob size is larger than `max_single_put_size` or unknown, the blob is uploaded in chunks using `Put Block` and committed using `Put Block List`. Defaults to 64 MiB.
 
 For more information on transfer size limits for Blob Storage, see [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
