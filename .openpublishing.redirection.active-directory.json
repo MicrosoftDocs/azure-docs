@@ -10296,6 +10296,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/standards/configure-azure-active-directory-for-fedramp-high-impact.md",
+      "redirect_url": "/azure/active-directory/standards/configure-for-fedramp-high-impact",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-ops.md",
       "redirect_url": "/azure/active-directory/fundamentals/ops-guide-ops",
       "redirect_document_id": true
