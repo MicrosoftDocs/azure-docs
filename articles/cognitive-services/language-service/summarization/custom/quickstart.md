@@ -25,11 +25,11 @@ In this article, we use Language Studio to demonstrate key concepts of custom su
 
 ::: zone-end
 
-<!--- ::: zone pivot="rest-api"
+::: zone pivot="rest-api"
 
-[!INCLUDE [REST API quickstart](../includes/quickstarts/custom-rest-api.md)]
+<!--- [!INCLUDE [REST API quickstart](../includes/quickstarts/custom-rest-api.md)] --->
 
-::: zone-end --->
+::: zone-end
 
 ## Next steps
 
