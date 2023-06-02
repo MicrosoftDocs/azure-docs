@@ -29,8 +29,6 @@ On the Azure portal homepage, select **Create a resource**.
 
 Select **Containers** > **Container Instances**.
 
-   ![Screenshot showing how to select a new container instance that you want to create in the Azure portal, PNG.](media/container-instances-spot-containers-tutorials/spot-containers-aci-portal-review.png)
-
 On the **Basics** page, choose a subscription and enter the following values for **Resource group**, **Container name**, **Image source**, and **Container image**. Then to deploy ACI Spot container, opt for Spot discount by selecting **Run with Spot discount** field. This will enforce limitations for this feature in preview release automatically and allow you to deploy only in supported regions.
 
 * Resource group: **Create new** > `acispotdemo`
@@ -43,10 +41,6 @@ On the **Basics** page, choose a subscription and enter the following values for
    ![Screenshot of the priority selection of a container group, PNG.](media/container-instances-spot-containers-tutorials/spot-create-portal-ui-basic.png)
 
 When deploying Spot container on Azure Container Instances you need to select only regions supported in public preview. You can change the restart policy, region, type of container images and compute resources. If you want more than default quota offered, please file a support request.
-
-Here is a sample ARM template that can be used to deploy with a spot containers:
-
-   ![Screenshot of ARM template for deploying Spot containers, PNG.]("media/container-instances-spot-containers-tutorials/spot-container-arm-template.png)
  
 Leave all other settings as their defaults, then select **Review + create**.
 
