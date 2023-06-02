@@ -12,7 +12,7 @@ ms.date: 06/02/2023
 ms.author: jboback
 ---
 
-# Deploy a Custom summarization health model
+# Deploy a Custom summarization model
 
 Once you're satisfied with how your model performs, it's ready to be deployed and used to summarize text documents. Deploying a model makes it available for use through the [prediction API](https://aka.ms/ct-runtime-swagger).
 
