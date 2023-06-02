@@ -18,7 +18,7 @@ This article outlines how to register Azure Synapse Analytics workspaces and how
 
 |Metadata extraction|Full scan|Incremental scan|Scoped scan|Classification|Labeling|Access policy|Lineage|Data sharing|
 |---|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | No| [Yes](#scan)| No| No| [Yes - Azure Synapse Analytics pipelines](how-to-lineage-azure-synapse-analytics.md)| No|
+| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | No| [Yes](#scan)| No| No| [Yes - pipelines](how-to-lineage-azure-synapse-analytics.md)| No|
 
 Currently, Azure Synapse Analytics lake databases are not supported.
 
@@ -62,7 +62,7 @@ Only a user who has at least a data reader role on the Azure Synapse Analytics w
 
 Use the following steps to scan Azure Synapse Analytics workspaces to automatically identify assets and classify your data. For more information about scanning in general, see [Scans and ingestion in Microsoft Purview](concept-scans-and-ingestion.md).
 
-1. Set up authentication for enumerating for either your [dedicated](#authentication-for-enumerating-dedicated-sql-database-resources) or [serverless](#authentication-for-enumerating-serverless-sql-database-resources) resources. This step will allow Microsoft Purview to enumerate your workspace assets and perform scans.
+1. Set up authentication for enumerating your [dedicated](#authentication-for-enumerating-dedicated-sql-database-resources) or [serverless](#authentication-for-enumerating-serverless-sql-database-resources) resources. This step will allow Microsoft Purview to enumerate your workspace assets and perform scans.
 1. Apply [permissions to scan the contents of the workspace](#apply-permissions-to-scan-the-contents-of-the-workspace).
 1. Confirm that your [network is set up to allow access for Microsoft Purview](#set-up-azure-synapse-workspace-firewall-access).
 
@@ -187,7 +187,7 @@ If the Azure Synapse Analytics workspace has any external tables, you must give 
     from sys.database_scoped_credentials;
     ```
 
-1. To grant the access to database scoped credentials, run the following command. Replace *scoped_credential* with the name of the database scoped credential.
+1. To grant the access to database scoped credentials, run the following command. Replace `scoped_credential` with the name of the database scoped credential.
 
     ```sql
     GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewAccountName];
@@ -206,11 +206,11 @@ If the Azure Synapse Analytics workspace has any external tables, you must give 
 
 #### Use a service principal for dedicated SQL databases
 
-1. Set up a new credential of type *Service Principal* by following the instructions in [Credentials for source authentication in Microsoft Purview](manage-credentials.md).
+1. Set up a new credential of type *service principal* by following the instructions in [Credentials for source authentication in Microsoft Purview](manage-credentials.md).
 1. Go to your Azure Synapse Analytics workspace.
 1. Go to the **Data** section, and then look for one of your dedicated SQL databases.
 1. Select the ellipsis (**...**) next to the database name, and then start a new SQL script.
-1. Run the following command in your SQL script to add the **Service Principal ID** as **db_datareader** on the dedicated SQL database:
+1. Run the following command in your SQL script to add the service principal ID as `db_datareader` on the dedicated SQL database:
 
     ```sql
     CREATE USER [ServicePrincipalID] FROM EXTERNAL PROVIDER
@@ -220,21 +220,20 @@ If the Azure Synapse Analytics workspace has any external tables, you must give 
     GO
     ```
 
-> [!NOTE]
-> Repeat the previous step for all dedicated SQL databases in your Synapse workspace.
+Repeat the previous steps for all dedicated SQL databases in your Azure Synapse Analytics workspace.
 
 #### Use a service principal for serverless SQL databases
 
 1. Go to your Azure Synapse Analytics workspace.
 1. Go to the **Data** section, and then look for one of your serverless SQL databases.
-1. Select the ellipsis (**...**) next to it, and then start a new SQL script.
-1. Add the **Service Principal ID** on the serverless SQL databases. You do so by running the following command in your SQL script:
+1. Select the ellipsis (**...**) next to the database name, and then start a new SQL script.
+1. Run the following command in your SQL script to add the service principal ID on the serverless SQL databases:
 
     ```sql
     CREATE LOGIN [ServicePrincipalID] FROM EXTERNAL PROVIDER;
     ```
 
-1. Add **Service Principal ID** as **db_datareader** on each of the serverless SQL databases you want to scan. You do so by running the following command in your SQL script:
+1. Run the following command in your SQL script to add the service principal ID as `db_datareader` on each of the serverless SQL databases that you want to scan:
 
    ```sql
     CREATE USER [ServicePrincipalID] FOR LOGIN [ServicePrincipalID];
@@ -245,11 +244,11 @@ If the Azure Synapse Analytics workspace has any external tables, you must give 
 
 #### Use SQL Authentication for dedicated SQL databases
 
-1. Set up a new *credential* of type *SQL Authentication* by following the instructions in [Credentials for source authentication in Microsoft Purview](manage-credentials.md).
+1. Set up a new credential of type *SQL authentication* by following the instructions in [Credentials for source authentication in Microsoft Purview](manage-credentials.md).
 1. Go to your Azure Synapse Analytics workspace.
 1. Go to the **Data** section, and then look for one of your dedicated SQL databases.
-1. Select the ellipsis (**...**) next to it, and then start a new SQL script.
-1. Add the **SQL Authentication login name** as **db_datareader** on the dedicated SQL database. You do so by running the following command in your SQL script:
+1. Select the ellipsis (**...**) next to the database name, and then start a new SQL script.
+1. Run the following command in your SQL script to add the SQL authentication login name as `db_datareader` on the dedicated SQL database:
 
     ```sql
     CREATE USER [SQLUser] FROM LOGIN [SQLUser];
@@ -259,21 +258,21 @@ If the Azure Synapse Analytics workspace has any external tables, you must give 
     GO
     ```
 
-Repeat the previous step for all dedicated SQL databases in your Synapse workspace.
+Repeat the previous steps for all dedicated SQL databases in your Azure Synapse Analytics workspace.
 
 #### Use SQL Authentication for serverless SQL databases
 
 1. Go to your Azure Synapse Analytics workspace.
 1. Go to the **Data** section, and then look for one of your serverless SQL databases.
-1. Select the ellipsis (**...**) next to it, and then start a new SQL script.
-1. Add the **SQL Authentication login name** on the serverless SQL databases. You do so by running the following command in your SQL script:
+1. Select the ellipsis (**...**) next to the database name, and then start a new SQL script.
+1. Run the following command in your SQL script to add the SQL authentication login name on the serverless SQL databases:
 
     ```sql
     CREATE USER [SQLUser] FROM LOGIN [SQLUser];
     GO
     ```
 
-1. Add **Service Principal ID** as **db_datareader** on each of the serverless SQL databases you want to scan. You do so by running the following command in your SQL script:
+1. Run the following command in your SQL script to add the service principal ID as `db_datareader` on each of the serverless SQL databases that you want to scan:
 
    ```sql
    ALTER ROLE db_datareader ADD MEMBER [SQLUser];
@@ -282,7 +281,7 @@ Repeat the previous step for all dedicated SQL databases in your Synapse workspa
 
 ---
 
-### Set up Azure Synapse Analytics workspace firewall access
+### Set up firewall access for the Azure Synapse Analytics workspace
 
 1. In the Azure portal, go to the Azure Synapse Analytics workspace.
 
@@ -293,13 +292,11 @@ Repeat the previous step for all dedicated SQL databases in your Synapse workspa
 1. Select **Save**.
 
 > [!IMPORTANT]
-> Currently, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse Analytics workspaces, when set up scan on Microsoft Purview governance portal, you will hit serverless DB enumeration failure. In this case, you can choose the [Enter manually](#create-and-run-scan) option to specify the database names that you want to scan, and proceed.
+> If you can't enable **Allow Azure services and resources to access this workspace** on your Azure Synapse Analytics workspaces, when you set up a scan in the Microsoft Purview governance portal, you'll get a serverless database enumeration failure. In this case, you can choose the [Enter manually](#create-and-run-scan) option to specify the database names that you want to scan, and then proceed.
 
-### Create and run scan
+### Create and run a scan
 
-To create and run a new scan, do the following:
-
-1. Select the **Data Map** tab on the left pane in [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
+1. In the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), on the left pane, select **Data Map**.
 
 1. Select the data source that you registered.
 
@@ -309,17 +306,17 @@ To create and run a new scan, do the following:
 
 1. In the **Credential** dropdown list, select the credential to connect to the resources within your data source.
 
-1. For **Database selection method**, choose **From Synapse workspace** or **Enter manually**. By default, Microsoft Purview tries to enumerate the databases under the workspace, and you can select the ones you want to scan. In case you hit error that Microsoft Purview fails to load the serverless databases, you can choose "Enter manually" to specify the type of database (dedicated or serverless) and the corresponding database name.
+1. For **Database selection method**, select **From Synapse workspace** or **Enter manually**. By default, Microsoft Purview tries to enumerate the databases under the workspace, and you can select the ones that you want to scan.
 
     :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-setup.png" alt-text="Screenshot of the details pane for the Azure Synapse source scan.":::
 
-    Option of "Enter manually":
+    If you get an error that says Microsoft Purview failed to load the serverless databases, you can select **Enter manually** to specify the type of database (dedicated or serverless) and the corresponding database name.
 
-    :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-setup-enter-manually.png" alt-text="Screenshot of the section of manually enter database names when setting up scan.":::
+    :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-setup-enter-manually.png" alt-text="Screenshot of the selection for manually entering database names when setting up a scan.":::
 
-1. Select **Test connection** to validate the settings. In case of any error, in the report page, hover on the "Connection status" to see details.
+1. Select **Test connection** to validate the settings. If you get any error, on the report page, hover over the connection status to see details.
 
-1. Select **Continue** to proceed.
+1. Select **Continue**.
 
 1. Select **Scan rule sets** of type **Azure Synapse SQL**. You can also create scan rule sets inline.
 
@@ -329,20 +326,20 @@ To create and run a new scan, do the following:
 
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
-### Set up scan using API
+### Set up a scan by using an API
 
-Here's an example of creating scan for serverless DB using API. Replace the `{place_holder}` and `enum_option_1 | enum_option_2 (note)` value with your actual settings. Learn more from [Microsoft Purview REST API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/).
+Here's an example of creating a scan for a serverless database by using the Microsoft Purview REST API. Replace the placeholders in braces (`{}`) with your actual settings. Learn more from [Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/).
 
 ```http
 PUT https://{purview_account_name}.purview.azure.com/scan/datasources/<data_source_name>/scans/{scan_name}?api-version=2022-02-01-preview
 ```
 
-The collection_id is not the friendly name for the collection, a 5-character ID. For the root collection, the collection_id will be the name of the collection. For all sub-collections, it is instead the ID that can be found in one of two places:
+In the following code, `collection_id` is not the friendly name for the collection, a five-character ID. For the root collection, `collection_id` is the name of the collection. For all subcollections, it's instead the ID that you can find in one of these places:
 
-- The URL in the Microsoft Purview governance portal. Select the collection, and check the URL to find where it says `collection=`. That will be your ID. So, for our example below, the Investments collection has the ID 50h55c.
+- The URL in the Microsoft Purview governance portal. Select the collection, and check the URL to find where it says **collection=**. That's your ID. In the following example, the **Investment** collection has the ID **50h55c**.
 
-  :::image type="content" source="media/register-scan-synapse-workspace/find-collection-id.png" alt-text="Screenshot of the collection ID in the URL." lightbox="media/register-scan-synapse-workspace/find-collection-id.png" :::
-- You can [list child collection names](/rest/api/purview/accountdataplane/collections/list-child-collection-names) of the root collection to list the collections, and you'll use the name instead of the friendly name.
+  :::image type="content" source="media/register-scan-synapse-workspace/find-collection-id.png" alt-text="Screenshot of a collection ID in a URL." lightbox="media/register-scan-synapse-workspace/find-collection-id.png" :::
+- You can [list child collection names](/rest/api/purview/accountdataplane/collections/list-child-collection-names) of the root collection to list the collections, and then use the name instead of the friendly name.
 
 ```json
 {
@@ -373,7 +370,7 @@ The collection_id is not the friendly name for the collection, a 5-character ID.
 }
 ```
 
-To schedule the scan, additionally create a trigger for it after scan creation, refer to [Triggers - Create Trigger](/rest/api/purview/scanningdataplane/triggers/create-trigger).
+To schedule the scan, create a trigger for it after scan creation. For more information, see [Triggers - Create Trigger](/rest/api/purview/scanningdataplane/triggers/create-trigger).
 
 ### Troubleshooting
 
@@ -387,8 +384,8 @@ If you have any problems with scanning:
 
 ## Next steps
 
-Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
+Now that you've registered your source, use the following guides to learn more about Microsoft Purview and your data:
 
 - [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
-- [Search Data Catalog](how-to-search-catalog.md)
+- [Search the Microsoft Purview Data Catalog](how-to-search-catalog.md)
