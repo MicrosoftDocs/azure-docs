@@ -19,7 +19,7 @@ Before you can use custom Summarization, you'll need to create an Azure Language
 > [!IMPORTANT]
 > To get started quickly, we recommend creating a new Azure Language resource using the steps provided in this article. Using the steps in this article will let you create the Language resource and storage account at the same time, which is easier than doing it later.
 >
-> If you have a pre-existing resource that you'd like to use, you will need to connect it to storage account. See [guidance to using a pre-existing resource](../../../includes/custom/use-pre-existing-resource.md) for information.
+<!--- > If you have a pre-existing resource that you'd like to use, you will need to connect it to storage account. See [guidance to using a pre-existing resource](../../../includes/custom/use-pre-existing-resource.md) for information. --->
 
 [!INCLUDE [create a new resource from the Azure portal](../../../includes/custom/resource-creation-azure-portal.md)]
 
