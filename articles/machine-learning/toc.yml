@@ -77,20 +77,8 @@
       href: how-to-configure-environment.md
     - name: Install and setup the CLI(v2)
       href: how-to-configure-cli.md
-    - name: Set up studio environment
-      items:
-        - name: Create and manage files
-          href: how-to-manage-files.md
-        - name: Run Jupyter notebooks
-          href: how-to-run-jupyter-notebooks.md
-        - name: Use a terminal
-          href: how-to-access-terminal.md
-        - name: Manage compute sessions
-          href: how-to-manage-compute-sessions.md
     - name: Set up VS Code extension
       href: how-to-setup-vs-code.md
-    - name: Connect to compute instance with VSCode
-      href: how-to-setup-vs-code-remote.md
 - name: Quickstart
   expanded: true
   items:
@@ -165,10 +153,20 @@
         - name: "Train and deploy models"
           href: ./v1/tutorial-power-bi-custom-model.md
     # end v1
-- name: Interact with Azure Machine Learning (WIP)
+- name: Interact with Azure Machine Learning
   items:
   - name: Workspace
     href: concept-workspace.md
+  - name: Working with notebooks
+    items:
+    - name: Create and manage files
+          href: how-to-manage-files.md
+        - name: Run Jupyter notebooks
+          href: how-to-run-jupyter-notebooks.md
+        - name: Use a terminal
+          href: how-to-access-terminal.md
+        - name: Manage compute sessions
+          href: how-to-manage-compute-sessions.md
   - name: Azure Machine Learning CLI and Python SDK
     href: concept-v2.md
   - name: Azure Machine Learning UI
@@ -178,8 +176,8 @@
   - name: Compute instance
     displayName: resource, dsvm, Data Science Virtual Machine
     href: concept-compute-instance.md
-  - name: VS Code (TBD)
-    href: 
+  - name: Manage resources VS Code
+    href: how-to-manage-resources-vscode.md
   - name: MLFlow 
     href: how-to-use-mlflow-configure-tracking.md
   - name: Use R with Azure Machine Learning
@@ -479,7 +477,7 @@
   - name: Configure RAI evalutation
     items:
     - name: Responsible AI dashboard
-      href: concept-responsible-ai-dashboard.md    
+      href: concept-responsible-ai-dashboard.md
     - name: Generate responsible AI insights (UI)
       href: how-to-responsible-ai-insights-ui.md
     - name: Understand your datasets
@@ -492,8 +490,6 @@
       href: concept-error-analysis.md
     - name: Counterfactuals analysis and what-if
       href: concept-counterfactual-analysis.md
-    - name: Model explanations
-      href: how-to-responsible-ai-dashboard.md#feature-importances-model-explanations
   - name: Generate and configure an RAI scorecard
     items:
       - name: Generate Responsible AI insights
