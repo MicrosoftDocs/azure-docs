@@ -55,4 +55,4 @@ When unassigning or removing a deployment resource from a project, you will also
 
 ## Next steps
 
-After you have a deployment, you can use it to [extract entities](call-api.md) from text.
+Check out the [summarization feature overview](../../overview.md).
