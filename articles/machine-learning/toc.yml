@@ -159,14 +159,14 @@
     href: concept-workspace.md
   - name: Working with notebooks
     items:
-    - name: Create and manage files
-          href: how-to-manage-files.md
-        - name: Run Jupyter notebooks
-          href: how-to-run-jupyter-notebooks.md
-        - name: Use a terminal
-          href: how-to-access-terminal.md
-        - name: Manage compute sessions
-          href: how-to-manage-compute-sessions.md
+      - name: Create and manage files
+        href: how-to-manage-files.md
+      - name: Run Jupyter notebooks
+        href: how-to-run-jupyter-notebooks.md
+      - name: Use a terminal
+        href: how-to-access-terminal.md
+      - name: Manage compute sessions
+        href: how-to-manage-compute-sessions.md
   - name: Azure Machine Learning CLI and Python SDK
     href: concept-v2.md
   - name: Azure Machine Learning UI
