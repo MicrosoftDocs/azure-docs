@@ -22,7 +22,7 @@ Multi-tenant statistics monitoring is a crucial aspect of managing a multi-tenan
 
 Azure Cosmos DB for PostgreSQL uses row-based sharding at core, which means that each distributed table contains a distributed column - denoted as tenant key. Tenant key enables splitting data across shards, where each shard contains one or more tenants. Shards themselves are distributed among the nodes in the cluster, enabling horizontal scaling of your database.
 
-:::image type="content" source="media/concepts-monitor-tenants/tenant-overview.svg" alt-text="Conceptual monitoring shows CPU_in_secs & Overall Queries per tenant":::
+:::image type="content" source="media/concepts-monitor-tenants/tenants-overview.svg" alt-text="Conceptual monitoring shows CPU_in_secs & Overall Queries per tenant":::
 
 CPU time in seconds, consumed by tenant, across all available cores on a node in a cluster.
 
