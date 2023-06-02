@@ -22,7 +22,7 @@ The following figure illustrates the availability of private zone data across mu
 In this example:
 - The private zone azure.contoso.com is linked to VNets in three different regions. Autoregistration is enabled in two regions.
 - A temporary outage occurs in region A.
-- Regions B and C are still able to successfully query DNS names in the private zone, including names that are autoregistered from region A.
+- Regions B and C are still able to successfully query DNS names in the private zone, including names that are autoregistered from region A (ex: VM1).
 - Service interruption in region A does not affect name resolution in the other regions.
 
 > [!NOTE]
