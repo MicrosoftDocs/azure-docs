@@ -53,9 +53,9 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Device mapping
+          - text: Overview of the device mapping
             url: overview-of-device-mapping.md
-          - text: FHIR destination mapping
+          - text: Overview of the FHIR destination mapping
             url: overview-of-fhir-destination-mapping.md 
       - linkListType: how-to-guide
         links:
