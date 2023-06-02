@@ -25,8 +25,8 @@ Azure RBAC is the recommended authorization system for the Azure Key Vault data 
 Azure RBAC offers several advantages over access policies:
 - A unified access control model for Azure resource-- it uses the same API across Azure services.
 - Centralized access management for administrators - manage all Azure resources in one view
-- Improved security that requires Owner or User Access Administrator roles to manage access to keys, secrets, certfiicates
-- Integration with [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) for time-based access control for priviliged accounts
+- Improved security that requires Owner or User Access Administrator roles to manage access to keys, secrets, certificates
+- Integration with [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) for time-based access control for privileged accounts
 - Deny assignments - ability to exclude security principals at a particular scope. For information, see [Understand Azure Deny Assignments](../../role-based-access-control/deny-assignments.md)
 
 To transition your Key Vault data plane access control from access policies to RBAC, see [Migrate from vault access policy to an Azure role-based access control permission model](rbac-migration.md).
