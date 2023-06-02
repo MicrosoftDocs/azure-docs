@@ -105,4 +105,4 @@ The following is an example mapping file for the abstractive document summarizat
 
 ## Next steps
 
-[!INCLUDE [Get started with custom summarization](../../custom/quickstart.md)]
+[Get started with custom summarization](../../custom/quickstart.md)
