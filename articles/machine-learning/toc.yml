@@ -428,7 +428,7 @@
         href: ./v1/tutorial-auto-train-image-models.md
       - name: Auto-train a natural language processing model
         displayName: nlp, auto ML, automl, SDK
-        href: ./v1/how-to-auto-train-nlp-models-v1.md
+        href: ./v1/how-to-auto-train-nlp-models.md
       - name: Data splits & cross-validation (Python)
         displayName: automl, feature engineering, feature importance
         href: ./v1/how-to-configure-cross-validation-data-splits.md
