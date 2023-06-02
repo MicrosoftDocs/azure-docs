@@ -10,7 +10,7 @@ ms.date: 06/02/2023
 
 # Use Image Cleaner to clean up stale images on your Azure Kubernetes Service (AKS) cluster
 
-It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images may contain vulnerabilities, which may create security issues. To remove security risks in your clusters, you can clean these unreferenced images. Manually cleaning images can be time intensive. Image Cleaner mitigates this with automatic image identification and removal.
+It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images may contain vulnerabilities, which may create security issues. To remove security risks in your clusters, you can clean these unreferenced images. Manually cleaning images can be time intensive. Image Cleaner performs automatic image identification and removal, which mitigates the risk of stale images and reduces the time required to clean them up.
 
 > [!NOTE]
 > Image Cleaner is a feature based on [Eraser](https://azure.github.io/eraser).
@@ -27,7 +27,7 @@ Image Cleaner doesn't yet support Windows node pools or AKS virtual nodes.
 
 ## How Image Cleaner works
 
-When you enable Image Cleaner, it deploys an `eraser-controller-manager` pod, which generates an `ImageList` CRD. The eraser pods that run on each node clean up unreferenced and vulnerable images according to the `ImageList`. A [trivy][trivy] scan helps determine vulnerability and flags images with a classification of `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL`. Image Cleaner automatically generates an updated `ImageList` based on a set time interval and can also be supplied manually. Once Image Cleaner generates an `ImageList`, it removes all images in the list from node VMs.
+When you enable Image Cleaner, it deploys an `eraser-controller-manager` pod, which generates an `ImageList` CRD. The eraser pods running on each node clean up any unreferenced and vulnerable images according to the `ImageList`. A [trivy][trivy] scan helps determine vulnerability and flags images with a classification of `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL`. Image Cleaner automatically generates an updated `ImageList` based on a set time interval and can also be supplied manually. Once Image Cleaner generates an `ImageList`, it removes all images in the list from node VMs.
 
 :::image type="content" source="./media/image-cleaner/image-cleaner.jpg" alt-text="Screenshot of a diagram showing ImageCleaner's workflow. The ImageCleaner pods running on the cluster can generate an ImageList, or manual input can be provided.":::
 
@@ -39,7 +39,7 @@ With Image Cleaner, you can choose between manual and automatic mode and the fol
 |----|-----------|--------|
 |`--enable-image-cleaner`|Enable the Image Cleaner feature for an AKS cluster|Yes, unless disable is specified|
 |`--disable-image-cleaner`|Disable the Image Cleaner feature for an AKS cluster|Yes, unless enable is specified|
-|`--image-cleaner-interval-hours`|This parameter determines the interval time (in hours) Image Cleaner will use to run. The default value for Azure CLI is one week, the minimum value is 24 hours and the maximum is three months.|Not required for Azure CLI, required for ARM template or other clients|
+|`--image-cleaner-interval-hours`|This parameter determines the interval time (in hours) Image Cleaner uses to run. The default value for Azure CLI is one week, the minimum value is 24 hours and the maximum is three months.|Not required for Azure CLI, required for ARM template or other clients|
 
 > [!NOTE]
 > After disabling Image Cleaner, the old configuration still exists. This means if you enable the feature again without explicitly passing configuration, the existing value is used instead of the default.
@@ -78,13 +78,13 @@ With Image Cleaner, you can choose between manual and automatic mode and the fol
       --image-cleaner-interval-hours 48
     ```
 
-After enabling the feature, the `eraser-controller-manager-xxx` pod and `collector-aks-xxx` pod are deployed. The `eraser-aks-xxx` pod contains *three* containers:
+After you enable the feature, the `eraser-controller-manager-xxx` pod and `collector-aks-xxx` pod are deployed. The `eraser-aks-xxx` pod contains *three* containers:
 
   1. **Scanner container**: Performs vulnerability image scans
-  2. **Collector container**: Collects non-running and unused images
+  2. **Collector container**: Collects nonrunning and unused images
   3. **Remover container**: Removes these images from cluster nodes
 
-Image Cleaner generates an `ImageList` containing non-running and vulnerable images at the desired interval based on your configuration. Image Cleaner automatically removes these images from cluster nodes.
+Image Cleaner generates an `ImageList` containing nonrunning and vulnerable images at the desired interval based on your configuration. Image Cleaner automatically removes these images from cluster nodes.
 
 ## Manually remove images using Image Cleaner
 
@@ -106,7 +106,7 @@ Image Cleaner generates an `ImageList` containing non-running and vulnerable ima
     kubectl apply -f image-list.yml
     ```
 
-    Applying the `ImageList` triggers a job named `eraser-aks-xxx` which causes Image Cleaner to remove the desired images from all nodes. Unlike the `eraser-aks-xxx` pod under auto-clean with *three* containers, the eraser-pod here has only *one* container.
+    Applying the `ImageList` triggers a job named `eraser-aks-xxx`, which causes Image Cleaner to remove the desired images from all nodes. Unlike the `eraser-aks-xxx` pod under autoclean with *three* containers, the eraser-pod here has only *one* container.
 
 ## Image exclusion list
 
@@ -194,7 +194,7 @@ You can view these logs using the `kubectl logs <pod name> -n kubesystem` comman
    | order by TimeGenerated desc
    ```
 
-5. Select **Run**. Any deleted image logs will appear in the **Results** area.
+5. Select **Run**. Any deleted image logs appear in the **Results** area.
 
    :::image type="content" source="media/image-cleaner/eraser-log-analytics.png" alt-text="Screenshot showing deleted image logs in the Azure portal." lightbox="media/image-cleaner/eraser-log-analytics.png":::
 
