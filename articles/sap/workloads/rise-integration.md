@@ -188,7 +188,9 @@ SAP RISE/ECS exposes the communication ports for these applications to use but h
 
 SAP RISE/ECS exposes the communication ports for these applications to use but has no knowledge about any details of the connected application or service running in a customer’s subscription. Contact SAP for any SAP license details for any implications accessing SAP data through Azure service connecting to the SAP system or database.
 
-## Single sign-on for SAP 
+## Identity, security and monitoring with SAP RISE
+
+### Single sign-on for SAP 
 
 Single sign-On (SSO) is configured for many SAP environments. With SAP workloads running in ECS/RISE, steps identical to a natively run SAP system can be followed. The integration steps with Azure Active Directory (Azure AD) based SSO are available for typical ECS/RISE managed workloads:
 - [Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver](../../active-directory/saas-apps/sap-netweaver-tutorial.md)
@@ -203,7 +205,7 @@ Single sign-On (SSO) is configured for many SAP environments. With SAP workloads
 
 SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SAP environment, with SAP SSO Secure Login Client requires AD integration for end user devices. With SAP RISE, any Windows systems are not integrated with the customer's active directory domain. This isn't necessary for SSO with AD/Kerberos as the domain security token is read on the client device and exchanged securely with SAP system. Contact SAP if you require any changes to integrate AD based SSO or using third party products other than SAP SSO Secure Login Client, as some configuration on RISE managed systems might be required.
 
-## Microsoft Sentinel with SAP RISE
+### Microsoft Sentinel with SAP RISE
 
 The Microsoft Sentinel solution for SAP applications allows you to monitor, detect, and respond to suspicious activities and guard your critical data against sophisticated cyberattacks for SAP systems hosted on Azure, other clouds, or on-premises infrastructure. 
 
@@ -230,7 +232,7 @@ Note for running Microsoft Sentinel in an SAP RISE/ECS environment:
 
 For more information on Microsoft Sentinel and SAP, including a deployment guide, see [Sentinel product documentation](../../sentinel/sap/deployment-overview.md).
 
-## Azure Monitoring for SAP with SAP RISE
+### Azure Monitoring for SAP with SAP RISE
 
 [Azure Monitoring for SAP](../monitor/about-azure-monitor-sap-solutions.md) is an Azure-native solution for monitoring your SAP system. It extends the Azure monitor platform monitoring capability with support to gather data about SAP NetWeaver, database, and operating system details.
 
@@ -239,7 +241,7 @@ For more information on Microsoft Sentinel and SAP, including a deployment guide
 
 SAP RISE/ECS doesn't support any integration with Azure Monitoring for SAP. RISE/ECS’s own monitoring and reporting is provided to the customer as defined by your service description with SAP.
 
-## Azure Center for SAP Solutions
+### Azure Center for SAP Solutions
 
 Just as with Azure Monitoring for SAP, SAP RISE/ECS doesn't support any integration with [Azure Center for SAP Solutions](../center-sap-solutions/overview.md) in any capability. All SAP RISE workloads are deployed by SAP and running in SAP's Azure tenant and subscription, without any access by customer to the Azure resources.
 
