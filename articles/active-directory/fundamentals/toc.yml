@@ -300,15 +300,15 @@ items:
   - name: Azure AD Operations reference
     items:
     - name: Introduction
-      href: active-directory-ops-guide-intro.md
+      href: ops-guide-intro.md
     - name: Identity and access management
-      href: active-directory-ops-guide-iam.md
+      href: ops-guide-iam.md
     - name: Authentication management
       href: ops-guide-auth.md
     - name: Identity governance
       href: ops-guide-govern.md
     - name: Operations
-      href: active-directory-ops-guide-ops.md
+      href: ops-guide-ops.md
   - name: Security
     items: 
     - name: Security baseline
