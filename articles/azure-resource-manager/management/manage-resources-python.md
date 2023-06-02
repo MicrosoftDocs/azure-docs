@@ -3,7 +3,7 @@ title: Manage resources - Python
 description: Use Python and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
 ms.topic: conceptual
 ms.date: 04/21/2023
-ms.custom: devx-track-azurepowershell, devx-track-arm-template, ai-gen-docs
+ms.custom: devx-track-arm-template, ai-gen-docs, devx-track-python
 ---
 
 # Manage Azure resources by using Python
