@@ -14,7 +14,7 @@ ms.author: mbender
 >[!Important]
 >On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. This article will help guide you through the upgrade process.
 
-For more information about the retirement of Basic SKU Public IPs and the benefits of Standard SKU Public IPs, please see [Upgrading a basic public IP address to Standard SKU - Guidance](public-ip-basic-upgrade-guidance.md)
+For more information about the retirement of Basic SKU Public IPs and the benefits of Standard SKU Public IPs, see [Upgrading a basic public IP address to Standard SKU - Guidance](public-ip-basic-upgrade-guidance.md)
 
 ## Upgrade overview
 
@@ -26,11 +26,11 @@ The module logs all upgrade activity to a file named `PublicIPUpgrade.log`, crea
 
 ## Constraints/ Unsupported Scenarios
 
-* **VMs with NICs associated to a Load Balancer**: Because the Load Balancer and Public IP SKUs associated with a VM must match, it is not possible to upgrade the instance-level Public IP addresses associated with a VM when the VM's NICs are also associated with a Load Balancer, either though Backend Pool or NAT Pool membership. Use the scripts for upgrading a basic load balancer used with [virtual machines](../../load-balancer/upgrade-basic-standard.md) or [virtual machine scale sets](../../load-balancer/upgrade-basic-standard-virtual-machine-scale-sets.md) to upgrade both the Load Balancer and Public IPs as the same time.
+* **VMs with NICs associated to a Load Balancer**: Because the Load Balancer and Public IP SKUs associated with a VM must match, it isn't possible to upgrade the instance-level Public IP addresses associated with a VM when the VM's NICs are also associated with a Load Balancer, either though Backend Pool or NAT Pool membership. Use the scripts for upgrading a basic load balancer used with [virtual machines](../../load-balancer/upgrade-basic-standard.md) or [virtual machine scale sets](../../load-balancer/upgrade-basic-standard-virtual-machine-scale-sets.md) to upgrade both the Load Balancer and Public IPs as the same time.
 
-* **VMs without a Network Security Group**: VMs with IPs to be upgraded must have a Network Security Group (NSG) associated with either the subnet of each IP configuration with a Public IP, or with the NIC directly. This is because Standard SKU Public IPs are "secure by default", meaning that any traffic to the Public IP must be explicitly allowed at an NSG to reach the VM. Basic SKU Public IPs allow any traffic by default. Upgrading Public IP SKUs without an NSG will result in inbound internet traffic to the Public IP previously allowed with the Basic SKU being blocked post-migration. See: [Public IP SKUs](public-ip-addresses.md#sku)
+* **VMs without a Network Security Group**: VMs with IPs to be upgraded must have a Network Security Group (NSG) associated with either the subnet of each IP configuration with a Public IP, or with the NIC directly. This is because Standard SKU Public IPs are "secure by default", meaning that any traffic to the Public IP must be explicitly allowed at an NSG to reach the VM. Basic SKU Public IPs allow any traffic by default. Upgrading Public IP SKUs without an NSG would result in inbound internet traffic to the Public IP previously allowed with the Basic SKU being blocked post-migration. See: [Public IP SKUs](public-ip-addresses.md#sku)
 
-* **Virtual Machine Scale Sets with Public IP configurations**: If you have a virtual machine scale set (uniform model) with public IP configurations per instance, note these are not Public IP resources and as such cannot be upgraded; a new virtual machine scale set is required. You can use the SKU property to specify that Standard IP configurations are required for each VMSS instance as shown [here](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine).
+* **Virtual Machine Scale Sets with Public IP configurations**: If you have a virtual machine scale set (uniform model) with public IP configurations per instance, note these aren't Public IP resources and as such cannot be upgraded; a new virtual machine scale set is required. You can use the SKU property to specify that Standard IP configurations are required for each VMSS instance as shown [here](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine).
 
 ### Prerequisites
 
@@ -74,7 +74,7 @@ To evaluate upgrading a single VM, without making any changes, add the -WhatIf p
     Start-VMPublicIPUpgrade -VMName 'myVM' -ResourceGroupName 'myRG' -WhatIf
 ```
 
-To upgrade all VMs in a resource group, skipping those that do not have Network Security Groups.
+To upgrade all VMs in a resource group, skipping VMs that do not have Network Security Groups.
 
 ```powershell
     Get-AzVM -ResourceGroupName 'myRG' | Start-VMPublicIPUpgrade -skipVMMissingNSG
@@ -82,9 +82,9 @@ To upgrade all VMs in a resource group, skipping those that do not have Network 
 
 ### Recovering from a Failed Migration
 
-When a migration fails due to a transient issue, such as a network outage or client system crash, the migration can be re-run to configure the VM and Public IPs in the goal state. At execution, the script outputs a recovery log file which is used to ensure the VM is properly reconfigured. Review the log file `PublicIPUpgrade.log` created in the location where the script was executed.
+When a migration fails due to a transient issue, such as a network outage or client system crash, the migration can be re-run to configure the VM and Public IPs in the goal state. At execution, the script outputs a recovery log file, which is used to ensure the VM is properly reconfigured. Review the log file `PublicIPUpgrade.log` created in the location where the script was executed.
 
-To recover from a failed upgrade, pass the recovery log file path to the script with the `-recoverFromFile` parameter and identify the VM to recover with the `-VMName` and `-VMResourceGroup` or `-VMResourceID` parameters, as shown in the example below.
+To recover from a failed upgrade, pass the recovery log file path to the script with the `-recoverFromFile` parameter and identify the VM to recover with the `-VMName` and `-VMResourceGroup` or `-VMResourceID` parameters, as shown in this example.
 
 ```powershell
     Start-VMPublicIPUpgrade -RecoverFromFile ./PublicIPUpgrade_Recovery_2020-01-01-00-00.csv -VMName myVM -VMResourceGroup -rg-myrg
@@ -94,19 +94,19 @@ To recover from a failed upgrade, pass the recovery log file path to the script 
 
 ### How long will the migration take and how long will my VM be inaccessible at its Public IP?
 
-The time it takes to upgrade a VM's Public IPs will depend on the number of Public IPs and Network Interfaces associated with the VM. In testing, a VM with a single NIC and Public IP will take between 1 and 2 minutes to upgrade. Each NIC on the VM will add about another minute, and each Public IP adds a few seconds each.
+The time it takes to upgrade a VM's Public IPs will depend on the number of Public IPs and Network Interfaces associated with the VM. In testing, a VM with a single NIC and Public IP takes between 1 and 2 minutes to upgrade. Each NIC on the VM adds about another minute, and each Public IP adds a few seconds each.
 
 ### If something goes wrong with the upgrade can I roll back to a Basic SKU Public IP?
 
-It is not possible to downgrade a Public IP address from Standard to Basic, so our recommendation is to fail-forward and address the issue with the Standard SKU IPs.
+It is not possible to downgrade a Public IP address from Standard to Basic.
 
 ### Can I test a migration before executing? 
 
-There is no way to evaluate upgrading a Public IP without completing the action. This script includes a `-whatif` parameter, which checks that your VM will support the upgrade and walks through the steps without taking action. 
+There is no way to evaluate upgrading a Public IP without completing the action. However, this script includes a `-whatif` parameter which checks that your VM will support the upgrade and walks through the steps without taking action. 
 
-### Does this script support Zonal Basic SKU Public IPs? 
+### Does the script support Zonal Basic SKU Public IPs? 
 
-Yes, the process of upgrading a Zonal Basic SKU Public IP to a Zonal Standard SKU Public IP is the same as a Regional Public IP.
+Yes, the process of upgrading a Zonal Basic SKU Public IP to a Zonal Standard SKU Public IP is identical and works in the script.
 
 ## Next steps
 
