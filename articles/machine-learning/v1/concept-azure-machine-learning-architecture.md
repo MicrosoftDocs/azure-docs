@@ -267,7 +267,7 @@ Azure Machine Learning provides the following monitoring and logging capabilitie
 The studio is also where you access the interactive tools that are part of Azure Machine Learning:
 
 + [Azure Machine Learning designer](concept-designer.md) to perform workflow steps without writing code
-+ Web experience for [automated machine learning](concept-automated-ml-v1.md)
++ Web experience for [automated machine learning](concept-automated-ml.md)
 + [Azure Machine Learning notebooks](../how-to-run-jupyter-notebooks.md) to write and run your own code in integrated Jupyter notebook servers.
 + Data labeling projects to create, manage, and monitor projects for labeling [images](../how-to-create-image-labeling-projects.md) or [text](../how-to-create-text-labeling-projects.md).
 

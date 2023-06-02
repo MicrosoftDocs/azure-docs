@@ -821,7 +821,7 @@
           displayName: high availability
           href: ./v1/how-to-high-availability-machine-learning.md
         - name: Regenerate storage access keys
-          href: ./v1/how-to-change-storage-access-key.md
+          href: how-to-change-storage-access-key.md
     # end v1
     - name: Create & manage workspaces
       items:
@@ -950,7 +950,7 @@
         # v1
         - name: Set up dev environments
           displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
-          href: ./v1/how-to-configure-environment-v1.md
+          href: ./v1/how-to-configure-environment.md
         # end v1
         - name: Install and set up the CLI (v2)
           displayName: azurecli, mlops
@@ -1023,7 +1023,7 @@
           href: ./v1/how-to-deploy-and-where.md
         - name: Hyperparameter tuning a model (v1)
           displayName: azurecli, AzureML
-          href: ./v1/how-to-tune-hyperparameters-v1.md
+          href: ./v1/how-to-tune-hyperparameters.md
         - name: Azure Kubernetes Service
           displayName: aks, aad, authentication, azure active directory
           href: ./v1/how-to-deploy-azure-kubernetes-service.md
@@ -1415,9 +1415,9 @@
       href: ./v1/reference-pipeline-yaml.md
     - name: Hyperparameters for AutoML computer vision tasks (v1)
       displayName: automl, yolo-5, image, image model
-      href: ./v1/reference-automl-images-hyperparameters-v1.md
+      href: ./v1/reference-automl-images-hyperparameters.md
     - name: Image data schemas for AutoML (v1)
-      href: ./v1/reference-automl-images-schema-v1.md
+      href: ./v1/reference-automl-images-schema.md
     - name: Migrate from ML Studio (classic)
       items: 
       - name: Migration overview
