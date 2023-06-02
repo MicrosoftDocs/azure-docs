@@ -85,7 +85,7 @@ To create the data collection rule in the Azure portal:
 Use the following steps to troubleshoot the collection of firewall logs. 
 
 ### Run Azure Monitor Agent troubleshooter
-To test your configuration and share logs with Microsoft [use the Azure Monitor Agent Troubleshooter](./use-azure-monitor-agent-troubleshooter)
+To test your configuration and share logs with Microsoft [use the Azure Monitor Agent Troubleshooter](use-azure-monitor-agent-troubleshooter)
 
 ### Check if any firewall logs have been received
 Start by checking if any records have been collected for your firewall logs by running the following query in Log Analytics. If the query doesn't return records, check the other sections for possible causes. This query looks for entries in the last two days, but you can modify for another time range.
