@@ -47,6 +47,9 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 
 ::: zone-end
 
+> [!NOTE]
+> Container apps and jobs don't support running Docker in containers. Any Docker commands in your workflow will fail.
+
 ## Prerequisites
 
 - An Azure account with an active subscription.
