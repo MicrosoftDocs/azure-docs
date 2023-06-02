@@ -97,7 +97,7 @@ SELECT tenant_attribute,
 FROM citus_stat_tenants;
 ```
 
-Let's now review the resultset captured in the `citus_stat_tenants` view. For tenant_attribute `1`, during this ongoing period, there were 5 queries executed, resulting in a relatively low CPU usage of 0.000299. Additionally, there was 1 read count recorded. We observed queries in last 60 seconds for the 3 tenants, which appears in resultset. Ordering of Top N tenants depends on `query_count_in_this_period` field.
+Let's now review the resultset captured in the `citus_stat_tenants` view. For tenant_attribute `1`, during this ongoing period, there were 5 queries executed, resulting in a relatively low CPU usage of 0.000299. Additionally, there was 1 read count recorded. We observed queries in last 60 seconds for the 3 tenants, which appear in resultset. Ordering of Top N tenants depends on `query_count_in_this_period` field.
 
 ```text
 tenant_attribute | read_count_in_this_period | query_count_in_this_period | cpu_usage_in_this_period
