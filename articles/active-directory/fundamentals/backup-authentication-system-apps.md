@@ -84,3 +84,5 @@ The backup authentication system doesn't currently support service principal-bas
 
 - [Azure AD's backup authentication system](backup-authentication-system.md)
 - [Microsoft Authentication Library (MSAL)](../develop/msal-overview.md)
+- [Introduction to the backup authentication system](https://azure.microsoft.com/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
+- [Resilience Defaults for Conditional Access](../conditional-access/resilience-defaults.md)

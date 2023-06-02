@@ -33,8 +33,7 @@ Service to service authentication that relies on Azure AD managed identities or 
 
 Microsoft is continuously expanding the number of supported scenarios. 
 
-
-### Which non-Microsoft workloads are supported?
+## Which non-Microsoft workloads are supported?
 
 The backup authentication system automatically provides incremental resilience to tens of thousands of supported non-Microsoft applications based on their authentication patterns. Seethe appendix for a list of the most [common non-Microsoft applications and their coverage status](#appendix). For an in depth explanation of which authentication patterns are supported, see the article [Understanding Application Support for the backup authentication system](backup-authentication-system-apps.md) article. 
 
@@ -49,7 +48,7 @@ The following auth patterns aren't currently supported:
 - Web applications that authenticate using Open ID Connect and request access tokens
 - Web applications that use the SAML protocol for authentication, when configured as SP-Initiated SSO
 
-### What makes a user supportable by the backup authentication system?
+## What makes a user supportable by the backup authentication system?
 
 During an outage, a user can authenticate using the backup authentication system if the following conditions are met:
 
@@ -73,7 +72,7 @@ Certain other types of policies don't support use of the backup authentication s
 - Use of the [authentication methods policy](../conditional-access/concept-conditional-access-grant.md#require-authentication-strength).
 - Use of [classic Conditional Access policies](../conditional-access/policy-migration.md).
 
-### Workload identity resilience in the backup authentication system
+## Workload identity resilience in the backup authentication system
 
 In addition to user authentication, the backup authentication system provides resilience for [managed identities](../managed-identities-azure-resources/overview.md) and other key Azure infrastructure by offering a regionally isolated authentication service that is redundantly layered with the primary authentication service. This system enables the infrastructure authentication within an Azure region to be resilient to issues that may occur in another region or within the larger Azure Active Directory service. This system complements Azure’s cross-region architecture. Building your own applications using MI and following Azure’s [best practices for resilience and availability]() ensures your applications are highly resilient. In addition to MI, this regionally resilient backup system protects key Azure infrastructure and services that keep the cloud functional.
 
@@ -83,7 +82,7 @@ Summary of Infrastructure Authentication support
 - Azure services authenticating with each other are protected by the backup authentication system.
 - Your services built on or off Azure when the identities are registered as Service Principals and not “managed identities” **aren't protected** by the backup authentication system.
 
-### Cloud environments that support the backup authentication system
+## Cloud environments that support the backup authentication system
 
 The backup authentication system is supported in all cloud environments except Azure China 21vianet. The types of identities supported vary by cloud, as described in the following table. 
 
@@ -95,16 +94,9 @@ The backup authentication system is supported in all cloud environments except A
 | Azure Government Top Secret | managed identities |
 | Azure China | Not available |
 
-## Other resources
-
-- [Application requirements for the backup authentication system](backup-authentication-system-apps.md)
-- [Introduction to the backup authentication system](https://azure.microsoft.com/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
-- [Resilience Defaults for Conditional Access](../conditional-access/resilience-defaults.md)
-- [Azure Active Directory SLA performance reporting](../reports-monitoring/reference-azure-ad-sla-performance.md)
-
 ## Appendix
 
-### Popular Non-Microsoft native client apps and app gallery applications
+### Popular non-Microsoft native client apps and app gallery applications
 
 | App Name | Protected | Why Not protected? |
 | --- | --- | --- |
@@ -256,4 +248,7 @@ The backup authentication system is supported in all cloud environments except A
 
 ## Next steps
 
-[Application requirements for the backup authentication system](backup-authentication-system-apps.md)
+- [Application requirements for the backup authentication system](backup-authentication-system-apps.md)
+- [Introduction to the backup authentication system](https://azure.microsoft.com/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
+- [Resilience Defaults for Conditional Access](../conditional-access/resilience-defaults.md)
+- [Azure Active Directory SLA performance reporting](../reports-monitoring/reference-azure-ad-sla-performance.md)
