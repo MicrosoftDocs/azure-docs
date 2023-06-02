@@ -288,16 +288,15 @@ The following section provides more information about each assembly type and whe
 
 - Client/SDK assembly (.NET Framework):
 
-  This assembly provides the Custom .NET Framework SDK. For example, the [SAP built-in connector](/azure/logic-apps/connectors/built-in/reference/sap/) uses these assemblies to find the SAP NCo non-distributable DLL files. You can add these assemblies in the following folder: **\lib\builtinOperationSdks\net472**
+  This assembly section provides storage and deployment of client and custom SDK for .NET Framework. For example, the [SAP built-in connector](/azure/logic-apps/connectors/built-in/reference/sap/) uses this assembly section to load the SAP NCo non-redistributable DLL files. You can add these assemblies in the following folder: **\lib\builtinOperationSdks\net472**
  
 - Client/SDK assembly (Java)
 
-  This assembly provides the Custom Java SDK. For example, the [JDBC built-in connector](/azure/logic-apps/connectors/built-in/reference/jdbc/) uses these JAR files to find JDBC drivers for custom relational databases (RDBs). You can add these assemblies in the following folder: **\lib\builtinOperationSdks\JAR**
+  This assembly section provides storage and deployment of custom SDK for Java. For example, the [JDBC built-in connector](/azure/logic-apps/connectors/built-in/reference/jdbc/) uses these JAR files to find JDBC drivers for custom relational databases (RDBs). You can add these assemblies in the following folder: **\lib\builtinOperationSdks\JAR**
   
 - Custom assembly (.NET Framework)
   
-  This assembly provides custom DLLs. For example, the **Transform XML** operation uses these assemblies for the custom transformation functions that are required for XML transformation. You can add these assemblies in the following folder: **\lib\custom\net472**
-
+  This assembly section provides storage and deployment of custom DLLs. For example, the **Transform XML** operation uses these assemblies for the custom transformation functions that are required during XML transformation. You can add these assemblies in the following folder: **\lib\custom\net472**
 
 The following image shows where to put each assembly type in your project:
 
