@@ -1,6 +1,6 @@
 ---
 title: Azure Lab Services within Microsoft Teams
-description: Provides an overview of using Azure Lab Services within Microsoft Teams. 
+description: Learn about the benefits of using Azure Lab Services in Microsoft Teams.
 services: lab-services
 ms.service: lab-services
 ms.author: nicktrog
@@ -24,8 +24,8 @@ Azure Lab Services integration with Microsoft Teams provides the following benef
 
 * Lab users can access their lab virtual machines from within Teams, without leaving Teams and having to navigate to the [Azure Lab Services website](https://labs.azure.com).
 * Use Single Sign-on (SSO) from Teams to access Azure Lab Services.
-* Team and lab owners don't need to maintain lab participants in two different systems. The list of lab users is autopopulated from the Team membership. Azure Lab Services automatically performs a synchronization every 24 hours.
-* After the initial publish of the template virtual machine, the lab capacity (the number of virtual machines in the lab) is automatically adjusted based on the addition/deletion of users from the Team membership.
+* Team and lab owners don't need to maintain lab participants in two different systems. The list of lab users is autopopulated from the team membership. Azure Lab Services automatically performs a synchronization every 24 hours.
+* After the initial publish of the template virtual machine, the lab capacity (the number of virtual machines in the lab) is automatically adjusted based on the addition/deletion of users from the team membership.
 * Team and lab owners see only the labs that are related to the team. Lab users only see the virtual machines that are provisioned for the specific team.
 * Lab creators don't need to send invitations and lab users don't need to register for the lab separately. Lab users are autoregistered for the lab and virtual machines are automatically assigned upon the first sign-in after the lab is published. 
 
