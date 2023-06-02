@@ -9,14 +9,26 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: build-2023, devx-track-dotnet, devx-track-python
 ms.topic: reference
-ms.date: 12/17/2022
+ms.date: 06/02/2023
 ms.author: lajanuar
 ---
 
-# Document Translation client-library SDKs
+# Document Translation client-library SDKs 
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD001 -->
-[Document Translation](../overview.md) is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](../quickstarts/get-started-with-rest-api.md) guide.
+
+> [!IMPORTANT]
+>
+> * The Java, JavaScript Document Translation SDKs are currently available in public preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback. The C# and Python SDKs are generally available (GA) for use in your production applications.
+
+Document Translation is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#supported-document-formats). In this quickstart, learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
+
+> [!IMPORTANT]
+>
+> * Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
+>
+> * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. *See* [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+>
 
 ## Prerequisites
 
@@ -31,12 +43,12 @@ To get started, you need:
   * **Source container**. This container is where you upload your files for translation (required).
   * **Target container**. This container is where your translated files are stored (required).
 
-* You also need to create Shared Access Signature (SAS) tokens for your source and target containers. The `sourceUrl`  and `targetUrl` , must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. *See* [**Create SAS tokens for Document Translation process**](create-sas-tokens.md).
+* You also need to create Shared Access Signature (SAS) tokens for your source and target containers. The `sourceUrl`  and `targetUrl` , must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. *See* [**Create SAS tokens for Document Translation process**](../how-to-guides/create-sas-tokens.md).
 
   * Your **source** container or blob must have designated  **read** and **list** access.
   * Your **target** container or blob must have designated  **write** and **list** access.
 
-For more information, *see* [Create SAS tokens](create-sas-tokens.md).
+For more information, *see* [Create SAS tokens](../how-to-guides/create-sas-tokens.md).
 
 ## Client libraries
 

@@ -6092,7 +6092,22 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/how-to-guides/use-client-sdks.md",
-            "redirect_url": "/azure/cognitive-services/Translator/document-translation/quickstarts/get-started-with-sdks",
+            "redirect_url": "/azure/cognitive-services/Translator/document-translation/quickstarts/get-started-document-sdk",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/quickstarts/get-started-with-rest-api.md",
+            "redirect_url": "/azure/cognitive-services/Translator/document-translation/quickstarts/get-started-document-rest-api",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/quickstart-translator-rest-api.md",
+            "redirect_url": "/azure/cognitive-services/Translator/quickstart-text-rest-api",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/quickstart-translator-sdk.md",
+            "redirect_url": "/azure/cognitive-services/Translator/quickstart-text-sdk",
             "redirect_document_id": true
         }
     ]

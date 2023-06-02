@@ -40,10 +40,10 @@ items:
     items:
     - name: 🆕 Translator Text SDK (preview)
       displayName: get started,sdk,keys,endpoint,headers,c#,go,java,javascript,python,setup
-      href: quickstart-translator-sdk.md
+      href: quickstart-text-sdk.md
     - name:  Translator Text REST APIs
       displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
-      href: quickstart-translator-rest-api.md
+      href: quickstart-text-rest-api.md
   - name: Samples
     items:
     - name: Code Sample page
@@ -150,10 +150,10 @@ items:
       items:
       - name: Document Translation SDKs
         displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
-        href: document-translation/quickstarts/get-started-with-sdks.md
+        href: document-translation/quickstarts/get-started-document-sdk.md
       - name:  Document Translation REST APIs
         displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
-        href: document-translation/quickstarts/get-started-with-rest-api.md
+        href: document-translation/quickstarts/get-started-document-rest-api.md
     - name: How-to guides
       items:
       - name: Use REST APIs programmatically

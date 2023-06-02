@@ -7,11 +7,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 03/22/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
-ms.custom: mode-other, build-2023, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
+ms.custom: mode-other, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-translator
 ---
 
@@ -21,8 +21,10 @@ Document Translation is a cloud-based feature of the [Azure Translator](../../tr
 
 ## Prerequisites
 
-> [!NOTE]
+> [!IMPORTANT]
 >
+> * Java and JavaScript Document Translation SDKs are currently available in **public preview**. Features, approaches and processes may change, prior to the general availability (GA) release, based on user feedback.
+> * C# and Python SDKs are general availability (GA) releases ready for use in your production applications
 > * Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
 >
 > * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. *See* [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
@@ -77,9 +79,6 @@ To get started, you need:
 
     :::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="Screenshot showing the get your key field in Azure portal.":::
 
-> [!div class="nextstepaction"]
-> [I ran into an issue retrieving my key and endpoint.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Retrieve-your-keys-and-endpoint)
-
 ## Create Azure Blob Storage containers
 
 You need to [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
@@ -107,29 +106,6 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 ### Sample document
 
 For this project, you need a **source document** uploaded to your **source container**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart. The source language is English.
-
-## HTTP request
-
-A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the service creates a batch request. The translated documents are listed in your target container.
-
-For detailed information regarding Azure Translator Service request limits, *see* [**Document Translation request limits**](../../request-limits.md#document-translation).
-
-### Headers
-
-The following headers are included with each Document Translation API request:
-
-|HTTP header|Description|
-|---|--|
-|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure key for your Translator or Cognitive Services resource.|
-|Content-Type|**Required**: Specifies the content type of the payload. Accepted values are application/json or charset=UTF-8.|
-
-### POST request body
-
-* The POST request body is a JSON object named `inputs`.
-* The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs.
-* The `prefix` and `suffix` are case-sensitive strings to filter documents in the source path for translation. The `prefix` field is often used to delineate subfolders for translation. The `suffix` field is most often used for file extensions.
-* A value for the  `glossaries`  field (optional) is applied when the document is being translated.
-* The `targetUrl` for each target language must be unique.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -165,7 +141,4 @@ That's it, congratulations! In this quickstart, you used Document Translation to
 
 ## Next steps
 
-Learn more about Document Translation:
 
-> [!div class="nextstepaction"]
->[Document Translation REST API guide](../reference/rest-api-guide.md) </br></br>[Language support](../../language-support.md)

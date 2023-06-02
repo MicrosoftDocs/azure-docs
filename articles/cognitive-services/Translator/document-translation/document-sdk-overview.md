@@ -19,9 +19,16 @@ recommendations: false
 
 # Azure Document Translation SDK
 
+> [!IMPORTANT]
+>
+> * Java, JavaScript Document Translation SDKs are currently available in public preview. Features, approaches and processes may change, prior to general availability (GA) release, based on user feedback. 
+> * C# and Python SDKs are generally available (GA) releases ready for use in your production applications.
+
+Azure Document Translation is a cloud-based REST API feature of the Azure Translator service. The Document Translation API enables quick and accurate source-to-target whole document translations asynchronously in supported languages and various file formats. I. The Document Translation software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Translation REST API capabilities into your applications. Document Translation SDK is available across programming platforms in C#/.NET, Java, JavaScript, and Python.
+
 ## Supported languages
 
-Document Translation SDK supports the following:
+Document Translation SDK supports the following programming languages:
 
 | Language → SDK version | Package|Client library| Supported API version|
 |:----------------------:|:----------|:----------|:-------------|
@@ -44,6 +51,8 @@ The Document Translation SDK enables the use and management of the Document Tran
 
 ### [Python](#tab/python)
 
+---
+
 ### 2. Import the SDK client library into your application
 
 ### [C#/.NET](#tab/csharp)
@@ -53,6 +62,8 @@ The Document Translation SDK enables the use and management of the Document Tran
 ### [JavaScript](#tab/javascript)
 
 ### [Python](#tab/python)
+
+---
 
 ### 3. Authenticate the client
 
@@ -64,6 +75,8 @@ The Document Translation SDK enables the use and management of the Document Tran
 
 ### [Python](#tab/python)
 
+---
+
 ### 4. Build your application
 
 ### [C#/.NET](#tab/csharp)
@@ -73,6 +86,8 @@ The Document Translation SDK enables the use and management of the Document Tran
 ### [JavaScript](#tab/javascript)
 
 ### [Python](#tab/python)
+
+---
 
 ## Help options
 
