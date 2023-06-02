@@ -97,10 +97,10 @@ The backup authentication system is supported in all cloud environments except A
 
 ## Other resources
 
-[Understanding application Support for the backup authentication system]()
-[Introduction to the backup authentication system]()
-[Resilience Defaults for Azure AD Conditional Access]()
-[Azure Active Directory SLA performance reporting](../reports-monitoring/reference-azure-ad-sla-performance.md)
+- [Application requirements for the backup authentication system](backup-authentication-system-apps.md)
+- [Introduction to the backup authentication system](https://azure.microsoft.com/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
+- [Resilience Defaults for Conditional Access](../conditional-access/resilience-defaults.md)
+- [Azure Active Directory SLA performance reporting](../reports-monitoring/reference-azure-ad-sla-performance.md)
 
 ## Appendix
 
