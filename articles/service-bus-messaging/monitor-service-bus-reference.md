@@ -104,28 +104,43 @@ Azure Service Bus now supports sending to any of two destination tables- Azure D
 ### Operational logs
 Operational log entries include elements listed in the following table:
 
-| Name | Description | Supported in Azure Diagnostics | Supported in Resource Specific table 
+| Name | Description | Supported in AzureDiagnostics | Supported in AZMSOperationalLogs (Resource Specific table)|
 | ------- | ------- |---| ---|
-| `ActivityId` | Internal ID, used to identify the specified activity | Yes | Yes 
-| `EventName` | Operation name | Yes | Yes
-| `ResourceId` | Azure Resource Manager resource ID | Yes | Yes
-| `SubscriptionId` | Subscription ID | Yes | Yes
-| `EventtimeString`| Operation Time | Yes | No
-| `TimeGenerated [UTC]`|Time of executed operation (in UTC)| No | Yes
-| `EventProperties` | Operation properties | Yes | Yes
-| `Status` | Operation status | Yes | Yes 
-| `Caller` | Caller of operation (the Azure portal or management client) | Yes | Yes 
-| `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
-|  `Type`  | AZMSOperationalLogs| No | Yes
-| `Category'| Category of logs | Yes | No
-
+| `ActivityId` | Internal ID, used to identify the specified activity | Yes | Yes|
+| `EventName` | Operation name | Yes | Yes|
+| `ResourceId` | Azure Resource Manager resource ID | Yes | Yes|
+| `SubscriptionId` | Subscription ID | Yes | Yes|
+| `EventtimeString`| Operation Time | Yes | No|
+| `TimeGenerated [UTC]`|Time of executed operation (in UTC)| No | Yes|
+| `EventProperties` | Operation properties | Yes | Yes|
+| `Status` | Operation status | Yes | Yes|
+| `Caller` | Caller of operation (the Azure portal or management client) | Yes | Yes|
+| `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes|
+|  `Type 	`| AZMSOperationalLogs| No | Yes|
+| `Category'| Category of logs  emitted.| Yes | No|
 
 Here's an example of an operational log JSON string:
 
 
 
-```Azure Diagnostics
+```AzureDiagnostics
 
+{
+  "ActivityId": "0000000000-0000-0000-0000-00000000000000",
+  "EventName": "Create Queue",
+  "resourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
+  "SubscriptionId": "0000000000-0000-0000-0000-00000000000000",
+  "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
+  "EventProperties": "{\"SubscriptionId\":\"0000000000-0000-0000-0000-00000000000000\",\"Namespace\":\"mynamespace\",\"Via\":\"https://mynamespace.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
+  "Status": "Succeeded",
+  "Caller": "ServiceBus Client",
+  "category": "OperationalLogs"
+}
+
+
+```
+
+```AZMSOperationalLogs
 
 {
 
@@ -138,24 +153,20 @@ Here's an example of an operational log JSON string:
   "Status": "Succeeded",
   "Caller": "ServiceBus Client",
   "type": "AZMSOperationalLogs"
+  "Provider" : "SERVICEBUS"
 
 }
-```
-```AZMSOperationalLogs ( Resource Specific)
-{
 
-  "ActivityId": "0000000000-0000-0000-0000-00000000000000",
-  "EventName": "Retrieve Queue",
-  "resourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
-  "SubscriptionId": "0000000000-0000-0000-0000-00000000000000",
-  "TimeGenerated(UTC)": "9/28/2023 8:40:06 PM +00:00",
-  "EventProperties": "{\"SubscriptionId\":\"0000000000-0000-0000-0000-00000000000000\",\"Namespace\":\"mynamespace\",\"Via\":\"https://mynamespace.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
-  "Status": "Succeeded",
-  "Caller": "ServiceBus Client",
-  "type": "AZMSOperationalLogs"
-
-}
 ```
+
+
+
+
+
+
+
+
+
 
 
 ### Events and operations captured in operational logs
@@ -179,25 +190,27 @@ The following management operations are captured in operational logs:
 ### Virtual network and IP filtering logs
 Service Bus virtual network (VNet) connection event JSON includes elements listed in the following table:
 
-| Name | Description | Supported in Azure Diagnostics | Supported in Resource Specific table 
+| Name | Description | Supported in Azure Diagnostics | Supported in AZMSVnetConnectionEvents Resource Specific table 
 | ---  | ----------- |---| ---| 
 | `SubscriptionId` | Azure subscription ID | Yes | Yes
 | `NamespaceName` | Namespace name | Yes | Yes
 | `IPAddress` | IP address of a client connecting to the Service Bus service | Yes | Yes 
-| `TimeGenerated [UTC]`|Time of executed operation (in UTC)| Yes | Yes 
+| `AddressIP` | IP address of client connecting to service bus | Yes | Yes
+| `TimeGenerated [UTC]`|Time of executed operation (in UTC) | Yes | Yes 
 | `Action` | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and Deny Connection**. | Yes | Yes 
 | `Reason` | Provides a reason why the action was done | Yes | Yes
 | `Count` | Number of occurrences for the given action | Yes | Yes
 | `ResourceId` | Azure Resource Manager resource ID. | Yes | Yes
 | `Category` | ServiceBusVNetConnectionEvent | Yes | No
 | `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
-|  `Type`  | AZMSOperationalLogs| No | Yes
+|  `Type`  | AZMSVNetConnectionEvents| No | Yes
+
 > [!NOTE] 
 > Virtual network logs are generated only if the namespace allows access from selected networks or from specific IP addresses (IP filter rules).
 
 Here's an example of a virtual network log JSON string:
 
-```json
+```AzureDiagnostics
 {
     "SubscriptionId": "0000000-0000-0000-0000-000000000000",
     "NamespaceName": "namespace-name",
@@ -207,6 +220,20 @@ Here's an example of a virtual network log JSON string:
     "Count": 1,
     "ResourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
     "Category": "ServiceBusVNetConnectionEvent"
+}
+```
+
+```AZMSVNetConnectionEvents
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "AddressIp": "1.2.3.4",
+    "Action": "Accept Connection",
+    "Message": "IP is accepted by IPAddress filter.",
+    "Count": 1,
+    "ResourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
+    "Provider" : "SERVICEBUS"
+    "Type": "AZMSVNetConnectionEvents"
 }
 ```
 
@@ -235,11 +262,11 @@ Name | Description | Supported in Azure Diagnostics | Supported in Resource Spec
 `Properties` | Metadata that is specific to the data plane operation. | yes | Yes
 `Category` | Log category | Yes | No
  `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
- `Type`  | AZMSOperationalLogs| No | Yes
+ `Type`  | AZMSRuntimeAuditLogs| No | Yes
 
 Here's an example of a runtime audit log entry:
 
-```json
+```AzureDiagnostics
 {
     "ActivityId": "<activity id>",
     "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
@@ -257,6 +284,27 @@ Here's an example of a runtime audit log entry:
 
 ```
 
+```AZMSRuntimeAuditLogs
+{
+    "ActivityId": "<activity id>",
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
+    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
+    "TimeGenerated (UTC)": "1/1/2021 8:40:06 PM +00:00",
+    "Status": "Success | Failure",
+    "Protocol": "AMQP | HTTP | SBMP", 
+    "AuthType": "SAS | AAD", 
+    "AuthKey": "<AAD Application Name| SAS policy name>",
+    "NetworkType": "Public | Private", 
+    "ClientIp": "x.x.x.x",
+    "Count": 1, 
+    "Provider": "SERVICEBUS",
+    "Type"   : "AZMSRuntimeAuditLogs"
+ }
+
+```
+
+
+
 ## Application metric logs 
 
 Application metrics logs capture the aggregated information on certain metrics related to data plane operations. The captured information includes the following runtime metrics.
@@ -272,4 +320,6 @@ Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these
 - For details on monitoring Azure Service Bus, see [Monitoring Azure Service Bus](monitor-service-bus.md).
 - For details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
 
+```
 
+```
