@@ -833,7 +833,7 @@ The image output is a managed image resource.
 
 ```json
 {
-  "type":"managedImage",
+  "type":"ManagedImage",
   "imageId": "<resource ID>",
   "location": "<region>",
   "runOutputName": "<name>",
@@ -848,7 +848,7 @@ The image output is a managed image resource.
 
 ```bicep
 {
-  type:'managedImage'
+  type:'ManagedImage'
   imageId: '<resource ID>'
   location: '<region>'
   runOutputName: '<name>'
@@ -863,7 +863,7 @@ The image output is a managed image resource.
 
 Distribute properties:
 
-- **type** – managedImage
+- **type** – ManagedImage
 - **imageId** – Resource ID of the destination image, expected format: /subscriptions/\<subscriptionId>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
 - **location** - location of the managed image.
 - **runOutputName** – unique name for identifying the distribution.
