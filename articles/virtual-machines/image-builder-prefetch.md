@@ -107,6 +107,10 @@ This is the end to end duration observed. Note, image generation duration varies
 
 Yes, the OS VHD is copied from customer subscription to Azure subscription for optimization in the same geographic location. Once optimization is finished or timed out, Azure internally deletes all copied OS VHDs.  
 
+### What are the performance improvements observed for VM boot optimization?
+
+Enabling VM boot optimization feature may not always result in noticeable performance improvement as it depends on several factors like source image already optimized, OS type, customization etc. However, to ensure the best VM boot performance, it's recommended to enable this feature.
+
   
 
 ## Next steps 
