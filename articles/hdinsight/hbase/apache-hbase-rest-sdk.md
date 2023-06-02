@@ -3,7 +3,7 @@ title: Use the HBase .NET SDK - Azure HDInsight
 description: Use the HBase .NET SDK to create and delete tables, and to read and write data.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: "hdinsightactive, devx-track-csharp"
+ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet
 ms.date: 04/28/2023
 ---
 

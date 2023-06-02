@@ -1603,7 +1603,11 @@
             "redirect_url": "/azure/frontdoor/web-application-firewall",
             "redirect_document_id": false
         },
-
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-configure-route.md",
+            "redirect_url": "/azure/frontdoor/how-to-configure-endpoints",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/aks/aks-resource-health.md",
             "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
@@ -22600,11 +22604,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/data-connectors/microsoft-defender-threat-intelligence.md",
-            "redirect_url": "/azure/sentinel/understand-threat-intelligence",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/principles-for-ai-generated-content.md",
             "redirect_url": "https://aka.ms/ai-content-principles",
             "redirect_document_id": false
@@ -22781,11 +22780,6 @@
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cisco-asa-ftd-via-ama.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
         },
