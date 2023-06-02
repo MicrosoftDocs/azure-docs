@@ -170,7 +170,8 @@ The backup authentication system is supported in all cloud environments except A
  
 ### Azure resources and their status
 
-| resource | Azure Resource Name | Status |
+| resource | Azure resource name | Status |
+| --- | --- | --- | 
 | microsoft.apimanagement | API Management service in Azure Government and China regions | Protected |
 | microsoft.app | App Service | Protected |
 | microsoft.appconfiguration | Azure App Configuration | Protected |
