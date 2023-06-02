@@ -18,7 +18,7 @@ ms.author: jboback
 This page contains information about how to select and prepare data in order to be successful in creating custom summarization projects.
 
 > [!NOTE]
-> Throughout this document, we refer to a summary of a document as a“label”.
+> Throughout this document, we refer to a summary of a document as a “label”.
 
 ### csum-document-sample-format
 
