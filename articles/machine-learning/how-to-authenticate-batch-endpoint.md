@@ -91,7 +91,40 @@ In this case, we want to execute a batch endpoint using the identity of the user
 
 # [REST](#tab/rest)
 
-When working with REST APIs, we recommend to using either a [service principal](#running-jobs-using-a-service-principal) or a [managed identity](#running-jobs-using-a-managed-identity) to interact with the API.
+When working with REST, we recommend invoking batch endpoints using a service principal. However, if you want to test a particular deployment using REST with your own credentials, you can do it by generating an Azure AD token for your account. Follow these steps:
+
+1. The simplest way to get a valid token for your user account is to use the Azure CLI. In a console, run the following command:
+
+    ```azurecli
+    az account get-access-token --resource https://ml.azure.com --query "accessToken" --output tsv
+    ```
+    
+1. Take note of the generated output.
+
+1. Once authenticated, make a request to the invocation URI replacing `<TOKEN>` by the one you obtained before.
+    
+    __Request__:
+    
+    ```http
+    POST jobs HTTP/1.1
+    Host: <ENDPOINT_URI>
+    Authorization: Bearer <TOKEN>
+    Content-Type: application/json
+    ```
+    __Body:__
+        
+    ```json
+    {
+        "properties": {
+    	    "InputData": {
+    		"mnistinput": {
+    		    "JobInputType" : "UriFolder",
+    		    "Uri":  "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci"
+    	        }
+            }
+        }
+    }
+    ```
 
 ---
 

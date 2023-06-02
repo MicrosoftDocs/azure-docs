@@ -18,7 +18,7 @@ ms.custom: devx-track-python, automl, event-tier1-build-2022, ignite-2022, devx-
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
-> * [v1](v1/tutorial-auto-train-image-models-v1.md?view=azureml-api-1&preserve-view=true)
+> * [v1](v1/tutorial-auto-train-image-models.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](tutorial-auto-train-image-models.md)
 
 

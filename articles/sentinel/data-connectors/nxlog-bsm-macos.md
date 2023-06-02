@@ -3,7 +3,7 @@ title: "NXLog BSM macOS connector for Microsoft Sentinel"
 description: "Learn how to install the connector NXLog BSM macOS to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 05/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -18,7 +18,7 @@ The NXLog [BSM](https://nxlog.co/documentation/nxlog-user-guide/im_bsm.html) mac
 | --- | --- |
 | **Log Analytics table(s)** | BSMmacOS_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [NXLog](https://nxlog.co/community-forum/t/819-support-tickets) |
+| **Supported by** | [NXLog](https://nxlog.co/user?destination=node/add/support-ticket) |
 
 ## Query samples
 

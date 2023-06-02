@@ -2,6 +2,7 @@
 title: Data Lake Analytics recent changes
 description: This article provides an ongoing list of recent changes that are made to Data Lake Analytics. 
 ms.service: data-lake-analytics
+ms.custom: devx-track-dotnet
 ms.topic: overview
 ms.date: 11/16/2022
 ---
@@ -50,4 +51,3 @@ For recent update details, refer to the [Azure Data Lake Analytics release note]
 ## Next steps
 
 * Get Started with Data Lake Analytics using [Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli.md)
-

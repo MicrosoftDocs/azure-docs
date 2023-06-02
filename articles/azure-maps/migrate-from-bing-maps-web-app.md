@@ -7,7 +7,7 @@ ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Tutorial: Migrate a web app from Bing Maps

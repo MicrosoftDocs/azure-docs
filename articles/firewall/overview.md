@@ -46,11 +46,15 @@ environments. It provides the essential protection SMB customers need at an affo
 
 Azure Firewall Basic is similar to Firewall Standard, but has the following main limitations:
 
-- Supports Threat Intel *alert mode* only.
-- Fixed scale unit to run the service on two virtual machine backend instances.
-- Recommended for environments with an estimated throughput of 250 Mbps.
+- Supports Threat Intel *alert mode* only
+- Fixed scale unit to run the service on two virtual machine backend instances
+- Recommended for environments with an estimated throughput of 250 Mbps
 
-To deploy a Basic Firewall, see [Deploy and configure Azure Firewall Basic and policy using the Azure portal](deploy-firewall-basic-portal-policy.md).
+To learn more about Azure Firewall Basic, see [Azure Firewall Basic features](basic-features.md).
+
+## Feature comparison
+
+To compare the all Firewall SKU features, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
 
 ## Azure Firewall Manager
 
@@ -140,3 +144,4 @@ Untrusted customer signed certificates|Customer signed certificates aren't trust
 - [Quickstart: Deploy Azure Firewall with Availability Zones - ARM template](deploy-template.md)
 - [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
 - [Learn module: Introduction to Azure Firewall](/training/modules/introduction-azure-firewall/)
+- [Learn more about Azure network security](../networking/security/index.yml)

@@ -1,14 +1,16 @@
 ---
 title: Azure Event Grid concepts (push delivery)
-description: Describes Azure Event Grid and its concepts. Defines several key components of Event Grid.
+description: Describes Azure Event Grid concepts that pertain to push delivery. Defines several key components of Event Grid.
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 05/08/2023
+ms.date: 05/24/2023
 ---
 
 # Azure Event Grid's push delivery - concepts
 
-This article describes the main concepts in Azure Event Grid.
+This article describes the main Event Grid concepts related to push delivery.
+
+> [!NOTE]
+> For Event Grid concepts related to the new resource model that uses namespaces, see this [concepts](concepts-pull-delivery.md) article.
 
 ## Events
 
@@ -62,6 +64,9 @@ System topics are built-in topics provided by Azure services such as Azure Stora
 Partner topics are a kind of topic used to subscribe to events published by a [partner](#partners).  The feature that enables this type of integration is called [Partner Events](partner-events-overview.md). Through that integration, you get a partner topic where events from a partner system are made available. Once you have a partner topic, you create an [event subscription](#event-subscriptions) as you would do for any other kind of topic.
 
 ## Event subscriptions
+
+> [!NOTE]
+> For information on event subscriptions under a namespace topic see this [concepts](concepts-pull-delivery.md) artcle.
 
 A subscription tells Event Grid which events on a topic you're interested in receiving. When creating a subscription, you provide an endpoint for handling the event. Endpoints can be a webhook or an Azure service resource. You can filter the events that are sent to an endpoint. You can filter by event type or event subject, for example. For more information, see [Event subscriptions](subscribe-through-portal.md) and [CloudEvents schema](cloud-event-schema.md). Event subscriptions for custom, system, and partner topics as well as Domains feature the same resource properties. 
 

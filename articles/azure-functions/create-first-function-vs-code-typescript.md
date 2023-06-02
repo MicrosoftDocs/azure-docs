@@ -4,7 +4,7 @@ description: Learn how to create a TypeScript function, then publish the local N
 ms.topic: quickstart
 ms.date: 02/06/2023
 ms.devlang: typescript
-ms.custom: mode-ui, vscode-azure-extension-update-complete
+ms.custom: mode-ui, vscode-azure-extension-update-complete, devx-track-js
 zone_pivot_groups: functions-nodejs-model
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: Azure Private 5G Core 5QI to DSCP mapping
 description: Learn about the mapping of 5QI to DSCP values that Azure Private 5G Core uses for transport level marking.
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: reference
 ms.date: 01/27/2023

@@ -20,7 +20,6 @@ Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios incl
 * Restoring a deleted account, database, or a container.
 * Restoring into any region (where backups existed) at the restore point in time.
 
->
 > [!VIDEO https://aka.ms/docs.continuous-backup-restore]
 
 Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database. Continuous backups are taken in every region where the account exists. For example, an account can have a write region in West US and read regions in East US and East US 2. These replica regions can then be backed up to a remote Azure Storage account in each respective region. By default, each region stores the backup in Locally Redundant storage accounts. If the region has [Availability zones](/azure/architecture/reliability/architect) enabled  then the backup is stored in Zone-Redundant storage accounts.
@@ -164,3 +163,5 @@ Currently the point in time restore functionality has the following limitations:
 * [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
+
+
