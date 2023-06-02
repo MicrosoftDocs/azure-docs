@@ -155,6 +155,9 @@ For more information, see [Materialized View pattern](/azure/architecture/patter
 
 ## Next steps
 
+![GitHub logo](../../media/github.png) An implementation of this pattern, implemented in Go, is available on [GitHub](https://github.com/mspnp/go-batcher).
+
+* Learn more about the [Rate Limiting pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/rate-limiting-pattern) in the Azure Architecture Center.
 * Learn how to [troubleshoot TooManyRequests errors](troubleshoot-request-rate-too-large.md) in Azure Cosmos DB.
 * Learn how to [troubleshoot Timeout errors](troubleshoot-request-timeout.md) in Azure Cosmos DB.
 * Learn how to [troubleshoot ServiceUnavailable errors](troubleshoot-service-unavailable.md) in Azure Cosmos DB.
