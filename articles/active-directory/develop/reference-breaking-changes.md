@@ -30,7 +30,7 @@ Check this article regularly to learn about:
 
 ## June 2023
 
-### Omission of email claims with an unverified domain owner. 
+### Omission of email claims with an unverified domain owner
 
 **Effective date**: June 2023
 
@@ -38,7 +38,7 @@ Check this article regularly to learn about:
 
 **Change**
 
-Starting in June for **multi-tenant applications**, emails that are not domain-owner verified will be omitted by default when the optional `email` claim is requested in a token payload.
+For **multi-tenant applications**, emails that aren't domain-owner verified are omitted by default when the optional `email` claim is requested in a token payload.
 
 An email is considered to be domain-owner verified if: 
 
