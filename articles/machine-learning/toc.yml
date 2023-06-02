@@ -178,8 +178,54 @@
     href: concept-compute-instance.md
   - name: Manage resources VS Code
     href: how-to-manage-resources-vscode.md
-  - name: MLFlow 
-    href: how-to-use-mlflow-configure-tracking.md
+  - name: Work with MLflow
+    items:
+      - name: Configure MLflow for Azure Machine Learning
+        href: how-to-use-mlflow-configure-tracking.md
+      - name: Train & track
+        items:
+          - name: Track experiments with MLflow
+            displayName: log, monitor, metrics, model registry, register
+            href: how-to-use-mlflow-cli-runs.md
+          - name: Track Azure Databricks runs with MLflow
+            displayName: log, monitor, deploy, metrics, databricks
+            href: how-to-use-mlflow-azure-databricks.md
+          - name: Track Azure Synapse Analytics runs with MLflow
+            displayName: log, monitor, deploy, metrics, synapse, analytics
+            href: how-to-use-mlflow-azure-synapse.md
+          - name: Train with MLflow Projects
+            displayName: log, monitor, metrics, model registry, register
+            href: how-to-train-mlflow-projects.md
+          - name: Log metrics, parameters and files
+            displayName: troubleshoot, log, files, tracing, metrics
+            href: how-to-log-view-metrics.md
+          - name: Log MLflow models
+            href: how-to-log-mlflow-models.md
+          - name: Query & compare experiments and runs with MLflowMLflow
+            href: how-to-track-experiments-mlflow.md
+      - name: Manage
+        items:
+          - name: Manage models with MLflow
+            href: how-to-manage-models-mlflow.md
+          - name: Manage experiments and runs with MLflow
+            href: how-to-track-experiments-mlflow.md
+      - name: Deploy & consume models
+        items:
+          - name: Guidelines for deploying MLflow models
+            displayName: mlflow models deployment plugin
+            href: how-to-deploy-mlflow-models.md
+          - name: Online inference
+            items:
+              - name: Deploy MLflow models to Online Endpoints
+                href: how-to-deploy-mlflow-models-online-endpoints.md
+              - name: Progressive rollout of MLflow models to Online Endpoints
+                href: how-to-deploy-mlflow-models-online-progressive.md
+          - name: Batch inference
+            items:
+              - name: Deploy MLflow models to Batch Endpoints
+                href: how-to-mlflow-batch.md
+              - name: Deploy and run MLflow models in Spark jobs
+                href: how-to-deploy-mlflow-model-spark-jobs.md
   - name: Use R with Azure Machine Learning
     items:
       - name: Bring R workloads
@@ -464,8 +510,6 @@
     items:
     - name: Monitor and analyze jobs in studio
       href: how-to-track-monitor-analyze-runs.md
-    - name: Query and compare runs
-      href: how-to-track-experiments-mlflow.md
   - name: Debug jobs
     href: how-to-interactive-jobs.md
   - name: Schedule jobs
@@ -565,9 +609,6 @@
           href: how-to-troubleshoot-online-endpoints.md
         - name: Deployment scenarios
           items:
-            - name: Deploy a MLFlow model with an online endpoint
-              displayName: ncd, no code deploy, no-code deployment
-              href: how-to-deploy-mlflow-models-online-endpoints.md
             - name: Use a custom container to deploy a model to an online endpoint
               href: how-to-deploy-custom-container.md
             - name: Use online endpoints in studio
@@ -611,9 +652,6 @@
               href: how-to-use-low-priority-batch.md
         - name: Scenarios
           items:
-            - name: Use MLFlow models in batch deployments 
-              href: how-to-mlflow-batch.md
-            - name: Image processing with batch deployments
               href: how-to-image-processing-batch.md
             - name: Text processing with batch deployments 
               href: how-to-nlp-processing-batch.md
@@ -625,34 +663,6 @@
               href: how-to-use-event-grid-batch.md
             - name: Use REST to deploy a model as batch endpoints
               href: how-to-deploy-batch-with-rest.md
-    - name: Deploy and consume MLFlow models
-      items:
-        - name: MLFlow and Azure Machine Learning
-          href: concept-mlflow.md
-        # v1
-        - name: MLflow
-          href: ./v1/concept-mlflow-v1.md
-        # end v1
-        - name: MLFlow models
-          displayName: tracking models, mlflow, custom, flavors
-          href: concept-mlflow-models.md
-        - name: Guidelines for deploying MLFlow models
-          displayName: mlflow models deployment plugin
-          href: how-to-deploy-mlflow-models.md
-        - name: Using MLFlow models for no-code deployment
-          href: how-to-log-mlflow-models.md
-        - name: Online inference
-          items:
-            - name: Deploy MLFlow models to Online Endpoints
-              href: how-to-deploy-mlflow-models-online-endpoints.md
-            - name: Progressive rollout of MLFlow models to Online Endpoints
-              href: how-to-deploy-mlflow-models-online-progressive.md
-        - name: Batch inference
-          items:
-            - name: Deploy MLFlow models to Batch Endpoints
-              href: how-to-mlflow-batch.md
-            - name: Deploy and run MLFlow models in Spark jobs
-              href: how-to-deploy-mlflow-model-spark-jobs.md
     - name: Model portability (ONNX)
       href: concept-onnx.md
     - name: Prebuilt Docker images for inference
