@@ -12,7 +12,7 @@ zone_pivot_groups: container-apps-jobs-self-hosted-ci-cd
 
 # Tutorial: Deploy self-hosted CI/CD runners and agents with Azure Container Apps jobs
 
-GitHub Actions and Azure Pipelines allow you to run CI/CD workflows with self-hosted runners and agents. Self-hosted runners are useful when you need to run workflows that require access to local resources or tools that are not available in a cloud-hosted runner. For example, self-hosted runners running as a Container Apps job allow your workflow to access resources inside the job's virtual network that are not accessible from a cloud-hosted runner.
+GitHub Actions and Azure Pipelines allow you to run CI/CD workflows with self-hosted runners and agents. Self-hosted runners are useful when you need to run workflows that require access to local resources or tools that aren't available in a cloud-hosted runner. For example, self-hosted runners running as a Container Apps job allow your workflow to access resources inside the job's virtual network that isn't accessible from a cloud-hosted runner.
 
 ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
 
@@ -165,7 +165,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 
 1. In the *New fine-grained personal access token* screen, enter the following information:
     - In *Token name*, enter a name for your token.
-    - In *Expiration*, select **90 days**. Note that you'll need to update the job with a new token before it expires.
+    - In *Expiration*, select **90 days**. You need to update the job with a new token before it expires.
     - Under *Repository access*, select **Only select repositories**.
         - Select the repository you created earlier.
     - Under *Repository permissions*:
@@ -175,7 +175,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 
 1. Copy the token value.
 
-1. Define variables that will be used to configure the Container Apps jobs later.
+1. Define variables that are used to configure the Container Apps jobs later.
 
     ```bash
     GITHUB_PAT="<GITHUB_PAT>"
@@ -185,8 +185,8 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 
     Replace the placeholders with the following values:
     - `<GITHUB_PAT>`: The GitHub PAT you generated.
-    - `<REPO_OWNER>`: The owner of the repository you created earlier. This is usually your GitHub username.
-    - `<REPO_NAME>`: The name of the repository you created earlier. This is the same name you entered in the *Repository name* field.
+    - `<REPO_OWNER>`: The owner of the repository you created earlier. This value is usually your GitHub username.
+    - `<REPO_NAME>`: The name of the repository you created earlier. This value is the same name you entered in the *Repository name* field.
 
 ## Build the GitHub Actions runner container image
 
@@ -290,7 +290,7 @@ To verify the job was configured correctly, you modify the workflow to use a sel
 
 1. Select **Edit**.
 
-1. Replace the `runs-on` property with the following:
+1. Update the `runs-on` property with to `self-hosted`:
 
     ```yaml
     runs-on: self-hosted
@@ -349,7 +349,7 @@ Create a new agent pool to run the self-hosted runner.
     - Select **Grant access permission to all pipelines**.
     - Select **Create**.
 
-## Create an Azure DevOps personal access token
+## Obtain an Azure DevOps personal access token
 
 To run a self-hosted runner, you need to create a personal access token (PAT) in Azure DevOps. The PAT is used to authenticate the runner with Azure DevOps.
 
@@ -358,14 +358,14 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 1. In the *Personal access tokens* page, select **New Token**.
     - In *Name*, enter a name for your token.
     - In *Organization*, select the organization you created earlier.
-    - In *Expiration*, select **90 days**. Note that you'll need to update the job with a new token before it expires.
+    - In *Expiration*, select **90 days**. You'll need to update the job with a new token before it expires.
     - Under *Scopes*, select **Custom defined**.
     - Select **Show all scopes**.
     - Select **Agent Pools (Read & manage)**.
 
 1. Copy the token value.
 
-1. Define variables that will be used to configure the Container Apps jobs later.
+1. Define variables that are used to configure the Container Apps jobs later.
 
     ```bash
     AZP_TOKEN="<AZP_TOKEN>"
@@ -418,9 +418,9 @@ To create a self-hosted agent, you need to build a container image that runs the
 
 ## Create a placeholder self-hosted agent
 
-Before you can run a self-hosted agent in your new agent pool, you need to create a placeholder agent. Without a placeholder agent, any pipelines that use the agent pool will fail. You can create a placeholder agent by running a job that registers an offline placeholder agent.
+Before you can run a self-hosted agent in your new agent pool, you need to create a placeholder agent. Without a placeholder agent, any pipelines that use the agent pool fails. You can create a placeholder agent by running a job that registers an offline placeholder agent.
 
-1. Create a manual job in the Container Apps environment that will create the placeholder agent.
+1. Create a manual job in the Container Apps environment that creates the placeholder agent.
 
     ```azurecli
     az containerapp job create -n "$PLACEHOLDER_JOB_NAME" -g $RESOURCE_GROUP --environment $ENVIRONMENT \
@@ -473,43 +473,43 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
 
 Now that you have a placeholder agent, you can create a self-hosted agent as an event-driven job. In this section, you create a job that runs a self-hosted agent when a pipeline is triggered.
 
-1. Create an event-driven job in the Container Apps environment for the agent.
+Create an event-driven job in the Container Apps environment for the agent.
 
-    ```azurecli
-    az containerapp job create -n $JOB_NAME -g $RESOURCE_GROUP --environment $ENVIRONMENT \
-        --trigger-type Event \
-        --replica-timeout 300 \
-        --replica-retry-limit 0 \
-        --replica-completion-count 1 \
-        --parallelism 1 \
-        --image $CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME \
-        --min-executions 0 \
-        --max-executions 10 \
-        --polling-interval 30 \
-        --scale-rule-name 'azure-pipelines' \
-        --scale-rule-type 'azure-pipelines' \
-        --scale-rule-metadata 'poolName=container-apps' 'targetPipelinesQueueLength=1' \
-        --scale-rule-auth 'personalAccessToken=personal-access-token' 'organizationURL=organization-url' \
-        --cpu '2.0' \
-        --memory '4Gi' \
-        --secrets "personal-access-token=$AZP_TOKEN" "organization-url=$ORGANIZATION_URL" \
-        --env-vars 'AZP_TOKEN=secretref:personal-access-token' 'AZP_URL=secretref:organization-url' "AZP_POOL=$AZP_POOL" \
-        --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
-    ```
+```azurecli
+az containerapp job create -n $JOB_NAME -g $RESOURCE_GROUP --environment $ENVIRONMENT \
+    --trigger-type Event \
+    --replica-timeout 300 \
+    --replica-retry-limit 0 \
+    --replica-completion-count 1 \
+    --parallelism 1 \
+    --image $CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME \
+    --min-executions 0 \
+    --max-executions 10 \
+    --polling-interval 30 \
+    --scale-rule-name 'azure-pipelines' \
+    --scale-rule-type 'azure-pipelines' \
+    --scale-rule-metadata 'poolName=container-apps' 'targetPipelinesQueueLength=1' \
+    --scale-rule-auth 'personalAccessToken=personal-access-token' 'organizationURL=organization-url' \
+    --cpu '2.0' \
+    --memory '4Gi' \
+    --secrets "personal-access-token=$AZP_TOKEN" "organization-url=$ORGANIZATION_URL" \
+    --env-vars 'AZP_TOKEN=secretref:personal-access-token' 'AZP_URL=secretref:organization-url' "AZP_POOL=$AZP_POOL" \
+    --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
+```
 
-    The following table describes the scale rule parameters used in the command.
+The following table describes the scale rule parameters used in the command.
 
-    | Parameter | Description |
-    | --- | --- |
-    | `--min-executions` | The minimum number of job executions to run per polling interval. |
-    | `--max-executions` | The maximum number of job executions to run per polling interval. |
-    | `--polling-interval` | The polling interval at which to evaluate the scale rule. |
-    | `--scale-rule-name` | The name of the scale rule. |
-    | `--scale-rule-type` | The type of scale rule to use. |
-    | `--scale-rule-metadata` | The metadata for the scale rule. |
-    | `--scale-rule-auth` | The authentication for the scale rule. |
+| Parameter | Description |
+| --- | --- |
+| `--min-executions` | The minimum number of job executions to run per polling interval. |
+| `--max-executions` | The maximum number of job executions to run per polling interval. |
+| `--polling-interval` | The polling interval at which to evaluate the scale rule. |
+| `--scale-rule-name` | The name of the scale rule. |
+| `--scale-rule-type` | The type of scale rule to use. |
+| `--scale-rule-metadata` | The metadata for the scale rule. |
+| `--scale-rule-auth` | The authentication for the scale rule. |
 
-    To learn more about the Azure Pipelines scaler, see the KEDA [documentation](https://keda.sh/docs/latest/scalers/azure-pipelines/).
+To learn more about the Azure Pipelines scaler, see the KEDA [documentation](https://keda.sh/docs/latest/scalers/azure-pipelines/).
 
 The event-driven job is now created in the Container Apps environment. 
 
@@ -517,7 +517,7 @@ The event-driven job is now created in the Container Apps environment.
 
 Now that you've configured a self-hosted agent job, you can run a pipeline and verify it's working correctly.
 
-1. In Azure DevOps, in your project, navigate to **Pipelines**.
+1. In your Azure DevOps project, navigate to **Pipelines**.
 
 1. Select **New pipeline**.
 
