@@ -89,7 +89,7 @@ Azure AD Connect plays a key role in the provisioning process. If the Sync Serve
 
 If your organization is lacking a disaster recovery and failover strategy for Sync, you shouldn't hesitate to deploy Azure AD Connect in Staging Mode. Likewise, if there is a mismatch between your production and staging configuration, you should re-baseline Azure AD Connect staging mode to match the production configuration, including software versions and configurations.
 
-![A screenshot of Azure AD Connect staging mode configuration](./media/active-directory-ops-guide/active-directory-ops-img1.png)
+![A screenshot of Azure AD Connect staging mode configuration](./media/ops-guide-auth/active-directory-ops-img1.png)
 
 #### Stay current
 
@@ -153,7 +153,7 @@ Use the following guidelines to define service plans to users:
 > [!IMPORTANT]
 > Group-based licensing in Azure AD introduces the concept of users in a licensing error state. If you notice any licensing errors, then you should immediately [identify and resolve](../enterprise-users/licensing-groups-resolve-problems.md) any license assignment problems.
 
-![A screenshot of a computer screen Description automatically generated](./media/active-directory-ops-guide/active-directory-ops-img2.png)
+![A screenshot of a computer screen Description automatically generated](./media/ops-guide-auth/active-directory-ops-img2.png)
 
 #### Lifecycle management
 
@@ -172,7 +172,7 @@ Resource owners may believe that the **All users** group contains only **Enterpr
 
 If you are currently provisioning apps in an ad-hoc manner or using things like CSV files, JIT, or an on-premises solution that does not address lifecycle management, we recommend you [implement application provisioning](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) with Azure AD for supported applications and define a consistent pattern for applications that aren't yet supported by Azure AD.
 
-![Azure AD provisioning service](./media/active-directory-ops-guide/active-directory-ops-img3.png)
+![Azure AD provisioning service](./media/ops-guide-auth/active-directory-ops-img3.png)
 
 ### Azure AD Connect delta sync cycle baseline
 
@@ -197,4 +197,4 @@ There are five aspects to a secure Identity infrastructure. This list will help 
 
 ## Next steps
 
-Get started with the [Authentication management checks and actions](active-directory-ops-guide-auth.md).
+Get started with the [Authentication management checks and actions](ops-guide-auth.md).
