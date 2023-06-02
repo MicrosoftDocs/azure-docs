@@ -88,27 +88,29 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
     az provider register --namespace Microsoft.OperationalInsights
     ```
 
-::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
-1. Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
+Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
-    ```azurecli
-    RESOURCE_GROUP="jobs-sample"
-    LOCATION="northcentralus"
-    ENVIRONMENT="env-jobs-sample"
-    JOB_NAME="github-actions-runner-job"
-    ```
+::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
+
+```azurecli
+RESOURCE_GROUP="jobs-sample"
+LOCATION="northcentralus"
+ENVIRONMENT="env-jobs-sample"
+JOB_NAME="github-actions-runner-job"
+```
+
 ::: zone-end
 
 ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-azure-pipelines"
-1. Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
-    ```azurecli
-    RESOURCE_GROUP="jobs-sample"
-    LOCATION="northcentralus"
-    ENVIRONMENT="env-jobs-sample"
-    JOB_NAME="azure-pipelines-agent-job"
-    PLACEHOLDER_JOB_NAME="placeholder-agent-job"
-    ```
+```azurecli
+RESOURCE_GROUP="jobs-sample"
+LOCATION="northcentralus"
+ENVIRONMENT="env-jobs-sample"
+JOB_NAME="azure-pipelines-agent-job"
+PLACEHOLDER_JOB_NAME="placeholder-agent-job"
+```
+
 ::: zone-end
 
 ## Create a Container Apps environment
