@@ -1256,6 +1256,8 @@ items:
       items:
       - name: Utilize custom summarization data formats
         href: summarization/custom/how-to/data-formats.md
+      - name: Deploy a model
+        href: summarization/custom/how-to/deploy-model.md
       - name: Test and evaluate your models
         href: summarization/custom/how-to/test-evaluate.md
 - name: Concepts
