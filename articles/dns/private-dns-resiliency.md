@@ -11,18 +11,22 @@ ms.author: greglin
 
 # Azure Private DNS zone resiliency
 
-Azure Private DNS is an [availability zone foundational, zone-reduntant service](/azure/reliability/availability-zones-service-support#azure-services-with-availability-zone-support). This means that DNS private zones are automatically replicated and made available across multiple regions. In the event of a regional failure, private DNS zone data is still available in other regions. 
+DNS private zones are resilient to regional outages because zone data is globally available. Resource records in a private zone are automatically replicated across regions. 
 
-See the following example.
+## Resiliency example
 
-Figure here
-
-In this example:
-- The private zone azure.contoso.com is linked to VNets in three different regions. Autoregistration enabled in two regions.
-- A temporary outage occurs in region A.
-- Regions B and C are still able to successfully query DNS names in the private zone, including those that are autoregistered in region A.
+The following figure illustrates the availability of private zone data across multiple regions.
 
 ![Regional failure example showing three VNets with one red and two green](media/private-dns-resiliency/resiliency-example.png)
+
+In this example:
+- The private zone azure.contoso.com is linked to VNets in three different regions. Autoregistration is enabled in two regions.
+- A temporary outage occurs in region A.
+- Regions B and C are still able to successfully query DNS names in the private zone, including names that are autoregistered from region A.
+- Service interruption in region A does not affect name resolution in the other regions.
+
+> [!NOTE]
+> Azure Private DNS is an availability zone foundational, zone-reduntant service. For more information, see [Azure services with availability zone support](/azure/reliability/availability-zones-service-support#azure-services-with-availability-zone-support). 
 
 ## Next steps
 To learn more about Private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md).
