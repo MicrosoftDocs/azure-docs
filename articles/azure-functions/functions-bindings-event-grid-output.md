@@ -394,6 +394,36 @@ The following example shows a trigger binding and a Python function that uses th
 
 # [v2](#tab/python-v2)
 
+Here's the function in the function_app.py file:
+
+```python
+import logging
+import azure.functions as func
+import datetime
+
+@app.function_name(name="eventgrid_output_binding")
+@app.route(route="eventgrid_output_binding")
+@app.event_grid_output(
+    arg_name="outputEvent",
+    topic_endpoint_uri="MyEventGridTopicUriSetting",
+    topic_key_setting="MyEventGridTopicKeySetting")
+
+def main(eventGridEvent: func.EventGridEvent, 
+         outputEvent: func.Out[func.EventGridOutputEvent]) -> None:
+
+    logging.log("eventGridEvent: ", eventGridEvent)
+
+    outputEvent.set(
+        func.EventGridOutputEvent(
+            id="test-id",
+            data={"tag1": "value1", "tag2": "value2"},
+            subject="test-subject",
+            event_type="test-event-1",
+            event_time=datetime.datetime.utcnow(),
+            data_version="1.0"))
+
+```
+
 # [v1](#tab/python-v1)
 Here's the binding data in the *function.json* file:
 
