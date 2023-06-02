@@ -1,5 +1,5 @@
 ---
-title: How to update and delete remote networks
+title: How to update and delete remote networks for Global Secure Access
 description: Learn how to update and delete remote networks for Global Secure Access.
 author: kenwith
 ms.author: kenwith

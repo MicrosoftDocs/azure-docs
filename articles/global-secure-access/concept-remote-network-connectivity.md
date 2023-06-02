@@ -18,7 +18,7 @@ This article describes the key concepts of remote network connectivity along wit
 
 ## What is a remote network? 
 
-Remote network are remote locations or networks that require internet connectivity. For example, many organizations have a central headquarters and branch office locations in different geographic areas. These branch offices need access to corporate data and services. They need a secure way to talk to the data center, headquarters, and remote workers. The security of remote network is crucial for many types of organizations.
+Remote networks are remote locations or networks that require internet connectivity. For example, many organizations have a central headquarters and branch office locations in different geographic areas. These branch offices need access to corporate data and services. They need a secure way to talk to the data center, headquarters, and remote workers. The security of remote network is crucial for many types of organizations.
 
 Remote networks in a branch location are typically connected to the corporate network through a dedicated Wide Area Network (WAN) or a Virtual Private Network (VPN) connection. Employees in the branch location connect to the network using customer premises equipment (CPE).
 

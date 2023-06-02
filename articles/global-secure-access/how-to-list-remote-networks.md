@@ -1,5 +1,5 @@
 ---
-title: How to list remote networks
+title: How to list remote networks for Global Secure Access
 description: Learn how to list remote networks for Global Secure Access.
 author: kenwith
 ms.author: kenwith
@@ -16,7 +16,7 @@ Reviewing your remote networks is an important part of managing your Global Secu
 
 ## Prerequisites 
 
-Listing remote networkss requires the following prerequisites:
+Listing remote networks requires the following prerequisites:
 
 - **Microsoft Entra Internet Access Premium license** for your Microsoft Entra Identity tenant
 - **Microsoft Entra Network Access Administrator** role in Microsoft Entra ID

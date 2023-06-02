@@ -9,7 +9,7 @@ ms.date: 06/01/2023
 ms.service: network-access
 ms.custom: 
 ---
-# How to enable the Microsoft 365 traffic forwarding profile.
+# How to enable the Microsoft 365 traffic forwarding profile
 
 With the Microsoft 365 profile enabled, Microsoft Entra Internet Access acquires the traffic going to all Microsoft 365 services. The **Microsoft 365** profile manages the following policy groups:
 
@@ -47,7 +47,7 @@ Conditional Access policies are created and applied to the profile in the Condit
 
 1. Select the **View** link for **Conditional Access policies applicable**.
 
-    ![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-enable-Microsoft 365-profile/Microsoft 365-profile-view-link.png)
+    ![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-enable-M365-profile/Microsoft 365-profile-view-link.png)
 
 1. Select a link from the list to view the policy details. 
 

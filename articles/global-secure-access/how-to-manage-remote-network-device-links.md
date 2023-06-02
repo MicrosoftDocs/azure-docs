@@ -1,5 +1,5 @@
 ---
-title: How to manage device links for remote networks
+title: How to manage device links for remote networks for Global Secure Access
 description: Learn how to create, edit, and delete device links for remote networks for Global Secure Access.
 author: kenwith
 ms.author: kenwith
@@ -12,7 +12,7 @@ ms.custom:
 
 # Manage device links on remote networks
 
-Device links are the customer premises equipment (CPE) used in your remote networks. End users and guests connect to Global Secure Access through the device links. You can create device links when you create a new remote networks or manage the device links after the office is created.
+Device links are the customer premises equipment (CPE) used in your remote networks. End users and guests connect to Global Secure Access through the device links. You can create device links when you create a new remote network or manage the device links after the office is created.
 
 This article explains how to add, edit, and delete device links for a remote networks for Global Secure Access.
 

@@ -1,5 +1,5 @@
 ---
-title: What is security servie edge?
+title: What is security service edge?
 description: Learn about security service edge and how it relates to Global Secure Access.
 author: kenwith
 ms.author: kenwith

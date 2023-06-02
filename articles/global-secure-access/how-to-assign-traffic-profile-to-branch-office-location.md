@@ -10,7 +10,7 @@ ms.service: network-access
 ms.custom: 
 ---
 
-# Assign a traffic forwarding profile to a remote network for Global Secure Access.
+# Assign a traffic forwarding profile to a remote network for Global Secure Access
 
 Learn how to assign a traffic profile to a remote network for Global Secure Access.
 

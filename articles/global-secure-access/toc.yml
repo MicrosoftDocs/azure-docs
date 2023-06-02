@@ -33,7 +33,9 @@ items:
         href: how-to-assign-traffic-profile-to-branch-office-location.md
       - name: List remote networks
         href: how-to-list-remote-networks.md
-      - name: Manage remote networks device links
+      - name: Manage remote networks
+        href: how-to-manage-remote-networks.md
+      - name: Manage remote network device links
         href: how-to-manage-remote-network-device-links.md
       - name: Test remote network connectivity
         href: how-to-test-remote-network-connectivity.md 
@@ -83,3 +85,5 @@ items:
   items:
   - name: Remote network valid configurations
     href: reference-remote-network-configurations.md
+  - name: FAQs
+    href: resource-faq.yml

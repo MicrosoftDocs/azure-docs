@@ -1,5 +1,5 @@
 ---
-title: How to create remote networks
+title: How to create remote networks for Global Secure Access
 description: Learn how to create remote networks for Global Secure Access.
 author: kenwith
 ms.author: kenwith

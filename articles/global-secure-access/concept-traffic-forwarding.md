@@ -20,7 +20,7 @@ This article describes the traffic forwarding profiles and how they work.
 
 **Traffic forwarding** enables you to configure the type of network traffic to route through the Microsoft Entra Private and Microsoft Entra Internet Access services. You set up profiles to manage how specific types of traffic are managed. 
 
-When traffic comes through Global Secure Access, the service evaluates the type of traffic first through the **M365 profile** and then through the **Private access profile**. Any traffic that doesn't match the first two profiles isn't forwarded to Global Secure Access. 
+When traffic comes through Global Secure Access, the service evaluates the type of traffic first through the **Microsoft 365 profile** and then through the **Private access profile**. Any traffic that doesn't match the first two profiles isn't forwarded to Global Secure Access. 
 
 :::image type="content" source="media/concept-traffic-forwarding/global-secure-access-overview.png" alt-text="Diagram of the Global Secure Access process." lightbox="media/concept-traffic-forwarding/global-secure-access-overview-expanded.png":::
 
@@ -42,5 +42,5 @@ With the Private Access profile you can route traffic to your private apps and r
 
 ## Next steps
 
-- [Enable the M365 traffic profile](how-to-enable-m365-profile.md)
+- [Enable the Microsoft 365 traffic profile](how-to-enable-microsoft-365-profile.md)
 - [How to enable the Private access traffic profile](how-to-enable-private-access-profile.md)
