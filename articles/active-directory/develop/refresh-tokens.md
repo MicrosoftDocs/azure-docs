@@ -29,7 +29,7 @@ Refresh tokens have a longer lifetime than access tokens. The default lifetime f
 
 ## Token expiration
 
-Refresh tokens can be revoked at any time, because of timeouts and revocations. Your app must handle rejections by the sign-in service gracefully when this occurs. The rejection is handled by sending the user to an interactive sign-in prompt to sign in again.
+Refresh tokens can be revoked at any time, because of timeouts and revocations. Your app must handle revocations by the sign-in service gracefully by sending the user to an interactive sign-in prompt to sign in again.
 
 ### Token timeouts
 
@@ -39,7 +39,7 @@ Not all refresh tokens follow the rules set in the token lifetime policy. Specif
 
 ### Token revocation
 
-Refresh tokens can be revoked by the server because of a change in credentials, user action, or admin action. Refresh tokens fall into two classes: tokens issued to confidential clients (the rightmost column) and tokens issued to public clients (all other columns).
+The server can revoke refresh tokens because of a change in credentials, user action, or admin action. Refresh tokens fall into two classes: tokens issued to confidential clients (the rightmost column) and tokens issued to public clients (all other columns).
 
 | Change | Password-based cookie | Password-based token | Non-password-based cookie | Non-password-based token | Confidential client token |
 | ------ | --------------------- | -------------------- | ------------------------- | ------------------------ | ------------------------- |
