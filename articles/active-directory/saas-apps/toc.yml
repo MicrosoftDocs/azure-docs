@@ -3098,6 +3098,8 @@
         href: freshservice-provisioning-tutorial.md
       - name: Fuze
         href: fuze-provisioning-tutorial.md
+      - name: Funnel Leasing
+        href: funnel-leasing-provisioning-tutorial.md
     - name: G - M
       items:        
       - name: G Suite
@@ -3142,6 +3144,8 @@
         href: hoxhunt-provisioning-tutorial.md
       - name: Howspace
         href: howspace-provisioning-tutorial.md
+      - name: Humbol
+        href: humbol-provisioning-tutorial.md
       - name: H5mag
         href: h5mag-provisioning-tutorial.md
       - name: Ideo
@@ -3214,6 +3218,8 @@
         href: logmein-provisioning-tutorial.md
       - name: Maptician
         href: maptician-provisioning-tutorial.md
+      - name: Markit Procurement Service
+        href: markit-procurement-service-provisioning-tutorial.md
       - name: MediusFlow
         href: mediusflow-provisioning-tutorial.md
       - name: Merchlogix
@@ -3290,6 +3296,8 @@
         href: proware-provisioning-tutorial.md
       - name: Real Links
         href: real-links-provisioning-tutorial.md
+      - name: Recnice
+        href: recnice-provisioning-tutorial.md
       - name: Reward Gateway
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO
@@ -3412,6 +3420,8 @@
         href: unifi-provisioning-tutorial.md
       - name: uniFlow Online
         href: uniflow-online-provisioning-tutorial.md
+      - name: Uni-tel A/S
+        href: uni-tel-as-provisioning-tutorial.md
       - name: Velpic
         href: velpic-provisioning-tutorial.md
       - name: Visibly
@@ -3422,6 +3432,8 @@
         href: vonage-provisioning-tutorial.md
       - name: Webroot Security Awareness Training
         href: webroot-security-awareness-training-provisioning-tutorial.md
+      - name: WATS
+        href: wats-provisioning-tutorial.md
       - name: WEDO
         href: wedo-provisioning-tutorial.md
       - name: Whimsical
