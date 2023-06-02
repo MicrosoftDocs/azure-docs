@@ -223,7 +223,7 @@
     - name: Create an Azure Files storage mount
       href: storage-mounts-azure-files.md
     - name: Deploy self-hosted CI/CD runners with jobs
-      href: tutorial-ci-cd-runners.md
+      href: tutorial-ci-cd-runners-jobs.md
       displayName: Deploy Azure DevOps (Azure Pipelines) agents and GitHub Actions runners
     - name: Connect development and production services
       href: connect-services.md
