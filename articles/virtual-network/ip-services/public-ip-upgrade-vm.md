@@ -20,7 +20,7 @@ For more information about the retirement of Basic SKU Public IPs and the benefi
 
 This script upgrades any Public IP Addresses attached to VM from Basic to Standard SKU. In order to perform the upgrade, the Public IP Address allocation method is set to static before being disassociated from the VM. Once disassociated, the Public IP SKU is upgraded to Standard, then the IP is re-associated with the VM.
 
-Because the Public IP allocation is set to 'Static' before detaching from the VM, the IP address will not change during the upgrade process, even in the event of a script failure. The module double-checks that the Public IP allocation method is 'Static' prior to detaching the Public IP from the VM. 
+Because the Public IP allocation is set to 'Static' before detaching from the VM, the IP address won't change during the upgrade process, even in the event of a script failure. The module double-checks that the Public IP allocation method is 'Static' prior to detaching the Public IP from the VM. 
 
 The module logs all upgrade activity to a file named `PublicIPUpgrade.log`, created in the same location where the module was executed (by default). 
 
@@ -30,7 +30,7 @@ The module logs all upgrade activity to a file named `PublicIPUpgrade.log`, crea
 
 * **VMs without a Network Security Group**: VMs with IPs to be upgraded must have a Network Security Group (NSG) associated with either the subnet of each IP configuration with a Public IP, or with the NIC directly. This is because Standard SKU Public IPs are "secure by default", meaning that any traffic to the Public IP must be explicitly allowed at an NSG to reach the VM. Basic SKU Public IPs allow any traffic by default. Upgrading Public IP SKUs without an NSG would result in inbound internet traffic to the Public IP previously allowed with the Basic SKU being blocked post-migration. See: [Public IP SKUs](public-ip-addresses.md#sku)
 
-* **Virtual Machine Scale Sets with Public IP configurations**: If you have a virtual machine scale set (uniform model) with public IP configurations per instance, note these aren't Public IP resources and as such cannot be upgraded. Instead, you can remove the Basic IP configuration and use the SKU property to specify that Standard IP configurations are required for each VMSS instance as shown [here](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine).
+* **Virtual Machine Scale Sets with Public IP configurations**: If you have a virtual machine scale set (uniform model) with public IP configurations per instance, note these configurations aren't Public IP resources and as such cannot be upgraded. Instead, you can remove the Basic IP configuration and use the SKU property to specify that Standard IP configurations are required for each VMSS instance as shown [here](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine).
 
 ### Prerequisites
 
@@ -82,7 +82,7 @@ To upgrade all VMs in a resource group, skipping VMs that do not have Network Se
 
 ### Recovering from a Failed Migration
 
-When a migration fails due to a transient issue, such as a network outage or client system crash, the migration can be re-run to configure the VM and Public IPs in the goal state. At execution, the script outputs a recovery log file, which is used to ensure the VM is properly reconfigured. Review the log file `PublicIPUpgrade.log` created in the location where the script was executed.
+If a migration fails due to a transient issue, such as a network outage or client system issue, the migration can be re-run to configure the VM and Public IPs in the goal state. At execution, the script outputs a recovery log file, which is used to ensure the VM is properly reconfigured. Review the log file `PublicIPUpgrade.log` created in the location where the script was executed.
 
 To recover from a failed upgrade, pass the recovery log file path to the script with the `-recoverFromFile` parameter and identify the VM to recover with the `-VMName` and `-VMResourceGroup` or `-VMResourceID` parameters, as shown in this example.
 
