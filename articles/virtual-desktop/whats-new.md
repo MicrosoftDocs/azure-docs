@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 06/01/2023
+ms.date: 06/03/2023
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -32,7 +32,7 @@ For more information about the public preview release version, check out [Use fe
 
 ## Intune user-scope configuration for Windows 10 Enterprise multi-session VMs now generally available
 
-Microsoft Intune user-scope configuration for Azure Virtual Desktop multi-session Virtual Machines (VMs) on Windows 10 and 11 are now generally available. These VMs will let you do the following things:
+Microsoft Intune user-scope configuration for Azure Virtual Desktop multi-session Virtual Machines (VMs) on Windows 10 and 11 are now generally available. With this feature, you are able to:
 
 - Configure user-scope policies using the Settings catalog and assign those policies to groups of users.
 - Configure user certificates and assign them to users.
