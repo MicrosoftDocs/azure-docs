@@ -26,7 +26,7 @@ However, you can enable Active FTP when you deploy using Azure PowerShell, the A
 *ActiveFTP* is an Azure Firewall property that can be enabled for:
 - both Premium and Standard SKUs
 - secure hub and VNet firewalls
-- when using firewall policy and classic rules
+- firewalls using policy and classic rules
 
 
 ## Supported scenarios
