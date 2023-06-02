@@ -64,7 +64,7 @@ built-in policy definition.
 1. Enable **Create a remediation task**.
 1. Verify that **Create a Managed Identity** is checked, and that the identity will have **Contributor** permissions.
     * For more information, see [Quickstart: Create a policy assignment to identify non-compliant resources](../../governance/policy/assign-policy-portal.md) and [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md).
-1. Select **Review + create**.
+1. Select **Review + create**, then select **Create**.
 
 After creating the policy assignments, the configuration is applied to new Azure Arc-enabled Kubernetes or AKS clusters created within the scope of policy assignment.
 
