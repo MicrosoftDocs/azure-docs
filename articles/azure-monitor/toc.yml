@@ -712,7 +712,7 @@ items:
             href: app/opencensus-python-request.md
         - name: JavaScript
           items:
-          - name: JavaScript SDK
+          - name: Get started
             displayName: browser, client-side, SDK Loader Script
             href: app/javascript-sdk.md
           - name: JavaScript SDK advanced topics
