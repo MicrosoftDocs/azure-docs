@@ -78,6 +78,9 @@ To enable the use of security keys using Intune, complete the following steps:
 
 Configuration of security keys for sign-in isn't dependent on configuring Windows Hello for Business.
 
+> [!IMPORTANT]
+> This will not enable security keys on already provisioned devices. In that case use the next method (Targeted Intune deployment)
+
 ### Targeted Intune deployment
 
 To target specific device groups to enable the credential provider, use the following custom settings via Intune:
