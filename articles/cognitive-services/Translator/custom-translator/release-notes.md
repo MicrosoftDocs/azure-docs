@@ -85,7 +85,6 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 | Turkish (tr-tr)     | English (en-us) |
 | Vietnamese (vi-vn)     | English (en-us) |
 | Chinese Simplified (zh-cn)     | English (en-us) |
-||
 
 ## 2022-November release
 
