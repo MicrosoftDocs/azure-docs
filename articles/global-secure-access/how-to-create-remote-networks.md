@@ -72,12 +72,79 @@ The connectivity tab is where you add the device links for the remote network. Y
 1. Enter a pre-shared key to be used on your CPE.
 1. Select the **Add link** button. 
 
-### Traffic profiles
+### Traffic forwarding profiles
 
 You can assign the remote network to a traffic forwarding profile when you create the remote network. You can also assign the remote network at a later time. For more information, see [Traffic forwarding profiles](concept-traffic-forwarding.md).
 
 1. Select the appropriate traffic forwarding profile.
 1. Select the **Review + Create** button.
+
+### Review and create
+
+The final tab in the create a remote network process is to review all of the settings that you provided. Review the details provided here and select the **Create remote network** button.
+
+## Manage remote networks using the Microsoft Graph API
+
+Global Secure Access remote networks can be viewed and managed using Microsoft Graph on the `/beta` endpoint. Creating a remote network and assigning a traffic forwarding profile are separate API calls.
+
+### Create a remote network
+
+1. Sign in to [Graph Explorer](https://aka.ms/ge).
+1. Select POST as the HTTP method. 
+1. Select BETA as the API version. 
+1. Add the following query to use Create Branches API (add hyperlink to the Graph API) 
+    ```
+    POST https://graph.microsoft.com/beta/networkaccess/branches 
+    { 
+        "name": "ContosoBranch", 
+        "country": "United States ", //must be removed 
+        "region": "East US", 
+        "bandwidthCapacity": 1000, //must be removed. This goes under deviceLink. 
+        "deviceLinks": [ 
+        { 
+            "name": "CPE Link 1", 
+            "ipAddress": "20.125.118.219", 
+            "version": "1.0.0", 
+            "deviceVendor": "Other", 
+            "bgpConfiguration": { 
+                "ipAddress": "172.16.11.5", 
+                "asn": 8888 
+              }, 
+              "tunnelConfiguration": { 
+                  "@odata.type": "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Default", 
+                  "preSharedKey": "Detective5OutgrowDiligence" 
+              } 
+        }] 
+    }  
+    ```
+1. Select **Run query** to create a remote network.
+
+### Assign a traffic forwarding profile
+
+Associating a traffic forwarding profile to your remote network using the Microsoft Graph API is two step process. First, locate the ID of the traffic profile. The ID is different for all tenants. Second, associate the traffic forwarding profile with your desired remote network.
+
+1. Sign in to [Graph Explorer](https://aka.ms/ge).
+1. Select **PATCH** as the HTTP method from the dropdown. 
+1. Select the API version to **beta**. 
+1. Enter the query:
+    ```
+    GET https://graph.microsoft.com/beta/networkaccess/forwardingprofiles 
+    ```
+1. Select **Run query**. 
+1. Find the ID of the desired traffic forwarding profile. 
+1. Select PATCH as the HTTP method from the dropdown. 
+1. Enter the query:
+    ```
+        PATCH https://graph.microsoft.com/beta/networkaccess/branches/d2b05c5-1e2e-4f1d-ba5a-1a678382ef16/forwardingProfiles
+        {
+            "@odata.context": "#$delta",
+            "value":
+            [{
+                "ID": "1adaf535-1e31-4e14-983f-2270408162bf"
+            }]
+        }
+    ```
+1. Select **Run query** to update the remote network.
 
 ## Next steps
 

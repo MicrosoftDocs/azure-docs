@@ -13,8 +13,8 @@ items:
       href: how-to-get-started-with-global-secure-access.md
     - name: Learn about traffic forwarding
       href: concept-traffic-forwarding.md
-    - name: Manage remote networks
-      href: how-to-manage-remote-networks.md
+    - name: Create a remote network
+      href: how-to-create-remote-networks.md
     - name: Configure quick access
       href: how-to-configure-quick-access.md
     - name: Install the Windows client
@@ -35,8 +35,6 @@ items:
         href: how-to-manage-remote-network-device-links.md
       - name: Test remote network connectivity
         href: how-to-test-remote-network-connectivity.md 
-      - name: How to manage remote networks with the Microsoft Graph API
-        href: how-to-manage-remote-network-microsoft-graph-api.md
   - name: Conditional Access
     expanded: false
     items:
