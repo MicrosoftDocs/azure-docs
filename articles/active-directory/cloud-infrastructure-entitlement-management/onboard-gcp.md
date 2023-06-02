@@ -120,7 +120,7 @@ This option detects all projects that are accessible by the Cloud Infrastructure
 
     You have now completed onboarding GCP, and Permissions Management has started collecting and processing your data.
 
-### 6. View the data.
+### 4. View the data.
 
 - To view the data, select the **Authorization Systems** tab.
 
