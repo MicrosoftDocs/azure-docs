@@ -187,9 +187,9 @@ In this comparison, Azure Front Door Premium is 1.7x more expensive than Azure F
 
 * Check if all 80 instances of Azure Front Door (classic) are required. Remove unnecessary resources, such as temporary testing environments.
 * Migrate your most important Front Door (classic) profiles to Azure Front Door Standard/Premium based on the necessity of features available in the upgrade tier.
-* For remaining Azure Front Door (classic) profile, we recommend leaving them as is until Azure Front Door allows for combining multiple endpoints into a single profile during migration. The capability to consolidate multiple Azure Front Door (classic) profiles into a single Azure Front Door Premium profile will be available soon. To find out when this feature will be available, follow [Azure networking updates](https://azure.microsoft.com/updates/?updateType=features&category=networking).
+* You can manually create Azure Front Door Premium profiles with multiple endpoints to reflect each Azure Front Door (classic) profile.
 
-The following table shows the cost breakdown for migrating 60 Azure Front Door (classic) profiles from scenario 5 to four Azure Front Door Premium profiles with 15 endpoints each. The overall cost saving is about 27% less for Azure Front Door Premium compared to Azure Front Door (classic).
+The following table shows the cost breakdown for migrating 60 Azure Front Door (classic) profiles to four Azure Front Door Premium profiles with 15 endpoints each. The overall cost saving is about 27% less for Azure Front Door Premium compared to Azure Front Door (classic).
 
 | Cost dimensions | Azure Front Door (classic) | Azure Front Door Premium |
 |--|--|--|
