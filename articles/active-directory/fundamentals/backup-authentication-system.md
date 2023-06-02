@@ -117,7 +117,7 @@ The backup authentication system is supported in all cloud environments except A
 | Apple Internet Accounts | Yes | Protected |
 | Apple School Manager | No | OIDC with Access Token |
 | Aqua Mail | Yes | Protected |
-| Atlassian Cloud | Yes * | Protected |
+| Atlassian Cloud | Yes \* | Protected |
 | Blackboard Learn | No | SAML SP-initiated |
 | Box | No | SAML SP-initiated |
 | Brightspace by Desire2Leam | No | SAML SP-initiated |
@@ -137,7 +137,7 @@ The backup authentication system is supported in all cloud environments except A
 | Gmail | Yes | Protected |
 | Google Cloud / G Suite Connector by Microsoft | No | SAML SP-initiated |
 | HubSpot Sales | No | SAML SP-initiated |
-| Kronos | Yes * | Protected |
+| Kronos | Yes \* | Protected |
 | Madrasati App | No | SAML SP-initiated |
 | OpenAthens | No | SAML SP-initiated |
 | Oracle Fusion ERP | No | SAML SP-initiated |
@@ -146,8 +146,8 @@ The backup authentication system is supported in all cloud environments except A
 | Salesforce | No | SAML SP-initiated |
 | Samsung Email | Yes | Protected |
 | SAP Cloud Platform Identity Authentication | No | SAML SP-initiated |
-| SAP Concur | Yes * | SAML SP-initiated |
-| SAP Concur Travel and Expense | Yes * | Protected |
+| SAP Concur | Yes \* | SAML SP-initiated |
+| SAP Concur Travel and Expense | Yes \* | Protected |
 | SAP Fiori | No | SAML SP-initiated |
 | SAP NetWeaver | No | SAML SP-initiated |
 | SAP SuccessFactors | No | SAML SP-initiated |
@@ -156,18 +156,19 @@ The backup authentication system is supported in all cloud environments except A
 | Smartsheet | No | SAML SP-initiated |
 | Spark | Yes | Protected |
 | Thunderbird | Yes | Protected |
-| UKG pro | Yes * | Protected |
+| UKG pro | Yes \* | Protected |
 | VMware Boxer | Yes | Protected |
 | walkMe | No | SAML SP-initiated |
 | Workday | No | SAML SP-initiated |
 | Workplace from Facebook | No | SAML SP-initiated |
 | Zoom | No | SAML SP-initiated |
-| Zscaler | Yes * | Protected |
+| Zscaler | Yes \* | Protected |
 | Zscaler Private Access (ZPA) | No | SAML SP-initiated |
 | Zscaler ZSCloud | No | SAML SP-initiated |
 
-*Note: Apps configured to authenticate with the SAML protocol are protected when using IDP-Initiated authentication. Service Provider (SP) initiated SAML configurations aren't supported
- 
+> [!NOTE]
+> \* Apps configured to authenticate with the SAML protocol are protected when using IDP-Initiated authentication. Service Provider (SP) initiated SAML configurations aren't supported
+
 ### Azure resources and their status
 
 | resource | Azure resource name | Status |
