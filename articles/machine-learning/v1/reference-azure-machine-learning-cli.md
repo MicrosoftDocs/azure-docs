@@ -316,7 +316,7 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
 
 ## Environment management
 
-The following commands demonstrate how to create, register, and list Azure Machine Learning [environments](how-to-configure-environment-v1.md) for your workspace:
+The following commands demonstrate how to create, register, and list Azure Machine Learning [environments](how-to-configure-environment.md) for your workspace:
 
 + Create scaffolding files for an environment:
 
