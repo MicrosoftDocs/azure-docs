@@ -131,11 +131,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-inference-onnx-automl-image-models.md",
-        "redirect_url": "/azure/machine-learning/how-to-inference-onnx-automl-image-models",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-identity-based-data-access.md",
         "redirect_url": "/azure/machine-learning/how-to-identity-based-data-access",
         "redirect_document_id": true
