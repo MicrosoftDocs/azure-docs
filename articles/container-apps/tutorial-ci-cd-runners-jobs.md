@@ -532,7 +532,16 @@ Now that you've configured a self-hosted agent job, you can run a pipeline and v
     ```
 1. Select **Save and run**.
 
-The pipeline runs and uses the self-hosted agent job you created in the Container Apps environment.
+    The pipeline runs and uses the self-hosted agent job you created in the Container Apps environment.
+
+1. List the executions of the job to confirm a job execution was created and completed successfully.
+
+    ```azurecli
+    az containerapp job execution list \
+        --name "$JOB_NAME" \
+        --resource-group "$RESOURCE_GROUP" \
+        --output json
+    ```
 
 ::: zone-end
 
