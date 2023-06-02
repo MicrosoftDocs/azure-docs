@@ -23,21 +23,22 @@ This article describes how to configure your AWS IAM Identity Center as an ident
 
 
 2. On the **Data Collectors** dashboard, select **AWS**, and then select **Create Configuration**. If a Data Collector already exists in your AWS account and you want to add AWS IAM integration, do the following: 
-    - Select the Data Collector for which you want to AWS IAM. 
-    - Click on the ellipsis next to the Authorization Systems Status. 
-    - Select Integrate Identity Provider. 
+    - Select the Data Collector for which you want to configure AWS IAM. 
+    - Click on the ellipsis next to the **Authorization Systems Status**. 
+    - Select **Integrate Identity Provider**. 
 
 3. On the **Integrate Identity provider (IdP)** page, select the box for **AWS IAM Identity Center**. 
 
 4. Fill in the following fields:
-    - The **AWS IAM Identity Center Region**. Specify the region where AWS IAM Identity Center is installed. All the data configured in IAM Identity Center is stored in the Region, IAM Identity Center is installed.   
+    - The **AWS IAM Identity Center Region**. Specify the region where AWS IAM Identity Center is installed. All data configured in the IAM Identity Center  
+    is stored in the Region where the IAM Identity Center is installed.   
     - Your **AWS Management Account ID**
     - Your **AWS Management Account Role**
 
-5. Select **Launch Management Management Account Template**. The template opens in a new window. 
-6. The Master Management Account Template collects information to create update the AWS IAM Role that allows Microsoft Entra Permissions Management to collect organizational information. The following details are requested in the template. All fields are pre-populated, and you can edit the data as you need: 
+5. Select **Launch Management Account Template**. The template opens in a new window. 
+6. The Management Account Template collects information to create update the AWS IAM Role that allows Microsoft Entra Permissions Management to collect organizational information. The following details are requested in the template. All fields are pre-populated, and you can edit the data as you need: 
 
-    - **Stack name** – This is the name of the AWS stack for creating the required AWS resources for Permissions Management to collect organizational information. Default value - "mciem-org-tenant-id>". 
+    - **Stack name** – This is the name of the AWS stack for creating the required AWS resources for Permissions Management to collect organizational information. The default value is ``mciem-org-tenant-id``. 
     - **CFT Parameters**
         - **OIDC Provider Role Name** – Name of the IAM Role OIDC Provider that can assume the role. Default value – OIDC account role (as entered in Permissions Management). 
 
@@ -47,7 +48,7 @@ This article describes how to configure your AWS IAM Identity Center as an ident
 
         - **OIDC Provider Account ID** – The Account ID where the OIDC Provider is created. Default value – OIDC Provider Account ID (as entered in Permissions Management). 
 
-        - **Tenant ID** – ID of the tenant where the application is created. Default value – tenant-id (the configured tenant). 
+        - **Tenant ID** – ID of the tenant where the application is created. The default value is ``tenant-id11 (the configured tenant). 
 7. Click **Next** to review and confirm the information you've entered.
 
 8. Click **Verify Now & Save**.
