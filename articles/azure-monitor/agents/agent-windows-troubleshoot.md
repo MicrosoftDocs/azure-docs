@@ -3,7 +3,7 @@ title: Troubleshoot issues with the Log Analytics agent for Windows
 description: Describe the symptoms, causes, and resolution for the most common issues with the Log Analytics agent for Windows in Azure Monitor.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 03/31/2022
+ms.date: 06/01/2023
 ms.reviewer: JeffWo
 ---
 
