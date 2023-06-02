@@ -16,7 +16,7 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"] 
-> * [v1](how-to-inference-onnx-automl-image-models-v1.md) 
+> * [v1](how-to-inference-onnx-automl-image-models.md) 
 > * [v2 (current version)](../how-to-inference-onnx-automl-image-models.md?view=azureml-api-2&preserve-view=true) 
 
   
@@ -124,7 +124,7 @@ automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
 best_child_run = automl_image_run.get_best_child()
 ```
 
-Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](reference-automl-images-hyperparameters-v1.md#model-specific-hyperparameters) and for supported object detection model names refer to the [supported model algorithm section](how-to-auto-train-image-models-v1.md#supported-model-algorithms).
+Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) and for supported object detection model names refer to the [supported model algorithm section](how-to-auto-train-image-models-v1.md#supported-model-algorithms).
 
 To get the argument values needed to create the batch scoring model, refer to the scoring scripts generated under the outputs folder of the AutoML training runs. Use the hyperparameter values available in the model settings variable inside the scoring file for the best child run.
 
@@ -216,7 +216,7 @@ onnx_model_path = 'automl_models/model.onnx'  # local path to save the model
 remote_run.download_file(name='outputs/model_'+str(batch_size)+'.onnx', output_file_path=onnx_model_path)
 ```
 
-After the model downloading step, you use the ONNX Runtime Python package to perform inferencing by using the *model.onnx* file. For demonstration purposes, this article uses the datasets from [How to prepare image datasets](how-to-prepare-datasets-for-automl-images-v1.md) for each vision task. 
+After the model downloading step, you use the ONNX Runtime Python package to perform inferencing by using the *model.onnx* file. For demonstration purposes, this article uses the datasets from [How to prepare image datasets](how-to-prepare-datasets-for-automl-images.md) for each vision task. 
 
 We've trained the models for all vision tasks with their respective datasets to demonstrate ONNX model inference.
  
@@ -411,7 +411,7 @@ Perform the following preprocessing steps for the ONNX model inference:
 5. Convert to float type.
 6. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-If you chose different values for the [hyperparameters](reference-automl-images-hyperparameters-v1.md) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
+If you chose different values for the [hyperparameters](reference-automl-images-hyperparameters.md) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
 
 Get the input shape needed for the ONNX model.
 
@@ -560,7 +560,7 @@ Perform the following preprocessing steps for the ONNX model inference. These st
 5. Convert to float type.
 6. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-If you chose different values for the [hyperparameters](reference-automl-images-hyperparameters-v1.md) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
+If you chose different values for the [hyperparameters](reference-automl-images-hyperparameters.md) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
 
 Get the input shape needed for the ONNX model.
 
@@ -822,7 +822,7 @@ Perform the following preprocessing steps for the ONNX model inference:
 4. Convert to float type.
 5. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-For `resize_height` and `resize_width`, you can also use the values that you used during training, bounded by the `min_size` and `max_size` [hyperparameters](reference-automl-images-hyperparameters-v1.md) for Mask R-CNN.
+For `resize_height` and `resize_width`, you can also use the values that you used during training, bounded by the `min_size` and `max_size` [hyperparameters](reference-automl-images-hyperparameters.md) for Mask R-CNN.
 
 ```python
 import glob

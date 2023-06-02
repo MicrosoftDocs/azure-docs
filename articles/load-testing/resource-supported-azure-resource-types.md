@@ -7,12 +7,12 @@ ms.service: load-testing
 ms.topic: reference
 ms.author: nicktrog
 author: ntrogh
-ms.date: 01/04/2022
+ms.date: 06/02/2023
 ---
 
 # Supported Azure resource types for monitoring in Azure Load Testing
 
-Learn which Azure resource types Azure Load Testing supports for server-side monitoring. You can select specific metrics for each resource type to track and report on for a load test.
+Learn which Azure resource types Azure Load Testing supports for server-side monitoring during a load test. Azure Load Testing automatically selects relevant resource metrics or you can select specific metrics for each resource.
 
 To learn how to configure your load test, see [Monitor server-side application metrics](./how-to-monitor-server-side-metrics.md).
 

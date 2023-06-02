@@ -17,7 +17,7 @@ ms.custom: UpdateFrequency5, devx-track-python, automl, sdkv2, event-tier1-build
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](tutorial-auto-train-image-models-v1.md)
+> * [v1](tutorial-auto-train-image-models.md)
 > * [v2 (current version)](../tutorial-auto-train-image-models.md?view=azureml-api-2&preserve-view=true)
     
 
@@ -49,7 +49,7 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 
 * Download and unzip the [**odFridgeObjects.zip*](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) data file. The dataset is annotated in Pascal VOC format, where each image corresponds to an xml file. Each xml file contains information on where its corresponding image file is located and also contains information about the bounding boxes and the object labels. In order to use this data, you first need to convert it to the required JSONL format as seen in the [Convert the downloaded data to JSONL](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/auto-ml-image-object-detection.ipynb) section of the notebook. 
 
-This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection) if you wish to run it in your own [local environment](how-to-configure-environment-v1.md). To get the required packages,
+This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection) if you wish to run it in your own [local environment](how-to-configure-environment.md). To get the required packages,
 * Run `pip install azureml`
 * [Install the full `automl` client](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment)
 

@@ -118,7 +118,7 @@ Collect all of the values in the following table for both service regions in whi
  |**Value**|**Field name(s) in Azure portal**|
  |---------|---------|
  |The Azure regions to use for call traffic. |**Service Region One/Two: Region**|
- |The IPv4 address used by Microsoft Teams to contact your network from this region. |**Service Region One/Two: Operator IP address**|
+ |The IPv4 address used by Azure Communications Gateway to contact your network from this region. |**Service Region One/Two: Operator IP address**|
  |The set of IP addresses/ranges that are permitted as sources for signaling traffic from your network. Provide an IPv4 address range using CIDR notation (for example, 192.0.2.0/24) or an IPv4 address (for example, 192.0.2.0). You can also provide a comma-separated list of IPv4 addresses and/or address ranges.|**Service Region One/Two: Allowed Signaling Source IP Addresses/CIDR Ranges**|
  |The set of IP addresses/ranges that are permitted as sources for media traffic from your network. Provide an IPv4 address range using CIDR notation (for example, 192.0.2.0/24) or an IPv4 address (for example, 192.0.2.0). You can also provide a comma-separated list of IPv4 addresses and/or address ranges.|**Service Region One/Two: Allowed Media Source IP Address/CIDR Ranges**|
 

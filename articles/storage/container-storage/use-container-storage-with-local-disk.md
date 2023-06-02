@@ -4,9 +4,10 @@ description: Configure Azure Container Storage Preview for use with Ephemeral Di
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/12/2023
+ms.date: 06/01/2023
 ms.author: kendownie
 ms.subservice: container-storage
+ms.custom: references_regions
 ---
 
 # Use Azure Container Storage Preview with Ephemeral Disk
