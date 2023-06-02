@@ -26,60 +26,39 @@ The module logs all upgrade activity to a file named `PublicIPUpgrade.log`, crea
 
 ## Constraints/ Unsupported Scenarios
 
-* **VMs with NICs associated to a Load Balancer**: Because the Load Balancer and Public IP SKUs associated with a VM must match, it is not possible to upgrade the instance-level Public IP addresses associated with a VM when the VM's NICs are also associated with a Load Balancer, either though Backend Pool or NAT Pool membership. Use [Upgrade a basic load balancer used with Virtual Machine Scale Sets](../AzureBasicLoadBalancerUpgrade/README.md) to upgrade both the Load Balancer and Public IPs as the same time.
+* **VMs with NICs associated to a Load Balancer**: Because the Load Balancer and Public IP SKUs associated with a VM must match, it is not possible to upgrade the instance-level Public IP addresses associated with a VM when the VM's NICs are also associated with a Load Balancer, either though Backend Pool or NAT Pool membership. Use the scripts for upgrading a basic load balancer used with [virtual machines](../../load-balancer/upgrade-basic-standard.md) or [virtual machine scale sets](../../load-balancer/upgrade-basic-standard-virtual-machine-scale-sets.md) to upgrade both the Load Balancer and Public IPs as the same time.
 
-* **VMs without a Network Security Group**: VMs with IPs to be upgraded must have a Network Security Group (NSG) associated with either the subnet of each IP configuration with a Public IP, or with the NIC directly. This is because Standard SKU Public IPs are "secure by default", meaning that any traffic to the Public IP must be explicitly allowed at an NSG to reach the VM. Basic SKU Public IPs allow any traffic by default. Upgrading Public IP SKUs without an NSG will result in inbound internet traffic to the Public IP previously allowed with the Basic SKU being blocked post-migration. See: [Public IP SKUs](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses.md#sku)
+* **VMs without a Network Security Group**: VMs with IPs to be upgraded must have a Network Security Group (NSG) associated with either the subnet of each IP configuration with a Public IP, or with the NIC directly. This is because Standard SKU Public IPs are "secure by default", meaning that any traffic to the Public IP must be explicitly allowed at an NSG to reach the VM. Basic SKU Public IPs allow any traffic by default. Upgrading Public IP SKUs without an NSG will result in inbound internet traffic to the Public IP previously allowed with the Basic SKU being blocked post-migration. See: [Public IP SKUs](public-ip-addresses.md#sku)
 
-* **Virtual Machine Scale Sets with Public IP configurations**: If you have a virtual machine scale set (uniform model) with public IP configurations per instance, note these are not Public IP resources and as such cannot be upgraded; a new virtual machine scale set is required. You can use the SKU property to specify that Standard IP configurations are required for each VMSS instance as shown [here](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine).
+* **Virtual Machine Scale Sets with Public IP configurations**: If you have a virtual machine scale set (uniform model) with public IP configurations per instance, note these are not Public IP resources and as such cannot be upgraded; a new virtual machine scale set is required. You can use the SKU property to specify that Standard IP configurations are required for each VMSS instance as shown [here](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine).
+
+### Prerequisites
+
+- Install the latest version of [PowerShell](/powershell/scripting/install/installing-powershell)
+- Ensure whether you have the latest Az PowerShell module installed (and install the latest [Az PowerShell module](/powershell/azure/install-azure-powershell) if not)
 
 ## Download the script
 
 Download the migration script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureVMPublicIPUpgrade/1.0.0).
 
-## Use the script
-
-There are two options depending on your local PowerShell environment setup and preferences:
-
-* If you don't have the Az PowerShell module installed, or don't mind uninstalling the Az PowerShell module, use the `Install-Script` option to run the script.
-
-* If you need to keep the Az PowerShell module, download the script and run it directly.
-
-To determine if you have the Az PowerShell module installed, run `Get-InstalledModule -Name az`. If you don't see any installed Az PowerShell module, then you can use the `Install-Script` method.
-
-### Install with Install-Script
-
-To use this option, don't have the Az PowerShell module installed on your computer. If they're installed, the following command displays an error. Uninstall the Az PowerShell module, or use the other option to download the script manually and run it.
-
-Run the script with the following command:
-
-```azurepowershell
-Install-Script -Name AzureVMPublicIPUpgrade
+```powershell
+PS C:\> Install-Module -Name AzureVMPublicIPUpgrade -Scope CurrentUser -Repository PSGallery -Force
 ```
-This command also installs the required Az PowerShell module.
 
-### Install with the script directly
+## Use the module
 
-If you do have Az PowerShell module installed and can't uninstall it, or don't want to uninstall it,you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download)
+1. Use `Connect-AzAccount` to connect to the required Azure AD tenant and Azure subscription
 
-To run the script:
+    ```powershell
+    PS C:\> Connect-AzAccount -Tenant <TenantId> -Subscription <SubscriptionId>
+    ```
+2. Locate the VM with the attached Basic Public IPs that you wish to upgrade. Record its name and resource group name.
 
-1. Use `Connect-AzAccount` to connect to Azure.
+3. Examine the module parameters:
+    - *VMName [string] Required* - This parameter is the name of your VM.
+    - *ResourceGroupName [string] Required* - This parameter is the resource group for your VM with the Basic Public IPs attached that you want to upgrade.
 
-2. Use `Import-Module Az` to import the Az PowerShell module.
-
-3. Examine the required parameters:
-
-    * **RgName: [String]: Required** – This parameter is the resource group for your VM with the Basic Public IPs attached that you want to upgrade.
-
-    * **VmName: [String]: Required** – This parameter is the name of your VM.
-
-4. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
-
-    **Example**
-
-   ```azurepowershell
-   AzureVMPublicIPUpgrade.ps1 -RgName "test_publicUpgrade_rg" -VmName "myVM"
-   ```
+4. Run the Upgrade command.
 
 ### Example uses of the script
 
