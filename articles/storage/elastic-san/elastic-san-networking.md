@@ -18,14 +18,7 @@ This article describes how to configure your Elastic SAN to allow access from yo
 
 You can configure your Elastic SAN, and the volume groups that belong to it, to allow access only from endpoints on specific virtual network subnets. The allowed subnets may belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant.
 
-You can allow access from two types of Azure network endpoints:
-
-- [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
-- [Private endpoints](../../private-link/private-endpoint-overview.md)
-
-Before configuring endpoint access, determine the type of endpoint that best suits your needs. For more details, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
-
-Once you determine the type of endpoint to use:
+The process for configuring network access to your Elastic SAN is as follows:
 
 1. [Configure network endpoint access](#configure-network-endpoint-access).
 1. Configure endpoint access to the desired volume groups in the Elastic SAN.
@@ -34,7 +27,14 @@ Once you determine the type of endpoint to use:
 
 ## Configure network endpoint access
 
-To configure endpoint access to the Elastic from a virtual network subnet endpoint, the endpoint must be enabled from the subnet and an administrator with the appropriate rights must approve access to the SAN and the desired volume groups. The process for doing so, varies by the endpoint type:
+You can allow access from two types of Azure network endpoints:
+
+- [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
+- [Private endpoints](../../private-link/private-endpoint-overview.md)
+
+To determine the type of endpoint that best suits your needs, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
+
+To configure endpoint access to the Elastic SAN from a virtual network subnet endpoint, the endpoint must be enabled from the subnet and an administrator with the appropriate rights must approve access to the SAN and the desired volume groups. The process for doing so, varies by the endpoint type:
 
 - [Configure Storage service endpoint](#configure-storage-service-endpoint)
 - [Configure private endpoint](#configure-private-endpoint)
