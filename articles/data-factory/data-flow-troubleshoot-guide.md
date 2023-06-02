@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: ignite-2022
 ms.topic: troubleshooting
-ms.date: 03/28/2023
+ms.date: 06/01/2023
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
@@ -704,7 +704,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-SAPODATA-ODataServiceOrEntityMissed
 
 - **Message**: Both SAP servicePath and entityName are required in import-schema, preview-data and read data operation.
-- **Cause**: **Service Path** and **Entity name** can't be null when importing schema, previewing data or reading data.
+- **Cause**: **Service path** and **Entity name** can't be null when importing schema, previewing data or reading data.
 - **Recommendation**: Specify the **Service Path** and **Entity name** when importing schema, previewing data or reading data.
 
 ### Error code: DF-SAPODATA-TimeoutInvalid
@@ -723,7 +723,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: System Error: Failed to get deltaToken from SAP. Please contact Microsoft support for further assistance.
 - **Cause**: Failed to get the delta token from SAP.
--**Recommendations**: Contact Microsoft support for further assistance.
+- **Recommendations**: Contact Microsoft support for further assistance.
 
 ### Error code: DF-SAPODATA-StageAuthInvalid
 
