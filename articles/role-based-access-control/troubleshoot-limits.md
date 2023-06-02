@@ -27,7 +27,7 @@ When you try to assign a role, you get the following error message:
 
 `No more role assignments can be created (code: RoleAssignmentLimitExceeded)`
 
-#### Cause
+### Cause
 
 Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. You should try to reduce the number of role assignments in the subscription.
 
@@ -42,7 +42,7 @@ $ras = Get-AzRoleAssignment -Scope $scope | Where-Object {$_.scope.StartsWith($s
 $ras.Count
 ```
 
-#### Solution 1 - Replace principal-based role assignments with group-based role assignments
+### Solution 1 - Replace principal-based role assignments with group-based role assignments
 
 To reduce the number of role assignments in the subscription, add principals (users, service principals, and managed identities) to groups and assign roles to the groups instead. Follow these steps to identify where multiple role assignments for principals can be replaced with a single role assignment for a group.
 
@@ -114,7 +114,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
 1. Select and remove the principal-based role assignments. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
-#### Solution 2 - Remove redundant role assignments
+### Solution 2 - Remove redundant role assignments
 
 To reduce the number of role assignments in the subscription, remove redundant role assignments. Follow these steps to identify where redundant role assignments at a lower scope can potentially be removed since a role assignment at a higher scope already grants access.
 
@@ -178,7 +178,7 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
 1. Select and remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
-#### Solution 3 - Replace multiple built-in role assignments with a custom role assignment
+### Solution 3 - Replace multiple built-in role assignments with a custom role assignment
 
 To reduce the number of role assignments in the subscription, replace multiple built-in role assignments with a single custom role assignment. Follow these steps to identify where multiple built-in role assignments can potentially be replaced.
 
@@ -235,11 +235,11 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Remove the built-in role assignments from the principal. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
-#### Solution 4 - Make role assignments eligible
+### Solution 4 - Make role assignments eligible
 
 To reduce the number of role assignments in the subscription and you have Azure AD Premium P2, make role assignments eligible in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md) instead of permanently assigned.
 
-#### Solution 5 - Add an additional subscription
+### Solution 5 - Add an additional subscription
 
 Add an additional subscription.
 
@@ -247,14 +247,14 @@ Add an additional subscription.
 
 You're unable to assign a role at management group scope.
 
-#### Cause
+### Cause
 
 Azure supports up to **500** role assignments per management group. This limit is different than the role assignments limit per subscription.
 
 > [!NOTE]
 > The **500** role assignments limit per management group is fixed.
 
-#### Solution
+### Solution
 
 Try to reduce the number of role assignments in the management group. For possible options, see [Symptom - No more role assignments can be created](#symptom---no-more-role-assignments-can-be-created). For the queries to retrieve resources at the management group level, you'll need to make the following change to the queries:
 
@@ -272,11 +272,11 @@ When you try to create a new custom role, you get the following message:
 
 `Role definition limit exceeded. No more role definitions can be created (code: RoleDefinitionLimitExceeded)`
 
-#### Cause
+### Cause
 
 Azure supports up to **5000** custom roles in a directory. (For Azure China 21Vianet, the limit is 2000 custom roles.)
 
-#### Solution
+### Solution
 
 Follow these steps to find and delete unused Azure custom roles.
 
