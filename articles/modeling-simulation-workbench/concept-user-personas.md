@@ -26,7 +26,7 @@ The Project Manager, also known as the *Chamber Admin*, is responsible for insta
 
 ## Design Engineer (Chamber User)
 
-The Design Engineer is responsible for execution of the workflows and simulations leading up to the final design approval. This role is referred to as the *Chamber User*. Chamber Users have a lower level of access to the environment, but can deploy workloads, execute scripts and schedulers based on their access permissions to chamber storages. They can also use the [data pipeline](./conecept-data-pipeline.md), to bring data into the chamber and request data to be exported from chamber.
+The Design Engineer is responsible for execution of the workflows and simulations leading up to the final design approval. This role is referred to as the *Chamber User*. Chamber Users have a lower level of access to the environment, but can deploy workloads, execute scripts and schedulers based on their access permissions to chamber storages. They can also use the [data pipeline](./concept-data-pipeline.md), to bring data into the chamber and request data to be exported from chamber.
 
 ## Next steps
 

@@ -53,8 +53,12 @@ items:
           href: ./how-to-guide-manage-storage.md          
 #        - name: Disaster Recovery
 #          href: ./how-to-guide-disaster-recovery.md
-        - name: Troubleshooting
-          href: ./how-to-guide-troubleshooting.md
+- name: Resources
+  items: 
+    - name: Troubleshoot
+      href: ./resources-troubleshooting.md
+    - name: Get support
+      href: ./resources-get-support.md
 #- name: Reference
 #  items: 
 #    - name: Azure CLI
