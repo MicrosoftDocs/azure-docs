@@ -725,6 +725,8 @@ items:
             href: app/javascript-sdk-upgrade.md
           - name: Troubleshooting
             href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
+          - name: FAQ
+            href: /azure/azure-monitor/faq#application-insights
         - name: SDK support policy
           href: app/sdk-support-guidance.md
       - name: OpenTelemetry instrumentation
