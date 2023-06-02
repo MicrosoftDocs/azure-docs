@@ -282,7 +282,7 @@ You can obtain the tunnel private IP addresses of the Virtual WAN Site-to-site V
 
 The private IP addresses the on-premises devices uses for VPN termination are the IP addresses that are specified as part of the VPN site link connection.
 
-:::image type="content" source="./media/routing-policies/on-prem-device.png"alt-text="Screenshot showing VPN site on-premises device tunnel IP address."lightbox="./media/routing-policies/on-prem-device.png":::
+:::image type="content" source="./media/routing-policies/on-premises-device.png"alt-text="Screenshot showing VPN site on-premises device tunnel IP address."lightbox="./media/routing-policies/on-prem-device.png":::
 
 Using the sample VPN configuration and VPN site from above, create firewall rules to allow the following traffic. Note that the VPN Gateway IP's must be the source IP and the on-premises VPN device must be the destination IP in the configured rules.
 
