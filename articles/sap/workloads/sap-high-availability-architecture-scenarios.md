@@ -141,6 +141,7 @@ Here's a quick summary of the various deployment types that are available for SA
 >
 > * Update domains have been deprecated in Flexible Orchestration mode. For more information, see [Migrate deployments and resources to Virtual Machine Scale Sets in Flexible orchestration](../../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-migration-resources.md)
 > * For more information on compute to storage fault domain alignment, see [Choosing the right number of fault domains for Virtual Machine Scale Set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains.md) and [How do availability sets work?](../../virtual-machines/availability-set-overview.md#how-do-availability-sets-work)
+> * Currently, capacity reservation does not support all VM SKUs. It is important to review the [limitations and restrictions](../../virtual-machines/capacity-reservation-overview.md#limitations-and-restrictions) section of the capacity reservation documentation for more information.
 
 ## High availability deployment options for SAP workload
 
