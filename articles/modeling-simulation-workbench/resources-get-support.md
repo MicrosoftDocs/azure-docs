@@ -5,7 +5,7 @@ author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
-ms.topic: resources
+ms.topic: conceptual
 ms.date: 01/01/2023
 # Customer intent: As a user of the Modeling and Simulation Workbench, I want to troubleshoot issues I may have encountered.
 ---
@@ -16,7 +16,7 @@ The Azure Modeling and Simulation Workbench learning content and [troubleshootin
 
 ## Get Support
 
-To get support directly from the product team, send an email [here.](azuremswb@microsoft.com)
+To get support directly from the product team, send an email to [azuremswb@microsoft.com.](mailto:azuremswb@microsoft.com)
 
 Provide the following information:
 

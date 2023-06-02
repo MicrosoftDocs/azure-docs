@@ -45,7 +45,7 @@ To edit the allowed IP addresses list:
 1. Click **Submit** to save your changes.
 1. Once submitted, refresh the view for connector networking and see your changes reflected.
 
-   :::image type="content" source="./media/howtoguide-troubleshooting/chamber-connector-networking-network-allowlist.png" alt-text="Screenshot of the Azure portal in a web browser, showing the chamber connector networking allowlist.":::
+   :::image type="content" source="./media/resources-troubleshooting/chamber-connector-networking-network-allowlist.png" alt-text="Screenshot of the Azure portal in a web browser, showing the chamber connector networking allowlist.":::
 
 ## Next steps
 

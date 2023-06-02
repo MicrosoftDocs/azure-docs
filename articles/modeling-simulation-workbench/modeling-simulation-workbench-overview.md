@@ -38,6 +38,6 @@ Storage (both private within chamber, and shared) is persistent with high availa
 
 ## Next steps
 
-- The limited public preview is currently available in East US and US Gov Virginia. To sign up for the preview, please visit [Azure Modeling and Simulation Workbench intake form](https://azure.microsoft.com/products/azure-modeling-and-simulation-workbench/). We look forward to hearing your [feedback](azuremswb@microsoft.com).
+- The limited public preview is currently available in East US and US Gov Virginia. To sign up for the preview, please visit [Azure Modeling and Simulation Workbench intake form](https://azure.microsoft.com/products/azure-modeling-and-simulation-workbench/). We look forward to hearing your [feedback](mailto:azuremswb@microsoft.com).
 
 - [Workbench](./concept-workbench.md)
