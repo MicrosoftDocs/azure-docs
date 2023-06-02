@@ -16,6 +16,8 @@ GitHub Actions and Azure Pipelines allow you to run CI/CD workflows with self-ho
 
 Self-hosted runners are useful when you need to run workflows that require access to local resources or tools that aren't available in a cloud-hosted runner. For example, a self-hosted runner in a Container Apps job allows your workflow to access resources inside the job's virtual network that isn't accessible from a cloud-hosted runner.
 
+Running self-hosted runners as event-driven jobs allows you to take advantage of the serverless nature of Azure Container Apps. Jobs execute automatically when a workflow is triggered and exit when it completes. You only pay for the time that the job is running.
+
 ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
 
 In this tutorial, you learn how to run GitHub Actions runners as an [event-driven Container Apps job](jobs.md#event-driven-jobs).
