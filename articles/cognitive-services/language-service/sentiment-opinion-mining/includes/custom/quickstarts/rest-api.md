@@ -37,8 +37,6 @@ After you have created an Azure storage account and connected it to your Languag
 
 [!INCLUDE [Uploading sample data for Custom sentiment analysis](../../../../includes/custom/language-studio/upload-data-to-storage.md)]
 
-### Get your resource keys and endpoint
-
 [!INCLUDE [Get keys and endpoint Azure Portal](../../../../includes/get-key-endpoint.md)]
 
 ## Create a Custom sentiment analysis project
