@@ -169,7 +169,8 @@ To create a self-hosted runner, you need to build a container image that runs th
         --name "$CONTAINER_REGISTRY_NAME" \
         --resource-group "$RESOURCE_GROUP" \
         --location "$LOCATION" \
-        --sku Basic
+        --sku Basic \
+        --admin-enabled true
     ```
 
 1. The Dockerfile for creating the runner image is available on [GitHub](https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial/tree/main/github-actions-runner). Run the following command to clone the repository and build the container image in the cloud using the `az acr build` command.
@@ -209,9 +210,7 @@ Now that you have a container image that runs a GitHub Actions runner, you can c
         --memory '4Gi' \
         --secrets "personal-access-token=$GITHUB_PAT" \
         --env-vars 'GITHUB_PAT=secretref:personal-access-token' "REPO_URL=https://github.com/$REPO_OWNER/$REPO_NAME" "REGISTRATION_TOKEN_API_URL=https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runners/registration-token" \
-        --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io" \
-        --registry-identity 'system' \
-        --system-assigned
+        --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
     ```
 
     The following table describes the key parameters used in the command.
@@ -231,9 +230,7 @@ Now that you have a container image that runs a GitHub Actions runner, you can c
     | `--scale-rule-auth` | The authentication for the scale rule. |
     | `--secrets` | The secrets to use for the job. |
     | `--env-vars` | The environment variables to use for the job. |
-    | `--registry-server` | The container registry server to use for the job. |
-    | `--registry-identity` | The managed identity used to pull images from the registry. For an Azure Container Registry, the command automatically configures `Acrpull` permissions. |
-    | `--system-assigned` | Create a system-assigned managed identity for the job. |
+    | `--registry-server` | The container registry server to use for the job. For an Azure Container Registry, the command automatically configures authentication. |
 
     The scale rule configuration defines the event source to monitor. It's evaluated on each polling interval and determines how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
 
