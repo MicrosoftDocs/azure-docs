@@ -1,11 +1,11 @@
 ---
-title: 
-description: 
+title: Azure AD's backup authentication system
+description: Increasing the resilience of the authentication plane with the backup authentication system.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 06/02/2023
 
 ms.author: joflore
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Users and organizations around the world depend on the high availability of Azure Active Directory (Azure AD) authentication of users and services 24 hours a day, seven days a week. We promise a 99.99% Service Level availability for authentication, and we continuously seek to improve it by enhancing the resilience of our authentication service. To further improve resilience during outages, we implemented a backup system in 2021.
 
-The Azure AD backup authentication system is made up of multiple backup services that work together to increase authentication resilience if there's an outage. This system transparently and automatically handles authentications for supported applications and services if the primary Azure AD service is unavailable or degraded. It adds an extra layer of resilience on top of the multiple levels of existing redundancy. This resilience is described in the blog post [Advancing service resilience in Azure Active Directory with its backup authentication service](https://azure.microsoft.com/en-us/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/). This system syncs authentication metadata when the system is healthy and uses that to enable users to continue to access applications during outages of the primary service while still enforcing policy controls.
+The Azure AD backup authentication system is made up of multiple backup services that work together to increase authentication resilience if there's an outage. This system transparently and automatically handles authentications for supported applications and services if the primary Azure AD service is unavailable or degraded. It adds an extra layer of resilience on top of the multiple levels of existing redundancy. This resilience is described in the blog post [Advancing service resilience in Azure Active Directory with its backup authentication service](https://azure.microsoft.com/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/). This system syncs authentication metadata when the system is healthy and uses that to enable users to continue to access applications during outages of the primary service while still enforcing policy controls.
 
 During an outage of the primary service, users are able to continue working with their applications, as long as they accessed them in the last three days from the same device, and no blocking policies exist that would curtail their access:
 
@@ -70,7 +70,7 @@ Web Applications are accessed through a browser or browser control embedded with
 
 ### Which non-Microsoft workloads are supported?
 
-The backup authentication system automatically provides incremental resilience to tens of thousands of supported non-Microsoft applications based on their authentication patterns. See Appendix B for a list of the most common non-Microsoft applications and their coverage status. For an in depth explanation of which authentication patterns are supported, see the article [Understanding Application Support for the backup authentication system](MISSING_LINK) article. 
+The backup authentication system automatically provides incremental resilience to tens of thousands of supported non-Microsoft applications based on their authentication patterns. See Appendix B for a list of the most common non-Microsoft applications and their coverage status. For an in depth explanation of which authentication patterns are supported, see the article [Understanding Application Support for the backup authentication system](backup-authentication-system-apps.md) article. 
 
 - Native applications using the OAuth 2.0 protocol to access resource applications, such as popular non-Microsoft e-mail and IM clients like: Apple Mail, Aqua Mail, Gmail, Samsung Email, Spark, and Thunderbird
 - Line of business web applications configured to authenticate with OpenID Connect using only ID tokens.
