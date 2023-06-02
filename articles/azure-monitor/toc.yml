@@ -221,6 +221,9 @@ items:
       - name: Collect IIS logs
         displayName: data collection rule,Azure Monitor Agent,IIS logs
         href: agents/data-collection-iis.md
+      - name: Collect Windows Firewall logs
+        displayName: data collection rule,Azure Monitor Agent,firewall logs
+        href: agents/data-collection-firewall.md
       - name: Collect text logs
         displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
         href: agents/data-collection-text-log.md
@@ -1296,7 +1299,7 @@ items:
           - name: API access, authentication and authorization
             href: logs/api/access-api.md
           - name: Application Insights API access with Azure Active Directory
-            href: logs/api/app-insights-azure-ad-api.md
+            href: app/app-insights-azure-ad-api.md
           - name: Register an app for API access
             href: logs/api/register-app-for-token.md 
           - name: Request format

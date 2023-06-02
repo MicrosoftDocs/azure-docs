@@ -16,7 +16,7 @@ ms.custom: UpdateFrequency5, automl, event-tier1-build-2022, ignite-2022
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
-> * [v1](concept-automated-ml-v1.md)
+> * [v1](concept-automated-ml.md)
 > * [v2 (current version)](../concept-automated-ml.md?view=azureml-api-2&preserve-view=true)
 
 Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. Automated ML in Azure Machine Learning is based on a breakthrough from our [Microsoft Research division](https://www.microsoft.com/research/project/automl/).
@@ -291,7 +291,7 @@ Automated machine learning supports ensemble models, which are enabled by defaul
 
 The [Caruana ensemble selection algorithm](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) with sorted ensemble initialization is used to decide which models to use within the ensemble. At a high level, this algorithm initializes the ensemble with up to five models with the best individual scores, and verifies that these models are within 5% threshold of the best score to avoid a poor initial ensemble. Then for each ensemble iteration, a new model is added to the existing ensemble and the resulting score is calculated. If a new model improved the existing ensemble score, the ensemble is updated to include the new model.
 
-See the [how-to (v1)](how-to-configure-auto-train-v1.md#ensemble-configuration) for changing default ensemble settings in automated machine learning.
+See the [how-to (v1)](how-to-configure-auto-train.md#ensemble-configuration) for changing default ensemble settings in automated machine learning.
 
 <a name="use-with-onnx"></a>
 
@@ -313,7 +313,7 @@ Tutorials are end-to-end introductory examples of AutoML scenarios.
 
 + **For a low or no-code experience**, see the [Tutorial: Train a classification model with no-code AutoML in Azure Machine Learning studio](../tutorial-first-experiment-automated-ml.md).
 
-+ **For using AutoML to train computer vision models**, see the [Tutorial: Train an object detection model with AutoML and Python (v1)](./tutorial-auto-train-image-models-v1.md).
++ **For using AutoML to train computer vision models**, see the [Tutorial: Train an object detection model with AutoML and Python (v1)](./tutorial-auto-train-image-models.md).
    
 How-to articles provide additional detail into what functionality automated ML offers. For example, 
 

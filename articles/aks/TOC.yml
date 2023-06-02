@@ -360,8 +360,6 @@
               href: use-cvm.md
             - name: Use Dedicated Hosts with AKS
               href: use-azure-dedicated-hosts.md
-            - name: BYOK for disks
-              href: azure-disk-customer-managed-keys.md
             - name: Enable host-based encryption
               href: enable-host-encryption.md
             - name: Enable FIPS
@@ -521,6 +519,8 @@
               href: use-premium-v2-disks.md
             - name: Use Azure ultra disks
               href: use-ultra-disks.md
+            - name: Bring your own keys for disks
+              href: azure-disk-customer-managed-keys.md
         - name: Other storage options
           items:
             - name: Azure HPC Cache
