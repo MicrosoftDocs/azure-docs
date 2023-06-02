@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 06/02/2023
 
 ms.author: justinha
 author: justinha
@@ -154,6 +154,9 @@ This issue happens because of certificate caching. We are working to add a fix t
 |Operating system | Chrome certificate on-device | Chrome smart card | Safari certificate on-device | Safari smart card | Edge certificate on-device | Edge smart card |
 |:----------------|:---------------------------------:|:---------------------:|:---------------------------------:|:---------------------:|:---------------------------------:|:---------------------:|
 | Android             |  &#x2705;                          | &#10060;|N/A                          | N/A |  &#10060;                          | &#10060;|
+
+>[!NOTE]
+>Although Edge as a browser is not supported, Edge as a profile (for account login) is a Microsoft Authentication Library (MSAL) app that supports CBA on Android.
 
 ### Security key providers
 
