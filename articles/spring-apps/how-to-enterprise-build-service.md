@@ -1,12 +1,12 @@
 ---
-title: How to use Tanzu Build Service in Azure Spring Apps Enterprise
-description: Learn how to use Tanzu Build Service in Azure Spring Apps Enterprise plan.
+title: How to use Tanzu Build Service in the Azure Spring Apps Enterprise plan
+description: Learn how to use Tanzu Build Service in the Azure Spring Apps Enterprise plan.
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 05/25/2023
-ms.custom: devx-track-java, event-plan1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Use Tanzu Build Service
@@ -26,17 +26,17 @@ VMware Tanzu Buildpacks provide framework and runtime support for applications. 
 
 [Language Family Buildpacks for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-index.html) provide easy out-of-the-box support for the most popular language runtimes and app configurations. These composite buildpacks combine multiple component buildpacks into ordered groupings. The groupings satisfy each buildpack’s requirements. For more information, see [Buildpacks](https://paketo.io/docs/concepts/buildpacks/#composite-buildpacks).
 
-## Builders and stacks
+## Builders
 
-VMware Tanzu Build Service uses a builder, a set of buildpacks, and a stack in the process of building source code. For more information, see [Builder](https://docs.vmware.com/en/Tanzu-Build-Service/1.6/vmware-tanzu-build-service/GUID-index.html#builder) and [Stacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-stacks.html).
+A [Builder](https://docs.vmware.com/en/Tanzu-Build-Service/1.6/vmware-tanzu-build-service/GUID-index.html#builder) is a Tanzu Build Service resource. A Builder contains a set of buildpacks and a [stack](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-stacks.html) used in the process of building source code.
 
 ## Build agent pool
 
-Tanzu Build Service in Azure Spring Apps Enterprise is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps.
+Tanzu Build Service in the Enterprise plan is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps.
 
 The following table shows the sizes available for build agent pool scale sets:
 
-| Scale Set | CPU/Gi          |
+| Scale set | CPU/Gi          |
 |-----------|-----------------|
 | S1        | 2 vCPU, 4 Gi    |
 | S2        | 3 vCPU, 6 Gi    |
@@ -48,26 +48,21 @@ The following table shows the sizes available for build agent pool scale sets:
 | S8        | 32 vCPU, 64 Gi  |
 | S9        | 64 vCPU, 128 Gi |
 
-Tanzu Build Service allows at most one pool-sized build task to build and twice the pool-sized build tasks to queue.
-
-If the quota of the agent pool is insufficient for the build task, the build request receives an error message build status and related information. The following suggestions are included:
-
-- Try smaller sizes of build resource requests.
-- Try larger build agent pool sizes.
+Tanzu Build Service allows at most one pool-sized build task to build and twice the pool-sized build tasks to queue. If the quota of the agent pool is insufficient for the build task, the request for this build will get the following error: `The usage of build results in Building or Queuing status are (cpu: xxx, memory: xxxMi) and the remained quota is insufficient for this build. please retry with smaller size of build resourceRequests, retry after the previous build process completed or increased your build agent pool size`.
 
 ## Configure the build agent pool
 
 When you create a new Azure Spring Apps Enterprise service instance using the Azure portal, you can use the **VMware Tanzu settings** tab to configure the number of resources given to the build agent pool.
 
-:::image type="content" source="media/how-to-enterprise-build-service/agent-pool.png" alt-text="Screenshot of Azure portal showing VMware Tanzu Settings on the Azure Spring Apps Create page with the Allocated Resources dropdown highlighted." lightbox="media/how-to-enterprise-build-service/agent-pool.png":::
+:::image type="content" source="media/how-to-enterprise-build-service/agent-pool.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page with V M ware Tanzu settings highlighted and Allocated Resources dropdown showing." lightbox="media/how-to-enterprise-build-service/agent-pool.png":::
 
-The following image shows the resources given to the Tanzu Build Service Agent Pool after you've successfully provisioned the service instance. You can also update **Resources allocated to Build Service** to set the configured agent pool size.
+The following image shows the resources given to the Tanzu Build Service Agent Pool after you've successfully provisioned the service instance. You can also update the configured agent pool size here after you've created the service instance.
 
-:::image type="content" source="media/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Screenshot of Azure portal showing the Build Service page with the Resources allocated to Build Service dropdown menu highlighted." lightbox="media/how-to-enterprise-build-service/agent-pool-size.png":::
+:::image type="content" source="media/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Build Service page with 'General info' highlighted." lightbox="media/how-to-enterprise-build-service/agent-pool-size.png":::
 
 ## Build Service on demand
 
-You can enable or disable Tanzu Build Service when you create an Azure Spring Apps Enterprise instance.
+You can enable or disable the build service when you create an Azure Spring Apps Enterprise plan instance.
 
 ### Build and deployment characteristics
 
