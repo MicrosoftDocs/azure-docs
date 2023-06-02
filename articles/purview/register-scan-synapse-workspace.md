@@ -12,7 +12,7 @@ ms.custom: template-how-to, ignite-fall-2021
 
 # Connect to and manage Azure Synapse Analytics workspaces in Microsoft Purview
 
-This article outlines how to register Azure Synapse Analytics workspaces and how to authenticate and interact with Azure Synapse Analytics workspaces in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
+This article outlines how to register Azure Synapse Analytics workspaces. It also describes how to authenticate and interact with Azure Synapse Analytics workspaces in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
@@ -240,9 +240,9 @@ Repeat the previous steps for all dedicated SQL databases in your Azure Synapse 
     ALTER ROLE db_datareader ADD MEMBER [ServicePrincipalID]; 
     ```
 
-# [SQL Authentication](#tab/SQLAuth)
+# [SQL authentication](#tab/SQLAuth)
 
-#### Use SQL Authentication for dedicated SQL databases
+#### Use SQL authentication for dedicated SQL databases
 
 1. Set up a new credential of type *SQL authentication* by following the instructions in [Credentials for source authentication in Microsoft Purview](manage-credentials.md).
 1. Go to your Azure Synapse Analytics workspace.
@@ -260,7 +260,7 @@ Repeat the previous steps for all dedicated SQL databases in your Azure Synapse 
 
 Repeat the previous steps for all dedicated SQL databases in your Azure Synapse Analytics workspace.
 
-#### Use SQL Authentication for serverless SQL databases
+#### Use SQL authentication for serverless SQL databases
 
 1. Go to your Azure Synapse Analytics workspace.
 1. Go to the **Data** section, and then look for one of your serverless SQL databases.
@@ -292,7 +292,7 @@ Repeat the previous steps for all dedicated SQL databases in your Azure Synapse 
 1. Select **Save**.
 
 > [!IMPORTANT]
-> If you can't enable **Allow Azure services and resources to access this workspace** on your Azure Synapse Analytics workspaces, when you set up a scan in the Microsoft Purview governance portal, you'll get a serverless database enumeration failure. In this case, you can choose the [Enter manually](#create-and-run-a-scan) option to specify the database names that you want to scan, and then proceed.
+> If you can't enable **Allow Azure services and resources to access this workspace** on your Azure Synapse Analytics workspaces, you'll get a serverless database enumeration failure when you set up a scan in the Microsoft Purview governance portal. In this case, you can choose the [Enter manually](#create-and-run-a-scan) option to specify the database names that you want to scan, and then proceed.
 
 ### Create and run a scan
 
