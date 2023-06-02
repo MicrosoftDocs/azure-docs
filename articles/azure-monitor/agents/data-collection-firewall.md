@@ -9,7 +9,7 @@ ms.reviewer: jeffwo
 
 ---
 
-# Collect Firewall logs with Azure Monitor Agent
+# Collect Firewall logs with Azure Monitor Agent (Preview)
 Windows Firewall is a Microsoft Windows application that filters information coming to your system from the Internet and blocks potentially harmful programs. It is also known as Microsoft Defender Firewall in Windows 10 version 2004 and later. You can turn it on or off by following these steps:
 - Select Start, then open Settings
 - Under Update & Security, select Windows Security, Firewall & network protection.
