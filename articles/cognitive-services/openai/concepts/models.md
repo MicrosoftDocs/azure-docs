@@ -5,7 +5,7 @@ description: Learn about the different model capabilities that are available wit
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 05/15/2023
-ms.custom: event-tier1-build-2022, references_regions
+ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
@@ -140,10 +140,13 @@ Currently, we offer three families of Embeddings models for different functional
 
 Each family includes models across a range of capability. The following list indicates the length of the numerical vector returned by the service, based on model capability:
 
-- Ada: 1024 dimensions
-- Babbage: 2048 dimensions
-- Curie: 4096 dimensions
-- Davinci: 12288 dimensions
+|  Base Model  |  Model(s)  |  Dimensions  |
+|---|---|---|
+| Ada | models ending in -001 (Version 1) | 1024 |
+| Ada | text-embedding-ada-002 (Version 2) | 1536 |
+| Babbage |  | 2048 |
+| Curie |  | 4096 |
+| Davinci |  | 12288 |
 
 Davinci is the most capable, but is slower and more expensive than the other models. Ada is the least capable, but is both faster and cheaper.
 
@@ -197,7 +200,7 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 | text-davinci-fine-tune-002 | N/A | N/A |  |  |
 | gpt-35-turbo<sup>1</sup> (ChatGPT) | East US, France Central, South Central US, West Europe | N/A | 4,096 | Sep 2021 |
 
-<br><sup>1</sup> Currently, only version `0301` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
+<br><sup>1</sup> Currently, only version `0301` of this model is available.
 
 ### GPT-4 Models
 
@@ -205,8 +208,8 @@ These models can only be used with the Chat Completion API.
 
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
-| `gpt-4` <sup>1,</sup><sup>2</sup> (preview)     |  East US, France Central |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1,</sup><sup>2</sup> (preview) |  East US, France Central |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>1,</sup><sup>2</sup>      |  East US, France Central |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1,</sup><sup>2</sup>  |  East US, France Central |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
 <sup>2</sup> Currently, only version `0314` of this model is available.

@@ -5,7 +5,7 @@ description: Learn how to change Tiers from the Basic to the Standard SKU.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 05/17/2023
 ms.author: cherylmc
 
 ---
@@ -24,9 +24,9 @@ This article helps you upgrade from the Basic Tier (SKU) to Standard. Once you u
 
 1. You can add features at the same time you upgrade the SKU. You don't need to upgrade the SKU and then go back to add the features as a separate step.
 
-1. Click **Apply** to apply changes. The bastion host will update. This takes about 10 minutes to complete.
+1. Select **Apply** to apply changes. The bastion host updates. This takes about 10 minutes to complete.
 
 ## Next steps
 
-* See [Configuration settings](configuration-settings.md) for more configuration information.
+* See [Configuration settings](configuration-settings.md).
 * Read the [Bastion FAQ](bastion-faq.md).

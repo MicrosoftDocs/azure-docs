@@ -9,10 +9,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/09/2023
-ms.custom: project-no-code
+ms.custom: project-no-code, build-2023
 ms.author: kengaderdus
 ms.subservice: B2C
-
 ---
 # Request an access token in Azure Active Directory B2C
 

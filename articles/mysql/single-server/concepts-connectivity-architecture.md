@@ -59,7 +59,7 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 |  East US               |  40.71.8.203, 40.71.83.113                                 |  40.121.158.30                  |  191.238.6.43                   |
 |  East US 2             |  40.70.144.38, 52.167.105.38                               |  52.177.185.181  |                                               |
 |  France Central        |  40.79.137.0, 40.79.129.1                                  |   |                                               |
-|  France South          |  40.79.177.0                                               |                      |                                               |
+|  France South          |  40.79.177.0, 40.79.176.40                                               |                      |                                               |
 |  Germany Central       |  51.4.144.100                                              |                           |                                               |
 |  Germany North         |  51.116.56.0                                               |                                  |                                               |
 |  Germany North East    |  51.5.144.179                                              |                  |                                               |
