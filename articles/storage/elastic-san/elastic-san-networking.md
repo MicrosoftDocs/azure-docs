@@ -4,7 +4,7 @@ description: How to configure networking for Azure Elastic SAN Preview, a servic
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 06/02/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022, devx-track-azurepowershell
@@ -48,7 +48,7 @@ In your virtual network, enable the Storage service endpoint on your subnet. Thi
 
 # [Portal](#tab/azure-portal)
 1. Navigate to your virtual network and select **Service Endpoints**.
-1. Select **+ Add** and for **Service** select **Microsoft.Storage** or **Microsoft.Storage.Global**, depending on whether you want to use [cross-region service endpoints](elastic-san-networking-concepts.md#azure-storage-cross-region-service-endpoints).
+1. Select **+ Add** and for **Service** select **Microsoft.Storage** or **Microsoft.Storage.Global**, depending on whether you want to use [cross-region service endpoints](../common/storage-network-security.md#azure-storage-cross-region-service-endpoints).
 1. Select any policies you like, and the subnet you deploy your Elastic SAN into and select **Add**.
 
 :::image type="content" source="media/elastic-san-create/elastic-san-service-endpoint.png" alt-text="Screenshot of the virtual network service endpoint page, adding the storage service endpoint." lightbox="media/elastic-san-create/elastic-san-service-endpoint.png":::
