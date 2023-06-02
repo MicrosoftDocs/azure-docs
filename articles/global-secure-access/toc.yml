@@ -37,8 +37,6 @@ items:
         href: how-to-manage-remote-networks.md
       - name: Manage remote network device links
         href: how-to-manage-remote-network-device-links.md
-      - name: Test remote network connectivity
-        href: how-to-test-remote-network-connectivity.md 
   - name: Conditional Access
     expanded: false
     items:
