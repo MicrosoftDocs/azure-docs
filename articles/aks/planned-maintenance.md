@@ -51,6 +51,15 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
+If the Azure CLI extension do not upgrade to version 0.5.124 or later, then you need to upgrade the version of Azure CLI before.
+```azurecli-interactive
+# Show Azure CLI extension version
+az extension show --name aks-preview
+
+# Upgrade Azure CLI
+az upgrade
+```
+
 ## Creating a maintenance window
 
 To create a maintenance window, you can use the `az aks maintenanceconfiguration add` command using the  `--name` value `default`, `aksManagedAutoUpgradeSchedule`, or `aksManagedNodeOSUpgradeSchedule`. The name value should reflect the desired configuration type. Using any other name will cause your maintenance window not to run.
