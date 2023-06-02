@@ -12,7 +12,7 @@ AuthorizationResources
 | where id startswith "/subscriptions"
 | extend PrincipalId = tostring(properties.principalId) 
 | extend Scope = tolower(properties.scope)
-| extend RoleDefinitionId = tostring(tolower(properties.roleDefinitionId))
+| extend RoleDefinitionId = tolower(tostring(properties.roleDefinitionId))
 | join kind = leftouter (
   AuthorizationResources
   | where type =~ "microsoft.authorization/roledefinitions"

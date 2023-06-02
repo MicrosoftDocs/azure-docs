@@ -10,7 +10,7 @@ ms.author: rolyon
 AuthorizationResources
 | where type =~ "microsoft.authorization/roleassignments"
 | where id startswith "/subscriptions"
-| extend RoleDefinitionId = tostring(tolower(properties.roleDefinitionId))
+| extend RoleDefinitionId = tolower(tostring(properties.roleDefinitionId))
 | extend PrincipalId = tolower(properties.principalId)
 | extend RoleDefinitionId_PrincipalId = strcat(RoleDefinitionId, "_", PrincipalId)
 | join kind = leftouter (
