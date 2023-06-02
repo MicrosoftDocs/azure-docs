@@ -6,7 +6,7 @@ author: AvijitkGupta
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 05/22/2023
+ms.date: 06/02/2023
 ---
 
 # Multi-Tenant Monitoring
@@ -16,13 +16,13 @@ ms.date: 05/22/2023
 > [!IMPORTANT]
 > Applicable to Citus 11.3 & newer versions
 
-Multi-tenant statistics monitoring is a crucial aspect of managing a multi-tenant SaaS platform. The feature offers insights into CPU usage and the overall query volume, attributed to specific tenants. Tracking of statistics is done locally on nodes where tenant resides and are made accessible at both tenant and node level of granularity. The collected statistics allows in quick identification of noisy neighbors & helps in better optimizing the resource usage in your cluster.
+Tenant monitoring is a crucial aspect of managing a multi-tenant SaaS platform. The feature offers insights into CPU usage and the overall query volume, attributed to specific tenants. Tracking of statistics is done locally on nodes where tenant resides and are made accessible at both tenant and node level of granularity. The collected statistics allows in quick identification of noisy neighbors & helps in better optimizing the resource usage in your cluster.
 
 ## Conceptual model
 
 Azure Cosmos DB for PostgreSQL uses row-based sharding at core, which means that each distributed table contains a distributed column - denoted as tenant key. Tenant key enables splitting data across shards, where each shard contains one or more tenants. Shards themselves are distributed among the nodes in the cluster, enabling horizontal scaling of your database.
 
-:::image type="content" source="media/concepts-monitor-tenants/tenants-overview.svg" alt-text="Conceptual monitoring shows CPU_in_secs & Overall Queries per tenant":::
+:::image type="content" source="media/concepts-monitor-tenants/tenants-overview.svg" alt-text="Conceptual Diagram of several tenants hosted across 3 worker node citus cluster with citus_stat_tenants view to review top 3 tenants - A, C & G, usage of CPU_in_seconds & count of overall queries":::
 
 CPU time in seconds, consumed by tenant, across all available cores on a node in a cluster.
 

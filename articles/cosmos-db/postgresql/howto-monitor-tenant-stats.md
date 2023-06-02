@@ -6,7 +6,7 @@ author: AvijitkGupta
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 05/19/2023
+ms.date: 06/02/2023
 ---
 
 # How to monitor tenant statistics using Multi-Tenant Monitoring in Azure Cosmos DB for PostgreSQL
