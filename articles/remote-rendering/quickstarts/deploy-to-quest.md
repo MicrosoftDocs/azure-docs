@@ -46,7 +46,7 @@ Make sure your Quest device is connected to the PC and side-loading APKs via `ad
 
 ## Launch the sample project
 
-Once your APK is installed on the device, you should be able to find and launch it from the Quest's app menu.
+Once your APK is installed on the device, you should be able to find and launch it from the Quest's app menu. To find side-loaded apps quickly, set the menu's filter to *Unknown Sources*.
 
 ## Next steps
 
