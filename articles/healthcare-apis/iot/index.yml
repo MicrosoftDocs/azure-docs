@@ -61,9 +61,9 @@ landingContent:
         links:
           - text: Mapping debugger
             url: how-to-use-mapping-debugger.md
-          - text: CalculatedContent mappings
+          - text: CalculatedContent templates
             url: how-to-use-calculatedcontent-templates.md
-          - text: IotJsonPathContent mappings
+          - text: IotJsonPathContent templates
             url: how-to-use-iotjsonpathcontent-templates.md
           - text: Custom functions
             url: how-to-use-custom-functions.md
@@ -72,11 +72,11 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use the monitoring and health checks tabs
+          - text: Monitoring and health checks tabs
             url: how-to-use-monitoring-and-health-checks-tabs.md
-          - text: Configure metrics
+          - text: Metrics
             url: how-to-configure-metrics.md
-          - text: Enable diagnostic settings
+          - text: Diagnostic settings
             url: how-to-enable-diagnostic-settings.md
 
   - title: Troubleshoot the MedTech service

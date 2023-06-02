@@ -46,7 +46,7 @@ In the following example, `typeMatchExpression` is defined as:
 }
 ```
 
-CalculatedContent templates allow matching on and extracting values from an Azure Event Hubs device message through the following expressions:
+The CalculatedContent template allows matching on and extracting values from a device message read from an Azure Event Hubs event hub through the following expressions:
 
 |Element|Description|JSONPath expression|JMESPath expression|
 |:------|:----------|:------------------|:------------------|
