@@ -156,7 +156,9 @@ If AD FS is only used for Azure AD federation, there are some endpoints that can
 
 Organizations should lock down access to the machines with on-premises hybrid components in the same way as your on-premises domain. For example, a backup operator or Hyper-V administrator should not be able to log in to the Azure AD Connect Server to change rules.
 
-The Active Directory administrative tier model was designed to protect identity systems using a set of buffer zones between full control of the Environment (Tier 0) and the high-risk workstation assets that attackers frequently compromise. ![Diagram showing the three layers of the Tier model](./media/ops-guide-auth/ops-img18.png)
+The Active Directory administrative tier model was designed to protect identity systems using a set of buffer zones between full control of the Environment (Tier 0) and the high-risk workstation assets that attackers frequently compromise.
+
+![Diagram showing the three layers of the Tier model](./media/ops-guide-auth/ops-img18.png)
 
 The [tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) is composed of three levels and only includes administrative accounts, not standard user accounts.
 
