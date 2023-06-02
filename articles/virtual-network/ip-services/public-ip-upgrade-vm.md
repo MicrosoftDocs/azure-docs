@@ -14,7 +14,7 @@ ms.author: mbender
 >[!Important]
 >On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. This article will help guide you through the upgrade process.
 
-For more information about the retirement of Basic SKU Public IPs and the benefits of Standard SKU Public IPs, see [Upgrading a basic public IP address to Standard SKU - Guidance](public-ip-basic-upgrade-guidance.md)
+For more information about the retirement of Basic SKU Public IPs and the benefits of Standard SKU Public IPs, see [here](public-ip-basic-upgrade-guidance.md)
 
 ## Upgrade overview
 
@@ -94,15 +94,15 @@ To recover from a failed upgrade, pass the recovery log file path to the script 
 
 ### How long will the migration take and how long will my VM be inaccessible at its Public IP?
 
-The time it takes to upgrade a VM's Public IPs will depend on the number of Public IPs and Network Interfaces associated with the VM. In testing, a VM with a single NIC and Public IP takes between 1 and 2 minutes to upgrade. Each NIC on the VM adds about another minute, and each Public IP adds a few seconds each.
+The time it takes to upgrade a VM's Public IPs depends on the number of Public IPs and Network Interfaces associated with the VM. In testing, a VM with a single NIC and Public IP takes between 1 and 2 minutes to upgrade. Each NIC on the VM adds about another minute, and each Public IP adds a few seconds each.
 
-### If something goes wrong with the upgrade can I roll back to a Basic SKU Public IP?
+### Can I roll back to a Basic SKU Public IP?
 
-It is not possible to downgrade a Public IP address from Standard to Basic.
+It isn't possible to downgrade a Public IP address from Standard to Basic.
 
 ### Can I test a migration before executing? 
 
-There is no way to evaluate upgrading a Public IP without completing the action. However, this script includes a `-whatif` parameter which checks that your VM will support the upgrade and walks through the steps without taking action. 
+There is no way to evaluate upgrading a Public IP without completing the action. However, this script includes a `-whatif` parameter, which checks that your VM will support the upgrade and walks through the steps without taking action. 
 
 ### Does the script support Zonal Basic SKU Public IPs? 
 
