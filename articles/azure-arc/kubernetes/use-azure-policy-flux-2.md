@@ -45,7 +45,7 @@ In order for a policy to apply Flux v2 configurations to a cluster, the Flux ext
 1. Set the **Scope** to the management group, subscription, or resource group to which the policy assignment will apply.
     * If you want to exclude any resources from the policy assignment scope, set **Exclusions**.
 1. Give the policy assignment an easily identifiable **Assignment name** and **Description**.
-1. 1. Ensure **Policy enforcement** is set to **Enabled**.
+1. Ensure **Policy enforcement** is set to **Enabled**.
 1. Select **Review + create**, then select **Create**.
 
 Next, return to the **Definitions** list to apply the configuration policy definition to the same scope.
@@ -53,8 +53,7 @@ Next, return to the **Definitions** list to apply the configuration policy defin
 1. In the "Kubernetes" category, select the **Configure Kubernetes clusters with Flux v2 configuration using public Git repository**
 built-in policy definition.
 1. Select **Assign**.
-1. Set the **Scope** to the management group, subscription, or resource group to which the policy assignment will apply.
-    * If you want to exclude any resources from the policy assignment scope, set **Exclusions**.
+1. Set the **Scope** to the same scope that you selected when assigning the first policy, including any exceptions.
 1. Give the policy assignment an easily identifiable **Assignment name** and **Description**.
 1. Ensure **Policy enforcement** is set to **Enabled**.
 1. Select **Next**, then select **Next** again to open the **Parameters** tab.
