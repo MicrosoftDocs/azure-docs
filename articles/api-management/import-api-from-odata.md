@@ -21,7 +21,7 @@ In this article, you learn how to:
 > * Secure the OData API
 
 > [!NOTE]
-> Importing an OData metadata description as an API is in preview. Currently, testing OData APIs isn't supported in the test console of the Azure portal or in the API Management developer portal.
+> Importing an OData service as an API is in preview. Currently, testing OData APIs isn't supported in the test console of the Azure portal or in the API Management developer portal.
 
 ## Prerequisites
 
@@ -37,20 +37,20 @@ In this article, you learn how to:
 1. Under **Create from definition**, select **OData**.
 
     :::image type="content" source="media/import-api-from-odata/odata-api.png" alt-text="Screenshot of creating an API from an OData description in the portal." :::
-1. Enter API settings. You can set the values during creation and update them later by going to the **Settings** tab. 
+1. Enter API settings. You can update settings later by going to the **Settings** tab of the API. 
 
     1. In **OData specification**, enter a URL for an OData metadata endpoint, typically the URL to the service root, appended with `/$metadata`. Alternatively, select a local OData XML file to import.
 
     1. Enter remaining settings to configure your API. These settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 1. Select **Create**.
 
-    The API is added to the **APIs** list. The entity sets and functions that are exposed in the OData metadata description appear on the **Schema** tab. 
+    The API is added to the **APIs** list. The entity sets and functions that are exposed in the OData metadata description appear on the API's **Schema** tab. 
 
     :::image type="content" source="media/import-api-from-odata/odata-schema.png" alt-text="Screenshot of schema of OData API in the portal." :::    
 
 ## Update the OData schema
 
-You can access an editor in the portal to view the OData schema or update it from a file or an OData service endpoint.
+You can access an editor in the portal to view the OData schema for your API. You can also update the schema from a file or an OData service endpoint.
 
 1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, select **APIs** > your OData API.
@@ -62,6 +62,9 @@ You can access an editor in the portal to view the OData schema or update it fro
 ## Secure your OData API
 
 Secure your OData API by applying both existing [access control policies](api-management-policies.md#access-restriction-policies) and an [OData validation policy](validate-odata-request-policy.md) to protect against attacks through OData API requests.
+
+> [!TIP]
+> Configure policies for your OData API on the **API policies** tab in the portal.
 
 [!INCLUDE [api-management-append-apis.md](../../includes/api-management-append-apis.md)]
 
