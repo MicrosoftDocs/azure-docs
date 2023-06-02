@@ -10,7 +10,7 @@ ms.service: network-access
 ms.custom: 
 ---
 
-# What is Global Secure Access?
+# What is security service edge?
 
 The way people work has changed. Instead of working in traditional offices, people now work from nearly anywhere. The network perimeter for the modern workforce has created a need for a new category of networking that provides control and visibility to users and devices both inside and outside of a traditional office. This new category of networking is called Security Service Edge (SSE). Microsoft's SSE solution is called Global Secure Access and it includes two services: Microsoft Entra Private Access and Microsoft Entra Internet Access.
 

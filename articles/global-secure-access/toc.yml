@@ -30,7 +30,7 @@ items:
     expanded: false
     items:
       - name: Assign a traffic forwarding profile to remote networks
-        href: how-to-assign-traffic-profile-to-remote-networks.md
+        href: how-to-assign-traffic-profile-to-branch-office-location.md
       - name: List remote networks
         href: how-to-list-remote-networks.md
       - name: Manage remote networks device links
