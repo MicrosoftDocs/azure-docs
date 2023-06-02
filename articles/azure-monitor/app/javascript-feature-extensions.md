@@ -215,7 +215,7 @@ The following key properties are captured by default when the plug-in is enabled
 | --------------------- | ---------------------------------------|-----------------|
 | Name                  | The name of the custom event. For more information on how a name gets populated, see [Name column](#name).| About              |
 | itemType              | Type of event.                                      | customEvent      |
-|sdkVersion             | Version of Application Insights SDK along with click plug-in.|JavaScript:2.6.2_ClickPlugin2.6.2|
+|sdkVersion             | Version of Application Insights SDK along with click plug-in.|JavaScript:2_ClickPlugin2|
 
 ### Custom dimensions
 
