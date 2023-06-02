@@ -2,7 +2,7 @@
 title: Onboard non-Azure machines with Defender for Endpoint
 description: Learn how to connect your non-Azure machines directly to Microsoft Defender for Cloud with Microsoft Defender for Endpoint.
 ms.topic: quickstart
-ms.date: 06/01/2023
+ms.date: 06/02/2023
 author: dcurwin
 ms.author: dacurwin
 
@@ -47,7 +47,7 @@ Before you begin:
 3. Select the subscription you would like to use for servers onboarded directly with Defender for Endpoint
 4. Select **Save**.
 
-:::image type="content" source="media/onboard-machines-with-defender-for-endpoint/onboard-with-defender-for-endpoint.png" alt-text="Onboard non-Azure servers with Defender for Endpoint.":::
+:::image type="content" source="media/onboard-machines-with-defender-for-endpoint/onboard-with-defender-for-endpoint.png" alt-text="Screenshot of Onboard non-Azure servers with Defender for Endpoint.":::
 
 You've now successfully enabled direct onboarding on your tenant. After you enable it for the first time, it may take up to 24 hours to see your non-Azure servers in your designated subscription.
 
