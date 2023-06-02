@@ -77,7 +77,7 @@ To evaluate upgrading a single VM, without making any changes, add the -WhatIf p
 To upgrade all VMs in a resource group, skipping those that do not have Network Security Groups.
 
 ```powershell
-        Get-AzVM -ResourceGroupName 'myRG' | Start-VMPublicIPUpgrade -skipVMMissingNSG
+    Get-AzVM -ResourceGroupName 'myRG' | Start-VMPublicIPUpgrade -skipVMMissingNSG
 ```
 
 ### Recovering from a Failed Migration
@@ -110,5 +110,5 @@ Yes, the process of upgrading a Zonal Basic SKU Public IP to a Zonal Standard SK
 
 ## Next steps
 
-[Upgrading a Basic public IP address to Standard SKU - Guidance](public-ip-basic-upgrade-guidance.md)
-[Upgrading a Basic public IP address to Standard SKU - Portal](public-ip-upgrade-portal.md)
+* [Upgrading a Basic public IP address to Standard SKU - Guidance](public-ip-basic-upgrade-guidance.md)
+* [Upgrading a Basic public IP address to Standard SKU - Portal](public-ip-upgrade-portal.md)
