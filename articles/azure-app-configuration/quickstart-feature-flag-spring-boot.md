@@ -73,7 +73,7 @@ To create a new Spring Boot project:
 
     ### [Spring Boot 2](#tab/spring-boot-2)
 
-        ```xml
+    ```xml
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
