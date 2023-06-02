@@ -1,6 +1,6 @@
 ---
-title: Deploy Unity sample to Android
-description: Quickstart that shows how to get the Unity sample onto an Android device
+title: Deploy Unity sample to Quest 2 and Quest Pro
+description: Quickstart that shows how to get the Unity sample onto a Meta Quest device
 author: jakrams
 ms.author: jakras
 ms.date: 06/01/2023
@@ -8,9 +8,9 @@ ms.topic: quickstart
 ms.custom: mode-other
 ---
 
-# Quickstart: Deploy Unity sample to Android
+# Quickstart: Deploy Unity sample to Quest 2 and Quest Pro
 
-This quickstart covers how to deploy and run the quickstart sample app for Unity to an Android device.
+This quickstart covers how to deploy and run the quickstart sample app for Unity to a Meta Quest 2 or Quest Pro device.
 
 In this quickstart you'll learn how to:
 
@@ -27,7 +27,7 @@ Make sure your credentials are saved properly with the scene and you can connect
 
 You need to have the [Android SDK](https://developer.android.com/studio) installed, so that tools like the [Android Debug Bridge (ADB)](https://developer.android.com/tools/adb) are available. You should also make sure these are in your `PATH` environment variable.
 
-Make sure your Android device is connected to the PC and side-loading APKs via `adb` works.
+Make sure your Quest device is connected to the PC and side-loading APKs via `adb` works.
 
 ## Build the sample project
 
@@ -36,8 +36,8 @@ Make sure your Android device is connected to the PC and side-loading APKs via `
 1. If you want to be able to debug the APK, enable *Development Build*.
 1. Select **Switch to Platform**
     ![Solution configuration](media/unity-deploy-config-android.png)
-1. When pressing **Build** (or 'Build And Run'), you'll be asked to select some folder where the APK will be stored.
-1. Once the APK file is finished, it needs to be deployed to your Android device using `adb`.
+1. When pressing **Build** (or 'Build And Run'), you'll be asked to select a folder where the APK should be stored.
+1. Once the APK file is finished, it needs to be deployed to your device using `adb`.
 1. Open a command prompt, navigate to the APK file and run `adb install <YourFileName.apk>`
 
 ## Launch the sample project

@@ -35,11 +35,19 @@ The table below lists which GPUs support H265 hardware video decoding.
 
 Even though the correct H265 codec might be installed, security properties on the codec DLLs may cause codec initialization failures. The [troubleshooting guide](../resources/troubleshoot.md#h265-codec-not-available) describes steps how to solve this problem. The DLL issue can only occur when using the service in a desktop application, for instance in Unity.
 
-## Devices
+## Supported Platforms and Devices
 
-Azure Remote Rendering currently supports **HoloLens 2**, **Android** and Windows desktop as a target device. See the [platform limitations](../reference/limits.md#platform-limitations) section.
+* 64-Bit Windows 10
+* 64-Bit Windows 11
+* HoloLens 2
+* Meta Quest 2
+* Meta Quest Pro
 
-On desktop, it's required to install the latest [Microsoft Visual C++ Redistributable package](https://aka.ms/vs/17/release/vc_redist.x64.exe) to be able to run any Azure Remote Rendering application.
+### Desktop Windows
+
+32-Bit Windows versions are not supported.
+
+You need to install the latest [Microsoft Visual C++ Redistributable package](https://aka.ms/vs/17/release/vc_redist.x64.exe) to be able to run any Azure Remote Rendering application.
 
 It's important to use the latest HEVC codec, as newer versions have significant improvements in latency. To check which version is installed on your device:
 
@@ -50,6 +58,10 @@ It's important to use the latest HEVC codec, as newer versions have significant 
     1. Select the **HEVC Video Extensions from Device Manufacturer** entry from the list.
     1. Scroll down to the **Additional Information** section.
     1. Check the **Installed version** entry.
+
+### HoloLens 2
+
+Note that the [render from PV camera](/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature isn't supported.
 
 ## Network
 
