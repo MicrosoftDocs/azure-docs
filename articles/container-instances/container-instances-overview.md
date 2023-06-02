@@ -75,7 +75,7 @@ Azure Container Instances enables [deployment of container instances into an Azu
 
 ## Confidential container deployment
 
-Confidential containers on ACI enable you to run containers in a trusted execution environment (TEE) that provides hardware-based confidentiality and integrity protections for your container workloads. Confidential containers on ACI can protect data-in-use and encrypts data being processed in memory. Confidential cntainers on ACI are supported as a SKU that you can select when deploying your workload. For more information, see [confidential container groups](./container-instances-confidential-overview.md).
+Confidential containers on ACI enable you to run containers in a trusted execution environment (TEE) that provides hardware-based confidentiality and integrity protections for your container workloads. Confidential containers on ACI can protect data-in-use and encrypts data being processed in memory. Confidential containers on ACI are supported as a SKU that you can select when deploying your workload. For more information, see [confidential container groups](./container-instances-confidential-overview.md).
 
 ## Spot container deployment
 

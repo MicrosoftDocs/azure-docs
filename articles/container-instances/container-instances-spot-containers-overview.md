@@ -29,7 +29,7 @@ ACI Spot containers are a cost-effective option for running containerized applic
 
 ## Eviction policies
 
-When using ACI Spot containers, customers can't choose eviction types or policies like Spot VMs. If an eviction occurs, the container groups hosting the customer workloads are automatically restarted without requiring any action from the customer.
+For Spot containers, customers can't choose eviction types or policies like Spot VMs. If an eviction occurs, the container groups hosting the customer workloads are automatically restarted without requiring any action from the customer.
 
 ## Unsupported features
 
@@ -46,4 +46,4 @@ ACI Spot containers preview release includes these limitations such as
 
 ## Next Steps 
 
-* For a deployment example, see [Deploy a spot container group with Azure Portal](./container-instances-tutorial-deploy-spot-containers-portal.md) 
+* For a deployment example, see [Deploy a spot container group with Azure portal](./container-instances-tutorial-deploy-spot-containers-portal.md) 
