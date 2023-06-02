@@ -174,8 +174,9 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     - Under *Repository access*, select **Only select repositories**.
         - Select the repository you created earlier.
     - Under *Repository permissions*:
-        - Select **Read** access to *metadata*
+        - Select **Read-only** access to *actions*
         - Select **Read and write** access to *administration*
+        - Select **Read** access to *metadata*
     - Select **Generate token**.
 
 1. Copy the token value.
