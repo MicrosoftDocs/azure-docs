@@ -12,19 +12,54 @@ ms.custom:
 
 # Get started with Global Secure Access
 
+Global Secure Access is the centralized location in the Microsoft Entra admin center where you can configure and manage Microsoft Entra Private Access and Microsoft Entra Internet Access. Many features and settings apply to both services, but some are specific to one or the other.
+
+This guide will help you get started configuring both services for the first time.
+
+## Microsoft Entra Private Access
+
+Microsoft Entra Private Access provides a secure, zero-trust access solution for accessing internal resources without requiring a VPN. You determine the sites and applications that you want routed through Microsoft Entra Private Access by configuring Quick access and enabling the private access traffic forwarding profile. At this time, the Global Secure Access client must be installed on end-user devices to use Microsoft Entra Private Access.
+
+To set up Microsoft Entra Private Access, complete the following steps:
+
+1. [Configure Quick access](how-to-configure-quick-access.md)
+1. [Enable the Private access traffic forwarding profile](how-to-enable-private-access-profile.md)
+1. [Install the Global Secure Access client](how-to-install-windows-client.md)
+
+## Microsoft Entra Internet Access
+
+Microsoft Entra Internet Access isolates the traffic for Microsoft 365 applications and resources, such as Exchange Online and SharePoint Online. Users can access these resources by connecting to the Global Secure Access client or through a remote network, such as in a branch office location.
+
+To set up Microsoft Entra Internet Access, complete the following steps:
+
+1. [Enable the Microsoft 365 traffic forwarding profile](how-to-enable-microsoft-365-profile.md)
+1. [Create a remote network](how-to-manage-remote-networks.md)
+1. [Add device links to your remote network](how-to-manage-remote-network-device-links.md)
+
+## Enable recommended features
+<!---not stoked on that heading language --->
+
+With your core settings configured you should take advantage of several core features to help you get the most of the services.
+
+- [Configure Conditional Access policies](how-to-target-resource.md)
+- [Enable source IP restoration](how-to-source-ip-restoration.md)
+- [Review the Global Secure Access logs](concept-global-secure-access-logs-monitoring.md)
+
+## Get started wizard
+
 When setting up the features of Global Secure Access for the first time, you can use the "Getting Started Wizard" in the Microsoft Entra admin center.
 
 Before setting up the service, review the [What is Global Secure Access?](overview-what-is-global-secure-access.md) article.
 
 The wizard is organized into required tasks and recommended tasks. The required tasks are the minimum configuration needed to get started with Global Secure Access. The recommended tasks are optional, but are recommended to get the most out of the service.
 
-## Required tasks
+### Required tasks
 
 The required tasks are broken down into two categories:
 - Determine *which* traffic is forwarded
 - Determine *how* traffic is forwarded
 
-### Enable traffic forwarding profiles
+#### Enable traffic forwarding profiles
 
 **Traffic forwarding profiles** are used to manage the network traffic that you want to route through Global Secure Access. Select the link to configure your traffic forwarding profiles.
 
@@ -35,10 +70,10 @@ For more information, see [Global Secure Access traffic forwarding profiles](con
 **To enable traffic forwarding profiles**:
 
 1. Select the **Enable Forwarding profiles** link to configure your traffic forwarding profiles.
-1. Follow the documentation to configure your [Microsoft 365 profile](how-to-enable-m365-profile.md) or your [private access profile](how-to-enable-private-access-profile.md).
+1. Follow the documentation to configure your [Microsoft 365 profile](how-to-enable-microsoft-365-profile.md) or your [private access profile](how-to-enable-private-access-profile.md).
 1. Either select the breadcrumb at the top of the page or close the window using the **X** in the upper-right corner.
 
-### Install the client or configure remote networks
+#### Install the client or configure remote networks
 
 For traffic to get routed through Global Secure Access, your users must either be connected to a **remote networks** that is configured to use Global Secure Access or **install the Global Secure Access client** on their Windows devices. Select the link to configure your remote networks or install the Global Secure Access client.
 
@@ -59,11 +94,11 @@ For traffic to get routed through Global Secure Access, your users must either b
 1. Follow the steps in the [How to configure remote networks](how-to-manage-remote-networks.md) article.
 1. Either select the breadcrumb at the top of the page or close the window using the **X** in the upper-right corner.
 
-## Recommended tasks
+### Recommended tasks
 
 With your core settings in place, you can configure access controls and security measures. You can also set up log streaming to send logs to your SIEM or other log management solution.
 
-### Apps, access control, and session management
+#### Apps, access control, and session management
 
 Select the **Apply Conditional Access to the network** link to configure adaptive access controls. Enabling this setting creates a new Named Location in Conditional Access and silently enables source IP restoration. For more information on these concepts, se the following articles:
 
@@ -81,7 +116,7 @@ Select the **Enable Quick Access to your private resources** to configure your Q
 - [Learn about traffic forwarding profiles](concept-traffic-forwarding.md)
 - [How to configure Quick access](how-to-configure-quick-access.md)
 
-### Configure enhanced monitoring and logging
+#### Configure enhanced monitoring and logging
 
 Select the link.
 
