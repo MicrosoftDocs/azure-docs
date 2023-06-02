@@ -178,7 +178,7 @@ If the user hasn't registered for any methods that satisfy the authentication st
 
 If the authentication strength doesn't include a method that the user can register and use, the user is blocked from sign-in to the resource. 
 
-### Registering authentication methods
+### Register passwordless authentication methods
 
 The following authentication methods can't be registered as part of combined registration interrupt mode. Make sure users are registered for these methods before you apply a Conditional Access policy that can require them to be used for sign-in. If a user isn't registered for these methods, they can't access the resource until the required method is registered. 
 
