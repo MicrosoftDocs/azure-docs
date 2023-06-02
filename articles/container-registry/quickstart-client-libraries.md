@@ -580,6 +580,182 @@ class DeleteImagesAsync(object):
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+
+## Get started
+
+[Source code][go_source] | [Package (pkg.go.dev)][go_package] | [REST API reference][go_docs]
+
+### Install the package
+
+Install the Azure Container Registry client library for Go with `go get`:
+
+```bash
+go get github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry
+```
+
+## Authenticate the client
+
+When you're developing and debugging your application locally, you can use [azidentity.NewDefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#NewDefaultAzureCredential) to authenticate. We recommend to use a [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) in production environment. 
+
+```go
+import (
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry"
+	"log"
+)
+
+func main() {
+	cred, err := azidentity.NewDefaultAzureCredential(nil)
+	if err != nil {
+		log.Fatalf("failed to obtain a credential: %v", err)
+	}
+
+	client, err := azcontainerregistry.NewClient("https://myregistry.azurecr.io", cred, nil)
+	if err != nil {
+		log.Fatalf("failed to create client: %v", err)
+	}
+}
+```
+See the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) documentation for more information about other authentication approaches.
+
+## Examples
+
+Each sample assumes the container registry endpoint url is "https://myregistry.azurecr.io".
+
+### List tags asynchronously
+
+This sample assumes the registry has a repository `hello-world`.
+
+```go
+import (
+	"context"
+	"fmt"
+	"github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry"
+	"log"
+)
+
+func Example_listTagsWithAnonymousAccess() {
+	client, err := azcontainerregistry.NewClient("https://myregistry.azurecr.io", nil, nil)
+	if err != nil {
+		log.Fatalf("failed to create client: %v", err)
+	}
+	ctx := context.Background()
+	pager := client.NewListTagsPager("library/hello-world", nil)
+	for pager.More() {
+		page, err := pager.NextPage(ctx)
+		if err != nil {
+			log.Fatalf("failed to advance page: %v", err)
+		}
+		for _, v := range page.Tags {
+			fmt.Printf("tag: %s\n", *v.Name)
+		}
+	}
+}
+```
+
+### Set artifact properties asynchronously
+
+This sample assumes the registry has a repository `hello-world` with image tagged `latest`.
+
+```go
+package azcontainerregistry_test
+
+import (
+	"context"
+	"fmt"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry"
+	"log"
+)
+
+func Example_setArtifactProperties() {
+	cred, err := azidentity.NewDefaultAzureCredential(nil)
+	if err != nil {
+		log.Fatalf("failed to obtain a credential: %v", err)
+	}
+	client, err := azcontainerregistry.NewClient("https://myregistry.azurecr.io", cred, nil)
+	if err != nil {
+		log.Fatalf("failed to create client: %v", err)
+	}
+	ctx := context.Background()
+	res, err := client.UpdateTagProperties(ctx, "library/hello-world", "latest", &azcontainerregistry.ClientUpdateTagPropertiesOptions{
+		Value: &azcontainerregistry.TagWriteableProperties{
+			CanWrite:  to.Ptr(false),
+			CanDelete: to.Ptr(false),
+		}})
+	if err != nil {
+		log.Fatalf("failed to finish the request: %v", err)
+	}
+	fmt.Printf("repository library/hello-world - tag latest: 'CanWrite' property: %t, 'CanDelete' property: %t\n", *res.Tag.ChangeableAttributes.CanWrite, *res.Tag.ChangeableAttributes.CanDelete)
+}
+```
+
+### Delete images asynchronously
+
+```go
+package azcontainerregistry_test
+
+import (
+	"context"
+	"fmt"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry"
+	"log"
+)
+
+func Example_deleteImages() {
+	cred, err := azidentity.NewDefaultAzureCredential(nil)
+	if err != nil {
+		log.Fatalf("failed to obtain a credential: %v", err)
+	}
+	client, err := azcontainerregistry.NewClient("https://myregistry.azurecr.io", cred, nil)
+	if err != nil {
+		log.Fatalf("failed to create client: %v", err)
+	}
+	ctx := context.Background()
+	repositoryPager := client.NewListRepositoriesPager(nil)
+	for repositoryPager.More() {
+		repositoryPage, err := repositoryPager.NextPage(ctx)
+		if err != nil {
+			log.Fatalf("failed to advance repository page: %v", err)
+		}
+		for _, r := range repositoryPage.Repositories.Names {
+			manifestPager := client.NewListManifestsPager(*r, &azcontainerregistry.ClientListManifestsOptions{
+				OrderBy: to.Ptr(azcontainerregistry.ArtifactManifestOrderByLastUpdatedOnDescending),
+			})
+			for manifestPager.More() {
+				manifestPage, err := manifestPager.NextPage(ctx)
+				if err != nil {
+					log.Fatalf("failed to advance manifest page: %v", err)
+				}
+				imagesToKeep := 3
+				for i, m := range manifestPage.Manifests.Attributes {
+					if i >= imagesToKeep {
+						for _, t := range m.Tags {
+							fmt.Printf("delete tag from image: %s", *t)
+							_, err := client.DeleteTag(ctx, *r, *t, nil)
+							if err != nil {
+								log.Fatalf("failed to delete tag: %v", err)
+							}
+						}
+						_, err := client.DeleteManifest(ctx, *r, *m.Digest, nil)
+						if err != nil {
+							log.Fatalf("failed to delete manifest: %v", err)
+						}
+						fmt.Printf("delete image with digest: %s", *m.Digest)
+					}
+				}
+			}
+		}
+	}
+}
+```
+
+::: zone-end
+
 ## Clean up resources
 
 If you want to clean up and remove an Azure container registry, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
@@ -625,3 +801,6 @@ In this quickstart, you learned about using the Azure Container Registry client 
 [pip_link]: https://pypi.org
 [python_identity]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity
 [python_source]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerregistry/azure-containerregistry
+[go_source]: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/containers/azcontainerregistry
+[go_package]: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry
+[go_docs]: https://docs.microsoft.com/rest/api/containerregistry/
