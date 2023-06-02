@@ -34,13 +34,20 @@ Check this article regularly to learn about:
 
 **Effective date**: June 2023
 
-**Endpoints impacted**: v2.0 and v1.0
+**Endpoints impacted**: v2.0 and v1.0 - for more information, view our [documentation on endpoints comparison](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 **Change**
 
 Starting in June for **multi-tenant applications**, emails that are not domain-owner verified will be omitted by default when the optional `email` claim is requested in a token payload.
 
-An email is considered to be domain-owner verified if either a domain owner or an external IDP has verified them. While Azure AD does not verify email addresses, it relies on verified domain owners (for internal and external Azure AD accounts) or external identity providers (for external Microsoft or Google accounts) to assert the validity of the email address. Email OTP accounts always have their email verified, while Facebook and SAML/WS-Fed accounts don't have their email address verified.
+An email is considered to be domain-owner verified if: 
+
+1. The domain belongs to the tenant where the user account resides, and the tenant admin has done verification of the domain
+1. The email is from a Microsoft Account (MSA)
+1. The email is from a Google account 
+1. The email was used for authentication using the one-time passcode (OTP) flow
+
+It should also be noted that Facebook and SAML/WS-Fed accounts do not have verified domains.
 
 ## May 2023
 
