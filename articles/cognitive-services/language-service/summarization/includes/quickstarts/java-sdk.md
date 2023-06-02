@@ -89,7 +89,7 @@ public class Example {
                 + "to locate key sentences in an unstructured text document. "
                 + "These sentences collectively convey the main idea of the document. This feature is provided as an API for developers. "
                 + "They can use it to build intelligent solutions based on the relevant information extracted to support various use cases. "
-                + "In the public preview, extractive summarization supports several languages. "
+                + "Extractive summarization supports several languages. "
                 + "It is based on pretrained multilingual transformer models, part of our quest for holistic representations. "
                 + "It draws its strength from transfer learning across monolingual and harness the shared nature of languages "
                 + "to produce models of improved quality and efficiency.");
@@ -142,5 +142,5 @@ Extractive Summarization action results:
 	Extracted summary sentences:
 		 Sentence text: The extractive summarization feature uses natural language processing techniques to locate key sentences in an unstructured text document., length: 138, offset: 0, rank score: 1.000000.
 		 Sentence text: This feature is provided as an API for developers., length: 50, offset: 206, rank score: 0.510000.
-		 Sentence text: In the public preview, extractive summarization supports several languages., length: 75, offset: 378, rank score: 0.410000.
+		 Sentence text: Extractive summarization supports several languages., length: 52, offset: 378, rank score: 0.410000.
 ```
