@@ -13,12 +13,12 @@ ms.date: 11/30/2021
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-The Intelligent Tuning feature of Azure Database for PostgreSQL - Flexible Server is designed to enhance overall performance automatically and help prevent possible issues. It continuously monitors the database instance's overall status and performance and automatically optimizes the workload's performance.
+The intelligent tuning feature of Azure Database for PostgreSQL - Flexible Server is designed to enhance overall performance automatically and help prevent possible issues. It continuously monitors the database instance's overall status and performance and automatically optimizes the workload's performance.
 
 The Azure Database for PostgreSQL - Flexible Server is equipped with an inherent intelligence mechanism that can dynamically adapt the database to your workload, thereby automatically enhancing performance. This feature comprises two automatic tuning functionalities:
 
 * **Autovacuum tuning**: This function diligently tracks the bloat ratio and adjusts autovacuum settings accordingly. It factors in both current and predicted resource usage to ensure your workload isn't disrupted.
-* **Writes tuning**: This feature persistently monitors the volume and patterns of write operations, modifying parameters that affect write performance. These parameters include bgwriter_delay, checkpoint_completion_target, max_wal_size, and min_wal_size. The primary aim of these adjustments is to enhance both system performance and reliability, thereby proactively averting potential complications.
+* **Writes tuning**: This feature persistently monitors the volume and patterns of write operations, modifying parameters that affect write performance. These parameters include `bgwriter_delay`, `checkpoint_completion_target`, `max_wal_size`, and `min_wal_size`. The primary aim of these adjustments is to enhance both system performance and reliability, thereby proactively averting potential complications.
 
 ## Why intelligent tuning?
 
@@ -26,25 +26,34 @@ The autovacuum process is a critical part of maintaining the health and performa
 
 However, constantly monitoring a database and fine-tuning write operations can be challenging and time-consuming. This becomes increasingly complex when dealing with multiple databases, and might even become an impossible task when managing a large number of them.
 
-This is where Intelligent Tuning steps in. Rather than manually overseeing and tuning your database, the Intelligent Tuning feature can effectively shoulder some of the load. It helps in the automatic monitoring and tuning of the database, allowing you to focus on other important tasks.
+This is where intelligent tuning steps in. Rather than manually overseeing and tuning your database, the intelligent tuning feature can effectively shoulder some of the load. It helps in the automatic monitoring and tuning of the database, allowing you to focus on other important tasks.
 
-The Intelligent Tuning feature offers an autovacuum tuning functionality that diligently keeps track of the bloat ratio and adjusts settings accordingly, ensuring optimal use of resources. Furthermore, the Writes Tuning feature monitors the volume and transactional patterns of write operations, adjusting parameters such as bgwriter_delay, checkpoint_completion_target, max_wal_size, and min_wal_size to enhance both system performance and reliability.
+The intelligent tuning feature offers an autovacuum tuning functionality that diligently keeps track of the bloat ratio and adjusts settings accordingly, ensuring optimal use of resources. Furthermore, the Writes Tuning feature monitors the volume and transactional patterns of write operations, adjusting parameters such as `bgwriter_delay`, `checkpoint_completion_target`, `max_wal_size`, and `min_wal_size` to enhance both system performance and reliability.
 
-In summary, Intelligent Tuning provides an efficient solution for database monitoring and tuning, taking the hard and tedious tasks off your plate. By using this automatic tuning feature, you can rely on the Azure Database for PostgreSQL - Flexible Server to maintain the optimal performance of your databases, saving you valuable time and resources.
+In summary, intelligent tuning provides an efficient solution for database monitoring and tuning, taking the hard and tedious tasks off your plate. By using this automatic tuning feature, you can rely on the Azure Database for PostgreSQL - Flexible Server to maintain the optimal performance of your databases, saving you valuable time and resources.
 
 ### How does intelligent tuning work?
 Intelligent Tuning is an ongoing monitoring and analysis process that not only learns about the characteristics of your workload but also tracks your current load and resource usage such as CPU or IOPS. By doing so, it makes sure not to disturb the normal operations of your application workload.
 
 :::image type="content" source="./media/concepts-intelligent-tuning/tuning-process.png" alt-text="Automatic tuning process.":::
 
-The process allows the database to dynamically adjust to your workload by discerning the current bloat ratio, write performance, and checkpoint efficiency on your instance. Armed with these insights, Intelligent Tuning deploys tuning actions designed to not only enhance your workload's performance but also to circumvent potential pitfalls.
+The process allows the database to dynamically adjust to your workload by discerning the current bloat ratio, write performance, and checkpoint efficiency on your instance. Armed with these insights, intelligent tuning deploys tuning actions designed to not only enhance your workload's performance but also to circumvent potential pitfalls.
 
-Moreover, Intelligent Tuning continuously keeps track of the database's performance post-change to ensure that the modifications are indeed bolstering your workload's performance. Any action that doesn't result in a performance improvement is automatically reversed.
+Moreover, intelligent tuning continuously keeps track of the database's performance post-change to ensure that the modifications are indeed bolstering your workload's performance. Any action that doesn't result in a performance improvement is automatically reversed.
 
-This continual verification process is a cornerstone of Intelligent Tuning. It guarantees that any changes made contribute positively to your workload's performance and avoid disruptions, thereby maintaining an unwavering commitment to optimizing performance and preempting potential issues.
+This continual verification process is a cornerstone of intelligent tuning. It guarantees that any changes made contribute positively to your workload's performance and avoid disruptions, thereby maintaining an unwavering commitment to optimizing performance and preempting potential issues.
 
 ## Autovacuum tuning
+Intelligent tuning adjusts five significant parameters related to autovacuum: `autovacuum_vacuum_scale_factor`, `autovacuum_cost_limit`, `autovacuum_naptime`, `autovacuum_vacuum_threshold`, and `autovacuum_vacuum_cost_delay`. These parameters regulate components such as the fraction of the table that sets off a VACUUM process, the cost-based vacuum delay limit, the pause interval between autovacuum runs, the minimum count of updated or dead tuples needed to start a VACUUM, and the pause duration between cleanup rounds.
 
+> [!IMPORTANT] 
+> It's important to keep in mind that intelligent tuning modifies autovacuum-related parameters at the server level, not at individual table levels. Also, if autovacuum is turned off, intelligent tuning cannot operate correctly. For intelligent tuning to optimize the process, the autovacuum feature must be enabled.
+
+One key feature of intelligent tuning is that it includes safeguards to measure resource utilization like CPU and IOPS. This means that it will not ramp up autovacuum activity when your instance is under heavy load. This way, intelligent tuning ensures a balance between effective cleanup operations and the overall performance of your system.
+
+When optimizing autovacuum, intelligent tuning considers the server's average bloat, using statistics about live and dead tuples. To lessen bloat, intelligent tuning might reduce parameters like the scale factor or naptime, triggering the VACUUM process sooner and, if necessary, decreasing the delay between rounds.
+
+On the other hand, if the bloat is minimal and the autovacuum process is too aggressive, then parameters such as delay, scale factor, and naptime may be increased. This balance ensures minimal bloat and the efficient use of the resources by the autovacuum process.
 
 ## Writes tuning
 details needed!
