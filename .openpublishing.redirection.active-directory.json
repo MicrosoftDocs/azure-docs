@@ -10286,6 +10286,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-compare-azure-ad-to-ad.md",
+      "redirect_url": "/azure/active-directory/fundamentals/compare",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-auth.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-auth",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-govern.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-govern",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/clarizen-provisioning-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
