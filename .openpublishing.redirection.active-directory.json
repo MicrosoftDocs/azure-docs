@@ -10291,6 +10291,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-iam.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-iam",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-ops.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-ops",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-intro.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-intro",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-auth.md",
       "redirect_url": "/azure/active-directory/fundamentals/ops-guide-auth",
       "redirect_document_id": true
