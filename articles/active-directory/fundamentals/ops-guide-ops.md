@@ -15,7 +15,7 @@ ms.author: martinco
 
 # Azure Active Directory general operations guide reference
 
-This section of the [Azure AD operations reference guide](active-directory-ops-guide-intro.md) describes the checks and actions you should take to optimize the general operations of Azure Active Directory (Azure AD).
+This section of the [Azure AD operations reference guide](ops-guide-intro.md) describes the checks and actions you should take to optimize the general operations of Azure Active Directory (Azure AD).
 
 > [!NOTE]
 > These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their operational practices as Microsoft products and services evolve over time.
@@ -24,7 +24,7 @@ This section of the [Azure AD operations reference guide](active-directory-ops-g
 
 ### Assign owners to key tasks
 
-Managing Azure Active Directory requires the continuous execution of key operational tasks and processes, which may not be part of a rollout project. It is still important you set up these tasks to optimize your environment. The key tasks and their recommended owners include:
+Managing Azure Active Directory requires the continuous execution of key operational tasks and processes, which may not be part of a rollout project. It's still important you set up these tasks to optimize your environment. The key tasks and their recommended owners include:
 
 | Task | Owner |
 | :- | :- |
@@ -40,7 +40,7 @@ Managing Azure Active Directory requires the continuous execution of key operati
 | Monitor Hybrid Logs: On-premises password protection gateway | IAM Operations Team |
 | Monitor Hybrid Logs: Azure AD MFA NPS Extension (if applicable) | IAM Operations Team |
 
-As you review your list, you may find you need to either assign an owner for tasks that are missing an owner or adjust ownership for tasks with owners that aren’t aligned with the recommendations above.
+As you review your list, you may find you need to either assign an owner for tasks that are missing an owner or adjust ownership for tasks with owners that aren't aligned with the recommendations above.
 
 #### Owners recommended reading
 
@@ -50,7 +50,7 @@ As you review your list, you may find you need to either assign an owner for tas
 
 ### Recent versions of on-premises components
 
-Having the most up-to-date versions of on-premises components provides the customer all the latest security updates, performance improvements as well as functionality that could help to further simplify the environment. Most components have an automatic upgrade setting, which will automate the upgrade process.
+Having the most up-to-date versions of on-premises components provides the customer all the latest security updates, performance improvements and functionality that could help to further simplify the environment. Most components have an automatic upgrade setting, which will automate the upgrade process.
 
 These components include:
 
@@ -80,7 +80,7 @@ As you monitor the health of your environment, you must immediately address any 
 
 ### On-premises agents logs
 
-Some identity and access management services require on-premises agents to enable hybrid scenarios. Examples include password reset, pass-through authentication (PTA), Azure AD Application Proxy, and Azure AD MFA NPS extension. It is key that the operations team baseline and monitor the health of these components by archiving and analyzing the component agent logs using solutions such as System Center Operations Manager or SIEM. It is equally important your Infosec Operations team or help desk understand how to troubleshoot patterns of errors.
+Some identity and access management services require on-premises agents to enable hybrid scenarios. Examples include password reset, pass-through authentication (PTA), Azure AD Application Proxy, and Azure AD MFA NPS extension. It's key that the operations team baseline and monitor the health of these components by archiving and analyzing the component agent logs using solutions such as System Center Operations Manager or SIEM. It's equally important your Infosec Operations team or help desk understand how to troubleshoot patterns of errors.
 
 #### On-premises agents logs recommended reading
 
@@ -107,7 +107,7 @@ Adopting best practices can help the optimal operation of on-premises agents. Co
 
 ### Identity secure score
 
-The [identity secure score](./identity-secure-score.md) provides a quantifiable measure of the security posture of your organization. It is key to constantly review and address findings reported and strive to have the highest score possible. The score helps you to:
+The [identity secure score](./identity-secure-score.md) provides a quantifiable measure of the security posture of your organization. It's key to constantly review and address findings reported and strive to have the highest score possible. The score helps you to:
 
 - Objectively measure your identity security posture
 - Plan identity security improvements
@@ -119,7 +119,7 @@ If your organization currently has no program in place to monitor changes in Ide
 
 ### Notifications
 
-Microsoft sends email communications to administrators to notify various changes in the service, configuration updates that are needed, and errors that require admin intervention. It is important that customers set the notification email addresses so that notifications are sent to the proper team members who can acknowledge and act upon all notifications. We recommend you add multiple recipients to the [Message Center](/office365/admin/manage/message-center) and request that notifications (including Azure AD Connect Health notifications) be sent to a distribution list or shared mailbox. If you only have one Global Administrator account with an email address, be sure to configure at least two email-capable accounts.
+Microsoft sends email communications to administrators to notify various changes in the service, configuration updates that are needed, and errors that require admin intervention. It's important that customers set the notification email addresses so that notifications are sent to the proper team members who can acknowledge and act upon all notifications. We recommend you add multiple recipients to the [Message Center](/office365/admin/manage/message-center) and request that notifications (including Azure AD Connect Health notifications) be sent to a distribution list or shared mailbox. If you only have one Global Administrator account with an email address, be sure to configure at least two email-capable accounts.
 
 There are two "From" addresses used by Azure AD: <o365mc@email2.microsoft.com>, which sends Message Center notifications; and <azure-noreply@microsoft.com>, which sends notifications related to:
 
@@ -154,7 +154,7 @@ If AD FS is only used for Azure AD federation, there are some endpoints that can
 
 ### Access to machines with on-premises identity components
 
-Organizations should lock down access to the machines with on-premises hybrid components in the same way as your on-premises domain. For example, a backup operator or Hyper-V administrator should not be able to log in to the Azure AD Connect Server to change rules.
+Organizations should lock down access to the machines with on-premises hybrid components in the same way as your on-premises domain. For example, a backup operator or Hyper-V administrator shouldn't be able to log in to the Azure AD Connect Server to change rules.
 
 The Active Directory administrative tier model was designed to protect identity systems using a set of buffer zones between full control of the Environment (Tier 0) and the high-risk workstation assets that attackers frequently compromise.
 
@@ -162,7 +162,7 @@ The Active Directory administrative tier model was designed to protect identity 
 
 The [tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) is composed of three levels and only includes administrative accounts, not standard user accounts.
 
-- **Tier 0** - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they are all effectively in control of each other.
+- **Tier 0** - Direct Control of enterprise identities in the environment. Tier 0 includes accounts, groups, and other assets that have direct or indirect administrative control of the Active Directory forest, domains, or domain controllers, and all the assets in it. The security sensitivity of all Tier 0 assets is equivalent as they're all effectively in control of each other.
 - **Tier 1** - Control of enterprise servers and applications. Tier 1 assets include server operating systems, cloud services, and enterprise applications. Tier 1 administrator accounts have administrative control of a significant amount of business value that is hosted on these assets. A common example role is server administrators who maintain these operating systems with the ability to impact all enterprise services.
 - **Tier 2** - Control of user workstations and devices. Tier 2 administrator accounts have administrative control of a significant amount of business value that is hosted on user workstations and devices. Examples include Help Desk and computer support administrators because they can impact the integrity of almost any user data.
 
