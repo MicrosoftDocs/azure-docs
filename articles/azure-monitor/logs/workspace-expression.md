@@ -13,21 +13,7 @@ ms.date: 04/20/2023
 Use the `workspace` expression in an Azure Monitor query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription. You can use this expression to include log data in an Application Insights query and to query data across multiple workspaces in a log query.
 
 ## Permissions required
-
-To use the `workspace` expression, you must have read access to the workspace. The permissions required depend on which access control mode is enabled on the workspace.
-
-### Require workspace permissions
-
-If this access control mode is enabled on the workspace, you must be granted the `Microsoft.OperationalInsights/workspaces/query/*/read` permission to the workspace.
-
-### Use resource or workspace permissions
-
-If this access control mode is enabled on the workspace, you must be assigned to one of the following roles:
-
-- [Log Analytics Contributor built-in role](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
-- [Log Analytics Reader built-in role](../../role-based-access-control/built-in-roles.md#log-analytics-reader)
-- Any other [built-in role](../../role-based-access-control/built-in-roles.md) with the `Microsoft.OperationalInsights/workspaces/query/*/read` or `*/read` action
-- Any [custom role](../../role-based-access-control/custom-roles.md) with the `Microsoft.OperationalInsights/workspaces/query/*/read` permission
+To use the `workspace` expression, you must have `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](../logs/manage-access#log-analytics-reader), for example.
 
 ## Syntax
 
