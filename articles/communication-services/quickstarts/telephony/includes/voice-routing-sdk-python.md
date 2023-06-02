@@ -3,10 +3,9 @@ title: include file
 description: Learn how to use the Number Management Python SDK to configure direct routing.
 services: azure-communication-services
 author: boris-bazilevskiy
-
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.date: 03/11/2023
+ms.date: 06/01/2023
 ms.topic: include
 ms.custom: include file
 ms.author: nikuklic
