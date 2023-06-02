@@ -22,29 +22,30 @@ This page contains information about how to select and prepare data in order to 
 
 ### Custom summarization document sample format
 
-In the abstractive document summarization scenario, each document (whether it has a provided label or not) is expected to be provided in a plain .txt file. The file contains one or more lines. If multiple lines are provided, each is assumed to be a paragraph of the document. The following is an example document with five paragraphs.
+In the abstractive document summarization scenario, each document (whether it has a provided label or not) is expected to be provided in a plain .txt file. The file contains one or more lines. If multiple lines are provided, each is assumed to be a paragraph of the document. The following is an example document with three paragraphs.
 
-_At any given moment, turnaround coordinators for German airline Lufthansa CityLine have their eyes glued to monitors displaying more than half a dozen video feeds of airplanes parked at gates around the airport. The coordinators' job is to ensure that the planes are unloaded, refueled, cleaned, restocked and reloaded so that every passenger reaches their destination safely, on time and with their luggage.
+*At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding. As Chief Technology Officer of Azure AI Cognitive Services, I have been working with a team of amazing scientists and engineers to turn this quest into a reality.*
 
-Minutes lost here or there in the turnaround process can add up, costing airlines millions of dollars per year. As many in the industry note, airplanes only make money while in the air.
+*In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z). At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better. We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages.*
 
-"Think of a pit stop in a car race, and this is pretty much the same that happens in a turnaround for an aircraft." said Phillipp Grindemann, head of business development and project management for Lufthansa CityLine. "All the processes need to be on time, need to be fast, need to be lean."
-
-Lufthansa CityLine is a subsidiary of Lufthansa, one of the world's major airline groups with a network that spans the globe. Lufthansa maintains hubs in Frankfurt and Munich, Germany. Lufthansa CityLine connects passengers with destinations around Europe to and from these hubs, flying more than 300 flights per day. On time arrivals and departures are essential for customer satisfaction and Lufthansa's bottom line.
-
-Outside of weather, delays stem from missteps during the tightly choreographed turnaround process. Like most industry players, Lufthansa CityLine relies on manual timestamps to understand when each step of the turnaround process starts and ends and uses that manual timestamp data to glean insights on where to make adjustments for faster, leaner turnarounds."_
+*The goal is to have pre-trained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today. Over the past five years, we have achieved human performance on benchmarks in conversational speech recognition, machine translation, conversational question answering, machine reading comprehension, and image captioning. These five breakthroughs provided us with strong signals toward our more ambitious aspiration to produce a leap in AI capabilities, achieving multi-sensory and multilingual learning that is closer in line with how humans learn and understand. I believe the joint XYZ-code is a foundational component of this aspiration, if grounded with external knowledge sources in the downstream AI tasks.*
 
 ### Custom summarization conversation sample format
 
 In the abstractive conversation summarization scenario, each conversation (whether it has a provided label or not) is expected to be provided in a plain .txt file. Each conversation turn must be provided in a single line that is formatted as Speaker + “: “ + text (I.e., Speaker and text are separated by a colon followed by a space). The following is an example conversation of three turns between two speakers (Agent and Customer).
 
 Agent: Hello, how can I help you?
+
 Customer: How do I upgrade office? I have been getting error messages all day.
+
 Agent: Please press the upgrade button, then sign in and follow the instructions.
 
-### custom summarization document and sample mapping JSON format
 
-In both document and conversation summarization scenarios, a set of documents and corresponding labels can be provided in a single JSON file that references individual document/conversation and summary files. The JSON file is expected to contain the following fields:
+### Custom summarization document and sample mapping JSON format
+
+In both document and conversation summarization scenarios, a set of documents and corresponding labels can be provided in a single JSON file that references individual document/conversation and summary files. 
+
+<!--- The JSON file is expected to contain the following fields:
 
 ```json
 projectFileVersion": TODO,
@@ -68,7 +69,7 @@ projectFileVersion": TODO,
         }
         ]
 }
-```
+``` --->
 
 The following is an example mapping file for the abstractive document summarization scenario with three documents and corresponding labels.
 

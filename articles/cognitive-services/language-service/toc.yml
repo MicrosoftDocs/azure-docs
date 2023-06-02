@@ -1195,7 +1195,7 @@ items:
           href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
 - name: Summarization (preview)
   items:
-  - name: Prebuilt
+  - name: Prebuilt (preview)
     items:
     - name: Summarization overview
       href: summarization/overview.md
@@ -1248,7 +1248,7 @@ items:
           href: /dotnet/api/overview/azure/ai.language.conversations-readme
         - name: Python
           href: /python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python-preview
-  - name: Custom
+  - name: Custom (preview)
     items:
     - name: Custom summarization quickstart
       href: summarization/custom/quickstart.md

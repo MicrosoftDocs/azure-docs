@@ -18,7 +18,7 @@ As you create your custom summarization model, you want to be sure to ensure tha
 
 ## Guidance on split test and training sets
 
-An important stage of creating a customized summarization model is validating that the created model is satisfactory in terms of quality and generated summaries as expected. That validation process has to be performed with a separate set of examples (called test examples) than those used for training. There are three important guidelines we recommend following when splitting the available data into training and testing:
+An important stage of creating a customized summarization model is validating that the created model is satisfactory in terms of quality and generates summaries as expected. That validation process has to be performed with a separate set of examples (called test examples) than those used for training. There are three important guidelines we recommend following when splitting the available data into training and testing:
 
 1. **Size**: To establish enough confidence about the model's quality, the test set should be of a reasonable size. Testing the model on just a handful of examples can give misleading outcome evaluation times. We recommend evaluating on 100s of examples. When a large number of documents/conversations is available, we recommend reserving at least 10% of them for testing.
 2. **No Overlap**: It is crucial to make sure that the same document is not used for training and testing at the same time. Testing should be performed on documents that were never used for training at any stage, otherwise the quality of the model will be highly overestimated.

@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Custom Summarization
+title: Quickstart - Custom Summarization (preview)
 titleSuffix: Azure Cognitive Services
 description: Quickly start building an AI model to summarize text.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: jboback
 zone_pivot_groups: usage-custom-language-features
 ---
 
-# Quickstart: custom summarization
+# Quickstart: custom summarization (preview)
 
 Use this article to get started with creating a custom Summarization project where you can train custom models on top of Summarization. A model is artificial intelligence software that's trained to do a certain task. For this system, the models summarize text and are trained by learning from imported data.
 
