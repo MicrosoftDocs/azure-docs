@@ -27,7 +27,7 @@ To perform time-travel operations on Azure Cosmos DB data, ensure that your Azur
 
 If an Analytical Time-To-Live (ATTL) is defined on the Azure Cosmos DB container, it serves as the maximum retention period for time-travel operations. If ATTL isn't defined or set as -1, you have maximum retention period. In other words, you can travel back to any time since when Azure Synapse Link was enabled.
 
-:::image type="content" source="media/synapse-link-time-travel/example-time-travel.png" alt-text="Screenshot of an example of time-travel with different data at various points in time.":::
+:::image type="content" source="media/synapse-link-time-travel/example-time-travel.png" lightbox="media/synapse-link-time-travel/example-time-travel.png" alt-text="Screenshot of an example of time-travel with different data at various points in time.":::
 
 ## When to use?
 
