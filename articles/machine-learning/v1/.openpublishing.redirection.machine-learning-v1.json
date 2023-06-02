@@ -16,7 +16,7 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/artticles/machine-learning/v-fake/concept-mlflow.md",
+        "source_path_from_root": "/articles/machine-learning/v-fake/concept-mlflow.md",
         "redirect_url": "/azure/machine-learning/concept-mlflow",
         "redirect_document_id": false
     },
