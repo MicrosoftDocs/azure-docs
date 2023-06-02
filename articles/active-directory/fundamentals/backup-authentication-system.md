@@ -4,9 +4,9 @@ description:
 
 services: active-directory
 ms.service: active-directory
-ms.subservice: conditional-access
+ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 05/30/2023
+ms.date: 06/02/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -29,7 +29,7 @@ In addition to Microsoft applications, we support:
 - SaaS applications available in the app gallery, like ADP, Atlassian, AWS, GoToMeeting, Kronos, Marketo, SAP, Trello, Workday, and more.
 - Selected line of business applications, based on their authentication patterns.
 
-Service to service authentication that rely on Azure AD managed identities or are built on Azure services, like virtual machines, cloud storage, Cognitive Services, and App Services, receives increased resilience from the back up authentication system. 
+Service to service authentication that relies on Azure AD managed identities or are built on Azure services, like virtual machines, cloud storage, Cognitive Services, and App Services, receives increased resilience from the back up authentication system. 
 
 Microsoft is continuously expanding the number of supported scenarios. 
 
@@ -114,7 +114,7 @@ Certain other types of policies don't support use of the backup authentication s
 - Use of the [authentication methods policy](../conditional-access/concept-conditional-access-grant.md#require-authentication-strength).
 - Use of [classic Conditional Access policies](../conditional-access/policy-migration.md).
 
-### Workload Identity Resilience in the backup authentication system
+### Workload identity resilience in the backup authentication system
 
 In addition to user authentication, the backup authentication system provides resilience for [managed identities](../managed-identities-azure-resources/overview.md) and other key Azure infrastructure by offering a regionally isolated authentication service that is redundantly layered with the primary authentication service. This system enables the infrastructure authentication within an Azure region to be resilient to issues that may occur in another region or within the larger Azure Active Directory service. This system complements Azure’s cross-region architecture. Building your own applications using MI and following Azure’s [best practices for resilience and availability]() ensures your applications are highly resilient. In addition to MI, this regionally resilient backup system protects key Azure infrastructure and services that keep the cloud functional.
 
@@ -126,7 +126,7 @@ Summary of Infrastructure Authentication support
 
 ### Cloud environments that support the backup authentication system
 
-The backup authentication system is supported in all cloud environments except Azure China. The types of identities supported vary by cloud, as described in the following table. 
+The backup authentication system is supported in all cloud environments except Azure China 21vianet. The types of identities supported vary by cloud, as described in the following table. 
 
 | Azure environment | Identities protected |
 | --- | --- |
@@ -134,14 +134,14 @@ The backup authentication system is supported in all cloud environments except A
 | Azure Government | Users, managed identities |
 | Azure Government Secret | managed identities |
 | Azure Government Top Secret | managed identities |
-| Azure China (Operated by 21vianet) | Not available |
+| Azure China | Not available |
 
 ## Other resources
 
 [Understanding application Support for the backup authentication system]()
 [Introduction to the backup authentication system]()
 [Resilience Defaults for Azure AD Conditional Access]()
-[Azure Active Directory SLA performance reporting]()
+[Azure Active Directory SLA performance reporting](../reports-monitoring/reference-azure-ad-sla-performance.md)
 
 ## Appendix – Reference lists of applications:
 
@@ -192,7 +192,7 @@ The backup authentication system is supported in all cloud environments except A
 | Microsoft Whiteboard Services | Yes |
 | My Apps | No |
 | My Profile | Yes |
-| My Signins | Yes |
+| My Sign-Ins | Yes |
 | Office365 Shell WCSS-Client | Yes |
 | One Outlook Web | Yes |
 | OneDrive (Android) | No |
