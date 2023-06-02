@@ -36,7 +36,7 @@ In this article, you learn how to:
 1. In the left menu, select **APIs** > **+ Add API**.
 1. Under **Create from definition**, select **OData**.
 
-    :::image type="content" source="media/import-api-from-odata/odata-api.png" alt-text="Screenshot of creating an API from an OData description in the portal." ":::
+    :::image type="content" source="media/import-api-from-odata/odata-api.png" alt-text="Screenshot of creating an API from an OData description in the portal." :::
 1. Enter API settings. You can set the values during creation and update them later by going to the **Settings** tab. 
 
     1. In **OData specification**, enter a URL for an OData metadata endpoint, typically the URL to the service root, appended with `/$metadata`. Alternatively, select a local OData XML file to import.
@@ -46,7 +46,7 @@ In this article, you learn how to:
 
     The API is added to the **APIs** list. The entity sets and functions that are exposed in the OData metadata description appear on the **Schema** tab. 
 
-    :::image type="content" source="media/import-api-from-odata/odata-schema.png" alt-text="Screenshot of schema of OData API in the portal." ":::    
+    :::image type="content" source="media/import-api-from-odata/odata-schema.png" alt-text="Screenshot of schema of OData API in the portal." :::    
 
 ## Update the OData schema
 
@@ -57,7 +57,7 @@ You can access an editor in the portal to view the OData schema or update it fro
 1. On the **Schema** tab, select the edit (**\</>**) icon.
 1. Review the schema. If you want to update it, select **Update from file** or **Update schema from endpoint**.
 
-    :::image type="content" source="media/import-api-from-odata/odata-schema-update.png" alt-text="Screenshot of schema editor for OData API in the portal." ":::    
+    :::image type="content" source="media/import-api-from-odata/odata-schema-update.png" alt-text="Screenshot of schema editor for OData API in the portal." :::    
 
 ## Secure your OData API
 
