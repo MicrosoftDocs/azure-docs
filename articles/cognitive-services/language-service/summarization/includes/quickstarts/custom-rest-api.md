@@ -14,7 +14,7 @@ ms.author: jboback
 
 ## Create a new Azure Language resource and Azure storage account
 
-Before you can use custom Summarization, you'll need to create an Azure Language resource, which will give you the credentials that you need to create a project and start training a model. You'll also need an Azure storage account, where you can upload your dataset that will be used to build your model.
+Before you can use custom Summarization, you need to create an Azure Language resource, which gives you the credentials that you need to create a project and start training a model. You also need an Azure storage account, where you can upload your dataset that is used to build your model.
 
 > [!IMPORTANT]
 > To get started quickly, we recommend creating a new Azure Language resource using the steps provided in this article. Using the steps in this article will let you create the Language resource and storage account at the same time, which is easier than doing it later.
@@ -65,7 +65,7 @@ Training could take a some time. You can use the following request to keep polli
 
 ## Deploy your model
 
-Generally after training a model you would review its [evaluation details](../../custom/how-to/test-evaluate.md) and make improvements if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language studio.
+Generally after training a model you would review its [evaluation details](../../custom/how-to/test-evaluate.md) and make improvements if necessary. In this quickstart, you just deploy your model, and make it available for you to try in Language studio.
 
 [!INCLUDE [Deploy a model using Language Studio](../../../includes/custom/language-studio/deployment.md)]
 

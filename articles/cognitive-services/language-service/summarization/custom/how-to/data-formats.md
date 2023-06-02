@@ -1,5 +1,5 @@
 ---
-title: Preparing data for custom summarization
+title: Prepare data for custom summarization
 titleSuffix: Azure Cognitive Services
 description: Learn about how to select and prepare data, to be successful in creating custom summarization projects.
 services: cognitive-services
