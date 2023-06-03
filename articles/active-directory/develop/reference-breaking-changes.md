@@ -28,6 +28,27 @@ Check this article regularly to learn about:
 > [!TIP]
 > To be notified of updates to this page, add this URL to your RSS feed reader:<br/>`https://learn.microsoft.com/api/search/rss?search=%22Azure+Active+Directory+breaking+changes+reference%22&locale=en-us`
 
+## June 2023
+
+### Omission of email claims with an unverified domain owner
+
+**Effective date**: June 2023
+
+**Endpoints impacted**: v2.0 and v1.0 - for more information, view our [documentation on endpoints comparison](../azuread-dev/azure-ad-endpoint-comparison.md).
+
+**Change**
+
+For **multi-tenant applications**, emails that aren't domain-owner verified are omitted by default when the optional `email` claim is requested in a token payload.
+
+An email is considered to be domain-owner verified if: 
+
+1. The domain belongs to the tenant where the user account resides, and the tenant admin has done verification of the domain
+1. The email is from a Microsoft Account (MSA)
+1. The email is from a Google account 
+1. The email was used for authentication using the one-time passcode (OTP) flow
+
+It should also be noted that Facebook and SAML/WS-Fed accounts do not have verified domains.
+
 ## May 2023
 
 ### The Power BI administrator role will be renamed to Fabric Administrator.
