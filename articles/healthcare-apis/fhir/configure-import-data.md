@@ -11,16 +11,17 @@ ms.author: kesheth
 
 # Configure bulk-import settings
 
-The FHIR service supports $import operation that allows you to import data into FHIR service from a storage account. Import operation does not guarantee ordering of valid resource execution. There are two modes of import supported today:
+The FHIR service supports $import operation that allows you to import data into FHIR service from a storage account. Import splits input files in several data streams for optimal performance and does not guarantee order in which resources are processed. There are two modes of $import supported today- 
 
 * Intial mode
-  Initial mode is intended to for loading FHIR resources into an empty FHIR server. Initial mode only supports CREATE operations and blocks API writes to the FHIR server, when enabled.
+ Initial mode is intended to load FHIR resources into an empty FHIR server. Initial mode only supports CREATE operations and, when enabled, blocks API writes to the FHIR server.
   
 * Incremental mode
-  Incremental mode is optimized to load data into FHIR server periodically, in parallel with API CRUD operations. 
-  Note : Incremental import mode is in public preview, see disclaimer below. 
-  
-  [!INCLUDE Public Preview Disclaimer]
+Incremental mode is optimized to load data into FHIR server periodically and does not block writes via API. It also allows to load lastUpdated and versionId from resource Meta (if present in resource JSON). 
+
+Note : Incremental import mode is in public preview, see disclaimer below. 
+
+[!INCLUDE Public Preview Disclaimer]
 
 In this document we will go over The three steps used in configuring import settings on the FHIR service:
 
@@ -75,9 +76,9 @@ Below steps walk through setting configurations for initial and incremental impo
 
 ### Step 3.1: Set import configuration for Initial import mode.
 Do following changes to JSON:
-1. Set enabled in importConfiguration to **true**
-2. Update the integrationDataStore with target storage account name 
-3. Set initialImportMode in importConfiguration to **true**
+1. Set enabled in importConfiguration to **true**.
+2. Update the integrationDataStore with target storage account name.
+3. Set initialImportMode in importConfiguration to **true**.
 4. Drop off provisioningState.
 
 [![Screenshot of the importer configuration code example](media/bulk-import/import-url-and-body.png)](media/bulk-import/import-url-and-body.png#lightbox)
@@ -87,9 +88,9 @@ After you've completed this final step, you're ready to perform **Initial mode**
 ### Step 3.2: Set import configuration for Incremental import mode.
 
 Do following changes to JSON:
-1. Set enabled in importConfiguration to **true**
-2. Update the integrationDataStore with target storage account name 
-3. Set incrementalImportMode in importConfiguration to **true**
+1. Set enabled in importConfiguration to **true**.
+2. Update the integrationDataStore with target storage account name.
+3. Set initialImportMode in importConfiguration to **false**.
 4. Drop off provisioningState.
 
 After you've completed this final step, you're ready to perform **Incremental mode** import using $import.
