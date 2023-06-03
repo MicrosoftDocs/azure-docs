@@ -19,7 +19,7 @@ The FHIR service supports $import operation that allows you to import data into 
 
 Note: Incremental import mode is in public preview. 
 
-[!INCLUDE Public Preview Disclaimer]
+> [!INCLUDE Public Preview Disclaimer]
 
 In this document we go over The three steps used in configuring import settings on the FHIR service:
 
