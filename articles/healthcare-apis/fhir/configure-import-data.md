@@ -23,9 +23,9 @@ Note: Incremental import mode is in public preview.
 
 In this document we go over The three steps used in configuring import settings on the FHIR service:
 
-Step 1: Enable managed identity on the FHIR service.
-Step 2: Create an Azure storage account or use an existing storage account, and then grant permissions to the FHIR service to access it.
-Step 3: Set the import configuration in the FHIR service.
+ 1. Enable managed identity on the FHIR service.
+ 1. Create an Azure storage account or use an existing storage account, and then grant permissions to the FHIR service to access it.
+ 1. Set the import configuration in the FHIR service.
 
 ## Step 1: Enable managed identity on the FHIR service
 
