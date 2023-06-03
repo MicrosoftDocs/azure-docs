@@ -36,10 +36,10 @@ Currently, we use a metric called ROUGE (Recall-Oriented Understudy for Gisting 
 
 When you manually inspect the quality of a summary, there are general qualities of a summary that we recommend checking for besides any desired expectations that the custom model was trained to adhere to such as style, format, or length. The general qualities we recommend checking are:
 
-1. **Fluency**: The summary should have no formatting problems, capitalization errors or ungrammatical sentences.
-2. **Coherence**: The summary should be well-structured and well-organized. The summary shouldn't just be a heap of related information, but should build from sentence to sentence into a coherent body of information about a topic.
-3. **Coverage**: The summary should cover all important information in the document/conversation.
-4. **Relevance**: The summary should include only important information from the source document/conversation without redundancies.
-5. **Hallucinations**: The summary doesn't contain wrong information not supported by the source document/conversation.
+- **Fluency**: The summary should have no formatting problems, capitalization errors or ungrammatical sentences.
+- **Coherence**: The summary should be well-structured and well-organized. The summary shouldn't just be a heap of related information, but should build from sentence to sentence into a coherent body of information about a topic.
+- **Coverage**: The summary should cover all important information in the document/conversation.
+- **Relevance**: The summary should include only important information from the source document/conversation without redundancies.
+- **Hallucinations**: The summary doesn't contain wrong information not supported by the source document/conversation.
 
 To learn more about summarization evaluation, see the [MIT Press article on SummEval](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00373/100686/SummEval-Re-evaluating-Summarization-Evaluation).

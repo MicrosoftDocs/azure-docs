@@ -20,7 +20,7 @@ This page contains information about how to select and prepare data in order to 
 > [!NOTE]
 > Throughout this document, we refer to a summary of a document as a “label”.
 
-### Custom summarization document sample format
+## Custom summarization document sample format
 
 In the abstractive document summarization scenario, each document (whether it has a provided label or not) is expected to be provided in a plain .txt file. The file contains one or more lines. If multiple lines are provided, each is assumed to be a paragraph of the document. The following is an example document with three paragraphs.
 
@@ -30,7 +30,7 @@ In the abstractive document summarization scenario, each document (whether it ha
 
 *The goal is to have pre-trained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today. Over the past five years, we have achieved human performance on benchmarks in conversational speech recognition, machine translation, conversational question answering, machine reading comprehension, and image captioning. These five breakthroughs provided us with strong signals toward our more ambitious aspiration to produce a leap in AI capabilities, achieving multi-sensory and multilingual learning that is closer in line with how humans learn and understand. I believe the joint XYZ-code is a foundational component of this aspiration, if grounded with external knowledge sources in the downstream AI tasks.*
 
-### Custom summarization conversation sample format
+## Custom summarization conversation sample format
 
 In the abstractive conversation summarization scenario, each conversation (whether it has a provided label or not) is expected to be provided in a plain .txt file. Each conversation turn must be provided in a single line that is formatted as Speaker + “: “ + text (I.e., Speaker and text are separated by a colon followed by a space). The following is an example conversation of three turns between two speakers (Agent and Customer).
 
@@ -41,7 +41,7 @@ Customer: How do I upgrade office? I have been getting error messages all day.
 Agent: Please press the upgrade button, then sign in and follow the instructions.
 
 
-### Custom summarization document and sample mapping JSON format
+## Custom summarization document and sample mapping JSON format
 
 In both document and conversation summarization scenarios, a set of documents and corresponding labels can be provided in a single JSON file that references individual document/conversation and summary files. 
 

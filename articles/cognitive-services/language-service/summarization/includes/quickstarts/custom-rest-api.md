@@ -59,7 +59,7 @@ After your project has been imported, you can start training your model.
 
 ### Get training job status
 
-Training could take a some time. You can use the following request to keep polling the status of the training job until it is successfully completed.
+Training could take some time. You can use the following request to keep polling the status of the training job until it is successfully completed.
 
 [!INCLUDE [get training model status](../custom/rest-api/get-training-status.md)]
 
