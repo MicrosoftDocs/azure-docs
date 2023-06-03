@@ -292,43 +292,129 @@ To manage custom security attributes in your Azure AD organization, you can also
 
 #### Get all attribute sets
 
-Use the [List attributeSets](/graph/api/directory-list-attributesets) API to get all attribute sets.
+The following example gets all attribute sets.
+
+# [Microsoft Graph PowerShell](#tab/ms-powershell)
+
+[Get-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryattributeset?branch=main)
+
+```powershell
+Get-MgDirectoryAttributeSet | Format-List
+```
+
+```Output
+Description          : Attributes for engineering team
+Id                   : Engineering
+MaxAttributesPerSet  : 25
+AdditionalProperties : {}
+
+Description          : Attributes for marketing team
+Id                   : Marketing
+MaxAttributesPerSet  : 25
+AdditionalProperties : {}
+```
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[List attributeSets](/graph/api/directory-list-attributesets?branch=main)
 
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets
 ```
 
+---
+
 #### Get top attribute sets
 
-Use the [List attributeSets](/graph/api/directory-list-attributesets) API to get the top attribute sets.
+The following example gets the top attribute sets.
+
+# [Microsoft Graph PowerShell](#tab/ms-powershell)
+
+[Get-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryattributeset?branch=main)
+
+```powershell
+Get-MgDirectoryAttributeSet -Top 10
+```
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[List attributeSets](/graph/api/directory-list-attributesets?branch=main)
 
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets?$top=10
 ```
 
+---
+
 #### Get attribute sets in order
 
-Use the [List attributeSets](/graph/api/directory-list-attributesets) API to get attribute sets in order.
+The following examples gets attribute sets in order.
+
+# [Microsoft Graph PowerShell](#tab/ms-powershell)
+
+[Get-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryattributeset?branch=main)
+
+```powershell
+Get-MgDirectoryAttributeSet -Sort "Id"
+```
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[List attributeSets](/graph/api/directory-list-attributesets?branch=main)
 
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets?$orderBy=id
 ```
 
+---
+
+
 #### Get an attribute set
 
-Use the [Get attributeSet](/graph/api/attributeset-get) API to get an attribute set.
+The following example gets an attribute set.
 
 - Attribute set: `Engineering`
+
+# [Microsoft Graph PowerShell](#tab/ms-powershell)
+
+[Get-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryattributeset?branch=main)
+
+```powershell
+Get-MgDirectoryAttributeSet -AttributeSetId "Engineering"
+```
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[Get attributeSet](/graph/api/attributeset-get?branch=main)
 
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets/Engineering
 ```
 
+---
+
 #### Add an attribute set
 
-Use the [Create attributeSet](/graph/api/directory-post-attributesets) API to add a new attribute set.
+The following example adds a new attribute set.
 
 - Attribute set: `Engineering`
+
+# [Microsoft Graph PowerShell](#tab/ms-powershell)
+
+[New-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryattributeset?branch=main)
+
+```powershell
+$params = @{
+	Id = "Engineering"
+	Description = "Attributes for engineering team"
+	MaxAttributesPerSet = 25
+}
+New-MgDirectoryAttributeSet -BodyParameter $params
+```
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[Create attributeSet](/graph/api/directory-post-attributesets)
 
 ```http
 POST https://graph.microsoft.com/beta/directory/attributeSets 
@@ -339,11 +425,29 @@ POST https://graph.microsoft.com/beta/directory/attributeSets
 }
 ```
 
+---
+
 #### Update an attribute set
 
-Use the [Update attributeSet](/graph/api/attributeset-update) API to update an attribute set.
+The following example updates an attribute set.
 
 - Attribute set: `Engineering`
+
+# [Microsoft Graph PowerShell](#tab/ms-powershell)
+
+[Update-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectoryattributeset?branch=main)
+
+```powershell
+$params = @{
+	description = "Attributes for engineering team"
+	maxAttributesPerSet = 20
+}
+Update-MgDirectoryAttributeSet -AttributeSetId "Engineering" -BodyParameter $params
+```
+
+# [Microsoft Graph](#tab/ms-graph)
+
+[Update attributeSet](/graph/api/attributeset-update?branch=main)
 
 ```http
 PATCH https://graph.microsoft.com/beta/directory/attributeSets/Engineering
@@ -352,6 +456,8 @@ PATCH https://graph.microsoft.com/beta/directory/attributeSets/Engineering
     "maxAttributesPerSet":20
 }
 ```
+
+---
 
 #### Get all custom security attributes
 
