@@ -106,7 +106,7 @@ Use the following steps to get the restore details from Azure portal:
 
 ## <a id="restore-account-powershell"></a>Restore an account using Azure PowerShell
 
-Before restoring the account, install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps) or version higher than 9.6.0. Next connect to your Azure account and select the required subscription with the following commands:
+Before restoring the account, install the [latest version of Azure PowerShell](/powershell/azure/install-azure-powershell) or version higher than 9.6.0. Next connect to your Azure account and select the required subscription with the following commands:
 
 1. Sign into Azure using the following command:
 
@@ -389,6 +389,8 @@ Get-AzCosmosdbTableRestorableResource `
 
 
 
+
+
 ## <a id="restore-account-cli"></a>Restore an account using Azure CLI
 
 Before restoring the account, install Azure CLI with the following steps:
@@ -409,18 +411,20 @@ The simplest way to trigger a restore is by issuing the restore command with nam
 
 #### Create a new Azure Cosmos DB account by restoring from an existing account
 
+
 ```azurecli-interactive
 
 az cosmosdb restore \
- --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
- --account-name MySourceAccount \
+ --target-database-account-name <MyRestoredCosmosDBDatabaseAccount> \
+ --account-name <MySourceAccount> \
  --restore-timestamp 2020-07-13T16:03:41+0000 \
- --resource-group MyResourceGroup \
- --location "West US"
- --public-network-access False
+ --resource-group <MyResourceGroup> \
+ --location "West US" \
+ --enable-public-network False
 
 ```
-If `public-network-access` is not set, restored account is accessible from public network, please ensure to pass Disabled to the `public-network-access` option to `False` public network access for restored account.
+
+If `**--enable-public-network**` is not set, restored account is accessible from public network. Please ensure to pass `` False` to the `**--enable-public-network** `` option to prevent public network access for restored account.
 
  > [!NOTE]
  > For restoring with public network access disabled, you'll need to install the cosmosdb-preview 0.23.0 of CLI extension   by executing `az extension update --name cosmosdb-preview `. You would also require version 2.17.1 of the CLI.
@@ -661,6 +665,12 @@ az cosmosdb mongodb restorable-resource list \
     --restore-location "West US" \
     --restore-timestamp "2020-07-20T16:09:53+0000"
 ```
+
+
+
+
+
+
 
 
 

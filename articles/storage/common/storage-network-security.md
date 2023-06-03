@@ -9,7 +9,7 @@ ms.date: 04/20/2023
 ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023
 ---
 
 # Configure Azure Storage firewalls and virtual networks
@@ -74,7 +74,7 @@ You must set the default rule to **deny**, or network rules have no effect. Howe
 
 ### [PowerShell](#tab/azure-powershell)
 
-1. Install [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
+1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
 2. Choose which type of public network access you want to allow:
 
@@ -182,7 +182,7 @@ If you want to enable access to your storage account from a virtual network or s
 
 #### [PowerShell](#tab/azure-powershell)
 
-1. Install [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
+1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
 2. List virtual network rules:
 
@@ -302,7 +302,7 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 #### [PowerShell](#tab/azure-powershell)
 
-1. Install [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
+1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
 2. List IP network rules:
 
@@ -522,7 +522,7 @@ Resources of some services that are registered in your subscription can access y
 | Azure Backup             | `Microsoft.RecoveryServices` | Run backups and restores of unmanaged disks in infrastructure as a service (IaaS) virtual machines (not required for managed disks). [Learn more](../../backup/backup-overview.md). |
 | Azure Data Box           | `Microsoft.DataBox`          | Import data to Azure. [Learn more](../../databox/data-box-overview.md). |
 | Azure DevTest Labs       | `Microsoft.DevTestLab`       | Create custom images and install artifacts. [Learn more](../../devtest-labs/devtest-lab-overview.md). |
-| Azure Event Grid         | `Microsoft.EventGrid`        | Enable [Azure Blob Storage event publishing](../../event-grid/overview.md#event-sources) and allow [publishing to storage queues](../../event-grid/event-handlers.md). |
+| Azure Event Grid         | `Microsoft.EventGrid`        | Enable [Azure Blob Storage event publishing](../../event-grid/concepts.md#event-sources) and allow [publishing to storage queues](../../event-grid/event-handlers.md). |
 | Azure Event Hubs         | `Microsoft.EventHub`         | Archive data by using Event Hubs Capture. [Learn More](../../event-hubs/event-hubs-capture-overview.md). |
 | Azure File Sync          | `Microsoft.StorageSync`      | Transform your on-premises file server to a cache for Azure file shares. This capability allows multiple-site sync, fast disaster recovery, and cloud-side backup. [Learn more](../file-sync/file-sync-planning.md). |
 | Azure HDInsight          | `Microsoft.HDInsight`        | Provision the initial contents of the default file system for a new HDInsight cluster. [Learn more](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). |
@@ -593,7 +593,7 @@ To learn more about working with storage analytics, see [Use Azure Storage analy
 
 #### [PowerShell](#tab/azure-powershell)
 
-1. Install [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
+1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
 2. Display the exceptions for the storage account's network rules:
 

@@ -121,7 +121,6 @@ After running the command `Start-GuestConfigurationPackageRemediation`, you can 
 
 ## Next steps
 
-- [Publish the package artifact][05] so it's accessible to your machines.
 - Use the **GuestConfiguration** module to [create an Azure Policy definition][06] for at-scale
   management of your environment.
 - [Assign your custom policy definition][07] using Azure portal.

@@ -73,13 +73,29 @@
         "exclude": [
           "**/_themes/**",
           "**/includes/**",
-          "**/obj/**"
+          "**/obj/**",
+          "**/v1/**",
+          "**/v-fake/**"
         ]
       },
       {
         "group": "grp-machine-learningv1",
         "src": "articles/machine-learning/v1",
         "dest": "./machine-learning",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/includes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learningv1",
+        "src": "articles/machine-learning/v-fake",
+        "dest": "./machine-learning/v1",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -186,13 +202,30 @@
         "exclude": [
           "**/_themes/**",
           "**/obj/**",
-          "**/v1/**"
+          "**/v1/**",
+          "**/v-fake/**"
         ]
       },
       {
         "group": "grp-machine-learningv1",
         "src": "articles/machine-learning/v1",
         "dest": "./machine-learning/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learningv1",
+        "src": "articles/machine-learning/v-fake",
+        "dest": "./machine-learning/v1",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -485,6 +518,7 @@
         "articles/*.md": "https://feedback.azure.com/d365community/forum/b822bb63-8b26-ec11-b6e6-000d3a4f0789",
         "articles/active-directory/**/*.md": "https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789",
         "articles/active-directory/develop/*.md": "https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options",
+        "articles/active-directory/external-identities/customers/*.md": "https://aka.ms/microsoftentraexternalid",
         "articles/active-directory-b2c/**/*.md": "https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options",
         "articles/active-directory-domain-services/**/*.md": "https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789",
         "articles/advisor/**/*.md": "https://feedback.azure.com/d365community/forum/44a8566e-0525-ec11-b6e6-000d3a4f0858",
@@ -1253,6 +1287,8 @@
         "articles/industry/agriculture/**/*.md": "Azure for Industry: Agriculture",
         "articles/iot/**/*.md": "Azure IoT",
         "articles/iot/**/*yml": "Azure IoT",
+        "articles/iot-central/**/*.md": "Azure IoT Central",
+        "articles/iot-central/**/*yml": "Azure IoT Central",
         "articles/jenkins/**/*.yml": "Jenkins",
         "articles/lab-services/**/*.md": "Azure Lab Services",
         "articles/lighthouse/**/*.md": "Azure Lighthouse",

@@ -3,10 +3,9 @@ title: Frequently asked questions about the MedTech service - Azure Health Data 
 description: Learn about the MedTech service frequently asked questions.
 services: healthcare-apis
 author: msjasteppe
-ms.custom: references_regions
 ms.service: healthcare-apis
-ms.topic: reference
-ms.date: 04/28/2023
+ms.topic: faq
+ms.date: 06/02/2023
 ms.author: jasteppe
 ---
 
@@ -37,7 +36,7 @@ The MedTech service requires device and FHIR destination mappings to perform nor
 
 ### Is JsonPathContent still supported by the MedTech service device mapping?
 
-Yes. JsonPathContent can be used as a template type within [CollectionContent](overview-of-device-mapping.md#collectioncontent). It's recommended that [CalculatedContent](how-to-use-calculatedcontent-mappings.md) is used as it supports all of the features of JsonPathContent with extra support for more advanced features.
+Yes. JsonPathContent can be used as a template type within [CollectionContent](overview-of-device-mapping.md#collectioncontent). It's recommended that [CalculatedContent](how-to-use-calculatedcontent-templates.md) is used as it supports all of the features of JsonPathContent with extra support for more advanced features.
 
 ### How long does it take for device data to show up in the FHIR service?
 
@@ -84,7 +83,7 @@ To learn about the MedTech service open-source projects, see [Open-source projec
 
 ## Next steps
 
-In this article, you learned about the MedTech service frequently asked questions (FAQs)
+In this article, you learned about the MedTech service frequently asked questions (FAQs).
 
 For an overview of the MedTech service, see
 

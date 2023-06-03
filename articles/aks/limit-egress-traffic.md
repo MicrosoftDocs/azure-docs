@@ -202,7 +202,7 @@ To associate the cluster with the firewall, the dedicated subnet for the cluster
 az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
 ```
 
-## Deploy an AKS cluster with a UPR outbound type to the existing network
+## Deploy an AKS cluster with a UDR outbound type to the existing network
 
 Now, you can deploy an AKS cluster into the existing virtual network. You will use the [`userDefinedRouting` outbound type](egress-outboundtype.md), which ensures that any outbound traffic is forced through the firewall and no other egress paths will exist. The [`loadBalancer` outbound type](egress-outboundtype.md#outbound-type-of-loadbalancer) can also be used.
 

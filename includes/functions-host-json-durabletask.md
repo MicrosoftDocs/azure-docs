@@ -95,11 +95,11 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 ```
 ---
 
-Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**. For  more information, see [Task hubs](../articles/azure-functions/durable/durable-functions-task-hubs.md).
+Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **TestHubName**. For  more information, see [Task hubs](../articles/azure-functions/durable/durable-functions-task-hubs.md).
 
 |Property  |Default | Description |
 |---------|---------|----------|
-|hubName|DurableFunctionsHub|Alternate [task hub](../articles/azure-functions/durable/durable-functions-task-hubs.md) names can be used to isolate multiple Durable Functions applications from each other, even if they're using the same storage backend.|
+|hubName|TestHubName (DurableFunctionsHub if using Durable Functions 1.x)|Alternate [task hub](../articles/azure-functions/durable/durable-functions-task-hubs.md) names can be used to isolate multiple Durable Functions applications from each other, even if they're using the same storage backend.|
 |controlQueueBatchSize|32|The number of messages to pull from the control queue at a time.|
 |controlQueueBufferThreshold| **Consumption plan for Python**: 32 <br> **Consumption plan for JavaScript and C#**: 128 <br> **Dedicated/Premium plan**: 256 |The number of control queue messages that can be buffered in memory at a time, at which point the dispatcher will wait before dequeuing any additional messages.|
 |partitionCount |4|The partition count for the control queue. May be a positive integer between 1 and 16.|

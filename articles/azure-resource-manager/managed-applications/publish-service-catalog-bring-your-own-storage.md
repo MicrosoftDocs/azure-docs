@@ -3,7 +3,7 @@ title: Bring your own storage to create and publish an Azure Managed Application
 description: Describes how to bring your own storage to create and publish an Azure Managed Application definition in your service catalog.
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm, devx-track-arm-template, engagement-fy23
-ms.date: 03/21/2023
+ms.date: 05/12/2023
 ---
 
 # Quickstart: Bring your own storage to create and publish an Azure Managed Application definition
@@ -20,10 +20,9 @@ To publish a managed application definition to your service catalog, do the foll
 
 If your managed application definition is less than 120 MB and you don't want to use your own storage account, go to [Quickstart: Create and publish an Azure Managed Application definition](publish-service-catalog-app.md).
 
-> [!NOTE]
-> You can use Bicep to develop a managed application definition but it must be converted to ARM template JSON before you can publish the definition in Azure. To convert Bicep to JSON, use the Bicep [build](../bicep/bicep-cli.md#build) command. After the file is converted to JSON it's recommended to verify the code for accuracy.
->
-> Bicep files can be used to deploy an existing managed application definition.
+You can use Bicep to develop a managed application definition but it must be converted to ARM template JSON before you can publish the definition in Azure. For more information, go to [Quickstart: Use Bicep to create and publish an Azure Managed Application definition](publish-bicep-definition.md#convert-bicep-to-json).
+
+You can also use Bicep deploy a managed application definition from your service catalog. For more information, go to [Quickstart: Use Bicep to deploy an Azure Managed Application definition](deploy-bicep-definition.md).
 
 ## Prerequisites
 
@@ -31,7 +30,7 @@ To complete this quickstart, you need the following items:
 
 - An Azure account with an active subscription and permissions to Azure Active Directory resources like users, groups, or service principals. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). For Bicep files, install the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
-- Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+- Install the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create the ARM template
 
@@ -157,9 +156,11 @@ Add the following JSON and save the file. It defines the managed application's r
 
 As a publisher, you define the portal experience to create the managed application. The _createUiDefinition.json_ file generates the portal's user interface. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) like drop-downs and text boxes.
 
-Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it. The user interface allows the user to input the App Service name prefix, App Service plan's name, storage account prefix, and storage account type. During deployment, the variables in _mainTemplate.json_ use the `uniqueString` function to append a 13-character string to the name prefixes so the names are globally unique across Azure.
+In this example, the user interface prompts you to input the App Service name prefix, App Service plan's name, storage account prefix, and storage account type. During deployment, the variables in _mainTemplate.json_ use the `uniqueString` function to append a 13-character string to the name prefixes so the names are globally unique across Azure.
 
-Add the following JSON to the file and save it.
+Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it.
+
+Add the following JSON code to the file and save it.
 
 ```json
 {
@@ -624,6 +625,38 @@ When you run the Azure CLI command, a credentials warning message might be displ
 ## Make sure users can access your definition
 
 You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They may have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, go to [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+
+## Clean up resources
+
+If you're going to deploy the definition, continue with the **Next steps** section that links to the article to deploy the definition.
+
+If you're finished with the managed application definition, you can delete the resource groups you created named _packageStorageGroup_, _byosDefinitionStorageGroup_, and _byosAppDefinitionGroup_.
+
+# [PowerShell](#tab/azure-powershell)
+
+The command prompts you to confirm that you want to remove the resource group.
+
+```azurepowershell
+Remove-AzResourceGroup -Name packageStorageGroup
+
+Remove-AzResourceGroup -Name byosAppDefinitionGroup
+
+Remove-AzResourceGroup -Name byosDefinitionStorageGroup
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+The command prompts for confirmation, and then returns you to command prompt while resources are being deleted.
+
+```azurecli
+az group delete --resource-group packageStorageGroup --no-wait
+
+az group delete --resource-group byosAppDefinitionGroup --no-wait
+
+az group delete --resource-group byosDefinitionStorageGroup --no-wait
+```
+
+---
 
 ## Next steps
 

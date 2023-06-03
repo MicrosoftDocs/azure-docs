@@ -38,7 +38,7 @@ Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy
 
 * A pull secret for your Azure Red Hat OpenShift cluster. [Download the pull secret file from the Red Hat OpenShift Cluster Manager web site](https://cloud.redhat.com/openshift/install/azure/aro-provisioned).
 
-* If you want to run the Azure PowerShell code locally, [Azure PowerShell](/powershell/azure/install-az-ps).
+* If you want to run the Azure PowerShell code locally, [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 * If you want to run the Azure CLI code locally:
     * A Bash shell (such as Git Bash, which is included in [Git for Windows](https://gitforwindows.org)).
@@ -655,7 +655,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 ```powershell
 $suffix=Get-Random # random suffix for the Service Principal
 $spDisplayName="sp-$resourceGroup-$suffix"
-$azureADAppSp = New-AzADServicePrincipal -DisplayName $displayName -Role Contributor
+$azureADAppSp = New-AzADServicePrincipal -DisplayName $spDisplayName -Role Contributor
 
 New-AzRoleAssignment -ObjectId $azureADAppSp.Id -RoleDefinitionName 'User Access Administrator' -ResourceGroupName $resourceGroup -ObjectType 'ServicePrincipal'
 New-AzRoleAssignment -ObJectId $azureADAppSp.Id -RoleDefinitionName 'Contributor' -ResourceGroupName $resourceGroup -ObjectType 'ServicePrincipal'
@@ -664,7 +664,6 @@ New-AzRoleAssignment -ObJectId $azureADAppSp.Id -RoleDefinitionName 'Contributor
 ### Get the Service Principal password  - PowerShell
 
 ```powershell
-$aadClientSecretDigest = ConvertTo-SecureString -String $azureADAppSp.PasswordCredentials.SecretText -AsPlainText -Force
 $aadClientSecretDigest = ConvertTo-SecureString -String $azureADAppSp.PasswordCredentials.SecretText -AsPlainText -Force
 ```
 
@@ -696,7 +695,7 @@ Write-Verbose (ConvertTo-Json $templateParams) -Verbose
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup @templateParams `
-    -TemplateParameterFile azuredeploy.json
+    -TemplateFile azuredeploy.json
 ```
 
 ::: zone-end

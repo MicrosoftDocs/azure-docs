@@ -53,7 +53,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureAttestation** | Azure Attestation. | Outbound | No | Yes | 
 | **AzureBackup** |Azure Backup.<br/><br/>**Note**: This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |
 | **AzureBotService** | Azure Bot Service. | Outbound | No | Yes |
-| **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=56519). | Both | Yes | Yes |
+| **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=56519). Doesn't include IPv6. | Both | Yes | Yes |
 | **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>This tag or the IP addresses covered by this tag can be used to grant indexers secure access to data sources. For more information about indexers, see [indexer connection documentation](../search/search-indexer-troubleshooting.md#connection-errors). <br/><br/> **Note**: The IP of the search service isn't included in the list of IP ranges for this service tag and **also needs to be added** to the IP firewall of data sources. | Inbound | No | Yes |
 | **AzureConnectors** | This tag represents the IP addresses used for managed connectors that make inbound webhook callbacks to the Azure Logic Apps service and outbound calls to their respective services, for example, Azure Storage or Azure Event Hubs. | Both | Yes | Yes |
 | **AzureContainerAppsService** | Azure Container Apps Service | Both | Yes | No |
@@ -82,7 +82,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzurePlatformIMDS** | Azure Instance Metadata Service (IMDS), which is a basic infrastructure service.<br/><br/>You can use this tag to disable the default IMDS. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](./network-security-groups-overview.md#azure-platform-considerations). We also recommend that you perform testing before you use this tag. | Outbound | No | No |
 | **AzurePlatformLKM** | Windows licensing or key management service.<br/><br/>You can use this tag to disable the defaults for licensing. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](./network-security-groups-overview.md#azure-platform-considerations).  We also recommend that you perform testing before you use this tag. | Outbound | No | No |
 | **AzureResourceManager** | Azure Resource Manager. | Outbound | No | Yes |
-| **AzureSentinel** | Microsoft Sentinel. | Inbound | Yes | Yes |
+| **AzureSentinel** | Microsoft Sentinel. | Inbound | No | Yes |
 | **AzureSignalR** | Azure SignalR. | Outbound | No | Yes |
 | **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** and **Storage** tags. | Outbound | No | Yes |
 | **AzureSphere** | This tag or the IP addresses covered by this tag can be used to restrict access to Azure Sphere Security Services. | Both | No | Yes | 
@@ -105,6 +105,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Outbound | No | Yes |
 | **HDInsight** | Azure HDInsight. | Inbound | Yes | Yes |
 | **Internet** | The IP address space that's outside the virtual network and reachable by the public internet.<br/><br/>The address range includes the [Azure-owned public IP address space](https://www.microsoft.com/download/details.aspx?id=56519). | Both | No | No |
+| **KustoAnalytics** | Kusto Analytics. | Both | No | No |
 | **LogicApps** | Logic Apps. | Both | No | Yes |
 | **LogicAppsManagement** | Management traffic for Logic Apps. | Inbound | No | Yes |
 | **Marketplace** | Represents the entire suite of Azure 'Commercial Marketplace Experiences' services. | Both | No | Yes |

@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 05/10/2023
 ms.author: justinha
 author: justinha
 ms.collection: M365-identity-device-management
@@ -108,9 +108,9 @@ No, users can't opt out of number matching in Authenticator push notifications.
 
 Relevant services will begin deploying these changes after May 8, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all users, we highly recommend you enable number match for Authenticator push notifications in advance. 
 
-### Does number matching only apply if Authenticator is set as the default authentication method?
+### Does number matching only apply if Authenticator push notifications are set as the default authentication method?
 
-If the user has a different default authentication method, there's no change to their default sign-in. If the default method is Authenticator, they get number matching.
+Yes. If the user has a different default authentication method, there's no change to their default sign-in. If the default method is Authenticator push notifications, they get number matching. If the default method is anything else, such as TOTP in Authenticator or another provider, there's no change. 
 
 Regardless of their default method, any user who is prompted to sign-in with Authenticator push notifications sees number matching. If prompted for another method, they won't see any change. 
 

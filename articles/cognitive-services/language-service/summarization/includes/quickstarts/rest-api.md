@@ -31,15 +31,13 @@ Use this quickstart to send text summarization requests using the REST API. In t
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Setting up
 
 [!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
+
 
 ## Example request
 
@@ -124,8 +122,7 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-versio
 -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Document-summarization" target="_target">I ran into an issue</a>
+
 
 ### Document extractive summarization example JSON response
 
@@ -312,8 +309,7 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-conversations/jobs/<my-job-id>?a
 -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Conversation-summarization" target="_target">I ran into an issue</a>
+
 
 ### Conversation issue and resolution summarization example JSON response
 

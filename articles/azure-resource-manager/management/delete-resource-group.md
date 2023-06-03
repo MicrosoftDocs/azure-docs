@@ -159,7 +159,7 @@ resource_client.resources.begin_delete_by_id(
 To delete a resource group, you need access to the delete action for the **Microsoft.Resources/subscriptions/resourceGroups** resource.
 
 > [!IMPORTANT]
-> The only permission required to delete a resource group is permission to the delete action for deleting resource groups.  You do **not** need permission to delete individual resources within that resource group.  Additionally, delete actions that are specified in **notActions** for a roleAssignment are superseded by the resource group delete action.  This is consistent with the scope heirarchy in the Azure role-based access control model.
+> The only permission required to delete a resource group is permission to the delete action for deleting resource groups.  You do **not** need permission to delete individual resources within that resource group.  Additionally, delete actions that are specified in **notActions** for a roleAssignment are superseded by the resource group delete action.  This is consistent with the scope hierarchy in the Azure role-based access control model.
 
 For a list of operations, see [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md). For a list of built-in roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 

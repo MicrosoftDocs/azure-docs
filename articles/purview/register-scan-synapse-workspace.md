@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/06/2022
+ms.date: 05/15/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -172,6 +172,15 @@ You can set up authentication for an Azure Synapse source any of the following o
     EXEC sp_addrolemember 'db_datareader', [PurviewAccountName]
     GO
     ```
+1. Run the following command in SQL script to verify the addition of role.
+    ```sql
+    SELECT p.name AS UserName, r.name AS RoleName
+    FROM sys.database_principals p
+    LEFT JOIN sys.database_role_members rm ON p.principal_id = rm.member_principal_id
+    LEFT JOIN sys.database_principals r ON rm.role_principal_id = r.principal_id
+    WHERE p.authentication_type_desc = 'EXTERNAL'
+    ORDER BY p.name;
+    ```
 1. Follow the same steps for **each database you want to scan.**
 
 #### Use a managed identity for serverless SQL databases
@@ -184,16 +193,39 @@ You can set up authentication for an Azure Synapse source any of the following o
     CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
     ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
     ```
-
+1. Run the following command in SQL script to verify the addition of role.
+    ```sql
+    SELECT p.name AS UserName, r.name AS RoleName
+    FROM sys.database_principals p
+    LEFT JOIN sys.database_role_members rm ON p.principal_id = rm.member_principal_id
+    LEFT JOIN sys.database_principals r ON rm.role_principal_id = r.principal_id
+    WHERE p.authentication_type_desc = 'EXTERNAL'
+    ORDER BY p.name;
+    ```
 1. Follow the same steps for **each database you want to scan.**
 
 #### Grant permission to use credentials for external tables
 
 If the Azure Synapse workspace has any external tables, the Microsoft Purview managed identity must be given References permission on the external table scoped credentials. With the References permission, Microsoft Purview can read data from external tables.
 
-```sql
-GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewAccountName];
-```
+1. Run the following command in SQL script to get the list of database scoped credentials.
+    ```sql
+    Select name, credential_identity
+    from sys.database_scoped_credentials;
+    ```
+1. To grant the access to database scoped credential, please run the command below by replacing the ***scoped_credential*** with the name of actual database scoped credential.
+    ```sql
+    GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewAccountName];
+    ```
+
+1. To verify the grant permission assignment, run the following command in SQL script.
+    ```sql
+    SELECT dp.permission_name, dp.grantee_principal_id, p.name AS grantee_principal_name
+    FROM sys.database_permissions AS dp
+    JOIN sys.database_principals AS p ON dp.grantee_principal_id = p.principal_id
+    JOIN sys.database_scoped_credentials AS c ON dp.major_id = c.credential_id;
+    ```
+
 # [Service principal](#tab/SP)
 
 #### Use a service principal for dedicated SQL databases
@@ -285,7 +317,7 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
 1. Select **Save**.
 
 > [!IMPORTANT]
-> Currently, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces, when set up scan on Microsoft Purview governance portal, you will hit serverless DB enumeration failure. In this case, to scan serverless DBs, you can use [Microsoft Purview REST API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to set up scan. Refer to [this example](#set-up-scan-using-api).
+> Currently, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces, when set up scan on Microsoft Purview governance portal, you will hit serverless DB enumeration failure. In this case, you can choose the "Enter manually" option to specify the database names that you want to scan, and proceed. Learn more from [Create and run scan](#create-and-run-scan).
 
 ### Create and run scan
 
@@ -298,13 +330,18 @@ To create and run a new scan, do the following:
 1. Select **View details**, and then select **New scan**. Alternatively, you can select the **Scan quick action** icon on the source tile.
 
 1. On the **Scan** details pane, in the **Name** box, enter a name for the scan.
-1. In the **Type** dropdown list, select the types of resources that you want to scan within this source. **SQL Database** is the only type we currently support within an Azure Synapse workspace.
-   
+
+1. In the **Credential** dropdown list, select the credential to connect to the resources within your data source.
+
+1. For **Database selection method**, choose **From Synapse workspace** or **Enter manually**. By default, Microsoft Purview tries to enumerate the databases under the workspace, and you can select the ones you want to scan. In case you hit error that Microsoft Purview fails to load the serverless databases, you can choose "Enter manually" to specify the type of database (dedicated or serverless) and the corresponding database name.
+
     :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-setup.png" alt-text="Screenshot of the details pane for the Azure Synapse source scan.":::
 
-1. In the **Credential** dropdown list, select the credential to connect to the resources within your data source. 
-  
-1. Within each type, you can select to scan either all the resources or a subset of them by name.
+    Option of "Enter manually": 
+
+    :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-setup-enter-manually.png" alt-text="Screenshot of the section of manually enter database names when setting up scan.":::
+
+1. Select **Test connection** to validate the settings. In case of any error, in the report page, hover on the "Connection status" to see details.
 
 1.	Select **Continue** to proceed. 
 
@@ -318,7 +355,7 @@ To create and run a new scan, do the following:
 
 ### Set up scan using API
 
-Here's an example of creating scan for serverless DB using API. Replace the `{place_holder}` and `enum_option_1 | enum_option_2 (note)` value with your actual settings.
+Here's an example of creating scan for serverless DB using API. Replace the `{place_holder}` and `enum_option_1 | enum_option_2 (note)` value with your actual settings. Learn more from [Microsoft Purview REST API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/).
 
 ```http
 PUT https://{purview_account_name}.purview.azure.com/scan/datasources/<data_source_name>/scans/{scan_name}?api-version=2022-02-01-preview

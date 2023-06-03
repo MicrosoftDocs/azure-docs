@@ -22,7 +22,7 @@ Migrating highly performant Exadata grade databases to the cloud is increasingly
 
 ## Enterprise scale Oracle performance 
 
-When exploring the upper limits of performance, it's important to recognize and reduce any constraints that could falsely skew results. For example, if the intent is to prove performance capabilities of a storage system, the client should ideally be configured so that CPU does not become a mitigating factor before storage performance limits are reached. To that end, testing started with the E104ids_v5 instance type as this VM comes equipped not just with a 100 GBps network interface, but with an equally large (100 GBps) egress limit. 
+When exploring the upper limits of performance, it's important to recognize and reduce any constraints that could falsely skew results. For example, if the intent is to prove performance capabilities of a storage system, the client should ideally be configured so that CPU does not become a mitigating factor before storage performance limits are reached. To that end, testing started with the E104ids_v5 instance type as this VM comes equipped not just with a 100 Gbps network interface, but with an equally large (100 Gbps) egress limit. 
 
 The testing occurred in two phases: 
 
@@ -41,16 +41,16 @@ The following diagram depicts the architecture that testing was completed agains
 
 #### Single-host storage IO 
 
-The following diagram shows a 100% randomly select workload with a database buffer hit ratio of about 8%. SLOB2 was able to drive approximately 850,000 I/O requests per second while maintaining a submillisecond DB file sequential read event latency. With a database block size of 8K that amounts to approximately 6,800 MiB/s of storage throughput. 
+The following diagram shows a 100% randomly selected workload with a database buffer hit ratio of about 8%. SLOB2 was able to drive approximately 850,000 I/O requests per second while maintaining a submillisecond DB file sequential read event latency. With a database block size of 8K that amounts to approximately 6,800 MiB/s of storage throughput. 
 
-:::image type="content" alt-text="Diagram of single-host random storage I/O." source="../media/azure-netapp-files/single-host-random-performance-chart.png" lightbox="../media/azure-netapp-files/single-host-random-performance-chart.png":::
+:::image type="content" alt-text="Chart showing single-host random storage I/O." source="../media/azure-netapp-files/single-host-random-performance-chart.png" lightbox="../media/azure-netapp-files/single-host-random-performance-chart.png":::
 
 
 #### Single-host throughput 
 
 The following diagram demonstrates that, for bandwidth intensive sequential IO workloads such as full table scans or RMAN activities, Azure NetApp Files can deliver the full bandwidth capabilities of the E104ids_v5 VM itself. 
 
-:::image type="content" alt-text="Diagram of single-host sequential throughput." source="../media/azure-netapp-files/single-host-sequential-throughput-chart.png" lightbox="../media/azure-netapp-files/single-host-sequential-throughput-chart.png":::
+:::image type="content" alt-text="Bar chart showing single-host sequential throughput." source="../media/azure-netapp-files/single-host-sequential-throughput-chart.png" lightbox="../media/azure-netapp-files/single-host-sequential-throughput-chart.png":::
 
 >[!NOTE]
 >As the compute instance is at the theoretical maximum of its bandwidth, adding additional application concurrency results only in increased client-side latency. This results in SLOB2 workloads exceeding the targeted completion timeframe therefore thread count was capped at six. 
@@ -67,11 +67,11 @@ The following diagram depicts the architecture that testing was completed agains
 
 #### Multi-host storage IO
 
-The following diagram shows a 100% random select workload with a database buffer hit ratio of about 8%. SLOB2 was able to drive approximately 850,000 I/O requests per second across all three hosts individually. SLOB2 was able accomplish this while executing in parallel to a collective total of about 2,500,000 I/O requests per second with each host still maintaining a submillisecond db file sequential read event latency. With a database block size of 8K, this amounts to approximately 20,000 MiB/s between the three hosts. 
+The following diagram shows a 100% randomly selected workload with a database buffer hit ratio of about 8%. SLOB2 was able to drive approximately 850,000 I/O requests per second across all three hosts individually. SLOB2 was able accomplish this while executing in parallel to a collective total of about 2,500,000 I/O requests per second with each host still maintaining a submillisecond db file sequential read event latency. With a database block size of 8K, this amounts to approximately 20,000 MiB/s between the three hosts. 
 
 :::image type="content" alt-text="Line graph of collective random storage from an IO perspective." source="../media/azure-netapp-files/collective-random-storage-chart.png" lightbox="../media/azure-netapp-files/collective-random-storage-chart.png":::
 
-#### Multi-host storage IO 
+#### Multi-host throughput 
 
 The following diagram demonstrates that for sequential workloads, Azure NetApp Files can still deliver the full bandwidth capabilities of the E104ids_v5 VM itself even as it scales outward. SLOB2 was able to drive I/O totaling over 30,000 MiB/s across the three hosts while running in parallel.
 
@@ -99,7 +99,7 @@ This section details the criteria to be considered in selecting [VMs](../virtual
 
 #### Chipsets 
 
-The first topic of interest is chipset selection. Make sure that whatever VM SKU you select is built on a single chipset for consistency reasons. The Intel variant of E_v5 VMs runs on a third Generation Intel Xeon Platinum 8370C (Ice Lake) configuration. All VMs in this family come equipped with a single 100 GBps network interface. In contrast, the E_v3 series, mentioned by way of example, is built on four separate chipsets, with various physical network bandwidths. The four chipsets used in the E_v3 family (Broadwell, Skylake, Cascade Lake, Haswell) have different processor speeds, which affect the performance characteristics of the machine.
+The first topic of interest is chipset selection. Make sure that whatever VM SKU you select is built on a single chipset for consistency reasons. The Intel variant of E_v5 VMs runs on a third Generation Intel Xeon Platinum 8370C (Ice Lake) configuration. All VMs in this family come equipped with a single 100 Gbps network interface. In contrast, the E_v3 series, mentioned by way of example, is built on four separate chipsets, with various physical network bandwidths. The four chipsets used in the E_v3 family (Broadwell, Skylake, Cascade Lake, Haswell) have different processor speeds, which affect the performance characteristics of the machine.
 
 Read the [Azure Compute documentation](/azure/architecture/guide/technology-choices/compute-decision-tree) carefully paying attention to chipset options. Also refer to [Azure VM SKUs best practices for Azure NetApp Files](performance-virtual-machine-sku.md). Selecting a VM with a single chipset is preferable for best consistency. 
 
@@ -107,7 +107,7 @@ Read the [Azure Compute documentation](/azure/architecture/guide/technology-choi
 
 It's important to understand the difference between the available bandwidth of the VM network interface and the metered bandwidth applied against the same. When [Azure Compute documentation](../virtual-network/virtual-machine-network-throughput.md) speaks to network bandwidth limits, these limits are applied on egress (write) only. Ingress (read) traffic is not metered and as such is limited only by the physical bandwidth of the NIC itself. The network bandwidth of most VMs outpaces the egress limit applied against the machine.
 
-As Azure NetApp Files volumes are network attached, the egress limit can be understood as being applied against writes specifically whereas ingress is defined as reads and read-like workloads. While the egress limit of most machines is greater than the network bandwidth of the NIC, the same cannot be said for the E104_v5 used in testing for this article. The E104_v5 has a 100 GBps NIC with the egress limit set at 100 GBps as well. By comparison, the E96_v5, with its 100 GBps NIC has an egress limit of 35 GBps with ingress unfettered at 100 GBps. As VMs decrease in size, egress limits decrease but ingress remains unfettered by logically imposed limits. 
+As Azure NetApp Files volumes are network attached, the egress limit can be understood as being applied against writes specifically whereas ingress is defined as reads and read-like workloads. While the egress limit of most machines is greater than the network bandwidth of the NIC, the same cannot be said for the E104_v5 used in testing for this article. The E104_v5 has a 100 Gbps NIC with the egress limit set at 100 Gbps as well. By comparison, the E96_v5, with its 100 Gbps NIC has an egress limit of 35 Gbps with ingress unfettered at 100 Gbps. As VMs decrease in size, egress limits decrease but ingress remains unfettered by logically imposed limits. 
 
 Egress limits are VM-wide and are applied as such against all network-based workloads. When using Oracle Data Guard, all writes are doubled to archive logs and must be factored to egress limit considerations. This is also true for archive log with multi-destination and RMAN, if used. When selecting VMs, familiarize yourselves with such command line tools as `ethtool`, which expose the configuration of the NIC as Azure does not document network interface configurations. 
 
@@ -185,7 +185,7 @@ Automatic Storage Management (ASM) is supported for NFS volumes. Though typicall
 
 An ASM over dNFS configuration was used to produce all test results discussed in this article. The following diagram illustrates the ASM file layout within the Azure NetApp Files volumes and the file allocation to the ASM disk groups. 
 
-:::image type="content" alt-text="Diagram of Oracle subnet with Azure NetApp Files." source="../media/azure-netapp-files/oracle-subnet-diagram.png":::
+:::image type="content" alt-text="Diagram of Oracle Automatic Storage Management with Azure NetApp Files." source="../media/azure-netapp-files/oracle-automatic-storage-management.png" lightbox="../media/azure-netapp-files/oracle-automatic-storage-management.png":::
 
 There are some limitations with the use of ASM over Azure NetApp Files NFS mounted volumes when it comes to storage snapshots that can be overcome with certain architectural considerations. Contact your Azure NetApp Files specialist or cloud solutions architect for an in-depth review of these considerations. 
 
@@ -234,7 +234,7 @@ All Azure NetApp Files volumes were mounted with the following NFS mount options
 | `pga_aggregate_limit`| 3g | 
 | `sga_target` | 25g | 
 | `shared_io_pool_size` | 500m | 
-| `shared_pool_size` |
+| `shared_pool_size` | 5g |
 | `db_files` | 500 | 
 | `filesystemio_options` | SETALL |
 | `job_queue_processes` | 0 |

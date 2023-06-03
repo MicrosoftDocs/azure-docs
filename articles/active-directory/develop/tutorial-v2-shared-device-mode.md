@@ -145,7 +145,7 @@ private void loadAccount()
 {
   mSingleAccountApp.getCurrentAccountAsync(new ISingleAccountPublicClientApplication.CurrentAccountCallback())
   {
-    @Overide
+    @Override
     public void onAccountLoaded(@Nullable IAccount activeAccount)
     {
       if (activeAccount != null)

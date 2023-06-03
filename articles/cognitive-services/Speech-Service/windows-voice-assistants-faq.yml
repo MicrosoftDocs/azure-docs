@@ -50,4 +50,4 @@ sections:
       - question: |
           The UWP Voice Assistant Sample uses Direct Line Speech. Do I have to use Direct Line Speech for my voice assistant on Windows?
         answer: |
-          The UWP Sample Application was developed using Direct Line Speech and the Speech Services SDK as a demonstration of how to use a dialog service with the Windows Conversational Agent capability. However, you can use any service for local and cloud keyword verification, speech-to-text conversion, bot dialog, and text-to-speech conversion.
+          The UWP Sample Application was developed using Direct Line Speech and the Speech Services SDK as a demonstration of how to use a dialog service with the Windows Conversational Agent capability. However, you can use any service for local and cloud keyword verification, speech to text conversion, bot dialog, and text to speech conversion.

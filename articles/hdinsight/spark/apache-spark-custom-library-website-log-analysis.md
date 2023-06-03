@@ -4,7 +4,7 @@ description: This notebook demonstrates how to analyze log data using a custom l
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 04/05/2022
+ms.date: 05/09/2022
 ---
 
 # Analyze website logs using a custom Python library with Apache Spark cluster on HDInsight

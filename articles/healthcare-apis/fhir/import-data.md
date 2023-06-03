@@ -9,9 +9,9 @@ ms.date: 06/06/2022
 ms.author: kesheth
 ---
 
-# Import Operation
 
-Import operations enables loading Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. Import supports both initial and incremental data load into FHIR server. Incremental import mode is in public preview, see disclaimer below. 
+# Import Operation
+Import operation enables loading Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. Import supports both initial and incremental data load into FHIR server. Incremental import mode is in public preview, see disclaimer below. 
 
 [!INCLUDE Public Preview Disclaimer]
 
@@ -172,7 +172,7 @@ Below are some error codes you may encounter and the solutions to help you resol
             "details": {
                 "text": "Given conditional reference '{0}' does not resolve to a resource."
             },
-            "diagnostics": "Failed to process resource at line: {1}"
+            "diagnostics": "Failed to process resource at line: {0} with stream start offset: {1}"
         }
     ]
 }

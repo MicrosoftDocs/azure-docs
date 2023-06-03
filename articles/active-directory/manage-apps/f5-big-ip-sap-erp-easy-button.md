@@ -223,7 +223,7 @@ Learn more: [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos au
 
 The **Additional User Attributes** tab supports distributed systems requiring attributes stored in other directories, for session augmentation. Thus, attributes from an LDAP source are injected as more SSO headers to control role-based access, Partner IDs, etc.
 
-   ![Screenshot of the Addtional User Attributes tab.](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
+   ![Screenshot of the Additional User Attributes tab.](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
 
    >[!NOTE] 
    >This feature has no correlation to Azure AD but is another attribute source.
@@ -327,7 +327,8 @@ Alternatively, in BIG-IP you can disable Guided Configuration strict management 
    ![Screenshot of the padlock icon.](./media/f5-big-ip-oracle/strict-mode-padlock.png)
 
    >[!NOTE]
-   >To re-enable strict management mode and deploye a configuration overwrites settings outside the Guided Configuration UI. Therefore, we recommend the advanced configuration method for production services.
+   >To re-enable strict management mode and deploy a configuration that overwrites settings outside the Guided Configuration UI, we recommend the advanced 
+    configuration method for production services.
 
 ## Troubleshooting
 

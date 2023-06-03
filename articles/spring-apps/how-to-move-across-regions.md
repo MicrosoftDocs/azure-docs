@@ -14,7 +14,7 @@ ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to move your Azure Spring Apps service instance to another region. Moving your instance is useful, for example, as part of a disaster recovery plan or to create a duplicate testing environment.
 
@@ -22,7 +22,7 @@ You can't move an Azure Spring Apps instance from one region to another directly
 
 Before you move your service instance, consider the following limitations:
 
-- Different feature sets are supported by different pricing tiers (SKUs). If you change the SKU, you may need to change the template to include only features supported by the target SKU.
+- Different feature sets are supported by different pricing plans (SKUs). If you change the SKU, you may need to change the template to include only features supported by the target SKU.
 - You might not be able to move all subresources in Azure Spring Apps using the template. Your move may require extra setup after the template is deployed. For more information, see the [Configure the new Azure Spring Apps service instance](#configure-the-new-azure-spring-apps-service-instance) section of this article.
 - When you move a virtual network (VNet) instance, you must create new network resources. For more information, see [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 

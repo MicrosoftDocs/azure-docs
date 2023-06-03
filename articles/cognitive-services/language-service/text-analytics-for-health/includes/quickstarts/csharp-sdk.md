@@ -24,15 +24,13 @@ Use this quickstart to create a Text Analytics for health application with the c
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service (providing 5000 text records - 1000 characters each) and upgrade later to the `Standard S` pricing tier for production. You can also start with the `Standard S` pricing tier, receiving the same initial quota for free (5000 text records) before getting charged. For more information on pricing, visit [Language Service Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/).
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Setting up
 
 [!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
+
 
 ### Create a new .NET Core application
 
@@ -40,8 +38,7 @@ Using the Visual Studio IDE, create a new .NET Core console app. This will creat
 
 Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Select version `5.2.0`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
+
 
 ## Code example
 
@@ -137,8 +134,7 @@ namespace Example
 
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
+
 
 
 ### Output

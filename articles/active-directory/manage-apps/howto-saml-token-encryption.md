@@ -101,7 +101,7 @@ To configure token encryption, follow these steps:
 
 1. Set the value for the `tokenEncryptionKeyId` attribute.
 
-    The following example shows an application manifest configured with two encryption certificates, and with the second selected as the active one using the tokenEnryptionKeyId.
+    The following example shows an application manifest configured with two encryption certificates, and with the second selected as the active one using the tokenEncryptionKeyId.
 
     ```json
     { 

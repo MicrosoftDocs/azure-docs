@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 03/02/2023
 ms.author: dmwendia
 ms.reviewer: jmprieur
-ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
+ms.custom: devx-track-csharp, aaddev, has-adal-ref, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn about token cache serialization so I can have fine-grained control of the proxy.
 ---
 
@@ -372,7 +372,7 @@ var app = ConfidentialClientApplicationBuilder
 ### Samples
 
 - The following sample showcases using the token cache serializers in .NET Framework and .NET Core applications: [ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache). 
-- The following sample is an ASP.NET web app that uses the same technics: [Use OpenID Connect to sign in users to Microsoft identity platform](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect).
+- The following sample is an ASP.NET web app that uses the same techniques: [Use OpenID Connect to sign in users to Microsoft identity platform](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect).
 
 ## [Desktop apps](#tab/desktop)
 

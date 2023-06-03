@@ -31,16 +31,12 @@ Use this quickstart to create a text summarization application with the client l
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 * To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
 
-> [!div class="nextstepaction"]
-> <a href="> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Summarization&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>" target="_target">I ran into an issue</a>
 
 ## Setting up
 
 [!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Summarization&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
+
 
 ### Install the client library
 
@@ -60,8 +56,7 @@ pip install azure-ai-language-conversations==1.1.0b3
 
 ---
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Summarization&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
+
 
 
 ## Code example
@@ -128,8 +123,7 @@ def sample_extractive_summarization(client):
 sample_extractive_summarization(client)
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Summarization&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
+
 
 ### Output
 
@@ -245,8 +239,7 @@ with client:
 
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Summarization&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
+
 
 ### Output
 

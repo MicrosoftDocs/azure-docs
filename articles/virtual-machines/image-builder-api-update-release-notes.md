@@ -5,7 +5,7 @@ author: kof-f
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 04/04/2022
+ms.date: 05/08/2023
 ms.reviewer: erd
 ms.subservice: image-builder
 ms.custom: references_regions
@@ -17,9 +17,28 @@ ms.custom: references_regions
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-This article contains all major API changes and feature updates for the Azure VM Image Builder service.
+This article contains all major API changes and feature updates for the Azure VM Image Builder (AIB) service.
 
 ## API releases
+
+
+### Version 2022-07-01
+
+**Improvements**
+- Added support to use the latest image version stored in Azure Compute Gallery as the source for the image template
+- Added `versioning` to support generating version numbers for image distributions. For more information, see [properties: versioning](../virtual-machines/linux/image-builder-json.md#versioning)
+- Added support for per region configuration when distributing to Azure Compute Gallery. For more information, see [Distribute:targetRegions](../virtual-machines/linux/image-builder-json.md#distribute-targetregions)
+- Added new 'File' validation type. For more information, see [validate properties](../virtual-machines/linux/image-builder-json.md#properties-validate)
+- VHDs can now be distributed to a custom blob or container in a custom storage account. For more information, see [Distribute: VHD](../virtual-machines/linux/image-builder-json.md#distribute-vhd)
+- Added support for using a [Direct Shared Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#sharing) image as the source for the image template
+
+
+**Changes**
+- `replicationRegions` is now deprecated for gallery distributions. For more information, use [gallery-replicated-regions](/cli/azure/image/builder/output?view=azure-cli-latest#az-image-builder-output-add-examples&preserve-view=true)
+- VHDs can now be distributed to a custom blob or container in a custom storage account
+- `targetRegions` array added and applied only to "SharedImage" type distribute. For more information on `targetRegions`, see [Azure Compute Gallery](../../articles/virtual-machines/azure-compute-gallery.md)
+- Added support for using a [Direct Shared Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#sharing) image as the source for the image template. Direct Shared Gallery is currently in preview.
+
 
 
 ### Version 2022-02-14

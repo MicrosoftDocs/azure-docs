@@ -7,6 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 03/20/2023
 ms.author: allensu
 ---
@@ -45,7 +46,7 @@ You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/ov
 
 - Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and configured to use with your account. To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-- If you [install Azure PowerShell locally](/powershell/azure/install-Az-ps) to run the commands, you need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
+- If you [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the commands, you need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
 
   Also make sure your `Az.Network` module is 4.3.0 or later. To verify the installed module, use `Get-InstalledModule -Name Az.Network`. To update, use the command `Update-Module -Name Az.Network`.
 

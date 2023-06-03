@@ -5,6 +5,7 @@ ms.author: sunila
 author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---
@@ -40,7 +41,7 @@ az postgres flexible-server parameter set --resource-group <your resource group>
 ```json
 {
 
-    "$schema": https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#,
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
 
     "contentVersion": "1.0.0.0",
 
@@ -115,10 +116,12 @@ az postgres flexible-server parameter set --resource-group <your resource group>
 
 After extensions are allow-listed and loaded, these must be installed in your database before you can use them. To install a particular extension, you should run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
 
+> [!NOTE]
+> Third party extensions offered in Azure Database for PostgreSQL - Flexible Server are open source licensed code. Currently, we don't offer any third party extensions or extension versions with premium or proprietary licensing models.
+ 
 
 
-
-Azure Database for PostgreSQL supports a subset of key extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document aren't supported on Azure Database for PostgreSQL - Flexible Server. You can't create or load your own extension in Azure Database for PostgreSQL.
+Azure Database for PostgreSQL supports a subset of key PostgreSQL extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document aren't supported on Azure Database for PostgreSQL - Flexible Server. You can't create or load your own extension in Azure Database for PostgreSQL.
 ## Postgres 14 extensions
 
 The following extensions are available in Azure Database for PostgreSQL - Flexible Servers, which have Postgres version 14. 
@@ -164,6 +167,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
+> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.4.0             | Open-source vector similarity search for Postgres|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
@@ -226,6 +230,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
+> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.4.0             | Open-source vector similarity search for Postgres|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
@@ -288,6 +293,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
+> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.4.0             | Open-source vector similarity search for Postgres|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[plv8](https://plv8.github.io/)                      | 3.2.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
@@ -350,6 +356,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
+> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.4.0             | Open-source vector similarity search for Postgres|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 2.5.5           | PostGIS geometry, geography, and raster spatial types and functions|
@@ -487,7 +494,7 @@ Now you can run pg_dump on the original database and then do pg_restore. After t
 ```SQL
 SELECT timescaledb_post_restore();
 ```
-For more details on restore method wiith Timescale enabled database see [Timescale documentation](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/pg-dump-and-restore/#restore-your-entire-database-from-backup)
+For more details on restore method with Timescale enabled database see [Timescale documentation](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/pg-dump-and-restore/#restore-your-entire-database-from-backup)
 
 
 ### Restoring a Timescale database using timescaledb-backup
@@ -510,7 +517,7 @@ For more details on restore method wiith Timescale enabled database see [Timesca
 ```sql
 /*+ SeqScan(a) */
 ```
-`pg_hint_plan` reads hinting phrases in a comment of special form given with the target SQL statement. The special form is beginning by the character sequence "/\*+" and ends with "\*/". Hint phrases are consists of hint name and following parameters enclosed by parentheses and delimited by spaces. Each hinting phrases can be delimited by new lines for readability.
+`pg_hint_plan` reads hinting phrases in a comment of special form given with the target SQL statement. The special form is beginning by the character sequence "/\*+" and ends with "\*/". Hint phrases consists of hint name and following parameters enclosed by parentheses and delimited by spaces. Each hinting phrase can be delimited by new lines for readability.
 Example:
 ```sql
   /*+
@@ -548,7 +555,7 @@ CREATE EXTENSION  pg_hint_plan ;
 
 ## pg_buffercache
 
-`Pg_buffercache` can be used to study the contents of *shared_buffers* . Using [this extension](https://www.postgresql.org/docs/current/pgbuffercache.html) you can tell if a particular relation is cached or not(in *shared_buffers*) . This extension can help you in troubleshooting performance issues (caching related performance issues)
+`Pg_buffercache` can be used to study the contents of *shared_buffers*. Using [this extension](https://www.postgresql.org/docs/current/pgbuffercache.html) you can tell if a particular relation is cached or not(in *shared_buffers*). This extension can help you in troubleshooting performance issues (caching related performance issues)
 
 This is part of contrib and it is very easy to install this extension.
 

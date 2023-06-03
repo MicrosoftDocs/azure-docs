@@ -7,7 +7,7 @@ ms.service: container-instances
 services: container-instances
 ms.topic: how-to
 ms.date: 06/17/2022
-ms.custom: devx-track-js, devx-track-arm-template
+ms.custom: devx-track-arm-template
 ---
 
 # Deploy an Azure Container Instances (ACI) container group in an availability zone (preview)
