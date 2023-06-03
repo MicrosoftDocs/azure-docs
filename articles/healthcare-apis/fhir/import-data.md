@@ -13,7 +13,7 @@ ms.author: kesheth
 # Import Operation
 Import operation enables loading Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. Import supports both initial and incremental data load into FHIR server. Incremental import mode is in public preview, see disclaimer below. 
 
-[!INCLUDE Public Preview Disclaimer]
+> [!INCLUDE Public Preview Disclaimer]
 
 > [!NOTE]
 > You must have the **FHIR Data Importer** role on the FHIR server to use $import. 
