@@ -89,7 +89,7 @@ This happens in the case when the [layer definition] shows that the layer can ho
 
 You can navigate to different floor by using the **Level** drop-down list in the Plugins toolbar, located next to the Azure Maps plugin symbol as sown in the following image:
 
-![A screenshot showing the Azure Maps plugin symbol as it appears on the toolbar.](./media/creator-indoor-maps/qgis/layer-dropdown-closed.png)
+![A screenshot showing the level selection drop-down as it appears on the plugin toolbar.](./media/creator-indoor-maps/qgis/level-dropdown-closed.png)
 
 ## Edit dataset
 
@@ -104,7 +104,7 @@ Dataset additions involve adding features to a layer.
 
 1. In the **Layers** panel, select the layer that you want to add the new feature to.
 
-1. Toggle editing mode on in the digitizing toolbar. To view the digitizing toolbar, navigate to **View > Toolbar > Digitizing Toolbar**.
+1. Toggle edit mode to `on` in the digitizing toolbar. To view the digitizing toolbar, navigate to **View > Toolbar > Digitizing Toolbar**.
 
     :::image type="content" source="./media/creator-indoor-maps/qgis/digitizing-toolbar-toggle-editing-mode.png"alt-text="A screenshot showing editing mode on the digitizing toolbar.":::
 
@@ -122,7 +122,7 @@ Dataset edits involve editing feature geometries and properties.
 
 1. In the **Layers** panel, select the layer containing the feature you want to edit.
 
-1. Toggle editing mode on in the digitizing toolbar.
+1. Toggle edit mode to `on` in the digitizing toolbar.
 
 1. Select the **Vertex tool** from the digitizing toolbar.
 
@@ -141,7 +141,7 @@ To edit a feature property using the attribute table
     > [!NOTE]
     > The attribute table shows each feature, with their properties, in a tabular form. It can be accessed by right-clicking on any layer in the **Layers** panel then selecting **Open Attribute Table**.
 
-1. Toggle the edit mode on.
+1. Toggle edit mode on.
 
 1. Edit the desired property.
 
