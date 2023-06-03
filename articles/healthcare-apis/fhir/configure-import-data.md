@@ -11,19 +11,17 @@ ms.author: kesheth
 
 # Configure bulk-import settings
 
-The FHIR service supports $import operation that allows you to import data into FHIR service from a storage account. Import splits input files in several data streams for optimal performance and does not guarantee order in which resources are processed. There are two modes of $import supported today- 
+The FHIR service supports $import operation that allows you to import data into FHIR service from a storage account. Import splits input files in several data streams for optimal performance and doesn't guarantee order in which resources are processed. There are two modes of $import supported today- 
 
-* Intial mode
- Initial mode is intended to load FHIR resources into an empty FHIR server. Initial mode only supports CREATE operations and, when enabled, blocks API writes to the FHIR server.
+* Initial mode is intended to load FHIR resources into an empty FHIR server. Initial mode only supports CREATE operations and, when enabled, blocks API writes to the FHIR server.
   
-* Incremental mode
-Incremental mode is optimized to load data into FHIR server periodically and does not block writes via API. It also allows to load lastUpdated and versionId from resource Meta (if present in resource JSON). 
+* Incremental mode is optimized to load data into FHIR server periodically and doesn't block writes via API. It also allows to load lastUpdated and versionId from resource Meta (if present in resource JSON). 
 
-Note : Incremental import mode is in public preview, see disclaimer below. 
+Note: Incremental import mode is in public preview. 
 
 [!INCLUDE Public Preview Disclaimer]
 
-In this document we will go over The three steps used in configuring import settings on the FHIR service:
+In this document we go over The three steps used in configuring import settings on the FHIR service:
 
 Step 1: Enable managed identity on the FHIR service.
 Step 2: Create an Azure storage account or use an existing storage account, and then grant permissions to the FHIR service to access it.
@@ -48,7 +46,7 @@ After the system identity has been enabled, you'll see a system assigned GUID va
 ## Step 2: Assign permissions to the FHIR service to access the storage account
 
 Follow the steps below to assign permissions to access the storage account
-1. Browse to the **Access Control (IAM)** in the storage account
+1. Browse to the **Access Control (IAM)** in the storage account.
 2. Select **Add role assignment**. During this step, if the add role assignment option is grayed out, you need to ask your Azure Administrator to assign you permission to perform this step.
 For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
 3. Add the role [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) to the FHIR service.
@@ -63,7 +61,7 @@ Now you're ready to select the storage account for import.
 > [!NOTE]
 > If you haven't assigned storage access permissions to the FHIR service, the import operations ($import) will fail.
 
-For this step you will need to get request URL and JSON body. Please follow the directions below
+For this step you need to get request URL and JSON body. Follow the directions below
 1. Browse to the Azure portal of your FHIR service.
 2. Select **Overview**.
 3. Select **JSON View**.
