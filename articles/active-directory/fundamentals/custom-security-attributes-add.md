@@ -209,6 +209,10 @@ Get-MgDirectoryAttributeSet -Top 10
 GET https://graph.microsoft.com/beta/directory/attributeSets?$top=10
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
+
 ---
 
 #### Get attribute sets in order
@@ -230,6 +234,10 @@ Get-MgDirectoryAttributeSet -Sort "Id"
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets?$orderBy=id
 ```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
 
 ---
 
@@ -452,6 +460,10 @@ AdditionalProperties    : {}
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions?$filter=name+eq+'Project'%20and%20status+eq+'Available'
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
+
 ---
 
 - Filter: Attribute set eq 'Engineering' and status eq 'Available' and data type eq 'String'
@@ -497,6 +509,10 @@ AdditionalProperties    : {}
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions?$filter=attributeSet+eq+'Engineering'%20and%20status+eq+'Available'%20and%20type+eq+'String'
 ```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
 
 ---
 
@@ -645,6 +661,10 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 }
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
+
 ---
 
 #### Add a custom security attribute with a list of predefined values
@@ -719,6 +739,10 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
     ]
 }
 ```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
 
 ---
 
@@ -813,6 +837,10 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
     ]
 }
 ```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+None
 
 ---
 
