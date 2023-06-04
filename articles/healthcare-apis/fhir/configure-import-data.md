@@ -15,7 +15,7 @@ The FHIR service supports $import operation that allows you to import data into 
 
 * Initial mode is intended to load FHIR resources into an empty FHIR server. Initial mode only supports CREATE operations and, when enabled, blocks API writes to the FHIR server.
   
-* Incremental mode is optimized to load data into FHIR server periodically and doesn't block writes via API. It also allows to load lastUpdated and versionId from resource Meta (if present in resource JSON). 
+* Incremental mode is optimized to load data into FHIR server periodically and doesn't block writes via API. It also allows you to load lastUpdated and versionId from resource Meta (if present in resource JSON). 
 
 Incremental import mode is in public preview. 
 
@@ -33,7 +33,7 @@ In this document we go over The three steps used in configuring import settings 
 
 ## Step 1: Enable managed identity on the FHIR service
 
-The first step is to enable system wide managed identity on the service. This will be used to grant the FHIR service an access to the storage account. 
+The first step is to enable system wide managed identity on the service. This will be used to grant FHIR service an access to the storage account. 
 For more information about managed identities in Azure, see [About managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 Follow the steps to enable managed identity on FHIR service
@@ -103,7 +103,7 @@ Note : You can also use the **Deploy to Azure** button to open custom Resource M
  [![Deploy to Azure Button.](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Ffhir-import%2Fazuredeploy.json)
 
 ## Securing the FHIR service $import operation
-For securely importing FHIR data into the FHIR service from an ADLS Gen2 account, there are two options:
+For you to securely import FHIR data into the FHIR service from an ADLS Gen2 account, there are two options:
 
 * Option 1: Enabling FHIR service as a Microsoft Trusted Service.
 
@@ -130,7 +130,7 @@ Install-Module Az.Storage -Repository PsGallery -AllowClobber -Force
 
 Now, use the PowerShell command below to set the selected FHIR service instance as a trusted resource for the storage account. Make sure that all listed parameters are defined in your PowerShell environment. 
 
-Note that you'll need to run the `Add-AzStorageAccountNetworkRule` command as an administrator in your local environment. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
+Note that you need to run the `Add-AzStorageAccountNetworkRule` command as an administrator in your local environment. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 
 ```PowerShell
 $subscription="xxx"
@@ -144,14 +144,14 @@ $resourceId = "/subscriptions/$subscription/resourceGroups/$resourceGroupName/pr
 Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $storageaccountName -TenantId $tenantId -ResourceId $resourceId
 ```
 
-After running this command, in the **Firewall** section under **Resource instances** you will see **2 selected** in the **Instance name** dropdown list. These are the names of the workspace instance and FHIR service instance that you just registered as Microsoft Trusted Resources.
+After you've executed above command, in the **Firewall** section under **Resource instances** you'll see **2 selected** in the **Instance name** dropdown list. These are the names of the workspace instance and FHIR service instance that you registered as Microsoft Trusted Resources.
 
 [![Screenshot of Azure Storage Networking Settings with resource type and instance names.](media/export-data/storage-networking-2.png)](media/export-data/storage-networking-2.png#lightbox)
   
-You're now ready to securely import FHIR data from the storage account. Note that the storage account is on selected networks and isn't publicly accessible. To securely access the files, you can enable [private endpoints](../../storage/common/storage-private-endpoints.md) for the storage account.
+You're now ready to securely import FHIR data from the storage account. The storage account is on selected networks and isn't publicly accessible. To securely access the files, you can enable [private endpoints](../../storage/common/storage-private-endpoints.md) for the storage account.
 
 ### Option 2: Allowing specific IP addresses to access the Azure storage account
-#### Option 2.1 : Access storage account provisioned in different Azure region than FHIR service
+#### Option 2.1: Access storage account provisioned in different Azure region than FHIR service
 
 In the Azure portal, go to the ADLS Gen2 account and select the **Networking** blade. 
    
@@ -181,9 +181,9 @@ Select **Enabled from selected virtual networks and IP addresses**. Under the Fi
 | West Europe          | 20.61.98.66       |
 | West US 2            | 40.64.135.77      |
 
-#### Option 2.2 : Access storage account provisioned in same Azure region as FHIR service
+#### Option 2.2: Access storage account provisioned in same Azure region as FHIR service
 
-The configuration process for IP addresses in the same region is just like above except a specific IP address range in Classless Inter-Domain Routing (CIDR) format is used instead (i.e., 100.64.0.0/10). The reason why the IP address range (100.64.0.0 – 100.127.255.255) must be specified is because an IP address for the FHIR service will be allocated each time an `$import` request is made.
+The configuration process for IP addresses in the same region is just like above except a specific IP address range in Classless Inter-Domain Routing (CIDR) format is used instead (that is, 100.64.0.0/10). The reason why the IP address range (100.64.0.0 – 100.127.255.255) must be specified is because an IP address for the FHIR service will be allocated each time an `$import` request is made.
 
 > [!Note] 
 > It is possible that a private IP address within the range of 10.0.2.0/24 may be used, but there is no guarantee that the `$import` operation will succeed in such a case. You can retry if the `$import` request fails, but until an IP address within the range of 100.64.0.0/10 is used, the request will not succeed. This network behavior for IP address ranges is by design. The alternative is to configure the storage account in a different region.
