@@ -5,7 +5,7 @@ ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022
-ms.date: 05/16/2023
+ms.date: 06/04/2023
 ---
 # Automate responses to Microsoft Defender for Cloud triggers
 
