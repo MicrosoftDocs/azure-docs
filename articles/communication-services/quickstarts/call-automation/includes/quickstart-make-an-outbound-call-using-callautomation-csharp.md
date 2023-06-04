@@ -1,0 +1,171 @@
+---
+title: Quickstart - Make an outbound call using Call Automation
+titleSuffix: An Azure Communication Services quickstart
+description: In this quickstart, you'll learn how to make an outbound PSTN call using Azure Communication Services using Call Automation
+author: anujb-msft
+ms.author: anujb-msft
+ms.date: 05/26/2023
+ms.topic: quickstart
+ms.service: azure-communication-services
+ms.subservice: callautomation
+ms.custom: mode-other
+---
+
+Azure Communication Services (ACS) Call Automation APIs are a powerful way to create interactive calling experiences. In this quick start we'll cover a way to: make an outbound call and recognize various events in the call.
+
+## Sample Code
+
+Find the complete sample code for this quick start on [GitHub]("https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/callautomation/callautomationQuickStart/CallAutomation_OutboundCalling")
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
+- A [phone number](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number) in your Azure Communication Services resource that can make outbound calls. NB: phone numbers are not available in free subscriptions.
+- Create and host a Azure Dev Tunnel. Instructions [here](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/get-started)
+
+## Setup and host your Azure DevTunnel
+
+[Azure DevTunnels](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands below to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We will then use this endpoint to notify your application of calling events from the ACS Call Automation service.
+
+```bash
+devtunnel create --allow-anonymous
+devtunnel port create -p 8080
+devtunnel host
+```
+
+## Update your application configuration
+
+You will need to update your `Program.cs` file with the following values:
+
+- `acsConnectionString`: The connection string for your ACS resource. You can find your ACS connection string using the instructions [here](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=linux&pivots=platform-azp#access-your-connection-strings-and-service-endpoints). 
+- `callbackUriHost`: Once you have your DevTunnel host initialized, update this field with that URI.
+- `acsPhonenumber`: update this field with with the ACS phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+- `targetPhonenumber`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+
+```csharp
+// Your ACS resource connection string
+var acsConnectionString = "<ACS_CONNECTION_STRING>";
+
+// Your ACS resource phone number will act as source number to start outbound call
+var acsPhonenumber = "<ACS_PHONE_NUMBER>";
+
+// Target phone number you want to receive the call.
+var targetPhonenumber = "<TARGET_PHONE_NUMBER>";
+
+// Base url of the app
+var callbackUriHost = Environment.GetEnvironmentVariable("VS_TUNNEL_URL")?.TrimEnd('/');
+```
+
+## Make an outbound call
+
+To make the outbound call from ACS, this sample will use the `TARGET_PHONE_NUMBER` you defined in the `appSettings.json` file to create the call using the `CreateCallAsync` API. The code below will create make an outbound call using the `TARGET_PHONE_NUMBER` you've provided and place an outbound call to that phone number number.
+
+```csharp
+PhoneNumberIdentifier target = new PhoneNumberIdentifier(quickStartConfig.TargetPhonenumber);
+PhoneNumberIdentifier caller = new PhoneNumberIdentifier(quickStartConfig.ACSPhonenumber);
+CallInvite callInvite = new CallInvite(target, caller);
+CreateCallResult createCallResult = await callAutomationClient.CreateCallAsync(callInvite, quickStartConfig.CallbackUri).ConfigureAwait(false);
+```
+
+## Handle call automation events
+
+```csharp
+app.MapPost("/api/callbacks", async (CloudEvent[] cloudEvents, CallAutomationClient callAutomationClient, IOptions<CallConfiguration> callConfiguration, ILogger<Program> logger) =>
+{
+    foreach (var cloudEvent in cloudEvents)
+    {
+        logger.LogInformation($"Event received: {JsonConvert.SerializeObject(cloudEvent)}");
+
+        CallAutomationEventBase @event = CallAutomationEventParser.Parse(cloudEvent);
+        var callConnection = callAutomationClient.GetCallConnection(@event.CallConnectionId);
+        var callMedia = callConnection.GetCallMedia();
+        if (@event is CallConnected)
+        {
+            //Handle Call Connected Event
+        }
+    }
+});
+```
+
+## Start recording a call
+
+The Call Automation service also enables the capability to start recording and store recordings of voice and video calls. You can learn more about the various capabilities in the Call Recording APIs [here](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/get-started-call-recording).
+
+```csharp
+CallLocator callLocator = new ServerCallLocator(@event.ServerCallId);
+var recordingResult = await callAutomationClient.GetCallRecording().StartAsync(new StartRecordingOptions(callLocator));
+recordingId = recordingResult.Value.RecordingId;
+```
+
+## Play welcome message and recognize 
+
+Using the `FileSource` API, you can provide the service the audio file you want to use for your welcome message. The ACS Call Automation service will play this message upon the `CallConnected` event. 
+
+In the code below, we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `StartRecognizingAsync`. This recognize and options API enables the telephony client to send DTMF tones that we can recognize.
+
+```csharp
+// prepare recognize tones
+CallMediaRecognizeDtmfOptions callMediaRecognizeDtmfOptions = new CallMediaRecognizeDtmfOptions(new PhoneNumberIdentifier(quickStartConfig.TargetPhonenumber), maxTonesToCollect: 1);
+callMediaRecognizeDtmfOptions.Prompt = new FileSource("MY_WELCOME_AUDIO_FILE");
+callMediaRecognizeDtmfOptions.InterruptPrompt = true;
+callMediaRecognizeDtmfOptions.InitialSilenceTimeout = TimeSpan.FromSeconds(10);
+callMediaRecognizeDtmfOptions.InterToneTimeout = TimeSpan.FromSeconds(10);
+callMediaRecognizeDtmfOptions.StopTones = new List<DtmfTone> { DtmfTone.Pound, DtmfTone.Asterisk };
+callMediaRecognizeDtmfOptions.OperationContext = "WelcomeMessage";
+
+// Send request to recognize tones
+await callMedia.StartRecognizingAsync(callMediaRecognizeDtmfOptions);
+```
+
+## Handle DTMF Events
+
+When the telephony endpoint selects a DTMF tone, ACS Call Automation will trigger the `api/callbacks` webhook we have setup and notify us with the `RecognizeCompleted` event. This gives us the ability to respond to a specific DTMF tone and trigger an action. In the code below, the application plays an audio file in response to DTMF tone one.
+
+```csharp
+// Play audio once recognition is completed sucessfully
+var recognizeCompleted = (RecognizeCompleted)@event;
+string selectedTone = ((DtmfResult)recognizeCompleted.RecognizeResult).ConvertToString();
+
+switch (selectedTone)
+{
+    case "1":
+        await callMedia.PlayToAllAsync(new FileSource(new Uri(callbackUriHost + "/audio/Confirmed.wav")));
+        break;
+    case "2":
+        await callMedia.PlayToAllAsync(new FileSource(new Uri(callbackUriHost + "/audio/Goodbye.wav")));         
+        break;
+    default:
+        //invalid tone
+        await callMedia.PlayToAllAsync(new FileSource(new Uri(callbackUriHost + "/audio/Invalid.wav")));
+        break;
+}
+```
+## Hang up and stop recording
+
+Finally, when we detect a condition that makes sense for us to terminate the call, we can use the `HangUpAsync` method to hang up the call.
+
+```csharp
+  if ((@event is PlayCompleted) || (@event is PlayFailed))
+  {
+      logger.LogInformation($"Stop recording and terminating call.");
+      callAutomationClient.GetCallRecording().Stop(recordingId);
+      await callConnection.HangUpAsync(true);
+  }
+```
+
+## Run the code
+
+# [Visual Studio Code](#tab/visual-studio-code)
+
+To run the application with VS Code, open a Terminal window and run the following command
+
+```bash
+dotnet run
+```
+
+# [Visual Studio](#tab/visual-studio)
+
+Press Ctrl+F5 to run without the debugger.
+
+
