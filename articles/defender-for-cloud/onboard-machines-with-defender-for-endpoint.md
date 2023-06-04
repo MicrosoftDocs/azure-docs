@@ -2,14 +2,14 @@
 title: Onboard non-Azure machines with Defender for Endpoint
 description: Learn how to connect your non-Azure machines directly to Microsoft Defender for Cloud with Microsoft Defender for Endpoint.
 ms.topic: quickstart
-ms.date: 06/02/2023
+ms.date: 06/04/2023
 author: dcurwin
 ms.author: dacurwin
 
 ---
 # Quickstart: Connect your non-Azure machines to Microsoft Defender for Cloud with Defender for Endpoint
 
-Defender for Cloud can monitor the security posture of your non-Azure computers, but first you need to connect them to Azure.
+Defender for Cloud allows you to directly onboard your non-Azure servers by deploying the Defender for Endpoint agent. This provides protection for both your cloud and non-cloud assets under a single, unified offering.
 
 > [!NOTE]
 > To connect your non-Azure machines via Azure Arc, see [Connect your non-Azure machines to Microsoft Defender for Cloud with Azure Arc](quickstart-onboard-machines.md).
