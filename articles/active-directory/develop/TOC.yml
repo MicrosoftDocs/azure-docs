@@ -455,14 +455,13 @@
             - name: Configure optional claims
               href: optional-claims.md
             - name: Configure role claim
-              href: active-directory-enterprise-app-role-management.md
+              href: enterprise-app-role-management.md
             - name: Customize JWT claims
               href: jwt-claims-customization.md
             - name: Customize SAML claims
               href: saml-claims-customization.md
             - name: Set an access token lifetime policy
-              href: configure-token-lifetimes.md
-            
+              href: configure-token-lifetimes.md    
             - name: SAML app multi-instancing
               displayName: Configure SAML app multi-instancing for an application
               href: reference-app-multi-instancing.md
@@ -580,7 +579,9 @@
     - name: Token claims reference
       items:
         - name: Access token
-          href: access-token-claims-reference.md            
+          href: access-token-claims-reference.md
+        - name: ID token
+          href: id-token-claims-reference.md            
         - name: SAML token
           href: reference-saml-tokens.md
     - name: Microsoft Authentication Library (MSAL) reference

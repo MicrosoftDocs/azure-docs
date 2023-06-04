@@ -8,7 +8,7 @@ ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 02/02/2023
 ms.author: mcleans 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Delete an Azure App Configuration store with PowerShell

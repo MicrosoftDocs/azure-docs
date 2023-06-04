@@ -7,7 +7,7 @@ ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.custom: synapse
+ms.custom: synapse, devx-track-dotnet
 ms.date: 09/22/2022
 ---
 
