@@ -13,12 +13,18 @@ ms.author: kesheth
 # Import Operation
 Import operation enables loading Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. Import supports both initial and incremental data load into FHIR server. Incremental import mode is in public preview, see disclaimer below. 
 
-> [!INCLUDE Public Preview Disclaimer]
+Incremental import mode is in public preview. 
+
+> [!IMPORTANT]
+> This feature of Azure Communication Services is currently in preview.
+> Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
+> 
+> For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Using $import operation
 
 > [!NOTE]
 > You must have the **FHIR Data Importer** role on the FHIR server to use $import. 
-
-## Using $import operation
 
 To use $import, you need to configure the FHIR server using the instructions in the [Configure import settings](configure-import-data.md) article.
 The FHIR data to be imported must be stored in resource specific files in FHIR NDJSON format on the Azure blob store. 
