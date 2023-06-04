@@ -165,3 +165,5 @@ You can see the list of owners and recommendations for the selected rules, and t
 In this article, you learned how to set up a process for assigning owners and due dates to tasks so that owners are accountable for taking steps to improve your security posture.
 
 Check out how owners can [set ETAs for tasks](review-security-recommendations.md#manage-the-owner-and-eta-of-recommendations-that-are-assigned-to-you) so that they can manage their progress.
+
+Learn how to [Implement security recommendations in Microsoft Defender for Cloud](implement-security-recommendations.md).
