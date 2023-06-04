@@ -1,5 +1,5 @@
 ---
-title: Quickstart - custom Summarization (preview)
+title: Quickstart - Custom Summarization (preview)
 titleSuffix: Azure Cognitive Services
 description: Quickly start building an AI model to summarize text.
 services: cognitive-services
