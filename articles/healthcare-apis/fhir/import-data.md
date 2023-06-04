@@ -34,7 +34,7 @@ For import operation, ensure
 * The data to be imported must be in the same Tenant as of the FHIR service.
 * Maximum number of files to be imported per operation is 10,000.
 
-Note : 
+Note: 
 * Import operation does not support conditional references in resources. 
 * During import operation, If multiple resources share the same resource ID, then only one of those resources is imported at random. There is an error logged for the resources sharing the same resource ID.
 
@@ -60,7 +60,7 @@ Content-Type:application/fhir+json
 
 | Input part name   | Description | Card. |  Accepted values |
 | ----------- | ----------- | ----------- | ----------- |
-| type   |  Resource type of input file   | 1..1 |  A valid [FHIR resource type](https://www.hl7.org/fhir/resourcelist.html) that match the input file. |
+| type   |  Resource type of input file   | 1..1 |  A valid [FHIR resource type](https://www.hl7.org/fhir/resourcelist.html) that matches the input file. |
 |URL   |  Azure storage url of input file   | 1..1 | URL value of the input file that can't be modified. |
 | etag   |  Etag of the input file on Azure storage used to verify the file content hasn't changed. | 0..1 |  Etag value of the input file that can't be modified. |
 
@@ -165,7 +165,7 @@ Table below provides some of the important fields in the response body:
 ```
 ## Troubleshooting
 
-Lets walk through solutions to some error codes you may encounter during the import operation.
+Lets walk-through solutions to some error codes you may encounter during the import operation.
 
 ### 200 OK, but there's an error with the URL in the response
 
@@ -178,7 +178,7 @@ Lets walk through solutions to some error codes you may encounter during the imp
         {
             "severity": "error",
             "details": {
-                "text": "Given conditional reference '{0}' does not resolve to a resource."
+                "text": "Given conditional reference '{0}' does'nt resolve to a resource."
             },
             "diagnostics": "Failed to process resource at line: {0} with stream start offset: {1}"
         }
