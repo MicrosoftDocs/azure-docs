@@ -16,7 +16,7 @@ This article provides a reference for required and optional settings that are us
 
 [!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-azure-arc.md)]
 
-## Configuration API integration - TODO
+## Configuration API integration
 
 The Configuration API is used by the self-hosted gateway to connect to Azure API Management to get the latest configuration and send metrics, when enabled.
 
@@ -24,53 +24,43 @@ Here is an overview of all configuration options:
 
 | Name                           | Description              | Required | Default           | Availability |
 |----|------|----------|-------------------|-------------------|
-| gateway.name | Id of the self-hosted gateway resource. | Yes, when using Azure AD authentication | N/A | v2.3+ |
-| config.service.endpoint | Configuration endpoint in Azure API Management for the self-hosted gateway. Find this value in the Azure portal under **Gateways** > **Deployment**.  | Yes       | N/A             | v2.0+ |
-| config.service.auth | Defines how the self-hosted gateway should authenticate to the Configuration API. Currently gateway token and Azure AD authentication are supported. | Yes | N/A | v2.0+ |
-| config.service.auth.azureAd.tenantId | ID of the Azure AD tenant. | Yes, when using Azure AD authentication | N/A | v2.3+ |
-| config.service.auth.azureAd.clientId | Client ID of the Azure AD app to authenticate with (also known as application ID). | Yes, when using Azure AD authentication | N/A | v2.3+ |
-| config.service.auth.azureAd.clientSecret | Secret of the Azure AD app to authenticate with. | Yes, when using Azure AD authentication (unless certificate is specified) | N/A | v2.3+ |
-| config.service.auth.azureAd.certificatePath | Path to certificate to authenticate with for the Azure AD app. | Yes, when using Azure AD authentication (unless secret is specified) | N/A | v2.3+ |
-| config.service.auth.azureAd.authority | Authority URL of Azure AD. | No | `https://login.microsoftonline.com` | v2.3+ |
+| `gateway.configuration.uri` | Configuration endpoint in Azure API Management for the self-hosted gateway. Find this value in the Azure portal under **Gateways** > **Deployment**.  | Yes       | N/A             |
+| `gateway.auth.token` | Authentication key to authenticate with to Azure API Management service. Typically starts with `GatewayKey`. | Yes | N/A |
+| `gateway.configuration.backup.enabled` | If enabled will store a backup copy of the latests downloaded configuration on a storage volume | `false` |
+| `gateway.configuration.backup.persistentVolumeClaim.accessMode` | Access mode for the Persistent Volume Claim (PVC) pod | `ReadWriteMany` |
+| `gateway.configuration.backup.persistentVolumeClaim.size` | Size of the Persistent Volume Claim (PVC) to be created | `50Mi` |
+| `gateway.configuration.backup.persistentVolumeClaim.storageClassName` | Storage class name to be used for the Persistent Volume Claim (PVC). When no value is assigned (`null`), the platform default will be used. The specified storage class should support `ReadWriteMany` access mode.| `null` |
 
-The self-hosted gateway provides support for a few authentication options to integrate with the Configuration API which can be defined by using `config.service.auth`.
-
-This guidance helps you provide the required information to define how to authenticate:
-
-- For gateway token-based authentication, specify an access token (authentication key) of the self-hosted gateway in the Azure portal under **Gateways** > **Deployment**.
-- For Azure AD-based authentication, specify `azureAdApp` and provide the additional `config.service.auth.azureAd` authentication settings.
-
-## Cross-instance discovery & synchronization - TODO
+## Cross-instance discovery & synchronization
 
 | Name                           | Description              | Required | Default           | Availability |
 |----|------|----------|-------------------| ----|
-| neighborhood.host | DNS name used to resolve all instances of a self-hosted gateway deployment for cross-instance synchronization. In Kubernetes, it can be achieved by using a headless Service. | No | N/A | v2.0+ |
-| neighborhood.heartbeat.port | UDP port used for instances of a self-hosted gateway deployment to send heartbeats to other instances. | No | 4291 | v2.0+ |
-| policy.rate-limit.sync.port | UDP port used for self-hosted gateway instances to synchronize rate limiting across multiple instances. | No | 4290 | v2.0+ |
+| `service.instance.heartbeat.port` | UDP port used for instances of a self-hosted gateway deployment to send heartbeats to other instances. | No | 4291 |
+| `service.instance.synchronization.port` | UDP port used for self-hosted gateway instances to synchronize rate limiting across multiple instances. | No | 4290 |
 
 ##  Metrics
 
 | Name                           | Description              | Required | Default           |
 |----|------|----------|-------------------| ----|
-| telemetry.metrics.cloud | Indication whether or not to [enable emitting metrics to Azure Monitor](how-to-configure-cloud-metrics-logs.md). | No | `true` |
-| telemetry.metrics.local | Enable [local metrics collection](how-to-configure-local-metrics-logs.md) through StatsD. Value is one of the following options: `none`, `statsd`. | No | N/A |
-| telemetry.metrics.localStatsd.endpoint | StatsD endpoint. | Yes, if `telemetry.metrics.local` is set to `statsd`; otherwise no.  | N/A |
-| telemetry.metrics.localStatsd.sampling | StatsD metrics sampling rate. Value must be between 0 and 1, for example, 0.5. |  No | N/A |
-| telemetry.metrics.localStatsd.tagFormat | StatsD exporter [tagging format](https://github.com/prometheus/statsd_exporter#tagging-extensions). Value is one of the following options: `ibrato`, `dogStatsD`, `influxDB`. | No | N/A |
-| telemetry.metrics.opentelemetry.enabled | Indication whether or not to enable [emitting metrics to an OpenTelemetry collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) on Kubernetes. | No | `false` |
-| telemetry.metrics.opentelemetry.collector.uri | URI of the OpenTelemetry collector to send metrics to. | Yes, if `observability.opentelemetry.enabled` is set to `true`; otherwise no. | N/A |
+| `telemetry.metrics.cloud` | Indication whether or not to [enable emitting metrics to Azure Monitor](how-to-configure-cloud-metrics-logs.md). | No | `true` |
+| `telemetry.metrics.local` | Enable [local metrics collection](how-to-configure-local-metrics-logs.md) through StatsD. Value is one of the following options: `none`, `statsd`. | No | N/A |
+| `telemetry.metrics.localStatsd.endpoint` | StatsD endpoint. | Yes, if `telemetry.metrics.local` is set to `statsd`; otherwise no.  | N/A |
+| `telemetry.metrics.localStatsd.sampling` | StatsD metrics sampling rate. Value must be between 0 and 1, for example, 0.5. |  No | N/A |
+| `telemetry.metrics.localStatsd.tagFormat` | StatsD exporter [tagging format](https://github.com/prometheus/statsd_exporter#tagging-extensions). Value is one of the following options: `ibrato`, `dogStatsD`, `influxDB`. | No | N/A |
+| `telemetry.metrics.opentelemetry.enabled` | Indication whether or not to enable [emitting metrics to an OpenTelemetry collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) on Kubernetes. | No | `false` |
+| `telemetry.metrics.opentelemetry.collector.uri` | URI of the OpenTelemetry collector to send metrics to. | Yes, if `observability.opentelemetry.enabled` is set to `true`; otherwise no. | N/A |
 
 ## Logs
 
 | Name   | Description | Required | Default | Availability |
 | ------------- | ------------- | ------------- | ----| ----|
-| telemetry.logs.std  |[Enable  logging](how-to-configure-local-metrics-logs.md#logs) to a standard stream. Value is one of the following options: `none`, `text`, `json`. | No |  `text` |
-| telemetry.logs.local  | [Enable local logging](how-to-configure-local-metrics-logs.md#logs). Value is one of the following options: `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  | No  | `auto` |
-| telemetry.logs.localConfig.localsyslog.endpoint  |  localsyslog endpoint.  | Yes if `telemetry.logs.local` is set to `localsyslog`; otherwise no. | N/A |
-| telemetry.logs.localConfig.localsyslog.facility  | Specifies localsyslog [facility code](https://en.wikipedia.org/wiki/Syslog#Facility), for example, `7`. | No | N/A |
-| telemetry.logs.localConfig.rfc5424.endpoint  |  rfc5424 endpoint.  | Yes if `telemetry.logs.local` is set to `rfc5424`; otherwise no. | N/A |
-| telemetry.logs.localConfig.rfc5424.facility  | Facility code per [rfc5424](https://tools.ietf.org/html/rfc5424), for example, `7`  | No | N/A |
-| telemetry.logs.localConfig.journal.endpoint  | Journal endpoint.   |Yes if `telemetry.logs.local` is set to `journal`; otherwise no. | N/A |
+| `telemetry.logs.std`  |[Enable  logging](how-to-configure-local-metrics-logs.md#logs) to a standard stream. Value is one of the following options: `none`, `text`, `json`. | No |  `text` |
+| `telemetry.logs.local`  | [Enable local logging](how-to-configure-local-metrics-logs.md#logs). Value is one of the following options: `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  | No  | `auto` |
+| `telemetry.logs.localConfig.localsyslog.endpoint` |  localsyslog endpoint.  | Yes if `telemetry.logs.local` is set to `localsyslog`; otherwise no. | N/A |
+| `telemetry.logs.localConfig.localsyslog.facility`  | Specifies localsyslog [facility code](https://en.wikipedia.org/wiki/Syslog#Facility), for example, `7`. | No | N/A |
+| `telemetry.logs.localConfig.rfc5424.endpoint` |  rfc5424 endpoint.  | Yes if `telemetry.logs.local` is set to `rfc5424`; otherwise no. | N/A |
+| `telemetry.logs.localConfig.rfc5424.facility` | Facility code per [rfc5424](https://tools.ietf.org/html/rfc5424), for example, `7`  | No | N/A |
+| `telemetry.logs.localConfig.journal.endpoint` | Journal endpoint.   |Yes if `telemetry.logs.local` is set to `journal`; otherwise no. | N/A |
 
 ## Traffic routing - TODO
 
@@ -97,16 +87,45 @@ The self-hosted gateway integrates with varios other technologies. This section 
 | ------------- | ------------- | ------------- | ----| ----|
 | `dapr.enabled`  |Indication wheter or not Dapr integration should be used. | No |  `false` |
 
-## Scheduling / HA / ... - TODO
+## Image & Workload Scheduling - TODO
 
-- Image + Policy
-- HA
-- Health probes
-- Selectors, taints, tolerances, 
+Kubernetes is a powerful orchestration platform that gives a lot of flexibility in what should be deployed and how it should be scheduled.
+
+This section provides an overview of the available configuration options you can use to influence the image that is used, how it gets scheduled and configured to self-heal.
 
 | Name   | Description | Required | Default |
 | ------------- | ------------- | ------------- | ----| ----|
-| telemetry.logs.std  |[Enable  logging](how-to-configure-local-metrics-logs.md#logs) to a standard stream. Value is one of the following options: `none`, `text`, `json`. | No |  `text` |
+| `replicaCount`  | Amount of instances of the self-hosted gateway to run. | No |  `3` |
+| `image.repository` | Image to run. | No |  `mcr.microsoft.com/azure-api-management/gateway` |
+| `image.pullPolicy`  | Policy to use for pulling container images. | No | `IfNotPresent` |
+| `image.tag`  | Container image tag to use. | No | App version of extension is used |
+| `imagePullSecrets`  | Kubernetes secret to use for authenticating with container registry when pulling the container image. | No | N/A |
+| `probes.readiness.httpGet.path` | URI path to use for readiness probes of the container | No | `/status-0123456789abcdef` |
+| `probes.readiness.httpGet.port` | Port to use for liveness probes of the container | No | `http` |
+| `probes.liveness.httpGet.path` | URI path to use for liveness probes of the container | No | `/status-0123456789abcdef` |
+| `probes.liveness.httpGet.port` | Port to use for liveness probes of the container | No | `http` |
+| `highAvailability.enabled` | Indication wheter or not the gateway should be scheduled highly available in the cluster. | No | `false` |
+| `highAvailability.disruption.maximumUnavailable` | Amount of pods that are allowed to be unavailable due to [voluntary disruptions](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#voluntary-and-involuntary-disruptions). | No | `25%` |
+| `highAvailability.podTopologySpread.whenUnsatisfiable` | Indication how pods should be spread across nodes in case the requirement cannot be met. Learn more in the [Kubernetes docs](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) | No | `ScheduleAnyway` |
+| `resources` | Capability to define CPU/Memory resources to assign to gateway | No | N/A |
+| `nodeSelector` | Capability to use selectors to identify the node on which the gateway should run. | No | N/A |
+
+HERE 👇
+
+| `affinity` | Port to use for liveness probes of the container | No | N/A |
+| `tolerations` | Port to use for liveness probes of the container | No | N/A |
+
+## Helm - TODO
+
+Here is an overview of the typical Helm configuration options that you can use:
+
+Point to official docs?
+
+
+| Name   | Description | Required | Default |
+| ------------- | ------------- | ------------- | ----| ----|
+| `nameOverride`  | Capability  secret to use for authenticating with container registry when pulling the container image. | No | N/A |
+| `fullnameOverride`  | Kubernetes secret to use for authenticating with container registry when pulling the container image. | No | N/A |
 
 ## Next steps
 
