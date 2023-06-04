@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 12/8/2019
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp, ignite-2022, devx-track-dotnet
 ---
 
 # Create containers with large partition key

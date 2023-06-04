@@ -70,7 +70,10 @@ The following diagram illustrates the flow when email one-time passcode authenti
 
 ## Conditional Access for external users
 
-Organizations can enforce Conditional Access policies for external B2B collaboration and B2B direct connect users in the same way that they’re enabled for full-time employees and members of the organization. With the introduction of cross-tenant access settings, you can also trust MFA and device claims from external Azure AD organizations. This section describes important considerations for applying Conditional Access to users outside of your organization.
+Organizations can enforce Conditional Access policies for external B2B collaboration and B2B direct connect users in the same way that they’re enabled for full-time employees and members of the organization. With the introduction of cross-tenant access settings, you can also trust MFA and device claims from external Azure AD organizations. This section describes important considerations for applying Conditional Access to users outside of your organization. 
+
+> [!NOTE]
+> Custom Controls with Conditional Access are not support for cross-tenant trusts. 
 
 ### Assigning Conditional Access policies to external user types
 

@@ -73,13 +73,29 @@
         "exclude": [
           "**/_themes/**",
           "**/includes/**",
-          "**/obj/**"
+          "**/obj/**",
+          "**/v1/**",
+          "**/v-fake/**"
         ]
       },
       {
         "group": "grp-machine-learningv1",
         "src": "articles/machine-learning/v1",
         "dest": "./machine-learning",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/includes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learningv1",
+        "src": "articles/machine-learning/v-fake",
+        "dest": "./machine-learning/v1",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -186,13 +202,30 @@
         "exclude": [
           "**/_themes/**",
           "**/obj/**",
-          "**/v1/**"
+          "**/v1/**",
+          "**/v-fake/**"
         ]
       },
       {
         "group": "grp-machine-learningv1",
         "src": "articles/machine-learning/v1",
         "dest": "./machine-learning/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learningv1",
+        "src": "articles/machine-learning/v-fake",
+        "dest": "./machine-learning/v1",
         "files": [
           "**/*.gif",
           "**/*.jpeg",

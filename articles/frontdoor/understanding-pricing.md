@@ -28,7 +28,7 @@ Azure Front Door has three tiers: Standard, Premium, and (classic). This article
 | Per additional routing rule (per hour) | Free | Free | $0.012 |
 | Inbound data transfer (per GB) | Free | Free | $0.01 |
 | Web Application Firewall custom rules | Free | Free | - $5/month/policy </br>- $1/month & $0.06 per million requests </br></br>For more information, see [Azure Web Application Firewall pricing](https://azure.microsoft.com/pricing/details/web-application-firewall/) |
-| Web Application Firewall managed rules | Free | Free | - $5/month/policy </br>- $20/month +$1/million requests </br></br>For more information, see [Azure Web Application Firewall pricing](https://azure.microsoft.com/pricing/details/web-application-firewall/) |
+| Web Application Firewall managed rules | Not supported | Free | - $5/month/policy </br>- $20/month + $1 per million requests </br></br>For more information, see [Azure Web Application Firewall pricing](https://azure.microsoft.com/pricing/details/web-application-firewall/) |
 | Data transfer from an origin in Azure data center to Front Door's edge location | Free | Free | See [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) |
 | Private link to origin | Not supported | Free | Not supported |
 | First 100 custom domains per month | Free | Free | Free |
@@ -64,80 +64,98 @@ Azure Front Door Standard/Premium cost less than Azure Front Door (classic) in t
 
 ### Scenario 1: A static website with custom WAF rules
 
-* 10 routing rules are configured.
-* 20 TB of outbound data transfer from Azure Front Door edge to client.
-* 200 million requests from client to Azure Front Door edge. (Including 100 million custom WAF requests and 10 custom rules).
-* Traffic mostly originates from North America and Europe.
+* 10 routing rules and 10 WAF custom rules are configured.
+* 20 TB of outbound data transfer.
+* 200 million requests from client to Azure Front Door edge. (Including 100 million custom WAF requests).
+* 100 GB outbound data transfer (cache hit ratio = 95%)
+* Traffic originates from North America and Europe.
 
 | Cost dimensions | Azure Front Door (classic) | Azure Front Door Standard |
 |--|--|--|
 | Base fee | $0 | $35 |
-| Routing rules | $43.80 | $0 |
-| WAF policy and rule sets | $75 = $15 (WAF policy + custom WAF rules) + $60 (requests)| $0 |
-| Requests | $0 | $300 |
-| Egress from Azure Front Door edge to client | $3,200 | $1,475 |
-| Ingress from Azure Front Door edge to origin | $0 | $0 |
-| Total | ~$3,319 | $1,810 |
+| Egress from Azure Front Door edge to client | $3,200 = (10 TB * $0.17/GB) + (10 TB * $0.15/GB) | $1,490 = (10 TB * $0.083/GB) + (10 GB * $0.066/GB) |
+| Egress from Azure Front Door edge to origin | $0 | $2 = 100 GB * $0.02/GB | 
+| Ingress from client to Azure Front Door edge | $1 = 100 GB * $0.01/GB | $0 |
+| Ingress from origin to Azure Front Door edge | $78.30 = (0.1 TB * $0/GB) + (0.9 TB * $0.087/GB) | $) |
+| Requests | $0 | $180 = 200M requests * $0.009/10k requests) |
+| Routing rules | $153.15 = (($0.03 * 5 rules) + ($0.012 * 5 rules)) * 730 hours | $0 |
+| WAF policy | $5 =  $1 * 1 policy/month | $0 |
+| WAF custom rules | $10 = $1 = * 10 rules/month | $0 |
+| WAF custom rules requests processed |  $60 = 100 million requests * $0.60/1 million requests | $0 |
+| Total | $3,507.50 | $1,727 |
 
 Azure Front Door Standard is ~45% cheaper than Azure Front Door (classic) for static websites with custom WAF rules because of the lower egress cost and the free routing rules.
 
 ### Scenario 2: A static website with managed WAF rules
 
-* 30 routing rules are configured.
-* 20 TB of outbound data transfer from Azure Front Door edge to client.
+* 30 routing rules and 1 WAF managed rule set are configured.
+* 20 TB of outbound data transfer.
 * 200 million requests from client to Azure Front Door edge (Including 100 million managed WAF requests).
-* Traffic mostly originates from Asia Pacific (including Japan).
+* Cache hit ration = 95%.
+* Traffic originates from Asia Pacific (including Japan).
 
 | Cost dimensions | Azure Front Door (classic) | Azure Front Door Premium |
 |--|--|--|
 | Base fee | $0 | $330 |
-| Routing rules | $219 | $0 |
-| WAF policy and rule sets | $220 = $20 (managed WAF rules and ruleset) + $200 (requests) | $0 |
-| Requests | $0 | $336 |
-| Egress from Azure Front Door edge to client | $4,700 | $2,125 |
-| Ingress from Azure Front Door edge to origin | $0 | $0 |
-| Total | ~$5,139 | $2,791 |
+| Egress from Azure Front Door edge to client | $4,700 = (10 TB * $ 0.25/GB) + (10 TB * $ 0.22/GB) | $2,130 = (10 TB * $ 0.115/GB) + 10 TB * ($ 0.098/GB)  |
+| Egress from Azure Front Door edge to origin | $0 | $2 = 100 GB * $0.02/GB | 
+| Ingress from client to Azure Front Door edge | $1 = 100 GB * $0.01/GB | $0 |
+| Ingress from origin to Azure Front Door edge | $108 = (0.1 TB * $ 0/GB) + (0.9 TB * $ 0.12/GB) | $0 |
+| Requests | $0 | $300 = 200M requests * $0.015/10K requests |
+| Routing rules | $328.5 = (($0.03 * 5 rules) + ($.012 * 25 rules)) * 730 hrs  | $0 |
+| WAF policy | $5 = $1 * 1 policy/month  | $0 |
+| WAF managed/default rule set | $20 = $20 * 1 rule set/month | $0 |
+| WAF managed/ defaults rule set requests processed | $100 = 100 million requests * $1/1 million requests |
+| Total | $5,263.50 | $2,762 |
 
 Azure Front Door Premium is ~45% cheaper than Azure Front Door (classic) for static websites with managed WAF rules because of the lower egress cost and the free routing rules.
 
 ### Scenario 3: File downloads
 
 * Two routing rules are configured.
-* 150 TB of outbound data transfer from Azure Front Door edge to client.
-* 1.5 million requests from client to Azure Front Door edge.
-* Traffic mostly originates from India.
+* 150 TB of outbound data transfer.
+* 1.5 million requests from client to Azure Front Door edge (cache hit ration = 95%)
+* Traffic originates from India.
 
 | Cost dimensions | Azure Front Door (classic) | Azure Front Door Standard |
 |--|--|--|
 | Base fee | $0 | $35 |
-| Routing rules | $0 | $0 |
-| WAF policy and rule sets | $0 | $0 |
-| Requests | $0 | $1.62 |
-| Egress from Azure Front Door edge to client | $39,500 | $12,690 |
-| Ingress from Azure Front Door edge to origin | $0 | $0 |
-| Total | ~$39,500 | $12,727 |
+| Egress from Azure Front Door edge to client | $39,500 = (10 TB * $ 0.34/GB) + (40 TB * $ 0.29/GB) + (100 TB * $ 0.245/GB) | $12,790 = (10 TB * $ 0.109/GB) + (40 TB * $ 0.085/GB) + (100 TB * $ 0.083/GB) |
+| Egress from Azure Front Door edge to origin | $0 | $0.72= 4.5GB * $0.16/GB | 
+| Ingress from client to Azure Front Door edge | $0.05 = 4.5GB * $0.01  | $0 |
+| Ingress from origin to Azure Front Door edge | $900 = 0.1 TB * $ 0/GB + 7.5TB * $ 0.12/GB | $0 |
+| Requests | $0 | $1.62 = 1.5 million requests * $0.0108 per 10,000 requests |
+| Routing rules | $$43.8 = ($0.03 * 2 rules) * 730 hrs  | $0 |
+| Total | $40,444 | $12,827.34 |
 
 Azure Front Door Standard is ~68% cheaper than Azure Front Door (classic) for file downloads because of the lower egress cost.
 
 ### Scenario 4: Request heavy scenario with WAF protection
 
-* A dynamic E-commerce website with 150 routing rules is configured.
-* 20 TB of outbound data transfer from Azure Front Door edge to client.
-* 5 billion requests with 10 TB of ingress.
+* 150 routing rules are configured to origins in different countries.
+* 20 TB of outbound data transfer.
+* 10 TB of inbound data transfer.
+* 5 billion requests from client to Azure Front Door edge.
 * 2.4 billion WAF requests (1.2 billion managed WAF rule requests and 1.2 billion custom WAF rule requests).
+* Traffic originates from North America
 
 | Cost dimensions | Azure Front Door (classic) | Azure Front Door Premium |
 |--|--|--|
-| Base fee | $0 | $330 |
-| Routing rules | $1,314 | $0 |
-| WAF policy and rule sets | $1840 = $20 (WAF policy) + $1820 (requests) | $0 |
+| Base fee | $0 | $330 = $330 * 1 profile |
+| Egress from Azure Front Door edge to client | $3,200 = (10 TB * $0.17/GB) + (10 TB * $0.15/GB) | $1,490 = (10 TB * $0.083/GB) + (10 TB * $0.066/GB) |
+| Egress from Azure Front Door edge to origin | $0 | $200 = 10 TB * $0.02/GB  | 
+| Ingress from client to Azure Front Door edge | $100 = 10 TB * $.01/GB   | $0 |
+| Ingress from origin to Azure Front Door edge | $1,692 = (0.1 TB * $ 0/GB) + (9.9 TB * $ 0.087/GB) + (10 TB * $ 0.083/GB) | $0 |
 | Requests | $0 | $6,748 |
-| Egress from Azure Front Door edge to client | $3,200 | $1,475|
-| Ingress from Azure Front Door edge to origin | $100 | $200 |
-| Total | $6,454 | $8,753 |
+| Routing rules | $1380 = (($0.03 * 5 rules) + ($0.012 * 145 rules)) * 730 hrs   | $0 |
+| WAF policy | $5 = $5 * 1 policy/month| $0 |
+| WAF custom rules | $1 = $1 * 1 rule/month | $0 |
+| WAF custom rule request processed | $720 = 1.2 billion requests * $0.60 per million requests | $0 |
+| WAF managed/default rule set | $20 = $20 * 1 rule set/month | $0 |
+| WAF managed/ defaults rule set requests processed | $1200 = 1.2 billion requests * $1 per million requests | $0 |
+| Total | $8,318 | $8,768 |
 
-In this comparison, Azure Front Door Premium is ~35% more expensive than Azure Front Door (classic) because of the higher request cost and the base fee. If the cost increase is significant, reach out to your Microsoft sales representative to discuss options.
-
+In this comparison, Azure Front Door Premium is ~5% more expensive than Azure Front Door (classic) because of the higher request cost and the base fee. You're paying less for outbound data transfer and don't have to pay for each routing rule, WAF rules and data transfer from the origin to the edge separately. If the cost increase is significant, reach out to your Microsoft sales representative to discuss options.
 
 ### Scenario 5: Social media application with multiple Front Door (classic) profiles with WAF protection
 
@@ -145,26 +163,48 @@ In this comparison, Azure Front Door Premium is ~35% more expensive than Azure F
 * In each profile, there are 10 routing rules configured to route traffic to different backends based on the path.
 * There are two WAF policies with two rule sets to protect the application from top CVE attacks.
 * 50 million requests per month.
-* 50 TB of outbound data transfer from Azure Front Door edge to client. (20 million requests get blocked by WAF).
+* 50 TB of outbound data transfer from Azure Front Door edge to client.
+* 1 TB of outbound data transfer from Azure Front Door edge to origin (20 million requests get blocked by WAF).
 * Traffic mostly originates from North America.
 
 | Cost dimensions | Azure Front Door (classic) | Azure Front Door Premium |
 |--|--|--|
 | Base fee | $0 | $26,400 = $330 x 80 profiles |
-| Routing rules | $7,008 | $0 |
-| WAF policy and rule sets | $60 = $40 (WAF policy) + $20 (requests) | $0 |
-| Requests | $0 | $75 |
-| Egress from Azure Front Door edge to client | $7,700 | $3,425|
-| Ingress from Azure Front Door edge to origin | $2 | $4 |
-| Total | $14,770 | $29,904 |
+| Egress from Azure Front Door edge to client | $7,700 = (10 TB * $0.17/GB) + (40 TB * $0.15/GB) | $3,470 = (10 TB * $0.083/GB) + (40 TB * $0.066/GB) |
+| Egress from Azure Front Door edge to origin | $0 | $200 = 10 TB * $0.02/GB  | 
+| Ingress from client to Azure Front Door edge | $10 = 1 TB * $.01/GB | $0 |
+| Ingress from origin to Azure Front Door edge | $2106.30 = (0.1 TB * $0/GB) + (9.9 TB * $0.087/GB) + (15 TB * $0.083/GB) | $0 |
+| Requests | $0 | $75 = 50 million requests * $0.15 per 10,000 requests |
+| Routing rules | $7665 = (($0.03 * 5 rules) + ($0.012 * 5 rules)) * 730 hrs * 80 instances | $0 |
+| WAF policy | $10 = $5 * 2 policy/month | $0 |
+| WAF managed/default rule set | $40 = $20 * 2 rule set/month | $0 |
+| WAF managed/ defaults rule set requests processed | $20 = 20 million requests * $1 per million requests | $0 |
+| Total | $17,551 .30| $29,945 |
 
-In this comparison, Azure Front Door Premium is more than twice as expensive than Azure Front Door (classic) because of the higher base fee. 
+In this comparison, Azure Front Door Premium is 1.7x more expensive than Azure Front Door (classic) because of the higher base fee for each profile. The outbound data transfer is 45% less for Azure Front Door Premium compared to Azure Front Door (classic). With Premium tier, you don't have to pay for route rules which account for $7,700 of the total cost. 
 
 #### Suggestion to reduce cost
 
 * Check if all 80 instances of Azure Front Door (classic) are required. Remove unnecessary resources, such as temporary testing environments.
-* Migrate your most important Front Door (classic) profiles to Azure Front Door Standard/Premium based on the necessity of the features.
-* If you have multiple Front Door (classic) profiles, consider consolidating them into a single Azure Front Door Standard/Premium profile. This change can reduce the base fee and the routing rule cost. The capability to consolidate multiple Azure Front Door (classic) profiles into a single Azure Front Door Standard/Premium profile will be available soon.
+* Migrate your most important Front Door (classic) profiles to Azure Front Door Standard/Premium based on the necessity of features available in the upgrade tier.
+* You can manually create Azure Front Door Premium profiles with multiple endpoints to reflect each Azure Front Door (classic) profile.
+
+The following table shows the cost breakdown for migrating 60 Azure Front Door (classic) profiles to four Azure Front Door Premium profiles with 15 endpoints each. The overall cost saving is about 27% less for Azure Front Door Premium compared to Azure Front Door (classic).
+
+| Cost dimensions | Azure Front Door (classic) | Azure Front Door Premium |
+|--|--|--|
+| Configuration | 60 profiles | 30 production microservices, 300 routing rules (30 endpoints * 10 routing rules) </br> - 2 profiles with 15 endpoints and 150 routing rules per profile </br>30 dev/testing microservices, 300 routing rules (30 endpoints * 10 routing rules)</br> - 2 profiles with 15 endpoints and 150 routing rules per profile |
+| Base fee | $0 | $1320 = $330 * 4 profiles |
+| Egress from Azure Front Door edge to client | $7,700 = (10 TB * $0.17/GB) + (40 TB * $0.15/GB) | $3,470 = (10 TB * $0.083/GB) + (40 TB * $0.066/GB) |
+| Egress from Azure Front Door edge to origin | $0 | $20 = 1 TB * $0.02/GB  | 
+| Ingress from client to Azure Front Door edge | $10 = 1 TB * $.01/GB | $0 |
+| Ingress from origin to Azure Front Door edge | $2106.30 = (0.1 TB * $0/GB) + (9.9 TB * $0.087/GB) + (15 TB * $0.083/GB) | $0 |
+| Requests | $0 | $75 = 50 million requests * $0.15 per 10,000 requests |
+| Routing rules | $7665 = (($0.03 * 5 rules) + ($0.012 * 5 rules)) * 730 hrs * 80 instances | $0 |
+| WAF policy | $10 = $5 * 2 policy/month | $0 |
+| WAF managed/default rule set | $40 = $20 * 2 rule set/month | $0 |
+| WAF managed/ defaults rule set requests processed | $20 = 20 million requests * $1 per million requests | $0 |
+| Total | $17,551.30 | $4,885 |
 
 ## Next steps
 
