@@ -252,7 +252,14 @@ The following example gets an attribute set.
 [Get-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryattributeset?branch=main)
 
 ```powershell
-Get-MgDirectoryAttributeSet -AttributeSetId "Engineering"
+Get-MgDirectoryAttributeSet -AttributeSetId "Engineering" | Format-List
+```
+
+```Output
+Description          : Attributes for engineering team
+Id                   : Engineering
+MaxAttributesPerSet  : 25
+AdditionalProperties : {[@odata.context, https://graph.microsoft.com/v1.0/$metadata#directory/attributeSets/$entity]}
 ```
 
 # [Microsoft Graph](#tab/ms-graph)
@@ -290,6 +297,12 @@ $params = @{
 	MaxAttributesPerSet = 25
 }
 New-MgDirectoryAttributeSet -BodyParameter $params
+```
+
+```Output
+Id          Description                     MaxAttributesPerSet
+--          -----------                     -------------------
+Engineering Attributes for engineering team 25
 ```
 
 # [Microsoft Graph](#tab/ms-graph)
@@ -586,7 +599,21 @@ $params = @{
 	type = "String"
 	usePreDefinedValuesOnly = $false
 }
-New-MgDirectoryCustomSecurityAttributeDefinition -BodyParameter $params
+New-MgDirectoryCustomSecurityAttributeDefinition -BodyParameter $params | Format-List
+```
+
+```Output
+AllowedValues           :
+AttributeSet            : Engineering
+Description             : Target completion date
+Id                      : Engineering_ProjectDate
+IsCollection            : False
+IsSearchable            : True
+Name                    : ProjectDate
+Status                  : Available
+Type                    : String
+UsePreDefinedValuesOnly : False
+AdditionalProperties    : {[@odata.context, https://graph.microsoft.com/v1.0/$metadata#directory/customSecurityAttributeDefinitions/$entity]}
 ```
 
 # [Microsoft Graph](#tab/ms-graph)
@@ -640,7 +667,21 @@ $params = @{
 	type = "String"
 	usePreDefinedValuesOnly = $true
 }
-New-MgDirectoryCustomSecurityAttributeDefinition -BodyParameter $params
+New-MgDirectoryCustomSecurityAttributeDefinition -BodyParameter $params | Format-List
+```
+
+```Output
+AllowedValues           :
+AttributeSet            : Engineering
+Description             : Active projects for user
+Id                      : Engineering_Project
+IsCollection            : True
+IsSearchable            : True
+Name                    : Project
+Status                  : Available
+Type                    : String
+UsePreDefinedValuesOnly : True
+AdditionalProperties    : {[@odata.context, https://graph.microsoft.com/v1.0/$metadata#directory/customSecurityAttributeDefinitions/$entity]}
 ```
 
 # [Microsoft Graph](#tab/ms-graph)
@@ -705,7 +746,21 @@ $params = @{
 		}
 	)
 }
-New-MgDirectoryCustomSecurityAttributeDefinition -BodyParameter $params
+New-MgDirectoryCustomSecurityAttributeDefinition -BodyParameter $params | Format-List
+```
+
+```Output
+AllowedValues           :
+AttributeSet            : Engineering
+Description             : Active projects for user
+Id                      : Engineering_Project
+IsCollection            : True
+IsSearchable            : True
+Name                    : Project
+Status                  : Available
+Type                    : String
+UsePreDefinedValuesOnly : True
+AdditionalProperties    : {[@odata.context, https://graph.microsoft.com/v1.0/$metadata#directory/customSecurityAttributeDefinitions/$entity]}
 ```
 
 # [Microsoft Graph](#tab/ms-graph)
@@ -797,11 +852,14 @@ The following example updates the predefined values for a custom security attrib
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectorycustomsecurityattributedefinition?branch=main)
+[Invoke-MgGraphRequest](/powershell/microsoftgraph/authentication-commands?branch=main#using-invoke-mggraphrequest)
+
+> [!NOTE]
+> For this request, you must add the **OData-Version** header and assign it the value `4.01`.
 
 ```powershell
 $params = @{
-    allowedValues@delta = @(
+    "allowedValues@delta" = @(
         @{
             id = "Baker"
             isActive = $false
@@ -812,7 +870,10 @@ $params = @{
         }
     )
 }
-Update-MgDirectoryCustomSecurityAttributeDefinition -CustomSecurityAttributeDefinitionId "Engineering_ProjectDate" -BodyParameter $params
+$header = @{
+    "OData-Version" = 4.01
+}
+Invoke-MgGraphRequest -Method PATCH -Uri "https://graph.microsoft.com/v1.0/directory/customSecurityAttributeDefinitions/Engineering_Project5" -Headers $header -Body $params
 ```
 
 # [Microsoft Graph](#tab/ms-graph)
@@ -992,9 +1053,16 @@ You can add predefined values for custom security attributes that have `usePreDe
 ```powershell
 $params = @{
 	id = "Alpine"
-	isActive = "true"
+	isActive = $true
 }
-New-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -BodyParameter $params
+New-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -BodyParameter $params | Format-List
+```
+
+```Output
+Id                   : Alpine
+IsActive             : True
+AdditionalProperties : {[@odata.context, https://graph.microsoft.com/v1.0/$metadata#directory/customSecurityAttributeDefinitions('Engineering_Project')/al
+                       lowedValues/$entity]}
 ```
 
 # [Microsoft Graph](#tab/ms-graph)
@@ -1033,7 +1101,7 @@ The following example deactivates a predefined value for a custom security attri
 
 ```powershell
 $params = @{
-	isActive = "false"
+	isActive = $false
 }
 Update-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -AllowedValueId "Alpine" -BodyParameter $params
 ```
