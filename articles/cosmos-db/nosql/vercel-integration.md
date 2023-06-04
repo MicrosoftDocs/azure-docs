@@ -80,7 +80,7 @@ pnpm create next-app --example with-azure-cosmos with-azure-cosmos-app
 
 1. Modify pages/index.tsx to add your code.
 
-Make changes to pages/index.tsx according to your needs. You could check out the code at **lib/cosmosdb.ts** to see how the `@azure/cosmos` Javascript client is initialized.
+Make changes to pages/index.tsx according to your needs. You could check out the code at **lib/cosmosdb.ts** to see how the `@azure/cosmos` javascript client is initialized.
 
 3. Push the changes to a GitHub repository.
 
