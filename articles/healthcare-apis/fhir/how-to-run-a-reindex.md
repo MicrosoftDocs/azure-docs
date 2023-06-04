@@ -17,7 +17,7 @@ There are scenarios where you may have search parameters in the FHIR service in 
 
 ## How to run a reindex job 
 
-Reindex job can be executed against entire FHIR service database and against specific custom search paramter.
+Reindex job can be executed against entire FHIR service database and against specific custom search parameter.
 
 ### Run reindex job on entire FHIR service database
 To run reindex job, use the following `POST` call with the JSON formatted `Parameters` resource in the request body:
