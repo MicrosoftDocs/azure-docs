@@ -57,8 +57,6 @@ Designer only shows the assets that you created and named in your workspace. You
 
 Designer is a tool that lets you create pipelines with your assets in a visual way. When you use designer, you'll encounter two concepts related to pipelines: pipeline draft and pipeline jobs.
 
-![pipeline-draft-and-pipeline-job-list](./media/concept-designer/pipeline-draft-and-job.png)
-
 :::image type="content" source="./media/concept-designer/pipeline-draft-and-job.png" alt-text="Screenshot of pipeline draft and pipeline job list." lightbox= "./media/concept-designer/pipeline-draft-and-job.png":::
 
 ### Pipeline draft

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 05/03/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
 ---

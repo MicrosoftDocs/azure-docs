@@ -64,7 +64,7 @@
   - name: Planning and operations guide
     displayName: guide, planning, roles, policies, recommendations
     href: defender-for-cloud-planning-and-operations-guide.md
-  - name: Protect your resources
+  - name: Protect your VMs
     displayName: manage, access, harden
     href: tutorial-protect-resources.md
   - name: Investigate and respond to security alerts
@@ -191,14 +191,21 @@
     - name: Reference list of attack paths and cloud security graph components
       displayName: attack, paths, security, graph, components
       href: attack-path-reference.md
-  - name: Security alerts
+  - name: Security alerts and incidents
     items:
     - name: About security alerts and incidents
       displayName: security, alerts, classification, incident, threat, detection, analytics, 
       href: alerts-overview.md
-    - name: Security alerts reference list
-      displayName: alerts, mitre
-      href: alerts-reference.md
+    - name: Security alerts
+      items:
+      - name: Security alerts reference list
+        displayName: alerts, mitre
+        href: alerts-reference.md
+    - name: Incidents
+      items:
+      - name: Incidents reference list
+        displayName: incidents
+        href: incidents-reference.md
   - name: Plan Defender for Servers deployment
     items:
     - name: Get started
