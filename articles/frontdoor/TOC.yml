@@ -179,6 +179,8 @@
           href: front-door-url-redirect.md?pivots=front-door-standard-premium
       - name: Understand billing
         href: billing.md
+      - name: Price comparison between tiers
+        href: understanding-pricing.md
       - name: Logs and metrics
         href: front-door-diagnostics.md?pivots=front-door-standard-premium
       - name: Best practices
@@ -277,7 +279,7 @@
         items:
         - name: Upgrade to Premium tier
           href: tier-upgrade.md
-        - name: Configure endpoints
+        - name: Configure a new endpoint
           href: how-to-configure-endpoints.md
         - name: Origins in origin group
           href: how-to-configure-origin.md
