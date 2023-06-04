@@ -1,14 +1,12 @@
 ---
-title: Vercel Integration with Azure Cosmos DB
-description: Learn how to integrate Azure Cosmos DB with Vercel
+title: Vercel integration with Azure Cosmos DB
+description: Integrate web applications using the Vercel platform with Azrue Cosmos DB for NOSQL or MongoDB as a data source.
 author: sajeetharan
 ms.author: sasinnat
 ms.reviewer: sidandrews
 ms.service: cosmos-db
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/28/2023
-ms.custom: build-2023
-adobe-target: true
 ---
 
 # Vercel Integration with Azure Cosmos DB
@@ -46,7 +44,7 @@ Use this guide if you have already identified the Vercel project(s) or want to i
 
 :::image type="content" source="./media/integrations/vercel/add-integration.png" alt-text="Screenshot shows the Azure Cosmos DB integration page on Vercel's marketplace" lightbox="./media/integrations/vercel/add-integration.png":::
 
-2. Choose All projects or Specific projects for the integration. In this guide we proceed by choosing specific projects, select continue
+1. Choose All projects or Specific projects for the integration. In this guide we proceed by choosing specific projects, select continue
 
 :::image type="content" source="./media/integrations/vercel/continue.png" alt-text="Screenshot shows to select vercel projects" lightbox="./media/integrations/vercel/continue.png":::
 
@@ -80,19 +78,19 @@ yarn create next-app --example with-azure-cosmos with-azure-cosmos-app
 pnpm create next-app --example with-azure-cosmos with-azure-cosmos-app
 ```
 
-2.  Modify pages/index.tsx to add your code.
+1. Modify pages/index.tsx to add your code.
 
-Make changes to pages/index.tsx according to your needs. You could check out the code at lib/cosmosdb.ts to check how @azure/cosmos javascript client is initialized.
+Make changes to pages/index.tsx according to your needs. You could check out the code at **lib/cosmosdb.ts** to see how the `@azure/cosmos` Javascript client is initialized.
 
 3. Push the changes to a GitHub repository.
 
-4. Set up environment variables.
+1. Set up environment variables.
 
-• COSMOSDB_CONNECTION_STRING - You need your Cosmos DB connection string. You can find these in the Azure portal in the keys section.
+- COSMOSDB_CONNECTION_STRING - You need your Cosmos DB connection string. You can find these in the Azure portal in the keys section.
 
-• COSMOSDB_DATABASE_NAME - Name of the database you plan to use. This should already exist in the Cosmos DB account.
+- COSMOSDB_DATABASE_NAME - Name of the database you plan to use. This should already exist in the Cosmos DB account.
 
-• COSMOSDB_CONTAINER_NAME - Name of the container you plan to use. This should already exist in the previous database.
+- COSMOSDB_CONTAINER_NAME - Name of the container you plan to use. This should already exist in the previous database.
 
 ## Integrate Cosmos DB with Vercel using marketplace template
 
@@ -101,7 +99,7 @@ You could use this [template](https://vercel.com/new/clone?demo-title=CosmosDB%2
 1. Choose the GitHub repository, where you want to clone the starter repo.
    :::image type="content" source="./media/integrations/vercel/create-git-repository.png" alt-text="Screenshot to create the repository" lightbox="./media/integrations/vercel/create-git-repository.png":::
 
-2. Click on the integration to set up Cosmos DB connection keys, these steps are described in detail in previous section.
+2. Select the integration to set up Cosmos DB connection keys, these steps are described in detail in previous section.
 
 :::image type="content" source="./media/integrations/vercel/add-integrations.png" alt-text="Screenshot shows the required permissions" lightbox="./media/integrations/vercel/add-integrations.png":::
 
