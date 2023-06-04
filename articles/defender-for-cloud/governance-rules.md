@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 01/23/2023
 ---
 
-# Drive your organization to remediate security recommendations with governance
+# Drive remediation with security governance
 
 Security teams are responsible for improving the security posture of their organizations but they may not have the resources or authority to actually implement security recommendations. [Assigning owners with due dates](#manually-assigning-owners-and-due-dates-for-recommendation-remediation) and [defining governance rules](#building-an-automated-process-for-improving-security-with-governance-rules) creates accountability and transparency so you can drive the process of improving the security posture in your organization.
 
