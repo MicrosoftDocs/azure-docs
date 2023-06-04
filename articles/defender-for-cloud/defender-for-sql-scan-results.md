@@ -21,7 +21,11 @@ This article describes several ways to consume and export your scan results.
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
-1. Search for and select `SQL databases should have vulnerability findings resolved`.
+1. Search for and select either:
+
+    - For Azure SQL Databases - `SQL databases should have vulnerability findings resolved`.
+    
+    - For SQL on machines - `SQL servers on machines should have vulnerability findings resolved`.
 
 1. Select **Open Query**.
 
