@@ -292,9 +292,9 @@ The following example adds a new attribute set.
 
 ```powershell
 $params = @{
-	Id = "Engineering"
-	Description = "Attributes for engineering team"
-	MaxAttributesPerSet = 25
+    Id = "Engineering"
+    Description = "Attributes for engineering team"
+    MaxAttributesPerSet = 25
 }
 New-MgDirectoryAttributeSet -BodyParameter $params
 ```
@@ -340,8 +340,8 @@ The following example updates an attribute set.
 
 ```powershell
 $params = @{
-	description = "Attributes for engineering team"
-	maxAttributesPerSet = 20
+    description = "Attributes for engineering team"
+    maxAttributesPerSet = 20
 }
 Update-MgDirectoryAttributeSet -AttributeSetId "Engineering" -BodyParameter $params
 ```
@@ -590,14 +590,14 @@ The following example adds a new custom security attribute definition.
 
 ```powershell
 $params = @{
-	attributeSet = "Engineering"
-	description = "Target completion date"
-	isCollection = $false
-	isSearchable = $true
-	name = "ProjectDate"
-	status = "Available"
-	type = "String"
-	usePreDefinedValuesOnly = $false
+    attributeSet = "Engineering"
+    description = "Target completion date"
+    isCollection = $false
+    isSearchable = $true
+    name = "ProjectDate"
+    status = "Available"
+    type = "String"
+    usePreDefinedValuesOnly = $false
 }
 New-MgDirectoryCustomSecurityAttributeDefinition -BodyParameter $params | Format-List
 ```
@@ -658,14 +658,14 @@ The following example adds a new custom security attribute definition that suppo
 
 ```powershell
 $params = @{
-	attributeSet = "Engineering"
-	description = "Active projects for user"
-	isCollection = $true
-	isSearchable = $true
-	name = "Project"
-	status = "Available"
-	type = "String"
-	usePreDefinedValuesOnly = $true
+    attributeSet = "Engineering"
+    description = "Active projects for user"
+    isCollection = $true
+    isSearchable = $true
+    name = "Project"
+    status = "Available"
+    type = "String"
+    usePreDefinedValuesOnly = $true
 }
 New-MgDirectoryCustomSecurityAttributeDefinition -BodyParameter $params | Format-List
 ```
@@ -723,28 +723,28 @@ The following example adds a new custom security attribute definition with a lis
 
 ```powershell
 $params = @{
-	attributeSet = "Engineering"
-	description = "Active projects for user"
-	isCollection = $true
-	isSearchable = $true
-	name = "Project"
-	status = "Available"
-	type = "String"
-	usePreDefinedValuesOnly = $true
-	allowedValues = @(
-		@{
-			id = "Alpine"
-			isActive = $true
-		}
-		@{
-			id = "Baker"
-			isActive = $true
-		}
-		@{
-			id = "Cascade"
-			isActive = $true
-		}
-	)
+    attributeSet = "Engineering"
+    description = "Active projects for user"
+    isCollection = $true
+    isSearchable = $true
+    name = "Project"
+    status = "Available"
+    type = "String"
+    usePreDefinedValuesOnly = $true
+    allowedValues = @(
+        @{
+            id = "Alpine"
+            isActive = $true
+        }
+        @{
+            id = "Baker"
+            isActive = $true
+        }
+        @{
+            id = "Cascade"
+            isActive = $true
+        }
+    )
 }
 New-MgDirectoryCustomSecurityAttributeDefinition -BodyParameter $params | Format-List
 ```
@@ -814,7 +814,7 @@ The following example updates a custom security attribute definition.
 
 ```powershell
 $params = @{
-	description = "Target completion date (YYYY/MM/DD)"
+    description = "Target completion date (YYYY/MM/DD)"
 }
 Update-MgDirectoryCustomSecurityAttributeDefinition -CustomSecurityAttributeDefinitionId "Engineering_ProjectDate" -BodyParameter $params
 ```
@@ -918,7 +918,7 @@ The following example deactivates a custom security attribute definition.
 
 ```powershell
 $params = @{
-	status = "Deprecated"
+    status = "Deprecated"
 }
 Update-MgDirectoryCustomSecurityAttributeDefinition -CustomSecurityAttributeDefinitionId "Engineering_ProjectDate" -BodyParameter $params
 ```
@@ -1052,8 +1052,8 @@ You can add predefined values for custom security attributes that have `usePreDe
 
 ```powershell
 $params = @{
-	id = "Alpine"
-	isActive = $true
+    id = "Alpine"
+    isActive = $true
 }
 New-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -BodyParameter $params | Format-List
 ```
@@ -1101,7 +1101,7 @@ The following example deactivates a predefined value for a custom security attri
 
 ```powershell
 $params = @{
-	isActive = $false
+    isActive = $false
 }
 Update-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -AllowedValueId "Alpine" -BodyParameter $params
 ```
