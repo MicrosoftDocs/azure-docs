@@ -98,7 +98,7 @@ scoring_file = "./sample_score.json"
 with open(scoring_file, "w") as outfile:
     outfile.write('{"inputs": ["Paris is the [MASK] of France.", "The goal of life is [MASK]."]}')   
 response = workspace_ml_client.online_endpoints.invoke(
-    endpoint_name=online_endpoint_name,
+    endpoint_name=endpoint_name,
     deployment_name="demo",
     request_file=scoring_file,
 )
