@@ -19,7 +19,7 @@ With Microsoft Defender for Cloud, you can configure PR annotations in Azure Dev
 
 GitHub pull request annotations are comments that are added to a pull request in GitHub or Azure DevOps. These annotations provide feedback on the code changes made in the pull request and help reviewers understand the changes that are made.
 
-Annotations can be added by anyone with access to the pull request and can be used to suggest changes, ask questions, or provide feedback on the code. Annotations can also be used to track issues and bugs that need to be fixed before the code is merged into the main branch .
+Annotations can be added by anyone with access to the pull request and can be used to suggest changes, ask questions, or provide feedback on the code. Annotations can also be used to track issues and bugs that need to be fixed before the code is merged into the main branch.
 
 ## Prerequisites
 
@@ -183,7 +183,7 @@ Once you've configured the scanner, you'll be able to view all issues that were 
     - **Won't fix** - The finding is noted but won't be fixed.
     - **Closed** - The discussion in this annotation is closed.
 
-Defender for DevOps will reactivate an annotation if the security issue isn't fixed in a new iteration.
+Defender for DevOps reactivates an annotation if the security issue isn't fixed in a new iteration.
 
 ## Learn more
 
