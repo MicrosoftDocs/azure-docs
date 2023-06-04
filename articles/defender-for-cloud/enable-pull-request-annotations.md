@@ -33,7 +33,7 @@ Annotations can be added by anyone with access to the pull request and can be us
 **For Azure DevOps**:
 
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
-- [Have write access (owner/contributer) to the Azure subscription](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-activate-role). 
+- [Have write access (owner/contributer) to the Azure subscription](../active-directory/privileged-identity-management/pim-how-to-activate-role.md). 
 - [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-devops.md).
 - [Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
 - [Setup secret scanning in Azure DevOps](detect-exposed-secrets.md#setup-secret-scanning-in-azure-devops).
