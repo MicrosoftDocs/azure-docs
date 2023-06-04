@@ -77,7 +77,7 @@ function Set-SqlVulnerabilityAssessmentBaseline([parameter(mandatory)] [string] 
                     ft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default/baselines/Default","name":"Default","type":"Microsoft.Sql/servers/databases/sqlVulnerabilityAssessments/baseline
                     s"}
     #>
-    if ($DatabaseName -eq 'master'){
+    if ($DatabaseName -eq 'master') {
         $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/baselines/default?api-version=2022-02-01-preview&systemDatabaseName=master"
     } else {
         $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/baselines/default?api-version=2022-02-01-preview"
@@ -117,7 +117,7 @@ function Get-SqlVulnerabilityAssessmentBaseline([parameter(mandatory)] [string] 
                     ers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default/baselines/Default","name":"Default","type":"Microsoft.Sql/servers/databases/sqlVulnerabilityAssessments/baselines"}
     #>
 
-    if ($DatabaseName -eq 'master'){
+    if ($DatabaseName -eq 'master') {
         $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/baselines/default?api-version=2022-02-01-preview&systemDatabaseName=master"
     } else {
         $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/baselines/default?api-version=2022-02-01-preview"
@@ -176,7 +176,7 @@ function Set-SqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [stri
                     abases/db/sqlVulnerabilityAssessments/Default/baselines/default/rules/VA2062","name":"VA2062","type":"Mic
                     rosoft.Sql/servers/databases/sqlVulnerabilityAssessments/baselines"}
     #>
-    if ($DatabaseName -eq 'master'){
+    if ($DatabaseName -eq 'master') {
         $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
     } else {
         $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId" + "?api-version=2022-02-01-preview"
@@ -239,19 +239,11 @@ function Get-SqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [stri
                     bilityAssessments/Default/baselines/default/rules/VA2062","name":"VA2062","type":"Microsoft.Sql/servers/da
                     tabases/sqlVulnerabilityAssessments/baselines"}]}
     #>
-    if (![string]::IsNullOrEmpty($RuleId)) {
-        if ($DatabaseName -eq 'master'){
+        if ($DatabaseName -eq 'master') {
             $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
         } else {
             $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId" + "?api-version=2022-02-01-preview"
         }
-    } else {
-        if ($DatabaseName -eq 'master'){
-            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/baselines/default/rules" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
-        } else {
-            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/baselines/default/rules" + "?api-version=2022-02-01-preview"
-        }
-    }
 
     return SendRestRequest -Method "Get" -Uri $Uri
 }
@@ -289,7 +281,7 @@ function Remove-SqlVulnerabilityAssessmentBaselineRule([parameter(mandatory)] [s
         Method     : DELETE
         Content    :
     #>
-    if ($DatabaseName -eq 'master'){
+    if ($DatabaseName -eq 'master') {
         $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
     } else {
         $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId" + "?api-version=2022-02-01-preview"
@@ -405,18 +397,11 @@ function Get-SqlVulnerabilityAssessmentScanResults([parameter(mandatory)] [strin
                     3/scanResults/VA1223","name":"VA1223","type":"Microsoft.Sql/servers/databases/sqlVulnerabilityAssessments/
                     scans/scanResults"}]}
     #>
-    if (![string]::IsNullOrEmpty($RuleId)) {
-        if ($DatabaseName -eq 'master'){
-            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/scans/$ScanId/scanResults/$RuleId" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
-        } else {
-            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/scans/$ScanId/scanResults/$RuleId" + "?api-version=2022-02-01-preview"
-        }
+
+    if ($DatabaseName -eq 'master') {
+        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/scans/$ScanId/scanResults/$RuleId" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
     } else {
-        if ($DatabaseName -eq 'master'){
-            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/scans/$ScanId/scanResults" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
-        } else {
-            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/scans/$ScanId/scanResults" + "?api-version=2022-02-01-preview"
-        }
+        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/scans/$ScanId/scanResults/$RuleId" + "?api-version=2022-02-01-preview"
     }
     return SendRestRequest -Method "Get" -Uri $Uri
 }
@@ -479,18 +464,10 @@ function Get-SqlVulnerabilityAssessmentScans([parameter(mandatory)] [string] $Su
                     essments/Default/scans/f64d81a1-9d7b-4516-a623-a1bfc845ed7e","name":"f64d81a1-9d7b-4516-a623-a1bfc845ed7e"
                     ,"type":"Microsoft.Sql/servers/databases/vulnerabilityAssessments/scans"}]}
     #>
-    if (![string]::IsNullOrEmpty($ScanId)) {
-        if ($DatabaseName -eq 'master'){
-            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/scans/$ScanId" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
-        } else {
-            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/scans/$ScanId" + "?api-version=2022-02-01-preview"
-        }
+    if ($DatabaseName -eq 'master') {
+        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/scans/$ScanId" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
     } else {
-        if ($DatabaseName -eq 'master'){
-            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/default/scans" + "?api-version=2022-02-01-preview&systemDatabaseName=master"
-        } else {
-            $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/scans" + "?api-version=2022-02-01-preview"
-        }
+        $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/default/scans/$ScanId" + "?api-version=2022-02-01-preview"
     }
     return SendRestRequest -Method "Get" -Uri $Uri
 }
@@ -528,7 +505,7 @@ function Invoke-SqlVulnerabilityAssessmentScan([parameter(mandatory)] [string] $
         Method     : POST
         Content    : {"operation":"ExecuteDatabaseVulnerabilityAssessmentScan","startTime":"2023-05-15T10:58:48.367Z"}
     #>
-    if ($DatabaseName -eq 'master'){
+    if ($DatabaseName -eq 'master') {
         $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/sqlVulnerabilityAssessments/defualt/initiateScan?api-version=2022-02-01-preview&systemDatabaseName=master"
     } else {
         $Uri = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Sql/servers/$ServerName/databases/$DatabaseName/sqlVulnerabilityAssessments/defualt/initiateScan?api-version=2022-02-01-preview"
