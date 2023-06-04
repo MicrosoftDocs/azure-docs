@@ -143,152 +143,9 @@ Once you add a custom security attribute, you can't delete it. However, you can 
 
     The custom security attribute is deactivated and moved to the Deactivated attributes list.
 
-## PowerShell
+## PowerShell or Microsoft Graph API
 
-To manage custom security attributes in your Azure AD organization, you can also use the PowerShell. The following command can manage attribute sets and custom security attributes.
- 
-#### Get all attribute sets
-
-Use the [Get-AzureADMSAttributeSet](/powershell/module/azuread/get-azureadmsattributeset?branch=main) command without any parameters to get all attribute sets.
-
-```powershell
-Get-AzureADMSAttributeSet
-```
-
-#### Get an attribute set
-
-Use the [Get-AzureADMSAttributeSet](/powershell/module/azuread/get-azureadmsattributeset?branch=main) command to get an attribute set.
-
-- Attribute set: `Engineering`
-
-```powershell
-Get-AzureADMSAttributeSet -Id "Engineering"
-```
- 
-#### Add an attribute set
-
-Use the [New-AzureADMSAttributeSet](/powershell/module/azuread/new-azureadmsattributeset?branch=main) command to add a new attribute set.
-
-- Attribute set: `Engineering`
-
-```powershell
-New-AzureADMSAttributeSet -Id "Engineering" -Description "Attributes for engineering team" -MaxAttributesPerSet 10 
-```
-
-#### Update an attribute set
-
-Use the [Set-AzureADMSAttributeSet](/powershell/module/azuread/set-azureadmsattributeset?branch=main) command to update an attribute set.
-
-- Attribute set: `Engineering`
-
-```powershell
-Set-AzureADMSAttributeSet -Id "Engineering" -Description "Attributes for cloud engineering team"
-Set-AzureADMSAttributeSet -Id "Engineering" -MaxAttributesPerSet 20
-```
-
-#### Get all custom security attributes
-
-Use the [Get-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinition?branch=main) command without any parameters to get all custom security attribute definitions.
-
-```powershell
-Get-AzureADMSCustomSecurityAttributeDefinition
-```
-
-#### Get a custom security attribute
-
-Use the [Get-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinition?branch=main) command to get a custom security attribute definition.
-
-- Attribute set: `Engineering`
-- Attribute: `ProjectDate`
-
-```powershell
-Get-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_ProjectDate"
-```
- 
-#### Add a custom security attribute
-
-Use the [New-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/new-azureadmscustomsecurityattributedefinition?branch=main) command to add a new custom security attribute definition.
-
-- Attribute set: `Engineering`
-- Attribute: `ProjectDate`
-- Attribute data type: String
-
-```powershell
-New-AzureADMSCustomSecurityAttributeDefinition -AttributeSet "Engineering" -Name "ProjectDate" -Description "Target completion date" -Type "String" -Status "Available" -IsCollection $false -IsSearchable $true -UsePreDefinedValuesOnly $true
-```
- 
-#### Update a custom security attribute
-
-Use the [Set-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/set-azureadmscustomsecurityattributedefinition?branch=main) command to update a custom security attribute definition.
-
-- Attribute set: `Engineering`
-- Attribute: `ProjectDate`
-
-```powershell
-Set-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_ProjectDate" -Description "Target completion date (YYYY/MM/DD)"
-```
-
-#### Deactivate a custom security attribute
-
-Use the [Set-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/set-azureadmscustomsecurityattributedefinition?branch=main) command to deactivate a custom security attribute definition.
-
-- Attribute set: `Engineering`
-- Attribute: `Project`
-
-```powershell
-Set-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_Project" -Status "Deprecated"
-```
-
-#### Get all predefined values
-
-Use the [Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinitionallowedvalue?branch=main) command to get all predefined values for a custom security attribute definition.
-
-- Attribute set: `Engineering`
-- Attribute: `Project`
-
-```powershell
-Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project"
-```
- 
-#### Get a predefined value
-
-Use the [Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinitionallowedvalue?branch=main) command to get a predefined value for a custom security attribute definition.
-
-- Attribute set: `Engineering`
-- Attribute: `Project`
-- Predefined value: `Alpine`
-
-```powershell
-Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" 
-```
- 
-#### Add a predefined value
-
-Use the [Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues](/powershell/module/azuread/add-azureadmscustomsecurityattributedefinitionallowedvalues?branch=main) command to add a predefined value for a custom security attribute definition.
-
-- Attribute set: `Engineering`
-- Attribute: `Project`
-- Predefined value: `Alpine`
-
-```powershell
-Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" -IsActive $true
-```
- 
-#### Deactivate a predefined value
-
-Use the [Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/azuread/set-azureadmscustomsecurityattributedefinitionallowedvalue?branch=main) command to deactivate a predefined value for a custom security attribute definition.
-
-- Attribute set: `Engineering`
-- Attribute: `Project`
-- Predefined value: `Alpine`
-
-```powershell
-Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" -IsActive $false
-```
-
-## Microsoft Graph API
-
-To manage custom security attributes in your Azure AD organization, you can also use the Microsoft Graph API. The following API calls can be made to manage attribute sets and custom security attributes.
+To manage custom security attributes in your Azure AD organization, you can also use PowerShell or Microsoft Graph API. The following examples manage attribute sets and custom security attributes.
 
 #### Get all attribute sets
 
@@ -320,6 +177,14 @@ AdditionalProperties : {}
 
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets
+```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[Get-AzureADMSAttributeSet](/powershell/module/azuread/get-azureadmsattributeset?branch=main)
+
+```powershell
+Get-AzureADMSAttributeSet
 ```
 
 ---
@@ -368,7 +233,6 @@ GET https://graph.microsoft.com/beta/directory/attributeSets?$orderBy=id
 
 ---
 
-
 #### Get an attribute set
 
 The following example gets an attribute set.
@@ -389,6 +253,14 @@ Get-MgDirectoryAttributeSet -AttributeSetId "Engineering"
 
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets/Engineering
+```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[Get-AzureADMSAttributeSet](/powershell/module/azuread/get-azureadmsattributeset?branch=main)
+
+```powershell
+Get-AzureADMSAttributeSet -Id "Engineering"
 ```
 
 ---
@@ -425,6 +297,14 @@ POST https://graph.microsoft.com/beta/directory/attributeSets
 }
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[New-AzureADMSAttributeSet](/powershell/module/azuread/new-azureadmsattributeset?branch=main)
+
+```powershell
+New-AzureADMSAttributeSet -Id "Engineering" -Description "Attributes for engineering team" -MaxAttributesPerSet 10 
+```
+
 ---
 
 #### Update an attribute set
@@ -455,6 +335,15 @@ PATCH https://graph.microsoft.com/beta/directory/attributeSets/Engineering
     "description":"Attributes for engineering team",
     "maxAttributesPerSet":20
 }
+```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[Set-AzureADMSAttributeSet](/powershell/module/azuread/set-azureadmsattributeset?branch=main)
+
+```powershell
+Set-AzureADMSAttributeSet -Id "Engineering" -Description "Attributes for cloud engineering team"
+Set-AzureADMSAttributeSet -Id "Engineering" -MaxAttributesPerSet 20
 ```
 
 ---
@@ -515,6 +404,14 @@ AdditionalProperties    : {}
 
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
+```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[Get-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinition?branch=main)
+
+```powershell
+Get-AzureADMSCustomSecurityAttributeDefinition
 ```
 
 ---
@@ -640,6 +537,14 @@ AdditionalProperties    : {[@odata.context, https://graph.microsoft.com/v1.0/$me
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_ProjectDate
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[Get-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinition?branch=main)
+
+```powershell
+Get-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_ProjectDate"
+```
+
 ---
 
 #### Add a custom security attribute
@@ -684,6 +589,14 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
     "type":"String",
     "usePreDefinedValuesOnly": false
 }
+```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[New-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/new-azureadmscustomsecurityattributedefinition?branch=main)
+
+```powershell
+New-AzureADMSCustomSecurityAttributeDefinition -AttributeSet "Engineering" -Name "ProjectDate" -Description "Target completion date" -Type "String" -Status "Available" -IsCollection $false -IsSearchable $true -UsePreDefinedValuesOnly $false
 ```
 
 ---
@@ -732,7 +645,7 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 }
 ```
 
-```
+---
 
 #### Add a custom security attribute with a list of predefined values
 
@@ -838,6 +751,14 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 }
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[Set-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/set-azureadmscustomsecurityattributedefinition?branch=main)
+
+```powershell
+Set-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_ProjectDate" -Description "Target completion date (YYYY/MM/DD)"
+```
+
 ---
 
 #### Update the predefined values for a custom security attribute
@@ -924,6 +845,14 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 }
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[Set-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/set-azureadmscustomsecurityattributedefinition?branch=main)
+
+```powershell
+Set-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_Project" -Status "Deprecated"
+```
+
 ---
 
 #### Get all predefined values
@@ -967,6 +896,14 @@ AdditionalProperties : {}
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinitionallowedvalue?branch=main)
+
+```powershell
+Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project"
+```
+
 ---
 
 #### Get a predefined value
@@ -998,6 +935,14 @@ AdditionalProperties : {[@odata.context, https://graph.microsoft.com/v1.0/$metad
 
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues/Alpine
+```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinitionallowedvalue?branch=main)
+
+```powershell
+Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" 
 ```
 
 ---
@@ -1036,6 +981,14 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 }
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues](/powershell/module/azuread/add-azureadmscustomsecurityattributedefinitionallowedvalues?branch=main)
+
+```powershell
+Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" -IsActive $true
+```
+
 ---
 
 #### Deactivate a predefined value
@@ -1066,6 +1019,14 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 {
     "isActive":"false"
 }
+```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/azuread/set-azureadmscustomsecurityattributedefinitionallowedvalue?branch=main)
+
+```powershell
+Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" -IsActive $false
 ```
 
 ---
