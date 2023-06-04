@@ -3,7 +3,7 @@ title: Enable pull request annotations in GitHub or in Azure DevOps
 description: Add pull request annotations in GitHub or in Azure DevOps. By adding pull request annotations, your SecOps and developer teams so that they can be on the same page when it comes to mitigating issues.
 ms.topic: overview
 ms.custom: ignite-2022
-ms.date: 01/24/2023
+ms.date: 06/04/2023
 ---
 
 # Enable pull request annotations in GitHub and Azure DevOps
@@ -14,6 +14,12 @@ With Microsoft Defender for Cloud, you can configure PR annotations in Azure Dev
 
 > [!NOTE]
 > GitHub Advanced Security for Azure DevOps (GHAzDO) is providing a free trial of PR annotations during the Defender for DevOps preview. 
+
+## What are pull request annotations
+
+GitHub pull request annotations are comments that are added to a pull request in GitHub or Azure DevOps. These annotations provide feedback on the code changes made in the pull request and help reviewers understand the changes that are made.
+
+Annotations can be added by anyone with access to the pull request and can be used to suggest changes, ask questions, or provide feedback on the code. Annotations can also be used to track issues and bugs that need to be fixed before the code is merged into the main branch .
 
 ## Prerequisites
 
