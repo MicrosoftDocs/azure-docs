@@ -74,7 +74,7 @@ This procedure describes how to add an Enterprise IoT plan to your Azure subscri
 
     - **Price plan**: Select a trial or monthly commitment.
 
-        Microsoft Defender for IoT provides a 30-day free trial for evaluation purposes, with an unlimited number of devices. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
+        Microsoft Defender for IoT provides a [30-day free trial](billing.md#free-trial) for evaluation purposes, with an unlimited number of devices.
 
         Monthly commitments require that you enter the number of [devices](#calculate-monitored-devices-for-enterprise-iot-monitoring) that you'd calculated earlier.
 

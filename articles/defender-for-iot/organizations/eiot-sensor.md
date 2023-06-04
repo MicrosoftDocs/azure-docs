@@ -204,7 +204,6 @@ If you're on a monthly commitment, you may want to edit the number of devices co
 
 - [Calculate monitored devices for Enterprise IoT monitoring](manage-subscriptions-enterprise.md#calculate-monitored-devices-for-enterprise-iot-monitoring)
 - [Defender for IoT subscription billing](billing.md)
-- The [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/)
 
 ## Delete an Enterprise IoT network sensor
 
