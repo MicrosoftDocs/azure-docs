@@ -60,7 +60,7 @@ This guidance helps you provide the required information to define how to authen
 | telemetry.metrics.opentelemetry.enabled | Indication whether or not to enable [emitting metrics to an OpenTelemetry collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) on Kubernetes. | No | `false` |
 | telemetry.metrics.opentelemetry.collector.uri | URI of the OpenTelemetry collector to send metrics to. | Yes, if `observability.opentelemetry.enabled` is set to `true`; otherwise no. | N/A |
 
-## Logs - TODO
+## Logs
 
 | Name   | Description | Required | Default | Availability |
 | ------------- | ------------- | ------------- | ----| ----|
