@@ -27,7 +27,7 @@ Updates in June include:
 
 Previously, Azure Arc was required to onboard non-Azure servers to Defender for Servers. However, with the latest release you can also onboard your on-premises servers to Defender for Servers using only the Microsoft Defender for Endpoint agent.
 
-This new method simplifies the onboarding process for customers focused on core endpoint protection and allows you to take advantage of Defender for Servers’ consumption-based billing for both cloud and non-cloud assets. The direct onboarding option via Defender for Endpoint is available now, with billing for onboarded machines starting on July 1st.
+This new method simplifies the onboarding process for customers focused on core endpoint protection and allows you to take advantage of Defender for Servers’ consumption-based billing for both cloud and non-cloud assets. The direct onboarding option via Defender for Endpoint is available now, with billing for onboarded machines starting on July 1.
 
 For more information, see [Connect your non-Azure machines to Microsoft Defender for Cloud with Defender for Endpoint](onboard-machines-with-defender-for-endpoint.md).
 
