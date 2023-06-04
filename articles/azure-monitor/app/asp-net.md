@@ -357,11 +357,11 @@ You have now successfully configured server-side application monitoring. If you 
 
 ## Add client-side monitoring
 
-The previous sections provided guidance on methods to automatically and manually configure server-side monitoring. To add client-side monitoring, use the [client-side JavaScript SDK](javascript.md). You can monitor any web page's client-side transactions by adding a [JavaScript snippet](javascript.md#snippet-based-setup) before the closing `</head>` tag of the page's HTML. 
+The previous sections provided guidance on methods to automatically and manually configure server-side monitoring. To add client-side monitoring, use the [client-side JavaScript SDK](javascript.md). You can monitor any web page's client-side transactions by adding a [JavaScript SDK Loader Script](./javascript-sdk.md?tabs=sdkloaderscript#enable-application-insights) before the closing `</head>` tag of the page's HTML. 
 
-Although it's possible to manually add the snippet to the header of each HTML page, we recommend that you instead add the snippet to a primary page. That action injects the snippet into all pages of a site. 
+Although it's possible to manually add the SDK Loader Script to the header of each HTML page, we recommend that you instead add the SDK Loader Script to a primary page. That action injects the SDK Loader Script into all pages of a site. 
 
-For the template-based ASP.NET MVC app from this article, the file that you need to edit is *_Layout.cshtml*. You can find it under **Views** > **Shared**. To add client-side monitoring, open *_Layout.cshtml* and follow the [snippet-based setup instructions](javascript.md#snippet-based-setup) from the article about client-side JavaScript SDK configuration.
+For the template-based ASP.NET MVC app from this article, the file that you need to edit is *_Layout.cshtml*. You can find it under **Views** > **Shared**. To add client-side monitoring, open *_Layout.cshtml* and follow the [SDK Loader Script-based setup instructions](./javascript-sdk.md?tabs=sdkloaderscript#enable-application-insights) from the article about client-side JavaScript SDK configuration.
 
 ## Troubleshooting
 

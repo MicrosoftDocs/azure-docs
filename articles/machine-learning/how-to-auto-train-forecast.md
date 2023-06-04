@@ -19,7 +19,7 @@ show_latex: true
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning SDK you are using:"]
-> * [v1](./v1/how-to-auto-train-forecast-v1.md?view=azureml-api-1&preserve-view=true)
+> * [v1](./v1/how-to-auto-train-forecast.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-auto-train-forecast.md)
 
 In this article, you'll learn how to set up AutoML training for time-series forecasting models with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme).
@@ -186,7 +186,7 @@ forecasting_job.set_training(
 To enable DNN for an AutoML experiment created in the Azure Machine Learning studio, see the [task type settings in the studio UI how-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
 > [!NOTE]
-> * When you enable DNN for experiments created with the SDK, [best model explanations](how-to-machine-learning-interpretability-automl.md) are disabled.
+> * When you enable DNN for experiments created with the SDK, [best model explanations](./v1/how-to-machine-learning-interpretability-automl.md) are disabled.
 > * DNN support for forecasting in Automated Machine Learning is not supported for runs initiated in Databricks.
 > * GPU compute types are recommended when DNN training is enabled 
 
@@ -553,6 +553,6 @@ See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples
 ## Next steps
 
 * Learn more about [How to deploy an AutoML model to an online endpoint](how-to-deploy-automl-endpoint.md).
-* Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md).
+* Learn about [Interpretability: model explanations in automated machine learning (preview)](./v1/how-to-machine-learning-interpretability-automl.md).
 * Learn about [how AutoML builds forecasting models](./concept-automl-forecasting-methods.md).
 * Learn how to [configure AutoML for various forecasting scenarios](./how-to-automl-forecasting-faq.md#what-modeling-configuration-should-i-use).

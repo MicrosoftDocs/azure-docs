@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/25/2022
+ms.date: 05/30/2023
 ms.author: owenrichards
 ms.reviewer: kenwith
 ms.custom: aaddev, engagement-fy23
@@ -16,9 +16,9 @@ ms.custom: aaddev, engagement-fy23
 
 # Single Sign-Out SAML Protocol
 
-Azure Active Directory (Azure AD) supports the SAML 2.0 web browser single sign-out profile. For single sign-out to work correctly, the **LogoutURL** for the application must be explicitly registered with Azure AD during application registration. If the app is [added to the Azure App Gallery](../manage-apps/v2-howto-app-gallery-listing.md) then this value can be set by default. Otherwise, the value must be determined and set by the person adding the app to their Azure AD tenant. Azure AD uses the LogoutURL to redirect users after they're signed out. 
+Azure Active Directory (Azure AD) supports the SAML 2.0 web browser single sign-out profile. For single sign-out to work correctly, the **LogoutURL** for the application must be explicitly registered with Azure AD during application registration. 
 
-Azure AD supports redirect binding (HTTP GET), and not HTTP POST binding.
+If the app is [added to the Azure App Gallery](../manage-apps/v2-howto-app-gallery-listing.md) then this value can be set by default. Otherwise, the value must be determined and set by the person adding the app to their Azure AD tenant. Azure AD uses the **LogoutURL** to redirect users after they're signed out. Azure AD supports redirect binding (HTTP GET), and not HTTP POST binding.
 
 The following diagram shows the workflow of the Azure AD single sign-out process.
 
@@ -51,28 +51,31 @@ The `Issuer` element in a `LogoutRequest` must exactly match one of the **Servic
 The value of the `NameID` element must exactly match the `NameID` of the user that is being signed out. 
 
 > [!NOTE]
-> During SAML logout request, the `NameID` value is not considered by Azure Active Directory.  
-> If a single user session is active, Azure Active Directory will automatically select that session and the SAML logout will proceed.  
-> If multiple user sessions are active, Azure Active Directory will enumerate the active sessions for user selection. After user selection, the SAML logout will proceed.
+> During SAML logout request, the `NameID` value is not considered by Azure AD.  
+> If a single user session is active, Azure AD will automatically select that session and the SAML logout will proceed.  
+> If multiple user sessions are active, Azure AD will enumerate the active sessions for user selection. After user selection, the SAML logout will proceed.
 
 ## LogoutResponse
+
 Azure AD sends a `LogoutResponse` in response to a `LogoutRequest` element. The following excerpt shows a sample `LogoutResponse`.
 
 ```
 <samlp:LogoutResponse ID="_f0961a83-d071-4be5-a18c-9ae7b22987a4" Version="2.0" IssueInstant="2013-03-18T08:49:24.405Z" InResponseTo="iddce91f96e56747b5ace6d2e2aa9d4f8c" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
-  <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+  <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
   <samlp:Status>
     <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" />
   </samlp:Status>
 </samlp:LogoutResponse>
+
 ```
 
 Azure AD sets the `ID`, `Version` and `IssueInstant` values in the `LogoutResponse` element. It also sets the `InResponseTo` element to the value of the `ID` attribute of the `LogoutRequest` that elicited the response.
 
 ### Issuer
-Azure AD sets this value to `https://login.microsoftonline.com/<TenantIdGUID>/` where \<TenantIdGUID> is the tenant ID of the Azure AD tenant.
 
-To evaluate the value of the `Issuer` element, use the value of the **App ID URI** provided during application registration.
+Azure AD sets this value to `https://login.microsoftonline.com/<TenantIdGUID>/` where \<TenantIdGUID> is the tenant ID of the Azure AD tenant. 
+
+To correctly identify the issuer element, use the value `https://login.microsoftonline.com/<TenantIdGUID>/` as shown in the sample LogoutResponse. This URL format identifies the Azure AD tenant as the issuer, representing the authority responsible for issuing the response.
 
 ### Status
 Azure AD uses the `StatusCode` element in the `Status` element to indicate the success or failure of sign-out. When the sign-out attempt fails, the `StatusCode` element can also contain custom error messages.

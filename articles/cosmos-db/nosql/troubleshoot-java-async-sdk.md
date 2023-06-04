@@ -9,7 +9,7 @@ ms.reviewer: mjbrown
 ms.devlang: java
 ms.subservice: nosql
 ms.topic: troubleshooting
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Troubleshoot issues when you use the Azure Cosmos DB Async Java SDK v2 with API for NoSQL accounts
