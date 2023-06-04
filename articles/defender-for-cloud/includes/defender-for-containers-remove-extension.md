@@ -50,7 +50,7 @@ You can remove the extension using Azure portal, Azure CLI, or REST API as expla
     az k8s-extension show --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-rg> --name microsoft.azuredefender.kubernetes
     ```
 
-    There should be no delay in the extension resource getting deleted from Azure Resource Manager. After that, validate that there are no pods called "mdc-XXXXX" on the cluster by running the following command with the `kubeconfig` file pointed to your cluster:
+    After that, validate that there are no pods under the mdc namespace on the cluster by running the following command with the `kubeconfig` file pointed to your cluster:
 
     ```console
     kubectl get pods -n mdc
