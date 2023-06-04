@@ -171,3 +171,7 @@
     items: 
     - name: Troubleshoot Microsoft.Network Failed provisioning state
       href: ../troubleshoot-failed-state.md?toc=/azure/networking/fundamentals/toc.json
+- name: Resources
+  items:
+  - name: Lumenisity UoS Patents
+    href: lumenisity-patent-list.md

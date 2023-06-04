@@ -1603,7 +1603,11 @@
             "redirect_url": "/azure/frontdoor/web-application-firewall",
             "redirect_document_id": false
         },
-
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-configure-route.md",
+            "redirect_url": "/azure/frontdoor/how-to-configure-endpoints",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/aks/aks-resource-health.md",
             "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
