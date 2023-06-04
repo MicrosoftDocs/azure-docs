@@ -26,7 +26,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home).
 
-- **Licenses are available for individual sites**, based on the sizes of those respective sites. A trial license is also available for 60 days, and covers 1,000 devices.
+- **Licenses are available for individual sites**, based on the sizes of those respective sites. A trial license is also available, covering a **Large** site size for 60 days.
 
     Any purchase of additional licenses is automatically updated in your OT plan in the Azure portal.
 
