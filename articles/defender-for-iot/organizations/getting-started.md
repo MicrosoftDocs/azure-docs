@@ -2,7 +2,7 @@
 title: Get started with OT network security monitoring - Microsoft Defender for IoT
 description: Use this quickstart to set up a trial OT plan with Microsoft Defender for IoT and understand the next steps required to configure your network sensors.
 ms.topic: get-started
-ms.date: 05/28/2023
+ms.date: 06/04/2023
 ---
 
 # Start a Microsoft Defender for IoT trial
@@ -33,7 +33,9 @@ This procedure describes how to add a trial license for Defender for IoT to your
 
 1. Select **All products** and search for **Microsoft Defender for IoT**.
 
-1. Locate the **Microsoft Defender for IoT Trial** item, and then follow the options through to add the trial to your Microsoft 365 products.
+1. Locate the **Microsoft Defender for IoT - OT Site License - Large Site** item.
+
+1. Select **Details** > **Start free trial** > **Try now** to start the trial.
 
 For more information, see the [Microsoft 365 admin center help](/microsoft-365/admin/).
 
@@ -45,12 +47,14 @@ This procedure describes how to add an OT plan for Defender for IoT in the Azure
 
 1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started), select **Plans and pricing** > **Add plan**.
 
-1. In the **Plan settings** pane, select the Azure subscription where you want to add a plan. You can only add a single subscription, and you'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the selected subscription.
+1. In the **Plan settings** pane, select the Azure subscription where you want to add a plan. 
+
+    You can only add a single subscription, and you'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the selected subscription.
 
    > [!TIP]
    > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner. Also make sure that you have the right subscriptions selected in your Azure settings > **Directories + subscriptions** page.
 
-   The **Price plan** value is updated automatically to reflect your Microsoft 365 license.
+   The **Price plan** value is updated automatically to read **Microsoft 365**, reflecting your Microsoft 365 license.
 
 1. Select **Next** and review the details for your licensed site. The details listed on the **Review and purchase** pane reflect any licenses you've obtained from the Microsoft 365 admin center.
 
