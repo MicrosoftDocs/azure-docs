@@ -112,15 +112,11 @@ The recipients will then receive emails with the findings of the scan results.
 
 Sample email Azure SQL server:
 
-:::image type="content" source="media/defender-for-sql-scan-results/sample-email-sql-paas.png" alt-text="Screenshot of a sample Azure SQL server results email." lightbox="media/defender-for-sql-scan-results/sample-email-sql-paas.png":::
+:::image type="content" source="media/defender-for-sql-scan-results/sample-va-email.png" alt-text="Screenshot of a sample email vulnerability assessment report from a server." lightbox="media/defender-for-sql-scan-results/sample-va-email.png":::
 
 Sample email SQL VM:
 
 :::image type="content" source="media/defender-for-sql-scan-results/sample-email-sql-vm.png" alt-text="Screenshot of a sample SQL virtual machine results email." lightbox="media/defender-for-sql-scan-results/sample-email-sql-vm.png":::
-
-Sample email from your server:
-
-:::image type="content" source="media/defender-for-sql-scan-results/sample-va-email.png" alt-text="Screenshot of a sample email vulnerability assessment report from a server." lightbox="media/defender-for-sql-scan-results/sample-va-email.png":::
 
 ## Other options
 
