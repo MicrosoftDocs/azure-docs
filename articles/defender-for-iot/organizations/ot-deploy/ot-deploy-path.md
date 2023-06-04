@@ -185,7 +185,7 @@ When baseline learning ends, the OT monitoring deployment process is complete, a
 
 ## Connect Defender for IoT data to your SIEM
 
-Once Defender for IoT has been deployed, operationalize <!--use forward? send? instead of operationalize, bc we use it below--> security alerts and manage OT/IoT incidents by integrating Defender for IoT with your security information and event management (SIEM) platform and existing SOC workflows and tools.
+Once Defender for IoT has been deployed, send security alerts and manage OT/IoT incidents by integrating Defender for IoT with your security information and event management (SIEM) platform and existing SOC workflows and tools.
 Integrate Defender for IoT alerts with your organizational SIEM by [integrating with Microsoft Sentinel](../iot-advanced-threat-monitoring.md) and leveraging the out-of-the-box Microsoft Defender for IoT solution, or by [creating forwarding rules](../how-to-forward-alert-information-to-partners.md) to other SIEM systems.
 Defender for IoT integrates out-of-the-box with Microsoft Sentinel, as well as [a broad range of SIEM systems](../integrate-overview.md), such as Splunk, IBM QRadar, LogRhythm, Fortinet, and more.
 
