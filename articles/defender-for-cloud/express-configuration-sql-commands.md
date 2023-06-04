@@ -9,6 +9,13 @@ ms.date: 06/01/2023
 
 # Express configuration PowerShell wrapper module
 
+This article contains the PowerShell wrapper for SQL vulnerability assessment express configuration.
+
+You should make a local copy of the script and save the file with the following file name `SqlVulnerabilityAssessmentCommands.psm1`.
+
+
+After you have made a local copy of the wrapper you should use the [Express configuration PowerShell commands reference](express-configuration-powershell-commands.md).
+
 ## SqlVulnerabilityAssessmentCommands.psm1
 
 ```powershell
@@ -677,5 +684,6 @@ Export-ModuleMember -Function Set-SqlVulnerabilityAssessmentServerSetting
 Export-ModuleMember -Function Remove-SqlVulnerabilityAssessmentServerSetting
 ```
 
-
 ## Next steps
+
+[Express configuration PowerShell commands reference](express-configuration-powershell-commands.md)

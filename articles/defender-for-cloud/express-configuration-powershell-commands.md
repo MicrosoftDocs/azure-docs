@@ -4,12 +4,14 @@ description: In this article, you can review the Express configuration PowerShel
 ms.topic: sample
 author: ElazarK
 ms.author: elkrieger
-ms.date: 06/01/2023
+ms.date: 06/04/2023
 ---
 
 # Express configuration PowerShell commands reference
 
-Make a local copy of the script located on [Express configuration PowerShell wrapper module](express-configuration-sql-commands.md), and save the file with the following file name `SqlVulnerabilityAssessmentCommands.psm1`, which will be referenced by the following commands.
+This article lists the PowerShell commands that can be used with SQL vulnerability assessment express configuration.
+
+Make a local copy of the script located on [Express configuration PowerShell wrapper module](express-configuration-sql-commands.md), and save the file with the following file name `SqlVulnerabilityAssessmentCommands.psm1`, which can be referenced with the following commands:
 
 
 - [Set SQL vulnerability assessment baseline](#set-sql-vulnerability-assessment-baseline)
@@ -399,3 +401,5 @@ Content    :
 ```
 
 ## Next steps
+
+[Find and remediate vulnerabilities in your Azure SQL databases](sql-azure-vulnerability-assessment-find.md)

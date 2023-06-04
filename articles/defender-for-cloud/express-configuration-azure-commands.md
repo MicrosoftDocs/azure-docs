@@ -4,10 +4,12 @@ description: In this article, you can review the Express configuration Azure Com
 ms.topic: sample
 author: ElazarK
 ms.author: elkrieger
-ms.date: 06/01/2023
+ms.date: 06/04/2023
 ---
 
 # Express configuration Azure Command Line Interface (CLI) commands reference
+
+This article lists the Azure Command Line Interface (CLI) commands that can be used with SQL vulnerability assessment express configuration.
 
 - [Set SQL vulnerability assessment baseline on system database](#set-sql-vulnerability-assessment-baseline-on-system-database)
 - [Get SQL vulnerability assessment baseline on system database](#get-sql-vulnerability-assessment-baseline-on-system-database)
@@ -986,3 +988,5 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 az rest --method Delete --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default?api-version=2022-02-01-preview
 ```
 ## Next steps
+
+[Find and remediate vulnerabilities in your Azure SQL databases](sql-azure-vulnerability-assessment-find.md)
