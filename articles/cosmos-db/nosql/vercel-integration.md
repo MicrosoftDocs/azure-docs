@@ -70,7 +70,7 @@ Use this guide if you have already identified the Vercel project(s) or want to i
 
 1. Execute create-next-app with npm, yarn, or pnpm to bootstrap the example:
 
-```
+```bash
 npx create-next-app --example with-azure-cosmos with-azure-cosmos-app
 
 yarn create next-app --example with-azure-cosmos with-azure-cosmos-app
