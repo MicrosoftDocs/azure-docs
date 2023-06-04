@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 03/17/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -30,8 +30,8 @@ For this quickstart, we use the Gradle build automation tool to create and run t
 
   * [**Gradle**](https://docs.gradle.org/current/userguide/installation.html), version 6.8 or later.
 
-> [!div class="nextstepaction"]
-> [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
+<!-- > [!div class="nextstepaction"]
+> [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents) -->
 
 ## Create a new Gradle project
 
@@ -77,8 +77,8 @@ For this quickstart, we use the Gradle build automation tool to create and run t
   }
   ```
 
-> [!div class="nextstepaction"]
-> [I ran into creating a Gradle project.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Create-gradle-project)
+<!-- > [!div class="nextstepaction"]
+> [I ran into creating a Gradle project.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Create-gradle-project) -->
 
 ## Translate all documents in a storage container
 

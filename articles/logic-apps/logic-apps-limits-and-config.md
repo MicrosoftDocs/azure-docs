@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 04/19/2023
+ms.date: 05/31/2023
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -30,7 +30,7 @@ The following tables list the values for a single workflow definition:
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
 | Workflows per region per Azure subscription | - Consumption: 1,000 workflows where each logic app is limited to 1 workflow <br><br>- Standard: Unlimited, based on the selected hosting plan, app activity, size of machine instances, and resource usage, where each logic app can have multiple workflows ||
-| Workflow - Maximum name length | - Consumption: 80 characters <br><br>- Standard: 43 characters ||
+| Workflow - Maximum name length | - Consumption: 80 characters <br><br>- Standard: 32 characters ||
 | Triggers per workflow | 10 triggers | This limit applies only when you work on the JSON workflow definition, whether in code view or an Azure Resource Manager (ARM) template, not the designer. |
 | Actions per workflow | 500 actions | To extend this limit, you can use nested workflows as necessary. |
 | Actions nesting depth | 8 actions | To extend this limit, you can use nested workflows as necessary. |

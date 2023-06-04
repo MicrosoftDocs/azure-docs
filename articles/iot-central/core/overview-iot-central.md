@@ -1,9 +1,9 @@
 ---
-title: What is Azure IoT Central | Microsoft Docs
-description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. It helps to reduce the burden and cost of IoT management operations, and development. This article provides an overview of the features of Azure IoT Central.
+title: What is Azure IoT Central
+description: Azure IoT Central is an application platform that simplifies the creation of IoT solutions, reducing the overhead of IoT management operations, and development.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/28/2022
+ms.date: 06/02/2023
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -14,7 +14,7 @@ ms.custom: mvc, contperf-fy21q2, contperf-fy22q1, contperf-fy22q2
 
 IoT Central is an IoT application platform as a service (aPaaS) that reduces the burden and cost of developing, managing, and maintaining IoT solutions. Use IoT Central to quickly evaluate your IoT scenario and assess the opportunities it can create for your business. IoT Central streamlines the development of a complex and continually evolving IoT infrastructure by letting you to focus your efforts on determining the business impact you can create with the IoT data stream.
 
-The web UI lets you quickly connect devices, monitor device conditions, create rules, and manage devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications. Once you've used IoT Central to evaluate your IoT scenario, you can then build your enterprise ready solutions by using the power of Azure IoT platform.  
+The web UI lets you quickly connect devices, monitor device conditions, create rules, and manage devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications. After you've used IoT Central to evaluate your IoT scenario, you can then build your enterprise-ready Azure IoT solution.  
 
 This article provides an overview of the features of Azure IoT Central.
 

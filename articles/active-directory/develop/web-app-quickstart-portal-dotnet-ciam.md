@@ -7,6 +7,7 @@ manager: mwongerapk
 ms.author: kengaderdus
 ms.service: active-directory
 ms.workload: identity
+ms.custom: devx-track-dotnet
 ROBOTS: NOINDEX
 ms.subservice: ciam
 ms.topic: portal

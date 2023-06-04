@@ -39,5 +39,10 @@ If you don't see results from your clusters, check the following:
 ## What do I do if I have stopped clusters?
 We suggest that you rerun the cluster to solve this issue.
 
+## Support for exemptions
+
+You can customize your vulnerability assessment experience by exempting management groups, subscriptions, or specific resources from your secure score. Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
+
 ## Next Steps
  Learn how to [view and remediate vulnerability assessment findings for registry images and running images](view-and-remediate-vulnerability-assessment-findings.md).
+
