@@ -10,7 +10,7 @@ ms.workload: identity
 ms.date: 04/23/2019
 ms.author: dmwendia
 ms.reviewer: jmprieur, saeeda
-ms.custom: "devx-track-csharp, aaddev"
+ms.custom: devx-track-csharp, aaddev, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn about providing my own HttpClient so I can have fine-grained control of the proxy.
 ---
 

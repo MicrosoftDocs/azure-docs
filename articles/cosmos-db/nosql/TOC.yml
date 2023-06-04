@@ -274,6 +274,8 @@
           href: ../analytical-store-introduction.md
         - name: Change data capture (CDC)
           href: ../analytical-store-change-data-capture.md
+        - name: Time travel (preview)
+          href: ../synapse-link-time-travel.md
     - name: Back up and restore
       items:
         - name: Back up and restore introduction
@@ -858,6 +860,8 @@
               href: ../audit-control-plane-logs.md
             - name: Troubleshoot issues with advanced diagnostics queries
               href: diagnostic-queries.md
+            - name: Add a transformation for workspace data
+              href: ../tutorial-log-transformation.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics

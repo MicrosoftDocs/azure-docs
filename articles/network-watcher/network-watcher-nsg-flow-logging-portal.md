@@ -192,11 +192,14 @@ In this section, you create an NSG flow log that's saved into the storage accoun
 
     :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/create-nsg-flow-log.png" alt-text="Screenshot of create NSG flow log page in the Azure portal.":::
 
+> [!NOTE]
+> The Azure portal creates the NSG flow logs in **NetworkWatcherRG** resource group.
+
 1. Select **Review + create**.
 
 1. Review the settings, and then select **Create**.
 
-1. Once the deployment is complete, select **Go to resource**.
+1. Once the deployment is complete, select **Go to resource** to confirm the flow log created and listed in the **Flow logs** page.
 
     :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/flow-logs-list.png" alt-text="Screenshot of Flow logs page in the Azure portal showing the newly created flow log." lightbox="./media/network-watcher-nsg-flow-logging-portal/flow-logs-list.png":::
 
@@ -276,27 +279,27 @@ The comma-separated information for **flowTuples** is as follows:
 | 12 | Packets received **Version 2 only** | The total number of TCP packets received from destination since the last update. |
 | 8143 | Bytes received **Version 2 only** | The total number of TCP packet bytes received from destination since the last update. Packet bytes include packet header and payload.|
 
-## Disable NSG flow log
+## Clean up resources
 
-When no more logging is needed, you can disable the NSG flow log that you previously created.
+When no longer needed, delete **myResourceGroup** resource group and all of the resources it contains and **myVM-nsg-myResourceGroup-flowlog** flow log:
+
+To delete the flow log:
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
 
-1. Select **NSG flow logs** under **Logs**.
+1. Under **Logs**, select **Flow logs**.
 
-1. Select the ellipsis **...** to the right of **myVM-nsg-myresourcegroup-flowlog** flow log or right-click it and select **Disable**.
+1. In **Network Watcher | Flow logs**, select the checkbox of the flow log.
 
-1. In **Disable NSG flow log**, select **Disable**.
+1. Select **Delete**.
 
-   :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/nsg-flow-log-disabled.png" alt-text="Screenshot showing the nsg flow log disabled in the Azure portal.":::
+To delete the resource group:
 
-## Clean up resources
+1. In the search box at the top of the portal, enter *myResourceGroup*. When you see **myResourceGroup** in the search results, select it.
 
-When no longer needed, delete **myResourceGroup** and all of the resources it contains:
+1. Select **Delete resource group**.
 
-1. Enter *myResourceGroup* in the search box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
-2. Select **Delete resource group**.
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
+1. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
 
 ## Next steps
 
@@ -307,7 +310,7 @@ In this tutorial, you learned how to:
 
 The raw data in the JSON file can be difficult to interpret. To visualize flow logs data, you can use [Traffic analytics](traffic-analytics.md) and [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
 
-For alternate methods of enabling NSG Flow Logs, see [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), [REST API](network-watcher-nsg-flow-logging-rest.md), or [Resource Manager templates](network-watcher-nsg-flow-logging-azure-resource-manager.md).
+For alternate methods of enabling NSG flow logs, see [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), [REST API](network-watcher-nsg-flow-logging-rest.md), or [Azure Resource Manager template](network-watcher-nsg-flow-logging-azure-resource-manager.md).
 
 To learn how to monitor network communication between virtual machines using Network Watcher connection monitor, see:
 

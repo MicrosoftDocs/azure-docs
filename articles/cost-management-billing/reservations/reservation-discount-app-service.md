@@ -6,7 +6,7 @@ ms.reviewer: jordanselig
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 05/04/2023
+ms.date: 06/01/2023
 ms.author: banders
 ---
 
@@ -25,11 +25,14 @@ After you buy an Azure App Service Premium v3 Reserved Instance, the reservation
 ### How the discount is applied to Azure App Service 
 
 A reservation discount is *use-it-or-lose-it*. So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
+
 When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
+
+Any management group and shared scope reservations include any development and testing workloads that might be running. Although dev/test subscriptions may have lower rates under [Azure Dev/Test pricing](https://azure.microsoft.com/pricing/dev-test/#overview) than other subscription types, reservations that you bought apply reservation pricing to your workloads.
 
 ### Reservation discount for Premium v3 Instances
 
-The Azure reservation discount is applied to running Premium v3 instances on an hourly basis. The reservations that you have purchased are matched to the usage emitted by the running Premium v3 instances to apply the reservation discount. For Premium v3 Instances that may not run the full hour, the reservation will be filled from other instances not using a reservation, including concurrently running instances. At the end of the hour, the reservation application for instances in the hour is locked. In the event an instance does not run for an hour or concurrent instances within the hour do not fill the hour of the reservation, the reservation is underutilized for that hour. The following graph illustrates the application of a reservation to billable VM usage. The illustration is based on one reservation purchase and two matching VM instances.
+The Azure reservation discount is applied to running Premium v3 instances on an hourly basis. The reservations that you have purchased are matched to the usage emitted by the running Premium v3 instances to apply the reservation discount. For Premium v3 Instances that may not run the full hour, the reservation is filled from other instances not using a reservation, including concurrently running instances. At the end of the hour, the reservation application for instances in the hour is locked. A reservation is underutilized when it doesn't run for an hour or when concurrent instances within the hour don't fill the hour of the reservation. The following graph illustrates the application of a reservation to billable VM usage. The illustration is based on one reservation purchase and two matching VM instances.
 
 ![Image showing the application of a reservation to billable VM usage](./media/reservation-discount-app-service/reserved-premium-v3-instance-application.png)
 
@@ -52,21 +55,23 @@ When you shut down a resource, the reservation discount automatically applies to
 
 Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads.
 
+Any management group and shared scope reservations include development and testing workloads that might be running. Although dev/test subscriptions may have lower rates under [Azure Dev/Test pricing](https://azure.microsoft.com/pricing/dev-test/#overview) than other subscription types, reservations that you bought apply reservation pricing to your workloads.
+
 ### Reservation discount for Isolated v2 Instances
 
-The Azure reservation discount is applied to running Isolated v2 instances on an hourly basis. The reservations that you have purchased are matched to the usage emitted by the running Isolated v2 instances to apply the reservation discount. For Isolated v2 Instances that may not run the full hour, the reservation will be filled from other instances not using a reservation, including concurrently running instances. At the end of the hour, the reservation application for instances in the hour is locked. In the event an instance does not run for an hour or concurrent instances within the hour do not fill the hour of the reservation, the reservation is underutilized for that hour.
+The Azure reservation discount is applied to running Isolated v2 instances on an hourly basis. The reservations that you have purchased are matched to the usage emitted by the running Isolated v2 instances to apply the reservation discount. For Isolated v2 Instances that may not run the full hour, the reservation is filled from other instances not using a reservation, including concurrently running instances. At the end of the hour, the reservation application for instances in the hour is locked. A reservation is underutilized when it doesn't run for an hour or when concurrent instances within the hour don't fill the hour of the reservation.
 
 To understand and view the application of your Azure Reservations in billing usage reports, see [Understand reservation usage](understand-reserved-instance-usage-ea.md).
 
 ## How reservation discounts apply to Isolated Stamps
 
-After you buy App Service Isolated Stamp Fee reserved capacity, the reservation discount is automatically applied to the Stamp Fee in a region. The reservation discount applies to the usage emitted by the Isolated Stamp Fee meter. Workers, additional Front Ends, and any other resources associated with the stamp continue to get billed at the regular rate.
+After you buy App Service Isolated Stamp Fee reserved capacity, the reservation discount is automatically applied to the Stamp Fee in a region. The reservation discount applies to the usage emitted by the Isolated Stamp Fee meter. Workers, other Front Ends, and any other resources associated with the stamp continue to get billed at the regular rate.
 
 ### Reservation discount application
 
 The App Service Isolated Stamp Fee discount is applied to running isolated stamps on an hourly basis. If you don't have a stamp deployed for an hour, then the reserved capacity is wasted for that hour. It doesn't carry over.
 
-After purchase, the reservation that you buy is matched to an isolated stamp running in a specific region. If you shut down that stamp, then reservation discounts are automatically applied to any other stamps running in the region. When no stamps exist, the reservation is applied to the next stamp that's created in the region.
+After purchase, the reservation that you buy gets matched to an isolated stamp running in a specific region. If you shut down that stamp, then reservation discounts are automatically applied to any other stamps running in the region. When no stamps exist, the reservation is applied to the next stamp that's created in the region.
 
 When stamps don't run for a full hour, the reservation automatically applies to other matching stamps in the same region during the same hour.
 
@@ -74,7 +79,7 @@ When stamps don't run for a full hour, the reservation automatically applies to 
 
 An empty Isolated Stamp emits the Windows stamp meter by default. For example, when no workers are deployed. It continues to emit the meter when Windows workers are deployed. The meter changes to the Linux stamp meter if you deploy a Linux worker. The stamp emits the Windows meter when both Linux and Windows workers are deployed.
 
-As a result, the stamp meter can change between Windows and Linux over the life of the stamp. Meanwhile, reservations are operating system specific. You'll need to buy a reservation that supports the workers you plan to deploy to the stamp. Windows-only stamps and mixed stamps use the Windows reservation. Stamps with only Linux workers use the Linux reservation.
+As a result, the stamp meter can change between Windows and Linux over the life of the stamp. Meanwhile, reservations are operating system specific. You need to buy a reservation that supports the workers you plan to deploy to the stamp. Windows-only stamps and mixed stamps use the Windows reservation. Stamps with only Linux workers use the Linux reservation.
 
 The only time you should purchase a Linux reservation is when you plan to _only_ have Linux workers in the stamp.
 
@@ -90,7 +95,7 @@ The following examples show how the Isolated Stamp Fee reserved instance discoun
 ## Next steps
 
 - To learn how to manage a reservation, see [Manage Azure Reservations](manage-reserved-vm-instance.md).
-- To learn more about pre-purchasing App Service Premium v3 and Isolated Stamp reserved capacity to save money, see [Prepay for Azure App Service with reserved capacity](prepay-app-service.md).
+- To learn more about prepurchasing App Service Premium v3 and Isolated Stamp reserved capacity to save money, see [Prepay for Azure App Service with reserved capacity](prepay-app-service.md).
 - To learn more about Azure Reservations, see the following articles:
   - [What are Azure Reservations?](save-compute-costs-reservations.md)
   - [Manage Reservations in Azure](manage-reserved-vm-instance.md)

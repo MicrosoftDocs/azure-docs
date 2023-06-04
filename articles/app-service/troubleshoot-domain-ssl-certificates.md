@@ -8,8 +8,7 @@ tags: top-support-issue
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
-ms.custom: seodec18, devx-track-azurepowershell
-
+ms.custom: seodec18
 ---
 
 # Troubleshoot domain and TLS/SSL certificate problems in Azure App Service

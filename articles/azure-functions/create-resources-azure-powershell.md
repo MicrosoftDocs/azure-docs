@@ -2,7 +2,7 @@
 title: Create function app resources in Azure using PowerShell
 description: Azure PowerShell scripts that show you how to create the Azure resources required to host your functions code in Azure.
 ms.topic: sample
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-python
 ms.date: 05/02/2023
 ---
 # Create function app resources in Azure using PowerShell
