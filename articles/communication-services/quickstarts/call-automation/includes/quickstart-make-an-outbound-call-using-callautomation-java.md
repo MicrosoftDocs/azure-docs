@@ -15,7 +15,7 @@ Azure Communication Services (ACS) Call Automation APIs are a powerful way to cr
 
 ## Sample Code
 
-Find the complete sample code for this quick start on [GitHub]("TODO_URL_GOES_HERE")
+Find the complete sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_OutboundCalling)
 
 ## Prerequisites
 
