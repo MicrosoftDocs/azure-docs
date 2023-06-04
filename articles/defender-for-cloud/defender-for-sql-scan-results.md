@@ -9,7 +9,7 @@ ms.date: 06/04/2023
 
 Defender for SQL's Vulnerability Assessment (VA) ability scans your databases on a weekly basis and produces reports on any misconfigurations that are identified.
 
-All findings are stored in Azure Resource Graph (ARG) which is also the source for most of the Defender for SQL UI experience. When findings are written to ARG they are also enriched with additional Microsoft Defender for Cloud settings such as disabled rules or exempt recommendations so that consuming the data from ARG represents the effective status of all findings and recommendations.
+All findings are stored in Azure Resource Graph (ARG) which is also the source for most of the Defender for SQL UI experience. When findings are written to ARG, they're also enriched with other Microsoft Defender for Cloud settings such as disabled rules or exempt recommendations so that consuming the data from ARG represents the effective status of all findings and recommendations.
 
 This article describes several ways to consume and export your scan results.
 
@@ -23,7 +23,7 @@ This article describes several ways to consume and export your scan results.
 
 1. Search for and select either:
 
-    - For Azure SQL Databases - `SQL databases should have vulnerability findings resolved`.
+    - For Azure SQL databases - `SQL databases should have vulnerability findings resolved`.
     
     - For SQL on machines - `SQL servers on machines should have vulnerability findings resolved`.
 
@@ -32,7 +32,7 @@ This article describes several ways to consume and export your scan results.
 1. Select either
 
     - **Query returning affected resources** - Returns a list of the resources that are currently affected (recommendation status per resource).
-    - **Query returning security findings** -  Returns a list of all security findings (findings and sub-assessments aggregated per applicable resources).
+    - **Query returning security findings** -  Returns a list of all security findings (findings and subassessments aggregated per applicable resources).
 
 1. Select **Run query**.
 
@@ -116,7 +116,7 @@ Sample email Azure SQL server:
 
 Sample email SQL VM:
 
-:::image type="content" source="media/defender-for-sql-scan-results/sample-email-sql-vm.png" alt-text="Screenshot of a sample SQL virtual machine results email.." lightbox="media/defender-for-sql-scan-results/sample-email-sql-vm.png":::
+:::image type="content" source="media/defender-for-sql-scan-results/sample-email-sql-vm.png" alt-text="Screenshot of a sample SQL virtual machine results email." lightbox="media/defender-for-sql-scan-results/sample-email-sql-vm.png":::
 
 Sample email from your server:
 
