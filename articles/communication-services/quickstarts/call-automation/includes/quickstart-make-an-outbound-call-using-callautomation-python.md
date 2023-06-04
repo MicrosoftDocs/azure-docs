@@ -27,7 +27,10 @@ Find the complete sample code for this quick start on [GitHub]("TODO_URL_GOES_HE
 
 ## Setup the Python environment
 
+Create and activate python environment and install required packages using following command. You can learn more about managing packages [here](https://code.visualstudio.com/docs/python/python-tutorial#_install-and-use-packages)
+
 ```bash
+pip install -r requirements.txt
 ```
 
 ## Setup and host your Azure DevTunnel
