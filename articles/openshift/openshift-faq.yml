@@ -107,9 +107,6 @@ sections:
       - question: Can I move/migrate my cluster between Azure tenants?
         answer: Moving your ARO cluster between tenants is currently unsupported.
 
-      - question: Can I move/migrate my cluster between subscriptions?
-        answer: Movement of clusters between subscriptions is currently unsupported.
-
       - question: Can I move my ARO clusters from the current Azure subscription to another?
         answer: Moving your ARO cluster and its associated resources between subscriptions isn't supported.
 
