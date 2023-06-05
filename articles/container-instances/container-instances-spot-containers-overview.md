@@ -7,7 +7,6 @@ author: athinanthny
 ms.service: container-instances
 services: container-instances
 ms.date: 05/14/2023
-ms.custom: references_regions
 ---
 
 # Azure Container Instances Spot Containers (preview)
@@ -16,9 +15,6 @@ This article introduces the concept of Azure Container Instances (ACI) Spot cont
 Spot containers offer the best of both worlds by combining the simplicity of ACI with the cost-effectiveness of Spot VMs. This enables customers to easily and affordably scale their containerized interruptible workloads. It's important to note that Spot containers may be preempted at any time, particularly when Azure has limited surplus capacity. Customers are billed based on per-second memory and core usage.
 
 This feature is designed for customers who need to run interruptible workloads with no strict availability requirements. Azure Container Instances Spot Containers support both Linux and Windows containers, providing flexibility for different operating system environments.
-
-> [!NOTE]
-> The Azure Container Instances Spot containers (in preview) are currently available only in the following regions: West Europe, East US2, and West US. It's important to note that the preview release is not recommended for production environments.
 
 This article provides background about the feature, limitations, and resources.
 
