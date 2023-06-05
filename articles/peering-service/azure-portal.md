@@ -19,7 +19,7 @@ ms.custom: template-how-to, engagement-fy23
 
 Azure Peering Service is a networking service that enhances connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet.
 
-In this article, you'll learn how to create, change, and delete a Peering Service connection using the Azure portal.
+In this article, you learn how to create, change, and delete a Peering Service connection using the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -66,7 +66,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select the **provider primary peering location** closest to your network location. This is the peering service location between Microsoft and the Partner.
 
-1. Select the **provider backup peering location** as the next closest to your network location. A peering service will be active via the backup peering location only in the event of failure of primary peering service location for disaster recovery. If **None** is selected, internet will be the default failover route in the event of primary peering service location failure.
+1. Select the **provider backup peering location** as the next closest to your network location. A peering service will be active via the backup peering location only in the event of failure of primary peering service location for disaster recovery. If **None** is selected, internet is the default failover route in the event of primary peering service location failure.
 
 1. Under the **Prefixes** section, select **Create new prefix**. In **Name**, enter a name for the prefix resource. Enter the prefixes that are associated with the service provider in **Prefix**. In **Prefix key**, enter the prefix key that was given to you by your provider (ISP or IXP). This key allows Microsoft to validate the prefix and provider who have allocated your IP prefix.
 
