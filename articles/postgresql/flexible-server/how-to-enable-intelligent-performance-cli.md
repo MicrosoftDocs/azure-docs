@@ -44,7 +44,7 @@ Use the [az postgres flexible-server parameter show](/cli/azure/postgres/flexibl
 
 You can verify if this feature is activated for the server **mydemoserver.postgres.database.azure.com** under the resource group **myresourcegroup** by using the command below.
 
-```azerecli-interactive
+```azurecli-interactive
 az postgres flexible-server parameter show --resource-group myresourcegroup --server-name mydemoserver --name intelligent_tuning --query value
 ```
 
@@ -57,6 +57,9 @@ az postgres flexible-server parameter show --resource-group myresourcegroup --se
 ## Enable intelligent tuning
 
 For enabling or disabling the intelligent tuning, and choosing among the following tuning targets: `none`, `Storage-checkpoint_completion_target`, `Storage-min_wal_size`,`Storage-max_wal_size`, `Storage-bgwriter_delay`, `tuning-autovacuum`, `all`, you should use the [az postgres flexible-server parameter set](/cli/azure/postgres/flexible-server/parameter#az-postgres-flexible-server-parameter-set) command. 
+
+> [!IMPORTANT]
+> Autovacuum tuning is currently supported for the General Purpose and Memory Optimized server compute tiers that have four or more vCores, Burstable server compute tier is not supported.
 
 To begin with, activate the intelligent tuning feature with the following command.
 

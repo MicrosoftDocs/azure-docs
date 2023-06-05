@@ -13,18 +13,18 @@ ms.date: 06/05/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article provides a step-by-step procedure to configure intelligent performance in a Azure Database for PostgreSQL - Flexible Server using Azure portal
+This article provides a step-by-step procedure to configure intelligent performance in a Azure Database for PostgreSQL - Flexible Server using Azure portal.
 
-> [!NOTE]  
-> Major Version Upgrade action is irreversible. Please perform a Point-In-Time Recovery (PITR) of your production server and test the upgrade in the non-production environment.
+> [!IMPORTANT]
+> Autovacuum tuning is currently supported for the General Purpose and Memory Optimized server compute tiers that have four or more vCores, Burstable server compute tier is not supported.
 
 ## Follow these steps to upgrade your flexible server to the major version of your choice:
 
 
 
-1. In the [Azure portal](https://portal.azure.com/), choose the flexible server that you want to upgrade.
+1. In the [Azure portal](https://portal.azure.com/), choose the flexible server you want enable intelligent tuning for.
 
-2. Select **Overview** from the left pane, and then select **Upgrade**.
+2. Select **Server Parameters** from the left pane, and then search for **intelligent_tuning**.
    
    :::image type="content" source="media/how-to-perform-major-version-upgrade-portal/upgrade-tab.png" alt-text="Diagram of Upgrade tab to perform in-place major version upgrade.":::
 
