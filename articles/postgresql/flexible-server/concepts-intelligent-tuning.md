@@ -46,6 +46,9 @@ This continual verification process is a cornerstone of intelligent tuning. It g
 ## Autovacuum tuning
 Intelligent tuning adjusts five significant parameters related to autovacuum: `autovacuum_vacuum_scale_factor`, `autovacuum_cost_limit`, `autovacuum_naptime`, `autovacuum_vacuum_threshold`, and `autovacuum_vacuum_cost_delay`. These parameters regulate components such as the fraction of the table that sets off a VACUUM process, the cost-based vacuum delay limit, the pause interval between autovacuum runs, the minimum count of updated or dead tuples needed to start a VACUUM, and the pause duration between cleanup rounds.
 
+> [!IMPORTANT]
+> Autovacuum tuning is currently supported for the General Purpose and Memory Optimized server compute tiers that have four or more vCores, Burstable server compute tier is not supported.
+
 > [!IMPORTANT] 
 > It's important to keep in mind that intelligent tuning modifies autovacuum-related parameters at the server level, not at individual table levels. Also, if autovacuum is turned off, intelligent tuning cannot operate correctly. For intelligent tuning to optimize the process, the autovacuum feature must be enabled.
 
