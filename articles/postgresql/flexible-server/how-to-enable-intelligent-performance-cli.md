@@ -15,34 +15,40 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-You can list, show, and update intelligent performance configuration for an Azure PostgreSQL server using the Command Line Interface (Azure CLI). 
+You can verify and update intelligent performance configuration for an Azure PostgreSQL server using the Command Line Interface (Azure CLI). 
 
 ## Prerequisites
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 - Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
 -  Log in to Azure account using [az login](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
-    ```azurecli-interactive
+    ```azurecli
     az login
     ````
 
 - If you have multiple subscriptions, choose the appropriate subscription in which you want to create the server using the ```az account set``` command.
 
-    ```azurecli
+    ```azurecli-interactive
     az account set --subscription <subscription id>
     ```
 
 - Create a PostgreQL Flexible Server if you haven't already created one using the ```az postgres flexible-server create``` command.
 
-    ```azurecli
+    ```azurecli-interactive
     az postgres flexible-server create --resource-group myresourcegroup --name myservername
     ```
 
 ## Verify current settings
 
-To verify current settings of intelligent performance feature, run the [az postgres flexible-server parameter show](/cli/azure/postgres/flexible-server/parameter#az-postgres-flexible-server-parameter-show) command.
+Use the [az postgres flexible-server parameter show](/cli/azure/postgres/flexible-server/parameter#az-postgres-flexible-server-parameter-show) to confirm the current settings of the intelligent performance feature.
 
-You can check the server parameters for the server **mydemoserver.postgres.database.azure.com** under resource group **myresourcegroup**.
+You can verify if this feature is activated for the server **mydemoserver.postgres.database.azure.com** under the resource group **myresourcegroup** by using the command below.
+
+```azerecli-interactive
+az postgres flexible-server parameter show --resource-group myresourcegroup --server-name mydemoserver --name intelligent_tuning --query value
+```
+
+Also, you can inspect the current setting of the **intelligent_tuning.metric_targets** server parameter using:
 
 ```azurecli-interactive
 az postgres flexible-server parameter show --resource-group myresourcegroup --server-name mydemoserver --name intelligent_tuning.metric_targets --query value
@@ -50,22 +56,42 @@ az postgres flexible-server parameter show --resource-group myresourcegroup --se
 
 ## Enable intelligent tuning
 
-You can also modify the value of a certain server parameter, which updates the underlying configuration value for the PostgreSQL server engine. To update the parameter, use the [az postgres flexible-server parameter set](/cli/azure/postgres/flexible-server/parameter) command. 
+For enabling or disabling the intelligent tuning, and choosing among the following tuning targets: `none`, `Storage-checkpoint_completion_target`, `Storage-min_wal_size`,`Storage-max_wal_size`, `Storage-bgwriter_delay`, `tuning-autovacuum`, `all`, you should use the [az postgres flexible-server parameter set](/cli/azure/postgres/flexible-server/parameter#az-postgres-flexible-server-parameter-set) command. 
 
-To update the **log\_min\_messages** server parameter of server **mydemoserver.postgres.database.azure.com** under resource group **myresourcegroup.**
-
-```azurecli-interactive
-az postgres flexible-server parameter set --name log_min_messages --value INFO --resource-group myresourcegroup --server-name mydemoserver
-```
-
-If you want to reset the value of a parameter, you simply choose to leave out the optional `--value` parameter, and the service applies the default value. In above example, it would look like:
+To begin with, activate the intelligent tuning feature with the following command.
 
 ```azurecli-interactive
-az postgres flexible-server parameter set --name log_min_messages --resource-group myresourcegroup --server-name mydemoserver
+az postgres flexible-server parameter set --resource-group myresourcegroup --server-name mydemoserver --name intelligent_tuning --value ON
 ```
 
-This command resets the **log\_min\_messages** parameter to the default value **WARNING**. For more information on server parameters and permissible values, see PostgreSQL documentation on [Setting Parameters](https://www.postgresql.org/docs/current/config-setting.html).
+Next, select the tuning targets you wish to activate.
+For activating all tuning targets, use:
+
+```azurecli-interactive
+az postgres flexible-server parameter set --resource-group myresourcegroup --server-name mydemoserver --name intelligent_tuning.metric_targets --value all
+```
+
+For enabling autovacuum tuning only:
+
+```azurecli-interactive
+az postgres flexible-server parameter set --resource-group myresourcegroup --server-name mydemoserver --name intelligent_tuning.metric_targets --value tuning-autovacuum
+```
+
+For activating two tuning targets:
+
+```azurecli-interactive
+az postgres flexible-server parameter set --resource-group myresourcegroup --server-name mydemoserver --name intelligent_tuning.metric_targets --value tuning-autovacuum,Storage-bgwriter_delay
+```
+
+
+In case you wish to reset a parameter's value to default, simply exclude the optional `--value` parameter. The service then applies the default value. In the above example, it would look like the following and would set `intelligent_tuning.metric_targets` to `none`:
+
+```azurecli-interactive
+az postgres flexible-server parameter set --resource-group myresourcegroup --server-name mydemoserver --name intelligent_tuning.metric_targets
+```
+
 
 ## Next steps
 
-- To configure and access server logs, see [Server Logs in Azure Database for PostgreSQL](concepts-logging.md)
+- [Perform intelligent tuning in Azure Database for PostgreSQL - Flexible Server
+](concepts-intelligent-tuning.md)
