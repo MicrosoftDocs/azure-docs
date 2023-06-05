@@ -246,6 +246,9 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 1. (Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add custom properties in key:value pairs to the alert notification payload to add more information to it. Add the property **Name** and **Value** for the custom property you want included in the payload.
 
     You can also use custom properties to extract and manipulate data from alert payloads that use the common schema. You can use those values in the action group webhook or logic app.
+    
+     > [!NOTE]
+     > In this phase the custom properties are not part of the e-mail template
 
     The format for extracting values from the common schema, use a "$", and then the path of the [common schema](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-common-schema) field inside curly brackets. For example: `${data.essentials.monitorCondition}`.
 
