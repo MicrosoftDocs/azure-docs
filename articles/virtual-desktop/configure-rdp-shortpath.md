@@ -138,7 +138,7 @@ To configure managed and unmanaged Windows clients using Group Policy:
 
 1. Browse to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Connection Client**.
 
-1. Open the policy setting **Turn Off UDP On Client** and set it to **Not Configured**.
+1. Open the policy setting **Turn Off UDP On Client** and set it to **Disabled**.
 
 1. Select OK and restart your clients to apply the policy setting.
 
@@ -152,7 +152,9 @@ To configure managed Windows clients using Intune:
 
 1. Browse to **Windows Components** > **Remote Desktop Services** > **Remote Desktop Connection Client**.
 
-1. Select the setting **Turn Off UDP On Client** and set it to **Disabled**. Select **OK**, then select **Next**.
+1. Select the setting **Turn Off UDP On Client** and set it to **Disabled**.
+
+1. Select **OK**, then select **Next**.
 
 1. Apply the configuration profile, then restart your clients.
 

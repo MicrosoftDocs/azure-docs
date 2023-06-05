@@ -44,7 +44,7 @@ The following steps inform the C# compiler about these namespaces allowing Visua
 
 ```csharp
 using Azure.Communication;
-using Azure.Communication.Calling;
+using Azure.Communication.Calling.WindowsClient;
 ```
 
 Keep `MainPage.xaml.cs` or `MainWindows.xaml.cs` open. The next steps will add more code to it.
@@ -85,30 +85,30 @@ The following classes and interfaces handle some of the major features of the Az
 | ------------------------------------- | ------------------------------------------------------------ |
 | `CallClient` | The `CallClient` is the main entry point to the Calling client library. |
 | `CallAgent` | The `CallAgent` is used to start and join calls. |
-| `Call` | The `Call` is used to manage placed or joined calls. |
+| `CommunicationCall` | The `CommunicationCall` is used to manage placed or joined calls. |
 | `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
 | `CallAgentOptions` | The `CallAgentOptions` contains information to identify the caller. |
 | `HangupOptions` | The `HangupOptions` informs if a call should be terminated to all its participants. |
 
 ## Initialize the CallAgent
 
-To create a `CallAgent` instance from `CallClient`, you must use `CallClient.CreateCallAgent` method that asynchronously returns a `CallAgent` object once it's initialized.
+To create a `CallAgent` instance from `CallClient`, you must use `CallClient.CreateCallAgentAsync` method that asynchronously returns a `CallAgent` object once it's initialized.
 
-To create `CallAgent`, you must pass a `CommunicationTokenCredential` object and a `CallAgentOptions` object. Keep in mind that `CommunicationTokenCredential` throws if a malformed token is passed.
+To create `CallAgent`, you must pass a `CallTokenCredential` object and a `CallAgentOptions` object. Keep in mind that `CallTokenCredential` throws if a malformed token is passed.
 
 The following code should be added inside and helper function to be called in app initialization.
 
 ```csharp
 var callClient = new CallClient();
-this.deviceManager = await callClient.GetDeviceManager();
+this.deviceManager = await callClient.GetDeviceManagerAsync();
 
-var tokenCredential = new CommunicationTokenCredential("<AUTHENTICATION_TOKEN>");
+var tokenCredential = new CallTokenCredential("<AUTHENTICATION_TOKEN>");
 var callAgentOptions = new CallAgentOptions()
 {
     DisplayName = "<DISPLAY_NAME>"
 };
 
-this.callAgent = await callClient.CreateCallAgent(tokenCredential, callAgentOptions);
+this.callAgent = await callClient.CreateCallAgentAsync(tokenCredential, callAgentOptions);
 ```
 
 Change the `<AUTHENTICATION_TOKEN>` with a valid credential token for your resource. Refer to the [user access token](../../../../quickstarts/identity/access-tokens.md) documentation if a credential token has to be sourced.

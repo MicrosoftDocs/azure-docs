@@ -31,7 +31,7 @@ Upgrading to the new version of the Application Insights JavaScript SDK can prov
 
 If you're using the current application insights PRODUCTION SDK (1.0.20) and want to see if the new SDK works in runtime, update the URL depending on your current SDK loading scenario.
 
-- Download via CDN scenario: Update the code snippet that you currently use to point to the following URL:
+- Download via CDN scenario: Update the SDK Loader Script that you currently use to point to the following URL:
    ```
    "https://js.monitor.azure.com/scripts/b/ai.2.min.js"
    ```

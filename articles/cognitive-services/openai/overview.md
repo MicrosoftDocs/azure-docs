@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: overview
 ms.date: 05/15/2023
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, build-2023, build-2023-dataai
 recommendations: false
 keywords:  
 ---
@@ -28,7 +28,7 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 | Virtual network support & private link support | Yes | 
 | Managed Identity| Yes, via Azure Active Directory | 
 | UI experience | **Azure Portal** for account & resource management, <br> **Azure OpenAI Service Studio** for model exploration and fine tuning |
-| Regional availability | East US <br> South Central US <br> West Europe |
+| Regional availability | East US <br> South Central US <br> West Europe <br> France Central |
 | Content filtering | Prompts and completions are evaluated against our content policy with automated systems. High severity content will be filtered. |
 
 ## Responsible AI

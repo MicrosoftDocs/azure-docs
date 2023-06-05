@@ -57,6 +57,7 @@ Follow the [pre-migration guide](mongodb/pre-migration-steps.md) to plan your mi
 * If you're migrating from a vCores- or server-based platform and you need guidance on estimating request units, consider reading our [guide to estimating RU/s based on vCores](convert-vcore-to-request-unit.md).
 
 When you're ready to migrate, you can find detailed guidance on migration tools below
+* [Offline migration using Intra-account container copy](intra-account-container-copy.md)
 * [Offline migration using MongoDB native tools](mongodb/tutorial-mongotools-cosmos-db.md)
 * [Offline migration using Azure database migration service (DMS)](../dms/tutorial-mongodb-cosmos-db.md)
 * [Online migration using Azure database migration service (DMS)](../dms/tutorial-mongodb-cosmos-db-online.md)
@@ -68,6 +69,7 @@ A summary of migration pathways from your current solution to Azure Cosmso DB fo
 
 |Migration type|Solution|Supported sources|Supported targets|Considerations|
 |---------|---------|---------|---------|---------|
+|Offline|[Intra-account container copy](intra-account-container-copy.md)|Azure Cosmos DB for MongoDB|Azure Cosmos DB for MongoDB|&bull; Command-line tool; No set up needed.<br/>&bull; Suitable for large datasets|
 |Offline|[Azure Cosmos DB desktop data migration tool](how-to-migrate-desktop-tool.md)|&bull;Azure Cosmos DB for NoSQL<br/>&bull;Azure Cosmos DB for MongoDB<br/>&bull;Azure Cosmos DB for Table<br/>&bull;Azure Table storage<br/>&bull;JSON Files<br/>&bull;MongoDB<br/>&bull;SQL Server<br/>|&bull;Azure Cosmos DB for NoSQL<br/>&bull;Azure Cosmos DB for MongoDB<br/>&bull;Azure Cosmos DB for Table<br/>&bull;Azure Table storage<br/>&bull;JSON Files<br/>&bull;MongoDB<br/>&bull;SQL Server<br/>|&bull; Command-line tool<br/>&bull; Open-source|
 |Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB|Azure Cosmos DB for MongoDB |&bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets and takes care of replicating live changes. <br/>&bull; Works only with other MongoDB sources.|
 |Offline|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB| Azure Cosmos DB for MongoDB| &bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets and takes care of replicating live changes. <br/>&bull; Works only with other MongoDB sources.|

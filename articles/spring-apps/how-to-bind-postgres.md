@@ -18,7 +18,7 @@ zone_pivot_groups: passwordless-postgresql
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 With Azure Spring Apps, you can bind select Azure services to your applications automatically, instead of having to configure your Spring Boot application manually. This article shows you how to bind your application to your Azure Database for PostgreSQL instance.
 
@@ -58,6 +58,9 @@ Use the following steps to prepare your project.
 1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
 
 ## Bind your app to the Azure Database for PostgreSQL instance
+
+> [!NOTE]
+> Be sure to select only one of the following approaches to create a connection. If you've already created tables with one connection, other users can't access or modify the tables. When you try the other approach, the application will throw errors such as "Permission denied". To fix this issue, connect to a new database or delete and recreate an existing one.
 
 ### [Passwordless (Recommended)](#tab/Passwordlessflex)
 

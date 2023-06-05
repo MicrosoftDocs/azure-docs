@@ -1,6 +1,6 @@
 ---
-title: How to configure VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier
-description: Shows you how to configure VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier.
+title: How to configure VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan
+description: Shows you how to configure VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan.
 author: karlerickson
 ms.author: xiading
 ms.service: spring-apps
@@ -14,9 +14,9 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to configure Spring Cloud Gateway for VMware Tanzu with Azure Spring Apps Enterprise tier.
+This article shows you how to configure Spring Cloud Gateway for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 
 [VMware Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is a commercial VMware Tanzu component based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles the cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns using your choice of programming language for API development.
 
@@ -35,7 +35,7 @@ To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway autom
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier service instance with VMware Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise plan service instance with VMware Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 
   > [!NOTE]
   > You must enable VMware Spring Cloud Gateway when you provision your Azure Spring Apps service instance. You can't enable VMware Spring Cloud Gateway after provisioning.
@@ -399,6 +399,36 @@ az spring gateway sync-cert \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name>
 ```
+
+### Set up Autoscale settings for VMware Spring Cloud Gateway in Azure CLI
+
+You can set Autoscale modes using the Azure CLI. The following commands create an Autoscale setting and an Autoscale rule.
+
+* Create Autoscale setting:
+
+   ```azurecli
+   az monitor autoscale create \
+       --resource-group <resource-group-name> \
+       --name <autoscale-setting-name> \
+       --resource /subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.AppPlatform/Spring/<service-instance-name>/gateways/default \
+       --min-count 1 \
+       --max-count 5 \
+       --count 1
+   ```
+
+* Create Autoscale rule:
+
+   ```azurecli
+   az monitor autoscale rule create \
+       --resource-group <resource-group-name> \
+       --autoscale-name <autoscale-setting-name> \
+       --scale out 1 \
+       --cooldown 1 \
+       --condition "GatewayHttpServerRequestsSecondsCount > 100 avg 1m"
+   ```
+
+For information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
+
 
 ---
 
