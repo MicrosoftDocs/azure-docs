@@ -30,7 +30,7 @@ Datawiza integration includes the following components:
 
 The following diagram illustrates the authentication architecture with Datawiza in a hybrid environment.
 
-   ![Architecture diagram of the authentication process for user access to an on-premises application.](./media/datawiza-with-azure-active-directory/datawiza-architecture-diagram.png)
+   ![Architecture diagram of the authentication process for user access to an on-premises application.](./media/datawiza-configure-sha/datawiza-architecture-diagram.png)
 
 1. The user requests access to the on-premises or cloud-hosted application. DAP proxies the request to the application.
 2. DAP checks user authentication state. If there's no session token, or the session token is invalid, DAP sends the user request to Azure AD for authentication.
@@ -59,13 +59,13 @@ To get started, you need:
 3. To create the app and generate the key pair, follow the instructions in [Datawiza Cloud Management Console](https://docs.datawiza.com/step-by-step/step2.html).
 4. Register your application in Azure AD with [One Click Integration With Azure AD](https://docs.datawiza.com/tutorial/web-app-azure-one-click.html).
 
-   ![Screenshot of the Automatic Generator feature on the Configure IdP dialog.](./media/datawiza-with-azure-active-directory/configure-idp.png)
+   ![Screenshot of the Automatic Generator feature on the Configure IdP dialog.](./media/datawiza-configure-sha/configure-idp.png)
 
 5. To use a web application, manually populate form fields: **Tenant ID**, **Client ID**, and **Client Secret**. 
 
    Learn more: To create a web application and obtain values, go to docs.datawiza.com for [Microsoft Azure AD](https://docs.datawiza.com/idp/azure.html) documentation.
 
-   ![Screenshot of the Configure IdP dialog with the Automatic Generator turned off.](./media/datawiza-with-azure-active-directory/use-form.png)
+   ![Screenshot of the Configure IdP dialog with the Automatic Generator turned off.](./media/datawiza-configure-sha/use-form.png)
 
 6. Run DAP using either Docker or Kubernetes. The docker image is needed to create a sample header-based application.
 
@@ -102,7 +102,7 @@ To get started, you need:
 14. To pass user attributes such as email address, first name, and last name to the header-based application, see [Pass User Attributes](https://docs.datawiza.com/step-by-step/step4.html).
 15. To confirm configured user attributes, observe a green check mark next to each attribute.
 
-   ![Screenshot of the home page with host, email, firstname, and lastname attributes.](./media/datawiza-with-azure-active-directory/datawiza-application-home-page.png)
+   ![Screenshot of the home page with host, email, firstname, and lastname attributes.](./media/datawiza-configure-sha/datawiza-application-home-page.png)
 
 ## Test the flow
 
@@ -115,6 +115,6 @@ To get started, you need:
 ## Next steps
 
 * [Tutorial: Configure Azure Active Directory B2C with Datawiza to provide secure hybrid access](../../active-directory-b2c/partner-datawiza.md)
-* [Tutorial: Configure Datawiza to enable Azure AD MFA and SSO to Oracle JD Edwards](datawiza-azure-ad-sso-oracle-jde.md)
+* [Tutorial: Configure Datawiza to enable Azure AD MFA and SSO to Oracle JD Edwards](datawiza-sso-oracle-jde.md)
 * [Tutorial: Configure Datawiza to enable Azure AD MFA and SSO to Oracle PeopleSoft](datawiza-azure-ad-sso-oracle-peoplesoft.md)
 * Go to docs.datawiza.com for Datawiza [User Guides](https://docs.datawiza.com)
