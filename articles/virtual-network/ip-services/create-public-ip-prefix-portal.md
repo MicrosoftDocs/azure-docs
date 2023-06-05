@@ -30,7 +30,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ### IPv4
 
-In this section, you'll create a public IP prefix using the Azure portal. Use the following examples to create a IPv4 public IP prefix. To create a IPv6 public IP prefix, see [IPv6](#ipv6).
+In this section, you create a public IP prefix using the Azure portal. Use the following examples to create a IPv4 public IP prefix. To create a IPv6 public IP prefix, see [IPv6](#ipv6).
 
 1. In the search box at the top of the portal, enter **Public IP**.
 
@@ -123,7 +123,7 @@ Public IP prefixes are associated with a single region. The **Global** tier span
 
 ### IPv6
 
-In this section, you'll create a public IP prefix using the Azure portal. Use the following examples to create a IPv6 public IP prefix.
+In this section, you create a public IP prefix using the Azure portal. Use the following examples to create a IPv6 public IP prefix.
 
 1. In the search box at the top of the portal, enter **Public IP**.
 
@@ -152,7 +152,7 @@ In this section, you'll create a public IP prefix using the Azure portal. Use th
 
 ## Create a static public IP address from a prefix
 
-Once you create a prefix, you must create static IP addresses from the prefix. In this section, you'll create a static IP address from the prefix you created earlier.
+Once you create a prefix, you must create static IP addresses from the prefix. In this section, you create a static IP address from the prefix you created earlier.
 
 1. In the search box at the top of the portal, enter **Public IP**.
 
@@ -178,7 +178,7 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
 
 ## Delete a prefix
 
-In this section, you'll learn how to view or delete a prefix.
+In this section, you learn how to view or delete a prefix.
 
 1. In the search box at the top of the portal, enter **Public IP**.
 
