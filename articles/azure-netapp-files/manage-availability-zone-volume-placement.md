@@ -17,29 +17,27 @@ ms.author: anfdocs
 ---
 # Manage availability zone volume placement for Azure NetApp Files
 
-Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice. To better understand availability zones, refer to [Using availability zones for high availability](use-availability-zones.md).
+You can deploy new volumes in the logical availability zone of your choice. You can also populate existing volumes with availability zone information. To better understand availability zones, see [Using availability zones for high availability](use-availability-zones.md).
 
 ## Requirements and considerations 
 
-* The availability zone volume placement feature is supported only on newly created volumes. It is not currently supported on existing volumes. 
-
-* This feature does not guarantee free capacity in the availability zone. For example, even if you can deploy a VM in availability zone 3 of the East US region, it doesn’t guarantee free Azure NetApp Files capacity in that zone. If no sufficient capacity is available, volume creation will fail.
+* This feature doesn't guarantee free capacity in the availability zone. For example, even if you can deploy a VM in availability zone 3 of the East US region, it doesn’t guarantee free Azure NetApp Files capacity in that zone. If no sufficient capacity is available, volume creation will fail.
 
 * After a volume is created with an availability zone, the specified availability zone can’t be modified. Volumes can’t be moved between availability zones.
 
-* NetApp accounts and capacity pools are not bound by the availability zone. A capacity pool can contain volumes in different availability zones.  
+* NetApp accounts and capacity pools aren't bound by the availability zone. A capacity pool can contain volumes in different availability zones.  
 
 * This feature provides zonal volume placement, with latency within the zonal latency envelopes. It ***does not*** provide proximity placement towards compute. As such, it ***does not*** provide lowest latency guarantee.
 
 * Each data center is assigned to a physical zone. Physical zones are mapped to logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping at the time a subscription is created. This feature aligns with the generic logical-to-physical availability zone mapping for the subscription. 
 
-* VMs and Azure NetApp Files volumes are to be deployed separately, within the same logical availability zone to create zone alignment between VMs and Azure NetApp Files. The availability zone volume placement feature does not create zonal VMs upon volume creation, or vice versa.
+* VMs and Azure NetApp Files volumes are to be deployed separately, within the same logical availability zone to create zone alignment between VMs and Azure NetApp Files. The availability zone volume placement feature doesn't create zonal VMs upon volume creation, or vice versa.
 
 [!INCLUDE [Availability Zone volumes have the same level of support as other volumes in the subscription](includes/availability-zone-service-callout.md)]
 
 ## Register the feature 
 
-The feature of availability zone volume placement is currently in preview. If you are using this feature for the first time, you need to register the feature first.
+The feature of availability zone volume placement is currently in preview. If you're using this feature for the first time, you need to register the feature first.
 
 1.  Register the feature: 
 
