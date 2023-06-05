@@ -65,8 +65,8 @@
       href: troubleshoot-aks-hybrid-cluster.md
     - name: Troubleshoot Isolation Domain
       href: troubleshoot-isolation-domain.md
-    - name: Troubleshoot Internet host virtual machince
-      href: troubleshoot-internet-host-virtual-machince.md
+    - name: Troubleshoot Internet host virtual machine
+      href: troubleshoot-internet-host-virtual-machine.md
 - name: Sample Deployment
   items:
     - name: VNF Deployment
