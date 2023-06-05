@@ -255,7 +255,7 @@ az feature show --namespace Microsoft.Storage --name ColdTier
 | [Python](/python/api/azure-storage-blob/) | 12.15.0 |
 | [JavaScript](/javascript/api/preview-docs/@azure/storage-blob/) | 12.13.0 |
 | [PowerShell (Az.Storage)](/powershell/azure/install-azure-powershell) | 5.4.2-preview |
-| [Azure CLI extension](/azure/azure-cli-extensions-overview) | storage-blob-preview 0.7.1 |
+| [Azure CLI extension](/cli/azure/install-azure-cli) | storage-blob-preview 0.7.1 |
 | [AzCopy](../common/storage-use-azcopy-v10.md) | 10.18.1 or later|
 
 ## Feature support
