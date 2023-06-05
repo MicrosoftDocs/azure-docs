@@ -231,6 +231,10 @@
       href: faq-defender-for-servers.yml
 - name: How-to guides
   items:
+  - name: Build interactive reports with Azure Monitor workbooks
+    displayName: workbooks, Secure Score Over Time, Vulnerability Assessment Findings
+    href: custom-dashboards-azure-workbooks.md
+    items:
   - name: Cloud security posture
     items:
     - name: Security posture at-a-glance with the Overview dashboard
@@ -242,9 +246,6 @@
     - name: Programmatic ways to track your secure score
       displayName: secure score, rest api, resource graph, 
       href: secure-score-access-and-track.md
-    - name: Build interactive reports with Azure Monitor workbooks
-      displayName: workbooks, Secure Score Over Time, Vulnerability Assessment Findings
-      href: custom-dashboards-azure-workbooks.md
     - name: Create custom recommendations and security standards
       href: create-custom-recommendations.md
     - name: View recommendations and alerts in Windows Admin Center
@@ -539,6 +540,8 @@
           href: sql-azure-vulnerability-assessment-rules-changelog.md
         - name: Store vulnerability scans in storage
           href: /azure/azure-sql/database/sql-database-vulnerability-assessment-storage?toc=/azure/defender-for-cloud/toc.json
+        - name: Consume and export scan results
+          href: defender-for-sql-scan-results.md  
       - name: Investigate threats
         items:
         - name: Overview
