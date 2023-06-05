@@ -161,7 +161,7 @@ You're now ready to run your experiment. To see the effect, we recommend that yo
 1. In the **Experiments** view, select your experiment. Select **Start** > **OK**.
 
    ![Screenshot that shows starting an experiment.](images/tutorial-aks-start.png)
-1. When the **Status** changes to **Running**, select **Details** for the latest run under **History** to see details for the running experiment.
+1. When the **Status** changes to *Running*, select **Details** for the latest run under **History** to see details for the running experiment.
 
 ## Next steps
 Now that you've run an AKS Chaos Mesh service-direct experiment, you're ready to:
