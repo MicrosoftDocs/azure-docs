@@ -6,7 +6,7 @@ author: AvijitkGupta
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 05/30/2023
+ms.date: 06/10/2023
 ---
 
 # pg_azure_storage extension
@@ -21,16 +21,6 @@ You can create the extension from psql by running:
 SELECT create_extension('azure_storage');
 ```
 
-## COPY FROM
-
-`COPY FROM` copies data from a file, hosted on a file system or within `Azure blob storage`, to an SQL table (appending the data to whatever is in the table already). The command is helpful in dealing with large datasets, significantly reducing the time and resources required for data transfer.
-
-```postgresql
-COPY table_name [ ( column_name [, ...] ) ]
-FROM { 'filename' | PROGRAM 'command' | STDIN | Azure_blob_url}
-    [ [ WITH ] ( option [, ...] ) ]
-    [ WHERE condition ]
-```
 > [!NOTE]
 > Syntax and options supported remains likewise to Postgres Native [COPY](https://www.postgresql.org/docs/current/sql-copy.html) command, with following exceptions:
 >
@@ -38,21 +28,6 @@ FROM { 'filename' | PROGRAM 'command' | STDIN | Azure_blob_url}
 > - `HEADER MATCH`
 >
 > `COPY TO` syntax is yet not supported.
-
-### Arguments
-#### Azure_blob_url
-Allows unstructured data to be stored and accessed at a massive scale in block blobs. Objects in blob storage can be accessed from anywhere in the world via HTTPS. The storage client libraries are available for multiple languages, including .NET, Java, Node.js, Python, PHP, and Ruby.
-
-### Option
-#### format
-Specifies the format of destination file. Currently the extension supports following formats
-
-| **Format** | **Description**                                          |
-|------------|----------------------------------------------------------|
-| csv        | Comma-separated values format used by PostgreSQL COPY    |
-| tsv        | Tab-separated values, the default PostgreSQL COPY format |
-| binary     | Binary PostgreSQL COPY format                            |
-| text       | A file containing a single text value (for example, large JSON or XML)                            |
 
 ## azure_storage.account_add
 Function allows adding access to a storage account.

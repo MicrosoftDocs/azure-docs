@@ -236,6 +236,9 @@
         - name: Pg_azure_storage
           href: reference-pg-azure-storage.md
           displayName: pg_azure_storage, extensions
+    - name: COPY
+      href: reference-copy-command.md
+      displayName: pg_azure_storage, copy
     - name: Limits and limitations
       href: reference-limits.md
     - name: Distributed SQL API
