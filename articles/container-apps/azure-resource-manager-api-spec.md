@@ -184,7 +184,7 @@ Changes made to the `template` section are [revision-scope changes](revisions.md
 
 ### <a name="container-app-examples"></a>Examples
 
-For details on health probes, refer to [Heath probes in Azure Container Apps](./health-probes.md).
+For details on health probes, refer to [Health probes in Azure Container Apps](./health-probes.md).
 
 # [ARM template](#tab/arm-template)
 
