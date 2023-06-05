@@ -55,8 +55,6 @@
     href: network-watcher-security-group-view-overview.md
   - name: NSG flow logs
     href: network-watcher-nsg-flow-logging-overview.md
-  - name: VNet flow logs
-    href: vnet-flow-logs-overview.md
   - name: Traffic analytics
     items:
     - name: Overview
