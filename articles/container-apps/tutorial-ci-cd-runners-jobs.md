@@ -440,7 +440,7 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
         --replica-retry-limit 0 \
         --replica-completion-count 1 \
         --parallelism 1 \
-        --image $CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME \
+        --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" \
         --cpu "2.0" \
         --memory "4Gi" \
         --secrets "personal-access-token=$AZP_TOKEN" "organization-url=$ORGANIZATION_URL" \
@@ -493,7 +493,7 @@ az containerapp job create -n $JOB_NAME -g $RESOURCE_GROUP --environment $ENVIRO
     --replica-retry-limit 0 \
     --replica-completion-count 1 \
     --parallelism 1 \
-    --image $CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME \
+    --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" \
     --min-executions 0 \
     --max-executions 10 \
     --polling-interval 30 \
