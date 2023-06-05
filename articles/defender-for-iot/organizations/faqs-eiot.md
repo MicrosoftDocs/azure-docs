@@ -2,7 +2,7 @@
 title: FAQs for Enterprise IoT networks - Microsoft Defender for IoT
 description: Find answers to the most frequently asked questions about Microsoft Defender for IoT Enterprise IoT networks.
 ms.topic: faq
-ms.date: 05/17/2023
+ms.date: 06/05/2023
 ms.custom: enterprise-iot
 ---
 
@@ -30,23 +30,15 @@ Enterprise IoT is designed to help customers secure un-managed devices throughou
 
     For more information, see [Onboard with Microsoft Defender for IoT](eiot-defender-for-endpoint.md).
 
-- **In the Azure portal**: Defender for IoT customers can view their discovered IoT devices in the **Device inventory** page in [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal. Register an Enterprise IoT network sensor, currently in **Public preview** to gain visibility to additional devices that aren't covered by Defender for Endpoint.
+- **In the Azure portal**: Defender for IoT customers can view their discovered IoT devices in the **Device inventory** page in [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal.
 
-    For more information, see [Enhance device discovery with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
+    For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
 ## How can I start using Enterprise IoT?
 
 To get started, Microsoft 365 P2 customers need to [add a Defender for IoT plan with Enterprise IoT](eiot-defender-for-endpoint.md) to an Azure subscription from the Microsoft Defender for Endpoint portal.
 
-**Public Preview**: Defender for Endpoint customers can also install a network sensor to gain more visibility into additional IoT segments of the corporate network that weren't previously covered by Defender for Endpoint. Deploying a network sensor is not a prerequisite for onboarding Enterprise IoT. For more information, see [Enhance device discovery with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
-
 If you’re a Defender for Endpoint customer, when adding your Defender for IoT plan, take care to exclude any devices already [managed by Defender for Endpoint](/microsoft-365/security/defender-endpoint/device-discovery) from your count of devices you want to monitor.
-
-## How can I use the Enterprise IoT network sensor?
-
-The Enterprise IoT network sensor is currently in Public Preview and can be used by all customers without additional charge. Onboard a Defender for IoT plan with Enterprise IoT, and then set up your Enterprise IoT network sensor.
-
-For more information, see [Onboard with Microsoft Defender for IoT](eiot-defender-for-endpoint.md) and [Enhance device discovery with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
 
 ## What permissions do I need to add a Defender for IoT plan? Can I use any Azure subscription?
 
@@ -90,7 +82,6 @@ If you haven't changed your plan from a trial to a monthly commitment by the tim
 
 To change your plan from a trial to a monthly commitment before the end of the trial, you'll need to cancel your trial plan and onboard a new plan in Defender for Endpoint. For more information, see [Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
-
 ## How can I resolve billing issues associated with my Defender for IoT plan?
 
 For any billing or technical issues, create a support request in the Azure portal.
@@ -101,5 +92,4 @@ For more information on getting started with Enterprise IoT, see:
 
 - [Securing IoT devices in the enterprise](concept-enterprise.md)
 - [Enable Enterprise IoT security in Defender for Endpoint](eiot-defender-for-endpoint.md)
-- [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md)
 - [Manage Defender for IoT plans for Enterprise IoT security monitoring](manage-subscriptions-enterprise.md)
