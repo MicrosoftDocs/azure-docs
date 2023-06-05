@@ -1,30 +1,31 @@
 ---
-title: Cross-resource query Azure Resource Graph by using Azure Monitor
-description: Use Azure Monitor to perform cross-product queries between Azure Resource Graph, Log Analytics workspaces, and classic Application Insights applications in Azure Monitor.
-author: osalzberg
-ms.author: orens
+title: Query data in Azure Resource Graph and Azure Data Explorer from Azure Monitor
+description: Query data in Azure Resource Graph and Azure Data Explorer from Azure Monitor.
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 06/05/2023
 ms.reviewer: osalzberg
 
 ---
-# Cross-resource query Azure Resource Graph by using Azure Monitor
-Azure Monitor supports cross-service queries between Azure Resource Graph, [Application Insights](../app/app-insights-overview.md), and [Log Analytics](../logs/data-platform-logs.md). You can then query your Azure Resource Graph tables by using Log Analytics or Application Insights tools and refer to it in a cross-service query. This article shows how to make a cross-service query.
+# Query data in Azure Resource Graph and Azure Data Explorer from Azure Monitor
+Azure Monitor lets you query data in [Azure Resource Graph](../../governance/resource-graph/) and [Azure Data Explorer](/azure/data-explorer/data-explorer-overview.md). This article shows how to make a cross-service query from Azure Monitor.
 
 ## Cross query your Log Analytics or Application Insights resources and Azure Resource Graph
 
-You can run cross-resource queries by using client tools that support Kusto queries. Examples of these tools include the Log Analytics web UI, workbooks, PowerShell, and the REST API.
+You can run cross-resource queries by using any client tools that support Kusto Query Language (KQL) queries, including the Log Analytics web UI, workbooks, PowerShell, and the REST API.
+
+## Syntax
+
+`arg(״<Azure-Resource-Graph-table>״).Resources`
 
 Enter the `arg("")` pattern, followed by the Azure Resource Graph table.
 
-```kusto
-arg(״״).Resources
-```
 :::image type="content" source="media/azure-arg-monitor-proxy/azure-arg-monitor-query-example.png" alt-text="Screenshot that shows an example of a cross-service query.":::
 
 > [!NOTE]
 >* Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass along the time filter.
-> * The cross-service query ability is used for data retrieval only. For more information, see [Function supportability](#function-supportability).
+>* The cross-service query ability is used for data retrieval only. For more information, see [Function supportability](#function-supportability).
 
 ## Function supportability
 
