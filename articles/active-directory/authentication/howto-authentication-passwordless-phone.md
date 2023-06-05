@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 05/16/2023
 
 
 ms.author: justinha
@@ -50,9 +50,6 @@ To use passwordless phone sign-in with Microsoft Authenticator, the following pr
 - For iOS, the device must be registered with each tenant where it's used to sign in. For example, the following device must be registered with Contoso and Wingtiptoys to allow all accounts to sign in:
   - balas@contoso.com
   - balas@wingtiptoys.com and bsandhu@wingtiptoys
-- For iOS, we recommend enabling the option in Microsoft Authenticator to allow Microsoft to gather usage data. It's not enabled by default. To enable it in Microsoft Authenticator, go to **Settings** > **Usage Data**.
-  
-  :::image type="content" border="true" source="./media/howto-authentication-passwordless-phone/telemetry.png" alt-text="Screenshot of Usage Data in Microsoft Authenticator.":::
 
 To use passwordless authentication in Azure AD, first enable the combined registration experience, then enable users for the passwordless method.
 
@@ -139,7 +136,7 @@ Admins can also configure parameters to better control how Microsoft Authenticat
 
 Global Administrators can also manage Microsoft Authenticator on a tenant-wide basis by using legacy MFA and SSPR policies. These policies allow Microsoft Authenticator to be enabled or disabled for all users in the tenant. There are no options to include or exclude anyone, or control how Microsoft Authenticator can be used for sign-in. 
 
-## Known Issues
+## Known issues
 
 The following known issues exist.
 
@@ -154,7 +151,11 @@ To resolve this scenario, follow these steps:
 
 Then the user can continue to use passwordless phone sign-in.
 
-### Federated Accounts
+### AuthenticatorAppSignInPolicy not supported
+
+The AuthenticatorAppSignInPolicy is a legacy policy that is not supported with Microsoft Authenticator. In order to enable your users for push notifications or passwordless phone sign-in with the Authenticator app, use the [Authentication Methods policy](concept-authentication-methods-manage.md). 
+
+### Federated accounts
 
 When a user has enabled any passwordless credential, the Azure AD login process stops using the login\_hint. Therefore the process no longer accelerates the user toward a federated login location.
 

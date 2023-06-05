@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected System Center Virtual Machine Manager (preview)
 description: This article provides a detailed overview of the Azure Arc-enabled System Center Virtual Machine Manager (preview).
-ms.date: 03/07/2023
+ms.date: 05/19/2023
 ms.topic: conceptual
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
@@ -69,6 +69,10 @@ In addition, SCVMM requires the following exception:
 [!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
 
 For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
+
+## Data Residency
+
+Azure Arc-enabled SCVMM doesn't store/process customer data outside the region the customer deploys the service instance in.
 
 ## Next steps
 

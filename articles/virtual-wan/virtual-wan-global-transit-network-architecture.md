@@ -125,7 +125,7 @@ This flag is visible when the user edits a virtual network connection, a VPN con
 
 The Azure Virtual WAN hubs interconnect all the networking end points across the hybrid network and potentially see all transit network traffic. Virtual WAN hubs can be converted to Secured Virtual Hubs by deploying the Azure Firewall inside VWAN hubs to enable cloud-based security, access, and policy control. Orchestration of Azure Firewalls in virtual WAN hubs can be performed by Azure Firewall Manager.
 
-[Azure Firewall Manager](../firewall-manager/index.yml) provides the capabilities to manage and scale security for global transit networks. Azure Firewall Manager provides ability to centrally manage routing, global policy management, advanced Internet security services via third-party along with the Azure Firewall. To learn about how to secure your private and internet traffic, please see [Virtual Hub Routing Intent] (how-to-routing-policies.md).
+[Azure Firewall Manager](../firewall-manager/index.yml) provides the capabilities to manage and scale security for global transit networks. Azure Firewall Manager provides ability to centrally manage routing, global policy management, advanced Internet security services via third-party along with the Azure Firewall. To learn about how to secure your private and internet traffic, please see [Virtual Hub Routing Intent](how-to-routing-policies.md).
 
 :::image type="content" source="./media/virtual-wan-global-transit-network-architecture/secured-hub.png" alt-text="Diagram of secured virtual hub with Azure Firewall." lightbox="./media/virtual-wan-global-transit-network-architecture/secured-hub.png":::
 

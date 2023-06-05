@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use Azure OpenAI Service with the C# SDK'
 titleSuffix: Azure OpenAI
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the C# SDK. 
+description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the C# SDK.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -10,7 +10,7 @@ ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/03/2023
-keywords: 
+keywords:
 ---
 
 [Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.OpenAI/) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)
@@ -20,10 +20,13 @@ keywords:
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
-- The [.NET 7 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+- The [.NET 7 SDK](https://dotnet.microsoft.com/download/dotnet/7.0)
 - An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4`<sup>1</sup> models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 <sup>1</sup> **GPT-4 models are currently only available by request.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
 
 ## Set up
 
@@ -77,11 +80,11 @@ Create and assign persistent environment variables for your key and endpoint.
 # [Command Line](#tab/command-line)
 
 ```CMD
-setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
 ```
 
 ```CMD
-setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 ```
 
 # [PowerShell](#tab/powershell)
@@ -104,6 +107,9 @@ echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environm
 echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
 ```
 ---
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
 
 ## Create .NET application
 
@@ -155,7 +161,7 @@ dotnet run program.cs
 Yes, many of the Azure Cognitive Services support customer managed keys. Some examples include Azure Cognitive Services Text Analytics, Speech Services, and Translator. However, it's important to note that not all services support customer managed keys, so it's best to check the documentation for each individual service to see if it is supported.
 ```
 
-This will wait until the model has generated its entire response before printing the results. Alternatively, if you want to asynchronously stream the response and print the results, you can replace the contents of *program.cs* with the code in the next example.  
+This will wait until the model has generated its entire response before printing the results. Alternatively, if you want to asynchronously stream the response and print the results, you can replace the contents of *program.cs* with the code in the next example.
 
 ### Async with streaming
 
@@ -195,6 +201,9 @@ await foreach (StreamingChatChoice choice in streamingChatCompletions.GetChoices
     Console.WriteLine();
 }
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the code samples.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Create-dotnet-application)
 
 ## Clean up resources
 

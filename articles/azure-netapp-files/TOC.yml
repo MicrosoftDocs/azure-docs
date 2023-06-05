@@ -65,6 +65,8 @@
       href: performance-oracle-multiple-volumes.md
     - name: Azure NetApp Files datastore performance benchmarks for AVS 
       href: performance-benchmarks-azure-vmware-solution.md
+    - name: AVS datastore performance considerations for Azure NetApp Files 
+      href: performance-azure-vmware-solution-datastore.md
     - name: Performance reference for Azure NetApp Files
       items:
       - name: Linux direct I/O best practices

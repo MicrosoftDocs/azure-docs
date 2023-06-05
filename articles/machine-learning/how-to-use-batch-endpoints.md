@@ -97,7 +97,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch i
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
 
-    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="create_batch_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="create_endpoint" :::
 
     # [Python](#tab/python)
     
@@ -162,11 +162,7 @@ job = ml_client.batch_endpoints.invoke(
 Batch endpoints support reading files or folders from different locations. To learn more about the supported types and how to specify them read [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md). 
 
 > [!TIP]
-> Local data folders/files can be used when executing batch endpoints from the Azure Machine Learning CLI or Azure Machine Learning SDK for Python. However, that operation will result in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you are working on.
-
-> [!IMPORTANT]
-> __Deprecation notice__: Datasets of type `FileDataset` (V1) are deprecated and will be retired in the future. Existing batch endpoints relying on this functionality will continue to work but batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 dataset.
-
+> **Using the REST API:** Batch endpoints provide an open and durable API to invoke the endpoints and create jobs. See [Create jobs and input data for batch endpoints (REST)](how-to-access-data-batch-endpoints-jobs.md?tabs=rest) to learn how to use it.
 
 ## Accessing outputs from batch jobs
 
@@ -176,7 +172,7 @@ For instance, the following example downloads the output __score__ from the job.
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="download_scores" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="download_outputs" :::
 
 # [Python](#tab/python)
 
@@ -206,13 +202,15 @@ Batch endpoints can handle multiple deployments under the same endpoint, allowin
 
 You can add, remove, and update deployments without affecting the endpoint itself.
 
+:::image type="content" source="./media/concept-endpoints/batch-endpoint-mlops.gif" alt-text="Diagram describing how multiple deployments can be used under the same endpoint.":::
+
 ### Add non-default deployments
 
 To add a new deployment to an existing endpoint, use the  code:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="create_new_deployment_not_default" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="create_deployment_non_default" :::
 
 # [Python](#tab/python)
 

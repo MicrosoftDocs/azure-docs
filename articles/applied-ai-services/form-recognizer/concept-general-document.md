@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
@@ -24,7 +24,7 @@ The General document v3.0 model combines powerful Optical Character Recognition 
 
 ## General document features
 
-* The general document model is a pre-trained model; it doesn't require labels or training.
+* The general document model is a pretrained model; it doesn't require labels or training.
 
 * A single API extracts key-value pairs, selection marks, text, tables, and structure from documents.
 

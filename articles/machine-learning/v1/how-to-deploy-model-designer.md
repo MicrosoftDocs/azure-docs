@@ -26,7 +26,7 @@ Deployment in the studio consists of the following steps:
 1. (Optional) Configure the entry script.
 1. Deploy the model to a compute target.
 
-You can also deploy models directly in the designer to skip model registration and file download steps. This can be useful for rapid deployment. For more information see, [Deploy a model with the designer](../tutorial-designer-automobile-price-deploy.md).
+You can also deploy models directly in the designer to skip model registration and file download steps. This can be useful for rapid deployment. For more information see, [Deploy a model with the designer](tutorial-designer-automobile-price-deploy.md).
 
 Models trained in the designer can also be deployed through the SDK or command-line interface (CLI). For more information, see [Deploy your existing model with Azure Machine Learning](how-to-deploy-and-where.md).
 
@@ -295,7 +295,7 @@ score_params = dict(
 
 ## Next steps
 
-* [Train a model in the designer](../tutorial-designer-automobile-price-train-score.md)
+* [Train a model in the designer](tutorial-designer-automobile-price-train-score.md)
 * [Deploy models with Azure Machine Learning SDK](how-to-deploy-and-where.md)
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
 * [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
