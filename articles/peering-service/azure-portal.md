@@ -38,9 +38,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search box at the top of the portal, enter *Peering Service*. Select **Peering Services** in the search results.
 
+    :::image type="content" source="./media/azure-portal/peering-service-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal." lightbox="./media/azure-portal/peering-service-portal-search.png":::
+
 1. Select **+ Create**.
 
-1. In **Create a peering service connection**, enter or select the following information on the **Basics** page:
+1. On the **Basics** of **Create a peering service connection**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -72,7 +74,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
     :::image type="content" source="./media/azure-portal/peering-service-configuration.png" alt-text="Screenshot of the Configuration tab of Create a peering service connection in Azure portal."::: 
 
 1. Select **Review + create**.
-    
 
 1. Review the settings, and then select **Create**.
 
@@ -112,6 +113,5 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Next steps
 
 - To learn more about Peering Service connection, see [Peering Service connection](connection.md).
-- To learn more about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-- To measure Peering Service connection telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+- To learn more about Peering Service connection telemetry, see [Access Peering Service connection telemetry](connection-telemetry.md).
 
