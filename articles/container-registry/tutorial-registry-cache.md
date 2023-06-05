@@ -17,7 +17,7 @@ This article is part one in a six-part tutorial series. The tutorial covers:
 3. [Enable Cache for ACR with authentication - Azure portal](tutorial-enable-registry-cache-auth.md)
 4. [Enable Cache for ACR - Azure CLI](tutorial-enable-registry-cache-cli.md)
 5. [Enable Cache for ACR with authentication - Azure CLI](tutorial-enable-registry-cache-auth-cli.md)
-6. [Troubleshooting guide for Cache for ACR](tutorial-private-link-troubleshoot.md)
+6. [Troubleshooting guide for Cache for ACR](tutorial-troubleshoot-registry-cache.md)
 
 ## Cache for ACR (Preview)
 
