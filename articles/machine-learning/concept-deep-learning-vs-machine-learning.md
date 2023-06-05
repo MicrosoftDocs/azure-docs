@@ -38,7 +38,7 @@ Consider the following definitions to understand deep learning vs. machine learn
 
 - **Artificial intelligence (AI)** is a technique that enables computers to mimic human intelligence. It includes machine learning.
 
-- **Generative AI** is a subset of artificial intelligence that uses techniques (such as deep learning) to generate new data. For example, you can use generative AI to create images, text, or audio. 
+- **Generative AI** is a subset of artificial intelligence that uses techniques (such as deep learning) to generate new content. For example, you can use generative AI to create images, text, or audio. These models leverage massive pre-trained knowledge to generate this content.
 
 By using machine learning and deep learning techniques, you can build computer systems and applications that do tasks that are commonly associated with human intelligence. These tasks include image recognition, speech recognition, and language translation.
 
