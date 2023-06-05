@@ -615,20 +615,20 @@
     href: how-to-schedule-pipeline-job.md
   # v1
   - name: Build & use ML pipelines
-        items:
-          - name: Create ML pipelines (Python)
-            href: ./v1/how-to-create-machine-learning-pipelines.md
-          - name: Moving data into and between ML pipeline steps (Python)
-            href: ./v1/how-to-move-data-in-out-of-pipelines.md
-          - name: Use automated ML in ML pipelines (Python)
-            displayName: machine learning automl
-            href: ./v1/how-to-use-automlstep-in-pipelines.md
-          - name: Deploy ML pipelines (Python)
-            href: ./v1/how-to-deploy-pipelines.md
-          - name: Use Azure Synapse Apache spark pools in an ML pipeline (Python)
-            href: ./v1/how-to-use-synapsesparkstep.md
-          - name: Trigger a pipeline
-            href: ./v1/how-to-trigger-published-pipeline.md
+    items:
+      - name: Create ML pipelines (Python)
+        href: ./v1/how-to-create-machine-learning-pipelines.md
+      - name: Moving data into and between ML pipeline steps (Python)
+        href: ./v1/how-to-move-data-in-out-of-pipelines.md
+      - name: Use automated ML in ML pipelines (Python)
+        displayName: machine learning automl
+        href: ./v1/how-to-use-automlstep-in-pipelines.md
+      - name: Deploy ML pipelines (Python)
+        href: ./v1/how-to-deploy-pipelines.md
+      - name: Use Azure Synapse Apache spark pools in an ML pipeline (Python)
+        href: ./v1/how-to-use-synapsesparkstep.md
+      - name: Trigger a pipeline
+        href: ./v1/how-to-trigger-published-pipeline.md
   # end v1
   # v1
   - name: Convert notebook code into Python scripts
