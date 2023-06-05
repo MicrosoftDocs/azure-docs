@@ -7,6 +7,7 @@ author: athinanthny
 ms.service: container-instances
 services: container-instances
 ms.date: 05/14/2023
+ms.custom: references_regions
 ---
 
 # Azure Container Instances Spot Containers (preview)
