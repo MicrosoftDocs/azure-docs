@@ -31,7 +31,7 @@ A *not authorized error* while accessing the remote desktop dashboard URL indica
 #### Failing for all users
 
 - Review the [Create an application in Azure Active Directory](./quickstart-create-portal.md#create-an-application-in-azure-active-directory) article to verify your application registration is set up correctly.
-- Review the [Update the application in Azure Active Directory](./quickstart-create-portal.md#update-the-application-in-azure-active-directory) article to confirm your chamber connector's redirect URIs are set up correctly.
+- Review the [Update the application in Azure Active Directory](./quickstart-create-portal.md#add-redirect-uris-for-the-application-in-azure-active-directory) article to confirm your chamber connector's redirect URIs are set up correctly.
 - Review the application registration secrets for Modeling and Simulation Workbench and check to see if your application client secret has expired. Complete the following steps if it's expired.
     1. Generate a new secret and make note of the client secret value.
     1. Update your Key Vault app secret value with the newly generated client **secret value.**

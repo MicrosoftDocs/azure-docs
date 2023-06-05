@@ -29,7 +29,7 @@ Provide the following information:
   - Resource names, resource IDs, resource JSON for resources involved.
   - Steps to reproduce.
   - Screenshots of errors returned.
-  - Any helpful information from [activity logs.](./resources-get-support.md#access-to-modeling-and-simulation-workbench-activity-logs)
+  - Any helpful information from [activity logs.](./resources-get-support.md#access-modeling-and-simulation-workbench-activity-logs)
 
 ## Access Modeling and Simulation Workbench activity logs
 
