@@ -39,7 +39,7 @@ Get-VmSwitch
 ```
 Depending on the virtual switches of the Windows host, the output should be similar to the following:
 
-```output
+```Output
 Name           SwitchType NetAdapterInterfaceDescription
 ----           ---------- ------------------------------
 Default Switch Internal
@@ -77,9 +77,14 @@ Deploy-Eflow -vSwitchType "External" -vSwitchName "EFLOW-Ext" -ip4Address "192.1
 > The EFLOW VM will keep the same MAC address for the main (used during deployment) virtual switch across reboots. If you are using DHCP MAC address reservation, you can get the main virtual switch MAC address using the PowerShell cmdlet: `Get-EflowVmAddr`.
 
 ### Check IP allocation
-There are multiple ways to check the IP address that was allocated to the EFLOW VM. First, using an elevated PowerShell session, use the EFLOW cmdlet `Get-EflowVmAddr`. The output should be something similar to the following one:
+There are multiple ways to check the IP address that was allocated to the EFLOW VM. First, using an elevated PowerShell session, use the EFLOW cmdlet:
 
-```output
+```bash
+Get-EflowVmAddr
+```
+The output should be something similar to the following:
+
+```Output
 C:\> Get-EflowVmAddr
 
 [03/31/2022 12:54:31] Querying IP and MAC addresses from virtual machine (DESKTOP-EFLOW)
@@ -90,9 +95,9 @@ C:\> Get-EflowVmAddr
 172.27.120.111
 ``` 
 
-Another way, is using the `Connect-Eflow` cmdlet to remote into the VM, and then you can use the `ifconfig eth0` bash command, and check for the *eth0* interface. The output should be something similar to the following one:
+Another way, is using the `Connect-Eflow` cmdlet to remote into the VM, and then you can use the `ifconfig eth0` bash command, and check for the *eth0* interface. The output should be similar to the following:
 
-```output
+```Output
 eth0      Link encap:Ethernet  HWaddr 00:15:5d:4e:15:2c
           inet addr:172.27.120.111  Bcast:172.27.127.255  Mask:255.255.240.0
           inet6 addr: fe80::215:5dff:fe4e:152c/64 Scope:Link
@@ -115,7 +120,7 @@ resolvectl | grep eth0 -A 8
 
 The output should be something similar to the following. Check the IP addresses of the "Current DNS Servers" and "DNS Servers" fields of the list. If there's no IP address, or the IP address isn't a valid DNS server IP address, then the DNS service won't work.
 
-```output
+```Output
 Link 2 (eth0)
       Current Scopes: DNS
        LLMNR setting: yes
