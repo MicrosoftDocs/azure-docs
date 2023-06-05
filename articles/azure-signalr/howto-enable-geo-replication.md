@@ -1,3 +1,14 @@
+---
+title: How to enable geo-replication
+description: How to enable geo-replication for Azure SignalR service
+author: biqian
+
+ms.author: biqian
+ms.date: 06/01/2023
+ms.service: azure-signalr
+ms.topic: how-to
+---
+
 # Azure SignalR Geo-Replication
 
 Companies seeking local presence or requiring a robust failover system often choose to deploy services across multiple Azure regions. With the integration of geo-replication in Azure SignalR, managing multi-region scenarios has become significantly easier.
@@ -51,8 +62,8 @@ The geo-replication feature of Azure SignalR Service has following benefits:
 To create a replica, Navigate to the SignalR **Replicas** blade on the Azure portal and click **Add** to create a replica. It will be automatically enabled upon creation.
 ![SignalR Replica Creation](https://github.com/bjqian/azure-docs/assets/16233725/9e314ee1-d164-4530-9b70-25540f401d5d)
 > [!NOTE]
-> * The replica feature is available only for Premium tier.
-> * Creating a replica incurs additional cost. Refer to below **Pricing** section for details. 
+> * Geo-replication is a feature available in premium tier.
+> * A replica is considered a separate resource when it comes to billing. See [Pricing](concept-billing-model.md/#how-replica-is-billed) for more details. 
 
 ## Pricing
 Replica is a feature of [Premium tier](https://azure.microsoft.com/en-us/pricing/details/signalr-service/) of Azure SignalR Service. When you create a replica in desired regions, you incur Premium fees for each region.
