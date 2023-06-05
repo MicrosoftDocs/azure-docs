@@ -246,13 +246,13 @@ Now that you have a container image that runs a GitHub Actions runner, you can c
 1. Create a job in the Container Apps environment.
 
     ```bash
-    az containerapp job create -n $JOB_NAME -g $RESOURCE_GROUP --environment $ENVIRONMENT \
+    az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
         --trigger-type Event \
         --replica-timeout 300 \
         --replica-retry-limit 0 \
         --replica-completion-count 1 \
         --parallelism 1 \
-        --image $CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME \
+        --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" \
         --min-executions 0 \
         --max-executions 10 \
         --polling-interval 30 \
@@ -434,7 +434,7 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
 1. Create a manual job in the Container Apps environment that creates the placeholder agent.
 
     ```bash
-    az containerapp job create -n "$PLACEHOLDER_JOB_NAME" -g $RESOURCE_GROUP --environment $ENVIRONMENT \
+    az containerapp job create -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
         --trigger-type Manual \
         --replica-timeout 300 \
         --replica-retry-limit 0 \
@@ -465,7 +465,7 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
 1. Execute the manual job to create the placeholder agent.
 
     ```bash
-    az containerapp job start -n "$PLACEHOLDER_JOB_NAME" -g $RESOURCE_GROUP
+    az containerapp job start -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP"
     ```
 
 1. List the executions of the job to confirm a job execution was created and completed successfully.
@@ -487,7 +487,7 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
 Now that you have a placeholder agent, you can create a self-hosted agent. In this section, you create an event-driven job that runs a self-hosted agent when a pipeline is triggered.
 
 ```bash
-az containerapp job create -n $JOB_NAME -g $RESOURCE_GROUP --environment $ENVIRONMENT \
+az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
     --trigger-type Event \
     --replica-timeout 300 \
     --replica-retry-limit 0 \
