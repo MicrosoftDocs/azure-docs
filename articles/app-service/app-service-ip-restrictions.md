@@ -54,7 +54,7 @@ You must have at least the following Role-based access control permissions on th
 | Action | Description |
 |-|-|
 | Microsoft.Web/sites/config/read | Get Web App configuration settings |
-| Microsoft.Web/sites/config/write | Update Web App's configuration settings |
+| Microsoft.Web/sites/write, Microsoft.Web/sites/config/write | Update Web App's configuration settings |
 | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action* | Joins resource such as storage account or SQL database to a subnet |
 
 **only required when adding a virtual network (service endpoint) rule.*
