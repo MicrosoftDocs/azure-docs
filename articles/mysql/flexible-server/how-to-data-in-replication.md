@@ -171,7 +171,7 @@ The results should appear similar to the following. Make sure to note the binary
 
     You can use mysqldump to dump databases from your primary server. For details, refer to [Dump & Restore](../concepts-migrate-dump-restore.md). It's unnecessary to dump the MySQL library and test library.
 
-1. Set source server to read/write mode.
+2. Set source server to read/write mode.
 
    After the database has been dumped, change the source MySQL server back to read/write mode.
 
@@ -179,30 +179,26 @@ The results should appear similar to the following. Make sure to note the binary
    SET GLOBAL read_only = OFF;
    UNLOCK TABLES;
    ```
+[!NOTE]  
+> Before the server is set back to read/write mode, you can retrieve the GTID information using global variable GTID_EXECUTED. The same will be used at the later stage to set GTID on the replica server
 
-1. Restore dump file to new server.
+3. Restore dump file to new server.
 
    Restore the dump file to the server created in the Azure Database for MySQL - Flexible Server service. Refer to [Dump & Restore](../concepts-migrate-dump-restore.md) for how to restore a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL - Flexible Server server from the virtual machine.
 
 > [!NOTE]  
 > If you want to avoid setting the database to read only when you dump and restore, you can use [mydumper/myloader](../concepts-migrate-mydumper-myloader.md).
 
-## Retrieve gtid information from the source server dump
+## Set GTID in Replica Server
 
 1. Skip the step if using bin-log position-based replication
 
 2. GTID information from the dump file taken from the source is required to reset GTID history of the target (replica) server.
 
-3. GTID information from the source server can be retrieved using the following statement:
-
-    ```sql
-    show global variables like 'gtid_executed’;
-    UNLOCK TABLES;
-    ```
-4.	Use this GTID information from the source to execute GTID reset on the replica server using the following CLI command:
+3.	Use this GTID information from the source to execute GTID reset on the replica server using the following CLI command:
 
     ```azurecli-interactive
-    az mysql flexible-server gtid reset --resource-group  <resource group> --server-name <source server name> --gtid-set <gtid set from the source server> --subscription <subscription id>
+    az mysql flexible-server gtid reset --resource-group  <resource group> --server-name <replica server name> --gtid-set <gtid set from the source server> --subscription <subscription id>
     ```
 
     For more details refer [GTID Reset](/cli/azure/mysql/flexible-server/gtid).

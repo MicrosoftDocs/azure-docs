@@ -438,7 +438,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
   + **azureml-responsibleai**
     + Improve error message on failed dashboard download
   + **azureml-train-automl-client**
-    + Added support for computer vision tasks such as Image Classification, Object Detection and Instance Segmentation. Detailed documentation can be found at: [Set up AutoML to train computer vision models with Python (v1)](how-to-auto-train-image-models-v1.md).
+    + Added support for computer vision tasks such as Image Classification, Object Detection and Instance Segmentation. Detailed documentation can be found at: [Set up AutoML to train computer vision models with Python (v1)](how-to-auto-train-image-models.md).
     + Enable binary metrics calculation
   + **azureml-train-automl-runtime**
     + Add TCNForecaster support to model test runs.
@@ -2308,7 +2308,7 @@ Access the following web-based authoring tools from the studio:
 |-|-|-|
 | Notebook VM(preview) | Fully managed cloud-based workstation | 
 | [Automated machine learning](../tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | 
-| [Designer](../concept-designer.md) | Drag-and-drop machine learning modeling tool formerly known as the visual interface | 
+| [Designer](concept-designer.md) | Drag-and-drop machine learning modeling tool formerly known as the visual interface | 
 
 
 ### Azure Machine Learning designer enhancements
@@ -2616,7 +2616,7 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
     + Fixed metadata parameters parsing in [AzureBatchStep that was causing the error message "assignment for parameter SubscriptionId is not specified".
   + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + Supported training_data, validation_data, label_column_name, weight_column_name as data input format.
-    + Added deprecation message for [explain_model()](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#explain-model-fitted-model--x-train--x-test--best-run-none--features-none--y-train-none----kwargs-) and [retrieve_model_explanations()](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#retrieve-model-explanation-child-run-).
+    + Added deprecation message for explain_model() and retrieve_model_explanations().
 
 
 ## 2019-09-16

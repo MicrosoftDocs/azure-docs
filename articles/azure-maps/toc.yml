@@ -351,6 +351,8 @@ items:
       href: how-to-use-indoor-module-ios.md
   - name: Use Azure Maps in Power BI
     items: 
+    - name: Convert Map and Filled map visuals
+      href: power-bi-visual-conversion.md
     - name: The Azure Maps Power BI visual
       href: power-bi-visual-get-started.md
     - name: Geocoding in Azure Maps Power BI Visual
