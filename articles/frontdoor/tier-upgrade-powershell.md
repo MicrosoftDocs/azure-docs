@@ -45,17 +45,16 @@ Global   myAzureFrontDoor  frontdoor myAFDResourceGroup
 
 1. Run the [New-AzFrontDoorCdnProfileChangeSkuWafMappingObject](/powershell/module/az.cdn/new-azfrontdoorcdnprofilechangeskuwafmappingobject) command to create a new object for the WAF policy mapping.
 
-    ```powershell-interactive
-    $waf1 = New-AzFrontDoorCdnProfileChangeSkuWafMappingObject -WafPolicyId /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/<wafPolicyName>
-
-    $waf2 = New-AzFrontDoorCdnProfileChangeSkuWafMappingObject -WafPolicyId /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/<wafPolicyName>
-    ```
-
     Replace the following values in the command:
 
     * `<subscriptionId>`: Your subscription ID.
     * `<resourceGroupName>`: The resource group name of the WAF policy.
     * `<wafPolicyName>`: The name of the WAF policy.
+
+    ```powershell-interactive
+    $waf1 = New-AzFrontDoorCdnProfileChangeSkuWafMappingObject -WafPolicyId /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/<wafPolicyName>
+
+    $waf2 = New-AzFrontDoorCdnProfileChangeSkuWafMappingObject -WafPolicyId /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/<wafPolicyName>
     ```
 
 1. Run the [New-AzFrontDoorCdnProfileUpgradeParametersObject](/powershell/module/az.cdn/new-azfrontdoorcdnprofileupgradeparametersobject) command to create a new object for the upgrade parameters.
