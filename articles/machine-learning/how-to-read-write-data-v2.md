@@ -355,7 +355,7 @@ When you run a job with data inputs/outputs, you can select from various *modes*
 - **`upload`:** Upload data from the compute target to the storage location.
 - **`eval_mount`/`eval_download`:** *These modes are unique to MLTable.* In some scenarios, an MLTable can yield files that aren't necessarily located in the same storage account as the MLTable file. Or, an MLTable can subset or shuffle the data located in the storage resource. That view of the subset/shuffle becomes visible only if the Azure Machine Learning data runtime actually evaluates the MLTable file. For example, this diagram shows how an MLTable used with `eval_mount` or `eval_download` can take images from two different storage containers and an annotations file located in a different storage account and then mount/download to the remote compute target's filesystem.
 
-    :::image type="content" source="media/how-to-read-write-data-v2/eval-mount.png" alt-text="Screenshot showing evaluation of mount."lightbox="media/how-to-read-write-data-v2/eval-mount.png":::
+    :::image type="content" source="media/how-to-read-write-data-v2/eval-mount.png" alt-text="Screenshot showing evaluation of mount." lightbox="media/how-to-read-write-data-v2/eval-mount.png":::
 
     The `camera1` folder, `camera2` folder and `annotations.csv` file are then accessible on the compute target's filesystem in the folder structure:
     ```
@@ -792,7 +792,7 @@ To access the logs of the data runtime from your job:
 1. Select **Outputs+Logs** tab from the job page.
 1. Select the **system_logs** folder, followed by **data_capability** folder.
 1. You should see two log files:
-    :::image type="content" source="media/how-to-read-write-data-v2/data-runtime-logs.png" alt-text="Screenshot showing data runtime logs.":::
+    :::image type="content" source="media/how-to-read-write-data-v2/data-runtime-logs.png" alt-text="Screenshot showing data runtime logs." lightbox="media/how-to-read-write-data-v2/data-runtime-logs.png":::
 
 The log file **data-capability.log** shows the high-level information about the time spent on key data loading tasks. For example, when you download data, the runtime logs the download activity start and finish times:
 
@@ -815,7 +815,7 @@ The **rslex.log** file details all the file copying, whether or not you chose th
 
 In the Azure portal, you can select your Storage account and then **Metrics** to see the storage metrics:
 
-:::image type="content" source="media/how-to-read-write-data-v2/blobmetrics.png" alt-text="Screenshot showing blob metrics.":::
+:::image type="content" source="media/how-to-read-write-data-v2/blobmetrics.png" alt-text="Screenshot showing blob metrics." lightbox="media/how-to-read-write-data-v2/blobmetrics.png":::
 
 You then plot the **SuccessE2ELatency** with **SuccessServerLatency**. If the **metrics show high SuccessE2ELatency and low SuccessServerLatency**, you have limited available threads, or you're low on resources such as CPU, memory, or network bandwidth. You should:
 
@@ -831,7 +831,7 @@ If the **metrics show low SuccessE2ELatency and low SuccessServerLatency but the
 
 From the Azure Machine Learning studio, you can also monitor the compute target disk IO and usage during your job execution. Navigate to your job and select the **Monitoring** tab. This tab provides insights on the resources of your job, on a 30 day rolling basis. For example:
 
-:::image type="content" source="media/how-to-read-write-data-v2/disk-usage.png" alt-text="Screenshot showing disk usage during job execution.":::
+:::image type="content" source="media/how-to-read-write-data-v2/disk-usage.png" alt-text="Screenshot showing disk usage during job execution." lightbox="media/how-to-read-write-data-v2/disk-usage.png":::
 
 > [!NOTE]
 > Job monitoring supports only compute that Azure Machine Learning manages. Jobs with a runtime of less than 5 minutes will not have enough data to populate this view.
