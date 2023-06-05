@@ -135,7 +135,7 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [AppTraces](/azure/azure-monitor/reference/tables/apptraces) | |
 | [ASimAuditEventLogs](/azure/azure-monitor/reference/tables/ASimAuditEventLogs) | |
 | [ASimDnsActivityLogs](/azure/azure-monitor/reference/tables/ASimDnsActivityLogs) | |
-| [ASimFileEventLogs](/azure/azure-monitor/reference/tables/ASimFileEventLogs) | |
+| ASimFileEventLogs | |
 | [ASimNetworkSessionLogs](/azure/azure-monitor/reference/tables/ASimNetworkSessionLogs) | |
 | [ASimWebSessionLogs](/azure/azure-monitor/reference/tables/ASimWebSessionLogs) | |
 | [ATCExpressRouteCircuitIpfix](/azure/azure-monitor/reference/tables/atcexpressroutecircuitipfix) | |
@@ -189,8 +189,8 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [DatabricksSQLPermissions](/azure/azure-monitor/reference/tables/databrickssqlpermissions) | |
 | [DatabricksSSH](/azure/azure-monitor/reference/tables/databricksssh) | |
 | [DatabricksWorkspace](/azure/azure-monitor/reference/tables/databricksworkspace) | |
-| [DefenderForSqlAlerts](/azure/azure-monitor/reference/tables/DefenderForSqlAlerts) | |
-| [DefenderForSqlTelemetry](/azure/azure-monitor/reference/tables/DefenderForSqlTelemetry) | |
+| DefenderForSqlAlerts | |
+| DefenderForSqlTelemetry | |
 | [DeviceEvents](/azure/azure-monitor/reference/tables/DeviceEvents) | |
 | [DeviceFileCertificateInfo](/azure/azure-monitor/reference/tables/DeviceFileCertificateInfo) | |
 | [DeviceFileEvents](/azure/azure-monitor/reference/tables/DeviceFileEvents) | |
@@ -283,11 +283,11 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [Perf](/azure/azure-monitor/reference/tables/perf) | Partial support – only windows perf data is currently supported. | 
 | [PowerBIActivity](/azure/azure-monitor/reference/tables/PowerBIActivity) | |
 | [PowerBIDatasetsWorkspace](/azure/azure-monitor/reference/tables/powerbidatasetsworkspace) | |
-| [ProcessInvestigator](/azure/azure-monitor/reference/tables/ProcessInvestigator) | |
+| ProcessInvestigator | |
 | [ProjectActivity](/azure/azure-monitor/reference/tables/ProjectActivity) | |
 | [ProtectionStatus](/azure/azure-monitor/reference/tables/ProtectionStatus) | |
 | [PurviewScanStatusLogs](/azure/azure-monitor/reference/tables/purviewscanstatuslogs) | |
-| [RomeDetectionEvent](/azure/azure-monitor/reference/tables/RomeDetectionEvent) | |
+| RomeDetectionEvent | |
 | [SCCMAssessmentRecommendation](/azure/azure-monitor/reference/tables/sccmassessmentrecommendation) | |
 | [SCOMAssessmentRecommendation](/azure/azure-monitor/reference/tables/scomassessmentrecommendation) | |
 | [SecureScoreControls](/azure/azure-monitor/reference/tables/SecureScoreControls) | |
@@ -303,7 +303,7 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [SecurityRecommendation](/azure/azure-monitor/reference/tables/securityrecommendation) | |
 | [SecurityRegulatoryCompliance](/azure/azure-monitor/reference/tables/SecurityRegulatoryCompliance) | |
 | [SentinelHealth](/azure/azure-monitor/reference/tables/sentinelhealth) | |
-| [ServiceMap](/azure/azure-monitor/reference/tables/ServiceMap) | |
+| ServiceMap | |
 | [SfBAssessmentRecommendation](/azure/azure-monitor/reference/tables/sfbassessmentrecommendation) | |
 | [SfBOnlineAssessmentRecommendation](/azure/azure-monitor/reference/tables/sfbonlineassessmentrecommendation) | |
 | [SharePointOnlineAssessmentRecommendation](/azure/azure-monitor/reference/tables/sharepointonlineassessmentrecommendation) | |
