@@ -67,7 +67,7 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
 
 ```json
 {
-  "namespace": "EventSchema",
+  "namespace": "Microsoft.Azure.Networking.Orbital.Nebula.ControlPlane.Telemetry",
   "name": "TelemetryEventSchema",
   "type": "record",
   "fields": [
@@ -153,10 +153,6 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
                 }
               },
               {
-                "name": "inputRfPowerDbm",
-                "type": [ "null", "double" ]
-              },
-              {
                 "name": "uplinkEnabled",
                 "type": [ "null", "boolean" ]
               },
@@ -183,6 +179,10 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
                           "type": [ "null", "double" ]
                         },
                         {
+                          "name": "inputRfPowerDbm",
+                          "type": [ "null", "double" ]
+                        },
+                        {
                           "name": "modemLockStatus",
                           "type": [
                             "null",
@@ -195,6 +195,10 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
                               ]
                             }
                           ]
+                        },
+                        {
+                          "name": "commandsSent",
+                          "type": [ "null", "double" ]
                         }
                       ]
                     }
@@ -208,8 +212,10 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
     }
   ]
 }
-
 ```
+## Changelog
+Version 1.1 - Initial deployment
+Version 2.0 - Fix RF Input Power measurement. Move metrics to per channel.
 
 ## Next steps
 
