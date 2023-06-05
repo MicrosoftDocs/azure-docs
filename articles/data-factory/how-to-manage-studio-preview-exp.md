@@ -53,7 +53,7 @@ There are two ways to enable preview experiences.
    * [Transformation settings](#transformation-settings)
    * [Data preview](#data-preview)
 
-   [**CI/CD experimental view**](#ci/cd-experimental-view)
+   [**CI/CD experimental view**](#cicd-experimental-view)
    * [Autosave](#auto-save)
 	
    [**Pipeline experimental view**](#pipeline-experimental-view)
