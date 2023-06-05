@@ -45,7 +45,7 @@ Begin with the [Preliminary steps for DNS mapping](#preliminary-steps-for-dns-ma
 - [DNS mapping with Microsoft provided FQDN](#dns-mapping-with-microsoft-provided-fqdn)
 - [DNS mapping with a custom domain](#dns-mapping-with-a-custom-domain)
 
-Then test the mapping as described in the [Access private FQDN URLs for private applications](#access-private-fqdn-urls-for-private-applications) section.
+Then test the mapping as described in the [Access private FQDN URLs for private applications](#access-private-fqdn-for-applications) section.
 
 ## Preliminary steps for DNS mapping
 
