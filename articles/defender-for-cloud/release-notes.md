@@ -2,8 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.custom: build-2023
-ms.date: 06/01/2023
+ms.date: 06/04/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -16,6 +15,27 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 > [!TIP]
 > If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## June 2023
+
+Updates in June include:
+
+- [Onboarding directly (without Azure Arc) to Defender for Servers is now Generally Available](#onboarding-directly-without-azure-arc-to-defender-for-servers-is-now-generally-available)
+- [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm)
+
+### Onboarding directly (without Azure Arc) to Defender for Servers is now Generally Available
+
+Previously, Azure Arc was required to onboard non-Azure servers to Defender for Servers. However, with the latest release you can also onboard your on-premises servers to Defender for Servers using only the Microsoft Defender for Endpoint agent.
+
+This new method simplifies the onboarding process for customers focused on core endpoint protection and allows you to take advantage of Defender for Servers’ consumption-based billing for both cloud and non-cloud assets. The direct onboarding option via Defender for Endpoint is available now, with billing for onboarded machines starting on July 1.
+
+For more information, see [Connect your non-Azure machines to Microsoft Defender for Cloud with Defender for Endpoint](onboard-machines-with-defender-for-endpoint.md).
+
+### Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM
+
+With Agentless Container Posture capabilities available in Defender CSPM, the agent-based discovery capabilities are now retired. If you currently use container capabilities within Defender CSPM, please make sure that the [relevant extensions](how-to-enable-agentless-containers.md) are enabled to continue receiving container-related value of the new agentless capabilities such as container-related attack paths, insights, and inventory. (It can take up to 24 hours to see the effects of enabling the extensions).
+
+Learn more about [agentless container posture](concept-agentless-containers.md).
 
 ## May 2023
 
