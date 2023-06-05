@@ -71,25 +71,25 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 
 1. To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
 
-    ```azurecli
+    ```bash
     az login
     ```
 
 1. Ensure you're running the latest version of the CLI via the upgrade command.
 
-    ```azurecli
+    ```bash
     az upgrade
     ```
 
 1. Install the latest version of the Azure Container Apps CLI extension.
 
-    ```azurecli
+    ```bash
     az extension add --name containerapp --upgrade
     ```
 
 1. Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
 
-    ```azurecli
+    ```bash
     az provider register --namespace Microsoft.App
     az provider register --namespace Microsoft.OperationalInsights
     ```
@@ -98,7 +98,7 @@ Now that your Azure CLI setup is complete, you can define the environment variab
 
 ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
 
-```azurecli
+```bash
 RESOURCE_GROUP="jobs-sample"
 LOCATION="northcentralus"
 ENVIRONMENT="env-jobs-sample"
@@ -109,7 +109,7 @@ JOB_NAME="github-actions-runner-job"
 
 ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-azure-pipelines"
 
-```azurecli
+```bash
 RESOURCE_GROUP="jobs-sample"
 LOCATION="northcentralus"
 ENVIRONMENT="env-jobs-sample"
@@ -125,7 +125,7 @@ The Azure Container Apps environment acts as a secure boundary around container 
 
 1. Create a resource group using the following command.
 
-    ```azurecli
+    ```bash
     az group create \
         --name "$RESOURCE_GROUP" \
         --location "$LOCATION"
@@ -133,7 +133,7 @@ The Azure Container Apps environment acts as a secure boundary around container 
 
 1. Create the Container Apps environment using the following command.
 
-    ```azurecli
+    ```bash
     az containerapp env create \
         --name "$ENVIRONMENT" \
         --resource-group "$RESOURCE_GROUP" \
@@ -218,7 +218,7 @@ To create a self-hosted runner, you need to build a container image that execute
 
 1. Create a container registry.
 
-    ```azurecli
+    ```bash
     az acr create \
         --name "$CONTAINER_REGISTRY_NAME" \
         --resource-group "$RESOURCE_GROUP" \
@@ -229,7 +229,7 @@ To create a self-hosted runner, you need to build a container image that execute
 
 1. The Dockerfile for creating the runner image is available on [GitHub](https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial/tree/main/github-actions-runner). Run the following command to clone the repository and build the container image in the cloud using the `az acr build` command.
 
-    ```azurecli
+    ```bash
     az acr build \
         --registry "$CONTAINER_REGISTRY_NAME" \
         --image "$CONTAINER_IMAGE_NAME" \
@@ -245,7 +245,7 @@ Now that you have a container image that runs a GitHub Actions runner, you can c
 
 1. Create a job in the Container Apps environment.
 
-    ```azurecli
+    ```bash
     az containerapp job create -n $JOB_NAME -g $RESOURCE_GROUP --environment $ENVIRONMENT \
         --trigger-type Event \
         --replica-timeout 300 \
@@ -256,14 +256,14 @@ Now that you have a container image that runs a GitHub Actions runner, you can c
         --min-executions 0 \
         --max-executions 10 \
         --polling-interval 30 \
-        --scale-rule-name 'github-runner' \
-        --scale-rule-type 'github-runner' \
-        --scale-rule-metadata 'github-runner=https://api.github.com' "owner=$REPO_OWNER" 'runnerScope=repo' "repos=$REPO_NAME" 'targetWorkflowQueueLength=1' \
-        --scale-rule-auth 'personalAccessToken=personal-access-token' \
-        --cpu '2.0' \
-        --memory '4Gi' \
+        --scale-rule-name "github-runner" \
+        --scale-rule-type "github-runner" \
+        --scale-rule-metadata "github-runner=https://api.github.com" "owner=$REPO_OWNER" "runnerScope=repo" "repos=$REPO_NAME" "targetWorkflowQueueLength=1" \
+        --scale-rule-auth "personalAccessToken=personal-access-token" \
+        --cpu "2.0" \
+        --memory "4Gi" \
         --secrets "personal-access-token=$GITHUB_PAT" \
-        --env-vars 'GITHUB_PAT=secretref:personal-access-token' "REPO_URL=https://github.com/$REPO_OWNER/$REPO_NAME" "REGISTRATION_TOKEN_API_URL=https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runners/registration-token" \
+        --env-vars "GITHUB_PAT=secretref:personal-access-token" "REPO_URL=https://github.com/$REPO_OWNER/$REPO_NAME" "REGISTRATION_TOKEN_API_URL=https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runners/registration-token" \
         --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
     ```
 
@@ -314,7 +314,7 @@ To verify the job was configured correctly, you modify the workflow to use a sel
 
 1. List the executions of the job to confirm a job execution was created and completed successfully.
 
-    ```azurecli
+    ```bash
     az containerapp job execution list \
         --name "$JOB_NAME" \
         --resource-group "$RESOURCE_GROUP" \
@@ -406,7 +406,7 @@ To create a self-hosted agent, you need to build a container image that runs the
 
 1. Create a container registry.
 
-    ```azurecli
+    ```bash
     az acr create \
         --name "$CONTAINER_REGISTRY_NAME" \
         --resource-group "$RESOURCE_GROUP" \
@@ -417,7 +417,7 @@ To create a self-hosted agent, you need to build a container image that runs the
 
 1. The Dockerfile for creating the runner image is available on [GitHub](https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial/tree/main/azure-pipelines-agent). Run the following command to clone the repository and build the container image in the cloud using the `az acr build` command.
 
-    ```azurecli
+    ```bash
     az acr build \
         --registry "$CONTAINER_REGISTRY_NAME" \
         --image "$CONTAINER_IMAGE_NAME" \
@@ -433,7 +433,7 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
 
 1. Create a manual job in the Container Apps environment that creates the placeholder agent.
 
-    ```azurecli
+    ```bash
     az containerapp job create -n "$PLACEHOLDER_JOB_NAME" -g $RESOURCE_GROUP --environment $ENVIRONMENT \
         --trigger-type Manual \
         --replica-timeout 300 \
@@ -441,10 +441,10 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
         --replica-completion-count 1 \
         --parallelism 1 \
         --image $CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME \
-        --cpu '2.0' \
-        --memory '4Gi' \
+        --cpu "2.0" \
+        --memory "4Gi" \
         --secrets "personal-access-token=$AZP_TOKEN" "organization-url=$ORGANIZATION_URL" \
-        --env-vars 'AZP_TOKEN=secretref:personal-access-token' 'AZP_URL=secretref:organization-url' "AZP_POOL=$AZP_POOL" 'AZP_PLACEHOLDER=1' 'AZP_AGENT_NAME=placeholder-agent' \
+        --env-vars "AZP_TOKEN=secretref:personal-access-token" "AZP_URL=secretref:organization-url" "AZP_POOL=$AZP_POOL" "AZP_PLACEHOLDER=1" "AZP_AGENT_NAME=placeholder-agent" \
         --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
     ```
 
@@ -464,13 +464,13 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
 
 1. Execute the manual job to create the placeholder agent.
 
-    ```azurecli
+    ```bash
     az containerapp job start -n "$PLACEHOLDER_JOB_NAME" -g $RESOURCE_GROUP
     ```
 
 1. List the executions of the job to confirm a job execution was created and completed successfully.
 
-    ```azurecli
+    ```bash
     az containerapp job execution list \
         --name "$PLACEHOLDER_JOB_NAME" \
         --resource-group "$RESOURCE_GROUP" \
@@ -486,7 +486,7 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
 
 Now that you have a placeholder agent, you can create a self-hosted agent. In this section, you create an event-driven job that runs a self-hosted agent when a pipeline is triggered.
 
-```azurecli
+```bash
 az containerapp job create -n $JOB_NAME -g $RESOURCE_GROUP --environment $ENVIRONMENT \
     --trigger-type Event \
     --replica-timeout 300 \
@@ -497,14 +497,14 @@ az containerapp job create -n $JOB_NAME -g $RESOURCE_GROUP --environment $ENVIRO
     --min-executions 0 \
     --max-executions 10 \
     --polling-interval 30 \
-    --scale-rule-name 'azure-pipelines' \
-    --scale-rule-type 'azure-pipelines' \
-    --scale-rule-metadata 'poolName=container-apps' 'targetPipelinesQueueLength=1' \
-    --scale-rule-auth 'personalAccessToken=personal-access-token' 'organizationURL=organization-url' \
-    --cpu '2.0' \
-    --memory '4Gi' \
+    --scale-rule-name "azure-pipelines" \
+    --scale-rule-type "azure-pipelines" \
+    --scale-rule-metadata "poolName=container-apps" "targetPipelinesQueueLength=1" \
+    --scale-rule-auth "personalAccessToken=personal-access-token" "organizationURL=organization-url" \
+    --cpu "2.0" \
+    --memory "4Gi" \
     --secrets "personal-access-token=$AZP_TOKEN" "organization-url=$ORGANIZATION_URL" \
-    --env-vars 'AZP_TOKEN=secretref:personal-access-token' 'AZP_URL=secretref:organization-url' "AZP_POOL=$AZP_POOL" \
+    --env-vars "AZP_TOKEN=secretref:personal-access-token" "AZP_URL=secretref:organization-url" "AZP_POOL=$AZP_POOL" \
     --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
 ```
 
@@ -550,7 +550,7 @@ Now that you've configured a self-hosted agent job, you can run a pipeline and v
 
 1. List the executions of the job to confirm a job execution was created and completed successfully.
 
-    ```azurecli
+    ```bash
     az containerapp job execution list \
         --name "$JOB_NAME" \
         --resource-group "$RESOURCE_GROUP" \
@@ -569,7 +569,7 @@ Once you're done, run the following command to delete the resource group that co
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
 
-```azurecli
+```bash
 az group delete \
     --resource-group $RESOURCE_GROUP
 ```
