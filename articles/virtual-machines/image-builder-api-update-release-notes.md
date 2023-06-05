@@ -19,8 +19,9 @@ ms.custom: references_regions
 
 This article contains all major API changes and feature updates for the Azure VM Image Builder (AIB) service.
 
-## April 2023 updates:
+## Updates
 
+### April 2023
 New portal functionality has been added for Azure Image Builder. Search “Image Templates” in Azure portal, then click “Create”. You can also [get started here](https://ms.portal.azure.com/#create/Microsoft.ImageTemplate) with building and validating custom images inside the portal.
 
 ## API releases
