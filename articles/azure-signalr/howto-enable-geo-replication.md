@@ -13,12 +13,11 @@ ms.topic: how-to
 
 Companies seeking local presence or requiring a robust failover system often choose to deploy services across multiple Azure regions. With the integration of geo-replication in Azure SignalR, managing multi-region scenarios has become significantly easier.
 
-A geo-replicated Azure SignalR Service provides the following benefits:
-
-1. **More resilient to regional outage:** If a regional outage happens, the Azure SignalR DNS will be resolved to healthy replicas in other regions.
-2. **Cross Region Communication**. Different replicas could communicate with each other as if they are the same instance.
-3. **Enhanced Network Speed via Azure BackBone:** Geographically dispersed clients will connect to the nearest replica instance. These instances communicate through Azure BackBone, ensuring fast, dependable network quality..
-4. **Shared configurations**. All replicas retain the primary Azure SignalR Service resource's configuration. 
+## Benefits of using geo-replication
+* **More resilient to regional outage:** If a regional outage happens, the Azure SignalR DNS will be resolved to healthy replicas in other regions.
+* **Cross Region Communication**. Different replicas could communicate with each other as if they are the same instance.
+* **Enhanced network speed:** Geographically dispersed clients will connect to the nearest replica. These replicas communicate through [Azure global network backbone](https://azure.microsoft.com/en-us/explore/global-infrastructure/global-network), ensuring fast and stable networking.
+* **Shared configurations**. All replicas retain the primary Azure SignalR Service resource's configuration. 
 
 ## Prerequisites
 
@@ -41,7 +40,7 @@ Before the advent of the geo-replication feature, Contoso could setup another Az
 
 However, managing multiple Azure SignalR Services brings some challenges:
 1. A cross-region communication mechanism would be required to enable conversation between Canada and US users.
-2. The development team would need to manage two separate Azure SignalR Services, each with distinct domains and connection strings.
+2. The development team would need to manage two separate Azure SignalR Services, each with distinct domain and connection string.
 3. If a regional outage happens, the traffic needs to be switched to another region.
 
 <img width="633" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/04c288f4-5868-42de-be20-807bbc016773">
@@ -50,12 +49,6 @@ However, managing multiple Azure SignalR Services brings some challenges:
 With the new geo-replication feature, Contoso can now establish a replica in Canada Central, effectively overcoming the above-mentioned hurdles.
 
 <img width="762" alt="image" src="https://github.com/bjqian/azure-docs/assets/16233725/b2d7f946-bd5d-4c5d-b17f-3a1051a2f347">
-
-The geo-replication feature of Azure SignalR Service has following benefits:
-
-1. Communication across region is handled by Azure SignalR Service. 
-2. There is only one Azure SignalR Service. The replicas in different regions share the configuration and domain.
-3. It is more resilient to regional outages.
 
 ## Create a SignalR Replica
 
