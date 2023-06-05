@@ -36,7 +36,7 @@ You can't expose your spot containers to the internet by specifying one or more 
 Execute a command similar to the following to start a container instance.  
 
 ```azurecli-interactive
-az container create --resource-group acispotdemo --name acispotclitest --image mcr.microsoft.com/azuredocs/aci-helloworld **--priority spot**
+az container create --resource-group acispotdemo --name acispotclitest --image mcr.microsoft.com/azuredocs/aci-helloworld --priority spot
 ```
 
 Within a few seconds, you should get a response from the Azure CLI indicating that the deployment has completed. Check its status with the [az container show][az-container-show] command:
