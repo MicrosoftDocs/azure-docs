@@ -7,7 +7,7 @@ ms.reviewer: erd
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 06/05/2023
 ms.custom: template-how-to-pattern
 ---
 
@@ -15,7 +15,7 @@ ms.custom: template-how-to-pattern
 You can use triggers in Azure Image Builder (AIB) to set up automatic image builds when certain criteria are met in your build pipeline.
 
 > [!IMPORTANT]
-> Azure Image Builder triggers is currently in Preview. Please be informed that there exists a restriction on the number of triggers allowable per region, specifically set at a maximum limit of 100.
+> Azure Image Builder triggers is currently in Preview. Please be informed that there exists a restriction on the number of triggers allowable per region, specifically 100 per region per subscription.
 
 > [!NOTE]
 > Currently, we only support setting a trigger for a new source image, but we do expect to support different kinds of triggers in the future.
