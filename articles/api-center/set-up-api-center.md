@@ -4,7 +4,7 @@ description: Follow this tutorial to set up your API center for API discovery, r
 author: dlepow
 ms.service: api-center
 ms.topic: tutorial
-ms.date: 05/24/2023
+ms.date: 06/05/2023
 ms.author: danlep
 ms.custom: 
 ---
@@ -28,17 +28,18 @@ For background information about the assets you can organize in API Center, see 
 
 ## Prerequisites
 
-* Access to the API Center preview in your subscription. [Sign up for the preview](https://aka.ms/apicenter/joinpreview). 
+* Access to the API Center preview. See [access instructions](https://aka.ms/apicenter/joinpreview):
+
+    1. Register the **Azure API Center Preview** feature in your subscription (or subscriptions).
+    1. Submit the access request form.
+    1. Wait for a notification email from Microsoft that access to API Center is enabled in the requested Azure subscription.
 
 * At least a Contributor role assignment or equivalent permissions in the Azure subscription. 
 
 * One or more APIs that you want to register in your API center. Here are two examples, with links to their OpenAPI specifications for download:
 
+    * [Swagger Petstore API](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
     * [Azure Demo Conference API](https://conferenceapi.azurewebsites.net?format=json)
-    * [Swagger Petstore API](https://petstore.swagger.io/v2/swagger.json)
-
-    > [!NOTE]
-    > If you want to add an API specification to your API center inventory, you can only upload it from a local file.
 
 ## Register the API Center provider
 
@@ -116,23 +117,24 @@ Each API center provides a configurable metadata schema to help you organize API
 
 ## Add APIs
 
-Now add (register) APIs in your API center. Each API registration includes: 
+Now add (register) APIs in your API center. Each API registration includes an optional API specification file and built-in and custom metadata properties, including:
 
-* An API name, version identifier, and optional API specification
-* Configuration of built-in API properties and any custom metadata properties you've defined
-* Optional links to documentation and contacts
+* API name, description, and summary
+* Links to external documentation
+* Version identifier
+* Custom properties, like the *Line of business* property you defined in the previous section
 
-The following steps register two sample APIs: Azure Demo Conference API and Swagger Petstore API (see [Prerequisites](#prerequisites)). If you prefer, register APIs of your own.
+The following steps register two sample APIs: Swagger Petstore API and Demo Conference API (see [Prerequisites](#prerequisites)). If you prefer, register APIs of your own.
  
 1. In the portal, navigate to your API center.
 
-1. In the left menu, select **APIs** > **+ Register API**.
+1. In the left menu, select **APIs** > **+ Register API**.ts
 
-1. In the **Register API** page, add the following information for the Demo Conference API. You'll see the custom *Line of business* and *Public-facing* metadata properties that you defined in the preceding section at the bottom of the page.
+1. In the **Register API** page, add the following information for the Swagger Petstore API. You'll see the custom *Line of business* and *Public-facing* metadata properties that you defined in the preceding section at the bottom of the page.
 
     |Setting|Value|Description|
     |-------|-----|-----------|
-    |**API title**| Enter *Demo Conference API*.| Name you choose for the API.  |
+    |**API title**| Enter *Swagger Petstore API*.| Name you choose for the API.  |
     |**Identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the API.|
     |**API type**| Select **REST** from the dropdown.| Type of API.|
     | **Summary** | Optionally enter a  summary. | Summary description of the API.  |
@@ -148,7 +150,7 @@ The following steps register two sample APIs: Azure Demo Conference API and Swag
     | **Public-facing**  | If you added this custom property, select the checkbox.    |  Custom metadata property that identifies whether the API is public-facing or internal only.     |
 
 1. Select **Create**. 
-1. Repeat the preceding three steps to register the Swagger Petstore API.
+1. Repeat the preceding three steps to register another API, such as the Demo Conference API.
 
 The APIs appear on the **APIs** page in the portal. When you've added a large number of APIs to the API center, use the search box and filters on this page to find the APIs you want.
 
@@ -161,11 +163,11 @@ The APIs appear on the **APIs** page in the portal. When you've added a large nu
 
 Throughout its lifecycle, an API could have multiple versions. You can add a version to an existing API in your API center, optionally with an updated specification file. 
 
-Here you add a version to your Demo Conference API:
+Here you add a version to one of your APIs:
 
 1. In the portal, navigate to your API center.
 
-1. In the left menu, select **APIs**, and then select *Demo Conference API*.
+1. In the left menu, select **APIs**, and then select an API, for example, *Demo Conference API*.
 
 1. Select **Versions** > **+ Add version**.
 
@@ -215,7 +217,7 @@ Here you create a deployment by associating one of your API versions with the en
 
 1. In the portal, navigate to your API center.
 
-1. In the left menu, select **APIs** and then select the *Demo Conference API*.
+1. In the left menu, select **APIs** and then select an API, for example, the *Demo Conference API*.
 
 1. On the **Demo Conference API** page, select **Versions** and then select a version, such as *v1*.
 

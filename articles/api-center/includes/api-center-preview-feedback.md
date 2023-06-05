@@ -13,4 +13,4 @@ ms.custom: Include file
 ---
 
 > [!NOTE]
-> API Center is in preview. During preview, request features, report bugs, or provide other feedback at this [GitHub repo](https://aka.ms/apicenter/preview/feedback).
+> API Center is in preview. During preview, request features, report bugs, or provide other feedback in this [GitHub repo](https://aka.ms/apicenter/preview/feedback).
