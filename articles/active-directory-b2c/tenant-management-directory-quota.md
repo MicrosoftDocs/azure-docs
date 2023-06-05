@@ -1,7 +1,7 @@
 ---
 title: Manage directory size quota in Azure Active Directory B2C
 titleSuffix: Azure Active Directory B2C
-description: Learn how to manage directory size quota un in Azure AD B2C tenants
+description: Learn how to manage directory size quota in your Azure AD B2C tenant
 services: active-directory-b2c
 author: alvesfabi
 manager: DavidHoerster
