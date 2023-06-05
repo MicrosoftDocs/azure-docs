@@ -2,8 +2,8 @@
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 06/02/2023
+ms.date: 06/05/2023
 ms.author: cherylmc
 ---
 
-If you're deploying Bastion as part of a test environment, we recommend that you delete this resource once you've finished using it. Hourly pricing starts from the moment Bastion is deployed, regardless of outbound data usage. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/azure-bastion/) and [Bastion configuration settings](../articles/bastion/configuration-settings.md).
+Hourly pricing starts from the moment Bastion is deployed, regardless of outbound data usage. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/azure-bastion/) and [Bastion configuration settings](../articles/bastion/configuration-settings.md). If you're deploying Bastion as part a tutorial or test, we recommend that you delete this resource once you've finished using it.
