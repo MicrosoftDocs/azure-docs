@@ -1,29 +1,37 @@
 ---
 title: Release notes for Microsoft Defender for Cloud
-description: A description of what's new and changed in Microsoft Defender for Cloud
+description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 06/04/2023
+ms.date: 06/05/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
 
 Defender for Cloud is in active development and receives improvements on an ongoing basis. To stay up to date with the most recent developments, this page provides you with information about new features, bug fixes, and deprecated functionality.
 
-This page is updated frequently, so revisit it often.
+This page is updated frequently with the latest updates in Defender for Cloud.
+
+> [!TIP]
+> Get notified when this page is updated by copying and pasting the following URL into your feed reader:
+>
+> `https://aka.ms/mdc/rss`
 
 To learn about *planned* changes that are coming soon to Defender for Cloud, see [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md).
 
-> [!TIP]
-> If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
 ## June 2023
 
 Updates in June include:
 
-- [Onboarding directly (without Azure Arc) to Defender for Servers is now Generally Available](#onboarding-directly-without-azure-arc-to-defender-for-servers-is-now-generally-available)
-- [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm)
+|Date |Update  |
+|---------|---------|
+|June 5 |   [Onboarding directly (without Azure Arc) to Defender for Servers is now Generally Available](#onboarding-directly-without-azure-arc-to-defender-for-servers-is-now-generally-available)      |
+|June 4     | [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm)        |
 
 ### Onboarding directly (without Azure Arc) to Defender for Servers is now Generally Available
+
+June 5, 2023
 
 Previously, Azure Arc was required to onboard non-Azure servers to Defender for Servers. However, with the latest release you can also onboard your on-premises servers to Defender for Servers using only the Microsoft Defender for Endpoint agent.
 
@@ -32,6 +40,8 @@ This new method simplifies the onboarding process for customers focused on core 
 For more information, see [Connect your non-Azure machines to Microsoft Defender for Cloud with Defender for Endpoint](onboard-machines-with-defender-for-endpoint.md).
 
 ### Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM
+
+June 4, 2023
 
 With Agentless Container Posture capabilities available in Defender CSPM, the agent-based discovery capabilities are now retired. If you currently use container capabilities within Defender CSPM, please make sure that the [relevant extensions](how-to-enable-agentless-containers.md) are enabled to continue receiving container-related value of the new agentless capabilities such as container-related attack paths, insights, and inventory. (It can take up to 24 hours to see the effects of enabling the extensions).
 
