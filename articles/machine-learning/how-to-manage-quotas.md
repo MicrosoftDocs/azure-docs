@@ -150,7 +150,7 @@ The sum of kubernetes online endpoints and managed online endpoints under each s
 
 ### Azure Machine Learning integration with Synapse
 
-Azure Machine Learning serverless Spark provides easy access to distributed computing capability for scaling Apache Spark jobs. This utilizes the same dedicated quota as Azure Machine Learning Compute. Quota limits can be increased by submitting a support ticket and requesting for quota increase under the "Machine Learning Service: Virtual Machine" category.
+Azure Machine Learning serverless Spark provides easy access to distributed computing capability for scaling Apache Spark jobs. This utilizes the same dedicated quota as Azure Machine Learning Compute. Quota limits can be increased by submitting a support ticket and [requesting for quota increase](#request-quota-increases) for ESv3 series under the "Machine Learning Service: Virtual Machine Quota" category.
  
  To view quota usage, navigate to Machine Learning studio and select the subscription name that you would like to see usage for. Select "Quota" in the left panel.
 
