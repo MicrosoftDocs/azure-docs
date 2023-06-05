@@ -33,7 +33,7 @@ Run the [Update-AzFrontDoorCdnProfile](/powershell/module/az.cdn/update-azfrontd
 Update-AzFrontDoorCdnProfile -ProfileName myAzureFrontDoor -ResourceGroupName myAFDResourceGroup -ProfileUpgradeParameter @{}
 ```
 
-The following example shows the output of the command above.
+The following example shows the output of the command:
 
 ```
 Location Name              Kind      ResourceGroupName
@@ -51,7 +51,7 @@ Global   myAzureFrontDoor  frontdoor myAFDResourceGroup
     $waf2 = New-AzFrontDoorCdnProfileChangeSkuWafMappingObject -WafPolicyId /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/<wafPolicyName>
     ```
 
-    Replace the following values in the command above:
+    Replace the following values in the command:
 
     * `<subscriptionId>`: Your subscription ID.
     * `<resourceGroupName>`: The resource group name of the WAF policy.
@@ -70,7 +70,7 @@ Global   myAzureFrontDoor  frontdoor myAFDResourceGroup
     Update-AzFrontDoorCdnProfile -ProfileName myAzureFrontDoor -ResourceGroupName myAFDResourceGroup -ProfileUpgradeParameter $upgradeParams
     ```
 
-    The following example shows the output of the command above.
+    The following example shows the output of the command:
 
     ```
     Location Name              Kind      ResourceGroupName
