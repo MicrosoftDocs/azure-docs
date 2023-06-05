@@ -45,7 +45,7 @@ ms.date: 06/03/2023
 | Blend data with joins and unions for analytics queries | Yes | Yes |
 | Performance recommendations | Yes, with native Microsoft tools | Yes |
 | Replica set configuration | Yes, with [Azure Cosmos DB for MongoDB vCore](./vcore/introduction.md) | Yes |
-| Automatic sharding support | Yes | Limited, since the number of shards must be configured by the developer.Extra costs apply for additional configuration servers. |
+| Automatic sharding support | Yes | Limited, since the number of shards must be configured by the developer. Extra costs apply for additional configuration servers. |
 | Pause and resume clusters | Currently in development | Yes |
 | Data explorer | Yes, using native Azure tooling and MongoDB tooling such as Robo3T | Yes |
 | Cloud Providers | Azure. MongoDB wire protocol compatibility enables you to remain vendor-agnostic | Azure, AWS, and Google Cloud |
