@@ -29,7 +29,7 @@ Here is an overview of all configuration options:
 | `gateway.configuration.backup.enabled` | If enabled will store a backup copy of the latests downloaded configuration on a storage volume | `false` |
 | `gateway.configuration.backup.persistentVolumeClaim.accessMode` | Access mode for the Persistent Volume Claim (PVC) pod | `ReadWriteMany` |
 | `gateway.configuration.backup.persistentVolumeClaim.size` | Size of the Persistent Volume Claim (PVC) to be created | `50Mi` |
-| `gateway.configuration.backup.persistentVolumeClaim.storageClassName` | Storage class name to be used for the Persistent Volume Claim (PVC). When no value is assigned (`null`), the platform default will be used. The specified storage class should support `ReadWriteMany` access mode.| `null` |
+| `gateway.configuration.backup.persistentVolumeClaim.storageClassName` | Storage class name to be used for the Persistent Volume Claim (PVC). When no value is assigned (`null`), the platform default will be used. The specified storage class should support `ReadWriteMany` access mode, learn more about the [supported volume providers and their supported access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).| `null` |
 
 ## Cross-instance discovery & synchronization
 
@@ -87,7 +87,7 @@ The self-hosted gateway integrates with varios other technologies. This section 
 | ------------- | ------------- | ------------- | ----| ----|
 | `dapr.enabled`  |Indication wheter or not Dapr integration should be used. | No |  `false` |
 
-## Image & Workload Scheduling - TODO
+## Image & Workload Scheduling
 
 Kubernetes is a powerful orchestration platform that gives a lot of flexibility in what should be deployed and how it should be scheduled.
 
@@ -109,23 +109,8 @@ This section provides an overview of the available configuration options you can
 | `highAvailability.podTopologySpread.whenUnsatisfiable` | Indication how pods should be spread across nodes in case the requirement cannot be met. Learn more in the [Kubernetes docs](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) | No | `ScheduleAnyway` |
 | `resources` | Capability to define CPU/Memory resources to assign to gateway | No | N/A |
 | `nodeSelector` | Capability to use selectors to identify the node on which the gateway should run. | No | N/A |
-
-HERE 👇
-
-| `affinity` | Port to use for liveness probes of the container | No | N/A |
-| `tolerations` | Port to use for liveness probes of the container | No | N/A |
-
-## Helm - TODO
-
-Here is an overview of the typical Helm configuration options that you can use:
-
-Point to official docs?
-
-
-| Name   | Description | Required | Default |
-| ------------- | ------------- | ------------- | ----| ----|
-| `nameOverride`  | Capability  secret to use for authenticating with container registry when pulling the container image. | No | N/A |
-| `fullnameOverride`  | Kubernetes secret to use for authenticating with container registry when pulling the container image. | No | N/A |
+| `affinity` | Affinity for pod scheduling ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes-using-node-affinity/)) | No | N/A |
+| `tolerations` | 	Tolerations for pod scheduling ([docs](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)) | No | N/A |
 
 ## Next steps
 
