@@ -6,6 +6,10 @@ items:
   items:
   - name: What is Azure Active Directory?
     href: active-directory-whatis.md
+  - name: Identity Fundamentals
+    href: identity-fundamentals.md
+  - name: Introduction to identity and access management (IAM)
+    href: introduction-identity-access-management.md
 - name: First steps
   expanded: true
   items:
