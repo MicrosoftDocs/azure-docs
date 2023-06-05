@@ -25,12 +25,12 @@ ms.date: 06/03/2023
 |---------|---------|----------------------------------|
 | MongoDB wire protocol | Yes | Yes |
 | Compatible with MongoDB tools and drivers | Yes | Yes |
-| Global Distribution | Yes, globally distributed with automatic and instant data replication across any number of Azure regions. | Yes, globally distributed with manual and scheduled data replication across any number of cloud providers or regions. |
+| Global Distribution | Yes, globally distributed with automatic and instant data replication across any number of Azure regions | Yes, globally distributed with manual and scheduled data replication across any number of cloud providers or regions |
 | 99.999% availability SLA | Yes | No |
-| Instantanteous Scaling | Yes, database instantaneously scales to with zero performance impact on your applications | No, requires 1+ hours to vertically scale up and 24+ hours to vertically scale down. Performance impact during scale up may be noticeable. |
-| True active-active clusters | Yes, with multi-primary writes. Data for the same shard can be writtent to multiple regions.  | No |
+| Instantanteous Scaling | Yes, database instantaneously scales to with zero performance impact on your applications | No, requires 1+ hours to vertically scale up and 24+ hours to vertically scale down. Performance impact during scale up may be noticeable |
+| True active-active clusters | Yes, with multi-primary writes. Data for the same shard can be writtent to multiple regions  | No |
 | Integrated text search, geospatial processing | Yes | Yes |
-| Free tier | 1,000 request units (RUs) and 25 GB storage forever. Prevents you from exceeding limits if you want. | Yes, with 512 MB storage |
+| Free tier | 1,000 request units (RUs) and 25 GB storage forever. Prevents you from exceeding limits if you want | Yes, with 512 MB storage |
 | Live migration | Yes | Yes |
 | Azure Integrations | Native first-party integrations with Azure services such as Azure Functions, Azure Logic Apps, Azure Stream Analytics, and Power BI and more | Limited number of third party integrations |
 | Choice of instance configuration | Yes, with Azure Cosmos DB for MongoDB vCore | Yes |
@@ -45,10 +45,10 @@ ms.date: 06/03/2023
 | Blend data with joins and unions for analytics queries | Yes | Yes |
 | Performance recommendations | Yes, with native Microsoft tools | Yes |
 | Replica set configuration | Yes, with Azure Cosmos DB for MongoDB vCore | No |
-| Automatic sharding support | Yes | Limited, since the number of shards must be configured by the developer. Extra costs apply for additional configuration servers. |
+| Automatic sharding support | Yes | Limited, since the number of shards must be configured by the developer.Extra costs apply for additional configuration servers. |
 | Pause and resume clusters | Currently in development | Yes |
 | Data explorer | Yes, using native Azure tooling and MongoDB tooling such as Robo3T | Yes |
-| Cloud Providers | Azure. MongoDB wire protocol compatibility enables you to remain vendor-agnostic. | AWS, Azure & Google Cloud |
+| Cloud Providers | Azure. MongoDB wire protocol compatibility enables you to remain vendor-agnostic | AWS, Azure & Google Cloud |
 | SQL-based connectivity | Yes | Yes |
 | Native data visualization without 3rd party BI tools | Yes, using PowerBI | Yes |
 | Database supported in on-premise and hybrid deployments | No | Yes |
@@ -57,7 +57,7 @@ ms.date: 06/03/2023
 | Encryption of data in-flight | Yes | Yes | 
 | Encryption of data at-rest | Yes | Yes | 
 | Client-side field level encryption | Yes | Yes |
-| LDAP Integration | Yes | Yes |  |
+| LDAP Integration | Yes | Yes | 
 | Database-level auditing | Yes | Yes |
 
 ## Next steps
