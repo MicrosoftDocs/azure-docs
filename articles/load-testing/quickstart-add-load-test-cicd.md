@@ -31,6 +31,34 @@ Before you configure the CI/CD pipeline to run a load test, you'll grant the CI/
 
 ## Export load test input files
 
+To run a load test with Azure Load Testing in a CI/CD workflow, you need to add the load test configuration settings and any input files in your source control repository. If you have an existing load test, you can download the configuration settings and all input files from the Azure portal.
+
+Perform the following steps to download the input files for an existing load testing in the Azure portal:
+
+1. In the [Azure portal](https://portal.azure.com/), go to your Azure Load Testing resource.
+
+1. On the left pane, select **Tests** to view the list of load tests, and then select your test.
+
+    :::image type="content" source="media/quickstart-add-load-test-cicd/view-all-tests.png" alt-text="Screenshot that shows the list of tests for an Azure Load Testing resource.":::  
+
+1. Selecting the ellipsis (**...**) next to the test run you're working with, and then select **Download input file**.
+
+    The browser downloads a zipped folder that contains the load test input files.
+
+    :::image type="content" source="media/quickstart-add-load-test-cicd/download-load-test-input-files.png" alt-text="Screenshot that shows how to download the results file for a load test run.":::
+
+1. Use any zip tool to extract the input files.
+
+    The folder contains the following files:
+
+    - `config.yaml`: the load test YAML configuration file. You reference this file in the CI/CD workflow definition.
+    - `.jmx`: the JMeter test script
+    - Any additional input files, such as CSV files or user properties files, that are needed to run the load test.
+
+1. Commit all extracted input files to your source control repository.
+
+    Use the source code repository in which you configure the CI/CD pipeline.
+
 ## Add Azure Load Testing to the CI/CD workflow
 
 ## Run workflow and view test results
