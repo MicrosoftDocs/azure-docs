@@ -214,8 +214,7 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
 }
 ```
 ## Changelog
-Version 1.1 - Initial deployment
-Version 2.0 - Fix RF Input Power measurement. Move metrics to per channel.
+2023-06-05 - Updatd schema to show metrics under channels instead of links.
 
 ## Next steps
 
