@@ -28,7 +28,7 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
     });
 ```
 
-For a complete working sample of how to add an HTML marker, see [Add drawing toolbar to map] in the [Azure Maps Samples].
+For a complete working sample that demonstrates how to add a drawing toolbar to your map, see [Add drawing toolbar to map] in the [Azure Maps Samples].
 
 :::image type="content" source="./media/map-add-drawing-toolbar/add-drawing-toolbar.png" alt-text="Screenshot showing the drawing toolbar on a map.":::
 
@@ -54,21 +54,22 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
     });
 ```
 
-Below is the complete running code sample of the functionality above:
+The following screenshot shows a sample of an instance of the drawing manager that displays the toolbar with just a single drawing tool on the map:
 
-<br/>
+:::image type="content" source="./media/map-add-drawing-toolbar/limit-displayed-toolbar-options.png" alt-text="Screenshot that demonstrates an instance of the drawing manager that displays the toolbar with just a polygon drawing tool on the map.":::
 
+<!------------------------------------------------------------------------
 <iframe height="500" scrolling="no" title="Add a polygon drawing  tool" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Add a polygon drawing  tool</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
+------------------------------------------------------------------------>
 
 ## Change drawing rendering style
 
 The style of the shapes that are drawn can be customized by retrieving the underlying layers of the drawing manager by using the `drawingManager.getLayers()` and `drawingManager.getPreviewLayers()` functions and then setting options on the individual layers. The drag handles that appear for coordinates when editing a shape are HTML markers. The style of the drag handles can be customized by passing HTML marker options into the `dragHandleStyle` and `secondaryDragHandleStyle` options of the drawing manager.  
 
-The following code gets the rendering layers from the drawing manager and modifies their options to change rendering style for drawing. In this case, points will be rendered with a blue marker icon. Lines will be red and four pixels wide. Polygons will have a green fill color and an orange outline. It then changes the styles of the drag handles to be square icons. 
+The following code gets the rendering layers from the drawing manager and modifies their options to change rendering style for drawing. In this case, points will be rendered with a blue marker icon. Lines will be red and four pixels wide. Polygons will have a green fill color and an orange outline. It then changes the styles of the drag handles to be square icons.
 
 ```javascript
 //Get rendering layers of drawing manager.
@@ -103,7 +104,7 @@ var previewLayers = drawingManager.getPreviewLayers();
 previewLayers.lineLayer.setOptions({ strokeColor: 'red', strokeWidth: 4, strokeDashArray: [3,3] });
 previewLayers.polygonOutlineLayer.setOptions({ strokeColor: 'orange', strokeDashArray: [3, 3] });
 
-//Update the style of the drag handles that appear when editting.
+//Update the style of the drag handles that appear when editing.
 drawingManager.setOptions({
     //Primary drag handle that represents coordinates in the shape.
     dragHandleStyle: {
@@ -112,7 +113,7 @@ drawingManager.setOptions({
         draggable: true
     },
 
-    //Secondary drag hanle that represents mid-point coordinates that users can grab to add new cooridnates in the middle of segments.
+    //Secondary drag handle that represents mid-point coordinates that users can grab to add new coordinates in the middle of segments.
     secondaryDragHandleStyle: {
         anchor: 'center',
         htmlContent: '<svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" style="cursor:pointer"><rect x="0" y="0" width="10" height="10" style="stroke:white;fill:black;stroke-width:4px;"/></svg>',
@@ -121,17 +122,19 @@ drawingManager.setOptions({
 });  
 ```
 
-Below is the complete running code sample of the functionality above:
+For a complete working sample that demonstrates how to customize the rendering of the drawing shapes in the drawing manager by accessing the rendering layers, see [Change drawing rendering style] in the [Azure Maps Samples].
 
-<br/>
+:::image type="content" source="./media/map-add-drawing-toolbar/change-drawing-rendering-style.png" alt-text="Screenshot showing different drawing shaped rendered on a map.":::
 
+<!------------------------------------------------------------------------
 <iframe height="500" scrolling="no" title="Change drawing rendering style" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>Change drawing rendering style</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+------------------------------------------------------------------------>
 
 > [!NOTE]
-> When in edit mode, shapes can be rotated. Rotation is supported from MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon, and Rectangle geometries. Point and Circle geometries can not be rotated. 
+> When in edit mode, shapes can be rotated. Rotation is supported from MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon, and Rectangle geometries. Point and Circle geometries can not be rotated.
 
 ## Next steps
 
@@ -159,3 +162,4 @@ Learn more about the classes and methods used in this article:
 
 [Azure Maps Samples]: https://samples.azuremaps.com
 [Add drawing toolbar to map]: https://samples.azuremaps.com/?search=add%20drawing%20toolbar&sample=add-drawing-toolbar-to-map
+[Change drawing rendering style]: https://samples.azuremaps.com/?search=render&sample=change-drawing-rendering-style
