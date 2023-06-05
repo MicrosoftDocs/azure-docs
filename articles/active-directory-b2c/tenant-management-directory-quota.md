@@ -9,7 +9,7 @@ manager: DavidHoerster
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/30/2023
+ms.date: 06/15/2023
 ms.custom: project-no-code, b2c-docs-improvements
 ms.reviewer: kengaderdus
 ms.author: falves
