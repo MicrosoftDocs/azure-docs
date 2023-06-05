@@ -1,24 +1,24 @@
 ---
 title: "include file"
 description: "include file"
-services: storage
+services: event-hubs
 author: alexwolfmsft
-ms.service: storage
+ms.service: event-hubs
 ms.topic: include
 ms.date: 10/11/2022
 ms.author: alexwolf
 ms.custom: include file
 ---
 
-When developing locally, make sure that the user account that is accessing Queue Storage has the correct permissions. You'll need the **Storage Queue Data Contributor** role to read and write queue data. To assign yourself this role, you'll need to be assigned the **User Access Administrator** role, or another role that includes the **Microsoft.Authorization/roleAssignments/write** action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Learn more about the available scopes for role assignments on the [scope overview](../articles/role-based-access-control/scope-overview.md) page.
+When developing locally, make sure that the user account that is accessing Event Hubs has the correct permissions. You'll need the **Azure Event Hubs Data Receiver** and **Azure Event Hubs Data Receiver** roles to read and write message data. To assign yourself this role, you'll need to be assigned the **User Access Administrator** role, or another role that includes the **Microsoft.Authorization/roleAssignments/write** action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Learn more about the available scopes for role assignments on the [scope overview](../articles/role-based-access-control/scope-overview.md) page.
 
 The following example assigns the **Azure Event Hubs Data Sender** and **Azure Event Hubs Data Receiver** roles to your user account. These role grants read and write access to Event Hub messages.
 
 ### [Azure portal](#tab/roles-azure-portal)
 
-1. In the Azure portal, locate your storage account using the main search bar or left navigation.
+1. In the Azure portal, locate your event hub using the main search bar or left navigation.
 
-2. On the storage account overview page, select **Access control (IAM)** from the left-hand menu.
+2. On the event hub overview page, select **Access control (IAM)** from the left-hand menu.
 
 3. On the **Access control (IAM)** page, select the **Role assignments** tab.
 

@@ -12,7 +12,6 @@ ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-p
 
 # Migrate an application to use passwordless connections with Azure Event Hubs
 
-
 [!INCLUDE [passwordless-intro](../../includes/passwordless/migration-guide/passwordless-intro.md)]
 
 ## Configure your local development environment
@@ -64,7 +63,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
 
 1. Make sure to update the event hubs namespace in the URI of your `EventHubProducerClient` object. You can find the namespace name on the overview page of the Azure portal.
 
-   :::image type="content" source="../storage/blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="Screenshot showing how to find the namespace name." lightbox="../storage/blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png":::
+    :::image type="content" source="media/event-hubs-passwordless/event-hubs-namespace.png" alt-text="Screenshot showing how to find the namespace name.":::
 
 ### Run the app locally
 
