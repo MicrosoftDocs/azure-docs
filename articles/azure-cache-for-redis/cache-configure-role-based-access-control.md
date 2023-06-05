@@ -7,7 +7,7 @@ author: flang-msft
 ms.custom: references_regions
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 06/05/2023
 ms.author: franlanglois
 
 ---
@@ -69,7 +69,7 @@ These [commands](cache-configure.md#redis-commands-not-supported-in-azure-cache-
 
 ### Commands
 
-_Commands_ allow you to control which specific commands can be executed by a particular Redis user.
+_Commands_ allow you to control which specific commands can be run by a particular Redis user.
 
 - Use `+command` to allow a command.
 - Use `-command` to disallow a command.
