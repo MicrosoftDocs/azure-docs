@@ -40,10 +40,10 @@ The basic format is:
     "validate": {},
     "vmProfile": {
       "vmSize": "<vmSize>",
-      "proxyVmSize": "<vmSize>",
       "osDiskSizeGB": <sizeInGB>,
       "vnetConfig": {
-        "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+        "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>",
+        "proxyVmSize": "<vmSize>"
       },
       "userAssignedIdentities": [
               "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName1>",
@@ -76,10 +76,10 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
     validate: {}
     vmProfile:{
       vmSize: '<vmSize>'
-      proxyVmSize: '<vmSize>'
       osDiskSizeGB: <sizeInGB>
       vnetConfig: {
         subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
+        proxyVmSize: '<vmSize>'
       }
       userAssignedIdentities: [
         '/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName1>'
@@ -90,6 +90,7 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
     }
   }
 }
+
 ```
 
 ---
