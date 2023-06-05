@@ -50,7 +50,7 @@ To create a replica in an Azure region, go to your Web PubSub resource and find 
 
 After creation, you would be able to view/edit your replica on the portal by clicking the replica name.
 
-![242491447-a705e9d5-8ba8-4d27-9b44-d30b45396ee2](https://github.com/bjqian/azure-docs/assets/16233725/846955ea-9b0b-4fc1-a08d-9b5720af4bc0)
+![Web PubSub Replica Overview](https://github.com/bjqian/azure-docs/assets/16233725/846955ea-9b0b-4fc1-a08d-9b5720af4bc0)
 
 > [!NOTE]
 > * Geo-replication is a feature available in premium tier.
