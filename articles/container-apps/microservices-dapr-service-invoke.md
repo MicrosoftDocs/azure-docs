@@ -5,6 +5,7 @@ description: Enable two sample Dapr applications to communicate and leverage Azu
 author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-apps
+ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 05/15/2023
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
