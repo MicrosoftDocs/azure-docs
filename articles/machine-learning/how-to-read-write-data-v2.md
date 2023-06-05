@@ -47,9 +47,9 @@ Before delving into the detailed options available to you when accessing data, w
 
 ### Read data from Azure storage in an Azure Machine Learning job
 
-In this example, you submit an Azure Machine Learning job that accesses data from a *public* blob storage account. However, you can adapt the snippet to access your own data in a private Azure Storage account by updating the path (for details on how to specify paths, read [Paths](#paths)). Azure Machine Learning seamlessly handles authentication to cloud storage using Azure Active Directory (AAD) passthrough. When you submit a job, you can choose:
+In this example, you submit an Azure Machine Learning job that accesses data from a *public* blob storage account. However, you can adapt the snippet to access your own data in a private Azure Storage account by updating the path (for details on how to specify paths, read [Paths](#paths)). Azure Machine Learning seamlessly handles authentication to cloud storage using Azure Active Directory passthrough. When you submit a job, you can choose:
 
-- **User identity:** Passthrough your AAD identity to access the data.
+- **User identity:** Passthrough your Azure Active Directory identity to access the data.
 - **Managed identity:** Use the managed identity of the compute target to access data.
 - **None:** Don't specify an identity to access the data. Use None when using credential-based (key/SAS token) datastores or when accessing public data.
 
@@ -318,7 +318,7 @@ az ml job create --file <file-name>.yml
 
 ---
 
-## The Azure ML data runtime
+## The Azure Machine Learning data runtime
 
 When you submit a job, the Azure Machine Learning data runtime controls the data load from the storage location to the compute target. The Azure Machine Learning data runtime has been built to be fast and efficient for machine learning tasks. The key benefits include:
 
@@ -355,7 +355,7 @@ When you run a job with data inputs/outputs, you can select from various *modes*
 - **`upload`:** Upload data from the compute target to the storage location.
 - **`eval_mount`/`eval_download`:** *These modes are unique to MLTable.* In some scenarios, an MLTable can yield files that aren't necessarily located in the same storage account as the MLTable file. Or, an MLTable can subset or shuffle the data located in the storage resource. That view of the subset/shuffle becomes visible only if the Azure Machine Learning data runtime actually evaluates the MLTable file. For example, this diagram shows how an MLTable used with `eval_mount` or `eval_download` can take images from two different storage containers and an annotations file located in a different storage account and then mount/download to the remote compute target's filesystem.
 
-    :::image type="content" source="media/how-to-read-write-data-v2/eval_mount.png" alt-text="Screenshot showing evaluation of mount.":::
+    :::image type="content" source="media/how-to-read-write-data-v2/eval-mount.png" alt-text="Screenshot showing evaluation of mount."lightbox="media/how-to-read-write-data-v2/eval-mount.png":::
 
     The `camera1` folder, `camera2` folder and `annotations.csv` file are then accessible on the compute target's filesystem in the folder structure:
     ```
@@ -371,7 +371,7 @@ When you run a job with data inputs/outputs, you can select from various *modes*
     │           └── image2.jpg
     └── account-b
         └── container1
-            └── pet-images-annotations.csv
+            └── annotations.csv
     ```
 - **`direct`:** You may want to read data directly from a URI through other APIs rather than go through the Azure Machine Learning data runtime. For example, you may want to access data on an s3 bucket (with a virtual-hosted–style or path-style `https` URL) using the boto s3 client. You can get URI of the input as a *string* by choosing `direct` mode. You see the direct mode used in Spark Jobs because the `spark.read_*()` methods know how to process the URIs. For **non-Spark** jobs, it is *your* responsibility to manage access credentials. For example, you need to explicitly make use compute MSI or broker access otherwise.
 
@@ -450,8 +450,8 @@ environment_variables:
 #### Download performance metrics
 The VM size of your compute target has an effect on the download time of your data. Specifically:
 
-1. *The number of cores*. The more cores available, the more concurrency and therefore faster download.
-1. *The expected network bandwidth*. Each VM in Azure has a maximum throughput from the Network Interface Card (NIC).
+- *The number of cores*. The more cores available, the more concurrency and therefore faster download.
+- *The expected network bandwidth*. Each VM in Azure has a maximum throughput from the Network Interface Card (NIC).
 
 > [!NOTE]
 > For A100 GPU VMs, the Azure Machine Learning data runtime can saturating the NIC (Network Interface Card) when downloading data to the compute target (~24 Gbit/s): **The theoretical maximum throughput possible**.
@@ -792,7 +792,7 @@ To access the logs of the data runtime from your job:
 1. Select **Outputs+Logs** tab from the job page.
 1. Select the **system_logs** folder, followed by **data_capability** folder.
 1. You should see two log files:
-    :::image type="content" source="media/how-to-read-write-data-v2/data_runtime_logs.png" alt-text="Screenshot showing data runtime logs.":::
+    :::image type="content" source="media/how-to-read-write-data-v2/data-runtime-logs.png" alt-text="Screenshot showing data runtime logs.":::
 
 The log file **data-capability.log** shows the high-level information about the time spent on key data loading tasks. For example, when you download data, the runtime logs the download activity start and finish times:
 
@@ -831,7 +831,7 @@ If the **metrics show low SuccessE2ELatency and low SuccessServerLatency but the
 
 From the Azure Machine Learning studio, you can also monitor the compute target disk IO and usage during your job execution. Navigate to your job and select the **Monitoring** tab. This tab provides insights on the resources of your job, on a 30 day rolling basis. For example:
 
-:::image type="content" source="media/how-to-read-write-data-v2/disk_usage.png" alt-text="Screenshot showing disk usage during job execution.":::
+:::image type="content" source="media/how-to-read-write-data-v2/disk-usage.png" alt-text="Screenshot showing disk usage during job execution.":::
 
 > [!NOTE]
 > Job monitoring supports only compute that Azure Machine Learning manages. Jobs with a runtime of less than 5 minutes will not have enough data to populate this view.
