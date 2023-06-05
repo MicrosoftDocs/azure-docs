@@ -16,7 +16,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure Veritas Enterprise Vault.cloud SSO-SCIM for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Veritas Enterprise Vault.cloud SSO-SCIM and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users to [Veritas Enterprise Vault.cloud SSO-SCIM](https://www.veritas.com/product/information-governance/enterprise-vault.html?inid=us_veritas_home_products_enterprisevaultcloud) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Veritas Enterprise Vault.cloud SSO-SCIM and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users to [Veritas Enterprise Vault.cloud SSO-SCIM](https://www.veritas.com/insights/enterprise-vault.html?inid=us_veritas_home_products_enterprisevaultcloud) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Supported capabilities
