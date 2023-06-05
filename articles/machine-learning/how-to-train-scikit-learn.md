@@ -113,7 +113,7 @@ For more information on creating and using environments, see [Create and use sof
 ##### [Optional] Create a custom environment with Intel® Extension for Scikit-Learn
 
 Want to speed up your scikit-learn scripts on Intel hardware? Try adding [Intel® Extension for Scikit-Learn](https://www.intel.com/content/www/us/en/developer/tools/oneapi/scikit-learn.html) into your conda yaml file and following the subsequent steps detailed above. We will show you how to enable these optimizations later in this example:
-[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=make_conda_file)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=make_sklearnex_conda_file)]
 
 ## Configure and submit your training job
 
@@ -146,7 +146,7 @@ If you have installed Intel® Extension for Scikit-Learn (as demonstrated in the
 
 To learn more about Intel® Extension for Scikit-Learn, visit the package's [documentation](https://intel.github.io/scikit-learn-intelex/).
 
-[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=create_script_file)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=create_sklearnex_script_file)]
 
 ### Build the training job
 
