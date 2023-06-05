@@ -22,7 +22,7 @@ In this tutorial, we'll be configuring the Azure Communication Services UI Libra
 >[!IMPORTANT]
 >Azure Communication Services doesn't provide a file storage service. You will need to use your own file storage service for sharing files. For the pupose of this tutorial, we will be using Azure Blob Storage.**
 >
->Not to be confused with the Teams Interopability feature where a ACS user can receive [SharePoint files](https://learn.microsoft.com/microsoft-365/solutions/microsoft-365-limit-sharing?view=o365-worldwide) with proper file permissions shared by a Teams user. This feature is currently available in Public Preview, for more information please refer to [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+>Not to be confused with the Teams Interopability feature where a ACS user can receive [SharePoint files](https://learn.microsoft.com/microsoft-365/solutions/microsoft-365-limit-sharing) with proper file permissions shared by a Teams user. This feature is currently available in Public Preview, for more information please refer to [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Download code
 
