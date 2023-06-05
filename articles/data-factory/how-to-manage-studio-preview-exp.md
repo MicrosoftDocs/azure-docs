@@ -122,7 +122,7 @@ To enable **Auto save**, click the toggle button found in the top banner of your
 
 Review the pop-up and click **Yes**.
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-42.png" alt-text="Screenshot of the Auto Save confirmation pop up.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-42.png" alt-text="Screenshot of the Auto Save confirmation pop-up.":::
 
 When **Auto Save** is enabled, the toggle button shows as blue.
 
