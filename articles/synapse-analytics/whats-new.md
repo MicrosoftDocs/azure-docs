@@ -17,7 +17,7 @@ This page is continuously updated with a recent review of what's new in [Azure S
 For older updates, review past [Azure Synapse Analytics Blog](https://aka.ms/SynapseMonthlyUpdate) posts or [previous updates in Azure Synapse Analytics](whats-new-archive.md).
 
 > [!IMPORTANT]
-> [Microsoft Fabric has been announced](https://azure.microsoft.com/en-us/blog/introducing-microsoft-fabric-data-analytics-for-the-era-of-ai/)! Learn about this exciting new preview and discover [What is Microsoft Fabric?](/fabric/get-started/microsoft-fabric-overview). Get started with [End-to-end tutorials in Microsoft Fabric](/fabric/get-started/end-to-end-tutorials).
+> [Microsoft Fabric has been announced](https://azure.microsoft.com/blog/introducing-microsoft-fabric-data-analytics-for-the-era-of-ai/)! Learn about this exciting new preview and discover [What is Microsoft Fabric?](/fabric/get-started/microsoft-fabric-overview). Get started with [end-to-end tutorials in Microsoft Fabric](/fabric/get-started/end-to-end-tutorials).
 
 ## Features currently in preview
 
