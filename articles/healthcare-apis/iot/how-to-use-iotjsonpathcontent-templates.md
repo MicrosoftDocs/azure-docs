@@ -20,14 +20,14 @@ This article provides an overview of how to use IotJsonPathContent templates wit
 
 IotJsonPathContent templates are similar to the JsonPathContent templates except the `DeviceIdExpression` and `TimestampExpression` aren't required.
 
-The assumption, when using the IotJsonPathContent templates, is the device messages being evaluated were sent using the [Azure IoT Hub Device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) or  [Export Data (legacy)](../../iot-central/core/howto-export-data-legacy.md) feature of [Azure IoT Central](../../iot-central/core/overview-iot-central.md). 
+The assumption, when using IotJsonPathContent templates, is the device messages being evaluated were sent using the [Azure IoT Hub Device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) or  [Export Data (legacy)](../../iot-central/core/howto-export-data-legacy.md) feature of [Azure IoT Central](../../iot-central/core/overview-iot-central.md). 
 
 When you're using these SDKs, the device identity and the timestamp of the message are known.
 
 > [!IMPORTANT]
 > Make sure that you're using a device identifier from Azure Iot Hub or Azure IoT Central that is registered as an identifier for a device resource on the destination FHIR service.
 
-If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContentTemplate, assuming that you're using custom properties in the message body for the device identity or measurement timestamp.
+If you're using Azure IoT Hub Device SDKs, you can still use JsonPathContent templates, assuming that you're using custom properties in the device message body for the device identity or measurement timestamp.
 
 > [!NOTE]
 > When using `IotJsonPathContent`, the `TypeMatchExpression` should resolve to the entire device message as a JToken. For more information, see the following examples:
@@ -35,7 +35,7 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 ### Example
 
 > [!TIP]
-> [Visual Studio Code with the Azure IoT Hub extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a recommended method for sending IoT device messages to your IoT Hub for testing and troubleshooting.
+> [Visual Studio Code with the Azure IoT Hub extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a recommended method for sending IoT device messages to your IoT hub for testing and troubleshooting.
 > 
 > You can use the MedTech service [Mapping debugger](how-to-use-mapping-debugger.md) for assistance creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
 
