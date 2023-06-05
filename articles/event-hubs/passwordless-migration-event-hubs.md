@@ -13,7 +13,8 @@ ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-p
 
 # Migrate an application to use passwordless connections with Azure Event Hubs
 
-[!INCLUDE [passwordless-intro](../../../includes/passwordless/migration-guide/passwordless-intro.md)]
+
+[!INCLUDE [passwordless-intro](../../includes/passwordless/migration-guide/passwordless-intro.md)]
 
 ## Configure your local development environment
 
@@ -21,11 +22,11 @@ Passwordless connections can be configured to work for both local and Azure-host
 
 ### Assign user roles
 
-[!INCLUDE [assign-roles-event-hubs](../../../includes/assign-roles-event-hubs.md)]
+[!INCLUDE [assign-roles-event-hubs](../../includes/assign-roles-event-hubs.md)]
 
 ### Sign-in to Azure locally
 
-[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
+[!INCLUDE [default-azure-credential-sign-in](../../includes/passwordless/default-azure-credential-sign-in.md)]
 
 ### Update the application code to use passwordless connections
 
@@ -79,7 +80,7 @@ Once your application is configured to use passwordless connections and runs loc
 
 ### Create the managed identity
 
-[!INCLUDE [create-user-assigned-managed-identity](../../../includes/passwordless/migration-guide/create-user-assigned-managed-identity.md)]
+[!INCLUDE [create-user-assigned-managed-identity](../../includes/passwordless/migration-guide/create-user-assigned-managed-identity.md)]
 
 #### Associate the managed identity with your web app
 
@@ -102,15 +103,15 @@ Complete the following steps in the Azure portal to associate an identity with y
 1. Search for the **MigrationIdentity** by name and select it from the search results.
 1. Select **Add** to associate the identity with your app.
 
-   :::image type="content" source="../../../articles/storage/common/media/create-user-assigned-identity-small.png" alt-text="Screenshot showing how to create a user assigned identity." lightbox="../../../articles/storage/common/media/create-user-assigned-identity.png":::
+   :::image type="content" source="../../articles/storage/common/media/create-user-assigned-identity-small.png" alt-text="Screenshot showing how to create a user assigned identity." lightbox="../../articles/storage/common/media/create-user-assigned-identity.png":::
 
 # [Azure CLI](#tab/azure-cli-associate)
 
-[!INCLUDE [associate-managed-identity-cli](../../../includes/passwordless/migration-guide/associate-managed-identity-cli.md)]
+[!INCLUDE [associate-managed-identity-cli](../../includes/passwordless/migration-guide/associate-managed-identity-cli.md)]
 
 # [Service Connector](#tab/service-connector-associate)
 
-[!INCLUDE [service-connector-commands-event-hubs](../../../includes/passwordless/migration-guide/service-connector-commands-event-hubs.md)]
+[!INCLUDE [service-connector-commands-event-hubs](../../includes/passwordless/migration-guide/service-connector-commands-event-hubs.md)]
 
 ---
 
@@ -124,7 +125,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 1. Choose **Add role assignment**
 
-    :::image type="content" source="../../../includes/passwordless/media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="../../../includes/passwordless/media/migration-add-role.png" :::
+    :::image type="content" source="../../includes/passwordless/media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="../../includes/passwordless/media/migration-add-role.png" :::
 
 1. In the **Role** search box, search for *Azure Event Hub Data Sender*, which is a common role used to manage data operations for queues. You can assign whatever role is appropriate for your use case. Select the *Azure Event Hub Data Sender* from the list and choose **Next**.
 
@@ -168,7 +169,7 @@ If you connected your services using Service Connector you don't need to complet
 
 ---
 
-[!INCLUDE [Code changes to use user-assigned managed identity](../../../includes/passwordless/migration-guide/passwordless-user-assigned-managed-identity.md)]
+[!INCLUDE [Code changes to use user-assigned managed identity](../../includes/passwordless/migration-guide/passwordless-user-assigned-managed-identity.md)]
 
 ### Test the app
 
