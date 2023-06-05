@@ -12,9 +12,12 @@ ms.custom: contperf-fy22q1
 
 # Monitor App Service instances using Health check
 
-This article uses Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by rerouting requests away from unhealthy instances, and replacing instances if they remain unhealthy. Your [App Service plan](./overview-hosting-plans.md) should be scaled to two or more instances to fully utilize Health check. The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application can't connect to a critical component, then the path should return a 500-level response code to indicate the app is unhealthy. Also, if the path does not return a response within 1 minute the health check ping is considered unhealthy.
+This article uses Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by rerouting requests away from unhealthy instances, and replacing instances if they remain unhealthy. It does that by pinging every minute a path of your web application, at your choice. 
+
 
 ![Health check failure][1]
+
+Please note that _/api/health_ is just an example added for ilustration purposes. You should make sure that the path you are selecting is a valid path and we do not create a healthcheck path by default but it needs to exist for your application.
 
 ## What App Service does with Health checks
 
@@ -25,18 +28,24 @@ This article uses Health check in the Azure portal to monitor App Service instan
 - When scaling out, App Service pings the Health check path to ensure new instances are ready.
 
 > [!NOTE]
+
 >- Health check doesn't follow 302 redirects. 
 >- At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
+>- At most 30 instances will be replaced per 12 hours per Scale Unit.
 >- If your health check is giving the status `Waiting for health check response` then the check is likely failing due to an HTTP status code of 307, which can happen if you have HTTPS redirect enabled but have `HTTPS Only` disabled.
 
 ## Enable Health Check
 
 ![Health check navigation in Azure Portal][3]
 
-- To enable Health check, browse to the Azure portal and select your App Service app.
-- Under **Monitoring**, select **Health check**.
-- Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`.
-- Select **Save**.
+1. To enable Health check, browse to the Azure portal and select your App Service app.
+2. Under **Monitoring**, select **Health check**.
+3. Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`.
+4. Select **Save**.
+
+> [!NOTE]
+> - Your [App Service plan](./overview-hosting-plans.md) should be scaled to two or more instances to fully utilize Health check. The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application can't connect to a critical component, then the path should return a 500-level response code to indicate the app is unhealthy. Also, if the path does not return a response within 1 minute the health check ping is considered unhealthy.
+> - When selecting the healthcheck path please make sure you are selecting a path that returns 200 status code only when the app is fully warmed up.
 
 > [!CAUTION]
 > Health check configuration changes restart your app. To minimize impact to production apps, we recommend [configuring staging slots](deploy-staging-slots.md) and swapping to production.
