@@ -315,7 +315,7 @@ curl -X GET "https://aoairesource.openai.azure.com/openai/operations/images/{ope
 
 #### Example response
 
-The operation returns a `200` status code and an `OperationResponse` JSON object. The `status` field can be `"notRunning"`, `"running"`, `"succeeded"`, `"canceled"`, `"failed"`, or `"deleted"`. A `succeeded` status indicates that the generated image is available for download at the given URL. 
+Upon success the operation returns a `200` status code and an `OperationResponse` JSON object. The `status` field can be `"notRunning"`, `"running"`, `"succeeded"`, `"canceled"`, `"failed"`, or `"deleted"`. A `succeeded` status indicates that the generated image is available for download at the given URL. 
 
 ```json
 {
