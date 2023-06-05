@@ -308,14 +308,14 @@ GET https://{your-resource-name}.openai.azure.com/openai/operations/images/{oper
 #### Example request
 
 ```console
-curl -X GET "https://aoairesource.openai.azure.com/openai/operations/images/{operation-id}?api-version=2023-06-01-preview"
+curl -X GET "https://{your-resource-name}.openai.azure.com/openai/operations/images/{operation-id}?api-version=2023-06-01-preview"
 -H "Content-Type: application/json"
 -H "Api-Key: {api key}"
 ```
 
 #### Example response
 
-The operation returns a `200` status code and an `OperationResponse` JSON object. The `status` field can be `"notRunning"`, `"running"`, `"succeeded"`, `"canceled"`, `"failed"`, or `"deleted"`. A `succeeded` status indicates that the generated image is available for download at the given URL. 
+Upon success the operation returns a `200` status code and an `OperationResponse` JSON object. The `status` field can be `"notRunning"`, `"running"`, `"succeeded"`, `"canceled"`, `"failed"`, or `"deleted"`. A `succeeded` status indicates that the generated image is available for download at the given URL. 
 
 ```json
 {
@@ -355,7 +355,7 @@ DELETE https://{your-resource-name}.openai.azure.com/openai/operations/images/{o
 #### Example request
 
 ```console
-curl -X DELETE "https://aoairesource.openai.azure.com/openai/operations/images/{operation-id}?api-version=2023-06-01-preview"
+curl -X DELETE "https://{your-resource-name}.openai.azure.com/openai/operations/images/{operation-id}?api-version=2023-06-01-preview"
 -H "Content-Type: application/json"
 -H "Api-Key: {api key}"
 ```

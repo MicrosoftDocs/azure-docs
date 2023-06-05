@@ -28,7 +28,7 @@ From the Azure OpenAI Studio landing page, select **DALL·E 2 playground** to us
 
 ## Try out image generation
 
-Start exploring Azure OpenAI capabilities with a no-code approach through the DALL-E 2 playground. Enter your image prompt into the text box and click **Generate**. When the AI-generated image is ready, it will appear on the page.
+Start exploring Azure OpenAI capabilities with a no-code approach through the DALL-E 2 playground. Enter your image prompt into the text box and select **Generate**. When the AI-generated image is ready, it will appear on the page.
 
 > [!NOTE]
 > The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) guide.
