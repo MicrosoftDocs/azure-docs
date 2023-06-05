@@ -895,7 +895,7 @@
         - name: ODBC driver
           href: odbc-driver.md
         - name: Vercel
-          href: vercel-integration.md
+          href: ../vercel-integration.md
 - name: Reference
   items:
     - name: .NET SDKs
