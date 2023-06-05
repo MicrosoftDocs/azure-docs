@@ -539,6 +539,8 @@
           href: sql-azure-vulnerability-assessment-rules-changelog.md
         - name: Store vulnerability scans in storage
           href: /azure/azure-sql/database/sql-database-vulnerability-assessment-storage?toc=/azure/defender-for-cloud/toc.json
+        - name: Consume and export scan results
+          href: defender-for-sql-scan-results.md  
       - name: Investigate threats
         items:
         - name: Overview
