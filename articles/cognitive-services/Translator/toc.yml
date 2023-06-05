@@ -150,10 +150,10 @@ items:
       items:
       - name: Document Translation SDKs
         displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
-        href: document-translation/quickstarts/get-started-document-sdk.md
+        href: document-translation/quickstarts/document-translation-sdk.md
       - name:  Document Translation REST APIs
         displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
-        href: document-translation/quickstarts/get-started-document-rest-api.md
+        href: document-translation/quickstarts/document-translation-rest-api.md
     - name: How-to guides
       items:
       - name: Use REST APIs programmatically
