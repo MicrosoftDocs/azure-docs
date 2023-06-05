@@ -11,7 +11,7 @@ ms.date: 05/28/2023
 
 # Vercel Integration with Azure Cosmos DB
 
-[!INCLUDE[NoSQL, MongoDB](../includes/appliesto-nosql-mongodb.md)]
+[!INCLUDE[NoSQL, MongoDB](./includes/appliesto-nosql-mongodb.md)]
 
 Vercel offers a user-friendly and robust platform for web application development and deployment. This new integration improves productivity as developers can now easily create Vercel applications with a backend database already configured. This Integration helps developers transform their creative ideas into reality in real-time.
 
@@ -34,7 +34,7 @@ Use this guide if you have already identified the Vercel project(s) or want to i
 
 1. Vercel Account with Vercel Project – [Learn how to create a new Vercel Project](https://vercel.com/docs/concepts/projects/overview#creating-a-project)
 
-2. Azure Cosmos DB - [Quickstart: Create an Azure Cosmos DB account](../nosql/quickstart-portal.md)
+2. Azure Cosmos DB - [Quickstart: Create an Azure Cosmos DB account](../cosmos-db/nosql/quickstart-portal.md)
 
 3. Some basic knowledge on Next.js, React and TypeScript
 
