@@ -5,7 +5,7 @@ description: Learn to migrate existing applications away from Shared Key authori
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 05/09/2023
-ms.service: eventhubs
+ms.service: event-hubs
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
@@ -65,7 +65,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
 
 1. Make sure to update the event hubs namespace in the URI of your `EventHubProducerClient` object. You can find the namespace name on the overview page of the Azure portal.
 
-   :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="Screenshot showing how to find the namespace name." lightbox="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png":::
+   :::image type="content" source="../../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="Screenshot showing how to find the namespace name." lightbox="../../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png":::
 
 ### Run the app locally
 
@@ -133,7 +133,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 1. In the flyout, search for the managed identity you created by name and select it from the results. Choose **Select** to close the flyout menu.
 
-    :::image type="content" source="../../../includes/passwordless/media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="../../../includes/passwordless/media/migration-select-identity.png":::
+    :::image type="content" source="../../includes/passwordless/media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="../../includes/passwordless/media/migration-select-identity.png":::
 
 1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 
@@ -181,5 +181,5 @@ In this tutorial, you learned how to migrate an application to passwordless conn
 
 You can read the following resources to explore the concepts discussed in this article in more depth:
 
-* [Authorize access to blobs using Azure Active Directory](../blobs/authorize-access-azure-active-directory.md)
+* [Passwordless connections for Azure services](/azure/developer/intro/passwordless-overview)
 * To learn more about .NET, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
