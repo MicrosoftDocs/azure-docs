@@ -12,12 +12,12 @@ Cache for Azure Container Registry (Preview) feature allows users to cache conta
 This article is part one in a six-part tutorial series. The tutorial covers:
 
 > [!div class="checklist"]
-> * Cache for ACR (preview) 
-> * Enable Cache for ACR - Azure portal
-> * Enable Cache for ACR with authentication - Azure portal
-> * Enable Cache for ACR - Azure CLI
-> * Enable Cache for ACR with authentication - Azure CLI
-> * Troubleshooting guide for Cache for ACR
+1. [Cache for ACR (preview)](tutorial-registry-cache.md) 
+2. [Enable Cache for ACR - Azure portal](tutorial-enable-registry-cache.md)
+3. [Enable Cache for ACR with authentication - Azure portal](tutorial-enable-registry-cache-auth.md)
+4. [Enable Cache for ACR - Azure CLI](tutorial-enable-registry-cache-cli.md)
+5. [Enable Cache for ACR with authentication - Azure CLI](tutorial-enable-registry-cache-auth-cli.md)
+6. [Troubleshooting guide for Cache for ACR](tutorial-private-link-troubleshoot.md)
 
 ## Cache for ACR (Preview)
 
