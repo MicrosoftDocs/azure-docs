@@ -144,25 +144,6 @@ To add SDK configuration, add each configuration option directly under `connecti
 
 If you can't run the application or you aren't getting data as expected, see the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
 
-### Analytics
-
-To query your telemetry collected by the JavaScript SDK, select the **View in Logs (Analytics)** button. By adding a `where` statement of `client_Type == "Browser"`, you only see data from the JavaScript SDK. Any server-side telemetry collected by other SDKs is excluded.
-
-```kusto
-// average pageView duration by name
-let timeGrain=5m;
-let dataset=pageViews
-// additional filters can be applied here
-| where timestamp > ago(1d)
-| where client_Type == "Browser" ;
-// calculate average pageView duration for all pageViews
-dataset
-| summarize avg(duration) by bin(timestamp, timeGrain)
-| extend pageView='Overall'
-// render result in a chart
-| render timechart
-```
-
 ## Advanced SDK configuration
 
 Additional information is available for the following advanced scenarios:
