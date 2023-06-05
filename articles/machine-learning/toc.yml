@@ -1017,13 +1017,13 @@
         - name: Responsible AI overview
           displayName: responsible, ml
           href: concept-responsible-ai.md
-          - name: Implement Responsible AI in Practice
-            items:
-              - name: Responsible AI scorecard
-                href: concept-responsible-ai-scorecard.md
-              - name: Fairness in Machine Learning
-                displayName: fairness, bias, model performance, disparity metrics, unfairness
-                href: concept-fairness-ml.md
+        - name: Implement Responsible AI in Practice
+          items:
+            - name: Responsible AI scorecard
+              href: concept-responsible-ai-scorecard.md
+            - name: Fairness in Machine Learning
+              displayName: fairness, bias, model performance, disparity metrics, unfairness
+              href: concept-fairness-ml.md
     - name: Workspace & compute resources
       items:
         - name: Environments
