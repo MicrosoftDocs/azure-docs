@@ -27,7 +27,7 @@ This article shows how to use Azure AD authentication with the Speech SDK. You'l
 > - Get an Azure AD access token
 > - Create the appropriate SDK configuration object.
 
-To learn more about Azure AD access tokens, including token lifetime, visit [Access tokens in the Microsoft identity platform](/azure/active-directory/develop/access-tokens)
+To learn more about Azure AD access tokens, including token lifetime, visit [Access tokens in the Microsoft identity platform](/azure/active-directory/develop/access-tokens).
 
 ## Create a Speech resource
 To create a Speech resource in the [Azure portal](https://portal.azure.com), see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
