@@ -83,7 +83,7 @@ Your new Front Door profile is being created. Please wait until the process has 
 Your new Front Door profile with the configuration has been successfully created.
 ```
 
-#### [With WAF](tab/with-waf)
+#### [With WAF](#tab/with-waf)
 
 1. Run the [Get-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/get-azfrontdoorwafpolicy) command to get the resource ID for your WAF policy. Replace the values for the resource group name and WAF policy name with your own values.
 
@@ -138,7 +138,7 @@ Your new Front Door profile with the configuration has been successfully created
     Your new Front Door profile with the configuration has been successfully created.
     ```
 
-#### [With BYOC](tab/with-byoc)
+#### [With BYOC](#tab/with-byoc)
 
 If you're migrating a Front Door profile with BYOC, you need to enable managed identity on the Front Door profile. You need to grant the Front Door profile access to the key vault where the certificate is stored.
 
@@ -189,7 +189,7 @@ Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName myAFDResourceGrou
     Your new Front Door profile with the configuration has been successfully created.
     ```
 
-#### [Multiple WAF and managed identity](tab/multiple-waf-managed-identity)
+#### [Multiple WAF and managed identity](#tab/multiple-waf-managed-identity)
 
 This example shows how to migrate a Front Door profile with multiple WAF policies and enable both system assigned and user assigned identity.
 
