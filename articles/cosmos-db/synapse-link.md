@@ -24,7 +24,7 @@ The following image shows the Azure Synapse Link integration with Azure Cosmos D
 :::image type="content" source="./media/synapse-link/synapse-analytics-cosmos-db-architecture.png" alt-text="Architecture diagram for Azure Synapse Analytics integration with Azure Cosmos DB" border="false":::
 
 ## <a id="synapse-link-benefits"></a> Benefits
-Analysis of large operational datasets is traditionally avoided in Azure Cosmos DB, to avoid adverse effects on the performance of mission-critical transactional workloads. Instead, data is extracted by Extract-Transform-Load (ETL) pipelines for analysis elsewhere. ETL pipelines have disadvantages of their own, however: using pipelines introduces additional complexity, delays the availability of data for analysis, and imposes pipelines' own processing demands on Azure Cosmos DB. 
+To analyze large operational datasets while minimizing any effects on the performance of mission-critical transactional workloads, Azure Cosmos DB customers traditionally export the operational data. These operations are performed by Extract-Transform-Load (ETL) pipelines, which require many layers of data and jobs management, resulting in operational complexity and performance effects on your transactional workloads. It also increases the latency to analyze the operational data from the time of origin.
 
 When compared to traditional ETL-based solutions, Azure Synapse Link for Azure Cosmos DB offers several advantages such as:  
 
