@@ -282,7 +282,7 @@ This example shows how to migrate a Front Door profile with multiple WAF policie
 
 ## Migrate
 
-#### [Migrate profile](#migrate-profile)
+#### [Migrate profile](#tab/migrate-profile)
 
 Run the [Enable-AzFrontDoorCdnProfileMigration](/powershell/module/az.cdn/enable-azfrontdoorcdnprofilemigration) command to migrate your Front Door (classic).
 
@@ -298,7 +298,7 @@ This process will disable your Front Door (classic) profile and move all your tr
 Migrate succeeded.
 ```
 
-#### [Abort migration](#abort-migration)
+#### [Abort migration](#tab/abort-migration)
 
 Run the [Stop-AzFrontDoorCdnProfileMigration](/powershell/module/az.cdn/stop-azfrontdoorcdnprofilemigration) command to abort the migration process.
 
