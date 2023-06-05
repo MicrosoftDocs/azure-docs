@@ -34,9 +34,12 @@
     href: enable-enhanced-security.md
   - name: 3. Connect hybrid and multicloud environments
     items:
-    - name: Connect non-Azure machines
+    - name: Connect non-Azure machines with Azure Arc
       displayName: azure stack, ash, windows, linux, hybrid, arc
       href: quickstart-onboard-machines.md
+    - name: Connect non-Azure machines with Defender for Endpoint
+      displayName: azure stack, ash, windows, linux, hybrid, defender for endpoint
+      href: onboard-machines-with-defender-for-endpoint.md
     - name: Connect AWS accounts
       displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts
       href: quickstart-onboard-aws.md
@@ -191,14 +194,21 @@
     - name: Reference list of attack paths and cloud security graph components
       displayName: attack, paths, security, graph, components
       href: attack-path-reference.md
-  - name: Security alerts
+  - name: Security alerts and incidents
     items:
     - name: About security alerts and incidents
       displayName: security, alerts, classification, incident, threat, detection, analytics, 
       href: alerts-overview.md
-    - name: Security alerts reference list
-      displayName: alerts, mitre
-      href: alerts-reference.md
+    - name: Security alerts
+      items:
+      - name: Security alerts reference list
+        displayName: alerts, mitre
+        href: alerts-reference.md
+    - name: Incidents
+      items:
+      - name: Incidents reference list
+        displayName: incidents
+        href: incidents-reference.md
   - name: Plan Defender for Servers deployment
     items:
     - name: Get started
@@ -221,6 +231,10 @@
       href: faq-defender-for-servers.yml
 - name: How-to guides
   items:
+  - name: Build interactive reports with Azure Monitor workbooks
+    displayName: workbooks, Secure Score Over Time, Vulnerability Assessment Findings
+    href: custom-dashboards-azure-workbooks.md
+    items:
   - name: Cloud security posture
     items:
     - name: Security posture at-a-glance with the Overview dashboard
@@ -232,9 +246,6 @@
     - name: Programmatic ways to track your secure score
       displayName: secure score, rest api, resource graph, 
       href: secure-score-access-and-track.md
-    - name: Build interactive reports with Azure Monitor workbooks
-      displayName: workbooks, Secure Score Over Time, Vulnerability Assessment Findings
-      href: custom-dashboards-azure-workbooks.md
     - name: Create custom recommendations and security standards
       href: create-custom-recommendations.md
     - name: View recommendations and alerts in Windows Admin Center
@@ -506,7 +517,21 @@
         - name: Enable vulnerability assessment
           href: sql-azure-vulnerability-assessment-enable.md
         - name: Manage vulnerability assessments
-          href: sql-azure-vulnerability-assessment-manage.md
+          items:
+          - name: Manage findings in your Azure SQL databases
+            href: sql-azure-vulnerability-assessment-manage.md
+          - name: PowerShell examples
+            items:
+            - name: Enable vulnerability assessments on Azure SQL databases with the express configuration
+              href: powershell-sample-vulnerability-assessment-azure-sql.md
+            - name: Set up baselines for vulnerability assessments on Azure SQL databases
+              href: powershell-sample-vulnerability-assessment-baselines.md
+            - name: Express configuration PowerShell wrapper module
+              href: express-configuration-sql-commands.md
+            - name: Example express configuration PowerShell commands reference
+              href: express-configuration-powershell-commands.md
+          - name: Azure CLI examples
+            href: express-configuration-azure-commands.md
         - name: Find and remediate vulnerabilities
           href: sql-azure-vulnerability-assessment-find.md
         - name: Vulnerability assessment rules
@@ -515,6 +540,8 @@
           href: sql-azure-vulnerability-assessment-rules-changelog.md
         - name: Store vulnerability scans in storage
           href: /azure/azure-sql/database/sql-database-vulnerability-assessment-storage?toc=/azure/defender-for-cloud/toc.json
+        - name: Consume and export scan results
+          href: defender-for-sql-scan-results.md  
       - name: Investigate threats
         items:
         - name: Overview

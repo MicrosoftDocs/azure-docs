@@ -3,7 +3,7 @@ title: "Quickstart: Your first .NET query"
 description: In this quickstart, you follow the steps to enable the Resource Graph NuGet packages for .NET and run your first query.
 ms.date: 01/20/2023
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ms.author: davidsmatlak
 ---
 # Quickstart: Run your first Resource Graph query using .NET

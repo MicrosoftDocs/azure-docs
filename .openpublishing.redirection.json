@@ -1603,7 +1603,11 @@
             "redirect_url": "/azure/frontdoor/web-application-firewall",
             "redirect_document_id": false
         },
-
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-configure-route.md",
+            "redirect_url": "/azure/frontdoor/how-to-configure-endpoints",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/aks/aks-resource-health.md",
             "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
@@ -7865,6 +7869,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-maps/power-bi-visual-migrate-from-bing-maps.md",
+            "redirect_url": "/azure/azure-maps/power-bi-visual-conversion",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-portal/resource-group-portal-linked-resources.md",
             "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
             "redirect_document_id": false
@@ -9019,6 +9028,11 @@
             "redirect_url": "/azure/container-instances/quickstart-docker-cli",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/container-instances/container-instances-quotas.md",
+            "redirect_url": "/azure/container-instances/container-instances-resource-and-quota-limits",
+            "redirect_document_id": false
+        },        
         {
             "source_path_from_root": "/articles/container-registry/container-registry-managed-get-started-azure-cli.md",
             "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli",
@@ -22595,11 +22609,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/data-connectors/microsoft-defender-threat-intelligence.md",
-            "redirect_url": "/azure/sentinel/understand-threat-intelligence",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/principles-for-ai-generated-content.md",
             "redirect_url": "https://aka.ms/ai-content-principles",
             "redirect_document_id": false
@@ -22751,7 +22760,7 @@
         },
         {
             "source_path_from_root": "/articles/aks/use-mariner.md",
-            "redirect_url": "/azure/aks/use-azurelinux",
+            "redirect_url": "/azure/aks/use-azure-linux",
             "redirect_document_id": false
         },
         {
@@ -22776,11 +22785,6 @@
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cisco-asa-ftd-via-ama.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
         },
@@ -22892,6 +22896,11 @@
         {
             "source_path_from_root": "/articles/active-directory/authentication/how-to-migrate-mfa-server-to-azure-mfa-with-federation.md",
             "redirect_url": "/azure/active-directory/authentication/how-to-migrate-mfa-server-to-mfa-with-federation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/manage-apps/migrate-okta-sync-provisioning-to-azure-active-directory.md",
+            "redirect_url": "/azure/active-directory/manage-apps/migrate-okta-sync-provisioning",
             "redirect_document_id": true
         }
     ]
