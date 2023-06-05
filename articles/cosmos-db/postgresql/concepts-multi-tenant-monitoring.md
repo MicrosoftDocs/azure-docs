@@ -1,15 +1,14 @@
 ---
-title: Multi-Tenant Monitoring - Azure Cosmos DB for PostgreSQL
-description: Review Multi-tenant metrics on Azure Cosmos DB for PostgreSQL
+title: Multi-tenant monitoring - Azure Cosmos DB for PostgreSQL
+description: Review multi-tenant metrics on Azure Cosmos DB for PostgreSQL
 ms.author: avijitgupta
-author: AvijitkGupta
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 06/02/2023
+ms.date: 06/05/2023
 ---
 
-# Multi-Tenant monitoring
+# Multi-tenant monitoring
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -22,7 +21,7 @@ Tenant monitoring is a crucial aspect of managing a multi-tenant SaaS platform. 
 
 Azure Cosmos DB for PostgreSQL uses row-based sharding at core, which means that each distributed table contains a distributed column - denoted as tenant key. Tenant key enables splitting data across shards, where each shard contains one or more tenants. Shards themselves are distributed among the nodes in the cluster, enabling horizontal scaling of your database.
 
-:::image type="content" source="media/concepts-monitor-tenants/tenants-overview.svg" alt-text="Conceptual Diagram of several tenants hosted across 3 worker node citus cluster with citus_stat_tenants view to review top 3 tenants - A, C & G, usage of CPU_in_seconds & count of overall queries":::
+:::image type="content" source="media/concepts-monitor-tenants/tenants-overview.svg" alt-text="Diagram shows 3 node cluster hosting tenants, with top 3 tenants usage of CPU_in_seconds & Overall query count traced in citus_stat_tenants view.":::
 
 The CPU time is measured in seconds, consumed by tenant, across all available cores on a node in a cluster. Total CPU time available on cluster, can be estimated as: `number_of_vcores * citus.stat_tenants_period * number_of_nodes`.
 
