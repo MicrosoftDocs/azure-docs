@@ -3,7 +3,7 @@ title: Add drawing tools toolbar to map | Microsoft Azure Maps
 description: How to add a drawing toolbar to a map using Azure Maps Web SDK
 author: eriklindeman
 ms.author: eriklind
-ms.date: 09/04/2019
+ms.date: 06/05/2023
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -28,15 +28,16 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
     });
 ```
 
-Below is the complete running code sample of the functionality above:
+For a complete working sample of how to add an HTML marker, see [Add drawing toolbar to map] in the [Azure Maps Samples].
 
-<br/>
+:::image type="content" source="./media/map-add-drawing-toolbar/add-drawing-toolbar.png" alt-text="Screenshot showing the drawing toolbar on a map.":::
 
+<!------------------------------------------------------------------------
 <iframe height="500" scrolling="no" title="Add drawing toolbar" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>Add drawing toolbar</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
+------------------------------------------------------------------------>
 
 ## Limit displayed toolbar options
 
@@ -155,3 +156,6 @@ Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
 > [Drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+
+[Azure Maps Samples]: https://samples.azuremaps.com
+[Add drawing toolbar to map]: https://samples.azuremaps.com/?search=add%20drawing%20toolbar&sample=add-drawing-toolbar-to-map
