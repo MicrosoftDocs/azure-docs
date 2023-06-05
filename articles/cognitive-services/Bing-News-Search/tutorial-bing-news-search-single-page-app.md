@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: aahi
 ms.devlang: javascript
-ms.custom: seodec2018, devx-track-js
+ms.custom: seodec2018
 ---
 
 # Tutorial: Create a single-page web app

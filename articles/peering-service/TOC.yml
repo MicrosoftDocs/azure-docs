@@ -26,8 +26,6 @@
         href: cli.md
   - name: Access connection telemetry
     href: connection-telemetry.md
-  - name: Measure connection telemetry
-    href: measure-connection-telemetry.md
 - name: References
   items:
   - name: Azure PowerShell
