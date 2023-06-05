@@ -97,6 +97,8 @@
         href: custom-domain-default.md
     - name: Supported languages and runtimes
       href: languages-runtimes.md
+    - name: Enterprise-grade edge
+      href: enterprise-edge.md
 - name: How-to guides
   items:
     - name: APIs
@@ -131,8 +133,6 @@
     - name: Enable monitoring
       href: monitor.md
       displayName: Application Insights
-    - name: Enable enterprise-grade edge
-      href: enterprise-edge.md
     - name: Reset deployment tokens
       href: deployment-token-management.md
     - name: Troubleshoot errors

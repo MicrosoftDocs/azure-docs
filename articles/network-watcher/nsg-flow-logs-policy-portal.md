@@ -77,7 +77,7 @@ To assign the *deployIfNotExists* policy:
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/policy-scope.png" alt-text="Screenshot of selecting the scope of the policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/policy-scope.png":::
 
-1. Select the ellipsis (**...**) next to **Policy definition** to choose the built-in policy that you want to assign. Enter *flow log* in the search box, and the select the **Built-in** filter. From the search results, select **Deploy a flow log resource with target network security group**, and then select **Add**.
+1. Select the ellipsis (**...**) next to **Policy definition** to choose the built-in policy that you want to assign. Enter *flow log* in the search box, and then select the **Built-in** filter. From the search results, select **Deploy a flow log resource with target network security group**, and then select **Add**.
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/deploy-policy.png" alt-text="Screenshot of selecting the deployment policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/deploy-policy.png":::
 
