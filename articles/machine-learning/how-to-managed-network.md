@@ -172,7 +172,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
 * __Update an existing workspace__:
 
     > [!WARNING]
-    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
+    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, and managed online endpoints.
 
     The following example updates an existing workspace. The `--managed-network allow_internet_outbound` parameter configures a managed VNet for the workspace:
 
@@ -246,7 +246,7 @@ To configure a managed VNet that allows internet outbound communications, use th
 * __Update an existing workspace__:
 
     > [!WARNING]
-    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
+    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, and managed online endpoints.
 
     The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`:
     
@@ -290,7 +290,7 @@ To configure a managed VNet that allows internet outbound communications, use th
 * __Update an existing workspace__:
 
     > [!WARNING]
-    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
+    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, and managed online endpoints.
 
     1. Sign in to the [Azure portal](https://ms.azure.com), and select the Azure Machine Learning workspace that you want to enable managed virtual network isolation for.
     1. Select __Networking__, then select __Private with Internet Outbound__. Select __Save__ to save the changes.
@@ -367,7 +367,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
 * __Update an existing workspace__
 
     > [!WARNING]
-    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
+    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, and managed online endpoints.
 
     The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed VNet for an existing workspace:
 
@@ -461,7 +461,7 @@ To configure a managed VNet that allows only approved outbound communications, u
 * __Update an existing workspace__:
 
     > [!WARNING]
-    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
+    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, and managed online endpoints.
 
     The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`. The example also adds several outbound rules for the managed VNet:
 
@@ -528,7 +528,7 @@ To configure a managed VNet that allows only approved outbound communications, u
 * __Update an existing workspace__:
 
     > [!WARNING]
-    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
+    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, and managed online endpoints.
 
     1. Sign in to the [Azure portal](https://ms.azure.com), and select the Azure Machine Learning workspace that you want to enable managed virtual network isolation for.
     1. Select __Networking__, then select __Private with Approved Outbound__. Select __Save__ to save the changes.
@@ -558,17 +558,16 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
     > This example is for a managed VNet configured to allow internet traffic. If you want to allow only approved outbound traffic, set `isolation_mode: allow_only_approved_outbound` instead.
 
     ```yml
-    type: workspace
     name: myworkspace
     managed_network:
       isolation_mode: allow_internet_outbound
       outbound_rules:
       - name: added-perule
-      destination:
-        service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
-        spark_enabled: true
-        subresource_target: blob
-      type: private_endpoint
+        destination:
+          service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
+          spark_enabled: true
+          subresource_target: blob
+        type: private_endpoint
     ```
 
     You can use a YAML configuration file with the `az ml workspace update` command by specifying the `--file` parameter and the name of the YAML file. For example, the following command updates an existing workspace using a YAML file named `workspace_pe.yml`:

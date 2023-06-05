@@ -4,7 +4,7 @@ description: Learn what's new with Azure Virtual WAN such as the latest release 
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/24/2023
+ms.date: 05/30/2023
 ms.author: cherylmc
 ---
 
@@ -25,7 +25,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
-| Feature| Routing | [Routing intent](how-to-routing-policies.md)| Routing intent is the mechanism through which you can configure Virtual WAN to send private or internet traffic via a security solution deployed in the hub.|May 2023|Support for inter-region is currently rolling out. Routing Intent is Generally Available  in Azure public cloud. See documentation for [additional limitations](how-to-routing-policies.md#knownlimitations).|
+| Feature| Routing | [Routing intent](how-to-routing-policies.md)| Routing intent is the mechanism through which you can configure Virtual WAN to send private or internet traffic via a security solution deployed in the hub.|May 2023|Routing Intent is Generally Available  in Azure public cloud. See documentation for [additional limitations](how-to-routing-policies.md#knownlimitations).|
 |Feature| Routing |[Virtual hub routing preference](about-virtual-hub-routing-preference.md)|Hub routing preference gives you more control over your infrastructure by allowing you to select how your traffic is routed when a virtual hub router learns multiple routes across S2S VPN, ER and SD-WAN NVA connections.  |October 2022| |
 |Feature| Routing|[Bypass next hop IP for workloads within a spoke VNet connected to the virtual WAN hub generally available](how-to-virtual-hub-routing.md)|Bypassing next hop IP for workloads within a spoke VNet connected to the virtual WAN hub lets you deploy and access other resources in the VNet with your NVA without any additional configuration.|October 2022| |
 |SKU/Feature/Validation | Routing | [BGP end point (General availability)](scenario-bgp-peering-hub.md) | The virtual hub router now exposes the ability to peer with it, thereby exchanging routing information directly through Border Gateway Protocol (BGP) routing protocol. | June 2022 | |
@@ -64,6 +64,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
+|Feature|Remote User connectivity/Point-to-site VPN |[User Groups and IP address pools for P2S User VPNs](user-groups-about.md) |Ability to configure P2S User VPNs to assign users IP addresses from specific address pools based on their identity or authentication credentials.|May 2023| |
 |Feature|Remote User connectivity/Point-to-site VPN|[Global profile include/exclude](global-hub-profile.md#include-or-exclude-a-hub-from-a-global-profile)|Ability to mark a point-to-site gateway as "excluded", meaning users who connect to global profile won't be load-balanced to that gateway.|February 2022| |
 |Feature|Remote User connectivity/Point-to-site VPN|[Forced tunneling for P2S VPN](how-to-forced-tunnel.md)|Ability to force all traffic to Azure Virtual WAN for egress.|October 2021|Only available for Azure VPN Client version 2:1900:39.0 or newer.|
 |Feature|Remote User connectivity/Point-to-site VPN|[macOS Azure VPN client](openvpn-azure-ad-client-mac.md)|General Availability of Azure VPN Client for macOS.|August 2021| |
@@ -81,7 +82,6 @@ The following features are currently in gated public preview. After working with
 |Type of preview|Feature |Description|Contact alias|Limitations|
 |---|---|---|---|---|
 | Managed preview | Route-maps | This feature allows you to perform route aggregation, route filtering, and modify BGP attributes for your routes in Virtual WAN. | preview-route-maps@microsoft.com | Known limitations are displayed here: [About Route-maps (preview)](route-maps-about.md#key-considerations).
-|Managed preview|Configure user groups and IP address pools for P2S User VPNs| This feature allows you to configure P2S User VPNs to assign users IP addresses from specific address pools based on their identity or authentication credentials by creating **User Groups**.|| Known limitations are displayed here: [Configure User Groups and IP address pools for P2S User VPNs (preview)](user-groups-create.md).|
 |Managed preview|Aruba EdgeConnect SD-WAN| Deployment of Aruba EdgeConnect SD-WAN NVA into the Virtual WAN hub| preview-vwan-aruba@microsoft.com| |
 |Managed preview|Checkpoint NGFW|Deployment of Checkpoint NGFW NVA into the Virtual WAN hub|DL-vwan-support-preview@checkpoint.com, previewinterhub@microsoft.com|Same limitations as routing intent. Doesn't support internet inbound scenario.|
 |Managed preview|Fortinet NGFW/SD-WAN|Deployment of Fortinet dual-role SD-WAN/NGFW NVA into the Virtual WAN hub|azurevwan@fortinet.com, previewinterhub@microsoft.com|Same limitations as routing intent. Doesn't support internet inbound scenario.|

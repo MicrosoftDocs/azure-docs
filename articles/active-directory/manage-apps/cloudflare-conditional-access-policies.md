@@ -87,4 +87,4 @@ Enforce Conditional Access policies on a Cloudflare Access application.
 
 * [What is Conditional Access?](../conditional-access/overview.md)
 * [Secure Hybrid Access with Azure AD partner integrations](secure-hybrid-access-integrations.md)
-* [Tutorial: Configure Cloudflare with Azure AD for secure hybrid access](cloudflare-azure-ad-integration.md)
+* [Tutorial: Configure Cloudflare with Azure AD for secure hybrid access](cloudflare-integration.md)
