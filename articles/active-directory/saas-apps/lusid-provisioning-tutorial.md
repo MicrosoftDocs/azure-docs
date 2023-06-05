@@ -1,31 +1,31 @@
 ---
-title: 'Tutorial: Configure Recnice for automatic user provisioning with Azure Active Directory'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to Recnice.
+title: 'Tutorial: Configure LUSID for automatic user provisioning with Azure Active Directory'
+description: Learn how to automatically provision and de-provision user accounts from Azure AD to LUSID.
 services: active-directory
 author: twimmers
 writer: twimmers
 manager: jeedes
-ms.assetid: 72e7a106-4187-4e40-9c63-77527fe9aeae
+ms.assetid: bacb982f-c38a-43dd-83f3-1d7ba27a3f52
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/10/2023
+ms.date: 06/05/2023
 ms.author: thwimmer
 ---
 
-# Tutorial: Configure Recnice for automatic user provisioning
+# Tutorial: Configure LUSID for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Recnice and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Recnice](https://recnice.com) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both LUSID and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [LUSID](https://www.finbourne.com/lusid) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Supported capabilities
 > [!div class="checklist"]
-> * Create users in Recnice.
-> * Remove users in Recnice when they do not require access anymore.
-> * Keep user attributes synchronized between Azure AD and Recnice.
-> * Provision groups and group memberships in Recnice.
-> * [Single sign-on](../manage-apps/add-application-portal-setup-oidc-sso.md) to Recnice (recommended).
+> * Create users in LUSID.
+> * Remove users in LUSID when they do not require access anymore.
+> * Keep user attributes synchronized between Azure AD and LUSID.
+> * Provision groups and group memberships in LUSID.
+> * [Single sign-on](lusid-tutorial.md) to LUSID (recommended).
 
 ## Prerequisites
 
@@ -33,19 +33,19 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* A user account in Recnice with Admin permissions.
+* A user account in LUSID with Admin permissions.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-1. Determine what data to [map between Azure AD and Recnice](../app-provisioning/customize-application-attributes.md).
+1. Determine what data to [map between Azure AD and LUSID](../app-provisioning/customize-application-attributes.md).
 
-## Step 2. Configure Recnice to support provisioning with Azure AD
-Contact Recnice support to configure Recnice to support provisioning with Azure AD.
+## Step 2. Configure LUSID to support provisioning with Azure AD
+Contact LUSID support to configure LUSID to support provisioning with Azure AD.
 
-## Step 3. Add Recnice from the Azure AD application gallery
+## Step 3. Add LUSID from the Azure AD application gallery
 
-Add Recnice from the Azure AD application gallery to start managing provisioning to Recnice. If you have previously setup Recnice for SSO you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add LUSID from the Azure AD application gallery to start managing provisioning to LUSID. If you have previously setup LUSID for SSO you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -56,19 +56,19 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 * If you need more roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
-## Step 5. Configure automatic user provisioning to Recnice 
+## Step 5. Configure automatic user provisioning to LUSID 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
 
-### To configure automatic user provisioning for Recnice in Azure AD:
+### To configure automatic user provisioning for LUSID in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
 	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 
-1. In the applications list, select **Recnice**.
+1. In the applications list, select **LUSID**.
 
-	![Screenshot of the Recnice link in the Applications list.](common/all-applications.png)
+	![Screenshot of the LUSID link in the Applications list.](common/all-applications.png)
 
 1. Select the **Provisioning** tab.
 
@@ -78,7 +78,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your Recnice Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Recnice. If the connection fails, ensure your Recnice account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your LUSID Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to LUSID. If the connection fails, ensure your LUSID account has Admin permissions and try again.
 
  	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -88,36 +88,24 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Select **Save**.
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Recnice**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to LUSID**.
 
-1. Review the user attributes that are synchronized from Azure AD to Recnice in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Recnice for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Recnice API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to LUSID in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in LUSID for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the LUSID API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for filtering|Required by Recnice|
+   |Attribute|Type|Supported for filtering|Required by LUSID|
    |---|---|---|---|
    |userName|String|&check;|&check;
    |active|Boolean||&check;
-   |displayName|String||&check;
-   |title|String||&check;
    |emails[type eq "work"].value|String||&check;
-   |preferredLanguage|String||&check;
    |name.givenName|String||&check;
    |name.familyName|String||&check;
-   |name.formatted|String||&check;
-   |addresses[type eq "work"].formatted|String||&check;
-   |addresses[type eq "work"].streetAddress|String||&check;
-   |addresses[type eq "work"].locality|String||&check;
-   |addresses[type eq "work"].region|String||&check;
-   |addresses[type eq "work"].postalCode|String||&check;
-   |addresses[type eq "work"].country|String||&check;
    |externalId|String||&check;
-   |roles|String||&check;
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||&check;
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Recnice**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to LUSID**.
 
-1. Review the group attributes that are synchronized from Azure AD to Recnice in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Recnice for update operations. Select the **Save** button to commit any changes.
+1. Review the group attributes that are synchronized from Azure AD to LUSID in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in LUSID for update operations. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for filtering|Required by Recnice|
+   |Attribute|Type|Supported for filtering|Required by LUSID|
    |---|---|---|---|
    |displayName|String|&check;|&check;
    |externalId|String||
@@ -125,11 +113,11 @@ This section guides you through the steps to configure the Azure AD provisioning
    
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. To enable the Azure AD provisioning service for Recnice, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Azure AD provisioning service for LUSID, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Screenshot of Provisioning Status Toggled On.](common/provisioning-toggle-on.png)
 
-1. Define the users and/or groups that you would like to provision to Recnice by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users and/or groups that you would like to provision to LUSID by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Screenshot of Provisioning Scope.](common/provisioning-scope.png)
 
