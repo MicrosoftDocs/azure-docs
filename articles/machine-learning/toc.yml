@@ -989,11 +989,11 @@
     - name: Deploy to production
       items:
       - name: Endpoints
-          items:
-            - name: Online endpoints
-              href: concept-endpoints-online.md
-            - name: Batch endpoints
-              href: concept-endpoints-batch.md
+        items:
+          - name: Online endpoints
+            href: concept-endpoints-online.md
+          - name: Batch endpoints
+            href: concept-endpoints-batch.md
     - name: Monitor models
       items:
         - name: Model data collection
