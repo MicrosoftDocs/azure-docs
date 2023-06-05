@@ -42,5 +42,4 @@ The features of Global Secure Access are all accessed from the Microsoft Entra a
 
 ## Next steps
 
-- [Learn about security service edge](overview-what-is-security-service-edge.md)
 - [Get started with Global Secure Access](how-to-get-started-with-global-secure-access.md)
