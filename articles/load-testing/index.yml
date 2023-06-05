@@ -34,7 +34,7 @@ landingContent:
         links:
           - text: 'Create & run a load test'
             url: quickstart-create-and-run-load-test.md
-          - text: 'Add a load test to CI/CD'
+          - text: 'Automate load tests with CI/CD'
             url: quickstart-add-load-test-cicd.md
       - linkListType: tutorial
         links:
