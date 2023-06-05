@@ -83,10 +83,10 @@ The following steps show how to set up a customized content filtering configurat
 
 ## Best practices
 
-We recommend informing your content filtering configuration decisions through an iterative identification (for example, red team testing, stress-testing, and analysis) and measurement process to address the potential harms that are relevant for a specific model, application, and deployment scenario. After implementing mitigations such as content filtering, repeat measurement to test effectiveness. Recommendations and best practices on the Responsible AI Lifecycle grounded in the [Microsoft Responsible AI Standard](https://aka.ms/RAI) can be found in the [Azure OpenAI Transparency Note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=text#evaluating-and-integrating-azure-openai-for-your-use).
+We recommend informing your content filtering configuration decisions through an iterative identification (for example, red team testing, stress-testing, and analysis) and measurement process to address the potential harms that are relevant for a specific model, application, and deployment scenario. After implementing mitigations such as content filtering, repeat measurement to test effectiveness. Recommendations and best practices on the Responsible AI Lifecycle grounded in the [Microsoft Responsible AI Standard](https://aka.ms/RAI) can be found in the [Azure OpenAI Transparency Note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=text#evaluating-and-integrating-azure-openai-for-your-use).
 
 ## Next steps
 
-- Learn more about Responsible AI practices for Azure OpenAI: [Overview of Responsible AI practices for Azure OpenAI models](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/overview?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext).
+- Learn more about Responsible AI practices for Azure OpenAI: [Overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext).
 - Read more about [content filtering categories and severity levels](../concepts/content-filter.md) with Azure OpenAI Service.
 - Learn more about red teaming from our [Introduction to red teaming large language models (LLMs) article](../concepts/red-teaming.md).
