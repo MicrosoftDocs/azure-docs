@@ -23,7 +23,7 @@ It's important that you monitor how you use your Azure Active Directory (AD) B2C
 It's recommended that inactive user accounts are monitored and managed properly. To understand more read [this](user-manage-inactive.md)
 
 
-## Monitor directory quota consumption of your Azure AD B2C tenant
+## Monitor directory quota usage in your Azure AD B2C tenant
  
 1. Create an App Registration in AAD tenant behind B2C, configure a client id / secret to do client credentials flow as described [here](client-credentials-grant-flow.md)
 
