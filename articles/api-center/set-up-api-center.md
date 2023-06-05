@@ -128,7 +128,7 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
  
 1. In the portal, navigate to your API center.
 
-1. In the left menu, select **APIs** > **+ Register API**.ts
+1. In the left menu, select **APIs** > **+ Register API**.
 
 1. In the **Register API** page, add the following information for the Swagger Petstore API. You'll see the custom *Line of business* and *Public-facing* metadata properties that you defined in the preceding section at the bottom of the page.
 
@@ -142,8 +142,8 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
     | **Version** | | |
     |**Version title**| Enter a version title of your choice, such as *v1*.|Name you choose for the API version.|
     |**Version identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the version.|
-    |**Version lifecycle**  | Make a selection from the dropdown, such as **Testing**. | Lifecycle stage of the API version. |
-    |**Specification**        | Optionally upload  Demo Conference API JSON file.      |  API specification file, such as an OpenAPI specification for a REST API.     |
+    |**Version lifecycle**  | Make a selection from the dropdown, for example, **Testing** or **Production**. | Lifecycle stage of the API version. |
+    |**Specification**        | Optionally upload YAML file for Swagger Petstore API.      |  API specification file, such as an OpenAPI specification for a REST API.     |
     |**External documentation**     | Optionally add one or more links to external documentation.       | Name, description, and URL of documentation for the API.      |  
     |**Contact**         |  Optionally add information for one or more contacts.       | Name, email, and URL of a contact for the API.      |  
     | **Line of business** | If you added this custom property, make a selection from the dropdown, such as **Marketing**. | Custom metadata property that identifies the business unit that owns the API. |
