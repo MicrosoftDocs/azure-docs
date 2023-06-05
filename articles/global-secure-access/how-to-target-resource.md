@@ -5,7 +5,7 @@ description: How to use a traffic profile in a Conditional Access policy.
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 06/02/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -28,6 +28,10 @@ This functionality allows administrators to consistently enforce Conditional Acc
    * [Conditional Access Administrator](../active-directory/roles/permissions-reference.md#conditional-access-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) to create and interact with Conditional Access policies.
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running.
 * You must be routing your Microsoft 365, Internet, or private network traffic through the **Global Secure Access preview** using the steps in [How to enable the M365 profile](how-to-enable-m365-profile.md).
+
+### Known limitations
+
+- At this time, Conditional Access policies can only be applied to the Microsoft 365 traffic forwarding profile.
 
 ## Create a Conditional Access policy targeting the Microsoft 365 traffic profile
 

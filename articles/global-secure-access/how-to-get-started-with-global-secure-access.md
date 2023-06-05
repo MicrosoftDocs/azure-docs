@@ -38,14 +38,14 @@ For more information, see [Global Secure Access traffic forwarding profiles](con
 1. Follow the documentation to configure your [Microsoft 365 profile](how-to-enable-m365-profile.md) or your [private access profile](how-to-enable-private-access-profile.md).
 1. Either select the breadcrumb at the top of the page or close the window using the **X** in the upper-right corner.
 
-### Install the client or configure branch locations
+### Install the client or configure remote networks
 
-For traffic to get routed through Global Secure Access, your users must either be connected to a **branch location** that is configured to use Global Secure Access or **install the Global Secure Access client** on their Windows devices. Select the link to configure your branch locations or install the Global Secure Access client.
+For traffic to get routed through Global Secure Access, your users must either be connected to a **remote networks** that is configured to use Global Secure Access or **install the Global Secure Access client** on their Windows devices. Select the link to configure your remote networks or install the Global Secure Access client.
 
-- [How to configure branch locations](how-to-manage-branch-locations.md)
+- [How to configure remote networks](how-to-manage-remote-networks.md)
 - [How to install the Windows client](how-to-install-windows-client.md)
 
-![Screenshot of the install client and create branch locations options.](media/how-to-get-started-with-global-secure-access/wizard-client-install-branch-locations.png)
+![Screenshot of the install client and create remote networks options.](media/how-to-get-started-with-global-secure-access/wizard-client-install-branch-locations.png)
 
 **To install the Windows client**:
 
@@ -53,10 +53,10 @@ For traffic to get routed through Global Secure Access, your users must either b
 1. Follow the steps in the [How to install the Windows client](how-to-install-windows-client.md) article.
 1. Either select the breadcrumb at the top of the page or close the window using the **X** in the upper-right corner.
 
-**To configure branch locations**:
+**To configure remote networks**:
 
-1. Select the **Configure branch office** link.
-1. Follow the steps in the [How to configure branch locations](how-to-manage-branch-locations.md) article.
+1. Select the **Configure remote networks** link.
+1. Follow the steps in the [How to configure remote networks](how-to-manage-remote-networks.md) article.
 1. Either select the breadcrumb at the top of the page or close the window using the **X** in the upper-right corner.
 
 ## Recommended tasks
@@ -79,7 +79,7 @@ You can configure adaptive access controls and universal tenant restrictions fro
 Select the **Enable Quick Access to your private resources** to configure your Quick access settings. Quick access provides the ability to identify the internal, private apps and websites that you want to include in your private access traffic profile. For more information, see the following articles:
 
 - [Learn about traffic forwarding profiles](concept-traffic-forwarding.md)
-- [How to define quick access ranges](how-to-define-quick-access-ranges.md)
+- [How to configure Quick access](how-to-configure-quick-access.md)
 
 ### Configure enhanced monitoring and logging
 
@@ -87,6 +87,6 @@ Select the link.
 
 ## Next steps
 
-- [Learn about branch connectivity](concept-understand-branch-connectivity.md)
-- [Define quick access ranges](how-to-define-quick-access-ranges.md)
+- [Learn about remote network connectivity](concept-remote-network-connectivity.md)
+- [Configure quick access](how-to-configure-quick-access.md)
 

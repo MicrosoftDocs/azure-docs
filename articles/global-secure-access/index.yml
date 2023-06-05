@@ -20,7 +20,8 @@ landingContent:
         links:
           - text: What is Global Secure Access?
             url: overview-what-is-global-secure-access.md
-
+          - text: What is security service edge?
+            url: overview-what-is-security-service-edge.md
   - title: Get started
     linkLists:
       - linkListType: quickstart
@@ -32,23 +33,23 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Understand branch connectivity
-            url: concept-understand-branch-connectivity.md
+          - text: Understand remote network connectivity
+            url: concept-remote-network-connectivity.md
 
   - title: Connect
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Define quick access ranges
-            url: how-to-define-quick-access-ranges.md
+          - text: Configure quick access
+            url: how-to-configure-quick-access.md
           - text: Deploy on premises connectors
             url: how-to-deploy-on-premises-connectors.md
           - text: Configure traffic forwarding
             url: concept-traffic-forwarding.md
           - text: Install the Windows client
             url: how-to-install-windows-client.md
-          - text: Manage branch locations
-            url: how-to-manage-branch-locations.md
+          - text: Manage remote networks
+            url: how-to-manage-remote-networks.md
 
   - title: Conditional Access
     linkLists:
