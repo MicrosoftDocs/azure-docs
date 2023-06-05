@@ -104,7 +104,7 @@ The following articles describe ways you can manage access to applications once 
 
 ## Next steps
 
-For in-depth information, you can download Azure Active Directory deployment plans from [GitHub](../fundamentals/active-directory-deployment-plans.md). For gallery applications, you can download deployment plans for single sign-on, Conditional Access, and user provisioning through the [Azure portal](https://portal.azure.com).
+For in-depth information, you can download Azure Active Directory deployment plans from [GitHub](../fundamentals/deployment-plans.md). For gallery applications, you can download deployment plans for single sign-on, Conditional Access, and user provisioning through the [Azure portal](https://portal.azure.com).
 
 To download a deployment plan from the Azure portal:
 

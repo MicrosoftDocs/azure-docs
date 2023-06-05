@@ -12582,6 +12582,12 @@
         "redirect_url": "/azure/active-directory-domain-services/overview",
         "redirect_document_id": false
       },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-deployment-plans",
+        "redirect_url": "/azure/active-directory/fundamentals/deployment-plans",
+        "redirect_document_id": true
+      },
     
       {
         "source_path_from_root": "/articles/active-directory/standards/configure-azure-active-directory-for-cmmc-compliance.md",
