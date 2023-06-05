@@ -10316,6 +10316,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/datawiza-azure-ad-sso-mfa-oracle-ebs.md",
+      "redirect_url": "/azure/active-directory/manage-apps/datawiza-sso-mfa-oracle-ebs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/cloudflare-azure-ad-integration.md",
+      "redirect_url": "/azure/active-directory/manage-apps/cloudflare-integration",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/clarizen-provisioning-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
