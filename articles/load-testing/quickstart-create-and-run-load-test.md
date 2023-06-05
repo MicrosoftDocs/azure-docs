@@ -28,9 +28,9 @@ Learn more about the [key concepts for Azure Load Testing](./concept-load-testin
 
 First, you'll create the top-level resource for Azure Load Testing. It provides a centralized place to view and manage test plans, test results, and related artifacts.
 
-If you already have a Load Testing resource, skip this section and continue to [Create a load test](#create-a-load-test).
+If you already have a load testing resource, skip this section and continue to [Create a load test](#create-a-load-test).
 
-To create a Load Testing resource:
+To create a load testing resource:
 
 [!INCLUDE [azure-load-testing-create-portal](./includes/azure-load-testing-create-in-portal/azure-load-testing-create-in-portal.md)]
 
