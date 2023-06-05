@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-enterprise-app-role-management.md",
+      "redirect_url": "/azure/active-directory/develop/enterprise-app-role-management",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-schema-extensions.md",
       "redirect_url": "/azure/active-directory/develop/schema-extensions",
       "redirect_document_id": false
@@ -10256,6 +10261,76 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/azure-ad-data-residency.md",
+      "redirect_url": "/azure/active-directory/fundamentals/data-residency",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad.md",
+      "redirect_url": "/azure/active-directory/fundamentals/five-steps-to-full-application-integration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/service-accounts-governing-azure.md",
+      "redirect_url": "/azure/active-directory/fundamentals/govern-service-accounts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/service-accounts-introduction-azure.md",
+      "redirect_url": "/azure/active-directory/fundamentals/secure-service-accounts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/whats-deprecated-azure-ad.md",
+      "redirect_url": "/azure/active-directory/fundamentals/what-is-deprecated",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-compare-azure-ad-to-ad.md",
+      "redirect_url": "/azure/active-directory/fundamentals/compare",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-iam.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-iam",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/standards/configure-azure-active-directory-for-fedramp-high-impact.md",
+      "redirect_url": "/azure/active-directory/standards/configure-for-fedramp-high-impact",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-ops.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-ops",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-intro.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-intro",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-auth.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-auth",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-govern.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-govern",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/datawiza-azure-ad-sso-mfa-oracle-ebs.md",
+      "redirect_url": "/azure/active-directory/manage-apps/datawiza-sso-mfa-oracle-ebs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/cloudflare-azure-ad-integration.md",
+      "redirect_url": "/azure/active-directory/manage-apps/cloudflare-integration",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/clarizen-provisioning-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
@@ -12506,6 +12581,12 @@
         "source_path_from_root": "/articles/active-directory-domain-services/migrate-from-classic-vnet.md",
         "redirect_url": "/azure/active-directory-domain-services/overview",
         "redirect_document_id": false
+      },
+    
+      {
+        "source_path_from_root": "/articles/active-directory/standards/configure-azure-active-directory-for-cmmc-compliance.md",
+        "redirect_url": "/azure/active-directory/standards/configure-for-cmmc-compliance",
+        "redirect_document_id": true
       }
 
       ]

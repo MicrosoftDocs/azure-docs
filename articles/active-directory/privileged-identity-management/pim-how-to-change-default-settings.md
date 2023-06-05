@@ -147,50 +147,17 @@ You can send emails to both default recipient and another recipient by selecting
 -	**Critical emails only**</br>
 For each type of email, you can select the check box to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the specified recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while emails requiring admins to approve an extension request will be triggered.
 
-## Manage role settings through Microsoft Graph
+## Manage role settings using Microsoft Graph
 
-To manage settings for Azure AD roles through Microsoft Graph, use the [unifiedRoleManagementPolicy resource type and related methods](/graph/api/resources/unifiedrolemanagementpolicy).
+To manage settings for Azure AD roles using PIM APIs in Microsoft Graph, use the [unifiedRoleManagementPolicy resource type and related methods](/graph/api/resources/unifiedrolemanagementpolicy).
 
-In Microsoft Graph, role settings are referred to as rules and they're assigned to Azure AD roles through container policies. Each Azure AD role is assigned a specific policy object. You can retrieve all policies that are scoped to Azure AD roles and for each policy, retrieve the associated collection of rules through an `$expand` query parameter. The syntax for the request is as follows:
+In Microsoft Graph, role settings are referred to as rules and they're assigned to Azure AD roles through container policies. Each Azure AD role is assigned a specific policy object. You can retrieve all policies that are scoped to Azure AD roles and for each policy, retrieve the associated collection of rules by using an `$expand` query parameter. The syntax for the request is as follows:
 
 ```http
 GET https://graph.microsoft.com/v1.0/policies/roleManagementPolicies?$filter=scopeId eq '/' and scopeType eq 'DirectoryRole'&$expand=rules
 ```
 
-Rules are grouped into containers. The containers are further broken down into rule definitions that are identified by unique IDs for easier management. For example, a **unifiedRoleManagementPolicyEnablementRule** container exposes three rule definitions identified by the following unique IDs.
-
-+ `Enablement_Admin_Eligibility` - Rules that apply for admins to carry out operations on role eligibilities. For example, whether justification is required, and whether for all operations (for example, renewal, activation, or deactivation) or only for specific operations.
-+ `Enablement_Admin_Assignment` - Rules that apply for admins to carry out operations on role assignments. For example, whether justification is required, and whether for all operations (for example, renewal, deactivation, or extension) or only for specific operations.
-+ `Enablement_EndUser_Assignment` - Rules that apply for principals to enable their assignments. For example, whether multifactor authentication is required.
-
-
-To update these rule definitions, use the [update rules API](/graph/api/unifiedrolemanagementpolicyrule-update). For example, the following request specifies an empty **enabledRules** collection, therefore deactivating the enabled rules for a policy, such as multifactor authentication, ticketing information and justification.
-
-```http
-PATCH https://graph.microsoft.com/v1.0/policies/roleManagementPolicies/DirectoryRole_cab01047-8ad9-4792-8e42-569340767f1b_70c808b5-0d35-4863-a0ba-07888e99d448/rules/Enablement_EndUser_Assignment
-{
-    "@odata.type": "#microsoft.graph.unifiedRoleManagementPolicyEnablementRule",
-    "id": "Enablement_EndUser_Assignment",
-    "enabledRules": [],
-    "target": {
-        "caller": "EndUser",
-        "operations": [
-            "all"
-        ],
-        "level": "Assignment",
-        "inheritableSettings": [],
-        "enforcedSettings": []
-    }
-}
-```
-
-You can retrieve the collection of rules that are applied to all Azure AD roles or a specific Azure AD role through the [unifiedroleManagementPolicyAssignment resource type and related methods](/graph/api/resources/unifiedrolemanagementpolicyassignment). For example, the following request uses the `$expand` query parameter to retrieve the rules that are applied to an Azure AD role identified by **roleDefinitionId** or **templateId** `62e90394-69f5-4237-9190-012177145e10`.
-
-```http
-GET https://graph.microsoft.com/v1.0/policies/roleManagementPolicyAssignments?$filter=scopeId eq '/' and scopeType eq 'DirectoryRole' and roleDefinitionId eq '62e90394-69f5-4237-9190-012177145e10'&$expand=policy($expand=rules)
-```
-
-For more information about managing role settings through PIM, see [Role settings and PIM](/graph/api/resources/privilegedidentitymanagementv3-overview#role-settings-and-pim). For examples of updating rules, see [Use PIM APIs in Microsoft Graph to update Azure AD rules](/graph/how-to-pim-update-rules).
+For more information about managing role settings through PIM APIs in Microsoft Graph, see [Role settings and PIM](/graph/api/resources/privilegedidentitymanagementv3-overview#role-settings-and-pim). For examples of updating rules, see [Update rules in PIM using Microsoft Graph](/graph/how-to-pim-update-rules).
 
 ## Next steps
 

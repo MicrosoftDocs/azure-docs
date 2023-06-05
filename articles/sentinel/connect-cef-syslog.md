@@ -15,7 +15,9 @@ This article describes how to stream and filter logs in both the CEF and Syslog 
 - You're using a Linux log collector to forward both Syslog and CEF events to your Microsoft Sentinel workspaces using the Azure Monitor Agent (AMA). 
 - You want to ingest Syslog events in the Syslog table and CEF events in the CommonSecurityLog table.
 
-During this process, you use the AMA and Data Collection Rules (DCRs). With DCRs, you can filter the logs before they're ingested, for quicker upload, efficient analysis, and querying. Data Collection Rules (DCRs) to filter the logs before they're ingested, for quicker upload, efficient analysis, and querying.
+During this process, you use the AMA and Data Collection Rules (DCRs). With DCRs, you can filter the logs before they're ingested, for quicker upload, efficient analysis, and querying. 
+
+Learn how to [collect Syslog with the Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
 
 > [!IMPORTANT]
 >
