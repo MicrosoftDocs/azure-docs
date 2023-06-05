@@ -75,9 +75,20 @@
       href: quickstart-create-resources.md
     - name: Set up dev environments
       href: how-to-configure-environment.md
+  # v1
+    - name: Set up dev environments
+      displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
+      href: ./v1/how-to-configure-environment.md
+  # end v1
     - name: Install and setup the CLI(v2)
       href: how-to-configure-cli.md
+    # v1
+    - name: Install and set up the CLI (v1)
+      displayName: azurecli, mlops
+      href: ./v1/reference-azure-machine-learning-cli.md
+    # end v1
     - name: Set up VS Code extension
+      displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
       href: how-to-setup-vs-code.md
 - name: Quickstart
   expanded: true
@@ -548,19 +559,32 @@
       href: concept-ml-pipelines.md
     - name: What is a component
       href: concept-component.md
-    - name: What is Designer
-      href: concept-designer.md
   # v1
   - name: Designer (drag-n-drop ML)
     items:
-      - name: Designer overview
+      - name: What is Designer
         displayName: studio
         href: ./v1/concept-designer.md
       - name: Algorithm cheat sheet
         href: ./v1/algorithm-cheat-sheet.md
       - name: How to select algorithms
         href: ./v1/how-to-select-algorithms.md
-  # end v1
+      - name: Transform data
+        displayName: pipeline
+        href: ./v1/how-to-designer-transform-data.md
+      - name: Use pipeline parameters
+        displayName: designer, pipeline parameters
+        href: ./v1/how-to-use-pipeline-parameter.md
+      - name: Retrain using published pipelines
+        displayName: retrain, designer, published pipeline
+        href: ./v1/how-to-retrain-designer.md
+      - name: Batch predictions
+        displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+        href: ./v1/how-to-run-batch-predictions-designer.md
+      - name: Execute Python code
+        displayName: feature extraction, feature engineering
+        href: ./v1/how-to-designer-python.md
+    # end v1
   - name: How to create pipelines with components
     items: 
     - name: Create ML pipelines using components (Python SDK v2)
@@ -729,6 +753,12 @@
   items:
     - name: Data collection
     - name: Model monitoring
+- name: Work with Foundation Models
+  items:
+    - name: Open Source Models curated by AzureML 
+      href: how-to-use-foundation-models.md
+    - name: Hugging Face Hub community partner models
+      href: how-to-deploy-models-from-huggingface.md
 - name: Infrastructure & security
   items:
     - name: Tutorials & templates
@@ -936,47 +966,99 @@
     - name: Audit and manage
       displayName: policy
       href: how-to-integrate-azure-policy.md
+ - name: Concepts
+    items:
+      - name: What is v2?
+        href: concept-v2.md
+      - name: Work with Data
+        items:
+          - name: Data concepts in Azure Machine Learning
+          href: concept-data.md
+          - name: Sourcing human data responsibly
+            href: concept-sourcing-human-data.md
+          - name: Compliance
+            items:
+              - name: Export and delete data
+                displayName: GDPR
+                href: how-to-export-delete-data.md
+      - name: Train models
+        items:
+          - name: MLflow models
+            displayName: tracking models, mlflow, custom, flavors
+            href: concept-mlflow-models.md
+      - name: Deploy to production
+        items:
+        - name: Endpoints
+            items:
+              - name: Online endpoints
+                href: concept-endpoints-online.md
+              - name: Batch endpoints
+                href: concept-endpoints-batch.md
+      - name: Monitor models
+        items:
+          - name: Model data collection
+            href: concept-data-collection.md
+          - name: Model monitoring
+            href: concept-model-monitoring.md
+      - name: MLflow
+        items:
+          - name: MLflow and Azure Machine Learning
+          href: concept-mlflow.md
+          # v1
+          - name: MLflow
+            href: ./v1/concept-mlflow.md
+          # end v1
+      - name: Model Catalog
+        items:
+          - name: Foundation Models in Model Catalog
+            href: concept-foundation-models.md
+      - name: Responsible AI
+        items:
+          - name: Responsible AI overview
+            displayName: responsible, ml
+            href: concept-responsible-ai.md
+            - name: Implement Responsible AI in Practice
+              items:
+                - name: Responsible AI scorecard
+                  href: concept-responsible-ai-scorecard.md
+                - name: Fairness in Machine Learning
+                  displayName: fairness, bias, model performance, disparity metrics, unfairness
+                  href: concept-fairness-ml.md
+      - name: Workspace & compute resources
+        items:
+          - name: Environments
+            href: concept-environments.md
+          - name: Compute target
+            displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
+            href: concept-compute-target.md
+      - name: Security
+        items:
+          - name: Enterprise security overview
+            displayName: authorization authentication encryption aad azure active directory
+            href: concept-enterprise-security.md
+          - name: Secured workspace traffic flow
+            href: concept-secure-network-traffic-flow.md
+          - name: Security baseline
+            href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
+          - name: Security controls by Azure Policy
+            href: ./security-controls-policy.md
+          - name: Data encryption
+            href: concept-data-encryption.md
+          - name: Customer-managed keys
+            href: concept-customer-managed-keys.md
+          - name: Vulnerability management
+            href: concept-vulnerability-management.md
 - name: How-to guides
   items:
     - name: Understand resources and assets
       href: concept-azure-machine-learning-v2.md
-    - name: Search for assets
-      displayName: find, filter
-      href: how-to-search-assets.md
     - name: Set up an environment
       items:
-        - name: Set up dev environments
-          displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
-          href: how-to-configure-environment.md
-        # v1
-        - name: Set up dev environments
-          displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
-          href: ./v1/how-to-configure-environment.md
-        # end v1
-        - name: Install and set up the CLI (v2)
-          displayName: azurecli, mlops
-          href: how-to-configure-cli.md
-        # v1
-        - name: Install and set up the CLI (v1)
-          displayName: azurecli, mlops
-          href: ./v1/reference-azure-machine-learning-cli.md
-        # end v1
         - name: Set up studio environment
           items:
             - name: Manage environments in studio
               displayName: environments, studio, create, edit
               href: how-to-manage-environments-in-studio.md
-            - name: Create and manage files
-              displayName: Jupyter, notebooks, clone, samples
-              href: how-to-manage-files.md
-            - name: Run Jupyter Notebooks
-              href: how-to-run-jupyter-notebooks.md
-            - name: Use a terminal
-              displayName: git, github, clone, kernel, package
-              href: how-to-access-terminal.md
-            - name: Manage compute sessions
-              displayName: sessions, terminal, kernel
-              href: how-to-manage-compute-sessions.md
         - name: Azure Container for PyTorch
           displayName: acpt
           href: how-to-azure-container-for-pytorch-environment.md
@@ -986,9 +1068,6 @@
         - name: Work in VS Code remote
           displayName: Visual Studio Code, VSCode, debug, bugs
           href: how-to-work-in-vs-code-remote.md
-        - name: Set up VS Code (Desktop)
-          displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
-          href: how-to-setup-vs-code.md
         - name: Manage environments with SDK and CLI (v2)
           displayName: environment
           href: how-to-manage-environments-v2.md
@@ -1008,14 +1087,6 @@
           items:
             - name: Configure Apache Spark jobs 
               href: quickstart-spark-jobs.md
-        # v1
-        - name: Access data
-          items:
-        - name: Manage & consume data
-          items:
-        - name: Get & prepare data
-          items:
-        # end v1
     - name: Deploy models
       items:
         # v1
@@ -1094,57 +1165,11 @@
         - name: Perform continuous monitoring
           displayName: model monitoring, data drift, data quality, model quality
           href: how-to-monitor-model-performance.md
-    - name: Work with MLflow
-      items:
-        - name: Configure MLflow for Azure Machine Learning
-          href: how-to-use-mlflow-configure-tracking.md
-        - name: Train & track
-          items:
-            - name: Track experiments with MLflow
-              displayName: log, monitor, metrics, model registry, register
-              href: how-to-use-mlflow-cli-runs.md
-            - name: Track Azure Databricks runs with MLflow
-              displayName: log, monitor, deploy, metrics, databricks
-              href: how-to-use-mlflow-azure-databricks.md
-            - name: Track Azure Synapse Analytics runs with MLflow
-              displayName: log, monitor, deploy, metrics, synapse, analytics
-              href: how-to-use-mlflow-azure-synapse.md
-            - name: Train with MLflow Projects
-              displayName: log, monitor, metrics, model registry, register
-              href: how-to-train-mlflow-projects.md
-        - name: Manage
-          items:
-            - name: Manage models with MLflow
-              href: how-to-manage-models-mlflow.md
-        - name: Deploy & consume models
-          items:
-            - name: Online inference
-              items:
-            - name: Batch inference
-              items:
-    - name: Work with Foundation Models
-      items:
-        - name: Open Source Models curated by AzureML 
-          href: how-to-use-foundation-models.md
-        - name: Hugging Face Hub community partner models
-          href: how-to-deploy-models-from-huggingface.md
     - name: Manage the ML lifecycle (MLOps)
       items:
         - name: Build & use ML pipelines
           displayName: pipelines
           items:
-            - name: Create ML pipelines using components (CLI v2)
-              href: how-to-create-component-pipelines-cli.md
-            - name: Create ML pipelines using components (Python SDK v2)
-              href: how-to-create-component-pipeline-python.md
-            - name: Create ML pipelines using components (UI)
-              href: how-to-create-component-pipelines-ui.md
-            - name: How to use sweep in pipelines (v2)
-              href: how-to-use-sweep-in-pipeline.md
-            - name: How to use parallel job in pipeline
-              href: how-to-use-parallel-job-in-pipeline.md
-            - name: How to use pipeline component
-              href: how-to-use-pipeline-component.md
             - name: How to debug pipeline failure
               href: how-to-debug-pipeline-failure.md
             - name: How to debug pipeline reuse issues
@@ -1168,34 +1193,11 @@
             - name: Trigger a pipeline
               href: ./v1/how-to-trigger-published-pipeline.md
             # end v1
-            # v1
-            - name: Designer (drag-n-drop)
-              items:
-                - name: Transform data
-                  displayName: pipeline
-                  href: ./v1/how-to-designer-transform-data.md
-                - name: Use pipeline parameters
-                  displayName: designer, pipeline parameters
-                  href: ./v1/how-to-use-pipeline-parameter.md
-                - name: Retrain using published pipelines
-                  displayName: retrain, designer, published pipeline
-                  href: ./v1/how-to-retrain-designer.md
-                - name: Batch predictions
-                  displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-                  href: ./v1/how-to-run-batch-predictions-designer.md
-                - name: Execute Python code
-                  displayName: feature extraction, feature engineering
-                  href: ./v1/how-to-designer-python.md
-            # end v1
         # v1
         - name: Convert notebook code into Python scripts
           displayName: mlops, mlopspython, production
           href: ./v1/how-to-convert-ml-experiment-to-production.md
         # end v1
-    - name: Implement Responsible AI in Practice
-      items:
-        - name: Generate Responsible AI insights
-          items:
 - name: Troubleshoot & debug
   items:
     - name: Troubleshoot secure workspace connectivity
