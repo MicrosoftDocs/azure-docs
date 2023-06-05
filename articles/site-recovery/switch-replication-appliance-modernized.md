@@ -35,6 +35,7 @@ You can switch replication appliance in the following scenarios:
 - If you are trying to perform a switch with an intent of balancing load on an appliance, then all the components of your current appliance should be either in healthy or warning state. Missing heartbeat of even one component will block the switch operation.
 -  Ensure that the appliance that you're switching to is either in healthy or warning state, for the operation to succeed.
 -  Only those machines that are replicating from on-premises to Azure, can be selected when performing the switch operation to another appliance.  
+-  Switching the appliance of a protected machine is not supported if it has moved to a different vCenter server. 
 
 
 ## Switch a replication appliance
