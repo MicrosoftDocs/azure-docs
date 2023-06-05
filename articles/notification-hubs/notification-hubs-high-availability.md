@@ -20,6 +20,8 @@ Android, Windows, etc.) from any back-end (cloud or on-premises). This article d
 >
 > - Ability to edit your cross region disaster recovery options
 > - Availability zones
+>
+> If you're not participating in the preview, you can create a paired region (the ability to create a failover region), but you cannot edit your cross-region disaster recovery options, or create [availability zones](/azure/reliability/availability-zones-overview).
 
 Notification Hubs offers two availability configurations:
 
