@@ -71,10 +71,9 @@ After creation, you would be able to view/edit your replica on the portal by cli
 
 
 ## Pricing
-Replica is a feature of [Premium tier](https://azure.microsoft.com/en-us/pricing/details/signalr-service/) of Azure SignalR Service. When you create a replica in desired regions, you incur Premium fees for each region.
+Replica is a feature of [Premium tier](https://azure.microsoft.com/en-us/pricing/details/signalr-service/) of Azure SignalR Service. Each replica is billed **separately** accorrding to its own units and outbound traffic. Free message quota is also calculated separately.
 
 In the preceding example, Contoso added one replica in Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
-
 
 ## Delete a replica
 After you've created a replica for your Azure SignalR Service, you can delete it at any time if it's no longer needed. 
