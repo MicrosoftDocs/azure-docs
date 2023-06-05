@@ -8381,6 +8381,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/standards/configure-azure-active-directory-for-cmmc-compliance.md",
+      "redirect_url": "/azure/active-directory/standards/configure-for-cmmc-compliance",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-convercent-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/convercent-tutorial",
       "redirect_document_id": true
