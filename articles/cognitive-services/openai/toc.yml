@@ -48,6 +48,8 @@ items:
       href: ./how-to/completions.md
     - name: OpenAI vs Azure OpenAI (Python)
       href: ./how-to/switching-endpoints.md
+    - name: Configure content filters
+      href: ./how-to/content-filters.md
     - name: Work with code (Codex)
       href: ./how-to/work-with-code.md
     - name: Generate embeddings
