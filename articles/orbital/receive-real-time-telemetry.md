@@ -67,7 +67,7 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
 
 ```json
 {
-  "namespace": "Microsoft.Azure.Networking.Orbital.Nebula.ControlPlane.Telemetry",
+  "namespace": "EventSchema",
   "name": "TelemetryEventSchema",
   "type": "record",
   "fields": [
