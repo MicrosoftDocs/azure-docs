@@ -28,9 +28,3 @@ zone_pivot_groups: openai-quickstart-dall-e
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python SDK quickstart](includes/dall-e-python.md)]
-
-::: zone-end
-
