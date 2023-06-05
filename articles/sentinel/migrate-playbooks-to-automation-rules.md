@@ -86,4 +86,4 @@ In this document, you learned how to migrate playbooks based on the alert trigge
 - To learn more about automation rules, see [Automate threat response in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)
 - To create automation rules, see [Create and use Microsoft Sentinel automation rules to manage response](create-manage-use-automation-rules.md)
 - To learn more about advanced automation options, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
-- For help in implementing automation rules and playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
+- For help with implementing automation rules and playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).

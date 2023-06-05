@@ -272,7 +272,7 @@ To create an automation rule:
        >
        > In the **Manage permissions** panel that opens up, mark the check boxes of the resource groups containing the playbooks you want to run, and click **Apply**.
        >  
-       > :::image type="content" source="./media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Manage permissions":::
+       > :::image type="content" source="./media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Screenshot that shows the actions section with run playbook selected.":::
        >
        > - You yourself must have **owner** permissions on any resource group to which you want to grant Microsoft Sentinel permissions, and you must have the **Logic App Contributor** role on any resource group containing playbooks you want to run.
        >
