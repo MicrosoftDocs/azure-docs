@@ -65,7 +65,7 @@ To delete a replica in the Azure portal:
 2. Click Delete button on the replica overview blade.
 
 ## Impact on performance after enabling geo-replication feature
-After creating a replica, your clients will be distributed across selected Azure regions based on their geographical locations. Web PubSub service handles synchronizing data across these replicas automatically and this synchronization incurs a low level of latency. The latency cost is negligible if your use case primarily involves `sendToGroup()` where the group has more than 100 connections. However, the latency cost may become more apparent when sending to smaller groups (connection count < 10) or a single user. 
+After creating a replica, your clients will be distributed across selected Azure regions based on their geographical locations. Web PubSub service handles synchronizing data across these replicas automatically and this synchronization incurs a low level of cost. The cost is negligible if your use case primarily involves `sendToGroup()` where the group has more than 100 connections. However, the cost may become more apparent when sending to smaller groups (connection count < 10) or a single user. 
 
 For more performance evaluation, refer to [Performance](concept-performance.md).
 
