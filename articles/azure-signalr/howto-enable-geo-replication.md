@@ -63,7 +63,12 @@ To create a replica, Navigate to the SignalR **Replicas** blade on the Azure por
 ![SignalR Replica Creation](https://github.com/bjqian/azure-docs/assets/16233725/9e314ee1-d164-4530-9b70-25540f401d5d)
 > [!NOTE]
 > * Geo-replication is a feature available in premium tier.
-> * A replica is considered a separate resource when it comes to billing. See [Pricing](concept-billing-model.md/#how-replica-is-billed) for more details. 
+> * A replica is considered a separate resource when it comes to billing. See [Pricing](#pricing) for more details. 
+
+After creation, you would be able to view/edit your replica on the portal by clicking the replica name.
+
+<img src="https://github.com/bjqian/azure-docs/assets/16233725/6ba77af6-35b9-483f-97f4-1957a1b38eb7" width="750">
+
 
 ## Pricing
 Replica is a feature of [Premium tier](https://azure.microsoft.com/en-us/pricing/details/signalr-service/) of Azure SignalR Service. When you create a replica in desired regions, you incur Premium fees for each region.
@@ -95,6 +100,8 @@ The diagram below provides a brief illustration of the SignalR Replicas' functio
 
 ## Impact on Performance After Adding Replicas
 
-Post replica addition, your clients will be distributed across different locations based on their geographical locations. SignalR must synchronize data across these replicas. The synchronization cost is negligible if your use case primarily involves sending to large groups (size >100) or broadcasting. However, the cost becomes more apparent when sending to smaller groups (size < 10) or a single user.
+Post replica addition, your clients will be distributed across different locations based on their geographical locations. SignalR must synchronize data across these replicas. The cost for synchronization is negligible if your use case primarily involves sending to large groups (size >100) or broadcasting. However, the cost becomes more apparent when sending to smaller groups (size < 10) or a single user.
 
-To ensure effective failover management, it is recommended to set each replica's unit size to handle all traffic. Alternatively, you could enable auto-scaler to manage this.
+To ensure effective failover management, it is recommended to set each replica's unit size to handle all traffic. Alternatively, you could enable [autoscaling](howto-scale-autoscale.md) to manage this.
+
+For more performance evaluation, refer to [Performance](concept-performance.md).
