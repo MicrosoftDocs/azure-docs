@@ -29,6 +29,7 @@ ms.date: 06/03/2023
 | 99.999% availability SLA | [Yes](../high-availability.md) | No |
 | Instantaneous Scaling | Yes, [database instantaneously scales](../provision-throughput-autoscale.md) to with zero performance impact on your applications | No, requires 1+ hours to vertically scale up and 24+ hours to vertically scale down. Performance impact during scale up may be noticeable |
 | True active-active clusters | Yes, with [multi-primary writes](./how-to-configure-multi-region-write.md). Data for the same shard can be written to multiple regions  | No |
+| Vector Search for AI applications | Yes, with [Azure Cosmos DB for MongoDB vCore Vector Search](./vcore/vector-search.md) | No |
 | Integrated text search, geospatial processing | Yes | Yes |
 | Free tier | [1,000 request units (RUs) and 25 GB storage forever](../try-free.md). Prevents you from exceeding limits if you want | Yes, with 512 MB storage |
 | Live migration | Yes | Yes |
