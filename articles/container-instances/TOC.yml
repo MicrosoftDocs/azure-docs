@@ -64,7 +64,7 @@
   - name: Container groups
     href: container-instances-container-groups.md
   - name: Region and resource availability
-    href: container-instances-resource-and-quota-limits.md
+    href: container-instances-region-availability.md
   - name: Relationship to orchestrators
     href: container-instances-orchestrator-relationship.md
   - name: Security
@@ -77,6 +77,8 @@
     href: container-instances-virtual-network-concepts.md
   - name: Confidential container groups
     href: container-instances-confidential-overview.md
+  - name: Attestation in Confidential containers
+    href: confidential-containers-attestation-concepts.md 
 - name: How-to guides
   items:
   - name: Deploy

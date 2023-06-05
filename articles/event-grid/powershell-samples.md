@@ -2,6 +2,7 @@
 title: Azure PowerShell samples - Event Grid | Microsoft Docs
 description: This article includes a table with links to Azure PowerShell scripting samples for Azure Event Grid.
 ms.topic: sample
+ms.custom: devx-track-azurepowershell
 ms.date: 09/15/2021
 ---
 
@@ -20,4 +21,3 @@ The following table includes links to Azure PowerShell samples for Event Grid.
 ## Event Grid topics
 
 - [Create custom topic](scripts/powershell-create-custom-topic.md) - Creates an Event Grid custom topic, and returns the endpoint and key.  
-

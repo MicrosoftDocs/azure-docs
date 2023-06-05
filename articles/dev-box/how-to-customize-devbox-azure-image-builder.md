@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.custom: devx-track-azurepowershell
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 11/17/2022
+ms.date: 04/25/2023
 ms.topic: how-to
 ---
 
@@ -31,6 +31,9 @@ To reduce the complexity of creating VM images, VM Image Builder:
 
 - Can be integrated with Azure Compute Gallery, which creates an image management system for distributing, replicating, versioning, and scaling images globally. Additionally, you can distribute the same resulting image as a virtual hard disk or as one or more managed images, without having to rebuild them from scratch.
 
+> [!IMPORTANT]
+> Microsoft Dev Box supports only images that use the security type [Trusted Launch](/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal2) enabled.
+
 ## Prerequisites
 
 To provision a custom image that you created by using VM Image Builder, you need:
@@ -41,7 +44,7 @@ To provision a custom image that you created by using VM Image Builder, you need
 
 ## Create a Windows image and distribute it to Azure Compute Gallery
 
-The next step is to use Azure VM Image Builder and Azure PowerShell to create an image version in Azure Compute Gallery (formerly Shared Image Gallery) and then distribute the image globally. You can also do this by using the Azure CLI.
+The next step is to use Azure VM Image Builder and Azure PowerShell to create an image version in Azure Compute Gallery and then distribute the image globally. You can also do this by using the Azure CLI.
 
 1. To use VM Image Builder, you need to register the features.
 
@@ -71,7 +74,7 @@ The next step is to use Azure VM Image Builder and Azure PowerShell to create an
     'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
     ```
 
-3. Create variables to store information that you'll use more than once.
+3. Create variables to store information that you use more than once.
 
     Copy the following sample code. Replace `<Resource group>` with the resource group that you used to create the dev center.
 

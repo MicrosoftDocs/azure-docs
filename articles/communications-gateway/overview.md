@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: overview
-ms.date: 12/14/2022
+ms.date: 04/26/2023
 ms.custom: template-overview
 ---
 
@@ -41,7 +41,9 @@ Traffic from all enterprises shares a single SIP trunk, using a multi-tenant for
 
 ## Voice features
 
-Azure Communications Gateway supports the SIP and RTP requirements for Teams Certified SBCs. It can transform call flows to suit your network with minimal disruption to existing infrastructure. Its voice features include:
+Azure Communications Gateway supports the SIP and RTP requirements for Teams Certified SBCs. It can transform call flows to suit your network with minimal disruption to existing infrastructure.
+
+Azure Communications Gateway's voice features include:
 
 - **Optional direct peering to Emergency Routing Service Providers (US only)** - If your network can't transmit Emergency location information in PIDF-LO (Presence Information Data Format Location Object) SIP bodies, Azure Communications Gateway can connect directly to your chosen Teams-certified Emergency Routing Service Provider (ERSP) instead. See [Emergency calling with Azure Communications Gateway](emergency-calling.md).
 - **Voice interworking** - Azure Communications Gateway can resolve interoperability issues between your network and Microsoft Teams. Its position on the edge of your network reduces disruption to your networks, especially in complex scenarios like Teams Phone Mobile where Teams Phone System is the call control element. Azure Communications Gateway includes powerful interworking features, for example:
@@ -53,6 +55,7 @@ Azure Communications Gateway supports the SIP and RTP requirements for Teams Cer
   - Payload type interworking
   - Media transcoding
   - Ringback injection
+- **Call control integration for Teams Phone Mobile** - Azure Communications Gateway includes an optional IMS Application Server called Mobile Control Point (MCP). MCP ensures calls are only routed to the Microsoft Phone System when a user is eligible for Teams Phone Mobile services. This process minimizes the changes you need in your mobile network to route calls into Microsoft Teams. For more information, see [Mobile Control Point in Azure Communications Gateway for Teams Phone Mobile](mobile-control-point.md).
 
 ## API features
 

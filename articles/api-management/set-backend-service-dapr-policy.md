@@ -14,7 +14,7 @@ ms.author: danlep
 
 The `set-backend-service` policy sets the target URL for the current request to `http://localhost:3500/v1.0/invoke/{app-id}[.{ns-name}]/method/{method-name}`, replacing template parameters with values specified in the policy statement.
 
-The policy assumes that Dapr runs in a sidecar container in the same pod as the gateway. Upon receiving the request, Dapr runtime performs service discovery and actual invocation, including possible protocol translation between HTTP and gRPC, retries, distributed tracing, and error handling. Learn more about [Dapr integration with API Management](api-management-dapr-policies.md).
+The policy assumes that Dapr runs in a sidecar container in the same pod as the gateway. Upon receiving the request, Dapr runtime performs service discovery and actual invocation, including possible protocol translation between HTTP and gRPC, retries, distributed tracing, and error handling. Learn more about [Dapr integration with API Management](self-hosted-gateway-enable-dapr.md).
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -36,12 +36,12 @@ The policy assumes that Dapr runs in a sidecar container in the same pod as the 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) self-hosted
 
 ### Usage notes
 
-Dapr support must be [enabled](api-management-dapr-policies.md#enable-dapr-support-in-the-self-hosted-gateway) in the self-hosted gateway.
+Dapr support must be [enabled](self-hosted-gateway-enable-dapr.md) in the self-hosted gateway.
 
 ## Example
 

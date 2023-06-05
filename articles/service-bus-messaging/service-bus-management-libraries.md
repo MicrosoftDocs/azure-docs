@@ -4,6 +4,7 @@ description: This article explains how to dynamically or programmatically provis
 ms.topic: article
 ms.date: 08/06/2021
 ms.devlang: csharp,java,javascript,python
+ms.custom: devx-track-arm-template
 ---
 
 # Dynamically provision Service Bus namespaces and entities 

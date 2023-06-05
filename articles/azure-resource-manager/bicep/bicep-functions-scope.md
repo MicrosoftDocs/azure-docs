@@ -203,7 +203,7 @@ A common use of the resourceGroup function is to create resources in the same lo
 param location string = resourceGroup().location
 ```
 
-You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](../management/tag-resources.md#apply-tags-from-resource-group).
+You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](../management/tag-resources-bicep.md#apply-tags-from-resource-group).
 
 ## subscription
 

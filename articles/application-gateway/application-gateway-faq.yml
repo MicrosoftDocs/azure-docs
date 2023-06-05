@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 02/26/2023
+  ms.date: 05/19/2023
   ms.author: greglin
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
@@ -136,8 +136,8 @@ sections:
         answer: |
           Yes. The Application Gateway v1 SKU continues to be supported. However, it's strongly recommended to move to v2 to take advantage of the feature updates in that SKU. For more information on the differences between v1 and v2 features, see [Autoscaling and Zone-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md). You can manually migrate Application Gateway v1 sku deployments to v2 by following our [v1-v2 migration document](migrate-v1-v2.md).
           
-      - question: Does Application Gateway V2 support proxying requests with NTLM authentication?
-        answer: No. Application Gateway V2 doesn't support proxying requests with NTLM authentication.
+      - question: Does Application Gateway V2 support proxying requests with NTLM or Kerberos authentication?
+        answer: No. Application Gateway V2 doesn't support proxying requests with NTLM or Kerberos authentication.
         
       - question: Why are some header values not present when requests are forwarded to my application?
         answer: Request header names can contain alphanumeric characters and hyphens. Request header names containing other characters are discarded when a request is sent to the backend target. Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27), except for underscores (\_).
@@ -302,7 +302,7 @@ sections:
           
       - question: How can I stop and start Azure Application Gateway?
         answer: |
-          You can use Azure PowerShell or the Azure CLI to stop and start Azure Application Gateway. When you stop and start Application Gateway, [billing](https://azure.microsoft.com/pricing/details/application-gateway/) also stops and starts.
+          You can use Azure PowerShell or the Azure CLI to stop and start Azure Application Gateway. When you stop and start Application Gateway, [billing](https://azure.microsoft.com/pricing/details/application-gateway/) also stops and starts. Any PUT operation done on a Stopped Application Gateway (like adding tag, health probe, listener etc.) triggers a Start. It's recommended to Stop the application gateway once the configuration has been updated.
                              
           ```azurepowershell
           # Stop an existing Azure Application Gateway instance

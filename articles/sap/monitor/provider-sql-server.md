@@ -1,5 +1,5 @@
 ---
-title: Configure Microsoft SQL Server provider for Azure Monitor for SAP solutions (preview)
+title: Configure Microsoft SQL Server provider for Azure Monitor for SAP solutions 
 description: Learn how to configure a Microsoft SQL Server provider for use with Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: sap-on-azure
@@ -10,9 +10,7 @@ ms.author: sujaj
 #Customer intent: As a developer, I want to configure a Microsoft SQL Server provider so that I can use Azure Monitor for SAP solutions for monitoring.
 ---
 
-# Configure SQL Server for Azure Monitor for SAP solutions (preview)
-
-[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
+# Configure SQL Server for Azure Monitor for SAP solutions 
 
 In this how-to guide, you'll learn to configure a Microsoft SQL Server provider for Azure Monitor for SAP solutions through the Azure portal. 
 

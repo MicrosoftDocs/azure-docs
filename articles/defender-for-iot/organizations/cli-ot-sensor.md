@@ -296,7 +296,7 @@ To use this command:
 - Verify that the certificate file you want to import is readable on the appliance. Upload certificate files to the appliance using tools such as WinSCP or Wget.
 - Confirm with your IT office that the appliance domain as it appears in the certificate is correct for your DNS server and the corresponding IP address.
 
-For more information, see [Certificates for appliance encryption and authentication (OT appliances)](how-to-deploy-certificates.md).
+For more information, see [Prepare CA-signed certificates](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates) and [Create SSL/TLS certificates for OT appliances](ot-deploy/create-ssl-certificates.md).
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|

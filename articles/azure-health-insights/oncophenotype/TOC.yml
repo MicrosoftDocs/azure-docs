@@ -15,21 +15,25 @@ items:
     - name: Transparency note for Onco Phenotype
       href: transparency-note.md
     - name: Data, privacy, and security
-      href: ../responsible-ai/data-privacy-security.md
+      href: /azure/azure-health-insights/responsible-ai/data-privacy-security?toc=/azure/azure-health-insights/oncophenotype/toc.json
 - name: Concepts
   items:
      - name: Model configuration
        href: model-configuration.md
-     - name: Patient information
-       href: patient-info.md
      - name: Inference information
        href: inferences.md
 - name: Reference
   items:
      - name: REST API
        href: /rest/api/cognitiveservices/healthinsights/onco-phenotype
-     - name: .NET SDK
-       href: /dotnet/api/overview/azure/health.insights.cancerprofiling-readme
+     - name: SDKs
+       items:
+         - name: .NET
+           href: /dotnet/api/overview/azure/health.insights.cancerprofiling-readme
+         - name: Java
+           href: /java/api/overview/azure/health-insights-cancerprofiling-readme
+         - name: Python
+           href: /python/api/overview/azure/healthinsights-cancerprofiling-readme
 - name: Resources
   items:
      - name: FAQ

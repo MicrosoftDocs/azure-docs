@@ -6,11 +6,10 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: conceptual
-ms.date: 03/15/2023
+ms.topic: whats-new
+ms.date: 05/23/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
-recommendations: false
 ms.custom: references_regions
 ---
 <!-- markdownlint-disable MD024 -->
@@ -26,6 +25,28 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 >[!NOTE]
 > With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
+
+## May 2023
+
+**Introducing refreshed documentation for Build 2023**
+
+* [🆕 Form Recognizer Overview](overview.md?view=form-recog-3.0.0&preserve-view=true) has enhanced navigation, structured access points, and enriched images.
+
+* [🆕 Choose a Form Recognizer model](choose-model-feature.md?view=form-recog-3.0.0&preserve-view=true) is now a standalone that provides guidance for choosing the best Form Recognizer solution for your projects and workflows.
+
+## April 2023
+
+**Announcing the latest Azure Form Recognizer client-library public preview release**
+
+* Form Recognizer REST API Version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument) supports the public preview release SDKs. This release includes the following new features and capabilities available for .NET/C# (4.1.0-beta-1), Java (4.1.0-beta-1), JavaScript (4.1.0-beta-1), and Python (3.3.0b.1) SDKs:
+
+  * [**Custom classification model**](concept-custom-classifier.md)
+
+  * [**Query fields extraction**](concept-query-fields.md)
+
+  * [**Add-on capabilities**](concept-add-on-capabilities.md)
+
+* For more information, _see_ [**Form Recognizer SDK (public preview**)](./sdk-preview.md) and [March 2023 release](#march-2023) notes.
 
 ## March 2023
 
@@ -52,7 +73,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * New model additions in gated preview: **Vaccination cards**, **Contracts**, **US Tax 1098**, **US Tax 1098-E**, and **US Tax 1098-T**.  To request access to gated preview models, complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey).
 * [**Receipt model updates**](concept-receipt.md)
   * Receipt model has added support for thermal receipts.
-  * Receipt model now has added language support for 18 languages and three language dialects (English, French, Portuguese).
+  * Receipt model now has added language support for 18 languages and three regional languages (English, French, Portuguese).
   * Receipt model now supports `TaxDetails` extraction.
 * [**Layout model**](concept-layout.md) now has improved table recognition.
 * [**Read model**](concept-read.md) now has added improvement for single-digit character recognition.
@@ -132,7 +153,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * India ID cards and documents (PAN and Aadhaar)
   * Australia ID cards and documents (photo card, Key-pass ID)
   * Canada ID cards and documents (identification card, Maple card)
-  * United Kingdom ID cards and documents (national identity card)
+  * United Kingdom ID cards and documents (national/regional identity card)
 
 ---
 
@@ -356,7 +377,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields now resolves to the existing fields TotalTax and Line/Tax respectively.
   * [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards. Support for passport visa information.
   * [**prebuilt-receipt**](concept-receipt.md). Expanded locale support for French (fr-FR), Spanish (es-ES), Portuguese (pt-PT), Italian (it-IT) and German (de-DE).
-  * [**prebuilt-businessCard**](concept-business-card.md). Address parsing support to extract subfields for address components like address, city, state, country, and zip code.
+  * [**prebuilt-businessCard**](concept-business-card.md). Address parse support to extract subfields for address components like address, city, state, country, and zip code.
 
 * **AI quality improvements**
 

@@ -1,20 +1,20 @@
 ---
-title: Enable Public IP to the NSX-T Data Center Edge for Azure VMware Solution
+title: Enable Public IP on the NSX-T Data Center Edge for Azure VMware Solution
 description: This article shows how to enable internet access for your Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/24/2022
+ms.date: 5/1/2023
 ms.custom: engagement-fy23
 ---
 
-# Enable Public IP to the NSX-T Data Center Edge for Azure VMware Solution
+# Enable Public IP on the NSX-T Data Center Edge for Azure VMware Solution
 
-In this article, you'll learn how to enable Public IP to the NSX-T Data Center Edge for your Azure VMware Solution.
+In this article, you'll learn how to enable Public IP on the NSX-T Data Center Edge for your Azure VMware Solution.
 
 >[!TIP]
 >Before you enable Internet access to your Azure VMware Solution, review the [Internet connectivity design considerations](concepts-design-public-internet-access.md).
 
-Public IP to the NSX-T Data Center Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution environment.
+Public IP on the NSX-T Data Center Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution environment.
 
 >[!IMPORTANT]
 >The use of Public IPv4 addresses can be consumed directly in Azure VMware Solution and charged based on the Public IPv4 prefix shown on [Pricing - Virtual Machine IP Address Options.](https://azure.microsoft.com/pricing/details/ip-addresses/).
@@ -26,7 +26,7 @@ With this capability, you have the following features:
 - A cohesive and simplified experience for reserving and using a Public IP down to the NSX Edge.
 - The ability to receive up to 1000 or more Public IPs, enabling Internet access at scale.
 - Inbound and outbound internet access for your workload VMs.
-- DDoS Security protection against network traffic in and out of the Internet.
+- DDoS Security protection against network traffic in and out of the internet.
 - HCX Migration support over the Public Internet.
 
 >[!IMPORTANT]
@@ -39,8 +39,8 @@ With this capability, you have the following features:
 
 ## Reference architecture
 
-The architecture shows Internet access to and from your Azure VMware Solution private cloud using a Public IP directly to the NSX-T Data Center Edge.
-:::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png" alt-text="Diagram that shows architecture of Internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the NSX Edge." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-expanded.png":::
+The architecture shows internet access to and from your Azure VMware Solution private cloud using a Public IP directly to the NSX-T Data Center Edge.
+:::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png" alt-text="Diagram that shows architecture of internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the NSX Edge." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-expanded.png":::
 
 >[!IMPORTANT]
 >The use of Public IP down to the NSX-T Data Center Edge is not compatible with reverse DNS Lookup.

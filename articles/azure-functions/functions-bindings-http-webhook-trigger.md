@@ -4,7 +4,7 @@ description: Learn how to call an Azure Function via HTTP.
 ms.topic: reference
 ms.date: 03/06/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -82,6 +82,19 @@ public static async Task<IActionResult> Run(
 The following example shows an HTTP trigger that returns a "hello world" response as an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger":::
+
+The following examples shows an HTTP trigger that returns a "hello, world" response as an [IActionResult], using [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration-preview):
+
+```csharp
+[Function("HttpFunction")]
+public IActionResult Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req)
+{
+    return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
+}
+```
+
+[IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
 
 # [C# Script](#tab/csharp-script)
 
@@ -910,9 +923,10 @@ By default, all function routes are prefixed with *api*. You can also customize 
 ### Using route parameters
 
 Route parameters that defined a function's `route` pattern are available to each binding. For example, if you have a route defined as `"route": "products/{id}"` then a table storage binding can use the value of the `{id}` parameter in the binding configuration.
-
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 The following configuration shows how the `{id}` parameter is passed to the binding's `rowKey`.
-
+::: zone-end
+::: zone pivot="programming-language-python"  
 # [v2](#tab/python-v2)
 
 ```python
@@ -933,9 +947,20 @@ The following configuration shows how the `{id}` parameter is passed to the bind
     "rowKey": "{id}"
 }
 ```
-
 ---
-
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell"  
+```json
+{
+    "type": "table",
+    "direction": "in",
+    "name": "product",
+    "partitionKey": "products",
+    "tableName": "products",
+    "rowKey": "{id}"
+}
+```
+::: zone-end
 When you use route parameters, an `invoke_URL_template` is automatically created for your function. Your clients can use the URL template to understand the parameters they need to pass in the URL when calling your function using its URL. Navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Get function URL**.
 
 You can programmatically access the `invoke_URL_template` by using the Azure Resource Manager APIs for [List Functions](/rest/api/appservice/webapps/listfunctions) or [Get Function](/rest/api/appservice/webapps/getfunction).

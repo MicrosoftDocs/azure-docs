@@ -92,7 +92,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL, Sign-on URL and Relay State. Contact [Grovo Client support team](https://www.grovo.com/contact-us) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL, Sign-on URL and Relay State. Contact Grovo Client support team to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -161,9 +161,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ### Create Grovo test user
 
 In this section, a user called B.Simon is created in Grovo. Grovo supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Grovo, a new one is created after authentication.
-
-> [!Note]
-> If you need to create a user manually, Contact [Grovo support team](https://www.grovo.com/contact-us).
 
 ## Test SSO 
 

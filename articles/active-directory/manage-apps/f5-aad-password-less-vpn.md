@@ -12,6 +12,7 @@ ms.date: 12/13/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.reviewer: v-nisba
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO
@@ -31,7 +32,7 @@ To learn about more benefits, see
 * [What is single sign-on in Azure Active Directory?](/azure/active-directory/active-directory-appssoaccess-whatis)
 
 >[!NOTE]
->Classic VPNs remain network orientated, often providing little to no fine-grained access to corporate applications. We encourage a more identity-centric approach to achieve Zero Trust. Learn more: [Five steps for integrating all your apps with Azure AD](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md).
+>Classic VPNs remain network orientated, often providing little to no fine-grained access to corporate applications. We encourage a more identity-centric approach to achieve Zero Trust. Learn more: [Five steps for integrating all your apps with Azure AD](../fundamentals/five-steps-to-full-application-integration.md).
 
 ## Scenario description
 
@@ -326,5 +327,5 @@ Your SSL-VPN service is published and accessible via SHA, either with its URL or
 ## Resources
 
 - [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
-- [Five steps to full application integration with Azure AD](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md)
+- [Five steps to full application integration with Azure AD](../fundamentals/five-steps-to-full-application-integration.md)
 - [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)

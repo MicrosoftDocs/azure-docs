@@ -81,5 +81,6 @@ You can also add tasks for yourself, on the spot, to an incident's task list. Th
 - Learn more about [incident tasks](incident-tasks.md).
 - Learn how to [investigate incidents](investigate-cases.md).
 - Learn how to add tasks to groups of incidents automatically using [automation rules](create-tasks-automation-rule.md) or [playbooks](create-tasks-playbook.md), and [when to use which](incident-tasks.md#use-automation-rules-or-playbooks-to-add-tasks).
+- Learn about [keeping track of your tasks](audit-track-tasks.md).
 - Learn more about [automation rules](automate-incident-handling-with-automation-rules.md) and how to [create them](./create-manage-use-automation-rules.md).
 - Learn more about [playbooks](automate-responses-with-playbooks.md) and how to [create them](tutorial-respond-threats-playbook.md).

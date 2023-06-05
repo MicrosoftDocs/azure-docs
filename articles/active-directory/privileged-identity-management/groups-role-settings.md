@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/27/2023
+ms.date: 4/12/2023
 ms.author: amsliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -20,7 +20,12 @@ ms.collection: M365-identity-device-management
 
 In Privileged Identity Management (PIM) for groups in Azure Active Directory (Azure AD), part of Microsoft Entra, role settings define membership or ownership assignment properties: MFA and approval requirements for activation, assignment maximum duration, notification settings, etc. Use the following steps to configure role settings and set up the approval workflow to specify who can approve or deny requests to elevate privilege.
 
-You need to have Global Administrator, Privileged Role Administrator, or group Owner permissions to manage settings for membership or ownership assignments of the group. Role settings are defined per role per group: all assignments for the same role (member or owner) for the same group follow same role settings. Role settings of one group are independent from role settings of another group. Role settings for one role (member) are independent from role settings for another role (owner).
+You will need group management permissions to manage settings. For role-assignable groups, you need to have Global Administrator, Privileged Role Administrator role, or be an Owner of the group. For non-role assignable groups, you need to have Global Administrator, Directory Writer, Groups Administrator, Identity Governance Administrator, User Administrator role, or be an Owner of the group. Role assignments for administrators should be scoped at directory level (not Administrative Unit level). 
+
+> [!NOTE]
+> Other roles with permissions to manage groups (such as Exchange Administrators for non-role-assignable M365 groups) and administrators with assignments scoped at administrative unit level can manage groups through Groups API/UX and override changes made in Azure AD PIM. 
+
+Role settings are defined per role per group: all assignments for the same role (member or owner) for the same group follow same role settings. Role settings of one group are independent from role settings of another group. Role settings for one role (member) are independent from role settings for another role (owner).
 
 
 ## Update role settings
@@ -139,6 +144,18 @@ In the **Notifications** tab on the role settings page, Privileged Identity Mana
 - **Limit emails to specified email addresses**<br>You can turn off emails sent to default recipients by clearing the default recipient check box. You can then add other email addresses as recipients. If you want to add more than one email address, separate them using a semicolon (;).
 - **Send emails to both default recipients and more recipients**<br>You can send emails to both default recipient and another recipient by selecting the default recipient checkbox and adding email addresses for other recipients.
 - **Critical emails only**<br>For each type of email, you can select the check box to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the specified recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while an email requiring admins to approve an extension request will be triggered.
+
+## Manage role settings using Microsoft Graph
+
+To manage role settings for groups using PIM APIs in Microsoft Graph, use the [unifiedRoleManagementPolicy resource type and its related methods](/graph/api/resources/unifiedrolemanagementpolicy).
+
+In Microsoft Graph, role settings are referred to as rules and they're assigned to groups through container policies. You can retrieve all policies that are scoped to a group and for each policy, retrieve the associated collection of rules by using an `$expand` query parameter. The syntax for the request is as follows:
+
+```http
+GET https://graph.microsoft.com/beta/policies/roleManagementPolicies?$filter=scopeId eq '{groupId}' and scopeType eq 'Group'&$expand=rules
+```
+
+For more information about managing role settings through PIM APIs in Microsoft Graph, see [Role settings and PIM](/graph/api/resources/privilegedidentitymanagement-for-groups-api-overview#policy-settings-in-pim-for-groups). For examples of updating rules, see [Update rules in PIM using Microsoft Graph](/graph/how-to-pim-update-rules).
 
 ## Next steps
 

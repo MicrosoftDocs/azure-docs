@@ -202,3 +202,79 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
+### Operating System Configuration
+
+The Operating System Configuration playbook is used to configure the operating system of the SAP virtual machines. The playbook performs the following tasks:
+
+# [Linux](#tab/linux)
+
+The following tasks are executed on Linux virtual machines:
+- Enables logging for sudo operations
+- Ensures that the Azure virtual machine agent is configured correctly
+- Ensures that all the repositories are registered and enabled
+- Ensures that all the packaged are installed
+- Creates to volume groups and logical volumes
+- Configures the kernel parameters
+- Configures routing for additional network interfaces (if required)
+- Crates the user accounts and groups
+- Configures the banners displayed when logged in
+- Configures the services required
+
+# [Windows](#tab/windows)
+
+- Ensures that all the components are installed
+    - StorageDsc
+    - NetworkingDsc
+    - ComputerManagementDsc
+    - PSDesiredStateConfiguration
+    - WindowsDefender
+    - ServerManager
+    - SecurityPolicyDsc
+    - Visual C++ runtime libraries
+    - ODBC Drivers    
+- Configures the swap file size
+- Initializes the disks
+- Configures Windows Firewall
+- Joins the virtual machine to the specified domain
+
+---
+
+### SAP Specific Operating System Configuration
+
+The SAP Specific Operating System Configuration playbook is used to configure the operating system of the SAP virtual machines. The playbook performs the following tasks:
+
+# [Linux](#tab/linux)
+
+The following tasks are executed on Linux virtual machines:
+- Configures the hosts file
+- Ensures that all the SAP specific repositories are registered and enabled
+- Ensures that all the SAP specific packaged are installed
+- Performs the disk mount operations
+- Configures the SAP specific services
+- Implements configurations defined in the relevant SAP Notes
+
+# [Windows](#tab/windows)
+
+- Add local groups and permissions
+- Connects to the Windows file shares
+
+---
+
+### Local software download
+
+This playbooks downloads the installation media from the control plane to the installation media source. The installation media can be shared out from the Central Services instance or from Azure Files or Azure NetApp Files.
+
+# [Linux](#tab/linux)
+
+The following tasks are executed on the Central services instance virtual machine:
+- Download the software
+
+# [Windows](#tab/windows)
+
+The following tasks are executed on the Central services instance virtual machine:
+- Download the software
+
+---
+
+
+

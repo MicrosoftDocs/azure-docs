@@ -23,7 +23,7 @@ Values presented are the maximum resources available per deployment of a [contai
 
 All Azure services include certain default limits and quotas for resources and features. This section details the default quotas and limits for Azure Container Instances.  
 
-Use the [List Usage](/rest/api/container-instances/location/listusage) API to review current quota usage in a region for a subscription. 
+Use the [List Usage](/rest/api/container-instances/2022-09-01/location/list-usage) API to review current quota usage in a region for a subscription. 
 
 Certain default limits and quotas can be increased. To request an increase of one or more resources that support such an increase, please submit an [Azure support request][azure-support] (select "Quota" for **Issue type**). 
 
@@ -86,8 +86,10 @@ The following resources are available in all Azure Regions supported by Azure Co
 | 4 | 16 | 20 | Y | 
 
 ## GPU Resources (Preview) 
+> **Warning**
+> K80 and P100 GPU SKUs are retiring by August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](https://learn.microsoft.com/azure/virtual-machines/nc-series-retirement) and [NCv2 Series](https://learn.microsoft.com/azure/virtual-machines/ncv2-series-retirement) Although V100 SKUs will be available, it is receommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](https://learn.microsoft.com/azure/aks/aks-migration).
 
-> [!IMPORTANT]  
+> **Note**
 > Not all limit increase requests are guaranteed to be approved.
 > Deployments with GPU resources are not supported in an Azure virtual network deployment and are only available on Linux container groups.
 > Using GPU resources (preview) is not fully supported yet and any support is provided on a best-effort basis.

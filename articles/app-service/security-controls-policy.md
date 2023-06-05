@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure App Service
 description: Lists Azure Policy Regulatory Compliance controls available for Azure App Service. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 02/14/2023
+ms.date: 04/03/2023
 ms.topic: sample
 ms.service: app-service
 ms.custom: "UpdateFrequency3, subject-policy-compliancecontrols"
@@ -9,7 +9,7 @@ ms.custom: "UpdateFrequency3, subject-policy-compliancecontrols"
 # Azure Policy Regulatory Compliance controls for Azure App Service
 
 [Regulatory Compliance in Azure Policy](../governance/policy/concepts/regulatory-compliance.md)
-provides Microsoft created and managed initiative definitions, known as _built-ins_, for the
+provides Microsoft created and managed initiative definitions, known as *built-ins*, for the
 **compliance domains** and **security controls** related to different compliance standards. This
 page lists the **compliance domains** and **security controls** for Azure App Service. You can
 assign the built-ins for a **security control** individually to help make your Azure resources
@@ -20,6 +20,34 @@ compliant with the specific standard.
 [!INCLUDE [Azure-policy-compliancecontrols-appservice](../../includes/policy/standards/byrp/microsoft.web.md)]
 
 ## Release notes
+
+### April 2023
+
+- **App Service apps that use Java should use the latest 'Java version'**
+  - Rename of policy to "App Service apps that use Java should use a specified 'Java version'"
+  - Update policy so that it requires a version specification before assignment
+- **App Service apps that use Python should use the latest 'Python version'**
+  - Rename of policy to "App Service apps that use Python should use a specified 'Python version'"
+  - Update policy so that it requires a version specification before assignment
+- **Function apps that use Java should use the latest 'Java version'**
+  - Rename of policy to "Function apps that use Java should use a specified 'Java version'"
+  - Update policy so that it requires a version specification before assignment
+- **Function apps that use Python should use the latest 'Python version'**
+  - Rename of policy to "Function apps that use Python should use a specified 'Python version'"
+  - Update policy so that it requires a version specification before assignment
+- **App Service apps that use PHP should use the latest 'PHP version'**
+  - Rename of policy to "App Service apps that use PHP should use a specified 'PHP version'"
+  - Update policy so that it requires a version specification before assignment
+- **App Service app slots that use Python should use a specified 'Python version'**
+  - New policy created
+- **Function app slots that use Python should use a specified 'Python version'**
+  - New policy created
+- **App Service app slots that use PHP should use a specified 'PHP version'**
+  - New policy created
+- **App Service app slots that use Java should use a specified 'Java version'**
+  - New policy created
+- **Function app slots that use Java should use a specified 'Java version'**
+  - New policy created
 
 ### November 2022
 
@@ -59,7 +87,7 @@ compliant with the specific standard.
 - Deprecation of policy **Configure App Services to disable public network access**
   - Replaced by "Configure App Service apps to disable public network access"
 - Deprecation of policy **App Services should disable public network access**
-  - Replaced by "App Service apps should disable public network access" to support _Deny_ effect
+  - Replaced by "App Service apps should disable public network access" to support *Deny* effect
 - **App Service apps should disable public network access**
   - New policy created
 - **App Service app slots should disable public network access**

@@ -15,7 +15,7 @@ ms.devlang: azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ❌️ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌️ Enterprise
 
 This article shows you how to use Dynatrace OneAgent to monitor Spring Boot applications in Azure Spring Apps.
 
@@ -189,7 +189,7 @@ You can also get the logs of the Dynatrace agent from the following locations:
 * Azure Spring Apps Application Insights
 * Azure Spring Apps LogStream
 
-You can apply some environment variables provided by Dynatrace to configure logging for the Dynatrace OneAgent. For example, `DT_LOGLEVELCON` controls the level of logs.
+You can apply some environment variables provided by Dynatrace to configure logging for the Dynatrace OneAgent. For example, `DT_LOGLEVELCON` controls the level of logs. The default value for `DT_LOGLEVELCON` is `info`. You can disable the logs of the agent by setting `DT_LOGLEVELCON` to `off`. If logging is disabled, Dynatrace support requests that you first enable logging to diagnose any agent issues effectively. You must then restart the app, which is necessary for the change to take effect. For other log levels, consult the Dynatrace support team.
 
 > [!CAUTION]
 > We strongly recommend that you don't override the default logging behavior provided by Azure Spring Apps for Dynatrace. If you do, the logging scenarios previously described are blocked, and the log file(s) may be lost. For example, you shouldn't output the `DT_LOGLEVELFILE` environment variable to your applications.

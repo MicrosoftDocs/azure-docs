@@ -20,22 +20,24 @@
       href: whats-new-webrtc.md
     - name: Multimedia redirection (MMR)
       href: whats-new-multimedia-redirection.md
+    - name: MSIXMGR tool
+      href: whats-new-msixmgr.md
     - name: Remote Desktop clients
       items:
       - name: Windows Desktop client
         href: whats-new-client-windows.md
-      - name: Web client
-        href: whats-new-client-web.md
+      - name: Azure Virtual Desktop Store app
+        href: whats-new-client-windows-azure-virtual-desktop-app.md
       - name: macOS client
         href: whats-new-client-macos.md
       - name: iOS/iPadOS client
         href: whats-new-client-ios-ipados.md
       - name: Android/Chrome OS client
         href: whats-new-client-android-chrome-os.md
-      - name: Microsoft Store client
+      - name: Remote Desktop app for Windows
         href: whats-new-client-microsoft-store.md
-  - name: Azure Virtual Desktop (classic) documentation
-    href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
+    - name: Documentation
+      href: whats-new-documentation.md
 - name: Tutorials
   expanded: true
   items:
@@ -53,6 +55,8 @@
         href: azure-ad-joined-session-hosts.md
       - name: Virtual machine sizing guidance
         href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+      - name: Custom image templates
+        href: custom-image-templates.md
       - name: Windows 10 Enterprise multi-session FAQ
         href: windows-10-multisession-faq.yml
       - name: Fair Share technologies
@@ -103,7 +107,7 @@
           href: app-attach-glossary.md
         - name: FAQ
           href: app-attach-faq.yml
-      - name: Supported features for Teams
+      - name: Microsoft Teams supported features
         href: teams-supported-features.md
     - name: Data locations
       href: data-locations.md
@@ -161,6 +165,7 @@
         href: rdp-properties.md
       - name: Uniform Resource Identifier schemes
         href: uri-scheme.md
+        displayName: URI schemes
     - name: Multimedia redirection
       href: multimedia-redirection-intro.md
     - name: Printing using Universal Print
@@ -197,26 +202,28 @@
           href: publish-apps.md
         - name: MSIX app attach
           items:
+          - name: Create an MSIX image
+            href: msix-app-attach-create-msix-image.md
+          - name: Set up a file share
+            href: app-attach-file-share.md
+          - name: Use Azure NetApp Files and MSIX app attach
+            href: create-netapp-files.md
           - name: Set up MSIX app attach with the Azure portal
             href: app-attach-azure-portal.md
           - name: Set up MSIX app attach with PowerShell
             href: app-attach-powershell.md
           - name: Test and troubleshoot MSIX packages
             href: app-attach.md
-          - name: Prepare an MSIX image
-            href: app-attach-image-prep.md
-          - name: Set up a file share
-            href: app-attach-file-share.md
-          - name: Set up the MSIXMGR tool
-            href: app-attach-msixmgr.md
           - name: MSIXMGR tool parameters
             href: msixmgr-tool-syntax-description.md 
         - name: Use Microsoft Teams
           href: teams-on-avd.md
         - name: Set up Windows Sandbox
           href: sandbox.md
-      - name: Customize session host image
+      - name: Customize session host images
         items:
+        - name: Create custom images with Custom image templates
+          href: create-custom-image-templates.md
         - name: Set up golden image in Azure
           href: set-up-golden-image.md
         - name: Set up a master VHD image
@@ -251,14 +258,10 @@
           href: create-host-pools-user-profile.md
         - name: Use Azure NetApp Files
           href: create-fslogix-profile-container.md
-        - name: Use Azure NetApp Files and MSIX app attach
-          href: create-netapp-files.md
         - name: Use Azure Files and Active Directory
           href: fslogix-profile-container-configure-azure-files-active-directory.md
         - name: Use Azure Files and Azure AD
           href: create-profile-container-azure-ad.md
-        - name: Install Office with FSLogix app containers
-          href: fslogix-office-app-rule-editor.md
       - name: Language packages
         items:
         - name: Windows 10 multi-session images
@@ -285,7 +288,7 @@
         href: customize-rdp-properties.md
       - name: Configure load-balancing method
         href: configure-host-pool-load-balancing.md
-      - name: Set personal desktop assignment type
+      - name: Configure personal desktop assignment
         href: configure-host-pool-personal-desktop-assignment-type.md
       - name: Configure a validation environment
         href: configure-validation-environment.md
@@ -315,6 +318,12 @@
             href: set-up-scaling-script.md
       - name: Drain session hosts
         href: drain-mode.md
+      - name: Manage with Intune
+        items:
+        - name: Manage single-session hosts
+          href: /mem/intune/fundamentals/azure-virtual-desktop?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+        - name: Manage multi-session hosts
+          href: /mem/intune/fundamentals/azure-virtual-desktop-multi-session?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
       - name: Deploy updates with Configuration Manager
         href: configure-automatic-updates.md
       - name: Start VM on Connect
@@ -339,6 +348,8 @@
         items:
         - name: Windows Desktop client
           href: ./users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+        - name: Azure Virtual Desktop Store app for Windows
+          href: ./users/connect-windows-azure-virtual-desktop-app.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
         - name: Web client
           href: ./users/connect-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
         - name: macOS client
@@ -347,7 +358,7 @@
           href: ./users/connect-ios-ipados.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
         - name: Android/Chrome OS client
           href: ./users/connect-android-chrome-os.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-        - name: Windows Microsoft Store client
+        - name: Remote Desktop app for Windows
           href: ./users/connect-microsoft-store.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
         - name: Thin clients
           href: ./users/connect-thin-clients.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
@@ -355,6 +366,8 @@
         items:
         - name: Windows Desktop client
           href: ./users/client-features-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
+        - name: Azure Virtual Desktop Store app for Windows
+          href: ./users/client-features-windows-azure-virtual-desktop-app.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
         - name: Web client
           href: ./users/client-features-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
         - name: macOS client
@@ -363,7 +376,7 @@
           href: ./users/client-features-ios-ipados.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
         - name: Android/Chrome OS client
           href: ./users/client-features-android-chrome-os.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
-        - name: Microsoft Store client
+        - name: Remote Desktop app for Windows
           href: ./users/client-features-microsoft-store.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
       - name: Configure device redirections
         href: configure-device-redirections.md
@@ -380,7 +393,7 @@
       - name: Set up diagnostics to monitor agent updates
         href: agent-updates-diagnostics.md
       - name: Use Azure Virtual Desktop Insights
-        href: azure-monitor.md
+        href: insights.md
       - name: Use diagnostics with Log Analytics
         href: diagnostics-log-analytics.md
       - name: Configure service alerts
@@ -413,6 +426,8 @@
     items:
     - name: Windows Desktop client
       href: troubleshoot-client-windows.md
+    - name: Azure Virtual Desktop Store app
+      href: troubleshoot-client-windows-azure-virtual-desktop-app.md
     - name: Web client
       href: troubleshoot-client-web.md
     - name: macOS client
@@ -421,7 +436,7 @@
       href: troubleshoot-client-ios-ipados.md
     - name: Android/Chrome OS client
       href: troubleshoot-client-android-chrome-os.md
-    - name: Microsoft Store client
+    - name: Remote Desktop app for Windows
       href: troubleshoot-client-microsoft-store.md
   - name: Diagnosing graphics performance issues
     href: remotefx-graphics-performance-counters.md
@@ -441,8 +456,10 @@
     href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
   - name: Multimedia redirection
     href: troubleshoot-multimedia-redirection.md
-  - name: Teams on Azure Virtual Desktop
+  - name: Microsoft Teams
     href: troubleshoot-teams.md
+  - name: Custom image templates
+    href: troubleshoot-custom-image-templates.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -477,3 +494,5 @@
     href: /azure/developer/terraform/configure-azure-virtual-desktop
   - name: Azure compliance offerings
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
+  - name: Azure Virtual Desktop (classic) documentation
+    href: ./virtual-desktop-fall-2019/index.yml

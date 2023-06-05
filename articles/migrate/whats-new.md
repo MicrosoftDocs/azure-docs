@@ -5,13 +5,22 @@ ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.date: 03/03/2023
+ms.date: 05/15/2023
 ms.custom: mvc, engagement-fy23
 ---
 
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (May 2023)
+- SQL Server discovery and assessment in Azure Migrate is now Generally Available (GA). [Learn more](concepts-azure-sql-assessment-calculation.md).
+
+## Update (April 2023)
+- Build a quick business case for servers imported via a .csv file. [Learn more](tutorial-discover-import.md)
+- Build business case using Azure Migrate for:
+    - Servers and workloads running in your Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
+    - SQL Server Always On Failover Cluster Instances and Always On Availability Groups. [Learn more](how-to-discover-applications.md).
 
 ## Update (March 2023)
 - Support for discovery and assessment of web apps for Azure app service for Hyper-V and Physical servers. [Learn more](how-to-create-azure-app-service-assessment.md).

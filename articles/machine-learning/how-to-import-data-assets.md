@@ -1,7 +1,7 @@
 ---
-title: Import Data (preview)
+title: Import data (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to import data from external sources on to Azure Machine Learning platform
+description: Learn how to import data from external sources to the Azure Machine Learning platform.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
-ms.date: 04/12/2023
+ms.date: 06/02/2023
 ms.custom: data4ml
 ---
 
@@ -21,11 +21,11 @@ ms.custom: data4ml
 
 In this article, learn how to import data into the Azure Machine Learning platform from external sources. A successful import automatically creates and registers an Azure Machine Learning data asset with the name provided during the import. An Azure Machine Learning data asset resembles a web browser bookmark (favorites). You don't need to remember long storage paths (URIs) that point to your most-frequently used data. Instead, you can create a data asset, and then access that asset with a friendly name.
 
-A data import creates a cache of the source data, along with metadata, for faster and reliable data access in Azure Machine Learning training jobs. The data cache avoids network and connection constraints. The cached data is versioned to support reproducibility (which provides versioning capabilities for data imported from SQL Server sources). Additionally, the cached data provides data lineage for auditability. A data import uses ADF (Azure Data Factory pipelines) behind the scenes, which means that users can avoid complex interactions with ADF. Behind the scenes, Azure Machine Learning also handles management of ADF compute resource pool size, compute resource provisioning, and tear-down to optimize data transfer by determining proper parallelization.
+A data import creates a cache of the source data, along with metadata, for faster and reliable data access in Azure Machine Learning training jobs. The data cache avoids network and connection constraints. The cached data is versioned to support reproducibility. This provides versioning capabilities for data imported from SQL Server sources. Additionally, the cached data provides data lineage for auditability. A data import uses ADF (Azure Data Factory pipelines) behind the scenes, which means that users can avoid complex interactions with ADF. Behind the scenes, Azure Machine Learning also handles management of ADF compute resource pool size, compute resource provisioning, and tear-down, to optimize data transfer by determining proper parallelization.
 
-The transferred data is partitioned and securely stored as parquet files in Azure storage. This enables faster processing during training. ADF compute costs only involve the time used for data transfers. Storage costs only involve the time needed to cache the data, because cached data is a copy of the data imported from an external source. That external source is hosted in Azure storage.
+The transferred data is partitioned and securely stored in Azure storage, as parquet files. This enables faster processing during training. ADF compute costs only involve the time used for data transfers. Storage costs only involve the time needed to cache the data, because cached data is a copy of the data imported from an external source. Azure storage hosts that external source.
 
-The caching feature involves upfront compute and storage costs. However, it pays for itself, and can save money, because it reduces recurring training compute costs compared to direct connections to external source data during training. It caches data as parquet files, which makes job training faster and more reliable against connection timeouts for larger data sets. This leads to fewer reruns, and fewer training failures.
+The caching feature involves upfront compute and storage costs. However, it pays for itself, and can save money, because it reduces recurring training compute costs, compared to direct connections to external source data during training. It caches data as parquet files, which makes job training faster and more reliable against connection timeouts for larger data sets. This leads to fewer reruns, and fewer training failures.
 
 You can now import data from Snowflake, Amazon S3 and Azure SQL.
 
@@ -43,9 +43,34 @@ To create and work with data assets, you need:
 
 * [Workspace connections created](how-to-connection.md)
 
-## Importing from external database sources / import from external sources to create a meltable data asset
+> [!NOTE]
+> For a successful data import, please verify that you installed the latest azure-ai-ml package (version 1.5.0 or later) for SDK, and the ml extension (version 2.15.1 or later).  
+> 
+> If you have an older SDK package or CLI extension, please remove the old one and install the new one with the code shown in the tab section. Follow the instructions for SDK and CLI below:
 
-> [!NOTE] 
+### Code versions
+
+# [SDK](#tab/SDK)
+
+```python
+pip uninstall azure-ai-ml
+pip install azure-ai-ml
+pip show azure-ai-ml #(the version value needs to be 1.5.0 or later)
+```
+
+# [CLI](#tab/CLI)
+
+```cli
+az extension remove -n ml
+az extension add -n ml --yes
+az extension show -n ml #(the version value needs to be 2.15.1 or later)
+```
+
+---
+
+## Importing from an external database source as a table data asset
+
+> [!NOTE]
 > The external databases can have Snowflake, Azure SQL, etc. formats.
 
 The following code samples can import data from external databases. The `connection` that handles the import action determines the external database data source metadata. In this sample, the code imports data from a Snowflake resource. The connection points to a Snowflake source. With a little modification, the connection can point to an Azure SQL database source and an Azure SQL database source. The imported asset `type` from an external database source is `mltable`.
@@ -87,7 +112,7 @@ from azure.ai.ml import MLClient
 # Supported connections include:
 # Connection: azureml:<workspace_connection_name>
 # Supported paths include:
-# Datastore: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# path: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
 
 ml_client = MLClient.from_config()
 
@@ -102,7 +127,7 @@ ml_client.data.import_data(data_import=data_import)
 
 ---
 
-## Import data from external data and file system resources to create a uri_folder data asset
+## Import data from an external file system source as a folder data asset
 
 > [!NOTE]
 > An Amazon S3 data resource can serve as an external file system resource.
@@ -120,7 +145,7 @@ $schema: http://azureml/sdk-2-0/DataImport.json
 # Supported connections include:
 # Connection: azureml:<workspace_connection_name>
 # Supported paths include:
-# Datastore: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# path: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
 
 
 type: uri_folder
@@ -148,7 +173,7 @@ from azure.ai.ml import MLClient
 # Supported connections include:
 # Connection: azureml:<workspace_connection_name>
 # Supported paths include:
-# Datastore: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# path: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
 
 ml_client = MLClient.from_config()
 
@@ -192,6 +217,7 @@ ml_client.data.show_materialization_status(name="<name>")
 
 ## Next steps
 
-- [Read data in a job](how-to-read-write-data-v2.md#read-data-in-a-job)
+- [Import data assets on a schedule](reference-yaml-schedule-data-import.md)
+- [Access data in a job](how-to-read-write-data-v2.md#access-data-in-a-job)
 - [Working with tables in Azure Machine Learning](how-to-mltable.md)
 - [Access data from Azure cloud storage during interactive development](how-to-access-data-interactive.md)

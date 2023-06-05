@@ -4,7 +4,7 @@ description: How to install and manage certificates on an Azure IoT Edge device 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 1/17/2023
+ms.date: 4/18/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -131,7 +131,7 @@ drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
 
 Using a self-signed certificate authority (CA) certificate as a root of trust with IoT Edge and modules is known as *trust bundle*. The trust bundle is available for IoT Edge and modules to communicate with servers. To configure the trust bundle, specify its file path in the IoT Edge configuration file.
 
-1. Get a publicly trusted root CA certificate from a PKI provider.
+1. Get the root CA certificate from a PKI provider.
 
 1. Check that the certificate meets the [format requirements](#format-requirements).
 
@@ -173,15 +173,15 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
 
 Installing the certificate to the trust bundle file makes it available to container modules but not to host modules like Azure Device Update or Defender. If you use host level components or run into other TLS issues, also install the root CA certificate to the operating system certificate store:
 
-# [Linux](#tab/linux)
+# [Debian / Ubuntu](#tab/ubuntu)
 
   ```bash
   sudo cp /var/aziot/certs/my-root-ca.pem /usr/local/share/ca-certificates/my-root-ca.pem.crt
 
-  sudo update-ca-trust
+  sudo update-ca-certificates
   ```
 
-# [IoT Edge for Linux on Windows (EFLOW)](#tab/windows)
+# [EFLOW / RHEL](#tab/windows)
 
   ```bash
   sudo cp /var/aziot/certs/my-root-ca.pem /etc/pki/ca-trust/source/anchors/my-root-ca.pem.crt

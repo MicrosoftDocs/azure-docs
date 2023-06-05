@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
-ms.topic: how-to
+ms.topic: include
 ms.date: 04/05/2023
 author: ChrisHMSFT
 ms.author: chrhoder
@@ -134,7 +134,7 @@ openai.api_key = "COPY_YOUR_OPENAI_KEY_HERE"
 openai.api_base =  "COPY_YOUR_OPENAI_ENDPOINT_HERE" 
 openai.api_type = 'azure'
 # The API version may change in the future.
-openai.api_version = '2022-12-01'
+openai.api_version = '2023-05-15'
 
 training_file_name = 'training.jsonl'
 validation_file_name = 'validation.jsonl'

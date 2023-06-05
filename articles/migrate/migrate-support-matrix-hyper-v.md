@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 03/08/2023
+ms.date: 05/15/2023
 ms.cutom: engagement-fy23
 ---
 
@@ -82,11 +82,11 @@ After the appliance is connected, it gathers configuration and performance data 
 
 Support | Details
 --- | ---
-**Supported servers** | supported only for servers running SQL Server in your VMware, Microsoft Hyper-V, and Physical/Bare metal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. You can discover up to 300 SQL Server instances or 6,000 SQL databases, whichever is less.
+**Supported servers** | Supported only for servers running SQL Server in your VMware, Microsoft Hyper-V, and Physical/Bare metal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. <br /><br /> You can discover up to 750 SQL Server instances or 15,000 SQL databases, whichever is less, from a single appliance. It is recommended that you ensure that an appliance is scoped to discover less than 600 servers running SQL to avoid scaling issues.
 **Windows servers** | Windows Server 2008 and later are supported.
 **Linux servers** | Currently not supported.
 **Authentication mechanism** | Both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager.
-**SQL Server access** | Azure Migrate requires a Windows user account that is a member of the sysadmin server role.
+**SQL Server access** | To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance.
 **SQL Server versions** | SQL Server 2008 and later are supported.
 **SQL Server editions** | Enterprise, Standard, Developer, and Express editions are supported.
 **Supported SQL configuration** | Discovery of standalone, highly available, and disaster protected SQL deployments is supported. Discovery of HADR SQL deployments powered by Always On Failover Cluster Instances and Always On Availability Groups is also supported.
@@ -96,6 +96,136 @@ Support | Details
 > By default, Azure Migrate uses the most secure way of connecting to SQL instances i.e. Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. 
 >
 > However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance.[Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
+
+### Configure the custom login for SQL Server discovery
+
+The following are sample scripts for creating a login and provisioning it with the necessary permissions.
+
+#### Windows Authentication 
+  
+  ```sql
+  -- Create a login to run the assessment
+  use master;
+	-- If a SID needs to be specified, add here
+    DECLARE @SID NVARCHAR(MAX) = N'';
+    CREATE LOGIN [MYDOMAIN\MYACCOUNT] FROM WINDOWS;
+	SELECT @SID = N'0x'+CONVERT(NVARCHAR, sid, 2) FROM sys.syslogins where name = 'MYDOMAIN\MYACCOUNT'
+	IF (ISNULL(@SID,'') != '')
+		PRINT N'Created login [MYDOMAIN\MYACCOUNT] with SID = ' + @SID
+	ELSE
+		PRINT N'Login creation failed'
+  GO    
+ 
+  -- Create user in every database other than tempdb and model and provide minimal read-only permissions. 
+  use master;
+    EXECUTE sp_MSforeachdb 'USE [?]; IF (''?'' NOT IN (''tempdb'',''model''))  BEGIN TRY CREATE USER [MYDOMAIN\MYACCOUNT] FOR LOGIN [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH'
+    EXECUTE sp_MSforeachdb 'USE [?]; IF (''?'' NOT IN (''tempdb'',''model''))  BEGIN TRY GRANT SELECT ON sys.sql_expression_dependencies TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH'
+    EXECUTE sp_MSforeachdb 'USE [?]; IF (''?'' NOT IN (''tempdb'',''model''))  BEGIN TRY GRANT VIEW DATABASE STATE TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH'
+  GO
+ 
+  -- Provide server level read-only permissions
+  use master;
+    BEGIN TRY GRANT SELECT ON sys.sql_expression_dependencies TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT EXECUTE ON OBJECT::sys.xp_regenumkeys TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT VIEW DATABASE STATE TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT VIEW SERVER STATE TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT VIEW ANY DEFINITION TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+  GO
+ 
+  -- Required from SQL 2014 onwards for database connectivity.
+  use master;
+    BEGIN TRY GRANT CONNECT ANY DATABASE TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+  GO
+ 
+  -- Provide msdb specific permissions
+  use msdb;
+    BEGIN TRY GRANT EXECUTE ON [msdb].[dbo].[agent_datetime] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysjobsteps] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[syssubsystems] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysjobhistory] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[syscategories] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysjobs] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmaintplan_plans] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[syscollector_collection_sets] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmail_profile] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmail_profileaccount] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmail_account] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+  GO
+ 
+  -- Clean up
+  --use master;
+  -- EXECUTE sp_MSforeachdb 'USE [?]; BEGIN TRY DROP USER [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;'
+  -- BEGIN TRY DROP LOGIN [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+  --GO
+   ```
+
+#### SQL Server Authentication
+  
+   ```sql
+  -- Create a login to run the assessment
+  use master;
+	-- If a SID needs to be specified, add here
+    DECLARE @SID NVARCHAR(MAX) = N'';
+	IF (@SID = N'')
+	BEGIN
+		CREATE LOGIN [evaluator]
+			WITH PASSWORD = '<provide a strong password>'
+	END
+	ELSE
+	BEGIN
+		CREATE LOGIN [evaluator]
+			WITH PASSWORD = '<provide a strong password>'
+			, SID = @SID 
+	END
+	SELECT @SID = N'0x'+CONVERT(NVARCHAR, sid, 2) FROM sys.syslogins where name = 'evaluator'
+	IF (ISNULL(@SID,'') != '')
+		PRINT N'Created login [evaluator] with SID = '+@SID
+	ELSE
+		PRINT N'Login creation failed'
+  GO    
+ 
+  -- Create user in every database other than tempdb and model and provide minimal read-only permissions. 
+  use master;
+    EXECUTE sp_MSforeachdb 'USE [?]; IF (''?'' NOT IN (''tempdb'',''model''))  BEGIN TRY CREATE USER [evaluator] FOR LOGIN [evaluator]END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH'
+    EXECUTE sp_MSforeachdb 'USE [?]; IF (''?'' NOT IN (''tempdb'',''model''))  BEGIN TRY GRANT SELECT ON sys.sql_expression_dependencies TO [evaluator]END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH'
+    EXECUTE sp_MSforeachdb 'USE [?]; IF (''?'' NOT IN (''tempdb'',''model''))  BEGIN TRY GRANT VIEW DATABASE STATE TO [evaluator]END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH'
+  GO
+ 
+  -- Provide server level read-only permissions
+  use master;
+    BEGIN TRY GRANT SELECT ON sys.sql_expression_dependencies TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT EXECUTE ON OBJECT::sys.xp_regenumkeys TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT VIEW DATABASE STATE TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT VIEW SERVER STATE TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT VIEW ANY DEFINITION TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+  GO
+ 
+  -- Required from SQL 2014 onwards for database connectivity.
+  use master;
+    BEGIN TRY GRANT CONNECT ANY DATABASE TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+  GO
+ 
+  -- Provide msdb specific permissions
+  use msdb;
+    BEGIN TRY GRANT EXECUTE ON [msdb].[dbo].[agent_datetime] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysjobsteps] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[syssubsystems] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysjobhistory] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[syscategories] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysjobs] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmaintplan_plans] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[syscollector_collection_sets] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmail_profile] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmail_profileaccount] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmail_account] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+  GO
+ 
+  -- Clean up
+  --use master;
+  -- EXECUTE sp_MSforeachdb 'USE [?]; BEGIN TRY DROP USER [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;'
+  -- BEGIN TRY DROP LOGIN [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+  --GO
+   ```
 
 ## Web apps discovery requirements
 

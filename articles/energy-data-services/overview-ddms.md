@@ -1,9 +1,9 @@
 ---
-title: Overview of domain data management services - Microsoft Azure Data Manager for Energy Preview #Required; page title is displayed in search results. Include the brand.
-description: This article provides an overview of Domain data management services #Required; article description that is displayed in search results. 
-author: marielgherz #Required; your GitHub user alias, with correct capitalization.
-ms.author: marielherzog #Required; microsoft alias of author; optional team alias.
-ms.topic: overview #Required; leave this attribute/value as-is.
+title: Overview of domain data management services - Microsoft Azure Data Manager for Energy Preview
+description: This article provides an overview of Domain data management services
+author: marielgherz
+ms.author: marielherzog
+ms.topic: overview
 ms.date: 09/01/2022
 ms.service: energy-data-services
 ms.custom: template-overview, references_regions  

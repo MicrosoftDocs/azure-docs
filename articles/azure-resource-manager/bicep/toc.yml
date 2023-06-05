@@ -311,6 +311,8 @@
       href: bicep-functions-any.md
     - name: Array functions
       href: bicep-functions-array.md
+    - name: CIDR functions
+      href: bicep-functions-cidr.md
     - name: Date functions
       href: bicep-functions-date.md
     - name: Deployment functions
@@ -341,8 +343,12 @@
       href: operators-comparison.md
     - name: Logical operators
       href: operators-logical.md
+    - name: Null forgiving operator
+      href: operator-null-forgiving.md
     - name: Numeric operators
       href: operators-numeric.md
+    - name: Safe-dereference operator
+      href: operator-safe-dereference.md
 - name: How to
   items:
   - name: Author

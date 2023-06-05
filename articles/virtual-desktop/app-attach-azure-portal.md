@@ -9,7 +9,9 @@ manager: femila
 ---
 # Set up MSIX app attach with the Azure portal
 
-This article will walk you through how to set up MSIX app attach in a Azure Virtual Desktop environment.
+MSIX app attach is an application layering solution that allows you to dynamically attach apps from an MSIX package to a user session. The MSIX package system separates apps from the operating system, making it easier to build images for virtual machines. MSIX packages also give you greater control over which apps your users can access in their virtual machines. You can even separate apps from the custom image and make them available them to users later.
+
+This article will walk you through how to set up MSIX app attach in an Azure Virtual Desktop environment.
 
 ## Requirements
 
@@ -93,9 +95,9 @@ To publish the apps:
 2. Select the application group you want to publish the apps to.
 
    >[!NOTE]
-   >MSIX applications can be delivered with MSIX app attach to both remote app and desktop app groups. When a MSIX package is assigned to a remote app group and desktop app group from the same host pool the desktop app group will be displayed in the feed.
+   >MSIX applications can be delivered with MSIX app attach to both remote app and desktop application groups. When a MSIX package is assigned to a RemoteApp application group and Desktop application group from the same host pool the Desktop application group will be displayed in the feed.
 
-3. Once you're in the app group, select the **Applications** tab. The **Applications** grid will display all existing apps within the app group.
+3. Once you're in the application group, select the **Applications** tab. The **Applications** grid will display all existing apps within the application group.
 
 4. Select **+ Add** to open the **Add application** tab.
 
@@ -103,12 +105,12 @@ To publish the apps:
       > ![A screenshot of the user selecting + Add to open the add application tab](media/select-add.png)
 
 5. For **Application source**, choose the source for your application.
-    - If you're using a Desktop app group, choose **MSIX package**.
+    - If you're using a Desktop application group, choose **MSIX package**.
       
       > [!div class="mx-imgBorder"]
       > ![A screenshot of a customer selecting MSIX package from the application source drop-down menu. MSIX package is highlighted in red.](media/select-source.png)
     
-    - If you're using a remote app group, choose one of the following options:
+    - If you're using a RemoteApp application group, choose one of the following options:
         
         - Start menu
         - App path
@@ -122,16 +124,16 @@ To publish the apps:
 
     - For **Description**, enter a short description of the app package.
 
-    - If you're using a remote app group, you can also configure these options:
+    - If you're using a RemoteApp application group, you can also configure these options:
 
         - **Icon path**
         - **Icon index**
 
 6. When you're done, select **Save**.
 
-## Assign a user to an app group
+## Assign a user to an application group
 
-After assigning MSIX apps to an app group, you'll need to grant users access to them. You can assign access by adding users or user groups to an app group with published MSIX applications. Follow the instructions in [Manage app groups with the Azure portal](manage-app-groups.md) to assign your users to an app group.
+After assigning MSIX apps to an application group, you'll need to grant users access to them. You can assign access by adding users or user groups to an application group with published MSIX applications. Follow the instructions in [Manage application groups with the Azure portal](manage-app-groups.md) to assign your users to an application group.
 
 ## Change MSIX package state
 

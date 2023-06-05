@@ -6,22 +6,22 @@ items:
   items:
     - name: About Project Health Insights
       href: overview.md
-    - name: Onco Phenotype
+    - name: OncoPhenotype
       href: ./oncophenotype/index.yml
     - name: Trial Matcher 
-      href: ./trial-matcher/index.yml
-- name: Concepts
-  expanded: true
-  items:
-     - name: Request Info
-       href: request-info.md      
-     - name: Response Info
-       href: response-info.md     
+      href: ./trial-matcher/index.yml     
 - name: Quickstarts
   expanded: true
   items:
      - name: Deploy Project Health Insights using the portal
        href: deploy-portal.md
+- name: How-To 
+  expanded: true
+  items:
+     - name: How to Use Project Health Insights with containers
+       href: use-containers.md
+     - name: How to configure the containers
+       href: configure-containers.md
 - name: Responsible use of AI
   expanded: true
   items:

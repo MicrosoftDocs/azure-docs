@@ -1,6 +1,6 @@
 ---
 title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
-ms.date: 03/28/2023
+ms.date: 05/08/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
@@ -43,26 +43,52 @@ If the Helm Chart release is present with `STATUS: deployed`, check the status o
 
 ```console
 $ kubectl -n azure-arc get deployments,pods
-NAME                                       READY  UP-TO-DATE  AVAILABLE  AGE
-deployment.apps/clusteridentityoperator     1/1       1          1       16h
-deployment.apps/config-agent                1/1       1          1       16h
-deployment.apps/cluster-metadata-operator   1/1       1          1       16h
-deployment.apps/controller-manager          1/1       1          1       16h
-deployment.apps/flux-logs-agent             1/1       1          1       16h
-deployment.apps/metrics-agent               1/1       1          1       16h
-deployment.apps/resource-sync-agent         1/1       1          1       16h
+NAME                                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/cluster-metadata-operator    1/1     1            1           3d19h
+deployment.apps/clusterconnect-agent         1/1     1            1           3d19h
+deployment.apps/clusteridentityoperator      1/1     1            1           3d19h
+deployment.apps/config-agent                 1/1     1            1           3d19h
+deployment.apps/controller-manager           1/1     1            1           3d19h
+deployment.apps/extension-events-collector   1/1     1            1           3d19h
+deployment.apps/extension-manager            1/1     1            1           3d19h
+deployment.apps/flux-logs-agent              1/1     1            1           3d19h
+deployment.apps/kube-aad-proxy               1/1     1            1           3d19h
+deployment.apps/metrics-agent                1/1     1            1           3d19h
+deployment.apps/resource-sync-agent          1/1     1            1           3d19h
 
-NAME                                            READY   STATUS  RESTART  AGE
-pod/cluster-metadata-operator-7fb54d9986-g785b  2/2     Running  0       16h
-pod/clusteridentityoperator-6d6678ffd4-tx8hr    3/3     Running  0       16h
-pod/config-agent-544c4669f9-4th92               3/3     Running  0       16h
-pod/controller-manager-fddf5c766-ftd96          3/3     Running  0       16h
-pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
-pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
-pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
+ 
+
+NAME                                              READY   STATUS    RESTARTS        AGE
+pod/cluster-metadata-operator-74747b975-9phtz     2/2     Running   0               3d19h
+pod/clusterconnect-agent-cf4c7849c-88fmf          3/3     Running   0               3d19h
+pod/clusteridentityoperator-79bdfd945f-pt2rv      2/2     Running   0               3d19h
+pod/config-agent-67bcb94b7c-d67t8                 1/2     Running   0               3d19h
+pod/controller-manager-559dd48b64-v6rmk           2/2     Running   0               3d19h
+pod/extension-events-collector-85f4fbff69-55zmt   2/2     Running   0               3d19h
+pod/extension-manager-7c7668446b-69gps            3/3     Running   0               3d19h
+pod/flux-logs-agent-fc7c6c959-vgqvm               1/1     Running   0               3d19h
+pod/kube-aad-proxy-84d668c44b-j457m               2/2     Running   0               3d19h
+pod/metrics-agent-58fb8554df-5ll67                2/2     Running   0               3d19h
+pod/resource-sync-agent-dbf5db848-c9lg8           2/2     Running   0               3d19h
 ```
 
 All pods should show `STATUS` as `Running` with either `3/3` or `2/2` under the `READY` column. Fetch logs and describe the pods returning an `Error` or `CrashLoopBackOff`. If any pods are stuck in `Pending` state, there might be insufficient resources on cluster nodes. [Scaling up your cluster](https://kubernetes.io/docs/tasks/administer-cluster/) can get these pods to transition to `Running` state.
+
+### Resource Provisioning Failed 
+If you receive this error, it indicates that there was an error due to which the resource could not be provisioned successfully. Please check the status of the Azure Arc enabled Kubernetes service at the following dashboard: [Azure status](https://azure.status.microsoft/en-us/status). If the status is healthy and you continue to face issues while onboarding, please raise a support ticket. If the status is unhealthy, please wait until the status becomes healthy and try onboarding again after deleting the existing connected cluster Azure resource.
+
+### Service Timeout 
+If you receive this error, it indicates that the service timed out while provisioning the certificates. Please check the status of the Azure Arc enabled Kubernetes service at the following dashboard: [Azure status](https://azure.status.microsoft/en-us/status). If the status is healthy and you continue to face issues while onboarding, please raise a support ticket. If the status is unhealthy, please wait until the status becomes healthy and try onboarding again after deleting the existing connected cluster Azure resource.
+
+### Overage claims error
+
+If you receive an overage claim, review the following factors in order:
+
+1. Are you using a service principal that is part of more than 200 Azure AD groups? If yes, then you must create and use another service principal that isn't a member of more than 200 groups, or remove the original service principal from some of its groups and try again.
+
+1. Have you configured outbound proxy environment? If so, make sure that the endpoint `https://<region>.obo.arc.azure.com:8084/` is allowed for outbound traffic.
+
+If neither of these apply, open a support request so we can look into the issue.
 
 ## Connecting Kubernetes clusters to Azure Arc
 
@@ -375,26 +401,26 @@ az k8s-extension create --resource-group <resource-group> --cluster-name <cluste
 
 ### Flux v2 - `microsoft.flux` extension installation CPU and memory limits
 
-The controllers installed in your Kubernetes cluster with the Microsoft Flux extension require the following CPU and memory resource limits to properly schedule on Kubernetes cluster nodes.
+The controllers installed in your Kubernetes cluster with the Microsoft Flux extension require CPU and memory resources to properly schedule on Kubernetes cluster nodes. This table shows the minimum memory and CPU resources that may be requested, along with the maximum limits for potential CPU and memory resource requirements.
 
-| Container Name | CPU limit | Memory limit |
+| Container Name | Minimum CPU | Minimum memory | Maximum CPU | Maximum memory |
 | -------------- | ----------- | -------- |
-| fluxconfig-agent | 50 m | 150 Mi |
-| fluxconfig-controller | 100 m | 150 Mi |
-| fluent-bit | 20 m | 150 Mi |
-| helm-controller | 1000 m | 1 Gi |
-| source-controller | 1000 m | 1 Gi |
-| kustomize-controller | 1000 m | 1 i |
-| notification-controller | 1000 m | 1 Gi |
-| image-automation-controller | 1000 m | 1 Gi |
-| image-reflector-controller | 1000 m | 1 Gi |
+| fluxconfig-agent | 5 m | 30 Mi | 50 m | 150 Mi |
+| fluxconfig-controller | 5 m | 30 Mi | 100 m | 150 Mi |
+| fluent-bit | 5 m | 30 Mi | 20 m | 150 Mi |
+| helm-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| source-controller | 50 m | 64 Mi | 1000 m | 1 Gi |
+| kustomize-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| notification-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| image-automation-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| image-reflector-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
 
 If you've enabled a custom or built-in Azure Gatekeeper Policy that limits the resources for containers on Kubernetes clusters, such as `Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits`, ensure that either the resource limits on the policy are greater than the limits shown above or that the `flux-system` namespace is part of the `excludedNamespaces` parameter in the policy assignment.
 
 ### Flux v1
 
 > [!NOTE]
-> We recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible. Support for Flux v1-based cluster configuration resources created prior to May 1, 2023 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on May 1, 2023, you won't be able to create new Flux v1-based cluster configuration resources.
+> We recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible. Support for Flux v1-based cluster configuration resources created prior to January 1, 2024 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on January 1, 2024, you won't be able to create new Flux v1-based cluster configuration resources.
 
 To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these Azure CLI commands with `--debug` parameter specified:
 

@@ -7,13 +7,16 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 11/16/2022
+ms.date: 05/28/2023
 ms.author: allensu
 ---
 
 # Public IP addresses
 
-Public IP addresses allow Internet resources to communicate inbound to Azure resources. Public IP addresses enable Azure resources to communicate to Internet and public-facing Azure services. The address is dedicated to the resource, until it's unassigned by you. A resource without a public IP assigned can communicate outbound. Azure dynamically assigns an available IP address that isn't dedicated to the resource. For more information about outbound connections in Azure, see [Understand outbound connections](../../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+>[!Important]
+>On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. For guidance on upgrading, visit [Upgrading a basic public IP address to Standard SKU - Guidance](public-ip-basic-upgrade-guidance.md).
+
+Public IP addresses allow Internet resources to communicate inbound to Azure resources. Public IP addresses enable Azure resources to communicate to Internet and public-facing Azure services. You dedicate the address to the resource until you unassign it. A resource without a public IP assigned can communicate outbound. Azure dynamically assigns an available IP address that isn't dedicated to the resource. For more information about outbound connections in Azure, see [Understand outbound connections](../../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) address is a resource that has its own properties. 
 
@@ -68,7 +71,7 @@ Public IP addresses are created with one of the following SKUs:
 | Allocation method| Static | For IPv4: Dynamic or Static; For IPv6: Dynamic.| 
 | Idle Timeout | Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|
 | Security | Secure by default model and be closed to inbound traffic when used as a frontend.  Allow traffic with [network security group](../../virtual-network/network-security-groups-overview.md#network-security-groups) (NSG) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).| Open by default.  Network security groups are recommended but optional for restricting inbound or outbound traffic.| 
-| [Availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Supported. Standard IPs can be non-zonal, zonal, or zone-redundant. **Zone redundant IPs can only be created in [regions where 3 availability zones](../../availability-zones/az-region.md) are live.** IPs created before zones are live won't be zone redundant. | Not supported. | 
+| [Availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Supported. Standard IPs can be nonzonal, zonal, or zone-redundant. **Zone redundant IPs can only be created in [regions where 3 availability zones](../../availability-zones/az-region.md) are live.** IPs created before availability zones aren't zone redundant. | Not supported. | 
 | [Routing preference](routing-preference-overview.md)| Supported to enable more granular control of how traffic is routed between Azure and the Internet. | Not supported.| 
 | Global tier | Supported via [cross-region load balancers](../../load-balancer/cross-region-overview.md).| Not supported. |
 
@@ -129,11 +132,11 @@ If a custom domain is desired for services that use a public IP, you can use [Az
 
 ## Availability Zone
 
-Public IP addresses with a standard SKU can be created as non-zonal, zonal, or zone-redundant in [regions that support availability zones](../../availability-zones/az-region.md). 
+Public IP addresses with a standard SKU can be created as nonzonal, zonal, or zone-redundant in [regions that support availability zones](../../availability-zones/az-region.md). 
 
-A zone-redundant IP is created in all zones for a region and can survive any single zone failure. A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. A "non-zonal" public IP addresses are placed into a zone for you by Azure and doesn't give a guarantee of redundancy.
+A zone-redundant IP is created in all zones for a region and can survive any single zone failure. A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. A "nonzonal" public IP addresses are placed into a zone for you by Azure and doesn't give a guarantee of redundancy.
 
-In regions without availability zones, all public IP addresses are created as non-zonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.  A public IP's availability zone can't be changed after the public IP's creation.
+In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones remain nonzonal.  A public IP's availability zone can't be changed after the public IP's creation.
 
 > [!NOTE]
 > All basic SKU public IP addresses are created as non-zonal.  Any IP that is upgraded from a basic SKU to standard SKU remains non-zonal.

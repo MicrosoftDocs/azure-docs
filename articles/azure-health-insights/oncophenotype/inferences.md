@@ -1,5 +1,5 @@
 ---
-title: Onco Phenotype Inference information
+title: Onco Phenotype inference information
 titleSuffix: Project Health Insights
 description: This article provides Onco Phenotype inference information.
 services: azure-health-insights
@@ -12,7 +12,7 @@ ms.author: behoorne
 ---
 
 
-# Onco Phenotype Inference information
+# Onco Phenotype inference information
 
 Project Health Insights Onco Phenotype model was trained with labels that conform to the following standards.
 - Tumor site and histology inferences: **WHO ICD-O-3** representation.
@@ -45,4 +45,4 @@ When you set the ```includeEvidence``` property to ```true```, each evidence pro
 To get better insights into the request and responses, read more on following page:
 
 >[!div class="nextstepaction"]
-> [Model Configuration](model-configuration.md) 
+> [Model configuration](model-configuration.md) 

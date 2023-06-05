@@ -2,7 +2,7 @@
 title: Overview of managed disk encryption options
 description: Overview of managed disk encryption options
 author: msmbaldwin
-ms.date: 03/28/2023
+ms.date: 05/15/2023
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.service: virtual-machines
@@ -18,7 +18,7 @@ There are several types of encryption available for your managed disks, includin
 
 - **Encryption at host** is a Virtual Machine option that enhances Azure Disk Storage Server-Side Encryption to ensure that all temp disks and disk caches are encrypted at rest and flow encrypted to the Storage clusters. For full details, see [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
-- **Azure Disk Encryption** helps protect and safeguard your data to meet your organizational security and compliance commitments. ADE encrypts the OS and data disks of Azure virtual machines (VMs) inside your VMs by using the [DM-Crypt](https://wikipedia.org/wiki/Dm-crypt) feature of Linux or the [BitLocker](https://wikipedia.org/wiki/BitLocker) feature of Windows. ADE is integrated with Azure Key Vault to help you control and manage the disk encryption keys and secrets.  For full details, see [Azure Disk Encryption for Linux VMs](./linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](./windows/disk-encryption-overview.md).
+- **Azure Disk Encryption** helps protect and safeguard your data to meet your organizational security and compliance commitments. ADE encrypts the OS and data disks of Azure virtual machines (VMs) inside your VMs by using the [DM-Crypt](https://wikipedia.org/wiki/Dm-crypt) feature of Linux or the [BitLocker](https://wikipedia.org/wiki/BitLocker) feature of Windows. ADE is integrated with Azure Key Vault to help you control and manage the disk encryption keys and secrets, with the option to encrypt with a key encryption key (KEK).  For full details, see [Azure Disk Encryption for Linux VMs](./linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](./windows/disk-encryption-overview.md).
 
 - **Confidential disk encryption** binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM. The TPM and VM guest state is always encrypted in attested code using keys released by a secure protocol that bypasses the hypervisor and host operating system. Currently only available for the OS disk. Encryption at host may be used for other disks on a Confidential VM in addition to Confidential Disk Encryption. For full details, see [DCasv5 and ECasv5 series confidential VMs](../confidential-computing/confidential-vm-overview.md#confidential-os-disk-encryption).
 
@@ -28,13 +28,14 @@ Encryption is part of a layered approach to security and should be used with oth
 
 Here's a comparison of Disk Storage SSE, ADE, encryption at host, and Confidential disk encryption.
 
-| | **Azure Disk Storage Server-Side Encryption** | **Encryption at Host**  | **Azure Disk Encryption** | **Confidential disk encryption (For the OS disk only** |
+| &nbsp; | **Azure Disk Storage Server-Side Encryption** | **Encryption at Host**  | **Azure Disk Encryption** | **Confidential disk encryption (For the OS disk only)** |
 |--|--|--|--|--|
 | Encryption at rest (OS and data disks) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | 
 | Temp disk encryption | &#10060; | &#x2705; | &#x2705; | &#10060; |
 | Encryption of caches | &#10060; | &#x2705; | &#x2705; | &#x2705; |
 | Data flows encrypted between Compute and Storage | &#10060; | &#x2705; | &#x2705; | &#x2705; |
-| Customer control of keys | &#x2705; When configured with DES | &#x2705; When configured with DES | &#x2705; | &#x2705; |
+| Customer control of keys | &#x2705; When configured with DES | &#x2705; When configured with DES | &#x2705; When configured with KEK | &#x2705; When configured with DES |
+| HSM Support | Azure Key Vault Premium and Managed HSM | Azure Key Vault Premium and Managed HSM | Azure Key Vault Premium | Azure Key Vault Premium and Managed HSM |
 | Does not use your VM's CPU | &#x2705; | &#x2705; | &#10060; | &#10060; |
 | Works for custom images | &#x2705; | &#x2705; | &#10060; Does not work for custom Linux images | &#x2705; |
 | Enhanced Key Protection | &#10060; | &#10060; | &#10060; | &#x2705; |

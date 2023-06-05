@@ -28,7 +28,7 @@ Service Bus offers various pricing tiers. It's recommended to pick the appropria
 > [!NOTE]
 > If the right tier is not picked, there is a risk of overwhelming the Service Bus namespace which may lead to [throttling](service-bus-throttling.md).
 >
-> Throttling does not lead to loss of data. Applications leveraging the Service Bus SDK can utilize the default retry policy to ensure that the data is eventually accepted by Service Bus.
+> Throttling does not lead to loss of data. Applications leveraging the Service Bus SDK can utilize the default [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus) to ensure that the data is eventually accepted by Service Bus.
 >
 
 ### Calculating throughput for Premium
@@ -342,7 +342,6 @@ Goal: Maximize the throughput of a single queue. The number of senders and recei
 * To increase the overall send rate into the queue, use multiple message factories to create senders. For each sender, use asynchronous operations or multiple threads.
 * To increase the overall receive rate from the queue, use multiple message factories to create receivers.
 * Use asynchronous operations to take advantage of client-side batching.
-* Set the batching interval to 50 ms to reduce the number of Service Bus client protocol transmissions. If multiple senders are used, increase the batching interval to 100 ms.
 * Leave batched store access enabled. This access increases the overall rate at which messages can be written into the queue.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
 
@@ -371,7 +370,6 @@ To maximize throughput, follow these steps:
 
 * If each sender is in a different process, use only a single factory per process.
 * Use asynchronous operations to take advantage of client-side batching.
-* Use the default batching interval of 20 ms to reduce the number of Service Bus client protocol transmissions.
 * Leave batched store access enabled. This access increases the overall rate at which messages can be written into the queue or topic.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
 
@@ -397,7 +395,6 @@ To maximize throughput, follow these guidelines:
 * To increase the overall send rate into the topic, use multiple message factories to create senders. For each sender, use asynchronous operations or multiple threads.
 * To increase the overall receive rate from a subscription, use multiple message factories to create receivers. For each receiver, use asynchronous operations or multiple threads.
 * Use asynchronous operations to take advantage of client-side batching.
-* Use the default batching interval of 20 ms to reduce the number of Service Bus client protocol transmissions.
 * Leave batched store access enabled. This access increases the overall rate at which messages can be written into the topic.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
 
@@ -410,7 +407,6 @@ Topics with a large number of subscriptions typically expose a low overall throu
 To maximize throughput, try the following steps:
 
 * Use asynchronous operations to take advantage of client-side batching.
-* Use the default batching interval of 20 ms to reduce the number of Service Bus client protocol transmissions.
 * Leave batched store access enabled. This access increases the overall rate at which messages can be written into the topic.
 * Set the prefetch count to 20 times the expected receive rate in seconds. This count reduces the number of Service Bus client protocol transmissions.
 
