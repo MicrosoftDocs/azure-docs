@@ -55,19 +55,19 @@ To view the maintenance schedule that has been applied to your Synapse SQL pool,
 
 ![Overview blade](./media/maintenance-scheduling/clear-overview-blade.PNG)
 
-## Skip or disable maintenance schedule
+## Skip or change maintenance schedule
 
 To ensure compliance with latest security requirements, we are unable to accommodate requests to skip or delay these updates. However, you may have some options to adjust your maintenance window within the current cycle depending on your situation:
-- If you receive a pending notification for maintenance, and you need more time to finish your jobs or notify your team, you can change the window start time as long as you do so before the beginning of your defined maintenance window. This will shift your window forward in time within the cycle. Note that if you change the window to a start time before the actual present time, maintenance will be triggered immediately.
+- If you receive a pending notification for maintenance, and you need more time to finish your jobs or notify your team, you can change the window start time as long as you do so before the beginning of your defined maintenance window. This will shift your window forward in time within the cycle.
+
 - You can manually trigger the maintenance by pausing and resuming (or scaling) your SQL Dedicated pool after the start of a cycle for which a "Pending" notification has been received. The weekend maintenance cycle starts on Saturday at 00:00 UTC; the midweek maintenance cycle starts Tuesday at 12:00 UTC.
+
 - Although we do require a minimum window of 3 hours, note that maintenance usually takes less than 30 minutes to complete, but it may take longer in some cases. For example, if there are active transactions when the maintenance starts, they will be aborted and rolled back, which may cause delays in coming back online. To avoid this scenario, we recommend that you ensure that no long-running transactions are active during the start of your maintenance window.
 
-## Change a maintenance schedule
-
-A maintenance schedule can be updated or changed at any time. If the selected instance is going through an active maintenance cycle, the settings will be saved. They'll become active during the next identified maintenance period. [Learn more](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) about monitoring your data warehouse during an active maintenance event.
-
 > [!NOTE]
-> In case you are using DW400c or lower, although you are able to change the maintenance schedule, it will not be adhered to since it's a lower performance level. As mentioned earlier, these data warehouse tiers can undergo maintenance at any time.
+> - If you change the window to a start time before the actual present time, maintenance will be triggered immediately and if there are active transactions when the maintenance starts, they will be aborted and rolled back.
+> - After the pause and resume operation is completed to initiate the maintenance, instead of receiving a notification confirming the completion of the maintenance, you will be notified that it has been cancelled.
+> - In case you are using DW400c or lower, although you are able to change the maintenance schedule, it will not be adhered to since it's a lower performance level. As mentioned earlier, these data warehouse tiers can undergo maintenance at any time with the maintenance cycle.
 
 ## Identifying the primary and secondary windows
 
