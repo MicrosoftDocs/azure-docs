@@ -33,7 +33,10 @@ This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/a
 * Complete the [Create resources to get started](quickstart-create-resources.md) to:
     * Create a workspace
 * [Create a cloud-based compute cluster](how-to-create-attach-compute-cluster.md#create) to use for training your model
-* Azure Machine Learning extension (preview) for Azure Pipelines. This extension isn't required to submit the Azure Machine Learning job; it's required to be able to wait for the job completion.
+* Azure Machine Learning extension (preview) for Azure Pipelines. This extension can be installed from the Visual Studio marketplace at [https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.azureml-v2](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.azureml-v2.). 
+
+    > [!TIP]
+    >This extension isn't required to submit the Azure Machine Learning job; it's required to be able to wait for the job completion.
 
     [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -231,10 +234,10 @@ In step 6, you added a job to submit an Azure Machine Learning job. In this step
 
 # [Using Azure Resource Manager service connection](#tab/arm)
 
-If you're using an Azure Resource Manager service connection, you can use the "Machine Learning" extension. You can search this extension in the [Azure DevOps extensions Marketplace](https://marketplace.visualstudio.com/search?target=AzureDevOps&category=Azure%20Pipelines&visibilityQuery=public&sortBy=Installs). Install the "Machine Learning" extension.
+If you're using an Azure Resource Manager service connection, you can use the "Machine Learning" extension. You can search this extension in the [Azure DevOps extensions Marketplace](https://marketplace.visualstudio.com/search?target=AzureDevOps&category=Azure%20Pipelines&visibilityQuery=public&sortBy=Installs) or go directly to the [extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.azureml-v2). Install the "Machine Learning" extension.
 
 > [!IMPORTANT]
-> Don't install the __Machine Learning (classic)__ extension by mistake.
+> Don't install the __Machine Learning (classic)__ extension by mistake; it's an older extension that doesn't provide the same functionality.
 
 In the Pipeline review window, add a Server Job. In the steps part of the job, select __Show assistant__ and search for __AzureML__. Select the __AzureML Job Wait__ task and fill in the information for the job. 
 
