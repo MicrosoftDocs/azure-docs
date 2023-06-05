@@ -5,18 +5,17 @@ services: route-server
 author: halkazwini
 ms.service: route-server
 ms.topic: conceptual
-ms.date: 05/25/2023
+ms.date: 06/05/2023
 ms.author: halkazwini
 ms.custom: template-concept, engagement-fy23
 ---
 
 # Azure Route Server support for ExpressRoute and Azure VPN
 
-Azure Route Server supports not only third-party network virtual appliances (NVA) running on Azure but also integrates seamlessly with ExpressRoute and Azure VPN gateways. You don’t need to configure or manage the BGP peering between the gateway and Azure Route Server. You can enable route exchange between the gateways and Azure Route Server by enabling [branch-to-branch](quickstart-configure-route-server-portal.md#configure-route-exchange) in Azure portal. If you prefer, you can use [Azure PowerShell](quickstart-configure-route-server-powershell.md#route-exchange) or [Azure CLI](quickstart-configure-route-server-cli.md#configure-route-exchange) to enable the route exchange with the Route Server.
+Azure Route Server supports not only third-party network virtual appliances (NVA) running on Azure but also seamlessly integrates with ExpressRoute and Azure VPN gateways. You don’t need to configure or manage the BGP peering between the gateway and Azure Route Server. You can enable route exchange between the gateways and Azure Route Server by enabling [branch-to-branch](quickstart-configure-route-server-portal.md#configure-route-exchange) in Azure portal. If you prefer, you can use [Azure PowerShell](quickstart-configure-route-server-powershell.md#route-exchange) or [Azure CLI](quickstart-configure-route-server-cli.md#configure-route-exchange) to enable the route exchange with the Route Server.
 
 > [!WARNING]
-> When you create or delete an Azure Route Server in a virtual network that contains a virtual network gateway (ExpressRoute or VPN), expect downtime until the operation complete.
->
+> When you create or delete an Azure Route Server in a virtual network that contains a virtual network gateway (ExpressRoute or VPN), expect downtime until the operation is complete. If you have an ExpressRoute circuit connected to the virtual network where you're creating or deleting the Route Server, the downtime doesn't affect the ExpressRoute circuit or its connections to other virtual networks.
 
 ## How does it work?
 
@@ -27,9 +26,6 @@ For example, in the following diagram:
 * The SDWAN appliance receives from Azure Route Server the route of *On-premises 2*, which is connected to ExpressRoute circuit, along with the route of the virtual network.
 
 * The ExpressRoute gateway receives from Azure Route Server the route of *On-premises 1*, which is connected to the SDWAN appliance, along with the route of the virtual network.
-
-> [!NOTE]
-> Equal-Cost-Multi-Path (ECMP) over ExpressRoute is enabled by default for Route Servers created after May 26, 2023.
 
 :::image type="content" source="./media/expressroute-vpn-support/expressroute-with-route-server.png" alt-text="Diagram showing ExpressRoute gateway and SDWAN NVA exchanging routes through Azure Route Server.":::
 
