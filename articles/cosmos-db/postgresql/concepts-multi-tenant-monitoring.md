@@ -2,6 +2,7 @@
 title: Multi-tenant monitoring - Azure Cosmos DB for PostgreSQL
 description: Review multi-tenant metrics on Azure Cosmos DB for PostgreSQL
 ms.author: avijitgupta
+author: AvijitkGupta
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference

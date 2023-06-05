@@ -133,7 +133,7 @@
       items:
         - name: Tenant monitoring fundamentals
           href: concepts-multi-tenant-monitoring.md
-          displayName: monitoring, statistics
+          displayName: monitoring, statistics, tenant
         - name: Tenant monitoring basic usage
           href: howto-monitor-tenant-stats.md
           displayName: monitoring, statistics

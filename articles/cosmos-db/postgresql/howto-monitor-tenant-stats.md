@@ -2,6 +2,7 @@
 title: Monitor statistics with multi-tenant monitoring on Azure Cosmos DB for PostgreSQL
 description: how to monitor multi-tenant stats on Azure Cosmos DB for PostgreSQL
 ms.author: avijitgupta
+author: AvijitkGupta
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
@@ -34,7 +35,7 @@ You can control the number of tenants tracked with the `citus.stat_tenants_limit
 > [!Note]
 > * Default for citus.stat_tenants_period is `60 seconds`.
 >
-> * Default for citus.stat_tenants_limit is `100`
+> * Default for citus.stat_tenants_limit is `100`.
 
 Learn more by reviewing a sample multi-tenant application, which helps companies run their ad-campaigns.
 
@@ -109,13 +110,12 @@ tenant_attribute | read_count_in_this_period | query_count_in_this_period | cpu_
 > [!Important]
 > * Tracking tenant level statistics adds an overhead, and `by default is disabled`.
 >
-> * set citus.stat_tenants_track = 'all' to enable tracking
+> * set citus.stat_tenants_track = 'all' to enable tracking.
 
 ## Next steps
-Learn about the concepts related to multi-tenant monitoring and rebalancing active tenants
+Learn about the concepts related to multi-tenant monitoring and rebalancing active tenants.
 > [!div class="nextstepaction"]
 > [Multi-tenant monitoring](concepts-multi-tenant-monitoring.md)
 
-To learn about rebalancing
 > [!div class="nextstepaction"]
 > [Zero-Downtime rebalancing](howto-scale-rebalance.md)
