@@ -20,7 +20,8 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ## **June 2023**
 **Bug Fix: Metadata endpoint URL in capability statement is relative URL**
-Per FHIR specification, metadata endpoint URL in capability statement needs to be absolute URL. For details on FHIR specification, visit [Capability Statement](https://www.hl7.org/fhir/capabilitystatement-definitions.html#CapabilityStatement.url). Fix addresses the issue, for details visit [3265](https://github.com/microsoft/fhir-server/pull/3265).
+Per FHIR specification, metadata endpoint URL in capability statement needs to be an absolute URL. 
+For details on FHIR specification, visit [Capability Statement](https://www.hl7.org/fhir/capabilitystatement-definitions.html#CapabilityStatement.url). This fanix addresses the issue, for details visit [3265](https://github.com/microsoft/fhir-server/pull/3265).
 
 ## **May 2023**
 
