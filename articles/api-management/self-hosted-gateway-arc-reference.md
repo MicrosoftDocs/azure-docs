@@ -22,8 +22,8 @@ The Configuration API is used by the self-hosted gateway to connect to Azure API
 
 Here is an overview of all configuration options:
 
-| Name                           | Description              | Required | Default           | Availability |
-|----|------|----------|-------------------|-------------------|
+| Name                           | Description              | Required | Default           |
+|----|------|----------|-------------------|
 | `gateway.configuration.uri` | Configuration endpoint in Azure API Management for the self-hosted gateway. Find this value in the Azure portal under **Gateways** > **Deployment**.  | Yes       | N/A             |
 | `gateway.auth.token` | Authentication key to authenticate with to Azure API Management service. Typically starts with `GatewayKey`. | Yes | N/A |
 | `gateway.configuration.backup.enabled` | If enabled will store a backup copy of the latests downloaded configuration on a storage volume | `false` |
@@ -33,15 +33,15 @@ Here is an overview of all configuration options:
 
 ## Cross-instance discovery & synchronization
 
-| Name                           | Description              | Required | Default           | Availability |
-|----|------|----------|-------------------| ----|
+| Name                           | Description              | Required | Default           |
+|----|------|----------|-------------------|
 | `service.instance.heartbeat.port` | UDP port used for instances of a self-hosted gateway deployment to send heartbeats to other instances. | No | 4291 |
 | `service.instance.synchronization.port` | UDP port used for self-hosted gateway instances to synchronize rate limiting across multiple instances. | No | 4290 |
 
 ##  Metrics
 
 | Name                           | Description              | Required | Default           |
-|----|------|----------|-------------------| ----|
+|----|------|----------|-------------------|
 | `telemetry.metrics.cloud` | Indication whether or not to [enable emitting metrics to Azure Monitor](how-to-configure-cloud-metrics-logs.md). | No | `true` |
 | `telemetry.metrics.local` | Enable [local metrics collection](how-to-configure-local-metrics-logs.md) through StatsD. Value is one of the following options: `none`, `statsd`. | No | N/A |
 | `telemetry.metrics.localStatsd.endpoint` | StatsD endpoint. | Yes, if `telemetry.metrics.local` is set to `statsd`; otherwise no.  | N/A |
@@ -52,8 +52,8 @@ Here is an overview of all configuration options:
 
 ## Logs
 
-| Name   | Description | Required | Default | Availability |
-| ------------- | ------------- | ------------- | ----| ----|
+| Name   | Description | Required | Default |
+| ------------- | ------------- | ------------- | ----|
 | `telemetry.logs.std`  |[Enable  logging](how-to-configure-local-metrics-logs.md#logs) to a standard stream. Value is one of the following options: `none`, `text`, `json`. | No |  `text` |
 | `telemetry.logs.local`  | [Enable local logging](how-to-configure-local-metrics-logs.md#logs). Value is one of the following options: `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  | No  | `auto` |
 | `telemetry.logs.localConfig.localsyslog.endpoint` |  localsyslog endpoint.  | Yes if `telemetry.logs.local` is set to `localsyslog`; otherwise no. | N/A |
@@ -64,28 +64,40 @@ Here is an overview of all configuration options:
 
 ## Traffic routing - TODO
 
-- Service
-- Ingress
+| Name   | Description | Required | Default |
+| ------------- | ------------- | ------------- | ----|
+| `service.type` | Type of Kubernetes service to use for exposing the gateway. ([docs](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)) | No | `ClusterIP` |
+| `service.http.port` | Port to use for exposing HTTP traffic. | No | `8080` |
+| `service.http.nodePort` | Port on the node to use for exposing HTTP traffic. This requires `NodePort` as service type. | No | N/A |
+| `service.https.port` | Port to use for exposing HTTPS traffic. | No | `8081` |
+| `service.https.nodePort` | Port on the node to use for exposing HTTPS traffic. This requires `NodePort` as service type. | No | N/A |
+| `service.annotations` | Annotations to add to the Kubernetes service for the gateway. | No | N/A |
+| `ingress.annotations` | Annotations to add to the Kubernetes Ingress for the gateway. ([expirmental](https://github.com/Azure/api-management-self-hosted-gateway-ingress)) | No | N/A |
+| `ingress.enabled` | Indication wheter or not Kubernetes Ingress should be used. ([expirmental](https://github.com/Azure/api-management-self-hosted-gateway-ingress)) | No | `false` |
+| `ingress.tls` | TLS configuration for Kubernetes Ingress. ([expirmental](https://github.com/Azure/api-management-self-hosted-gateway-ingress)) | No | N/A |
+| `ingress.hosts` | Configuration of hosts to use for Kubernetes Ingress. ([expirmental](https://github.com/Azure/api-management-self-hosted-gateway-ingress)) | No | N/A |
 
-## Integrations - TODO
+## Integrations
 
 The self-hosted gateway integrates with varios other technologies. This section provides an overview of the available configuration options you can use.
 
 ### Dapr
 
 | Name   | Description | Required | Default |
-| ------------- | ------------- | ------------- | ----| ----|
+| ------------- | ------------- | ------------- | ----|
 | `dapr.enabled`  |Indication wheter or not Dapr integration should be used. | No |  `false` |
 | `dapr.app.id` | Application ID to use for Dapr integration | None |
 | `dapr.config` | Defines which Configuration CRD Dapr should use | `tracing` |
 | `dapr.logging.level` | Level of log verbosity of Dapr sidecar | `info` |
 | `dapr.logging.useJsonOutput` | Indication wheter or not logging should be in JSON format | `true` |
 
-### Azure Monitor - TODO
+### Azure Monitor
 
 | Name   | Description | Required | Default |
-| ------------- | ------------- | ------------- | ----| ----|
-| `dapr.enabled`  |Indication wheter or not Dapr integration should be used. | No |  `false` |
+| ------------- | ------------- | ------------- | ----|
+| `monitoring.customResourceId`  | Resource ID of the Azure Log Analytics workspace to send logs to. | No | N/A |
+| `monitoring.ingestionKey`  | Ingestion key to authenticate with Azure Log Analytics workspace to send logs to. | No | N/A |
+| `monitoring.workspaceId`  | Workspace ID of the Azure Log Analytics workspace to send logs to. | No | N/A |
 
 ## Image & Workload Scheduling
 
@@ -94,7 +106,7 @@ Kubernetes is a powerful orchestration platform that gives a lot of flexibility 
 This section provides an overview of the available configuration options you can use to influence the image that is used, how it gets scheduled and configured to self-heal.
 
 | Name   | Description | Required | Default |
-| ------------- | ------------- | ------------- | ----| ----|
+| ------------- | ------------- | ------------- | ----|
 | `replicaCount`  | Amount of instances of the self-hosted gateway to run. | No |  `3` |
 | `image.repository` | Image to run. | No |  `mcr.microsoft.com/azure-api-management/gateway` |
 | `image.pullPolicy`  | Policy to use for pulling container images. | No | `IfNotPresent` |
