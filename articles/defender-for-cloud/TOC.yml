@@ -385,7 +385,7 @@
     - name: Manage Defender for APIs
       href: defender-for-apis-manage.md
     - name: Common questions about Defender for APIs
-      href: common-questions-def-for-api.md
+      href: common-questions-def-for-api.yml
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
