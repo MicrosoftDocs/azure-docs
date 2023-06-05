@@ -30,7 +30,7 @@ A digital identity is a collection of unique identifiers or attributes that repr
 - Sign-in credentials (username/password)
 - Bank account number
 - Government issued ID
-- MAC address, or IP address
+- MAC address or IP address
 
 Identities are used to authenticate and authorize access to resources, communicate with other humans, conduct transactions, and other purposes.
 
@@ -38,18 +38,18 @@ At a high level, there are three types of identities:
 
 - **Human identities** represent people such as employees (internal workers and front line workers) and external users (customers, consultants, vendors, and partners).
 - **Workload identities** represent software workloads such as an application, service, script, or container.
-- **Device identities** represent devices such as desktop computers, mobile, IoT sensors, and IoT managed devices. Device identities are distinct from human identities.
+- **Device identities** represent devices such as desktop computers, mobile phones, IoT sensors, and IoT managed devices. Device identities are distinct from human identities.
 
 ## Authentication
 
 Authentication is the process of challenging a person, software component, or hardware device for credentials in order to verify their identity, or prove they're who or what they claim to be. Authentication typically requires the use of credentials (like username and password, fingerprints, certificates, or one-time passcodes). Authentication is sometimes shortened to *AuthN*.
 
 Multi-factor authentication (MFA) is a security measure that requires users to provide more than one piece of evidence to verify their identities, such as:
-- Something they know, for example a password
-- Something they have, like a [security token](/azure/active-directory/develop/security-tokens)
-- Something they are, like a fingerprint
+- Something they know, for example a password.
+- Something they have, like a badge or [security token](/azure/active-directory/develop/security-tokens).
+- Something they are, like a biometric (fingerprint or face).
 
-Single sign-on (SSO) allows users to authenticate their identity once and then be silently authenticated when accessing various resources. Once authenticated, the IAM system acts as the source of identity truth for the other resources available to the user. It removes the need for signing on to multiple, separate target systems.
+Single sign-on (SSO) allows users to authenticate their identity once and then later silently authenticate when accessing various resources that rely on the same identity. Once authenticated, the IAM system acts as the source of identity truth for the other resources available to the user. It removes the need for signing on to multiple, separate target systems.
 
 ## Authorization
 
@@ -72,7 +72,7 @@ Here's a quick overview of authentication and authorization:
 | Challenges the user, machine, or software for verifiable credentials (for example, passwords, biometric identifiers, or certificates).| Determines what level of access a user, machine, or software has.|
 | Done before authorization. | Done after successful authentication. |
 | Information is transferred in an ID token. | Information is transferred in an access token. |
-| Often uses the OpenID Connect (OIDC) or SAML protocols. | Often uses the OAuth 2.0 protocol. |
+| Often uses the OpenID Connect (OIDC) (which is built on the OAuth 2.0 protocol) or SAML protocols. | Often uses the OAuth 2.0 protocol. |
 
 For more detailed information, read [Authentication vs. authorization](/azure/active-directory/develop/authentication-vs-authorization).
 
