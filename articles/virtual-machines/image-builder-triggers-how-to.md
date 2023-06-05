@@ -142,7 +142,7 @@ az sig image-definition create \
 Download the example JSON template and configure it with your variables. The following image template uses a Platform Image as its source, but you can change the source to an Azure Compute Gallery image if you'd like to set up automatic image builds anytime there's a new image version in your Azure Compute Gallery.
 
 ```azurecli-interactive
-curl https://raw.githubusercontent.com/kof-f/azvmimagebuilder/main/quickquickstarts/9_Setting_up_a_Trigger_with_a_Custom_Linux_Image/helloImageTemplate.json -o helloImageTemplateforTriggers.json
+curl https://raw.githubusercontent.com/Azure/azvmimagebuilder/main/quickquickstarts/9_Setting_up_a_Trigger_with_a_Custom_Linux_Image/helloImageTemplate.json -o helloImageTemplateforTriggers.json
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforTriggers.json
 sed -i -e "s/<rgName>/$resourceGroupName/g" helloImageTemplateforTriggers.json
 sed -i -e "s/<imageDefName>/$imageDefName/g" helloImageTemplateforTriggers.json
