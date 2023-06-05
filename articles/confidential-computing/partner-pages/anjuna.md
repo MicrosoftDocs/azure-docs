@@ -16,8 +16,9 @@ ms.author: ananyagarg
 
 
 ## Overview
+<img align="left" width="100" height="100" src="../media/partner-pages-images/anjuna.jpg" alt-text="Fortanix logo.">
 
-Anjuna Confidential Computing software makes it quick and simple to protect cloud data and intellectual property by using Microsoft [Azure confidential computing](aka.ms/accdocs) infrastructure. 
+Anjuna Confidential Computing software makes it quick and simple to protect cloud data and intellectual property by using Microsoft [Azure confidential computing](../index.yml) infrastructure. 
 
 Azure Confidential Computing is built on [Intel® Software Guard Extensions (SGX)-enabled](../confidential-computing-enclaves.md) CPUs. Anjuna Confidential Computing software establishes a secure computing environment that isolates and encrypts any application and its related data within the confines of a secure enclave. Anjuna supports Azure Kubernetes Service (AKS) to manage container-based applications, and Azure Key Vault (AKV) for storing secrets.
 
