@@ -36,7 +36,7 @@ This article describes how to configure your AWS IAM Identity Center as an ident
     - Your **AWS Management Account Role**
 
 5. Select **Launch Management Account Template**. The template opens in a new window. 
-6. If the Management Account stack is created with the Cloud Formation Template as part of the previous onboarding steps, update the stack by running ``EnableSSO`` as true. This creates a new stack when re-running the Management Account Template. 
+6. If the Management Account stack is created with the Cloud Formation Template as part of the previous onboarding steps, update the stack by running ``EnableSSO`` as true. This creates a new stack when running the Management Account Template. 
 
 The template execution attaches the AWS managed policy  ``AWSSSOReadOnly`` and the newly created custom policy ``SSOPolicy`` to the AWS IAM role that allows Microsoft Entra Permissions Management to collect organizational information. The following details are requested in the template. All fields are pre-populated, and you can edit the data as you need: 
 - **Stack name** – This is the name of the AWS stack for creating the required AWS resources for Permissions Management to collect organizational information. The default value is ``mciem-org-<tenant-id>``. 
@@ -44,11 +44,11 @@ The template execution attaches the AWS managed policy  ``AWSSSOReadOnly`` and t
 - **CFT Parameters**
     - **OIDC Provider Role Name** – Name of the IAM Role OIDC Provider that can assume the role. The default value is the OIDC account role (as entered in Permissions Management).
 
-    - **Org Account Role Name** - Name of the IAM Role. The default value is Pre-populated with the Management account role name (as entered in Microsoft Entra PM).
+    - **Org Account Role Name** - Name of the IAM Role. The default value is pre-populated with the Management account role name (as entered in Microsoft Entra PM).
 
     - **true** – Enables AWS SSO. The default value is ``true`` when the template is launched from the Configure Identity Provider (IdP) page, otherwise the default is ``false``. 
 
-    - **OIDC Provider Account ID** – The Account ID where the OIDC Provider is created. Default value – OIDC Provider Account ID (as entered in Permissions Management). 
+    - **OIDC Provider Account ID** – The Account ID where the OIDC Provider is created. The default value is the OIDC Provider Account ID (as entered in Permissions Management). 
 
     - **Tenant ID** – ID of the tenant where the application is created. The default value is ``tenant-id`` (the configured tenant). 
 7. Click **Next** to review and confirm the information you've entered.
