@@ -1,3 +1,17 @@
+---
+title: Part 2 Creating a New Window Calling Experience
+titleSuffix: An Azure Communication Services tutorial
+description: Learn how to deal with post messaging and React to create a new window calling experience with the CallComposite - Part 2.
+author: dmceachern
+manager: alkwa
+services: azure-communication-services
+
+ms.author: dmceachern
+ms.date: 06/05/2023
+ms.topic: tutorial
+ms.service: azure-communication-services
+ms.subservice: calling
+---
 # Part 2 Creating a New Window Calling Experience
 
 Now that we have a running application with our widget on the home page, we will talk about starting the calling experience for your users with a new window. This scenario allows you to give your customer the ability to browse while still seeing your call in a new window. This can be useful in situations similar to when your users will use video and screensharing.

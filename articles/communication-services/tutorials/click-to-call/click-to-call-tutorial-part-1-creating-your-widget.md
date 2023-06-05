@@ -1,3 +1,17 @@
+---
+title: Part 1 Creating Your Widget
+titleSuffix: An Azure Communication Services tutorial
+description: Learn how to construct your own custom widget for your click to call experience - Part 1.
+author: dmceachern
+manager: alkwa
+services: azure-communication-services
+
+ms.author: dmceachern
+ms.date: 06/05/2023
+ms.topic: tutorial
+ms.service: azure-communication-services
+ms.subservice: calling
+---
 # Part 1 Creating Your Widget
 
 To get started, we are going to make a new component. This component is the widget that you will use to start your calling experience.

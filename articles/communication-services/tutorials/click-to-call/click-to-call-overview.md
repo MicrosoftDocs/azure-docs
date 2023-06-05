@@ -1,4 +1,18 @@
-# Welcome to an Azure Communication Services Click to Call Sample
+---
+title: Creating a Click to Call Experience with Azure Communication Services
+titleSuffix: An Azure Communication Services tutorial
+description: Learn how to create a Click to Call widget experience with the Azure Communication Services CallComposite.
+author: dmceachern
+manager: alkwa
+services: azure-communication-services
+
+ms.author: dmceachern
+ms.date: 06/05/2023
+ms.topic: tutorial
+ms.service: azure-communication-services
+ms.subservice: calling
+---
+# Creating a Click to Call Experience with Azure Communication Services
 
 <img src='../media/click-to-call/Sample-app-splash.png' width='1000'>
 

@@ -1,3 +1,18 @@
+---
+title: Part 3 (Optional) Embedding Your Calling Experience
+titleSuffix: An Azure Communication Services tutorial
+description: Learn how to embed a calling experience inside your new widget - Part 3.
+author: dmceachern
+manager: alkwa
+services: azure-communication-services
+
+ms.author: dmceachern
+ms.date: 06/05/2023
+ms.topic: tutorial
+ms.service: azure-communication-services
+ms.subservice: calling
+---
+
 ## Part 3 (Optional) Embedding Your Calling Experience
 
 Finally in this optional section of the tutorial we will talk about making a embedded version of the Calling surface. We will continue from where we left off in the last section and make some modifications to our existing screens. 
