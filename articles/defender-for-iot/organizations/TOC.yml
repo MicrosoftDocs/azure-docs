@@ -142,16 +142,8 @@
       href: ot-deploy/sites-and-zones-on-premises.md
       displayName: site, zone, Zero Trust
   - name: Deploy Enterprise IoT monitoring
-    items:
-    - name: Enable Enterprise IoT security
-      href: eiot-defender-for-endpoint.md
-      displayName: onboard
-    - name: Discover Enterprise IoT devices
-      href: eiot-sensor.md
-      displayName: Enterprise IoT sensor
-    - name: Extra deployment steps and samples
-      href: extra-deploy-enterprise-iot.md
-      displayName: Enterprise IoT sensor
+    href: eiot-defender-for-endpoint.md
+    displayName: onboard
 - name: Tutorials
   expanded: false
   items:
@@ -347,6 +339,14 @@
           href: how-to-manage-the-on-premises-management-console.md
         - name: Troubleshoot on-premises management consoles
           href: how-to-troubleshoot-on-premises-management-console.md
+    - name: Maintain IoT on-premises resources
+      items:
+      - name: Discover Enterprise IoT devices
+        href: eiot-sensor.md
+        displayName: Enterprise IoT sensor
+      - name: Extra deployment steps and samples
+        href: extra-deploy-enterprise-iot.md
+        displayName: Enterprise IoT sensor
 - name: Reference
   items:
   - name: Supported protocols
