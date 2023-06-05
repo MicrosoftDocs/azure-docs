@@ -77,6 +77,9 @@ az aks nodepool upgrade --name nodepool1 --cluster-name myAKSCluster --resource-
 > [!NOTE]
 > Your node pool image version will be the same contained in the snapshot and will remain the same throughout every scale operation. However, if this node pool is upgraded or a node image upgrade is performed without providing a snapshot-id the node image will be upgraded to latest.
 
+> [!NOTE]
+> To upgrade only the node version for your node pool, use the `--node-image-only` flag. This is required when upgrading the node image version for a node pool based on a snapshot with an identical Kubernetes version.
+
 ## Create a cluster from a snapshot
 
 When you create a cluster from a snapshot, the cluster original system pool will be created from the snapshot configuration.
