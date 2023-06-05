@@ -12,22 +12,7 @@ ms.date: 06/22/2022
 # Use queries in Azure Monitor Logs
 When you open Log Analytics, you can access existing log queries. You can either run these queries without modification or use them as a starting point for your own queries. The available queries include examples provided by Azure Monitor and queries saved by your organization. This article describes the queries that are available and how you can discover and use them.
 
-## Permissions required
-
-The permissions required to use queries depend on which access control mode is enabled on the workspace.
-
-### Require workspace permissions
-
-If this access control mode is enabled on the workspace, you must be granted the `Microsoft.OperationalInsights/workspaces/query/*/read` permission to the workspace.
-
-### Use resource or workspace permissions
-
-If this access control mode is enabled on the workspace, you must be assigned to one of the following roles:
-
-- [Log Analytics Contributor built-in role](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
-- [Log Analytics Reader built-in role](../../role-based-access-control/built-in-roles.md#log-analytics-reader)
-- Any other [built-in role](../../role-based-access-control/built-in-roles.md) with the `Microsoft.OperationalInsights/workspaces/query/*/read` or `*/read` action
-- Any [custom role](../../role-based-access-control/custom-roles.md) with the `Microsoft.OperationalInsights/workspaces/query/*/read` permission
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-query-permissions.md)]
 
 ## Queries interface
 Select queries from the query interface, which is available from two different locations in Log Analytics.
