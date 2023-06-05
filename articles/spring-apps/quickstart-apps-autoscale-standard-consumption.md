@@ -72,8 +72,9 @@ Use the following steps to define autoscale settings and rules.
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Create an app with auto scaling rule
+1. Create an app with auto scaling rule  
 Use the following commands to create an application in Azure Spring Apps with an autoscaling rule, based on [Keda Azure Service Bus Scaler](https://keda.sh/docs/2.8/scalers/azure-service-bus/). The replicas count is adjusted automatically according to the count of messages in Azure Service Bus Queue. When there's no messages in the queue, your application will be scaled to 0 replica. When there's messages in the queue, the application will be scaled out according to the message count.
+
 
 ```azurecli-interactive
 az spring app create \
@@ -91,20 +92,15 @@ az spring app create \
     --max-replicas 5
 ```
 
-2. Set up auto scaling rules for an existing app
-You can also set up auto scale rules for an existing app. The following CLI commands show you how to auto scale your spring application based on [Keda MySQL Scaler](https://keda.sh/docs/2.8/scalers/mysql/).
+2. Set up auto scaling rules for an existing app. You can also set up auto scale rules for an existing app. The following CLI commands show you how to auto scale your spring application based on [Keda MySQL Scaler](https://keda.sh/docs/2.8/scalers/mysql/).  Firstly create an secret to store your sql connection string, it is used for your scale rule auth. And then, set up a rule which scales the app based on the rows count of a table.
 
-Create an secret to store your sql connection string, it is used for your scale rule auth.
 ```azurecli-interactive
 az spring app update \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name> \
     --name <app-name> \
     --secrets mysqlconnectionstring="<username>:<pwd>@tcp(<server name>:3306)/<database name>" 
-```
 
-Then, set up a rule which scales the app based on the rows count of a table.
-```azurecli-interactive
 az spring app scale \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name> \
@@ -117,8 +113,8 @@ az spring app scale \
     --max-replicas 3
 ```
 
-3. Create a rule based on linux cron  
-The following commands shows you how to set up a rule based on [Keda Cron Scaler](https://keda.sh/docs/2.8/scalers/cron/). The replicas will be scaled to the desired number during the cron time interval.
+3. Create a rule based on linux cron. The following commands shows you how to set up a rule based on [Keda Cron Scaler](https://keda.sh/docs/2.8/scalers/cron/). The replicas will be scaled to the desired number during the cron time interval.
+
 ```azurecli-interactive
 az spring app scale \
     --resource-group <resource-group-name> \
