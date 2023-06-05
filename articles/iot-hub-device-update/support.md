@@ -16,7 +16,7 @@ This article explains what operating system platforms, and components are suppor
 
 If you experience problems while using the Device Update service, there are several ways to seek support. Try one of the following channels for support:
 
-**Reporting bugs** - The development that goes into the DU product happens in the IoT Edge open-source project. Bugs can be reported on the [issues page](https://github.com/Azure/iot-hub-device-update/issues) of the project. Bugs related to Azure IoT Edge for Linux on Windows can be reported on the [iotedge-eflow issues page](https://github.com/azure/iotedge-eflow/issues). Fixes rapidly make their way from the projects in to product updates.
+**Reporting bugs** - The development that goes into the DU product happens in the Device Update open-source project. Bugs can be reported on the [issues page](https://github.com/Azure/iot-hub-device-update/issues) of the project. Fixes rapidly make their way from the projects in to product updates.
 
 **Microsoft Customer Support team** - Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
@@ -44,7 +44,7 @@ The systems listed in the following tables are supported by Microsoft, either ge
 
 ## Releases and Support
 
-Device Update for IoT Hub release assets and release notes are available on the [azure-iotedge releases](https://github.com/Azure/azure-iotedge/releases) page. Support for the APIs, PnP Models and device update reference agents is covered in the table. 
+Device Update for IoT Hub release assets and release notes are available on the [Device Update Release](https://github.com/Azure/iot-hub-device-update/releases) page. Support for the APIs, PnP Models and device update reference agents is covered in the table. 
 
 Device Update for IoT Hub 1.0 is the first major release and will continue to receive security fixes and fixes to regressions.  
 

@@ -5,7 +5,7 @@ ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/20/2023
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 # Manage Azure Data Lake Analytics a .NET app
 

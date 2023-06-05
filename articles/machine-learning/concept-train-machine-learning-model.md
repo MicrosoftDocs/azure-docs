@@ -18,7 +18,7 @@ ms.devlang: azurecli
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
-> * [v1](v1/concept-train-machine-learning-model-v1.md?view=azureml-api-1&preserve-view=true)
+> * [v1](v1/concept-train-machine-learning-model.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current)](concept-train-machine-learning-model.md)
 
 Azure Machine Learning provides several ways to train your models, from code-first solutions using the SDK to low-code solutions such as automated machine learning and the visual designer. Use the following list to determine which training method is right for you:
@@ -103,7 +103,6 @@ The Azure training lifecycle consists of:
 The designer lets you train models using a drag and drop interface in your web browser.
 
 + [What is the designer?](concept-designer.md)
-+ [Tutorial: Predict automobile price](tutorial-designer-automobile-price-train-score.md)
 
 ## Azure CLI
 

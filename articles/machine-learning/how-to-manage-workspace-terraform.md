@@ -9,7 +9,7 @@ ms.custom: devx-track-terraform
 ms.author: deeikele
 author: denniseik
 ms.reviewer: larryfr
-ms.date: 01/05/2022
+ms.date: 06/05/2023
 ms.topic: how-to
 ms.tool: terraform
 ---

@@ -2,8 +2,10 @@
   href: index.yml
 - name: Overview
   items:
-    - name: About Azure Functions
+    - name: Functions overview
       href: functions-overview.md
+    - name: Scenarios
+      href: functions-scenarios.md
     - name: Getting started
       href: functions-get-started.md
     - name: Durable Functions

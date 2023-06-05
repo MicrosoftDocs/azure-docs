@@ -162,13 +162,13 @@ You can define an update run by using update stages to pool together update grou
                 "name": "stage1",
                 "groups": [
                     {
-                        "name": "group-a1"
+                        "name": "group-1a"
                     },
                     {
-                        "name": "group-a2"
+                        "name": "group-1b"
                     },
                     {
-                        "name": "group-a3"
+                        "name": "group-1c"
                     }
                 ],
                 "afterStageWaitInSeconds": 3600
@@ -177,16 +177,16 @@ You can define an update run by using update stages to pool together update grou
                 "name": "stage2",
                 "groups": [
                     {
-                        "name": "group-b1"
+                        "name": "group-2a"
                     },
                     {
-                        "name": "group-b2"
+                        "name": "group-2b"
                     },
                     {
-                        "name": "group-b3"
+                        "name": "group-2c"
                     }
                 ]
-            },
+            }
         ]
     }
     ```

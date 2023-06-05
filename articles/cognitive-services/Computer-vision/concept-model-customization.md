@@ -21,7 +21,7 @@ Model customization lets you train a specialized Image Analysis model for your o
 > [Vision Studio quickstart](./how-to/model-customization.md?tabs=studio)
 
 > [!div class="nextstepaction"]
-> [REST quickstart](./how-to/model-customization.md?tabs=rest)
+> [Python SDK quickstart](./how-to/model-customization.md?tabs=python)
 
 
 ## Scenario components

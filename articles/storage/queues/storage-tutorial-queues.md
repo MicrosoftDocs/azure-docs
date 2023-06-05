@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.service: storage
 ms.subservice: queues
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 # Customer intent: As a developer, I want to use queues in my app so that my service will scale automatically during high demand times without losing data.
 ---
 

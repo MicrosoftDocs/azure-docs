@@ -4,7 +4,7 @@ description: This article shows you how to set-up Application Insights
 ms.topic: conceptual
 ms.date: 05/20/2023
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
 ---
 
@@ -223,4 +223,3 @@ Create a new file `jvm.options` in the server directory (for example, `<openlibe
 ### Others
 
 See your application server documentation on how to add JVM args.
-

@@ -8,7 +8,7 @@ ms.date: 01/11/2022
 ms.author: jboback
 author: jboback
 ms.devlang: csharp, javascript
-ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
+ms.custom: devx-track-csharp, ignite-fall-2021
 ---
 
 
