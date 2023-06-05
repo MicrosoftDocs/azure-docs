@@ -35,13 +35,13 @@ In this diagram, the client (that is, a browser or app) needs to acquire the OAu
 
 There still might be many legacy applications that only support basic authentication (that is, username and password). For those scenarios, you can still use HTTP basic authentication to connect to the cluster gateways. In this set up, you must ensure network connectivity from the gateway nodes to the Active Directory Federation Services (AD FS) endpoint to ensure a direct line of sight from gateway nodes.
 
-The following diagram shows the basic authentication flow for federated users. First, the gateway attempts to complete the authentication by using [ROPC flow](../../active-directory/develop/v2-oauth-ropc.md). In case there is no password hashes synced to Azure AD, it falls back to discovering the AD FS endpoint and completes the authentication by accessing the AD FS endpoint.
+The following diagram shows the basic authentication flow for federated users. First, the gateway attempts to complete the authentication by using [ROPC flow](../../active-directory/develop/v2-oauth-ropc.md). In case there's no password hashes synced to Azure AD, it falls back to discovering the AD FS endpoint and completes the authentication by accessing the AD FS endpoint.
 
 :::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagram that shows architecture with basic authentication." border="false":::
 
 ## Enable HDInsight ID Broker
 
-To create an Enterprise Security Package cluster with HDInsight ID Broker enabled:
+To create an Enterprise Security Package cluster with HDInsight ID Broker enabled,
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Follow the basic creation steps for an Enterprise Security Package cluster. For more information, see [Create an HDInsight cluster with Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
@@ -53,7 +53,7 @@ The HDInsight ID Broker feature adds one extra VM to the cluster. This VM is the
 
 ### Use Azure Resource Manager templates
 
-If you add a new role called `idbrokernode` with the following attributes to the compute profile of your template, the cluster will be created with the HDInsight ID Broker node enabled:
+If you add a new role called `idbrokernode` with the following attributes to the compute profile of your template, the cluster is created with the HDInsight ID Broker node enabled:
 
 ```json
 .
@@ -92,7 +92,7 @@ If you add a new role called `idbrokernode` with the following attributes to the
 .
 ```
 
-To see a complete sample of an ARM template, please see the template published [here](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
+To see a complete sample of an ARM template, see the template published [here](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
 
 
 ## Tool integration
@@ -115,7 +115,7 @@ To troubleshoot authentication issues, see [this guide](./domain-joined-authenti
 
 ## Clients using OAuth to connect to an HDInsight gateway with HDInsight ID Broker
 
-In the HDInsight ID Broker setup, custom apps and clients that connect to the gateway can be updated to acquire the required OAuth token first. For more information, see [How to authenticate .NET applications with Azure services](/dotnet/azure/sdk/authentication). The key values required for authorizing access to an HDInsight gateway are:
+In the HDInsight ID Broker set up, custom apps and clients that connect to the gateway can be updated to acquire the required OAuth token first. For more information, see [How to authenticate .NET applications with Azure services](/dotnet/azure/sdk/authentication). The key values required for authorizing access to an HDInsight gateway are:
 
 * OAuth resource uri: `https://hib.azurehdinsight.net`
 * AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
@@ -131,7 +131,7 @@ For using Beeline and Livy, you can also follow the samples codes provided [here
 
 ## FAQ
 ### What app is created by HDInsight in AAD?
-For each cluster, a third party application will be registered in AAD with the cluster uri as the identifierUri (like `https://clustername.azurehdinsight.net`).
+For each cluster, a third party application is registered in AAD with the cluster uri as the identifierUri (like `https://clustername.azurehdinsight.net`).
 
 ### Why are users prompted for consent before using HIB enabled clusters?
 In AAD, consent is required for all third party applications before it can authenticate users or access data.
@@ -144,7 +144,7 @@ The sequence to automate the consent is:
 * After a cluster is created, query for the cluster app based on the identifier uri
 * Register consent for the app
 
-When the cluster is deleted, HDInsight delete the app and there's no need to clean up any consent.
+When the cluster is deleted, HDInsight delete the app, and there's no need to clean up any consent.
 
 ## Next steps
 
