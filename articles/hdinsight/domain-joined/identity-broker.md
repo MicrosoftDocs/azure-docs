@@ -23,8 +23,8 @@ Use the following table to determine the best authentication option based on you
 
 |Authentication options |HDInsight configuration | Factors to consider |
 |---|---|---|
-| Fully OAuth | Enterprise Security Package + HDInsight ID Broker | Most secure option. (Multifactor authentication is supported.) Pass hash sync is *not* required. No ssh/kinit/keytab access for on-premises accounts, which don't have password hash in Azure AD DS. Cloud-only accounts can still ssh/kinit/keytab. Web-based access to Ambari through OAuth. Requires updating legacy apps (for example, JDBC/ODBC) to support OAuth.|
-| OAuth + Basic Auth | Enterprise Security Package + HDInsight ID Broker | Web-based access to Ambari through OAuth. Legacy apps continue to use basic auth. Multifactor authentication must be disabled for basic auth access. Pass hash sync is *not* required. No ssh/kinit/keytab access for on-premises accounts, which don't have password hash in Azure AD DS. Cloud-only accounts can still ssh/kinit. |
+| Fully OAuth | Enterprise Security Package + HDInsight ID Broker | Most secure option. (Multifactor authentication is supported.) Pass hash sync isn't  required. No ssh/kinit/keytab access for on-premises accounts, which don't have password hash in Azure AD DS. Cloud-only accounts can still ssh/kinit/keytab. Web-based access to Ambari through OAuth. Requires updating legacy apps (for example, JDBC/ODBC) to support OAuth.|
+| OAuth + Basic Auth | Enterprise Security Package + HDInsight ID Broker | Web-based access to Ambari through OAuth. Legacy apps continue to use basic auth. Multifactor authentication must be disabled for basic auth access. Pass hash sync isn't required. No ssh/kinit/keytab access for on-premises accounts, which don't have password hash in Azure AD DS. Cloud-only accounts can still ssh/kinit. |
 | Fully Basic Auth | Enterprise Security Package | Most similar to on-premises setups. Password hash sync to Azure AD DS is required. On-premises accounts can ssh/kinit or use keytab. Multifactor authentication must be disabled if the backing storage is Azure Data Lake Storage Gen2. |
 
 The following diagram shows the modern OAuth-based authentication flow for all users, including federated users, after HDInsight ID Broker is enabled:
@@ -33,9 +33,9 @@ The following diagram shows the modern OAuth-based authentication flow for all u
 
 In this diagram, the client (that is, a browser or app) needs to acquire the OAuth token first. Then it presents the token to the gateway in an HTTP request. If you've already signed in to other Azure services, such as the Azure portal, you can sign in to your HDInsight cluster with a single sign-on experience.
 
-There still might be many legacy applications that only support basic authentication (that is, username and password). For those scenarios, you can still use HTTP basic authentication to connect to the cluster gateways. In this setup, you must ensure network connectivity from the gateway nodes to the Active Directory Federation Services (AD FS) endpoint to ensure a direct line of sight from gateway nodes.
+There still might be many legacy applications that only support basic authentication (that is, username and password). For those scenarios, you can still use HTTP basic authentication to connect to the cluster gateways. In this set up, you must ensure network connectivity from the gateway nodes to the Active Directory Federation Services (AD FS) endpoint to ensure a direct line of sight from gateway nodes.
 
-The following diagram shows the basic authentication flow for federated users. First, the gateway attempts to complete the authentication by using [ROPC flow](../../active-directory/develop/v2-oauth-ropc.md). In case there are no password hashes synced to Azure AD, it falls back to discovering the AD FS endpoint and completes the authentication by accessing the AD FS endpoint.
+The following diagram shows the basic authentication flow for federated users. First, the gateway attempts to complete the authentication by using [ROPC flow](../../active-directory/develop/v2-oauth-ropc.md). In case there is no password hashes synced to Azure AD, it falls back to discovering the AD FS endpoint and completes the authentication by accessing the AD FS endpoint.
 
 :::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagram that shows architecture with basic authentication." border="false":::
 
@@ -144,7 +144,7 @@ The sequence to automate the consent is:
 * After a cluster is created, query for the cluster app based on the identifier uri
 * Register consent for the app
 
-When the cluster is deleted, HDInsight delete the app and there is no need to cleanup any consent.
+When the cluster is deleted, HDInsight delete the app and there's no need to clean up any consent.
 
 ## Next steps
 
