@@ -66,7 +66,7 @@ dark_fire
 
 dark_fireworks
 
-sky_object
+dark_light
 
 food_
 
@@ -92,7 +92,9 @@ indoor_room
 
 indoor_venue
 
-dark_light
+object_screen
+
+object_sculpture
 
 others_
 
@@ -111,6 +113,8 @@ outdoor_mountain
 outdoor_oceanbeach
 
 outdoor_playground
+
+outdoor_pool
 
 outdoor_railway
 
@@ -142,6 +146,8 @@ people_portrait
 
 people_show
 
+people_swimming
+
 people_tattoo
 
 people_young
@@ -156,17 +162,11 @@ plant_leaves
 
 plant_tree
 
-object_screen
-
-object_sculpture
-
 sky_cloud
 
+sky_object
+
 sky_sun
-
-people_swimming
-
-outdoor_pool
 
 text_
 

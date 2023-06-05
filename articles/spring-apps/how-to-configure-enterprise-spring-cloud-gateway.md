@@ -400,6 +400,36 @@ az spring gateway sync-cert \
     --service <Azure-Spring-Apps-instance-name>
 ```
 
+### Set up Autoscale settings for VMware Spring Cloud Gateway in Azure CLI
+
+You can set Autoscale modes using the Azure CLI. The following commands create an Autoscale setting and an Autoscale rule.
+
+* Create Autoscale setting:
+
+   ```azurecli
+   az monitor autoscale create \
+       --resource-group <resource-group-name> \
+       --name <autoscale-setting-name> \
+       --resource /subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.AppPlatform/Spring/<service-instance-name>/gateways/default \
+       --min-count 1 \
+       --max-count 5 \
+       --count 1
+   ```
+
+* Create Autoscale rule:
+
+   ```azurecli
+   az monitor autoscale rule create \
+       --resource-group <resource-group-name> \
+       --autoscale-name <autoscale-setting-name> \
+       --scale out 1 \
+       --cooldown 1 \
+       --condition "GatewayHttpServerRequestsSecondsCount > 100 avg 1m"
+   ```
+
+For information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
+
+
 ---
 
 ## Next steps
