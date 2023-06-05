@@ -342,7 +342,7 @@ To execute a pipeline, you need an Azure DevOps project and repostory.
 
 1. Under *Initialize main branch with a README or .gitignore*, select **Add a README**.
 
-1. Select **Initialize**.
+1. Leave the default values and select **Initialize**.
 
 ## Create a new agent pool
 
@@ -350,7 +350,7 @@ Create a new agent pool to run the self-hosted runner.
 
 1. In your Azure DevOps project, expand the left navigation bar and select **Project settings**.
 
-1. Select **Agent pools**.
+1. Under the *Pipelines* section in the *Project settings* navigation menu, select **Agent pools**.
 
 1. Select **Add pool**.
     - For *Pool to link*, select **New**.
@@ -372,9 +372,10 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     - Under *Scopes*, select **Custom defined**.
     - Select **Show all scopes**.
     - Select **Agent Pools (Read & manage)**.
+    - Leave all other scopes unselected
     - Select **Create**.
 
-1. Copy the token value.
+1. Copy the token value to a secure location. You can't retrieve the token after you leave the page.
 
 1. Define variables that are used to configure the Container Apps jobs later.
 
@@ -395,7 +396,7 @@ To create a self-hosted agent, you need to build a container image that runs the
 > [!NOTE]
 > The image you build in this tutorial contains a basic self-hosted agent that's suitable for running as a Container Apps job. You can customize it to include additional tools or dependencies that your pipelines require.
 
-1. Define a name for your container image and registry.
+1. Back in your terminal, define a name for your container image and registry.
 
     ```bash
     CONTAINER_IMAGE_NAME="azure-pipelines-agent:1.0"
@@ -479,7 +480,7 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
 
 1. Verify the placeholder agent was created in Azure DevOps.
 
-    1. In Azure DevOps, navigate to **Organization settings** > **Agent pools** > **container-apps** > **Agents**.
+    1. In Azure DevOps, navigate to **Project settings** > **Agent pools** > **container-apps** > **Agents**.
     1. Confirm that a placeholder agent named `placeholder-agent` is listed.
 
 ## Create a self-hosted agent as an event-driven job
@@ -528,7 +529,7 @@ The event-driven job is now created in the Container Apps environment.
 
 Now that you've configured a self-hosted agent job, you can run a pipeline and verify it's working correctly.
 
-1. In your Azure DevOps project, navigate to **Pipelines**.
+1. In the left-hand navigation of your Azure DevOps project, navigate to **Pipelines**.
 
 1. Select **New pipeline**.
 
