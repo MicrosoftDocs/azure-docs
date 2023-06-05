@@ -100,6 +100,60 @@ app.Run();
 
 ```
 
+## [JavaScript](#tab/javascript)
+
+```JavaScript
+import express from "express";
+import { JwksClient } from "jwks-rsa";
+import { verify } from "jsonwebtoken";
+
+const app = express();
+const port = 3000;
+const audience = "resource_id";
+const issuer = "https://acscallautomation.communication.azure.com";
+
+app.use(express.json());
+
+app.post('/api/callback', (req, res) => {
+    const token = req?.headers?.authorization?.split(" ")[1] || "";
+
+    if (!token) {
+        res.sendStatus(401);
+
+        return;
+    }
+
+    try {
+        verify(
+            token,
+            (header, callback) => {
+                const client = new JwksClient({
+                    jwksUri: "https://acscallautomation.communication.azure.com/calling/keys",
+                });
+
+                client.getSigningKey(header.kid, (err, key) => {
+                    const signingKey = key?.getPublicKey() || key?.rsaPublicKey;
+
+                    callback(err, signingKey);
+                });
+            },
+            {
+                audience,
+                issuer,
+                algorithms: ["RS256"],
+            });
+        // Your implementation on the callback event
+        res.sendStatus(200);
+    } catch (error) {
+        res.sendStatus(401);
+    }
+});
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
+```
+
 ## Next steps
 
 - Learn more about [How to control and steer calls with Call Automation](../call-automation/actions-for-call-control.md).
