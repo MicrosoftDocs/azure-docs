@@ -89,6 +89,13 @@ Here are the primary constraints with using cross-tenant synchronization across 
 
 :::image type="content" source="./media/overview/multi-tenant-cross-tenant-sync.png" alt-text="Diagram that shows using cross-tenant synchronization across tenants." lightbox="./media/overview/multi-tenant-cross-tenant-sync.png":::
 
+## Multi-tenant organization (Preview)
+
+> [!IMPORTANT]
+> Multi-tenant organization is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+
 ## Compare multi-tenant capabilities
 
 Depending on the needs of your organization, you can use any combination of cross-tenant synchronization, B2B collaboration, and B2B direct connect. The following table compares the capabilities of each feature. For more information about different external identity scenarios, see [Comparing External Identities feature sets](../external-identities/external-identities-overview.md#comparing-external-identities-feature-sets).
