@@ -37,7 +37,7 @@ Currently, payment HSM isn't compatible with vWAN topologies or cross region VNe
 
 Azure Payment HSM is generally available. 
 
-For or informartion, see the GA announcement: [Secure your digital payment system in the cloud with Azure Payment HSM—now generally available](https://azure.microsoft.com/blog/secure-your-digital-payment-system-in-the-cloud-with-azure-payment-hsm-now-generally-available).
+For more information, see the GA announcement: [Secure your digital payment system in the cloud with Azure Payment HSM—now generally available](https://azure.microsoft.com/blog/secure-your-digital-payment-system-in-the-cloud-with-azure-payment-hsm-now-generally-available).
 
 
 ## Next steps
