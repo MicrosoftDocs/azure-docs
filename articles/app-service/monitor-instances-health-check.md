@@ -158,6 +158,8 @@ After providing your application's Health check path, you can monitor the health
 ## Limitations
 
 - Health check can be enabled for **Free** and **Shared** App Service Plans so you can have metrics on the site's health and setup alerts, but because **Free** and **Shared** sites can't scale out, any unhealthy instances won't be replaced. You should scale up to the **Basic** tier or higher so you can scale out to 2 or more instances and utilize the full benefit of Health check. This is recommended for production-facing applications as it will increase your app's availability and performance.
+- The App Service plan can have maximum 1 unhealthy instance replaced per hour and at most 3 instances per day.
+- The [Scale Unit](https://learn.microsoft.com/en-us/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture#what-is-an-app-service-scale-unit) hosting the App Service Plan that your app belongs to supports unhealthy instances replacement but not exceeding 30 instances per 12 hours per Scale Unit.
 
 ## Frequently Asked Questions
 
