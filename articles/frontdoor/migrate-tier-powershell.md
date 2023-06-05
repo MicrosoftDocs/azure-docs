@@ -31,8 +31,14 @@ Azure Front Door Standard and Premium tier bring the latest cloud delivery netwo
 
 1. Test your Azure Front Door (classic) profile to see if it's compatible for migration. You can use the [Test-AzFrontDoorCdnProfileMigration](/powershell/module/az.cdn/test-azfrontdoorcdnprofilemigration) command to test your profile. Replace the values for the resource group name and resource ID with your own values. Use [Get-AzFrontDoor](/powershell/module/az.frontdoor/get-azfrontdoor) to get the resource ID for your Front Door (classic) profile.
 
+    Replace the following values in the command:
+
+    * `<subscriptionId>`: Your subscription ID.
+    * `<resourceGroupName>`: The resource group name of the Front Door (classic).
+    * `<frontdoorClassicName>`: The name of the Front Door (classic) profile.
+
     ```powershell-interactive
-    Test-AzFrontDoorCdnProfileMigration -ResourceGroupName myAFDResourceGroup -ClassicResourceReferenceId /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoors/myAzureFrontDoorClassic
+    Test-AzFrontDoorCdnProfileMigration -ResourceGroupName <resourceGroupName> -ClassicResourceReferenceId /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.Network/frontdoors/<frontdoorClassicName>
     ```
 
     If the migration is compatible for migration, you see the following output:
@@ -57,8 +63,14 @@ Azure Front Door Standard and Premium tier bring the latest cloud delivery netwo
 
 Run the [Start-AzFrontDoorCdnProfilePrepareMigration](/powershell/module/az.cdn/start-azfrontdoorcdnprofilepreparemigration) command to prepare for migration. Replace the values for the resource group name, resource ID, profile name with your own values. For *SkuName* use either **Standard_AzureFrontDoor** or **Premium_AzureFrontDoor**. The *SkuName* is based on the output from the [Test-AzFrontDoorCdnProfileMigration](/powershell/module/az.cdn/test-azfrontdoorcdnprofilemigration) command.
 
+Replace the following values in the command:
+
+* `<subscriptionId>`: Your subscription ID.
+* `<resourceGroupName>`: The resource group name of the Front Door (classic).
+* `<frontdoorClassicName>`: The name of the Front Door (classic) profile.
+
 ```powershell-interactive
-Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName myAFDResourceGroup -ClassicResourceReferenceId /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoors/myAzureFrontDoorClassic -ProfileName myAzureFrontDoor -SkuName Premium_AzureFrontDoor
+Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName <resourceGroupName> -ClassicResourceReferenceId /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.Network/frontdoors/<frontdoorClassicName> -ProfileName myAzureFrontDoor -SkuName Premium_AzureFrontDoor
 ```
 
 The output looks similar to the following:
@@ -100,13 +112,20 @@ Your new Front Door profile with the configuration has been successfully created
 
 1. Run the [New-AzFrontDoorCdnMigrationWebApplicationFirewallMappingObject](/powershell/module/az.cdn/new-azfrontdoorcdnmigrationwebapplicationfirewallmappingobject) command to create an in-memory object for WAF policy migration. Use the WAF ID in the last step for `MigratedFromId`. To use an existing WAF policy, replace the value for `MigratedToId` with a resource ID of a WAF policy that matches the Front Door tier you're migrating to. If you're creating a new WAF policy copy, you can change the name of the WAF policy in the resource ID.
 
+
     ```powershell-interactive
     $wafMapping = New-AzFrontDoorCdnMigrationWebApplicationFirewallMappingObject -MigratedFromId /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myClassicFrontDoorWAF -MigratedToId  /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/myFrontDoorWAF
 
 1. Run the [Start-AzFrontDoorCdnProfilePrepareMigration](/powershell/module/az.cdn/start-azfrontdoorcdnprofilepreparemigration) command to prepare for migration. Replace the values for the resource group name, resource ID, profile name with your own values. For *SkuName* use either **Standard_AzureFrontDoor** or **Premium_AzureFrontDoor**. The *SkuName* is based on the output from the [Test-AzFrontDoorCdnProfileMigration](/powershell/module/az.cdn/test-azfrontdoorcdnprofilemigration) command.
 
+    Replace the following values in the command:
+
+    * `<subscriptionId>`: Your subscription ID.
+    * `<resourceGroupName>`: The resource group name of the Front Door (classic).
+    * `<frontdoorClassicName>`: The name of the Front Door (classic) profile.
+
     ```powershell-interactive
-    Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName myAFDResourceGroup -ClassicResourceReferenceId /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/Frontdoors/myAzureFrontDoorClassic -ProfileName myAzureFrontDoor -SkuName Premium_AzureFrontDoor -MigrationWebApplicationFirewallMapping $wafMapping
+    Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName <resourceGroupName> -ClassicResourceReferenceId /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.Network/frontdoors/<frontdoorClassicName> -ProfileName myAzureFrontDoor -SkuName Premium_AzureFrontDoor -MigrationWebApplicationFirewallMapping $wafMapping
     ```
 
     The output looks similar to the following:
@@ -150,8 +169,14 @@ Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName myAFDResourceGrou
 
 1. For IdentityType use UserAssigned and for IdentityUserAssignedIdentity,* use the resource ID from the previous step.
 
+    Replace the following values in the command:
+
+    * `<subscriptionId>`: Your subscription ID.
+    * `<resourceGroupName>`: The resource group name of the Front Door (classic).
+    * `<frontdoorClassicName>`: The name of the Front Door (classic) profile.
+
     ```powershell-interactive
-    Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName myAFDResourceGroup -ClassicResourceReferenceId /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/Frontdoors/migrationtest002 -ProfileName myAzureFrontDoor -SkuName Premium_AzureFrontDoor -IdentityType UserAssigned -IdentityUserAssignedIdentity @{"/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity" = @{}}
+    Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName <resourceGroupName> -ClassicResourceReferenceId /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.Network/frontdoors/<frontdoorClassicName> -ProfileName myAzureFrontDoor -SkuName Premium_AzureFrontDoor -IdentityType UserAssigned -IdentityUserAssignedIdentity @{"/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity" = @{}}
     ```
 
     The output looks similar to the following:
@@ -210,14 +235,17 @@ This example shows how to migrate a Front Door profile with multiple WAF policie
 1. Run the [Get-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity) command to the get the resource ID for a user assigned identity.
 
     ```powershell-interactive
-    $id = Get-AzUserAssignedIdentity -ResourceGroupName myResourceGroup -Name afduseridentity1
-    $id.Id
+    $id1 = Get-AzUserAssignedIdentity -ResourceGroupName myResourceGroup -Name afduseridentity1
+    $id1.Id
+    $id2 = Get-AzUserAssignedIdentity -ResourceGroupName myResourceGroup -Name afduseridentity2
+    $id2.Id
     ```
 
     The output looks similar to the following:
 
     ```
     /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity1
+    /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/afduseridentity2
     ```
 
 1.  Specify the user assigned identity resource ID in a variable.
@@ -231,8 +259,14 @@ This example shows how to migrate a Front Door profile with multiple WAF policie
 
 1. Run the [Start-AzFrontDoorCdnProfilePrepareMigration](/powershell/module/az.cdn/start-azfrontdoorcdnprofilepreparemigration) command to prepare for migration. Replace the values for the resource group name, resource ID, profile name with your own values. For *SkuName* use either **Standard_AzureFrontDoor** or **Premium_AzureFrontDoor**. The *SkuName* is based on the output from the [Test-AzFrontDoorCdnProfileMigration](/powershell/module/az.cdn/test-azfrontdoorcdnprofilemigration) command. The *MigrationWebApplicationFirewallMapping* parameter takes an array of WAF policy migration objects. The *IdentityType* parameter takes a comma separated list of identity types. The *IdentityUserAssignedIdentity* parameter takes a hash table of user assigned identity resource IDs.
 
+    Replace the following values in the command:
+
+    * `<subscriptionId>`: Your subscription ID.
+    * `<resourceGroupName>`: The resource group name of the Front Door (classic).
+    * `<frontdoorClassicName>`: The name of the Front Door (classic) profile.
+
     ```powershell-interactive
-    Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName myAFDResourceGroup -ClassicResourceReferenceId /subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourcegroups/myAFDResourceGroup/providers/Microsoft.Network/Frontdoors/myAzureFrontDoorClassic -ProfileName myAzureFrontDoor -SkuName Premium_AzureFrontDoor -MigrationWebApplicationFirewallMapping @($wafMapping1, $wafMapping2) -IdentityType $identityType -IdentityUserAssignedIdentity $userInfo
+    Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName <resourceGroupName> -ClassicResourceReferenceId /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.Network/frontdoors/<frontdoorClassicName> -ProfileName myAzureFrontDoor -SkuName Premium_AzureFrontDoor -MigrationWebApplicationFirewallMapping @($wafMapping1, $wafMapping2) -IdentityType $identityType -IdentityUserAssignedIdentity $userInfo
     ```
 
     The output looks similar to the following:
