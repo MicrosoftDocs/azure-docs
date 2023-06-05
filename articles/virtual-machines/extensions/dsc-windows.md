@@ -6,11 +6,15 @@ ms.service: virtual-machines
 ms.subservice: extensions
 author: bobbytreed
 ms.author: robreed
+ms.reviewer: erd
 ms.collection: windows
-ms.date: 03/26/2018
+ms.date: 11/28/2022
 
 ---
 # PowerShell DSC Extension
+
+> [!NOTE]
+> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Automange named [machine configuration](../../governance/machine-configuration/overview.md). The machine configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Machine configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
 
 ## Overview
 

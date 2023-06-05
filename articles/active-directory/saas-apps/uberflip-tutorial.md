@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Uberflip | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Uberflip'
 description: Learn how to configure single sign-on between Azure Active Directory and Uberflip.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Uberflip
@@ -186,7 +186,7 @@ A user named B. Simon is now created in Uberflip. You don't have to do anything 
 
 In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
 
-When you select **Uberflip** in the My Apps portal, you should be automatically signed in to the Uberflip subscription for which you set up single sign-on. For more information about the My Apps portal, see [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+When you select **Uberflip** in the My Apps portal, you should be automatically signed in to the Uberflip subscription for which you set up single sign-on. For more information about the My Apps portal, see [Access and use apps on the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 

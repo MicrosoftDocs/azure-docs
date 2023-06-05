@@ -1,15 +1,17 @@
 ---
 title: Encryption scopes for Blob storage
+titleSuffix: Azure Storage
 description: Encryption scopes provide the ability to manage encryption at the level of the container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 07/19/2021
+ms.date: 06/01/2023
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
+ms.custom: engagement-fy23
 ---
 
 # Encryption scopes for Blob storage
@@ -17,8 +19,6 @@ ms.subservice: common
 Encryption scopes enable you to manage encryption with a key that is scoped to a container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 
 For more information about working with encryption scopes, see [Create and manage encryption scopes](encryption-scope-manage.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## How encryption scopes work
 
@@ -28,13 +28,13 @@ Read operations on a blob that was created with an encryption scope happen trans
 
 ### Key management
 
-When you define an encryption scope, you can specify whether the scope is protected with a Microsoft-managed key or with a customer-managed key that is stored in Azure Key Vault. Different encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys. You can also switch the type of key used to protect an encryption scope from a customer-managed key to  a Microsoft-managed key, or vice versa, at any time. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md). For more information about Microsoft-managed keys, see [About encryption key management](../common/storage-service-encryption.md#about-encryption-key-management).
+When you define an encryption scope, you can specify whether the scope is protected with a Microsoft-managed key or with a customer-managed key that is stored in Azure Key Vault. Different encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys. You can also switch the type of key used to protect an encryption scope from a customer-managed key to a Microsoft-managed key, or vice versa, at any time. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md). For more information about Microsoft-managed keys, see [About encryption key management](../common/storage-service-encryption.md#about-encryption-key-management).
 
 If you define an encryption scope with a customer-managed key, then you can choose to update the key version either automatically or manually. If you choose to automatically update the key version, then Azure Storage checks the key vault or managed HSM daily for a new version of the customer-managed key and automatically updates the key to the latest version. For more information about updating the key version for a customer-managed key, see [Update the key version](../common/customer-managed-keys-overview.md#update-the-key-version).
 
 Azure Policy provides a built-in policy to require that encryption scopes use customer-managed keys. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
-A storage account may have up to 10,000 encryption scopes that are protected with customer-managed keys for which the key version is automatically updated. If your storage account already has 10,000 encryption scopes that are protected with customer-managed keys that are being automatically updated, then the key version must be updated manually for any additional encryption scopes that are protected with customer-managed keys.  
+A storage account may have up to 10,000 encryption scopes that are protected with customer-managed keys for which the key version is automatically updated. If your storage account already has 10,000 encryption scopes that are protected with customer-managed keys that are being automatically updated, then the key version must be updated manually for any additional encryption scopes that are protected with customer-managed keys.
 
 ### Infrastructure encryption
 
@@ -53,7 +53,7 @@ When you create a container, you can specify a default encryption scope for the 
 
 The following table summarizes the behavior of a blob upload operation, depending on how the default encryption scope is configured for the container:
 
-| The encryption scope defined on the container is… | Uploading a blob with the default encryption scope… | Uploading a blob with an encryption scope other than the default scope… |
+| The encryption scope defined on the container is... | Uploading a blob with the default encryption scope... | Uploading a blob with an encryption scope other than the default scope... |
 |--|--|--|
 | A default encryption scope with overrides permitted | Succeeds | Succeeds |
 | A default encryption scope with overrides prohibited | Succeeds | Fails |
@@ -62,11 +62,12 @@ A default encryption scope must be specified for a container at the time that th
 
 If no default encryption scope is specified for the container, then you can upload a blob using any encryption scope that you've defined for the storage account. The encryption scope must be specified at the time that the blob is uploaded.
 
+> [!NOTE]
+> When you upload a new blob with an encryption scope, you cannot change the default access tier for that blob. You also cannot change the access tier for an existing blob that uses an encryption scope. For more information about access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+
 ## Disabling an encryption scope
 
 When you disable an encryption scope, any subsequent read or write operations made with the encryption scope will fail with HTTP error code 403 (Forbidden). If you re-enable the encryption scope, read and write operations will proceed normally again.
-
-When an encryption scope is disabled, you are no longer billed for it. Disable any encryption scopes that are not needed to avoid unnecessary charges.
 
 If your encryption scope is protected with a customer-managed key, and you revoke the key in the key vault, the data will become inaccessible. Be sure to disable the encryption scope prior to revoking the key in key vault to avoid being charged for the encryption scope.
 
@@ -78,7 +79,19 @@ Keep in mind that customer-managed keys are protected by soft delete and purge p
 > [!IMPORTANT]
 > It is not possible to delete an encryption scope.
 
+## Billing for encryption scopes
 
+When you enable an encryption scope, you are billed for a minimum of one month (30 days). After the first month, charges for an encryption scope are prorated on an hourly basis.
+
+If you disable the encryption scope within the first month, then you are billed for that full month, but not for subsequent months. If you disable the encryption scope after the first month, then you are charged for the first month, plus the number of hours that the encryption scope was in effect after the first month.
+
+Disable any encryption scopes that are not needed to avoid unnecessary charges.
+
+To learn about pricing for encryption scopes, see [Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs).
+
+## Feature support
+
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Next steps
 

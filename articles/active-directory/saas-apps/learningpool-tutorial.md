@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Learning Pool LMS | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Learning Pool LMS'
 description: Learn how to configure single sign-on between Azure Active Directory and Learning Pool LMS.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/06/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Learning Pool LMS
@@ -46,6 +46,8 @@ To configure the integration of Learning Pool LMS into Azure AD, you need to add
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Learning Pool LMS** in the search box.
 1. Select **Learning Pool LMS** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Learning Pool LMS
 
@@ -110,7 +112,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	g. Click **Save**.
 
-7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click the Copy button by the **App Federation Metadata Url** and pass that Url back to the Learning Pool Delivery team.
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click the Copy button by the **App Federation Metadata Url** and pass that URL back to the Learning Pool Delivery team.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
@@ -136,4 +138,4 @@ You will be guided through the testing process by the Learning Pool Delivery tea
 
 ## Next steps
 
-Once you configure Learning Pool LMS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Learning Pool LMS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

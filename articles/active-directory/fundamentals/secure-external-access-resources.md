@@ -1,57 +1,72 @@
 ---
-title: Securing external collaboration in Azure Active Directory
-description: A guide for architects and IT administrators on securing external access to internal resources 
+title: Plan an Azure Active Directory B2B collaboration deployment
+description: A guide for architects and IT administrators on securing and governing external access to internal resources 
 services: active-directory
-author: BarbaraSelden
-manager: daveba
+author: gargi-sinha
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.author: baselden
+ms.date: 4/28/2023
+ms.author: gasinh
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Securing external collaboration in Azure Active Directory and Microsoft 365
+# Plan an Azure Active Directory B2B collaboration deployment
 
-Secure collaboration with external partners ensures that the right external partners have appropriate access to internal resources for the right length of time. Through a holistic governance approach, you can reduce security risks, meet compliance goals, and ensure that you know who has access.
+Secure collaboration with your external partners ensures they have correct access to internal resources, and for the expected duration. Learn about governance practices to reduce security risks, meet compliance goals, and ensure accurate access.
 
-Ungoverned collaboration leads to a lack of clarity on ownership of access, and the possibility of sensitive resources being exposed. Moving to secure and governed collaboration can ensure that there are clear lines of ownership and accountability for external users’ access. This includes:
+## Governance benefits
 
-* Managing the external organizations, and users within them, that have access to resources.
+Governed collaboration improves clarity of ownership of access, reduces exposure of sensitive resources, and enables you to attest to access policy.
 
-* Ensuring that access is appropriate, reviewed, and time bound where appropriate.
+* Manage external organizations, and their users who access resources
+* Ensure access is correct, reviewed, and time bound
+* Empower business owners to manage collaboration with delegation 
 
-* Empowering business owners to manage collaboration within IT-created guard rails.
+## Collaboration methods
 
-If you must meet compliance frameworks, governed collaboration enables you to attest to the appropriateness of access.
+Traditionally, organizations use one of two methods to collaborate:
 
-Microsoft offers comprehensive suites of tools for secure external access.  Azure Active Directory (Azure AD) B2B Collaboration is at the center of any external collaboration plan. Azure AD B2B can integrate with other tools in Azure AD, and tools in Microsoft 365 services, to help secure and manage your external access.
+* Create locally managed credentials for external users, or
+* Establish federations with partner identity providers (IdP)
 
-This document set is designed to enable you to move from ad hoc or loosely governed external collaboration to a more secure state. 
+Both methods have drawbacks. For more information, see the following table.
+
+| Area of concern | Local credentials | Federation |
+|----|---|---|
+| Security | - Access continues after external user terminates<br> - UserType is Member by default, which grants too much default access | - No user-level visibility  <br> - Unknown partner security posture|
+| Expense | - Password and multi-factor authentication (MFA) management<br> - Onboarding process<br> - Identity cleanup<br> - Overhead of running a separate directory | Small partners can't afford the infrastructure, lack expertise, and might use consumer email|
+| Complexity | Partner users manage more credentials | Complexity grows with each new partner, and increased for partners|
+
+Azure Active Directory (Azure AD) B2B integrates with other tools in Azure AD, and Microsoft 365 services. Azure AD B2B simplifies collaboration, reduces expense, and increases security. 
+
+## Azure AD B2B benefits
+
+- If the home identity is disabled or deleted, external users can't access resources
+- User home IdP handles authentication and credential management
+- Resource tenant controls guest-user access and authorization
+- Collaborate with users who have an email address, but no infrastructure
+- IT departments don't connect out-of-band to set up access or federation
+- Guest user access is protected by the same security processes as internal users
+- Clear end-user experience with no extra credentials required
+- Users collaborate with partners without IT department involvement
+- Guest default permissions in the Azure AD directory aren't limited or highly restricted
 
 ## Next steps
 
-See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
+* [Determine your security posture for external access](1-secure-access-posture.md)
+* [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
+* [Create a security plan for external access](3-secure-access-plan.md)
+* [Securing external access with groups](4-secure-access-groups.md)
+* [Transition to governed collaboration with Azure Active Directory B2B collaboration](5-secure-access-b2b.md)
+* [Manage external access with entitlement management](6-secure-access-entitlement-managment.md)
+* [Secure access with Conditional Access policies](7-secure-access-conditional-access.md)
+* [Control access with sensitivity labels](8-secure-access-sensitivity-labels.md)
+* [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
+* [Convert local guest accounts](10-secure-local-guest.md)
+* [Onboard external users to Line-of-business applications](11-onboard-external-user.md)
 
-
-1. [Determine your security posture for external access](1-secure-access-posture.md)
-
-2. [Discover your current state](2-secure-access-current-state.md)
-
-3. [Create a governance plan](3-secure-access-plan.md)
-
-4. [Use groups for security](4-secure-access-groups.md)
-
-5. [Transition to Azure AD B2B](5-secure-access-b2b.md)
-
-6. [Secure access with Entitlement Management](6-secure-access-entitlement-managment.md)
-
-7. [Secure access with Conditional Access policies](7-secure-access-conditional-access.md)
-
-8. [Secure access with Sensitivity labels](8-secure-access-sensitivity-labels.md)
-
-9. [Secure access to Microsoft Teams, OneDrive, and SharePoint](9-secure-access-teams-sharepoint.md)

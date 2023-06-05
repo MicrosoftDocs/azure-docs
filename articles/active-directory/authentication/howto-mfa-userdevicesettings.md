@@ -1,16 +1,16 @@
 ---
-title: Manage authentication methods for Azure AD Multi-Factor Authentication - Azure Active Directory
+title: Manage authentication methods for Azure AD Multi-Factor Authentication
 description: Learn how you can configure Azure Active Directory user settings for Azure AD Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 06/01/2023
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: amycolannino
 ms.reviewer: michmcla, dawoo
 
 ms.collection: M365-identity-device-management
@@ -51,7 +51,7 @@ To add authentication methods for a user via the Azure portal:
 > [!NOTE]
 > The preview experience allows administrators to add any available authentication methods for users, while the original experience only allows updating of phone and alternate phone methods.
 
-### Manage methods using PowerShell:  
+### Manage methods using PowerShell
 
 Install the Microsoft.Graph.Identity.Signins PowerShell module using the following commands. 
 
@@ -79,7 +79,7 @@ Remove a specific phone method for a user
 Remove-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -PhoneAuthenticationMethodId 3179e48a-750b-4051-897c-87b9720928f7
 ```
 
-Authentication methods can also be managed using Microsoft Graph APIs, more information can be found in the document [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true)
+Authentication methods can also be managed using Microsoft Graph APIs. For more information, see [Authentication and authorization basics](/graph/auth/auth-concepts).
 
 ## Manage user authentication options
 
@@ -117,4 +117,4 @@ To delete a user's app passwords, complete the following steps:
 
 This article showed you how to configure individual user settings. To configure overall Azure AD Multi-Factor Authentication service settings, see [Configure Azure AD Multi-Factor Authentication settings](howto-mfa-mfasettings.md).
 
-If your users need help, see the [User guide for Azure AD Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).
+If your users need help, see the [User guide for Azure AD Multi-Factor Authentication](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc).

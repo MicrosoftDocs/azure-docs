@@ -3,17 +3,19 @@ title: 'Test your Custom Commands app'
 titleSuffix: Azure Cognitive Services
 description: In this article, you learn different approaches to testing a custom commands application. 
 services: cognitive-services
-author: xiaojul
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2020
-ms.author: xiaojul
-ms.custom: devx-track-csharp
+ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Test your Custom Commands Application
+
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
 
 In this article, you learn different approaches to testing a custom commands application.
 

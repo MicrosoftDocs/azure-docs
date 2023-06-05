@@ -3,12 +3,13 @@ title: Custom subdomains
 titleSuffix: Azure Cognitive Services
 description: Custom subdomain names for each Cognitive Service resource are created through the Azure portal, Azure Cloud Shell, or Azure CLI.
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 12/04/2020
-ms.author: erhopf
+ms.author: pafarley
 ---
 
 # Custom subdomain names for Cognitive Services

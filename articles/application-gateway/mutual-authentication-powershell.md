@@ -2,22 +2,22 @@
 title: Configure mutual authentication on Azure Application Gateway through PowerShell
 description: Learn how to configure an Application Gateway to have mutual authentication through PowerShell
 services: application-gateway
-author: mscatyao
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 04/02/2021
-ms.author: caya 
+ms.date: 02/18/2022
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Configure mutual authentication with Application Gateway through PowerShell (Preview)
+# Configure mutual authentication with Application Gateway through PowerShell
 This article describes how to use the PowerShell to configure mutual authentication on your Application Gateway. Mutual authentication means Application Gateway authenticates the client sending the request using the client certificate you upload onto the Application Gateway. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+This article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
 ## Before you begin
 

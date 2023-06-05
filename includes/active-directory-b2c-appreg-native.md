@@ -1,10 +1,10 @@
 ---
-author: msmimart
+author: kengaderdus
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 05/26/2021
-ms.author: mimart
+ms.author: kengaderdus
 # Used by articles that register native client applications in the B2C tenant.
 ---
 To register an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](../articles/active-directory-b2c/app-registrations-training-guide.md).

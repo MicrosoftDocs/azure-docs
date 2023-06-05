@@ -1,13 +1,13 @@
 ---
 title: XML messages and flat files
-description: Process, validate, and transform XML messages in Azure Logic Apps with Enterprise Integration Pack
+description: Process, validate, and transform XML messages in Azure Logic Apps with Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 02/27/2017
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 08/20/2022
 ---
 
 # XML messages and flat files in Azure Logic Apps with Enterprise Integration Pack

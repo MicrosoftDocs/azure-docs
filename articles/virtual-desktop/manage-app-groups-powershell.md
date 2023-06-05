@@ -1,18 +1,19 @@
 ---
-title: Manage app groups for Azure Virtual Desktop PowerShell - Azure
-description: How to manage Azure Virtual Desktop app groups with PowerShell.
+title: Manage application groups for Azure Virtual Desktop - Azure
+description: How to manage Azure Virtual Desktop application groups with PowerShell or the Azure CLI.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 07/23/2021
 ms.author: helohr
 manager: femila
 ---
-# Manage app groups using PowerShell
+# Manage application groups using PowerShell or the Azure CLI
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
 
-The default app group created for a new Azure Virtual Desktop host pool also publishes the full desktop. In addition, you can create one or more RemoteApp application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual **Start** menu apps.
+The default application group created for a new Azure Virtual Desktop host pool also publishes the full desktop. In addition, you can create one or more RemoteApp application groups for the host pool. Follow this tutorial to create a RemoteApp application group and publish individual **Start** menu apps.
 
 In this tutorial, learn how to:
 
@@ -22,19 +23,31 @@ In this tutorial, learn how to:
 
 ## Prerequisites
 
+### [Azure PowerShell](#tab/azure-powershell)
+
 This article assumes you've followed the instructions in [Set up the PowerShell module](powershell-module.md) to set up your PowerShell module and sign in to your Azure account.
+
+### [Azure CLI](#tab/azure-cli)
+
+This article assumes you've already set up your environment for the Azure CLI, and that you've signed in to your Azure account.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+---
 
 ## Create a RemoteApp group
 
+### [Azure PowerShell](#tab/azure-powershell)
+
 To create a RemoteApp group with PowerShell:
 
-1. Run the following PowerShell cmdlet to create a new empty RemoteApp app group.
+1. Run the following PowerShell cmdlet to create a new empty RemoteApp application group.
 
    ```powershell
    New-AzWvdApplicationGroup -Name <appgroupname> -ResourceGroupName <resourcegroupname> -ApplicationGroupType "RemoteApp" -HostPoolArmPath '/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/HostPoolName'-Location <azureregion>
    ```
 
-2. (Optional) To verify that the app group was created, you can run the following cmdlet to see a list of all app groups for the host pool.
+2. (Optional) To verify that the application group was created, you can run the following cmdlet to see a list of all application groups for the host pool.
 
    ```powershell
    Get-AzWvdApplicationGroup -Name <appgroupname> -ResourceGroupName <resourcegroupname>
@@ -88,12 +101,40 @@ To create a RemoteApp group with PowerShell:
    Get-AzWvdApplication -GroupName <appgroupname> -ResourceGroupName <resourcegroupname>
    ```
 
-7. Repeat steps 1–5 for each application that you want to publish for this app group.
-8. Run the following cmdlet to grant users access to the RemoteApp programs in the app group.
+7. Repeat steps 1–5 for each application that you want to publish for this application group.
+8. Run the following cmdlet to grant users access to the RemoteApp programs in the application group.
 
    ```powershell
    New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
    ```
+
+### [Azure CLI](#tab/azure-cli)
+
+> [!NOTE]
+> Azure CLI currently does not provide commands to get Start Menu apps, nor to create a new RemoteApp program or publish it to the application group. Use Azure PowerShell.
+
+To create a RemoteApp group with the Azure CLI:
+
+1. Use the [az desktopvirtualization applicationgroup create](/cli/azure/desktopvirtualization##az-desktopvirtualization-applicationgroup-create) command to create a new RemoteApp application group:
+
+   ```azurecli
+   az desktopvirtualization applicationgroup create --name "MyApplicationGroup" \
+      --resource-group "MyResourceGroup" \
+      --location "MyLocation" \
+      --application-group-type "RemoteApp" \
+      --host-pool-arm-path "/subscriptions/MySubscriptionGUID/resourceGroups/MyResourceGroup/providers/Microsoft.DesktopVirtualization/hostpools/MyHostPool"
+      --tags tag1="value1" tag2="value2" \
+      --friendly-name "Friendly name of this application group" \
+      --description "Description of this application group" 
+   ```
+    
+2. (Optional) To verify that the application group was created, you can run the following command to see a list of all application groups for the host pool.
+
+   ```azurecli
+   az desktopvirtualization applicationgroup list \
+      --resource-group "MyResourceGroup"
+   ```
+---
 
 ## Next steps
 

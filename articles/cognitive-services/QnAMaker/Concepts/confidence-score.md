@@ -52,9 +52,9 @@ When choosing your threshold, keep in mind the balance between Accuracy and Cove
 
 ## Set threshold
 
-Set the threshold score as a property of the [GenerateAnswer API JSON body](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). This means you set it for each call to GenerateAnswer.
+Set the threshold score as a property of the [GenerateAnswer API JSON body](../How-To/metadata-generateanswer-usage.md#generateanswer-request-configuration). This means you set it for each call to GenerateAnswer.
 
-From the bot framework, set the score as part of the options object with [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) or [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
+From the bot framework, set the score as part of the options object with [C#](../How-To/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) or [Node.js](../How-To/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## Improve confidence scores
 To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response. You can also use case-insensitive [word alterations](/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords in your KB.
@@ -71,7 +71,7 @@ The test index holds all the QnA pairs of your knowledge bases. When querying th
 * organize your knowledge base using one of the following:
     * 1 resource restricted to 1 KB: restrict your single QnA resource (and the resulting Azure Cognitive Search test index) to a single knowledge base.
     * 2 resources - 1 for test, 1 for production: have two QnA Maker resources, using one for testing (with its own test and  production indexes) and one for product (also having its own test and production indexes)
-* and, always use the same parameters, such as **[top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** when querying both your test and production knowledge base
+* and, always use the same parameters, such as **[top](../How-To/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** when querying both your test and production knowledge base
 
 When you publish a knowledge base, the question and answer contents of your knowledge base moves from the test index to a production index in Azure search. See how the [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) operation works.
 

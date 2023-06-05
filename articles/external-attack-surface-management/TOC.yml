@@ -1,0 +1,52 @@
+- name: Concepts
+  expanded: true
+  items:
+  - name: Overview
+    href: index.md
+  - name: Understanding inventory assets
+    href: understanding-inventory-assets.md
+  - name: What is Discovery?
+    href: what-is-discovery.md
+- name: How-to
+  items:
+  - name: Understanding asset details
+    href: understanding-asset-details.md
+  - name: Understanding dashboards
+    href: understanding-dashboards.md
+  - name: Using and managing discovery
+    href: using-and-managing-discovery.md
+  - name: Labeling inventory assets 
+    href: labeling-inventory-assets.md
+  - name: Understand billable assets
+    href: understanding-billable-assets.md
+  - name: Leveraging data connections
+    href: data-connections.md
+  - name: Inventory filters 
+    expanded: true
+    items: 
+    - name: Inventory filters overview
+      href: inventory-filters.md
+    - name: Domain asset filters
+      href: domain-asset-filters.md 
+    - name: Host asset filters
+      href: host-asset-filters.md   
+    - name: Page asset filters
+      href: page-asset-filters.md     
+    - name: Contact asset filters
+      href: contact-asset-filters.md 
+    - name: SSL certificate asset filters
+      href: ssl-certificate-asset-filters.md 
+    - name: IP address asset filters
+      href: ip-address-asset-filters.md 
+    - name: IP block asset filters
+      href: ip-block-asset-filters.md 
+    - name: ASN asset filters
+      href: asn-asset-filters.md 
+- name: Quickstart
+  items:
+  - name: Deploying the Defender EASM Azure resource
+    href: deploying-the-defender-easm-azure-resource.md
+- name: Tutorials
+  items:
+  - name: Discovering your attack surface
+    href: discovering-your-attack-surface.md

@@ -1,12 +1,12 @@
 ---
 title: Add Azure Automation runbooks to Site Recovery recovery plans
 description: Learn how to extend recovery plans with Azure Automation for disaster recovery using Azure Site Recovery.
-author: Sharmistha-Rai
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: sharrai
-ms.date: 07/15/2021
+ms.author: ankitadutta
+ms.date: 05/26/2023
 ---
 
 # Add Azure Automation runbooks to recovery plans
@@ -17,7 +17,7 @@ This article describes how to integrate Azure Automation runbooks, to extend [Az
 
 You can use recovery plans when you fail over on-premises machines, or Azure VMs. Recovery plans help you to define a systematic recovery process that defines how machines fail over, and how they start and recover after failover. 
 
-Recovery large apps can be complex. Recovery plans help impose order so that recovery is consistently accurate, repeatable, and automated. You can automate tasks within a recovery plan using scripts, as well as Azure Automation runbooks. Typical examples might be configuring settings on an Azure VM after failover, or reconfiguring an app that's running on the VM.
+Recovery of large apps can be complex. Recovery plans help impose order so that recovery is consistently accurate, repeatable, and automated. You can automate tasks within a recovery plan using scripts, as well as Azure Automation runbooks. Typical examples might be configuring settings on an Azure VM after failover, or reconfiguring an app that's running on the VM.
 
 - [Learn more](recovery-plan-overview.md) about recovery plans.
 - [Learn more](../automation/automation-runbook-types.md) about Azure Automation runbooks.
@@ -95,7 +95,7 @@ Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has 
 
 ## Before you start
 
-- If you're new to Azure Automation, you can [sign up](https://azure.microsoft.com/services/automation/) and [download sample scripts](https://azure.microsoft.com/documentation/scripts/).
+- If you're new to Azure Automation, you can [sign up](https://azure.microsoft.com/services/automation/) and [download sample scripts](https://azure.microsoft.com/documentation/scripts/). For more information, see [Automation runbooks - known issues and limitations](../automation/automation-runbook-types.md#powershell-runbooks).
 - Ensure that the Automation account has the following modules:
     - AzureRM.profile
     - AzureRM.Resources
@@ -194,7 +194,7 @@ In some scenarios you might not be able to create separate variables for each re
 - For example, a SharePoint recovery has two front ends. A basic line-of-business (LOB) application has only one front end.
 - In this scenario you can't create separate variables for each recovery plan.
 
-In the following example, we create a [complex variable](/powershell/module/servicemanagement/azure.service/set-azureautomationvariable) in the Azure Automation account.
+In the following example, we create a [complex variable](https://learn.microsoft.com/powershell/module/az.automation/set-azautomationvariable) in the Azure Automation account.
 
 We do this by specifying multiple values, using Azure PowerShell.
 
@@ -252,9 +252,6 @@ To deploy sample scripts to your Automation account, click the **Deploy to Azure
 [![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 This video provides another example. It demonstrates how to recover a two-tier WordPress application to Azure:
-
-
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
 ## Next steps

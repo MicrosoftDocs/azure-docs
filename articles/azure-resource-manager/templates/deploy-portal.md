@@ -2,7 +2,7 @@
 title: Deploy resources with Azure portal
 description: Use Azure portal and Azure Resource Manage to deploy your resources to a resource group in your subscription.
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 05/22/2023
 ---
 
 # Deploy resources with ARM templates and Azure portal
@@ -104,7 +104,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 1. Make a minor change to the template. For example, update the `storageAccountName` variable to:
 
     ```json
-    "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"
+    "storageAccountName": "[format('azstore{0}', uniquestring(resourceGroup().id))]"
     ```
 
 1. Select **Save**. Now you see the portal template deployment interface. Notice the two parameters that you defined in the template.
@@ -121,6 +121,5 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
 ## Next steps
 
-- To view audit logs, see [Audit operations with Resource Manager](../management/view-activity-logs.md).
 - To troubleshoot deployment errors, see [View deployment operations](deployment-history.md).
 - To export a template from a deployment or resource group, see [Export ARM templates](export-template-portal.md).

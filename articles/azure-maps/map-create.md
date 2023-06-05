@@ -1,14 +1,12 @@
 ---
 title: Create a map with Azure Maps | Microsoft Azure Maps
 description: Find out how to add maps to web pages by using the Azure Maps Web SDK. Learn about options for animation, style, the camera, services, and user interactions.
-author: anastasia-ms
-ms.author: v-stharr
+author: eriklindeman
+ms.author: eriklind
 ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: 
-ms.custom: codepen, devx-track-js
+ms.custom: codepen
 ---
 
 # Create a map
@@ -21,7 +19,7 @@ To load a map, create a new instance of the [Map class](/javascript/api/azure-ma
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Basic map load" src="//codepen.io/azuremaps/embed/rXdBXx/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Basic map load" src="//codepen.io/azuremaps/embed/rXdBXx/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>Basic map load</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -35,7 +33,7 @@ When the map is zoomed out on a wide screen, multiple copies of the world will a
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="renderWorldCopies = false" src="//codepen.io/azuremaps/embed/eqMYpZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="renderWorldCopies = false" src="//codepen.io/azuremaps/embed/eqMYpZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/eqMYpZ/'>renderWorldCopies = false</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -82,7 +80,7 @@ In the following code, a [Map object](/javascript/api/azure-maps-control/atlas.m
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Create a map via CameraOptions' src='//codepen.io/azuremaps/embed/qxKBMN/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>Create a map via `CameraOptions` </a>by Azure Location Based Services (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Create a map via CameraOptions' src='//codepen.io/azuremaps/embed/qxKBMN/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>Create a map via `CameraOptions` </a>by Azure Location Based Services (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <a id="setCameraBoundsOptions"></a>
@@ -102,7 +100,7 @@ In the following code,  a [Map object](/javascript/api/azure-maps-control/atlas.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Create a map via CameraBoundsOptions' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>Create a map via `CameraBoundsOptions` </a>by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Create a map via CameraBoundsOptions' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>Create a map via `CameraBoundsOptions` </a>by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ### Animate map view
@@ -122,7 +120,7 @@ In the following code, the first code block creates a map and sets the enter and
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Animate Map View' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WayvbO/'>Animate Map View</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Animate Map View' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WayvbO/'>Animate Map View</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Request transforms
@@ -137,6 +135,29 @@ The [service options](/javascript/api/azure-maps-control/atlas.serviceoptions) o
 ```JavaScript
 transformRequest: (url: string, resourceType: string) => RequestParameters
 ```
+
+When using a request transform you must return a `RequestParameters` object that contains a `url` property at a minimum. The following are the properties that can be included in a `RequestParameters` object.
+
+| Option | Type | Description |
+|--------|------|-------------|
+| body | string | A POST request body. |
+| credentials | `'same-origin'` \| `'include'` | Used to specify the cross-origin request (CORs) credentials setting. Use 'include' to send cookies with cross-origin requests. |
+| headers | object | The headers to be sent with the request. The object is a key value pair of string values. |
+| method | `'GET'` \| `'POST'` \| `'PUT'` | The type of request to be made. Default is  `'GET'`. |
+| type | `'string'` \| `'json'` \| `'arrayBuffer'` | The format of POST response body. |
+| url | string | The url to be requested. |
+
+The resource types most relevant to content you add to the map are listed in the table below:
+
+| Resource Type | Description |
+|---------------|-------------|
+| Image | A request for an image for use with either a SymbolLayer or ImageLayer. |
+| Source | A request for source information, such as a TileJSON request. Some requests from the base map styles will also use this resource type when loading source information. |
+| Tile | A request from a tile layer (raster or vector). |
+| WFS | A request from a `WfsClient` in the [Spatial IO module](spatial-io-connect-wfs-service.md) to an OGC Web Feature Service. |
+| WebMapService | A request from the `OgcMapLayer` in the [Spatial IO module](spatial-io-add-ogc-map-layer.md) to a WMS or WMTS service. |
+
+Here are some resource types that are passed through the request transform that are related to the base map styles: StyleDefinitions, Style, SpriteImage, SpriteJSON, Glyphs, Attribution. You will normally want to ignore these and simply return the `url` value.
 
 The following example shows how to use this to modify all requests to the size `https://example.com` by adding a username and password as headers to the request.
 

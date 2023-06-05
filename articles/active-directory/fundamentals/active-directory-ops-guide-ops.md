@@ -3,13 +3,13 @@ title: Azure Active Directory general operations guide reference
 description: This operations reference guide describes the checks and actions you should take to secure general operations
 services: active-directory
 author: martincoetzer
-manager: daveba
+manager: travisgr
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: fundamentals
-ms.date: 10/31/2019
+ms.date: 08/17/2022
 ms.author: martinco
 ---
 
@@ -45,7 +45,6 @@ As you review your list, you may find you need to either assign an owner for tas
 #### Owners recommended reading
 
 - [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md)
-- [Governance in Azure](../../governance/index.yml)
 
 ## Hybrid management
 
@@ -71,7 +70,7 @@ Unless one has been established, you should define a process to upgrade these co
 
 Organizations should deploy [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) for monitoring and reporting of Azure AD Connect and AD FS. Azure AD Connect and AD FS are critical components that can break lifecycle management and authentication and therefore lead to outages. Azure AD Connect Health helps monitor and gain insights into your on-premises identity infrastructure thus ensuring the reliability of your environment.
 
-![Azure AD Connect Heath architecture](./media/active-directory-ops-guide/active-directory-ops-img16.png)
+![Azure AD Connect Heath architecture](./media/ops-guide-auth/ops-img16.png)
 
 As you monitor the health of your environment, you must immediately address any high severity alerts, followed by lower severity alerts.
 
@@ -86,7 +85,7 @@ Some identity and access management services require on-premises agents to enabl
 #### On-premises agents logs recommended reading
 
 - [Troubleshoot Application Proxy](../app-proxy/application-proxy-troubleshoot.md)
-- [Self-service password reset troubleshooting- Azure Active Directory](../authentication/troubleshoot-sspr.md)
+- [Self-service password reset troubleshooting](../authentication/troubleshoot-sspr.md)
 - [Understand Azure AD Application Proxy connectors](../app-proxy/application-proxy-connectors.md)
 - [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
 - [Troubleshoot error codes for the Azure AD MFA NPS extension](../authentication/howto-mfa-nps-extension-errors.md)
@@ -114,13 +113,13 @@ The [identity secure score](./identity-secure-score.md) provides a quantifiable 
 - Plan identity security improvements
 - Review the success of your improvements
 
-![Secure score](./media/active-directory-ops-guide/active-directory-ops-img17.png)
+![Secure score](./media/ops-guide-auth/ops-img17.png)
 
 If your organization currently has no program in place to monitor changes in Identity Secure Score, it is recommended you implement a plan and assign owners to monitor and drive improvement actions. Organizations should remediate improvement actions with a score impact higher than 30 as soon as possible.
 
 ### Notifications
 
-Microsoft sends email communications to administrators to notify various changes in the service, configuration updates that are needed, and errors that require admin intervention. It is important that customers set the notification email addresses so that notifications are sent to the proper team members who can acknowledge and act upon all notifications. We recommend you add multiple recipients to the [Message Center](/office365/admin/manage/message-center) and request that notifications (including Azure AD Connect Health notifications) be sent to a distribution list or shared mailbox. If you only have one global admin account with an email address, be sure to configure at least two email-capable accounts.
+Microsoft sends email communications to administrators to notify various changes in the service, configuration updates that are needed, and errors that require admin intervention. It is important that customers set the notification email addresses so that notifications are sent to the proper team members who can acknowledge and act upon all notifications. We recommend you add multiple recipients to the [Message Center](/office365/admin/manage/message-center) and request that notifications (including Azure AD Connect Health notifications) be sent to a distribution list or shared mailbox. If you only have one Global Administrator account with an email address, be sure to configure at least two email-capable accounts.
 
 There are two "From" addresses used by Azure AD: <o365mc@email2.microsoft.com>, which sends Message Center notifications; and <azure-noreply@microsoft.com>, which sends notifications related to:
 
@@ -157,7 +156,9 @@ If AD FS is only used for Azure AD federation, there are some endpoints that can
 
 Organizations should lock down access to the machines with on-premises hybrid components in the same way as your on-premises domain. For example, a backup operator or Hyper-V administrator should not be able to log in to the Azure AD Connect Server to change rules.
 
-The Active Directory administrative tier model was designed to protect identity systems using a set of buffer zones between full control of the Environment (Tier 0) and the high-risk workstation assets that attackers frequently compromise. ![Diagram showing the three layers of the Tier model](./media/active-directory-ops-guide/active-directory-ops-img18.png)
+The Active Directory administrative tier model was designed to protect identity systems using a set of buffer zones between full control of the Environment (Tier 0) and the high-risk workstation assets that attackers frequently compromise.
+
+![Diagram showing the three layers of the Tier model](./media/ops-guide-auth/ops-img18.png)
 
 The [tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) is composed of three levels and only includes administrative accounts, not standard user accounts.
 

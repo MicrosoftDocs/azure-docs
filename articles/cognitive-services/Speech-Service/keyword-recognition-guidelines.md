@@ -10,7 +10,6 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: hasshah
-ms.custom: devx-track-csharp
 ---
 
 # Recommendations and guidelines for keyword recognition
@@ -22,7 +21,7 @@ This article outlines how to choose your keyword optimize its accuracy character
 Creating an effective keyword is vital to ensuring your product will consistently and accurately respond. Consider the following guidelines when you choose a keyword.
 
 > [!NOTE]
-> The examples below are in English but the guidelines apply to all languages supported by Custom Keyword. For a list of all supported languages, see [Language support](language-support.md#custom-keyword-and-keyword-verification).
+> The examples below are in English but the guidelines apply to all languages supported by Custom Keyword. For a list of all supported languages, see [Language support](language-support.md?tabs=custom-keyword).
 
 - It should take no longer than two seconds to say.
 - Words of 4 to 7 syllables work best. For example, "Hey, Computer" is a good keyword. Just "Hey" is a poor one.
@@ -37,13 +36,13 @@ Creating an effective keyword is vital to ensuring your product will consistentl
 
 With a multi-stage keyword recognition scenario where [Keyword Verification](keyword-recognition-overview.md#keyword-verification) is used, applications can choose when the end-user is notified of a keyword detection. The recommendation for rendering any visual or audible indicator is to rely upon on responses from the Keyword Verification service:
 
-![User experience guideline when optimizing for accuracy.](media/custom-keyword/keyword-verification-ux-accuracy.png)
+![User experience guideline when optimizing for accuracy.](media/custom-keyword/kw-verification-ux-accuracy.png)
 
 This ensures the optimal experience in terms of accuracy to minimize the user-perceived impact of false accepts but incurs additional latency.
 
 For applications that require latency optimization, applications can provide light and unobtrusive indicators to the end-user based on the on-device keyword recognition. For example, lighting an LED pattern or pulsing an icon. The indicators can continue to exist if Keyword Verification responds with a keyword accept, or can be dismissed if the response is a keyword reject:
 
-![User experience guideline when optimizing for latency.](media/custom-keyword/keyword-verification-ux-latency.png)
+![User experience guideline when optimizing for latency.](media/custom-keyword/kw-verification-ux-latency.png)
 
 ## Next steps
 

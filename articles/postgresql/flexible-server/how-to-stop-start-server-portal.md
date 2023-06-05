@@ -1,17 +1,17 @@
 ---
 title: Stop/start - Azure portal - Azure Database for PostgreSQL Flexible Server
 description: This article describes how to stop/start operations in Azure Database for PostgreSQL through the Azure portal.
-author: sunilagarwal
-ms.author: sunila
+author: varun-dhawan
+ms.author: varundhawan
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/30/2021
 ---
 
-# Stop/Start an Azure Database for PostgreSQL - Flexible Server (Preview) using Azure portal
+# Stop/Start an Azure Database for PostgreSQL - Flexible Server  using Azure portal
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is currently in preview.
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides step-by-step instructions to stop and start a flexible server.
 
@@ -30,7 +30,7 @@ To complete this how-to guide, you need:
 > [!NOTE]
 > Once the server is stopped, other management operations are not available for the flexible server.
 
-Please note that stopped servers will automatically start again after seven days. Any pending maintenance updates will be applied when the server is started the next time.
+Database Instance can be stopped for maximum of 7 days. While the database is stopped no operations are possible, except the planned maintenance activity that will be done on the schedule. This is done to ensure that the instances receive any necessary security updates and patches on time.
 
 ## Start a stopped server
 

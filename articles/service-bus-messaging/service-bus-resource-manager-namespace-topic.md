@@ -4,12 +4,11 @@ description: 'Quickstart: Create a Service Bus namespace with topic and subscrip
 documentationcenter: .net
 author: spelluru
 ms.author: spelluru
-ms.date: 06/08/2021
+ms.date: 09/27/2021
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.custom:
-  - devx-track-azurepowershell
-  - mode-arm
+ms.custom: mode-other, devx-track-azurecli, devx-track-arm-template
+ms.devlang: azurecli
 ---
 
 # Quickstart: Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template

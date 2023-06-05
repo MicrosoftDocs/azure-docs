@@ -1,21 +1,15 @@
 ---
-title: Integrate Splunk using Azure Monitor | Microsoft Docs
+title: Integrate Splunk using Azure Monitor
 description: Learn how to integrate Azure Active Directory logs with Splunk using Azure Monitor.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: daveba
-editor: ''
-
-ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/10/2021
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
@@ -39,16 +33,16 @@ To use this feature, you need:
 
     ![The "Data Summary" button](./media/howto-integrate-activity-logs-with-splunk/DataSummary.png)
 
-2. Select the **Sourcetypes** tab, and then select **amal: aadal:audit**
+2. Select the **Sourcetypes** tab, and then select **mscs:azure:eventhub**
 
-    ![The Data Summary Sourcetypes tab](./media/howto-integrate-activity-logs-with-splunk/sourcetypeaadal.png)
+    ![The Data Summary Sourcetypes tab](./media/howto-integrate-activity-logs-with-splunk/source-eventhub.png)
 
-    The Azure AD activity logs are shown in the following figure:
+Append **body.records.category=AuditLogs** to the search. The Azure AD activity logs are shown in the following figure:
 
-    ![Activity logs](./media/howto-integrate-activity-logs-with-splunk/activitylogs.png)
+   ![Activity logs](./media/howto-integrate-activity-logs-with-splunk/activity-logs.png)
 
 > [!NOTE]
-> If you cannot install an add-on in your Splunk instance (for example, if you're using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector. To do so, use this [Azure function](https://github.com/Microsoft/AzureFunctionforSplunkVS), which is triggered by new messages in the event hub. 
+> If you cannot install an add-on in your Splunk instance (for example, if you're using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector. To do so, use this [Azure function](https://github.com/splunk/azure-functions-splunk), which is triggered by new messages in the event hub. 
 >
 
 ## Next steps

@@ -1,7 +1,9 @@
 ---
-title: Use claim capabilities in Azure DevTest Labs | Microsoft Docs
+title: Use claim capabilities
 description: Learn about different scenarios for using claim/unclaim capabilities of Azure DevTest Labs
-ms.topic: article
+ms.topic: conceptual
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ---
 

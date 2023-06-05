@@ -9,15 +9,16 @@ editor: ''
 
 ms.assetid: 23049a2c-055e-4d0e-b8f5-af2a87ecf53f
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/13/2017
+ms.date: 08/22/2022
 ms.author: alkohli
 
 ---
 # Automated Disaster Recovery solution using Azure Site Recovery for file shares hosted on StorSimple
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

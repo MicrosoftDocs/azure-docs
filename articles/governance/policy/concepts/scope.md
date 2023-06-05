@@ -1,8 +1,9 @@
 ---
 title: Understand scope in Azure Policy
 description: Describes the concept of scope in Azure Resource Manager and how it applies to Azure Policy to control which resources Azure Policy evaluates.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ---
 # Understand scope in Azure Policy
 
@@ -52,14 +53,14 @@ In addition to the properties on the policy assignment, is the
 [policy exemption](./exemption-structure.md) object. Exemptions enhance the scope story by providing
 a method to identify a portion of an assignment to not be evaluated.
 
-- Exemption (**free in preview** feature) - A resource hierarchy or individual resource should be
+- Exemption - A resource hierarchy or individual resource should be
   evaluated for compliance by the definition, but won't be evaluated for a reason such as having a
   waiver or being mitigated through another method. Resources in this state show as **Exempted** in
   compliance reports so that they can be tracked. The exemption object is created on the resource
   hierarchy or individual resource as a child object, which determines the scope of the exemption. A
-  resource hierarchy or individual resource can be exempt to multiple assignments. The exemption may
-  be configured to expire on a schedule by using the `expiresOn` property. For more information, see
-  [Exemption definition](./exemption-structure.md).
+  resource hierarchy or individual resource can be exempt from multiple assignments. The exemption
+  may be configured to expire on a schedule by using the `expiresOn` property. For more information,
+  see [Exemption definition](./exemption-structure.md).
 
   > [!NOTE]
   > Due to the impact of granting an exemption for a resource hierarchy or individual resource,
@@ -77,6 +78,8 @@ The following table is a comparison of the scope options:
 |**Resources are evaluated** | &#10004; | - | - |
 |**Resource Manager object** | - | - | &#10004; |
 |**Requires modifying policy assignment object** | &#10004; | &#10004; | - |
+
+So how do you choose whether to use an exclusion or exemption? Typically exclusions are recommended to permanently bypass evaluation for a broad scope like a test environment which doesn't require the same level of governance. Exemptions are recommended for time-bound or more specific scenarios where a resource or resource hierarchy should still be tracked and would otherwise be evaluated, but there is a specific reason it should not be assessed for compliance.
 
 ## Next steps
 

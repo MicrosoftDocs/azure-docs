@@ -1,11 +1,13 @@
 ---
 title: Replicate Azure VMs running in a proximity placement group
 description: Learn how to replicate Azure VMs running in proximity placement groups by using Azure Site Recovery.
-author: Sharmistha-Rai
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.topic: how-to
+ms.service: site-recovery
+ms.custom: devx-track-azurepowershell
 ms.date: 02/11/2021
-
 ---
 
 # Replicate virtual machines running in a proximity placement group to another region
@@ -24,7 +26,7 @@ Site Recovery replicates the data from one Azure region to another region. It br
 
 ## Considerations
 
-- The best effort will be to fail over and fail back the virtual machines into a proximity placement group. If you can't bring up the VMs inside a proximity placement group, the failover and failback will still happen, but VMs will be created outside the proximity placement group.
+- The best effort will be to fail over and fail back the virtual machines into a proximity placement group. If there is am OverconstrainedAllocationRequest error due to which we are unable to bring up the VMs inside a proximity placement group, the failover and failback will still execute, but VMs will be created outside the proximity placement group.
 - If an availability set is pinned to a proximity placement group and VMs in the availability set have an allocation constraint during failback or failover, the VMs will be created outside both the availability set and the proximity placement group.
 - Site Recovery for proximity placement groups is not supported for unmanaged disks.
 
@@ -62,7 +64,7 @@ To select a proximity placement group in the DR region while enabling replicatio
 You can easily update your selection of a proximity placement group in the DR region after replication has been enabled for the VM:
 
 1. Go to the virtual machine. On the left pane, under **Operations**, select **Disaster Recovery**.
-2. Go to the **Compute and Network** pane and select **Edit**.
+2. Go to the **Compute** pane and select **Edit**.
 3. You can see the options to edit multiple target settings, including the target proximity placement group. Choose the proximity placement group that you want the VM to fail over into, and then select **Save**.
 
 ### VMware to Azure
@@ -93,7 +95,7 @@ You can easily update your selection of a proximity placement group in the DR re
 
 ### Prerequisites 
 
-- Make sure that you have the Azure PowerShell Az module. If you need to install or upgrade Azure PowerShell, follow the [guide to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
+- Make sure that you have the Azure PowerShell Az module. If you need to install or upgrade Azure PowerShell, follow the [guide to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 - The minimum Azure PowerShell Az version should be 4.1.0. To check the current version, use the following command:
 
     ```

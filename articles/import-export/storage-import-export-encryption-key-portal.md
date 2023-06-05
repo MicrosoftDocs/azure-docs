@@ -3,11 +3,11 @@ title: Use the Azure portal to configure customer-managed keys for Import/Export
 description: Learn how to use the Azure portal to configure customer-managed keys with Azure Key Vault for Azure Import/Export service. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
 services: storage
 author: alkohli
-ms.service: storage
+ms.service: azure-import-export
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 03/14/2022
 ms.author: alkohli
-ms.subservice: common
+
 ---
 
 # Use customer-managed keys in Azure Key Vault for Import/Export service
@@ -45,43 +45,43 @@ Configuring customer-managed key for your Import/Export service is optional. By 
 1. Go to the **Overview** blade for your Import job.
 2. In the right-pane, select **Choose how your BitLocker keys are encrypted**.
 
-    ![Choose encryption option](./media/storage-import-export-encryption-key-portal/encryption-key-1.png)
+    ![Screenshot of Overview blade for Azure Import/Export job. Overview menu item and link that opens BitLocker key options are highlighted.](./media/storage-import-export-encryption-key-portal/encryption-key-1.png)
 
 3. In the **Encryption** blade, you can view and copy the device BitLocker key. Under **Encryption type**, you can choose how you want to protect your BitLocker key. By default, a Microsoft managed key is used.
 
-    ![View BitLocker key](./media/storage-import-export-encryption-key-portal/encryption-key-2.png)
+    ![Screenshot of Encryption blade for an Azure Import/Export order. Encryption menu item is highlighted.](./media/storage-import-export-encryption-key-portal/encryption-key-2.png)
 
 4. You have the option to specify a customer managed key. After you have selected the customer managed key, **Select key vault and a key**.
 
-    ![Select customer managed key](./media/storage-import-export-encryption-key-portal/encryption-key-3.png)
+    ![Screenshot of Encryption blade for Azure Import/Export job. "Customer managed key" is selected. Link to "Select a key and key vault" is highlighted.](./media/storage-import-export-encryption-key-portal/encryption-key-3.png)
 
 5. In the **Select key from Azure Key Vault** blade, the subscription is automatically populated. For **Key vault**, you can select an existing key vault from the dropdown list.
 
-    ![Select or create Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
+    ![Screenshot of the "Select key from Azure Key Vault" screen. The "Create new" link for Key vault is highlighted.](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
 
 6. You can also select **Create new** to create a new key vault. In the **Create key vault blade**, enter the resource group and the key vault name. Accept all other defaults. Select **Review + Create**.
 
-    ![Create new Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
+    ![Screenshot of "Create key vault" screen for Azure Key Vault with sample settings. The Review Plus Create button is highlighted.](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
 
 7. Review the information associated with your key vault and select **Create**. Wait for a couple minutes for the key vault creation to complete.
 
-    ![Create Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-6.png)
+    ![Screenshot of the Review Plus Create screen for a new Azure key vault. The Create button is highlighted.](./media/storage-import-export-encryption-key-portal/encryption-key-6.png)
 
 8. In the **Select key from Azure Key Vault**, you can select a key in the existing key vault.
 
 9. If you created a new key vault, select **Create new** to create a key. RSA key size can be 2048 or greater.
 
-    ![Create new key in Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-7.png)
+    ![Screenshot of the "Select key from Azure Key Vault" screen. The "Create new" button for the Key option is highlighted.](./media/storage-import-export-encryption-key-portal/encryption-key-7.png)
 
     If the soft delete and purge protection are not enabled when you create the key vault, key vault will be updated to have soft delete and purge protection enabled.
 
 10. Provide the name for your key, accept the other defaults, and select **Create**.
 
-    ![Create new key](./media/storage-import-export-encryption-key-portal/encryption-key-8.png)
+    ![Screenshot of the "Create a key" screen for Azure Key Vault. The Create button is highlighted.](./media/storage-import-export-encryption-key-portal/encryption-key-8.png)
 
 11. Select the **Version** and then choose **Select**. You are notified that a key is created in your key vault.
 
-    ![New key created in key vault](./media/storage-import-export-encryption-key-portal/encryption-key-9.png)
+    ![Screenshot of the "Select key from Azure Key Vault" screen with sample settings. The Select button is highlighted.](./media/storage-import-export-encryption-key-portal/encryption-key-9.png)
 
 In the **Encryption** blade, you can see the key vault and the key selected for your customer managed key.
 

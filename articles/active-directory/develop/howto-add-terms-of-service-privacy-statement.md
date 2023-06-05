@@ -1,5 +1,5 @@
 ---
-title: Terms of Service and privacy statement for apps | Azure
+title: Terms of Service and privacy statement for apps
 description: Learn how you can configure the terms of service and privacy statement for apps registered to use Azure AD.
 services: active-directory
 author: rwike77
@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 03/07/2023
 ms.author: ryanwi
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: sureshja
 ms.custom: aaddev
 ---
 
-# How to: Configure terms of service and privacy statement for an app
+# Configure terms of service and privacy statement for an app
 
 Developers who build and manage multi-tenant apps that integrate with Azure Active Directory (Azure AD) and Microsoft accounts should include links to the app's terms of service and privacy statement. The terms of service and privacy statement are surfaced to users through the user consent experience. They help your users know that they can trust your app. The terms of service and privacy statement are especially critical for user-facing multi-tenant apps--apps that are used by multiple directories or are available to any Microsoft account.
 
@@ -56,8 +56,8 @@ Follow these steps in the Azure portal.
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and select the correct Azure AD tenant(not B2C).
 2. Navigate to the **App registrations** section and select your app.
-3. Under **Manage**, select **Branding**.
-4. Fill out the **Terms of Service URL** and **Privacy Statement URL** fields.
+3. Under **Manage**, select **Branding & properties**.
+4. Fill out the **Terms of service URL** and **Privacy statement URL** fields.
 5. Select **Save**.
 
     ![App properties contains terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
@@ -66,10 +66,10 @@ Follow these steps in the Azure portal.
 
 If you prefer to modify the app object JSON directly, you can use the manifest editor in the Azure portal or Application Registration Portal to include links to your app's terms of service and privacy statement.
 
-1. Navigating to the **App Registrations** section and select your app.
+1. Navigate to the **App Registrations** section and select your app.
 2. Open the **Manifest** pane.
 3. Ctrl+F, Search for "informationalUrls". Fill in the information.
-4. Save your changes.
+4. Save your changes by downloading the app manifest, modifying it, and uploading it.
 
 ```json
     "informationalUrls": { 
@@ -80,12 +80,12 @@ If you prefer to modify the app object JSON directly, you can use the manifest e
 
 ### <a name="msgraph-rest-api"></a>Using the Microsoft Graph API
 
-To programmatically update all your apps, you can use the Microsoft Graph API to update all your apps to include links to the terms of service and privacy statement documents.
+To programmatically [update your app](/graph/api/application-update), you can use the Microsoft Graph API to update all your apps to include links to the terms of service and privacy statement documents.
 
 ```
-PATCH https://graph.microsoft.com/v1.0/applications/{application id}
+PATCH https://graph.microsoft.com/v1.0/applications/{applicationObjectId}
 { 
-    "appId": "{your application id}", 
+    "appId": "{your application object id}", 
     "info": { 
         "termsOfServiceUrl": "<your_terms_of_service_url>", 
         "supportUrl": null, 

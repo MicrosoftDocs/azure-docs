@@ -6,17 +6,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 03/28/2023
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: amycolannino
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
 ---
 # Optimize reauthentication prompts and understand session lifetime for Azure AD Multi-Factor Authentication
 
-Azure Active Directory (Azure AD) has multiple settings that determine how often users need to reauthenticate. This reauthentication could be with a first factor such as password, FIDO, or passwordless Microsoft Authenticator, or to perform multi-factor authentication (MFA). You can configure these reauthentication settings as needed for your own environment and the user experience you want.
+Azure Active Directory (Azure AD) has multiple settings that determine how often users need to reauthenticate. This reauthentication could be with a first factor such as password, FIDO, or passwordless Microsoft Authenticator, or to perform multifactor authentication (MFA). You can configure these reauthentication settings as needed for your own environment and the user experience you want.
 
 The Azure AD default configuration for user sign-in frequency is a rolling window of 90 days. Asking users for credentials often seems like a sensible thing to do, but it can backfire. If users are trained to enter their credentials without thinking, they can unintentionally supply them to a malicious credential prompt.
 
@@ -30,8 +30,8 @@ To give your users the right balance of security and ease of use by asking them 
 
 * If you have Azure AD Premium:
     * Enable single sign-on (SSO) across applications using [managed devices](../devices/overview.md) or [Seamless SSO](../hybrid/how-to-connect-sso.md).
-    * If reauthentication is required, use a Conditional Access [sign-in Frequency policy](../conditional-access/howto-conditional-access-session-lifetime.md).
-    * For users that sign in from non-managed devices or mobile device scenarios, use Conditional Access to enable persistent browser sessions and sign-in frequency policies.
+    * If reauthentication is required, use a Conditional Access [sign-in frequency policy](../conditional-access/howto-conditional-access-session-lifetime.md).
+    * For users that sign in from non-managed devices or mobile device scenarios, persistent browser sessions may not be preferable, or you might use Conditional Access to enable persistent browser sessions with sign-in frequency policies. Limit the duration to an appropriate time based on the sign-in risk, where a user with less risk has a longer session duration.
 * If you have Microsoft 365 apps licenses or the free Azure AD tier:
     * Enable single sign-on (SSO) across applications using [managed devices](../devices/overview.md) or [Seamless SSO](../hybrid/how-to-connect-sso.md).
     * Keep the *Remain signed-in* option enabled and guide your users to accept it.
@@ -62,13 +62,13 @@ Devices joined to Azure AD using Azure AD Join or Hybrid Azure AD Join receive a
 
 ### Show option to remain signed-in
 
-When a user selects **Yes** on the *Stay signed in?* option during sign-in, a persistent cookie is set on the browser. This persistent cookie remembers both first and second factor, and it applies only for authentication requests in the browser.
+When a user selects **Yes** on the *Stay signed in?* prompt option during sign-in, a persistent cookie is set on the browser. This persistent cookie remembers both first and second factor, and it applies only for authentication requests in the browser.
 
 ![Screenshot of example prompt to remain signed in](./media/concepts-azure-multi-factor-authentication-prompts-session-lifetime/stay-signed-in-prompt.png)
 
 If you have an Azure AD Premium 1 license, we recommend using Conditional Access policy for *Persistent browser session*. This policy overwrites the *Stay signed in?* setting and provides an improved user experience. If you don't have an Azure AD Premium 1 license, we recommend enabling the stay signed in setting for your users.
 
-For more information on configuring the option to let users remain signed-in, see [Customize your Azure AD sign-in page](../fundamentals/customize-branding.md#customize-your-azure-ad-sign-in-page).
+For more information on configuring the option to let users remain signed-in, see [How to manage the 'Stay signed in?' prompt](../fundamentals/how-to-manage-stay-signed-in-prompt.md).
 
 ### Remember Multi-Factor Authentication  
 
@@ -96,24 +96,28 @@ This setting allows configuration of lifetime for token issued by Azure Active D
 
 ## Review your tenant configuration  
 
-Now that you understand how different settings works and the recommended configuration, it's time to check your tenants configuration and make changes accordingly:
+Now that you understand how different settings works and the recommended configuration, it's time to check your tenants. You can start by looking at the sign-in logs to understand which session lifetime policies were applied during sign-in.
+
+Under each sign-in log, go to the **Authentication Details** tab and explore **Session Lifetime Policies Applied**. For more information, see [Authentication details](../reports-monitoring/concept-sign-ins.md#authentication-details).
+
+![Screenshot of authentication details.](./media/concepts-azure-multi-factor-authentication-prompts-session-lifetime/details.png)
 
 To configure or review the *Remain signed-in* option, complete the following steps:
 
-1. In the Azure AD portal, search for and select *Azure Active Directory*.
+1. In the Azure portal, search for and select *Azure Active Directory*.
 1. Select **Company Branding**, then for each locale, choose **Show option to remain signed in**.
 1. Choose *Yes*, then select **Save**.
 
-To remember Multi-factor authentication settings on trusted devices, complete the following steps:
+To remember multifactor authentication settings on trusted devices, complete the following steps:
 
-1. In the Azure AD portal, search for and select *Azure Active Directory*.
+1. In the Azure portal, search for and select *Azure Active Directory*.
 1. Select **Security**, then **MFA**.
 1. Under **Configure**, select **Additional cloud-based MFA settings**.
 1. In the *Multi-factor authentication service settings* page, scroll to **remember multi-factor authentication settings**. Disable the setting by unchecking the checkbox.
 
 To configure Conditional Access policies for sign-in frequency and persistent browser session, complete the following steps:
 
-1. In the Azure AD portal, search for and select *Azure Active Directory*.
+1. In the Azure portal, search for and select *Azure Active Directory*.
 1. Select **Security**, then **Conditional Access**.
 1. Configure a policy using the recommended session management options detailed in this article.
 

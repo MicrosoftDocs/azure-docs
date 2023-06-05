@@ -3,11 +3,10 @@ title: Use the Azure portal to create Service Bus topics and subscriptions
 description: 'Quickstart: In this quickstart, you learn how to create a Service Bus topic and subscriptions to that topic by using the Azure portal.'
 author: spelluru
 ms.author: spelluru
-ms.date: 06/23/2020
+ms.date: 10/28/2022
 ms.topic: quickstart
-ms.custom:
-  - mode-portal
-# Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
+ms.custom: mode-ui
+#Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 ---
 
 # Use the Azure portal to create a Service Bus topic and subscriptions to the topic
@@ -17,7 +16,7 @@ In this quickstart, you use the Azure portal to create a Service Bus topic and t
 Service Bus topics and subscriptions support a *publish/subscribe* messaging communication model. When using topics and subscriptions, components of a distributed application do not communicate directly with
 each other; instead they exchange messages via a topic, which acts as an intermediary.
 
-![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png" alt-text="Image showing how topics and subscriptions work.":::
 
 In contrast with Service Bus queues, in which each message is processed by a single consumer, topics and subscriptions provide a one-to-many form of communication, using a publish/subscribe pattern. It is possible to
 register multiple subscriptions to a topic. When a message is sent to a topic, it is then made available to each subscription to handle/process independently. A subscription to a topic resembles a virtual queue that receives copies of the messages that were sent to the topic. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to filter or restrict which messages to a topic are received by which topic subscriptions.

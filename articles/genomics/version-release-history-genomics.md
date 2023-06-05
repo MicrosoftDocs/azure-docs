@@ -3,10 +3,11 @@ title: Version release history
 titleSuffix: Microsoft Genomics
 description: The release history of updates to the Microsoft Genomics Python client for fixes and new functionality. 
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
+ms.custom: devx-track-python
 ms.topic: conceptual
 ms.date: 01/11/2019
 ---

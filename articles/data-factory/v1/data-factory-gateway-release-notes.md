@@ -3,8 +3,9 @@ title: Release notes for Data Management Gateway
 description: Data Management Gateway tory release notes
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 04/12/2023
 ms.author: abnarain
 robots: noindex
 ---

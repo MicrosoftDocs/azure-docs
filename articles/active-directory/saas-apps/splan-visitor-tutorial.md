@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integrate Azure Active Directory single sign-on (SSO) with Splan Visitor | Microsoft Docs'
+title: 'Tutorial: Integrate Azure Active Directory single sign-on (SSO) with Splan Visitor'
 description: Learn how to configure single sign-on between Azure Active Directory and Splan Visitor.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/21/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
@@ -48,6 +48,8 @@ To configure the integration of Splan Visitor into Azure AD, add Splan Visitor f
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, enter **Splan Visitor** in the search box.
 1. Select **Splan Visitor** from the results panel, and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Splan Visitor
 
@@ -119,8 +121,8 @@ Create a test user named **Britta Simon** in Splan Visitor. Work with the [Spla
 Test your Azure AD single sign-on configuration with one of the following options:
 
 * **Azure portal**: Select **Test this application** to automatically sign in to the Splan Visitor for which you set up SSO.
-* **Microsoft My Apps portal**: Select the **Splan Visitor** tile to automatically sign in to the Splan Visitor for which you set up SSO. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+* **Microsoft My Apps portal**: Select the **Splan Visitor** tile to automatically sign in to the Splan Visitor for which you set up SSO. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-After you configure Splan Visitor, you can [learn how to enforce session controls in Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app). Session controls help protect exfiltration and infiltration of your organization's sensitive data in real time. Session controls extend from Conditional Access.
+After you configure Splan Visitor, you can [learn how to enforce session controls in Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app). Session controls help protect exfiltration and infiltration of your organization's sensitive data in real time. Session controls extend from Conditional Access.

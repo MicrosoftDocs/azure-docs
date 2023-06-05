@@ -1,129 +1,126 @@
 ---
-title: Azure Lab Services - Bring a Windows custom image to shared image gallery
-description: Describes how to bring a Windows custom image to shared image gallery.
-ms.date: 09/30/2020
+title: Import a Windows image from a physical lab
+titleSuffix: Azure Lab Services
+description: Learn how to import a Windows custom image from your physical lab environment into Azure Lab Services.
+services: lab-services
+ms.service: lab-services
+author: ntrogh
+ms.author: nicktrog
+ms.date: 04/24/2023
 ms.topic: how-to
 ---
 
-# Bring a Windows custom image to shared image gallery
+# Bring a Windows custom image from a physical lab environment to Azure Lab Services
 
-You can use shared image gallery to bring your own Windows custom images and use these images to create labs in Azure Lab Services.  This article shows how to bring a custom image from:
+This article describes how to import a Windows-based custom image from a physical lab environment for creating a lab in Azure Lab Services.
 
-* Your [physical lab environment](upload-custom-image-shared-image-gallery.md#bring-a-windows-custom-image-from-a-physical-lab-environment).
-* An [Azure virtual machine](upload-custom-image-shared-image-gallery.md#bring-a-windows-custom-image-from-an-azure-virtual-machine).
+The import process consists of the following steps:
 
-This task is typically performed by a school's IT department.
+1. Create a virtual hard drive (VHD) from your physical environment
+1. Import the VHD into an Azure compute gallery
+1. [Attach the compute gallery to your lab plan](/azure/lab-services/how-to-attach-detach-shared-image-gallery)
+1. Create a lab based by using the image in the compute gallery
 
-## Bring a Windows custom image from a physical lab environment
+Before you import an image from a physical lab, learn more about [recommended approaches for creating custom images](approaches-for-custom-image-creation.md).
 
-The steps in this section show how to import a custom image that starts from your physical lab environment.  With this approach, you create a VHD from your physical environment and import the VHD into shared image gallery so that it can be used within Lab Services.  Here are some key benefits with this approach:
+## Prerequisites
 
-* You have flexibility to create either [generalized or specialized](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) images to use in your labs.  Otherwise, if you use a [lab's template VM to export an image](how-to-use-shared-image-gallery.md), the image is always specialized.
-* You can upload images created using other tools, such as [Microsoft Endpoint Configuration Manager](/mem/configmgr/core/understand/introduction), so that you don't have to manually set up an image using a lab's template VM.
+- Your Azure account has permission to create an [Azure managed disk](/azure/virtual-machines/managed-disks-overview). Learn about the [Azure RBAC roles you need to create a managed disk](/azure/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell#assign-rbac-role).
 
-The steps in this section require that you have permission to create a [managed disk](../virtual-machines/managed-disks-overview.md) in your school's Azure subscription.
+- Restructure each virtual machine image so that it only includes the software that is needed for a lab's class. Learn more about [moving from a Physical Lab to Azure Lab Services](./concept-migrating-physical-labs.md).
 
-> [!IMPORTANT]
-> When moving images from a physical lab environment to Lab Services, you should restructure each image so that it only includes software needed for a lab's class.  For more information, read the [Moving from a Physical Lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931) blog post.
+## Prepare a custom image using Hyper-V Manager
 
-Many options exist for creating a VHD from a physical lab environment. The below steps show how to create a VHD from a Windows Hyper-V virtual machine (VM) using Hyper-V Manager.
+First, create a virtual hard disk (VHD) for the physical environment. The following steps describe how to create a VHD from a Windows Hyper-V virtual machine (VM) by using Hyper-V Manager:
 
-1. Start with a Hyper-V VM in your physical lab environment that has been created from your image.  Read the article on [how to create a virtual machine in Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) for more information.
-    1. The VM must be created as a **Generation 1** VM.
-    1. The VM's virtual disk must be a fixed size VHD.  The disk size must *not* be greater than 128 GB. When you create the VM, enter the size of the disk as shown in the below image.
-       
-        :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Connect virtual hard disk":::
+1. Create a Hyper-V virtual machine in your physical lab environment based on your custom image.
 
-    > [!IMPORTANT]
-    > Images with disk size greater than 128 GB are *not* supported by Lab Services. 
-   
-1. Connect to the Hyper-V VM and [prepare it for Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) by following these steps:
-    1. [Set Windows configurations for Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure).
-    1. [Check the Windows Services that are needed to ensure VM connectivity](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services).
-    1. [Update remote desktop registry settings](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings).
-    1. [Configure Windows Firewall rules](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules).
-    1. [Install Windows Updates](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
-    1. [Install Azure VM Agent and additional configuration as shown here](../virtual-machines/windows/prepare-for-upload-vhd-image.md#complete-the-recommended-configurations) 
-    	
-    You can upload either specialized or generalized images to shared image gallery and use them to create labs.  The steps above will create a specialized image. If you need to instead create a generalized image, you also will need to [run SysPrep](../virtual-machines/windows/prepare-for-upload-vhd-image.md#determine-when-to-use-sysprep).  
+    - The VM must be created as a **Generation 1** VM.
+    - Use the **Default Switch** network configuration option to allow the VM to connect to the internet.
+    - The VM's virtual disk must be a fixed size VHD. The disk size must *not* be greater than 128 GB. When you create the VM, enter the size of the disk as shown in the below image.
 
-    > [!IMPORTANT]
-    > You should create a specialized image if you want to maintain machine-specific information and user profiles.  For more information about the differences between generalized and specialized images, see [Generalized and specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
+        :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Screenshot of the Connect virtual hard disk screen in Hyper-V Manager, highlighting the option for fixed disk size.":::
 
-1. Since **Hyper-V** creates a **VHDX** file by default, you need to convert this to a VHD file.
-    1. Navigate to **Hyper-V Manager** -> **Action** -> **Edit Disk**.
-    1. Next, **Convert** the disk from a VHDX to a VHD.  
-     - If you expand the disk size, make sure that you do *not* exceed 128 GB.        
-        :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Choose action":::   
+    Azure Lab Services does *not* support images with disk size greater than 128 GB.
 
-    For more information, read the article that shows how to [convert the virtual disk to a fixed size VHD](../virtual-machines/windows/prepare-for-upload-vhd-image.md#convert-the-virtual-disk-to-a-fixed-size-vhd).
+    Learn more about [how to create a virtual machine in Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
+
+1. Connect to the Hyper-V VM and [prepare it for Azure](/azure/virtual-machines/windows/prepare-for-upload-vhd-image) by following these steps:
+
+    1. [Set Windows configurations for Azure](/azure/virtual-machines/windows/prepare-for-upload-vhd-image#set-windows-configurations-for-azure).
+    1. [Check the Windows services that are needed to ensure VM connectivity](/azure/virtual-machines/windows/prepare-for-upload-vhd-image#check-the-windows-services).
+    1. [Update remote desktop registry settings](/azure/virtual-machines/windows/prepare-for-upload-vhd-image#update-remote-desktop-registry-settings).
+    1. [Configure Windows Firewall rules](/azure/virtual-machines/windows/prepare-for-upload-vhd-image#configure-windows-firewall-rules).
+    1. [Install Windows updates](/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+    1. [Install Azure VM Agent and extra configuration](/azure/virtual-machines/windows/prepare-for-upload-vhd-image#complete-the-recommended-configurations)
+
+    You can upload either specialized or generalized images to a compute gallery and use them to create labs. The previous steps create a specialized image. If you need a generalized image, you also have to [run SysPrep](/azure/virtual-machines/windows/prepare-for-upload-vhd-image#determine-when-to-use-sysprep). 
+
+    You should create a specialized image if you want to maintain machine-specific information and user profiles.  For more information about the differences between generalized and specialized images, see [Generalized and specialized images](/azure/virtual-machines/shared-image-galleries#generalized-and-specialized-images).
+
+1. Convert the default Hyper-V `VHDX` hard disk file format to `VHD`:
+
+    1. In Hyper-V Manager, select the virtual machine, and then select **Action** > **Edit Disk**.
+
+    1. Next, select **Convert** to convert the disk from a VHDX to a VHD.
+
+		:::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Screenshot that shows the Choose Action screen when editing a virtual machine in Hyper-V Manager.":::
+
+        If you expand the disk size, make sure that you do *not* exceed 128 GB.
+
+    Learn more about how to [convert a virtual disk to a fixed size VHD](/azure/virtual-machines/windows/prepare-for-upload-vhd-image#convert-the-virtual-disk-to-a-fixed-size-vhd).
+
+Alternately, you can resize and convert a VHDX by using PowerShell:
+
+- [Resize-VHD](/powershell/module/hyper-v/resize-vhd)
+- [Convert-VHD](/powershell/module/hyper-v/convert-vhd)
+
+## Upload the custom image to a compute gallery
+
+Next, you upload the VHD file from your physical environment to an Azure compute gallery.
 
 1. Upload the VHD to Azure to create a managed disk.
-    1. You can use either Storage Explorer or AzCopy from the command line, as shown in [Upload a VHD to Azure or copy a managed disk to another region](../virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).        
 
-    1. After you've uploaded the VHD, you should now have a managed disk that you can see in the Azure portal. 
-    
-    > [!WARNING]
-    > If your machine goes to sleep or locks, the upload process may get interrupted and fail. 
-    
-    > [!IMPORTANT] 
-    > The Azure portal's **Size+Performance** tab for the managed disk allows you to change your disk size. As mentioned before, the size must *not* be greater than 128 GB.
+    You can use either Storage Explorer or AzCopy from the command line, as shown in [Upload a VHD to Azure or copy a managed disk to another region](/azure/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell).
 
-1. Take a snapshot of the managed disk.
-	This can be done either from PowerShell, using the Azure portal, or from within Storage Explorer, as shown in [Create a snapshot using the portal or PowerShell](../virtual-machines/windows/snapshot-copy-managed-disk.md).
+    If your machine goes to sleep or locks, the upload process may get interrupted and fail.  Also, make sure after AzCopy completes, that you revoke the SAS access to the disk.  Otherwise, when you attempt to create an image from the disk, you encounter an error: **Operation 'Create Image' is not supported with disk 'your disk name' in state 'Active Upload'.  Error Code: OperationNotAllowed**.
 
-1. In shared image gallery, create an image definition and version:
-    1. [Create an image definition](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition).  
+    After you've uploaded the VHD, you should now have a managed disk that you can see in the Azure portal.
+
+    The Azure portal's **Size+Performance** tab for the managed disk allows you to change your disk size. As mentioned before, the size must *not* be greater than 128 GB.
+
+1. In a compute gallery, follow these steps to [create an image definition and version](/azure/virtual-machines/image-version).
+
      - Choose **Gen 1** for the **VM generation**.
-     - Choose whether you are creating a **specialized** or **generalized** image for the **Operating system state**.
-     
-    For more information about the values you can specify for an image definition, see [Image definitions](../virtual-machines/shared-image-galleries.md#image-definitions). 
-    
-    > [!NOTE] 
-    > You can also choose to use an existing image definition and create a new version for your custom image.
-    
-1. [Create an image version](../virtual-machines/windows/shared-images-portal.md#create-an-image-version).
-    - The **Version number** property uses the following format: *MajorVersion.MinorVersion.Patch*.   When you use Lab Services to create a lab and choose a custom image, the most recent version of the image is automatically used.  The most recent version is chosen based on the highest value of MajorVersion, then MinorVersion, then Patch.
+
+     - Choose whether you're creating a **specialized** or **generalized** image for the **Operating system state**
+
+    For more information about the values you can specify for an image definition, see [Image definitions](/azure/virtual-machines/shared-image-galleries#image-definitions).
+
+    You can also choose to use an existing image definition and create a new version for your custom image.
+
+1. Follow these steps to [create an image version](/azure/virtual-machines/image-version).
+
+    - The **Version number** property uses the following format: *MajorVersion.MinorVersion.Patch*.  When you use Azure Lab Services to create a lab and choose a custom image, the most recent version of the image is automatically used.  The most recent version is chosen based on the highest value of MajorVersion, then MinorVersion, then Patch.
+
     - For the **Source**, choose **Disks and/or snapshots** from the drop-down list.
-    - For the **OS disk** property, choose the snapshot that you created in previous steps.
-    
-    For more information about the values you can specify for an image definition, see [Image versions](../virtual-machines/shared-image-galleries.md#image-versions). 
-   
-1. [Create the lab](tutorial-setup-classroom-lab.md) in Lab Services and select the custom image from the shared image gallery.
 
-    If you expanded the disk *after* the OS was installed on the original Hyper-V VM, you also will need to extend the C drive in Windows to use the unallocated disk space:      
-    - Log into the lab's template VM and follow steps similar to what is shown in [Extend a basic volume](/windows-server/storage/disk-management/extend-a-basic-volume). 
+    - For the **OS disk** property, choose the disk that you created in previous steps.
 
-## Bring a Windows custom image from an Azure virtual machine
-Another approach is to set up your Windows image using an [Azure virtual machine](../virtual-machines/windows/overview.md).  Using an Azure virtual machine (VM) gives you flexibility to create either a specialized or generalized image to use with your labs.  The process to prepare an image from an Azure VM are simpler compared to [creating an image from a VHD](upload-custom-image-shared-image-gallery.md#bring-a-windows-custom-image-from-a-physical-lab-environment) because the image is already prepared to run in Azure.
+    For more information about the values you can specify for an image definition, see [Image versions](/azure/virtual-machines/shared-image-galleries#image-versions).
 
-You will need permission to create an Azure VM in your school's Azure subscription to complete the below steps:
+## Create a lab
 
-1. Create an Azure VM using the [Azure portal](../virtual-machines/windows/quick-create-portal.md), [PowerShell](../virtual-machines/windows/quick-create-powershell.md), the [Azure CLI](../virtual-machines/windows/quick-create-cli.md), or from an [ARM template](../virtual-machines/windows/quick-create-template.md).
-    
-    - When you specify the disk settings, ensure the disk's size is *not* greater than 128 GB.
-    
-1. Install software and make any necessary configuration changes to the Azure VM's image.
+Now that the custom image is available in an Azure compute gallery, you can create a lab by using the image.
 
-1. Run [SysPrep](../virtual-machines/generalize.md#windows) if you need to create a generalized image.  For more information, see [Generalized and specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
+1. [Attach the compute gallery to your lab plan](./how-to-attach-detach-shared-image-gallery.md)
 
-1. In shared image gallery, [create an image definition](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition) or choose an existing image definition.
-     - Choose **Gen 1** for the **VM generation**.
-     - Choose whether you are creating a **specialized** or **generalized** image for the **Operating system state**.
-    
-1. [Create an image version](../virtual-machines/windows/shared-images-portal.md#create-an-image-version).
-    - The **Version number** property uses the following format: *MajorVersion.MinorVersion.Patch*.   
-    - For the **Source**, choose **Disks and/or snapshots** from the drop-down list.
-    - For the **OS disk** property, choose your Azure VM's disk that you created in previous steps.
+1. [Create the lab](tutorial-setup-lab.md) and select the custom image from the compute gallery.
 
-1. [Create the lab](tutorial-setup-classroom-lab.md) in Lab Services and select the custom image from the shared image gallery.
-
-You can also import your custom image from an Azure VM to shared image gallery using PowerShell.  See the following script and accompanying ReadMe for more information:
-    
-- [Bring image to shared image gallery script](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/BringImageToSharedImageGallery/)
+    If you expanded the disk *after* the OS was installed on the original Hyper-V VM, you may also need to extend the C drive in Windows to use the unallocated disk space. Log into the lab's template VM and follow these steps to [extend a basic volume](/windows-server/storage/disk-management/extend-a-basic-volume).
 
 ## Next steps
 
-* [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
-* [Attach or detach a shard image gallery](how-to-attach-detach-shared-image-gallery.md)
-* [How to use shared image gallery](how-to-use-shared-image-gallery.md)
+- [Attach or detach a compute gallery](how-to-attach-detach-shared-image-gallery.md)
+- [Use a compute gallery](how-to-use-shared-image-gallery.md)
+- [Azure Compute Gallery overview](/azure/virtual-machines/shared-image-galleries)

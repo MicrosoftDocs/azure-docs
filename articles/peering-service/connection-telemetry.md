@@ -1,22 +1,25 @@
 ---
-title: 'Azure Peering Service: How to access connection telemetry '
-description: In this tutorial learn how to access connection telemetry.
+title: Access connection telemetry
+titleSuffix: Azure Peering Service
+description: Learn how to access Azure Peering Service connection telemetry.
 services: peering-service
-author: gthareja
+author: halkazwini
 ms.service: peering-service
-ms.topic: tutorial
-ms.date: 04/06/2021
-ms.author: gatharej
+ms.topic: how-to
+ms.date: 05/31/2023
+ms.author: halkazwini
+ms.custom: template-how-to, engagement-fy23
 # Customer intent: Customer wants to access their connection telemetry per prefix to Microsoft services with Azure Peering Service.
 ---
-# Tutorial: Accessing Peering Service connection telemetry
 
- In this tutorial, you'll learn how to access telemetry for your Peering Service connections.
+# Access Peering Service connection telemetry
  
- Connection telemetry provides insights collected for the connectivity between the customer's location and the Microsoft network. In this article, you'll learn how to view the latency report and prefix states for a specific Azure Peering Service connection. 
+Connection telemetry provides insights collected for the connectivity between the customer's location and the Microsoft network. In this article, you learn how to access your Peering Service connection telemetry to view the latency report and prefix states for the Peering Service connection. 
 
-To access Peering Service connection telemetry, you must create a Peering Service connection in the Azure portal. To learn how to create a connection, see [Create a Peering Service connection - Azure portal](azure-portal.md).
+## Prerequisites
 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Peering Service connection. To learn how to create a connection, see [Create, change, or delete a Peering Service connection using the Azure portal](azure-portal.md).
 
 ## View a latency report
 

@@ -1,14 +1,13 @@
 ---
 title: Using Multi-factor AAD authentication
 description: Synapse SQL support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication. 
-services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: has-adal-ref
 ---
 

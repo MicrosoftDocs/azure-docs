@@ -4,22 +4,19 @@ description: Quickstart showing how to set and retrieve a secret from Azure Key 
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 09/03/2019
+ms.custom: mvc, mode-ui
+ms.date: 01/11/2023
 ms.author: mbaldwin
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal
 
 Azure Key Vault is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you create a key vault, then use it to store a secret. 
 
-For more information about, see 
-- [Key Vault Overview](../general/overview.md)
-- [Secrets Overview](about-secrets.md).
+For more information, see [Key Vault Overview](../general/overview.md) and [Secrets Overview](about-secrets.md).
 
 ## Prerequisites
 
@@ -37,26 +34,26 @@ To add a secret to the vault, follow the steps:
 
 1. Navigate to your new key vault in the Azure portal
 1. On the Key Vault settings pages, select **Secrets**.
-1. Click on **Generate/Import**.
+1. Select on **Generate/Import**.
 1. On the **Create a secret** screen choose the following values:
     - **Upload options**: Manual.
     - **Name**: Type a name for the secret. The secret name must be unique within a Key Vault. The name must be a 1-127 character string, starting with a letter and containing only 0-9, a-z, A-Z, and -. For more information on naming, see [Key Vault objects, identifiers, and versioning](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)
     - **Value**: Type a value for the secret. Key Vault APIs accept and return secret values as strings. 
-    - Leave the other values to their defaults. Click **Create**.
+    - Leave the other values to their defaults. Select **Create**.
 
-Once that you receive the message that the secret has been successfully created, you may click on it on the list. 
+Once that you receive the message that the secret has been successfully created, you may select on it on the list. 
 
 For more information on secrets attributes, see [About Azure Key Vault secrets](./about-secrets.md)
 
 ## Retrieve a secret from Key Vault
 
-If you click on the current version, you can see the value you specified in the previous step.
+If you select on the current version, you can see the value you specified in the previous step.
 
-![Secret properties](../media/quick-create-portal/current-version-hidden.png)
+:::image type="content" source="../media/quick-create-portal/current-version-hidden.png" alt-text="Secret properties":::
 
 By clicking "Show Secret Value" button in the right pane, you can see the hidden value. 
 
-![Secret value appeared](../media/quick-create-portal/current-version-shown.png)
+:::image type="content" source="../media/quick-create-portal/current-version-shown.png" alt-text="Secret value appeared":::
 
 You can also use [Azure CLI](), or [Azure PowerShell]() to retrieve previously created secret.
 
@@ -74,7 +71,7 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 
 ## Next steps
 
-In this quickstart, you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to these articles.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Read [Secure access to a Key Vault](../general/security-features.md)

@@ -2,9 +2,13 @@
 title: Overview the Azure Service Fabric actor lifecycle 
 description: Explains Service Fabric Reliable Actor lifecycle, garbage collection, and manually deleting actors and their state
 ms.topic: conceptual
-ms.date: 10/06/2017
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Actor lifecycle, automatic garbage collection, and manual delete
 An actor is activated the first time a call is made to any of its methods. An actor is deactivated (garbage collected by the Actors runtime) if it is not used for a configurable period of time. An actor and its state can also be deleted manually at any time.
 
@@ -28,7 +32,7 @@ When an actor is deactivated, the following occurs:
 >
 
 ### Actor garbage collection
-When an actor is deactivated, references to the actor object are released and it can be garbage collected normally by the common language runtime (CLR) or java virtual machine (JVM) garbage collector. Garbage collection only cleans up the actor object; it does **not** remove state stored in the actor's State Manager. The next time the actor is activated, a new actor object is created and its state is restored.
+When an actor is deactivated, references to the actor object are released and it can be garbage collected normally by the common language runtime (CLR) or Java virtual machine (JVM) garbage collector. Garbage collection only cleans up the actor object; it does **not** remove state stored in the actor's State Manager. The next time the actor is activated, a new actor object is created and its state is restored.
 
 What counts as “being used” for the purpose of deactivation and garbage collection?
 

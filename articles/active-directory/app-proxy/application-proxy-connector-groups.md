@@ -1,16 +1,16 @@
 ---
-title: Publish apps on separate networks via connector groups - Azure Active Directory
+title: Publish apps on separate networks via connector groups
 description: Covers how to create and manage groups of connectors in Azure Active Directory Application Proxy.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Publish applications on separate networks and locations using connector groups

@@ -1,62 +1,67 @@
 ---
-title: Speech-to-text overview - Speech service
+title: Speech to text overview - Speech service
 titleSuffix: Azure Cognitive Services
-description: Speech-to-text software enables real-time transcription of audio streams into text. Your applications, tools, or devices can consume, display, and take action on this text input. This article is an overview of the benefits and capabilities of the speech-to-text service.
+description: Get an overview of the benefits and capabilities of the speech to text feature of the Speech Service.
 services: cognitive-services
-author: nitinme
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 09/01/2020
-ms.author: nitinme
+ms.topic: overview
+ms.date: 04/05/2023
+ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: speech to text, speech to text software
 ---
 
-# What is speech-to-text?
+# What is speech to text?
 
-In this overview, you learn about the benefits and capabilities of the speech-to-text service.
-Speech-to-text, also known as speech recognition, enables real-time transcription of audio streams into text. Your applications, tools, or devices can consume, display, and take action on this text as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products. It seamlessly works with the <a href="./speech-translation.md" target="_blank">translation </a> and <a href="./text-to-speech.md" target="_blank">text-to-speech </a> service offerings. For a full list of available speech-to-text languages, see [supported languages](language-support.md#speech-to-text).
-
-The speech-to-text service defaults to using the Universal language model. This model was trained using Microsoft-owned data and is deployed in the cloud. It's optimal for conversational and dictation scenarios. When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models. Customization is helpful for addressing ambient noise or industry-specific vocabulary.
-
-This documentation contains the following article types:
-
-* **Quickstarts** are getting-started instructions to guide you through making requests to the service.
-* **How-to guides** contain instructions for using the service in more specific or customized ways.
-* **Concepts** provide in-depth explanations of the service functionality and features.
-* **Tutorials** are longer guides that show you how to use the service as a component in broader business solutions.
+In this overview, you learn about the benefits and capabilities of the speech to text feature of the Speech service, which is part of Azure Cognitive Services. Speech to text can be used for [real-time](#real-time-speech-to-text) or [batch transcription](#batch-transcription) of audio streams into text. 
 
 > [!NOTE]
-> Bing Speech was decommissioned on October 15, 2019. If your applications, tools, or products are using the Bing Speech APIs, we've created guides to help you migrate to the Speech service.
-> - [Migrate from Bing Speech to the Speech service](how-to-migrate-from-bing-speech.md)
+> To compare pricing of [real-time](#real-time-speech-to-text) to [batch transcription](#batch-transcription), see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+For a full list of available speech to text languages, see [Language and voice support](language-support.md?tabs=stt).
 
-## Get started
+## Real-time speech to text
 
-See the [quickstart](get-started-speech-to-text.md) to get started with speech-to-text. The service is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-speech-to-text.md#pronunciation-assessment-parameters), and the [Speech CLI](spx-overview.md).
+With real-time speech to text, the audio is transcribed as speech is recognized from a microphone or file. Use real-time speech to text for applications that need to transcribe audio in real-time such as:
+- Transcriptions, captions, or subtitles for live meetings
+- Contact center agent assist
+- Dictation
+- Voice agents
+- Pronunciation assessment
 
-## Sample code
-
-Sample code for the Speech SDK is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models.
-
-- [Speech-to-text samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-- [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
-- [Pronunciation assessment samples (REST)](rest-speech-to-text.md#pronunciation-assessment-parameters)
-
-## Customization
-
-In addition to the standard Speech service model, you can create custom models. Customization helps to overcome speech recognition barriers such as speaking style, vocabulary and background noise, see [Custom Speech](./custom-speech-overview.md). Customization options vary by language/locale, see [supported languages](./language-support.md) to verify support.
+Real-time speech to text is available via the [Speech SDK](speech-sdk.md) and the [Speech CLI](spx-overview.md). 
 
 ## Batch transcription
 
-Batch transcription is a set of REST API operations that enable you to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. See the [how-to](batch-transcription.md) for more information on how to use the batch transcription API.
+Batch transcription is used to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. Use batch transcription for applications that need to transcribe audio in bulk such as:
+- Transcriptions, captions, or subtitles for pre-recorded audio
+- Contact center post-call analytics
+- Diarization
 
-[!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
+Batch transcription is available via:
+- [Speech to text REST API](rest-speech-to-text.md): To get started, see [How to use batch transcription](batch-transcription.md) and [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch).
+- The [Speech CLI](spx-overview.md) supports both real-time and batch transcription. For Speech CLI help with batch transcriptions, run the following command:
+    ```azurecli-interactive
+    spx help batch transcription
+    ```
+
+## Custom Speech
+
+With [Custom Speech](./custom-speech-overview.md), you can evaluate and improve the accuracy of speech recognition for your applications and products. A custom speech model can be used for [real-time speech to text](speech-to-text.md), [speech translation](speech-translation.md), and [batch transcription](batch-transcription.md).
+
+> [!TIP]
+> A [hosted deployment endpoint](how-to-custom-speech-deploy-model.md) isn't required to use Custom Speech with the [Batch transcription API](batch-transcription.md). You can conserve resources if the [custom speech model](how-to-custom-speech-train-model.md) is only used for batch transcription. For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+Out of the box, speech recognition utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pre-trained with dialects and phonetics representing a variety of common domains. When you make a speech recognition request, the most recent base model for each [supported language](language-support.md?tabs=stt) is used by default. The base model works very well in most speech recognition scenarios.
+
+A custom model can be used to augment the base model to improve recognition of domain-specific vocabulary specific to the application by providing text data to train the model. It can also be used to improve recognition based for the specific audio conditions of the application by providing audio data with reference transcriptions. For more information, see [Custom Speech](./custom-speech-overview.md) and [Speech to text REST API](rest-speech-to-text.md).
+
+Customization options vary by language or locale. To verify support, see [Language and voice support for the Speech service](./language-support.md?tabs=stt).
 
 ## Next steps
 
-- [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
-- [Get the Speech SDK](speech-sdk.md)
+- [Get started with speech to text](get-started-speech-to-text.md)
+- [Create a batch transcription](batch-transcription-create.md)

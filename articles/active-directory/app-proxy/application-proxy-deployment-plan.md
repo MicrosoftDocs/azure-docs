@@ -3,12 +3,12 @@ title: Plan an Azure Active Directory Application Proxy Deployment
 description: An end-to-end guide for planning the deployment of Application proxy within your organization
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ---
 
@@ -88,7 +88,7 @@ Compile an inventory of all in-scope applications that are being published via A
 | Domain membership| Web server’s fully qualified domain name (FQDN) |
 | Application location | Where the web server or farm is located in your infrastructure |
 | Internal access | The exact URL used when accessing the application internally. <br> If a farm, what type of load balancing is in use? <br> Whether the application draws content from sources other than itself.<br> Determine if the application operates over WebSockets. |
-| External access | The vendor solution that the application is already exposed to externally. <br> The URL you want to use for external access. If SharePoint, ensure Alternate Access Mappings are configured per [this guidance](/SharePoint/administration/configure-alternate-access-mappings). If not, you will need to define external URLs. |
+| External access | The vendor solution that the application may already be exposed throught, externally. <br> The URL you want to use for external access. If SharePoint, ensure Alternate Access Mappings are configured per [this guidance](/SharePoint/administration/configure-alternate-access-mappings). If not, you will need to define external URLs. |
 | Public certificate | If using a custom domain, procure a certificate with a corresponding subject name. if a certificate exists note the serial number and location from where it can be obtained. |
 | Authentication type| The type of authentication supported by the application support such as Basic, Windows Integration Authentication, forms-based, header-based, and claims. <br>If the application is configured to run under a specific domain account, note the Fully Qualified Domain Name (FQDN) of the service account.<br> If SAML-based, the identifier and reply URLs. <br> If header-based, the vendor solution and specific requirement for handling authentication type. |
 | Connector group name | The logical name for the group of connectors that will be designated to provide the conduit and SSO to this backend application. |
@@ -103,7 +103,7 @@ The following are areas for which you should define your organization’s busine
 
  **Access**
 
-* Remote users with domain joined or Azure AD joined devices users can access published applications securely with seamless single sign-on (SSO).
+* Remote users with domain-joined or Azure AD-joined devices can access published applications securely with seamless single sign-on (SSO).
 
 * Remote users with approved personal devices can securely access published applications provided they are enrolled in MFA and have registered the Microsoft Authenticator app on their mobile phone as an authentication method.
 
@@ -129,7 +129,7 @@ The following are areas for which you should define your organization’s busine
 
 ### Best practices for a pilot
 
-Determine the amount of time and effort needed to fully commission a single application for remote access with Single sign-on (SSO). Do so by running a pilot that considers its initial discovery, publishing, and general testing. Using a simple IIS-based web application that is already preconfigured for Integrated Windows Authentication (IWA) would help establish a baseline, as this setup requires minimal effort to successfully pilot remote access and SSO.
+Determine the amount of time and effort needed to fully commission a single application for remote access with Single sign-on (SSO). Do so by running a pilot that considers its initial discovery, publishing, and general testing. Using a simple IIS-based web application that is already preconfigured for integrated Windows authentication (IWA) would help establish a baseline, as this setup requires minimal effort to successfully pilot remote access and SSO.
 
 The following design elements should increase the success of your pilot implementation directly in a production tenant.
 
@@ -144,7 +144,7 @@ The following design elements should increase the success of your pilot implemen
 * Restrict visibility of the pilot application’s icon to a pilot group by hiding its launch icon form the Azure MyApps portal. When ready for production you can scope the app to its respective targeted audience, either in the same pre-production tenant, or by also publishing the  application in your production tenant.
 
 **Single sign-on settings**:
-Some SSO settings have specific dependencies that can take time to set up, so avoid change control delays by ensuring dependencies are addressed ahead of time. This includes domain joining connector hosts to perform SSO using Kerberos Constrained Delegation (KCD) and taking care of other time-consuming activities. For example, Setting up a PING Access instance, if needing header-based SSO.
+Some SSO settings have specific dependencies that can take time to set up, so avoid change control delays by ensuring dependencies are addressed ahead of time. This includes domain joining connector hosts to perform SSO using Kerberos Constrained Delegation (KCD) and taking care of other time-consuming activities.
 
 **TLS Between Connector Host and Target Application**: Security is paramount, so TLS between the connector host and target applications should always be used. Particularly if the web application is configured for forms-based authentication (FBA), as user credentials are then effectively transmitted in clear text.
 
@@ -284,7 +284,7 @@ However, users still need to carry out day to day privileged operations, so enfo
 
 ### Reporting and monitoring
 
-Azure AD provides additional insights into your organization’s application usage and operational health through [audit logs and reports](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Application Proxy also makes it very easy to monitor connectors from the Azure AD portal and Windows Event Logs.
+Azure AD provides additional insights into your organization’s application usage and operational health through [audit logs and reports](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Application Proxy also makes it very easy to monitor connectors from the Azure portal and Windows Event Logs.
 
 #### Application audit logs
 
@@ -292,7 +292,7 @@ These logs provide detailed information about logins to applications configured 
 
 #### Application Proxy Connector monitoring
 
-The connectors and the service take care of all the high availability tasks. You can monitor the status of your connectors from the Application Proxy page in the Azure AD Portal. For more information about connector maintainence see [Understand Azure AD Application Proxy Connectors](./application-proxy-connectors.md#maintenance).
+The connectors and the service take care of all the high availability tasks. You can monitor the status of your connectors from the Application Proxy page in the Azure portal. For more information about connector maintenance see [Understand Azure AD Application Proxy Connectors](./application-proxy-connectors.md#maintenance).
 
 ![Example: Azure AD Application Proxy connectors](./media/application-proxy-connectors/app-proxy-connectors.png)
 

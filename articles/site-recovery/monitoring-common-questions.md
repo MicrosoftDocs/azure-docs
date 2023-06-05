@@ -5,6 +5,8 @@ ms.service: site-recovery
 services: site-recovery
 ms.date: 07/31/2019
 ms.topic: conceptual
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # Common questions about Site Recovery monitoring
 

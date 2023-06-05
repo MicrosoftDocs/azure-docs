@@ -2,9 +2,8 @@
 title: Collect Linux application performance in Azure Monitor | Microsoft Docs
 description: This article provides details for configuring the Log Analytics agent for Linux to collect performance counters for MySQL and Apache HTTP Server.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 05/04/2017
+ms.date: 06/01/2023
+ms.reviewer: JeffWo
 
 ---
 
@@ -14,6 +13,9 @@ This article provides details for configuring the [Log Analytics agent for Linux
 
 - [MySQL](#mysql)
 - [Apache HTTP Server](#apache-http-server)
+
+
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 ## MySQL
 If MySQL Server or MariaDB Server is detected on the computer when the Log Analytics agent is installed, a performance monitoring provider for MySQL Server will be automatically installed. This provider connects to the local MySQL/MariaDB server to expose performance statistics. MySQL user credentials must be configured so that the provider can access the MySQL Server.

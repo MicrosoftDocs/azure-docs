@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Zendesk | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Zendesk'
 description: Learn how to configure single sign-on between Azure Active Directory and Zendesk.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 03/29/2023
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Zendesk
+# Tutorial: Azure AD SSO integration with Zendesk
 
 In this tutorial, you'll learn how to integrate Zendesk with Azure Active Directory (Azure AD). When you integrate Zendesk with Azure AD, you can:
 
@@ -33,8 +33,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Zendesk supports **SP** initiated SSO
-* Zendesk supports [**Automated** user provisioning](zendesk-provisioning-tutorial.md)
+* Zendesk supports **SP** initiated SSO.
+* Zendesk supports [**Automated** user provisioning](zendesk-provisioning-tutorial.md).
 
 
 ## Adding Zendesk from the gallery
@@ -47,6 +47,8 @@ To configure the integration of Zendesk into Azure AD, you need to add Zendesk f
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Zendesk** in the search box.
 1. Select **Zendesk** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Zendesk
 
@@ -128,6 +130,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Zendesk SSO
 
+You can set up one SAML configuration for team members and a second SAML configuration for end users.
+
 1. To automate the configuration within **Zendesk**, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
 	![Screenshot shows the Install the extension button.](./media/target-process-tutorial/install_extension.png)
@@ -136,27 +140,37 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Setup configuration](common/setup-sso.png)
 
-1. If you want to setup Zendesk manually, open a new web browser window and sign into your Zendesk company site as an administrator and perform the following steps:
+1. If you want to set up Zendesk manually, open a new web browser window and sign into your Zendesk company site as an administrator and perform the following steps:
 
-1. In the **Zendesk Admin Center**, click on **Security settings** in the **Security** tab.
+1. In the **Zendesk Admin Center**, go to **Account -> Security -> Single sign-on**, then click **Create SSO configuration** and select **SAML**.
 
-	![Screenshot shows the Zendesk Admin Center with Security settings selected.](./media/zendesk-tutorial/settings.png "Security")
+	![Screenshot shows the Zendesk Admin Center with Security settings selected.](./media/zendesk-tutorial/zendesk-create-sso-configuration.png "Security")
 
-1. Go to the **Single sign-on** page and click on **Edit** in the **SAML**.
+1. Perform the following steps in the **Single sign-on** page.
 
-	![Screenshot shows the Single sign-on page with Edit selected.](./media/zendesk-tutorial/saml-sso.png "Security")
+	![Single sign-on](./media/zendesk-tutorial/zendesk-saml-configuration-settings.png "Single sign-on")
 
-1. Perform the following steps in the **SSO** page.
+    a. In **Configuration name**, enter a name for your configuration. Up to two SAML and two JWT configurations are possible.
 
-	![Single sign-on](./media/zendesk-tutorial/saml-configuration.png "Single sign-on")
+    b. In **SAML SSO URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
-    a. In **SAML SSO URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
+    c. In **Certificate fingerprint** textbox, paste the **Thumbprint** value of certificate which you have copied from Azure portal.
 
-    b. In **Certificate Fingerprint** textbox, paste the **Thumbprint** value of certificate which you have copied from Azure portal.
+    d. In **Remote logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
 
-    c. In **Remote Logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+    e. Click **Save**.
 
-    d. Click **Save**.
+After creating your SAML configuration, you must activate it by assigning it to end users or team members.
+
+1. In the **Zendesk Admin Center**, go to **Account -> Security** and select either **Team member authentication** or **End user authentication**.
+
+1. If you're assigning the configuration to team members, select **External authentication** to show the authentication options. These options are already displayed for end users.
+
+1. Click the **Single sign-on (SSO)** option in the **External authentication** section, then select the name of the SSO configuration you want to use.
+
+1. Select the primary SSO method for this group of users if you have more than one authentication method assigned to the group. This option sets the default method used when users go to a page that requires authentication.
+
+1. Click **Save**.
 
 ### Create Zendesk test user
 
@@ -170,8 +184,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Zendesk Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Zendesk tile in the My Apps, this will redirect to Zendesk Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Zendesk tile in the My Apps, this will redirect to Zendesk Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Zendesk you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Zendesk you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

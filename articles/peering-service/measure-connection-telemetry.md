@@ -1,19 +1,19 @@
 ---
-title: 'Azure Peering Service: How to measure connection telemetry '
-description: In this tutorial learn how to measure connection telemetry.
+title: Measure connection telemetry
+titleSuffix: Azure Peering Service
+description: Learn how to measure Azure Peering Service connection telemetry.
 services: peering-service
-author: derekolo
+author: halkazwini
 ms.service: peering-service
-ms.topic: tutorial
-ms.date: 05/18/2020
-ms.author: derekol
+ms.topic: how-to
+ms.date: 05/31/2023
+ms.author: halkazwini
+ms.custom: template-how-to, engagement-fy23
 # Customer intent: Customer wants to measure their connection telemetry per prefix to Microsoft services with Azure Peering Service.
 ---
-# Tutorial: Measure Peering Service connection telemetry
-
- In this tutorial, you'll learn how to measure telemetry for your Peering Service connections.
+# Measure Peering Service connection telemetry
  
- Connection telemetry provides insights collected for the connectivity between the customer's location and the Microsoft network. In this article, you'll learn how to view the latency report for a specific Azure Peering Service connection. 
+Connection telemetry provides insights collected for the connectivity between the customer's location and the Microsoft network. In this article, you learn how to view the latency report for a specific Azure Peering Service connection. 
 
 To measure Peering Service connection telemetry, you must register a Peering Service connection in the Azure portal. To learn how to register a connection, see [Register a Peering Service connection - Azure portal](azure-portal.md).
 

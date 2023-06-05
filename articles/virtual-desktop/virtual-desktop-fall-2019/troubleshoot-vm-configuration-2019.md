@@ -172,7 +172,7 @@ When the Azure Virtual Desktop Agent is first installed on session host VMs (eit
 
 ## Troubleshooting issues with the Azure Virtual Desktop side-by-side stack
 
-The Azure Virtual Desktop side-by-side stack is automatically installed with Windows Server 2019. Use Microsoft Installer (MSI) to install the side-by-side stack on Microsoft Windows Server 2016 or Windows Server 2012 R2. For Microsoft Windows 10, the Azure Virtual Desktop side-by-side stack is enabled with **enablesxstackrs.ps1**.
+The Azure Virtual Desktop side-by-side stack is automatically installed with Windows Server 2019 and newer. Use Microsoft Installer (MSI) to install the side-by-side stack on Microsoft Windows Server 2016 or Windows Server 2012 R2. For Microsoft Windows 10, the Azure Virtual Desktop side-by-side stack is enabled with **enablesxstackrs.ps1**.
 
 There are three main ways the side-by-side stack gets installed or enabled on session host pool VMs:
 
@@ -232,7 +232,7 @@ The VM used to run remediation must be on the same subnet and domain as the VM w
 Follow these instructions to run remediation from the same subnet and domain:
 
 1. Connect with standard Remote Desktop Protocol (RDP) to the VM from where fix will be applied.
-2. Download PsExec from [https://docs.microsoft.com/sysinternals/downloads/psexec](/sysinternals/downloads/psexec).
+2. Download PsExec from [PsExec v2.40](/sysinternals/downloads/psexec).
 3. Unzip the downloaded file.
 4. Start command prompt as local administrator.
 5. Navigate to folder where PsExec was unzipped.
@@ -349,9 +349,9 @@ To learn more about this policy, see [Allow log on through Remote Desktop Servic
 - To troubleshoot issues while creating a tenant and host pool in a Azure Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration-2019.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection-2019.md).
-- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md)
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-windows.md)
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell-2019.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup-2019.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- To learn about auditing actions, see [Audit operations with Resource Manager](../../azure-resource-manager/management/view-activity-logs.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](../../azure-monitor/essentials/activity-log.md).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../../azure-resource-manager/templates/deployment-history.md).

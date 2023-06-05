@@ -365,7 +365,7 @@ To build the sample, follow these steps.
 
 ### Create resource: SQL database
 
-[Create a SQL Server database instance](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal) in the Azure portal. For example:
+[Create a SQL Server database instance](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal) in the Azure portal. For example:
 
 :::image type="content" source="media/uwp-react/resources-sql.png" alt-text="SQL instance resources":::
 

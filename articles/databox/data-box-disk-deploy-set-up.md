@@ -7,9 +7,8 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 10/26/2022
 ms.author: alkohli
-ms.localizationpriority: high
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -68,7 +67,7 @@ Before you begin, make sure that:
 1. Use the included cable to connect the disk to the client computer running a supported OS as stated in the prerequisites.
 
     ![Data Box Disk connect](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)
-
+    
 2. In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order. Use the copy icon to copy the passkey. This passkey will be used to unlock the disks.
 
     ![Data Box Disk unlock passkey](media/data-box-disk-deploy-set-up/data-box-disk-get-passkey.png)
@@ -77,7 +76,7 @@ Depending on whether you are connected to a Windows or Linux client, the steps t
 
 ## Unlock disks on Windows client
 
-Perform the following steps to connect and unlock your disks.
+Perform the following steps to connect and unlock your disks. 
 
 1. In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order.
 2. Download the Data Box Disk toolset corresponding to the Windows client. This toolset contains 3 tools: Data Box Disk Unlock tool, Data Box Disk Validation tool, and Data Box Disk Split Copy tool.
@@ -136,9 +135,14 @@ Perform the following steps to connect and unlock your disks.
 
     ![Data Box Disk contents](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
 
+    > [!NOTE]
+    > Don't format or modify the contents or existing file structure of the disk.
+
 If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md).
 
 ## Unlock disks on Linux client
+
+Perform the following steps to connect and unlock your disks. 
 
 1. In the Azure portal, go to **General > Device details**.
 2. Download the Data Box Disk toolset corresponding to the Linux client.  
@@ -220,24 +224,26 @@ If you run into any issues while unlocking the disks, see how to [troubleshoot u
 
 6. Run the Data Box Disk Unlock tool. Supply the passkey from the Azure portal you obtained in [Connect to disks and get the passkey](#connect-to-disks-and-get-the-passkey). Optionally specify a list of BitLocker encrypted volumes to unlock. The passkey and volume list should be specified within single quotes. 
 
-    Type the following command.
+   Type the following command.
  
-    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:'<Your passkey from Azure portal>'          
+   ```bash
+   sudo ./DataBoxDiskUnlock_x86_64 /PassKey:'<Your passkey from Azure portal>'
+   ```
 
-    The sample output is shown below. 
+   The sample output is shown below. 
  
-    ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:'qwerqwerqwer'  
-    
-    START: Mon Aug 13 14:25:49 2018 
-    Volumes: /dev/sdbl 
-    Passkey: qwerqwerqwer 
-    
-    Volumes for data copy : 
-    /dev/sdbl: /mnt/DataBoxDisk/mountVoll/ 
-    END: Mon Aug 13 14:26:02 2018
-    ```
-    The mount point for the volume that you can copy your data to is displayed.
+   ```output
+   [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:'qwerqwerqwer'  
+   
+   START: Mon Aug 13 14:25:49 2018 
+   Volumes: /dev/sdbl 
+   Passkey: qwerqwerqwer 
+   
+   Volumes for data copy : 
+   /dev/sdbl: /mnt/DataBoxDisk/mountVoll/ 
+   END: Mon Aug 13 14:26:02 2018
+   ```
+   The mount point for the volume that you can copy your data to is displayed.
 
 7. Repeat unlock steps for any future disk reinserts. Use the `help` command if you need help with the Data Box Disk unlock tool. 
     
@@ -268,6 +274,8 @@ If you run into any issues while unlocking the disks, see how to [troubleshoot u
 
     ![Data Box Disk contents 2](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
+    > [!NOTE]
+    > Don't format or modify the contents or existing file structure of the disk.
 
 If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md). 
 

@@ -10,11 +10,11 @@ ms.author: rongzhang
 
 # Azure API Management Diagnostics overview
 
-When you build and managed an API in Azure API Management, you want to be prepared for any issues that may arise, from 404 not found errors to 502 bad gateway error. API Management Diagnostics is an intelligent and interactive experience to help you troubleshoot your API published in APIM with no configuration required. When you do run into issues with your published APIs, API Management Diagnostics points out what’s wrong, and guides you to the right information to quickly troubleshoot and resolve the issue.
+When you build and manage an API in Azure API Management, you want to be prepared for any issues that may arise, from 404 not found errors to 502 bad gateway error. API Management Diagnostics is an intelligent and interactive experience to help you troubleshoot your API published in APIM with no configuration required. When you do run into issues with your published APIs, API Management Diagnostics points out what’s wrong, and guides you to the right information to quickly troubleshoot and resolve the issue.
 
 Although this experience is most helpful when you re having issues with your API within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 
-[!NOTE] Diagnose and solve problems is currenty not supported for Consumption Tier.
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Open API Management Diagnostics
 
@@ -83,4 +83,4 @@ In additional to the Diagnose and solve problems tools, you can search for troub
 * Also use [API analytics](howto-use-analytics.md) to analyze the usage and performance of the APIs. 
 * Want to troubleshoot Web Apps issues with Diagnostics? Read it [here](../app-service/overview-diagnostics.md)
 * Leverage Diagnostics to check Azure Kubernetes Services issues. See [Diagnostics on AKS](../aks/concepts-diagnostics.md)
-* Post your questions or feedback at [UserVoice](https://feedback.azure.com/forums/248703-api-management) by adding "[Diag]" in the title.
+* Post your questions or feedback at [UserVoice](https://feedback.azure.com/d365community/forum/e808a70c-ff24-ec11-b6e6-000d3a4f0858) by adding "[Diag]" in the title.

@@ -2,11 +2,11 @@
 title: Integrate Azure DNS with your Azure resources - Azure DNS
 description: In this article, learn how to use Azure DNS along to provide DNS for your Azure resources.
 services: dns
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 05/06/2021
-ms.author: rohink
+ms.date: 12/15/2022
+ms.author: greglin
 ---
 
 # Use Azure DNS to provide custom domain settings for an Azure service
@@ -81,7 +81,7 @@ The following steps take you through configuring a custom domain for an app serv
 
 1. Navigate to your DNS Zone and select **+ Record set**. Enter the following information on the **Add record set** page and select **OK** to create it.
 
-    :::image type="content" source="./media/dns-custom-domain/web-app.png" alt-text="Screenshot of web app record set page.":::
+    :::image type="content" source="./media/dns-custom-domain/web-app-record.png" alt-text="Screenshot of web app record set page.":::
 
     | Property  | Value | Description |
     |---------- | ----- | ----------- |
@@ -103,7 +103,7 @@ The following steps take you through configuring a custom domain for an app serv
 
     :::image type="content" source="./media/dns-custom-domain/app-service-nslookup.png" alt-text="Screenshot of nslookup for web app."::: 
 
-To learn more about mapping a custom domain to App Service, visit [map an existing custom DNS name to Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
+To learn more about mapping a custom domain to App Service, visit [map an existing custom DNS name to Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md).
 
 To learn how to migrate an active DNS name, see [migrate an active DNS name to Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).
 
@@ -139,7 +139,7 @@ The following steps take you through configuring a CNAME record for a blob stora
 
 1. Validate DNS resolution by running `nslookup`.
 
-To learn more about mapping a custom domain to a blob storage endpoint visit [Configure a custom domain name for your Blob storage endpoint](../storage/blobs/storage-custom-domain-name.md?toc=%dns%2ftoc.json)
+To learn more about mapping a custom domain to a blob storage endpoint visit [Configure a custom domain name for your Blob storage endpoint](../storage/blobs/storage-custom-domain-name.md)
 
 ## Azure CDN
 
@@ -169,7 +169,7 @@ The following steps take you through configuring a CNAME record for a CDN endpoi
 
     :::image type="content" source="./media/dns-custom-domain/cdn-record-set.png" alt-text="Screenshot of CDN record without cdnverify prefix.":::
 
-For more information on CDN and how to configure a custom domain without the intermediate registration step visit [Map Azure CDN content to a custom domain](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json).
+For more information on CDN and how to configure a custom domain without the intermediate registration step visit [Map Azure CDN content to a custom domain](../cdn/cdn-map-content-to-custom-domain.md).
 
 ## Next steps
 

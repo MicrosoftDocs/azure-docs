@@ -1,14 +1,12 @@
 ---
 title: 'Quickstart: Create an Azure SignalR Service - ARM template'
 description: In this Quickstart, learn how to create an Azure SignalR Service using an Azure Resource Manager template (ARM template).
-author: sffamily
-ms.author: zhshang
+author: vicancy
+ms.author: lianwei
 ms.date: 10/02/2020
 ms.topic: quickstart
 ms.service: signalr
-ms.custom: devx-track-azurepowershell
-  - subject-armqs
-  - mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Use an ARM template to deploy Azure SignalR Service
@@ -30,7 +28,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 # [PowerShell](#tab/PowerShell)
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-* If you want to run the code locally, [Azure PowerShell](/powershell/azure/install-az-ps).
+* If you want to run the code locally, [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 # [CLI](#tab/CLI)
 
@@ -239,4 +237,4 @@ read -p "Press [ENTER] to continue: "
 For a step-by-step tutorial that guides you through the process of creating an ARM template, see:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

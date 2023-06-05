@@ -80,7 +80,7 @@ The second page of the deployment template allows you to set the cluster size, n
 
 ![Second page of the deployment template](media/avere-vfxt-deploy-2.png)
 
-* **Avere vFXT cluster node count** - Choose the number of nodes in the cluster. The minimum is three nodes and the maximum is twelve.
+* **Avere vFXT cluster node count** - Choose the number of nodes in the cluster. The minimum is three nodes and the maximum is 20.
 
 * **Cluster administration password** - Create the password for cluster administration. This password is used with the username ```admin``` to sign in to the cluster control panel, where you can monitor the cluster and configure cluster settings.
 

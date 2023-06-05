@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure NetApp Files documentation
-summary: Learn how to use Azure NetApp Files to create and manage NetApp accounts, capacity pools, and volumes, configure export policy, mount a volume for a virtual machine, and manage snapshots.
+summary: Learn how to use Azure NetApp Files to create NetApp accounts, capacity pools, volumes, and manage data protection.
 
 metadata:
   title: Azure NetApp Files documentation
   description: Learn how to set up, access, and manage volumes using the Azure NetApp Files service.
   ms.service: azure-netapp-files
   ms.topic: landing-page
-  author: b-juche
-  ms.author: b-juche
-  ms.date: 08/25/2020 
+  author: b-hchen
+  ms.author: anfdocs
+  ms.date: 09/27/2021 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -44,8 +44,12 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Submit a waitlist request
-            url: azure-netapp-files-register.md#waitlist
+          - text: Register for NetApp Resource Provider
+            url: azure-netapp-files-register.md
+          - text: Create a NetApp account
+            url: azure-netapp-files-create-netapp-account.md
+          - text: Delegate a subnet to Azure NetApp Files
+            url: azure-netapp-files-delegate-subnet.md
       - linkListType: quickstart
         links:
           - text: Set up Azure NetApp Files and create an NFS volume
@@ -56,16 +60,16 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create a NetApp account
-            url: azure-netapp-files-create-netapp-account.md
-          - text: Set up a capacity pool
+          - text: Create Active Directory connections 
+            url: create-active-directory-connections.md
+          - text: Create a capacity pool
             url: azure-netapp-files-set-up-capacity-pool.md
-          - text: Delegate a subnet to Azure NetApp Files
-            url: azure-netapp-files-delegate-subnet.md
-          - text: Create an SMB volume for Azure NetApp Files
-            url: azure-netapp-files-create-volumes-smb.md
-          - text: Create an NFS volume for Azure NetApp Files
+          - text: Create an NFS volume
             url: azure-netapp-files-create-volumes.md
+          - text: Create an SMB volume
+            url: azure-netapp-files-create-volumes-smb.md
+          - text: Create a dual-protocol volume
+            url: create-volumes-dual-protocol.md
 
   # Card          
   - title: Develop
@@ -74,5 +78,7 @@ landingContent:
         links:
           - text: REST API
             url: azure-netapp-files-develop-with-rest-api.md
+          - text: REST API using PowerShell
+            url: develop-rest-api-powershell.md
           - text: Azure NetApp Files SDKs and CLI tools
             url: azure-netapp-files-sdk-cli.md

@@ -3,10 +3,10 @@ title: Tutorial - Apache Kafka & Enterprise Security - Azure HDInsight
 description: Tutorial - Learn how to configure Apache Ranger policies for Kafka in Azure HDInsight with Enterprise Security Package.
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 05/25/2023
 ---
 
-# Tutorial: Configure Apache Kafka policies in HDInsight with Enterprise Security Package (Preview)
+# Tutorial: Configure Apache Kafka policies in HDInsight with Enterprise Security Package
 
 Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Apache Kafka clusters. ESP clusters are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to `sales` and `marketingspend` topics.
 
@@ -105,6 +105,8 @@ To create two topics, `salesevents` and `marketingspend`:
 1. Download the [Apache Kafka domain-joined producer consumer examples](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
 1. Follow Steps 2 and 3 under **Build and deploy the example** in [Tutorial: Use the Apache Kafka Producer and Consumer APIs](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)
+   > [!NOTE]  
+   > For this tutorial, please use the kafka-producer-consumer.jar under "DomainJoined-Producer-Consumer" project (not the one under Producer-Consumer project, which is for non domain joined scenarios).
 
 1. Run the following commands:
 
@@ -197,13 +199,51 @@ To produce and consume topics in ESP Kafka by using the console:
 3. Produce messages to topic `salesevents`:
 
    ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --topic salesevents --broker-list $KAFKABROKERS --security-protocol SASL_PLAINTEXT
+   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --topic salesevents --broker-list $KAFKABROKERS --producer-property security.protocol=SASL_PLAINTEXT
    ```
 
 4. Consume messages from topic `salesevents`:
 
    ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic salesevents --from-beginning --bootstrap-server $KAFKABROKERS --security-protocol SASL_PLAINTEXT
+   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic salesevents --from-beginning --bootstrap-server $KAFKABROKERS --consumer-property security.protocol=SASL_PLAINTEXT
+   ```
+
+## Produce and consume topics for long running session in ESP Kafka
+
+Kerberos ticket cache has an expiration limitation. For long running session, we'd better to use keytab instead of renewing ticket cache manually.
+To use keytab in long running session without `kinit`:
+1. Create a new keytab for your domain user
+   ```bash
+   ktutil
+   addent -password -p <user@domain> -k 1 -e RC4-HMAC
+   wkt /tmp/<user>.keytab
+   q
+
+   ```
+2. Create `/home/sshuser/kafka_client_jaas.conf` and it should have the following lines:
+   ```
+   KafkaClient {
+    com.sun.security.auth.module.Krb5LoginModule required
+    useKeyTab=true
+    storeKey=true
+    keyTab="/tmp/<user>.keytab"
+    useTicketCache=false
+    serviceName="kafka"
+    principal="<user@domain>";
+   };
+   ```
+3. Replace `java.security.auth.login.config` with `/home/sshuser/kafka_client_jaas.conf` and produce or consume topic using console or API
+   ```
+   export KAFKABROKERS=<brokerlist>:9092
+   
+   # console tool
+   export KAFKA_OPTS="-Djava.security.auth.login.config=/home/sshuser/kafka_client_jaas.conf"
+   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --topic salesevents --broker-list $KAFKABROKERS --producer-property security.protocol=SASL_PLAINTEXT
+   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic salesevents --from-beginning --bootstrap-server $KAFKABROKERS --consumer-property security.protocol=SASL_PLAINTEXT
+   
+   # API
+   java -jar -Djava.security.auth.login.config=/home/sshuser/kafka_client_jaas.conf kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/home/sshuser/kafka_client_jaas.conf kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
 ## Clean up resources

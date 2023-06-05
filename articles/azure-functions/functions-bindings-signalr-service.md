@@ -1,16 +1,15 @@
 ---
 title: Azure Functions SignalR Service bindings
 description: Understand how to use SignalR Service bindings with Azure Functions.
-author: craigshoemaker
-
 ms.topic: reference
-ms.date: 02/28/2019
-ms.author: cshoe
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 03/04/2022
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # SignalR Service bindings for Azure Functions
 
-This set of articles explains how to authenticate and send real-time messages to clients connected to [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/) by using SignalR Service bindings in Azure Functions. Azure Functions supports input and output bindings for SignalR Service.
+This set of articles explains how to authenticate and send real-time messages to clients connected to [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/) by using SignalR Service bindings in Azure Functions. Azure Functions runtime version 2.x and higher supports input and output bindings for SignalR Service.
 
 | Action | Type |
 |---------|---------|
@@ -18,27 +17,44 @@ This set of articles explains how to authenticate and send real-time messages to
 | Return the service endpoint URL and access token | [Input binding](./functions-bindings-signalr-service-input.md) |
 | Send SignalR Service messages |[Output binding](./functions-bindings-signalr-service-output.md) |
 
-## Add to your Functions app
+::: zone pivot="programming-language-csharp"
 
-### Functions 2.x and higher
+## Install extension
 
-Working with the trigger and bindings requires that you reference the appropriate package. The NuGet package is used for .NET class libraries while the extension bundle is used for all other application types.
+The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-| Language                                        | Add by...                                   | Remarks 
-|-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Installing the [NuGet package], version 3.x | |
-| C# Script, Java, JavaScript, Python, PowerShell | Registering the [extension bundle]          | The [Azure Tools extension] is recommended to use with Visual Studio Code. |
-| C# Script (online-only in Azure portal)         | Adding a binding                            | To update existing binding extensions without having to republish your function app, see [Update your extensions]. |
+# [In-process](#tab/in-process)
 
-[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService
-[core tools]: ./functions-run-local.md
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
-[Update your extensions]: ./functions-bindings-register.md
-[Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
-For details on how to configure and use SignalR Service and Azure Functions together, refer to [Azure Functions development and configuration with Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md).
+Add the extension to your project by installing this [NuGet package].
 
-### Annotations library (Java only)
+# [Isolated process](#tab/isolated-process)
+
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
+
+Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SignalRService/).
+
+# [C# script](#tab/csharp-script)
+
+Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+
+You can install this version of the extension in your function app by registering the [extension bundle], version 2.x, or a later version.
+
+---
+
+::: zone-end  
+
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+
+## Install bundle    
+
+The SignalR Service extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project that targets version 3.x or later, you should already have this bundle installed. To learn more, see [extension bundle].
+
+::: zone-end  
+::: zone pivot="programming-language-java"  
+
+## Add dependency   
 
 To use the SignalR Service annotations in Java functions, you need to add a dependency to the *azure-functions-java-library-signalr* artifact (version 1.0 or higher) to your *pom.xml* file.
 
@@ -49,13 +65,22 @@ To use the SignalR Service annotations in Java functions, you need to add a depe
     <version>1.0.0</version>
 </dependency>
 ```
+::: zone-end 
 
 ## Connection string settings
 
 Add the `AzureSignalRConnectionString` key to the _host.json_ file that points to the application setting with your connection string. For local development, this value may exist in the _local.settings.json_ file.
+
+For details on how to configure and use SignalR Service and Azure Functions together, refer to [Azure Functions development and configuration with Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md).
 
 ## Next steps
 
 - [Handle messages from SignalR Service  (Trigger binding)](./functions-bindings-signalr-service-trigger.md)
 - [Return the service endpoint URL and access token (Input binding)](./functions-bindings-signalr-service-input.md)
 - [Send SignalR Service messages  (Output binding)](./functions-bindings-signalr-service-output.md)
+
+[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService
+[core tools]: ./functions-run-local.md
+[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[Update your extensions]: ./functions-bindings-register.md
+[Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack

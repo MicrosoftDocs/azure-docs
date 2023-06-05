@@ -1,8 +1,8 @@
 ---
 title: Customer data request features​ for Azure DPS devices
 description: For devices managed in Azure Device Provisioning Service (DPS) that are personal, this article shows admins how to export or delete personal data.
-author: dominicbetts
-ms.author: dobett
+author: kgremban
+ms.author: kgremban
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
@@ -57,6 +57,6 @@ It is also possible to perform export operations for enrollments and registratio
 
 ## Links to additional documentation
 
-Full documentation for Device Provisioning Service APIs is located at [https://docs.microsoft.com/rest/api/iot-dps](/rest/api/iot-dps).
+For full documentation of Device Provisioning Service APIs, see [Azure IoT Hub Device Provisioning Service REST API](/rest/api/iot-dps).
 
 Azure IoT Hub [customer data request features](../iot-hub/iot-hub-customer-data-requests.md).

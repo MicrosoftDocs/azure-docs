@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SoSafe | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SoSafe'
 description: Learn how to configure single sign-on between Azure Active Directory and SoSafe.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
@@ -33,12 +33,12 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* SoSafe supports **SP and IDP** initiated SSO
-* SoSafe supports **Just In Time** user provisioning
+* SoSafe supports **SP and IDP** initiated SSO.
+* SoSafe supports **Just In Time** user provisioning.
+* SoSafe supports [Automated user provisioning](sosafe-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
-
 
 ## Adding SoSafe from the gallery
 
@@ -51,6 +51,7 @@ To configure the integration of SoSafe into Azure AD, you need to add SoSafe fro
 1. In the **Add from the gallery** section, type SoSafe in the search box.
 1. Select SoSafe from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for SoSafe
 
@@ -71,7 +72,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the SoSafe application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -92,6 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the Set up SoSafe section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -126,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. Paste the value of Tenant ID value in **Azure Tenant ID** textbox from Azure portal.
 
-    b. Open the downloaded **Cerificate(Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox.
+    b. Open the downloaded **Certificate(Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox.
 
     c. In the **Login URL** box, paste the **Login URL** value that you copied from the Azure portal.
 
@@ -140,22 +142,24 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, a user called Britta Simon is created in SoSafe. SoSafe supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in SoSafe, a new one is created after authentication.
 
+SoSafe also supports automatic user provisioning, you can find more details [here](./sosafe-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
 #### SP initiated:
 
-1. Click on **Test this application** in Azure portal. This will redirect to SoSafe Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to SoSafe Sign on URL where you can initiate the login flow.  
 
-1. Go to SoSafe Sign-on URL directly and initiate the login flow from there.
+* Go to SoSafe Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the SoSafe for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the SoSafe for which you set up the SSO. 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the SoSafe tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SoSafe for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the SoSafe tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SoSafe for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure SoSafe you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure SoSafe you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

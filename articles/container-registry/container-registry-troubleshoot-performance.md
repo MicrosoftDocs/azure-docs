@@ -2,7 +2,9 @@
 title: Troubleshoot registry performance
 description: Symptoms, causes, and resolution of common problems with the performance of a registry
 ms.topic: article
-ms.date: 08/11/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Troubleshoot registry performance
@@ -99,7 +101,7 @@ If [collection of resource logs](monitor-service.md) is enabled in the registry,
 
 Related links:
 
-* [Logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
+* [Logs for diagnostic evaluation and auditing](./monitor-service.md)
 * [Container registry FAQ](container-registry-faq.yml)
 * [Best practices for Azure Container Registry](container-registry-best-practices.md)
 

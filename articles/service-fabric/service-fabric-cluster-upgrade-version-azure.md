@@ -2,13 +2,18 @@
 title: Manage Service Fabric cluster upgrades
 description: Manage when and how your Service Fabric cluster runtime is updated
 ms.topic: how-to
-ms.date: 03/26/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Manage Service Fabric cluster upgrades
 
 An Azure Service Fabric cluster is a resource you own, but it's partly managed by Microsoft. Here's how to manage when and how Microsoft updates your Azure Service Fabric cluster.
 
-For further background on cluster upgrade concepts and processes, see [Upgrading and updating Azure Service Fabric clusters](service-fabric-cluster-upgrade.md)
+For further background on cluster upgrade concepts and processes, see [Upgrading and updating Azure Service Fabric clusters](service-fabric-cluster-upgrade.md).
 
 ## Set upgrade mode
 
@@ -34,7 +39,7 @@ Once you have fixed the issues that resulted in the rollback, you'll need to ini
 
 ### Resource Manager template
 
-To change your cluster upgrade mode using a Resource Manager template, specify either *Automatic* or *Manual* for the  `upgradeMode` property of the *Microsoft.ServiceFabric/clusters* resource definition. If you choose manual upgrades, also set the `clusterCodeVersion` to a currently [supported fabric version](#query-for-supported-cluster-versions).
+To change your cluster upgrade mode using a Resource Manager template, specify either *Automatic* or *Manual* for the  `upgradeMode` property of the *Microsoft.ServiceFabric/clusters* resource definition. If you choose manual upgrades, also set the `clusterCodeVersion` to a currently [supported fabric version](#check-for-supported-cluster-versions).
 
 :::image type="content" source="./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG" alt-text="Screenshot shows a template, which is plaintext indented to reflect structure. The 'clusterCodeVersion' and 'upgradeMode' properties are highlighted.":::
 
@@ -120,11 +125,11 @@ You can specify the custom health policies or review the current settings under 
 
 :::image type="content" source="./media/service-fabric-cluster-upgrade/custom-upgrade-policy.png" alt-text="Select the 'Custom' upgrade policy option in the 'Fabric upgrades' section of your cluster resource in Azure portal in order to set custom health policies during upgrade":::
 
-## Query for supported cluster versions
+## Check for supported cluster versions
 
-You can use [Azure REST API](/rest/api/azure/) to list all available Service Fabric runtime versions ([clusterVersions](/rest/api/servicefabric/sfrp-api-clusterversions_list)) available for the specified location and your subscription.
+You can reference [Service Fabric versions](service-fabric-versions.md) for further details on supported versions and operating systems.
 
-You can also reference [Service Fabric versions](service-fabric-versions.md) for further details on supported versions and operating systems.
+You can also use [Azure REST API](/rest/api/azure/) to list all available Service Fabric runtime versions ([clusterVersions](/rest/api/servicefabric/sfrp-api-clusterversions_list)) available for the specified location and your subscription.
 
 ```REST
 GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2018-02-01
@@ -165,6 +170,40 @@ GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.Serv
 ```
 
 The `supportExpiryUtc` in the output reports when a given release is expiring or has expired. Latest releases will not have a valid date, but rather a value of *9999-12-31T23:59:59.9999999*, which just means that the expiry date is not yet set.
+
+
+## Check for supported upgrade path
+
+You can reference the [Service Fabric versions](service-fabric-versions.md) documentation for supported upgrade paths and related versions information. 
+
+Using a supported target version information, you can use following PowerShell steps to validate the supported upgrade path.
+
+1) Log in to Azure
+   ```PowerShell
+   Login-AzAccount
+   ```
+
+2) Select the subscription
+   ```PowerShell
+   Set-AzContext -SubscriptionId <your-subscription>
+   ```
+
+3) Invoke the API
+   ```PowerShell
+   $params = @{ "TargetVersion" = "<target version>"}
+   Invoke-AzResourceAction -ResourceId <cluster resource id> -Parameters $params -Action listUpgradableVersions -Force
+   ```
+
+   Example: 
+   ```PowerShell
+   $params = @{ "TargetVersion" = "8.1.335.9590"}
+   Invoke-AzResourceAction -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabric/clusters/myCluster -Parameters $params -Action listUpgradableVersions -Force
+
+   Output
+   supportedPath
+   -------------
+   {8.1.329.9590, 8.1.335.9590}
+   ```
 
 
 ## Next steps

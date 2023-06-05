@@ -2,16 +2,15 @@
 title: Run U-SQL jobs locally - Azure Data Lake U-SQL SDK
 description: Learn how to run and test U-SQL jobs locally using the command line and programming interfaces on your local workstation.
 ms.service: data-lake-analytics
-author: yanacai
-
-ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 03/01/2017
+ms.date: 01/20/2023
 ---
 
 # Run and test U-SQL with Azure Data Lake U-SQL SDK
 
-When developing U-SQL script, it is common to run and test U-SQL script locally before submit it to cloud. Azure Data Lake provides a Nuget package called Azure Data Lake U-SQL SDK for this scenario, through which you can easily scale U-SQL run and test. It is also possible to integrate this U-SQL test with CI (Continuous Integration) system to automate the compile and test.
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
+When developing U-SQL script, it's common to run and test U-SQL script locally before submit it to cloud. Azure Data Lake provides a NuGet package called Azure Data Lake U-SQL SDK for this scenario, through which you can easily scale U-SQL run and test. It's also possible to integrate this U-SQL test with CI (Continuous Integration) system to automate the compile and test.
 
 If you care about how to manually local run and debug U-SQL script with GUI tooling, then you can use Azure Data Lake Tools for Visual Studio for that. You can learn more from [here](data-lake-analytics-data-lake-tools-local-run.md).
 
@@ -26,13 +25,13 @@ The Data Lake U-SQL SDK requires the following dependencies:
 - [Microsoft .NET Framework 4.6 or newer](https://www.microsoft.com/download/details.aspx?id=17851).
 - Microsoft Visual C++ 14 and Windows SDK 10.0.10240.0 or newer (which is called CppSDK in this article). There are two ways to get CppSDK:
 
-  - Install [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). You'll have a \Windows Kits\10 folder under the Program Files folder--for example, C:\Program Files (x86)\Windows Kits\10\. You'll also find the Windows 10 SDK version under \Windows Kits\10\Lib. If you don’t see these folders, reinstall Visual Studio and be sure to select the Windows 10 SDK during the installation. If you have this installed with Visual Studio, the U-SQL local compiler will find it automatically.
+  - Install [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/). You'll have a \Windows Kits\10 folder under the Program Files folder--for example, C:\Program Files (x86)\Windows Kits\10\. You'll also find the Windows 10 SDK version under \Windows Kits\10\Lib. If you don’t see these folders, reinstall Visual Studio and be sure to select the Windows 10 SDK during the installation. If you've this installed with Visual Studio, the U-SQL local compiler will find it automatically.
 
     ![Data Lake Tools for Visual Studio local-run Windows 10 SDK](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
   - Install [Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs). You can find the prepackaged Visual C++ and Windows SDK files at `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
 
-    In this case, the U-SQL local compiler cannot find the dependencies automatically. You need to specify the CppSDK path for it. You can either copy the files to another location or use it as is.
+    In this case, the U-SQL local compiler can't find the dependencies automatically. You need to specify the CppSDK path for it. You can either copy the files to another location or use it as is.
 
 ## Understand basic concepts
 
@@ -74,7 +73,7 @@ When running the U-SQL script locally, a working directory is created during com
 
 ### Command-line interface of the helper application
 
-Under SDK directory\build\runtime, LocalRunHelper.exe is the command-line helper application that provides interfaces to most of the commonly used local-run functions. Note that both the command and the argument switches are case-sensitive. To invoke it:
+Under SDK directory\build\runtime, LocalRunHelper.exe is the command-line helper application that provides interfaces to most of the commonly used local-run functions. Both the command and the argument switches are case-sensitive. To invoke it:
 
 ```console
 LocalRunHelper.exe <command> <Required-Command-Arguments> [Optional-Command-Arguments]
@@ -106,7 +105,7 @@ The helper application returns **0** for success and **-1** for failure. By defa
 
 ### Environment variable configuring
 
-U-SQL local run needs a specified data root as local storage account, as well as a specified CppSDK path for dependencies. You can both set the argument in command-line or set environment variable for them.
+U-SQL local run needs a specified data root as local storage account, and a specified CppSDK path for dependencies. You can both set the argument in command-line or set environment variable for them.
 
 - Set the **SCOPE_CPP_SDK** environment variable.
 
@@ -191,7 +190,7 @@ Compile a U-SQL script:
 LocalRunHelper compile -Script d:\test\test1.usql
 ```
 
-Compile a U-SQL script and set the data-root folder. Note that this will overwrite the set environment variable.
+Compile a U-SQL script and set the data-root folder. This will overwrite the set environment variable.
 
 ```console
 LocalRunHelper compile -Script d:\test\test1.usql –DataRoot c:\DataRoot
@@ -228,16 +227,16 @@ LocalRunHelper execute -Algebra d:\test\workdir\C6A101DDCB470506\Script_66AE4909
 
 ## Use the SDK with programming interfaces
 
-The programming interfaces are all located in the LocalRunHelper.exe. You can use them to integrate the functionality of the U-SQL SDK and the C# test framework to scale your U-SQL script local test. In this article, I will use the standard C# unit test project to show how to use these interfaces to test your U-SQL script.
+The programming interfaces are all located in the LocalRunHelper.exe. You can use them to integrate the functionality of the U-SQL SDK and the C# test framework to scale your U-SQL script local test. In this article, I'll use the standard C# unit test project to show how to use these interfaces to test your U-SQL script.
 
 ### Step 1: Create C# unit test project and configuration
 
 - Create a C# unit test project through File > New > Project > Visual C# > Test > Unit Test Project.
-- Add LocalRunHelper.exe as a reference for the project. The LocalRunHelper.exe is located at \build\runtime\LocalRunHelper.exe in Nuget package.
+- Add LocalRunHelper.exe as a reference for the project. The LocalRunHelper.exe is located at \build\runtime\LocalRunHelper.exe in NuGet package.
 
    ![Azure Data Lake U-SQL SDK Add Reference](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-add-reference.png)
 
-- U-SQL SDK **only** support x64 environment, make sure to set build platform target as x64. You can set that through Project Property > Build > Platform target.
+- U-SQL SDK **only** supports x64 environment, make sure to set build platform target as x64. You can set that through Project Property > Build > Platform target.
 
    ![Azure Data Lake U-SQL SDK Configure x64 Project](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-configure-x64.png)
 
@@ -245,7 +244,7 @@ The programming interfaces are all located in the LocalRunHelper.exe. You can us
 
    ![Azure Data Lake U-SQL SDK Configure x64 Test Environment](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-configure-test-x64.png)
 
-- Make sure to copy all dependency files under NugetPackage\build\runtime\ to project working directory which is usually under ProjectFolder\bin\x64\Debug.
+- Make sure to copy all dependency files under NugetPackage\build\runtime\ to project working directory, which is usually under ProjectFolder\bin\x64\Debug.
 
 ### Step 2: Create U-SQL script test case
 
@@ -335,7 +334,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |Property|Type|Description|
 |--------|----|-----------|
 |AlgebraPath|string|The path to algebra file (algebra file is one of the compilation results)|
-|CodeBehindReferences|string|If the script has additional code behind references, specify the paths separated with ';'|
+|CodeBehindReferences|string|If the script has other code behind references, specify the paths separated with ';'|
 |CppSdkDir|string|CppSDK directory|
 |CurrentDir|string|Current directory|
 |DataRoot|string|Data root path|
@@ -370,7 +369,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 E_CSC_SYSTEM_INTERNAL: Internal error! Could not load file or assembly 'ScopeEngineManaged.dll' or one of its dependencies. The specified module could not be found.
 
-Please check the following:
+Check the following:
 
 - Make sure you have x64 environment. The build target platform and the test environment should be x64, refer to **Step 1: Create C# unit test project and configuration** above.
 - Make sure you have copied all dependency files under NugetPackage\build\runtime\ to project working directory.

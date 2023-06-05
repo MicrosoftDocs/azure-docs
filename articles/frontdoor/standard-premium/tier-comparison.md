@@ -1,65 +1,51 @@
 ---
-title: Azure Front Door Standard/Premium SKU comparison
-description: This article provides an overview of Azure Front Door Standard and Premium SKU and feature differences between them.
+title: Azure Front Door tier comparison
+description: This article provides a comparison between the different Azure Front Door tiers and their features.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
-ms.author: amsriva
+ms.date: 04/04/2023
+ms.author: duau
 ---
 
-# Overview of Azure Front Door Standard/Premium SKU (Preview)
+# Azure Front Door tier comparison
 
-> [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
+Azure Front Door offers two different tiers, Standard and Premium. Both Azure Front Door tier combines capabilities of Azure Front Door (classic), Azure CDN Standard from Microsoft (classic), and Azure WAF into a single secure cloud CDN platform with intelligent threat protection.
 
-Azure Front Door is offered for 3 different SKUs, [Azure Front Door](../front-door-overview.md), Azure Front Door Standard (Preview), and Azure Front Door Premium (Preview). Azure Front Door Standard/Premium SKUs combines capabilities of Azure Front Door, Azure CDN Standard from Microsoft, Azure WAF into a single secure cloud CDN platform with intelligent threat protection.
+:::image type="content" source="../media/tier-comparison/architecture.png" alt-text="Diagram of Azure Front Door architecture.":::
 
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [!NOTE]
+> To switch between tiers, you will need to recreate the Azure Front Door profile. Currently in Public Preview, you can use the [**migration capability**](../migrate-tier.md) to move your existing Azure Front Door profile to the new tier. For more information about upgrading from Standard to Premium, see [**upgrade capability**](../tier-upgrade.md).
+> 
 
-* **Azure Front Door Standard SKU** is:
+## Feature comparison between tiers
 
-    * Content delivery optimized
-    * Offering both static and dynamic content acceleration
-    * Global load balancing
-    * SSL offload
-    * Domain and certificate management
-    * Enhanced traffic analytics 
-    * Basic security capabilities
-
-* **Azure Front Door Premium SKU** builds on capabilities of Standard SKU, and adds:
-
-    * Extensive security capabilities across WAF
-    * BOT protection
-    * Private Link support
-    * Integration with Microsoft Threat Intelligence and security analytics. 
-
-![Diagram showing a comparison between Front Door SKUs.](../media/tier-comparison/tier-comparison.png)
-
-## Feature comparison
-
-| Feature |      Standard      |  Premium |
-|----------|:-------------:|------:|
-| Custom domains | Yes | Yes |
-| SSL Offload | Yes | Yes |
-| Caching |  Yes  | Yes |
-| Compression | Yes | Yes   |
-| Global load balancing | Yes  | Yes |
-| Layer 7 routing | Yes | Yes |
-| URL rewrite | Yes | Yes |
-| Rules Engine | Yes | Yes |
-| Private Origin (Private Link) | No | Yes |
-| WAF | Custom Rules only | Yes |
-| Bot Protection | No | Yes |
-| Enhanced Metrics and diagnostics | Yes | Yes |
-| Traffic report | Yes | Yes |
-| Security Report | No | Yes | 
+| Features and optimization | Standard | Premium | Classic |
+|--|--|--|--|
+| Static file delivery | Yes | Yes | Yes |
+| Dynamic site delivery | Yes | Yes | Yes |
+| Custom domains | Yes - DNS TXT record based domain validation | Yes - DNS TXT record based domain validation | Yes - CNAME based validation |
+| Cache manage (purge, rules, and compression) | Yes | Yes | Yes |
+| Origin load balancing | Yes | Yes | Yes |
+| Path based routing | Yes | Yes | Yes |
+| Rules engine | Yes | Yes | Yes |
+| Server variable | Yes | Yes | No |
+| Regular expression in rules engine | Yes | Yes | No |
+| Expanded metrics | Yes | Yes | No |
+| Advanced analytics/built-in reports | Yes | Yes - includes WAF report | No |
+| Raw logs - access logs and WAF logs | Yes | Yes | Yes |
+| Health probe log | Yes | Yes | No |
+| Custom Web Application Firewall (WAF) rules | Yes | Yes | Yes |
+| Microsoft managed rule set | No | Yes | Yes - Only default rule set 1.1 or below |
+| Bot protection | No | Yes | Yes - Only bot manager rule set 1.0  |
+| Private link connection to origin | No | Yes | No |
+| Simplified price (base + usage) | Yes | Yes | No |
+| Azure Policy integration | Yes | Yes | No |
+| Azure Advisory integration | Yes | Yes | No | 
 
 ## Next steps
 
-Learn how to [create a Front Door](create-front-door-portal.md)
+* Learn how to [create an Azure Front Door](create-front-door-portal.md)
+* Learn how about the [Azure Front Door architecture](../front-door-routing-architecture.md)

@@ -1,13 +1,12 @@
 ---
-title: Use the Azure PowerShell to configure file upload | Microsoft Docs
-description: How to use the Azure PowerShell cmdlets to configure your IoT hub to enable file uploads from connected devices. Includes information about configuring the destination Azure storage account.
-author: robinsh
-manager: philmea
+title: Use Azure PowerShell to configure file upload
+description: How to use Azure PowerShell cmdlets to configure your IoT hub to enable file uploads from connected devices. Includes information about configuring the destination Azure storage account.
+author: kgremban
+
+ms.author: kgremban 
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/20/2021
-ms.author: robinsh 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -29,13 +28,13 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
 * An Azure storage account. If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets](/powershell/module/az.storage/) to create one or use the portal to [Create a storage account](../storage/common/storage-account-create.md)
 
-* Use the PowerShell environment in [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell).
+* Use the PowerShell environment in [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md).
 
    [![Launch Cloud Shell in a new window](./media/iot-hub-configure-file-upload-powershell/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
 * If you prefer, [install](/powershell/scripting/install/installing-powershell) PowerShell locally.
 
-  * [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps). (The module is installed by default in the Azure Cloud Shell PowerShell environment.) 
+  * [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell). (The module is installed by default in the Azure Cloud Shell PowerShell environment.) 
   * Sign in to PowerShell by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command.  To finish the authentication process, follow the steps displayed in your terminal.  For additional sign-in options, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 
@@ -63,7 +62,7 @@ Sign in to your Azure account and select your subscription. If you're using Azur
     ```
 
     > [!NOTE]
-    > The **Select-AzSubscription** command is an alias of the [Select-AzContext](/powershell/module/az.accounts/select-azcontex) that allows you to use the subscription name (**Name**) or subscription ID (**Id**) returned by the **Get-AzSubscription** command rather than the more complex context name required for the **Select-AzContext** command.
+    > The **Select-AzSubscription** command is an alias of the [Select-AzContext](/powershell/module/az.accounts/select-azcontext) that allows you to use the subscription name (**Name**) or subscription ID (**Id**) returned by the **Get-AzSubscription** command rather than the more complex context name required for the **Select-AzContext** command.
 
 ## Retrieve your storage account details
 
@@ -139,4 +138,4 @@ Set-AzIotHub `
 
 * [Upload files from a device overview](iot-hub-devguide-file-upload.md)
 * [IoT Hub support for managed identities](./iot-hub-managed-identity.md)
-* [File upload how-to guides](./iot-hub-csharp-csharp-file-upload.md)
+* [File upload how-to guides](./file-upload-dotnet.md)

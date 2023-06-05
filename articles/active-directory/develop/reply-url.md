@@ -1,31 +1,41 @@
 ---
-title: Redirect URI (reply URL) restrictions | Azure AD
-titleSuffix: Microsoft identity platform
+title: Redirect URI (reply URL) restrictions
 description: A description of the restrictions and limitations on redirect URI (reply URL) format enforced by the Microsoft identity platform.
-author: SureshJa
-ms.author: sureshja
+author: henrymbuguakiarie
 manager: CelesteDG
-ms.date: 06/23/2021
-ms.topic: conceptual
-ms.subservice: develop
-ms.custom: contperf-fy21q4-portal, aaddev
+ms.author: henrymbugua
+ms.date: 08/25/2022
+ms.reviewer: madansr7
 ms.service: active-directory
-ms.reviewer: marsma, lenalepa, manrath
+ms.subservice: develop
+ms.topic: reference
 ---
 
 # Redirect URI (reply URL) restrictions and limitations
 
 A redirect URI, or reply URL, is the location where the authorization server sends the user once the app has been successfully authorized and granted an authorization code or access token. The authorization server sends the code or token to the redirect URI, so it's important you register the correct location as part of the app registration process.
 
- The following restrictions apply to redirect URIs:
+The Azure Active Directory (Azure AD) application model specifies these restrictions to redirect URIs:
 
-* The redirect URI must begin with the scheme `https`. There are some [exceptions for localhost](#localhost-exceptions) redirect URIs.
+* Redirect URIs must begin with the scheme `https`. There are some [exceptions for localhost](#localhost-exceptions) redirect URIs.
 
-* The redirect URI is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the redirect URI. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+* Redirect URIs are case-sensitive and must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the redirect URI. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
 
-* A Redirect Uri without a path segment appends a trailing slash to the URI in the response. For e.g. URIs such as https://contoso.com and http://localhost:7071 will return as https://contoso.com/ and http://localhost:7071/ respectively. This is applicable only when the response mode is either query or fragment.
+* Redirect URIs *not* configured with a path segment are returned with a trailing slash ('`/`') in the response. This applies only when the response mode is `query` or `fragment`.
 
-* Redirect Uris containing path segment do not append a trailing slash. (Eg. https://contoso.com/abc, https://contoso.com/abc/response-oidc will be used as it is in the response)
+    Examples:
+
+    * `https://contoso.com` is returned as `https://contoso.com/`
+    * `http://localhost:7071` is returned as `http://localhost:7071/`
+
+* Redirect URIs that contain a path segment are *not* appended with a trailing slash in the response.
+
+    Examples:
+
+    * `https://contoso.com/abc` is returned as `https://contoso.com/abc`
+    * `https://contoso.com/abc/response-oidc` is returned as `https://contoso.com/abc/response-oidc`
+
+* Redirect URIs do not support special characters - `! $ ' ( ) , ;`
 
 ## Maximum number of redirect URIs
 
@@ -36,17 +46,46 @@ This table shows the maximum number of redirect URIs you can add to an app regis
 | Microsoft work or school accounts in any organization's Azure Active Directory (Azure AD) tenant | 256 | `signInAudience` field in the application manifest is set to either *AzureADMyOrg* or *AzureADMultipleOrgs* |
 | Personal Microsoft accounts and work and school accounts | 100 | `signInAudience` field in the application manifest is set to *AzureADandPersonalMicrosoftAccount* |
 
+The maximum number of redirect URIS can't be raised for [security reasons](#restrictions-on-wildcards-in-redirect-uris). If your scenario requires more redirect URIs than the maximum limit allowed, consider the following [state parameter approach](#use-a-state-parameter) as the solution.
+
 ## Maximum URI length
 
 You can use a maximum of 256 characters for each redirect URI you add to an app registration.
 
+## Redirect URIs in application vs. service principal objects
+
+* Always add redirect URIs to the application object only.
+* Do not add redirect URI values to a service principal because these values could be removed when the service principal object syncs with the application object. This could happen due to any update operation which triggers a sync between the two objects.
+
+## Query parameter support in redirect URIs
+
+Query parameters are **allowed** in redirect URIs for applications that *only* sign in users with work or school accounts.
+
+Query parameters are **not allowed** in redirect URIs for any app registration configured to sign in users with personal Microsoft accounts like Outlook.com (Hotmail), Messenger, OneDrive, MSN, Xbox Live, or Microsoft 365.
+
+| App registration sign-in audience                                                                                                  | Supports query parameters in redirect URI                            |
+|------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| Accounts in this organizational directory only (Contoso only - Single tenant)                                                      | :::image type="icon" source="media/common/yes.png" border="false"::: |
+| Accounts in any organizational directory (Any Azure AD directory - Multitenant)                                                    | :::image type="icon" source="media/common/yes.png" border="false"::: |
+| Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox) | :::image type="icon" source="media/common/no.png" border="false":::  |
+| Personal Microsoft accounts only                                                                                                   | :::image type="icon" source="media/common/no.png" border="false":::  |
+
 ## Supported schemes
 
-The Azure Active Directory (Azure AD) application model currently supports both HTTP and HTTPS schemes for apps that sign in work or school accounts in any organization's Azure AD tenant. These account types are specified by the `AzureADMyOrg` and `AzureADMultipleOrgs` values in the `signInAudience` field of the application manifest. For apps that sign in personal Microsoft accounts (MSA) *and* work and school accounts (that is, the `signInAudience` is set to `AzureADandPersonalMicrosoftAccount`), only the HTTPS scheme is allowed.
+**HTTPS**: The HTTPS scheme (`https://`) is supported for all HTTP-based redirect URIs.
 
-To add redirect URIs with an HTTP scheme to app registrations that sign in work or school accounts, use the application manifest editor in [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) in the Azure portal. However, though it's possible to set an HTTP-based redirect URI by using the manifest editor, we *strongly* recommend that you use the HTTPS scheme for your redirect URIs.
+**HTTP**: The HTTP scheme (`http://`) is supported *only* for *localhost* URIs and should be used only during active local application development and testing.
 
-## Localhost exceptions
+| Example redirect URI                    | Validity |
+|-----------------------------------------|----------|
+| `https://contoso.com`                   | Valid    |
+| `https://contoso.com/abc/response-oidc` | Valid    |
+| `https://localhost`                     | Valid    |
+| `http://contoso.com/abc/response-oidc`  | Invalid  |
+| `http://localhost`                      | Valid    |
+| `http://localhost/abc`                  | Valid    |
+
+### Localhost exceptions
 
 Per [RFC 8252 sections 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) and [7.3](https://tools.ietf.org/html/rfc8252#section-7.3), "loopback" or "localhost" redirect URIs come with two special considerations:
 
@@ -79,7 +118,7 @@ To add a redirect URI that uses the `http` scheme with the `127.0.0.1` loopback 
 
 ## Restrictions on wildcards in redirect URIs
 
-Wildcard URIs like `https://*.contoso.com` may seem convenient, but should be avoided due to security implications. According to the OAuth 2.0 specification ([section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), a redirection endpoint URI must be an absolute URI.
+Wildcard URIs like `https://*.contoso.com` may seem convenient, but should be avoided due to security implications. According to the OAuth 2.0 specification ([section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), a redirection endpoint URI must be an absolute URI. As such, when a configured wildcard URI matches a redirect URI, query strings and fragments in the redirect URI are stripped.
 
 Wildcard URIs are currently unsupported in app registrations configured to sign in personal Microsoft accounts and work or school accounts. Wildcard URIs are allowed, however, for apps that are configured to sign in only work or school accounts in an organization's Azure AD tenant.
 
@@ -94,7 +133,7 @@ If you have several subdomains and your scenario requires that, upon successful 
 In this approach:
 
 1. Create a "shared" redirect URI per application to process the security tokens you receive from the authorization endpoint.
-1. Your application can send application-specific parameters (such as subdomain URL where the user originated or anything like branding information) in the state parameter. When using a state parameter, guard against CSRF protection as specified in [section 10.12 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-10.12)).
+1. Your application can send application-specific parameters (such as subdomain URL where the user originated or anything like branding information) in the state parameter. When using a state parameter, guard against CSRF protection as specified in [section 10.12 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-10.12).
 1. The application-specific parameters will include all the information needed for the application to render the correct experience for the user, that is, construct the appropriate application state. The Azure AD authorization endpoint strips HTML from the state parameter so make sure you are not passing HTML content in this parameter.
 1. When Azure AD sends a response to the "shared" redirect URI, it will send the state parameter back to the application.
 1. The application can then use the value in the state parameter to determine which URL to further send the user to. Make sure you validate for CSRF protection.

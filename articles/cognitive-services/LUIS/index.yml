@@ -1,13 +1,14 @@
 ### YamlMime:Landing
 
 title: Language Understanding (LUIS) documentation
-summary: Learn how Language Understanding enables your applications to understand what a person wants in their own words.
+summary: Learn how Language Understanding enables your applications to understand what a person wants in their own words. 
 
 metadata:
   ms.topic: landing-page
-  ms.date: 04/16/2021
-  ms.author: nitinme
-  author: nitinme
+  ms.date: 07/19/2022
+  ms.author: aahi
+  ms.manager: nitinme
+  author: aahill
   ms.service: cognitive-services
   ms.subservice: language-understanding
   services: cognitive-services
@@ -50,11 +51,11 @@ landingContent:
           - text: Intents
             url: luis-concept-intent.md
           - text: Entities
-            url: luis-concept-entity-types.md
+            url: concepts/entities.md
           - text: Utterances
-            url: luis-concept-utterance.md
+            url: concepts/utterances.md
           - text: Phrase list features
-            url: luis-concept-feature.md
+            url: concepts/patterns-features.md
       - linkListType: quickstart
         links:
           - text: "Portal: Create a new LUIS app"
@@ -71,7 +72,7 @@ landingContent:
           - text: Add intent with example utterances
             url: luis-how-to-add-intents.md
           - text: Add entities
-            url: ./luis-how-to-add-entities.md
+            url: how-to/entities.md
           - text: Add phrase list feature
             url: luis-how-to-add-features.md
 

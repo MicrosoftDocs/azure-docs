@@ -1,158 +1,74 @@
 ---
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
-ms.topic: conceptual
-ms.date: 07/16/2021
+ms.topic: overview
+ms.date: 05/08/2023
+ms.custom: references_regions
 ---
 
 # What's new with Azure Arc-enabled servers agent
 
-The Azure Arc-enabled servers Connected Machine agent receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
+The Azure Connected Machine agent receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
 - Known issues
 - Bug fixes
 
-## July 2021
+This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
 
-Version 1.8
+## Version 1.30 - May 2023
 
-### New features
-
-- Improved reliability when installing the Azure Monitor Agent extension on Red Hat and CentOS systems
-- Added agent-side enforcement of max resource name length (54 characters)
-- Guest Configuration policy improvements:
-  - Added support for PowerShell-based Guest Configuration policies on Linux operating systems
-  - Added support for multiple assignments of the same Guest Configuration policy on the same server
-  - Upgraded PowerShell Core to version 7.1 on Windows operating systems
+Download for [Windows](https://download.microsoft.com/download/7/7/9/779eae73-a12b-4170-8c5e-abec71bc14cf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
-- The agent will continue running if it is unable to write service start/stop events to the Windows application event log
+- Resolved an issue that could cause the agent to go offline after rotating its connectivity keys.
+- `azcmagent show` no longer shows an incomplete resource ID or Azure portal page URL when the agent isn't configured.
 
-## June 2021
+## Version 1.29 - April 2023
 
-Version 1.7
-
-### New features
-
-- Improved reliability during onboarding:
-  - Improved retry logic when HIMDS is unavailable
-  - Onboarding will now continue instead of aborting if OS information cannot be obtained
-- Improved reliability when installing the OMS agent extension on Red Hat and CentOS systems
-
-## May 2021
-
-Version 1.6
+Download for [Windows](https://download.microsoft.com/download/2/7/0/27063536-949a-4b16-a29a-3d1dcb29cff7/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
-- Added support for SUSE Enterprise Linux 12
-- Updated Guest Configuration agent to version 1.26.12.0 to include:
-
-   - Policies are executed in a separate process.
-   - Added V2 signature support for extension validation.
-   - Minor update to data logging.
-
-## April 2021
-
-Version 1.5
-
-### New features
-
-- Added support for Red Hat Enterprise Linux 8 and CentOS Linux 8.
-- New `-useStderr` parameter to direct error and verbose output to stderr.
-- New `-json` parameter to direct output results in JSON format (when used with -useStderr).
-- Collect other instance metadata - Manufacturer, model, and cluster resource ID (for Azure Stack HCI nodes).
- 
-## March 2021
-
-Version 1.4
-
-### New features
-
-- Added support for private endpoints, which is currently in limited preview.
-- Expanded list of exit codes for azcmagent.
-- Agent configuration parameters can now be read from a file with the `--config` parameter.
-- Collect new instance metadata to determine if Microsoft SQL Server is installed on the server
+- The agent now compares the time on the local system and Azure service when checking network connectivity and creating the resource in Azure. If the clocks are offset by more than 120 seconds (2 minutes), a non-blocking error will be printed to the console. You may encounter TLS connection errors if the time of your computer does not match the time in Azure.
+- `azcmagent show` now supports an `--os` flag to print additional OS information to the console
 
 ### Fixed
 
-Network endpoint checks are now faster.
+- Fixed an issue that could cause the guest configuration service (gc_service) to repeatedly crash and restart on Linux systems
+- Resolved a rare condition under which the guest configuration service (gc_service) could consume excessive CPU resources
+- Removed "sudo" calls in internal install script that could be blocked if SELinux is enabled
+- Reduced how long network checks wait before determining a network endpoint is unreachable
+- Stopped writing error messages in "himds.log" referring to a missing certificate key file for the ATS agent, an inactive component reserved for future use.
 
-## December 2020
+## Version 1.28 - March 2023
 
-Version: 1.3
-
-### New features
-
-Added support for Windows Server 2008 R2 SP1.
-
-### Fixed
-
-Resolved issue preventing the Custom Script Extension on Linux from installing successfully.
-
-## November 2020
-
-Version: 1.2
+Download for [Windows](https://download.microsoft.com/download/5/9/7/59789af8-5833-4c91-8dc5-91c46ad4b54f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
-Resolved issue where proxy configuration could be lost after upgrade on RPM-based distributions.
+- Improved reliability of delete requests for extensions
+- More frequent reporting of VM UUID (system firmware identifier) changes
+- Improved reliability when writing changes to agent configuration files
+- JSON output for `azcmagent connect` now includes Azure portal URL for the server
+- Linux installation script now installs the `gnupg` package if it's missing on Debian operating systems
+- Removed weekly restarts for the extension and guest configuration services
 
-## October 2020
+## Version 1.27 - February 2023
 
-Version: 1.1
-
-### Fixed
-
-- Fixed proxy script to handle alternate GC daemon unit file location.
-- GuestConfig agent reliability changes.
-- GuestConfig agent support for US Gov Virginia region.
-- GuestConfig agent extension report messages to be more verbose if there is a failure.
-
-## September 2020
-
-Version: 1.0 (General Availability)
-
-### Plan for change
-
-- Support for preview agents (all versions older than 1.0) will be removed in a future service update.
-- Removed support for fallback endpoint `.azure-automation.net`. If you have a proxy, you need to allow the endpoint `*.his.arc.azure.com`.
-- If the Connected Machine agent is installed on a virtual machine hosted in Azure, VM extensions can't be installed or modified from the Arc-enabled servers resource. This is to avoid conflicting extension operations being performed from the virtual machine's **Microsoft.Compute** and **Microsoft.HybridCompute** resource. Use the **Microsoft.Compute** resource for the machine for all extension operations.
-- Name of Guest Configuration process has changed, from *gcd* to *gcad* on Linux, and *gcservice* to *gcarcservice* on Windows.
-
-### New features
-
-- Added `azcmagent logs` option to collect information for support.
-- Added `azcmagent license` option to display EULA.
-- Added `azcmagent show --json` option to output agent state in easily parseable format.
-- Added flag in `azcmagent show` output to indicate if server is on a virtual machine hosted in Azure.
-- Added `azcmagent disconnect --force-local-only` option to allow reset of local agent state when Azure service cannot be reached.
-- Added `azcmagent connect --cloud` option to support other clouds. In this release, only Azure is supported by service at time of agent release.
-- Agent has been localized into Azure-supported languages.
+Download for [Windows](https://download.microsoft.com/download/8/4/5/845d5e04-bb09-4ed2-9ca8-bb51184cddc9/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
-- Improvements to connectivity check.
-- Corrected issue with proxy server settings being lost when upgrading agent on Linux.
-- Resolved issues when attempting to install agent on server running Windows Server 2012 R2.
-- Improvements to extension installation reliability
-
-## August 2020
-
-Version: 0.11
-
-- This release previously announced support for Ubuntu 20.04. Because some Azure VM extensions don't support Ubuntu 20.04, support for this version of Ubuntu is being removed.
-
-- Reliability improvements for extension deployments.
-
-### Known issues
-
-If you are using an older version of the Linux agent and it's configured to use a proxy server, you need to reconfigure the proxy server setting after the upgrade. To do this, run `sudo azcmagent_proxy add http://proxyserver.local:83`.
+- The extension service now correctly restarts when the Azure Connected Machine agent is upgraded by Update Management Center
+- Resolved issues with the hybrid connectivity component that could result in the "himds" service crashing, the server showing as "disconnected" in Azure, and connectivity issues with Windows Admin Center and SSH
+- Improved handling of resource move scenarios that could impact Windows Admin Center and SSH connectivity
+- Improved reliability when changing the [agent configuration mode](security-overview.md#local-agent-security-controls) from "monitor" mode to "full" mode.
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Sentinel DNS extension to improve log collection reliability
+- Tenant IDs are better validated when connecting the server
 
 ## Next steps
 
-- Before evaluating or enabling Arc-enabled servers across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
-
+- Before evaluating or enabling Azure Arc-enabled servers across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
 - Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.

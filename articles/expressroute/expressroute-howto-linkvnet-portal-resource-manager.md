@@ -3,30 +3,28 @@ title: 'Tutorial: Link a VNet to an ExpressRoute circuit - Azure portal'
 description: This tutorial shows you how to create a connection to link a virtual network to an Azure ExpressRoute circuit using the Azure portal. 
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 07/18/2022
 ms.author: duau
-ms.custom: seodec18
-
+ms.custom: seodec18, template-tutorial
 ---
-# Tutorial: Connect a virtual network to an ExpressRoute circuit using the portal
+# Tutorial: Connect a virtual network to an ExpressRoute circuit using the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [Azure CLI](howto-linkvnet-cli.md)
-> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Azure CLI](expressroute-howto-linkvnet-cli.md)
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
 
-This tutorial helps you create a connection to link a virtual network to an Azure ExpressRoute circuit using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or be part of another subscription.
+This tutorial helps you create a connection to link a virtual network (VNet) to an Azure ExpressRoute circuit using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or part of another subscription.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> - Connect a virtual networking to a circuit in the same subscription.
-> - Connect a virtual networking to a circuit in a different subscription.
+> - Connect a virtual network to a circuit in the same subscription.
+> - Connect a virtual network to a circuit in a different subscription.
+> - Configure ExpressRoute FastPath.
 > - Delete the link between the virtual network and ExpressRoute circuit.
 
 ## Prerequisites
@@ -47,7 +45,7 @@ In this tutorial, you learn how to:
 
 * In order to create the connection from the ExpressRoute circuit to the target ExpressRoute virtual network gateway, the number of address spaces advertised from the local or peered virtual networks needs to be equal to or less than **200**. Once the connection has been successfully created, you can add additional address spaces, up to 1,000, to the local or peered virtual networks.
 
-* You can [view a video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) before beginning to better understand the steps.
+* Review guidance for [connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
 
 ## Connect a VNet to a circuit - same subscription
 
@@ -83,6 +81,9 @@ You can share an ExpressRoute circuit across multiple subscriptions. The followi
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/cross-subscription.png" alt-text="Cross-subscription connectivity":::
 
+> [!NOTE]
+> Connecting virtual networks between Azure sovereign clouds and Public Azure cloud is not supported. You can only link virtual networks from different subscriptions in the same cloud.
+
 Each of the smaller clouds within the large cloud is used to represent subscriptions that belong to different departments within an organization. Each of the departments within the organization uses their own subscription for deploying their services--but they can share a single ExpressRoute circuit to connect back to your on-premises network. A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization may use the ExpressRoute circuit.
 
   > [!NOTE]
@@ -94,6 +95,15 @@ Each of the smaller clouds within the large cloud is used to represent subscript
 The 'circuit owner' is an authorized Power User of the ExpressRoute circuit resource. The circuit owner can create authorizations that can be redeemed by 'circuit users'. Circuit users are owners of virtual network gateways that aren't within the same subscription as the ExpressRoute circuit. Circuit users can redeem authorizations (one authorization per virtual network).
 
 The circuit owner has the power to modify and revoke authorizations at any time. Revoking an authorization results in all link connections being deleted from the subscription whose access was revoked.
+
+  > [!NOTE]
+  > Circuit owner is not an built-in RBAC role or defined on the ExpressRoute resource.
+  > The definition of the circuit owner is any role with the following access:
+  > - Microsoft.Network/expressRouteCircuits/authorizations/write
+  > - Microsoft.Network/expressRouteCircuits/authorizations/read
+  > - Microsoft.Network/expressRouteCircuits/authorizations/delete
+  >
+  > This includes the built-in roles such as Contributor, Owner and Network Contributor. Detailed description for the different [built-in roles](../role-based-access-control/built-in-roles.md).
 
 ### Circuit owner operations
 
@@ -120,6 +130,9 @@ You can delete a connection by selecting the **Delete** icon for the authorizati
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-authorization-key.png" alt-text="Delete authorization key":::
 
 If you want to delete the connection but retain the authorization key, you can delete the connection from the connection page of the circuit.
+> [!NOTE]
+  > Connections redeemed in different subscriptions will not display in the circuit connection page. Navigate to the subscription where the authorization was redeemed and delete the top-level connection resource.
+  >
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection-owning-circuit.png" alt-text="Delete connection owning circuit":::
 
@@ -151,6 +164,41 @@ The circuit user needs the resource ID and an authorization key from the circuit
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-summary.png" alt-text="Summary page":::
 
+## Configure ExpressRoute FastPath
+
+You can enable [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) if your virtual network gateway is Ultra Performance or ErGw3AZ. FastPath improves data path performance such as packets per second and connections per second between your on-premises network and your virtual network.
+
+**Configure FastPath on a new connection**
+
+When adding a new connection for your ExpressRoute gateway, select the checkbox for **FastPath**.
+
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/enable-fastpath-portal.png" alt-text="Screenshot of FastPath checkbox in add a connection page.":::
+
+> [!NOTE]
+> Enabling FastPath for a new connection is only available through creating a connection from the gateway resource. New connections created from the ExpressRoute circuit or from the Connection resource page is not supported.
+>
+**Configure FastPath on an existing connection**
+
+1. Go to the existing connection resource either from the ExpressRoute gateway, the ExpressRoute circuit, or the Connection resource page.
+
+1.  Select **Configuration** under *Settings* and then select the **FastPath** checkbox. Select **Save** to enable the feature.
+
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/enable-fastpath-connection.png" alt-text="Screenshot of FastPath checkbox on connection configuration page.":::
+
+> [!NOTE]
+> You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
+>
+
+## Enroll in ExpressRoute FastPath features (preview)
+
+FastPath support for virtual network peering is now in Public preview. Enrollment is only available through Azure PowerShell. See [FastPath preview features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview), for instructions on how to enroll.
+
+> [!NOTE] 
+> Any connections configured for FastPath in the target subscription will be enrolled in this preview. We do not advise enabling this preview in production subscriptions.
+> If you already have FastPath configured and want to enroll in the preview feature, you need to do the following:
+> 1. Enroll in the FastPath preview feature with the Azure PowerShell command above.
+> 1. Disable and then re-enable FastPath on the target connection.
+
 ## Clean up resources
 
 You can delete a connection and unlink your VNet to an ExpressRoute circuit by selecting the **Delete** icon on the page for your connection.
@@ -159,7 +207,9 @@ You can delete a connection and unlink your VNet to an ExpressRoute circuit by s
 
 ## Next steps
 
-In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and a different subscription. For more information about the ExpressRoute gateway, see: 
+In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about ExpressRoute gateways, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
+
+To learn how to configure route filters for Microsoft peering using the Azure portal, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [About ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md)
+> [Configure route filters for Microsoft peering](how-to-routefilter-portal.md)

@@ -1,18 +1,17 @@
 ---
 title: 'Tutorial: Anomaly detection with Cognitive Services'
 description: Learn how to use Cognitive Services for anomaly detection in Azure Synapse Analytics.
-services: synapse-analytics
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: jrasnick, garye
-
+ms.reviewer: sngun, garye
 ms.date: 07/01/2021
 author: nelgson
 ms.author: negust
+ms.custom: ignite-fall-2021
 ---
 
-# Tutorial: Anomaly detection with Cognitive Services (preview)
+# Tutorial: Anomaly detection with Cognitive Services
 
 In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure Cognitive Services](../../cognitive-services/index.yml). You'll use [Anomaly Detector](../../cognitive-services/anomaly-detector/index.yml) to find anomalies. A user in Azure Synapse can simply select a table to enrich for detection of anomalies.
 
@@ -38,17 +37,33 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 You need a Spark table for this tutorial.
 
-1. Download the following notebook file that contains code to generate a Spark table: [prepare_anomaly_detector_data.ipynb](https://go.microsoft.com/fwlink/?linkid=2149577).
+Create a PySpark notebook and run following code.
 
-1. Upload the file to your Azure Synapse workspace.
+```python
+from pyspark.sql.functions import lit
 
-   ![Screenshot that shows selections for uploading a notebook.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00a.png)
+df = spark.createDataFrame([
+    ("1972-01-01T00:00:00Z", 826.0),
+    ("1972-02-01T00:00:00Z", 799.0),
+    ("1972-03-01T00:00:00Z", 890.0),
+    ("1972-04-01T00:00:00Z", 900.0),
+    ("1972-05-01T00:00:00Z", 766.0),
+    ("1972-06-01T00:00:00Z", 805.0),
+    ("1972-07-01T00:00:00Z", 821.0),
+    ("1972-08-01T00:00:00Z", 20000.0),
+    ("1972-09-01T00:00:00Z", 883.0),
+    ("1972-10-01T00:00:00Z", 898.0),
+    ("1972-11-01T00:00:00Z", 957.0),
+    ("1972-12-01T00:00:00Z", 924.0),
+    ("1973-01-01T00:00:00Z", 881.0),
+    ("1973-02-01T00:00:00Z", 837.0),
+    ("1973-03-01T00:00:00Z", 9000.0)
+], ["timestamp", "value"]).withColumn("group", lit("series1"))
 
-1. Open the notebook file and select **Run All** to run all cells.
+df.write.mode("overwrite").saveAsTable("anomaly_detector_testing_data")
 
-   ![Screenshot that shows selections for creating a Spark table.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00b.png)
-
-1. A Spark table named **anomaly_detector_testing_data** should now appear in the default Spark database.
+```
+A Spark table named **anomaly_detector_testing_data** should now appear in the default Spark database.
 
 ## Open the Cognitive Services wizard
 
@@ -60,43 +75,37 @@ You need a Spark table for this tutorial.
 
    ![Screenshot that shows selection of Anomaly Detector as a model.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00c.png)
 
-## Provide authentication details
-
-To authenticate to Cognitive Services, you need to reference the secret in your key vault. The following inputs depend on the [prerequisite steps](tutorial-configure-cognitive-services-synapse.md) that you should have completed before this point.
-
-- **Azure subscription**: Select the Azure subscription that your key vault belongs to.
-- **Cognitive Services account**: Enter the Text Analytics resource that you'll connect to.
-- **Azure Key Vault linked service**: As part of the prerequisite steps, you created a linked service to your Text Analytics resource. Select it here.
-- **Secret name**: Enter the name of the secret in your key vault that contains the key to authenticate to your Cognitive Services resource.
-
-![Screenshot that shows authentication details for a key vault.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00d.png)
-
 ## Configure Anomaly Detector
 
 Provide the following details to configure Anomaly Detector:
+
+- **Azure Cognitive Services linked service**: As part of the prerequisite steps, you created a linked service to your [Cognitive Services](tutorial-configure-cognitive-services-synapse.md) . Select it here.
 
 - **Granularity**: The rate at which your data is sampled. Choose **monthly**. 
 
 - **Timestamp column**: The column that represents the time of the series. Choose **timestamp (string)**.
 
-- **Timeseries value column**: The column that represents the value of the series at the time specified by the Timestamp column. Choose **value (double)**.
+- **Time series value column**: The column that represents the value of the series at the time specified by the Timestamp column. Choose **value (double)**.
 
 - **Grouping column**: The column that groups the series. That is, all rows that have the same value in this column should form one time series. Choose **group (string)**.
 
 When you're done, select **Open notebook**. This will generate a notebook for you with PySpark code that uses Azure Cognitive Services to detect anomalies.
 
-![Screenshot that shows configuration details for Anomaly Detector.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00e.png)
+![Screenshot that shows configuration details for Anomaly Detector.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-config.png)
 
 ## Run the notebook
 
-The notebook that you just opened uses the [mmlspark library](https://github.com/Azure/mmlspark) to connect to Cognitive Services. The Azure Key Vault details that you provided allow you to securely reference your secrets from this experience without revealing them.
+The notebook that you just opened uses the [SynapseML library](https://github.com/microsoft/SynapseML) to connect to Cognitive Services. The Azure Cognitive Services linked service that you provided allow you to securely reference your cognitive service from this experience without revealing any secrets.
 
 You can now run all cells to perform anomaly detection. Select **Run All**. [Learn more about Anomaly Detector in Cognitive Services](../../cognitive-services/anomaly-detector/index.yml).
 
-![Screenshot that shows anomaly detection.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00f.png)
+![Screenshot that shows anomaly detection.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-notebook.png)
 
 ## Next steps
 
 - [Tutorial: Sentiment analysis with Azure Cognitive Services](tutorial-cognitive-services-sentiment.md)
 - [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL pools](tutorial-sql-pool-model-scoring-wizard.md)
+- [Tutorial: Use Multivariate Anomaly Detector in Azure Synapse Analytics](../../cognitive-services/Anomaly-Detector/tutorials/multivariate-anomaly-detection-synapse.md)
+- [SynapseML anomaly detection](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#anomaly-detection)
 - [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)
+

@@ -2,6 +2,7 @@
 title: Create, view, and manage Azure Event Grid system topics using CLI
 description: This article shows how to use Azure CLI to create, view, and delete system topics. 
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 07/22/2021
 ---
 
@@ -25,7 +26,7 @@ For a local installation:
 ## Create a system topic
 
 - To create a system topic on an Azure source first and then create an event subscription for that topic, see the following reference topics:
-    - [az eventgrid system-topic create](/cli/azure/eventgrid/system-topic#az_eventgrid_system_topic_create)
+    - [az eventgrid system-topic create](/cli/azure/eventgrid/system-topic#az-eventgrid-system-topic-create)
 
         ```azurecli-interactive
         # Get the ID of the Azure source (for example: Azure Storage account)
@@ -48,14 +49,14 @@ For a local installation:
         ```azurecli-interactive
         az eventgrid topic-type  list --output json | grep -w id
         ```
-    - [az eventgrid system-topic event-subscription create](/cli/azure/eventgrid/system-topic/event-subscription#az_eventgrid_system_topic_event-subscription-create)
+    - [az eventgrid system-topic event-subscription create](/cli/azure/eventgrid/system-topic/event-subscription#az-eventgrid-system-topic-event-subscription-create)
 
         ```azurecli-interactive
         az eventgrid system-topic event-subscription create --name <SPECIFY EVENT SUBSCRIPTION NAME> \
             -g rg1 --system-topic-name <SYSTEM TOPIC NAME> \
             --endpoint <ENDPOINT URL>		  
         ```
-- To create a system topic (implicitly) when creating an event subscription for an Azure source, use the [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create) method. Here's an example:
+- To create a system topic (implicitly) when creating an event subscription for an Azure source, use the [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) method. Here's an example:
     
     ```azurecli-interactive
     storageid=$(az storage account show --name <AZURE STORAGE ACCOUNT NAME> --resource-group <AZURE RESOURCE GROUP NAME> --query id --output tsv)
@@ -71,12 +72,12 @@ For a local installation:
 ## View all system topics
 To view all system topics and details of a selected system topic, use the following commands:
 
-- [az eventgrid system-topic list](/cli/azure/eventgrid/system-topic#az_eventgrid_system_topic_list)
+- [az eventgrid system-topic list](/cli/azure/eventgrid/system-topic#az-eventgrid-system-topic-list)
 
     ```azurecli-interactive
     az eventgrid system-topic list	 
 	 ```
-- [az eventgrid system-topic show](/cli/azure/eventgrid/system-topic#az_eventgrid_system_topic_show)
+- [az eventgrid system-topic show](/cli/azure/eventgrid/system-topic#az-eventgrid-system-topic-show)
 
     ```azurecli-interactive
     az eventgrid system-topic show -g <AZURE RESOURCE GROUP NAME> -n <SYSTEM TOPIC NAME>	 
@@ -85,7 +86,7 @@ To view all system topics and details of a selected system topic, use the follow
 ## Delete a system topic
 To delete a system topic, use the following command: 
 
-- [az eventgrid system-topic delete](/cli/azure/eventgrid/system-topic#az_eventgrid_system_topic_delete)
+- [az eventgrid system-topic delete](/cli/azure/eventgrid/system-topic#az-eventgrid-system-topic-delete)
 
     ```azurecli-interactive
     az eventgrid system-topic delete -g <AZURE RESOURCE GROUP NAME> --name <SYSTEM TOPIC NAME>	 

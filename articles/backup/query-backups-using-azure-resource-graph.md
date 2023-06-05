@@ -3,6 +3,8 @@ title: Query your backups using Azure Resource Graph (ARG)
 description: Learn more about querying information on backup for your Azure resources using Azure Resource Group (ARG).
 ms.topic: conceptual
 ms.date: 05/21/2021
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Query your backups using Azure Resource Graph (ARG)
@@ -104,6 +106,17 @@ RecoveryServicesResources
 | extend datasourceType = case(type == 'microsoft.recoveryservices/vaults/backuppolicies', properties.backupManagementType,type == 'microsoft.dataprotection/backupVaults/backupPolicies',properties.datasourceTypes[0],'--')
 | project id,name,vaultName,resourceGroup,properties,datasourceType
 | where datasourceType == 'AzureIaasVM'
+```
+
+### List all VMs associated with a given backup policy
+
+```kusto
+RecoveryServicesResources
+| where type == "microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems"
+| project propertiesJSON = parse_json(properties)
+| where propertiesJSON.backupManagementType == "AzureIaasVM"
+| project VMID=propertiesJSON.sourceResourceId, PolicyID=propertiesJSON.policyId
+| where PolicyID == "<ARM ID of the given policy>"
 ```
 
 ### List all Backup policies used for Azure Databases for PostgreSQL Servers

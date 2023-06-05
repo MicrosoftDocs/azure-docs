@@ -1,9 +1,8 @@
 ---
-title: Avoid page reloads (MSAL.js) | Azure
-titleSuffix: Microsoft identity platform
+title: Avoid page reloads (MSAL.js)
 description: Learn how to avoid page reloads when acquiring and renewing tokens silently using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,9 +10,9 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 05/29/2019
-ms.author: marsma
+ms.author: owenrichards
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-js
 #Customer intent: As an application developer, I want to learn about avoiding page reloads so I can create more robust applications.
 ---
 
@@ -32,7 +31,7 @@ Set the `redirect_uri` property on config to a simple page, that does not requir
 
 ## Initialization in your main app file
 
-If your app is structured such that there is one central Javascript file that defines the app's initialization, routing, and other stuff, you can conditionally load your app modules based on whether the app is loading in an `iframe` or not. For example:
+If your app is structured such that there is one central JavaScript file that defines the app's initialization, routing, and other stuff, you can conditionally load your app modules based on whether the app is loading in an `iframe` or not. For example:
 
 In AngularJS: app.js
 

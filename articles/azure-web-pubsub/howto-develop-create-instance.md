@@ -1,42 +1,139 @@
 ---
-title: How to create the Azure Web PubSub instance
-description: An overview on options to create Azure Web PubSub instance and how to do it
-author: yjin81
-ms.author: yajin1
+title: Create an Azure Web PubSub resource
+titleSuffix: Azure Web PubSub
+description: Quickstart showing how to create a Web PubSub resource from Azure portal, using Azure CLI and a Bicep template 
+author: kevinguo-ed
+ms.author: kevinguo
 ms.service: azure-web-pubsub
-ms.topic: how-to 
-ms.date: 03/17/2021
+ms.topic: quickstart
+ms.date: 03/13/2023
+ms.custom: mode-ui, devx-track-azurecli, devx-track-bicep
+zone_pivot_groups: azure-web-pubsub-create-resource-methods
 ---
+# Create a Web PubSub resource
 
-# How to create Azure Web PubSub instance
+## Prerequisites
+> [!div class="checklist"]
+> * An Azure account with an active subscription. [Create a free Azure account](https://azure.microsoft.com/free/), if don't have one already.  
 
-To build an application with Azure Web PubSub service, you need to create the Web PubSub instance and then connect your clients and servers. This how-to guide shows you the options to create Azure Web PubSub instance.
+> [!TIP]
+> Web PubSub includes a generous **free tier** that can be used for testing and production purposes.
+ 
+ 
+::: zone pivot="method-azure-portal"
+## Create a resource from Azure portal
 
-## Create Azure Web PubSub instance with Azure portal 
+1. Select the New button found on the upper left-hand corner of the Azure portal. In the New screen, type **Web PubSub** in the search box and press enter. 
 
-The [Azure portal](../azure-portal/index.yml) is a web-based, unified console that provides an alternative to command-line tools. You can manage your Azure subscription with the Azure portal. Build, manage, and monitor everything from simple web apps to complex cloud deployments. You could also create Azure Web PubSub service instance with Azure portal.
-
-1. Select the New button found on the upper left-hand corner of the Azure portal. In the New screen, type *Web PubSub* in the search box and press enter. (You could also search the Azure Web PubSub from the `Web` category.)
-
-:::image type="content" source="media/create-instance-portal/search-web-pubsub-in-portal.png" alt-text="Screenshot of searching the Azure Web PubSub in portal.":::
+    :::image type="content" source="./media/create-instance-portal/search-web-pubsub-in-portal.png" alt-text="Screenshot of searching the Azure Web PubSub in portal.":::
 
 2. Select **Web PubSub** from the search results, then select **Create**.
 
 3. Enter the following settings.
 
-    | Setting      | Description                                        |
-    | ------------ | -------------------------------------------------- |
-    | **Resource name** | The globally unique Name that identifies your new Web PubSub service instance. Valid characters are `a-z`, `0-9`, and `-`.  | 
-    | **Subscription** | The Azure subscription under which this new Web PubSub service instance is created. | 
-    | **[Resource Group](../azure-resource-manager/management/overview.md)** |  Name for the new or existing resource group in which to create your Web PubSub service instance. | 
-    | **Location** | Choose a [region](https://azure.microsoft.com/regions/) near you. |
-    | **Pricing tier** | Learn more details about [Azure Web PubSub service pricing tiers](https://azure.microsoft.com/pricing/details/web-pubsub/). |
-    | **Unit count** |  Unit count specifies how many connections your Web PubSub service instance can accept. Each unit supports 1,000 concurrent connections at most. It is only configurable in the Standard tier. |
+    | Setting      | Suggested value  | Description                                        |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Resource name** | Globally unique name | The globally unique Name that identifies your new Web PubSub service instance. Valid characters are `a-z`, `A-Z`, `0-9`, and `-`. |
+    | **Subscription** | Your subscription | The Azure subscription under which this new Web PubSub service instance is created. |
+    | **[Resource Group]** |  myResourceGroup | Name for the new resource group in which to create your Web PubSub service instance. |
+    | **Location** | West US | Choose a [region](https://azure.microsoft.com/regions/) near you. |
+    | **Pricing tier** | Free | You can first try Azure Web PubSub service for free. Learn more details about [Azure Web PubSub service pricing tiers](https://azure.microsoft.com/pricing/details/web-pubsub/) |
+    | **Unit count** |  - | Unit count specifies how many connections your Web PubSub service instance can accept. Each unit supports 1,000 concurrent connections at most. It is only configurable in the Standard tier. |
 
-:::image type="content" source="media/howto-develop-create-instance/create-web-pubsub-instance-in-portal.png" alt-text="Screenshot of creating the Azure Web PubSub instance in portal.":::
+    :::image type="content" source="./media/howto-develop-create-instance/create-web-pubsub-instance-in-portal.png" alt-text="Screenshot of creating the Azure Web PubSub instance in portal.":::
 
-4. Select **Create** to start deploying the Web PubSub service instance.
+4. Select **Create** to provision your Web PubSub resource.
+::: zone-end
 
-## Create Azure Web PubSub instance with Azure CLI
 
-The [Azure command-line interface (Azure CLI)](/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. You could also create Azure Web PubSub service instance with Azure CLI after GA.
+::: zone pivot="method-azure-cli"
+## Create a resource using Azure CLI
+
+The [Azure CLI](/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. 
+
+> [!IMPORTANT]
+> This quickstart requires Azure CLI of version 2.22.0 or higher.
+
+## Create a resource group
+
+[!INCLUDE [Create a resource group](includes/cli-rg-creation.md)]
+
+## Create a resource
+
+[!INCLUDE [Create a Web PubSub instance](includes/cli-awps-creation.md)]
+::: zone-end
+
+
+::: zone pivot="method-bicep"
+## Create a resource using Bicep template
+
+[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+
+## Review the Bicep file
+
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/azure-web-pubsub/).
+
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.web/azure-web-pubsub/main.bicep":::
+
+## Deploy the Bicep file
+
+1. Save the Bicep file as **main.bicep** to your local computer.
+1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+
+    # [CLI](#tab/CLI)
+
+    ```azurecli
+    az group create --name exampleRG --location eastus
+    az deployment group create --resource-group exampleRG --template-file main.bicep
+    ```
+
+    # [PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    New-AzResourceGroup -Name exampleRG -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
+    ```
+
+    ---
+
+    When the deployment finishes, you should see a message indicating the deployment succeeded.
+
+## Review deployed resources
+
+Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az resource list --resource-group exampleRG
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName exampleRG
+```
+
+---
+## Clean up resources
+
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az group delete --name exampleRG
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name exampleRG
+```
+::: zone-end
+
+## Next step
+Now that you have created a resource, you are ready to put it to use.
+Next, you will learn how to subscribe and publish messages among your clients.
+> [!div class="nextstepaction"]
+> [PubSub among clients](quickstarts-pubsub-among-clients.md)

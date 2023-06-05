@@ -1,15 +1,15 @@
 ---
-title: Quickstart - Create a blob with the Azure portal
+title: 'Quickstart: Upload, download, and list blobs - Azure portal'
 titleSuffix: Azure Storage
 description: In this quickstart, you use the Azure portal in object (Blob) storage. Then you use the Azure portal to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-author: tamram
-
+author: stevenmatthew
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 04/29/2021
-ms.author: tamram
+ms.date: 01/13/2023
+ms.author: shaas
+ms.custom: mode-ui
 ---
 
 # Quickstart: Upload, download, and list blobs with the Azure portal
@@ -25,13 +25,13 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 To create a container in the Azure portal, follow these steps:
 
 1. Navigate to your new storage account in the Azure portal.
-1. In the left menu for the storage account, scroll to the **Data storage** section, then select **Blob containers**.
+1. In the left menu for the storage account, scroll to the **Data storage** section, then select **Containers**.
 1. Select the **+ Container** button.
 1. Type a name for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For more information about container and blob names, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 1. Set the level of public access to the container. The default level is **Private (no anonymous access)**.
-1. Select **OK** to create the container.
+1. Select **Create** to create the container.
 
-    :::image type="content" source="media/storage-quickstart-blobs-portal/create-container.png" alt-text="Screenshot showing how to create a container in the Azure portal" lightbox="media/storage-quickstart-blobs-portal/create-container.png":::
+    :::image type="content" source="media/storage-quickstart-blobs-portal/create-container-sml.png" alt-text="Screenshot showing how to create a container in the Azure portal" lightbox="media/storage-quickstart-blobs-portal/create-container-lrg.png":::
 
 ## Upload a block blob
 
@@ -41,7 +41,7 @@ To upload a block blob to your new container in the Azure portal, follow these s
 
 1. In the Azure portal, navigate to the container you created in the previous section.
 1. Select the container to show a list of blobs it contains. This container is new, so it won't yet contain any blobs.
-1. Select the **Upload** button to open the upload blade and browse your local file system to find a file to upload as a block blob. You can optionally expand the **Advanced** section to configure other settings for the upload operation.
+1. Select the **Upload** button to open the upload blade and browse your local file system to find a file to upload as a block blob. You can optionally expand the **Advanced** section to configure other settings for the upload operation. You can, for example, upload a blob into a new or existing virtual folder or by supplying a value in the **Upload to folder** field.
 
     :::image type="content" source="media/storage-quickstart-blobs-portal/upload-blob.png" alt-text="Screenshot showing how to upload a blob from your local drive via the Azure portal":::
 

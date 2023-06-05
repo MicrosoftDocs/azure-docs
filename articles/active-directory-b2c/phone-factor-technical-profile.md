@@ -3,14 +3,14 @@ title: Define a phone factor technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a phone factor technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/12/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -93,6 +93,7 @@ The **CryptographicKeys** element is not used.
 | ManualPhoneNumberEntryAllowed| No | Specify whether or not a user is allowed to manually enter a phone number. Possible values: `true`, or `false` (default).|
 | setting.authenticationMode | No | The method to validate the phone number. Possible values: `sms`, `phone`, or `mixed` (default).|
 | setting.autodial| No| Specify whether the technical profile should auto dial or auto send an SMS. Possible values: `true`, or `false` (default). Auto dial requires the `setting.authenticationMode` metadata be set to `sms`, or `phone`. The input claims collection must have a single phone number. |
+| setting.autosubmit | No | Specifies whether the technical profile should auto submit the one-time password entry form. Possible values are `true` (default), or `false`. When auto-submit is turned off, the user needs to select a button to progress the journey. |
 
 ### UI elements
 

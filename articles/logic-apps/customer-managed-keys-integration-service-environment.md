@@ -1,14 +1,31 @@
 ---
 title: Set up customer-managed keys to encrypt data at rest in ISEs
-description: Create and manage your own encryption keys to secure data at rest for integration service environments (ISEs) in Azure Logic Apps
+description: Create and manage your own encryption keys to secure data at rest for integration service environments (ISEs) in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: mijos, rarayudu, logicappspm
-ms.topic: conceptual
-ms.date: 01/20/2021
+ms.reviewer: mijos, rarayudu, azla
+ms.topic: how-to
+ms.date: 11/04/2022
 ---
 
 # Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps
+
+> [!IMPORTANT]
+>
+> On August 31, 2024, the ISE resource will retire, due to its dependency on Azure Cloud Services (classic), 
+> which retires at the same time. Before the retirement date, export any logic apps from your ISE to Standard 
+> logic apps so that you can avoid service disruption. Standard logic app workflows run in single-tenant Azure 
+> Logic Apps and provide the same capabilities plus more.
+>
+> Starting November 1, 2022, you can no longer create new ISE resources. However, ISE resources existing 
+> before this date are supported through August 31, 2024. For more information, see the following resources:
+>
+> - [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
+> - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+> - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+> - [Export ISE workflows to a Standard logic app](export-from-ise-to-standard-logic-app.md)
+> - [Integration Services Environment will be retired on 31 August 2024 - transition to Logic Apps Standard](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/)
+> - [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
 
 Azure Logic Apps relies on Azure Storage to store and automatically [encrypt data at rest](../storage/common/storage-service-encryption.md). This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md) and [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md).
 
@@ -18,9 +35,15 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 ## Considerations
 
-* At this time, customer-managed key support for an ISE is available only in these Azure regions: West US 2, East US, and South Central US
+* At this time, customer-managed key support for an ISE is available only in the following regions:
+
+  * Azure: West US 2, East US, and South Central US.
+
+  * Azure Government: Arizona, Virginia, and Texas.
 
 * You can specify a customer-managed key *only when you create your ISE*, not afterwards. You can't disable this key after your ISE is created. Currently, no support exists for rotating a customer-managed key for an ISE.
+
+* The key vault that stores your customer-managed key must exist in the same Azure region as your ISE.
 
 * To support customer-managed keys, your ISE requires that you enable either the [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). This identity lets your ISE authenticate access to secured resources, such as virtual machines and other systems or services, that are in or connected to an Azure virtual network. That way, you don't have to sign in with your credentials.
 

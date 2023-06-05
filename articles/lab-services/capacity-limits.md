@@ -1,49 +1,93 @@
 ---
 title: Capacity limits in Azure Lab Services
-description: Learn about capacity limits (virtual machine limits) in Azure Lab Services.
+description: Learn about VM capacity limits in Azure Lab Services.
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 07/04/2022
+ms.custom: devdivchpfy22
 ---
 
 # Capacity limits in Azure Lab Services
-Azure Lab Services has default capacity limits on Azure subscriptions to adhere to Azure Compute quota limitations and to mitigate fraud. All Azure subscriptions will have an initial capacity limit, which can vary based on subscription type, number of standard compute cores, and GPU cores available inside Azure Lab Services. It restricts how many virtual machines you can create inside your labs before you need to request for a limit increase.  
 
-If you are close to or have reached your subscription’s virtual machine cores limit, you will see messages from Azure Lab Services when you try to perform actions that create additional virtual machines. For example: 
+Azure Lab Services has default capacity limits on Azure subscriptions that adhere to Azure Compute quota limitations and to mitigate fraud. All Azure subscriptions will have an initial capacity limit, which can vary based on subscription type, number of standard compute cores, and GPU cores available inside Azure Lab Services. It restricts how many virtual machines you can create inside your lab before you need to request for a limit increase.  
+
+If you're close to or have reached your subscription's core limit, you'll see messages from Azure Lab Services.  Actions that are affected by core limits include:
 
 - Create a lab
 - Publish a lab
-- Adjust lab capacity to add more virtual machines to an existing lab
+- Increase lab capacity
 
-These actions may also be disabled if you have already reached the cores limit. 
+These actions may be disabled if there no more cores that can be enabled for your subscription.
 
-![Core limits - warning message](./media/capacity-limits/warning-message.png)
+:::image type="content" source="./media/capacity-limits/warning-message.png" alt-text="Screenshot of core limit warning in Azure Lab Services.":::
 
-## Subscriptions with default limit of zero cores
-Some rare subscription types that are more commonly used for fraud can have a default limit of 0 standard cores and 0 GPU cores. If you are using one of these subscription types, the admin who creates your lab account will need to request a limit increase before you can use Azure Lab Services. 
+> [!NOTE]
+> Azure Lab Services capacity limits are set per subscription.
 
-The admin can follow these steps to request a limit increase:  
+### Prerequisites
 
-1.	In your subscription, [create a lab account](tutorial-setup-lab-account.md).
-2.	On the **Overview** page of the lab account, click **Request limit increase** button at the top. 
-3.	Follow the steps in the form to submit a support request to increase the limit.
+[!INCLUDE [Create support request](./includes/lab-services-prerequisite-create-support-request.md)]
 
 ## Request a limit increase
+
 If you reach the cores limit, you can request a limit increase to continue using Azure Lab Services. The request process is a checkpoint to ensure your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments.
 
-The messages about the virtual machine cores limit in the Azure Lab Services portal includes a link to request a limit increase. The link opens a new browser tab where you can create a new support request. The issue type, subscription, and quota type information will be automatically filled out for you as shown in the following image: 
+To create a support request, see [Request a core limit increase](./how-to-request-capacity-increase.md).
 
-![New support request](./media/capacity-limits/new-support-request.png)
+## Subscriptions with default limit of zero cores
 
+Some rare subscription types that are more commonly used for fraud can have a default limit of zero standard cores and zero GPU cores. If you're using one of these subscription types, your admin needs to request a limit increase before you can use Azure Lab Services.
 
-Then, you will be prompted to provide more information about the limit increase. In the **Description** field, provide the following details:
+## Per-customer assigned capacity
 
-- What you are trying to do (for example, creating a lab to teach a Computer Science class, run a hackathon, and so on.)
-- Virtual machine size you are using for this lab
-- Number of virtual machines you need
+Azure Lab Services hosts lab resources, including VMs, within special Microsoft-managed Azure subscriptions that aren't visible to customers.  With the [August 2022 Update](lab-services-whats-new.md), VM capacity is dedicated to each customer.  Previous to this update, VM capacity was available from a large pool shared by customers.
 
-Once you submit the support request, we will review the request. If necessary, we will contact you to get additional details. 
+Before you set up a large number of VMs across your labs, we recommend that you open a support ticket to pre-request VM capacity. Requests should include VM size, number, and location. Requesting capacity before lab creation helps us to ensure that you create your labs in a region that has a sufficient number of VM cores for the VM size that you need for your labs.
+
+## Azure region restrictions
+
+Azure Lab Services enables you to create labs in different Azure regions. The default limit for the total number of regions you can use for creating labs varies by offer category type. For example, the default for Pay-As-You-Go subscriptions is two regions.
+
+If you have reached the Azure regions limit for your subscription, you can only create labs in regions that you're already using. When you create a new lab in another region, the lab creation will fail with an error message.
+
+To overcome the Azure region restriction, you have the following options:
+
+- [Delete all labs](./how-to-manage-labs.md#delete-a-lab) in one of the other regions to reduce the total number of regions in which you have labs.
+
+- Contact Azure support to [request the removal of the region restriction](#request-removal-of-region-restriction) for your subscription.
+
+- Contact Azure support to [request a limit increase](./how-to-request-capacity-increase.md). When a limit increase is granted, the region restriction is lifted for your subscription. We recommend that you request a small limit increase for any SKU to lift the restriction for your subscription.
+
+### Request removal of region restriction
+
+You can contact Azure support and create a support ticket to lift the region restriction from your subscription.
+
+1. In the [Azure portal](https://portal.azure.com), go to your lab plan.
+1. In the left navigation menu, select **New Support Request**.
+1. On the **Problem description** tab, enter the following information, and then select **Next**.
+
+    | Field  | Value  |
+    | ------ | ------ |
+    | **Summary** | Enter *Remove region restriction*. |
+    | **Issue type** | *Technical* |
+    | **Subscription** | Select your Azure subscription. |
+    | **Service** | Select *My Services*. |
+    | **Service type** | Select *Lab Services with lab plan*. |
+    | **Resource** | *Select your lab plan*. |
+    | **Problem type** | Select *Labs Portal (labs.azure.com)*. |
+    | **Problem subtype** | Select *Problem creating a new lab*. |
+
+    :::image type="content" source="./media/capacity-limits/support-request-region-restriction.png" alt-text="Screenshot that shows how to create an Azure support request in the Azure portal to remove the region restriction." lightbox="./media/capacity-limits/support-request-region-restriction.png":::
+
+1. On the **Additional details** page, enter *Requesting lift of regional restrictions* in the **Description** field, and then select **Next**.
+
+1. On the **Review + create** page, select **Create** to create the support request.
+
+## Best practices for requesting a limit increase
+[!INCLUDE [lab-services-request-capacity-best-practices](includes/lab-services-request-capacity-best-practices.md)]
 
 ## Next steps
-See the following article:
-- [Administrator Guide - VM sizing](administrator-guide.md#vm-sizing).
-- [Frequently asked questions](classroom-labs-faq.yml).
+
+See the following articles:
+
+- As an admin, see [VM sizing](administrator-guide.md#vm-sizing).
+- As an admin, see [Request a capacity increase](./how-to-request-capacity-increase.md)

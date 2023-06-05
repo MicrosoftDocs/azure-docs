@@ -2,16 +2,13 @@
 title: "Issues connecting source databases"
 titleSuffix: Azure Database Migration Service
 description: Learn about how to troubleshoot known issues/errors associated with connecting Azure Database Migration Service to source databases.
-services: database-migration
-author: pochiraju
-ms.author: rajpo
-manager: craigg
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
-ms.topic: troubleshooting
 ms.date: 02/20/2020
+ms.service: dms
+ms.topic: troubleshooting
+ms.custom: seo-lt-2019
 ---
 
 # Troubleshoot DMS errors when connecting to source databases
@@ -88,4 +85,4 @@ Potential issues associated with connecting to a source AWS RDS SQL Server datab
 * View the article [Azure Database Migration Service PowerShell](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0&preserve-view=true#data_migration).
 * View the article [How to configure server parameters in Azure Database for MySQL by using the Azure portal](../mysql/howto-server-parameters.md).
 * View the article [Overview of prerequisites for using Azure Database Migration Service](./pre-reqs.md).
-* See the [FAQ about using Azure Database Migration Service](./faq.md).
+* See the [FAQ about using Azure Database Migration Service](./faq.yml).

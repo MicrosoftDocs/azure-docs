@@ -2,9 +2,7 @@
 title: 'Troubleshoot Point-to-Site VPN clients - Azure AD authentication'
 titleSuffix: Azure VPN Gateway
 description: Learn how to troubleshoot VPN Gateway Point-to-Site clients that use Azure AD authentication.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 04/29/2021

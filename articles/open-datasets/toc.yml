@@ -68,6 +68,10 @@
         href: dataset-encode.md
       - name: GATK Resource Bundle
         href: dataset-gatk-resource-bundle.md
+      - name: TCGA Open Data
+        href: dataset-the-cancer-genome-atlas.md
+      - name: Pan UK-Biobank
+        href: dataset-panancestry-uk-bio-bank.md
   - name: Labor and economics
     items:
     - name: US Labor Force Statistics
@@ -136,7 +140,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/open-datasets/
   - name: Regional availability
-    href: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=open-datasets&regions=non-regional
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=open-datasets&regions=non-regional
   - name: Microsoft Q & A
     href: /answers/topics/azure-open-datasets.html
   - name: Stack Overflow

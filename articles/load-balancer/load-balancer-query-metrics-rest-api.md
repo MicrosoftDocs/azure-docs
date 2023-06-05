@@ -1,22 +1,22 @@
 ---
-title: Retrieve metrics with the REST API
+title: Retrieve metrics with the Azure REST API
 titleSuffix: Azure Load Balancer
 description: In this article, get started using the Azure REST APIs to collect health and usage metrics for Azure Load Balancer.
 services: sql-database
-author: asudbring
+author: mbender-ms
 manager: KumudD
 ms.service: load-balancer
-ms.custom: REST, seodec18
 ms.topic: how-to
-ms.date: 11/19/2019
-ms.author: allensu
+ms.date: 05/08/2023
+ms.author: mbender
+ms.custom: REST, template-how-to, seodec18, engagement-fy23
 ---
 
-# Get Load Balancer usage metrics using the REST API
+# Get Load Balancer usage metrics using the Azure REST API
 
 Collect the number of bytes processed by a [Standard Load Balancer](./load-balancer-overview.md) for an interval of time using the [Azure REST API](/rest/api/azure/).
 
-Complete reference documentation and additional samples for the REST API are available in the [Azure Monitor REST reference](/rest/api/monitor). 
+Complete reference documentation and more samples for the REST API are available in the [Azure Monitor REST reference](/rest/api/monitor). 
 
 ## Build the request
 

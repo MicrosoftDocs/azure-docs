@@ -5,8 +5,8 @@ description: Break text into chunks or pages of text based on length in an AI en
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 06/17/2020
+ms.topic: reference
+ms.date: 08/12/2021
 ---
 
 # Text split cognitive skill
@@ -14,7 +14,7 @@ ms.date: 06/17/2020
 The **Text Split** skill breaks text into chunks of text. You can specify whether you want to break the text into sentences or into pages of a particular length. This skill is especially useful if there are maximum text length requirements in other skills downstream. 
 
 > [!NOTE]
-> This skill is not bound to a Cognitive Services API and you are not charged for using it. You should still [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md), however, to override the **Free** resource option that limits you to a small number of daily enrichments per day.
+> This skill isn't bound to Cognitive Services. It is non-billable and has no Cognitive Services key requirement.
 
 ## @odata.type  
 Microsoft.Skills.Text.SplitSkill 
@@ -26,7 +26,7 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | `textSplitMode`    | Either `pages` or `sentences` | 
-| `maximumPageLength` | Only applies if `textSplitMode` is set to `pages`. This refers to the maximum page length in characters as measured by `String.Length`. The minimum value is 300, the maximum is 100000, and the default value is 10000.  The algorithm will do its best to break the text on sentence boundaries, so the size of each chunk may be slightly less than `maximumPageLength`. | 
+| `maximumPageLength` | Only applies if `textSplitMode` is set to `pages`. This refers to the maximum page length in characters as measured by `String.Length`. The minimum value is 300, the maximum is 100000, and the default value is 5000.  The algorithm will do its best to break the text on sentence boundaries, so the size of each chunk may be slightly less than `maximumPageLength`. | 
 | `defaultLanguageCode`	| (optional) One of the following language codes: `am, bs, cs, da, de, en, es, et, fr, he, hi, hr, hu, fi, id, is, it, ja, ko, lv, no, nl, pl, pt-PT, pt-BR, ru, sk, sl, sr, sv, tr, ur, zh-Hans`. Default is English (en). Few things to consider:<ul><li>Providing a language code is useful to avoid cutting a word in half for non-whitespace languages such as Chinese, Japanese, and Korean.</li><li>If you do not know the language (i.e. you need to split the text for input into the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), the default of English (en) should be sufficient. </li></ul>  |
 
 
@@ -79,7 +79,7 @@ Parameters are case-sensitive.
         {
             "recordId": "1",
             "data": {
-                "text": "This is a the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia…",
+                "text": "This is the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia...",
                 "languageCode": "en"
             }
         },

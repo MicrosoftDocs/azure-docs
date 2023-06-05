@@ -4,7 +4,7 @@ description: Learn how to configure OS patching schedule for Linux-based HDInsig
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/21/2020
+ms.date: 02/01/2023
 ---
 
 # Configure the OS patching schedule for Linux-based HDInsight clusters
@@ -12,13 +12,17 @@ ms.date: 01/21/2020
 > [!IMPORTANT]
 > Ubuntu images become available for new Azure HDInsight cluster creation within three months of being published. Running clusters aren't auto-patched. Customers must use script actions or other mechanisms to patch a running cluster. As a best practice, you can run these script actions and apply security updates right after the cluster creation.
 
-HDInsight provides support for you to perform common tasks on your cluster such as installing OS patches, security updates, and rebooting nodes. These tasks are accomplished using the following two scripts that can be run as [script actions](hdinsight-hadoop-customize-cluster-linux.md), and configured with parameters:
+HDInsight provides support for you to perform common tasks on your cluster such as installing OS patches, OS security updates, and rebooting nodes. These tasks are accomplished using the following two scripts that can be run as [script actions](hdinsight-hadoop-customize-cluster-linux.md), and configured with parameters:
 
 - `schedule-reboots.sh` - Do an immediate restart, or schedule a restart on the cluster nodes.
 - `install-updates-schedule-reboots.sh` - Install all updates, only kernel + security updates, or only kernel updates.
 
 > [!NOTE]  
 > Script actions won't automatically apply updates for all future update cycles. Run the scripts each time new updates must be applied to install the updates, and then restart the VM.
+> 
+> If you are using a firewall for network restriction, the below URL needs to be in allow list. 
+> * http://security.ubuntu.com/ubuntu 
+> * https://hdiconfigactions.blob.core.windows.net
 
 ## Preparation
 

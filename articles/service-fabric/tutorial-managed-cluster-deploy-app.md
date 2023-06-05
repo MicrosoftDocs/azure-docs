@@ -2,8 +2,11 @@
 title: Deploy an application to a Service Fabric managed cluster via PowerShell
 description: In this tutorial, you will connect to a Service Fabric managed cluster and deploy an application via PowerShell.
 ms.topic: tutorial
-ms.date: 5/10/2021 
-ms.custom: devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Tutorial: Deploy an app to a Service Fabric managed cluster
@@ -91,9 +94,10 @@ Remove-ServiceFabricApplication fabric:/Voting
 
 In this step, we deployed an application to a Service Fabric managed cluster. To learn more about application deployment options, see:
 
-* [Deploy managed cluster application secrets](how-to-managed-cluster-application-secrets.md)
-* [Deploy managed cluster applications using ARM templates](how-to-managed-cluster-app-deployment-template.md)
-* [Deploy managed cluster applications with managed identity](how-to-managed-cluster-application-managed-identity.md)
+* [Deploy application secrets to a managed cluster](how-to-managed-cluster-application-secrets.md)
+* [Deploy an application to a managed cluster using Azure Resource Manager](how-to-managed-cluster-app-deployment-template.md)
+* [Deploy an application with managed identity to a managed cluster](how-to-managed-cluster-application-managed-identity.md)
+
 
 To learn more about managed cluster configuration options, see:
 

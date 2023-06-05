@@ -1,0 +1,968 @@
+items:
+- name: Kusto query overview
+  href: /azure/data-explorer/kusto/query/index?context=/azure/synapse-analytics/context/context
+- name: Quick reference guide
+  href: /azure/data-explorer/kql-quick-reference?context=/azure/synapse-analytics/context/context
+- name: Tutorial
+  href: /azure/data-explorer/kusto/query/tutorial?context=/azure/synapse-analytics/context/context&pivots=synapse
+- name: Samples
+  href: /azure/data-explorer/kusto/query/samples?context=/azure/synapse-analytics/context/context&pivots=synapse
+- name: Query best practices
+  href: /azure/data-explorer/kusto/query/best-practices?context=/azure/synapse-analytics/context/context
+- name: Cross-cluster queries
+  items:
+  - name: Cross-cluster queries and schema changes
+    href: /azure/data-explorer/kusto/concepts/crossclusterandschemachanges?context=/azure/synapse-analytics/context/context
+  - name: Cross-database and cross-cluster queries
+    href: /azure/data-explorer/kusto/query/cross-cluster-or-database-queries?context=/azure/synapse-analytics/context/context
+- name: Entities
+  items:
+  - name: Entity types
+    href: /azure/data-explorer/kusto/query/schema-entities/index?context=/azure/synapse-analytics/context/context
+  - name: Entity names
+    href: /azure/data-explorer/kusto/query/schema-entities/entity-names?context=/azure/synapse-analytics/context/context
+  - name: Entity references
+    href: /azure/data-explorer/kusto/query/schema-entities/entity-references?context=/azure/synapse-analytics/context/context
+  - name: Databases
+    href: /azure/data-explorer/kusto/query/schema-entities/databases?context=/azure/synapse-analytics/context/context
+  - name: Tables
+    href: /azure/data-explorer/kusto/query/schema-entities/tables?context=/azure/synapse-analytics/context/context
+  - name: Columns
+    href: /azure/data-explorer/kusto/query/schema-entities/columns?context=/azure/synapse-analytics/context/context
+  - name: Stored functions
+    href: /azure/data-explorer/kusto/query/schema-entities/stored-functions?context=/azure/synapse-analytics/context/context
+  - name: External tables
+    href: /azure/data-explorer/kusto/query/schema-entities/externaltables?context=/azure/synapse-analytics/context/context
+  - name: Fact and dimension tables
+    href: /azure/data-explorer/kusto/concepts/fact-and-dimension-tables?context=/azure/synapse-analytics/context/context
+- name: Data types
+  items:
+  - name: Scalar data types
+    href: /azure/data-explorer/kusto/query/scalar-data-types/index?context=/azure/synapse-analytics/context/context
+  - name: bool
+    href: /azure/data-explorer/kusto/query/scalar-data-types/bool?context=/azure/synapse-analytics/context/context
+  - name: datetime
+    href: /azure/data-explorer/kusto/query/scalar-data-types/datetime?context=/azure/synapse-analytics/context/context
+  - name: decimal
+    href: /azure/data-explorer/kusto/query/scalar-data-types/decimal?context=/azure/synapse-analytics/context/context
+  - name: dynamic
+    href: /azure/data-explorer/kusto/query/scalar-data-types/dynamic?context=/azure/synapse-analytics/context/context
+  - name: guid
+    href: /azure/data-explorer/kusto/query/scalar-data-types/guid?context=/azure/synapse-analytics/context/context
+  - name: int
+    href: /azure/data-explorer/kusto/query/scalar-data-types/int?context=/azure/synapse-analytics/context/context
+  - name: long
+    href: /azure/data-explorer/kusto/query/scalar-data-types/long?context=/azure/synapse-analytics/context/context
+  - name: real
+    href: /azure/data-explorer/kusto/query/scalar-data-types/real?context=/azure/synapse-analytics/context/context
+  - name: string
+    href: /azure/data-explorer/kusto/query/scalar-data-types/string?context=/azure/synapse-analytics/context/context
+  - name: timespan
+    href: /azure/data-explorer/kusto/query/scalar-data-types/timespan?context=/azure/synapse-analytics/context/context
+  - name: Null values
+    href: /azure/data-explorer/kusto/query/scalar-data-types/null-values?context=/azure/synapse-analytics/context/context
+  - name: Unsupported scalar data types
+    href: /azure/data-explorer/kusto/query/scalar-data-types/unsupported-data-types?context=/azure/synapse-analytics/context/context
+- name: Functions
+  items:
+  - name: Function types
+    href: /azure/data-explorer/kusto/query/functions/index?context=/azure/synapse-analytics/context/context
+  - name: User-defined functions
+    displayName: Kusto view, views, Kusto function
+    href: /azure/data-explorer/kusto/query/functions/user-defined-functions?context=/azure/synapse-analytics/context/context
+- name: Query statements
+  items:
+  - name: Query statement types
+    href: /azure/data-explorer/kusto/query/statements?context=/azure/synapse-analytics/context/context
+  - name: Alias statement
+    href: /azure/data-explorer/kusto/query/aliasstatement?context=/azure/synapse-analytics/context/context
+  - name: Let statement
+    href: /azure/data-explorer/kusto/query/letstatement?context=/azure/synapse-analytics/context/context
+  - name: Pattern statement
+    href: /azure/data-explorer/kusto/query/patternstatement?context=/azure/synapse-analytics/context/context
+  - name: Query parameters statement
+    href: /azure/data-explorer/kusto/query/queryparametersstatement?context=/azure/synapse-analytics/context/context
+  - name: Restrict statement
+    href: /azure/data-explorer/kusto/query/restrictstatement?context=/azure/synapse-analytics/context/context
+  - name: Set statement
+    href: /azure/data-explorer/kusto/query/setstatement?context=/azure/synapse-analytics/context/context
+  - name: Tabular expression statements
+    href: /azure/data-explorer/kusto/query/tabularexpressionstatements?context=/azure/synapse-analytics/context/context
+  - name: Batches
+    href: /azure/data-explorer/kusto/query/batches?context=/azure/synapse-analytics/context/context
+- name: Tabular operators
+  items:
+  - name: Query operators
+    href: /azure/data-explorer/kusto/query/queries?context=/azure/synapse-analytics/context/context
+  - name: as operator
+    href: /azure/data-explorer/kusto/query/asoperator?context=/azure/synapse-analytics/context/context
+  - name: consume operator
+    href: /azure/data-explorer/kusto/query/consumeoperator?context=/azure/synapse-analytics/context/context
+  - name: count operator
+    href: /azure/data-explorer/kusto/query/countoperator?context=/azure/synapse-analytics/context/context
+  - name: datatable operator
+    href: /azure/data-explorer/kusto/query/datatableoperator?context=/azure/synapse-analytics/context/context
+  - name: distinct operator
+    href: /azure/data-explorer/kusto/query/distinctoperator?context=/azure/synapse-analytics/context/context
+  - name: evaluate operator
+    items:
+    - name: evaluate operator plugins
+      href: /azure/data-explorer/kusto/query/evaluateoperator?context=/azure/synapse-analytics/context/context
+    - name: autocluster plugin
+      href: /azure/data-explorer/kusto/query/autoclusterplugin?context=/azure/synapse-analytics/context/context
+    - name: bag_unpack plugin
+      href: /azure/data-explorer/kusto/query/bag-unpackplugin?context=/azure/synapse-analytics/context/context
+    - name: basket plugin
+      href: /azure/data-explorer/kusto/query/basketplugin?context=/azure/synapse-analytics/context/context
+    - name: cosmosdb_sql_request plugin
+      href: /azure/data-explorer/kusto/query/cosmosdb-plugin?context=/azure/synapse-analytics/context/context
+    - name: dcount_intersect plugin
+      href: /azure/data-explorer/kusto/query/dcount-intersect-plugin?context=/azure/synapse-analytics/context/context
+    - name: diffpatterns plugin
+      href: /azure/data-explorer/kusto/query/diffpatternsplugin?context=/azure/synapse-analytics/context/context
+    - name: diffpatterns_text plugin
+      href: /azure/data-explorer/kusto/query/diffpatterns-textplugin?context=/azure/synapse-analytics/context/context
+    - name: infer_storage_schema plugin
+      href: /azure/data-explorer/kusto/query/inferstorageschemaplugin?context=/azure/synapse-analytics/context/context
+    - name: ipv4_lookup plugin
+      href: /azure/data-explorer/kusto/query/ipv4-lookup-plugin?context=/azure/synapse-analytics/context/context
+    - name: mysql_request plugin
+      href: /azure/data-explorer/kusto/query/mysqlrequest-plugin?context=/azure/synapse-analytics/context/context
+    - name: narrow plugin
+      href: /azure/data-explorer/kusto/query/narrowplugin?context=/azure/synapse-analytics/context/context
+    - name: pivot plugin
+      href: /azure/data-explorer/kusto/query/pivotplugin?context=/azure/synapse-analytics/context/context
+    - name: preview plugin
+      href: /azure/data-explorer/kusto/query/previewplugin?context=/azure/synapse-analytics/context/context
+    - name: Python plugin
+      href: /azure/data-explorer/kusto/query/pythonplugin?context=/azure/synapse-analytics/context/context
+    - name: R plugin
+      href: /azure/data-explorer/kusto/query/rplugin?context=/azure/synapse-analytics/context/context
+    - name: rolling_percentile plugin
+      href: /azure/data-explorer/kusto/query/rolling-percentile-plugin?context=/azure/synapse-analytics/context/context
+    - name: schema_merge plugin
+      href: /azure/data-explorer/kusto/query/schemamergeplugin?context=/azure/synapse-analytics/context/context
+    - name: sql_request plugin
+      href: /azure/data-explorer/kusto/query/sqlrequestplugin?context=/azure/synapse-analytics/context/context
+    - name: sequence_detect plugin
+      href: /azure/data-explorer/kusto/query/sequence-detect-plugin?context=/azure/synapse-analytics/context/context
+  - name: extend operator
+    href: /azure/data-explorer/kusto/query/extendoperator?context=/azure/synapse-analytics/context/context
+  - name: externaldata operator
+    href: /azure/data-explorer/kusto/query/externaldata-operator?context=/azure/synapse-analytics/context/context
+  - name: facet operator
+    href: /azure/data-explorer/kusto/query/facetoperator?context=/azure/synapse-analytics/context/context
+  - name: find operator
+    href: /azure/data-explorer/kusto/query/findoperator?context=/azure/synapse-analytics/context/context
+  - name: fork operator
+    href: /azure/data-explorer/kusto/query/forkoperator?context=/azure/synapse-analytics/context/context
+  - name: getschema operator
+    href: /azure/data-explorer/kusto/query/getschemaoperator?context=/azure/synapse-analytics/context/context
+  - name: invoke operator
+    href: /azure/data-explorer/kusto/query/invokeoperator?context=/azure/synapse-analytics/context/context
+  - name: join operator
+    items:
+    - name: join operator
+      href: /azure/data-explorer/kusto/query/joinoperator?context=/azure/synapse-analytics/context/context
+    - name: Shuffle query
+      href: /azure/data-explorer/kusto/query/shufflequery?context=/azure/synapse-analytics/context/context
+    - name: Cross-cluster join
+      href: /azure/data-explorer/kusto/query/joincrosscluster?context=/azure/synapse-analytics/context/context
+    - name: Broadcast join
+      href: /azure/data-explorer/kusto/query/broadcastjoin?context=/azure/synapse-analytics/context/context
+    - name: Time window join
+      href: /azure/data-explorer/kusto/query/join-timewindow?context=/azure/synapse-analytics/context/context
+  - name: limit operator
+    href: /azure/data-explorer/kusto/query/limitoperator?context=/azure/synapse-analytics/context/context
+  - name: lookup operator
+    href: /azure/data-explorer/kusto/query/lookupoperator?context=/azure/synapse-analytics/context/context
+  - name: make-series operator
+    href: /azure/data-explorer/kusto/query/make-seriesoperator?context=/azure/synapse-analytics/context/context
+  - name: mv-apply operator
+    href: /azure/data-explorer/kusto/query/mv-applyoperator?context=/azure/synapse-analytics/context/context
+  - name: mv-expand operator
+    href: /azure/data-explorer/kusto/query/mvexpandoperator?context=/azure/synapse-analytics/context/context
+  - name: order operator
+    href: /azure/data-explorer/kusto/query/orderoperator?context=/azure/synapse-analytics/context/context
+  - name: project operator
+    href: /azure/data-explorer/kusto/query/projectoperator?context=/azure/synapse-analytics/context/context
+  - name: project-away operator
+    href: /azure/data-explorer/kusto/query/projectawayoperator?context=/azure/synapse-analytics/context/context
+  - name: project-keep operator
+    href: /azure/data-explorer/kusto/query/project-keep-operator?context=/azure/synapse-analytics/context/context
+  - name: project-rename operator
+    href: /azure/data-explorer/kusto/query/projectrenameoperator?context=/azure/synapse-analytics/context/context
+  - name: project-reorder operator
+    href: /azure/data-explorer/kusto/query/projectreorderoperator?context=/azure/synapse-analytics/context/context
+  - name: parse operator
+    href: /azure/data-explorer/kusto/query/parseoperator?context=/azure/synapse-analytics/context/context
+  - name: parse-where operator
+    href: /azure/data-explorer/kusto/query/parsewhereoperator?context=/azure/synapse-analytics/context/context
+  - name: partition operator
+    href: /azure/data-explorer/kusto/query/partitionoperator?context=/azure/synapse-analytics/context/context
+  - name: print operator
+    href: /azure/data-explorer/kusto/query/printoperator?context=/azure/synapse-analytics/context/context
+  - name: range operator
+    href: /azure/data-explorer/kusto/query/rangeoperator?context=/azure/synapse-analytics/context/context
+  - name: reduce operator
+    href: /azure/data-explorer/kusto/query/reduceoperator?context=/azure/synapse-analytics/context/context
+  - name: render operator
+    href: /azure/data-explorer/kusto/query/renderoperator?context=/azure/synapse-analytics/context/context
+  - name: sample operator
+    href: /azure/data-explorer/kusto/query/sampleoperator?context=/azure/synapse-analytics/context/context
+  - name: sample-distinct operator
+    href: /azure/data-explorer/kusto/query/sampledistinctoperator?context=/azure/synapse-analytics/context/context
+  - name: scan operator
+    href: /azure/data-explorer/kusto/query/scan-operator?context=/azure/synapse-analytics/context/context
+  - name: search operator
+    href: /azure/data-explorer/kusto/query/searchoperator?context=/azure/synapse-analytics/context/context
+  - name: serialize operator
+    href: /azure/data-explorer/kusto/query/serializeoperator?context=/azure/synapse-analytics/context/context
+  - name: sort operator
+    href: /azure/data-explorer/kusto/query/sort-operator?context=/azure/synapse-analytics/context/context
+  - name: summarize operator
+    items:
+    - name: summarize operator overview
+      href: /azure/data-explorer/kusto/query/summarizeoperator?context=/azure/synapse-analytics/context/context
+    - name: Using hll() and tdigest()
+      href: /azure/data-explorer/kusto/query/usinghlltdigest?context=/azure/synapse-analytics/context/context
+    - name: shuffle
+      href: /azure/data-explorer/kusto/query/shufflequery?context=/azure/synapse-analytics/context/context
+  - name: take operator
+    href: /azure/data-explorer/kusto/query/takeoperator?context=/azure/synapse-analytics/context/context
+  - name: top operator
+    href: /azure/data-explorer/kusto/query/topoperator?context=/azure/synapse-analytics/context/context
+  - name: top-nested operator
+    href: /azure/data-explorer/kusto/query/topnestedoperator?context=/azure/synapse-analytics/context/context
+  - name: top-hitters operator
+    href: /azure/data-explorer/kusto/query/tophittersoperator?context=/azure/synapse-analytics/context/context
+  - name: union operator
+    href: /azure/data-explorer/kusto/query/unionoperator?context=/azure/synapse-analytics/context/context
+  - name: where operator
+    href: /azure/data-explorer/kusto/query/whereoperator?context=/azure/synapse-analytics/context/context
+- name: Special functions
+  items:
+  - name: cluster()
+    href: /azure/data-explorer/kusto/query/clusterfunction?context=/azure/synapse-analytics/context/context
+  - name: database()
+    href: /azure/data-explorer/kusto/query/databasefunction?context=/azure/synapse-analytics/context/context
+  - name: external_table()
+    href: /azure/data-explorer/kusto/query/externaltablefunction?context=/azure/synapse-analytics/context/context
+  - name: materialize()
+    href: /azure/data-explorer/kusto/query/materializefunction?context=/azure/synapse-analytics/context/context
+  - name: materialized_view()
+    href: /azure/data-explorer/kusto/query/materialized-view-function?context=/azure/synapse-analytics/context/context
+  - name: table()
+    href: /azure/data-explorer/kusto/query/tablefunction?context=/azure/synapse-analytics/context/context
+  - name: toscalar()
+    href: /azure/data-explorer/kusto/query/toscalarfunction?context=/azure/synapse-analytics/context/context
+- name: Scalar operators
+  items:
+  - name: Bitwise (binary) operators
+    href: /azure/data-explorer/kusto/query/binoperators?context=/azure/synapse-analytics/context/context
+  - name: Datetime/timespan arithmetic
+    href: /azure/data-explorer/kusto/query/datetime-timespan-arithmetic?context=/azure/synapse-analytics/context/context
+  - name: Logical (binary) operators
+    href: /azure/data-explorer/kusto/query/logicaloperators?context=/azure/synapse-analytics/context/context
+  - name: Numerical operators
+    href: /azure/data-explorer/kusto/query/numoperators?context=/azure/synapse-analytics/context/context
+  - name: String operators
+    items:
+    - name: String operators overview
+      displayName: has, contains
+      href: /azure/data-explorer/kusto/query/datatypes-string-operators?context=/azure/synapse-analytics/context/context
+    - name: in and !in operators
+      href: /azure/data-explorer/kusto/query/inoperator?context=/azure/synapse-analytics/context/context
+    - name: has_all operator
+      href: /azure/data-explorer/kusto/query/has-all-operator?context=/azure/synapse-analytics/context/context
+    - name: has_any operator
+      href: /azure/data-explorer/kusto/query/has-anyoperator?context=/azure/synapse-analytics/context/context
+  - name: between operator
+    href: /azure/data-explorer/kusto/query/betweenoperator?context=/azure/synapse-analytics/context/context
+  - name: not-between operator (!between)
+    href: /azure/data-explorer/kusto/query/notbetweenoperator?context=/azure/synapse-analytics/context/context
+- name: Scalar functions
+  items:
+  - name: Scalar function types
+    href: /azure/data-explorer/kusto/query/scalarfunctions?context=/azure/synapse-analytics/context/context
+  - name: abs()
+    href: /azure/data-explorer/kusto/query/abs-function?context=/azure/synapse-analytics/context/context
+  - name: acos()
+    href: /azure/data-explorer/kusto/query/acosfunction?context=/azure/synapse-analytics/context/context
+  - name: ago()
+    href: /azure/data-explorer/kusto/query/agofunction?context=/azure/synapse-analytics/context/context
+  - name: around()
+    href: /azure/data-explorer/kusto/query/around-function?context=/azure/synapse-analytics/context/context
+  - name: array_concat()
+    href: /azure/data-explorer/kusto/query/arrayconcatfunction?context=/azure/synapse-analytics/context/context
+  - name: array_iif()
+    href: /azure/data-explorer/kusto/query/arrayifffunction?context=/azure/synapse-analytics/context/context
+  - name: array_index_of()
+    href: /azure/data-explorer/kusto/query/arrayindexoffunction?context=/azure/synapse-analytics/context/context
+  - name: array_length()
+    href: /azure/data-explorer/kusto/query/arraylengthfunction?context=/azure/synapse-analytics/context/context
+  - name: array_reverse()
+    href: /azure/data-explorer/kusto/query/array-reverse-function?context=/azure/synapse-analytics/context/context
+  - name: array_rotate_left()
+    href: /azure/data-explorer/kusto/query/array_rotate_leftfunction?context=/azure/synapse-analytics/context/context
+  - name: array_rotate_right()
+    href: /azure/data-explorer/kusto/query/array_rotate_rightfunction?context=/azure/synapse-analytics/context/context
+  - name: array_shift_left()
+    href: /azure/data-explorer/kusto/query/array_shift_leftfunction?context=/azure/synapse-analytics/context/context
+  - name: array_shift_right()
+    href: /azure/data-explorer/kusto/query/array_shift_rightfunction?context=/azure/synapse-analytics/context/context
+  - name: array_slice()
+    href: /azure/data-explorer/kusto/query/arrayslicefunction?context=/azure/synapse-analytics/context/context
+  - name: array_sort_asc()
+    href: /azure/data-explorer/kusto/query/arraysortascfunction?context=/azure/synapse-analytics/context/context
+  - name: array_sort_desc()
+    href: /azure/data-explorer/kusto/query/arraysortdescfunction?context=/azure/synapse-analytics/context/context
+  - name: array_split()
+    href: /azure/data-explorer/kusto/query/arraysplitfunction?context=/azure/synapse-analytics/context/context
+  - name: array_sum()
+    href: /azure/data-explorer/kusto/query/array-sum-function?context=/azure/synapse-analytics/context/context
+  - name: asin()
+    href: /azure/data-explorer/kusto/query/asinfunction?context=/azure/synapse-analytics/context/context
+  - name: assert()
+    href: /azure/data-explorer/kusto/query/assert-function?context=/azure/synapse-analytics/context/context
+  - name: atan()
+    href: /azure/data-explorer/kusto/query/atanfunction?context=/azure/synapse-analytics/context/context
+  - name: atan2()
+    href: /azure/data-explorer/kusto/query/atan2function?context=/azure/synapse-analytics/context/context
+  - name: bag_keys()
+    href: /azure/data-explorer/kusto/query/bagkeysfunction?context=/azure/synapse-analytics/context/context
+  - name: bag_merge()
+    href: /azure/data-explorer/kusto/query/bag-merge-function?context=/azure/synapse-analytics/context/context
+  - name: bag_remove_keys()
+    href: /azure/data-explorer/kusto/query/bag-remove-keys-function?context=/azure/synapse-analytics/context/context
+  - name: base64_decode_toarray()
+    href: /azure/data-explorer/kusto/query/base64_decode_toarrayfunction?context=/azure/synapse-analytics/context/context
+  - name: base64_decode_tostring()
+    href: /azure/data-explorer/kusto/query/base64_decode_tostringfunction?context=/azure/synapse-analytics/context/context
+  - name: base64_encode_fromarray()
+    href: /azure/data-explorer/kusto/query/base64_encode_fromarrayfunction?context=/azure/synapse-analytics/context/context
+  - name: base64_encode_tostring()
+    href: /azure/data-explorer/kusto/query/base64_encode_tostringfunction?context=/azure/synapse-analytics/context/context
+  - name: beta_cdf()
+    href: /azure/data-explorer/kusto/query/beta-cdffunction?context=/azure/synapse-analytics/context/context
+  - name: beta_inv()
+    href: /azure/data-explorer/kusto/query/beta-invfunction?context=/azure/synapse-analytics/context/context
+  - name: beta_pdf()
+    href: /azure/data-explorer/kusto/query/beta-pdffunction?context=/azure/synapse-analytics/context/context
+  - name: bin()
+    href: /azure/data-explorer/kusto/query/binfunction?context=/azure/synapse-analytics/context/context
+  - name: bin_at()
+    href: /azure/data-explorer/kusto/query/binatfunction?context=/azure/synapse-analytics/context/context
+  - name: bin_auto()
+    href: /azure/data-explorer/kusto/query/bin-autofunction?context=/azure/synapse-analytics/context/context
+  - name: binary_and()
+    href: /azure/data-explorer/kusto/query/binary-andfunction?context=/azure/synapse-analytics/context/context
+  - name: binary_not()
+    href: /azure/data-explorer/kusto/query/binary-notfunction?context=/azure/synapse-analytics/context/context
+  - name: binary_or()
+    href: /azure/data-explorer/kusto/query/binary-orfunction?context=/azure/synapse-analytics/context/context
+  - name: binary_shift_left()
+    href: /azure/data-explorer/kusto/query/binary-shift-leftfunction?context=/azure/synapse-analytics/context/context
+  - name: binary_shift_right()
+    href: /azure/data-explorer/kusto/query/binary-shift-rightfunction?context=/azure/synapse-analytics/context/context
+  - name: binary_xor()
+    href: /azure/data-explorer/kusto/query/binary-xorfunction?context=/azure/synapse-analytics/context/context
+  - name: bitset_count_ones()
+    href: /azure/data-explorer/kusto/query/bitset-count-onesfunction?context=/azure/synapse-analytics/context/context
+  - name: case()
+    href: /azure/data-explorer/kusto/query/casefunction?context=/azure/synapse-analytics/context/context
+  - name: ceiling()
+    href: /azure/data-explorer/kusto/query/ceilingfunction?context=/azure/synapse-analytics/context/context
+  - name: coalesce()
+    href: /azure/data-explorer/kusto/query/coalescefunction?context=/azure/synapse-analytics/context/context
+  - name: column_ifexists()
+    href: /azure/data-explorer/kusto/query/columnifexists?context=/azure/synapse-analytics/context/context
+  - name: cos()
+    href: /azure/data-explorer/kusto/query/cosfunction?context=/azure/synapse-analytics/context/context
+  - name: cot()
+    href: /azure/data-explorer/kusto/query/cotfunction?context=/azure/synapse-analytics/context/context
+  - name: countof()
+    href: /azure/data-explorer/kusto/query/countoffunction?context=/azure/synapse-analytics/context/context
+  - name: current_cluster_endpoint()
+    href: /azure/data-explorer/kusto/query/current-cluster-endpoint-function?context=/azure/synapse-analytics/context/context
+  - name: current_cursor()
+    href: /azure/data-explorer/kusto/query/cursorcurrent?context=/azure/synapse-analytics/context/context
+  - name: current_database()
+    href: /azure/data-explorer/kusto/query/current-database-function?context=/azure/synapse-analytics/context/context
+  - name: current_principal()
+    href: /azure/data-explorer/kusto/query/current-principalfunction?context=/azure/synapse-analytics/context/context
+  - name: current_principal_details()
+    href: /azure/data-explorer/kusto/query/current-principal-detailsfunction?context=/azure/synapse-analytics/context/context
+  - name: current_principal_is_member_of()
+    href: /azure/data-explorer/kusto/query/current-principal-ismemberoffunction?context=/azure/synapse-analytics/context/context
+  - name: cursor_after()
+    href: /azure/data-explorer/kusto/query/cursorafterfunction?context=/azure/synapse-analytics/context/context
+  - name: cursor_before_or_at()
+    href: /azure/data-explorer/kusto/query/cursorbeforeoratfunction?context=/azure/synapse-analytics/context/context
+  - name: cursor_current()
+    href: /azure/data-explorer/kusto/query/cursorcurrent?context=/azure/synapse-analytics/context/context
+  - name: datetime_add()
+    href: /azure/data-explorer/kusto/query/datetime-addfunction?context=/azure/synapse-analytics/context/context
+  - name: datetime_diff()
+    href: /azure/data-explorer/kusto/query/datetime-difffunction?context=/azure/synapse-analytics/context/context
+  - name: datetime_part()
+    href: /azure/data-explorer/kusto/query/datetime-partfunction?context=/azure/synapse-analytics/context/context
+  - name: dayofmonth()
+    href: /azure/data-explorer/kusto/query/dayofmonthfunction?context=/azure/synapse-analytics/context/context
+  - name: dayofweek()
+    href: /azure/data-explorer/kusto/query/dayofweekfunction?context=/azure/synapse-analytics/context/context
+  - name: dayofyear()
+    href: /azure/data-explorer/kusto/query/dayofyearfunction?context=/azure/synapse-analytics/context/context
+  - name: dcount_hll()
+    href: /azure/data-explorer/kusto/query/dcount-hllfunction?context=/azure/synapse-analytics/context/context
+  - name: degrees()
+    href: /azure/data-explorer/kusto/query/degreesfunction?context=/azure/synapse-analytics/context/context
+  - name: dynamic_to_json()
+    href: /azure/data-explorer/kusto/query/dynamic-to-json-function?context=/azure/synapse-analytics/context/context
+  - name: endofday()
+    href: /azure/data-explorer/kusto/query/endofdayfunction?context=/azure/synapse-analytics/context/context
+  - name: endofmonth()
+    href: /azure/data-explorer/kusto/query/endofmonthfunction?context=/azure/synapse-analytics/context/context
+  - name: endofweek()
+    href: /azure/data-explorer/kusto/query/endofweekfunction?context=/azure/synapse-analytics/context/context
+  - name: endofyear()
+    href: /azure/data-explorer/kusto/query/endofyearfunction?context=/azure/synapse-analytics/context/context
+  - name: estimate_data_size()
+    href: /azure/data-explorer/kusto/query/estimate-data-sizefunction?context=/azure/synapse-analytics/context/context
+  - name: exp()
+    href: /azure/data-explorer/kusto/query/exp-function?context=/azure/synapse-analytics/context/context
+  - name: exp10()
+    href: /azure/data-explorer/kusto/query/exp10-function?context=/azure/synapse-analytics/context/context
+  - name: exp2()
+    href: /azure/data-explorer/kusto/query/exp2-function?context=/azure/synapse-analytics/context/context
+  - name: extent_id()
+    href: /azure/data-explorer/kusto/query/extentidfunction?context=/azure/synapse-analytics/context/context
+  - name: extent_tags()
+    href: /azure/data-explorer/kusto/query/extenttagsfunction?context=/azure/synapse-analytics/context/context
+  - name: extract()
+    href: /azure/data-explorer/kusto/query/extractfunction?context=/azure/synapse-analytics/context/context
+  - name: extract_all()
+    href: /azure/data-explorer/kusto/query/extractallfunction?context=/azure/synapse-analytics/context/context
+  - name: extractjson()
+    href: /azure/data-explorer/kusto/query/extractjsonfunction?context=/azure/synapse-analytics/context/context
+  - name: floor()
+    href: /azure/data-explorer/kusto/query/floorfunction?context=/azure/synapse-analytics/context/context
+  - name: format_bytes()
+    href: /azure/data-explorer/kusto/query/format-bytesfunction?context=/azure/synapse-analytics/context/context
+  - name: format_datetime()
+    href: /azure/data-explorer/kusto/query/format-datetimefunction?context=/azure/synapse-analytics/context/context
+  - name: format_ipv4()
+    href: /azure/data-explorer/kusto/query/format-ipv4-function?context=/azure/synapse-analytics/context/context
+  - name: format_ipv4_mask()
+    href: /azure/data-explorer/kusto/query/format-ipv4-mask-function?context=/azure/synapse-analytics/context/context
+  - name: format_timespan()
+    href: /azure/data-explorer/kusto/query/format-timespanfunction?context=/azure/synapse-analytics/context/context
+  - name: gamma()
+    href: /azure/data-explorer/kusto/query/gammafunction?context=/azure/synapse-analytics/context/context
+  - name: getmonth()
+    href: /azure/data-explorer/kusto/query/getmonthfunction?context=/azure/synapse-analytics/context/context
+  - name: gettype()
+    href: /azure/data-explorer/kusto/query/gettypefunction?context=/azure/synapse-analytics/context/context
+  - name: getyear()
+    href: /azure/data-explorer/kusto/query/getyearfunction?context=/azure/synapse-analytics/context/context
+  - name: has_any_ipv4()
+    href: /azure/data-explorer/kusto/query/has-any-ipv4-function?context=/azure/synapse-analytics/context/context
+  - name: has_ipv4()
+    href: /azure/data-explorer/kusto/query/has-ipv4-function?context=/azure/synapse-analytics/context/context
+  - name: has_any_ipv4_prefix()
+    href: /azure/data-explorer/kusto/query/has-any-ipv4-prefix-function?context=/azure/synapse-analytics/context/context
+  - name: has_ipv4_prefix()
+    href: /azure/data-explorer/kusto/query/has-ipv4-prefix-function?context=/azure/synapse-analytics/context/context
+  - name: hash()
+    href: /azure/data-explorer/kusto/query/hashfunction?context=/azure/synapse-analytics/context/context
+  - name: hash_combine()
+    href: /azure/data-explorer/kusto/query/hash_combinefunction?context=/azure/synapse-analytics/context/context
+  - name: hash_many()
+    href: /azure/data-explorer/kusto/query/hash_manyfunction?context=/azure/synapse-analytics/context/context
+  - name: hash_md5()
+    href: /azure/data-explorer/kusto/query/md5hashfunction?context=/azure/synapse-analytics/context/context
+  - name: hash_sha256()
+    href: /azure/data-explorer/kusto/query/sha256hashfunction?context=/azure/synapse-analytics/context/context
+  - name: hll_merge()
+    href: /azure/data-explorer/kusto/query/hllmergefunction?context=/azure/synapse-analytics/context/context
+  - name: hourofday()
+    href: /azure/data-explorer/kusto/query/hourofdayfunction?context=/azure/synapse-analytics/context/context
+  - name: iif()
+    href: /azure/data-explorer/kusto/query/iiffunction?context=/azure/synapse-analytics/context/context
+  - name: indexof()
+    href: /azure/data-explorer/kusto/query/indexoffunction?context=/azure/synapse-analytics/context/context
+  - name: indexof_regex()
+    href: /azure/data-explorer/kusto/query/indexofregexfunction?context=/azure/synapse-analytics/context/context
+  - name: ingestion_time()
+    href: /azure/data-explorer/kusto/query/ingestiontimefunction?context=/azure/synapse-analytics/context/context
+  - name: ipv4_compare()
+    href: /azure/data-explorer/kusto/query/ipv4-comparefunction?context=/azure/synapse-analytics/context/context
+  - name: ipv4_is_in_range()
+    href: /azure/data-explorer/kusto/query/ipv4-is-in-range-function?context=/azure/synapse-analytics/context/context
+  - name: ipv4_is_match()
+    href: /azure/data-explorer/kusto/query/ipv4-is-matchfunction?context=/azure/synapse-analytics/context/context
+  - name: ipv4_is_private()
+    href: /azure/data-explorer/kusto/query/ipv4-is-privatefunction?context=/azure/synapse-analytics/context/context
+  - name: ipv4_netmask_suffix()
+    href: /azure/data-explorer/kusto/query/ipv4-netmask-suffix-function?context=/azure/synapse-analytics/context/context
+  - name: ipv6_compare()
+    href: /azure/data-explorer/kusto/query/ipv6-comparefunction?context=/azure/synapse-analytics/context/context
+  - name: ipv6_is_match()
+    href: /azure/data-explorer/kusto/query/ipv6-is-matchfunction?context=/azure/synapse-analytics/context/context
+  - name: isascii()
+    href: /azure/data-explorer/kusto/query/isascii?context=/azure/synapse-analytics/context/context
+  - name: isempty()
+    href: /azure/data-explorer/kusto/query/isemptyfunction?context=/azure/synapse-analytics/context/context
+  - name: isfinite()
+    href: /azure/data-explorer/kusto/query/isfinitefunction?context=/azure/synapse-analytics/context/context
+  - name: isinf()
+    href: /azure/data-explorer/kusto/query/isinffunction?context=/azure/synapse-analytics/context/context
+  - name: isnan()
+    href: /azure/data-explorer/kusto/query/isnanfunction?context=/azure/synapse-analytics/context/context
+  - name: isnotempty(), notempty()
+    href: /azure/data-explorer/kusto/query/isnotemptyfunction?context=/azure/synapse-analytics/context/context
+  - name: isnotnull(), notnull()
+    href: /azure/data-explorer/kusto/query/isnotnullfunction?context=/azure/synapse-analytics/context/context
+  - name: isnull()
+    href: /azure/data-explorer/kusto/query/isnullfunction?context=/azure/synapse-analytics/context/context
+  - name: isutf8()
+    href: /azure/data-explorer/kusto/query/isutf8?context=/azure/synapse-analytics/context/context
+  - name: log()
+    href: /azure/data-explorer/kusto/query/log-function?context=/azure/synapse-analytics/context/context
+  - name: log10()
+    href: /azure/data-explorer/kusto/query/log10-function?context=/azure/synapse-analytics/context/context
+  - name: log2()
+    href: /azure/data-explorer/kusto/query/log2-function?context=/azure/synapse-analytics/context/context
+  - name: loggamma()
+    href: /azure/data-explorer/kusto/query/loggammafunction?context=/azure/synapse-analytics/context/context
+  - name: make_datetime()
+    href: /azure/data-explorer/kusto/query/make-datetimefunction?context=/azure/synapse-analytics/context/context
+  - name: make_string()
+    href: /azure/data-explorer/kusto/query/makestringfunction?context=/azure/synapse-analytics/context/context
+  - name: make_timespan()
+    href: /azure/data-explorer/kusto/query/make-timespanfunction?context=/azure/synapse-analytics/context/context
+  - name: max_of()
+    href: /azure/data-explorer/kusto/query/max-offunction?context=/azure/synapse-analytics/context/context
+  - name: min_of()
+    href: /azure/data-explorer/kusto/query/min-offunction?context=/azure/synapse-analytics/context/context
+  - name: monthofyear()
+    href: /azure/data-explorer/kusto/query/monthofyearfunction?context=/azure/synapse-analytics/context/context
+  - name: new_guid()
+    href: /azure/data-explorer/kusto/query/newguidfunction?context=/azure/synapse-analytics/context/context
+  - name: not()
+    href: /azure/data-explorer/kusto/query/notfunction?context=/azure/synapse-analytics/context/context
+  - name: now()
+    href: /azure/data-explorer/kusto/query/nowfunction?context=/azure/synapse-analytics/context/context
+  - name: pack()
+    href: /azure/data-explorer/kusto/query/packfunction?context=/azure/synapse-analytics/context/context
+  - name: pack_all()
+    href: /azure/data-explorer/kusto/query/packallfunction?context=/azure/synapse-analytics/context/context
+  - name: pack_array()
+    href: /azure/data-explorer/kusto/query/packarrayfunction?context=/azure/synapse-analytics/context/context
+  - name: pack_dictionary()
+    href: /azure/data-explorer/kusto/query/packdictionaryfunction?context=/azure/synapse-analytics/context/context
+  - name: parse_command_line()
+    href: /azure/data-explorer/kusto/query/parse-command-line?context=/azure/synapse-analytics/context/context
+  - name: parse_csv()
+    href: /azure/data-explorer/kusto/query/parsecsvfunction?context=/azure/synapse-analytics/context/context
+  - name: parse_ipv4()
+    href: /azure/data-explorer/kusto/query/parse-ipv4function?context=/azure/synapse-analytics/context/context
+  - name: parse_ipv4_mask()
+    href: /azure/data-explorer/kusto/query/parse-ipv4-maskfunction?context=/azure/synapse-analytics/context/context
+  - name: parse_ipv6()
+    href: /azure/data-explorer/kusto/query/parse-ipv6function?context=/azure/synapse-analytics/context/context
+  - name: parse_ipv6_mask()
+    href: /azure/data-explorer/kusto/query/parse-ipv6-maskfunction?context=/azure/synapse-analytics/context/context
+  - name: parse_path()
+    href: /azure/data-explorer/kusto/query/parsepathfunction?context=/azure/synapse-analytics/context/context
+  - name: parse_url()
+    href: /azure/data-explorer/kusto/query/parseurlfunction?context=/azure/synapse-analytics/context/context
+  - name: parse_urlquery()
+    href: /azure/data-explorer/kusto/query/parseurlqueryfunction?context=/azure/synapse-analytics/context/context
+  - name: parse_user_agent()
+    href: /azure/data-explorer/kusto/query/parse-useragentfunction?context=/azure/synapse-analytics/context/context
+  - name: parse_version()
+    href: /azure/data-explorer/kusto/query/parse-versionfunction?context=/azure/synapse-analytics/context/context
+  - name: parse_xml()
+    href: /azure/data-explorer/kusto/query/parse-xmlfunction?context=/azure/synapse-analytics/context/context
+  - name: percentile_tdigest()
+    href: /azure/data-explorer/kusto/query/percentile-tdigestfunction?context=/azure/synapse-analytics/context/context
+  - name: percentrank_tdigest()
+    href: /azure/data-explorer/kusto/query/percentrank-tdigestfunction?context=/azure/synapse-analytics/context/context
+  - name: pi()
+    href: /azure/data-explorer/kusto/query/pifunction?context=/azure/synapse-analytics/context/context
+  - name: pow()
+    href: /azure/data-explorer/kusto/query/powfunction?context=/azure/synapse-analytics/context/context
+  - name: radians()
+    href: /azure/data-explorer/kusto/query/radiansfunction?context=/azure/synapse-analytics/context/context
+  - name: rand()
+    href: /azure/data-explorer/kusto/query/randfunction?context=/azure/synapse-analytics/context/context
+  - name: range()
+    href: /azure/data-explorer/kusto/query/rangefunction?context=/azure/synapse-analytics/context/context
+  - name: rank_tdigest()
+    href: /azure/data-explorer/kusto/query/rank-tdigest?context=/azure/synapse-analytics/context/context
+  - name: regex_quote()
+    href: /azure/data-explorer/kusto/query/regexquotefunction?context=/azure/synapse-analytics/context/context
+  - name: repeat()
+    href: /azure/data-explorer/kusto/query/repeatfunction?context=/azure/synapse-analytics/context/context
+  - name: replace()
+    href: /azure/data-explorer/kusto/query/replacefunction?context=/azure/synapse-analytics/context/context
+  - name: reverse()
+    href: /azure/data-explorer/kusto/query/reversefunction?context=/azure/synapse-analytics/context/context
+  - name: round()
+    href: /azure/data-explorer/kusto/query/roundfunction?context=/azure/synapse-analytics/context/context
+  - name: set_difference()
+    href: /azure/data-explorer/kusto/query/setdifferencefunction?context=/azure/synapse-analytics/context/context
+  - name: set_has_element()
+    href: /azure/data-explorer/kusto/query/sethaselementfunction?context=/azure/synapse-analytics/context/context
+  - name: set_intersect()
+    href: /azure/data-explorer/kusto/query/setintersectfunction?context=/azure/synapse-analytics/context/context
+  - name: set_union()
+    href: /azure/data-explorer/kusto/query/setunionfunction?context=/azure/synapse-analytics/context/context
+  - name: sign()
+    href: /azure/data-explorer/kusto/query/signfunction?context=/azure/synapse-analytics/context/context
+  - name: sin()
+    href: /azure/data-explorer/kusto/query/sinfunction?context=/azure/synapse-analytics/context/context
+  - name: split()
+    href: /azure/data-explorer/kusto/query/splitfunction?context=/azure/synapse-analytics/context/context
+  - name: sqrt()
+    href: /azure/data-explorer/kusto/query/sqrtfunction?context=/azure/synapse-analytics/context/context
+  - name: startofday()
+    href: /azure/data-explorer/kusto/query/startofdayfunction?context=/azure/synapse-analytics/context/context
+  - name: startofmonth()
+    href: /azure/data-explorer/kusto/query/startofmonthfunction?context=/azure/synapse-analytics/context/context
+  - name: startofweek()
+    href: /azure/data-explorer/kusto/query/startofweekfunction?context=/azure/synapse-analytics/context/context
+  - name: startofyear()
+    href: /azure/data-explorer/kusto/query/startofyearfunction?context=/azure/synapse-analytics/context/context
+  - name: strcat()
+    href: /azure/data-explorer/kusto/query/strcatfunction?context=/azure/synapse-analytics/context/context
+  - name: strcat_array()
+    href: /azure/data-explorer/kusto/query/strcat-arrayfunction?context=/azure/synapse-analytics/context/context
+  - name: strcat_delim()
+    href: /azure/data-explorer/kusto/query/strcat-delimfunction?context=/azure/synapse-analytics/context/context
+  - name: strcmp()
+    href: /azure/data-explorer/kusto/query/strcmpfunction?context=/azure/synapse-analytics/context/context
+  - name: string_size()
+    href: /azure/data-explorer/kusto/query/stringsizefunction?context=/azure/synapse-analytics/context/context
+  - name: strlen()
+    href: /azure/data-explorer/kusto/query/strlenfunction?context=/azure/synapse-analytics/context/context
+  - name: strrep()
+    href: /azure/data-explorer/kusto/query/strrepfunction?context=/azure/synapse-analytics/context/context
+  - name: substring()
+    href: /azure/data-explorer/kusto/query/substringfunction?context=/azure/synapse-analytics/context/context
+  - name: tan()
+    href: /azure/data-explorer/kusto/query/tanfunction?context=/azure/synapse-analytics/context/context
+  - name: tdigest_merge()
+    href: /azure/data-explorer/kusto/query/tdigest-mergefunction?context=/azure/synapse-analytics/context/context
+  - name: to_utf8()
+    href: /azure/data-explorer/kusto/query/toutf8function?context=/azure/synapse-analytics/context/context
+  - name: tobool()
+    href: /azure/data-explorer/kusto/query/toboolfunction?context=/azure/synapse-analytics/context/context
+  - name: todatetime()
+    href: /azure/data-explorer/kusto/query/todatetimefunction?context=/azure/synapse-analytics/context/context
+  - name: todecimal()
+    href: /azure/data-explorer/kusto/query/todecimalfunction?context=/azure/synapse-analytics/context/context
+  - name: todouble(), toreal()
+    href: /azure/data-explorer/kusto/query/todoublefunction?context=/azure/synapse-analytics/context/context
+  - name: todynamic(), parse_json()
+    displayName: toobject(), parsejson()
+    href: /azure/data-explorer/kusto/query/parsejsonfunction?context=/azure/synapse-analytics/context/context
+  - name: toguid()
+    href: /azure/data-explorer/kusto/query/toguidfunction?context=/azure/synapse-analytics/context/context
+  - name: tohex()
+    href: /azure/data-explorer/kusto/query/tohexfunction?context=/azure/synapse-analytics/context/context
+  - name: toint()
+    href: /azure/data-explorer/kusto/query/tointfunction?context=/azure/synapse-analytics/context/context
+  - name: tolong()
+    href: /azure/data-explorer/kusto/query/tolongfunction?context=/azure/synapse-analytics/context/context
+  - name: tolower()
+    href: /azure/data-explorer/kusto/query/tolowerfunction?context=/azure/synapse-analytics/context/context
+  - name: tostring()
+    href: /azure/data-explorer/kusto/query/tostringfunction?context=/azure/synapse-analytics/context/context
+  - name: totimespan()
+    href: /azure/data-explorer/kusto/query/totimespanfunction?context=/azure/synapse-analytics/context/context
+  - name: toupper()
+    href: /azure/data-explorer/kusto/query/toupperfunction?context=/azure/synapse-analytics/context/context
+  - name: translate()
+    href: /azure/data-explorer/kusto/query/translatefunction?context=/azure/synapse-analytics/context/context
+  - name: treepath()
+    href: /azure/data-explorer/kusto/query/treepathfunction?context=/azure/synapse-analytics/context/context
+  - name: trim()
+    href: /azure/data-explorer/kusto/query/trimfunction?context=/azure/synapse-analytics/context/context
+  - name: trim_end()
+    href: /azure/data-explorer/kusto/query/trimendfunction?context=/azure/synapse-analytics/context/context
+  - name: trim_start()
+    href: /azure/data-explorer/kusto/query/trimstartfunction?context=/azure/synapse-analytics/context/context
+  - name: unixtime_microseconds_todatetime()
+    href: /azure/data-explorer/kusto/query/unixtime-microseconds-todatetimefunction?context=/azure/synapse-analytics/context/context
+  - name: unixtime_milliseconds_todatetime()
+    href: /azure/data-explorer/kusto/query/unixtime-milliseconds-todatetimefunction?context=/azure/synapse-analytics/context/context
+  - name: unixtime_nanoseconds_todatetime()
+    href: /azure/data-explorer/kusto/query/unixtime-nanoseconds-todatetimefunction?context=/azure/synapse-analytics/context/context
+  - name: unixtime_seconds_todatetime()
+    href: /azure/data-explorer/kusto/query/unixtime-seconds-todatetimefunction?context=/azure/synapse-analytics/context/context
+  - name: url_decode()
+    href: /azure/data-explorer/kusto/query/urldecodefunction?context=/azure/synapse-analytics/context/context
+  - name: url_encode()
+    href: /azure/data-explorer/kusto/query/urlencodefunction?context=/azure/synapse-analytics/context/context
+  - name: url_encode_component()
+    href: /azure/data-explorer/kusto/query/urlencodecomponentfunction?context=/azure/synapse-analytics/context/context
+  - name: weekofyear()
+    href: /azure/data-explorer/kusto/query/weekofyearfunction?context=/azure/synapse-analytics/context/context
+  - name: welch_test()
+    href: /azure/data-explorer/kusto/query/welch-testfunction?context=/azure/synapse-analytics/context/context
+  - name: zip()
+    href: /azure/data-explorer/kusto/query/zipfunction?context=/azure/synapse-analytics/context/context
+  - name: zlib_compress_to_base64_string()
+    href: /azure/data-explorer/kusto/query/zlib-base64-compress?context=/azure/synapse-analytics/context/context
+  - name: zlib_decompress_from_base64_string()
+    href: /azure/data-explorer/kusto/query/zlib-base64-decompress?context=/azure/synapse-analytics/context/context
+- name: Aggregation functions
+  items:
+  - name: any()
+    href: /azure/data-explorer/kusto/query/any-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: anyif()
+    href: /azure/data-explorer/kusto/query/anyif-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: arg_max()
+    href: /azure/data-explorer/kusto/query/arg-max-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: arg_min()
+    href: /azure/data-explorer/kusto/query/arg-min-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: avg()
+    href: /azure/data-explorer/kusto/query/avg-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: avgif()
+    href: /azure/data-explorer/kusto/query/avgif-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: binary_all_and
+    href: /azure/data-explorer/kusto/query/binary-all-and-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: binary_all_or
+    href: /azure/data-explorer/kusto/query/binary-all-or-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: binary_all_xor
+    href: /azure/data-explorer/kusto/query/binary-all-xor-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: buildschema()
+    href: /azure/data-explorer/kusto/query/buildschema-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: count()
+    href: /azure/data-explorer/kusto/query/count-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: countif()
+    href: /azure/data-explorer/kusto/query/countif-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: dcount()
+    href: /azure/data-explorer/kusto/query/dcount-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: dcountif()
+    href: /azure/data-explorer/kusto/query/dcountif-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: hll()
+    href: /azure/data-explorer/kusto/query/hll-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: hll_merge()
+    href: /azure/data-explorer/kusto/query/hll-merge-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: make_bag()
+    href: /azure/data-explorer/kusto/query/make-bag-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: make_bag_if()
+    href: /azure/data-explorer/kusto/query/make-bag-if-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: make_list()
+    href: /azure/data-explorer/kusto/query/makelist-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: make_list_if()
+    href: /azure/data-explorer/kusto/query/makelistif-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: make_list_with_nulls()
+    href: /azure/data-explorer/kusto/query/make-list-with-nulls-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: make_set()
+    href: /azure/data-explorer/kusto/query/makeset-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: make_set_if()
+    href: /azure/data-explorer/kusto/query/makesetif-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: max()
+    href: /azure/data-explorer/kusto/query/max-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: maxif()
+    href: /azure/data-explorer/kusto/query/maxif-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: min()
+    href: /azure/data-explorer/kusto/query/min-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: minif()
+    href: /azure/data-explorer/kusto/query/minif-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: percentiles(), percentile()
+    displayName: percentiles_array(), percentilew(), percentilesw(), percentilesw_array()
+    href: /azure/data-explorer/kusto/query/percentiles-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: stdev()
+    href: /azure/data-explorer/kusto/query/stdev-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: stdevif()
+    href: /azure/data-explorer/kusto/query/stdevif-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: stdevp()
+    href: /azure/data-explorer/kusto/query/stdevp-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: sum()
+    href: /azure/data-explorer/kusto/query/sum-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: sumif()
+    href: /azure/data-explorer/kusto/query/sumif-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: tdigest()
+    href: /azure/data-explorer/kusto/query/tdigest-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: tdigest_merge()
+    href: /azure/data-explorer/kusto/query/tdigest-merge-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: variance()
+    href: /azure/data-explorer/kusto/query/variance-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: varianceif()
+    href: /azure/data-explorer/kusto/query/varianceif-aggfunction?context=/azure/synapse-analytics/context/context
+  - name: variancep()
+    href: /azure/data-explorer/kusto/query/variancep-aggfunction?context=/azure/synapse-analytics/context/context
+- name: Window functions
+  items:
+  - name: Window functions overview
+    href: /azure/data-explorer/kusto/query/windowsfunctions?context=/azure/synapse-analytics/context/context
+  - name: next()
+    href: /azure/data-explorer/kusto/query/nextfunction?context=/azure/synapse-analytics/context/context
+  - name: prev()
+    href: /azure/data-explorer/kusto/query/prevfunction?context=/azure/synapse-analytics/context/context
+  - name: row_cumsum()
+    href: /azure/data-explorer/kusto/query/rowcumsumfunction?context=/azure/synapse-analytics/context/context
+  - name: row_number()
+    href: /azure/data-explorer/kusto/query/rownumberfunction?context=/azure/synapse-analytics/context/context
+  - name: row_rank()
+    href: /azure/data-explorer/kusto/query/rowrankfunction?context=/azure/synapse-analytics/context/context
+  - name: row_window_session()
+    href: /azure/data-explorer/kusto/query/row-window-session-function?context=/azure/synapse-analytics/context/context
+- name: Time series analysis
+  items:
+  - name: Time series analysis overview
+    href: /azure/data-explorer/kusto/query/machine-learning-and-tsa?context=/azure/synapse-analytics/context/context
+  - name: make-series operator
+    href: /azure/data-explorer/kusto/query/make-seriesoperator?context=/azure/synapse-analytics/context/context
+  - name: series_add()
+    href: /azure/data-explorer/kusto/query/series-addfunction?context=/azure/synapse-analytics/context/context
+  - name: series_decompose()
+    href: /azure/data-explorer/kusto/query/series-decomposefunction?context=/azure/synapse-analytics/context/context
+  - name: series_decompose_anomalies()
+    href: /azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?context=/azure/synapse-analytics/context/context
+  - name: series_decompose_forecast()
+    href: /azure/data-explorer/kusto/query/series-decompose-forecastfunction?context=/azure/synapse-analytics/context/context
+  - name: series_divide()
+    href: /azure/data-explorer/kusto/query/series-dividefunction?context=/azure/synapse-analytics/context/context
+  - name: series_equals()
+    href: /azure/data-explorer/kusto/query/series-equalsfunction?context=/azure/synapse-analytics/context/context
+  - name: series_fft()
+    href: /azure/data-explorer/kusto/query/series-fft-function?context=/azure/synapse-analytics/context/context
+  - name: series_fill_backward()
+    href: /azure/data-explorer/kusto/query/series-fill-backwardfunction?context=/azure/synapse-analytics/context/context
+  - name: series_fill_const()
+    href: /azure/data-explorer/kusto/query/series-fill-constfunction?context=/azure/synapse-analytics/context/context
+  - name: series_fill_forward()
+    href: /azure/data-explorer/kusto/query/series-fill-forwardfunction?context=/azure/synapse-analytics/context/context
+  - name: series_fill_linear()
+    href: /azure/data-explorer/kusto/query/series-fill-linearfunction?context=/azure/synapse-analytics/context/context
+  - name: series_fir()
+    href: /azure/data-explorer/kusto/query/series-firfunction?context=/azure/synapse-analytics/context/context
+  - name: series_fit_2lines()
+    href: /azure/data-explorer/kusto/query/series-fit-2linesfunction?context=/azure/synapse-analytics/context/context
+  - name: series_fit_2lines_dynamic()
+    href: /azure/data-explorer/kusto/query/series-fit-2lines-dynamicfunction?context=/azure/synapse-analytics/context/context
+  - name: series_fit_line()
+    href: /azure/data-explorer/kusto/query/series-fit-linefunction?context=/azure/synapse-analytics/context/context
+  - name: series_fit_line_dynamic()
+    href: /azure/data-explorer/kusto/query/series-fit-line-dynamicfunction?context=/azure/synapse-analytics/context/context
+  - name: series_fit_poly()
+    href: /azure/data-explorer/kusto/query/series-fit-poly-function?context=/azure/synapse-analytics/context/context
+  - name: series_greater()
+    href: /azure/data-explorer/kusto/query/series-greaterfunction?context=/azure/synapse-analytics/context/context
+  - name: series_greater_equals()
+    href: /azure/data-explorer/kusto/query/series-greater-equalsfunction?context=/azure/synapse-analytics/context/context
+  - name: series_ifft()
+    href: /azure/data-explorer/kusto/query/series-ifft-function?context=/azure/synapse-analytics/context/context
+  - name: series_iir()
+    href: /azure/data-explorer/kusto/query/series-iirfunction?context=/azure/synapse-analytics/context/context
+  - name: series_less()
+    href: /azure/data-explorer/kusto/query/series-lessfunction?context=/azure/synapse-analytics/context/context
+  - name: series_less_equals()
+    href: /azure/data-explorer/kusto/query/series-less-equalsfunction?context=/azure/synapse-analytics/context/context
+  - name: series_multiply()
+    href: /azure/data-explorer/kusto/query/series-multiplyfunction?context=/azure/synapse-analytics/context/context
+  - name: series_not_equals()
+    href: /azure/data-explorer/kusto/query/series-not-equalsfunction?context=/azure/synapse-analytics/context/context
+  - name: series_outliers()
+    href: /azure/data-explorer/kusto/query/series-outliersfunction?context=/azure/synapse-analytics/context/context
+  - name: series_pearson_correlation()
+    href: /azure/data-explorer/kusto/query/series-pearson-correlationfunction?context=/azure/synapse-analytics/context/context
+  - name: series_periods_detect()
+    href: /azure/data-explorer/kusto/query/series-periods-detectfunction?context=/azure/synapse-analytics/context/context
+  - name: series_periods_validate()
+    href: /azure/data-explorer/kusto/query/series-periods-validatefunction?context=/azure/synapse-analytics/context/context
+  - name: series_seasonal()
+    href: /azure/data-explorer/kusto/query/series-seasonalfunction?context=/azure/synapse-analytics/context/context
+  - name: series_stats()
+    href: /azure/data-explorer/kusto/query/series-statsfunction?context=/azure/synapse-analytics/context/context
+  - name: series_stats_dynamic()
+    href: /azure/data-explorer/kusto/query/series-stats-dynamicfunction?context=/azure/synapse-analytics/context/context
+  - name: series_subtract()
+    href: /azure/data-explorer/kusto/query/series-subtractfunction?context=/azure/synapse-analytics/context/context
+- name: Machine Learning
+  items:
+  - name: autocluster plugin
+    href: /azure/data-explorer/kusto/query/autoclusterplugin?context=/azure/synapse-analytics/context/context
+  - name: basket plugin
+    href: /azure/data-explorer/kusto/query/basketplugin?context=/azure/synapse-analytics/context/context
+  - name: diffpatterns plugin
+    href: /azure/data-explorer/kusto/query/diffpatternsplugin?context=/azure/synapse-analytics/context/context
+  - name: diffpatterns_text plugin
+    href: /azure/data-explorer/kusto/query/diffpatterns-textplugin?context=/azure/synapse-analytics/context/context
+- name: Geospatial
+  items:
+  - name: geo_distance_2points()
+    href: /azure/data-explorer/kusto/query/geo-distance-2points-function?context=/azure/synapse-analytics/context/context
+  - name: geo_distance_point_to_line()
+    href: /azure/data-explorer/kusto/query/geo-distance-point-to-line-function?context=/azure/synapse-analytics/context/context
+  - name: geo_geohash_to_central_point()
+    href: /azure/data-explorer/kusto/query/geo-geohash-to-central-point-function?context=/azure/synapse-analytics/context/context
+  - name: geo_line_densify()
+    href: /azure/data-explorer/kusto/query/geo-line-densify-function?context=/azure/synapse-analytics/context/context
+  - name: geo_point_in_circle()
+    href: /azure/data-explorer/kusto/query/geo-point-in-circle-function?context=/azure/synapse-analytics/context/context
+  - name: geo_point_in_polygon()
+    href: /azure/data-explorer/kusto/query/geo-point-in-polygon-function?context=/azure/synapse-analytics/context/context
+  - name: geo_point_to_geohash()
+    href: /azure/data-explorer/kusto/query/geo-point-to-geohash-function?context=/azure/synapse-analytics/context/context
+  - name: geo_point_to_s2cell()
+    href: /azure/data-explorer/kusto/query/geo-point-to-s2cell-function?context=/azure/synapse-analytics/context/context
+  - name: geo_polygon_to_s2cells()
+    href: /azure/data-explorer/kusto/query/geo-polygon-to-s2cells-function?context=/azure/synapse-analytics/context/context
+  - name: geo_polygon_densify()
+    href: /azure/data-explorer/kusto/query/geo-polygon-densify-function?context=/azure/synapse-analytics/context/context
+  - name: geo_s2cell_to_central_point()
+    href: /azure/data-explorer/kusto/query/geo-s2cell-to-central-point-function?context=/azure/synapse-analytics/context/context
+- name: User analytics
+  items:
+  - name: User analytics plugins overview
+    href: /azure/data-explorer/kusto/query/useranalytics?context=/azure/synapse-analytics/context/context
+  - name: active_users_count plugin
+    href: /azure/data-explorer/kusto/query/active-users-count-plugin?context=/azure/synapse-analytics/context/context
+  - name: activity_counts_metrics plugin
+    href: /azure/data-explorer/kusto/query/activity-counts-metrics-plugin?context=/azure/synapse-analytics/context/context
+  - name: activity_engagement plugin
+    href: /azure/data-explorer/kusto/query/activity-engagement-plugin?context=/azure/synapse-analytics/context/context
+  - name: activity_metrics plugin
+    href: /azure/data-explorer/kusto/query/activity-metrics-plugin?context=/azure/synapse-analytics/context/context
+  - name: new_activity_metrics plugin
+    href: /azure/data-explorer/kusto/query/new-activity-metrics-plugin?context=/azure/synapse-analytics/context/context
+  - name: funnel_sequence_completion plugin
+    href: /azure/data-explorer/kusto/query/funnel-sequence-completion-plugin?context=/azure/synapse-analytics/context/context
+  - name: funnel_sequence plugin
+    href: /azure/data-explorer/kusto/query/funnel-sequence-plugin?context=/azure/synapse-analytics/context/context
+  - name: session_count plugin
+    href: /azure/data-explorer/kusto/query/session-count-plugin?context=/azure/synapse-analytics/context/context
+  - name: sliding_window_counts plugin
+    href: /azure/data-explorer/kusto/query/sliding-window-counts-plugin?context=/azure/synapse-analytics/context/context
+- name: Limits and Errors
+  items:
+  - name: Query consistency
+    href: /azure/data-explorer/kusto/concepts/queryconsistency?context=/azure/synapse-analytics/context/context
+  - name: Query limits
+    href: /azure/data-explorer/kusto/concepts/querylimits?context=/azure/synapse-analytics/context/context
+  - name: Partial query failures
+    href: /azure/data-explorer/kusto/concepts/partialqueryfailures?context=/azure/synapse-analytics/context/context
+    items:
+    - name: Result truncation
+      href: /azure/data-explorer/kusto/concepts/resulttruncation?context=/azure/synapse-analytics/context/context
+    - name: Runaway queries
+      href: /azure/data-explorer/kusto/concepts/runawayqueries?context=/azure/synapse-analytics/context/context
+    - name: Overflows
+      href: /azure/data-explorer/kusto/concepts/overflow?context=/azure/synapse-analytics/context/context
+- name: Reference material for Kusto Query Language
+  items:
+  - name: RE2 syntax
+    href: /azure/data-explorer/kusto/query/re2?context=/azure/synapse-analytics/context/context
+  - name: RE2 library
+    href: /azure/data-explorer/kusto/query/re2-library?context=/azure/synapse-analytics/context/context
+  - name: SQL to Kusto cheat sheet
+    href: /azure/data-explorer/kusto/query/sqlcheatsheet?context=/azure/synapse-analytics/context/context
+  - name: Splunk to Kusto cheat sheet
+    href: /azure/data-explorer/kusto/query/splunk-cheat-sheet?context=/azure/synapse-analytics/context/context

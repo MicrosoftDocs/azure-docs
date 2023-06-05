@@ -1,11 +1,14 @@
 ---
 title: Overview of the Reliable Service programming model 
 description: Learn about Service Fabric's Reliable Service programming model, and get started writing your own services.
-author: masnider
 ms.topic: conceptual
-ms.date: 3/9/2018
-ms.author: masnider
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Reliable Services overview
 
 Azure Service Fabric simplifies writing and managing stateless and stateful services. This topic covers:
@@ -42,6 +45,7 @@ Reliable Services are different from services you may have written before, becau
 * **Scalability** - Services are decoupled from specific hardware, and they can grow or shrink as necessary through the addition or removal of hardware or other resources. Services are easily partitioned (especially in the stateful case) to ensure that the service can scale and handle partial failures. Services can be created and deleted dynamically via code, enabling more instances to be spun up as necessary, for example in response to customer requests. Finally, Service Fabric encourages services to be lightweight. Service Fabric allows thousands of services to be provisioned within a single process, rather than requiring or dedicating entire OS instances or processes to a single instance of a service.
 * **Consistency** - Any information stored in a Reliable Service can be guaranteed to be consistent. This is true even across multiple Reliable Collections within a service. Changes across collections within a service can be made in a transactionally atomic manner.
 
+[Check this page for a training video to learn about the Service Fabric reliable services programming model and how, with this .NET programming model, your application can integrate more closely with the Service Fabric runtime:](/shows/building-microservices-applications-on-azure-service-fabric/what-are-reliable-services)
 ## Service lifecycle
 
 Whether your service is stateful or stateless, Reliable Services provide a simple lifecycle that lets you quickly plug in your code and get started.  Getting a new service up and running requires you to implement two methods:

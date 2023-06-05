@@ -1,0 +1,14 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/confidential-computing/virtual-machine-solutions.md",
+            "redirect_url": "/azure/confidential-computing/virtual-machine-solutions-sgx",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/confidential-computing/faq.md",
+            "redirect_url": "/azure/confidential-computing/faq-application-enclaves",
+            "redirect_document_id": true
+        }
+    ]
+}

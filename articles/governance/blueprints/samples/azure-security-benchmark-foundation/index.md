@@ -1,7 +1,7 @@
 ---
 title: Azure Security Benchmark Foundation blueprint sample overview
 description: Overview and architecture of the Azure Security Benchmark Foundation blueprint sample.
-ms.date: 03/12/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # Overview of the Azure Security Benchmark Foundation blueprint sample
@@ -9,9 +9,8 @@ ms.topic: sample
 The Azure Security Benchmark Foundation blueprint sample provides a set of baseline infrastructure
 patterns to help you build a secure and compliant Azure environment. The blueprint helps you deploy
 a cloud-based architecture that offers solutions to scenarios that have accreditation or compliance
-requirements. This foundational blueprint sample is an extension of the [Azure Security Benchmark
-sample blueprint](../azure-security-benchmark.md). It deploys and configures network boundaries,
-monitoring, and other resources in alignment with the policies and other guardrails defined in the
+requirements. It deploys and configures network boundaries, monitoring, and other resources in
+alignment with the policies and other guardrails defined in the
 [Azure Security Benchmark](../../../../security/benchmarks/index.yml).
 
 ## Architecture
@@ -60,7 +59,7 @@ foundation. This environment is composed of:
   need to be configured after deployment to open connectivity.)
 - [Azure Network Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md)
   to monitor, diagnose, and view metrics of resources in the Azure virtual network.
-- [Azure DDoS Protection Standard](../../../../ddos-protection/ddos-protection-overview.md)
+- [Azure DDoS Protection](../../../../ddos-protection/ddos-protection-overview.md)
   to protect Azure resources against DDoS attacks.
 - [Azure Bastion](../../../../bastion/bastion-overview.md) to provide seamless and
   secure connectivity to a virtual machine that does not require a public IP address, agent, or

@@ -32,6 +32,7 @@ items:
     topicHref: /azure/synapse-analytics/index
   - name: Synapse Analytics
     tocHref: /azure/synapse-analytics/data-explorer
+    topicHref: /azure/synapse-analytics/index
   - name: Synapse Analytics
     tocHref: /powerapps/maker/
     topicHref: /azure/synapse-analytics/index

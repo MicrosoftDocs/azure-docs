@@ -1,28 +1,25 @@
 ---
-title: Copy and move Custom Vision projects
+title: Copy and back up Custom Vision projects
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the ExportProject and ImportProject APIs to copy and move your Custom Vision projects.
+description: Learn how to use the ExportProject and ImportProject APIs to copy and back up your Custom Vision projects.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 01/20/2022
 ms.author: pafarley
 ---
 
-# Copy and move your Custom Vision projects
+# Copy and back up your Custom Vision projects
 
-After you've created and trained a Custom Vision project, you may want to copy your project to another resource. For example, you might want to move a project from a development to production environment, or back up a project to an account in a different Azure region for increased data security.
+After you've created and trained a Custom Vision project, you may want to copy your project to another resource. If your app or business depends on the use of a Custom Vision project, we recommend you copy your model to another Custom Vision account in another region. Then if a regional outage occurs, you can access your project in the region where it was copied.
 
-The **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** and **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** APIs enable this scenario by allowing you to copy projects from one Custom Vision account into others. This guide shows you how to use these REST APIs with cURL. You can also use an HTTP request service like Postman to issue the requests.
+The **[ExportProject](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** and **[ImportProject](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** APIs enable this scenario by allowing you to copy projects from one Custom Vision account into others. This guide shows you how to use these REST APIs with cURL. You can also use an HTTP request service like Postman to issue the requests.
 
 > [!TIP]
 > For an example of this scenario using the Python client library, see the [Move Custom Vision Project](https://github.com/Azure-Samples/custom-vision-move-project/tree/master/) repository on GitHub.
 
-## Business scenarios
-
-If your app or business depends on the use of a Custom Vision project, we recommend you copy your model to another Custom Vision account in another region. Then if a regional outage occurs, you can access your project in the region where it was copied.
 
 ##  Prerequisites
 
@@ -41,7 +38,7 @@ The process for copying a project consists of the following steps:
 
 ## Get the project ID
 
-First call **[GetProjects](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddead)** to see a list of your existing Custom Vision projects and their IDs. Use the training key and endpoint of your source account.
+First call **[GetProjects](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddead)** to see a list of your existing Custom Vision projects and their IDs. Use the training key and endpoint of your source account.
 
 ```curl
 curl -v -X GET "{endpoint}/customvision/v3.3/Training/projects"
@@ -79,7 +76,7 @@ You'll get a `200\OK` response with a list of projects and their metadata in the
 
 ## Export the project
 
-Call **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** using the project ID and your source training key and endpoint.
+Call **[ExportProject](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** using the project ID and your source training key and endpoint.
 
 ```curl
 curl -v -X GET "{endpoint}/customvision/v3.3/Training/projects/{projectId}/export"
@@ -99,9 +96,12 @@ You'll get a `200/OK` response with metadata about the exported project and a re
 }
 ```
 
+> [!TIP]
+> If you get an "Invalid Token" error when you import your project, it could be that the token URL string isn't web encoded. You can encode the token using a [URL Encoder](https://meyerweb.com/eric/tools/dencoder/).
+
 ## Import the project
 
-Call **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** using your target training key and endpoint, along with the reference token. You can also give your project a name in its new account.
+Call **[ImportProject](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** using your target training key and endpoint, along with the reference token. You can also give your project a name in its new account.
 
 ```curl
 curl -v -G -X POST "{endpoint}/customvision/v3.3/Training/projects/import"
@@ -139,4 +139,4 @@ You'll get a `200/OK` response with metadata about your newly imported project.
 ## Next steps
 
 In this guide, you learned how to copy and move a project between Custom Vision resources. Next, explore the API reference docs to see what else you can do with Custom Vision.
-* [REST API reference documentation](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)
+* [REST API reference documentation](/rest/api/custom-vision/)

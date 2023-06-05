@@ -2,13 +2,11 @@
 title: 'Remote work and Point-to-Site VPN gateways'
 titleSuffix: Azure VPN Gateway
 description: Learn how you can use VPN Gateway point-to-site connections in order to work remotely due to the COVID-19 pandemic.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/29/2021
-ms.author: alzam
+ms.date: 02/13/2023
+ms.author: cherylmc
 
 ---
 # Remote work using Azure VPN Gateway Point-to-site
@@ -27,7 +25,7 @@ A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection
 
 The table below shows the client operating systems and the authentication options that are available to them. It would be helpful to select the authentication method based on the client OS that is already in use. For example, select OpenVPN with Certificate-based authentication if you have a mixture of client operating systems that need to connect. Also, please note that point-to-site VPN is only supported on route-based VPN gateways.
 
-![Screenshot that shows client operating systems and available authentication options.](./media/working-remotely-support/ostable.png "OS")
+![Screenshot that shows client operating systems and available authentication options.](./media/working-remotely-support/os-table.png "OS")
 
 ## <a name="scenario1"></a>Scenario 1 - Users need access to resources in Azure only
 

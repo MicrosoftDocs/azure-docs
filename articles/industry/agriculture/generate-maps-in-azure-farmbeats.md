@@ -38,7 +38,7 @@ The following dependencies pertain to Sentinel:
 
 - We depend on Sentinel performance for downloading satellite images. Check Sentinel performance status and maintenance [activities](https://scihub.copernicus.eu/twiki/do/view/SciHubNews/WebHome).
 - Sentinel allows only two concurrent [downloads threads](https://sentinels.copernicus.eu/web/sentinel/sentinel-data-access/typologies-and-services) per user.
-- Precision map generation is affected by [Sentinel coverage and revisit frequency]( https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/revisit-coverage).
+- Precision map generation is affected by [Sentinel coverage and revisit frequency](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/revisit-coverage).
 
 ## Create a Sensor Placement map
 This section details the procedures for creating Sensor Placement maps.

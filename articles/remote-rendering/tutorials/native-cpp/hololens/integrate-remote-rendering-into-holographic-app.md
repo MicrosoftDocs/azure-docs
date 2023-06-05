@@ -28,7 +28,7 @@ For this tutorial you need:
 
 * Your account information (account ID, account key, account domain, subscription ID). If you don't have an account, [create an account](../../../how-tos/create-an-account.md).
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk).
-* The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/).
+* The latest version of Visual Studio 2022 [(download)](https://visualstudio.microsoft.com/vs/).
 * [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
   * **Desktop development with C++**
   * **Universal Windows Platform (UWP) development**
@@ -318,10 +318,13 @@ void HolographicAppMain::StartModelLoading()
         [this](RR::Status status, RR::ApiHandle<RR::LoadModelResult> result)
         {
             m_modelLoadResult = RR::StatusToResult(status);
-            m_modelLoadFinished = true; // successful if m_modelLoadResult==RR::Result::Success
-            char buffer[1024];
-            sprintf_s(buffer, "Remote Rendering: Model loading completed. Result: %s\n", RR::ResultToString(m_modelLoadResult));
-            OutputDebugStringA(buffer);
+            m_modelLoadFinished = true;
+
+            if (m_modelLoadResult == RR::Result::Success)
+            {
+                RR::Double3 pos = { 0.0, 0.0, -2.0 };
+                result->GetRoot()->SetPosition(pos);
+            }
         },
         // progress update callback
             [this](float progress)

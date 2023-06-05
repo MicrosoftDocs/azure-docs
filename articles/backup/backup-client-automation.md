@@ -2,8 +2,10 @@
 title: Use PowerShell to back up Windows Server to Azure
 description: In this article, learn how to use PowerShell to set up Azure Backup on Windows Server or a Windows client, and manage backup and recovery.
 ms.topic: conceptual
-ms.date: 12/2/2019 
+ms.date: 08/24/2021 
 ms.custom: devx-track-azurepowershell
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
@@ -14,7 +16,7 @@ This article shows you how to use PowerShell to set up Azure Backup on Windows S
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-To get started, [install the latest PowerShell release](/powershell/azure/install-az-ps).
+To get started, [install the latest PowerShell release](/powershell/azure/install-azure-powershell).
 
 ## Create a Recovery Services vault
 
@@ -403,6 +405,9 @@ PolicyState     : Valid
 ### Applying the policy
 
 Now the policy object is complete and has an associated backup schedule, retention policy, and an inclusion/exclusion list of files. This policy can now be committed for Azure Backup to use. Before you apply the newly created policy, ensure that there are no existing backup policies associated with the server by using the [Remove-OBPolicy](/powershell/module/msonlinebackup/remove-obpolicy) cmdlet. Removing the policy will prompt for confirmation. To skip the confirmation, use the `-Confirm:$false` flag with the cmdlet.
+
+>[!Note]
+>While running the cmdlet if it prompts to set a Security PIN, see the [Method 1 section](./backup-azure-delete-vault.md#method-1).
 
 ```powershell
 Get-OBPolicy | Remove-OBPolicy

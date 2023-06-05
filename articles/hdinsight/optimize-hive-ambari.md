@@ -3,7 +3,7 @@ title: Optimize Apache Hive with Apache Ambari in Azure HDInsight
 description: Use the Apache Ambari web UI to configure and optimize Apache Hive.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 08/26/2022
 ---
 
 # Optimize Apache Hive with Apache Ambari in Azure HDInsight
@@ -115,6 +115,8 @@ The following additional configuration parameters increase Hive query performanc
     Basic partition statistics such as number of rows, data size, and file size are stored in metastore. If set to true, the partition stats are fetched from metastore. When false, the file size is fetched from the file system. And the number of rows is fetched from the row schema.
 
     :::image type="content" source="./media/optimize-hive-ambari/hive-stats-fetch-partition-stats.png" alt-text="Hive stats set partition stats" border="true":::
+
+Refer to [Hive Cost Based Optimization](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/hive-cost-based-optimization/ba-p/3032895) blog post in [Analytics on Azure Blog](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/bg-p/AnalyticsonAzure) for further reading
 
 ## Enable intermediate compression
 

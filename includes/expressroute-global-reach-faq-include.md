@@ -47,7 +47,11 @@ The network throughput between your on-premises networks, enabled by ExpressRout
 
 ### With ExpressRoute Global Reach, what are the limits on the number of routes I can advertise and the number of routes I will receive?
 
-The number of routes you can advertise to Microsoft on Azure private peering remains at 4000 on a Standard circuit or 10000 on a Premium circuit. The number of routes you will receive from Microsoft on Azure private peering will be the sum of the routes of your Azure virtual networks and the routes from your other on-premises networks connected via ExpressRoute Global Reach. Please make sure you set an appropriate maximum prefix limit on your on-premises router. 
+The number of routes you can advertise to Microsoft on Azure private peering remains at 4000 on a Standard circuit or 10000 on a Premium circuit. The number of routes you will receive from Microsoft on Azure private peering will be the sum of the routes of your Azure virtual networks and the routes from your other on-premises networks connected via ExpressRoute Global Reach. Please make sure you set an appropriate maximum prefix limit on your on-premises router.
+
+### Can I send IPv6 traffic over an ExpressRoute Global Reach connection?
+
+IPv6 support for ExpressRoute Global Reach is now in Public Preview. See [Enable Global Reach](../articles/expressroute/expressroute-global-reach.md) to learn more. 
 
 ### What is the SLA for ExpressRoute Global Reach?
 

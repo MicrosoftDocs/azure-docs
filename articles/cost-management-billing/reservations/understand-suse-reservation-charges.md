@@ -1,12 +1,12 @@
 ---
-title: Software plan discount - Azure | Microsoft Docs
+title: Software plan discount - Azure
 description: Learn how software plan discounts are applied to software on virtual machines.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 12/06/2022
 ms.author: banders
 ---
 
@@ -23,6 +23,8 @@ To buy the right plan, you need to understand your VM usage and the number of vC
 A reservation discount is "*use-it-or-lose-it*". So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 
 When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
+
+Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads. 
 
 ## Review RedHat VM usage before you buy
 
@@ -52,43 +54,33 @@ For example, if you buy a plan for SUSE Linux Enterprise Server for HPC Priority
 - 1 deployed VM with 3 or 4 vCPUs,
 - or 0.77 or about 77% of a VM with 5 or more vCPUs.
 
-The ratio for 5 or more vCPUs is 2.6. So a reservation for SUSE with a VM with 5 or more vCPUs covers a only portion of the software cost, which is about 77%.
+The ratio for 5 or more vCPUs is 2.6. So a reservation for SUSE with a VM with 5 or more vCPUs covers only a portion of the software cost, which is about 77%.
 
 The following tables show the software plans you can buy a reservation for, their associated usage meters, and the ratios for each.
 
-### SUSE Linux Enterprise Server for HPC Priority
-
-|SUSE VM | MeterId| Ratio| Example VM size|
-| -------| ------------------------| --- |--- |
-|SUSE Linux Enterprise Server for HPC Priority 1-2 vCPUs|e275a668-ce79-44e2-a659-f43443265e98|1|D2s_v3|
-|SUSE Linux Enterprise Server for HPC Priority 3-4 vCPUs|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|D4s_v3|
-|SUSE Linux Enterprise Server for HPC Priority 5+ vCPUs|4edcd5a5-8510-49a8-a9fc-c9721f501913|2.6|D8s_v3|
-
-### SUSE Linux Enterprise Server for HPC Standard
+### SUSE Linux Enterprise Server for HPC 
 
 |SUSE VM | MeterId | Ratio|Example VM size|
 | ------- | --- | ------------------------| --- |
-|SUSE Linux Enterprise Server for HPC Standard 1-2 vCPUs |8c94ad45-b93b-4772-aab1-ff92fcec6610|1|D2s_v3|
-|SUSE Linux Enterprise Server for HPC Standard 3-4 vCPUs|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1.92308|D4s_v3|
-|SUSE Linux Enterprise Server for HPC Standard 5+ vCPUs |907a85de-024f-4dd6-969c-347d47a1bdff|2.92308|D8s_v3|
+|SUSE Linux Enterprise Server for HPC 1-2 vCPUs |8c94ad45-b93b-4772-aab1-ff92fcec6610|1|D2s_v3|
+|SUSE Linux Enterprise Server for HPC 3-4 vCPUs|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1.92308|D4s_v3|
+|SUSE Linux Enterprise Server for HPC 5+ vCPUs |907a85de-024f-4dd6-969c-347d47a1bdff|2.92308|D8s_v3|
 
-### SUSE Linux Enterprise Server for SAP Standard
-
-Previously, SUSE Linux Enterprise Server for SAP Standard was named SUSE Linux Enterprise Server for SAP Priority.
+### SUSE Linux Enterprise Server for SAP applications
 
 |SUSE VM | MeterId | Ratio|Example VM size|
 | ------- |------------------------| --- | --- |
-|SUSE Linux Enterprise Server for SAP Standard 1-2 vCPUs|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
-|SUSE Linux Enterprise Server for SAP Standard 3-4 vCPUs |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
-|SUSE Linux Enterprise Server for SAP Standard 5+ vCPUs |18ae79cd-dfce-48c9-897b-ebd3053c6058|2.41176|D8s_v3|
+|SUSE Linux Enterprise Server for SAP applications 1-2 vCPUs|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
+|SUSE Linux Enterprise Server for SAP applications 3-4 vCPUs |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
+|SUSE Linux Enterprise Server for SAP applications 5+ vCPUs |18ae79cd-dfce-48c9-897b-ebd3053c6058|2.41176|D8s_v3|
 
-### SUSE Linux Enterprise Server Standard
+### SUSE Linux Enterprise Server
 
 |SUSE VM | MeterId | Ratio|Example VM size|
 | ------- |------------------------| --- |--- |
-|SUSE Linux Enterprise Server Standard 1-2 cores vCPUs |4b2fecfc-b110-4312-8f9d-807db1cb79ae|1|D2s_v3|
-|SUSE Linux Enterprise Server Standard 3-4 cores vCPUs |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|
-|SUSE Linux Enterprise Server Standard 5+ vCPUs |7b349b65-d906-42e5-833f-b2af38513468|2.30769| D8s_v3|
+|SUSE Linux Enterprise Server 1-2 cores vCPUs |4b2fecfc-b110-4312-8f9d-807db1cb79ae|1|D2s_v3|
+|SUSE Linux Enterprise Server 3-4 cores vCPUs |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|
+|SUSE Linux Enterprise Server 5+ vCPUs |7b349b65-d906-42e5-833f-b2af38513468|2.30769| D8s_v3|
 
 ## Need help? Contact us
 

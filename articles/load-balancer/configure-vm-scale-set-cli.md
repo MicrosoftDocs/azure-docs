@@ -1,31 +1,33 @@
 ---
-title: Configure virtual machine scale set with an existing Azure Load Balancer - Azure CLI
-description: Learn how to configure a virtual machine scale set with an existing Azure Load Balancer by using the Azure CLI.
-author: asudbring
-ms.author: allensu
+title: Configure Virtual Machine Scale Set with an existing Azure Load Balancer - Azure CLI
+description: Learn how to configure a Virtual Machine Scale Set with an existing Azure Load Balancer using the Azure CLI.
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 03/25/2020
+ms.date: 12/15/2022
+ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
 ---
 
-# Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI
+# Configure a Virtual Machine Scale Set with an existing Azure Load Balancer using the Azure CLI
 
-In this article, you'll learn how to configure a virtual machine scale set with an existing Azure Load Balancer.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+In this article, you'll learn how to configure a Virtual Machine Scale Set with an existing Azure Load Balancer.
 
 ## Prerequisites 
 
-- You need an existing standard sku load balancer in the subscription where the virtual machine scale set will be deployed.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- You need an Azure Virtual Network for the virtual machine scale set.
+- You need an existing standard sku load balancer in the subscription where the Virtual Machine Scale Set will be deployed.
+
+- You need an Azure Virtual Network for the Virtual Machine Scale Set.
  
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-## Deploy a virtual machine scale set with existing load balancer
+## Deploy a Virtual Machine Scale Set with existing load balancer
 
+Deploy a Virtual Machine Scale Set with [`az vmss create`](/cli/azure/vmss#az-vmss-create).
 Replace the values in brackets with the names of the resources in your configuration.
 
 ```azurecli-interactive
@@ -43,15 +45,15 @@ az vmss create \
     --backend-pool-name <backend-pool-name>
 ```
 
-The below example deploys a virtual machine scale set with:
+The below example deploys a Virtual Machine Scale Set with:
 
-- Virtual machine scale set named **myVMSS**
+- Virtual Machine Scale Set named **myVMSS**
 - Azure Load Balancer named **myLoadBalancer**
 - Load balancer backend pool named **myBackendPool**
 - Azure Virtual Network named **myVnet**
 - Subnet named **mySubnet**
 - Resource group named **myResourceGroup**
-- Ubuntu Server image for the virtual machine scale set
+- Ubuntu Server image for the Virtual Machine Scale Set
 
 ```azurecli-interactive
 az vmss create \
@@ -72,8 +74,8 @@ az vmss create \
 
 ## Next steps
 
-In this article, you deployed a virtual machine scale set with an existing Azure Load Balancer.  To learn more about virtual machine scale sets and load balancer, see:
+In this article, you deployed a Virtual Machine Scale Set with an existing Azure Load Balancer.  To learn more about Virtual Machine Scale Sets and load balancer, see:
 
 - [What is Azure Load Balancer?](load-balancer-overview.md)
-- [What are virtual machine scale sets?](../virtual-machine-scale-sets/overview.md)
+- [What are Virtual Machine Scale Sets?](../virtual-machine-scale-sets/overview.md)
                                 

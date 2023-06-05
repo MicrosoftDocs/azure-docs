@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 
 ## Add sample code
@@ -170,7 +170,7 @@ Before you get started, make sure to:
                         // You can now send an instant message to all other participants in the room
                         await conversationTranslator.SendTextMessageAsync("The instant message to send").ConfigureAwait(false);
     
-                        // If specified a speech-to-text language, you can start capturing audio
+                        // If specified a speech to text language, you can start capturing audio
                         await conversationTranslator.StartTranscribingAsync().ConfigureAwait(false);
                         Console.WriteLine("Started transcribing. Press Ctrl + c to stop");
     
@@ -273,7 +273,7 @@ Before you get started, make sure to:
             // You can now send an instant message
             await conversationTranslator.SendTextMessageAsync("Message from participant").ConfigureAwait(false);
 
-            // Start capturing audio if you specified a speech-to-text language
+            // Start capturing audio if you specified a speech to text language
             await conversationTranslator.StartTranscribingAsync().ConfigureAwait(false);
             Console.WriteLine("Started transcribing. Press Ctrl-C to stop");
 

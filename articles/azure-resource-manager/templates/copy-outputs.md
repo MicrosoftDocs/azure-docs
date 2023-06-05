@@ -2,6 +2,7 @@
 title: Define multiple instances of an output value
 description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when returning a value from a deployment.
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 05/07/2021
 ---
 
@@ -10,6 +11,9 @@ ms.date: 05/07/2021
 This article shows you how to create more than one value for an output in your Azure Resource Manager template (ARM template). By adding copy loop to the outputs section of your template, you can dynamically return a number of items during deployment.
 
 You can also use copy loop with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [variables](copy-variables.md).
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [loops](../bicep/loops.md).
 
 ## Syntax
 

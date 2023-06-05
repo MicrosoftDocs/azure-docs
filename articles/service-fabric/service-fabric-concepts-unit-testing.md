@@ -1,16 +1,20 @@
 ---
 title: Unit testing stateful services in Azure Service Fabric 
 description: Learn about the concepts and practices of unit testing Service Fabric Stateful Services.
-
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Unit testing stateful services in Service Fabric
 
 This article covers the concepts and practices of unit testing Service Fabric Stateful Services. Unit testing within Service Fabric deserves its own considerations due to the fact that the application code actively runs under multiple different contexts. This article describes the practices used to ensure application code is covered under each of the different contexts it can run.
 
 ## Unit testing and mocking
-Unit testing in the context of this article is automated testing that can be executed within the context of a test runner such as MSTest or NUnit. The unit tests within this article do not perform operations against a remote resource such as a database or RESTFul API. These remote resources should be mocked. Mocking in the context of this article will fake, record, and control the return values for remote resources.
+Unit testing in the context of this article is automated testing that can be executed within the context of a test runner such as MSTest or NUnit. The unit tests within this article do not perform operations against a remote resource such as a database or RESTful. These remote resources should be mocked. Mocking in the context of this article will fake, record, and control the return values for remote resources.
 
 ### Service Fabric considerations
 Unit testing a Service Fabric stateful service has several considerations. Firstly, the service code executes on multiple nodes but under different roles. Unit tests should evaluate the code under each role to achieve complete coverage. The different roles would be Primary, Active Secondary, Idle Secondary, and Unknown. The None role does not typically need any special coverage as Service Fabric considers this role to be void or null service. Secondly, each node will change its role at any given point. To achieve complete coverage, code execution path's should be tested with role changes occurring.

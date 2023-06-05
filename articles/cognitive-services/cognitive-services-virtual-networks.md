@@ -1,13 +1,14 @@
 ---
-title: Virtual Networks
+title: Configure Virtual Networks for Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Configure layered network security for your Cognitive Services resources.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: conceptual
-ms.date: 02/09/2021
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.topic: how-to
+ms.date: 07/19/2022
 ms.author: aahi
 ---
 
@@ -19,7 +20,7 @@ An application that accesses a Cognitive Services resource when network rules ar
 
 > [!IMPORTANT]
 > Turning on firewall rules for your Cognitive Services account blocks incoming requests for data by default. In order to allow requests through, one of the following conditions needs to be met:
-
+>
 > * The request should originate from a service operating within an Azure Virtual Network (VNet) on the allowed subnet list of the target Cognitive Services account. The endpoint in requests originated from VNet needs to be set as the [custom subdomain](cognitive-services-custom-subdomains.md) of your Cognitive Services account.
 > * Or the request should originate from an allowed list of IP addresses.
 >
@@ -35,31 +36,31 @@ Network rules are enforced on all network protocols to Azure Cognitive Services,
 
 ## Supported regions and service offerings
 
-Virtual networks (VNETs) are supported in [regions where Cognitive Services are available](https://azure.microsoft.com/global-infrastructure/services/). Currently multi-service resource does not support VNET. Cognitive Services supports service tags for network rules configuration. The services listed below are included in the **CognitiveServicesManagement** service tag.
+Virtual networks (VNETs) are supported in [regions where Cognitive Services are available](https://azure.microsoft.com/global-infrastructure/services/). Cognitive Services supports service tags for network rules configuration. The services listed below are included in the **CognitiveServicesManagement** service tag.
 
 > [!div class="checklist"]
 > * Anomaly Detector
+> * Azure OpenAI
 > * Computer Vision
 > * Content Moderator
 > * Custom Vision
 > * Face
-> * Form Recognizer
-> * Immersive Reader
 > * Language Understanding (LUIS)
 > * Personalizer
-> * Speech Services
-> * Text Analytics
+> * Speech service
+> * Language service
 > * QnA Maker
 > * Translator Text
 
 
 > [!NOTE]
-> If you're using LUIS or Speech Services, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use LUIS portal and/or Speech Studio from a virtual network, you will need to use the following tags:  
+> If you're using, Azure OpenAI, LUIS, Speech Services, or Language services, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use Azure OpenAI Studio, LUIS portal , Speech Studio or Language Studio from a virtual network, you will need to use the following tags:
+
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
 > * **AzureResourceManager** 
 > * **CognitiveServicesManagement**
-
+> * **CognitiveServicesFrontEnd**
 
 
 ## Change the default network access rule
@@ -90,7 +91,7 @@ You can manage default network access rules for Cognitive Services resources thr
 
 # [PowerShell](#tab/powershell)
 
-1. Install the [Azure PowerShell](/powershell/azure/install-az-ps) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
+1. Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
 
 1. Display the status of the default rule for the Cognitive Services resource.
 
@@ -139,17 +140,17 @@ You can manage default network access rules for Cognitive Services resources thr
 1. Set the default rule to deny network access by default.
 
     ```azurecli-interactive
-    az cognitiveservices account update \
-        -g "myresourcegroup" -n "myaccount" \
-        --default-action Deny
+    az resource update \
+        --ids {resourceId} \
+        --set properties.networkAcls="{'defaultAction':'Deny'}"
     ```
 
 1. Set the default rule to allow network access by default.
 
     ```azurecli-interactive
-    az cognitiveservices account update \
-        -g "myresourcegroup" -n "myaccount" \
-        --default-action Allow
+    az resource update \
+        --ids {resourceId} \
+        --set properties.networkAcls="{'defaultAction':'Allow'}"
     ```
 
 ***
@@ -169,7 +170,7 @@ To apply a virtual network rule to a Cognitive Services resource, the user must 
 Cognitive Services resource and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
 > [!NOTE]
-> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through Powershell, CLI and REST APIs. Such rules cannot be configured through the Azure portal, though they may be viewed in the portal.
+> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. Such rules cannot be configured through the Azure portal, though they may be viewed in the portal.
 
 ### Managing virtual network rules
 
@@ -202,7 +203,7 @@ You can manage virtual network rules for Cognitive Services resources through th
     > [!NOTE]
     > If a service endpoint for Azure Cognitive Services wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
     >
-    > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use Powershell, CLI or REST APIs.
+    > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use PowerShell, CLI or REST APIs.
 
 1. To remove a virtual network or subnet rule, select **...** to open the context menu for the virtual network or subnet, and select **Remove**.
 
@@ -212,7 +213,7 @@ You can manage virtual network rules for Cognitive Services resources through th
 
 # [PowerShell](#tab/powershell)
 
-1. Install the [Azure PowerShell](/powershell/azure/install-az-ps) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
+1. Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
 
 1. List virtual network rules.
 
@@ -368,7 +369,7 @@ You can manage IP network rules for Cognitive Services resources through the Azu
 
 # [PowerShell](#tab/powershell)
 
-1. Install the [Azure PowerShell](/powershell/azure/install-az-ps) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
+1. Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
 
 1. List IP network rules.
 
@@ -503,6 +504,9 @@ When creating the private endpoint, you must specify the Cognitive Services reso
 * [Create a private endpoint using Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
 
 ### Connecting to private endpoints
+
+> [!NOTE]
+> Azure OpenAI Service uses a different private DNS zone and public DNS zone forwarder than other Azure Cognitive Services. Refer to the [Azure services DNS zone configuration article](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for the correct zone and forwader names.  
 
 Clients on a VNet using the private endpoint should use the same connection string for the Cognitive Services resource as clients connecting to the public endpoint. The exception is the Speech Services, which require a separate endpoint. See the section on [Private endpoints with the Speech Services](#private-endpoints-with-the-speech-services). We rely upon DNS resolution to automatically route the connections from the VNet to the Cognitive Services resource over a private link. 
 

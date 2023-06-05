@@ -1,22 +1,25 @@
 ---
 title: Monitoring - Azure Database for MariaDB
 description: This article describes the metrics for monitoring and alerting for Azure Database for MariaDB, including CPU, storage, and connection statistics.
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 10/21/2020
+ms.date: 06/24/2022
 ---
 # Monitoring in Azure Database for MariaDB
+
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MariaDB provides various metrics that give insight into the behavior of your server.
 
 ## Metrics
+
 All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../azure-monitor/data-platform.md).
 
 For step by step guidance, see [How to set up alerts](howto-alert-metric.md).
 
 ### List of metrics
+
 These metrics are available for Azure Database for MariaDB:
 
 |Metric|Metric Display Name|Unit|Description|
@@ -48,10 +51,6 @@ You can enable slow query logging on your server. These logs are also available 
 ## Query Performance Insight
 
 [Query Performance Insight](concepts-query-performance-insight.md) works in conjunction with Query Store to provide visualizations accessible from the Azure portal. These charts enable you to identify key queries that impact performance. Query Performance Insight is accessible in the **Intelligent Performance** section of your Azure Database for MariaDB server's portal page.
-
-## Performance Recommendations
-
-The [Performance Recommendations](concepts-performance-recommendations.md) feature identifies opportunities to improve workload performance. Performance Recommendations provides you with recommendations for creating new indexes that have the potential to improve the performance of your workloads. To produce index recommendations, the feature takes into consideration various database characteristics, including its schema and the workload as reported by Query Store. After implementing any performance recommendation, customers should test performance to evaluate the impact of those changes.
 
 ## Planned maintenance notification
 

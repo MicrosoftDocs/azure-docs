@@ -4,7 +4,7 @@ description: Provides an overview of storage types and how they work with Azure 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/21/2020
+ms.date: 05/30/2022
 ---
 
 # Compare storage options for use with Azure HDInsight clusters
@@ -35,7 +35,7 @@ The following table summarizes the Azure Storage services that are supported wit
 
 For more information on Azure Storage account types, see [Azure storage account overview](../storage/common/storage-account-overview.md)
 
-For more information on Azure Storage access tiers, see [Azure Blob storage: Premium (preview), Hot, Cool, and Archive storage tiers](../storage/blobs/storage-blob-storage-tiers.md)
+For more information on Azure Storage access tiers, see [Azure Blob storage: Premium (preview), Hot, Cool, and Archive storage tiers](../storage/blobs/access-tiers-overview.md)
 
 You can create clusters using combinations of services for primary and optional secondary storage. The following table summarizes the cluster storage configurations that are currently supported in HDInsight:
 
@@ -62,6 +62,9 @@ You can create clusters using combinations of services for primary and optional 
 Azure HDInsight does not store customer data. The primary means of storage for a cluster are its associated storage accounts. You can attach your cluster to an existing storage account, or create a new storage account during the cluster creation process. If a new account is created, it will be created as a locally redundant storage (LRS) account, and will satisfy in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net).
 
 You can validate that HDInsight is properly configured to store data in a single region by ensuring that the storage account associated with your HDInsight is LRS or another storage option mentioned on [Trust Center](https://azuredatacentermap.azurewebsites.net).
+
+>[!NOTE]
+> Upgrading the primary or secondary storage account of a running cluster with Azure Data Lake Storage Gen2 capabilities is not supported. To change the storage type of an existing HDInsight cluster to Data Lake Storage Gen2, you will need to recreate the cluster and select an hierarchical namespace enabled storage account.
  
 ## Next steps
 

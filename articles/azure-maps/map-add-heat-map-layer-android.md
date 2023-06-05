@@ -1,13 +1,13 @@
 ---
 title: Add a heat map layer to Android maps | Microsoft Azure Maps
 description: Learn how to create a heat map. See how to use the Azure MapsAndroid SDK to add a heat map layer to a map. Find out how to customize heat map layers.
-author: rbrundritt
-ms.author: richbrun
+author: dubiety
+ms.author: yuchungchen 
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
+ms.custom: devx-track-extended-java
 services: azure-maps
-manager: cpendle
 zone_pivot_groups: azure-maps-android
 ---
 
@@ -28,7 +28,7 @@ You can use heat maps in many different scenarios, including:
 
 </br>
 
-> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Heat-Maps-and-Image-Overlays-in-Azure-Maps/player?format=ny]
+> [!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Heat-Maps-and-Image-Overlays-in-Azure-Maps/player?format=ny]
 
 ## Prerequisites
 

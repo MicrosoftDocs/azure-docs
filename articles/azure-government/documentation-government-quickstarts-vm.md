@@ -6,7 +6,6 @@ cloud: gov
 documentationcenter: ''
 
 ms.service: azure-government
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: azure-government

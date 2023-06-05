@@ -2,7 +2,6 @@
 title: Troubleshoot Azure Automation feature deployment issues
 description: This article tells how to troubleshoot and resolve issues that arise when deploying Azure Automation features.
 services: automation
-
 ms.date: 02/11/2021
 ms.topic: troubleshooting
 ---
@@ -101,20 +100,20 @@ You can delete the query for the feature and then enable the feature again, whic
 
 #### Issue
 
-This error code indicates that the deployment failed due to violation of one or more policies.
+This error code indicates that the deployment failed due to violation of one or more Azure Policy assignments.
 
 #### Cause 
 
-A policy is blocking the operation from completing.
+An Azure Policy assignment is blocking the operation from completing.
 
 #### Resolution
 
-To successfully deploy the feature, you must consider altering the indicated policy. Because there are many different types of policies that can be defined, the changes required depend on the policy that's violated. For example, if a policy is defined on a resource group that denies permission to change the contents of some contained resources, you might choose one of these fixes:
+To successfully deploy the feature, you must consider altering the indicated policy definition. Because there are many different types of policy definitions that can be defined, the changes required depend on the policy definition that's violated. For example, if a policy definition is assigned to a resource group that denies permission to change the contents of some contained resources, you might choose one of these fixes:
 
-* Remove the policy altogether.
+* Remove the policy assignment altogether.
 * Try to enable the feature for a different resource group.
-* Retarget the policy to a specific resource, for example, an Automation account.
-* Revise the set of resources that the policy is configured to deny.
+* Retarget the policy assignment to a specific resource, for example, an Automation account.
+* Revise the set of resources that the policy definition is configured to deny.
 
 Check the notifications in the upper-right corner of the Azure portal, or go to the resource group that contains your Automation account and select **Deployments** under **Settings** to view the failed deployment. To learn more about Azure Policy, see [Overview of Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 

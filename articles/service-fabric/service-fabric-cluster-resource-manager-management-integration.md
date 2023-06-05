@@ -1,12 +1,14 @@
 ---
 title: Cluster Resource Manager - Management Integration 
 description: An overview of the integration points between the Cluster Resource Manager and Service Fabric Management.
-author: masnider
-
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: masnider
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Cluster resource manager integration with Service Fabric cluster management
 The Service Fabric Cluster Resource Manager doesn't drive upgrades in Service Fabric, but it is involved. The first way that the Cluster Resource Manager helps with management is by tracking the desired state of the cluster and the services inside it. The Cluster Resource Manager sends out health reports when it cannot put the cluster into the desired configuration. For example, if there is insufficient capacity the Cluster Resource Manager sends out health warnings and errors indicating the problem. Another piece of integration has to do with how upgrades work. The Cluster Resource Manager alters its behavior slightly during upgrades.  
 
@@ -66,7 +68,7 @@ Here's what this health message is telling us is:
 5. The distribution policy for this service: "Distribution Policy -- Packing". This is governed by the `RequireDomainDistribution` [placement policy](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). *Packing* indicates that in this case DomainDistribution was _not_ required, so we know that placement policy was not specified for this service. 
 6. When the report happened - 8/10/2015 7:13:02 PM
 
-Information like this powers alerts that fire in production to let you know something has gone wrong and is also used to detect and halt bad upgrades. In this case, we’d want to see if we can figure out why the Resource Manager had to pack the replicas into the Upgrade Domain. Usually packing is transient because the nodes in the other Upgrade Domains were down, for example.
+Information like this powers alerting. You can use alerts in production to let you know something has gone wrong. Alerting is also used to detect and halt bad upgrades. In this case, we’d want to see if we can figure out why the Resource Manager had to pack the replicas into the Upgrade Domain. Usually packing is transient because the nodes in the other Upgrade Domains were down, for example.
 
 Let’s say the Cluster Resource Manager is trying to place some services, but there aren't any solutions that work. When services can't be placed, it is usually for one of the following reasons:
 
@@ -189,9 +191,9 @@ The main thing to be aware of is that the rules – the strict constraints like 
 When an upgrade starts, the Resource Manager takes a snapshot of the current arrangement of the cluster. As each Upgrade Domain completes, it attempts to return the services that were in that Upgrade Domain to their original arrangement. This way there are at most two transitions for a service during the upgrade. There is one move out of the affected node and one move back in. Returning the cluster or service to how it was before the upgrade also ensures the upgrade doesn’t impact the layout of the cluster. 
 
 ### Reduced churn
-Another thing that happens during upgrades is that the Cluster Resource Manager turns off balancing. Preventing balancing prevents unnecessary reactions to the upgrade itself, like moving services into nodes that were emptied for the upgrade. If the upgrade in question is a Cluster upgrade, then the entire cluster is not balanced during the upgrade. Constraint checks stay active, only movement based on the proactive balancing of metrics is disabled.
+During upgrades, the Cluster Resource Manager also turns off balancing. Preventing balancing prevents unnecessary reactions to the upgrade itself, like moving services into nodes that were emptied for the upgrade. If the upgrade in question is a Cluster upgrade, then the entire cluster is not balanced during the upgrade. Constraint checks stay active, only movement based on the proactive balancing of metrics is disabled.
 
-### Buffered Capacity & Upgrade
+### Buffered capacity and upgrade
 Generally you want the upgrade to complete even if the cluster is constrained or close to full. Managing the capacity of the cluster is even more important during upgrades than usual. Depending on the number of upgrade domains, between 5 and 20 percent of capacity must be migrated as the upgrade rolls through the cluster. That work has to go somewhere. This is where the notion of [buffered capacities](service-fabric-cluster-resource-manager-cluster-description.md#node-buffer-and-overbooking-capacity) is useful. Buffered capacity is respected during normal operation. The Cluster Resource Manager may fill nodes up to their total capacity (consuming the buffer) during upgrades if necessary.
 
 ## Next steps

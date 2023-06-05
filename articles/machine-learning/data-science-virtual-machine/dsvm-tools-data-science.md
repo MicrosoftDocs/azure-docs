@@ -19,7 +19,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 
 ## Azure Machine Learning SDK for Python
 
-See the full reference for the [Azure Machine Learning SDK for Python](../overview-what-is-azure-ml.md).
+See the full reference for the [Azure Machine Learning SDK for Python](../overview-what-is-azure-machine-learning.md).
 
 | Category | Value |
 | ------------- | ------------- |

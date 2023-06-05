@@ -4,7 +4,7 @@ description: Tutorial - Learn how to create on-demand Apache Hadoop clusters in 
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: seoapr2020, devx-track-azurepowershell
-ms.date: 04/24/2020
+ms.date: 05/26/2023
 #Customer intent: As a data worker, I need to create a Hadoop cluster and run Hive jobs on demand
 ---
 
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* The PowerShell [Az Module](/powershell/azure/) installed.
+* The PowerShell [Az Module](/powershell/azure/install-azure-powershell) installed.
 
 * An Azure Active Directory service principal. Once you've created the service principal, be sure to retrieve the **application ID** and **authentication key** using the instructions in the linked article. You need these values later in this tutorial. Also, make sure the service principal is a member of the *Contributor* role of the subscription or the resource group in which the cluster is created. For instructions to retrieve the required values and assign the right roles, see [Create an Azure Active Directory service principal](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -44,7 +44,7 @@ This section uses an Azure PowerShell script to create the storage account and c
 2. Creates an Azure resource group.
 3. Creates an Azure Storage account.
 4. Creates a Blob container in the storage account
-5. Copies the sample HiveQL script (**partitionweblogs.hql**) the Blob container. The script is available at [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). The sample script is already available in another public Blob container. The PowerShell script below makes a copy of these files into the Azure Storage account it creates.
+5. Copies the sample HiveQL script (**partitionweblogs.hql**) the Blob container. The sample script is already available in another public Blob container. The PowerShell script below makes a copy of these files into the Azure Storage account it creates.
 
 ### Create storage account and copy files
 

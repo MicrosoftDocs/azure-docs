@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Comeet Recruiting Software for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Comeet Recruiting Software for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Comeet Recruiting Software.
 services: active-directory
 author: twimmers
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/07/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -20,7 +20,6 @@ The objective of this tutorial is to demonstrate the steps to be performed in Co
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -30,6 +29,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [A Comeet Recruiting Software tenant](https://www.comeet.co/)
 * A user account in Comeet Recruiting Software with Admin permissions.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 ## Add Comeet Recruiting Software from the gallery
 
 Before configuring Comeet Recruiting Software for automatic user provisioning with Azure AD, you need to add Comeet Recruiting Software from the Azure AD application gallery to your list of managed SaaS applications.

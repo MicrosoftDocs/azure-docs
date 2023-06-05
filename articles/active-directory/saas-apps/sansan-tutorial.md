@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Sansan | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Sansan'
 description: Learn how to configure single sign-on between Azure Active Directory and Sansan.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/25/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -44,6 +44,8 @@ To configure the integration of Sansan into Azure AD, you need to add Sansan fro
 1. In the **Add from the gallery** section, type **Sansan** in the search box.
 1. Select **Sansan** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Sansan
 
 Configure and test Azure AD SSO with Sansan using a test user called **Britta Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Sansan.
@@ -77,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	   | Environment | URL |
       |:--- |:--- |
       | PC |`https://ap.sansan.com/v/saml2/<COMPANY_NAME>/acs` |
-      | Smartphone App |`https://internal.api.sansan.com/<COMPANY_NAME>/acs` |
+      | Smartphone App |`https://internal.api.sansan.com/saml2/<COMPANY_NAME>/acs` |
       | Smartphone Web |`https://ap.sansan.com/s/saml2/<COMPANY_NAME>/acs` |
 
    1. In the **Sign-on URL** text box, type the URL: 
@@ -143,8 +145,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Sansan Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Sansan tile in the My Apps, this will redirect to Sansan Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Sansan tile in the My Apps, this will redirect to Sansan Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Sansan you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Sansan you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

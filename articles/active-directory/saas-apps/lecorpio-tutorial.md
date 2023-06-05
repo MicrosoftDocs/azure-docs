@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Lecorpio | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Lecorpio'
 description: Learn how to configure single sign-on between Azure Active Directory and Lecorpio.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/25/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Lecorpio
@@ -181,7 +181,7 @@ In this section, you create a user called Britta Simon in Lecorpio. Work with [
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Lecorpio tile in the Access Panel, you should be automatically signed in to the Lecorpio for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the Lecorpio tile in the Access Panel, you should be automatically signed in to the Lecorpio for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 

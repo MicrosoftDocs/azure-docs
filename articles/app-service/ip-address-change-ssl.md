@@ -4,12 +4,16 @@ description: If your TLS/SSL IP address is going to be changed, learn what to do
 
 ms.topic: article
 ms.date: 06/28/2018
-ms.custom: seodec18
+ms.custom: UpdateFrequency3
 ---
 
 # How to prepare for a TLS/SSL IP address change
 
 If you received a notification that the TLS/SSL IP address of your Azure App Service app is changing, follow the instructions in this article to release existing TLS/SSL IP address and assign a new one.
+
+> [!NOTE] 
+> Service Endpoint is not currently supported when enabling IP Based SSL on App Service TLS/SSL bindings. 
+
 
 ## Release TLS/SSL IP addresses and assign new ones
 

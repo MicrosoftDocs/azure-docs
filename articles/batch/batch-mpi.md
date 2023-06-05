@@ -3,6 +3,8 @@ title: Use multi-instance tasks to run MPI applications
 description: Learn how to execute Message Passing Interface (MPI) applications using the multi-instance task type in Azure Batch.
 ms.topic: how-to
 ms.date: 04/13/2021
+ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ---
 
 # Use multi-instance tasks to run Message Passing Interface (MPI) applications in Batch
@@ -60,6 +62,8 @@ myCloudPool.TaskSlotsPerNode = 1;
 
 > [!NOTE]
 > If you try to run a multi-instance task in a pool with internode communication disabled, or with a *taskSlotsPerNode* value greater than 1, the task is never scheduled--it remains indefinitely in the "active" state.
+> 
+> Pools with InterComputeNodeCommunication enabled will not allow automatically the deprovision of the node.
 
 ### Use a StartTask to install MPI
 

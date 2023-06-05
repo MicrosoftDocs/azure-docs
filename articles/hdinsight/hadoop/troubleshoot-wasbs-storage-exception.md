@@ -3,7 +3,7 @@ title: The account being accessed does not support http error in Azure HDInsight
 description: This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 02/06/2020
+ms.date: 05/25/2023
 ---
 
 # The account being accessed does not support http error in Azure HDInsight

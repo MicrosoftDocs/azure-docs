@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 10/15/2020
+ ms.date: 04/24/2023
  ms.author: cherylmc
  ms.custom: include file
 
@@ -65,7 +65,7 @@ Register the VPN client in the Azure AD tenant.
     Azure China 21Vianet
 
     ```
-    https://https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
+    https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
 
 > [!NOTE]
@@ -76,9 +76,7 @@ Register the VPN client in the Azure AD tenant.
 
     ![Directory ID 2](./media/openvpn-azure-ad-tenant-multi-app/pick.png)
 
-6. Select **Accept** when prompted.
-
-    ![Screenshot shows a window with the message Permissions requested Accept for you organization and information about the request.](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
+6. On the **Permissions requested** page, select **Accept** to grant permissions to the app.
 
 7. Under your Azure AD, in **Enterprise applications**, you will see **Azure VPN** listed.
 

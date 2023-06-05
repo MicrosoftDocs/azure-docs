@@ -1,9 +1,13 @@
 ---
 title: Event Aggregation with Windows Azure Diagnostics
 description: Learn about aggregating and collecting events using WAD for monitoring and diagnostics of Azure Service Fabric clusters.
-ms.topic: conceptual
-ms.date: 04/03/2018 
-ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-arm-template
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Event aggregation and collection using Windows Azure Diagnostics

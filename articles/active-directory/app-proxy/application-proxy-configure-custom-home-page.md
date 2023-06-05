@@ -3,12 +3,12 @@ title: Custom home page for published apps - Azure Active Directory Application 
 description: Covers the basics about Azure Active Directory Application Proxy connectors
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: harshja
 ---
@@ -26,7 +26,7 @@ Here's one scenario that explains why your company would set a custom home page:
 - You want to set `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` as the home page URL instead, so an external user sees the sign-in page first.
 
 > [!NOTE]
-> When you give users access to published apps, the apps are displayed in [My Apps](../user-help/my-apps-portal-end-user-access.md) and the [Office 365 app launcher](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
+> When you give users access to published apps, the apps are displayed in [My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) and the [Office 365 app launcher](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
 
 ## Before you start
 
@@ -42,7 +42,7 @@ You can set the home page URL either through the Azure portal or by using PowerS
 
 ## Change the home page in the Azure portal
 
-To change the home page URL of your app through the Azure AD portal, follow these steps:
+To change the home page URL of your app through the Azure portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an administrator.
 1. Select **Azure Active Directory**, and then **App registrations**. The list of registered apps appears.

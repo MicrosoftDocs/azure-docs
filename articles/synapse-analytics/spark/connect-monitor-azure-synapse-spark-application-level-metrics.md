@@ -1,30 +1,30 @@
 ---
-title: Tutorial - Connect and monitor Azure Synapse Spark Application level metrics
+title:  Collect Apache Spark applications metrics using APIs
 description: Tutorial - Learn how to integrate your existing on-premises Prometheus server with Azure Synapse workspace for near real-time Azure Spark application metrics using the Synapse Prometheus connector.
 services: synapse-analytics 
 author: jejiang
 ms.author: jejiang
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
 ---
 
-# Tutorial: Connect and monitor Azure Synapse Spark Application level metrics
+#  Collect Apache Spark applications metrics using APIs
 
 ## Overview
 
-In this tutorial, you will learn how to integrate your existing on-premises Prometheus server with Azure Synapse workspace for near real-time Azure Spark application metrics using the Synapse Prometheus connector. 
+In this tutorial, you will learn how to integrate your existing on-premises Prometheus server with Azure Synapse workspace for near real-time Apache Spark application metrics using the Synapse Prometheus connector. 
 
-This tutorial also introduces the Azure Synapse REST metrics APIs. You can fetch Spark application metrics data through the REST APIs to build your own monitoring and diagnosis toolkit or integrate with your monitoring systems.
+This tutorial also introduces the Azure Synapse REST metrics APIs. You can fetch Apache Spark application metrics data through the REST APIs to build your own monitoring and diagnosis toolkit or integrate with your monitoring systems.
 
 ## Use Azure Synapse Prometheus connector for your on-premises Prometheus servers
 
 [Azure Synapse Prometheus connector](https://github.com/microsoft/azure-synapse-spark-metrics) is an open-source project. The Synapse Prometheus connector uses a file-based service discovery method to allow you to:
  - Authenticate to Synapse workspace via an AAD service principal.
  - Fetch workspace Apache Spark applications list. 
- - Pull Spark application metrics through Prometheus file-based configuration. 
+ - Pull Apache Spark application metrics through Prometheus file-based configuration. 
 
 ### 1. Prerequisite
 
@@ -36,8 +36,8 @@ To use the Azure Synapse Prometheus connector in your on-premises Prometheus ser
 
 #### 2.1 Create a service principal:
 
-```bash
-az ad sp create-for-rbac --name <service_principal_name>
+```azurecli
+az ad sp create-for-rbac --name <service_principal_name> --role Contributor --scopes /subscriptions/<subscription_id>
 ```
 
 The result should look like:
@@ -171,15 +171,15 @@ Response looks like:
 
 ### 2. List running applications in the Azure Synapse workspace
 
-To get list of spark applications for a Synapse workspace, you can follow this document [Monitoring - Get Spark Job List](/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
+To get list of Apache Spark applications for a Synapse workspace, you can follow this document [Monitoring - Get Apache Spark Job List](/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
 
 
-### 3. Collect spark application metrics with the Prometheus or REST APIs
+### 3. Collect Apache Spark application metrics with the Prometheus or REST APIs
 
 
-#### Collect spark application metrics with the Prometheus API
+#### Collect Apache Spark application metrics with the Prometheus API
 
-Get latest metrics of the specified spark application by Prometheus API
+Get latest metrics of the specified Apache Spark application by Prometheus API
 
 ```
 GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolName}/sessions/{sessionId}/applications/{sparkApplicationId}/metrics/executors/prometheus?format=html
@@ -217,7 +217,7 @@ metrics_executor_completedTasks_total{application_id="application_1605509647837_
 
 ```
 
-#### Collect spark application metrics with the REST API
+#### Collect Apache Spark application metrics with the REST API
 
 ```
 GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolName}/sessions/{sessionId}/applications/{sparkApplicationId}/executors
@@ -282,4 +282,4 @@ Status code: 200
 
 ### 4. Build your own diagnosis and monitoring tools
 
-The Prometheus API and the REST APIs provide rich metrics data about the spark application running information.You can collect the application-related metrics data through the Prometheus API and the REST APIs. And build your own diagnosis and monitoring tools that are more suitable for your needs.
+The Prometheus API and the REST APIs provide rich metrics data about the Apache Spark application running information.You can collect the application-related metrics data through the Prometheus API and the REST APIs. And build your own diagnosis and monitoring tools that are more suitable for your needs.

@@ -3,11 +3,9 @@ title: Manage Apache Hadoop clusters in HDInsight with .NET SDK - Azure
 description: Learn how to perform administrative tasks for the Apache Hadoop clusters in HDInsight using HDInsight .NET SDK.
 
 ms.service: hdinsight
-ms.custom: "hdinsightactive, devx-track-csharp"
+ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet
 ms.topic: conceptual
-ms.date: 05/14/2018
-
-
+ms.date: 11/17/2022
 ---
 # Manage Apache Hadoop clusters in HDInsight by using .NET SDK
 
@@ -150,77 +148,6 @@ The impact of changing the number of data nodes for each type of cluster support
     >hbase shell
     >balancer
     ```
-
-* Apache Storm
-  
-    You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
-  
-    Rebalancing can be accomplished in two ways:
-  
-  * Storm web UI
-  * Command-line interface (CLI) tool
-    
-    Please refer to the [Apache Storm documentation](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
-    
-    The Storm web UI is available on the HDInsight cluster:
-    
-    :::image type="content" source="./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="HDInsight Storm scale rebalance":::
-    
-    Here is an example how to use the CLI command to rebalance the Storm topology:
-    
-
-    ```console
-    ## Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## the spout "blue-spout" to use 3 executors, and
-    ## the bolt "yellow-bolt" to use 10 executors
-    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
-    ```
-
-The following code snippet shows how to resize a cluster synchronously or asynchronously:
-
-```csharp
-_hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
-_hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
-```
-
-## Grant/revoke access
-
-HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
-
-* ODBC
-* JDBC
-* Apache Ambari
-* Apache Oozie
-* Apache Templeton
-
-By default, these services are granted for access. You can revoke/grant the access. To revoke:
-
-```csharp
-var httpParams = new HttpSettingsParameters
-{
-    HttpUserEnabled = false,
-    HttpUsername = "admin",
-    HttpPassword = "*******",
-};
-_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
-```
-
-To grant:
-
-```csharp
-var httpParams = new HttpSettingsParameters
-{
-    HttpUserEnabled = enable,
-    HttpUsername = "admin",
-    HttpPassword = "*******",
-};
-_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
-```
-
-> [!NOTE]  
-> By granting/revoking the access, you will reset the cluster user name and password.
-
-This can also be done via the Portal. See [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md).
 
 ## Update HTTP user credentials
 

@@ -1,98 +1,133 @@
 ---
-title: 'Quickstart: Configure properties for an application'
-titleSuffix: Azure AD
-description: This quickstart uses the Azure portal to configure an application that has been registered with your Azure Active Directory (Azure AD) tenant.
+title: 'Configure enterprise application properties'
+description: Configure the properties of an enterprise application in Azure Active Directory.
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: quickstart
+ms.topic: how-to
 ms.workload: identity
-ms.date: 07/23/2021
-ms.author: davidmu
+ms.date: 01/26/2023
+ms.author: jomondi
 ms.reviewer: ergreenl
+zone_pivot_groups: enterprise-apps-minus-aad-powershell
+ms.custom: enterprise-apps
+
+#Customer intent: As an administrator of an Azure AD tenant, I want to configure the properties of an enterprise application.
 ---
 
-# Quickstart: Configure properties for an application
+# Configure enterprise application properties
 
-In the previous quickstart, you added an application to your Azure Active Directory (Azure AD) tenant. When you add an application, you're letting your Azure AD tenant know it's the identity provider for the app. Now you'll configure some of the properties for the app.
+This article shows you where you can configure the properties of an enterprise application in your Azure Active Directory (Azure AD) tenant. For more information about the properties that you can configure, see [Properties of an enterprise application](application-properties.md).
 
 ## Prerequisites
 
-To configure the properties of an application in your Azure AD tenant, you need:
+To configure the properties of an enterprise application, you need:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- Optional: Completion of [View your apps](view-applications-portal.md).
-- Optional: Completion of [Add an app](add-application-portal.md).
 
->[!IMPORTANT]
->Use a non-production environment to test the steps in this quickstart.
+## Configure application properties
 
-## Configure app properties
+Application properties control how the application is represented and how the application is accessed.
 
-When you finish adding an application to your Azure AD tenant, the overview page appears. If you're configuring an application that was already added, look at the first quickstart. It walks you through viewing the applications added to your tenant.
+:::zone pivot="portal"
 
-To edit the application properties:
+To configure the application properties:
 
-1. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to configure.
-2. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
-3. Take a moment to understand the options available. The options available will depend on how the app is integrated with Azure AD. For example, an app that uses SAML-based single sign-on will have fields such as *User access URL* whereas an app that uses OIDC-based single sign-on will not. Also note that apps added through **Azure Active Directory > App registrations** are by default OIDC-based apps. Whereas apps added through **Azure Active Directory > Enterprise applications** might use any of a number of single sign-on standards. All apps will have fields for configuring when an app appears and can be used. These fields are:
-    - **Enabled for users to sign in?** determines whether users assigned to the application can sign in.
-    - **User assignment required?** determines whether users who aren't assigned to the application can sign in.
-    - **Visible to users?** determines whether users assigned to an app can see it in [My Apps](https://myapps.microsoft.com) and Microsoft 365 app launcher. (See the waffle menu in the upper-left corner of a Microsoft 365 website.)
+1. Go to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
+1. Browse to **Azure Active Directory** > **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to use.
+1. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
+1. On the **Properties** pane, you may want to configure the following properties for your application:
+   - Logo
+   - User sign in options
+   - App visibility to users
+   - Set available URL options
+   - Choose whether app assignment is required
+   
+:::zone-end
 
-    > [!TIP]
-    > Assigning users happens on the **Users and groups** section of navigation.
+:::zone pivot="ms-powershell"
 
-    The three options can be toggled independently of each other and the resulting behavior is not always obvious. Here is a table that might help:
+Use the following Microsoft Graph PowerShell script to configure basic application properties.
 
-    | Enabled for users to sign in? | User assignment required? | Visible to users? | Behavior for users who have either been assigned to the app or not. |
-    |---|---|---|---|
-    | Yes | Yes | Yes | Assigned users can see the app and sign in.<br>Unassigned users cannot see the app and cannot sign in. |
-    | Yes | Yes | No  | Assigned users cannot see the app but they can sign in.<br>Unassigned users cannot see the app and cannot sign in. |
-    | Yes | No  | Yes | Assigned users can see the app and sign in.<br>Unassigned users cannot see the app but can sign in. |
-    | Yes | No  | No  | Assigned users cannot see the app but can sign in.<br>Unassigned users cannot see the app but can sign in. |
-    | No  | Yes | Yes | Assigned users cannot see the app and cannot sign in.<br>Unassigned users cannot see the app and cannot sign in. |
-    | No  | Yes | No  | Assigned users cannot see the app and cannot sign in.<br>Unassigned users cannot see the app and cannot sign in. |
-    | No  | No  | Yes | Assigned users cannot see the app and cannot sign in.<br>Unassigned users cannot see the app and cannot sign in. |
-    | No  | No  | No  | Assigned users cannot see the app and cannot sign in.<br>Unassigned users cannot see the app and cannot sign in. |
+You'll need to consent to the `Application.ReadWrite.All` permission.
 
-4. When you're finished, select **Save**.
+```powershell
 
-## Use a custom logo
+Import-Module Microsoft.Graph.Applications
 
-To use a custom logo:
+$params = @{
+	Tags = @(
+		"HR"
+		"Payroll"
+		"HideApp"
+	)
+	Info = @{
+		LogoUrl = "https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_1280.png"
+		MarketingUrl = "https://www.contoso.com/app/marketing"
+		PrivacyStatementUrl = "https://www.contoso.com/app/privacy"
+		SupportUrl = "https://www.contoso.com/app/support"
+		TermsOfServiceUrl = "https://www.contoso.com/app/termsofservice"
+	}
+	Web = @{
+		HomePageUrl = "https://www.contoso.com/"
+		LogoutUrl = "https://www.contoso.com/frontchannel_logout"
+		RedirectUris = @(
+			"https://localhost"
+		)
+	}
+	ServiceManagementReference = "Owners aliases: Finance @ contosofinance@contoso.com; The Phone Company HR consulting @ hronsite@thephone-company.com;"
+}
 
-1. Create a logo that's 215 by 215 pixels, and save it in .png format.
-2. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to configure.
-3. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
-4. Select the icon to upload the logo.
-5. When you're finished, select **Save**.
+Update-MgApplication -ApplicationId $applicationId -BodyParameter $params
+```
+:::zone-end
 
-    :::image type="content" source="media/add-application-portal/change-logo.png" alt-text="Screenshot of the Properties screen that shows how to change the logo.":::
+:::zone pivot="ms-graph"
 
-   > [!NOTE]
-   > The thumbnail displayed on this **Properties** pane doesn't update right away. You can close and reopen the **Properties** pane to see the updated icon.
+To configure the basic properties of an application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
 
-> [!TIP]
-> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
+You'll need to consent to the `Application.ReadWrite.All` permission.
 
-## Add notes
+Run the following Microsoft Graph query to configure basic application properties.
 
-You can use the notes field to add any information that is relevant for the management of the application in Azure AD. Notes is a free text field with a maximum size of 1024 characters.
+```http
+PATCH https://graph.microsoft.com/v1.0/applications/0d0021e2-eaab-4b9f-a5ad-38c55337d63e/
+Content-type: application/json
 
-1. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to configure.
-2. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
-3. Update the Notes field, select **Save**.
+{
+    "tags": [
+        "HR",
+        "Payroll",
+        "HideApp"
+    ],
+    "info": {
+        "logoUrl": "https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_1280.png",
+        "marketingUrl": "https://www.contoso.com/app/marketing",
+        "privacyStatementUrl": "https://www.contoso.com/app/privacy",
+        "supportUrl": "https://www.contoso.com/app/support",
+        "termsOfServiceUrl": "https://www.contoso.com/app/termsofservice"
+    },
+    "web": {
+        "homePageUrl": "https://www.contoso.com/",
+        "logoutUrl": "https://www.contoso.com/frontchannel_logout",
+        "redirectUris": [
+            "https://localhost"
+        ]
+    },
+    "serviceManagementReference": "Owners aliases: Finance @ contosofinance@contoso.com; The Phone Company HR consulting @ hronsite@thephone-company.com;"
+}
+```
+:::zone-end
 
-## Clean up resources
+## Use Microsoft Graph to configure application properties
 
-If you're not going to continue with the quickstart series, then consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
+You can also configure other advanced properties of both app registrations and enterprise applications (service principals) through Microsoft Graph. These include properties such as permissions, and role assignments. For more information, see [Create and manage an Azure AD application using Microsoft Graph](/graph/tutorial-applications-basics#configure-other-basic-properties-for-your-app).
 
 ## Next steps
 
-Advance to the next article to learn how to assign users to the app.
+Learn more about how to manage enterprise applications.
 > [!div class="nextstepaction"]
-> [Assign users to an app](add-application-portal-assign-users.md)
+> [What is application management in Azure Active Directory?](what-is-application-management.md)

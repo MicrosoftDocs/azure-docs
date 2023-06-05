@@ -2,7 +2,7 @@
 title: Status of asynchronous operations
 description: Describes how to track asynchronous operations in Azure. It shows the values you use to get the status of a long-running operation.
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 01/31/2022
 ms.custom: seodec18
 ---
 # Track asynchronous Azure operations
@@ -15,6 +15,8 @@ An asynchronous operation initially returns an HTTP status code of either:
 
 * 201 (Created)
 * 202 (Accepted)
+
+However, that status code doesn't necessarily mean the operation is asynchronous. An asynchronous operation also returns a value for `provisioningState` that indicates the operation hasn't finished. The value can vary by operation but won't include **Succeeded**, **Failed**, or **Canceled**. Those three values indicate the operation has finished. If no value is returned for `provisioningState`, the operation has finished and succeeded.
 
 When the operation successfully completes, it returns either:
 
@@ -195,7 +197,7 @@ GET
 https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Storage/operations/{operation-id}?monitor=true&api-version=2019-06-01
 ```
 
-If the request is still running, you receive a status code 202. If the request has completed, your receive a status code 200, and the body of the response contains the properties of the storage account that has been created.
+If the request is still running, you receive a status code 202. If the request has completed, your receive a status code 200. The body of the response contains the properties of the storage account that was created.
 
 ## Next steps
 

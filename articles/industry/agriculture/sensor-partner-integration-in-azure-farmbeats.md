@@ -37,7 +37,7 @@ The telemetry data is mapped to a canonical message that's published on Azure Ev
 
 **API development**
 
-The APIs contain Swagger technical documentation. For more information on the APIs and their corresponding requests or responses, see [Swagger](https://aka.ms/FarmBeatsSwagger).
+The APIs contain Swagger technical documentation.
 
 **Authentication**
 
@@ -90,13 +90,13 @@ Here are the most common request headers that need to be specified when you make
 
 **Header** | **Description and example**
 --- | ---
-Content-Type | The request format (Content-Type: application/<format>). For FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
-Authorization | Specifies the access token required to make an API call. Authorization: Bearer <Access-Token>
+Content-Type | The request format (Content-Type: `application/<format>`). For FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
+Authorization | Specifies the access token required to make an API call. Authorization: Bearer \<Access-Token\>
 Accept | The response format. For FarmBeats Datahub APIs, the format is JSON. Accept: application/json
 
 **API requests**
 
-To make a REST API request, you combine the HTTP (GET, POST, or PUT) method, the URL to the API service, the  Uniform Resource Identifier (URI) to a resource to query, submit data to, update, or delete, and one or more HTTP request headers. The URL to the API service is the API endpoint you provide. Here's a sample: https://\<yourdatahub-website-name>.azurewebsites.net
+To make a REST API request, you combine the HTTP (GET, POST, or PUT) method, the URL to the API service, the  Uniform Resource Identifier (URI) to a resource to query, submit data to, update, or delete, and one or more HTTP request headers. The URL to the API service is the API endpoint you provide. Here's a sample: `https://\<yourdatahub-website-name>.azurewebsites.net`
 
 Optionally, you can include query parameters on GET calls to filter, limit the size of, and sort the data in the responses.
 
@@ -168,8 +168,6 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
   Description  | Provide a meaningful description.
   Properties  | Additional properties from the manufacturer.
 
- For information on each of the objects and their properties, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
-
  > [!NOTE]
  > The APIs return unique IDs for each instance created. This ID needs to be retained by the Translator for device management and metadata sync.
 
@@ -188,7 +186,7 @@ The Translator should have the ability to add new devices or sensors that were i
 
 ### Add new types and units
 
-FarmBeats supports adding new sensor measure types and units. For more information about the /ExtendedType API, see [Swagger](https://aka.ms/FarmBeatsSwagger).
+FarmBeats supports adding new sensor measure types and units.
 
 ## Telemetry specifications
 

@@ -30,7 +30,7 @@ landingContent:
           - text: Best practices
             url: ./best-practices.md
           - text: Frequently asked questions
-            url: frequently-asked-questions.yml
+            url: ./frequently-asked-questions.yml
           - text: Template specs
             url: template-specs.md
           - text: Deployment modes
@@ -61,7 +61,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Deploy with ARM templates
-            url: /learn/paths/deploy-manage-resource-manager-templates/
+            url: /training/paths/deploy-manage-resource-manager-templates/
   # Card
   - title: Develop templates
     linkLists:

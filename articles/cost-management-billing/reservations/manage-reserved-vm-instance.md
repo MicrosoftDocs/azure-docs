@@ -4,9 +4,9 @@ description: Learn how to manage Azure Reservations. See steps to change the res
 ms.service: cost-management-billing
 ms.subservice: reservations
 author: bandersmsft
-ms.reviewer: yashesvi
+ms.reviewer: nitinarora
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 12/06/2022
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -47,12 +47,16 @@ If you change from shared to single scope, you can only select subscriptions whe
 
 The scope only applies to individual subscriptions with pay-as-you-go rates (offers MS-AZR-0003P or MS-AZR-0023P), Enterprise offer MS-AZR-0017P or MS-AZR-0148P, or CSP subscription types.
 
+If all subscriptions are moved out of a management group, the scope of the reservation is automatically changed to Shared.
+
 ## Who can manage a reservation by default
 
 By default, the following users can view and manage reservations:
 
 - The person who bought the reservation and the account owner for the billing subscription get Azure RBAC access to the reservation order.
--  Enterprise Agreement and Microsoft Customer Agreement billing contributors can manage all reservations from Cost Management + Billing > Reservation Transactions > select the blue banner.
+- Enterprise Agreement and Microsoft Customer Agreement billing contributors can manage all reservations from Cost Management + Billing > Reservation Transactions > select the blue banner.
+- A Reservation administrator for reservations in their Azure Active Directory (Azure AD) tenant (directory).
+- A Reservation reader has read-only access to reservations in their Azure Active Directory tenant (directory).
 
 To allow other people to manage reservations, you have two options:
 

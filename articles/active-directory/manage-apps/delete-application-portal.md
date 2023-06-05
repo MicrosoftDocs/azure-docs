@@ -1,62 +1,163 @@
 ---
-title: 'Quickstart: Delete an application from your tenant'
-titleSuffix: Azure AD
-description: This quickstart uses the Azure portal to delete an application from your Azure Active Directory (Azure AD) tenant.
+title: 'Delete an enterprise application'
+description: Delete an enterprise application in Azure Active Directory.
 services: active-directory
-author: davidmu
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: quickstart
+ms.topic: how-to
 ms.workload: identity
-ms.date: 07/23/2021
-ms.author: davidmu
-ms.reviewer: alamaral
+ms.date: 07/28/2022
+ms.author: jomondi
+ms.reviewer: sureshja
+zone_pivot_groups: enterprise-apps-all
+ms.custom: enterprise-apps
+
+#Customer intent: As an administrator of an Azure AD tenant, I want to delete an enterprise application.
 ---
 
-# Quickstart: Delete an application from your tenant
+# Delete an enterprise application
 
-This quickstart uses the Azure portal to delete an application that was added to your Azure Active Directory (Azure AD) tenant.
+In this article, you learn how to delete an enterprise application that was added to your Azure Active Directory (Azure AD) tenant. 
 
-Learn more about SSO and Azure, see [What is Single Sign-On (SSO)](what-is-single-sign-on.md).
+When you delete and enterprise application, it will be held in a suspended state in the recycle bin for 30 days. During the 30 days, you can [Restore the application](restore-application.md). Deleted items are automatically hard deleted after the 30-day period. For more information on frequently asked questions about deletion and recovery of applications, see [Deleting and recovering applications FAQs](delete-recover-faq.yml).
+
 
 ## Prerequisites
 
-To delete an application from your Azure AD tenant, you need:
+To delete an enterprise application, you need:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- Optional: Completion of [View your apps](view-applications-portal.md).
-- Optional: Completion of [Add an app](add-application-portal.md).
-- Optional: Completion of [Configure an app](add-application-portal-configure.md).
-- Optional: Completion of [Assign users to an app](add-application-portal-assign-users.md).
-- Optional: Completion of [Set up single sign-on](add-application-portal-setup-sso.md).
+- An [enterprise application added to your tenant](add-application-portal.md)
 
->[!IMPORTANT]
->Use a non-production environment to test the steps in this quickstart.
+## Delete an enterprise application
 
-> [!NOTE]
->To delete an application from Azure AD, a user must be assigned one of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+:::zone pivot="portal"
 
-## Delete an application from your Azure AD tenant
+1. Sign in to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
+1. In the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to delete. For example, **Azure AD SAML Toolkit 1**.
+1. In the **Manage** section of the left menu, select **Properties**.
+1. At the top of the **Properties** pane, select **Delete**, and then select **Yes** to confirm you want to delete the application from your Azure AD tenant.
 
-To delete an application from your Azure AD tenant:
+    :::image type="content" source="media/delete-application-portal/delete-application.png" alt-text="Delete an enterprise application.":::
 
-1. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to delete. In this case, we want to delete the **360 Online**.
-1. In the **Manage** section in the left pane, select **Properties**.
-1. Select **Delete**, and then select **Yes** to confirm you want to delete the app from your Azure AD tenant.
+:::zone-end
 
-:::image type="content" source="media/add-application-portal/delete-application.png" alt-text="Screenshot of the Properties screen that shows how to change the logo.":::
+:::zone pivot="aad-powershell"
 
-> [!TIP]
-> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
+> [!IMPORTANT]
+> Make sure you're using the AzureAD module. This is important if you've installed both the [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) module and the AzureADPreview module.
+1. Run the following commands:
 
-## Clean up resources
+    ```powershell
+    Remove-Module AzureADPreview
+    Import-Module AzureAD
+    ```
 
-When you are done with this quickstart series, consider deleting the app to clean up your test tenant. Deleting the app was covered in this quickstart.
+1. Connect to Azure AD PowerShell:
+
+   ```powershell
+   Connect-AzureAD
+   ```
+1. Get the list of enterprise applications in your tenant.
+   
+   ```powershell
+   Get-AzureADServicePrincipal
+   ```
+1. Record the object ID of the enterprise app you want to delete.
+1. Delete the enterprise application.
+   
+   ```powershell
+   Remove-AzureADServicePrincipal -ObjectId 'd4142c52-179b-4d31-b5b9-08940873507b'
+   ```
+:::zone-end
+
+:::zone pivot="ms-powershell"
+
+1. Connect to Microsoft Graph PowerShell:
+
+   ```powershell
+   Connect-MgGraph -Scopes 'Application.Read.All'
+   ```
+
+1. Get the list of enterprise applications in your tenant.
+   
+   ```powershell
+   Get-MgServicePrincipal
+   ```
+
+1. Record the object ID of the enterprise app you want to delete.
+
+1. Delete the enterprise application.
+   
+   ```powershell
+   Remove-MgServicePrincipal -ServicePrincipalId 'd4142c52-179b-4d31-b5b9-08940873507b'
+   ```
+
+:::zone-end
+
+:::zone pivot="ms-graph"
+
+Delete an enterprise application using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+1. To get the list of service principals in your tenant, run the following query.
+
+   # [HTTP](#tab/http)
+   ```http
+   GET https://graph.microsoft.com/v1.0/servicePrincipals
+   ```
+
+   # [C#](#tab/csharp)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/list-serviceprincipal-csharp-snippets.md)]
+
+   # [JavaScript](#tab/javascript)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/list-serviceprincipal-javascript-snippets.md)]
+
+   # [Java](#tab/java)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/list-serviceprincipal-java-snippets.md)]
+
+   # [Go](#tab/go)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/list-serviceprincipal-go-snippets.md)]
+
+   # [PowerShell](#tab/powershell)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/list-serviceprincipal-powershell-snippets.md)]
+
+   # [PHP](#tab/php)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/list-serviceprincipal-php-snippets.md)]
+
+   ---
+
+1. Record the ID of the enterprise app you want to delete.
+1. Delete the enterprise application.
+   
+   # [HTTP](#tab/http)
+   ```http
+   DELETE https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipal-id}
+   ```
+
+   # [C#](#tab/csharp)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/delete-serviceprincipal-csharp-snippets.md)]
+
+   # [JavaScript](#tab/javascript)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/delete-serviceprincipal-javascript-snippets.md)]
+
+   # [Java](#tab/java)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/delete-serviceprincipal-java-snippets.md)]
+
+   # [Go](#tab/go)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/delete-serviceprincipal-go-snippets.md)]
+
+   # [PowerShell](#tab/powershell)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/delete-serviceprincipal-powershell-snippets.md)]
+
+   # [PHP](#tab/php)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/delete-serviceprincipal-php-snippets.md)]
+
+   ---
+
+:::zone-end
 
 ## Next steps
 
-You have completed the quickstart series! Next, learn about Single Sign-On (SSO), see [What is SSO?](what-is-single-sign-on.md) Or read about best practices in app management.
-> [!div class="nextstepaction"]
-> [Application management best practices](application-management-fundamentals.md)
+- [Restore a deleted enterprise application](restore-application.md)

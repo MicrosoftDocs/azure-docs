@@ -4,12 +4,13 @@ description: Describes the functions to use in a Bicep file to determine logical
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.custom: devx-track-bicep
+ms.date: 01/30/2023
 ---
 
 # Logical functions for Bicep
 
-Resource Manager provides a `bool` function for Bicep. 
+Bicep provides the `bool` function for converting values to a boolean.
 
 Most of the logical functions in Azure Resource Manager templates are replaced with [logical operators](./operators-logical.md) in Bicep.
 
@@ -19,11 +20,13 @@ Most of the logical functions in Azure Resource Manager templates are replaced w
 
 Converts the parameter to a boolean.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |string or int |The value to convert to a boolean. |
+| arg1 |Yes |string or int |The value to convert to a boolean. String value "true" with any combination of upper and lower case characters (for example "True", "TRUE", "tRue", "true") are considered to be equivalent and represent the boolean value of `true`, otherwise `false`. Integer value 0 is considered to be `false` and all other integers are considered to be `true`.  |
 
 ### Return value
 
@@ -31,25 +34,32 @@ A boolean of the converted value.
 
 ### Examples
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) shows how to use bool with a string or integer.
+The following example shows how to use bool with a string or integer.
 
 ```bicep
-output trueString bool = bool('true')
-output falseString bool = bool('false')
-output trueInt bool = bool(1)
-output falseInt bool = bool(0)
+output trueString1 bool = bool('true')
+output trueString2 bool = bool('trUe')
+output falseString1 bool = bool('false')
+output falseString2 bool = bool('falSe')
+output trueInt2 bool = bool(2)
+output trueInt1 bool = bool(1)
+output trueIntNeg1 bool = bool(-1)
+output falseInt0 bool = bool(0)
 ```
 
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| trueString | Bool | True |
-| falseString | Bool | False |
-| trueInt | Bool | True |
-| falseInt | Bool | False |
+| trueString1 | Bool | true |
+| trueString2 | Bool | true |
+| falseString1 | Bool | false |
+| falseString2 | Bool | false |
+| trueInt2 | Bool | true |
+| trueInt1 | Bool | true |
+| trueIntNeg1 | Bool | true |
+| falseInt | Bool | false |
 
 ## Next steps
 
-* For most logical operations, see [Bicep logical operators](./operators-logical.md).
-* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
+* For other actions involving logical values, see [logical operators](./operators-logical.md).

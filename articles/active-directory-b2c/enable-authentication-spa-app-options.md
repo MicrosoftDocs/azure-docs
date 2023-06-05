@@ -2,13 +2,13 @@
 title: Enable SPA application options by using Azure Active Directory B2C
 description:  This article discusses several ways to enable the use of SPA applications.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/05/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
@@ -25,7 +25,7 @@ To use a custom domain and your tenant ID in the authentication URL, follow the 
 
 The following JavaScript code shows the MSAL configuration object *before* the change: 
 
-```Javascript
+```javascript
 const msalConfig = {
     auth: {
       ...
@@ -39,7 +39,7 @@ const msalConfig = {
 
 The following JavaScript code shows the MSAL configuration object *after* the change: 
 
-```Javascript
+```javascript
 const msalConfig = {
     auth: {
       ...
@@ -115,6 +115,47 @@ const msalConfig = {
     
     myMSALObj.loginPopup(loginRequest);
     ```
+
+## Secure your logout redirect
+
+After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed and the [Require ID Token in logout requests](session-behavior.md#secure-your-logout-redirect) is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected.
+
+To support a secured logout redirect URI, follow the steps below:
+
+1. Create a globally accessible variable to store the `id_token`.
+
+    ```javascript
+    let id_token = "";
+    ```
+    
+1. In the MSAL `handleResponse` function, parse the `id_token` from the `authenticationResult` object into the `id_token` variable.
+
+    ```javascript
+    function handleResponse(response) {
+        if (response !== null) {
+            setAccount(response.account);
+            id_token = response.idToken;
+        } else {
+            selectAccount();
+        }
+    }
+    ```
+    
+1. In the `signOut` function, add the `id_token_hint` parameter to the **logoutRequest** object.
+
+    ```javascript
+    function signOut() {
+        const logoutRequest = {
+            postLogoutRedirectUri: msalConfig.auth.redirectUri,
+            //set id_token_hint to the id_token value
+            idTokenHint : id_token,
+            mainWindowRedirectUri: msalConfig.auth.redirectUri
+        };
+        myMSALObj.logoutPopup(logoutRequest);
+    }
+    ```
+
+In the above example, the **post_logout_redirect_uri** passed into the logout request will be in the format: `https://your-app.com/`. This URL must be added to the Application Registration's reply URL's.
 
 ## Enable single logout
 

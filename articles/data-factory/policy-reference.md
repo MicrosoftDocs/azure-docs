@@ -4,12 +4,13 @@ description: Lists Azure Policy built-in policy definitions for Data Factory. Th
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: [seo-lt-2019, references_regions]
-ms.date: 07/16/2021
+ms.custom: seo-lt-2019, references_regions
+ms.date: 02/21/2023
 ---
 
-# Azure Policy built-in definitions for Data Factory (Preview)
+# Azure Policy built-in definitions for Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy definitions for Data Factory. For additional Azure Policy built-ins for other services, see [Azure Policy built-in definitions](../governance/policy/samples/built-in-policies.md).

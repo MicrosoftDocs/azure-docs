@@ -16,6 +16,8 @@ ms.custom: seodec18
 
 # Query data from the Azure Time Series Insights Gen2 environment using C Sharp
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This C# example demonstrates how to query data from the [Gen2 Data Access APIs](/rest/api/time-series-insights/reference-data-access-overview) in Azure Time Series Insights Gen2 environments.
 
 > [!TIP]
