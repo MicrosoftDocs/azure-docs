@@ -1,6 +1,7 @@
 ---
 title: How to consume and export scan results
 description: Learn how to consume and export Defender for SQL's scan results.
+titleSuffix: Defender for Cloud
 ms.topic: how-to
 ms.date: 06/04/2023
 ---
@@ -127,3 +128,5 @@ You can also use the [Vulnerability Assessments workbook](defender-for-sql-on-ma
 You can also enable [Continuous export](continuous-export.md) to stream alerts and recommendations as they're generated or to define a schedule to send periodic snapshots of all of the new data.
 
 ## Next steps
+
+[Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md)
