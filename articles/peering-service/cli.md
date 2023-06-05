@@ -109,5 +109,5 @@ az peering service delete --peering-service-name "myPeeringService" --resource-g
 
 ## Next steps
 
-- To learn more about Peering Service connection, see [Peering Service connection](connection.md).
+- To learn more about Peering Service connections, see [Peering Service connection](connection.md).
 - To learn more about Peering Service connection telemetry, see [Access Peering Service connection telemetry](connection-telemetry.md).

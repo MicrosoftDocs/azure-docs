@@ -40,4 +40,3 @@ Customer can establish a single connection or multiple connections as per the re
 
 - To learn how to register Peering Service connection, see [Create Peering Service using the Azure portal](azure-portal.md).
 - To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-- To access telemetry, see [Access connection telemetry](measure-connection-telemetry.md).
