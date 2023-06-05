@@ -355,7 +355,7 @@ DELETE https://{your-resource-name}.openai.azure.com/openai/operations/images/{o
 #### Example request
 
 ```console
-curl -X DELETE "https://aoairesource.openai.azure.com/openai/operations/images/{operation-id}?api-version=2023-06-01-preview"
+curl -X DELETE "https://{your-resource-name}.openai.azure.com/openai/operations/images/{operation-id}?api-version=2023-06-01-preview"
 -H "Content-Type: application/json"
 -H "Api-Key: {api key}"
 ```
