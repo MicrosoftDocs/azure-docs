@@ -31,7 +31,6 @@ Please note that _/api/health_ is just an example added for ilustration purposes
 
 >- Health check doesn't follow 302 redirects. 
 >- At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
->- At most 30 instances will be replaced per 12 hours per Scale Unit.
 >- If your health check is giving the status `Waiting for health check response` then the check is likely failing due to an HTTP status code of 307, which can happen if you have HTTPS redirect enabled but have `HTTPS Only` disabled.
 
 ## Enable Health Check
@@ -159,7 +158,7 @@ After providing your application's Health check path, you can monitor the health
 
 - Health check can be enabled for **Free** and **Shared** App Service Plans so you can have metrics on the site's health and setup alerts, but because **Free** and **Shared** sites can't scale out, any unhealthy instances won't be replaced. You should scale up to the **Basic** tier or higher so you can scale out to 2 or more instances and utilize the full benefit of Health check. This is recommended for production-facing applications as it will increase your app's availability and performance.
 - The App Service plan can have maximum 1 unhealthy instance replaced per hour and at most 3 instances per day.
-- The [Scale Unit](https://learn.microsoft.com/en-us/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture#what-is-an-app-service-scale-unit) hosting the App Service Plan that your app belongs to supports unhealthy instances replacement but not exceeding 30 instances per 12 hours per Scale Unit.
+- There is a limit of replaced instances we have per scale unit and its value is reset once at 12h.
 
 ## Frequently Asked Questions
 
