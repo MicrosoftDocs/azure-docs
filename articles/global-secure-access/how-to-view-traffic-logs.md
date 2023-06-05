@@ -16,11 +16,9 @@ Monitoring the traffic for Global Secure Access is an important activity for ens
 
 This article describes how to use the traffic logs for Global Secure Access.
 
-## Prerequisites
+## How the traffic logs work
 
 Viewing traffic logs requires a Reports Reader role in Microsoft Entra ID. 
-
-## How the traffic logs work
 
 The Global Secure Access logs provide details of your network traffic. To better understand those details and how you can analyze those details to monitor your environment, it's helpful to look at the three levels of the logs and their relationship to each other.
 
@@ -71,18 +69,15 @@ The following details may be helpful for troubleshooting and analysis:
 - If you are reviewing the network activity for a risky user, you can filter the results by user principal name and then review the sites they're accessing.
 - To look at traffic associated with specific 
 
-The log details provide valuable information about your network traffic.
+The log details provide valuable information about your network traffic. Not all details are defined in the list below, but the following details are useful for troubleshooting and analysis:
 
-- **Traffic type**: 
-- **Destination FQDN**:
-- **User principal name**:
-- **Action**:
-- **Source IP**:
-- **Sent bytes**:
-- **Received bytes**:
-
+- **Transaction ID**: Unique identifier representing the request/response pair.
+- **Connection ID**: Unique identifier representing the connection that initiated the log.
+- **Device category**: Device type where the transaction initiated from. Either **client** or **remote network**.
+- **Action**: The action taken on the network session. Either **Allowed** or **Denied**.
 
 ## Next steps
 
 - [Learn about the traffic dashboard](concept-traffic-dashboard.md)
+- [View the audit logs for Global Secure Access](how-to-access-audit-logs.md)
 
