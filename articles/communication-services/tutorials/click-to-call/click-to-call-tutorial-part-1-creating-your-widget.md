@@ -1,0 +1,445 @@
+# Part 1 Creating Your Widget
+
+To get started, we are going to make a new component. This component is the widget that you will use to start your calling experience.
+
+We will be using our own widget setup for this tutorial but you can expand the functionality to do more here. For us we will have the widget perform the following actions:
+- Display a custom logo, this can be replaced with another image or branding of your choosing. Feel free to download the image from the code if you would like to use our image.
+- Let the user decide if they want to have video in the call.
+- Have the user consent to the call possible being recorded.
+
+First, we are going to make a new directory `src/components` and in this directory we are going to make a new file called `ClickToCallComponent.tsx`. For the
+purpose of this tutorial we will give this component the following properties:
+
+`ClickToCallComponent.tsx`
+
+First, we will set up the widget component with some imports:
+
+`ClickToCallComponent.tsx`
+```typescript
+// imports needed
+import { IconButton, PrimaryButton, Stack, TextField, useTheme, Checkbox, Icon } from '@fluentui/react';
+import React, { useEffect, useState } from 'react';
+```
+
+Now we will introduce a interface contianing the props that the component will use.
+
+`ClickToCallComponent.tsx`
+```typescript
+export interface clickToCallComponentProps {
+  /**
+   * Handler to start a new call.
+   */
+  onRenderStartCall: () => void;
+  /**
+   * Custom render function for displaying logo.
+   * @returns
+   */
+  onRenderLogo?: () => JSX.Element;
+  /**
+   * Handler to set displayName for the user in the call.
+   * @param displayName
+   * @returns
+   */
+  onSetDisplayName?: (displayName: string | undefined) => void;
+  /**
+   * Handler to set whether to use video in the call.
+   */
+  onSetUseVideo?: (useVideo: boolean) => void;
+}
+```
+
+Each of these callbacks will control different behaviors for the calling experience.
+
+- `onRenderStartCall` - This callback will used to trigger any handlers in your app to do things like create a new window for your calling experience.
+- `onRenderLogo` - This will be used as a rendering callback to have a custom logo or image render inside the widget when getting user information.
+- `onSetDisplayName` - We will use this callback to set the `displayName` of the participant when they are calling your support center.
+- `onSetUseVideo` - Finally, this callback will be used to control for our tutorial whether the user will have camera and screen sharing controls (more on that later).
+
+Finally, we will add the body of the component.
+
+`src/views/ClickToCallComponent.tsx`
+```typescript
+/**
+ * Widget for Click to Call
+ * @param props
+ */
+export const ClickToCallComponent = (
+  props: clickToCallComponentProps
+): JSX.Element => {
+  const { onRenderStartCall, onRenderLogo, onSetDisplayName, onSetUseVideo } =
+    props;
+
+  const [widgetState, setWidgetState] = useState<"new" | "setup">();
+  const [displayName, setDisplayName] = useState<string>();
+  const [consentToData, setConsentToData] = useState<boolean>(false);
+
+  const theme = useTheme();
+
+  useEffect(() => {
+    if (widgetState === "new" && onSetUseVideo) {
+      onSetUseVideo(false);
+    }
+  }, [widgetState, onSetUseVideo]);
+
+  /** widget template for when open, put any fields here for user information desired */
+  if (widgetState === "setup" && onSetDisplayName && onSetUseVideo) {
+    return (
+      <Stack
+        styles={clicktoCallSetupContainerStyles(theme)}
+        tokens={{ childrenGap: "1rem" }}
+      >
+        <IconButton
+          styles={collapseButtonStyles}
+          iconProps={{ iconName: "Dismiss" }}
+          onClick={() => setWidgetState("new")}
+        />
+        <Stack tokens={{ childrenGap: "1rem" }} styles={logoContainerStyles}>
+          <Stack style={{ transform: "scale(1.8)" }}>
+            {onRenderLogo && onRenderLogo()}
+          </Stack>
+        </Stack>
+        <TextField
+          label={"Name"}
+          required={true}
+          placeholder={"Enter your name"}
+          onChange={(_, newValue) => {
+            setDisplayName(newValue);
+          }}
+        />
+        <Checkbox
+          styles={checkboxStyles(theme)}
+          label={
+            "Use video - Checking this box will enable camera controls and screen sharing"
+          }
+          onChange={(_, checked?: boolean | undefined) => {
+            onSetUseVideo(!!checked);
+          }}
+        ></Checkbox>
+        <Checkbox
+          required={true}
+          styles={checkboxStyles(theme)}
+          label={
+            "By checking this box you are consenting that we will collect data from the call for customer support reasons"
+          }
+          onChange={(_, checked?: boolean | undefined) => {
+            setConsentToData(!!checked);
+          }}
+        ></Checkbox>
+        <PrimaryButton
+          styles={startCallButtonStyles(theme)}
+          onClick={() => {
+            if (displayName && consentToData) {
+              onSetDisplayName(displayName);
+              onRenderStartCall();
+            }
+          }}
+        >
+          StartCall
+        </PrimaryButton>
+      </Stack>
+    );
+  }
+
+  /** default waiting state for the widget */
+  return (
+    <Stack
+      horizontalAlign="center"
+      verticalAlign="center"
+      styles={clickToCallContainerStyles(theme)}
+      onClick={() => {
+        setWidgetState("setup");
+      }}
+    >
+      <Stack
+        horizontalAlign="center"
+        verticalAlign="center"
+        style={{
+          height: "4rem",
+          width: "4rem",
+          borderRadius: "50%",
+          background: theme.palette.themePrimary,
+        }}
+      >
+        <Icon iconName="callAdd" styles={callIconStyles(theme)} />
+      </Stack>
+    </Stack>
+  );
+};
+```
+
+### Time For Some Styles
+
+Once you have your component you will need some styles to give it some looks. For this we will create a new folder `src/styles` here we will create a new file called `ClickToCallComponent.styles.ts` and we will add the following styles.
+
+`src/styles/ClickToCallComponent.styles.ts`
+
+```typescript
+// needed imports
+import { IButtonStyles, ICheckboxStyles, IIconStyles, IStackStyles, Theme } from '@fluentui/react';
+```
+
+Now lets add the component's styles.
+
+`ClickToCallComponent.styles.ts`
+```typescript
+export const checkboxStyles = (theme: Theme): ICheckboxStyles => {
+  return {
+    label: {
+      color: theme.palette.neutralPrimary,
+    },
+  };
+};
+
+export const clickToCallContainerStyles = (theme: Theme): IStackStyles => {
+  return {
+    root: {
+      width: "5rem",
+      height: "5rem",
+      padding: "0.5rem",
+      boxShadow: theme.effects.elevation16,
+      borderRadius: "50%",
+      bottom: "1rem",
+      right: "1rem",
+      position: "absolute",
+      overflow: "hidden",
+      cursor: "pointer",
+      ":hover": {
+        boxShadow: theme.effects.elevation64,
+      },
+    },
+  };
+};
+
+export const clicktoCallSetupContainerStyles = (theme: Theme): IStackStyles => {
+  return {
+    root: {
+      width: "18rem",
+      minHeight: "20rem",
+      maxHeight: "25rem",
+      padding: "0.5rem",
+      boxShadow: theme.effects.elevation16,
+      borderRadius: theme.effects.roundedCorner6,
+      bottom: 0,
+      right: "1rem",
+      position: "absolute",
+      overflow: "hidden",
+      cursor: "pointer",
+    },
+  };
+};
+
+export const callIconStyles = (theme: Theme): IIconStyles => {
+  return {
+    root: {
+      paddingTop: "0.2rem",
+      color: theme.palette.white,
+      transform: "scale(1.6)",
+    },
+  };
+};
+
+export const startCallButtonStyles = (theme: Theme): IButtonStyles => {
+  return {
+    root: {
+      background: theme.palette.themePrimary,
+      borderRadius: theme.effects.roundedCorner6,
+      borderColor: theme.palette.themePrimary,
+    },
+    textContainer: {
+      color: theme.palette.white,
+    },
+  };
+};
+
+export const logoContainerStyles: IStackStyles = {
+  root: {
+    margin: "auto",
+    padding: "0.2rem",
+    height: "5rem",
+    width: "10rem",
+    zIndex: 0,
+  },
+};
+
+export const collapseButtonStyles: IButtonStyles = {
+  root: {
+    position: "absolute",
+    top: "0.2rem",
+    right: "0.2rem",
+    zIndex: 1,
+  },
+};
+```
+
+These styles should be added to the widget as seen in the snippet above. If you added the code above as is these styles will just need importing into the `ClickToCallComponent.tsx` file.
+
+`ClickToCallComponent.tsx`
+```typescript
+
+// add to other imports
+import {
+    clicktoCallSetupContainerStyles,
+    checkboxStyles,
+    startCallButtonStyles,
+    clickToCallContainerStyles,
+    callIconStyles,
+    logoContainerStyles,
+    collapseButtonStyles
+} from '../styles/ClickToCallComponent.styles';
+
+```
+
+### Adding The Widget To The App
+
+Now we will create a new folder `src/views` and add a new file for one of our pages `ClickToCallScreen.tsx`. This screen will act as our home page for the app where the user can start a new call.
+
+We will want to add the following props to the page:
+
+`ClickToCallScreen.tsx`
+
+```typescript
+export interface ClickToCallPageProps {
+  token: string;
+  userId:
+    | CommunicationUserIdentifier
+    | MicrosoftTeamsUserIdentifier;
+  callLocator: CallAdapterLocator;
+  alternateCallerId?: string;
+}
+```
+
+These properties will be fed by the values that we set in `App.tsx`. We will use these props to make post messages to the app when we want to start a call in a new window (More on this later).
+
+Next lets add the page content:
+
+`ClickToCallScreen.tsx`
+```typescript
+// imports needed
+import { CommunicationUserIdentifier, MicrosoftTeamsUserIdentifier } from '@azure/communication-common';
+import { Stack, Text } from '@fluentui/react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { ClickToCallComponent } from '../components/ClickToCallComponent';
+import { CallAdapterLocator } from '@azure/communication-react';
+import hero from '../hero.svg';
+```
+```typescript
+export const ClickToCallScreen = (props: ClickToCallPageProps): JSX.Element => {
+  const { token, userId, callLocator, alternateCallerId } = props;
+
+  const [userDisplayName, setUserDisplayName] = useState<string>();
+  const [useVideo, setUseVideo] = useState<boolean>(false);
+  // we also want to make this memoized version of the args for the new window.
+  const adapterParams = useMemo(() => {
+    const args = {
+      userId: userId as CommunicationUserIdentifier,
+      displayName: userDisplayName ?? "",
+      token,
+      locator: callLocator,
+      alternateCallerId,
+    };
+    return args;
+  }, [userId, userDisplayName, token, callLocator, alternateCallerId]);
+
+  return (
+    <Stack
+      style={{ height: "100%", width: "100%", padding: "3rem" }}
+      tokens={{ childrenGap: "1.5rem" }}
+    >
+      <Stack style={{ margin: "auto" }}>
+        <Stack
+          style={{ padding: "3rem" }}
+          horizontal
+          tokens={{ childrenGap: "2rem" }}
+        >
+          <Text style={{ marginTop: "auto" }} variant="xLarge">
+            Welcome to a Click to Call sample
+          </Text>
+          <img
+            style={{ width: "7rem", height: "auto" }}
+            src={hero}
+            alt="kcup logo"
+          />
+        </Stack>
+
+        <Text>
+          Welcome to a Click to Call sample for the Azure Communications UI
+          Library. Sample has the ability to:
+        </Text>
+        <ul>
+          <li>
+            Adhoc call teams users with a tenant set that allows for external
+            calls
+          </li>
+          <li>Joining Teams interop meetings as a Azure Communications user</li>
+          <li>Make a click to call PSTN call to a help phone line</li>
+          <li>Join a Azure Communications group call</li>
+        </ul>
+        <Text>
+          As a user all you need to do is click the widget below, enter your
+          display name for the call - this will act as your caller id, and
+          action the <b>start call</b> button.
+        </Text>
+      </Stack>
+      <Stack
+        horizontal
+        tokens={{ childrenGap: "1.5rem" }}
+        style={{ overflow: "hidden", margin: "auto" }}
+      >
+        <ClickToCallComponent
+        onRenderStartCall={() => {}}
+          onRenderLogo={() => {
+            return (
+              <img
+                style={{ height: "4rem", width: "4rem", margin: "auto" }}
+                src={hero}
+                alt="logo"
+              />
+            );
+          }}
+          onSetDisplayName={setUserDisplayName}
+          onSetUseVideo={setUseVideo}
+        />
+      </Stack>
+    </Stack>
+  );
+};
+```
+This page has some general information on it for what our calling experiences can currently do. We can also see that it is adding the widget component that we created earlier.
+
+Once we have this we will need to add the new view to the root of the app `App.tsx` by updating our existing `'click-to-call'` case:
+
+`App.tsx`
+```typescript
+// add this with the other imports
+
+import { ClickToCallScreen } from './views/ClickToCallScreen';
+
+```
+
+```typescript
+    
+    case 'click-to-call': {
+        if (!token || !userId || !locator) {
+        return (
+        <Stack verticalAlign='center' style={{height: '100%', width: '100%'}}>
+            <Spinner label={'Getting user credentials from server'} ariaLive="assertive" labelPosition="top" />;
+        </Stack>
+        )
+    }
+    return <ClickToCallScreen token={token} userId={userId} callLocator={locator} alternateCallerId={alternateCallerId}/>;
+}
+    
+```
+
+Then if you have done this and set the arguments we defined in `App.tsx` you should see this when the app is running with `npm run start`:
+
+<img src='../media/click-to-call/Sample-app-splash.png' width='800'>
+
+Then when you action the widget button you should see:
+
+<img src='../media/click-to-call/Sample-app-widget-open.png' width='800'>
+
+Yay! We have made the control surface for the widget! Next we will talk about what we need to add to make this widget start a call in a new window.
+
+> [!div class="nextstepaction"]
+> [Part 2: Creating a new window calling experience](./click-to-call-tutorial-part-2-creating-new-window-experience.md)

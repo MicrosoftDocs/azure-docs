@@ -1,0 +1,400 @@
+# Part 2 Creating a New Window Calling Experience
+
+Now that we have a running application with our widget on the home page, we will talk about starting the calling experience for your users with a new window. This scenario allows you to give your customer the ability to browse while still seeing your call in a new window. This can be useful in situations similar to when your users will use video and screensharing.
+
+To start we will create a new view in the `src/views` folder called `NewWindowCallScreen.tsx`. This new screen will be used by the `App.tsx` file to go into a new call with the arguments provided to it using our `CallComposite`. The `CallComposite` can be swapped with a stateful client and UI component experience if desired as well, but that will not be covered in this tutorial. See our [storybook documentation](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-statefulcallclient--page) for more information about the stateful client.
+
+`src/views/NewWindowCallScreen.tsx`
+```typescript
+// imports needed
+import { CommunicationUserIdentifier, AzureCommunicationTokenCredential } from '@azure/communication-common';
+import {
+    CallAdapter,
+    CallAdapterLocator,
+    CallComposite,
+    useAzureCommunicationCallAdapter
+} from '@azure/communication-react';
+import { Spinner, Stack } from '@fluentui/react';
+import React, { useMemo } from 'react';
+```
+```typescript
+export const SameOriginCallScreen = (props: {
+  adapterArgs: {
+    userId: CommunicationUserIdentifier;
+    displayName: string;
+    token: string;
+    locator: CallAdapterLocator;
+    alternateCallerId?: string;
+  };
+  useVideo: boolean;
+}): JSX.Element => {
+  const { adapterArgs, useVideo } = props;
+
+  const credential = useMemo(() => {
+    try {
+      return new AzureCommunicationTokenCredential(adapterArgs.token);
+    } catch {
+      console.error("Failed to construct token credential");
+      return undefined;
+    }
+  }, [adapterArgs.token]);
+
+  const args = useMemo(() => {
+    return {
+      userId: adapterArgs.userId,
+      displayName: adapterArgs.displayName,
+      credential,
+      token: adapterArgs.token,
+      locator: adapterArgs.locator,
+      alternateCallerId: adapterArgs.alternateCallerId,
+    };
+  }, [
+    adapterArgs.userId,
+    adapterArgs.displayName,
+    credential,
+    adapterArgs.token,
+    adapterArgs.locator,
+    adapterArgs.alternateCallerId,
+  ]);
+
+
+  const afterCreate = (adapter: CallAdapter): Promise<CallAdapter> => {
+    adapter.on("callEnded", () => {
+      adapter.dispose();
+      window.close();
+    });
+    adapter.joinCall(true);
+    return new Promise((resolve, reject) => resolve(adapter));
+  };
+
+  const adapter = useAzureCommunicationCallAdapter(args, afterCreate);
+
+  if (!adapter) {
+    return (
+      <Stack
+        verticalAlign="center"
+        styles={{ root: { height: "100vh", width: "100vw" } }}
+      >
+        <Spinner
+          label={"Creating adapter"}
+          ariaLive="assertive"
+          labelPosition="top"
+        />
+      </Stack>
+    );
+  }
+  return (
+    <Stack styles={{ root: { height: "100vh", width: "100vw" } }}>
+      <CallComposite
+        options={{
+          callControls: {
+            cameraButton: useVideo,
+            screenShareButton: useVideo,
+            moreButton: false,
+            peopleButton: false,
+            displayType: "compact",
+          },
+          localVideoTileOptions: {
+            position: !useVideo ? "hidden" : "floating",
+          },
+        }}
+        adapter={adapter}
+      />
+    </Stack>
+  );
+};
+```
+
+For our `CallComposite`, we have some configuration to do for Click to Call. Depending on your use case, we have a number of customizations that can change the user experience. This sample chooses to hide the local video tile, camera, and screen sharing controls if the user opts out of video for their call. We also in addition to these configurations on the `CallComposite` use the `afterCreate` function defined in the snippet we auto join the call. This will bypass the configuration screen and drop the user into the call with their mic live, as well will auto close the window when the call ends. Just remove the call to `adapter.join(true);` from the `afterCreate` function and the configuration screen will show as normal. Next we will talk about how to get this screen the information once we have our `CallComposite` configured.
+
+To do this, we will create some handlers to send post messages between the parent window and child window to signal that we want some information. See diagram:
+
+```mermaid
+graph LR
+  child[Child Window]
+  parent[Parent Window]
+  
+
+  child -->|1. Args please| parent
+  
+```
+
+```mermaid
+graph LR
+  child[Child Window]
+  parent[Parent Window]
+  
+
+  parent --> |2. Adapter args| child
+```
+This flow illustrates that if the child window has spawned it needs to ask for the arguments. This has to do with React and that if the parent window just sends a message right after creation the call adapter arguments needed are lost when the application mounts. This is because in the new window the listener is not set yet until after a render pass completes. More on where these event handlers are made to come.
+
+Now we will want to update the splash screen we created earlier. First we will add a reference to the new child window that we will create.
+
+`ClickToCallScreen.tsx`
+
+```typescript
+    
+    const [userDisplayName, setUserDisplayName] = useState<string>();
+    const newWindowRef = useRef<Window | null>(null);
+    const [useVideo, setUseVideo] = useState<boolean>(false);
+    
+```
+
+Next we will create a handler that we pass to our widget that will create a new window that will start the process of sending the post messages.
+
+`ClickToCallScreen.tsx`
+```typescript
+    
+    const startNewWindow = useCallback(() => {
+        const startNewSessionString = 'newSession=true';
+        newWindowRef.current = window.open(
+            window.origin + `/?${startNewSessionString}`,
+            'call screen',
+            'width=500, height=450'
+        );
+    }, []);
+    
+```
+
+This handler starts a new window position and place a new query arg in the window URL so that the main application knows that it is time to start a new call.
+
+Next we will add a `useEffect` hook that is creating a event handler listening for new post messages from the child window.
+
+`ClickToCallScreen.tsx`
+```typescript
+    
+    useEffect(() => {
+        window.addEventListener('message', (event) => {
+            if (event.origin !== window.origin) {
+                return;
+            }
+            if (event.data === 'args please') {
+                const data = {
+                    userId: adapterParams.userId,
+                    displayName: adapterParams.displayName,
+                    token: adapterParams.token,
+                    locator: adapterParams.locator,
+                    alternateCallerId: adapterParams.alternateCallerId,
+                    useVideo: useVideo
+                };
+                console.log(data);
+                newWindowRef.current?.postMessage(data, window.origin);
+            }
+        });
+    }, [adapterParams, adapterParams.locator, adapterParams.displayName, useVideo]);
+    
+```
+
+This handler will listen for events from the child window. (**NOTE: make sure that if the origin of the message is not from your app then return**) If the child window asks for arguments, we will send it the arguments needed to construct a `AzureCommunicationsCallAdapter`.
+
+Finally on this screen we will add the `startNewWindow` handler to the widget so that it knows to create the new window.
+
+`ClickToCallScreen.tsx`
+```typescript
+    
+    <Stack horizontal tokens={{ childrenGap: '1.5rem' }} style={{ overflow: 'hidden', margin: 'auto' }}>
+        <ClickToCallComponent
+            onRenderStartCall={startNewWindow}
+            onRenderLogo={() => {
+                return (
+                    <img
+                        style={{ height: '4rem', width: '4rem', margin: 'auto' }}
+                        src={hero}
+                        alt="logo"
+                    />
+                );
+            }}
+            onSetDisplayName={setUserDisplayName}
+            onSetUseVideo={setUseVideo}
+        />
+    </Stack>
+    
+```
+
+Next we will need to make sure that our application can listen for and ask for the messages from what would be the parent window. First to start, you might recall that we added a new query parameter to the URL of the application `newSession=true`. To use this and have our app look for that in the URL we will need to create a utility function to parse out that parameter so our application will behave differently when it is received.
+
+To do that lets add a new folder `src/utils` and in this folder we will add the file `AppUtils.ts`. In this file we will put the following function:
+
+`AppUtils.ts`
+```typescript
+/**
+ * get go ahead to request for adapter args from url
+ * @returns
+ */
+export const getStartSessionFromURL = (): boolean | undefined => {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("newSession") === "true";
+};
+```
+
+This function will take a look into our applications URL and see if the param we are looking for is there. You can also stick some other parameters in there
+
+As well we will want to add a new type in here to track the different pieces needed to create a `AzureCommunicationCallAdapter`. This type can also be simplified if you are using our calling stateful client, this approach will not be covered in this tutorial though.
+
+`AppUtils.ts`
+```typescript
+/**
+ * Properties needed to create a call screen for a Azure Communications CallComposite.
+ */
+export type AdapterArgs = {
+  token: string;
+  userId: CommunicationIdentifier;
+  locator: CallAdapterLocator;
+  displayName?: string;
+  alternateCallerId?: string;
+};
+```
+
+Once we have added these two things we can go back to the `App.tsx` file to make some more updates.
+
+First thing we will want to do is update `App.tsx` to use that new utility function that we created above, we will want to use a `useMemo` hook for this so that it is fetched exactly once and not at every render. That is done like so:
+
+`App.tsx`
+```typescript
+// you will need to add these imports
+import { useMemo } from 'react';
+import { AdapterArgs, getStartSessionFromURL } from './utils/AppUtils';
+
+```
+
+```typescript
+
+  const startSession = useMemo(() => {
+    return getStartSessionFromURL();
+  }, []);
+
+```
+
+Following this we will want to add some state to make sure that we are tracking the new args for the adapter. We will pass these to the `SameOriginCallScreen.tsx` that we made earlier so it can construct an adapter. As well state to track whether the user wants to use video controls or not.
+
+`App.tsx`
+```typescript
+/**
+   * Properties needed to start an Azure Communications Call Adapter. When these are set the app will go to the Call screen for the
+   * Click to Call scenario. Call screen should create the credential that will be used in the call for the user.
+   */
+  const [adapterArgs, setAdapterArgs] = useState<AdapterArgs | undefined>();
+  const [useVideo, setUseVideo] = useState<boolean>(false);
+```
+
+We now want to add an event listener to `App.tsx` to listen for post messages. Insert a `useEffect` hook with an empty dependency array so that we add the listener only once on the initial render.
+
+`App.tsx`
+```typescript
+import { CallAdapterLocator } from "@azure/communication-react";
+import { CommunicationIdentifier } from '@azure/communication-common';
+```
+```typescript
+
+  useEffect(() => {
+    window.addEventListener('message', (event) => {
+      if (event.origin !== window.location.origin) {
+        return;
+      }
+
+      if ((event.data as AdapterArgs).userId && (event.data as AdapterArgs).displayName !== '') {
+        console.log(event.data);
+        setAdapterArgs({
+          userId: (event.data as AdapterArgs).userId as CommunicationUserIdentifier,
+          displayName: (event.data as AdapterArgs).displayName,
+          token: (event.data as AdapterArgs).token,
+          locator: (event.data as AdapterArgs).locator,
+          alternateCallerId: (event.data as AdapterArgs).alternateCallerId
+        });
+        setUseVideo(!!event.data.useVideo);
+      }
+    });
+  }, []);
+
+```
+Next we will want to add two more `useEffect` hooks to `App.tsx` these two hooks will
+- Ask the parent window of the application for arguments for the `AzureCommunicationCallAdapter`, we will use the `window.opener` reference provided since this hook will be checking to see if it is the child window.
+- Checks to see if we have the arguments appropriately set from the event listener above to start a call and change the app page to be the call screen.
+
+`App.tsx`
+```typescript
+
+  useEffect(() => {
+    if (startSession) {
+      console.log('asking for args');
+      if (window.opener) {
+        window.opener.postMessage('args please', window.opener.origin);
+      }
+    }
+  }, [startSession]);
+
+  useEffect(() => {
+    if (adapterArgs) {
+      console.log('starting session');
+      setPage('same-origin-call');
+    }
+  }, [adapterArgs]);
+
+```
+Finally once we have done that we will want to add the new screen that we made earlier to the template as well. We will also want to make sure that we do not show the Click to call screen if the `startSession` parameter is found, this will avoid a flash for the user.
+
+`App.tsx`
+```typescript
+// add with other imports
+
+import { SameOriginCallScreen } from './views/NewWindowCallScreen';
+
+```
+
+```typescript
+
+  switch (page) {
+    case 'click-to-call': {
+      if (!token || !userId || !locator || startSession !== false) {
+        return (
+          <Stack verticalAlign='center' style={{height: '100%', width: '100%'}}>
+            <Spinner label={'Getting user credentials from server'} ariaLive="assertive" labelPosition="top" />;
+          </Stack>
+        )
+        
+      }
+      return <ClickToCallScreen token={token} userId={userId} callLocator={locator} alternateCallerId={alternateCallerId}/>;
+    }
+    case 'same-origin-call': {
+      if (!adapterArgs) {
+        return (
+          <Stack verticalAlign='center' style={{ height: '100%', width: '100%' }}>
+            <Spinner label={'Getting user credentials from server'} ariaLive="assertive" labelPosition="top" />;
+          </Stack>
+        )
+      }
+      return (
+        <SameOriginCallScreen
+          adapterArgs={{
+            userId: adapterArgs.userId as CommunicationUserIdentifier,
+            displayName: adapterArgs.displayName ?? '',
+            token: adapterArgs.token,
+            locator: adapterArgs.locator,
+            alternateCallerId: adapterArgs.alternateCallerId
+          }}
+          useVideo={useVideo}
+        />
+      );
+    }
+  }
+
+```
+Now when the application runs in a new window, it will see that it is supposed to start a call so it will:
+- Ask for the different Adapter arguments from the parent window
+- Make sure that the adapter arguments are set appropriately and start a call
+
+Now when you pass in the arguments, set your `displayName`, and click `Start Call` you should see the following:
+
+<img src='../media/click-to-call/Calling-screen.png' width='800'>
+
+In this case we see a PSTN call being started with no video. 
+
+With this new window experience your users will be able to:
+- continue using other tabs in their browser or other applications and still be able to see your call
+- resize the window to fit their viewing needs such as increasing the size to better see a screen share
+
+This concludes the tutorial for click to call with a new window experience. Below will be a optional step to embed the calling surface into the widget itself keeping your users on their current page.
+
+> [!div class="nextstepaction"]
+> [Part 3: Embedding your calling experience](./click-to-call-tutorial-part-3-embedding-your-calling-experience.md)
