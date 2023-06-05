@@ -97,7 +97,7 @@ AzureActivity
 ```
 
 > [!Important]
-> In some scenarios, it is possible that values in fields of AzureActivity might have different casings from otherwise equivalent values. Take care when querying data in AzureActivity to utilize case insensitive operators for string comparisons, or use a scalar function to force a field to a uniform casing before any comparisons. For example, utilziing the [tolower()](/azure/kusto/query/tolowerfunction) function on a field to force it to always be lowercase, or the [=~ operator](/azure/kusto/query/datatypes-string-operators) when performing a string comparison.
+> In some scenarios, it's possible that values in fields of AzureActivity might have different casings from otherwise equivalent values. Take care when querying data in AzureActivity to use case-insensitive operators for string comparisons, or use a scalar function to force a field to a uniform casing before any comparisons. For example, use the [tolower()](/azure/kusto/query/tolowerfunction) function on a field to force it to always be lowercase or the [=~ operator](/azure/kusto/query/datatypes-string-operators) when performing a string comparison.
 
 ## Send to Azure Event Hubs
 
