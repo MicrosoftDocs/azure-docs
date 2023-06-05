@@ -308,7 +308,7 @@ GET https://{your-resource-name}.openai.azure.com/openai/operations/images/{oper
 #### Example request
 
 ```console
-curl -X GET "https://aoairesource.openai.azure.com/openai/operations/images/{operation-id}?api-version=2023-06-01-preview"
+curl -X GET "https://{your-resource-name}.openai.azure.com/openai/operations/images/{operation-id}?api-version=2023-06-01-preview"
 -H "Content-Type: application/json"
 -H "Api-Key: {api key}"
 ```
