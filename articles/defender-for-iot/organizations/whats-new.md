@@ -63,10 +63,10 @@ You can see the following new security recommendations from the Azure portal for
 
 - **Set a stronger password with minimum length and complexity**: Devices with this recommendation are found with weak passwords based on successful sign-ins. We recommend that you change the device password to a password that has 8 or more characters and that contains characters from 3 of the following categories:
 
-        - Uppercase letters
-        - Lowercase letters
-        - Special characters
-        - Numbers (0-9)
+    - Uppercase letters
+    - Lowercase letters
+    - Special characters
+    - Numbers (0-9)
 
 For more information, see [Supported security recommendations](recommendations.md#supported-security-recommendations).
 
