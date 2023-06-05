@@ -1,5 +1,5 @@
 ---
-title: Azure App Configuration Kubernetes Provider Reference (preview) | Microsoft Docs
+title: Azure App Configuration Kubernetes Provider reference (preview) | Microsoft Docs
 description: "It describes the supported properties of AzureAppConfigurationProvider object in the Azure App Configuration Kubernetes Provider."
 services: azure-app-configuration
 author: junbchen
@@ -10,7 +10,7 @@ ms.author: junbchen
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
 
-# Azure App Configuration Kubernetes Provider Reference (preview)
+# Azure App Configuration Kubernetes Provider reference (preview)
 
 The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider.
 
