@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 06/03/2023
+ms.date: 06/05/2023
 ms.author: allensu
 ms.custom: mode-ui
 ---
@@ -162,7 +162,7 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
 
 4. In **Overview** of **public-ip-prefix**, select **+ Add IP address**.
 
-    :::image type="content" source="./media/create-public-ip-prefix-portal/add-ip-address.png" alt-text="Screenshot of create public IP address prefix with routing preference in the Azure portal":::
+    :::image type="content" source="./media/create-public-ip-prefix-portal/add-ip-address.png" alt-text="Screenshot of add an IP address to public IP address prefix in the Azure portal.":::
 
 5. Enter **public-ip-1** in **Name**. 
 
@@ -174,7 +174,6 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
     >Only static public IP addresses created with the standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](./public-ip-addresses.md#public-ip-addresses).
 
 8. Select **Public IP addresses** in **Settings** to view the created IP address.
-
 
 ## Delete a prefix
 
