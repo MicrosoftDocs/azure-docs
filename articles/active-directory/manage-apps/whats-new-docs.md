@@ -48,4 +48,4 @@ Welcome to what's new in Azure Active Directory (Azure AD) application managemen
 - [Manage app consent policies](manage-app-consent-policies.md)
 - [Configure permission classifications](configure-permission-classifications.md)
 - [Disable user sign-in for an application](disable-user-sign-in-portal.md)
-- [Configure Datawiza for Azure AD Multi-Factor Authentication and single sign-on to Oracle EBS](datawiza-azure-ad-sso-mfa-oracle-ebs.md)
+- [Configure Datawiza for Azure AD Multi-Factor Authentication and single sign-on to Oracle EBS](datawiza-sso-mfa-oracle-ebs.md)

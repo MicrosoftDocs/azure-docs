@@ -27,7 +27,7 @@ landingContent:
           - text: NIST AAL overview
             url: nist-overview.md
           - text: FedRAMP High impact overview
-            url: configure-azure-active-directory-for-fedramp-high-impact.md
+            url: configure-for-fedramp-high-impact.md
           - text: Configure Azure Active Directory for Memorandum 22-09 requirements
             url: memo-22-09-meet-identity-requirements.md
           - text: Configure Azure Active Directory for CMMC compliance
