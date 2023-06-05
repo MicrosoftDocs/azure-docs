@@ -27,11 +27,6 @@ This article describes how to manage a blob in an online access tier. For more i
 
 For more information about access tiers for blobs, see [Access tiers for blob data](access-tiers-overview.md).
 
-> [!IMPORTANT]
-> The cold tier is currently in PREVIEW and is available in the following regions: Canada Central, Canada East, France Central, France South and Korea Central.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> To enroll, see [Cold tier (preview)](access-tiers-overview.md#cold-tier-preview).
-
 ## Set the default access tier for a storage account
 
 The default access tier setting for a general-purpose v2 storage account determines in which online tier a new blob is created by default. You can set the default access tier for a general-purpose v2 storage account at the time that you create the account or by updating an existing account's configuration.
@@ -118,9 +113,6 @@ To upload a blob or set of blobs to a specific tier from the Azure portal, follo
 3. Select the file or files to upload.
 
 4. Expand the **Advanced** section, and set the **Access tier** to *Hot* or *Cool*.
-
-   > [!NOTE]
-   > The cold tier is in preview and appears as an option if the storage account is in a region that supports the preview.
 
 5. Select the **Upload** button.
 
@@ -344,7 +336,7 @@ azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<con
 ```
 
 > [!NOTE]
-> Setting the `--block-blob-tier` parameter to `cold` is not yet supported. If you want to change a blob's tier to the `cold` tier, [enroll](https://forms.office.com/r/788B1gr3Nq) in the cold tier preview, and then change the blob's tier to cold by using the Azure portal, PowerShell, or the Azure CLI.
+> Setting the `--block-blob-tier` parameter to `cold` is not yet supported. If you want to change a blob's tier to the `cold` tier, use the Azure portal, PowerShell, or the Azure CLI.
 
 To change the access tier for all blobs in a virtual directory, refer to the virtual directory name instead of the blob name, and then append `--recursive=true` to the command.
 

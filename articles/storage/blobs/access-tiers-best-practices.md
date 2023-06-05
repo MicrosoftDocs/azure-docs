@@ -26,9 +26,6 @@ To identify the most optimal access tier, try to estimate what percentage of the
 
 To model and analyze the cost of using cool or cold versus archive storage, see [Archive versus cold and cool](archive-cost-estimation.md#archive-versus-cold-and-cool). You can apply similar modeling techniques to compare the cost of hot to cool, cold or archive.
 
-> [!IMPORTANT]
-> The cold tier is currently in PREVIEW. To learn more, see [Cold tier (preview)](access-tiers-overview.md#cold-tier-preview).
-
 ## Migrate data directly to the most cost-efficient access tiers
 
 Choosing the most optimal tier up front can reduce costs. If you change the tier of a block blob that you've already uploaded, then you'll pay the cost of writing to the initial tier when you first upload the blob, and then pay the cost of writing to the desired tier. If you change tiers by using a lifecycle management policy, then that policy will require a day to take effect and a day to complete execution. You'll also incur the capacity cost of storing data in the initial tier prior to the tier change.
