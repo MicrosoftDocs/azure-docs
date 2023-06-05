@@ -64,6 +64,8 @@ The following list describes some common exit codes:
 
   - The build failed because of a download dependency error; for example, a network issue caused the Maven dependency download to fail.
 
+  - The build failed because of an unsupported JDK version; for example, Jar file has been compiled using the latest JDK, which is not supported by the buildpack. For supported versions, please refer to [Deploy Java applications](how-to-enterprise-deploy-polyglot-apps#deploy-java-applications).
+
 - **62** - Failed to write image to Azure Container Registry.
   
   Consider the following possible cause of an exit code of *62*:
