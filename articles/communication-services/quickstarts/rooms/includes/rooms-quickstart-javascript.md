@@ -48,7 +48,6 @@ Use the `npm install` command to install the below Communication Services SDKs f
 
 ```console
 npm install @azure/communication-rooms --save
-npm install @azure/communication-identity --save
 ```
 
 ### Set up the app framework
@@ -56,7 +55,6 @@ npm install @azure/communication-identity --save
 In the `index.js` file add the following code. We will be adding the code for the quickstart in the `main` function.
 
 ``` javascript
-const { CommunicationIdentityClient } = require('@azure/communication-identity');
 const { RoomsClient } = require('@azure/communication-rooms');
 
 const main = async () => {
@@ -83,18 +81,54 @@ const connectionString =
     process.env["COMMUNICATION_CONNECTION_STRING"] ||
     "endpoint=https://<resource-name>.communication.azure.com/;<access-key>";
 
-// create identities for users
-const identityClient = new CommunicationIdentityClient(connectionString);
-const user1 = await identityClient.createUserAndToken(["voip"]);
-const user2 = await identityClient.createUserAndToken(["voip"]);
-
 // create RoomsClient
 const roomsClient = new RoomsClient(connectionString);
 ```
 
 ## Create a room
 
-Create a new `room` with default properties using the code snippet below:
+### Set up room participants
+
+In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-javascript) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
+
+To use the CommunicationIdentityClient, install the following npm package:
+
+```console
+npm install @azure/communication-identity --save
+```
+
+Also, add the following required package at the top of your `index.js` file:
+
+```javascript
+const { CommunicationIdentityClient } = require('@azure/communication-identity');
+```
+
+Now, the `CommunicationIdentityClient` can be initialized and used to create users:
+
+```javascript
+// create identities for users
+const identityClient = new CommunicationIdentityClient(connectionString);
+const user1 = await identityClient.createUserAndToken(["voip"]);
+const user2 = await identityClient.createUserAndToken(["voip"]);
+```
+
+Then, create the list of room participants by referencing those users:
+
+```javascript
+const participants = [
+  {
+      id: user1.user,
+      role: "Presenter",
+  },
+  {
+    id: user2.user,
+    role: "Consumer",
+  }
+]
+```
+
+### Initialize the room
+Create a new `room` using the `participants` defined in the code snippet above:
 
 ```javascript
 //Create a room
@@ -105,11 +139,7 @@ var validUntil = new Date(validFrom.getTime() + 60 * 60 * 1000);
 const createRoomOptions = {
   validFrom,
   validUntil,
-  participants: [
-    {
-      id: user1.user
-    },
-  ]
+  participants
 };
   
 // create a room with the request payload
