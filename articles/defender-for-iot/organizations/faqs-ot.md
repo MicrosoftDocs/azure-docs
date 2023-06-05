@@ -2,7 +2,7 @@
 title: FAQs for OT networks - Microsoft Defender for IoT
 description: Find answers to the most frequently asked questions about Microsoft Defender for IoT OT networks.
 ms.topic: faq
-ms.date: 07/07/2022
+ms.date: 05/17/2023
 ---
 
 # Operational Technology (OT) networks frequently asked questions
@@ -25,9 +25,34 @@ Microsoft Defender for IoT sensor runs on specific hardware specs as described i
 
 Certified hardware has been tested in our labs for driver stability, packet drops and network sizing.
 
-## Regulation doesn't allow us to connect our system to the Internet. Can we still utilize Defender for IoT?
+## Regulation doesn't allow us to connect our system to the Internet. Can we still use Defender for IoT?
 
-Yes you can! The Microsoft Defender for IoT platform on-premises solution is deployed as a physical or virtual sensor appliance that passively ingests network traffic, such as via SPAN, RSPAN, or TAP, to analyze, discover, and continuously monitor IT, OT, and IoT networks. For larger enterprises, multiple sensors can aggregate their data to an on-premises management console.
+Yes you can! The Microsoft Defender for IoT platform on-premises solution is deployed as a physical or virtual sensor appliance that passively ingests network traffic, such as via SPAN, RSPAN, or TAP, to analyze, discover, and continuously monitor IT, OT, and IoT networks. 
+
+For larger enterprises, multiple sensors can aggregate their data to an on-premises management console.
+
+## Do I need to purchase new licenses when my site grows?
+
+When your Defender for IoT license expires, you'll need to purchase a new license from the Microsoft 365 admin center. If your site has outgrown your previous license size, you'll be prompted to purchase a larger license.
+
+## Are changes automatically synchronized between the Microsoft 365 admin center and the Azure portal?
+
+Any new licenses that you purchase in the Microsoft 365 admin center are automatically reflected in your OT plan on the Azure portal.
+
+However, canceling an OT plan from the Azure portal does *not* cancel your license in the Microsoft 365 admin center. If you cancel your OT plan in the Azure portal, make sure to also cancel your license in the Microsoft 365 admin center.
+
+All license management procedures are done from the Microsoft 365 admin center, including buying, canceling, renewing, setting to auto-renew, auditing, and more. 
+
+For more information, see [Manage OT plans and licenses](how-to-manage-subscriptions.md) and the [Microsoft 365 admin center help](/microsoft-365/admin/).
+
+## I have a legacy OT plan on my Azure subscription. When do I need to take action?
+
+Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home).
+
+Existing customers can continue to use any legacy OT plan already onboarded to an Azure subscription, with no changes in functionality. However, if you need to add a new plan, for a new subscription, you'll need to purchase a license for that plan from the Microsoft 365 admin center.
+
+For more information, see [OT plans billed by site-based licenses](whats-new.md#ot-plans-billed-by-site-based-licenses).
+
 
 ## Where in the network should I connect monitoring ports?
 
@@ -37,6 +62,8 @@ For example:
 
 - A single appliance (virtual of physical) can be in the Shop Floor DMZ layer, having all Shop Floor cell traffic routed to this layer.
 - Alternatively, locate small mini-sensors in each Shop Floor cell with either cloud or local management that will reside in the Shop Floor DMZ layer. Another appliance (virtual or physical) can monitor the traffic in the Shop Floor DMZ layer (for SCADA, Historian, or MES).
+
+For more information, see [Prepare an OT site deployment](best-practices/plan-prepare-deploy.md).
 
 ## How can I change a user's passwords
 
@@ -65,10 +92,6 @@ After installing the software for your sensor or on-premises management console,
 You can also use our [UI and CLI tools](how-to-troubleshoot-sensor.md#check-system-health) to check system health and review your overall system statistics.
 
 For more information, see [Troubleshoot the sensor](how-to-troubleshoot-sensor.md) and [Troubleshoot the on-premises management console](how-to-troubleshoot-on-premises-management-console.md).
-
-## I am seeing a warning that we have exceeded the maximum number of devices for the subscription. How do I resolve this?
-
-If the number of actual devices detected by Defender for IoT exceeds the number of committed devices currently listed on your subscription, a warning message will appear in Defender for IoT in the Azure portal, and you will need to edit your plan and update the number of committed devices on the relevant subscription. For more information, see [Edit a plan for OT networks](how-to-manage-subscriptions.md#edit-a-plan-for-ot-networks).
 
 ## Next steps
 

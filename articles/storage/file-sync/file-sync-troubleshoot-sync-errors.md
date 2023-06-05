@@ -4,7 +4,7 @@ description: Troubleshoot common issues with monitoring sync health and resolvin
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 04/19/2023
+ms.date: 06/02/2023
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -150,8 +150,8 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x80c8027f | -2134375809 | ECS_E_SYNC_CONSTRAINT_CONFLICT_CYCLIC_DEPENDENCY | Sync session timeout error. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
 | 0x80070035 | -2147024843 | ERROR_BAD_NETPATH | The network path was not found. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
 | 0x80071779 | -2147018887 | ERROR_FILE_READ_ONLY | The specified file is read only. | If the error persists for more than a day, create a support request. |
-| 0x6 | N/A | ERROR_INVALID_HANDLE | An internal error occurred. | If the error persists for more than a day, create a support request. |
-| 0x12f | N/A | ERROR_DELETE_PENDING | The file cannot be opened because it is in the process of being deleted. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80070006 | -2147024890 | ERROR_INVALID_HANDLE | An internal error occurred. | If the error persists for more than a day, create a support request. |
+| 0x8007012f | -2147024593 | ERROR_DELETE_PENDING | The file cannot be opened because it is in the process of being deleted. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
 | 0x80041007 | -2147217401 | SYNC_E_ITEM_MUST_EXIST | An internal error occurred. | If the error persists for more than a day, create a support request. |
 
 
@@ -949,8 +949,8 @@ Please check and ensure the subscription where your storage account resides is e
 
 | Error | Code |
 |-|-|
-| **HRESULT** | 0x40 |
-| **HRESULT (decimal)** | 64 |
+| **HRESULT** | 0x80070040 |
+| **HRESULT (decimal)** | -2147024832 |
 | **Error string** | ERROR_NETNAME_DELETED |
 | **Remediation required** | Yes |
 
@@ -1091,8 +1091,8 @@ No action required. This error should automatically resolve. If the error persis
 
 | Error | Code |
 |-|-|
-| **HRESULT** | 0x718 |
-| **HRESULT (decimal)** | N/A |
+| **HRESULT** | 0x80070718 |
+| **HRESULT (decimal)** | -2147023080 |
 | **Error string** | ERROR_NOT_ENOUGH_QUOTA |
 | **Remediation required** | Maybe |
 
@@ -1161,8 +1161,8 @@ No action required. This error should automatically resolve. If the error persis
 
 | Error | Code |
 |-|-|
-| **HRESULT** | 0x1f |
-| **HRESULT (decimal)** | 31 |
+| **HRESULT** | 0x8007001f |
+| **HRESULT (decimal)** | -2147024865 |
 | **Error string** | ERROR_GEN_FAILURE |
 | **Remediation required** | Maybe |
 
@@ -1278,8 +1278,8 @@ No action required. This error should automatically resolve. If the error persis
 
 | Error | Code |
 |-|-|
-| **HRESULT** | 0x4c3 |
-| **HRESULT (decimal)** | N/A |
+| **HRESULT** | 0x800704c3 |
+| **HRESULT (decimal)** | -2147023677 |
 | **Error string** | ERROR_SESSION_CREDENTIAL_CONFLICT |
 | **Remediation required** | Yes |
 
@@ -1296,7 +1296,8 @@ Disconnect all previous connections to the server or shared resource and try aga
 
 Run the following PowerShell command on the server to reset the certificate: `Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>`
 
-### Common troubleshooting steps
+## Common troubleshooting steps
+
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
 # [Portal](#tab/azure-portal)
 1. Navigate to the sync group within the Storage Sync Service.
@@ -1401,17 +1402,17 @@ if ($fileShare -eq $null) {
 
 <a id="troubleshoot-rbac"></a>**Ensure Azure File Sync has access to the storage account.**  
 # [Portal](#tab/azure-portal)
-1. Click **Access control (IAM)** on the left-hand table of contents.
-1. Click the **Role assignments** tab to the list the users and applications (*service principals*) that have access to your storage account.
+1. Select **Access control (IAM)** from the left-hand navigation.
+1. Select the **Role assignments** tab to list the users and applications (*service principals*) that have access to your storage account.
 1. Verify **Microsoft.StorageSync** or **Hybrid File Sync Service** (old application name) appears in the list with the **Reader and Data Access** role. 
 
     ![A screenshot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
-    If **Microsoft.StorageSync** or **Hybrid File Sync Service** does not appear in the list, perform the following steps:
+    If **Microsoft.StorageSync** or **Hybrid File Sync Service** doesn't appear in the list, perform the following steps:
 
-    - Click **Add**.
+    - Select **Add**.
     - In the **Role** field, select **Reader and Data Access**.
-    - In the **Select** field, type **Microsoft.StorageSync**, select the role and click **Save**.
+    - In the **Select** field, type **Microsoft.StorageSync**, select the role, and then select **Save**.
 
 # [PowerShell](#tab/azure-powershell)
 ```powershell    

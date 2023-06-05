@@ -136,6 +136,11 @@ Supported bandwidth offers:
 
 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps
 
+### What's the maximum MTU supported?
+
+ExpressRoute and other hybrid networking services--VPN and vWAN--supports a maximum MTU of 1400 bytes.
+See [TCP/IP performance tuning for Azure VMs](../virtual-network/virtual-network-tcpip-performance-tuning.md) for tuning the MTU of your VMs.
+
 ### Which service providers are available?
 
 See [ExpressRoute partners and locations](expressroute-locations.md) for the list of service providers and locations.

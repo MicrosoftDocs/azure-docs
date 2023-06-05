@@ -136,7 +136,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 In this section, you'll create a test user in the Azure portal called B.Simon.
 
 > [!NOTE]
-> Adminstrators need to create the test users in their tenant if needed. Following steps show how to create a test user.
+> Administrators need to create the test users in their tenant if needed. Following steps show how to create a test user.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
@@ -192,15 +192,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Amazon Business SSO
 
-1. To automate the configuration within Amazon Business, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up Amazon Business** will direct you to the Amazon Business Single Sign-On application. From there, provide the admin credentials to sign in to Amazon Business Single Sign-On. The browser extension will automatically configure the application for you and automate steps 3-17.
 
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to set up Amazon Business manually, in a different web browser window, sign in to your Amazon Business company site as an administrator.
+1. In a different web browser window, sign in to your up Amazon Business company site as an administrator
 
 1. Click on the **User Profile** and select **Business Settings**.
 

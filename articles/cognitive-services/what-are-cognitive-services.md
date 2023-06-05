@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.topic: overview
 ms.date: 02/17/2023
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
+ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021, build-2023, build-2023-dataai
 ---
 
 # What are Azure Cognitive Services?

@@ -11,12 +11,12 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
-# How to monitor Spring Boot apps with the AppDynamics Java Agent (Preview)
+# How to monitor Spring Boot apps with the AppDynamics Java Agent
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard tier ❌️ Enterprise tier
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌️ Enterprise
 
 This article explains how to use the AppDynamics Java Agent to monitor Spring Boot applications in Azure Spring Apps.
 

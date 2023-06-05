@@ -7,11 +7,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 03/22/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
-ms.custom: mode-other
+ms.custom: mode-other, build-2023, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-translator
 ---
 
@@ -32,7 +32,7 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You also need to [create containers](#create-azure-blob-storage-containers) in your Azure blob storage account for your source and target files:
+* An [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You also need to [create containers](#create-azure-blob-storage-containers) in your Azure Blob Storage account for your source and target files:
 
   * **Source container**. This container is where you upload your files for translation (required).
   * **Target container**. This container is where your translated files are stored (required).
@@ -60,8 +60,8 @@ To get started, you need:
 
   1. After your resource has successfully deployed, select **Go to resource**.
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Prerequisites)
+<!-- > [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Prerequisites) -->
 
 ### Retrieve your key and document translation endpoint
 
@@ -77,12 +77,12 @@ To get started, you need:
 
     :::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="Screenshot showing the get your key field in Azure portal.":::
 
-> [!div class="nextstepaction"]
-> [I ran into an issue retrieving my key and endpoint.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Retrieve-your-keys-and-endpoint)
+<!-- > [!div class="nextstepaction"]
+> [I ran into an issue retrieving my key and endpoint.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Retrieve-your-keys-and-endpoint) -->
 
-## Create Azure blob storage containers
+## Create Azure Blob Storage containers
 
-You need to [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
+You need to [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
 
 * **Source container**. This container is where you upload your files for translation (required).
 * **Target container**. This container is where your translated files are stored (required).
@@ -101,8 +101,8 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 > * If you're translating a **single** file (blob) in an operation, **delegate SAS access at the blob level**.
 > * As an alternative to SAS tokens, you can use a [**system-assigned managed identity**](../how-to-guides/create-use-managed-identities.md) for authentication.
 
-> [!div class="nextstepaction"]
-> [I ran into an issue creating blob storage containers with authentication.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Create-blob-storage-containers)
+<!-- > [!div class="nextstepaction"]
+> [I ran into an issue creating blob storage containers with authentication.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Create-blob-storage-containers) -->
 
 ### Sample document
 

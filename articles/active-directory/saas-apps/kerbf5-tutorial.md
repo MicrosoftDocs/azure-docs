@@ -379,7 +379,7 @@ This adds the new Active Directory server to the Active Directory Servers list.
     * Profile Scope: Profile
     * Languages: English
 
-        ![Screenshot that shows the "Profiles/Policies - Properties" page with the "Name", "Profile Type", and "Langauges" text boxes highlighted.](./media/kerbf5-tutorial/configure30.png)
+        ![Screenshot that shows the "Profiles/Policies - Properties" page with the "Name", "Profile Type", and "Languages" text boxes highlighted.](./media/kerbf5-tutorial/configure30.png)
 
 1. Click on the name, KerbApp200, complete the following information and click **Update**.
 

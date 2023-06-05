@@ -332,12 +332,6 @@ For more Information about how to create custom roles, see:
 
 [Azure custom roles](../../role-based-access-control/custom-roles.md)
 
-## Known limits and performance
-
--   Key Vault data plane RBAC is not supported in multi tenant scenarios like with Azure Lighthouse
--   4000 Azure role assignments per subscription
--   Role assignments latency: at current expected performance, it will take up to 10 minutes (600 seconds) after role assignments is changed for role to be applied
-
 ## Frequently Asked Questions:
 
 ### Can I use Key Vault role-based access control (RBAC) permission model object-scope assignments to provide isolation for application teams within Key Vault?
