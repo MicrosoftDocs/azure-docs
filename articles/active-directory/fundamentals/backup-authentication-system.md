@@ -41,7 +41,7 @@ The backup authentication system automatically provides incremental resilience t
 - Line of business web applications configured to authenticate with OpenID Connect using only ID tokens.
 - Web applications authenticating with the SAML protocol, when configured for IDP-Initiated Single Sign On (SSO) like: ADP, Atlassian Cloud, AWS, GoToMeeting, Kronos, Marketo, Palo Alto Networks, SAP Cloud Identity Trello, Workday, and Zscaler.
 
-### Non-Microsoft application types that are Not protected
+### Non-Microsoft application types that aren't protected
 
 The following auth patterns aren't currently supported:
 
@@ -76,7 +76,7 @@ Certain other types of policies don't support use of the backup authentication s
 
 In addition to user authentication, the backup authentication system provides resilience for [managed identities](../managed-identities-azure-resources/overview.md) and other key Azure infrastructure by offering a regionally isolated authentication service that is redundantly layered with the primary authentication service. This system enables the infrastructure authentication within an Azure region to be resilient to issues that may occur in another region or within the larger Azure Active Directory service. This system complements Azure’s cross-region architecture. Building your own applications using MI and following Azure’s [best practices for resilience and availability]() ensures your applications are highly resilient. In addition to MI, this regionally resilient backup system protects key Azure infrastructure and services that keep the cloud functional.
 
-Summary of Infrastructure Authentication support
+### Summary of infrastructure authentication support
 
 - Your services built-on the Azure Infrastructure using managed identities are protected by the backup authentication system.
 - Azure services authenticating with each other are protected by the backup authentication system.
