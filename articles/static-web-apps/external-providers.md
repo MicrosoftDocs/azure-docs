@@ -19,7 +19,7 @@ When you create a new static web app from the Azure portal, you can select the s
 
 1. Under *Deployment details*, select **Other** to use a custom source control provider.
 
-  Once the static web app is ready, then go to the *Overview* section.
+    Once the static web app is ready, then go to the *Overview* section.
 
 1. From the *Overview* section, select the **Manage deployment token** button.
 
