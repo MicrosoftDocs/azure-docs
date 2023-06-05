@@ -50,15 +50,25 @@ import { ReactPlugin, withAITracking } from '@microsoft/applicationinsights-reac
 import { createBrowserHistory } from "history";
 const browserHistory = createBrowserHistory({ basename: '' });
 var reactPlugin = new ReactPlugin();
+        /* var clickPluginInstance = new ClickAnalyticsPlugin();
+        var clickPluginConfig = {
+          autoCapture: true
+        }; */
 var appInsights = new ApplicationInsights({
     config: {
         connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
         extensions: [reactPlugin],
+/* extensions: [reactPlugin, clickPluginInstance], */
         extensionConfig: {
           [reactPlugin.identifier]: { history: browserHistory }
+ /* [clickPluginInstance.identifier]: clickPluginConfig */
+
         }
     }
 });
+/* <Add Karlie's code
+   here>
+*/
 appInsights.loadAppInsights();
 ```
 
@@ -312,10 +322,18 @@ import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
 
 var RNPlugin = new ReactNativePlugin();
+        /* var clickPluginInstance = new ClickAnalyticsPlugin();
+        var clickPluginConfig = {
+          autoCapture: true
+        }; */
 var appInsights = new ApplicationInsights({
     config: {
         connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
         extensions: [RNPlugin]
+/* extensions: [RNPlugin, clickPluginInstance], */
+/* extensionConfig: { */
+ /* [clickPluginInstance.identifier]: clickPluginConfig */
+/*} */
     }
 });
 appInsights.loadAppInsights();
@@ -455,11 +473,17 @@ export class AppComponent {
         private router: Router
     ){
         var angularPlugin = new AngularPlugin();
+        /* var clickPluginInstance = new ClickAnalyticsPlugin();
+        var clickPluginConfig = {
+          autoCapture: true
+        }; */
         const appInsights = new ApplicationInsights({ config: {
         connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
         extensions: [angularPlugin],
+/* extensions: [angularPlugin, clickPluginInstance], */
         extensionConfig: {
             [angularPlugin.identifier]: { router: this.router }
+ /* [clickPluginInstance.identifier]: clickPluginConfig */
         }
         } });
         appInsights.loadAppInsights();
