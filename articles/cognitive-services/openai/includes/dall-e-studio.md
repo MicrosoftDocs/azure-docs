@@ -33,7 +33,7 @@ Start exploring Azure OpenAI capabilities with a no-code approach through the DA
 > [!NOTE]
 > The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) guide.
 
-:::image type="content" source="../media/quickstarts/dalle-studio.png" alt-text="Screenshot of the Azure AI Studio landing page." lightbox="../media/quickstarts/dalle-studio.png":::
+:::image type="content" source="../media/quickstarts/dall-e-studio.png" alt-text="Screenshot of the Azure AI Studio landing page." lightbox="../media/quickstarts/dall-e-studio.png":::
 
 
 In the DALL-E 2 playground, you can also view Python and cURL code samples, which are pre-filled according to your settings. Select **View code** near the top of the page. You can use this code to write an application that completes the same task.

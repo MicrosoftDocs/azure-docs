@@ -1184,7 +1184,7 @@ groups:
   prompt: Choose a programming language
   pivots:
   - id: azure-portal
-    title: Azure Portal
+    title: Azure portal
   - id: programming-language-rest
     title: REST
   - id: programming-language-csharp
@@ -1282,7 +1282,7 @@ groups:
   prompt: Choose a programming language
   pivots:
   - id: platform-azportal
-    title: Azure Portal
+    title: Azure portal
   - id: platform-azcli
     title: Azure CLI
   - id: programming-language-csharp

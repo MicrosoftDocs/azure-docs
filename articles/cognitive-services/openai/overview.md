@@ -27,7 +27,7 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 | Price | [Available here](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) |
 | Virtual network support & private link support | Yes | 
 | Managed Identity| Yes, via Azure Active Directory | 
-| UI experience | **Azure Portal** for account & resource management, <br> **Azure OpenAI Service Studio** for model exploration and fine tuning |
+| UI experience | **Azure portal** for account & resource management, <br> **Azure OpenAI Service Studio** for model exploration and fine tuning |
 | Regional availability | East US <br> South Central US <br> West Europe <br> France Central |
 | Content filtering | Prompts and completions are evaluated against our content policy with automated systems. High severity content will be filtered. |
 
