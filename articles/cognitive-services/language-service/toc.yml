@@ -1183,19 +1183,19 @@ items:
       - name: Document summarization
         items:
           - name: .NET
-            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+            href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
           - name: Python
-            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+            href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest&preserve-view=true
       - name: Conversation summarization
         items:
         - name: .NET
-          href: /dotnet/api/overview/azure/ai.language.conversations-readme
+          href: /dotnet/api/overview/azure/ai.language.conversations-readme?view=azure-dotnet
         - name: Python
-          href: /python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python-preview
+          href: /python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python
 - name: Concepts
   items:
   - name: Data limits
