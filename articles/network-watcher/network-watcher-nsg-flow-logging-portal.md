@@ -17,7 +17,7 @@ Network security group flow logging is a feature of Azure Network Watcher that a
 
 This tutorial helps you use NSG flow logs to log a virtual machine's network traffic that flows through the [network security group](../virtual-network/network-security-groups-overview.md) associated to its network interface.
 
-You learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual network and a Bastion host
