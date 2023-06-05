@@ -47,7 +47,7 @@ sections:
       - question: How do I enable Defender for APIs plan for a specific set of Azure API Management services?
         answer: Microsoft Defender for APIs plan is enabled at the subscription level. You can select which APIs in Azure API Management from that subscription are onboarded for security coverage. 
 
-      - question: I onboarded APIs from Azure API Management to Defender for APIs but they're still showing under unhealthy resources on the recommendation page / I don't see any security insights for the APIs I onboarded.
+      - question: I onboarded APIs from Azure API Management to Defender for APIs, but they're still showing under unhealthy resources on the recommendation page / I don't see any security insights for the APIs I onboarded.
         answer: Defender for APIs will take 30 minutes to generate the first security insights after onboarding an API and to move the onboarded APIs from unhealthy to healthy status. Thereafter, security insights are refreshed every 30 minutes
       
       - question: Why do security insights within the API collection details page show as "Awaiting Data"?
@@ -62,10 +62,10 @@ sections:
       - question: What is the IP address shown in Defender for APIs alerts description page if x-forwarded-for is configured within our network? 
         answer: Defender for APIs shows the IP address of the inbound IP address from client IPs. If x-forwarded-for is used, Defender for APIs validates the IP hops as part of the x-forwarded-for used within the request to show the most accurate IP that inbound request is coming from. 
     
-      - question: We use custom domain URL within Azure API Management, will Defender for APIs show this as the Endpoint URL?
+      - question: We use custom domain URL within Azure API Management, will Defender for APIs show this URL as the Endpoint URL?
         answer: Custom domain URLs aren't shown within the Endpoint URL. The Defender for APIs Endpoint URL shows the base URL of your API Management API endpoint
 
-  - name: Questions about alerts in Defender for API 
+  - name: Questions about alerts in Defender for APIs 
     questions:
       - question: How soon can we receive alerts on anomalous APIs? 
         answer: APIs are assessed against their behavior studying traffic for the past 30 days. The alerts on anomalous APIs may be generated sooner if the API receives significant traffic for the ML models to learn traffic behavior. 
