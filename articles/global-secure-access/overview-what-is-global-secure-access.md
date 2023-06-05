@@ -40,6 +40,10 @@ The following diagram illustrates the new network traffic flow with Global Secur
 
 The features of Global Secure Access are all accessed from the Microsoft Entra admin center. With this centralized experience you can set up your remote network and client connectivity, manage your traffic profiles, and view network and usage logs. Extra security measures can be enforced using Conditional Access policies.
 
+> [!IMPORTANT]
+> Global Secure Access is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Next steps
 
 - [Get started with Global Secure Access](how-to-get-started-with-global-secure-access.md)

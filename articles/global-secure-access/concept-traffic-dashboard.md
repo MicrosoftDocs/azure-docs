@@ -80,4 +80,4 @@ You can change this widget to view the top 5 destinations by users, devices, and
 ## Next steps
 
 - [Explore the traffic logs](how-to-view-traffic-logs.md)
-- [Access the audit logs](how-to-view-audit-logs.md)
+- [Access the audit logs](how-to-access-audit-logs.md)
