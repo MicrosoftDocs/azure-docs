@@ -484,30 +484,32 @@ Because the app generates the video frames, the app must inform the Azure Commun
             return videoFrameBuffer
         }
         
-        private func GenerateRandomVideoFrameNV12(cvPixelBuffer: CVPixelBuffer) {
-            int w = rawOutgoingVideoStream.format.width
-            int h = rawOutgoingVideoStream.format.height
+       private func GenerateRandomVideoFrameNV12(cvPixelBuffer: CVPixelBuffer) {
+            let w = rawOutgoingVideoStream.format.width
+            let h = rawOutgoingVideoStream.format.height
 
             let bufferArrayList = BufferExtensions.getArrayBuffersUnsafe(cvPixelBuffer: cvPixelBuffer)
-            let yArrayBuffer = bufferArrayList[0]!
-            let uvArrayBuffer = bufferArrayList[1]!
-            
+        
+            guard bufferArrayList.count >= 2, let yArrayBuffer = bufferArrayList[0], let uvArrayBuffer = bufferArrayList[1] else {
+                return
+            }
+
             let yVal = Int32.random(in: 1..<255)
             let uvVal = Int32.random(in: 1..<255)
-            
+
             for y in 0...h
             {
                 for x in 0...w
                 {
-                    yArrayBuffer.storeBytes(of: yVal, toByteOffset: (y * w) + x, as: Int32.self)
+                    yArrayBuffer.storeBytes(of: yVal, toByteOffset: Int((y * w) + x), as: Int32.self)
                 }
             }
-            
+
             for y in 0...(h/2)
             {
                 for x in 0...(w/2)
                 {
-                    uvArrayBuffer.storeBytes(of: uvVal, toByteOffset: (y * w) + x, as: Int32.self)
+                    uvArrayBuffer.storeBytes(of: uvVal, toByteOffset: Int((y * w) + x), as: Int32.self)
                 }
             }
         }
