@@ -14,7 +14,7 @@ ms.date: 06/03/2023
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-[Azure Cosmos DB for MongoDB](../introduction.md) provides a powerful fully-managed MongoDB compatible database while seamlessly integrating with the Azure ecosystem. This allows developers to reap the benefits of Cosmos DB's robust features such as global distribution, 99.999% high availability SLA, and strong security measures, while retaining the ability to use their familiar MongoDB tools and applications. Consequently, developers can remain vendor agnostic, without needing to adapt to a new set of tools or drastically change their current operations. This ensures a smooth transition and operation for MongoDB developers, making Cosmos DB for MongoDB a compelling choice for a scalable, secure, and efficient database solution for their MongoDB workloads.
+[Azure Cosmos DB for MongoDB](../introduction.md) provides a powerful fully managed MongoDB compatible database while seamlessly integrating with the Azure ecosystem. This allows developers to reap the benefits of Cosmos DB's robust features such as global distribution, 99.999% high availability SLA, and strong security measures, while retaining the ability to use their familiar MongoDB tools and applications. Developers can remain vendor agnostic, without needing to adapt to a new set of tools or drastically change their current operations. This ensures a smooth transition and operation for MongoDB developers, making Cosmos DB for MongoDB a compelling choice for a scalable, secure, and efficient database solution for their MongoDB workloads.
 
 > [!TIP]
 > Want to try the Azure Cosmos DB for MongoDB with no commitment? Create an Azure Cosmos DB account using [Try Azure Cosmos DB](../try-free.md) for free.
@@ -27,14 +27,14 @@ ms.date: 06/03/2023
 | Compatible with MongoDB tools and drivers | Yes | Yes |
 | Global Distribution | Yes, [globally distributed](../distribute-data-globally.md) with automatic and fast data replication across any number of Azure regions | Yes, globally distributed with manual and scheduled data replication across any number of cloud providers or regions |
 | 99.999% availability SLA | [Yes](../high-availability.md) | No |
-| Instantanteous Scaling | Yes, [database instantaneously scales](../provision-throughput-autoscale.md) to with zero performance impact on your applications | No, requires 1+ hours to vertically scale up and 24+ hours to vertically scale down. Performance impact during scale up may be noticeable |
-| True active-active clusters | Yes, with [multi-primary writes](./how-to-configure-multi-region-write). Data for the same shard can be writtent to multiple regions  | No |
+| Instantaneous Scaling | Yes, [database instantaneously scales](../provision-throughput-autoscale.md) to with zero performance impact on your applications | No, requires 1+ hours to vertically scale up and 24+ hours to vertically scale down. Performance impact during scale up may be noticeable |
+| True active-active clusters | Yes, with [multi-primary writes](./how-to-configure-multi-region-write). Data for the same shard can be written to multiple regions  | No |
 | Integrated text search, geospatial processing | Yes | Yes |
 | Free tier | [1,000 request units (RUs) and 25 GB storage forever](../try-free.md). Prevents you from exceeding limits if you want | Yes, with 512 MB storage |
 | Live migration | Yes | Yes |
 | Azure Integrations | Native [first-party integrations](./integrations-overview.md) with Azure services such as Azure Functions, Azure Logic Apps, Azure Stream Analytics, and Power BI and more | Limited number of third party integrations |
 | Choice of instance configuration | Yes, with [Azure Cosmos DB for MongoDB vCore](./vcore/introduction.md) | Yes |
-| Expert Support | Microsoft, with 24x7 support for Azure Cosmos DB. One support team to address all of your Azure products | MongoDB, Inc. with 24x7 support for MongoDB Atlas. Need separate support teams depending on the product. Support plans costs rise signficantly depending on response time chosen |
+| Expert Support | Microsoft, with 24x7 support for Azure Cosmos DB. One support team to address all of your Azure products | MongoDB, Inc. with 24x7 support for MongoDB Atlas. Need separate support teams depending on the product. Support plans costs rise significantly depending on response time chosen |
 | Support for MongoDB multi-document ACID transactions | Yes, with [Azure Cosmos DB for MongoDB vCore](./vcore/introduction.md) | Yes | 
 | JSON data type support | BSON (Binary JSON) | BSON (Binary JSON) |
 | Support for MongoDB aggregation pipeline | Yes | Yes |
@@ -55,7 +55,7 @@ ms.date: 06/03/2023
 | Embeddable database with sync for mobile devices | No, due to low user demand | Yes |
 | Granular role-based access control | Yes | Yes |
 | Encryption of data in-flight | Yes | Yes | 
-| Encryption of data at-rest | Yes | Yes | 
+| Encryption of data at rest | Yes | Yes | 
 | Client-side field level encryption | Yes | Yes |
 | LDAP Integration | Yes | Yes | 
 | Database-level auditing | Yes | Yes |
