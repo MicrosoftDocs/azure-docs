@@ -1,6 +1,6 @@
 ---
-title: Azure Structured Firewall Logs (preview)
-description: Learn about Azure Structured Firewall Logs (preview)
+title: Azure Structured Firewall Logs
+description: Learn about Azure Structured Firewall Logs
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -9,12 +9,8 @@ ms.date: 01/25/2023
 ms.author: victorh
 ---
 
-# Azure Structured Firewall Logs (preview)
+# Azure Structured Firewall Logs
 
-
-> [!IMPORTANT]
-> This feature is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Currently, the following diagnostic log categories are available for Azure Firewall:
 - Application rule log
