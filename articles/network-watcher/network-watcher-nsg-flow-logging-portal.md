@@ -13,7 +13,7 @@ ms.custom: template-tutorial, mvc, engagement-fy23
 
 # Tutorial: Log network traffic to and from a virtual machine using the Azure portal
 
-This tutorial helps you use Azure Network Watcher [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) capability to log a virtual machine's network traffic that flows through the [network security group (NSG)](../virtual-network/network-security-groups-overview.md) associated to its network interface.
+This tutorial helps you use Azure Network Watcher [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) capability to log a virtual machine's network traffic that flows through the [network security group](../virtual-network/network-security-groups-overview.md) associated to its network interface.
 
 You learn how to:
 
@@ -309,8 +309,6 @@ In this tutorial, you learned how to:
 * Download and view the flow log data.
 
 The raw data in the JSON file can be difficult to interpret. To visualize flow logs data, you can use [Traffic analytics](traffic-analytics.md) and [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
-
-For alternate methods of enabling NSG flow logs, see [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), [REST API](network-watcher-nsg-flow-logging-rest.md), or [Azure Resource Manager template](network-watcher-nsg-flow-logging-azure-resource-manager.md).
 
 To learn how to monitor network communication between virtual machines using Network Watcher connection monitor, see:
 
