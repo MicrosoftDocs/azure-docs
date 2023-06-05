@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/12/2023
+ms.date: 06/05/2023
 ---
 
 # Manage Azure Data Factory studio preview experience
@@ -52,6 +52,9 @@ There are two ways to enable preview experiences.
    * [Configuration panel](#configuration-panel)
    * [Transformation settings](#transformation-settings)
    * [Data preview](#data-preview)
+
+   [**CI/CD experimental view**](#ci/cd-experimental-view)
+   * [Autosave](#auto-save)
 	
    [**Pipeline experimental view**](#pipeline-experimental-view)
    * [Dynamic content flyout](#dynamic-content-flyout)
@@ -106,6 +109,24 @@ If debug mode is on, **Data Preview** in the configuration panel will give you a
 Columns can be rearranged by dragging a column by its header. You can also sort columns using the arrows next to the column titles and you can export data preview data using **Export to CSV** on the banner above column headers. 
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-9.png" alt-text="Screenshot of Data preview with Export button in the top right corner of the banner and Elapsed Time highlighted in the bottom left corner of the screen.":::
+
+### CI/CD experimental view
+
+#### Auto Save
+
+You now have the option to enable **Auto Save** when you have a Git repository configured for your factory. This will allow you to save changes to your factory automatically. 
+
+To enable **Auto save**, click the toggle button found in the top banner of your screen. 
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-41.png" alt-text="Screenshot of the Auto Save toggle button in the top banner of the screen.":::
+
+Review the pop-up and click **Yes**.
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-42.png" alt-text="Screenshot of the Auto Save confirmation pop up.":::
+
+When **Auto Save** is enabled, the toggle button will show as blue. 
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-43.png" alt-text="Screenshot of the enabled Auto Save toggle button in the top banner of the screen.":::
 
 ### Pipeline experimental view
 
