@@ -23,7 +23,8 @@ Partial document update feature improves this experience significantly. The clie
 - **Performance improvements**: Avoids extra CPU cycles on the client side, reduces end-to-end latency and network bandwidth.
 - **Multi-region writes**: Supports automatic and transparent conflict resolution with partial updates on discrete paths within the same document.
 
-> [!NOTE] > _Partial document update_ operation is based on the [RFC spec](https://www.rfc-editor.org/rfc/rfc6902#appendix-A.14). To escape a ~ character you need to add 0 or a 1 to the end.
+> [!NOTE] 
+> _Partial document update_ operation is based on the [RFC spec](https://www.rfc-editor.org/rfc/rfc6902#appendix-A.14). To escape a ~ character you need to add 0 or a 1 to the end.
 
 An example target JSON document:
 
@@ -74,7 +75,8 @@ The resulting JSON document:
 
 This table summarizes the operations supported by this feature.
 
-> [!NOTE] > _target path_ refers to a location within the JSON document
+> [!NOTE] 
+> _target path_ refers to a location within the JSON document
 
 | Operation type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -113,7 +115,8 @@ Let's compare the similarities and differences between the supported modes.
 
 `Set` operation adds a property if it doesn't already exist (except if there was an `Array`). `Replace` operation fails if the property doesn't exist (applies to `Array` data type as well).
 
-> [!NOTE] > `Replace` is a good candidate where the user expects some of the properties to be always present and allows you to assert/enforce that.
+> [!NOTE] 
+> `Replace` is a good candidate where the user expects some of the properties to be always present and allows you to assert/enforce that.
 
 ## REST API reference for Partial document update
 
