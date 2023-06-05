@@ -1,7 +1,7 @@
 ---
 
 title: Microsoft Graph PowerShell examples for group licensing
-description: Microsoft Graph powershell group based licensing examples
+description: Microsoft Graph PowerShell group based licensing examples
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
