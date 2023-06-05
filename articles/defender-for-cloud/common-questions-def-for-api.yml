@@ -1,15 +1,15 @@
 ### YamlMime:FAQ
 metadata:
-  title: Common Questions - Defender for API Troubleshooting Guide
-  description: Common Questions - Defender for API Troubleshooting Guide FAQ
+  title: Common Questions - Defender for APIs Troubleshooting Guide
+  description: Common Questions - Defender for APIs Troubleshooting Guide FAQ
   author: alizabernstein
   ms.author: alizabernstein
   ms.service: 
   ms.topic: faq
-  ms.date: 05/17/2023
-title: Common Question - Defender for API troubleshooting guide
+  ms.date: 06/05/2023
+title: Common Questions - Defender for APIs troubleshooting guide
 
-## Common questions for Dfender for API
+## Common questions for Defender for APIs
 
 sections:
   - name: Availability and Onboarding
@@ -18,17 +18,14 @@ sections:
         answer: Currently, Defender for APIs supports REST APIs only.
           
       - question: Is Defender for APIs available in my region?
-        answer: Please review the list of supported regions in [Defender for APIs – Benefits and Features](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-apis-introduction).
+        answer: Please review the list of supported regions in [Defender for APIs Benefits and Features](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-apis-introduction).
 
-      - question: I’m getting an error while onboarding APIs to Defender for APIs from the Recommendations page
-        answer: If you encounter errors like "Access Denied", "Forbidden", "Role Assignment not found", "Authorization Failed", ensure that you have the right level of permission for the Azure API Management service and Microsoft Defender for Cloud. Required set of permissions can be found on the [Defender for APIs – Benefits and Features](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-apis-introduction) page.
- 
-      - question: Are there any pricing and business models associated with Defender for APIs plan?
+      - question: Are there any pricing and business models associated with the Defender for APIs plan?
         answer: No, Defender for APIs is free to use in Public Preview.
 
-      - question: I’m getting an error while onboarding APIs to Defender for APIs from the Recommendations page
+      - question: I’m getting an error while onboarding APIs to Defender for APIs from the Recommendations page.
         answer: If you encounter errors like "Access Denied", "Forbidden", "Role Assignment not found", or "Authorization Failed", ensure that you have the right level of permission for the Azure API Management service and Microsoft Defender for Cloud. Required set of permissions can be found [here](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-apis-introduction). 
-                The error "Request Header or Cookie Too Large" typically can be fixed by clearing all cookies, so please clear your browser cookies and try the operation again.
+                The error "Request Header or Cookie Too Large" can typically be fixed by clearing all cookies; clear your browser cookies and try the operation again.
 
       - question: Does onboarding APIs to Defender for APIs affect my Azure API Management service?
         answer: Enabling Defender for APIs monitoring coverage will require compute & memory utilization on the Azure API Management service. Please monitor the performance of your Azure API Management service while onboarding APIs and scale out your Azure API Management resources when needed.
@@ -42,18 +39,15 @@ sections:
   - name: Questions related to region/geo 
     questions:
       - question: Does Defender for APIs move API traffic data out of my region/geo?
-        answer: Defender for APIs does not move API traffic out of customer’s region or geo. All the data processed will always remain within the customer onboarded geo. In terms of data retention, Defender for APIs does not store API payloads for more than 48 hours
+        answer: Defender for APIs does not move API traffic out of customer’s region or geo. All the data processed will always remain within the customer onboarded geo. In terms of data retention, Defender for APIs does not store API payloads for more than 48 hours.
 
       - question: I just moved my APIs within my Azure API Management service to a new region. Why are these not updated?
-        answer: APIs that are moved from one region to another region will require offboarding and onboarding of the APIs.
+        answer: APIs that are moved from one region to another region will require [offboarding](defender-for-apis-manage.md#offboard-an-api) and [onboarding](defender-for-apis-deploy.md) of the APIs.
 
-  - name: Questions about using Defender for API 
+  - name: Questions about using Defender for APIs 
     questions:
       - question: Does Defender for APIs move API traffic data out of my region/geo?
         answer: Defender for APIs does not move API traffic out of customer’s region or geo. All the data processed will always remain within the customer onboarded geo. In terms of data retention, Defender for APIs does not store API payloads for more than 48 hours
-
-      - question: I just moved my APIs within my Azure API Management service to a new region. Why are these not updated?
-        answer: APIs that are moved from one region to another region will require offboarding and onboarding of the APIs.
 
       - question: How do I enable Defender for APIs plan for a specific set of Azure API Management services?
         answer: Microsoft Defender for APIs plan is enabled at the subscription level. You have the option to select which APIs in Azure API Management from that subscription are onboarded for security coverage. 
@@ -85,7 +79,9 @@ sections:
         answer: You can use the Sample alerts functionality on the Security alerts page of Microsoft Defender for Cloud to get a quick overview of Defender for APIs alerts and how they operate. You can also use an alert simulator <Git link> to test our rule-based detections
 
       - question: How do I offboard APIs from Defender for APIs? 
-        answer: Follow the instructions in the [Quickstart Guide](https://aka.ms/apiSecurityOnboarding) to remove APIs one at a time from Defender for APIs. 
+        answer: Follow the instructions for [offboarding](defender-for-apis-manage.md#offboard-an-api) to remove APIs one at a time from Defender for APIs. 
 
 ## Next steps
+
+#Learn about [Microsoft Defender for APIs](defender-for-apis-introduction.md).
 
