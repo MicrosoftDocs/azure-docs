@@ -966,88 +966,88 @@
     - name: Audit and manage
       displayName: policy
       href: how-to-integrate-azure-policy.md
- - name: Concepts
-    items:
-      - name: What is v2?
-        href: concept-v2.md
-      - name: Work with Data
-        items:
-          - name: Data concepts in Azure Machine Learning
-            href: concept-data.md
-          - name: Sourcing human data responsibly
-            href: concept-sourcing-human-data.md
-          - name: Compliance
+- name: Concepts
+  items:
+    - name: What is v2?
+      href: concept-v2.md
+    - name: Work with Data
+      items:
+        - name: Data concepts in Azure Machine Learning
+          href: concept-data.md
+        - name: Sourcing human data responsibly
+          href: concept-sourcing-human-data.md
+        - name: Compliance
+          items:
+            - name: Export and delete data
+              displayName: GDPR
+              href: how-to-export-delete-data.md
+    - name: Train models
+      items:
+        - name: MLflow models
+          displayName: tracking models, mlflow, custom, flavors
+          href: concept-mlflow-models.md
+    - name: Deploy to production
+      items:
+      - name: Endpoints
+          items:
+            - name: Online endpoints
+              href: concept-endpoints-online.md
+            - name: Batch endpoints
+              href: concept-endpoints-batch.md
+    - name: Monitor models
+      items:
+        - name: Model data collection
+          href: concept-data-collection.md
+        - name: Model monitoring
+          href: concept-model-monitoring.md
+    - name: MLflow
+      items:
+        - name: MLflow and Azure Machine Learning
+          href: concept-mlflow.md
+        # v1
+        - name: MLflow
+          href: ./v1/concept-mlflow.md
+        # end v1
+    - name: Model Catalog
+      items:
+        - name: Foundation Models in Model Catalog
+          href: concept-foundation-models.md
+    - name: Responsible AI
+      items:
+        - name: Responsible AI overview
+          displayName: responsible, ml
+          href: concept-responsible-ai.md
+          - name: Implement Responsible AI in Practice
             items:
-              - name: Export and delete data
-                displayName: GDPR
-                href: how-to-export-delete-data.md
-      - name: Train models
-        items:
-          - name: MLflow models
-            displayName: tracking models, mlflow, custom, flavors
-            href: concept-mlflow-models.md
-      - name: Deploy to production
-        items:
-        - name: Endpoints
-            items:
-              - name: Online endpoints
-                href: concept-endpoints-online.md
-              - name: Batch endpoints
-                href: concept-endpoints-batch.md
-      - name: Monitor models
-        items:
-          - name: Model data collection
-            href: concept-data-collection.md
-          - name: Model monitoring
-            href: concept-model-monitoring.md
-      - name: MLflow
-        items:
-          - name: MLflow and Azure Machine Learning
-            href: concept-mlflow.md
-          # v1
-          - name: MLflow
-            href: ./v1/concept-mlflow.md
-          # end v1
-      - name: Model Catalog
-        items:
-          - name: Foundation Models in Model Catalog
-            href: concept-foundation-models.md
-      - name: Responsible AI
-        items:
-          - name: Responsible AI overview
-            displayName: responsible, ml
-            href: concept-responsible-ai.md
-            - name: Implement Responsible AI in Practice
-              items:
-                - name: Responsible AI scorecard
-                  href: concept-responsible-ai-scorecard.md
-                - name: Fairness in Machine Learning
-                  displayName: fairness, bias, model performance, disparity metrics, unfairness
-                  href: concept-fairness-ml.md
-      - name: Workspace & compute resources
-        items:
-          - name: Environments
-            href: concept-environments.md
-          - name: Compute target
-            displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
-            href: concept-compute-target.md
-      - name: Security
-        items:
-          - name: Enterprise security overview
-            displayName: authorization authentication encryption aad azure active directory
-            href: concept-enterprise-security.md
-          - name: Secured workspace traffic flow
-            href: concept-secure-network-traffic-flow.md
-          - name: Security baseline
-            href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
-          - name: Security controls by Azure Policy
-            href: ./security-controls-policy.md
-          - name: Data encryption
-            href: concept-data-encryption.md
-          - name: Customer-managed keys
-            href: concept-customer-managed-keys.md
-          - name: Vulnerability management
-            href: concept-vulnerability-management.md
+              - name: Responsible AI scorecard
+                href: concept-responsible-ai-scorecard.md
+              - name: Fairness in Machine Learning
+                displayName: fairness, bias, model performance, disparity metrics, unfairness
+                href: concept-fairness-ml.md
+    - name: Workspace & compute resources
+      items:
+        - name: Environments
+          href: concept-environments.md
+        - name: Compute target
+          displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
+          href: concept-compute-target.md
+    - name: Security
+      items:
+        - name: Enterprise security overview
+          displayName: authorization authentication encryption aad azure active directory
+          href: concept-enterprise-security.md
+        - name: Secured workspace traffic flow
+          href: concept-secure-network-traffic-flow.md
+        - name: Security baseline
+          href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
+        - name: Security controls by Azure Policy
+          href: ./security-controls-policy.md
+        - name: Data encryption
+          href: concept-data-encryption.md
+        - name: Customer-managed keys
+          href: concept-customer-managed-keys.md
+        - name: Vulnerability management
+          href: concept-vulnerability-management.md
 - name: How-to guides
   items:
     - name: Understand resources and assets
