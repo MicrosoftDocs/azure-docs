@@ -43,10 +43,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Azure Onboarding
-            url: ./quickstart-create-portal.md#azure-onboarding
-          - text: Modeling and Simulation Workbench Onboarding
-            url: ./quickstart-create-portal.md#modeling-and-simulation-workbench-onboarding
+          - text: Prerequisites
+            url: ./quickstart-create-portal.md#prerequisites
           - text: Create Workbench-Azure portal
             url: ./quickstart-create-portal.md
       - linkListType: how-to-guide

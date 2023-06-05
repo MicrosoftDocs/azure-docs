@@ -14,13 +14,13 @@ ms.topic: quickstart
 
 Get started with Azure Modeling and Simulation Workbench (preview) by using the Azure portal. The Azure portal is a browser-based user interface to create Azure resources. This quickstart shows you how to use the Azure portal to deploy an Azure Modeling and Simulation Workbench, and perform initial setup to get users started on their development or collaboration activity.
 
-## Azure onboarding
+## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - The Azure account must have permission to manage resource providers and to manage resources for the subscription. The permission is included in the Contributor and Owner roles.
 
-- The Azure account must have permission to manage applications in Azure Active Directory (Azure AD). Any of the following Azure AD roles include the required permissions:
+- The Azure account must have permission to manage applications in Azure Active Directory (Azure AD). The following Azure AD roles include the required permissions:
   - [Application administrator](/azure/active-directory/roles/permissions-reference#application-administrator)
   - [Application developer](/azure/active-directory/roles/permissions-reference#application-developer)
   - [Cloud application administrator](/azure/active-directory/roles/permissions-reference#cloud-application-administrator)
@@ -33,19 +33,17 @@ Get started with Azure Modeling and Simulation Workbench (preview) by using the 
   >
   > You need to buy the license for production environment.
 
-### Sign in to Azure portal
+## Sign in to Azure portal
 
-Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
+Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 
-## Modeling and Simulation Workbench onboarding
-
-### Register Azure Modeling and Simulation Workbench resource provider
+## Register Azure Modeling and Simulation Workbench resource provider
 
 1. On the Azure portal menu, search for **Subscriptions**. Select it from the available options.
 
    :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/search-subscriptions.png" alt-text="Screenshot of the Azure portal in a web browser, showing search subscriptions.":::
 
-1. Select the subscription you want to view.
+1. On the **Subscriptions** page, select the subscription you want to view. In the screenshot below, 'Documentation Testing 1' is shown as an example.
 
    :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/select-subscription.png" alt-text="Screenshot of the Azure portal in a web browser, showing select subscriptions.":::
 
@@ -53,19 +51,21 @@ Open your web browser, and go to the [Azure portal](https://portal.azure.com/). 
 
    :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/select-resource-providers.png" alt-text="Screenshot of the Azure portal in a web browser, showing select resource providers.":::
 
-1. Select the *Microsoft.ModSimWorkbench* resource provider, and select **Register**.
+1. Select the *Microsoft.ModSimWorkbench* resource provider. Then select **Register**.
 
    :::image type="content" source="./media/quickstart-create-portal/register-resource-provider.png" alt-text="Screenshot of the Azure portal in a web browser, showing register resource providers.":::
 
 > [!IMPORTANT]
 >
-> To maintain least privileges in your subscription, only register those resource providers that you're ready to use.
+> To maintain the least privileges in your subscription, only register the resource providers you're ready to use.
 >
-> Don't block the creation of resources for a resource provider that is in the **registering** state. By not blocking a resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
+> To allow your application to continue sooner than waiting for all regions to complete, don't block the creation of resources for a resource provider in the registering state.
 
-### Create an application in Azure Active Directory
+## Create an application in Azure Active Directory
 
-#### Register an application
+To create an application in Azure Active Directory, you first register the application and add a client secret.  Then you create a Key Vault, set up Key Vault role assignments, and add client secrets to the Key Vault.
+
+### Register an application
 
 Registering your application establishes a trust relationship between Modeling and Simulation Workbench remote desktop authentication and the Microsoft identity platform. The trust is unidirectional: your app trusts the Microsoft identity platform, and not the other way around.
 
@@ -77,7 +77,7 @@ Follow these steps to create the app registration:
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
-1. Type *QuickstartModSimWorkbenchApp* for the **Name**.
+1. Enter *QuickstartModSimWorkbenchApp* for the **Name**.
 
 1. Select **Accounts in this organizational directory only (Single tenant)** for the **Supported account types**.
 
@@ -87,38 +87,33 @@ Follow these steps to create the app registration:
 
    :::image type="content" source="/azure/active-directory/develop/media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Screenshot of the Azure portal in a web browser, showing the Register an application pane.":::
 
-Take note of the properties in the next steps:
-
-- **Application (client) ID**: Microsoft identity platform unique identifier for the application. Make sure to save the **Application (client) ID** somewhere to be available to store in your Key Vault created in the next section.
+1. The application properties display. Locate and document the **Application (client) ID** - a Microsoft identity platform unique identifier for the application. You need the Application (client) ID when you create your Key Vault.
 
    :::image type="content" source="/azure/active-directory/develop/media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot of the Azure portal in a web browser, showing the application overview pane.":::
 
-#### Add a client secret
+### Add a client secret
 
-Creating a client secret allows the Azure Modeling and Simulation Workbench to redirect Azure AD sign-in requests directly to your organization's Azure Active Directory, as the only identity provider. This integration provides a single sign-on experience for your design team. The secret's lifetime should last the workbench's lifetime. If the secret does expire, your design team would lose access to the chamber. To address an expired secret, you can create a new secret and update the Azure Modeling and Simulation Workbench with the new values.
+Creating a client secret allows the Azure Modeling and Simulation Workbench to redirect Azure AD sign-in requests directly to your organization's Azure Active Directory, as the only identity provider. This integration provides a single sign-on experience for your design team. The secret's lifetime should last the workbench's lifetime. However, if the secret does expire, your design team loses access to the chamber. To address an expired secret, you need to create a new secret and update the Azure Modeling and Simulation Workbench with the new values.
 
 1. In **App registrations**, select your application *QuickstartModSimWorkbenchApp*.
 1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
 1. Add a description for your client secret.
 1. Select **Recommended: 6 months** for the **Expires**.
 1. Select **Add**.
+1. The application properties display. Locate the **Client secret value** and document it. You need the Client secret value when you create your Key Vault. Make sure you write it down now, as it will never be displayed again once you leave this page.
 
-Take note of the properties in the next steps:
+### Create a Key Vault
 
-- **Client secret value**: This secret value is *never displayed again* after you leave this page. Make sure to save the **secret value** somewhere to be available to store in your Key Vault created in the next section.
-
-#### Create a vault
-
-1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
+1. From the **Azure portal** menu or **Home** page, select **Create a resource**.
 1. In the Search box, enter **Key Vault**.
-1. From the results list, choose **Key Vault**.
+1. From the results list, select **Key Vault**.
 1. On the Key Vault section, select **Create**.
 1. On the Create key vault section, provide the following information:
    - **Name**: A unique name is required. For this quickstart, we use *QuickstartVault*-\<numbers\>.
 
    - **Subscription**: Choose a subscription.
 
-   - Under **Resource Group**, select **Create new** to create a new resource group. Type *QuickstartCreateModSimWorkbench-rg* for the **Name**.
+   - Under **Resource Group**, select **Create new** to create a new resource group. Enter *QuickstartCreateModSimWorkbench-rg* for the **Name**.
 
    - In the **Location** pull-down menu, choose a location.
 
@@ -131,9 +126,9 @@ Take note of the properties in the next steps:
 
    :::image type="content" source="/azure/key-vault/media/quick-create-portal/vault-properties.png" alt-text="Screenshot of the Key Vault after creation completes.":::
 
-#### Key Vault role assignment
+### Set up Key Vault role assignment
 
-1. Go to the Key Vault created in **Create a vault** step and select **Access control (IAM)**.
+1. Open the Key Vault you already created by selecting it from the list of resources shown in your Resource Group. Then select **Access control (IAM)**.
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
@@ -151,87 +146,89 @@ Take note of the properties in the next steps:
    | Assign access to | User, group, or service principal       |
    | Members          | \<your Azure account\>                  |
 
-#### Add secrets to Key Vault
+### Add secrets to Key Vault
 
 1. Navigate to your key vault *QuickstartVault*-\<numbers\> in the Azure portal.
 1. On the Key Vault settings pages, select **Secrets**.
-1. Click on **Generate/Import**.
-1. On the Create a secret screen, choose the following values:
-   - **Upload options**: Choose *Manual*.
-   - **Name**: Type *QuickstartModSimWorkbenchAppClientId*
-   - **Value**: Paste **Application (client) ID** recorded in **Register an application** step.
-   - Leave the other values to their defaults. Select **Create**.
-1. Create another secret with the following values:
-   - **Upload options**: Choose *Manual*.
-   - **Name**: Type *QuickstartModSimWorkbenchAppSecretValue*
-   - **Value**: Paste **Client secret value** recorded in **Add a client secret** step.
-   - Leave the other values to their defaults. Select **Create**.
-1. Create another secret with the following values:
-   - **Upload options**: Choose *Manual*.
-   - **Name**: Type *QuickstartModSimWorkbenchDesktopLicenseKey*
-   - **Value**: Paste the OpenText Exceed TurboX license key text.
-   - Leave the other values to their defaults. Select **Create**.
-1. Take note of the three secret identifiers. To get secret identifiers:
-   - Select secret
-   - Click on the latest version
-   - Copy the secret identifier shown.
-   - Remove the version from the secret identifier URL shown. Example: https://quickstartvault.vault.azure.net/secrets/quickstartmodsimworkbenchappclientid would be your secret identifier for the App Registration Client ID, not https://quickstartvault.vault.azure.net/secrets/quickstartmodsimworkbenchappclientid/95e7cae001f612345468abcd1c109b3a
+1. Select **Generate/Import**.
+1. On the Create a secret screen, provide the following information and select **Create:**
+   - **Upload options**: Select *Manual*.
+   - **Name**: Enter *QuickstartModSimWorkbenchAppClientId*
+   - **Value**: Enter the **Application (client) ID** you documented in the Register an application step.
+   - Leave the other values to their defaults.
+1. Create another secret and provide the following information:
+   - **Upload options**: Select *Manual*.
+   - **Name**: Enter *QuickstartModSimWorkbenchAppSecretValue*
+   - **Value**: Enter the **Client secret value** you documented in the Add a client secret step.
+   - Leave the other values to their defaults.
+1. Create another secret and provide the following information:
+   - **Upload options**: Select *Manual*.
+   - **Name**: Enter *QuickstartModSimWorkbenchDesktopLicenseKey*
+   - **Value**: Enter the OpenText Exceed TurboX license key text.
+   - Leave the other values to their defaults.
+1. Locate and document the three secret identifiers:
+   - Select **secret**.
+   - Select the **latest version**.
+   - Copy/document the secret identifier shown.
+   - Remove the version from the secret identifier URL shown. Example: https://quickstartvault.vault.azure.net/secrets/quickstartmodsimworkbenchappclientid would be your secret identifier for the App Registration Client ID, not https://quickstartvault.vault.azure.net/secrets/quickstartmodsimworkbenchappclientid/95e7cae001f612345468abcd1c109b3a.
 
 ## Create an Azure Modeling and Simulation Workbench (preview)
 
-1. While you're signed in the Azure portal, go to https://*\<AzurePortalUrl\>*/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ModSimWorkbench%2Fworkbenches. For example, https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ModSimWorkbench%2Fworkbenches for Azure public cloud.
+To create an Azure Modeling and Simulation Workbench, you first fill out the Azure portal wizard fields for naming and connectivity preferences. Then you submit the form to create a Workbench.
 
-1. Under the **Modeling and Simulation Workbenches (preview)** page, select **Create**. The **Create an Azure Modeling and Simulation Workbench** page opens.
+1. While you're signed in the Azure portal, go to https://*\<AzurePortalUrl\>*/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ModSimWorkbench%2Fworkbenches. For example, go to https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ModSimWorkbench%2Fworkbenches for Azure public cloud.
+
+1. On the **Modeling and Simulation Workbenches (preview)** page, select **Create**. The **Create an Azure Modeling and Simulation Workbench** page opens.
 
    :::image type="content" source="./media/quickstart-create-portal/create-01.png" alt-text="Screenshot of the Marketplace showing how to search Azure Modeling and Simulation Workbench":::
 
-1. In the **Basics** tab, under **Project details**, choose your subscription for **Subscription** and choose *QuickstartCreateModSimWorkbench-rg* for **Resource group**.
+1. On the **Project details** > **Basics** tab, select your subscription in the **Subscription** field. Then select *QuickstartCreateModSimWorkbench-rg* for the **Resource group**.
 
-1. Under **Workbench details**, choose the following values:
+1. Provide the following information for the **Workbench details**:
 
-   - **Name**: Type *myModSimWorkbench*.
-   - **Region**: Choose *East US*.
-   - **Modeling and Simulation Workbench IP address space**: Type *10.10.0.0/16*.
+   - **Name**: Enter *myModSimWorkbench*.
+   - **Region**: Select *East US*.
+   - **Modeling and Simulation Workbench IP address space**: Enter *10.10.0.0/16*.
    > [!NOTE]
-   > IP address space should allow for all possible chambers and workloads. If you deploy more than one workbench, make sure you do not provide conflicting IP address space between them.
-   - **Application (client) ID URL**: Paste the secret identifier keyVault URL for *QuickstartModSimWorkbenchAppClientId* recorded in **Add secrets to Key Vault** step.
-   - **Client secret value URL**: Paste the secret identifier keyVault URL for *QuickstartModSimWorkbenchAppSecretValue* recorded in **Add secrets to Key Vault** step.
+   > IP address space should allow for all possible chambers and workloads. If you deploy more than one workbench, make sure you don't provide conflicting IP address space between them.
+   - **Application (client) ID URL**: Enter the secret identifier Key Vault URL for *QuickstartModSimWorkbenchAppClientId* you documented in the **Add secrets to Key Vault** step.
+   - **Client secret value URL**: Enter the secret identifier Key Vault URL for *QuickstartModSimWorkbenchAppSecretValue* you documented in the **Add secrets to Key Vault** step.
 
 1. Select **Next : Chamber >** button at the bottom of the page.
 
     :::image type="content" source="./media/quickstart-create-portal/create-02.png" alt-text="Screenshot of the Workbench details section showing where you type and select the values.":::
 
-1. In the **Chamber** tab, under **Chamber**, choose the following values:
+1. Provide the following information for the **Chamber** in the **Chamber** tab:
 
-   - **Chamber name**: Type *myFirstChamber*.
+   - **Chamber name**: Enter *myFirstChamber*.
 
-1. Under **Chamber connector**, choose the following values:
+1. Provide the following information for the **Chamber connector**:
 
-   - **Connector name**: Type *myfirstconnector*.
+   - **Connector name**: Enter *myfirstconnector*.
 
-   - **Connect on-premises network**: Choose *None*.
-
-      > [!NOTE]
-      > Choose **ExpressRoute** when you have Azure ExpressRoute connected, choose **VPN** when you have VPN gateway setup, choose **None** when you don't have or don't use ExpressRoute/VPN.
-
-   - **Network ACLs**: Type your public IP address using CIDR notation (for example, 100.100.100.100/32).
+   - **Connect on-premises network**: Select *None*.
 
       > [!NOTE]
-      > If you have another **Chamber Admin** with 100.100.100.101 and 2 **Chamber Users** with 100.100.100.102, 100.100.100.103, **Network ACLs** value is *100.100.100.100/30*.
+      > Select **ExpressRoute** when you have Azure ExpressRoute connected, select **VPN** when you have VPN gateway setup, select **None** when you don't have or don't use ExpressRoute/VPN.
 
-   - **License file URL**: Paste the secret identifier keyVault URL for *QuickstartModSimWorkbenchDesktopLicenseKey* recorded in **Add secrets to Key Vault** step.
+   - **Network ACLs**: Enter your public IP address using CIDR notation (for example, 100.100.100.100/32).
 
-1. Under **Chamber VM**, choose the following values:
-   - **Chamber VM name**: Type *myFirstChamberWorkload*.
-   - **Chamber VM size**: Choose *E2s_v5*.
+      > [!NOTE]
+      > If you have another **Chamber Admin** with 100.100.100.101 and 2 **Chamber Users** with 100.100.100.102 and 100.100.100.103, then the **Network ACLs** value is *100.100.100.100/30*.
+
+   - **License file URL**: Enter the secret identifier Key Vault URL for *QuickstartModSimWorkbenchDesktopLicenseKey* you documented in the **Add secrets to Key Vault** step.
+
+1. Provide the following information for the **Chamber VM**:
+   - **Chamber VM name**: Enter *myFirstChamberWorkload*.
+   - **Chamber VM size**: Select *E2s_v5*.
 
 1. Select **Review + create** button at the bottom of the page.
 
 1. On the **Review + create** page, you can see the details about the Azure Modeling and Simulation Workbench you're about to create. When you're ready, select **Create**.
 
-## Allowing the use of your Modeling and Simulation Workbench chamber
+## Assign user roles for a Modeling and Simulation Workbench chamber
 
-1. Type *quickstart* in the global search and select **myFirstChamber**.
+1. Enter *quickstart* in the global search and select **myFirstChamber**.
 
    :::image type="content" source="./media/quickstart-create-portal/chamber-iam-01.png" alt-text="Screenshot of the global search to select myFirstChamber":::
 
@@ -241,7 +238,7 @@ Take note of the properties in the next steps:
 
    :::image type="content" source="./media/quickstart-create-portal/chamber-iam-02.png" alt-text="Screenshot of the Role assignments page showing where you select the Add role assignment command.":::
 
-1. The **Add role assignment** pane opens. In the **Role** list, search or scroll to find the role **Chamber Admin**. Choose **Chamber Admin** for the **Role** and select **Next**.
+1. The Add role assignment pane opens. Search or scroll for the **Chamber Admin** role in the role list and **select** it. Then select **Next**.
 
    :::image type="content" source="./media/quickstart-create-portal/chamber-iam-03.png" alt-text="Screenshot of the Add role assignment page showing where you select the Role.":::
 
@@ -251,17 +248,17 @@ Take note of the properties in the next steps:
 
 1. Select **Review + assign** to assign the selected role.
 
-1. Repeat 3-6 for other users who need to work on the chamber as **Chamber User** role.
+1. Repeat steps 3-6 to assign the **Chamber User** role to other users who need to work on the chamber.
 
-## Update the application in Azure Active Directory
+## Add redirect URIs for the application in Azure Active Directory
 
 A *redirect URI* is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication.
 
 Follow these steps to get redirect URIs:
 
-1. On the page for your new Modeling and Simulation Workbench workbench **myModSimWorkbench**, select the left side menu **Connector**, select **myfirstconnector** from the right side resource list.
+1. On the page for your new Modeling and Simulation Workbench workbench, **myModSimWorkbench**, select the left side menu **Connector**. Then select **myfirstconnector** from the right side resource list.
 
-1. On the **Overview** page, take note of the two connector properties. If these properties aren't visible, be sure to click the "See More" button on the page:
+1. On the **Overview** page, locate and document the two connector properties, **Dashboard reply URL** and **Authentication reply URL**, using the copy to clipboard icon. If these properties aren't visible, select the **See More** button on page to expand the window.
    - **Dashboard reply URL**: For example, https://<*dashboardFqdn*>/etx/oauth2/code
    - **Authentication reply URL**: For example, https://<*authenticationFqdn*>/otdsws/login?authhandler=AzureOIDC
 
@@ -277,46 +274,44 @@ Follow these steps to add redirect URIs:
 
 1. Under **Configure platforms**, select **Web** tile.
 
-1. Under **Configure Web** pane, paste the property of **Dashboard reply URL** recorded in the previous step, select **Configure**.
+1. On the **Configure Web** pane, paste the **Dashboard reply URL** you documented in the previous step. Then select **Configure**.
 
 1. Under **Platform configurations** > **Web** > **Redirect URIs**, select **Add URI**.
 
-1. Paste the property of **Authentication reply URL** recorded in the previous step and select **Save**.
+1. Paste the **Authentication reply URL** you documented in the previous step. Then select **Save**.
 
    :::image type="content" source="./media/quickstart-create-portal/update-aad-app-02.png" alt-text="Screenshot of the Azure AD app Authentication page showing where you select the Redirect URIs.":::
 
 ## Connect to chamber with remote desktop
 
-Chamber Admins and Chamber Users can now connect into the chamber with remote desktop access. The remote desktop dashboard URL is available in the connector overview page. These users must be on the appropriate network setup for the connector, so for this quick start their Public IP address needs to be included in the connector Network ACLs range.
+Chamber Admins and Chamber Users can now connect into the chamber with remote desktop access. The remote desktop dashboard URL is available in the connector overview page. These users must be on the appropriate network set up for the connector, so for this quickstart their Public IP address needs to be included in the connector Network ACLs range.
 
-1. On the page for your new Modeling and Simulation Workbench workbench **myModSimWorkbench**, select the left side menu **Connector**, select **myfirstconnector** from the right side resource list.
+1. On the page for your new Modeling and Simulation Workbench workbench, **myModSimWorkbench**, select the left side menu **Connector**. Then select **myfirstconnector** from the right side resource list.
 
-1. On the **Overview** page, click on the **Desktop Dashboard** URL to launch the remote desktop dashboard. You shouldn't be prompted for credentials. From within this dashboard, you should be able to see all workloads within your chambers and be able to launch a session into any of those workloads.
+1. On the **Overview** page, select the **Desktop Dashboard** URL to launch the remote desktop dashboard. You shouldn't be prompted for credentials. From within this dashboard, you should be able to see all workloads within your chambers and be able to launch a session into any of those workloads.
 
 ## Clean up resources
 
-There are two methods to clean up resources created in this quick start. You can delete the Azure resource group, which includes all the resources in the resource group, or you can delete the Modeling and Simulation Workbench resources individually.
+There are two methods to clean up resources created in this quickstart. You can delete the Azure resource group, which includes all the resources in the resource group, or you can delete the Modeling and Simulation Workbench resources individually.
 
 > [!TIP]
-> Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts, don't clean up the resources created here. If you don't plan to continue, use the following steps to delete resources created by this quickstart in the Azure portal.
+> Other articles in this collection build upon this quickstart. If you plan to work with the subsequent quickstarts, don't clean up the resources created here. If you don't plan to continue, use the following steps to delete resources created by this quickstart in the Azure portal.
 
-To delete the entire resource group including the newly created Modeling and Simulation Workbench:
+To delete the entire resource group, including the newly created Modeling and Simulation Workbench:
 
-1. Locate your resource group in the Azure portal. From the left-hand menu in the Azure portal, select **Resource groups** and then select the name of your resource group, like our example *QuickstartCreateModSimWorkbench-rg*.
+1. In the Azure portal, select **Resource groups** from the left side menu. Then select the name of your resource group. For example, in this quickstart we used *QuickstartCreateModSimWorkbench-rg* as the name of the resource group. Then select **Delete**.
 
-1. On your resource group page, select **Delete**. Then type the name of your resource group, like our example *QuickstartCreateModSimWorkbench-rg*, in the text box to confirm deletion, and then select **Delete**.
+1. On your resource group page, select **Delete** and enter the name of your resource group in the text box to confirm deletion. In this quickstart, we used *QuickstartCreateModSimWorkbench-rg* as the name of the resource group. Then select **Delete**.
 
 Or instead, to delete the newly created Modeling and Simulation Workbench resources:
 
-1. Locate your Modeling and Simulation Workbench in the Azure portal, if you don't have it open. From the left-hand menu in Azure portal, select **All resources**, and then search for the Modeling and Simulation Workbench you created, like our example *myModSimWorkbench*.
+1. Open your Modeling and Simulation Workbench in the Azure portal and select **All resources** from the left side menu. Then search for the Modeling and Simulation Workbench you created. For example, in this quickstart, we used *myModSimWorkbench* as the name of the Workbench.
 
-1. You need to delete child resources before deleting their parents. First delete any Chamber VMs and Connectors. Then delete Storages. Then delete Chambers. Lastly delete Workbenches.
-
-1. On the **Overview** page for each resource, select the **Delete** button on the top pane to delete.
+1. To delete a resource, select the **Delete** button located on the top pane of the **Overview page for each resource. You must delete the child resources before deleting their parents. For example, first delete any Chamber VMs and Connectors. Then delete Storages. Then delete Chambers. Delete Workbenches last.
 
 ## Next steps
 
-In this quickstart, you deployed a Modeling and Simulation Workbench, and allowed use of your Modeling and Simulation Workbench chamber. To learn how to install an application in Modeling and Simulation Workbench chamber, continue to the next quickstart.
+In this quickstart, you deployed a Modeling and Simulation Workbench and assigned user roles to allow others to use your Modeling and Simulation Workbench chamber. To learn how to manage users in a Modeling and Simulation Workbench chamber, continue to the next article.
 
    > [!div class="nextstepaction"]
-   > [How to Activate your licenses in a Modeling and Simulation Workbench chamber](./how-to-guide-licenses.md)
+   > [Manage users for Azure Modeling and Simulation Workbench](./how-to-guide-manage-users.md)
