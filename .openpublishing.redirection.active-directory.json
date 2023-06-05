@@ -8381,7 +8381,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/standards/configure-azure-active-directory-for-cmmc-compliance.md",
+      "source_path_from_root": "/articles/active-directory/configure-azure-active-directory-for-cmmc-compliance.md",
       "redirect_url": "/azure/active-directory/standards/configure-for-cmmc-compliance",
       "redirect_document_id": true
     },
