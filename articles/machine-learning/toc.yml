@@ -973,7 +973,7 @@
       - name: Work with Data
         items:
           - name: Data concepts in Azure Machine Learning
-          href: concept-data.md
+            href: concept-data.md
           - name: Sourcing human data responsibly
             href: concept-sourcing-human-data.md
           - name: Compliance
@@ -1003,7 +1003,7 @@
       - name: MLflow
         items:
           - name: MLflow and Azure Machine Learning
-          href: concept-mlflow.md
+            href: concept-mlflow.md
           # v1
           - name: MLflow
             href: ./v1/concept-mlflow.md
