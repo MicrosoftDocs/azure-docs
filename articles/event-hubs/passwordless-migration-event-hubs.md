@@ -50,18 +50,27 @@ The Azure Identity client library, for each of the following ecosystems, provide
    using Azure.Identity;
    ```
 
-1. Identify the locations in your code that create a `EventHubProducerClient` object to connect to Azure Event Hubs. Update your code to match the following example:
+1. Identify the locations in your code that create a `EventHubProducerClient` or `EventProcessorClient` object to connect to Azure Event Hubs. Update your code to match the following example:
 
    ```csharp
    DefaultAzureCredential credential = new();
 
-   EventHubProducerClient producerClient = new EventHubProducerClient(
-    "<EVENT_HUB_NAMESPACE>.servicebus.windows.net",
-    "<HUB_NAME>",
-    new DefaultAzureCredential());
-   ```
+    // Event hubs producer
+    EventHubProducerClient producerClient = new EventHubProducerClient(
+        "<EVENT_HUB_NAMESPACE>.servicebus.windows.net",
+        "<HUB_NAME>",
+        new DefaultAzureCredential());
 
-1. Make sure to update the event hubs namespace in the URI of your `EventHubProducerClient` object. You can find the namespace name on the overview page of the Azure portal.
+    // Event hubs processor
+    EventProcessorClient processor = new EventProcessorClient(
+        storageClient,
+        EventHubConsumerClient.DefaultConsumerGroupName,
+        "<EVENT_HUB_NAMESPACE>.servicebus.windows.net",
+        "<HUB_NAME>",
+        new DefaultAzureCredential());
+    ```
+
+1. Make sure to update the event hubs namespace in the URI of your `EventHubProducerClient` or `EventProcessorClient` objects. You can find the namespace name on the overview page of the Azure portal.
 
     :::image type="content" source="media/event-hubs-passwordless/event-hubs-namespace.png" alt-text="Screenshot showing how to find the namespace name.":::
 
