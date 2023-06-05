@@ -1,6 +1,6 @@
 ---
-title: How to migrate Azure DDoS Protection tiers using Azure Portal.
-description: In this guide we will walk through the steps to migrate Azure DDoS Protection tiers using Azure Portal.
+title: How to migrate Azure DDoS Protection tiers using Azure portal.
+description: In this guide we'll walk through the steps to migrate Azure DDoS Protection tiers using Azure portal.
 author: abell
 ms.author: abell
 ms.service: ddos-protection
@@ -9,9 +9,9 @@ ms.date: 06/05/2023
 ms.custom: template-how-to-pattern 
 ---
 
-# How to migrate Azure DDoS Protection tiers using Azure Portal
+# How to migrate Azure DDoS Protection tiers using Azure portal
 
-In this guide we will walk through the steps to migrate Azure DDoS Protection tiers using Azure Portal. This guide follows the *Application running on load-balanced virtual machines* architecture. To learn more about the different architectures, see [Azure DDoS Protection reference architectures](./ddos-protection-reference-architectures.md#application-running-on-load-balanced-virtual-machines).
+In this guide, we'll walk through the steps to migrate Azure DDoS Protection tiers using Azure portal. This guide follows the *Application running on load-balanced virtual machines* architecture. To learn more about the different architectures, see [Azure DDoS Protection reference architectures](./ddos-protection-reference-architectures.md#application-running-on-load-balanced-virtual-machines).
 
 
 ## Prerequisites
@@ -44,7 +44,7 @@ To prevent DDoS protection downtime, you must enable IP Protection before disabl
 
 The DDoS Protection plan must be disassociated from the protected resources before you can delete the plan.
 
-1. In the search box at the top of the portal, enter **DDoS protection plans**. Select your ddos protection plan.
+1. In the search box at the top of the portal, enter **DDoS protection plans**. Select your DDoS protection plan.
 1. In the **Settings** pane, select the **Protected Resources** tab, then select the **Dissociate** icon for your service. Select **Yes** to confirm.
 
     :::image type="content" source="./media/ddos-migrate-ddos-protection/ddos-remove-protected-resources.png" alt-text="Screenshot of removing protected resources to DDoS protection plan.":::
@@ -59,7 +59,7 @@ The DDoS Protection plan must be disassociated from the protected resources befo
 ### Add Protected Resources to DDoS protection plan
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. In the search box at the top of the portal, enter **DDoS protection plans**. Select your ddos protection plan.
+1. In the search box at the top of the portal, enter **DDoS protection plans**. Select your DDoS protection plan.
 1. In the **Settings** pane, select the **Protected Resources** tab, then select **Add**. 
 
     :::image type="content" source="./media/ddos-migrate-ddos-protection/ddos-add-protected-resources.png" alt-text="Screenshot of adding protected resources to DDoS protection plan.":::
