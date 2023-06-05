@@ -31,9 +31,7 @@ IAM systems typically provide the following core functionality:
 
 - **Provisioning and deprovisioning of users** - The process of creating and managing user accounts, which includes specifying which users have access to which resources, and assigning permissions and access levels.
 
-- **Authentication of users** - Authenticate a user, machine, or software component by confirming that they're who or what they say they are.
-
-    You can add multi-factor authentication (MFA) for individual users for extra security or single sign-on (SSO) to allow users to authenticate their identity with one portal instead of many different resources.
+- **Authentication of users** - Authenticate a user, machine, or software component by confirming that they're who or what they say they are. You can add multi-factor authentication (MFA) for individual users for extra security or single sign-on (SSO) to allow users to authenticate their identity with one portal instead of many different resources.
 
 - **Authorization of users** - Authorization ensures a user is granted the exact level and type of access to a tool that they're entitled to. Users can also be portioned into groups or roles so large cohorts of users can be granted the same privileges.
 
