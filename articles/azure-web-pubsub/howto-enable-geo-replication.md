@@ -67,7 +67,7 @@ To delete a replica in the Azure portal:
 After creating a replica, your clients will be distributed across selected Azure regions based on their geographical locations. Web PubSub service handles synchronizing data across these replicas automatically and this synchronization incurs a low level of latency. The latency cost is negligible if your use case primarily involves `sendToGroup()` where the group has more than 100 connections. However, the latency cost may become more apparent when sending to smaller groups (connection count < 10) or a single user. 
 
 ## Best practices
-To ensure effective failover management, it is recommended to enable autoscaling for the resource. If there are two replias in a Web PubSub resource and one of the replicas is not available due to an outage, the available replica will receive all the traffic and handle all the WebSocket connections. Auto-scaling can scale up to meet the demand automatically. Like the geo-replication feature, auto-scaling can be easily configured on Azure portal. {image...} 
+To ensure effective failover management, it is recommended to enable [autoscaling](howto-scale-autoscale.md) for the resource and its replicas. If there are two replias in a Web PubSub resource and one of the replicas is not available due to an outage, the available replica will receive all the traffic and handle all the WebSocket connections. Auto-scaling can scale up to meet the demand automatically. Note autoscaling for replica is configured on its own resource level.
 
 ## Understand how the geo-replication feature works
 
@@ -77,8 +77,6 @@ To ensure effective failover management, it is recommended to enable autoscaling
 2. With this CNAME, the client establishes a websocket connection to the regional instance.
 3. The two replicas will synchronize data with each other. Messages sent to one replica would be transferred to other replicas if necessary.
 4. In case a replica fails the health check conducted by the Traffic Manager (TM), the TM will exclude the failed instance's endpoint from its domain resolution results.
-{connection count limit...}
-
 
 > [!NOTE]
 > * In the data plane, a primary Azure Web PubSub resource functions identically to its replicas
