@@ -58,7 +58,7 @@ $response = Invoke-RestMethod 'https://graph.microsoft.com/beta/organization?$se
 $response | ConvertTo-Json
 ```
 
-The API will respond whit the following json:
+The response from the API call looks similar to the following json:
 ```json
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#organization(directorySizeQuota)",
