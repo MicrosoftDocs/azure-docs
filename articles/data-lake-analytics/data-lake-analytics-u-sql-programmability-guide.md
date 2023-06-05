@@ -2,6 +2,7 @@
 title: U-SQL programmability guide for Azure Data Lake
 description: Learn about the U-SQL overview and UDF programmability in Azure Data Lake Analytics to enable you to create good USQL scripts.
 ms.service: data-lake-analytics
+ms.custom: devx-track-dotnet
 ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 01/20/2023

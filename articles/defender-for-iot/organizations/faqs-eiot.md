@@ -2,7 +2,7 @@
 title: FAQs for Enterprise IoT networks - Microsoft Defender for IoT
 description: Find answers to the most frequently asked questions about Microsoft Defender for IoT Enterprise IoT networks.
 ms.topic: faq
-ms.date: 07/07/2022
+ms.date: 06/05/2023
 ms.custom: enterprise-iot
 ---
 
@@ -38,7 +38,7 @@ Enterprise IoT is designed to help customers secure un-managed devices throughou
 
 To get started, Microsoft 365 P2 customers need to [add a Defender for IoT plan with Enterprise IoT](eiot-defender-for-endpoint.md) to an Azure subscription from the Microsoft Defender for Endpoint portal.
 
-If you’re a Defender for Endpoint customer, when adding your Defender for IoT plan, take care to exclude any devices already [managed by Defender for Endpoint](/microsoft-365/security/defender-endpoint/device-discovery) from your count of committed devices.
+If you’re a Defender for Endpoint customer, when adding your Defender for IoT plan, take care to exclude any devices already [managed by Defender for Endpoint](/microsoft-365/security/defender-endpoint/device-discovery) from your count of devices you want to monitor.
 
 ## What permissions do I need to add a Defender for IoT plan? Can I use any Azure subscription?
 
@@ -46,15 +46,15 @@ For information on required permissions, see [Prerequisites](eiot-defender-for-e
 
 ## Which devices are billable?
 
-For more information about billable devices, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
+For more information about billable devices, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
-## How should I estimate the number of committed devices?
+## How should I estimate the number of devices I want to monitor?
 
 In the **Device inventory** in Defender for Endpoint:
 
-Add the total number of discovered network devices with the total number of discovered IoT devices. Round that up to a multiple of 100, and that is the number of committed devices to use.
+Add the total number of discovered network devices with the total number of discovered IoT devices. Round that up to a multiple of 100, and that is the number of devices to enter.
 
-For more information, see [Defender for IoT committed devices](billing.md#defender-for-iot-committed-devices).
+For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
 ## How does the integration between Microsoft Defender for Endpoint and Microsoft Defender for IoT work?
 
@@ -64,11 +64,11 @@ Discovered IoT devices can be viewed in both Defender for IoT and Defender for E
 
 ## Can I change the subscription I’m using for Defender for IoT?
 
-To change the subscription you're using for your Defender for IoT plan, you'll need to cancel your plan on the existing subscription, and then onboard a new plan to a new subscription. Your existing data won't be migrated to the new subscription. For more information, see [Move existing sensors to a different subscription](how-to-manage-subscriptions.md#move-existing-sensors-to-a-different-subscription).
+To change the subscription you're using for your Defender for IoT plan, you'll need to cancel your plan on the existing subscription, and then onboard a new plan to a new subscription. Your existing data won't be migrated to the new subscription. For more information, see [Manage Defender for IoT plans for Enterprise IoT security monitoring](manage-subscriptions-enterprise.md).
 
 ## How can I edit my plan in Defender for Endpoint?
 
-To make any changes to an existing plan, you'll need to cancel your existing plan and onboard a new plan with the new details. Changes might include moving billing charges from one subscription to another, changing the number of committed devices, or changing the plan commitment from a trial to a monthly commitment.
+To make any changes to an existing plan, you'll need to cancel your existing plan and onboard a new plan with the new details. Changes might include moving billing charges from one subscription to another, changing the number of devices you want to cover, or changing the plan commitment from a trial to a monthly commitment.
 
 ## How can I cancel Enterprise IoT?
 

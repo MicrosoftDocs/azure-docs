@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 * An Azure Machine Learning workspace. [Create workspace resources](../quickstart-create-resources.md).
 
-* [Configure your development environment](how-to-configure-environment-v1.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md) with the SDK already installed.
 
 Start by attaching your workspace:
 

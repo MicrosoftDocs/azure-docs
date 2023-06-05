@@ -13,6 +13,8 @@ ms.author: ericasp
 
 # Quickstart: Look up operator information for a phone number using Azure Communication Services
 
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+
 Get started with the Phone Numbers client library for C# to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number.  Follow these steps to install the package and look up operator information about a phone number.
 
 > [!NOTE]
@@ -21,6 +23,7 @@ Get started with the Phone Numbers client library for C# to look up operator inf
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- To enable Number Lookup service on your Azure Communication Services subscription, please complete this [form](https://forms.microsoft.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR058xZQ9HIBLikwspEUN6t5URUVDTTdWMEg5VElQTFpaMVMyM085ODkwVS4u) for us to allow-list your subscription. 
 - The latest version of [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
@@ -148,4 +151,7 @@ In this quickstart you learned how to:
 > * Look up operator information for a phone number
 
 > [!div class="nextstepaction"]
-> [Send an SMS](../sms/send.md)
+> [Number Lookup Concept](../../concepts/numbers/number-lookup-concept.md)
+
+> [!div class="nextstepaction"]
+> [Number Lookup SDK](../../concepts/numbers/number-lookup-sdk.md)
