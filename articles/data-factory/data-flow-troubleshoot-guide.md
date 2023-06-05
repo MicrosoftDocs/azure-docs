@@ -733,7 +733,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-SAPODATA-NotReached
 
-- **Causes and recommendations**: Failed to create OData connection to Request Url. Different causes may lead to this issue. Check below list for possible cause analysis and related recommendation.
+- **Causes and recommendations**: Failed to create OData connection to the request URL. Different causes may lead to this issue. Check the list below for possible causes and related recommendations.
 
   | Cause analysis | Recommendation |
   | :--- | :--- |
