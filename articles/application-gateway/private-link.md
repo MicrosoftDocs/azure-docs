@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 05/15/2023
+ms.date: 06/06/2023
 ms.author: greglin
 
 ---
