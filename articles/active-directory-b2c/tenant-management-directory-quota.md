@@ -73,9 +73,9 @@ The response from the API call looks similar to the following json:
 }
 ```
 
-- The attribute "total" is the maximum number of objects allowed in the directory quota.
+- The attribute `total` is the maximum number of objects allowed in the directory.
 
-- The attribute "used" is the number of objects existing in the directory.
+- The attribute `used` is the number of objects you already have in the directory.
 
 
 1. Alert if the ratio between used and total is higher that 90% 
