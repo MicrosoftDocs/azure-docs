@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: overview
 ms.date: 05/15/2023
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, build-2023, build-2023-dataai
 recommendations: false
 keywords:  
 ---
 
 # What is Azure OpenAI Service?
 
-Azure OpenAI Service provides REST API access to OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series. In addition, the new GPT-4 and ChatGPT (gpt-35-turbo) model series have now reached general availability. These models can be easily adapted to your specific task including but not limited to content generation, summarization, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio.
+Azure OpenAI Service provides REST API access to OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series. In addition, the new GPT-4 and ChatGPT (gpt-35-turbo) model series have now reached general availability. These models can be easily adapted to your specific task including but not limited to content generation, summarization, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure AI Studio.
 
 ### Features overview
 
@@ -27,8 +27,8 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 | Price | [Available here](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) |
 | Virtual network support & private link support | Yes | 
 | Managed Identity| Yes, via Azure Active Directory | 
-| UI experience | **Azure Portal** for account & resource management, <br> **Azure OpenAI Service Studio** for model exploration and fine tuning |
-| Regional availability | East US <br> South Central US <br> West Europe |
+| UI experience | **Azure portal** for account & resource management, <br> **Azure OpenAI Service Studio** for model exploration and fine tuning |
+| Regional availability | East US <br> South Central US <br> West Europe <br> France Central |
 | Content filtering | Prompts and completions are evaluated against our content policy with automated systems. High severity content will be filtered. |
 
 ## Responsible AI
@@ -55,7 +55,7 @@ With Azure OpenAI, customers get the security capabilities of Microsoft Azure wh
 
 ## Key concepts
 
-### Prompts & Completions
+### Prompts & completions
 
 The completions endpoint is the core component of the API service. This API provides access to the model's text-in, text-out interface. Users simply need to provide an input  **prompt** containing the English text command, and the model will generate a text **completion**.
 
@@ -129,6 +129,8 @@ GPT-4 models are the latest available models. Due to high demand access to this 
 The GPT-3 base models are known as Davinci, Curie, Babbage, and Ada in decreasing order of capability and increasing order of speed.
 
 The Codex series of models is a descendant of GPT-3 and has been trained on both natural language and code to power natural language to code use cases. Learn more about each model on our [models concept page](./concepts/models.md).
+
+The DALL-E models, currently in preview, generate images from text prompts that the user provides.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Learn about the SignalR Service output binding for Azure Functions.
 author: Y-Sindo
 ms.topic: reference
 ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 01/13/2023
 ms.author: zityang
 zone_pivot_groups: programming-languages-set-functions-lang-workers

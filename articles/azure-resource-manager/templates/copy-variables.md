@@ -3,7 +3,7 @@ title: Define multiple instances of a variable
 description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when creating a variable.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 02/13/2020
+ms.date: 05/23/2023
 ---
 # Variable iteration in ARM templates
 

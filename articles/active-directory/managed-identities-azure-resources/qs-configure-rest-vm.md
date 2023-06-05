@@ -11,7 +11,7 @@ ms.subservice: msi
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 05/25/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: mode-api, devx-track-azurecli 

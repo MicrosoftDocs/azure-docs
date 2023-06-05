@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/03/2022
+ms.date: 05/17/2023
 ms.author: greglin
 
 ---
@@ -27,34 +27,41 @@ Application Gateway provides several built‑in timing metrics related to the re
 
 - **Backend connect time**
 
-  Time spent establishing a connection with the backend application. 
+   *Aggregation type:Avg/Max*
 
-  This includes the network latency as well as the time taken by the backend server’s TCP stack to  establish new connections. For TLS, it also includes the time spent on handshake. 
+   Time spent establishing a connection with the backend application. 
+
+   This includes the network latency as well as the time taken by the backend server’s TCP stack to  establish new connections. For TLS, it also includes the time spent on handshake. 
 
 - **Backend first byte response time**
 
-  Time interval between start of establishing a connection to backend server and receiving the first byte of the response header. 
+   *Aggregation type:Avg/Max*
 
-  This approximates the sum of *Backend connect time*, time taken by the request to reach the backend from Application Gateway, time taken by backend application to respond (the time the server took to generate content, potentially fetch database queries), and the time taken by first byte
-  of the response to reach the Application Gateway from the backend.
+   Time interval between start of establishing a connection to backend server and receiving the first byte of the response header. 
+
+   This approximates the sum of *Backend connect time*, time taken by the request to reach the backend from Application Gateway, time taken by backend application to respond (the time the server took to generate content, potentially fetch database queries), and the time taken by first byte of the response to reach the Application Gateway from the backend.
 
 - **Backend last byte response time**
 
-  Time interval between start of establishing a connection to backend server and receiving the last byte of the response body. 
+   *Aggregation type:Avg/Max*
 
-  This approximates the sum of *Backend first byte response time* and data transfer time (this number may vary greatly depending on the size of objects requested and the latency of the server network).
+   Time interval between start of establishing a connection to backend server and receiving the last byte of the response body. 
+
+   This approximates the sum of *Backend first byte response time* and data transfer time (this number may vary greatly depending on the size of objects requested and the latency of the server network).
 
 - **Application gateway total time**
 
-  Average time that it takes for a request to be received, processed and its response to be sent. 
+   *Aggregation type:Avg/Max*
 
-  This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. This includes the processing time taken by Application Gateway, the *Backend last byte response time*, and the time taken by Application Gateway to send all the response.
+   This metric captures either the Average/Max time taken for a request to be received, processed and its response to be sent. 
+
+   This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. This includes the processing time taken by Application Gateway, the *Backend last byte response time*, and the time taken by Application Gateway to send all the response.
 
 - **Client RTT**
 
-  Average round trip time between clients and Application Gateway.
+   *Aggregation type:Avg/Max*
 
-
+   This metric captures the Average/Max round trip time between clients and Application Gateway.
 
 These metrics can be used to determine whether the observed slowdown is due to the client network, Application Gateway performance, the backend network and backend server TCP stack saturation, backend application performance, or large file size.
 
@@ -70,11 +77,11 @@ For Application Gateway, the following metrics are available:
 
 - **Bytes received**
 
-   Count of bytes received by the Application Gateway from the clients
+   Count of bytes received by the Application Gateway from the clients. (Reported based on the request "content size" only. It doesn't account for TLS negotiations overhead, TCP/IP packet headers, or retransmissions, and hence doesn't represent the complete bandwidth utilization.)
 
 - **Bytes sent**
 
-   Count of bytes sent by the Application Gateway to the clients
+   Count of bytes sent by the Application Gateway to the clients. (Reported based on the response "content size" only. It doesn't account for TCP/IP packet headers or retransmissions, and hence doesn't represent the complete bandwidth utilization.)
 
 - **Client TLS protocol**
 
@@ -115,7 +122,7 @@ For Application Gateway, the following metrics are available:
 
 - **Throughput**
 
-   Number of bytes per second the Application Gateway has served
+   Number of bytes per second the Application Gateway has served. (Reported based on the "content size" only. It doesn't account for TLS negotiations overhead, TCP/IP packet headers, or retransmissions, and hence doesn't represent the complete bandwidth utilization.)
 
 - **Total Requests**
 

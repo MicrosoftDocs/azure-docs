@@ -178,7 +178,7 @@
       - name: Configure encryption with customer-managed keys
         items:
         - name: Store customer-managed keys in a key vault
-          href: ../common/customer-managed-keys-configure-key-vault.md?toc=/azure/storage/file-sync/toc.json
+          href: ../common/customer-managed-keys-configure-existing-account.md
         - name: Store customer-managed keys in a managed HSM
           href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/file-sync/toc.json
     - name: Enable infrastructure encryption for the account
@@ -210,7 +210,7 @@
 - name: Reference
   items:
   - name: Azure Files reference
-    href: ../files/reference.md?toc=/azure/storage/file-sync/toc.json
+    href: ../files/storage-files-introduction.md
   - name: Monitoring Azure Files reference
     href: ../files/storage-files-monitoring-reference.md?toc=/azure/storage/file-sync/toc.json
   - name: Resource Manager template
