@@ -11,12 +11,13 @@ ms.date: 03/29/2023
 ms.author: ananyagarg
 ---
 
+![alt-text-1]("../media/partner-pages-images/anjuna.jpg" "Anjuna") ! 
 # Anjuna Security
-:::image type="content" source="../media/partner-pages-images/anjuna.jpg" alt-text="Anjuna Security logo.":::
+
 
 ## Overview
 
-Anjuna Confidential Computing software makes it quick and simple to protect cloud data and intellectual property by leveraging Microsoft [Azure confidential computing](aka.ms/accdocs) infrastructure. 
+Anjuna Confidential Computing software makes it quick and simple to protect cloud data and intellectual property by using Microsoft [Azure confidential computing](aka.ms/accdocs) infrastructure. 
 
 Azure Confidential Computing is built on [Intel® Software Guard Extensions (SGX)-enabled](../confidential-computing-enclaves.md) CPUs. Anjuna Confidential Computing software establishes a secure computing environment that isolates and encrypts any application and its related data within the confines of a secure enclave. Anjuna supports Azure Kubernetes Service (AKS) to manage container-based applications, and Azure Key Vault (AKV) for storing secrets.
 
@@ -27,7 +28,7 @@ Anjuna® Confidential Computing Platform helps you run applications inside Azure
 
 With Anjuna and Azure Confidential Computing on Intel SGX, Azure customers can protect applications against insiders, third parties, malicious software, and more by encrypting data being executed in memory, in transit on the network, and at rest.
 
-Get started today with the Azure Marketplace solution - there is a [SaaS offering you can check out here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/anjuna1646713490052.anjuna_cc_saas?tab=Overview), and a [managed application here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/anjuna1646713490052.anjuna_cc_mgdapp?tab=Overview).
+Get started today with the Azure Marketplace solution - there's a [SaaS offering you can check out here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/anjuna1646713490052.anjuna_cc_saas?tab=Overview), and a [managed application here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/anjuna1646713490052.anjuna_cc_mgdapp?tab=Overview).
 
 
 ## Learn more
