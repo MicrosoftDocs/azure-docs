@@ -50,7 +50,8 @@ To create a replica in an Azure region, go to your Web PubSub resource and find 
 
 After creation, you would be able to view/edit your replica on the portal by clicking the replica name.
 
-![Replica_example1-click_replica drawio](https://github.com/Azure/azure-signalr-specs/assets/16233725/a705e9d5-8ba8-4d27-9b44-d30b45396ee2)
+![242491447-a705e9d5-8ba8-4d27-9b44-d30b45396ee2](https://github.com/bjqian/azure-docs/assets/16233725/846955ea-9b0b-4fc1-a08d-9b5720af4bc0)
+
 > [!NOTE]
 > * Geo-replication is a feature available in premium tier.
 > * A replica is considered a separate resource when it comes to billing. See [Pricing](concept-billing-model.md/#how-replica-is-billed) for more details. 
