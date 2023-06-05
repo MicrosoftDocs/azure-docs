@@ -339,14 +339,13 @@ Spring Cloud Gateway is managed and tuned by the Azure Spring Apps service. Exce
 
 To configure environment variables in the Azure portal, use the following steps:
 
-1. Open your Azure Spring Apps instance.
-1. Select **Spring Cloud Gateway** in the navigation pane, and then select **Configuration**.
-1. Specify key-value pairs for the log level environment variables in the **Environment variables** sections.
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation page and then select **Configuration**.
+1. Fill in the key-value pairs for the environment variables in the **Properties** or **Secrets** sections. You can put variables with sensitive information in **Secrets**.
 1. When you've provided all the configurations, select **Save** to save your changes.
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to configure environment variables using the Azure CLI:
+Use the following command to configure environment variables using the Azure CLI, you can put variables with sensitive information in **--secrets** parameters:
 
 ```azurecli
 az spring gateway update \
@@ -390,11 +389,8 @@ You can use the Azure portal or the Azure CLI to set up application performance 
 Use the following steps to set up APM using the Azure portal:
 
 1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation page and then select **Configuration**.
-
 1. Choose the APM type in the **APM** list to monitor a gateway.
-
 1. Fill in the key-value pairs for the APM environment variables in the **Properties** or **Secrets** sections. You can put variables with sensitive information in **Secrets**.
-
 1. When you've provided all the configurations, select **Save** to save your changes.
 
 Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
@@ -461,25 +457,15 @@ To get environment variable keys, add the `logging.level.` prefix, and then set 
 
 To configure log levels in the Azure portal, use the following steps:
 
-1. Open your Azure Spring Apps instance.
-1. Select **Spring Cloud Gateway** in the navigation pane, and then select **Configuration**.
-1. Specify key-value pairs for the log level environment variables in the **Environment variables** sections.
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation page and then select **Configuration**.
+1. Fill in the key-value pairs for the log level environment variables in the **Properties** or **Secrets** sections. If log level is sensitive information in your case, you can put it in **Secrets**.
 1. When you've provided all the configurations, select **Save** to save your changes.
 
 :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-log-level-environment-variables.png" alt-text="Screenshot of the Azure portal showing the Spring Cloud Gateway environment variables to configure log levels." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-log-level-environment-variables.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to configure log levels using Azure CLI:
-
-```azurecli
-az spring gateway update \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --properties <key=value>
-```
-
-The follow command shows an example:
+Refer to [Configure environment variables](#configure-environment-variables) for general CLI command to specify environment variables. Below is an example to configure log levels using Azure CLI:
 
 ```azurecli
 az spring gateway update \
@@ -492,6 +478,8 @@ az spring gateway update \
       logging.level.org.springframework.boot.autoconfigure.web=TRACE \
       logging.level.org.springframework.security.web=ERROR
 ```
+
+If log level is sensitive information in your case, you can put it in **--secrets** parameter.
 
 ---
 
