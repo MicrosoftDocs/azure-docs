@@ -14,7 +14,7 @@ This article walks you through the process of securing an NGINX Ingress Controll
 
 You can import the ingress TLS certificate to the cluster using one of the following methods:
 
-- **Application**: The application deployment manifest declares and mounts the provider volume. Only when you deploy the application is the certificate made available in the cluster. When you remove the application,the secret is also removed. This scenario fits development teams responsible for the application’s security infrastructure and its integration with the cluster.
+- **Application**: The application deployment manifest declares and mounts the provider volume. Only when you deploy the application is the certificate made available in the cluster. When you remove the application, the secret is also removed. This scenario fits development teams responsible for the application’s security infrastructure and its integration with the cluster.
 - **Ingress Controller**: The ingress deployment is modified to declare and mount the provider volume. The secret is imported when ingress pods are created. The application’s pods have no access to the TLS certificate. This scenario fits scenarios where one team (for example, IT) manages and creates infrastructure and networking components (including HTTPS TLS certificates) and other teams manage application lifecycle.
 
 ## Prerequisites
@@ -120,7 +120,7 @@ You can import the ingress TLS certificate to the cluster using one of the follo
 
 ### Configure and deploy the NGINX ingress
 
-As mentioned above, depending on your scenario, you can choose to bind the certificate to either the application or to the ingress controller. Follow the below instructions according to your selection:
+Depending on your scenario, you can choose to bind the certificate to either the application or to the ingress controller. Follow the below instructions according to your selection:
 
 #### Bind certificate to application
 
@@ -446,13 +446,13 @@ We can now deploy a Kubernetes ingress resource referencing the secret.
 
 ## Test ingress secured with TLS
 
-1. Verify your ingress is properly configured with TLS using the following `curl` command. Make to use the external IP from the previous step.
+1. Verify your ingress is properly configured with TLS using the following `curl` command. Make sure you use the external IP from the previous step.
 
     ```bash
     curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com
     ```
 
-    No additional path was provided with the address, so the ingress controller defaults to the */* route. The first demo application is returned, as shown in the following condensed example output:
+    Since another path wasn't provided with the address, the ingress controller defaults to the */* route. The first demo application is returned, as shown in the following condensed example output:
 
     ```output
     [...]
