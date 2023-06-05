@@ -207,7 +207,7 @@ The managed identity service generates the *principalId* GUID when you create th
 
 When a Log Analytics workspace is linked to a dedicated cluster, the workspace billing plan in workspace is changed to cluster plan, new data ingested to the workspace is routed to your dedicated cluster, and existing data remains in Log Analytics cluster. Linking a workspace has no effect on data ingestion and query experiences. Log Analytics query engine stitches data from old and new clusters automatically, and the results of queries are complete and accurate. 
  
-When dedicated cluster is configured with customer-managed key (CMK), new ingested data is encrypted with your key, while older data remains encrypted with Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryption is performed seamlessly.
+When dedicated cluster is configured with customer-managed key (CMK), new ingested data is encrypted with your key, while older data remains encrypted with Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
 
 A cluster can be linked to up to 1,000 workspaces. Linked workspaces can be located in the same region as the cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
 
