@@ -17,15 +17,24 @@ With the Microsoft 365 profile enabled, Microsoft Entra Internet Access acquires
 - SharePoint Online and OneDrive for Business
 - Microsoft 365 Common and Office Online
 
+## Prerequisites
+
+To enable the Microsoft 365 traffic forwarding profile for your tenant, you must have:
+
+- **Microsoft Entra Internet Access Premium license** for your Microsoft Entra Identity tenant
+- **Microsoft Entra Network Global Secure Access Administrator** role in Microsoft Entra ID
+- The **Microsoft Graph** module must be installed to use PowerShell
+- Administrator consent is required when using Microsoft Graph Explorer for the Microsoft Graph API
+
 ## Microsoft 365 traffic policies
 
 To manage the domain names and IP addresses included in the policy, select the **View** link for **Microsoft 365 traffic policies**. 
 
-![Screenshot of the Microsoft 365 traffic policies.](media/how-to-enable-M365-profile/M365-traffic-profile.png)
+![Screenshot of the Microsoft 365 traffic policies.](media/how-to-enable-microsoft-365-profile/microsoft-365-traffic-profile.png)
 
 The policy groups are listed, with a checkbox to indicate if the policy group is enabled. Expand a policy group to view all of the IPs and FQDNs included in the group.
 
-![Screenshot of the Microsoft 365 profile details.](media/how-to-enable-M365-profile/M365-profile-details.png)
+![Screenshot of the Microsoft 365 profile details.](media/how-to-enable-microsoft-365-profile/microsoft-365-profile-details.png)
 
 The policy groups include the following details:
 
@@ -47,11 +56,11 @@ Conditional Access policies are created and applied to the profile in the Condit
 
 1. Select the **View** link for **Conditional Access policies applicable**.
 
-    ![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-enable-M365-profile/Microsoft 365-profile-view-link.png)
+    ![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-enable-microsoft-365-profile/Microsoft 365-profile-view-link.png)
 
 1. Select a link from the list to view the policy details. 
 
-    ![Screenshot of the applied Conditional Access policies.](media/how-to-enable-M365-profile/conditional-access-applied-policies.png)
+    ![Screenshot of the applied Conditional Access policies.](media/how-to-enable-microsoft-365-profile/conditional-access-applied-policies.png)
 
 **To create a Conditional Access policy for the Microsoft 365 profile**:
 
@@ -60,7 +69,7 @@ Conditional Access policies are created and applied to the profile in the Condit
 1. Select **Network Access (Preview)** from the menu.
 1. From the new menu that appears, select one or more traffic profiles to apply the policy to. 
 
-    ![Screenshot of the Conditional Access fields that relate to traffic forwarding profiles.](media/how-to-enable-M365-profile/conditional-access-menu-options.png)
+    ![Screenshot of the Conditional Access fields that relate to traffic forwarding profiles.](media/how-to-enable-microsoft-365-profile/conditional-access-menu-options.png)
 
 ## Microsoft 365 remote network assignments
 

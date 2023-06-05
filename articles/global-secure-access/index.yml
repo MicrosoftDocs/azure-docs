@@ -20,8 +20,6 @@ landingContent:
         links:
           - text: What is Global Secure Access?
             url: overview-what-is-global-secure-access.md
-          - text: What is security service edge?
-            url: overview-what-is-security-service-edge.md
   - title: Get started
     linkLists:
       - linkListType: quickstart

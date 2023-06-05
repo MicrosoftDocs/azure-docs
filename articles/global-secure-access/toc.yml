@@ -6,8 +6,6 @@ items:
   items:
   - name: What is Global Secure Access?
     href: overview-what-is-global-secure-access.md
-  - name: What is security service edge?
-    href: overview-what-is-security-service-edge.md
 - name: Get started
   expanded: true
   items:
@@ -52,7 +50,7 @@ items:
     expanded: false
     items:
       - name: Enable Microsoft 365 profile
-        href: how-to-enable-m365-profile.md
+        href: how-to-enable-microsoft-365-profile.md
       - name: Enable Private access profile
         href: how-to-enable-private-access-profile.md
   - name: Applications

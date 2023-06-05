@@ -27,7 +27,7 @@ This functionality allows administrators to consistently enforce Conditional Acc
    * [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md)
    * [Conditional Access Administrator](../active-directory/roles/permissions-reference.md#conditional-access-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) to create and interact with Conditional Access policies.
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running.
-* You must be routing your Microsoft 365, Internet, or private network traffic through the **Global Secure Access preview** using the steps in [How to enable the M365 profile](how-to-enable-m365-profile.md).
+* You must be routing your Microsoft 365, Internet, or private network traffic through the **Global Secure Access preview** using the steps in [How to enable the Microsoft 365 traffic forwarding profile](how-to-enable-microsoft-365-profile.md).
 
 ### Known limitations
 
@@ -50,7 +50,7 @@ The following example policy targets all users except for your break-glass accou
       1. Select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
       1. Select **Guest or external users** and select all checkboxes.
 1. Under **Target Resources** > **Network Access (Preview)***.
-   1. Choose **M365 traffic**.
+   1. Choose **Microsoft 365 traffic**.
 1. Under **Access controls** > **Grant**.
    1. Select **Require multifactor authentication**, **Require device to be marked as compliant**, and **Require hybrid Azure AD joined device**
    1. **For multiple controls** select **Require one of the selected controls**.
