@@ -35,7 +35,7 @@ mkdir acs-rooms-quickstart && cd acs-rooms-quickstart
 
 ### Install the package
 
-You'll need to use the Azure Communication Rooms client library for Python [version 1.0.0b3](https://pypi.org/project/azure-communication-rooms/) or above.
+You'll need to use the Azure Communication Rooms client library for Python [version 1.0.0](https://pypi.org/project/azure-communication-rooms/) or above.
 
 From a console prompt, navigate to the directory containing the rooms.py file, then execute the following command:
 
@@ -292,4 +292,4 @@ Deleted room with id: 99445276259151407
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services rooms from the [Python SDK reference](/python/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms).
+Read about the full set of capabilities of Azure Communication Services rooms from the [Python SDK reference](/python/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms/rooms).
