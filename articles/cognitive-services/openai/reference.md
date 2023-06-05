@@ -315,7 +315,7 @@ curl -X GET "https://{your-resource-name}.openai.azure.com/openai/operations/ima
 
 #### Example response
 
-Upon success the operation returns a `200` status code and an `OperationResponse` JSON object. The `status` field can be `"notRunning"`, `"running"`, `"succeeded"`, `"canceled"`, `"failed"`, or `"deleted"`. A `succeeded` status indicates that the generated image is available for download at the given URL. If multiple images were generated, their URLs are all returned in the `result.data` field.
+Upon success the operation returns a `200` status code and an `OperationResponse` JSON object. The `status` field can be `"notRunning"` (task is queued but hasn't started yet), `"running"`, `"succeeded"`, `"canceled"` (task has timed out or was canceled by the user), `"failed"`, or `"deleted"`. A `succeeded` status indicates that the generated image is available for download at the given URL. If multiple images were generated, their URLs are all returned in the `result.data` field.
 
 ```json
 {
