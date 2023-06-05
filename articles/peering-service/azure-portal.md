@@ -5,8 +5,7 @@ services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
-ms.workload: Infrastructure-services
-ms.date: 01/19/2023
+ms.date: 06/05/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
