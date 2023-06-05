@@ -22,7 +22,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | June 2023 |
 | [Release of containers vulnerability assessment runtime recommendation powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM](#release-of-containers-vulnerability-assessment-runtime-recommendation-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-cspm) | June 2023 |
 | [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) |  July 2023
-
+| [General availability release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) | July 2023
 
 ### Additional scopes added to existing Azure DevOps Connectors 
 
@@ -106,6 +106,23 @@ Customers that rely on the `resourceID` to query DevOps recommendation data will
 Queries will need to be updated to include both the old and new `resourceID` to show both, for example, total over time.  
 
 The recommendations page's experience will have minimal impact and deprecated assessments may continue to show for a maximum of 14 days if new scan results are not submitted.  
+
+### General Availability (GA) release of Agentless Container Posture in Defender CSPM
+
+**Estimated date for change: July 2023**
+
+The new Agentless Container Posture capabilities are are set for General Availability (GA) as part of the Defender CSPM (Cloud Security Posture Management) plan.
+
+With this release, the existing Qualys-powered recommendation `Container registry images should have vulnerability findings resolved` is replaced by a new recommendation powered by MDVM:
+
+|Recommendation | Description | Assessment Key|
+|--|--|--|
+| Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to  improving your security posture, significantly reducing the attack surface for your containerized workloads. |dbd0cb49-b563-45e7-9724-889e799fa648 <br> is replaced by  c0b7cfc6-3172-465a-b378-53c7ff2cc0d5
+
+Customers with both Defender for Containers plan and Defender CSPM plan should [migrate  relevant APIs](defender-for-apis-manage) and [disable the Qualys recommendation](tutorial-security-policy#disable-a-security-recommendation.md), as keeping both the Qualys and MDVM recommendations active will negatively impact the secure score.
+
+Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
+
 
 ## Next steps
 
