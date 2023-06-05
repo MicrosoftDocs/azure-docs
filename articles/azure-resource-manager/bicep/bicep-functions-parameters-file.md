@@ -8,7 +8,7 @@ ms.date: 06/05/2023
 
 # Parameters file function for Bicep
 
-Bicep provides a function called `readEnvironmentVariable()` that allows you to retrieve values from environment variables. It also offers the flexibility to set a default value that will be used if the environment variable does not exist. This function can only be using in the `.bicepparam` files. For more information, see [Bicep parameters file](./parameter-files.md).
+Bicep provides a function called `readEnvironmentVariable()` that allows you to retrieve values from environment variables. It also offers the flexibility to set a default value if the environment variable does not exist. This function can only be using in the `.bicepparam` files. For more information, see [Bicep parameters file](./parameter-files.md).
 
 ## readEnvironmentVariable()
 
@@ -31,7 +31,7 @@ The string value of the environment variable or a default value.
 
 ### Examples
 
-The following examples shows how to retrieve the values of environment variables.
+The following examples show how to retrieve the values of environment variables.
 
 ```bicep
 use './main.bicep'
