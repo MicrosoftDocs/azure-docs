@@ -815,7 +815,7 @@ The **rslex.log** file details all the file copying, whether or not you chose th
 
 In the Azure portal, you can select your Storage account and then **Metrics** to see the storage metrics:
 
-:::image type="content" source="media/how-to-read-write-data-v2/blobmetrics.png" alt-text="Screenshot showing blob metrics." lightbox="media/how-to-read-write-data-v2/blobmetrics.png":::
+:::image type="content" source="media/how-to-read-write-data-v2/blob-metrics.png" alt-text="Screenshot showing blob metrics." lightbox="media/how-to-read-write-data-v2/blob-metrics.png":::
 
 You then plot the **SuccessE2ELatency** with **SuccessServerLatency**. If the **metrics show high SuccessE2ELatency and low SuccessServerLatency**, you have limited available threads, or you're low on resources such as CPU, memory, or network bandwidth. You should:
 
