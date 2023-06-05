@@ -18,7 +18,7 @@ ms.author: aahi
 |Pricing tier     | pricing tier for your resource.       |
 |Managed identity     | Make sure that the resource's managed identity setting is enabled. Otherwise, read the next section. |
 
-To use custom text classification, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
+To use this service, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
 
 ## Enable identity management for your resource
 
@@ -42,11 +42,11 @@ Your Language resource must have identity management, to enable it using [Langua
 
 ### Enable the custom feature for your resource
 
-Make sure to enable **Custom text classification / Custom Named Entity Recognition** feature from Azure portal.
+Make sure to enable this service's custom feature from Azure portal.
 
 1. Go to your Language resource in [Azure portal](https://portal.azure.com/)
 2. From the left side menu, under **Resource Management** section, select **Features**
-3. Enable **Custom text classification / Custom Named Entity Recognition** feature
+3. Enable this service's custom feature
 4. Connect your storage account
 5. Click **Apply**
 
