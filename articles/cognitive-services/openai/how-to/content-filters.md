@@ -62,19 +62,19 @@ The following steps show how to set up a customized content filtering configurat
 
     :::image type="content" source="../media/content-filters/off.png" alt-text="Screenshot of the content filtering configuration with self harm and violence set to off." lightbox="../media/content-filters/off.png":::
 
-6. You can create multiple content filtering configurations as per your requirements.
+    You can create multiple content filtering configurations as per your requirements.
 
     :::image type="content" source="../media/content-filters/multiple.png" alt-text="Screenshot of the content filtering configuration with multiple content filters configured." lightbox="../media/content-filters/multiple.png":::
 
-7. Next, to make a custom content filtering configuration operational, assign a configuration to one or more deployments in your resource. To do this, go to the Deployments tab and select Edit deployment (outlined near the top of the screen in a red box below).
+6. Next, to make a custom content filtering configuration operational, assign a configuration to one or more deployments in your resource. To do this, go to the **Deployments** tab and select **Edit deployment** (outlined near the top of the screen in a red box below).
 
     :::image type="content" source="../media/content-filters/edit-deployment.png" alt-text="Screenshot of the content filtering configuration with edit deployment highlighted." lightbox="../media/content-filters/edit-deployment.png":::
 
-    Here, you can choose the content filter configuration suitable for that deployment from the Content Filter dropdown (red box below). Select Save and close to apply.
+    Here, you can choose the content filter configuration suitable for that deployment from the **Content Filter** dropdown (red box below). Select Save and close to apply.
 
     :::image type="content" source="../media/content-filters/select-filter.png" alt-text="Screenshot of edit deployment configuration with content filter selected." lightbox="../media/content-filters/select-filter.png":::
 
-8. You can also edit and delete a content filter configuration if required. To do this, navigate to the content filters tab and select the desired action (options outlined near the top of the screen in the red box below). You can edit/delete only one filtering configuration at a time.  
+7. You can also edit and delete a content filter configuration if required. To do this, navigate to the content filters tab and select the desired action (options outlined near the top of the screen in the red box below). You can edit/delete only one filtering configuration at a time.  
 
     :::image type="content" source="../media/content-filters/delete.png" alt-text="Screenshot of content filter configuration with edit and delete highlighted." lightbox="../media/content-filters/delete.png":::
 
@@ -89,4 +89,4 @@ We recommend informing your content filtering configuration decisions through an
 
 - Learn more about Responsible AI practices for Azure OpenAI: [Overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext).
 - Read more about [content filtering categories and severity levels](../concepts/content-filter.md) with Azure OpenAI Service.
-- Learn more about red teaming from our [Introduction to red teaming large language models (LLMs) article](../concepts/red-teaming.md).
+- Learn more about red teaming from our: [Introduction to red teaming large language models (LLMs) article](../concepts/red-teaming.md).

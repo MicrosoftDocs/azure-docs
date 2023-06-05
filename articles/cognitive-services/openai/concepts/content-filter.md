@@ -44,7 +44,7 @@ The content filtering system integrated in Azure OpenAI Service contains neural 
 
 ## Configurability (preview)
 
-The default content filtering configuration is set to filter at the medium severity threshold for all four content harms categories for both prompts and completions. That means that content that is detected at severity level medium or high is filtered, while content detected at severity level low is not filtered by the content filters. The configurability feature is available in preview and allows customers to adjust the settings, separately for prompts and completions, to filter content for each content category at different severity levels as described in the table below:
+The default content filtering configuration is set to filter at the medium severity threshold for all four content harm categories for both prompts and completions. That means that content that is detected at severity level medium or high is filtered, while content detected at severity level low is not filtered by the content filters. The configurability feature is available in preview and allows customers to adjust the settings, separately for prompts and completions, to filter content for each content category at different severity levels as described in the table below:
 
 | Severity filtered | Configurable for prompts | Configurable for completions | Descriptions |
 |-------------------|--------------------------|------------------------------|--------------|
@@ -55,7 +55,7 @@ The default content filtering configuration is set to filter at the medium sever
 
 <sup>\*</sup> Only customers who have been approved for modified content filtering  have full content filtering control, including configuring content filters at severity level high only or turning content filters off. Apply for modified content filters via this form: [Azure OpenAI Limited Access Review: Modified Content Filters and Abuse Monitoring (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu)
 
-Content filtering configurations are created within a Resource in Azure AI Studio, and can be associated with Deployments. Learn more about configurability [here](../how-to/content-filters.md).  
+Content filtering configurations are created within a Resource in Azure AI Studio, and can be associated with Deployments. [Learn more about configurability here](../how-to/content-filters.md).  
 
    :::image type="content" source="../media/content-filters/configuration.png" alt-text="Screenshot of the content filter configuration UI" lightbox="../media/content-filters/configuration.png":::
 
@@ -64,7 +64,7 @@ Content filtering configurations are created within a Resource in Azure AI Studi
 When the content filtering system detects harmful content, you'll receive either an error on the API call if the prompt was deemed inappropriate or the `finish_reason` on the response will be `content_filter` to signify that some of the completion was filtered. When building your application or system, you'll want to account for these scenarios where the content returned by the Completions API is filtered, which may result in content that is incomplete. How you act on this information will be application specific. The behavior can be summarized in the following points:
 
 -	Prompts that are classified at a filtered category and severity level will return an HTTP 400 error.
--	Non-streaming completions calls won't return any content when the content is filtered. The finish_reason value will be set to content_filter. In rare cases with longer responses, a partial result can be returned. In these cases, the `finish_reason` will be updated.
+-	Non-streaming completions calls won't return any content when the content is filtered. The `finish_reason` value will be set to content_filter. In rare cases with longer responses, a partial result can be returned. In these cases, the `finish_reason` will be updated.
 -	For streaming completions calls, segments will be returned back to the user as they're completed. The service will continue streaming until either reaching a stop token, length, or when content that is classified at a filtered category and severity level is detected.  
 
 ### Scenario: You send a non-streaming completions call asking for multiple outputs; no content is classified at a filtered category and severity level
@@ -211,7 +211,7 @@ The table below outlines the various ways content filtering can appear:
 
 **HTTP Response Code** | **Response behavior**
 |------------|------------------------|----------------------|
-| 200 | For a given generation index, the last chunk of the generation will include a non-null finish_reason value. The value will be `content_filter` when the generation was filtered.|
+| 200 | For a given generation index, the last chunk of the generation will include a non-null `finish_reason` value. The value will be `content_filter` when the generation was filtered.|
 
 **Example request payload:**
 
@@ -380,8 +380,8 @@ print(response)
 {
     "error": {
         "message": "The response was filtered due to the prompt triggering Azure Content management policy. 
-                   Please modify your prompt and retry. To learn more about our content filtering policies please
-                   read our documentation: https://go.microsoft.com/fwlink/?linkid=21298766",
+                   Please modify your prompt and retry. To learn more about our content filtering policies
+                   please read our documentation: https://go.microsoft.com/fwlink/?linkid=21298766",
         "type": null,
         "param": "prompt",
         "code": "content_filter",
