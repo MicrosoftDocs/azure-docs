@@ -20,31 +20,31 @@ An `AzureAppConfigurationProvider` resource has the following top-level child pr
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|endpoint|Endpoint of Azure App Configuration, which you would like to retrieve the key-values from|true|string|
+|endpoint|The endpoint of Azure App Configuration, which you would like to retrieve the key-values from|true|string|
 |target|The destination of the retrieved key-values in Kubernetes|true|object|
 |auth|The authentication method to access Azure App Configuration|false|object|
-|keyValues|The rule of retrieving the key-values from the Azure App Configuration store|false|object|
+|keyValues|The settings for querying and processing key-values|false|object|
 
 The `spec.target` property has the following child property.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|configMapName|The name of destination configMap|true|string|
+|configMapName|The name of the ConfigMap to be created|true|string|
 
-If the `spec.auth` property isn't set, the system-assigned managed identity is used. It has the following child properties, only one authentication method should be set.
-
-|Name|Description|Required|Type|
-|---|---|---|---|
-|managedIdentityClientId|Client ID of user-assigned managed identity|false|string|
-|servicePrincipalReference|Name of the Kubernetes Secret that contains the credentials of a service principal|false|string|
-
-The `spec.keyValues` has the following child properties. The `keyVaults` property is required if any Key Vault references are expected to be downloaded.
+If the `spec.auth` property isn't set, the system-assigned managed identity is used. It has the following child properties. Only one authentication method should be set.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|selectors|List of selectors for key-value filtering|false|object array|
-|trimKeyPrefixes|List of key prefixes to be trimmed|false|string array|
-|keyVaults|Settings for Key Vault reference|conditional|object|
+|managedIdentityClientId|The Client ID of user-assigned managed identity|false|string|
+|servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal|false|string|
+
+The `spec.keyValues` has the following child properties. The `spec.keyValues.keyVaults` property is required if any Key Vault references are expected to be downloaded.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|selectors|The list of selectors for key-value filtering|false|object array|
+|trimKeyPrefixes|The list of key prefixes to be trimmed|false|string array|
+|keyVaults|The settings for Key Vault references|conditional|object|
 
 If the `spec.keyValues.selectors` property isn't set, all key-values with no label will be downloaded. It contains an array of *selector* objects, which have the following child properties.
 
@@ -65,23 +65,23 @@ The `spec.keyValues.keyVaults.target` property has the following child property.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|secretName|The name of destination Secret|true|string|
+|secretName|The name of the Kubernetes Secret to be created|true|string|
 
-If the `spec.keyValues.keyVaults.auth property` isn't set, the system-assigned managed identity is used. It has the following child properties.
-   
+If the `spec.keyValues.keyVaults.auth` property isn't set, the system-assigned managed identity is used. It has the following child properties.
+
 |Name|Description|Required|Type|
 |---|---|---|---|
-|managedIdentityClientId|Client ID of a user-assigned managed identity used for authentication with vaults that don't have individual authentication methods specified|false|string|
-|servicePrincipalReference|Name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with vaults that don't have individual authentication methods specified|false|string|
-|vaults|Authentication methods for individual vaults|false|object array|
+|managedIdentityClientId|The client ID of a user-assigned managed identity used for authentication with vaults that don't have individual authentication methods specified|false|string|
+|servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with vaults that don't have individual authentication methods specified|false|string|
+|vaults|The authentication methods for individual vaults|false|object array|
 
 The authentication method of each *vault* can be specified with the following properties. One of `managedIdentityClientId` and `servicePrincipalReference` must be provided.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|uri|Uri of a vault|true|string|
-|managedIdentityClientId|Client ID of a user-assigned managed identity used for authentication with a vault|false|string|
-|servicePrincipalReference|Name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with a vault|false|string|
+|uri|The URI of a vault|true|string|
+|managedIdentityClientId|The client ID of a user-assigned managed identity used for authentication with a vault|false|string|
+|servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with a vault|false|string|
 
 ## Examples
 
