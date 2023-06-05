@@ -64,12 +64,12 @@ AKS uses a secure tunnel communication to allow the api-server and individual no
 
 ## Why are two resource groups created with AKS?
 
-AKS builds upon many Azure infrastructure resources, including Virtual Machine Scale Sets, virtual networks, and managed disks, which enables you to apply many of the core capabilities of the Azure platform within the managed Kubernetes environment provided by AKS. For example, most Azure virtual machine types can be used directly with AKS and Azure Reservations can be used to receive discounts on those resources automatically.
+AKS builds upon many Azure infrastructure resources, including Virtual Machine Scale Sets, virtual networks, and managed disks. These integrations enable you to apply many of the core capabilities of the Azure platform within the managed Kubernetes environment provided by AKS. For example, most Azure virtual machine types can be used directly with AKS and Azure Reservations can be used to receive discounts on those resources automatically.
 
 To enable this architecture, each AKS deployment spans two resource groups:
 
 1. You create the first resource group. This group contains only the Kubernetes service resource. The AKS resource provider automatically creates the second resource group during deployment. An example of the second resource group is *MC_myResourceGroup_myAKSCluster_eastus*. For information on how to specify the name of this second resource group, see the next section.
-2. The second resource group, known as the *node resource group*, contains all of the infrastructure resources associated with the cluster. These resources include the Kubernetes node VMs, virtual networking, and storage. By default, the node resource group has a name like *MC_myResourceGroup_myAKSCluster_eastus*. AKS automatically deletes the node resource group whenever the cluster is deleted, so it should only be used for resources that share the cluster's lifecycle.
+2. The second resource group, known as the *node resource group*, contains all of the infrastructure resources associated with the cluster. These resources include the Kubernetes node VMs, virtual networking, and storage. By default, the node resource group has a name like *MC_myResourceGroup_myAKSCluster_eastus*. AKS automatically deletes the node resource group whenever you delete the cluster. You should only use this cluster for resources that share the cluster's lifecycle.
 
 ## Can I provide my own name for the AKS node resource group?
 
@@ -77,7 +77,7 @@ Yes. By default, AKS names the node resource group *MC_resourcegroupname_cluster
 
 To specify your own resource group name, install the [aks-preview][aks-preview-cli] Azure CLI extension version *0.3.2* or later. When you create an AKS cluster using the [`az aks create`][az-aks-create] command, use the `--node-resource-group` parameter and specify a name for the resource group. If you use an [Azure Resource Manager template][aks-rm-template] to deploy an AKS cluster, you can define the resource group name using the *nodeResourceGroup* property.
 
-- The secondary resource group is automatically created by the Azure resource provider in your own subscription.
+- The Azure resource provider automatically creates the secondary resource group.
 - You can specify a custom resource group name only when you're creating the cluster.
 
 As you work with the node resource group, keep in mind that you can't:
@@ -90,7 +90,7 @@ As you work with the node resource group, keep in mind that you can't:
 
 ## Can I modify tags and other properties of the AKS resources in the node resource group?
 
-If you modify or delete Azure-created tags and other resource properties in the node resource group, you could get unexpected results, such as scaling and upgrading errors. AKS allows you to create and modify custom tags created by end users, and you can add those tags when [creating a node pool](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). You might want to create or modify custom tags, for example, to assign a business unit or cost center. Another option is to create Azure Policies with a scope on the managed resource group.
+You might get unexpected scaling and upgrading errors if you modify or delete Azure-created tags and other resource properties in the node resource group. AKS allows you to create and modify custom tags created by end users, and you can add those tags when [creating a node pool](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). You might want to create or modify custom tags, for example, to assign a business unit or cost center. Another option is to create Azure Policies with a scope on the managed resource group.
 
 However, modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action, which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)
 
@@ -147,7 +147,7 @@ Windows Server support for node pool includes some limitations that are part of 
 
 AKS provides SLA guarantees in the [Standard pricing tier with the Uptime SLA feature][pricing-tiers].
 
-The Free pricing tier doesn't have an associated Service Level *Agreement*, but has a Service Level *Objective* of 99.5%. Transient connectivity issues are observed if there was an upgrade, unhealthy underlay nodes, platform maintenance, or an application overwhelms the API Server with requests, etc. For mission-critical and production workloads, or if your workload doesn't tolerate API Server restarts, we recommend using the Standard tier, which includes Uptime SLA.
+The Free pricing tier doesn't have an associated Service Level *Agreement*, but has a Service Level *Objective* of 99.5%. Transient connectivity issues are observed if there's an upgrade, unhealthy underlay nodes, platform maintenance, an application overwhelms the API Server with requests, etc. For mission-critical and production workloads, or if your workload doesn't tolerate API Server restarts, we recommend using the Standard tier, which includes Uptime SLA.
 
 ## Can I apply Azure reservation discounts to my AKS agent nodes?
 
@@ -171,7 +171,7 @@ Moving or renaming your AKS cluster and its associated resources isn't supported
 
 ## Why is my cluster delete taking so long?
 
-Most clusters are deleted upon user request. In some cases, especially those where you bring your own Resource Group or perform cross-RG tasks, deletion can take more time or even fail. If you have an issue with deletes, double-check that you don't have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
+Most clusters are deleted upon user request. In some cases, especially cases where you bring your own Resource Group or perform cross-RG tasks, deletion can take more time or even fail. If you have an issue with deletes, double-check that you don't have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
 
 ## Can I restore my cluster after deleting it?
 
@@ -179,11 +179,20 @@ No, you're unable to restore your cluster after deleting it. When you delete you
 
 ## What is platform support, and what does it include?
 
-Platform support is a reduced support plan for unsupported "N-3" version clusters. Platform support only includes Azure infrastructure support. Platform support doesn't include anything related to Kubernetes functionality and components, cluster or node pool creation, hotfixes, bug fixes, security patches, retired components, etc. See [platform support policy][supported-kubernetes-versions] for additional restrictions.
+Platform support is a reduced support plan for unsupported "N-3" version clusters. Platform support only includes Azure infrastructure support. Platform support doesn't include anything related to the following:
 
-AKS relies on the releases and patches from [Kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of 3 minor versions. AKS can only guarantee [full support](./supported-kubernetes-versions.md#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support doesn't support anything from relying on kubernetes upstream.
+- Kubernetes functionality and components
+- Cluster or node pool creation
+- Hotfixes
+- Bug fixes
+- Security patches
+- Retired components
 
-## Will AKS automatically upgrade my unsupported clusters?
+For more information on restrictions, see the [platform support policy][supported-kubernetes-versions].
+
+AKS relies on the releases and patches from [Kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of *three* minor versions. AKS can only guarantee [full support](./supported-kubernetes-versions.md#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support doesn't support anything from relying on kubernetes upstream.
+
+## Does AKS automatically upgrade my unsupported clusters?
 
 AKS initiates auto-upgrades for unsupported clusters. When a cluster in an n-3 version (where n is the latest supported AKS GA minor version) is about to drop to n-4, AKS automatically upgrades the cluster to n-2 to remain in an AKS support [policy][supported-kubernetes-versions]. Automatically upgrading a platform supported cluster to a supported version is enabled by default.
 
@@ -199,7 +208,7 @@ No, delete/remove any nodes in a failed state or otherwise from the cluster befo
 
 ## I ran a cluster delete, but see the error `[Errno 11001] getaddrinfo failed`
 
-Most commonly, this is caused by users having one or more Network Security Groups (NSGs) still in use and associated with the cluster. Remove them and attempt the delete again.
+Most commonly, this error is arises if you have one or more Network Security Groups (NSGs) still in use that are associated with the cluster. Remove them and attempt the delete again.
 
 ## I ran an upgrade, but now my pods are in crash loops, and readiness probes fail?
 
@@ -221,11 +230,11 @@ No, scale operations by using the Virtual Machine Scale Set APIs aren't supporte
 
 ## Can I use Virtual Machine Scale Sets to manually scale to zero nodes?
 
-No, scale operations by using the Virtual Machine Scale Set APIs aren't supported. You can use the AKS API to scale to zero non-system node pools or [stop your cluster](start-stop-cluster.md) instead.
+No, scale operations by using the Virtual Machine Scale Set APIs aren't supported. You can use the AKS API to scale to zero nonsystem node pools or [stop your cluster](start-stop-cluster.md) instead.
 
 ## Can I stop or de-allocate all my VMs?
 
-While AKS has resilience mechanisms to withstand such a config and recover from it, this isn't a supported configuration. [Stop your cluster](start-stop-cluster.md) instead.
+While AKS has resilience mechanisms to withstand such a config and recover from it, it isn't a supported configuration. [Stop your cluster](start-stop-cluster.md) instead.
 
 ## Can I use custom VM extensions?
 
@@ -250,7 +259,7 @@ Starting with version 1.2.0, Azure CNI sets Transparent mode as default for sing
 
 ### Bridge mode
 
-Azure CNI Bridge mode creates an L2 bridge named "azure0" in a "just in time" fashion. All the host side pod `veth` pair interfaces are connected to this bridge. Pod-Pod intra VM communication and the remaining traffic goes through this bridge. The bridge is a layer 2 virtual device that on its own cannot receive or transmit anything unless you bind one or more real devices to it. For this reason, eth0 of the Linux VM has to be converted into a subordinate to "azure0" bridge. This creates a complex network topology within the Linux VM. As a symptom, CNI had to handle other networking functions, such as DNS server updates.
+Azure CNI Bridge mode creates an L2 bridge named "azure0" in a "just in time" fashion. All the host side pod `veth` pair interfaces are connected to this bridge. Pod-Pod intra VM communication and the remaining traffic go through this bridge. The bridge is a layer 2 virtual device that on its own can't receive or transmit anything unless you bind one or more real devices to it. For this reason, eth0 of the Linux VM has to be converted into a subordinate to "azure0" bridge, which creates a complex network topology within the Linux VM. As a symptom, CNI had to handle other networking functions, such as DNS server updates.
 
 :::image type="content" source="media/faq/bridge-mode.png" alt-text="Bridge mode topology":::
 
@@ -265,11 +274,11 @@ root@k8s-agentpool1-20465682-1:/#
 
 ### Transparent mode
 
-Transparent mode takes a straightforward approach to setting up Linux networking. In this mode, Azure CNI doesn't change any properties of eth0 interface in the Linux VM. This approach of changing the Linux networking properties helps reduce complex corner case issues that clusters might face with Bridge mode. In Transparent mode, Azure CNI creates and adds host-side pod `veth` pair interfaces that are added to the host network. Intra VM Pod-to-Pod communication is through ip routes added by the CNI. Essentially Pod-to-Pod communication is over layer 3 and pod traffic is routed by L3 routing rules.
+Transparent mode takes a straightforward approach to setting up Linux networking. In this mode, Azure CNI doesn't change any properties of eth0 interface in the Linux VM. This approach of changing the Linux networking properties helps reduce complex corner case issues that clusters might face with Bridge mode. In Transparent mode, Azure CNI creates and adds host-side pod `veth` pair interfaces that are added to the host network. Intra VM Pod-to-Pod communication is through ip routes added by the CNI. Essentially, Pod-to-Pod communication is over layer 3 and L3 routing rules route pod traffic.
 
 :::image type="content" source="media/faq/transparent-mode.png" alt-text="Transparent mode topology":::
 
-The following example shows a ip route setup of Transparent mode. Each Pod's interface gets a static route attached so traffic with dest IP as the Pod is sent directly to the Pod's host side `veth` pair interface.
+The following example shows an ip route setup of Transparent mode. Each Pod's interface gets a static route attached so traffic with dest IP as the Pod is sent directly to the Pod's host side `veth` pair interface.
 
 ```output
 10.240.0.216 dev azv79d05038592 proto static
@@ -287,15 +296,15 @@ The following example shows a ip route setup of Transparent mode. Each Pod's int
 
 - Provides mitigation for `conntrack` DNS parallel race condition and avoidance of 5-sec DNS latency issues without the need to set up node local DNS (you may still use node local DNS for performance reasons).
 - Eliminates the initial 5-sec DNS latency CNI bridge mode introduces today due to "just in time" bridge setup.
-- One of the corner cases in Bridge mode is that the Azure CNI can't keep updating the custom DNS server lists users add to either VNET or NIC. This results in the CNI picking up only the first instance of the DNS server list. This issue is resolved in Transparent mode, as CNI doesn't change any eth0 properties. See more [here](https://github.com/Azure/azure-container-networking/issues/713).
-- Provides better handling of UDP traffic and mitigation for UDP flood storm when ARP times out. In Bridge mode, when bridge doesn't know a MAC address of destination pod in intra-VM Pod-to-Pod communication, by design, this results in storm of the packet to all ports. This is resolved in Transparent mode  as there are no L2 devices in path. See more [here](https://github.com/Azure/azure-container-networking/issues/704).
+- One of the corner cases in Bridge mode is that the Azure CNI can't keep updating the custom DNS server lists users add to either VNET or NIC. This scenario results in the CNI picking up only the first instance of the DNS server list. This issue is resolved in Transparent mode, as CNI doesn't change any eth0 properties. See more [here](https://github.com/Azure/azure-container-networking/issues/713).
+- Provides better handling of UDP traffic and mitigation for UDP flood storm when ARP times out. In Bridge mode, when bridge doesn't know a MAC address of destination pod in intra-VM Pod-to-Pod communication, by design, it results in storm of the packet to all ports. This issue is resolved in Transparent mode, as there are no L2 devices in path. See more [here](https://github.com/Azure/azure-container-networking/issues/704).
 - Transparent mode performs better in Intra VM Pod-to-Pod communication in terms of throughput and latency when compared to Bridge mode.
 
-## How to avoid permission ownership setting slow issues when the volume has a lot of files?
+## How to avoid permission ownership setting slow issues when the volume has numerous files?
 
-Traditionally if your pod is running as a non-root user (which you should), you must specify a `fsGroup` inside the pod’s security context so the volume can be readable and writable by the Pod. This requirement is covered in more detail in [here](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
+Traditionally if your pod is running as a nonroot user (which you should), you must specify a `fsGroup` inside the pod’s security context so the volume can be readable and writable by the Pod. This requirement is covered in more detail in [here](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
 
-A side effect of setting `fsGroup` is that each time a volume is mounted, Kubernetes must recursively `chown()` and `chmod()` all the files and directories inside the volume (with a few exceptions noted below). This happens even if group ownership of the volume already matches the requested `fsGroup`. It can be expensive for larger volumes with lots of small files, which causes pod startup to take a long time. This scenario has been a known problem before v1.20, and the workaround is setting the Pod run as root:
+A side effect of setting `fsGroup` is that each time a volume is mounted, Kubernetes must recursively `chown()` and `chmod()` all the files and directories inside the volume (with a few exceptions noted below). This scenario happens even if group ownership of the volume already matches the requested `fsGroup`. It can be expensive for larger volumes with lots of small files, which can cause pod startup to take a long time. This scenario has been a known problem before v1.20, and the workaround is setting the Pod run as root:
 
 ```yaml
 apiVersion: v1
@@ -326,15 +335,15 @@ AKS nodes run the "chrony" service, which pulls time from the localhost.  Contai
 
 Any patch, including a security patch, is automatically applied to the AKS cluster. Anything bigger than a patch, like major or minor version changes (which can have breaking changes to your deployed objects), is updated when you update your cluster if a new release is available. You can find when a new release is available by visiting the [AKS release notes](https://github.com/Azure/AKS/releases).
 
-## What is the purpose of the AKS Linux Extension I see installed on my Linux VMSS instances?
+## What is the purpose of the AKS Linux Extension I see installed on my Linux Virtual Machine Scale Sets instances?
 
 The AKS Linux Extension is an Azure VM extension that installs and configures monitoring tools on Kubernetes worker nodes. The extension is installed on all new and existing Linux nodes. It configures the following monitoring tools:  
 
-- [Node-exporter](https://github.com/prometheus/node_exporter): Collects hardware telemetry from the virtual machine and makes it available using a metrics endpoint. These metrics are then able to be scraped by a monitoring tool such as Prometheus.
+- [Node-exporter](https://github.com/prometheus/node_exporter): Collects hardware telemetry from the virtual machine and makes it available using a metrics endpoint. Then, a monitoring tool, such as Prometheus, is able to scrap these metrics.
 - [Node-problem-detector](https://github.com/kubernetes/node-problem-detector): Aims to make various node problems visible to upstream layers in the cluster management stack. It's a systemd unit that runs on each node, detects node problems, and reports them to the cluster’s API server using Events and NodeConditions.
-- [Local-gadget](https://www.inspektor-gadget.io/docs/latest/local-gadget/): Uses in-kernel eBPF helper programs to monitor events mainly related to syscalls from userspace programs in a pod.
+- [Local-gadget](https://www.inspektor-gadget.io/docs/latest/local-gadget/): Uses in-kernel eBPF helper programs to monitor events related to syscalls from userspace programs in a pod.
 
-These tools assist in providing observability around many node health related problems, such as:
+These tools help provide observability around many node health related problems, such as:
 
 - Infrastructure daemon issues: NTP service down
 - Hardware issues: Bad CPU, memory, or disk
