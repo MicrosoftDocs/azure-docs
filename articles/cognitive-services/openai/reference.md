@@ -260,6 +260,14 @@ POST https://{your-resource-name}.openai.azure.com/openai/images/generations:sub
 
 - `2023-06-01-preview`
 
+**Request body**
+
+| Parameter | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| ```prompt``` | string | Required |  | A text description of the desired image(s). The maximum length is 1000 characters. |
+| ```n``` | integer | Optional | 1 | The number of images to generate. Must be between 1 and 5. |
+| ```size``` | string | Optional | 1024x1024 | The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`. |
+
 #### Example request
 
 ```console
@@ -283,12 +291,6 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
   "status": "notRunning"
 }
 ```
-
-| Parameter | Type | Required? | Default | Description |
-|--|--|--|--|--|
-| ```prompt``` | string | Required |  | A text description of the desired image(s). The maximum length is 1000 characters. |
-| ```n``` | integer | Optional | 1 | The number of images to generate. Must be between 1 and 5. |
-| ```size``` | string | Optional | 1024x1024 | The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`. |
 
 ### Get a generated image result
 
