@@ -1,4 +1,4 @@
-*---
+---
 title: Scan for secrets with agentless secret scanning
 description: Learn how to scan your server's for secrets with Defender for Server's agentless secret scanning.
 ms.topic: overview
