@@ -14,19 +14,14 @@ ms.subservice: calling
 ---
 # Part 1 Creating Your Widget
 
-To get started, we are going to make a new component. This component is the widget that you will use to start your calling experience.
+To get started, we're going to make a new component. This component is the widget that you use to start your calling experience.
 
-We will be using our own widget setup for this tutorial but you can expand the functionality to do more here. For us we will have the widget perform the following actions:
+We is using our own widget setup for this tutorial but you can expand the functionality to do more here. For us, we have the widget perform the following actions:
 - Display a custom logo, this can be replaced with another image or branding of your choosing. Feel free to download the image from the code if you would like to use our image.
 - Let the user decide if they want to have video in the call.
 - Have the user consent to the call possible being recorded.
 
-First, we are going to make a new directory `src/components` and in this directory we are going to make a new file called `ClickToCallComponent.tsx`. For the
-purpose of this tutorial we will give this component the following properties:
-
-`ClickToCallComponent.tsx`
-
-First, we will set up the widget component with some imports:
+First, we're going to make a new directory `src/components` and in this directory we're going to make a new file called `ClickToCallComponent.tsx`. let's set up the widget component with the following imports:
 
 `ClickToCallComponent.tsx`
 ```ts
@@ -35,7 +30,7 @@ import { IconButton, PrimaryButton, Stack, TextField, useTheme, Checkbox, Icon }
 import React, { useEffect, useState } from 'react';
 ```
 
-Now we will introduce a interface contianing the props that the component will use.
+Now let's introduce an interface containing the props that the component uses.
 
 `ClickToCallComponent.tsx`
 ```ts
@@ -62,14 +57,14 @@ export interface clickToCallComponentProps {
 }
 ```
 
-Each of these callbacks will control different behaviors for the calling experience.
+Each of these callbacks control different behaviors for the calling experience.
 
-- `onRenderStartCall` - This callback will used to trigger any handlers in your app to do things like create a new window for your calling experience.
-- `onRenderLogo` - This will be used as a rendering callback to have a custom logo or image render inside the widget when getting user information.
-- `onSetDisplayName` - We will use this callback to set the `displayName` of the participant when they are calling your support center.
-- `onSetUseVideo` - Finally, this callback will be used to control for our tutorial whether the user will have camera and screen sharing controls (more on that later).
+- `onRenderStartCall` - This callback is used to trigger any handlers in your app to do things like create a new window for your calling experience.
+- `onRenderLogo` - This is used as a rendering callback to have a custom logo or image render inside the widget when getting user information.
+- `onSetDisplayName` - We use this callback to set the `displayName` of the participant when they're calling your support center.
+- `onSetUseVideo` - Finally, this callback is used to control for our tutorial whether the user will have camera and screen sharing controls (more on that later).
 
-Finally, we will add the body of the component.
+Finally, we add the body of the component.
 
 `src/views/ClickToCallComponent.tsx`
 ```ts
@@ -133,7 +128,7 @@ export const ClickToCallComponent = (
           required={true}
           styles={checkboxStyles(theme)}
           label={
-            "By checking this box you are consenting that we will collect data from the call for customer support reasons"
+            "By checking this box you are consenting that we collect data from the call for customer support reasons"
           }
           onChange={(_, checked?: boolean | undefined) => {
             setConsentToData(!!checked);
@@ -183,7 +178,7 @@ export const ClickToCallComponent = (
 
 ### Time For Some Styles
 
-Once you have your component you will need some styles to give it some looks. For this we will create a new folder `src/styles` here we will create a new file called `ClickToCallComponent.styles.ts` and we will add the following styles.
+Once you have your component you need some styles to give it some looks. For this we create a new folder `src/styles` here we create a new file called `ClickToCallComponent.styles.ts` and we add the following styles.
 
 `src/styles/ClickToCallComponent.styles.ts`
 
@@ -191,9 +186,6 @@ Once you have your component you will need some styles to give it some looks. Fo
 // needed imports
 import { IButtonStyles, ICheckboxStyles, IIconStyles, IStackStyles, Theme } from '@fluentui/react';
 ```
-
-Now lets add the component's styles.
-
 `ClickToCallComponent.styles.ts`
 ```ts
 export const checkboxStyles = (theme: Theme): ICheckboxStyles => {
@@ -285,7 +277,7 @@ export const collapseButtonStyles: IButtonStyles = {
 };
 ```
 
-These styles should be added to the widget as seen in the snippet above. If you added the code above as is these styles will just need importing into the `ClickToCallComponent.tsx` file.
+These styles should already be added to the widget as seen in the snippet above. If you added the code above as is, these styles will just need importing into the `ClickToCallComponent.tsx` file.
 
 `ClickToCallComponent.tsx`
 ```ts
@@ -305,9 +297,9 @@ import {
 
 ### Adding The Widget To The App
 
-Now we will create a new folder `src/views` and add a new file for one of our pages `ClickToCallScreen.tsx`. This screen will act as our home page for the app where the user can start a new call.
+Now we create a new folder `src/views` and add a new file for one of our pages `ClickToCallScreen.tsx`. This screen will act as our home page for the app where the user can start a new call.
 
-We will want to add the following props to the page:
+We want to add the following props to the page:
 
 `ClickToCallScreen.tsx`
 
@@ -322,7 +314,7 @@ export interface ClickToCallPageProps {
 }
 ```
 
-These properties will be fed by the values that we set in `App.tsx`. We will use these props to make post messages to the app when we want to start a call in a new window (More on this later).
+These properties is fed by the values that we set in `App.tsx`. We will use these props to make post messages to the app when we want to start a call in a new window (More on this later).
 
 Next lets add the page content:
 
@@ -420,7 +412,7 @@ export const ClickToCallScreen = (props: ClickToCallPageProps): JSX.Element => {
 ```
 This page has some general information on it for what our calling experiences can currently do. We can also see that it is adding the widget component that we created earlier.
 
-Once we have this we will need to add the new view to the root of the app `App.tsx` by updating our existing `'click-to-call'` case:
+Once we have this we need to add the new view to the root of the app `App.tsx` by updating our existing `'click-to-call'` case:
 
 `App.tsx`
 ```ts
@@ -453,7 +445,7 @@ Then when you action the widget button you should see:
 
 <img src='../media/click-to-call/Sample-app-widget-open.png' width='800'>
 
-Yay! We have made the control surface for the widget! Next we will talk about what we need to add to make this widget start a call in a new window.
+Yay! We have made the control surface for the widget! Next we talk about what we need to add to make this widget start a call in a new window.
 
 > [!div class="nextstepaction"]
 > [Part 2: Creating a new window calling experience](./click-to-call-tutorial-part-2-creating-new-window-experience.md)
