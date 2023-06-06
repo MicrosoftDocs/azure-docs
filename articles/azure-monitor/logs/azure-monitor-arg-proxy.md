@@ -49,6 +49,8 @@ arg("").<Azure-Resource-Graph-table-name>
 
 Use the `union` command to combine cluster tables with a Log Analytics workspace.
 
+For example:
+
 ```kusto
 union AzureActivity, arg("").Resources
 | take 10
@@ -83,6 +85,8 @@ adx('https://help.kusto.windows.net/Samples').StormEvents
 
 Use the `union` command to combine cluster tables with a Log Analytics workspace.
 
+For example:
+
 ```kusto
 union customEvents, adx('https://help.kusto.windows.net/Samples').StormEvents
 | take 10
@@ -95,7 +99,9 @@ union customEvents, CL1 | take 10
 > [!TIP]
 > Shorthand format is allowed: *ClusterName*/*InitialCatalog*. For example, `adx('help/Samples')` is translated to `adx('help.kusto.windows.net/Samples')`.
 
-When you use the [`join` operator](/azure/data-explorer/kusto/query/joinoperator) instead of union, you're required to use a [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) to combine the data in the Azure Data Explorer cluster with the Log Analytics workspace. Use `Hint.remote={Direction of the Log Analytics Workspace}`. For example:
+When you use the [`join` operator](/azure/data-explorer/kusto/query/joinoperator) instead of union, you're required to use a [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) to combine the data in the Azure Data Explorer cluster with the Log Analytics workspace. Use `Hint.remote={Direction of the Log Analytics Workspace}`. 
+
+For example:
 
 ```kusto
 AzureDiagnostics
