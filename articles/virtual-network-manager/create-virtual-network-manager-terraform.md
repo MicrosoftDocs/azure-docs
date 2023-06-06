@@ -97,19 +97,11 @@ In this article, you learn how to:
 1. For each virtual network name printed in the previous step, run [az network manager list-effective-connectivity-config](/cli/azure/network/manager#az-network-manager-list-effective-connectivity-config) to print the effective (applied) configurations. Replace the `<virtual_network_name>` placeholder with the vnet name.
 
     ```azurecli
-		az network manager list-effective-connectivity-config \
+    az network manager list-effective-connectivity-config \
       --resource-group $resource_group_name \
       --vnet-name <virtual_network_name>
-		```
-    
-1. Run [az network traffic-manager profile show](/cli/azure/network/traffic-manager/profile#az-network-traffic-manager-profile-show) to display information about the new Traffic Manager profile.
-
-    ```azurecli
-    az network traffic-manager profile show \
-        --resource-group $resource_group_name \
-        --name $azurerm_traffic_manager_profile_name
     ```
-
+    
 ---
 
 ## Clean up resources
