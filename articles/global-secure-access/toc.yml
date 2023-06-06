@@ -49,10 +49,10 @@ items:
   - name: Traffic forwarding profiles
     expanded: false
     items:
-      - name: Enable Microsoft 365 profile
-        href: how-to-enable-microsoft-365-profile.md
-      - name: Enable Private access profile
-        href: how-to-enable-private-access-profile.md
+      - name: Mange the Microsoft 365 profile
+        href: how-to-manage-microsoft-365-profile.md
+      - name: Manage the Private Access profile
+        href: how-to-manage-private-access-profile.md
   - name: Applications
     expanded: false
     items:

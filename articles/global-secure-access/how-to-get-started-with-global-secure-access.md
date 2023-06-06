@@ -23,7 +23,7 @@ Microsoft Entra Private Access provides a secure, zero-trust access solution for
 To set up Microsoft Entra Private Access, complete the following steps:
 
 1. [Configure quick access to your private resources](how-to-configure-quick-access.md)
-1. [Enable the Private access traffic forwarding profile](how-to-enable-private-access-profile.md)
+1. [Manage the Private access traffic forwarding profile](how-to-manage-private-access-profile.md)
 1. [Install the Global Secure Access client on end-user devices](how-to-install-windows-client.md)
 
 ## Microsoft Entra Internet Access
@@ -32,7 +32,7 @@ Microsoft Entra Internet Access isolates the traffic for Microsoft 365 applicati
 
 To set up Microsoft Entra Internet Access, complete the following steps:
 
-1. [Enable the Microsoft 365 traffic forwarding profile](how-to-enable-microsoft-365-profile.md)
+1. [Manage the Microsoft 365 traffic forwarding profile](how-to-manage-microsoft-365-profile.md)
 1. [Create a remote network](how-to-manage-remote-networks.md)
 1. [Add device links to your remote network](how-to-manage-remote-network-device-links.md)
 1. [Install the Global Secure Access client on end-user devices](how-to-install-windows-client.md)
@@ -68,7 +68,7 @@ For more information, see [Global Secure Access traffic forwarding profiles](con
 **To enable traffic forwarding profiles**:
 
 1. Select the **Enable Forwarding profiles** link to configure your traffic forwarding profiles.
-1. Follow the documentation to configure your [Microsoft 365 profile](how-to-enable-microsoft-365-profile.md) or your [private access profile](how-to-enable-private-access-profile.md).
+1. Follow the documentation to configure your [Microsoft 365 profile](how-to-manage-microsoft-365-profile.md) or your [private access profile](how-to-manage-private-access-profile.md).
 1. Either select the breadcrumb at the top of the page or close the window using the **X** in the upper-right corner.
 
 #### Install the client or configure remote networks

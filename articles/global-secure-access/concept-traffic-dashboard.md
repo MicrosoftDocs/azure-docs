@@ -27,16 +27,12 @@ Viewing the Global Secure Access dashboard requires a Reports Reader role in Mic
 
 To access the dashboard:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/#home) as a **Security Administrator** or **Global Administrator**.
-1. Go to **Global Secure Access**.
-1. Select **Network access** from the side menu.
-1. Select **Dashboard**.
-
-If you're accessing the dashboard for the first time, we recommend viewing the **Guided tour**. The widgets are categorized by network deployment, product deployment, and product insights.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/#home).
+1. Go to **Global Secure Access (preview)** > **Dashboard**.
 
 ## Relationship map
 
-This widget provides a summary of how many users and devices are using the service and how many applications that were secured through the service. 
+This widget provides a summary of how many users and devices are using the service and how many applications were secured through the service. 
 
 - **Users**: The number of distinct users seen in the last 24 hours. The data uses the *user principal name (UPN)*.
 - **Devices**: The number of distinct devices seen in the last 24 hours. The data uses the *device ID*.
@@ -59,7 +55,7 @@ There are two product insights widgets that look at your cross-tenant access and
 
 ### Cross-tenant access
 
-- **Sign-ins**: The number of sign-ins through Microsoft Entra ID to Microsoft 365 in the last 24 hours.  provides you with information about the number of sign-ins, distinct tenant IDs, unseen tenants, distinct users signing in, and devices signing in. The widget also displays the top-visited destinations the devices are accessing.
+- **Sign-ins**: The number of sign-ins through Microsoft Entra ID to Microsoft 365 in the last 24 hours. This widget provides you with information about the activity in your tenant. 
 - **Total distinct tenants**: The number of distinct tenant IDs seen in the last 24 hours.
 - **Unseen tenants**: The number of distinct tenant IDs that were seen in the last 24 hours, but not in the previous 7 days.
 - **Users**: The number of distinct user sign-ins to other tenants in the last 24 hours. 
@@ -69,13 +65,13 @@ There are two product insights widgets that look at your cross-tenant access and
 
 ### Top used destinations
 
-You can change this widget to view the top 5 destinations by users, devices, and transactions.
+The top-visited destinations are displayed in the second product insight widget. You can change this view to look at the following options:
 
-- **Default**: Total number of transactions in the last 24 hours. 
+- **Transactions**: Displayed by default and shows the total number of transactions in the last 24 hours. 
 - **Users**: The number of distinct users (UPN) accessing the destination in the last 24 hours.
 - **Devices**: The number of distinct device IDs accessing the destination in the last 24 hours.
 
-![Screenshot of the top used destinations widget.](media/concept-traffic-dashboard/product-insights-top-destinations.png)
+![Screenshot of the top destinations widget with the number of transactions field highlighted.](media/concept-traffic-dashboard/product-insights-top-destinations.png)
 
 ## Next steps
 

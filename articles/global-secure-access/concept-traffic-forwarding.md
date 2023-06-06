@@ -42,6 +42,6 @@ With the Private Access profile you can route traffic to your private apps and r
 
 ## Next steps
 
-- [Enable the Microsoft 365 traffic profile](how-to-enable-microsoft-365-profile.md)
+- [Manage the Microsoft 365 traffic profile](how-to-manage-microsoft-365-profile.md)
 - [Configure quick access](how-to-configure-quick-access.md)
-- [How to enable the Private access traffic profile](how-to-enable-private-access-profile.md)
+- [How to manage the Private access traffic profile](how-to-manage-private-access-profile.md)
