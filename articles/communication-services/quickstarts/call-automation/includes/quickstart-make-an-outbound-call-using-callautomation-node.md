@@ -24,6 +24,8 @@ Find the complete sample code for this quick start on [GitHub](https://github.co
 - A [phone number](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number) in your Azure Communication Services resource that can make outbound calls
 - Create and host a Azure Dev Tunnel. Instructions [here](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/get-started?tabs=macos)
 - [Node.js](https://nodejs.org/en/) LTS installation.
+- [Visual Studio Code](https://code.visualstudio.com/download) installed
+
 
 ## Setup the environment
 
@@ -67,6 +69,7 @@ To make the outbound call from ACS, you will leverage the phone number you provi
 
 The code below will create make an outbound call using the target_phone_number you've provided and place an outbound call to that number: 
 
+
 ```typescript
 const callInvite: CallInvite = {
     targetParticipant: callee,
@@ -76,7 +79,7 @@ const callInvite: CallInvite = {
   };
 
   console.log("Placing outbound call...");
-  acsClient.createCall(callInvite, process.env.CALLBACK_URI + "ongoingcall");
+  acsClient.createCall(callInvite, process.env.CALLBACK_URI + "/api/callbacks");
 ```
 
 ## Start Recording a Call
@@ -125,34 +128,35 @@ In the code below, we pass the audio file into the `CallMediaRecognizeDtmfOption
 
 ```typescript
 const audioPrompt: FileSource = {
-  url: MEDIA_URI + "MainMenu.wav",
-  kind: "fileSource",
+    url: process.env.MEDIA_CALLBACK_URI + "MainMenu.wav",
+    kind: "fileSource",
 };
 
 const recognizeOptions: CallMediaRecognizeDtmfOptions = {
-  playPrompt: audioPrompt,
-  kind: "callMediaRecognizeDtmfOptions",
+    playPrompt: audioPrompt,
+    kind: "callMediaRecognizeDtmfOptions",
 };
 
 await callConnection.getCallMedia().startRecognizing(callee, 1, recognizeOptions);
 ```
+
 
 ## Recognize DTMF Events
 
 When the telephony endpoint selects a DTMF tone, ACS Call Automation will trigger the webhook we have setup and notify us with the `Microsoft.Communication.RecognizeCompleted` event. This gives us the ability to respond to a specific DTMF tone and trigger an action. 
 
 ```typescript
- if (event.type === "Microsoft.Communication.RecognizeCompleted") {
-    const tone = event.data.dtmfResult.tones[0];
-    console.log("Received RecognizeCompleted event, with following tone: " + tone);
+else if (event.type === "Microsoft.Communication.RecognizeCompleted") {
+  const tone = event.data.dtmfResult.tones[0];
+  console.log("Received RecognizeCompleted event, with following tone: " + tone);
 
-    if (tone === "one") {
-      await playAudio("Confirmed.wav");
-      terminateCall = true;
-    } else {
-      await playAudio("Goodbye.wav");
-    }
- }
+  if (tone === "one")
+    await playAudio("Confirmed.wav");
+  else if (tone === "two")
+    await playAudio("Goodbye.wav");
+  else
+    await playAudio("Invalid.wav");
+} 
 ```
 
 ## Hang up the call
@@ -166,16 +170,10 @@ Finally, when we detect a condition that makes sense for us to terminate the cal
 
 ## Run the code
 
-# [Visual Studio Code](#tab/visual-studio-code)
-
-To run the application with VS Code, open a Terminal window and run the following command
+To run the application, open a Terminal window and run the following command:
 
 ```bash
-node app.ts
+  npm run dev
 ```
-
-# [Visual Studio](#tab/visual-studio)
-
-Press Ctrl+F5 to run without the debugger.
 
 
