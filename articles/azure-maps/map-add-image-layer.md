@@ -47,7 +47,7 @@ map.layers.add(new atlas.layer.ImageLayer({
 
 For a fully functional sample that shows how to overlay an image of a map of Newark New Jersey from 1922 as an Image layer, see [Simple Image Layer] in the [Azure Maps Samples].
 
-:::image type="content" source="./media/map-add-image-layer/simple-image-layer.png" alt-text="A screenshot showing a map with an image overlaying the map in a simple image layer.":::
+:::image type="content" source="./media/map-add-image-layer/simple-image-layer.png" alt-text="A screenshot showing a map with an image of a map of Newark New Jersey from 1922 as an Image layer.":::
 
 <!-----------------------------------------------------------------------------------------------
 <iframe height='500' scrolling='no' title='Simple Image Layer' src='//codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/eQodRo/'>Simple Image Layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -62,7 +62,7 @@ The code uses the static `getCoordinatesFromEdges` function from the [ImageLayer
 
 For a fully functional sample that shows how to use a KML Ground Overlay as Image Layer, see [KML Ground Overlay as Image Layer] in the [Azure Maps Samples].
 
-:::image type="content" source="./media/map-add-image-layer/kml-ground-overlay-as-image-layer.png" alt-text="A screenshot showing a map with an image overlaying the map in a simple image layer.":::
+:::image type="content" source="./media/map-add-image-layer/kml-ground-overlay-as-image-layer.png" alt-text="A screenshot showing a map with a KML Ground Overlay appearing as Image Layer.":::
 
 <!-----------------------------------------------------------------------------------------------
 <iframe height='500' scrolling='no' title='KML Ground Overlay as Image Layer' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>KML Ground Overlay as Image Layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
