@@ -23,7 +23,7 @@ To start lets take a look at the props for the `ClickToCallComponent.tsx` props,
 
 `ClickToCallComponent.tsx`
 
-```typescript
+```ts
 export interface ClickToCallComponentProps {
     /**
      *  arguments for creating an AzureCommunicationCallAdapter for your Calling experience
@@ -55,7 +55,7 @@ export interface ClickToCallComponentProps {
 Now we will need to introduce some logic to use these arguments to make sure that we are starting a call appropriately. This will include adding state to create an `AzureCommunicationCallAdapter` inside the widget itself so it will look a lot like the logic in `NewWindowCallScreen.tsx` adding the adapter to the widget will look something like this:
 
 `ClickToCallComponent.tsx`
-```typescript
+```ts
 // add this to the other imports
 
 import { CommunicationUserIdentifier, AzureCommunicationTokenCredential } from '@azure/communication-common';
@@ -71,7 +71,7 @@ import { AdapterArgs } from '../utils/AppUtils';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 ```
-```typescript
+```ts
 
     const credential = useMemo(() => {
         try {
@@ -99,7 +99,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 Lets also add a `afterCreate` function like before to do a few things with our adapter once it is constructed. Since we are now interacting with state in the widget we will want to use a react `useCallback` just to make sure we are not defining this function every time we do a render pass. In our case our function will reset the widget to the `'new'` state when the call ends and clear the user's `displayName` so they can start a new session. You can however return it to the `'setup'` state with the old displayName so that can easily call again as well.
 
 `ClickToCallComponent.tsx`
-```typescript
+```ts
 
     const afterCreate = useCallback(async (adapter: CallAdapter): Promise<CallAdapter> => {
         adapter.on('callEnded',() => {
@@ -117,7 +117,7 @@ Lets also add a `afterCreate` function like before to do a few things with our a
 Once we again have an adapter we will need to update the template to account for a new widget state, so on that note we will also need to add to the different modes that the widget itself can hold. We will add a new `'inCall'` state like so:
 
 `ClickToCallComponent.tsx`
-```typescript
+```ts
 
 const [widgetState, setWidgetState] = useState<'new' | 'setup' | 'inCall'>('new');
 
@@ -126,7 +126,7 @@ const [widgetState, setWidgetState] = useState<'new' | 'setup' | 'inCall'>('new'
 Then we will need to add a new logic to our Start Call button in the widget that will check to see which mode it will start the call, new window or embedded. That logic is as follows:
 
 `ClickToCallComponent.tsx`
-```typescript
+```ts
 
     <PrimaryButton
         styles={startCallButtonStyles(theme)}
@@ -148,14 +148,14 @@ Then we will need to add a new logic to our Start Call button in the widget that
 We will also want to introduce some interal state to the widget about the local user's video controls.
 
 `ClickToCallComponent.tsx`
-```typescript
+```ts
 const [useLocalVideo, setUseLocalVideo] = useState<boolean>(false);
 ```
 
 Then lets go back to our style sheet for the wdiget. We will need to add new styles to allow the `CallComposite` to grow to its minimum size.
 
 `ClickToCallComponent.styles.ts`
-```typescript
+```ts
 export const clickToCallInCallContainerStyles = (theme: Theme): IStackStyles => {
   return {
     root: {
@@ -178,7 +178,7 @@ export const clickToCallInCallContainerStyles = (theme: Theme): IStackStyles => 
 Finally in the widget we will need to add a section to the template that is when the widget is in the `'inCall'` state that we added earlier. So now we should have our template looking as follows:
 
 `ClickToCallComponent.tsx`
-```typescript
+```ts
 if (widgetState === 'setup' && onSetDisplayName && onSetUseVideo) {
         return (
             <Stack styles={clicktoCallSetupContainerStyles(theme)} tokens={{ childrenGap: '1rem' }}>
@@ -277,7 +277,7 @@ Now that we have updated our widget to be more versitile we will want to take an
 That looks like this:
 
 `ClickToCallScreen.tsx`
-```typescript
+```ts
 
     <Stack horizontal tokens={{ childrenGap: '1.5rem' }} style={{ overflow: 'hidden', margin: 'auto' }}>
         <ClickToCallComponent

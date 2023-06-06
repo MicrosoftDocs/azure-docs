@@ -74,7 +74,7 @@ To get us started we will replace the provided `App.tsx` content with a main pag
 
 `src/App.tsx`
 
-```typescript
+```ts
 // imports needed
 import { CallAdapterLocator } from '@azure/communication-react';
 import './App.css';
@@ -84,7 +84,7 @@ import { Spinner, Stack, initializeIcons, registerIcons } from '@fluentui/react'
 import { CallAdd20Regular, Dismiss20Regular } from '@fluentui/react-icons';
 ```
 
-```typescript
+```ts
 type AppPages = "click-to-call" | "same-origin-call";
 
 registerIcons({

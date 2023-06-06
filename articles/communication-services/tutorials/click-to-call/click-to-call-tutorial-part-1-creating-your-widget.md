@@ -29,7 +29,7 @@ purpose of this tutorial we will give this component the following properties:
 First, we will set up the widget component with some imports:
 
 `ClickToCallComponent.tsx`
-```typescript
+```ts
 // imports needed
 import { IconButton, PrimaryButton, Stack, TextField, useTheme, Checkbox, Icon } from '@fluentui/react';
 import React, { useEffect, useState } from 'react';
@@ -38,7 +38,7 @@ import React, { useEffect, useState } from 'react';
 Now we will introduce a interface contianing the props that the component will use.
 
 `ClickToCallComponent.tsx`
-```typescript
+```ts
 export interface clickToCallComponentProps {
   /**
    * Handler to start a new call.
@@ -72,7 +72,7 @@ Each of these callbacks will control different behaviors for the calling experie
 Finally, we will add the body of the component.
 
 `src/views/ClickToCallComponent.tsx`
-```typescript
+```ts
 /**
  * Widget for Click to Call
  * @param props
@@ -187,7 +187,7 @@ Once you have your component you will need some styles to give it some looks. Fo
 
 `src/styles/ClickToCallComponent.styles.ts`
 
-```typescript
+```ts
 // needed imports
 import { IButtonStyles, ICheckboxStyles, IIconStyles, IStackStyles, Theme } from '@fluentui/react';
 ```
@@ -195,7 +195,7 @@ import { IButtonStyles, ICheckboxStyles, IIconStyles, IStackStyles, Theme } from
 Now lets add the component's styles.
 
 `ClickToCallComponent.styles.ts`
-```typescript
+```ts
 export const checkboxStyles = (theme: Theme): ICheckboxStyles => {
   return {
     label: {
@@ -288,7 +288,7 @@ export const collapseButtonStyles: IButtonStyles = {
 These styles should be added to the widget as seen in the snippet above. If you added the code above as is these styles will just need importing into the `ClickToCallComponent.tsx` file.
 
 `ClickToCallComponent.tsx`
-```typescript
+```ts
 
 // add to other imports
 import {
@@ -311,7 +311,7 @@ We will want to add the following props to the page:
 
 `ClickToCallScreen.tsx`
 
-```typescript
+```ts
 export interface ClickToCallPageProps {
   token: string;
   userId:
@@ -327,7 +327,7 @@ These properties will be fed by the values that we set in `App.tsx`. We will use
 Next lets add the page content:
 
 `ClickToCallScreen.tsx`
-```typescript
+```ts
 // imports needed
 import { CommunicationUserIdentifier, MicrosoftTeamsUserIdentifier } from '@azure/communication-common';
 import { Stack, Text } from '@fluentui/react';
@@ -336,7 +336,7 @@ import { ClickToCallComponent } from '../components/ClickToCallComponent';
 import { CallAdapterLocator } from '@azure/communication-react';
 import hero from '../hero.svg';
 ```
-```typescript
+```ts
 export const ClickToCallScreen = (props: ClickToCallPageProps): JSX.Element => {
   const { token, userId, callLocator, alternateCallerId } = props;
 
@@ -423,14 +423,14 @@ This page has some general information on it for what our calling experiences ca
 Once we have this we will need to add the new view to the root of the app `App.tsx` by updating our existing `'click-to-call'` case:
 
 `App.tsx`
-```typescript
+```ts
 // add this with the other imports
 
 import { ClickToCallScreen } from './views/ClickToCallScreen';
 
 ```
 
-```typescript
+```ts
     
     case 'click-to-call': {
         if (!token || !userId || !locator) {

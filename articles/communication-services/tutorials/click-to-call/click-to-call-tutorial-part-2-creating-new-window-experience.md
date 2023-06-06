@@ -19,7 +19,7 @@ Now that we have a running application with our widget on the home page, we will
 To start we will create a new view in the `src/views` folder called `NewWindowCallScreen.tsx`. This new screen will be used by the `App.tsx` file to go into a new call with the arguments provided to it using our `CallComposite`. The `CallComposite` can be swapped with a stateful client and UI component experience if desired as well, but that will not be covered in this tutorial. See our [storybook documentation](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-statefulcallclient--page) for more information about the stateful client.
 
 `src/views/NewWindowCallScreen.tsx`
-```typescript
+```ts
 // imports needed
 import { CommunicationUserIdentifier, AzureCommunicationTokenCredential } from '@azure/communication-common';
 import {
@@ -31,7 +31,7 @@ import {
 import { Spinner, Stack } from '@fluentui/react';
 import React, { useMemo } from 'react';
 ```
-```typescript
+```ts
 export const SameOriginCallScreen = (props: {
   adapterArgs: {
     userId: CommunicationUserIdentifier;
@@ -147,7 +147,7 @@ Now we will want to update the splash screen we created earlier. First we will a
 
 `ClickToCallScreen.tsx`
 
-```typescript
+```ts
     
     const [userDisplayName, setUserDisplayName] = useState<string>();
     const newWindowRef = useRef<Window | null>(null);
@@ -158,7 +158,7 @@ Now we will want to update the splash screen we created earlier. First we will a
 Next we will create a handler that we pass to our widget that will create a new window that will start the process of sending the post messages.
 
 `ClickToCallScreen.tsx`
-```typescript
+```ts
     
     const startNewWindow = useCallback(() => {
         const startNewSessionString = 'newSession=true';
@@ -176,7 +176,7 @@ This handler starts a new window position and place a new query arg in the windo
 Next we will add a `useEffect` hook that is creating a event handler listening for new post messages from the child window.
 
 `ClickToCallScreen.tsx`
-```typescript
+```ts
     
     useEffect(() => {
         window.addEventListener('message', (event) => {
@@ -205,7 +205,7 @@ This handler will listen for events from the child window. (**NOTE: make sure th
 Finally on this screen we will add the `startNewWindow` handler to the widget so that it knows to create the new window.
 
 `ClickToCallScreen.tsx`
-```typescript
+```ts
     
     <Stack horizontal tokens={{ childrenGap: '1.5rem' }} style={{ overflow: 'hidden', margin: 'auto' }}>
         <ClickToCallComponent
@@ -231,7 +231,7 @@ Next we will need to make sure that our application can listen for and ask for t
 To do that lets add a new folder `src/utils` and in this folder we will add the file `AppUtils.ts`. In this file we will put the following function:
 
 `AppUtils.ts`
-```typescript
+```ts
 /**
  * get go ahead to request for adapter args from url
  * @returns
@@ -247,7 +247,7 @@ This function will take a look into our applications URL and see if the param we
 As well we will want to add a new type in here to track the different pieces needed to create a `AzureCommunicationCallAdapter`. This type can also be simplified if you are using our calling stateful client, this approach will not be covered in this tutorial though.
 
 `AppUtils.ts`
-```typescript
+```ts
 /**
  * Properties needed to create a call screen for a Azure Communications CallComposite.
  */
@@ -265,14 +265,14 @@ Once we have added these two things we can go back to the `App.tsx` file to make
 First thing we will want to do is update `App.tsx` to use that new utility function that we created above, we will want to use a `useMemo` hook for this so that it is fetched exactly once and not at every render. That is done like so:
 
 `App.tsx`
-```typescript
+```ts
 // you will need to add these imports
 import { useMemo } from 'react';
 import { AdapterArgs, getStartSessionFromURL } from './utils/AppUtils';
 
 ```
 
-```typescript
+```ts
 
   const startSession = useMemo(() => {
     return getStartSessionFromURL();
@@ -283,7 +283,7 @@ import { AdapterArgs, getStartSessionFromURL } from './utils/AppUtils';
 Following this we will want to add some state to make sure that we are tracking the new args for the adapter. We will pass these to the `SameOriginCallScreen.tsx` that we made earlier so it can construct an adapter. As well state to track whether the user wants to use video controls or not.
 
 `App.tsx`
-```typescript
+```ts
 /**
    * Properties needed to start an Azure Communications Call Adapter. When these are set the app will go to the Call screen for the
    * Click to Call scenario. Call screen should create the credential that will be used in the call for the user.
@@ -295,11 +295,11 @@ Following this we will want to add some state to make sure that we are tracking 
 We now want to add an event listener to `App.tsx` to listen for post messages. Insert a `useEffect` hook with an empty dependency array so that we add the listener only once on the initial render.
 
 `App.tsx`
-```typescript
+```ts
 import { CallAdapterLocator } from "@azure/communication-react";
 import { CommunicationIdentifier } from '@azure/communication-common';
 ```
-```typescript
+```ts
 
   useEffect(() => {
     window.addEventListener('message', (event) => {
@@ -327,7 +327,7 @@ Next we will want to add two more `useEffect` hooks to `App.tsx` these two hooks
 - Checks to see if we have the arguments appropriately set from the event listener above to start a call and change the app page to be the call screen.
 
 `App.tsx`
-```typescript
+```ts
 
   useEffect(() => {
     if (startSession) {
@@ -349,14 +349,14 @@ Next we will want to add two more `useEffect` hooks to `App.tsx` these two hooks
 Finally once we have done that we will want to add the new screen that we made earlier to the template as well. We will also want to make sure that we do not show the Click to call screen if the `startSession` parameter is found, this will avoid a flash for the user.
 
 `App.tsx`
-```typescript
+```ts
 // add with other imports
 
 import { SameOriginCallScreen } from './views/NewWindowCallScreen';
 
 ```
 
-```typescript
+```ts
 
   switch (page) {
     case 'click-to-call': {
