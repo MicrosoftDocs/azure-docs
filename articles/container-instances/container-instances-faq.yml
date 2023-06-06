@@ -195,31 +195,31 @@ sections:
       - question: | 
           What are ACI Spot containers?
         answer: |
-         ACI spot containers is new feature that allows customers to run interruptible, containerized workloads on unused Azure capacity at up to 70% discounted prices vs regular-priority ACI containers.
+          ACI Spot containers are a new feature that allows customers to run interruptible, containerized workloads on unused Azure capacity at up to 70% discounted prices vs regular-priority ACI containers.
       - question: | 
           When should I use ACI Spot containers?     
         answer: |
-         ACI spot containers may be preempted when Azure has insufficient surplus capacity and customers are billed for per-second memory/core usage. With ACI Spot Containers, you can now run your containerized workloads such as batch processing, monte carlo simulations, dev/test workloads and parallelizable offline workloads that can tolerate interruptions on Azure at a fraction of the cost of traditional ACI pricing. This offering is targeted at customers who wants to run interruptible workloads with no strict availability requirement. 
+          ACI Spot containers may be preempted when Azure has insufficient surplus capacity and customers are billed for per-second memory/core usage. With ACI Spot Containers, you can now run your containerized workloads such as batch processing, monte carlo simulations, dev/test workloads and parallelizable offline workloads that can tolerate interruptions on Azure at a fraction of the cost of traditional ACI pricing. This offering is targeted at customers who wants to run interruptible workloads with no strict availability requirement. 
       - question: |
           Are there any features that aren't supported on ACI spot containers?
         answer: | 
-          GPU based ACI contaienr deployments, availability zones, support for ACI deployments with Public IP and ACI deployments behind custom virtual network with Private IP aren't supported with Spot containers. 
+          GPU based ACI container deployments, availability zones, support for ACI deployments with Public IP and ACI deployments behind custom virtual network with Private IP aren't supported with Spot containers. 
       - question: | 
           What is the default quota for ACI Spot containers?
         answer: |
-         All customers get a default quota of 10 vCPU cores and 10 container groups.
+          All customers get a default quota of 10 vCPU cores and 10 container groups.
       - question: | 
-           How do I file quota requests for ACI Spot containers?
+          How do I file quota requests for ACI Spot containers?
         answer: |
-           Customers can file support request to increase capacity for Spot containers by  selecting the issue type as "Services and Subscription limits(quotas)" and new quota type as "StandardSpotCores" added for ACI Spot containers offering when you are requested to fill in the requested details.
+          Customers can file support request to increase capacity for Spot containers by  selecting the issue type as "Services and Subscription limits(quotas)" and new quota type as "StandardSpotCores" added for ACI Spot containers offering when you are requested to fill in the requested details.
       - question: |
           What regions are ACI Spot containers available?
         answer: |
-          Azure Container Instances(ACI) Spot containers are only available in select regions during Public Preview. Current region availability is published [here](container-instances-region-availability.md).
+          Azure Container Instances(ACI) Spot containers are only available in select regions during Public Preview. See [Resource and region availability](container-instances-region-availability.md) for more information.
       - question: |
           Is there an additional cost for ACI Spot containers?
         answer: |
-          ACI Spot containers are offered at discounted price and offers upto 70% discount on top of regular priority ACI containers. The discounts would vary per month in each region. For more details, see [pricing page](https://azure.microsoft.com/pricing/details/container-instances/).
+          ACI Spot containers are offered at discounted price and offers upto 70% discount on top of regular priority ACI containers. The discounts would vary per month in each region. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/container-instances/).
 
 additionalContent: |
 
