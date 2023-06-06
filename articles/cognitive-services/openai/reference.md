@@ -284,6 +284,12 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
 }
 ```
 
+| Parameter | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| ```prompt``` | string | Required |  | A text description of the desired image(s). The maximum length is 1000 characters. |
+| ```n``` | integer | Optional | 1 | The number of images to generate. Must be between 1 and 5. |
+| ```size``` | string | Optional | 1024x1024 | The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens can't exceed the model's context length. Most models have a context length of 2048 tokens (except for the newest models, which support 4096). |
+
 ### Get a generated image result
 
 
