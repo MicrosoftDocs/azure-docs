@@ -388,12 +388,12 @@ Assign the iRule to the BIG-IP Virtual Server.
 3.    From the top navigation bar, select **Virtual Server**.
 4.    For **Advanced Settings**, select **On*.
 
-![Screenshot of the Advanced Aettings option on Virtual Server Properties.](./media/f5-big-ip-easy-button-oracle-peoplesoft/enable-advanced-settings.png)
+    ![Screenshot of the Advanced Aettings option on Virtual Server Properties.](./media/f5-big-ip-easy-button-oracle-peoplesoft/enable-advanced-settings.png)
 
 4.    Scroll to the bottom.
 5.    Under **Common**, add the iRule you created.
 
-![Screenshot of the irule under Common on Virtual Server Configuration.](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-irule.png)
+    ![Screenshot of the irule under Common on Virtual Server Configuration.](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-irule.png)
  
 5.    Select **Save**.
 6.    Select **Next**.
@@ -449,7 +449,7 @@ Use BIG-IP logging to isolate issues with connectivity, SSO, policy violations, 
 
 ### Log verbosity
 
-1. Navigate to **Access Policy > Overview.
+1. Navigate to **Access Policy > Overview**.
 2. Select **Event Logs**.
 3. Select **Settings**.
 4. Select the row of your published application. 
