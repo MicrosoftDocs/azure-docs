@@ -3,7 +3,7 @@ title: Architecture
 description: Explains how to register the ALI source provider.
 ms.topic: conceptual
 author: jjaygbay
-ms.author: jjaygbay
+ms.author: jacobjaygbay
 ms.subservice: baremetal-epic
 ms.date: 06/01/2023
 ---
