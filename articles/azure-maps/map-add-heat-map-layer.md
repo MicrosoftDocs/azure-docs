@@ -48,7 +48,7 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 }), 'labels');
 ```
 
-The [Simple Heat Map Layer] sample demonstrates how to create a simple heat map from a data set of point features, as shown in the following screenshot.
+The [Simple Heat Map Layer] sample demonstrates how to create a simple heat map from a data set of point features.
 
 :::image type="content" source="./media/map-add-heat-map-layer/add-a-heat-map-layer.png" alt-text="Screenshot showing a map displaying a heat map.":::
 
@@ -79,7 +79,7 @@ The previous example customized the heat map by setting the radius and opacity o
   However, if you use an expression, the weight of each data point can be based on the properties of each data point. For example, suppose each data point represents an earthquake. The magnitude value has been an important metric for each earthquake data point. Earthquakes happen all the time, but most have a low magnitude, and aren't noticed. Use the magnitude value in an expression to assign the weight to each data point. By using the magnitude value to assign the weight, you get a better representation of the significance of earthquakes within the heat map.
 - `source` and `source-layer`: Enable you to update the data source.
 
-The [Heat Map Layer Options] sample shows how the different options of the heat map layer affect rendering.
+The [Heat Map Layer Options] sample shows how the different options of the heat map layer that affects rendering.
 
 :::image type="content" source="./media/map-add-heat-map-layer/heat-map-layer-options.png" alt-text="Screenshot showing a map displaying a heat map.":::
 
