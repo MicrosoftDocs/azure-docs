@@ -173,7 +173,7 @@ Azure AD also provides information on the actions that are being performed withi
 
 ## Next steps
 
-* [Introduction to delegated administration and isolated environments](secure-with-azure-ad-introduction.md)
+* [Introduction to delegated administration and isolated environments](secure-introduction.md)
 
 * [Azure resource management fundamentals](secure-with-azure-ad-resource-management.md)
 
