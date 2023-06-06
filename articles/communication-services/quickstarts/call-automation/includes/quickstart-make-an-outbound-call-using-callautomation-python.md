@@ -71,10 +71,6 @@ CALLBACK_URI_HOST = "<CALLBACK_URI_HOST_WITH_PROTOCOL>"
 
 To make the outbound call from ACS, first you will to provide the phone number you want to receive the call. To make it simple, you can update the `target_phone_number` with a phone number in the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 
-```python
-target_phone_number = "MY_PHONE_NUMBER"
-```
-
 The code below will create make an outbound call using the target_phone_number you've provided and place an outbound call to that number: 
 
 ```python

@@ -36,7 +36,9 @@ npm install
 [Azure DevTunnels](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the command below to connect your local development environment to the public internet. We will then use this endpoint to notify your application of calling events from the ACS Call Automation service.
 
 ```bash
-devtunnel host -n MY_TUNNEL_NAME -p MY_NODEAPP_PORT 
+devtunnel create --allow-anonymous
+devtunnel port create -p 8080
+devtunnel host
 ```
 
 ## Update your application configuration
@@ -49,7 +51,7 @@ Then update your `.env` file with following values:
 - `ACS_RESOURCE_PHONE_NUMBER`: update this field with with the ACS phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 
 
-```bash
+```dosini
 CONNECTION_STRING="<YOUR_CONNECTION_STRING>"
 ACS_RESOURCE_PHONE_NUMBER ="<YOUR_ACS_NUMBER>"
 TARGET_PHONE_NUMBER="<+1XXXXXXXXXX>"
