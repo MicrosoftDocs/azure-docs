@@ -5,24 +5,33 @@ description: Learn how to deploy Bastion with default settings from the Azure po
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 09/09/2022
+ms.date: 06/06/2023
 ms.author: cherylmc
 
 ---
 
 # Quickstart: Deploy Azure Bastion with default settings
 
-In this quickstart, you'll learn how to deploy Azure Bastion with default settings to your virtual network using the Azure portal. After Bastion is deployed, you can connect (SSH/RDP) to virtual machines in the virtual network via Bastion using the private IP address of the VM. When you connect to a VM, it doesn't need a public IP address, client software, agent, or a special configuration. Azure Bastion is a PaaS service that's maintained for you, not a bastion host that you install on one of your VMs and maintain yourself. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
+In this quickstart, you'll learn how to deploy Azure Bastion with default settings to your virtual network using the Azure portal. After Bastion is deployed, you can connect (SSH/RDP) to virtual machines (VM) in the virtual network via Bastion using the private IP address of the VM. The VMs you connect to don't need a public IP address, client software, agent, or a special configuration. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
-The following steps walk you through how to deploy Bastion from your VM resource using the Azure portal. When you deploy using default settings, the settings are based on the virtual network to which Bastion will be deployed. After deploying Bastion, you'll then connect to your VM using RDP/SSH connectivity and the VM's private IP address. If your VM has a public IP address that you don't need for anything else, you can remove it. While the steps in this quickstart help you deploy Bastion from your VM resource, you can deploy Bastion from a virtual network resource instead. The steps are similar, except you start from the virtual network resource instead of the VM resource.
+:::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
+ 
+The steps in this article help you do the following:
+
+* Deploy Bastion with default settings from your VM resource using the Azure portal. When you deploy using default settings, the settings are based on the virtual network to which Bastion will be deployed. 
+* After you deploy Bastion, you'll then connect to your VM via the portal using RDP/SSH connectivity and the VM's private IP address. 
+* If your VM has a public IP address that you don't need for anything else, you can remove it. 
+
+> [!IMPORTANT]
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+>
 
 ## <a name="prereq"></a>Prerequisites
 
-* **An Azure account with an active subscription**. If you don't have one, [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
+* Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 * **A VM in a VNet**.
 
-    When you deploy Bastion using default values, the values are pulled from the VNet in which your VM resides. This VM doesn't become a part of the Bastion deployment itself, but you do connect to it later in the exercise.
+  When you deploy Bastion using default values, the values are pulled from the VNet in which your VM resides. This VM doesn't become a part of the Bastion deployment itself, but you do connect to it later in the exercise.
 
   * If you don't already have a VM in a VNet, create one using [Quickstart: Create a Windows VM](../virtual-machines/windows/quick-create-portal.md), or [Quickstart: Create a Linux VM](../virtual-machines/linux/quick-create-portal.md).
   * If you need example values, see the [Example values](#values) section.
@@ -72,10 +81,6 @@ When you deploy from VM settings, Bastion is automatically configured with defau
 ## <a name="createvmset"></a>Deploy Bastion
 
 When you create Azure Bastion using default settings, the settings are configured for you. You can't modify or specify additional values for a default deployment. After deployment completes, you can always go to the bastion host **Configuration** page to select additional settings and features. For example, the default SKU is the Basic SKU. You can later upgrade to the Standard SKU to support more features. For more information, see [About configuration settings](configuration-settings.md).
-
-> [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
->
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the portal, go to the VM to which you want to connect. The values from the virtual network in which this VM resides will be used to create the Bastion deployment.
