@@ -167,7 +167,7 @@
       - name: Migrate applications from Okta to Azure AD 
         items:
         - name: Migrate applications from Okta to Azure AD
-          href: migrate-applications-from-okta-to-azure-active-directory.md
+          href: migrate-applications-from-okta.md
         - name: Migrate Okta sign on policies to Azure AD Conditional Access
           href: migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md
         - name: Migrate Okta sync provisioning to Azure AD Connect based synchronization
@@ -189,11 +189,11 @@
       - name: Datawiza
         items:
         - name: Integrate Datawiza with Azure AD
-          href: datawiza-with-azure-ad.md 
+          href: datawiza-configure-sha.md
         - name: Configure Oracle JDE with Azure AD 
-          href: datawiza-azure-ad-sso-oracle-jde.md
+          href: datawiza-sso-oracle-jde.md
         - name: Configure Oracle PeopleSoft with Azure AD 
-          href: datawiza-azure-ad-sso-oracle-peoplesoft.md
+          href: datawiza-sso-oracle-peoplesoft.md
         - name: Configure Datawiza for Azure AD SSO and MFA to Oracle EBS
           href: datawiza-sso-mfa-oracle-ebs.md
       - name: F5

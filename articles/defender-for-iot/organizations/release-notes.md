@@ -105,6 +105,8 @@ To understand whether a feature is supported in your sensor version, check the r
 
 This version includes bug fixes for stability improvements.
 
+- [New endpoint to send OT sensor logs to Defender for IoT](whats-new.md#new-endpoint-to-send-ot-sensor-logs-to-defender-for-iot)
+
 ### 22.3.8
 
 **Release date**: 04/2023
