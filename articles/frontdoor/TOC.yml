@@ -336,7 +336,11 @@
     - name : Classic
       items:
       - name: Migrate to Standard or Premium tier
-        href: migrate-tier.md
+        items:
+        - name: Azure portal
+          href: migrate-tier.md
+        - name: Azure PowerShell
+          href: migrate-tier-powershell.md
       - name: Add a custom domain
         href: front-door-custom-domain.md
       - name: Configure HTTPS on a custom domain
