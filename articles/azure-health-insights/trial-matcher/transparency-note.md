@@ -91,7 +91,7 @@ for further information.
 
 ## Learn more about responsible AI
 * [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai).
-* [Microsoft responsible AI resources](https://www.microsoft.com/en-us/ai/responsible-ai-resources).
+* [Microsoft responsible AI resources](https://www.microsoft.com/ai/responsible-ai-resources).
 * [Microsoft Azure Learning courses on responsible AI](https://docs.microsoft.com/learn/paths/responsible-ai-business-principles/).
 
 
