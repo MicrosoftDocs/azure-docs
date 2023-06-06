@@ -101,7 +101,7 @@ There are several options to log events locally, or remotely through a Security 
 - Overview of your organization, potentially across multiple clouds, and on-premises locations, including BIG-IP infrastructure
 - One control plane with view of signals, avoiding reliance on complex, and disparate tools
 
-    ![Diagram of the monitoring flow.](media/f5-integration/azure-sentinel.png)
+    ![Diagram of the monitoring flow.](media/f5-integration/sentinel.png)
 
 ## Integration prerequisites
 
