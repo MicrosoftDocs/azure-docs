@@ -1,14 +1,17 @@
 ---
-title: Microsoft Sentinel solution for SAP® applications container configuration file reference
+title: Microsoft Sentinel solution for SAP® applications systemconfig.ini container configuration file reference
 description: Description of settings available in systemconfig.ini file
-author: MSFTandrelom
-ms.author: andrelom
+author: limwainstein
+ms.author: lwainstein
 ms.topic: reference
-ms.date: 03/03/2022
+ms.date: 06/03/2023
 ---
 # Systemconfig.ini file reference
 
 The *systemconfig.ini* file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
+
+> [!NOTE]
+> The Microsoft Sentinel solution for SAP® applications will support the systemconfig.ini file until TBD. From agent version TBD and later, we recommend to use the [systemconfig.json file](reference-systemconfig-json.md). From TBD, the Microsoft Sentinel solution for SAP® applications will only support the .json file. 
 
 ## Systemconfig configuration file sections
 
