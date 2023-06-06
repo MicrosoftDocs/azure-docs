@@ -65,7 +65,7 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
    This list also includes any [custom attributes you defined](how-to-define-custom-attributes.md) (for example, **Rewards number**).
 
-   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/user-attributes-show-more.png" alt-text="Screenshot of the user attribute options on the Create a user flow page." lightbox="media/how-to-user-flow-sign-up-sign-in-customers/user-attributes-show-more.png":::
+   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/user-attributes-show-more.png" alt-text="Screenshot of the user attribute pane after selecting Show more." lightbox="media/how-to-user-flow-sign-up-sign-in-customers/user-attributes-show-more.png":::
 
 1. Select **OK**.
 
