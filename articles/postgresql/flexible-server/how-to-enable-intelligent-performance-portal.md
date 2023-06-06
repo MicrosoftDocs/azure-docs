@@ -24,7 +24,7 @@ This article provides a step-by-step procedure to configure intelligent performa
 
 1. In the [Azure portal](https://portal.azure.com/), choose the flexible server you want enable intelligent tuning for.
 
-2. Select **Server Parameters** from the left pane, and then search for **intelligent_tuning**.
+2. Select **Server Parameters** from the left pane, and then search for **intelligent tuning**.
    
    :::image type="content" source="media/how-to-perform-major-version-upgrade-portal/upgrade-tab.png" alt-text="Diagram of Upgrade tab to perform in-place major version upgrade.":::
 
