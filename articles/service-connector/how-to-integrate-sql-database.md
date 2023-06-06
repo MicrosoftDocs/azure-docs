@@ -56,12 +56,52 @@ Use the environment variable names and application properties listed below to co
 > | --------------------------------- | ------------| ------------ |
 > | AZURE_SQL_CONNECTIONSTRING | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;Authentication=ActiveDirectoryManagedIdentity` |
 
+#### .NET User-assigned managed identity
+
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description | Sample value |
+> | --------------------------------- | ------------| ------------ |
+> | AZURE_SQL_CLIENTID                | Your client ID                  | `<client-ID>` |
+> | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;Authentication=ActiveDirectoryManagedIdentity` |
+
+#### .NET Service principal
+
+> [!div class="mx-tdBreakAll"]
+>| Default environment variable name | Description                       | Example value                                           |
+>|-----------------------------------|-----------------------------------|---------------------------------------------------------|
+>| AZURE_SQL_CLIENTID                | Your client ID                    | `<client-ID>`                                           |
+>| AZURE_SQL_CLIENTSECRET            | Your client secret                | `<client-secret>`                                       |
+>| AZURE_SQL_TENANTID                | Your tenant ID                    | `<tenant-ID>`                                           |
+>| AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;Authentication=ActiveDirectoryManagedIdentity` |
+
+
 ### Go (go-mssqldb)
+
+#### Go (go-mssqldb) secret / connection string
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                          | Sample value                                                                                                                 |
 > |-----------------------------------|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 > | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `server=<sql-server>.database.windows.net;port=1433;database=<sql-database>;user id=<sql-username>;password=<sql-password>;` |
+
+#### Go (go-mssqldb) system-assigned managed identity
+
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description                          | Sample value                                                                                                                 |
+> |-----------------------------------|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+> | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `server=<sql-server>.database.windows.net;port=1433;database=<sql-database>;user id=<sql-username>;password=<sql-password>;` |
+
+#### Go (go-mssqldb) User-assigned managed identity
+
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description                          | Sample value                                                                                                                 |
+> |-----------------------------------|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+> | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `server=<sql-server>.database.windows.net;port=1433;database=<sql-database>;user id=<sql-username>;password=<sql-password>;` |
+
+#### Go (go-mssqldb) Service principal
+
+
+
 
 ### Java Database Connectivity (JDBC)
 
