@@ -24,7 +24,7 @@ To find available upgradeable runtime versions, navigate to the target cluster i
 
 ![Runtime Upgrade - View Available Upgradeable Cluster Version](./media/RuntimeUpgrade-UpgradeableRuntimeVersions.png)
 
-From the **Available upgrade versions** tab, we're able to see the different cluster versions that are currently available to upgrade. To choose the target runtime version, and proceed to upgrade the cluster.
+From the **available upgrade versions** tab, we're able to see the different cluster versions that are currently available to upgrade. The operator can select from the listed the target runtime versions. Once selected, proceed to upgrade the cluster.
 
 ![Runtime Upgrade - Choose Runtime Version](./media/RuntimeUpgrade-RuntimeVersion.png)
 
