@@ -4,7 +4,7 @@ description: Overview of Azure managed disks, which handle the storage accounts 
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 06/06/2023
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
@@ -137,7 +137,7 @@ The second IO Path is the cached managed disk path. Cached managed disk IO uses 
 
 Finally, the third path is for the local/temp disk. This is available only on VMs that support local/temp disks. An IO using this path will execute based on SSD-Level Provisioning for IOPs and throughput.   
 
-As an example of these limitations, a Standard_DS1v1 VM is prevented from achieving the 5,000 IOPS potential of a P30 disk, whether it is cached or not, because of limits at the SSD and network levels:
+As an example of these limitations, a Standard_D2s_v3 VM is prevented from achieving the 5,000 IOPS potential of a P30 disk, whether it is cached or not, because of limits at the SSD and network levels:
 
 ![Diagram of three level provisioning system with Standard_DS1v1 example allocation.](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
 
