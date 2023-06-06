@@ -31,6 +31,7 @@ Passwordless connections can be configured to work for both local and Azure-host
 The Azure Identity client library, for each of the following ecosystems, provides a `DefaultAzureCredential` class that handles passwordless authentication to Azure:
 
 - [.NET](/dotnet/api/overview/azure/Identity-readme?view=azure-dotnet&preserve-view=true#defaultazurecredential)
+- [C++](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md#defaultazurecredential)
 - [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-defaultazurecredential)
 - [Java](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#defaultazurecredential)
 - [Node.js](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true#defaultazurecredential)
@@ -56,13 +57,13 @@ The Azure Identity client library, for each of the following ecosystems, provide
    DefaultAzureCredential credential = new();
 
     // Event hubs producer
-    EventHubProducerClient producerClient = new EventHubProducerClient(
+    EventHubProducerClient producerClient = new(
         "<EVENT_HUB_NAMESPACE>.servicebus.windows.net",
         "<HUB_NAME>",
         new DefaultAzureCredential());
 
     // Event hubs processor
-    EventProcessorClient processor = new EventProcessorClient(
+    EventProcessorClient processor = new(
         storageClient,
         EventHubConsumerClient.DefaultConsumerGroupName,
         "<EVENT_HUB_NAMESPACE>.servicebus.windows.net",
@@ -154,7 +155,7 @@ To assign a role at the resource level using the Azure CLI, you first must retri
 az eventhubs eventhub show \
     --resource-group '<your-resource-group-name>' \
     --namespace-name '<your-event-hubs-namespace>' \
-    --name '<your-event-hub-name>'
+    --name '<your-event-hub-name>' \
     --query id
 ```
 
