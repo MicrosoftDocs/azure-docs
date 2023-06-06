@@ -96,10 +96,10 @@ You can manage default network access rules for Cognitive Services resources thr
 1. Display the status of the default rule for the Cognitive Services resource.
 
     ```azurepowershell-interactive
-    $parameters = @{
-        -ResourceGroupName "myresourcegroup"
-        -Name "myaccount"
-    }
+  $parameters = @{
+    "ResourceGroupName"= "myresourcegroup"
+    "Name"= "myaccount"
+}
     (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).DefaultAction
     ```
 
@@ -218,10 +218,10 @@ You can manage virtual network rules for Cognitive Services resources through th
 1. List virtual network rules.
 
     ```azurepowershell-interactive
-    $parameters = @{
-        -ResourceGroupName "myresourcegroup"
-        -Name "myaccount"
-    }
+ $parameters = @{
+    "ResourceGroupName"= "myresourcegroup"
+    "Name"= "myaccount"
+}
     (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).VirtualNetworkRules
     ```
 
@@ -374,10 +374,10 @@ You can manage IP network rules for Cognitive Services resources through the Azu
 1. List IP network rules.
 
     ```azurepowershell-interactive
-    $parameters = @{
-        -ResourceGroupName "myresourcegroup"
-        -Name "myaccount"
-    }
+  $parameters = @{
+    "ResourceGroupName"= "myresourcegroup"
+    "Name"= "myaccount"
+}
     (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).IPRules
     ```
 

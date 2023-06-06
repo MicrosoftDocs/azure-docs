@@ -4,7 +4,7 @@ description: Learn how to use system-preferred multifactor authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/30/2023
+ms.date: 06/02/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -103,7 +103,7 @@ Content-Type: application/json
 
 [FIDO2 security keys](../develop/support-fido2-authentication.md#mobile) on mobile devices and [registration for certificate-based authentication (CBA)](concept-certificate-based-authentication.md) aren't supported due to an issue that might surface when system-preferred MFA is enabled. Until a fix is available, we recommend not using FIDO2 security keys on mobile devices or registering for CBA. To disable system-preferred MFA for these users, you can either add them to an excluded group or remove them from an included group.
 
-## Common questions
+## FAQ
 
 ### How does system-preferred MFA determine the most secure method?
 
@@ -122,7 +122,7 @@ When a user signs in, the authentication process checks which authentication met
 
 ### How does system-preferred MFA affect AD FS or NPS extension?
 
-System-preferred MFA doesn't affect users who sign in by using Active Directory Federation Services (AD FS) or Network Policy Server (NPS) extension. Those users don't see any change to their sign-in experience.
+System-preferred MFA doesn't affect users who sign in by using federation, such as Active Directory Federation Services (AD FS) or third-party providers, or Network Policy Server (NPS) extension. Those users don't see any change to their sign-in experience.
 
 ### What happens for users who aren't specified in the Authentication methods policy but enabled in the legacy MFA tenant-wide policy?
 

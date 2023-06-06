@@ -21,19 +21,19 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 
 #### Custom Translator platform upgrade
 
-&emsp; 🆕 The ***Model Upgrade Wizard*** feature is added to **Workspace settings** to help guide customers through the V1-model-upgrade-to-new-platform process. For more information, *see* [Custom Translator platform upgrade](platform-upgrade.md).
+&emsp; 🆕 ***Model Upgrade Wizard*** is now available in **Workspace settings** to help guide customers through the V1-model-upgrade-to-new-platform process. For more information, *see* [Custom Translator platform upgrade](platform-upgrade.md).
 
 #### Custom Translator copy model
 
-&emsp; 🆕 The ***Copy Model*** feature is added to **Model details** to enable the copying of models from one workspace to another. This feature enables model lifecycle management (development → testing → production) and/or scaling. For more information, *see* [Copy a custom model](how-to/copy-model.md).
+&emsp; 🆕 ***Copy Model*** is now available in **Model details** to enable the copying of models from one workspace to another. This feature enables model lifecycle management (development → testing → production) and/or scaling. For more information, *see* [Copy a custom model](how-to/copy-model.md).
 
 #### Restrict access to published models
 
- &emsp; Published model security is enhanced and restricted access is enabled within **Workspace settings** to allow only linked Translator resources to request translation.
+ &emsp; Published model security is now enhanced and restricted access is now enabled within **Workspace settings** to allow only linked Translator resources to request translation.
 
 #### June language model updates
 
-&emsp; Supported language pairs are listed in the following table. For higher quality, we encourage you to retrain your models accordingly. For more information, *see* [Language support](../language-support.md#custom-translator-language-pairs).
+&emsp; Current supported language pairs are listed in the following table. For higher quality, we encourage you to retrain your models accordingly. For more information, *see* [Language support](../language-support.md#custom-translator-language-pairs).
 
 |Source Language|Target Language|
 |:----|:----|
@@ -85,7 +85,6 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 | Turkish (tr-tr)     | English (en-us) |
 | Vietnamese (vi-vn)     | English (en-us) |
 | Chinese Simplified (zh-cn)     | English (en-us) |
-||
 
 ## 2022-November release
 
