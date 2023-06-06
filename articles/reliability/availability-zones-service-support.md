@@ -151,7 +151,6 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 | Virtual WAN: [Point-to-site VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | Virtual WAN: [Site-to-site VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 
-
 ### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services
 
 | **Products**   | **Resiliency**   |
