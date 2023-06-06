@@ -23,7 +23,7 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
 ### June  2023
-* General availability: New domain name and FQDN format for cluster nodes. The change applies to newly provisioned clusters only. 
+* General availability: The new domain name and FQDN format for cluster nodes. The change applies to newly provisioned clusters only. 
     * See [details](./concepts-connect.md).
 
 ### May  2023
