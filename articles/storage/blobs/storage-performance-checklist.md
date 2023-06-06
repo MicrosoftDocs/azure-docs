@@ -175,10 +175,10 @@ In some scenarios, you can aggregate data locally, and then periodically upload 
 
 For projects using .NET Framework, this section lists some quick configuration settings that you can use to make significant performance improvements. If you're using other languages, check to see if similar concepts apply in your chosen language.
 
+### Increase default connection limit
+
 > [!NOTE]
 > This section applies to projects using .NET Framework, as connection pooling is controlled by the ServicePointManager class. .NET Core introduced a significant change around connection pool management, where connection pooling happens at the HttpClient level and the pool size is not limited by default. This means that HTTP connections are automatically scaled to satisfy your workload. Using the latest version of .NET is recommended, when possible, to take advantage of performance enhancements.
-
-### Increase default connection limit
 
 For projects using .NET Framework, you can use the following code to increase the default connection limit (which is usually two in a client environment or ten in a server environment) to 100. Typically, you should set the value to approximately the number of threads used by your application. Set the connection limit before opening any connections.
 
