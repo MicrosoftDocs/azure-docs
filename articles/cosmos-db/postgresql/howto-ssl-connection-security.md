@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 06/05/2023
 ---
 # Configure TLS in Azure Cosmos DB for PostgreSQL
 
@@ -42,7 +42,7 @@ The following example shows how to connect to your coordinator node using the ps
 
 Below is an example of the psql connection string:
 ```
-psql "sslmode=verify-full sslrootcert=DigiCertGlobalRootG2.crt.pem host=mydemoserver.postgres.database.azure.com dbname=citus user=citus password=your_pass"
+psql "sslmode=verify-full sslrootcert=DigiCertGlobalRootG2.crt.pem host=c-mydemocluster.12345678901234.postgres.cosmos.azure.com dbname=citus user=citus password=your_pass"
 ```
 > [!TIP]
 > Confirm that the value passed to `sslrootcert` matches the file path for the certificate you saved.
