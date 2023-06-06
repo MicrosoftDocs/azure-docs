@@ -51,7 +51,7 @@ To identify `resource-id`, run the following command:
 az vm show --name hsr-primary --resource-group hanarghsr2
 ```
 
-For example, `id` is `/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary",
+For example, `id` is `/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary`.
 
 
 
