@@ -32,7 +32,7 @@ By creating a standalone DF PowerShell SDK, we're able to overcome these shortco
 
 The built-in DF SDK in the PowerShell worker will remain available for PowerShell 7.2 and prior releases. This means that existing apps will be able to continue using the built-in SDK as long as they continue using PowerShell 7.2 or an older release.
 
-Starting with PowerShell 7.4 onwards, the PowerShell worker will not contain a built-in DF SDK. Therefore, users will need to install the SDK separately using this standalone package. 
+Starting from PowerShell 7.4 onwards, the PowerShell worker will not contain a built-in DF SDK. Therefore, users will need to install the SDK separately using this standalone package. 
 
 ## Install and enable the SDK
 
