@@ -85,7 +85,7 @@ Ensure that you cycle through the **Datasource type** filter options in **Backup
 ### Proper way to delete a vault
 
 >[!WARNING]
-The following operation is destructive and can't be undone. All backup data and backup items associated with the protected server will be permanently deleted. Proceed with caution.
+>The following operation is destructive and can't be undone. All backup data and backup items associated with the protected server will be permanently deleted. Proceed with caution.
 
 To properly delete a vault, you must follow the steps in this order:
 
@@ -285,7 +285,7 @@ Troubleshoot the following common issues you might encounter during Backup vault
 
 **Cause**: Resource move for Backup vault is currently not supported in the selected Azure region.
 
-**Recommendation**: Ensure that you've selected one of the supported regions to move Backup vaults. See [Supported regions](#supported-regions
+**Recommendation**: Ensure that you've selected one of the supported regions to move Backup vaults. See [Supported regions](#supported-regions).
 
 ### UserErrorCrossTenantMSIMoveNotSupported 
 
