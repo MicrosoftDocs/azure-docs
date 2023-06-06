@@ -56,7 +56,7 @@ In this section, you create a public IP prefix using the Azure portal. Use the f
 | Routing preference | Leave the default of **Microsoft network**. |
 | Availability zone | Leave the default of **Zone-redundant**. |
 
-:::image type="content" source="./media/create-public-ip-prefix-portal/create-prefix-ipv4.png" alt-text="Screenshot of create public IP address prefix with default settings in the Azure portal":::
+:::image type="content" source="./media/create-public-ip-prefix-portal/create-prefix-ipv4.png" alt-text="Screenshot of create public IP address prefix with default settings in the Azure portal.":::
 
 5. Select the **Review + create** tab or the blue **Review + create** button at the bottom of the page.
 
@@ -91,7 +91,7 @@ By default, the routing preference for a public IP address is set to the Microso
 | Tier | Leave the default of **Regional**. |
 | Routing preference | Select **Internet**. |
 
-:::image type="content" source="./media/create-public-ip-prefix-portal/create-prefix-ipv4-routing.png" alt-text="Screenshot of create public IP address prefix with routing preference in the Azure portal":::
+:::image type="content" source="./media/create-public-ip-prefix-portal/create-prefix-ipv4-routing.png" alt-text="Screenshot of create public IP address prefix with routing preference in the Azure portal.":::
 
 5. Select the **Review + create** tab or the blue **Review + create** button at the bottom of the page.
 
@@ -113,7 +113,7 @@ Public IP prefixes are associated with a single region. The **Global** tier span
 | Prefix size | Select your prefix size. |
 | Tier | Select **Global**. |
 
-:::image type="content" source="./media/create-public-ip-prefix-portal/create-prefix-ipv4-tier.png" alt-text="Screenshot of create public IP address prefix with global tier in the Azure portal":::
+:::image type="content" source="./media/create-public-ip-prefix-portal/create-prefix-ipv4-tier.png" alt-text="Screenshot of create public IP address prefix with global tier in the Azure portal.":::
 
 5. Select the **Review + create** tab or the blue **Review + create** button at the bottom of the page.
 
@@ -144,7 +144,7 @@ In this section, you create a public IP prefix using the Azure portal. Use the f
     | Prefix size | Select your prefix size. |
     | Availability zone | Leave the default of **Zone-redundant**. |
 
-    :::image type="content" source="./media/create-public-ip-prefix-portal/create-prefix-ipv6.png" alt-text="Screenshot of create IPv6 public IP address prefix in the Azure portal":::
+    :::image type="content" source="./media/create-public-ip-prefix-portal/create-prefix-ipv6.png" alt-text="Screenshot of create IPv6 public IP address prefix in the Azure portal.":::
 
 5. Select the **Review + create** tab or the blue **Review + create** button at the bottom of the page.
 
