@@ -1,6 +1,6 @@
 ---
-title: How to enable the Private access profile
-description: Learn how to enable the Private access traffic forwarding profile for Microsoft Entra Private Access.
+title: How to manage the Private access profile
+description: Learn how to manage the Private access traffic forwarding profile for Microsoft Entra Private Access.
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
@@ -22,15 +22,15 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 - **Global Secure Access Administrator** role in Microsoft Entra ID
 - The **Microsoft Graph** module must be installed to use PowerShell
 - Administrator consent is required when using Microsoft Graph Explorer for the Microsoft Graph API
-- Configure quick access with internal resources and at least one user assigned to the app
+- Configure Quick Access with internal resources and at least one user assigned to the app
 
-The **Private access profile** looks at traffic going to your organization's private, internal applications and sites. Your [quick access configurations](how-to-configure-quick-access.md) define the apps and sites that make up your Private access traffic forwarding profile.
+The **Private access profile** looks at traffic going to your organization's private, internal applications and sites. Your [Quick Access configurations](how-to-configure-quick-access.md) define the apps and sites that make up your Private access traffic forwarding profile.
 
-Quick access ranges are similar to the Microsoft 365 traffic policies, except the IP addresses and FQDNs in the Microsoft 365 profile are predefined. Quick access groups allow you to create your own collection of fully qualified domain names (FQDN), IP addresses, and IP address ranges. 
+Quick Access ranges are similar to the Microsoft 365 traffic policies, except the IP addresses and FQDNs in the Microsoft 365 profile are predefined. Quick Access groups allow you to create your own collection of fully qualified domain names (FQDN), IP addresses, and IP address ranges. 
 
 ## Private access traffic forwarding profile
 
-To enable the Private access traffic forwarding profile, you must first configure quick access. Quick access includes the IP addresses, IP ranges, and fully qualified domain names (FQDN) for the private applications and destinations you want to include in the policy. For more information, see [Configure quick access](how-to-configure-quick-access.md).
+To enable the Private access traffic forwarding profile, you must first configure Quick Access. Quick Access includes the IP addresses, IP ranges, and fully qualified domain names (FQDN) for the private applications and destinations you want to include in the policy. For more information, see [Configure Quick Access](how-to-configure-quick-access.md).
 
 Because remote networks can't be assigned to the Private access traffic forwarding profile, you must install the Global Secure Access client on your end-user devices. For more information, see [How to install the Windows client](how-to-install-windows-client.md).
 
@@ -50,5 +50,5 @@ Conditional Access policies are created and applied to the profile in the Condit
 
 ## Next steps
 
-- [Configure quick access](how-to-configure-quick-access.md)
+- [Configure Quick Access](how-to-configure-quick-access.md)
 - [Learn about traffic forwarding](concept-traffic-forwarding.md)
