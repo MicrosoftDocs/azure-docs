@@ -96,7 +96,7 @@ az postgres flexible-server parameter set --resource-group myresourcegroup --ser
 > [!NOTE]
 > Both `intelligent_tuning` and `intelligent_tuning.metric_targets` server parameters are dynamic, meaning no server restart is required when their values are changed.
 
-### Considerations for Selecting `intelligent_tuning.metric_targets` Values
+### Considerations for selecting `intelligent_tuning.metric_targets` values
 
 When choosing values from the `intelligent_tuning.metric_targets` server parameter take the following considerations into account:
 
