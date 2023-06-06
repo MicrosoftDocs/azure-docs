@@ -118,9 +118,9 @@ sections:
 
               "diskControllerTypes":"SCSI, NVMe"
 
-                                              }
-                                              }
-                                              }
+                               }
+                               }
+                               }
             '@
 
             $get_supported_capabilities = (Invoke-WebRequest -uri $uri -Method Get -Headers $auth_header | ConvertFrom-Json).properties.supportedCapabilities
