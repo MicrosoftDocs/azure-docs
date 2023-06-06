@@ -9029,6 +9029,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/container-instances/container-instances-quotas.md",
+            "redirect_url": "/azure/container-instances/container-instances-resource-and-quota-limits",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/container-registry/container-registry-managed-get-started-azure-cli.md",
             "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli",
             "redirect_document_id": false
@@ -22755,7 +22760,7 @@
         },
         {
             "source_path_from_root": "/articles/aks/use-mariner.md",
-            "redirect_url": "/azure/aks/use-azurelinux",
+            "redirect_url": "/azure/aks/use-azure-linux",
             "redirect_document_id": false
         },
         {
