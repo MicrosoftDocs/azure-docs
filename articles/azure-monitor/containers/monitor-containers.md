@@ -52,6 +52,9 @@ The following Azure services are used to monitor Kubernetes clusters.
 | Application logs | Application insights |
 
 
+- If you have no existing solution for collection of your Kubernetes logs, then you should use Container insights to collect the logs in a Log Analytics workspace.
+- If you have an existing solution for collection of your Kubernetes logs such as Datadog and Splunk, then follow their documentation for collection of logs from your Azure Kubernetes clusters. You may also choose to use Container insights for your AKS logs but also forward those logs to another system using [data export](../logs/logs-data-export.md).
+
 ## Personas
 
 | Persona | Levels | Description |
@@ -96,11 +99,18 @@ If you already have a Prometheus environment that you want
 
 Container insights is a monitoring solution for AKS and Azure Arc-enabled Kubernetes clusters that provides performance visibility and diagnostics. It collects stdout/stderr logs, performance metrics, and Kubernetes events from each node in your cluster and stores them in a Log Analytics workspace. It also collects metrics from the Kubernetes control plane and stores them in the workspace. You can view the data in the Azure portal or query it using the [Log Analytics query language](../logs/log-analytics-query-language.md).
 
-When you enable Container Insights for your AKS cluster, it deploys a containerized version of the [Azure Monitor agent](../agents/..//agents/log-analytics-agent.md) that sends data to Azure Monitor. For prerequisites and configuration options, see [Enable Container Insights](container-insights-onboard.md).
+When you enable Container Insights for your AKS cluster, it deploys a containerized version of the [Azure Monitor agent](../agents/..//agents/log-analytics-agent.md) that sends data to Azure Monitor. For prerequisites and configuration options, see [Enable cost optimization settings in Container insights (preview)](container-insights-cost-config.md).
 
 - Collect stdout/stderr logs from containers.
 - Use Container insights workbooks
 
+### Cost optimization
+
+
+- You can reduce your cost for Container insights data ingestion by reducing the amount of data that's collected. See [Reduce costs for Azure Monitor Logs](../logs/cost-reduce-data.md) for details.
+- [Enable the ContainerLogV2](container-insights-logging-v2.md) schema for improved query experience and reduce collection costs. 
+- If your priority is cost, then configure ContainerLogV2 as basic logs.
+- Use [Reduce costs for Azure Monitor Logs](../logs/cost-reduce-data.md) to remove collection of metrics since these are the same metrics being collection in Prometheus. In this case, you would use Grafana for visualization since the Container insights workbooks use data from the Log Analytics workspace. Container insights in this case would only be used for log collection.
 
 
 ### Collect control plane logs
@@ -257,6 +267,8 @@ The components external to AKS include the following:
 
 Monitor external components such as Service Mesh, Ingress, Egress with Prometheus and Grafana, or other proprietary tools. Monitor databases and other Azure resources using other features of Azure Monitor.
 
+[Network Observability add-on](https://techcommunity.microsoft.com/t5/azure-observability-blog/comprehensive-network-observability-for-aks-through-azure/ba-p/3825852)
+
 ## Analyze metric data with the Metrics explorer
 
 Use the **Metrics** explorer to perform custom analysis of metric data collected for your containers. It allows you plot charts, visually correlate trends, and investigate spikes and dips in your metrics values. You can create metrics alert to proactively notify you when a metric value crosses a threshold and pin charts to dashboards for use by different members of your organization.
@@ -278,12 +290,33 @@ For more information on Log Analytics and to get started with it, see:
 
 You can also use log queries to analyze resource logs from AKS. For a list of the log categories available, see [AKS data reference resource logs](../../aks/monitor-aks-reference.md#resource-logs). You must create a diagnostic setting to collect each category as described in [Configure monitoring](#configure-monitoring) before the data can be collected.
 
+
+## Monitor costs
+
+The cluster administrator is responsible for the cost of the cluster. They need to answer questions such as whether the cluster is running efficiently and that the full capacity of its nodes is being used. It may be more efficient to have fewer large nodes as opposed to many smaller nodes.
+
+Am I densely packing my workloads?  Prometheus and Grafana. CPU, memory, storage, etc. Set an alert if we go above/below capacity.
+
+The cluster administrator may also be tasked with allocating the cost of the cluster to different teams based on their relative usage.
+
+
+[OpenCost](https://www.opencost.io/docs/azure-opencost) is an open-source, vendor-neutral CNCF sandbox project for understanding your Kubernetes costs and supporting your ability to for AKS cost visibility
+
+
 ## Alerts
 
-[Alerts in Azure Monitor](..//alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. There are no preconfigured alert rules for AKS clusters, but you can create your own based on data collected by Container Insights.
+[Alerts in Azure Monitor](..//alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. 
 
 > [!IMPORTANT]
 > Most alert rules have a cost dependent on the type of rule, how many dimensions it includes, and how frequently it runs. Refer to **Alert rules** in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) before creating any alert rules.
+
+### Recommended alerts
+Start with a set of recommended Prometheus alerts from [Metric alert rules in Container insights (preview)](container-insights-metric-alerts.md#prometheus-alert-rules) 
+
+
+### Can I use my own alerting?
+
+
 
 ### Choose an alert type
 
