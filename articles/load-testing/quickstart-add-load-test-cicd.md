@@ -187,6 +187,111 @@ Perform the following steps to download the input files for an existing load tes
 
 ## Add Azure Load Testing to the CI/CD workflow
 
+Azure Load Testing supports both GitHub Actions and Azure Pipelines for running load tests.
+
+# [GitHub Actions](#tab/github)
+
+### Update the GitHub Actions workflow
+
+Update your GitHub Actions workflow to run a load test for your Azure load testing resource.
+
+1. In [GitHub](https://github.com), browse to your repository.
+
+1. Edit your GitHub Actions workflow or [create a new workflow](https://docs.github.com/actions/quickstart) in your GitHub repository.
+
+1. Use the `actions/checkout` action to checkout the repository with the load test input files.
+
+    ```yml
+        - name: Checkout
+          uses: actions/checkout@v3
+    ```
+    
+1. Use the `azure/login` action to authenticate with Azure by using the stored credentials.
+
+    Paste the following YAML contents in your workflow definition:
+
+    ```yml
+        - name: Login to Azure
+        uses: azure/login@v1
+        continue-on-error: false
+        with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+    ```
+
+1. Use the `azure/load-testing` action to run the load test.
+
+    Specify the load test configuration file you exported earlier in the `loadTestConfigFile` property.
+    
+    Replace the *`<load-testing-resource>`* and *`<load-testing-resource-group>`* text placeholders with the name of your Azure load testing resource and the resource group.
+
+    ```yml
+        - name: 'Azure Load Testing'
+        uses: azure/load-testing@v1
+        with:
+            loadTestConfigFile: 'config.yaml'
+            loadTestResource: <load-testing-resource>
+            resourceGroup: <load-testing-resource-group>
+    ```
+
+    Optionally, you can pass parameters or secrets to the load test by using the `env` or `secrets` property.
+
+1. Use the `actions/upload-artifact` action to publish the test results as artifacts in your GitHub Actions workflow run.
+
+    ```yml
+        - uses: actions/upload-artifact@v2
+                with:
+                  name: loadTestResults
+                  path: ${{ github.workspace }}/loadTest
+    ```
+
+# [Azure Pipelines](#tab/pipelines)
+
+### Install the Azure Load Testing extension for Azure DevOps
+
+To create and run a load test, the Azure Pipelines workflow definition uses the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) extension from the Azure DevOps Marketplace.
+
+1. Open the [Azure Load Testing task extension](https://marketplace.visualstudio.com/items?itemName=AzloadTest.AzloadTesting) in the Azure DevOps Marketplace, and select **Get it free**.
+
+1. Select your Azure DevOps organization, and then select **Install** to install the extension.
+
+    If you don't have administrator privileges for the selected Azure DevOps organization, select **Request** to request an administrator to install the extension.
+
+### Update the Azure Pipelines workflow
+
+Update your Azure Pipelines workflow to run a load test for your Azure load testing resource.
+
+1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project.
+
+1. Select **Pipelines** in the left navigation, select your pipeline, and then select **Edit** to edit your workflow definition.
+
+    Alternately, select **Create Pipeline** to create a new pipeline in Azure Pipelines.
+
+1. Use the `AzureLoadTest` task to run the load test.
+
+    Specify the load test configuration file you exported earlier in the `loadTestConfigFile` property.
+    
+    Replace the *`<load-testing-resource>`* and *`<load-testing-resource-group>`* text placeholders with the name of your Azure load testing resource and the resource group.
+
+    ```yml
+        - task: AzureLoadTest@1
+          inputs:
+            azureSubscription: $(serviceConnection)
+            loadTestConfigFile: 'config.yaml'
+            loadTestResource: <load-testing-resource>
+            resourceGroup: <load-testing-resource-group>
+    ```
+
+    Optionally, you can pass parameters or secrets to the load test by using the `env` or `secrets` property.
+
+1. Use the `publish` task to publish the test results as artifacts in your Azure Pipelines workflow run.
+
+    ```yml
+        - publish: $(System.DefaultWorkingDirectory)/loadTest
+          artifact: loadTestResults
+    ```
+
+---
+
 ## Run workflow and view test results
 
 ## Clean up resources
