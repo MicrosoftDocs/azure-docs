@@ -30,7 +30,7 @@ The following are instructions for configuring your Azure Monitor resource to st
 > [!NOTE]
 > Under diagnostic setting name please select “Operation call automation logs” and “Call Automation Events summary logs” to enable the logs for end of call automation logs.
  
- :::image type="content" source="../media/call-logs-azure-monitor\call-automation-log.png" alt-text="Screenshot of diagnostic settings for call automation.":::
+ :::image type="content" source="..logs\call-automation-log.png" alt-text="Screenshot of diagnostic settings for call automation.":::
 
 ## Resource log categories
 
