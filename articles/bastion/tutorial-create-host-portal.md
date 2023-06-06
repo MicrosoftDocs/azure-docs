@@ -74,10 +74,6 @@ You can use the following example values when creating this configuration, or yo
 | Public IP address SKU |  Standard  |
 | Assignment  | Static |
 
- > [!IMPORTANT]
- > For Azure Bastion resources deployed on or after November 2, 2021, the minimum AzureBastionSubnet size is /26 or larger (/25, /24, etc.). All Azure Bastion resources deployed in subnets of size /27 prior to this date are unaffected by this change and will continue to work, but we highly recommend increasing the size of any existing AzureBastionSubnet to /26 in case you choose to take advantage of [host scaling](./configure-host-scaling.md) in the future.
- >
-
 ## <a name="createhost"></a>Deploy Bastion
 
 This section helps you deploy Bastion to your VNet. Once Bastion is deployed, you can connect securely to any VM in the VNet using its private IP address.
