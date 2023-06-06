@@ -80,24 +80,24 @@ An *all licenses are in use for the remote desktop error* means that all license
 
     Expected output
 
-       ```shell
-       lmstat - Copyright (c) <YEAR> Flexera. All Rights Reserved.
-       Flexible License Manager status on <TIME>
-       
-       License server status: <PORT>@<HOSTNAME>
-           License file(s) on <HOSTNAME>: <LICENSE_FILE_PATH>:
-       
-       <HOSTNAME>: license server UP <VERSION>
-       
-       Vendor daemon status (on <HOSTNAME>):
-       
-          <VENDOR_DAEMON>: UP <VERSION>
-       Feature usage info:
-       ...
-       Users of <FEATURE_N>:  (Total of <W> license issued;  Total of <X> licenses in use)
-       Users of <FEATURE_N+1>:  (Total of <Y> license issued;  Total of <Z> licenses in use)
-       ...
-       ```
+    ```shell
+    lmstat - Copyright (c) <YEAR> Flexera. All Rights Reserved.
+    Flexible License Manager status on <TIME>
+    
+    License server status: <PORT>@<HOSTNAME>
+        License file(s) on <HOSTNAME>: <LICENSE_FILE_PATH>:
+    
+    <HOSTNAME>: license server UP <VERSION>
+    
+    Vendor daemon status (on <HOSTNAME>):
+    
+        <VENDOR_DAEMON>: UP <VERSION>
+    Feature usage info:
+    ...
+    Users of <FEATURE_N>:  (Total of <W> license issued;  Total of <X> licenses in use)
+    Users of <FEATURE_N+1>:  (Total of <Y> license issued;  Total of <Z> licenses in use)
+    ...
+    ```
 
 1. If license file isn't expired, restart the license server from the Azure portal. Then verify if you can check out the license file.
 
