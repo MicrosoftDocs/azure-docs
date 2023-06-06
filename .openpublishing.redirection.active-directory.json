@@ -12614,7 +12614,7 @@
       {
         "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-best-practices.md",
         "redirect_url": "/azure/active-directory/fundamentals/secure-fundamentals",
-        "redirect_document_id": true
+        "redirect_document_id": false
       },
       
       {
