@@ -18,40 +18,30 @@ This article provides a step-by-step procedure to configure intelligent performa
 > [!IMPORTANT]
 > Autovacuum tuning is currently supported for the General Purpose and Memory Optimized server compute tiers that have four or more vCores, Burstable server compute tier is not supported.
 
-## Follow these steps to upgrade your flexible server to the major version of your choice:
+## Steps to enable intelligent tuning on your Flexible Server
 
+1. Visit the [Azure portal](https://portal.azure.com/) and select the flexible server on which you want to enable intelligent tuning.
 
-
-1. In the [Azure portal](https://portal.azure.com/), choose the flexible server you want enable intelligent tuning for.
-
-2. Select **Server Parameters** from the left pane, and then search for **intelligent tuning**.
+2. In the left pane, select **Server Parameters** and then search for **intelligent tuning**.
    
-   :::image type="content" source="media/how-to-perform-major-version-upgrade-portal/upgrade-tab.png" alt-text="Diagram of Upgrade tab to perform in-place major version upgrade.":::
+   :::image type="content" source="media/how-to-intelligent-tuning-portal/enable-intelligent-tuning.png" alt-text="Screenshot of Server Parameter blade with search for intelligent tuning.":::
 
+3. You'll notice two parameters: `intelligent_tuning` and `intelligent_tuning.metric_targets`. To activate intelligent tuning, change `intelligent_tuning` to `ON`. You have the option to select one, multiple, or all available tuning targets in the `intelligent_tuning.metric_targets`. Click the `Save` button to apply these changes.
 
-3. You see an option to select the major version of your choice, you have an option to skip versions to directly upgrade to higher versions. Choose the version and click **Upgrade** 
+:::image type="content" source="media/how-to-intelligent-tuning-portal/choose_tuning_targets.png" alt-text="Screenshot of Server Parameter blade with tuning targets options."::: 
 
-:::image type="content" source="media/how-to-perform-major-version-upgrade-portal/set-postgresql-version.png" alt-text="Diagram of PostgreSQL version to Upgrade."::: 
+> [!NOTE]
+> Both `intelligent_tuning` and `intelligent_tuning.metric_targets` server parameters are dynamic, meaning no server restart is required when their values are changed.
 
+### Considerations for Selecting `intelligent_tuning.metric_targets` Values
 
-4. During upgrade, users have to wait for the process to complete. You can resume accessing the server once the server is back online.
+When choosing values from the `intelligent_tuning.metric_targets` server parameter take the following considerations into account:
 
-:::image type="content" source="media/how-to-perform-major-version-upgrade-portal/deployment-progress.png" alt-text="Diagram of deployment progress for Major Version Upgrade.":::
+1. The `NONE` value takes precedence over all other values. If `NONE` is chosen alongside any combination of other values, the parameter will be perceived as set to `NONE`. This is equivalent to `intelligent_tuning = OFF`, implying that no tuning will occur.
 
-
-5. Once the upgrade is successful,you can expand the Deployment details tab and click **Operation details** to see more information about upgrade process like duration, provisioning state etc.
-
-
-:::image type="content" source="media/how-to-perform-major-version-upgrade-portal/deployment-success.png" alt-text="Diagram of successful deployment of for Major Version Upgrade.":::
- 
-
-6. You can click on the **Go to resource** tab to validate your upgrade. You notice that server name remained unchanged and PostgreSQL version upgraded to desired higher version with the latest minor version
-
-
-:::image type="content" source="media/how-to-perform-major-version-upgrade-portal/upgrade-verification.png" alt-text="Diagram of Upgraded version to Flexible server after Major Version Upgrade.":::
+2. The `ALL` value takes precedence over all other values, with the exception of `NONE` as detailed above. If `ALL` is chosen with any combination, barring `NONE`, all the listed parameters will undergo tuning.
 
 ## Next steps
 
-- Learn about [business continuity](./concepts-business-continuity.md).
-- Learn about [zone-redundant high availability](./concepts-high-availability.md).
-- Learn about [backup and recovery](./concepts-backup-restore.md).
+- [Perform intelligent tuning in Azure Database for PostgreSQL - Flexible Server
+](concepts-intelligent-tuning.md)
