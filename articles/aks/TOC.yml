@@ -109,8 +109,12 @@
       href: concepts-storage.md
     - name: Scaling
       href: concepts-scale.md
-    - name: Node auto-repair
-      href: node-auto-repair.md
+    - name: Node Health
+      items:
+        - name: Node auto-repair
+          href: node-auto-repair.md
+        - name: Node Problem Detector (NPD)
+          href: node-problem-detector.md  
     - name: Multi-instance GPU Node pool
       href: gpu-multi-instance.md
     - name: Service meshes
