@@ -10,7 +10,7 @@ ms.date: 06/06/2023
 # ms.custom: template-include
 ---
 
-# Upgrading Platform Runtime from Azure CLI
+# Upgrading cluster runtime from Azure CLI
 
 This how-to guide explains the steps for installing the required az CLI and extensions required to interact with Operator Nexus.
 
