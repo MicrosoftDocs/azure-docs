@@ -292,13 +292,8 @@ We will start by creating a debug app to use `psql` cli to connect to the Postgr
             {
               name: 'psql'
               image: 'mcr.microsoft.com/k8se/services/postgres:14'
-              command: [
-                '/bin/bash'
-              ]
-              args: [
-                '-c'
-                'sleep infinity'
-              ]
+              command: [ '/bin/sleep' ]
+              args: [ 'infinity' ]
             }
           ]
           scale: {
@@ -476,13 +471,8 @@ resource pgsqlCli 'Microsoft.App/containerApps@2023-04-01-preview' = {
         {
           name: 'psql'
           image: 'mcr.microsoft.com/k8se/services/postgres:14'
-          command: [
-            '/bin/bash'
-          ]
-          args: [
-            '-c'
-            'sleep infinity'
-          ]
+          command: [ '/bin/sleep' ]
+          args: [ 'infinity' ]
         }
       ]
       scale: {
