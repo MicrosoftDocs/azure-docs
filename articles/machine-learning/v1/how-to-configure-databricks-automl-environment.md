@@ -20,7 +20,7 @@ Learn how to configure a development environment in Azure Machine Learning that 
 
 Azure Databricks is ideal for running large-scale intensive machine learning workflows on the scalable Apache Spark platform in the Azure cloud. It provides a collaborative Notebook-based environment with a CPU or GPU-based compute cluster.
 
-For information on other machine learning development environments, see [Set up Python development environment](how-to-configure-environment-v1.md).
+For information on other machine learning development environments, see [Set up Python development environment](how-to-configure-environment.md).
 
 
 ## Prerequisite
@@ -35,7 +35,7 @@ Azure Databricks integrates with Azure Machine Learning and its AutoML capabilit
 You can use Azure Databricks:
 
 + To train a model using Spark MLlib and deploy the model to ACI/AKS.
-+ With [automated machine learning](concept-automated-ml-v1.md) capabilities using an Azure Machine Learning SDK.
++ With [automated machine learning](concept-automated-ml.md) capabilities using an Azure Machine Learning SDK.
 + As a compute target from an [Azure Machine Learning pipeline](../concept-ml-pipelines.md).
 
 ## Set up a Databricks cluster

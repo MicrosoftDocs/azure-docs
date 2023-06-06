@@ -2,8 +2,8 @@
 title: Set up AutoML with Python (v2)
 titleSuffix: Azure Machine Learning
 description: Learn how to set up an AutoML training run with the Azure Machine Learning Python SDK v2 using Azure Machine Learning automated ML.
-ms.author: shoja
-author: shouryaj
+ms.author: rasavage
+author: rsavage2
 ms.reviewer: ssalgado
 services: machine-learning
 ms.service: machine-learning
@@ -17,7 +17,7 @@ ms.custom: devx-track-python, automl, sdkv2, event-tier1-build-2022, ignite-2022
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)] 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python you are using:"]
-> * [v1](./v1/how-to-configure-auto-train-v1.md?view=azureml-api-1&preserve-view=true)
+> * [v1](./v1/how-to-configure-auto-train.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-configure-auto-train.md)
 
 In this guide, learn how to set up an automated machine learning, AutoML, training job with the [Azure Machine Learning Python SDK v2](/python/api/overview/azure/ml/intro). Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. This guide provides details of the various options that you can use to configure automated ML experiments.
@@ -298,7 +298,7 @@ The following table shows the accepted settings for featurization.
 
 |Featurization Configuration | Description |
 | ------------- | ------------- |
-|`"mode": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](how-to-configure-auto-features.md#featurization) are performed automatically. **Default setting**.|
+|`"mode": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](./v1/how-to-configure-auto-features.md#featurization) are performed automatically. **Default setting**.|
 |`"mode": 'off'`| Indicates featurization step shouldn't be done automatically.|
 |`"mode":`&nbsp;`'custom'`| Indicates customized featurization step should be used.|
 
@@ -376,7 +376,7 @@ Automated ML offers options for you to monitor and evaluate your training result
 
 * For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md).
 
-* To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency). 
+* To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](./v1/how-to-configure-auto-features.md#featurization-transparency). 
 
 From Azure Machine Learning UI at the model's page you can also view the hyperparameters used when training a particular model and also view and customize the internal model's training code used. 
 

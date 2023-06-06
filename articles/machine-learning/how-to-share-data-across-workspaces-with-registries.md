@@ -356,16 +356,12 @@ az ml data create -f local-folder.yml
 
 For more information on creating data assets in a workspace, see [How to create data assets](how-to-create-data-assets.md).  
 
-The data asset created in the workspace can be shared to a registry. From the registry, it can be used in multiple workspaces. You can also change the name and version when sharing the data from workspace to registry. Sharing a data asset from a workspace to a registry uses the `--path` parameter to reference the data asset to be shared. Valid path formats are:
+The data asset created in the workspace can be shared to a registry. From the registry, it can be used in multiple workspaces. Note that we are passing `--share_with_name` and `--share_with_version` parameter in share function. These parameters are optional and if you do not pass these data will be shared with same name and version as in workspace.
 
-* `azureml://subscriptions/<subscription-id>/resourcegroup/<resource-group-name>/data/<data-asset-name>/versions/<version-number>`    
-* `azureml://resourcegroup/<resource-group-name>/data/<data-asset-name>/versions/<version-number>`
-* `azureml://data/<data-asset-name>/versions/<version-number>`
-
-The following example demonstrates using the `--path` parameter to share a data asset. Replace `<registry-name>` with the name of the registry that the data will be shared to. Replace `<resourceGroupName>` with the name of the resource group that contains the Azure Machine Learning workspace where the data asset is registered:
+The following example demonstrates using share command to share a data asset. Replace `<registry-name>` with the name of the registry that the data will be shared to.
 
 ```azurecli
-az ml data create --registry-name <registry-name> --path azureml://resourcegroup/<resourceGroupName>/data/local-folder-example-titanic/versions/1
+az ml data share --name local-folder-example-titanic --version <version-in-workspace> --share-with-name <name-in-registry> --share-with-version <version-in-registry> --registry-name <registry-name>
 ```
 
 # [Python SDK](#tab/python)
@@ -387,18 +383,17 @@ For more information on creating data assets in a workspace, see [How to create 
 
 The data asset created in workspace can be shared to a registry and it can be used in multiple workspaces from there. You can also change the name and version when sharing the data from workspace to registry.
 
+Note that we are passing `share_with_name` and `share_with_version` parameter in share function. These parameters are optional and if you do not pass these data will be shared with same name and version as in workspace.
+
 ```python
-# Fetch the data from the workspace
-data_in_workspace = ml_client_workspace.data.get(name="titanic-dataset", version="1")
-print("data from workspace:\n\n", data_in_workspace)
-
-# Change the format to one that the registry understands:
-# Note the asset ID when printing the `data_ready_to_copy` object.
-data_ready_to_copy = ml_client_workspace.data._prepare_to_copy(data_in_workspace)
-print("\n\ndata ready to copy:\n\n", data_ready_to_copy)
-
-# Copy the data from the workspace to the registry
-ml_client_registry.data.create_or_update(data_ready_to_copy).wait()
+# Sharing data from workspace to registry
+ml_client_workspace.data.share(
+    name="titanic-dataset",
+    version="1",
+    registry_name="<REGISTRY_NAME>",
+    share_with_name=<name-in-registry>,
+    share_with_version=<version-in-registry>,
+)
 ```
 
 ---

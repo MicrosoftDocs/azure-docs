@@ -38,7 +38,7 @@ Azure AD Conditional Access can be used to further control or restrict access to
 ## Prerequisites
 
 * Create an [Azure Machine Learning workspace](../how-to-manage-workspace.md).
-* [Configure your development environment](how-to-configure-environment-v1.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning compute instance](concept-azure-machine-learning-architecture.md#computes) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning compute instance](concept-azure-machine-learning-architecture.md#computes) with the SDK already installed.
 
 ## Azure Active Directory
 

@@ -214,7 +214,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 Azure Machine Learning can also log information from other sources during training, such as automated machine learning runs, or Docker containers that run the jobs. These logs aren't documented, but if you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
-For information on logging metrics in Azure Machine Learning designer, see [How to log metrics in the designer](../how-to-track-designer-experiments.md)
+For information on logging metrics in Azure Machine Learning designer, see [How to log metrics in the designer](how-to-track-designer-experiments.md)
 
 ## Example notebooks
 
