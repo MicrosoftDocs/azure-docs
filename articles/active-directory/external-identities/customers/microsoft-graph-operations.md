@@ -1,6 +1,6 @@
 ---
-title: Management APIs for Azure Active Directory for customers 
-description: Learn how to manage resources in an Azure AD for customers tenant programmatically by using APIs.
+title: Manage resources with Microsoft Graph
+description: Learn how to manage user resources in an Azure AD for customers tenant by calling the Microsoft Graph API and using an application identity to automate the process.
 services: active-directory
 author: garrodonnell
 manager: celested
@@ -9,32 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 05/31/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn how to programmatically manage my Azure Active Directory for customers tenant using APIs.
+#Customer intent: As a dev, devops, I want to learn how to use the Microsoft Graph to manage operations in my Azure AD customer tenant.
 ---
-# Management APIs for Azure Active Directory for customers 
 
-Using APIs allows you to programmatically manage resources in your Azure Active Directory (AD) for customers directory. Depending on the resource you want to manage, you can use the Microsoft Graph API or the Azure REST API. Both APIs are supported for the management of resources related to Azure AD for customers. Each link in the following sections targets the corresponding page within the relevant reference for that operation. You can use this article to determine which API to use for the resource you want to manage.
+# Manage Azure Active Directory for customers resources with Microsoft Graph
+Using the Microsoft Graph API allows you to manage resources in your Azure Active Directory (AD) for customers directory. The following Microsoft Graph API operations are supported for the management of resources related to user flows, custom extensions and custom branding. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation.
 
-## Azure REST API
-Using the Azure REST API, you can manage your Azure AD for customers tenant. The following Azure REST API operations are supported for the management of resources related to Azure AD for customers.
-
-* [Tenant Management operations](azure-rest-api-operations-tenant-management.md)
-
-## Microsoft Graph API
-
-Querying and managing resources in your Azure AD for customers directory is done through the Microsoft Graph API. The following Microsoft Graph API operations are supported for the management of resources related to Azure AD for customers. 
-
-* [User flows operations](microsoft-graph-operations-user-flow.md)
-
-* [Company branding operations](microsoft-graph-operations-branding.md)
-
-* [Custom extensions](microsoft-graph-operations-custom-extensions.md)
+> [!NOTE]
+> You can also programmatically create an Azure AD for customers directory itself, along with the corresponding Azure resource linked to an Azure subscription. This functionality isn't exposed through the Microsoft Graph API, but through the Azure REST API. For more information, see [Directory Tenants - Create Or Update](/rest/api/azurestack/directory-tenants/create-or-update).
 
 ### Register a Microsoft Graph API application
-
 In order to use the Microsoft Graph API, you need to register an application in your Azure AD for customers tenant. This application will be used to authenticate and authorize your application to call the Microsoft Graph API.
 
 During registration, you'll specify a **Redirect URI** which redirects the user after authentication with Azure Active Directory. The app registration process also generates a unique identifier known as an **Application (client) ID**. 
@@ -113,7 +100,50 @@ The application uses the client secret to prove its identity when it requests fo
 
 > [!NOTE] 
 > The secret value won't be displayed again, and is not retrievable by any means, after you navigate away from the certificates and secrets page, so make sure you record it. <br> For enhanced security, consider using **certificates** instead of client secrets.
-## Next steps
 
-- To learn more about the Microsoft Graph API, see [Microsoft Graph overview](/graph/overview). 
-  
+## User flows (Preview)
+
+User flows are used to enable a self-service sign-up experience for users within an Azure AD customer tenant.  User flows define the experience the end user sees while signing up, including which identity providers they can use to authenticate, along with which attributes are collected as part of the sign-up process.  The sign-up experience for an application is defined by a user flow, and multiple applications can use the same user flow.
+
+Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in, password reset, and profile update.
+
+- [List user flows](/graph/api/identitycontainer-list-authenticationeventsflows)
+- [Create a user flow](/graph/api/identitycontainer-post-authenticationeventsflows)
+- [Get a user flow](/graph/api/authenticationeventsflow-get)
+- [Delete a user flow](/graph/api/authenticationeventsflow-delete)
+
+## Identity providers (Preview)
+
+Get the identity providers that are defined for an external identities self-service sign-up user flow that's represented by an externalUsersSelfServiceSignupEventsFlow object type.
+
+- [List identity providers](/graph/api/onauthenticationmethodloadstartexternalusersselfservicesignup-list-identityproviders)
+- [Add identity provider](/graph/api/onauthenticationmethodloadstartexternalusersselfservicesignup-post-identityproviders)
+- [Remove identity provider](/graph/api/onauthenticationmethodloadstartexternalusersselfservicesignup-delete-identityproviders)
+
+## Attributes (Preview)
+
+- [List attributes](/graph/api/onattributecollectionexternalusersselfservicesignup-list-attributes)
+- [Add attributes](/graph/api/onattributecollectionexternalusersselfservicesignup-post-attributes)
+- [Remove attributes](/graph/api/onattributecollectionexternalusersselfservicesignup-delete-attributes)
+
+## Company branding
+
+Customers can customize look and feel of sign-in pages which appear when users sign in to tenant-specific apps. Developers can also read the company's branding information and customize their app experience to tailor it specifically for the signed-in user using their company's branding.
+
+You can't change your original configuration's default language. However, companies can add different branding based on locale. For language-specific branding, see the organizationalBrandingLocalization object.
+
+- [Get company branding](/graph/api/organizationalbranding-get)
+- [Update company branding](/graph/api/organizationalbranding-update)
+
+## Company branding - localization
+
+Resource that supports managing language-specific branding. While you can't change your original configuration's language, this resource allows you to create a new configuration for a different language.
+
+- [List localizations](/graph/api/organizationalbranding-list-localizations)
+- [Create localization](/graph/api/organizationalbranding-post-localizations)
+- [Get localization](/graph/api/organizationalbrandinglocalization-get)
+- [Update localization](/graph/api/organizationalbrandinglocalization-update)
+- [Delete localization](/graph/api/organizationalbrandinglocalization-delete)
+
+> [!NOTE]
+> Delegated permissions for users signing in through user flows cannot be used against delegated permissions for Microsoft Graph API.
