@@ -2,7 +2,7 @@
 title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep .
 ms.topic: conceptual
-ms.date: 05/02/2023
+ms.date: 06/05/2023
 ---
 
 # Deployment stacks (Preview)
@@ -507,7 +507,7 @@ The Azure PowerShell interface also includes these parameters to customize the d
 - `-DenySettingsExcludedPrincipals`: List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
 - `-DenySettingsApplyToChildScopes`: Apply to child scopes.
 - `-DenySettingsExcludedActions`: List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted.
-- `-DenySettingsMode`: Mode for DenySettings. Possible values include: 'denyDelete', 'denyWriteAndDelete', and 'none'.
+- `-DenySettingsMode`: Mode for DenySettings. Possible values include: `denyDelete`, `denyWriteAndDelete`, and `none`.
 
 # [CLI](#tab/azure-cli)
 
@@ -515,12 +515,10 @@ The `--deny-delete` CLI parameter places a special type of lock on managed resou
 
 Following are the relevant `az stack sub create` parameters:
 
-- `deny-settings-mode`: Defines which operations are denied on resources managed by the stack: `denyWrite`, `denyWriteAndDelete`, or `none`.
+- `deny-settings-mode`: Defines which operations are denied on resources managed by the stack: `denyDelete`, `denyWriteAndDelete`, or `none`.
 - `deny-settings-excluded-principals`: Comma-separated list of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are allowed
 - `deny-settings-apply-to-child-scopes`: Deny settings will be applied to child Azure management scopes
 - `deny-settings-excluded-actions`: List of role-based access control (RBAC) management operations excluded from the deny settings. Up to 200 actions are allowed
-
-jgao: the last parameter is not found in the help file.  Please verify.
 
 To apply a `denyDelete` lock to your deployment stack, update your deployment stack definition, specifying the appropriate parameter(s):
 
@@ -532,15 +530,13 @@ az stack sub create \
   --deny-settings-mode denyDelete
 ```
 
-jgao: use which value for deny-settings-mode?  none or denyDelete?
-
 ---
 
 ## Detach managed resources from deployment stack
 
 By default, deployment stacks detach and don't delete unmanaged resources when they're no longer contained within the stack's management scope. For more information, see [Update deployment stacks](#update-deployment-stacks).
 
-## Export managed resources from deployment stack
+## Export tempaltes from deployment stacks
 
 You can export the resources from a deployment stack to a Bicep template file.
 
