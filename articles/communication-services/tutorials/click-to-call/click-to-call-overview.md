@@ -18,7 +18,7 @@ ms.subservice: calling
 
 This project is aimed to teach developers on how to create a Click to Call experience using the Azure Communication UI Library.
 
-Depending on your needs, you might need to create an experience for your customers to be able to get a hold of you with minimal setup on their part.
+Depending on your needs, you might need to create an experience for your customers to be able to get a hold of you with minimal set up on their part.
 Click to call is a concept that is meant for allowing instant interaction, whether that is reaching out to customer support, having a quick call with your financial advisor, or other customer facing teams. The goal of this tutorial is to help you make you one click away from your customers.
 
 If you want to try it out, download the code [here](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/dmceachernmsft/c2c-tutorial/ui-library-click-to-call).
@@ -29,7 +29,7 @@ Following this tutorial will:
 - Move your customers call into a new window so they can continue browsing while on the call
 
 
-This tutorial will be broken down into 3 parts:
+This tutorial will be broken down into three parts:
 
 - Creating your widget
 - using post messaging to start a calling experience in a new window
@@ -38,9 +38,9 @@ This tutorial will be broken down into 3 parts:
 
 ### Setup the project
 
-If you are not creating a new application you can skip this step.
+If you are not creating a new application, you can skip this step.
 
-To setup the react App, we will use the create-react-app template. This `create-react-app` command
+To set up the react App, we'll use the create-react-app template. This `create-react-app` command
 creates an easy to run TypeScript application powered by React. This command will also install the
 Azure Communication Services packages that we need to run the sample as well.
 
@@ -52,7 +52,7 @@ npx create-react-app ui-library-click-to-call-app --template communication-react
 cd ui-library-click-to-call-app
 ```
 
-Then you will need to update the dependency array in the `package.json` to include some beta and alpha packages for this to work:
+Then you need to update the dependency array in the `package.json` to include some beta and alpha packages for this to work:
 ```json
 "@azure/communication-calling": "1.13.2-beta.1",
 "@azure/communication-chat": "1.3.2-beta.2",
@@ -61,16 +61,16 @@ Then you will need to update the dependency array in the `package.json` to inclu
 "@fluentui/react-icons": "~2.0.203",
 ```
 
-Once you have run these commands, you will be in your new project ready to get started. For this tutorial, we will be modifying the files in the
+Once you have run these commands, you are in your new project ready to get started. For this tutorial, we are modifying the files in the
 `src` directory.
 
 ### Initial App Setup
 
-To get us started we will replace the provided `App.tsx` content with a main page that will:
+To get us started, we'll replace the provided `App.tsx` content with a main page that will:
 
 - Store all of the Azure Communication information that we need to create a CallAdapter to power our Calling experience
 - Control the different pages of our application
-- Register the different fluent icons we use in the UI library as well as some new ones for our purposes
+- Register the different fluent icons we use in the UI library and some new ones for our purposes
 
 `src/App.tsx`
 
@@ -162,7 +162,7 @@ function App() {
 
 export default App;
 ```
-In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>` these new icons will be used inside the widget component that we will be creating later.
+In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>` these new icons are used inside the widget component that we are creating later.
 
 ### Running the App
 
@@ -176,7 +176,7 @@ npm install
 npm run start
 ```
 
-Once the app is running you can see it on `http://localhost:3000` in your browser. You should see a little spinner saying: `getting credentials from server` as
+Once the app is running,  you can see it on `http://localhost:3000` in your browser. You should see a little spinner saying: `getting credentials from server` as
 a test message.
 
 ## Next steps
