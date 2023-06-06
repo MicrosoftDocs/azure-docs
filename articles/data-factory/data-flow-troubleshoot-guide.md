@@ -705,7 +705,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Both SAP servicePath and entityName are required in import-schema, preview-data and read data operation.
 - **Cause**: **Service path** and **Entity name** can't be null when importing schema, previewing data or reading data.
-- **Recommendation**: Specify the **Service Path** and **Entity name** when importing schema, previewing data or reading data.
+- **Recommendation**: Specify the **Service path** and **Entity name** when importing schema, previewing data or reading data.
 
 ### Error code: DF-SAPODATA-TimeoutInvalid
 
