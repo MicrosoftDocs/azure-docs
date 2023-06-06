@@ -904,7 +904,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## August 2020
 
-* **Form Recognizer v2.1-preview.1 has been released and includes the following features:
+* **Form Recognizer `v2.1-preview.1` has been released and includes the following features:
 
   * **REST API reference is available** - View the [`v2.1-preview.1 reference`](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)
   * **New languages supported In addition to English**, the following [languages](language-support.md) are now supported: for `Layout` and `Train Custom Model`: English (`en`), Chinese (Simplified) (`zh-Hans`), Dutch (`nl`), French (`fr`), German (`de`), Italian (`it`), Portuguese (`pt`) and Spanish (`es`).
