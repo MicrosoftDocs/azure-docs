@@ -123,7 +123,7 @@ In Azure Pipelines, you create a *service connection* in your Azure DevOps proje
     | **Service connection name** | Enter a unique name for the service connection. |
     | **Grant access permission to all pipelines** | Checked. |
 
-1. From the list of service connections, select the one you just created, and then select **Manage Service Principal**.
+1. From the list of service connections, select the one you created earlier, and then select **Manage Service Principal**.
 
     :::image type="content" source="./media/quickstart-add-load-test-cicd/service-connection-manage-service-principal.png" alt-text="Screenshot that shows selections for managing a service principal.":::
 
@@ -179,7 +179,7 @@ Perform the following steps to download the input files for an existing load tes
 
     - `config.yaml`: the load test YAML configuration file. You reference this file in the CI/CD workflow definition.
     - `.jmx`: the JMeter test script
-    - Any additional input files, such as CSV files or user properties files, that are needed to run the load test.
+    - Any additional input files, such as CSV files or user properties files that are needed to run the load test.
 
 1. Commit all extracted input files to your source control repository.
 
@@ -300,7 +300,7 @@ Update your Azure Pipelines workflow to run a load test for your Azure load test
 
 ## Next steps
 
-Advance to the next article to learn how to use identify performance regressions by defining test fail criteria and comparing test runs.
+Advance to the next article to learn how to identify performance regressions by defining test fail criteria and comparing test runs.
 
 > [!div class="nextstepaction"]
 > [Next steps button](./tutorial-identify-performance-regression-with-cicd.md)
