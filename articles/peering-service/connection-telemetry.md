@@ -46,11 +46,11 @@ To view the latency report for a specific Peering Service connection, follow the
 
 ## View prefix state report
 
-1. To view events for a specific prefix, select the prefix name and select **Prefix events** under **Diagnostics**. The events that are captured are displayed.
+To view events for a specific prefix, select the prefix name and select **Prefix events** under **Diagnostics**. The events that are captured are displayed.
 
-    :::image type="content" source="./media/connection-telemetry/peering-service-prefixes-events.png" alt-text="Screenshot shows the prefix events in the Azure portal." lightbox="./media/connection-telemetry/peering-service-prefixes-events.png":::
+:::image type="content" source="./media/connection-telemetry/peering-service-prefixes-events.png" alt-text="Screenshot shows the prefix events in the Azure portal." lightbox="./media/connection-telemetry/peering-service-prefixes-events.png":::
 
- Some of the possible events that are captured in the **Prefix events** list are shown in the following table.
+Some of the possible events that are captured in the **Prefix events** list are shown in the following table.
 
 | **Event type** | **Event impact**|**Details**|
 |----------------|-----------------|---------|
