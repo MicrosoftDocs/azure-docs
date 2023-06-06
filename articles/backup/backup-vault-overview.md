@@ -205,7 +205,55 @@ Wait till the move operation is complete to perform any other operations on the 
 >[!Important]
 >If you encounter any error while moving the vault, refer to the [Error codes and troubleshooting section](#error-codes-and-troubleshooting).
 
-## Cross Region Restore support for PostgreSQL database using Azure Backup (Preview)
+
+
+### Error codes and troubleshooting
+
+Troubleshoot the following common issues you might encounter during Backup vault move:
+
+#### BackupVaultMoveResourcesPartiallySucceeded   
+
+**Cause**: You may face this error when Backup vault move succeeds only partially.
+
+**Recommendation**: The issue should get resolved automatically within 36 hours. If it persists, contact Microsoft Support.
+
+#### BackupVaultMoveResourcesCriticalFailure 
+
+**Cause**: You may face this error when Backup vault move fails critically. 
+
+**Recommendation**: The issue should get resolved automatically within 36 hours. If it persists, contact Microsoft Support. 
+
+#### UserErrorBackupVaultResourceMoveInProgress 
+
+**Cause**: You may face this error if you try to perform any operations on the Backup vault while it’s being moved. 
+
+**Recommendation**: Wait till the move operation is complete, and then retry. 
+
+#### UserErrorBackupVaultResourceMoveNotAllowedForMultipleResources
+
+**Cause**: You may face this error if you try to move multiple Backup vaults  in a single attempt. 
+
+**Recommentation**: Ensure that only one Backup vault is selected for every move operation. 
+
+#### UserErrorBackupVaultResourceMoveNotAllowedUntilResourceProvisioned
+
+**Cause**: You may face this error if the vault is not yet provisioned. 
+
+**Recommendation**: Retry the operation after some time.
+
+#### BackupVaultResourceMoveIsNotEnabled 
+
+**Cause**: Resource move for Backup vault is currently not supported in the selected Azure region.
+
+**Recommendation**: Ensure that you've selected one of the supported regions to move Backup vaults. See [Supported regions](#supported-regions).
+
+#### UserErrorCrossTenantMSIMoveNotSupported 
+
+**Cause**: This error occurs if the subscription with which resource is associated has moved to a different Tenant, but the Managed Identity is still associated with the old Tenant.
+
+**Recommendation**: Remove the Managed Identity from the existing Tenant; move the resource and add it again to the new one.
+
+## Cross Region Restore support for PostgreSQL using Azure Backup (preview)
 
 Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS)  to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region. However, Cross Region Restore enables you to access and perform restores from the secondary region recovery points even when no outage occurs in the primary region; thus, enables you to perform drills to assess regional resiliency.
 
@@ -246,52 +294,6 @@ Follow these steps:
 7. Once the restore starts, you can monitor the completion of the restore operation under **Backup Jobs** of the Backup vault by filtering **Jobs workload type** to *Azure Database for PostgreSQL servers* and **Instance Region** to *Secondary Region*.
 
    :::image type="content" source="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png" alt-text="Screenshot shows how to monitor the postgresql restore to the secondary region." lightbox="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png":::
-
-## Error codes and troubleshooting
-
-Troubleshoot the following common issues you might encounter during Backup vault move:
-
-### BackupVaultMoveResourcesPartiallySucceeded   
-
-**Cause**: You may face this error when Backup vault move succeeds only partially.
-
-**Recommendation**: The issue should get resolved automatically within 36 hours. If it persists, contact Microsoft Support.
-
-### BackupVaultMoveResourcesCriticalFailure 
-
-**Cause**: You may face this error when Backup vault move fails critically. 
-
-**Recommendation**: The issue should get resolved automatically within 36 hours. If it persists, contact Microsoft Support. 
-
-### UserErrorBackupVaultResourceMoveInProgress 
-
-**Cause**: You may face this error if you try to perform any operations on the Backup vault while it’s being moved. 
-
-**Recommendation**: Wait till the move operation is complete, and then retry. 
-
-### UserErrorBackupVaultResourceMoveNotAllowedForMultipleResources
-
-**Cause**: You may face this error if you try to move multiple Backup vaults  in a single attempt. 
-
-**Recommentation**: Ensure that only one Backup vault is selected for every move operation. 
-
-### UserErrorBackupVaultResourceMoveNotAllowedUntilResourceProvisioned
-
-**Cause**: You may face this error if the vault is not yet provisioned. 
-
-**Recommendation**: Retry the operation after some time.
-
-### BackupVaultResourceMoveIsNotEnabled 
-
-**Cause**: Resource move for Backup vault is currently not supported in the selected Azure region.
-
-**Recommendation**: Ensure that you've selected one of the supported regions to move Backup vaults. See [Supported regions](#supported-regions).
-
-### UserErrorCrossTenantMSIMoveNotSupported 
-
-**Cause**: This error occurs if the subscription with which resource is associated has moved to a different Tenant, but the Managed Identity is still associated with the old Tenant.
-
-**Recommendation**: Remove the Managed Identity from the existing Tenant; move the resource and add it again to the new one.
 
 ## Next steps
 
