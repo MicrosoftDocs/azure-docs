@@ -12,7 +12,7 @@
 
 ## Create virtual machines
 
-The following procedure create two virtual machines (VMs) named **vm-1** and **vm-2** in the virtual network.
+The following procedure creates two virtual machines (VMs) named **vm-1** and **vm-2** in the virtual network.
 
 1. In the portal, search for and select **Virtual machines**.
 

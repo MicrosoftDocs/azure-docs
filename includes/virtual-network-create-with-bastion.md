@@ -33,7 +33,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
 1. Select **Next: IP Addresses** at the bottom of the page.
 
-1. In the **IP Addresses** tab, under **IPv4 address space**, select the garbage can icon to remove any address space that already appears, and then enter **10.0.0.0/16**.
+1. In the **IP Addresses** tab, under **IPv4 address space**, select the garbage deletion icon to remove any address space that already appears, and then enter **10.0.0.0/16**.
 
 1. Select **+ Add subnet**.
 
