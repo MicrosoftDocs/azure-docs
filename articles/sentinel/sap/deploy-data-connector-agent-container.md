@@ -41,7 +41,7 @@ The data connector agent runs as a container on a Linux virtual machine (VM). Th
 
 The agent connects to your SAP system to pull logs and other data from it, then sends those logs to your Microsoft Sentinel workspace. To do this, the agent has to authenticate to your SAP system - that's why you created a user and a role for the agent in your SAP system in the previous step. 
 
-Your SAP authentication infrastructure, and where you deploy your VM, will determine how and where your agent configuration information, including your SAP authentication secrets, is stored. These are the options, in descending order of preference:
+Your SAP authentication mechanism, and where you deploy your VM, will determine how and where your agent configuration information, including your SAP authentication secrets, is stored. These are the options, in descending order of preference:
 
 - An Azure Key Vault, accessed through an Azure **system-assigned managed identity**
 - An Azure Key Vault, accessed through an Azure AD **registered-application service principal**
