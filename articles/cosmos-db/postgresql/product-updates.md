@@ -24,7 +24,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 
 ### June  2023
 * General availability: The new domain name and FQDN format for cluster nodes. The change applies to newly provisioned clusters only. 
-    * See [details](./concepts-connect.md).
+    * See [details](./concepts-node-domain-name.md).
 
 ### May  2023
 
