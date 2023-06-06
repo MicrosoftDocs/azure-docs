@@ -28,6 +28,8 @@ In this article, the Azure Stack Edge Pro FPGA device is referred to as the *sou
 
 This section provides a comparative summary of capabilities between the Azure Stack Edge Pro GPU vs. the Azure Stack Edge Pro FPGA devices. The hardware in both the source and the target device is largely identical; only the hardware acceleration card and the storage capacity may differ.<!--Please verify: These components MAY, but need not necessarily, differ?-->
 
+### [Migrate to Azure Stack Edge Pro 2](#tab/migrate-to-ase-pro2)
+
 |    Capability  | Azure Stack Edge Pro GPU (Target device)  | Azure Stack Edge Pro FPGA (Source device)|
 |----------------|-----------------------|------------------------|
 | Hardware       | Hardware acceleration: 1 or 2 Nvidia T4 GPUs <br> Compute, memory, network interface, power supply unit, and power cord specifications are identical to the device with FPGA.  | Hardware acceleration: Intel Arria 10 FPGA <br> Compute, memory, network interface, power supply unit, and power cord specifications are identical to the device with GPU.          |
@@ -35,6 +37,12 @@ This section provides a comparative summary of capabilities between the Azure St
 | Security       | Certificates |                                                     |
 | Workloads      | IoT Edge workloads <br> VM workloads <br> Kubernetes workloads| IoT Edge workloads |
 | Pricing        | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/)|
+
+### [Migrate to Azure Stack Edge Pro GPU](#tab/migrate-to-ase-pro-gpu)
+
+Content for GPU tab... > comparison summary
+
+---
 
 ## Migration plan
 
@@ -128,6 +136,10 @@ Content for GPU tab... > prepare source device
 
 ## Prepare target device
 
+ To prepare the target device, ...
+
+### [Migrate to Azure Stack Edge Pro 2](#tab/migrate-to-ase-pro2) 
+
 ### 1. Create new order
 
 You need to create a new order (and a new resource) for your *target* device. The target device must be activated against the GPU resource and not against the FPGA resource.
@@ -150,6 +162,12 @@ Follow these steps to configure the *target* device via the Azure portal:
 1. Get the activation key from the Azure portal and activate the new device. See how to [activate the device](azure-stack-edge-gpu-deploy-activate.md).
 
 You are now ready to restore the share data and deploy the workloads that you were running on the old device.
+
+### [Migrate to Azure Stack Edge Pro GPU](#tab/migrate-to-ase-pro-gpu)
+
+Content for GPU tab... > prepare target device
+
+---
 
 ## Migrate data
 
