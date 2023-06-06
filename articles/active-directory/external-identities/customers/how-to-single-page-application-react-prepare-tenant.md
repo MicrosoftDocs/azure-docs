@@ -21,14 +21,14 @@ In this article, you learn how to register your application and record identifie
 
 ## Prerequisites
 
-An Azure subscription. If you don't have one, [create a free account](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl) before you begin.
+An Azure subscription. If you don't have one, <a href="https://azure.microsoft.com/free/?WT.mc_id=A261C142F" target="_blank">create a free account</a> before you begin.
 
 This Azure account must have permissions to manage applications. Any of the following Azure AD roles include the required permissions:
 * Application administrator
 * Application developer
 * Cloud application administrator
 
-If you haven't already created your own customer tenant, [create one now](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). You can use an existing customer tenant if you have one.
+If you haven't already created your own customer tenant, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">create one now</a>. You can use an existing customer tenant if you have one.
 
 ## Register the application and record identifiers
 [!INCLUDE [register-client-app-common](./includes/register-app/register-client-app-common.md)]

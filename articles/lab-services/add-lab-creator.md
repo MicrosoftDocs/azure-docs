@@ -12,30 +12,17 @@ ms.custom: subject-rbac-steps
 
 This article shows you how to add users as lab creators to a lab account or lab plan in Azure Lab Services. These users then can create labs and manage those labs.
 
+## Prerequisites
+
+- To add lab creators to a lab plan, your Azure account needs to have the [Owner](./concept-lab-services-role-based-access-control.md#owner-role) Azure RBAC role assigned on the resource group. Learn more about the [Azure Lab Services built-in roles](./reliability-in-azure-lab-services.md).
+
 ## Add Azure AD user account to Lab Creator role
 
-The user account you used to create the lab account or lab plan is automatically able to create labs.  Otherwise, the user must be a member of the **Lab Creator** role.  If using a lab plan, user must be a **Lab Creator** on the lab plan or the resource group that contains the lab plan.  If using a lab account, the user must be a **Lab Creator** on the lab account.  If you are planning to use the same user account to create a lab as you did creating the lab plan or lab account, you can skip this step. To use another user account to create a lab, do the following steps:
+[!INCLUDE [Add Lab Creator role](./includes/lab-services-add-lab-creator.md)]
 
-To provide educators the permission to create labs for their classes, add them to the **Lab Creator** role: For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+If you're using a lab account, assign the Lab Creator role on the lab account. 
 
-1. On the **Lab Plan** resource, select **Access control (IAM)**
-
-1. Select **Add** > **Add role assignment**.
-
-    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
-
-1. On the **Role** tab, select the **Lab Creator** role.
-
-    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
-
-1. On the **Members** tab, select the user you want to add to the Lab Creators role
-
-1. On the **Review + assign** tab, select **Review + assign** to assign the role.
-
-    > [!NOTE]
-    > If you are adding a non-Microsoft account user as a lab creator, see [Adding a guest user as a lab creator](#adding-a-guest-user-as-a-lab-creator).
-
-## Adding a guest user as a lab creator
+## Add a guest user as a lab creator
 
 You might need to add an external user as a lab creator. If that is the case, you'll need to add them as a guest account on the Azure AD attached to the subscription. The following types of email accounts might be used:
 

@@ -6,6 +6,7 @@ ms.topic: overview
 ms.date: 01/24/2023
 ms.author: azfuncdf
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 #Customer intent: As a developer, I want to learn about Durable Functions for the Azure Functions .NET isolated worker process.
 ---
 
