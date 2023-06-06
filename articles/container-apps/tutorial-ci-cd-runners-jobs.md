@@ -54,7 +54,7 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 ::: zone-end
 
 > [!NOTE]
-> Container Apps and jobs don't support running Docker in containers. Any Docker commands in your workflow will fail.
+> Container apps and jobs don't support running Docker in containers. Any steps in your workflows that use Docker commands will fail when run on a self-hosted runner or agent in a Container Apps job.
 
 ## Prerequisites
 
@@ -243,7 +243,7 @@ To create a self-hosted runner, you need to build a container image that execute
 
 ## Deploy a self-hosted runner as a job
 
-You can now create a job that uses to use the container image. In this section, you create a job that executes the self-hosted runner and authenticates with GitHub using the PAT you generated earlier. It uses the [`github-runner` scale rule](https://keda.sh/docs/latest/scalers/github-runner/) to create job executions based on the number of pending workflow runs.
+You can now create a job that uses to use the container image. In this section, you create a job that executes the self-hosted runner and authenticates with GitHub using the PAT you generated earlier. The job uses the [`github-runner` scale rule](https://keda.sh/docs/latest/scalers/github-runner/) to create job executions based on the number of pending workflow runs.
 
 1. Create a job in the Container Apps environment.
 
