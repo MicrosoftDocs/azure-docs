@@ -19,7 +19,7 @@ This feature is designed for customers who need to run interruptible workloads w
 This article provides background about the feature, limitations, and resources. To see the availability of Spot containers in Azure regions, see [Resource and region availability](container-instances-region-availability.md).
 
 > [!NOTE]
-> Spot containers with Azure Containers Instances is in preview and is not recommended for production scenarios.
+> Spot containers with Azure Container Instances is in preview and is not recommended for production scenarios.
 
 
 
