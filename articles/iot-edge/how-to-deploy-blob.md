@@ -80,7 +80,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    }
    ```
 
-   :::image type="content" source="./media/how-to-deploy-blob/addmodule-tab3.png" alt-text="Screenshot showing the Container Create Options tab of the Add I o T Edge Module page..":::
+   :::image type="content" source="./media/how-to-deploy-blob/addmodule-tab3.png" alt-text="Screenshot showing the Container Create Options tab of the Add IoT Edge Module page..":::
 
 4. Update the JSON that you copied into **Container Create Options** with the following information:
 
@@ -135,7 +135,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    > [!NOTE]
    > If your container target is unnamed or null within `storageContainersForUpload`, a default name will be assigned to the target. If you wanted to stop uploading to a container, it must be removed completely from `storageContainersForUpload`. For more information, see the `deviceToCloudUploadProperties` section of [Store data at the edge with Azure Blob Storage on IoT Edge](how-to-store-data-blob.md#devicetoclouduploadproperties).
 
-   :::image type="content" source="./media/how-to-deploy-blob/addmodule-tab4.png" alt-text="Screenshot showing the Module Twin Settings tab of the Add I o T Edge Module page.":::
+   :::image type="content" source="./media/how-to-deploy-blob/addmodule-tab4.png" alt-text="Screenshot showing the Module Twin Settings tab of the Add IoT Edge Module page.":::
 
    For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about desired properties, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 
@@ -296,7 +296,7 @@ In addition, a blob storage module also requires the HTTPS_PROXY setting in the 
 
 1. Add `HTTPS_PROXY` for the **Name** and your proxy URL for the **Value**.
 
-   :::image type="content" source="./media/how-to-deploy-blob/https-proxy-config.png" alt-text="Screenshot showing the Update I o T Edge Module pane where you can enter the specified values.":::
+   :::image type="content" source="./media/how-to-deploy-blob/https-proxy-config.png" alt-text="Screenshot showing the Update IoT Edge Module pane where you can enter the specified values.":::
 
 1. Select **Update**, then **Review + Create**.
 
