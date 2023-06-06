@@ -61,9 +61,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 3. Open the **Container Create Options** tab.
 
-   :::image type="content" source="./media/how-to-deploy-blob/addmodule-tab3.png" alt-text="Screenshot showing the Container Create Options tab of the Add I o T Edge Module page..":::
-
-   Copy and paste the following JSON into the box, to provide storage account information and a mount for the storage on your device.
+1. Copy and paste the following JSON into the box, to provide storage account information and a mount for the storage on your device.
   
    ```json
    {
@@ -81,6 +79,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
      }
    }
    ```
+
+   :::image type="content" source="./media/how-to-deploy-blob/addmodule-tab3.png" alt-text="Screenshot showing the Container Create Options tab of the Add I o T Edge Module page..":::
 
 4. Update the JSON that you copied into **Container Create Options** with the following information:
 
@@ -106,13 +106,6 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 5. On the **Module Twin Settings** tab, copy the following JSON and paste it into the box.
 
-   :::image type="content" source="./media/how-to-deploy-blob/addmodule-tab4.png" alt-text="Screenshot showing the Module Twin Settings tab of the Add I o T Edge Module page.":::
-
-   Configure each property with an appropriate value, as indicated by the placeholders. If you're using the IoT Edge simulator, set the values to the related environment variables for these properties as described by [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
-
-   > [!TIP]
-   > The name for your `target` container has naming restrictions, for example using a `$` prefix is unsupported. To see all restrictions, view [Container Names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
-
    ```json
    {
      "deviceAutoDeleteProperties": {
@@ -134,8 +127,15 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    }
    ```
 
+1. Configure each property with an appropriate value, as indicated by the placeholders. If you're using the IoT Edge simulator, set the values to the related environment variables for these properties as described by [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
+
+   > [!TIP]
+   > The name for your `target` container has naming restrictions, for example using a `$` prefix is unsupported. To see all restrictions, view [Container Names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
+
    > [!NOTE]
    > If your container target is unnamed or null within `storageContainersForUpload`, a default name will be assigned to the target. If you wanted to stop uploading to a container, it must be removed completely from `storageContainersForUpload`. For more information, see the `deviceToCloudUploadProperties` section of [Store data at the edge with Azure Blob Storage on IoT Edge](how-to-store-data-blob.md#devicetoclouduploadproperties).
+
+   :::image type="content" source="./media/how-to-deploy-blob/addmodule-tab4.png" alt-text="Screenshot showing the Module Twin Settings tab of the Add I o T Edge Module page.":::
 
    For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about desired properties, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 
