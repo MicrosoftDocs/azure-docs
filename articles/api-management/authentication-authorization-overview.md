@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 05/19/2023
+ms.date: 06/06/2023
 ms.author: danlep
 ---
 
@@ -14,7 +14,7 @@ ms.author: danlep
 
 This article is an introduction to a rich, flexible set of features in API Management that help you secure users' access to managed APIs.
 
-API authentication and authorization in API Management involve securing the end-to-end communication of client apps to the API Management gateway and through to backend APIs. In many customer environments, OAuth 2.0 is the preferred API authorization protocol, and you can configure OAuth 2.0 authorization between the client and the API Management gateway, between the gateway and the backend API, or both independently.
+API authentication and authorization in API Management involve securing the end-to-end communication of client apps to the API Management gateway and through to backend APIs. In many customer environments, OAuth 2.0 is the preferred API authorization protocol. API Management supports OAuth 2.0 authorization between the client and the API Management gateway, between the gateway and the backend API, or both independently.
 
 :::image type="content" source="media/authentication-authorization-overview/data-plane-security.svg" alt-text="Diagram showing points of interaction for securing APIs." border="false":::
 
@@ -32,7 +32,7 @@ API Management supports other client-side and service-side authentication and au
 
 Here's a brief explanation of authentication and authorization in the context of access to APIs:
 
-* **Authentication** - The process of verifying the identity of a user or app that accesses the API. Authentication may be done through credentials such as username and password, or a certificate, or through single sign-on (SSO) or other methods.
+* **Authentication** - The process of verifying the identity of a user or app that accesses the API. Authentication may be done through credentials such as username and password, a certificate, or through single sign-on (SSO) or other methods.
 
 * **Authorization** - The process of determining whether a user or app has permission to access a particular API, often through a token-based protocol such as OAuth 2.0.
 
@@ -63,7 +63,7 @@ Depending on the type of client app and scenarios, different *authorization flow
 
 A common authorization scenario is when the calling application requests access to the backend API directly and presents an OAuth 2.0 token in an authorization header to the gateway. Azure API Management then acts as a "transparent" proxy between the caller and backend API, and passes the token through unchanged to the backend. The scope of the access token is between the calling application and backend API. 
 
-The following image shows an example where Azure AD is the authorization provider. The client app might be a single-page app (SPA). 
+The following image shows an example where Azure AD is the authorization provider. The client app might be a single-page application (SPA). 
 
 :::image type="content" source="media/authentication-authorization-overview/oauth-token-backend.svg" alt-text="Diagram showing OAuth communication where audience is the backend." border="false":::
 
@@ -84,11 +84,11 @@ In the following example, Azure AD is again the authorization provider, and mutu
 
 :::image type="content" source="media/authentication-authorization-overview/oauth-token-gateway.svg" alt-text="Diagram showing OAuth communication where audience is the API Management gateway." border="false":::
 
-There are different reasons for wanting to do this. For example:
+There are different reasons for doing this. For example:
 
 * **The backend is a legacy API that can't be updated to support OAuth** 
 
-    API Management should first be configured to validate the token (checking the issuer and audience claims at a minimum). After validation, use one of several options available to secure onward connections from API Management, such as mTLS authentication. See [Service side options](#service-side-options), later in this article.
+    API Management should first be configured to validate the token (checking the issuer and audience claims at a minimum). After validation, use one of several options available to secure onward connections from API Management, such as mutual TLS (mTLS) authentication. See [Service side options](#service-side-options), later in this article.
 
 * **The context required by the backend isn't possible to establish from the caller**  
 
@@ -98,6 +98,9 @@ There are different reasons for wanting to do this. For example:
 
     * The API Management instance's own identity – passing the token from the API Management resource's system-assigned or user-assigned [managed identity](authentication-managed-identity-policy.md) to the backend API. 
 
+* **The organization wants to adopt a standardized authorization approach**
+
+    Regardless of the authentication and authorization mechanisms on their API backends, organizations may choose to converge on OAuth 2.0 for a standardized authorization approach on the front end. API Management's gateway can enable consistent authorization configuration and a common experience for API consumers as the organization's backends evolve.
 
 ### Scenario 3: API management authorizes to backend
 
@@ -119,24 +122,27 @@ Examples:
 
 ## Other options to secure APIs
 
-While authorization is preferred and OAuth 2.0 has become the dominant method of enabling strong authorization for APIs, API Management provides several other mechanisms to secure or restrict access between client and gateway (client side) or between gateway and backend (service side). Depending on the organization's requirements, these may be used to supplement OAuth 2.0. Alternatively, configure them independently if the calling applications or backend APIs are legacy or don't yet support OAuth. 
+While authorization is preferred, and OAuth 2.0 has become the dominant method of enabling strong authorization for APIs, API Management provides several other mechanisms to secure or restrict access between client and gateway (client side) or between gateway and backend (service side). Depending on the organization's requirements, these may be used to supplement OAuth 2.0. Alternatively, configure them independently if the calling applications or backend APIs are legacy or don't yet support OAuth 2.0. 
 
 ### Client side options
 
 |Mechanism  |Description  |Considerations  |
 |---------|---------|---------|
-|[Mutual TLS](api-management-howto-mutual-certificates-for-clients.md)     |   [Validate certificate](validate-client-certificate-policy.md) presented by the connecting client and check certificate properties against a certificate managed in API Management     |  Certificate may be stored in a key vault.       |
-|[Subscription key](api-management-subscriptions.md)     |  Limit access to one or more APIs based on an API Management [subscription](api-management-howto-create-subscriptions.md)      |  We recommend using a subscription (API) key *in addition to* another method of authentication or authorization. On its own, a subscription key isn't a strong form of authentication, but use of the subscription key might be useful in certain scenarios, for example, tracking individual customers' API usage.       |
-|[Restrict caller IPs](ip-filter-policy.md)     | Filter (allow/deny) calls from specific IP addresses or address ranges.        |  Use to restrict access to certain users or organizations, or to traffic from upstream service such as [Front Door](front-door-api-management.md).       |
+|[mTLS](api-management-howto-mutual-certificates-for-clients.md)     |   [Validate certificate](validate-client-certificate-policy.md) presented by the connecting client and check certificate properties against a certificate managed in API Management     |  Certificate may be stored in a key vault.       |
+|[Restrict caller IPs](ip-filter-policy.md)     | Filter (allow/deny) calls from specific IP addresses or address ranges.        |  Use to restrict access to certain users or organizations, or to traffic from upstream services.       |
+|[Subscription key](api-management-subscriptions.md)     |  Limit access to one or more APIs based on an API Management [subscription](api-management-howto-create-subscriptions.md)      |  We recommend using a subscription (API) key *in addition to* another method of authentication or authorization. On its own, a subscription key isn't a strong form of authentication, but use of the subscription key might be useful in certain scenarios, for example, tracking individual customers' API usage or granting access to specific API products.       |
+
+> [!TIP]
+> For defense in depth, deploying a web application firewall upstream of the API Management instance is strongly recommended. For example, use [Azure Application Gateway](/azure/architecture/reference-architectures/apis/protect-apis) or [Azure Front Door](front-door-api-management.md). 
 
 
 ### Service side options
 
 |Mechanism  |Description  |Considerations  |
 |---------|---------|---------|
-|[Basic authentication](authentication-basic-policy.md)     |   Authenticate to backend API with username and password that are passed through an Authorization header.      | Use mainly for legacy backend APIs.        |
-|[Managed identity authentication](authentication-managed-identity-policy.md)     |   Authenticate to backend API with a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md).      |   The managed identity is used to obtain a token from Azure AD for access to a protected backend resource.    |
+|[Managed identity authentication](authentication-managed-identity-policy.md)     |   Authenticate to backend API with a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md).      |   Recommended for scoped access to a protected backend resource by obtaining a token from Azure AD.    |
 |[Certificate authentication](authentication-certificate-policy.md)     |    Authenticate to backend API using a client certificate.      |  Certificate may be stored in key vault.      |
+|[Basic authentication](authentication-basic-policy.md)     |   Authenticate to backend API with username and password that are passed through an Authorization header.      | Discouraged if better options are available.         |
 
 ## Next steps
 * Learn more about [authentication and authorization](../active-directory/develop/authentication-vs-authorization.md) in the Microsoft identity platform.

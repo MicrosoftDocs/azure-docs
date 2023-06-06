@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 06/06/2023
 ms.author: danlep
 ---
 
@@ -30,19 +30,19 @@ API Management has a fully customizable, standalone, managed [developer portal](
     For steps to enable Azure AD authentication in the developer portal, see [How to authorize developer accounts by using Azure Active Directory in Azure API Management](api-management-howto-aad.md).
     
 
-* **Basic authentication** - A default option is to use the built-in developer portal [username and password](developer-portal-basic-authentication.md) provider, which allows developer users to register directly in API Management and sign in using API Management user accounts. User sign up through this option is protected by a CAPTCHA service. 
+* **Basic authentication** - A default option is to use the built-in developer portal [username and password](developer-portal-basic-authentication.md) provider, which allows developers to register directly in API Management and sign in using API Management user accounts. User sign up through this option is protected by a CAPTCHA service. 
 
 
 ## Developer portal test console
 In addition to providing configuration for developer users to sign up for access and sign in, the developer portal includes a test console where the developers can send test requests through API Management to the backend APIs. This test facility also exists for contributing users of API Management who manage the service using the Azure portal. 
 
-In either or both cases, if the API exposed through Azure API Management is secured with OAuth 2.0 - that is, a calling application (*bearer*) needs to obtain and pass a valid access token - you can configure API Management to generate a valid token on behalf of an Azure portal or developer portal test console user. For more information, see [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md) . 
+If the API exposed through Azure API Management is secured with OAuth 2.0 - that is, a calling application (*bearer*) needs to obtain and pass a valid access token - you can configure API Management to generate a valid token on behalf of an Azure portal or developer portal test console user. For more information, see [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md). 
 
-This OAuth configuration for API testing is independent of the configuration required for user access to the developer portal. However, the identity provider and user could be the same. For example, an intranet application could require user access to the developer portal using SSO with their corporate identity, and that same corporate identity could obtain a token, through the test console, for the backend service being called with the same user context. 
+This OAuth 2.0 configuration for API testing is independent of the configuration required for user access to the developer portal. However, the identity provider and user could be the same. For example, an intranet application could require user access to the developer portal using SSO with their corporate identity. That same corporate identity could obtain a token, through the test console, for the backend service being called with the same user context. 
 
 ## Scenarios
 
-Different authentication and authorization options apply to different scenarios. The following sections explore high level configurations for three example scenarios. More steps are required to fully secure and configure APIs exposed through API Management to either internal or external audiences. However, the scenarios intentionally focus on the minimum configurations recommended in each case to provide the required authentication and authorization. 
+Different authentication and authorization options apply to different scenarios. The following sections explore high level configurations for three example scenarios. More steps are required to fully secure and configure APIs exposed through API Management. However, the scenarios intentionally focus on the minimum configurations recommended in each case to provide the required authentication and authorization. 
 
 ### Scenario 1 - Intranet API and applications
 
@@ -64,7 +64,7 @@ Go a step further with this scenario by moving API Management into the network p
 ### Scenario 2 - External API, partner application
 
 * An API Management contributor and backend API developer wants to undertake a rapid proof-of-concept to expose a legacy API through Azure API Management. The API through API Management will be externally (internet) facing.
-* The API uses client certificate authentication and will be consumed by a new public-facing single-page Application (SPA) being developed and delivered offshore by a partner. 
+* The API uses client certificate authentication and will be consumed by a new public-facing single-page app (SPA) being developed offshore by a partner. 
 * The SPA uses OAuth 2.0 with Open ID Connect (OIDC). 
 * Application developers will access the API in a test environment through the developer portal, using a test backend endpoint to accelerate frontend development. 
 
