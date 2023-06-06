@@ -227,17 +227,18 @@ const appInsights = new ApplicationInsightsClient(config);
 
 ### [Python](#tab/python)
 
-Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
+Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. If both `service.namespace` and `service.name` are set, Cloud Role Name combines the `service.namespace` and `service.name` separated by a period.  Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
 
-Set Resource attributes using the `OTEL_RESOURCE_ATTRIBUTES` and/or `OTEL_SERVICE_NAME` environment variables. `OTEL_RESOURCE_ATTRIBUTES` takes series of comma-separated key-value pairs. For example, to set the Cloud Role Name to "my-namespace" and set Cloud Role Instance to "my-instance", you can set `OTEL_RESOURCE_ATTRIBUTES` as such:
+Set Resource attributes using the `OTEL_RESOURCE_ATTRIBUTES` and/or `OTEL_SERVICE_NAME` environment variables. `OTEL_RESOURCE_ATTRIBUTES` takes series of comma-separated key-value pairs. For example, to set the Cloud Role Name to "my-namespace.my-helloworld-service" and set Cloud Role Instance to "my-instance", you can set `OTEL_RESOURCE_ATTRIBUTES` and `OTEL_SERVICE_NAME` as such:
 ```
 export OTEL_RESOURCE_ATTRIBUTES="service.namespace=my-namespace,service.instance.id=my-instance"
+export OTEL_SERVICE_NAME="my-helloworld-service"
 ```
 
-If you don't set Cloud Role Name via the "service.namespace" Resource Attribute, you can alternatively set the Cloud Role Name via the `OTEL_SERVICE_NAME` environment variable:
+If you do not set `service.namespace` Resource Attribute, you can alternatively set the Cloud Role Name with only `service.name`. For example, to set the Cloud Role Name to "my-helloworld-service" and set Cloud Role Instance to "my-instance", you can set `OTEL_RESOURCE_ATTRIBUTES` and `OTEL_SERVICE_NAME` as such:
 ```
 export OTEL_RESOURCE_ATTRIBUTES="service.instance.id=my-instance"
-export OTEL_SERVICE_NAME="my-namespace"
+export OTEL_SERVICE_NAME="my-helloworld-service"
 ```
 
 ---
