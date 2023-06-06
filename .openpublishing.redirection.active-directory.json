@@ -12623,6 +12623,16 @@
         "redirect_url": "/azure/active-directory/manage-apps/datawiza-configure-sha",
         "redirect_document_id": true
       },
+      {
+        "source_path_from_root": "/articles/active-directory/manage-apps/migrate-okta-federation-to-azure-active-directory.md",
+        "redirect_url": "/azure/active-directory/manage-apps/migrate-okta-federation",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/manage-apps/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md",
+        "redirect_url": "/azure/active-directory/manage-apps/migrate-okta-sign-on-policies-conditional-access",
+        "redirect_document_id": true
+      },
     
       {
         "source_path_from_root": "/articles/active-directory/standards/configure-azure-active-directory-for-cmmc-compliance.md",
