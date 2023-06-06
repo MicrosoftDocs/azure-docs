@@ -264,5 +264,5 @@ After you disable Okta provisioning, the Azure AD cloud sync agent can synchroni
 ## Next steps
 
 - [Tutorial: Migrate your applications from Okta to Azure AD](migrate-applications-from-okta.md)
-- [Tutorial: Migrate Okta federation to Azure AD-managed authentication](migrate-okta-federation-to-azure-active-directory.md)
+- [Tutorial: Migrate Okta federation to Azure AD-managed authentication](migrate-okta-federation.md)
 - [Tutorial: Migrate Okta sign-on policies to Azure AD Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)

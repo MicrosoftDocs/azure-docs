@@ -223,7 +223,7 @@ These models can only be used with the Chat Completion API.
 
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (characters) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
-| dalle2 | East US | N/A | 400 | N/A |
+| dalle2 | East US | N/A | 1000 | N/A |
 
 
 ### Codex Models
