@@ -33,8 +33,25 @@ By default, the Recovery Services vault is set for Geo-Redundant storage. Geo-Re
 
 ## Register and protect SAP HANA running on Azure VM
 
-To register the primary 
+To register and protect the SAP HANA database running on primary Azure VM, run the following command:
 
+```azurecli
+az backup container register --resource-group hanarghsr2 --vault-name hanavault10 --workload-type SAPHANA --backup-management-type AzureWorkload --resource-id "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary"
+```
+
+To register and protect the SAP HANA database running on secondary Azure VM, run the following command:
+
+```azurecli
+az backup container register --resource-group hanarghsr2 --vault-name hanavault10 --workload-type SAPHANA --backup-management-type AzureWorkload --resource-id "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-secondary"
+```
+
+To identify `resource-id`, run the following command:
+
+```azurecli
+az vm show --name hsr-primary --resource-group hanarghsr2
+```
+
+For example, `id` is `/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary",
 
 
 
