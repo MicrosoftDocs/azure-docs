@@ -64,7 +64,7 @@ Then you need to update the dependency array in the `package.json` to include so
 Once you have run these commands, you are in your new project ready to get started. For this tutorial, we are modifying the files in the
 `src` directory.
 
-### Initial App Setup
+## Initial App Setup
 
 To get us started, we'll replace the provided `App.tsx` content with a main page that will:
 
@@ -162,11 +162,11 @@ function App() {
 
 export default App;
 ```
-In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>` these new icons are used inside the widget component that we are creating later.
+In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>` these new icons will be used inside the widget component that we are creating later.
 
 ### Running the App
 
-We can then test to see that this is working by running:
+We can then test to see that the basic application is working by running:
 
 ```bash
 # Install the newe dependencies
@@ -176,7 +176,7 @@ npm install
 npm run start
 ```
 
-Once the app is running,  you can see it on `http://localhost:3000` in your browser. You should see a little spinner saying: `getting credentials from server` as
+Once the app is running, you can see it on `http://localhost:3000` in your browser. You should see a little spinner saying: `getting credentials from server` as
 a test message.
 
 ## Next steps
