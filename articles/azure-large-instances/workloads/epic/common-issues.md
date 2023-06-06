@@ -1,12 +1,12 @@
 ---
-title: Architecture
-description: Provides an overview of Epic for ALI architecture.
+title: Common Issues
+description: Provides resolutions for common issues that arise in working with ALI for Epic.
 ms.topic: conceptual
 ms.subservice: baremetal-epic
 ms.date: 06/01/2023
 ---
 
-#  Architecture h1
+# Common issues
 
 content
 

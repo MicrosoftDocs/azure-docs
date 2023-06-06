@@ -1,12 +1,12 @@
 ---
-title: Architecture
-description: Provides an overview of Epic for ALI architecture.
+title: Configure Azure service health alerta
+description: Explains how to configure Azure service health alerts.
 ms.topic: conceptual
 ms.subservice: baremetal-epic
 ms.date: 06/01/2023
 ---
 
-#  Architecture h1
+# Configure Azure service health alerts
 
 content
 

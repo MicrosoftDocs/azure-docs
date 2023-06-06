@@ -6,7 +6,7 @@ ms.subservice: baremetal-epic
 ms.date: 06/01/2023
 ---
 
-#  Architecture h1
+# Register the ALI source provider h1
 
 content
 

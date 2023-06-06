@@ -1,12 +1,12 @@
 ---
-title: Architecture
-description: Provides an overview of Epic for ALI architecture.
+title: Find your subscription ID
+description: Explains how to find your ALI for Epic subscription ID.
 ms.topic: conceptual
 ms.subservice: baremetal-epic
 ms.date: 06/01/2023
 ---
 
-#  Architecture h1
+#  Find your subscription ID
 
 content
 

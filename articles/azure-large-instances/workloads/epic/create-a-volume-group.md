@@ -1,12 +1,12 @@
 ---
-title: Architecture
-description: Provides an overview of Epic for ALI architecture.
+title: Create a volume group
+description: Explains how to create an Epic for ALI volume group.
 ms.topic: conceptual
 ms.subservice: baremetal-epic
 ms.date: 06/01/2023
 ---
 
-#  Architecture h1
+#  Create a volume group h1
 
 content
 

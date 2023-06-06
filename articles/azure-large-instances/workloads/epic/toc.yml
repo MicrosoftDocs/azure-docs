@@ -1,55 +1,40 @@
 - name: Azure Large Instances 
-  href: 
   items: 
   - name: Overview 
-    href:
+    items:
   - name: What is Azure Large Instances? 
-    href:
+    href: what-is-ali.md
   items: 
-    name: Know the terms 
-    href: 
-    name: Connect to Azure Large Instances 
     name: Workloads 
     items: 
-    - name: Azure Large Instances for Epic 
-    - name: Overview  
-    - name: Solution design  
-    - name: Architecture  
-    - name: General   
-    - name: Network  
-    - name: Storage  
-    - name: Operating Systems 
-    - name: Instances and regions  
+    - name: Architecture
+      href: architecture.md
     - name: SKUs  
-    - name: Sizing  
-    - name: Operations models  
-    - name: Scenarios  
+      href: skus.md
     - name: Onboarding requirements  
+      href: onboarding-requirements.md
     - name: Connect to Azure Large instances for Epic  
+      href: connect-to-azure-large-instances-for-epic.md
     - name: Enable Express Route fast path  
+      href: Enable Express Route fast path  .md
     - name: Enable Accelerated Networking on VMs  
+      href: enable-accelerated-networking-on-vms.md
     - name: Quality checks   
-    - name: High availability and disaster recovery  
-    - name: Options and considerations  
-    - name: Backup and restore  
-    - name: Principles and preparation 
-    - name: Disaster recovery failover procedure  
-    - name: Troubleshoot and monitor   
-    - name: Scope of Support -  
-    - name: Open a Support Incident -  
-    - name: Open a Service request -  
-    - name: What is SLA for support? - CSS team’s responsibility   
+      href: quality-checks.md
     - name: Configure Azure Service Health alerts  
-    - name: Manage downtimes 
-    - name: FAQ  
-    - name: Create a connection between your VPN Gateway and ExpressRoute circuit Azure ExpressRoute - 
-    - name: Set up Microsoft peering for your express route circuit Azure ExpressRoute   
-    - name: More info on Azure ExpressRoute  
+      href: configure-azure-service-health-alerts.md
     - name: Azure Large Instances NETAPP storage data protection with Azure CVO   
+      href: azure-large-instances-netapp-storage-data-protection-with-azure-cvo.md
     - name: Find your subscription ID   
+      href: find-your-subscription-id.md
     - name: Create a volume group  
+      href: create-a-volume-group.md
     - name: LUN and WWID mapping   
+      href: lun-and-wwid-mapping.md
     - name: Register the Azure Large instance resource provider via the Azure portal or the Azure CLI  
+      href: register-the-azure-large-instance-resource-provider-via-the-azure-portal-cli.md    
     - name: Common issues and their resolutions  
+      href: common-issuesa-and-their-resolutions.md
+ 
 
   
