@@ -21,7 +21,7 @@ The previous DF SDK was built into the PowerShell language worker. This approach
 However, it also came with various shortcomings:
 1. New features, bug fixes, and other changes were dependent on the PowerShell worker's release cadence.
 2. By the auto-upgrading nature of the PowerShell worker, the DF SDK needed to be conservative about to introducing breaking changes, which makes fixing certain bugs difficult.
-3. The replay algorithm utilized by the built-in DF SDK was out of date: other DF SDKs already utilized a faster and more reliable implementation.
+3. The replay algorithm utilized by the built-in DF SDK was outdated: other DF SDKs already utilized a faster and more reliable implementation.
 
 By creating a standalone DF PowerShell SDK, we're able to overcome these shortcomings at the expense of requiring an extra SDK installation step. See below for the explicit benefits of utilizing new standalone DF SDK:
 1. The package is versioned independently of the PowerShell worker. This allows users to incorporate new features and fixes as soon as they're available, while also avoiding breaking changes during an auto-ugprade.
