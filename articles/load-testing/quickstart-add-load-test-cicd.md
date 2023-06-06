@@ -292,7 +292,39 @@ Update your Azure Pipelines workflow to run a load test for your Azure load test
 
 ---
 
-## Run workflow and view test results
+## View load test results
+
+When you run a load test from your CI/CD pipeline, you can view the summary and fail criteria results directly in the CI/CD output log. If you published the test results as a pipeline artifact, you can also download a CSV file for further reporting.
+
+# [GitHub Actions](#tab/github)
+
+1. Select the **Actions** tab in your GitHub repository to view the list of workflow runs.
+    
+1. Select the workflow run from the list to open the run details and logging information.
+
+    After the load test finishes, you can view the test summary information and the client-side metrics in the workflow log. The log also shows the steps to go to the Azure Load Testing dashboard for this load test.
+
+    :::image type="content" source="./media/quickstart-add-load-test-cicd/github-actions-workflow-completed.png" alt-text="Screenshot that shows the workflow logging information.":::
+
+1. On the screen that shows the workflow run's details, select the **loadTestResults** artifact to download the result files for the load test.
+
+    :::image type="content" source="./media/quickstart-add-load-test-cicd/github-actions-artifacts.png" alt-text="Screenshot that shows artifacts of the workflow run.":::
+
+# [Azure Pipelines](#tab/pipelines)
+
+1. In your Azure DevOps project, select **Pipelines**, and then select your pipeline definition from the list.
+
+1. Select the pipeline run to view the run summary.
+
+1. Select **Load Test** in the **Jobs** section to view the pipeline log.
+
+    After the load test finishes, you can view the test summary information and the client-side metrics in the pipeline log. The log also shows the URL to go to the Azure Load Testing dashboard for this load test.
+
+    :::image type="content" source="./media/quickstart-add-load-test-cicd/create-pipeline-log.png" alt-text="Screenshot that shows the Azure Pipelines run log.":::
+
+1. In the pipeline log view, select **Load Test**, and then select **1 artifact produced** to download the result files for the load test.
+
+    :::image type="content" source="./media/quickstart-add-load-test-cicd/create-pipeline-download-results.png" alt-text="Screenshot that shows how to download the load test results.":::
 
 ## Clean up resources
 
