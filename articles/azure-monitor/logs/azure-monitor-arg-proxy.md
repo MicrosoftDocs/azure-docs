@@ -11,13 +11,10 @@ ms.reviewer: osalzberg
 # Query data in Azure Resource Graph and Azure Data Explorer from Azure Monitor
 Azure Monitor lets you query data in [Azure Resource Graph](../../governance/resource-graph/) and [Azure Data Explorer](/azure/data-explorer/data-explorer-overview.md) from your Log Analytics workspace or Application Insights resources. This article explains how to query data in Azure Resource Graph from Azure Monitor.
 
+You can run cross-resource queries by using any client tools that support Kusto Query Language (KQL) queries, including the Log Analytics web UI, workbooks, PowerShell, and the REST API.
 ## Permissions
 
 [!INCLUDE [log-analytics-query-permissions](../../../includes/log-analytics-query-permissions.md)]
-
-## Cross-query your Log Analytics or Application Insights resources and Azure Resource Graph
-
-You can run cross-resource queries by using any client tools that support Kusto Query Language (KQL) queries, including the Log Analytics web UI, workbooks, PowerShell, and the REST API.
 
 ## Syntax
 
