@@ -42,6 +42,48 @@ To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway autom
 
 - Azure CLI version 2.0.67 or later. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
+## Enable/disable Spring Cloud Gateway after service creation
+
+You can enable and disable Spring Cloud Gateway after service creation using the Azure portal or Azure CLI. Before disabling Spring Cloud Gateway, you're required to unassign its endpoint and remove all route configs.
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to enable or disable Spring Cloud Gateway using the Azure portal:
+
+1. Navigate to your service resource, and then select **Spring Cloud Gateway**.
+1. Select **Manage**.
+1. Select or unselect the **Enable Spring Cloud Gateway**, and then select **Save**.
+1. You can now view the state of Spring Cloud Gateway on the **Spring Cloud Gateway** page.
+
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-manage-restart.png" alt-text="Screenshot of the Azure portal showing the Spring Cloud Gateway manage and restart." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-manage-restart.png":::
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following Azure CLI commands to enable or disable Spring Cloud Gateway:
+
+```azurecli
+az spring spring-cloud-gateway create \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+```azurecli
+az spring spring-cloud-gateway delete \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name>
+```
+
+
+## Restart Spring Cloud Gateway
+
+When clicking `Restart` button and confirm the operation in Azure Portal, gateway instances will be rolling restarted. You can also restart with Azure CLI command:
+
+```azurecli
+az spring spring-cloud-gateway restart \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
 ## Configure Spring Cloud Gateway
 
 This section describes how to assign a public endpoint to Spring Cloud Gateway and configure its properties.
@@ -206,6 +248,7 @@ Cross-origin resource sharing (CORS) allows restricted resources on a web page t
 | Property         | Description                                                                            |
 |------------------|----------------------------------------------------------------------------------------|
 | allowedOrigins   | Allowed origins to make cross-site requests.                                           |
+| allowedOriginPatterns   | Allowed origin patterns to make cross-site requests.                                           |
 | allowedMethods   | Allowed HTTP methods on cross-site requests.                                           |
 | allowedHeaders   | Allowed headers in cross-site request.                                                 |
 | maxAge           | How long, in seconds, the response from a preflight request is cached by clients.      |
@@ -313,18 +356,14 @@ The gateway restarts accordingly to ensure that the gateway uses the new certifi
 Use the following steps to synchronize certificates.
 
 1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation pane.
-1. On the **Spring Cloud Gateway** page, select **Certificate management**.
-1. Select the certificate you imported in **Certificates**.
-1. Select **sync certificate**, and confirm the operation.
-
-   :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png" alt-text="Screenshot of the Azure portal showing the Spring Cloud Gateway page for Certificate Management with the sync certificate prompt highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png":::
+1. On the **Spring Cloud Gateway** page, Click **restart** button, and confirm the operation.
 
 #### [Azure CLI](#tab/Azure-CLI) 
 
-Use the following command to synchronize a certificate for Spring Cloud Gateway.
+Use the following restart command to synchronize a certificate for Spring Cloud Gateway.
 
 ```azurecli
-az spring gateway sync-cert \
+az spring gateway restart \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name>
 ```
@@ -512,6 +551,85 @@ az spring gateway update \
 If the log level is sensitive information in your case, you can include it by using the `--secrets` parameter.
 
 ---
+
+## Configure Addon configuration
+Addon configuration feature allows customers to customize certain properties of Spring Cloud Gateway using a JSON format string. The feature is useful when customers need to configure properties that are not exposed through REST API.
+
+The addon configuration is a JSON object with key-value paris representing the desired configuration. Here is the structure of the JSON format:
+```
+{
+    "<addon_key_name>": {
+        "<addon_key_name>": "<addon_value>"
+        ...
+    },
+    "<addon_key_name>": "<addon_value>",
+    ...
+}
+```
+
+Here are all supported addon configurations for the addon key names and value types. The list can be updated as we upgrade the version of Spring Cloud Gateway.
+
+### Single Sign-On (sso) configuration
+- Key name: "sso"
+- Value type: Object
+- Properties
+`RolesAttributeName` (String): Specifies the name of the attribute that contains the roles associated with the single sign-on session.
+`InactiveSessionExpirationInMinutes` (Integer): Specifies the expiration time in minutes for inactive single sign-on sessions, 0 means never expire.
+- Example
+```json
+{
+    "sso": {
+        "rolesAttributeName": "roles",
+        "inactiveSessionExpirationInMinutes": 1
+    }
+}
+```
+
+### Metadata configuration
+- Key name: "api"
+- Value type: Object
+- Properties
+`groupId` (String): Unique identifier for the group of APIs available on the Gateway instance. The value can only contain lowercase letters and numbers.
+- Example
+```json
+{
+    "api": {
+        "groupId": "id1"
+    }
+}
+```
+
+### [Azure portal](#tab/Azure-portal)
+
+Use the following steps to update addon configuration.
+
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation pane.
+1. Select **Spring Cloud Gateway** in the navigation pane, and then select **Configuration**.
+1. Specify JSON value for **Addon Configs**.
+1. Select **Save**.
+
+### [Azure CLI](#tab/Azure-CLI) 
+
+Use the following command to update addon configs for Spring Cloud Gateway.
+
+```azurecli
+az spring gateway update \
+    --addon-configs-file <file-name-of-addon-configs-json>
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name>
+```
+The sample addon configs JSON file looks like:
+```json
+{
+    "sso": {
+        "rolesAttributeName": "roles",
+        "inactiveSessionExpirationInMinutes": 1
+    },
+    "api": {
+        "groupId": "id1"
+    }
+}
+```
 
 ## Next steps
 
