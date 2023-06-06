@@ -16,9 +16,9 @@ ms.custom: subject-rbac-steps, devx-track-azurepowershell
 
 This article describes how to schedule the starting and stopping of an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) by using Azure Data Factory and Azure Synapse Analytics. An Azure-SSIS IR is compute resource that's dedicated for running SSIS packages.
 
-A cost is associated with running an Azure-SSIS IR. You typically want to run your IR only when you need to run SSIS packages in Azure and stop your IR when you don't need it anymore. You can use Data Factory, the Azure portal page for Synapse Analytics pipelines, or Azure PowerShell to [manually start or stop your IR](manage-azure-ssis-integration-runtime.md).
+A cost is associated with running an Azure-SSIS IR. You typically want to run your IR only when you need to run SSIS packages in Azure and stop your IR when you don't need it anymore. You can use Data Factory, the Azure portal page for Azure Synapse Analytics pipelines, or Azure PowerShell to [manually start or stop your IR](manage-azure-ssis-integration-runtime.md).
 
-Alternatively, you can create web activities in Data Factory or Synapse Analytics pipelines to start and stop your IR on schedule. For example, you can start it in the morning before running your daily ETL workloads and stop it in the afternoon after the workloads are done.
+Alternatively, you can create web activities in Data Factory or Azure Synapse Analytics pipelines to start and stop your IR on schedule. For example, you can start it in the morning before running your daily ETL workloads and stop it in the afternoon after the workloads are done.
 
 You can also chain an Execute SSIS Package activity between two web activities that start and stop your IR. Your IR will then start and stop on demand, before or after your package execution. For more information about the Execute SSIS Package activity, see [Run an SSIS package with the Execute SSIS Package activity in the Azure portal](how-to-invoke-ssis-package-ssis-activity.md).
 
@@ -43,9 +43,9 @@ This section shows you how to use web activities in Data Factory pipelines to st
 - The second pipeline contains a web activity that stops your Azure-SSIS IR.
 - The third pipeline contains an Execute SSIS Package activity chained between two web activities that start and stop your Azure-SSIS IR.
 
-After you create and test those pipelines, you can create a trigger that defines a schedule for running a pipeline. For example, you can create two triggers. The first one is scheduled to run daily at 6 AM and is associated with the first pipeline. The second one is scheduled to run daily at 6 PM and is associated with the second pipeline. In this way, you have a period between 6 AM to 6 PM every day when your IR is running, ready to run your daily ETL workloads.  
+After you create and test those pipelines, you can create a trigger that defines a schedule for running a pipeline. For example, you can create two triggers. The first one is scheduled to run daily at 6 AM and is associated with the first pipeline. The second one is scheduled to run daily at 6 PM and is associated with the second pipeline. In this way, you have a period from 6 AM to 6 PM every day when your IR is running, ready to run your daily ETL workloads.  
 
-If you create a third trigger that's scheduled to run daily at midnight and is associated with the third pipeline, that pipeline will run at midnight every day. It will start your IR just before package execution, and then run your package. It will immediately stop your IR just after package execution, so your IR will not run idly.
+If you create a third trigger that's scheduled to run daily at midnight and is associated with the third pipeline, that pipeline will run at midnight every day. It will start your IR just before package execution, and then run your package. It will immediately stop your IR just after package execution, so your IR won't run idly.
 
 ### Create your pipelines
 
@@ -53,7 +53,7 @@ If you create a third trigger that's scheduled to run daily at midnight and is a
 
    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/orchestrate-button.png" alt-text="Screenshot that shows the Orchestrate button on the Azure Data Factory home page.":::
 
-2. In the **Activities** toolbox, expand the **General** menu, and drag a web activity onto the pipeline designer surface. On the **General** tab of the activity properties window, change the activity name to **startMyIR**. Switch to the **Settings** tab, and then do the following actions.
+2. In the **Activities** toolbox, expand the **General** menu and drag a web activity onto the pipeline designer surface. On the **General** tab of the activity properties window, change the activity name to **startMyIR**. Switch to the **Settings** tab, and then do the following actions.
 
    > [!NOTE]
    > For Azure-SSIS in Azure Synapse Analytics, use the corresponding Azure Synapse Analytics REST API to [get the integration runtime status](/rest/api/synapse/integration-runtimes/get), [start the integration runtime](/rest/api/synapse/integration-runtimes/start), and [stop the integration runtime](/rest/api/synapse/integration-runtimes/stop).
@@ -88,13 +88,13 @@ If you create a third trigger that's scheduled to run daily at midnight and is a
 
    Instead of manually creating the third pipeline, you can also automatically create it from a template:
 
-   1. Select the ellipsis (**...**) next to **Pipeline** to open a dropdown a menu of pipeline actions. Then select the **Pipeline from template** action.
+   1. Select the ellipsis (**...**) next to **Pipeline** to open a dropdown menu of pipeline actions. Then select the **Pipeline from template** action.
    1. Select the **SSIS** checkbox under **Category**.
    1. Select the **Schedule ADF pipeline to start and stop Azure-SSIS IR just in time before and after running SSIS package** template.
    1. On the **Azure-SSIS Integration Runtime** dropdown menu, select your IR.
    1. Select the **Use this template** button.
 
-   Your pipeline will be automatically created with only the SSIS package left for you to assign to the Execute SSIS Package activity.
+   After you create your pipeline automatically, only the SSIS package is left for you to assign to the Execute SSIS Package activity.
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-on-demand-ssis-ir-template.png" alt-text="Screenshot that shows selections for creating a pipeline from a template.":::
 
@@ -149,7 +149,7 @@ If you create a third trigger that's scheduled to run daily at midnight and is a
     4. Select **Connect**.
     5. Expand **Integration Services Catalogs** > **SSISDB** > your folder > **Projects** > your SSIS project > **Packages**.
     6. Right-click the specified SSIS package to run, and then select **Reports** > **Standard Reports** > **All Executions**.
-    7. Verify that it ran.
+    7. Verify that the package ran.
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png" alt-text="Screenshot that shows verification of an SSIS package run.":::
 
@@ -184,15 +184,15 @@ Now that your pipelines work as you expected, you can create triggers to run the
 
 ### Monitor your pipelines and triggers in the Azure portal
 
-1. To monitor trigger runs and pipeline runs, use the **Monitor** tab on the left side of the Data Factory UI or app. For detailed steps, see [Visually monitor Azure Data Factory](monitor-visually.md).
+- To monitor trigger runs and pipeline runs, use the **Monitor** tab on the left side of the Data Factory UI or app. For detailed steps, see [Visually monitor Azure Data Factory](monitor-visually.md).
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png" alt-text="Screenshot that shows the pane for monitoring pipeline runs.":::
 
-2. To view the activity runs associated with a pipeline run, select the first link (**View Activity Runs**) in the **Actions** column. For the third pipeline, three activity runs appear: one for each chained activity in the pipeline (web activity to start your IR, Execute SSIS Package activity to run your package, and web activity to stop your IR). To view the pipeline runs again, select the **Pipelines** link at the top.
+- To view the activity runs associated with a pipeline run, select the first link (**View Activity Runs**) in the **Actions** column. For the third pipeline, three activity runs appear: one for each chained activity in the pipeline (web activity to start your IR, Execute SSIS Package activity to run your package, and web activity to stop your IR). To view the pipeline runs again, select the **Pipelines** link at the top.
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png" alt-text="Screenshot that shows activity runs.":::
 
-3. To view the trigger runs, select **Trigger Runs** from the dropdown list under **Pipeline Runs** at the top.
+- To view the trigger runs, select **Trigger Runs** from the dropdown list under **Pipeline Runs** at the top.
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png" alt-text="Screenshot that shows trigger runs.":::
 
@@ -241,7 +241,7 @@ As part of this process, you create an **Azure Run As** account (a service princ
     3. For **Resource group**, select **Create new** to create a new resource group, or select **Use existing** to use an existing one.
     4. For **Location**, select a location for your Azure Automation account.
     5. For **Create Azure Run As account**, select **Yes**. A service principal will be created in your Azure Active Directory instance and assigned a **Contributor** role in your Azure subscription.
-    6. Select **Pin to dashboard** to display it permanently on the Azure dashboard.
+    6. Select **Pin to dashboard** to display the account permanently on the Azure dashboard.
     7. Select **Create**.
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/add-automation-account-window.png" alt-text="Screenshot that shows selections for adding an Azure Automation account.":::
