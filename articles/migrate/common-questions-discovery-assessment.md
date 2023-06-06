@@ -46,13 +46,13 @@ For "Performance-based" assessment, the assessment report export says 'Percentag
     > [!Note]
     > If any of the performance counters are missing, Azure Migrate: Server Assessment falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
 
-## How can i understand details of errors causing performance data collection issues?
+## How can I understand details of errors causing performance data collection issues?
 
 You can now understand what errors you need to rememdiate to resolve performance data collection issues in Azure V and Azure VMware Solution assessments. Follow these steps:
-- Go to Azure Migrate > *Servers, databases and web apps* migration goal > CLick on *Resolve issues* on Discovery and assessment tool
-- CLick on *Affected objects* next to the assessment > Click on link in the error id column to review the error details and remediation actions
+- Go to Azure Migrate > **Servers, databases and web apps** > **Migration goals**, select **Resolve issues** on the Discovery and assessment tool.
+- Select **Affected objects** next to the assessment and select the link in the error ID column to review the error details and remediation actions.
 
-You can also review these errors/issues while creating the assessment in the *select servers to assess* step or in the readiness tab of an existing assessment. If you dont see any errors/issues in the assessment but see non zero errors in the reolve issues blade, recalcualte the assessment to see the issues within the assessment blade. 
+You can also review these errors/issues while creating the assessment in the **Select servers to assess** step or in the readiness tab of an existing assessment. If you don't see any errors/issues in the assessment but see non-zero errors in the resolve issues blade, recalculate the assessment to see the issues within the assessment blade. 
 
 ## Why is performance data missing for some/all SQL instances/databases in my Azure SQL assessment?
 
@@ -208,7 +208,7 @@ You can create a single **Azure SQL** assessment consisting of desired SQL serve
 
 ## The storage cost in my Azure SQL assessment is zero
 
-For Azure SQL Managed Instance, there's no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32 GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+For Azure SQL Managed Instance, there's no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32-GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 ## I can't see some groups when I am creating an Azure VMware Solution (AVS) assessment
 

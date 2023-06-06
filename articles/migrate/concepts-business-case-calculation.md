@@ -139,7 +139,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | Network | Network Hardware and software | Network equipment (Cabinets, switches, routers, load balancers etc.) and software | As an industry standard and used by sellers in Business cases, it's a % of compute and storage cost. Default is 10% of storage and compute cost. |
 |     | Maintenance | Maintenance | Defaulted to 15% of network hardware and software cost. |
 | Security | General Servers | Server security cost | Default is USD 250 per year per server. This is multiplied with number of servers (General servers)|
-|     | SQL Servers | SQL protection cost | Default is USD 1000 per year per server. This is multiplied with number of serversrunning SQL |
+|     | SQL Servers | SQL protection cost | Default is USD 1000 per year per server. This is multiplied with number of servers running SQL |
 | Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | Facilities cost isn't applicable for Azure cost. |
 | Labor | Labor | IT admin | DC admin cost = ((Number of virtual machines) / (Avg. # of virtual machines that can be managed by a full-time administrator)) * 730 * 12 |
 
@@ -155,8 +155,8 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 |     | Storage (PaaS) | N/A | N/A |
 | Network | Network Hardware and software | Network equipment (Cabinets, switches, routers, load balancers etc.) and software | As an industry standard and used by sellers in Business cases, it's a % of compute and storage cost. Default is 10% of storage and compute cost. |
 |     | Maintenance | Maintenance | Defaulted to 15% of network hardware and software cost. |
-| Security | Server security cost | Defender for servers | For servers recommended for Azure VM, if they are ready to run Defender for Server, the defender for server cost (Plan 2) per server for that region is added |
-|     | SQL security cost | Defnder for SQL | For SQL Server instances and DBs recommended for SQL Server on Azure VM, Azure SQL MI or Azure SQL DB, if they are ready to run Defender for SQL, the defender for SQL per SQL Sevrer instance for that region is added. For DBs recommended to Azure SQL DB, cost is rolled up at instance level. |
+| Security | Server security cost | Defender for servers | For servers recommended for Azure VM, if they're ready to run Defender for Server, the Defender for server cost (Plan 2) per server for that region is added |
+|     | SQL security cost | Defender for SQL | For SQL Server instances and DBs recommended for SQL Server on Azure VM, Azure SQL MI or Azure SQL DB, if they're ready to run Defender for SQL, the Defender for SQL per SQL Server instance for that region is added. For DBs recommended to Azure SQL DB, cost is rolled up at instance level. |
 | Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | Facilities cost isn't applicable for Azure cost. |
 | Labor | Labor | IT admin | DC admin cost = ((Number of virtual machines) / (Avg. # of virtual machines that can be managed by a full-time administrator)) * 730 * 12 |
 
@@ -178,11 +178,11 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | Server Depreciation | (Total server hardware acquisition cost)/(Depreciable life) | Depreciable life = 4 years |     |
 | Storage Depreciation | (Total storage hardware acquisition cost)/(Depreciable life) | Depreciable life = 4 years |     |
 | Fit out and Networking Equipment | (Total network hardware acquisition cost)/(Depreciable life) | Depreciable life = 5 years |     |
-| License Amortization | (virtualization cost + Windows Server + SQL Server + Linux OS)/(Depreciable life) | Depreciable life = 5 years | VMware licenses are not retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure).|
+| License Amortization | (virtualization cost + Windows Server + SQL Server + Linux OS)/(Depreciable life) | Depreciable life = 5 years | VMware licenses aren't retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure).|
 | **Operating Asset Expense (OPEX) (B)** |     |     |     |
 | Network maintenance | Per year |     |     |
 | Storage maintenance | Per year | Power draw per Server, Average price per KW per month based on location. |     |
-| License Support | License support cost for virtualization + Windows Server + SQL Server + Linux OS |     | VMware licenses are not retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure). |
+| License Support | License support cost for virtualization + Windows Server + SQL Server + Linux OS |     | VMware licenses aren't retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure). |
 | Datacenter Admin cost | Number of people * hourly cost * 730 hours | Cost per hour based on location. |     |
 
 #### Future state (on-premises + Azure)
@@ -216,7 +216,7 @@ You can override the above values in the assumptions section of the Business cas
 | **Payback period** | The breakeven point for an investment. It's the point in time at which net benefits (benefits minus costs) equal initial investment or cost. |
 | **Capital Expense (CAPEX)** | Up front investments in assets that are capitalized and put into the balance sheet. |
 | **Operating Expense (OPEX)** | Running expenses of a business. |
-| **MDC** | Microsoft Defender for cloud [Learn more](https://www.microsoft.com/security/business/cloud-security/microsoft-defender-cloud) |
+| **MDC** | Microsoft Defender for cloud. [Learn more](https://www.microsoft.com/security/business/cloud-security/microsoft-defender-cloud). |
 
 
 ## Next steps
