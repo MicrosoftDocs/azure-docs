@@ -51,7 +51,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
    using Azure.Identity;
    ```
 
-1. Identify the locations in your code that create a `EventHubProducerClient` or `EventProcessorClient` object to connect to Azure Event Hubs. Update your code to match the following example:
+1. Identify the locations in your code that create an `EventHubProducerClient` or `EventProcessorClient` object to connect to Azure Event Hubs. Update your code to match the following example:
 
    ```csharp
    DefaultAzureCredential credential = new();
@@ -60,7 +60,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
     EventHubProducerClient producerClient = new(
         "<EVENT_HUB_NAMESPACE>.servicebus.windows.net",
         "<HUB_NAME>",
-        new DefaultAzureCredential());
+        credential);
 
     // Event hubs processor
     EventProcessorClient processor = new(
@@ -68,7 +68,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
         EventHubConsumerClient.DefaultConsumerGroupName,
         "<EVENT_HUB_NAMESPACE>.servicebus.windows.net",
         "<HUB_NAME>",
-        new DefaultAzureCredential());
+        credential);
     ```
 
 1. Make sure to update the event hubs namespace in the URI of your `EventHubProducerClient` or `EventProcessorClient` objects. You can find the namespace name on the overview page of the Azure portal.
