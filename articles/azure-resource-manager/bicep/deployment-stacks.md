@@ -197,6 +197,8 @@ The list of managed resources can be fully controlled through the infrastructure
 
 ### Use the Set command
 
+jgao: no set command for Azure CLI.
+
 To update a deployment stack at the resource group scope:
 
 # [PowerShell](#tab/azure-powershell)

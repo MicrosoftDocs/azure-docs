@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a deployment stack with Bicep
 description: Learn how to use Bicep to create and deploy a deployment stack in your Azure subscription.
-ms.date: 05/11/2023
+ms.date: 06/06/2023
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 # Customer intent: As a developer I want to use Bicep to create a deployment stack.
@@ -19,102 +19,73 @@ This quickstart describes how to create a [deployment stack](deployment-stacks.m
 
 ## Create Bicep files
 
-Create two Bicep files. By deploying these Bicep files, you'll create two resource groups with one public IP address resource in each respective group.
-
-The main.bicep file:
+Create a Bicep file to create a storage account and a virtual network.
 
 ```bicep
-targetScope = 'subscription'
+param resourceGroupLocation string = resourceGroup().location
+param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
+param vnetName string = 'vnet${uniqueString(resourceGroup().id)}'
 
-param resourceGroupName1 string = 'ds-rg1'
-param resourceGroupName2 string = 'ds-rg2'
-param resourceGroupLocation string = deployment().location
-
-resource demorg1 'Microsoft.Resources/resourceGroups@2022-09-01' = {
-  name: resourceGroupName1
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+  name: storageAccountName
   location: resourceGroupLocation
-}
-
-resource demorg2 'Microsoft.Resources/resourceGroups@2022-09-01' = {
-  name: resourceGroupName2
-  location: resourceGroupLocation
-}
-
-module firstPIP './pip.bicep' = if (resourceGroupName1 == 'ds-rg1') {
-  name: 'publicIP1'
-  scope: demorg1
-  params: {
-    location: resourceGroupLocation
-    allocationMethod: 'Dynamic'
-    skuName: 'Basic'
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
   }
 }
 
-module secondPIP './pip.bicep' = if (resourceGroupName2 == 'ds-rg2') {
-  name: 'publicIP2'
-  scope: demorg2
-  params: {
-    location: resourceGroupLocation
-    allocationMethod: 'Static'
-    skuName: 'Basic'
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-11-01' = {
+  name: vnetName
+  location: resourceGroupLocation
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        '10.0.0.0/16'
+      ]
+    }
+    subnets: [
+      {
+        name: 'Subnet-1'
+        properties: {
+          addressPrefix: '10.0.0.0/24'
+        }
+      }
+      {
+        name: 'Subnet-2'
+        properties: {
+          addressPrefix: '10.0.1.0/24'
+        }
+      }
+    ]
   }
 }
 ```
 
-The pip.bicep file:
-
-```bicep
-param location string = resourceGroup().location
-param allocationMethod string = 'Dynamic'
-param skuName string
-
-resource publicIP1 'Microsoft.Network/publicIPAddresses@2022-09-01' = if (allocationMethod == 'Dynamic') {
-  name:  'pubIP1'
-  location: location
-  sku: {
-    name:  'Basic'
-    tier:  'Regional'
-  }
-  properties: {
-    publicIPAllocationMethod: allocationMethod
-  }
-}
-
-resource publicIP2 'Microsoft.Network/publicIPAddresses@2022-09-01' = if (allocationMethod == 'Static') {
-  name:  'pubIP2'
-  location: location
-  sku: {
-    name:  skuName
-    tier:  'Regional'
-  }
-  properties: {
-    publicIPAllocationMethod: allocationMethod
-  }
-}
-```
-
-Save both bicep file in the same folder.
+Save the Bicep file as _main.bicep_.
 
 ## Create a deployment stack
 
-In this quickstart, you'll create the deployment stack at the subscription scope.  You can also create the deployment stack at the resource group scope or the management group scope.  For more information, see [Create deployment stacks](./deployment-stacks.md#create-deployment-stacks).
+In this quickstart, you'll create the deployment stack at the resource group scope.  You can also create the deployment stack at the subscription scope or the management group scope.  For more information, see [Create deployment stacks](./deployment-stacks.md#create-deployment-stacks).
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzSubscriptionDeploymentStack `
-   -Name 'mySubStack' `
-   -Location 'eastus' `
-   -TemplateFile './main.bicep'
+New-AzResourceGroupDeploymentStack `
+  -Name 'myRGStack' `
+  -ResourceGroupName 'myRg' `
+  -TemplateFile './main.bicep' `
+  -DenySettingsMode none
 ```
 
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack sub create \
-  --name mySubStack \
-  --location eastus \
-  --template-file ./main.bicep
+az stack group create \
+  --name myRGStack \
+  --resource-group 'myRg' \
+  --template-file ./main.bicep \
+  --deny-settings-mode none
 ```
 
 ---
@@ -126,103 +97,34 @@ To list the deployed deployment stacks at the subscription level:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Get-AzSubscriptionDeploymentStack
+Get-AzResourceGroupDeploymentStack
 ```
 
 The output shows four managed resource - two resource groups and two public IPs:
 
 ```output
-Id                          : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deploymentStacks/mySubStack
-Name                        : mySubStack
+Id                          : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRg/providers/Microsoft.Resources/deploymentStacks/myRgStack
+Name                        : myRgStack
 ProvisioningState           : succeeded
 ResourcesCleanupAction      : detach
 ResourceGroupsCleanupAction : detach
 DenySettingsMode            : none
-Location                    : eastus
-CreationTime(UTC)           : 4/20/2023 7:53:02 PM
-DeploymentId                : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deployments/mySubStack-2023-04-20-19-53-02-fdd96
-Resources                   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1
-                              /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1/providers/Microsoft.Network/publicIPAddresses/pubIP1
-                              /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2
-                              /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2/providers/Microsoft.Network/publicIPAddresses/pubIP1
+CreationTime(UTC)           : 6/5/2023 8:55:48 PM
+DeploymentId                : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRg/providers/Microsoft.Resources/deployments/myRgStack-2023-06-05-20-55-48-38d09
+Resources                   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRg/providers/Microsoft.Network/virtualNetworks/vnetzu6pnx54hqubm
+                              /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRg/providers/Microsoft.Storage/storageAccounts/storezu6pnx54hqubm
 ```
 
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack sub list
+az stack group list
 ```
 
 The output shows four managed resource - two resource groups and two public IPs:
 
 ```output
-[
-  {
-    "actionOnUnmanage": {
-      "managementGroups": "detach",
-      "resourceGroups": "detach",
-      "resources": "detach"
-    },
-    "debugSetting": null,
-    "deletedResources": [],
-    "denySettings": {
-      "applyToChildScopes": false,
-      "excludedActions": null,
-      "excludedPrincipals": null,
-      "mode": "none"
-    },
-    "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deployments/mySubStack-2023-04-20-19-53-02-fdd96",
-    "deploymentScope": null,
-    "description": null,
-    "detachedResources": [],
-    "duration": "PT21.2281952S",
-    "error": null,
-    "failedResources": [],
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deploymentStacks/mySubStack",
-    "location": "eastus",
-    "name": "mySubStack",
-    "outputs": null,
-    "parameters": {},
-    "parametersLink": null,
-    "provisioningState": "succeeded",
-    "resources": [
-      {
-        "denyStatus": "none",
-        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1",
-        "status": "managed"
-      },
-      {
-        "denyStatus": "none",
-        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1/providers/Microsoft.Network/publicIPAddresses/pubIP1",
-        "resourceGroup": "ds-rg1",
-        "status": "managed"
-      },
-      {
-        "denyStatus": "none",
-        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2",
-        "status": "managed"
-      },
-      {
-        "denyStatus": "none",
-        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2/providers/Microsoft.Network/publicIPAddresses/pubIP1",
-        "resourceGroup": "ds-rg2",
-        "status": "managed"
-      }
-    ],
-    "systemData": {
-      "createdAt": "2023-04-20T19:53:02.279809+00:00",
-      "createdBy": "someone@microsoft.com",
-      "createdByType": "User",
-      "lastModifiedAt": "2023-04-20T19:53:02.279809+00:00",
-      "lastModifiedBy": "someone@microsoft.com",
-      "lastModifiedByType": "User"
-    },
-    "tags": null,
-    "template": null,
-    "templateLink": null,
-    "type": "Microsoft.Resources/deploymentStacks"
-  }
-]
+jgao: fill this part
 ```
 
 ---
@@ -232,7 +134,7 @@ You can also verify the deployment by list the managed resources in the deployme
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-(Get-AzSubscriptionDeploymentStack -Name mySubStack).Resources
+(Get-AzResourceGroupDeploymentStack -Name myRgStack -ResourceGroupName myRg).Resources
 ```
 
 The output is similar to:
@@ -240,16 +142,14 @@ The output is similar to:
 ```output
 Status  DenyStatus Id
 ------  ---------- --
-managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1
-managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1/providers/Microsoft.Network/publicIPAddresses/pubIP1
-managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2
-managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2/providers/Microsoft.Network/publicIPAddresses/pubIP1
+managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Network/virtualNetworks/vnetzu6pnx54hqubm
+managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Storage/storageAccounts/storezu6pnx54hqubm
 ```
 
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack sub show --name mySubStack --output json
+az stack group show --name myRgStack --resource-group myStackRg --output json
 ```
 
 The output is similar to:
@@ -269,49 +169,40 @@ The output is similar to:
     "excludedPrincipals": null,
     "mode": "none"
   },
-  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deployments/mySubStack-2023-04-20-19-53-02-fdd96",
+  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Resources/deployments/myRgStack-2023-06-05-20-55-48-38d09",
   "deploymentScope": null,
   "description": null,
   "detachedResources": [],
-  "duration": "PT21.2281952S",
+  "duration": "PT29.006353S",
   "error": null,
   "failedResources": [],
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deploymentStacks/mySubStack",
-  "location": "eastus",
-  "name": "mySubStack",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Resources/deploymentStacks/myRgStack",
+  "location": null,
+  "name": "myRgStack",
   "outputs": null,
   "parameters": {},
   "parametersLink": null,
   "provisioningState": "succeeded",
+  "resourceGroup": "myStackRg",
   "resources": [
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Network/virtualNetworks/vnetzu6pnx54hqubm",
+      "resourceGroup": "myStackRg",
       "status": "managed"
     },
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1/providers/Microsoft.Network/publicIPAddresses/pubIP1",
-      "resourceGroup": "ds-rg1",
-      "status": "managed"
-    },
-    {
-      "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2",
-      "status": "managed"
-    },
-    {
-      "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2/providers/Microsoft.Network/publicIPAddresses/pubIP1",
-      "resourceGroup": "ds-rg2",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Storage/storageAccounts/storezu6pnx54hqubm",
+      "resourceGroup": "myStackRg",
       "status": "managed"
     }
   ],
   "systemData": {
-    "createdAt": "2023-04-20T19:53:02.279809+00:00",
+    "createdAt": "2023-06-05T20:55:48.006789+00:00",
     "createdBy": "jgao@microsoft.com",
     "createdByType": "User",
-    "lastModifiedAt": "2023-04-20T19:53:02.279809+00:00",
+    "lastModifiedAt": "2023-06-05T20:55:48.006789+00:00",
     "lastModifiedBy": "jgao@microsoft.com",
     "lastModifiedByType": "User"
   },
@@ -328,35 +219,33 @@ The output is similar to:
 
 To update a deployment stack, you can modify the underlying Bicep file and re-running the create deployment stack command.
 
-Edit **pip.bicep** to set the `allocationMethod` parameter to `Static` instead of `Dynamic`:
+Edit **main.bicep** to set the sku name to `Standard_GRS` from `Standard_LRS`:
 
-```bicep
-param allocationMethod string = 'Static'
-```
-
-Re-run the following command:
+Run the following command:
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzSubscriptionDeploymentStack `
-   -Name 'mySubStack' `
-   -Location 'eastus' `
-   -TemplateFile './main.bicep'
+Set-AzResourceGroupDeploymentStack `
+  -Name 'mySubStack' `
+  -ResourceGroupname 'myRg' `
+  -TemplateFile './main.bicep' `
+  -DenySettingsMode none
 ```
 
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack sub create \
+az stack group create \
   --name mySubStack \
-  --location eastus \
-  --template-file ./main.bicep
+  --resource-group myRg \
+  --template-file ./main.bicep \
+  --deny-settings-mode none
 ```
 
 ---
 
-From the Azure portal, check the properties of the `publicIP` resource to confirm the change.
+From the Azure portal, check the properties of the storage account to confirm the change.
 
 Using the same method, you can add a resource to the deployment stack or remove a managed resource from the deployment stack.  For more information, see [Add resources to a deployment stack](./deployment-stacks.md#add-resources-to-deployment-stack) and [Delete managed resources from a deployment stack](./deployment-stacks.md#delete-managed-resources-from-deployment-stack).
 
@@ -367,16 +256,18 @@ To delete the deployment stack, and the managed resources:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Remove-AzSubscriptionDeploymentStack `
+Remove-AzResourceGroupDeploymentStack `
   -Name mySubStack `
+  -ResourceGroupName myRg `
   -DeleteAll
 ```
 
 If you run the delete commands without the **delete all** parameters, the managed resources will be detached but not deleted. For example:
 
 ```azurepowershell
-Remove-AzSubscriptionDeploymentStack `
-  -Name mySubStack
+Remove-AzResourceGroupDeploymentStack `
+  -Name mySubStack `
+  -ResourceGroupName myRg
 ```
 
 The following parameters can be used to control between detach and delete.
@@ -390,16 +281,18 @@ For more information, see [Delete deployment stacks](./deployment-stacks.md#dele
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack sub delete \
+az stack group delete \
   --name mySubStack \
+  --resource-group myRg \
   --delete-all
 ```
 
 If you run the delete commands without the **delete all** parameters, the managed resources will be detached but not deleted. For example:
 
 ```azurecli
-az stack sub delete \
-  --name mySubStack
+az stack group delete \
+  --name mySubStack \
+  --resource-group myRg
 ```
 
 The following parameters can be used to control between detach and delete.
