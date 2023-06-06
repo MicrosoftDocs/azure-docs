@@ -147,5 +147,3 @@ Resource that supports managing language-specific branding. While you can't chan
 
 > [!NOTE]
 > Delegated permissions for users signing in through user flows cannot be used against delegated permissions for Microsoft Graph API.
-
-## Next Steps
