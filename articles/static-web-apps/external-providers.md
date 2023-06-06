@@ -13,6 +13,9 @@ ms.author: cshoe
 
 Azure Static Web Apps supports a series of built-in providers to help you publish your website. If you would like to use a provider beyond the out-of-the-box options, use the following guide to build and deploy your static web app.
 
+> [!NOTE]
+> You can also follow the steps specific to [Bitbucket](bitbucket.md) and [GitLab](gitlab.md).
+
 ## Create a static web app
 
 When you create a new static web app from the Azure portal, you can select the source location of your web app.

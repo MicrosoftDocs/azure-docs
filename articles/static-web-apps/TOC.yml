@@ -186,6 +186,8 @@
       href: assign-roles-microsoft-graph.md
     - name: Use an external code host
       items:
+        - name: Overview
+          href: external-providers.md
         - name: Bitbucket
           href: bitbucket.md
         - name: GitLab
