@@ -409,7 +409,7 @@ namespace MysqlConnectionExample
             TokenRequestContext tokenRequestContext = new TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net/.default" });  
             AccessToken accessToken = await credential.GetTokenAsync(tokenRequestContext);  
             // Open a connection to the MySQL server using the access token.
-            var connectionString = System.getenv("AZURE_MYSQL_CONNECTIONSTRING") + $";Password={accessToken.Token}"        
+            var connectionString = System.getenv("AZURE_MYSQL_CONNECTIONSTRING") + $";Password={accessToken.Token}";        
             using (var conn = new MySqlConnection(connectionString))
             {
                 Console.Out.WriteLine("Opening connection using access token...");
