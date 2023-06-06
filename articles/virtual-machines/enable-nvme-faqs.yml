@@ -308,6 +308,7 @@ sections:
           # Start the VM
           
           Start-AzVM-ResourceGroupName $resource_group_name -Name $vm_name
+          
           ```
           
       - question: |
