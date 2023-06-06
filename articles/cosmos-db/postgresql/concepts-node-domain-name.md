@@ -29,7 +29,9 @@ This FQDN is resolved into a public IP for each node in the cluster. If [public 
 
 When you enable [private access](./concepts-private-access.md) on the cluster, Azure creates a private DNS zone for each cluster. FQDN for each node with a private endpoint is created in this private DNS zone in addition to its primary FQDN. FQDN in this private DNS zone uses the following format
 
-**`node-qualifier`-`cluster-name`.`uniqueID`.privatelink.postgres.cosmos.azure.com**
+```
+<node-qualifier>-<cluster-name>.<uniqueID>.privatelink.postgres.cosmos.azure.com
+```
 
 where `node-qualifier` can be 'c' for coordinator or 'w0', 'w1', etc. for worker nodes; `cluster-name` is the name for the cluster you selected during cluster provisioning; `uniqueID` is a randomly generated globally unique 14-character identifier.
 
