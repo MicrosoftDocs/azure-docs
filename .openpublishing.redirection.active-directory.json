@@ -12575,7 +12575,7 @@
         "source_path_from_root": "/articles/active-directory/enterprise-users/clean-up-unmanaged-azure-ad-accounts",
         "redirect_url": "/azure/active-directory/enterprise-users/clean-up-unmanaged-accounts",
         "redirect_document_id": true
-      }
+      },
 
       {
         "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md",
