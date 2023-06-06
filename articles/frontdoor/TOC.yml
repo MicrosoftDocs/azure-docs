@@ -285,7 +285,7 @@
             href: tier-upgrade-powershell.md
         - name: Configure a new endpoint
           href: how-to-configure-endpoints.md
-        - name: Origins in origin group
+        - name: Add origins to origin group
           href: how-to-configure-origin.md
         - name: Set up managed identity
           href: managed-identity.md
