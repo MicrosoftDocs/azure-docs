@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/08/2023
+ms.date: 06/06/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -38,20 +38,23 @@ If your application relies on certain built-in or custom user attributes, you ca
 1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Azure Active Directory**.
 1. Select **External Identities** > **Overview**.
 1. Select **Custom user attributes**. The available user attributes are listed.
-1. To add an attribute, select **Add**.
-1. In the **Add an attribute** pane, enter the following values:
+1. To add an attribute, select **Add**. In the **Add an attribute** pane, enter the following values:
 
    - **Name** - Provide a name for the custom attribute. For example, "Loyalty number".
    - **Data Type** - Choose a data type, **String**, **Boolean**, or **Int**.
    - **Description** - Optionally, enter a description of the custom attribute for internal use. This description isn't visible to the user.
 
+   :::image type="content" source="media/how-to-define-custom-attributes/add-attribute.png" alt-text="Screenshot of the add an attribute pane." lightbox="media/how-to-define-custom-attributes/add-attribute.png":::
+
 1. Select **Create**. The custom attribute is now available in the list of user attributes and can be added to your user flows. 
 
 ## Select attributes (built-in and custom) for sign-up
 
-1. Under **User attributes**, choose the attributes you want to collect from the user during sign-up. Select **Show more** to choose from the full list of attributes, including **Job Title**, **Display Name**, and **Postal Code**. This list also includes any custom attributes you defined.
+1. Under **User attributes**, choose the attributes you want to collect from the user during sign-up. Select **Show more** to choose from the full list of attributes, including **Job Title**, **Display Name**, and **Postal Code**. 
 
-   :::image type="content" source="media/how-to-define-custom-attributes/user-attributes.png" alt-text="Screenshot of the user attribute options on the Create a user flow page.":::
+   This list also includes any custom attributes you defined as described in the previous section. For example, the new **Rewards number** now appears in the list.
+
+   :::image type="content" source="media/how-to-define-custom-attributes/user-attributes-show-more.png" alt-text="Screenshot of the user attribute options on the Create a user flow page.":::
 
 1. Select **OK**.
 
