@@ -99,8 +99,6 @@ for further information.
 [Text Analytics for Health Transparency Note](https://learn.microsoft.com/legal/cognitive-services/language-service/transparency-note-health).
 
 
-## Contact us
-[Give us feedback on this document](mailto:health-ai-feedback@microsoft.com).
 
 
 ## About this document
