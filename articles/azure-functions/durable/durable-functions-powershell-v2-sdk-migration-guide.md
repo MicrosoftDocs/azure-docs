@@ -9,15 +9,18 @@ ms.reviewer: azfuncdf
 
 # Guide to the standalone Durable Functions PowerShell SDK
 
-The Durable Functions (DF) PowerShell SDK is now available as a standalone package in the PowerShell Gallery: [`AzureFunctions.PowerShell.Durable.SDK`](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK).
+The Durable Functions (DF) PowerShell SDK is now available, _in preview_, as a standalone package in the PowerShell Gallery: [`AzureFunctions.PowerShell.Durable.SDK`](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK).
 Moving forward, this package will be the recommended means of developing Durable Functions SDK. In this article, we explain the benefits of this change, and what changes you can expect when adopting this new package.
+
+> [!NOTE]
+> This package is currently in **preview.**
 
 ## Motivation behind the standalone SDK
 
-The previous DF SDK was built in to the PowerShell language worker. This approach came with the benefit that Durable Functions apps could be authored out of the box from any Azure Functions PowerShell app.
+The previous DF SDK was built into the PowerShell language worker. This approach came with the benefit that Durable Functions apps could be authored out of the box from any Azure Functions PowerShell app.
 However, it also came with various shortcomings:
 1. New features, bug fixes, and other changes were dependent on the PowerShell worker's release cadence.
-2. By the auto-upgrading nature of the PowerShell worker, the DF SDK needed to be conservative not to introduce breaking changes, which makes fixing certain bugs difficult.
+2. By the auto-upgrading nature of the PowerShell worker, the DF SDK needed to be conservative about to introducing breaking changes, which makes fixing certain bugs difficult.
 3. The replay algorithm utilized by the built-in DF SDK was out of date: other DF SDKs already utilized a faster and more reliable implementation.
 
 By creating a standalone DF PowerShell SDK, we're able to overcome these shortcomings at the expense of requiring an extra SDK installation step. See below for the explicit benefits of utilizing new standalone DF SDK:
@@ -27,9 +30,9 @@ By creating a standalone DF PowerShell SDK, we're able to overcome these shortco
 
 ## Deprecation plan for the built-in DF PowerShell SDK
 
-The built-in DF SDK in the PowerShell worker will remain in existing and supported versions of the PowerShell worker. This means that existing apps will be able to continue using the built-in SDK as long as their language workers are supported. 
+The built-in DF SDK in the PowerShell worker will remain available for PowerShell 7.2 and prior releases. This means that existing apps will be able to continue using the built-in SDK as long as their language workers are supported. 
 
-After the standalone DF PowerShell SDK is GA, new releases of the PowerShell worker supporting _new_ versions of PowerShell won't include the built-in SDK. Users leveraging these future workers will need to incorporate the standalone DF SDK package.
+After the standalone DF PowerShell SDK is GA, this new standalone package will be the recommended way of authoring Durable Functions apps. Therefore, starting with the language worker for PowerShell 7.4 onwards, new versions of the Azure Functions PowerShell worker will not export a built-in Durable Functions SDK _by default_ and users will instead be recommended to install the SDK using this standalone package. 
 
 ## Install and enable the SDK
 
