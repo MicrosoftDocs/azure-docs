@@ -339,13 +339,13 @@ Spring Cloud Gateway is managed and tuned by the Azure Spring Apps service. Exce
 
 To configure environment variables in the Azure portal, use the following steps:
 
-1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation page and then select **Configuration**.
-1. Fill in the key-value pairs for the environment variables in the **Properties** or **Secrets** sections. You can put variables with sensitive information in **Secrets**.
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation pane, and then select **Configuration**.
+1. Fill in the key-value pairs for the environment variables in the **Properties** or **Secrets** sections. You can include variables with sensitive information in the **Secrets** section.
 1. When you've provided all the configurations, select **Save** to save your changes.
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to configure environment variables using the Azure CLI, you can put variables with sensitive information in **--secrets** parameters:
+Use the following command to configure environment variables using the Azure CLI. You can include variables with sensitive information by using the `--secrets` parameter.
 
 ```azurecli
 az spring gateway update \
@@ -457,15 +457,15 @@ To get environment variable keys, add the `logging.level.` prefix, and then set 
 
 To configure log levels in the Azure portal, use the following steps:
 
-1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation page and then select **Configuration**.
-1. Fill in the key-value pairs for the log level environment variables in the **Properties** or **Secrets** sections. If log level is sensitive information in your case, you can put it in **Secrets**.
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation pane, and then select **Configuration**.
+1. Fill in the key-value pairs for the log level environment variables in the **Properties** or **Secrets** sections. If the log level is sensitive information in your case, you can include it using the **Secrets** section.
 1. When you've provided all the configurations, select **Save** to save your changes.
 
 :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-log-level-environment-variables.png" alt-text="Screenshot of the Azure portal showing the Spring Cloud Gateway environment variables to configure log levels." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-log-level-environment-variables.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Refer to [Configure environment variables](#configure-environment-variables) for general CLI command to specify environment variables. Below is an example to configure log levels using Azure CLI:
+For a general CLI command for specifying environment variables, see the [Configure environment variables](#configure-environment-variables) section. The following example shows you how to configure log levels using the Azure CLI:
 
 ```azurecli
 az spring gateway update \
@@ -479,7 +479,7 @@ az spring gateway update \
       logging.level.org.springframework.security.web=ERROR
 ```
 
-If log level is sensitive information in your case, you can put it in **--secrets** parameter.
+If the log level is sensitive information in your case, you can include it by using the `--secrets` parameter.
 
 ---
 
