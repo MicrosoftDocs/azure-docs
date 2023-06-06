@@ -6,7 +6,7 @@ ms.author: eduardori
 ms.service: azure-operator-nexus
 ms.custom: devx-track-azurecli
 ms.topic: include
-ms.date: 05/17/2023
+ms.date: 06/06/2023
 # ms.custom: template-include
 ---
 
