@@ -1,6 +1,6 @@
 ---
-title: Customer responsibilities for Azure Spring Apps Standard consumption plan in a virtual network
-description: Learn about the customer responsibilities for running an Azure Spring Apps Standard consumption plan service instance in a virtual network.
+title: Customer responsibilities for Azure Spring Apps Standard consumption and dedicated plan in a virtual network
+description: Learn about the customer responsibilities for running an Azure Spring Apps Standard consumption and dedicated plan service instance in a virtual network.
 author: karlerickson
 ms.author: xuycao
 ms.service: spring-apps
@@ -9,14 +9,14 @@ ms.date: 03/21/2023
 ms.custom: devx-trax-java
 ---
 
-# Customer responsibilities for Azure Spring Apps Standard consumption plan in a virtual network
+# Customer responsibilities for Azure Spring Apps Standard consumption and dedicated plan in a virtual network
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 
-This article describes the customer responsibilities for running an Azure Spring Apps Standard consumption plan service instance in a virtual network.
+This article describes the customer responsibilities for running an Azure Spring Apps Standard consumption and dedicated plan service instance in a virtual network.
 
 Use Network Security Groups (NSGs) to configure virtual networks to conform to the settings required by Kubernetes.
 

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: cwerner
 ms.reviewer: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev, devx-track-extended-java, devx-track-js
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform.
 ---
 

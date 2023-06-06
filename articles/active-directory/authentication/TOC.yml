@@ -255,7 +255,7 @@
       - name: Migrate to Azure MFA and user authentication
         href: how-to-migrate-mfa-server-to-mfa-user-authentication.md
       - name: Migrate to Azure MFA with Federation
-        href: how-to-migrate-mfa-server-to-azure-mfa-with-federation.md    
+        href: how-to-migrate-mfa-server-to-mfa-with-federation.md
       - name: Migration Utility
         href: how-to-mfa-server-migration-utility.md    
     - name: Deploy MFA on-premises

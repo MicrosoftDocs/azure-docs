@@ -1,6 +1,6 @@
 ---
-title: Tables that support ingestion-time transformations in Azure Monitor Logs (preview)
-description: Reference for tables that support ingestion-time transformations in Azure Monitor Logs (preview).
+title: Tables that support ingestion-time transformations in Azure Monitor Logs
+description: Reference for tables that support ingestion-time transformations in Azure Monitor Logs.
 ms.topic: reference
 author: bwren
 ms.author: bwren
@@ -8,7 +8,7 @@ ms.tgt_pltfrm: na
 ms.date: 07/10/2022
 ---
 
-# Tables that support transformations in Azure Monitor Logs (preview)
+# Tables that support transformations in Azure Monitor Logs
 
 The following list identifies the tables in a [Log Analytics workspace](log-analytics-workspace-overview.md) that support [transformations](../essentials/data-collection-transformations.md).
 
