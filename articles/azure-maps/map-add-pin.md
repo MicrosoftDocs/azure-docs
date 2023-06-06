@@ -1,12 +1,11 @@
 ---
 title: Add a Symbol layer to a map | Microsoft Azure Maps
 description: Learn how to add customized symbols, such as text or icons, to maps. See how to use data sources and symbol layers in the Azure Maps Web SDK for this purpose.
-author: eriklindeman
-ms.author: eriklind
-ms.date: 07/29/2019
-ms.topic: conceptual
+author: dubiety
+ms.author: yuchungchen
+ms.date: 06/07/2023
+ms.topic: how-to
 ms.service: azure-maps
-ms.custom: codepen
 ---
 
 # Add a symbol layer to a map
@@ -28,9 +27,9 @@ The maps image sprite manager loads custom images used by the symbol layer. It s
 
 ## Add a symbol layer
 
-Before you can add a symbol layer to the map, you need to take a couple of steps. First, create a data source, and add it to the map. Create a symbol layer. Then, pass in the data source to the symbol layer, to retrieve the data from the data source. Finally, add data into the data source, so that there's something to be rendered. 
+Before you can add a symbol layer to the map, you need to take a couple of steps. First, create a data source, and add it to the map. Create a symbol layer. Then, pass in the data source to the symbol layer, to retrieve the data from the data source. Finally, add data into the data source, so that there's something to be rendered.
 
-The code below demonstrates what should be added to the map after it has loaded. This sample renders a single point on the map using a symbol layer. 
+The code below demonstrates what should be added to the map after it has loaded. This sample renders a single point on the map using a symbol layer.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -52,7 +51,7 @@ There are four different types of point data that can be added to the map:
 - GeoJSON Point geometry - This object only contains a coordinate of a point and nothing else. The `atlas.data.Point` helper class can be used to easily create these objects.
 - GeoJSON MultiPoint geometry - This object contains the coordinates of multiple points and nothing else. The `atlas.data.MultiPoint` helper class can be used to easily create these objects.
 - GeoJSON Feature - This object consists of any GeoJSON geometry and a set of properties that contain metadata associated to the geometry. The `atlas.data.Feature` helper class can be used to easily create these objects.
-- `atlas.Shape` class is similar to the GeoJSON feature. Both consist of a GeoJSON geometry and a set of properties that contain metadata associated to the geometry. If a GeoJSON object is added to a data source, it can easily be rendered in a layer. However, if the coordinates property of that GeoJSON object is updated, the data source and map don't change. That's because there's no mechanism in the JSON object to trigger an update. The shape class provides functions for updating the data it contains. When a change is made, the data source and map are automatically notified and updated. 
+- `atlas.Shape` class is similar to the GeoJSON feature. Both consist of a GeoJSON geometry and a set of properties that contain metadata associated to the geometry. If a GeoJSON object is added to a data source, it can easily be rendered in a layer. However, if the coordinates property of that GeoJSON object is updated, the data source and map don't change. That's because there's no mechanism in the JSON object to trigger an update. The shape class provides functions for updating the data it contains. When a change is made, the data source and map are automatically notified and updated.
 
 The following code sample creates a GeoJSON Point geometry and passes it into the `atlas.Shape` class to make it easy to update. The center of the map is initially used to render a symbol. A click event is added to the map such that when it fires, the coordinates of the mouse are used with the shapes `setCoordinates` function. The mouse coordinates are recorded at the time of the click event. Then, the `setCoordinates` updates the location of the symbol on the map.
 
@@ -66,7 +65,7 @@ The following code sample creates a GeoJSON Point geometry and passes it into th
 
 ## Add a custom icon to a symbol layer
 
-Symbol layers are rendered using WebGL. As such all resources, such as icon images, must be loaded into the WebGL context. This sample shows how to add a custom icon to the map resources. This icon is then used to render point data with a custom symbol on the map. The `textField` property of the symbol layer requires an expression to be specified. In this case, we want to render the temperature property. Since temperature is a number, it needs to be converted to a string. Additionally we want to append "°F" to it. An expression can be used to do this concatenation; `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
+Symbol layers are rendered using WebGL. As such all resources, such as icon images, must be loaded into the WebGL context. This sample shows how to add a custom icon to the map resources. This icon is then used to render point data with a custom symbol on the map. The `textField` property of the symbol layer requires an expression to be specified. In this case, we want to render the temperature property. Since temperature is a number, it needs to be converted to a string. Additionally we want to append "°F" to it. An expression can be used to do this concatenation; `['concat', ['to-string', ['get', 'temperature']], '°F']`.
 
 <br/>
 
@@ -76,7 +75,7 @@ Symbol layers are rendered using WebGL. As such all resources, such as icon imag
 > [!TIP]
 > The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. For more information, see the [How to use image templates](how-to-use-image-templates-web-sdk.md) document.
 
-## Customize a symbol layer 
+## Customize a symbol layer
 
 The symbol layer has many styling options available. Here is a tool to test out these various styling options.
 
