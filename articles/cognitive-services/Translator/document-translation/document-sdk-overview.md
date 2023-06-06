@@ -109,16 +109,19 @@ from azure.core.credentials import AzureKeyCredential
 
 ### [C#/.NET](#tab/csharp)
 
-```csharp
-string endpoint = "<endpoint>";
-string apiKey = "<apiKey>";
+Create an instance of the DocumentTranslationClient object to interact with the Document Translation SDK, and then call methods on that client object to interact with the service. The DocumentTranslationClient is the primary interface for using the Document Translation client library. It provides both synchronous and asynchronous methods to perform operations.
 
-AzureKeyCredential credential = new AzureKeyCredential(apiKey);
-DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoint), credential);
+```csharp
+private static readonly string endpoint = "<your-custom-endpoint>";
+private static readonly string key = "<your-key>";
+
+DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(key));
 
 ```
 
 ### [Python](#tab/python)
+
+Create an instance of the DocumentTranslationClient object to interact with the Document Translation SDK, and then call methods on that client object to interact with the service. The DocumentTranslationClient is the primary interface for using the Document Translation client library. It provides both synchronous and asynchronous methods to perform operations.
 
 ```python
 endpoint = "<endpoint>"
@@ -134,15 +137,30 @@ client = DocumentTranslationClient(endpoint, AzureKeyCredential(key))
 
 ### [C#/.NET](#tab/csharp)
 
- Create an instance of the DocumentTranslationClient object to interact with the Document Translation SDK, and then call methods on that client object to interact with the service. The DocumentTranslationClient is the primary interface for using the Document Translation client library. It provides both synchronous and asynchronous methods to perform operations.
-
 The Document Translation service requires that you upload your files to an Azure Blob Storage source container and provide a target container where the translated documents can be written
+
+```csharp
+
+Uri sourceUri = new Uri("<your-source container-url");
+Uri targetUri = new Uri("<your-target-container-url>");
+string targetLanguage = "<target-language-code>";
+
+DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetUri, targetLanguage)
+```
 
 ### [Python](#tab/python)
 
-Create an instance of the DocumentTranslationClient object to interact with the Document Translation SDK, and then call methods on that client object to interact with the service. The DocumentTranslationClient is the primary interface for using the Document Translation client library. It provides both synchronous and asynchronous methods to perform operations.
-
 The Document Translation service requires that you upload your files to an Azure Blob Storage source container and provide a target container where the translated documents can be written.
+
+```python
+sourceUrl = "<your-source container-url>"
+targetUrl = "<your-target-container-url>"
+targetLanguage = "<target-language-code>"
+
+poller = client.begin_translation(sourceUrl, targetUrl, targetLanguage)
+result = poller.result()
+
+```
 
 ---
 

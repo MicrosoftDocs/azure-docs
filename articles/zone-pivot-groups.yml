@@ -101,6 +101,15 @@ groups:
   - id: programming-language-python
     title: Python
 - id: programming-languages-set-two
+# Owner: lajanuar
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#"
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-document-sdk
 # Owner: erhopf
   title: Programming languages
   prompt: Choose a programming language

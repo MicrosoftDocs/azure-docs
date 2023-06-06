@@ -11,15 +11,12 @@ ms.custom: build-2023, devx-track-dotnet, devx-track-python
 ms.topic: reference
 ms.date: 06/02/2023
 ms.author: lajanuar
+zone_pivot_groups: programming-languages-document-sdk
 ---
 
-# Document Translation client-library SDKs 
+# Document Translation client-library SDKs
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD001 -->
-
-> [!IMPORTANT]
->
-> * The Java, JavaScript Document Translation SDKs are currently available in public preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback. The C# and Python SDKs are generally available (GA) for use in your production applications.
 
 Document Translation is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#supported-document-formats). In this quickstart, learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
 
@@ -27,8 +24,7 @@ Document Translation is a cloud-based feature of the [Azure Translator](../../tr
 >
 > * Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
 >
-> * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. *See* [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
->
+> * Document Translation is **only** supported in paid tiers. We suggest that you select Standard S1 to try the feature.. *See* [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 
 ## Prerequisites
 
@@ -43,20 +39,40 @@ To get started, you need:
   * **Source container**. This container is where you upload your files for translation (required).
   * **Target container**. This container is where your translated files are stored (required).
 
-* You also need to create Shared Access Signature (SAS) tokens for your source and target containers. The `sourceUrl`  and `targetUrl` , must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. *See* [**Create SAS tokens for Document Translation process**](../how-to-guides/create-sas-tokens.md).
+### Storage container authorization
 
-  * Your **source** container or blob must have designated  **read** and **list** access.
-  * Your **target** container or blob must have designated  **write** and **list** access.
+You can choose one of the following options to authorize access to your Translator resource.
 
-For more information, *see* [Create SAS tokens](../how-to-guides/create-sas-tokens.md).
+**✔️ Managed Identity**. A managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources that enables you to run your Translator application without having to embed credentials in your code. Managed identities are a safer way to grant access to storage data and replace the requirement for you to include shared access signature tokens (SAS) with your source and target URLs.
 
-## Client libraries
+  :::image type="content" source="../media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
-### [C#/.NET v1.0.0 (GA)](#tab/csharp)
+To learn more, *see* [Managed identities for Document Translation](how-to-guides/create-use-managed-identities).
 
-| [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Translation.Document)| [Client library](/dotnet/api/overview/azure/AI.Translation.Document-readme) |  [REST API](../reference/rest-api-guide.md) | [Product documentation](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Document/1.0.0/index.html) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0/sdk/translation/Azure.AI.Translation.Document/samples) |
+**✔️ Shared Access Signature (SAS)**.  A shared access signature is a URL that grants restricted access for a specified period of time to your Translator service. To use this method, you need to create Shared Access Signature (SAS) tokens for your source and target containers. The `sourceUrl`  and `targetUrl` , must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. *See* [**Create SAS tokens for Document Translation process**](../how-to-guides/create-sas-tokens.md).
 
-### Set up your project
+* Your **source** container or blob must have designated  **read** and **list** access.
+* Your **target** container or blob must have designated  **write** and **list** access.
+
+To learn more, *see* [Create SAS tokens](../how-to-guides/create-sas-tokens.md).
+
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [C# programming](includes/csharp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python programming](includes/python.md)]
+::: zone-end
+
+## Build your application
+
+There are several tools available for creating, building, and running your Translator C#/.NET application. Here we guide your through using the command-line interface (CLI) or Visual Studio. Select one of following tabs to get started:
+
+
+
+## Set up your project
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `batch-document-translation`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*.
 
@@ -125,7 +141,7 @@ private static readonly string key = "<your key>";
 
 ### Translate a document or batch files
 
-* To Start a translation operation for one or more documents in a single blob container, you call the `StartTranslationAsync` method.
+* To Start a translation operation for one or more documents in a single blob container, call the `StartTranslationAsync` method.
 
 * To call `StartTranslationAsync`, you need to initialize a `DocumentTranslationInput`  object that contains the following parameters:
 

@@ -112,32 +112,32 @@ For this project, you need a **source document** uploaded to your **source conta
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# programming](includes/csharp.md)]
+[!INCLUDE [C# programming](includes/rest-api/csharp.md)]
 ::: zone-end
 
 :::zone pivot="programming-language-go"
 
-[!INCLUDE [Go programming](includes/go.md)]
+[!INCLUDE [Go programming](includes/rest-api/go.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE [Java programming](includes/java.md)]
+[!INCLUDE [Java programming](includes/rest-api/java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [NodeJS programming](includes/javascript.md)]
+[!INCLUDE [NodeJS programming](includes/rest-api/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python programming](includes/python.md)]
+[!INCLUDE [Python programming](includes/rest-api/python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-rest-api"
 
-[!INCLUDE [REST API](includes/rest-api.md)]
+[!INCLUDE [REST API](includes/rest-api/rest-api.md)]
 ::: zone-end
 
 That's it, congratulations! In this quickstart, you used Document Translation to translate a document while preserving it's original structure and data format.
