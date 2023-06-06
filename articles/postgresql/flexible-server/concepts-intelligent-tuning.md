@@ -61,8 +61,7 @@ Intelligent Tuning is an ongoing monitoring and analysis process that not only l
 workload but also tracks your current load and resource usage such as CPU or IOPS. By doing so, it makes sure not to
 disturb the normal operations of your application workload.
 
-:::image type="content" source="./media/concepts-intelligent-tuning/tuning-process.png" alt-text="Automatic tuning
-process.":::
+:::image type="content" source="./media/concepts-intelligent-tuning/tuning-process.png" alt-text="Automatic tuning process.":::
 
 The process allows the database to dynamically adjust to your workload by discerning the current bloat ratio, write
 performance, and checkpoint efficiency on your instance. Armed with these insights, intelligent tuning deploys tuning
@@ -113,8 +112,6 @@ the autovacuum process.
 
 Intelligent tuning adjusts four parameters related to writes
 tuning:`bgwriter_delay`, `checkpoint_completion_target`, `max_wal_size`, and `min_wal_size`.
-
-
 The `bgwriter_delay` parameter determines the frequency at which the background writer process is awakened to clean "
 dirty" buffers (those that are new or modified). The background writer process is one of three processes in PostgreSQL
 that handle write operations, the other two being the checkpointer process and backends (standard client processes, such
