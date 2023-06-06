@@ -12606,7 +12606,7 @@
         "redirect_url": "/azure/active-directory/standards/configure-for-cmmc-compliance",
         "redirect_document_id": true
 
-      }
+      },
 
       {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/microsoft-graph-operations-custom-extensions.md",
