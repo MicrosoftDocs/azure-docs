@@ -99,70 +99,8 @@ callMedia.startRecognizing(callMediaRecognizeOptions).block();
 
 Developers can subscribe to *RecognizeCompleted* and *RecognizeFailed* events on the webhook callback they registered for the call to create business logic in their application for determining next steps when one of the aforementioned events occurs. 
 
-Example of *RecognizeCompleted* event:
-``` json
-[
-    {
-        "id": "e9cf1c71-f119-48db-86ca-4f2530a2004d",
-        "source": "calling/callConnections/411f0b00-d97f-49ad-a6ff-3f8c05dc64d7/RecognizeCompleted",
-        "type": "Microsoft.Communication.RecognizeCompleted",
-        "data": {
-            "eventSource": "calling/callConnections/411f0b00-d97f-49ad-a6ff-3f8c05dc64d7/RecognizeCompleted",
-            "operationContext": "267e33a9-c28e-4ecf-a33e-b3abd9526e32",
-            "resultInformation": {
-                "code": 200,
-                "subCode": 8531,
-                "message": "Action completed, max digits received."
-            },
-            "recognitionType": "dtmf",
-            "collectTonesResult": {
-                "tones": [
-                    "nine",
-                    "eight",
-                    "zero",
-                    "five",
-                    "two"
-                ]
-            },
-            "callConnectionId": "411f0b00-d97f-49ad-a6ff-3f8c05dc64d7",
-            "serverCallId": "aHR0cHM6Ly9hcGkuZmxpZ2h0cHJveHkuc2t5cGUuY29tL2FwaS92Mi9jcC9jb252LXVzZWEyLTAxLmNvbnYuc2t5cGUuY29tL2NvbnYvQzNuT3lkY3E0VTZCV0gtcG1GNmc1Zz9pPTQmZT02Mzc5ODYwMDMzNDQ2MTA5MzM=",
-            "correlationId": "53be6977-d832-4c42-8527-fb2aa4a78b74"
-        },
-        "time": "2022-09-13T00:55:08.2240104+00:00",
-        "specversion": "1.0",
-        "datacontenttype": "application/json",
-        "subject": "calling/callConnections/411f0b00-d97f-49ad-a6ff-3f8c05dc64d7/RecognizeCompleted"
-    }
-]
-```
 
-Example of *RecognizeFailed* event:
-``` json
-[
-    {
-        "id": "47d9cb04-7039-427b-af50-aebdd94db054",
-        "source": "calling/callConnections/411f0b00-bb72-4d5b-9524-ae1c29713335/RecognizeFailed",
-        "type": "Microsoft.Communication.RecognizeFailed",
-        "data": {
-            "eventSource": "calling/callConnections/411f0b00-bb72-4d5b-9524-ae1c29713335/RecognizeFailed",
-            "operationContext": "267e33a9-c28e-4ecf-a33e-b3abd9526e32",
-            "resultInformation": {
-                "code": 500,
-                "subCode": 8511,
-                "message": "Action failed, encountered failure while trying to play the prompt."
-            },
-            "callConnectionId": "411f0b00-bb72-4d5b-9524-ae1c29713335",
-            "serverCallId": "aHR0cHM6Ly9hcGkuZmxpZ2h0cHJveHkuc2t5cGUuY29tL2FwaS92Mi9jcC9jb252LXVzZWEyLTAxLmNvbnYuc2t5cGUuY29tL2NvbnYvQzNuT3lkY3E0VTZCV0gtcG1GNmc1Zz9pPTQmZT02Mzc5ODYwMDMzNDQ2MTA5MzM=",
-            "correlationId": "53be6977-d832-4c42-8527-fb2aa4a78b74"
-        },
-        "time": "2022-09-13T00:55:37.0660233+00:00",
-        "specversion": "1.0",
-        "datacontenttype": "application/json",
-        "subject": "calling/callConnections/411f0b00-bb72-4d5b-9524-ae1c29713335/RecognizeFailed"
-    }
-]
-```
-Example of how you can deserialize the *RecognizeCompleted* and *RecognizeFailed* event:
+### Example of how you can deserialize the *RecognizeCompleted* and *RecognizeFailed* event:
 ``` java
 post("/api/callback", (request, response) -> {
     
@@ -190,3 +128,17 @@ post("/api/callback", (request, response) -> {
 
 });
 ```
+
+### Example of how you can deserialize the *RecognizeFailed* event:
+``` java
+code snippet
+```
+
+### Example of how you can deserialize the *RecognizeCanceled* event:
+``` java
+if (callEvent instanceof RecognizeCanceled) { 
+
+            //Take action on Canceled notification, like terinating a call
+            callConnection.hangUp(true);
+         }
+```   
