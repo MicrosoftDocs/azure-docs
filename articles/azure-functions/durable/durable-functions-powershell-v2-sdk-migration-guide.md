@@ -32,7 +32,7 @@ By creating a standalone DF PowerShell SDK, we're able to overcome these shortco
 
 The built-in DF SDK in the PowerShell worker will remain available for PowerShell 7.2 and prior releases. This means that existing apps will be able to continue using the built-in SDK as long as their language workers are supported. 
 
-After the standalone DF PowerShell SDK is GA, this new standalone package will be the recommended way of authoring Durable Functions apps. Therefore, starting with the language worker for PowerShell 7.4 onwards, new versions of the Azure Functions PowerShell worker will not export a built-in Durable Functions SDK _by default_ and users will instead be recommended to install the SDK using this standalone package. 
+After the new DF PowerShell SDK is GA, this new SDK package will be the recommended way of authoring Durable Functions apps. Therefore, starting with the language worker for PowerShell 7.4 onwards, new versions of the Azure Functions PowerShell worker will not export a built-in Durable Functions SDK _by default_ and users will instead be recommended to install the SDK using this standalone package. 
 
 ## Install and enable the SDK
 
