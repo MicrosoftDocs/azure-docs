@@ -10296,6 +10296,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/standards/configure-azure-active-directory-for-fedramp-high-impact.md",
+      "redirect_url": "/azure/active-directory/standards/configure-for-fedramp-high-impact",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-ops.md",
       "redirect_url": "/azure/active-directory/fundamentals/ops-guide-ops",
       "redirect_document_id": true
@@ -10313,6 +10318,16 @@
     {
       "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-govern.md",
       "redirect_url": "/azure/active-directory/fundamentals/ops-guide-govern",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/datawiza-azure-ad-sso-mfa-oracle-ebs.md",
+      "redirect_url": "/azure/active-directory/manage-apps/datawiza-sso-mfa-oracle-ebs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/cloudflare-azure-ad-integration.md",
+      "redirect_url": "/azure/active-directory/manage-apps/cloudflare-integration",
       "redirect_document_id": true
     },
     {
@@ -11038,6 +11053,11 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-customizing-attribute-mappings.md",
       "redirect_url": "/azure/active-directory/app-provisioning/customize-application-attributes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/migrate-applications-from-okta-to-azure-active-directory.md",
+      "redirect_url": "/azure/active-directory/manage-apps/migrate-applications-from-okta",
       "redirect_document_id": true
     },
     {
@@ -12566,6 +12586,30 @@
         "source_path_from_root": "/articles/active-directory-domain-services/migrate-from-classic-vnet.md",
         "redirect_url": "/azure/active-directory-domain-services/overview",
         "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/manage-apps/datawiza-azure-ad-sso-oracle-jde.md",
+        "redirect_url": "/azure/active-directory/manage-apps/datawiza-sso-oracle-jde",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/manage-apps/datawiza-azure-ad-sso-oracle-peoplesoft.md",
+        "redirect_url": "/azure/active-directory/manage-apps/datawiza-sso-oracle-peoplesoft",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/manage-apps/datawiza-with-azure-ad.md",
+        "redirect_url": "/azure/active-directory/manage-apps/datawiza-configure-sha",
+        "redirect_document_id": true
+      },
+    
+      {
+        "source_path_from_root": "/articles/active-directory/standards/configure-azure-active-directory-for-cmmc-compliance.md",
+        "redirect_url": "/azure/active-directory/standards/configure-for-cmmc-compliance",
+        "redirect_document_id": true
       }
 
       ]

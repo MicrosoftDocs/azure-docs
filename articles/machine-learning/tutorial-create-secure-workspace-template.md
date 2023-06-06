@@ -9,7 +9,7 @@ ms.custom: ignite-2022, build-2023
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 12/02/2021
+ms.date: 06/05/2023
 ms.topic: tutorial
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
