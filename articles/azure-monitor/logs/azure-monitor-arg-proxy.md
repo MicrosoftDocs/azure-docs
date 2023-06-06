@@ -9,22 +9,25 @@ ms.reviewer: osalzberg
 
 ---
 # Query data in Azure Resource Graph and Azure Data Explorer from Azure Monitor
-Azure Monitor lets you query data in [Azure Resource Graph](../../governance/resource-graph/) and [Azure Data Explorer](/azure/data-explorer/data-explorer-overview.md). This article shows how to make a cross-service query from Azure Monitor.
+Azure Monitor lets you query data in [Azure Resource Graph](../../governance/resource-graph/) and [Azure Data Explorer](/azure/data-explorer/data-explorer-overview.md). This article explains how to query data in Azure Resource Graph from Azure Monitor.
 
-## Cross query your Log Analytics or Application Insights resources and Azure Resource Graph
+## Cross-query your Log Analytics or Application Insights resources and Azure Resource Graph
 
 You can run cross-resource queries by using any client tools that support Kusto Query Language (KQL) queries, including the Log Analytics web UI, workbooks, PowerShell, and the REST API.
 
 ## Syntax
 
-`arg(״<Azure-Resource-Graph-table>״).Resources`
+`arg(״״).<Azure-Resource-Graph-table-name>`
 
-Enter the `arg("")` pattern, followed by the Azure Resource Graph table.
+Enter the `arg("")` pattern, followed by the Azure Resource Graph table name.
 
-:::image type="content" source="media/azure-arg-monitor-proxy/azure-arg-monitor-query-example.png" alt-text="Screenshot that shows an example of a cross-service query.":::
+For example:
+
+```kusto
+arg("").<Azure-Resource-Graph-table-name>
+```
 
 > [!NOTE]
->* Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass along the time filter.
 >* The cross-service query ability is used for data retrieval only. For more information, see [Function supportability](#function-supportability).
 
 ## Function supportability
@@ -46,15 +49,11 @@ union AzureActivity, arg("").Resources
 | take 10
 ```
 ```kusto
-let CL1 = adx('https://help.kusto.windows.net/Samples').StormEvents;
+let CL1 = arg("").Resources ;
 union AzureActivity, CL1 | take 10
 ```
-:::image type="content" source="media/azure-arg-monitor-proxy/azure-monitor-union-cross-query.png" alt-text="Screenshot that shows a cross-service query example with the union command.":::
 
-> [!TIP]
-> * Shorthand format is allowed: *ClusterName*/*InitialCatalog*. For example, `adx('help/Samples')` is translated to `adx('help.kusto.windows.net/Samples')`.
-
-When you use the [`join` operator](/azure/data-explorer/kusto/query/joinoperator) instead of union, you're required to use a [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) to combine the data in the Azure Data Explorer cluster with the Log Analytics workspace. Use `Hint.remote={Direction of the Log Analytics Workspace}`. For example:
+When you use the [`join` operator](/azure/data-explorer/kusto/query/joinoperator) instead of union, you're required to use a [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) to combine the data in Azure Resource Graph with the Log Analytics workspace. Use `Hint.remote={Direction of the Log Analytics Workspace}`. For example:
 
 ```kusto
 Perf | where ObjectName == "Memory" and (CounterName == "Available MBytes Memory")
@@ -64,6 +63,4 @@ Perf | where ObjectName == "Memory" and (CounterName == "Available MBytes Memory
 
 ## Next steps
 * [Write queries](/azure/data-explorer/write-queries)
-* [Azure Resource Graph Overview](../../governance/resource-graph/overview.md)
-* [Query data in Azure Monitor by using Azure Data Explorer](/azure/data-explorer/query-monitor-data)
 * [Perform cross-resource log queries in Azure Monitor](../logs/cross-workspace-query.md)
