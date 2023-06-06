@@ -70,18 +70,18 @@ On the Quick Access page, you provide a name for the Quick Access app, select a 
     ![Screenshot of the Quick Access app name.](media/how-to-configure-quick-access/new-quick-access-name.png)
     
     - Before you can set up Quick Access, you must have an App proxy connector group set up.
-    - Your connector groups appear in the dropdown menu on the Quick Access page.
+    - Your connector groups appear in the dropdown menu.
 1. Select the **Save** button at the bottom of the page to create your "QuickAccess" app without adding websites and apps.
 
-### Add Quick Access ranges
+### Add Quick access range
 
 The **Add Quick Access range** portion of this process is where you define the private or internal websites and apps that you want to include in the traffic for Microsoft Entra Private Access. You can add sites when you create the Quick Access app and return to add more or edit them later.
 
 You can add fully qualified domain names (FQDN), IP addresses, and IP address ranges.
 
 1. Go to **Global Secure Access** > **Applications** > **Quick Access**.
-1. Select **+ Add Quick Access range**.
-1. In the **Create application segment** panel that opens, select a **Destination type**. Choose from one of the following options. Depending on what you select, the subsequent field change accordingly.
+1. Select **Add quick access range**.
+1. In the **Create application segment** panel that opens, select a **Destination type**. Choose from one of the following options. Depending on what you select, the subsequent fields change accordingly.
     - IP address
     - Fully qualified domain name
     - IP address range (CIDR)
@@ -95,27 +95,33 @@ You can add fully qualified domain names (FQDN), IP addresses, and IP address ra
 
 ![Screenshot of the Quick Access app with websites added.](media/how-to-configure-quick-access/new-quick-access-with-ranges.png)
 
-## Assign users to the Quick Access app
+## Manage Quick Access properties
 
-When you configure Quick Access, a new enterprise app is created on your behalf. To view the properties of your new app:
+When you configure Quick Access, a new enterprise app is created on your behalf. You can view the properties from **Quick Access** or navigate to **Enterprise applications** and search for your Quick Access app.
 
 1. Select the **Edit application settings** button from Quick Access. 
 1. Select **Properties** from the side menu.
 
 ![Screenshot of the edit application settings button.](media/how-to-configure-quick-access/edit-application-settings.png)
 
-You can also navigate to **Enterprise applications** and search for your "QuickAccess" app.
-
 ### Assign users and groups
 
-You need to grant access to the Quick Access app you created by assigning users and/or groups to the app. For more information, see [Assign users and groups to an application.](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
+You need to grant access to the Quick Access app you created by assigning users and/or groups to the app. 
 
 > [!IMPORTANT]
 > The **Enabled for users to sign-in?** option is set to **Yes** and must remain set this way. Changing this setting to No means users will not be able to access the sites and apps through Entra Private Access.
 
-1. Open your Quick Access app from **Enterprise apps**.
-1. Select **Users and groups** from the side menu.
-1. Add users and groups as needed.
+If you're viewing the Quick Access app properties, select **Users and groups** from the side menu. Otherwise you can go to **Enterprise applications**, search for and select your application, then select **Users and groups** from the side menu.
+
+Add users and groups following the instructions in the [Assign users and groups to an application.](../active-directory/manage-apps/assign-user-or-group-access-portal.md) article.
+
+### Update quick access ranges
+
+You can add or update the sites and apps included in your Quick Access app at any time.
+
+1. Go to **Global Secure Access**> **Quick Access**.
+1. To add a new site or app, select **Add quick access range**.
+1. To edit an existing app, select it from the **Destination type** column.
 
 ## Enable Microsoft Entra Private Access
 
