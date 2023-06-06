@@ -21,10 +21,10 @@ In this quickstart, you use the Azure CLI to deploy a helloworld container using
 
 Azure container instances, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
 
-First, create a resource group named *myResourceGroup* in the *eastus* location with the following [az group create][az-group-create] command:
+First, create a resource group named *myResourceGroup* in the *westus* location with the following [az group create][az-group-create] command:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westus
 ```
 
 ## Create a container
@@ -42,7 +42,7 @@ az container create --resource-group acispotdemo --name acispotclitest --image m
 Within a few seconds, you should get a response from the Azure CLI indicating that the deployment has completed. Check its status with the [az container show][az-container-show] command:
 
 ```azurecli-interactive
-az container show --resource-group acispotdemo --name  --query "{ProvisioningState:provisioningState}" --out table
+az container show --resource-group acispotdemo --name acispotclitest --query "{ProvisioningState:provisioningState}" --out table
 ```
 
 When you run the command, the container's fully qualified domain name (FQDN) and its provisioning state are displayed.
@@ -113,11 +113,10 @@ az group delete --name acispotdemo
 
 ## Next steps
 
-In this quickstart, you created an Azure container instance by using a public Microsoft image. If you'd like to build a container image and deploy it from a private Azure container registry, continue to the Azure Container Instances tutorial.
+In this tutorial, you created a Spot container on Azure Container Instances with a default quota and eviction policy using the Azure CLI.
 
-> [!div class="nextstepaction"]
-> [Azure Container Instances tutorial](./container-instances-tutorial-prepare-app.md)
-To try out options for running containers in an orchestration system on Azure, see the [Azure Kubernetes Service (AKS)][container-service] quickstarts.
+* [Check out the overview for ACI Spot containers](container-instances-spot-containers-overview.md)
+* [Try out Spot containers with Azure Container Instances using the Azure CLI](container-instances-tutorial-deploy-spot-containers-cli.md)
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

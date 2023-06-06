@@ -64,11 +64,10 @@ When you're done with the container, select **Overview** for the *helloworld* co
 
 ## Next steps
 
-In this tutorial, you created a spot container on Azure Container instances with a default quota and eviction policy.
+In this tutorial, you created a Spot container on Azure Container Instances with a default quota and eviction policy using the Azure portal.
 
-
-* [Azure Container Instances Azure Resource Manager template tutorial](container-instances-tutorial-deploy-spot-containers-cli.md)
-* [ACI Spot containers overview](container-instances-spot-containers-overview.md) 
+* [ACI Spot containers overview](container-instances-spot-containers-overview.md)
+* [Try out Spot containers with Azure Container Instances using the Azure CLI](container-instances-tutorial-deploy-spot-containers-cli.md)
 
 <!-- LINKS - External -->
 [azure-free-account]: https://azure.microsoft.com/free/

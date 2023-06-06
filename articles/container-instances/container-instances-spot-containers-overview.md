@@ -16,7 +16,12 @@ Spot containers offer the best of both worlds by combining the simplicity of ACI
 
 This feature is designed for customers who need to run interruptible workloads with no strict availability requirements. Azure Container Instances Spot Containers support both Linux and Windows containers, providing flexibility for different operating system environments.
 
-This article provides background about the feature, limitations, and resources.
+This article provides background about the feature, limitations, and resources. To see the availability of Spot containers in Azure regions, see [Resource and region availability](container-instances-region-availability.md).
+
+> [!NOTE]
+> Spot containers with Azure Container Instances is in preview and is not recommended for production scenarios.
+
+
 
 ## Azure Container Instances Spot containers overview
 
@@ -33,13 +38,9 @@ For Spot containers, customers can't choose eviction types or policies like Spot
 ACI Spot containers preview release includes these limitations such as
 
 * **Public IP Endpoint**: ACI Spot container groups won't be assigned a public IP endpoint. This means that the container    groups can't be accessed directly from the internet.
-*  **Deployment Behind Virtual Network**: Spot container groups can't be deployed behind a virtual network. 
-*  **Confidential SKU Support**: ACI Spot containers don't support the Confidential SKU, which means that you can't use the  Confidential Computing capabilities provided by Azure.
-*  **Availability Zone Pinning**: ACI Spot containers don't support the ability to pin Availability Zones per container group deployment. 
-
-* ## Resources 
-* [Spot containers using Azure CLI](./container-instances-tutorial-deploy-spot-containers-cli.md )
-* [Spot containers using Azure portal](./container-instances-tutorial-deploy-spot-containers-portal.md)  
+* **Deployment Behind Virtual Network**: Spot container groups can't be deployed behind a virtual network. 
+* **Confidential SKU Support**: ACI Spot containers don't support the Confidential SKU, which means that you can't use the  Confidential Computing capabilities provided by Azure.
+* **Availability Zone Pinning**: ACI Spot containers don't support the ability to pin Availability Zones per container group deployment. 
 
 ## Next Steps 
 
