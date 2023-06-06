@@ -7,12 +7,12 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2023
+ms.date: 06/06/2023
 ms.author: pauljewell
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp
+ms.devlang: python
+ms.custom: devx-track-python, devguide-python
 ---
 
 # Create a user delegation SAS for a container with Python
@@ -27,31 +27,31 @@ This article shows how to use Azure Active Directory (Azure AD) credentials to c
 
 When an Azure AD security principal attempts to access blob data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob data. For information about assigning permissions via Azure RBAC, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
 
-[!INCLUDE [storage-dev-guide-user-delegation-sas-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-user-delegation-sas-dotnet.md)]
+[!INCLUDE [storage-dev-guide-user-delegation-sas-python](../../../includes/storage-dev-guides/storage-dev-guide-user-delegation-sas-python.md)]
 
 ## Create a user delegation SAS for a container
 
-You can also create a user delegation SAS to delegate limited access to a container resource. The following code example shows how to create a user delegation SAS for a container:
+You can create a user delegation SAS to delegate limited access to a container resource. The following code example shows how to create a user delegation SAS for a container:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_CreateUserDelegationSASContainer":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_create_user_delegation_sas_container":::
 
 ## Use a user delegation SAS to authorize a client object
 
-The following code example shows how to use the user delegation SAS to authorize a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object. This client object can be used to perform operations on the container resource based on the permissions granted by the SAS.
+The following code example shows how to use the user delegation SAS to authorize a [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) object. This client object can be used to perform operations on the container resource based on the permissions granted by the SAS.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_UseUserDelegationSASContainer":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_use_user_delegation_sas_container":::
 
 ## Resources
 
-To learn more about creating a user delegation SAS using the Azure Blob Storage client library for .NET, see the following resources.
+To learn more about creating a user delegation SAS using the Azure Blob Storage client library for Python, see the following resources.
 
 ### REST API operations
 
-The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library method for getting a user delegation key uses the following REST API operations:
+The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library method for getting a user delegation key uses the following REST API operations:
 
 - [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key) (REST API)
 
-[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+[!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 
 ### See also
 

@@ -28,26 +28,32 @@ Add the following `import` directives:
 
 ```python
 from azure.identity import DefaultAzureCredential
-from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+from azure.storage.blob import (
+    BlobServiceClient,
+    ContainerClient,
+    BlobClient,
+    BlobSasPermissions,
+    UserDelegationKey,
+    generate_container_sas,
+    generate_blob_sas
+)
 ```
 
 ## Get an authenticated token credential
 
-To get a token credential that your code can use to authorize requests to Blob Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. For more information about using the DefaultAzureCredential class to authorize a managed identity to access Blob Storage, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme?toc=/azure/storage/blobs/toc.json).
+To get a token credential that your code can use to authorize requests to Blob Storage, create an instance of the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) class. For more information about using the DefaultAzureCredential class to authorize a managed identity to access Blob Storage, see [Azure Identity client library for Python](/python/api/overview/azure/identity-readme).
 
 The following code snippet shows how to get the authenticated token credential and use it to create a service client for Blob storage:
 
-```csharp
-// Construct the blob endpoint from the account name.
-string endpoint = $"https://{accountName}.blob.core.windows.net";
+```python
+# Construct the blob endpoint from the account name
+account_url = "https://<storage-account-name>.blob.core.windows.net"
 
-// Create a blob service client object using DefaultAzureCredential
-BlobServiceClient blobServiceClient = new BlobServiceClient(
-    new Uri(endpoint),
-    new DefaultAzureCredential());
+#Create a BlobServiceClient object using DefaultAzureCredential
+blob_service_client = BlobServiceClient(account_url, credential=DefaultAzureCredential())
 ```
 
-To learn more about authorizing access to Blob Storage from your applications with the .NET SDK, see [How to authenticate .NET applications with Azure services](/dotnet/azure/sdk/authentication).
+To learn more about authorizing access to Blob Storage from your applications with the Python SDK, see [How to authenticate .NET applications with Azure services](/azure/developer/python/sdk/authentication-overview).
 
 ## Get the user delegation key
 
@@ -61,4 +67,4 @@ Use one of the following methods to request the user delegation key:
 
 The following code example shows how to request the user delegation key:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_RequestUserDelegationKey":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_request_user_delegation_key":::

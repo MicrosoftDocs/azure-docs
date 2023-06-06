@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2023
+ms.date: 06/06/2023
 ms.author: pauljewell
 ms.reviewer: dineshm
 ms.subservice: blobs
@@ -27,19 +27,19 @@ This article shows how to use Azure Active Directory (Azure AD) credentials to c
 
 When an Azure AD security principal attempts to access blob data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob data. For information about assigning permissions via Azure RBAC, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
 
-[!INCLUDE [storage-dev-guide-user-delegation-sas-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-user-delegation-sas-dotnet.md)]
+[!INCLUDE [storage-dev-guide-user-delegation-sas-python](../../../includes/storage-dev-guides/storage-dev-guide-user-delegation-sas-python.md)]
 
 ## Create a user delegation SAS for a blob
 
 Once you've obtained the user delegation key, you can create a user delegation SAS. The following code example shows how to create a user delegation SAS for a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_CreateUserDelegationSASBlob":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_create_user_delegation_sas_blob":::
 
 ## Use a user delegation SAS to authorize a client object
 
-The following code example shows how to use the user delegation SAS to authorize a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object. This client object can be used to perform operations on the blob resource based on the permissions granted by the SAS.
+The following code example shows how to use the user delegation SAS to authorize a [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object. This client object can be used to perform operations on the blob resource based on the permissions granted by the SAS.
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_UseUserDelegationSASBlob":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_use_user_delegation_sas_blob":::
 
 ## Resources
 
