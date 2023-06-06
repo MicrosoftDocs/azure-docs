@@ -8,19 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 06/05/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-sdk
 ---
 
 # Use pronunciation assessment
 
-In this article, you'll learn how to evaluate pronunciation with the Speech to text capability through the Speech SDK. To [get pronunciation assessment results](#get-pronunciation-assessment-results), you'll apply the `PronunciationAssessmentConfig` settings to a `SpeechRecognizer` object.
+In this article, you learn how to evaluate pronunciation with speech to text through the Speech SDK. To [get pronunciation assessment results](#get-pronunciation-assessment-results), you apply the `PronunciationAssessmentConfig` settings to a `SpeechRecognizer` object.
 
-::: zone pivot="programming-language-go"
 > [!NOTE]
-> Pronunciation assessment is not available with the Speech SDK for Go. You can read about the concepts below, but you must select another programming language for implementation details. 
-::: zone-end
+> Usage of pronunciation assessment costs the same as standard Speech to text, whether pay-as-you-go or commitment tier [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). If you [purchase a commitment tier](../commitment-tier.md) for standard Speech to text, the spend for pronunciation assessment goes towards meeting the commitment.
 
 You can get pronunciation assessment scores for:
 
@@ -30,73 +28,14 @@ You can get pronunciation assessment scores for:
 - Phonemes in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) or [IPA](https://en.wikipedia.org/wiki/IPA) format
 
 > [!NOTE]
-> The syllable group, phoneme name, and spoken phoneme of pronunciation assessment are currently only available for the en-US locale.
-> 
-> Usage of pronunciation assessment costs the same as standard Speech to text, whether pay-as-you-go or commitment tier [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). If you [purchase a commitment tier](../commitment-tier.md) for standard Speech to text, the spend for pronunciation assessment goes towards meeting the commitment.
->
-> For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
-
-## Learning language configuration
-
-The default learning language is en-US. You should specify the language that you are learning or practicing to improve pronunciation. The default language is set as `en-US`. If you know your target learning language, set the locale accordingly. For example, if you are learning British English, you should specify the language as `en-GB`. If you are teaching a broader language, such as Spanish, and are uncertain about which locale to select, you can run various accent models (`es-ES`, `es-MX`) to determine the one that achieves the highest score to suit your specific scenario.
-
-::: zone pivot="programming-language-csharp"
-
-To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#LL1086C13-L1086C98).
-
-::: zone-end
-
-::: zone pivot="programming-language-cpp"
-
-To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L624).
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#LL937C1-L937C1).
-
-::: zone-end
-
-::: zone pivot="programming-language-javascript"
-
-To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/pronunciationAssessmentContinue.js#LL37C4-L37C52).
-
-::: zone-end
-
-::: zone pivot="programming-language-objectivec"
-
-To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L862).
-
-::: zone-end
-
-::: zone pivot="programming-language-swift"
-
-To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/speech-samples/speech-samples/ViewController.swift#L224).
-
-::: zone-end
-
-::: zone pivot="programming-language-go"
-
-::: zone-end
-
+> The syllable group, phoneme name, and spoken phoneme of pronunciation assessment are currently only available for the en-US locale. For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
 
 ## Configuration parameters
 
-This table lists some of the key configuration parameters for pronunciation assessment.
-
-| Parameter | Description | 
-|-----------|-------------|
-| `ReferenceText` | The text that the pronunciation will be evaluated against. | 
-| `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | 
-| `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels above or equal to the minimal value are returned.  Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph, and it depends on your input reference text. Default: `Phoneme`.| 
-| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. To enable miscue calculation, set the `EnableMiscue` to `True`. You can refer to the code snippet below the table.|
-| `ScenarioId` | A GUID indicating a customized point system. |
+::: zone pivot="programming-language-go"
+> [!NOTE]
+> Pronunciation assessment is not available with the Speech SDK for Go. You can read about the concepts in this guide, but you must select another programming language for implementation details. 
+::: zone-end
 
 You must create a `PronunciationAssessmentConfig` object with the reference text, grading system, and granularity. Enabling miscue and other configuration settings are optional. 
 
@@ -177,6 +116,16 @@ do {
 ::: zone-end
 
 
+This table lists some of the key configuration parameters for pronunciation assessment.
+
+| Parameter | Description | 
+|-----------|-------------|
+| `ReferenceText` | The text that the pronunciation is evaluated against. | 
+| `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | 
+| `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels greater than or equal to the minimal value are returned. Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph, and it depends on your input reference text. Default: `Phoneme`.| 
+| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. To enable miscue calculation, set the `EnableMiscue` to `True`. You can refer to the code snippet below the table.|
+| `ScenarioId` | A GUID indicating a customized point system. |
+
 ## Syllable groups
 
 Pronunciation assessment can provide syllable-level assessment results. Grouping in syllables is more legible and aligned with speaking habits, as a word is typically pronounced syllable by syllable rather than phoneme by phoneme.
@@ -194,7 +143,7 @@ To request syllable-level results along with phonemes, set the granularity [conf
 
 ## Phoneme alphabet format
 
-For `en-US` locale, the phoneme name is provided together with the score, to help identify which phonemes were pronounced accurately or inaccurately. For other locales, you can only get the phoneme score. 
+For the `en-US` locale, the phoneme name is provided together with the score, to help identify which phonemes were pronounced accurately or inaccurately. For other locales, you can only get the phoneme score. 
 
 The following table compares example SAPI phonemes with the corresponding IPA phonemes.
 
@@ -204,7 +153,7 @@ The following table compares example SAPI phonemes with the corresponding IPA ph
 |luck|l ah k|l ʌ k|
 |photosynthesis|f ow t ax s ih n th ax s ih s|f oʊ t ə s ɪ n θ ə s ɪ s|
 
-To request IPA phonemes, set the phoneme alphabet to `"IPA"`. If you don't specify the alphabet, the phonemes will be in SAPI format by default.
+To request IPA phonemes, set the phoneme alphabet to `"IPA"`. If you don't specify the alphabet, the phonemes are in SAPI format by default.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -373,6 +322,11 @@ pronunciationAssessmentConfig?.nbestPhonemeCount = 5
 
 ## Get pronunciation assessment results 
 
+In the `SpeechRecognizer`, you can specify the language that you're learning or practicing improving pronunciation. The default locale is `en-US` if not otherwise specified. 
+
+> [!TIP]
+> If you aren't sure which locale to set when a language has multiple locales (such as Spanish), try each locale (such as `es-ES` and `es-MX`) separately. Evaluate the results to determine which locale scores higher for your specific scenario.
+
 When speech is recognized, you can request the pronunciation assessment results as SDK objects or a JSON string. 
 
 ::: zone pivot="programming-language-csharp"
@@ -393,7 +347,9 @@ using (var speechRecognizer = new SpeechRecognizer(
     var pronunciationAssessmentResultJson = speechRecognitionResult.Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult);
 }
 ```
-   
+
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#LL1086C13-L1086C98).
+
 ::: zone-end   
 
 ::: zone pivot="programming-language-cpp"
@@ -415,6 +371,8 @@ auto pronunciationAssessmentResult =
 // The pronunciation assessment result as a JSON string
 auto pronunciationAssessmentResultJson = speechRecognitionResult->Properties.GetProperty(PropertyId::SpeechServiceResponse_JsonResult);
 ```
+
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L624).
    
 ::: zone-end 
 
@@ -462,10 +420,10 @@ speechRecognizer.recognizeOnceAsync((speechRecognitionResult: SpeechSDK.SpeechRe
 	var pronunciationAssessmentResultJson = speechRecognitionResult.properties.getProperty(SpeechSDK.PropertyId.SpeechServiceResponse_JsonResult);
 },
 {});
-
-
 ```
-   
+
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/pronunciationAssessmentContinue.js#LL37C4-L37C52).
+
 ::: zone-end  
 
 ::: zone pivot="programming-language-python"
@@ -484,6 +442,8 @@ pronunciation_assessment_result = speechsdk.PronunciationAssessmentResult(speech
 # The pronunciation assessment result as a JSON string
 pronunciation_assessment_result_json = speech_recognition_result.properties.get(speechsdk.PropertyId.SpeechServiceResponse_JsonResult)
 ```
+
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#LL937C1-L937C1).
 
 ::: zone-end  
 
@@ -506,6 +466,8 @@ SPXPronunciationAssessmentResult* pronunciationAssessmentResult = [[SPXPronuncia
 NSString* pronunciationAssessmentResultJson = [speechRecognitionResult.properties getPropertyByName:SPXSpeechServiceResponseJsonResult];
 ```
 
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L862).
+
 ::: zone-end 
 
 ::: zone pivot="programming-language-swift"
@@ -523,6 +485,8 @@ let pronunciationAssessmentResult = SPXPronunciationAssessmentResult(speechRecog
 // The pronunciation assessment result as a JSON string
 let pronunciationAssessmentResultJson = speechRecognitionResult!.properties?.getPropertyBy(SPXPropertyId.speechServiceResponseJsonResult)
 ```
+
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/speech-samples/speech-samples/ViewController.swift#L224).
 
 ::: zone-end
 
@@ -547,7 +511,7 @@ This table lists some of the key pronunciation assessment results.
 Pronunciation assessment results for the spoken word "hello" are shown as a JSON string in the following example. Here's what you should know:
 - The phoneme [alphabet](#phoneme-alphabet-format) is IPA.
 - The [syllables](#syllable-groups) are returned alongside phonemes for the same word. 
-- You can use the `Offset` and `Duration` values to align syllables with their corresponding phonemes. For example, the starting offset (11700000) of the second syllable ("loʊ") aligns with the third phoneme ("l"). The offset represents the time at which the recognized speech begins in the audio stream, and it is measured in 100-nanosecond units. To learn more about `Offset` and `Duration`, see [Response properties](rest-speech-to-text-short.md#response-properties).
+- You can use the `Offset` and `Duration` values to align syllables with their corresponding phonemes. For example, the starting offset (11700000) of the second syllable ("loʊ") aligns with the third phoneme ("l"). The offset represents the time at which the recognized speech begins in the audio stream, and it's measured in 100-nanosecond units. To learn more about `Offset` and `Duration`, see [response properties](rest-speech-to-text-short.md#response-properties).
 - There are five `NBestPhonemes` corresponding to the number of [spoken phonemes](#spoken-phoneme) requested.
 - Within `Phonemes`, the most likely [spoken phonemes](#spoken-phoneme) was `"ə"` instead of the expected phoneme `"ɛ"`. The expected phoneme `"ɛ"` only received a confidence score of 47. Other potential matches received confidence scores of 52, 17, and 2. 
 
