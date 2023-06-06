@@ -5,7 +5,7 @@ author: rashijoshi
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 06/06/2023
 ms.custom: engagement-fy23
 ---
 
@@ -36,7 +36,7 @@ You can discover up to 10,000 servers from VMware environment, up to 5,000 serve
 
 ## Why is performance data missing for some/all servers in my Azure VM and/or AVS assessment report?
 
-For "Performance-based" assessment, the assessment report export says 'PercentageOfCoresUtilizedMissing' or 'PercentageOfMemoryUtilizedMissing' when the Azure Migrate appliance can't collect performance data for the on-premises servers. Check:
+For "Performance-based" assessment, the assessment report export says 'PercentageOfCoresUtilizedMissing' or 'PercentageOfMemoryUtilizedMissing' when the Azure Migrate appliance can't collect performance data for the on-premises servers. You can check the *Resolve issues* blade on the Azure Migrate hub page for detailed issues or check the following manually:
 
 - If the servers are powered on for the duration for which you're creating the assessment
 - If only memory counters are missing and you're trying to assess servers in Hyper-V environment. In this scenario, enable dynamic memory on the servers and 'Recalculate' the assessment to reflect the latest changes. The appliance can collect memory utilization values for severs in Hyper-V environment only when the server has dynamic memory enabled.
@@ -45,6 +45,14 @@ For "Performance-based" assessment, the assessment report export says 'Percentag
 
     > [!Note]
     > If any of the performance counters are missing, Azure Migrate: Server Assessment falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
+
+## How can i understand details of errors causing performance data collection issues?
+
+You can now understand what errors you need to rememdiate to resolve performance data collection issues in Azure V and Azure VMware Solution assessments. Follow these steps:
+- Go to Azure Migrate > *Servers, databases and web apps* migration goal > CLick on *Resolve issues* on Discovery and assessment tool
+- CLick on *Affected objects* next to the assessment > Click on link in the error id column to review the error details and remediation actions
+
+You can also review these errors/issues while creating the assessment in the *select servers to assess* step or in the readiness tab of an existing assessment. If you dont see any errors/issues in the assessment but see non zero errors in the reolve issues blade, recalcualte the assessment to see the issues within the assessment blade. 
 
 ## Why is performance data missing for some/all SQL instances/databases in my Azure SQL assessment?
 
