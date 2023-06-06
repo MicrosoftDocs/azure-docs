@@ -14,7 +14,7 @@ zone_pivot_groups: acs-csharp-java-javascript-python
 
 Azure Communication Services (ACS) Call Automation APIs are a powerful way to create interactive calling experiences. In this quick start we'll cover a way to make an outbound call and recognize various events in the call.
 
-:: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp"
 [!INCLUDE [Make an outbound call C#](./includes/quickstart-make-an-outbound-call-using-callautomation-csharp.md)]
 ::: zone-end
 
