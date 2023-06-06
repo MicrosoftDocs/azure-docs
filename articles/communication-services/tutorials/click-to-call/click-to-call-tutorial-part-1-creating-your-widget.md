@@ -16,7 +16,7 @@ ms.subservice: calling
 
 To get started, we're going to make a new component. This component is the widget that you use to start your calling experience.
 
-We is using our own widget setup for this tutorial but you can expand the functionality to do more here. For us, we have the widget perform the following actions:
+We are using our own widget setup for this tutorial but you can expand the functionality to do more here. For us, we have the widget perform the following actions:
 - Display a custom logo, this can be replaced with another image or branding of your choosing. Feel free to download the image from the code if you would like to use our image.
 - Let the user decide if they want to have video in the call.
 - Have the user consent to the call possible being recorded.
@@ -57,7 +57,7 @@ export interface clickToCallComponentProps {
 }
 ```
 
-Each of these callbacks control different behaviors for the calling experience.
+Each callback controls different behaviors for the calling experience.
 
 - `onRenderStartCall` - This callback is used to trigger any handlers in your app to do things like create a new window for your calling experience.
 - `onRenderLogo` - This is used as a rendering callback to have a custom logo or image render inside the widget when getting user information.
@@ -178,7 +178,7 @@ export const ClickToCallComponent = (
 
 ### Time For Some Styles
 
-Once you have your component you need some styles to give it some looks. For this we create a new folder `src/styles` here we create a new file called `ClickToCallComponent.styles.ts` and we add the following styles.
+Once you have your component, you need some styles to give it some looks. For this we create a new folder `src/styles` here we create a new file called `ClickToCallComponent.styles.ts` and we add the following styles.
 
 `src/styles/ClickToCallComponent.styles.ts`
 
@@ -277,7 +277,7 @@ export const collapseButtonStyles: IButtonStyles = {
 };
 ```
 
-These styles should already be added to the widget as seen in the snippet above. If you added the code above as is, these styles will just need importing into the `ClickToCallComponent.tsx` file.
+These styles should already be added to the widget as seen in the snippet earlier. If you added the snippet as is, these styles just need importing into the `ClickToCallComponent.tsx` file.
 
 `ClickToCallComponent.tsx`
 ```ts
@@ -297,7 +297,7 @@ import {
 
 ### Adding The Widget To The App
 
-Now we create a new folder `src/views` and add a new file for one of our pages `ClickToCallScreen.tsx`. This screen will act as our home page for the app where the user can start a new call.
+Now we create a new folder `src/views` and add a new file for one of our pages `ClickToCallScreen.tsx`. This screen acts as our home page for the app where the user can start a new call.
 
 We want to add the following props to the page:
 
@@ -314,7 +314,7 @@ export interface ClickToCallPageProps {
 }
 ```
 
-These properties is fed by the values that we set in `App.tsx`. We will use these props to make post messages to the app when we want to start a call in a new window (More on this later).
+These properties are fed by the values that we set in `App.tsx`. We'll use these props to make post messages to the app when we want to start a call in a new window (More on this later).
 
 Next lets add the page content:
 
@@ -410,7 +410,7 @@ export const ClickToCallScreen = (props: ClickToCallPageProps): JSX.Element => {
   );
 };
 ```
-This page has some general information on it for what our calling experiences can currently do. We can also see that it is adding the widget component that we created earlier.
+This page has some general information on it for what our calling experiences can currently do. We can also see that it's adding the widget component that we created earlier.
 
 Once we have this we need to add the new view to the root of the app `App.tsx` by updating our existing `'click-to-call'` case:
 
