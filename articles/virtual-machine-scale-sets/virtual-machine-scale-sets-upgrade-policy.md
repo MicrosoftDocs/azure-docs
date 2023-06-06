@@ -58,7 +58,7 @@ The Upgrade Policy can be set during deployment or updated post deployment.
 
 During the Virtual Machine Scale Set creation using the Azure portal, under the **Management** tab, set the Upgrade Policy to **Rolling** and enable MaxSurge. 
 
-:::image type="content" source="../virtual-machines/media/maxsurge/maxsurge-1.png" alt-text="Screenshot showing deploying a scale set and enabling MaxSurge.":::
+:::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/maxsurge-1.png" alt-text="Screenshot showing deploying a scale set and enabling MaxSurge.":::
 
 ### [CLI](#tab/cli)
 Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create) and set the Upgrade Policy to `Rolling` and enable `MaxSurge`. When using an Upgrade Policy set to Rolling, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
@@ -135,7 +135,7 @@ The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point i
 
 Select the Virtual Machine Scale Set you want to change the Upgrade Policy for. In the menu under **Settings**, select **Upgrade Policy** and from the drop down menu, select the Upgrade Policy you want to enable. 
 
-:::image type="content" source="../virtual-machines/media/maxsurge/maxsurge-2.png" alt-text="Screenshot showing changing the upgrade policy and enabling MaxSurge in the Azure portal.":::
+:::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/maxsurge-2.png" alt-text="Screenshot showing changing the upgrade policy and enabling MaxSurge in the Azure portal.":::
 
 
 ### [CLI](#tab/cli2)
@@ -194,7 +194,7 @@ If you have the Upgrade Policy set to manual, you need to trigger manual upgrade
 
 Select the Virtual Machine Scale Set you want to perform instance upgrades for. In the menu under **Settings**, select **Instances** and select the instances you want to upgrade. Once selected, click the **Upgrade** option located at the top of the screen. 
 
-:::image type="content" source="../virtual-machines/media/maxsurge/manual-upgrade-1.png" alt-text="Screenshot showing deploying a scale set and enabling MaxSurge.":::
+:::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/manual-upgrade-1.png" alt-text="Screenshot showing how to perform manual upgrades using the Azure portal.":::
 
 
 ### [CLI](#tab/cli3)
@@ -230,7 +230,7 @@ Changes to the scale set OS, data disk Profile (such as admin username and passw
 Select the Virtual Machine Scale Set you want to perform instance upgrades for. In the menu under **Settings**, select **Instances** and select the instances you want to reimage. Once selected, click the **Reimage** option located at the top of the screen. 
 
 
-:::image type="content" source="../virtual-machines/media/maxsurge/reimage-upgrade-1.png" alt-text="Screenshot showing deploying a scale set and enabling MaxSurge.":::
+:::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/reimage-upgrade-1.png" alt-text="Screenshot showing reimaging scale set instances using the Azure portal.":::
 
 
 ### [CLI](#tab/cli4)
