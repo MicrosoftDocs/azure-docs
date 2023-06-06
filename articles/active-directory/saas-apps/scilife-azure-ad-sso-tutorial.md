@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Scilife Azure AD SSO
 
-In this article, you'll learn how to integrate Scilife Azure AD SSO with Azure Active Directory (Azure AD). With the help of this application SSO integration is made very simple and hassle free as most of the configuration will take place on its own with very minimalist efforts. When you integrate Scilife Azure AD SSO with Azure AD, you can:
+In this article, you'll learn how to integrate Scilife Azure AD SSO with Azure Active Directory (Azure AD). With the help of this application SSO integration is made simple and hassle free as most of the configuration will take place on its own with minimalist efforts. When you integrate Scilife Azure AD SSO with Azure AD, you can:
 
 * Control in Azure AD who has access to Scilife Azure AD SSO.
 * Enable your users to be automatically signed-in to Scilife Azure AD SSO with their Azure AD accounts.
@@ -109,7 +109,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
 
-## Configure Scilife Azure AD SSO SSO
+## Configure Scilife Azure AD SSO
 
 1. Log in to your Scilife Azure AD SSO company site as an administrator.
 
@@ -119,7 +119,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	1. Enable **Configure Active Directory**.
 
-	1. Select **AD Azure** type from the drop down.
+	1. Select **AD Azure** type from the drop-down.
 
 	1. Download the **Federation Metadata XML file** from the Azure portal and **Upload MetadataXML** file by clicking on **Choose file**.
 
