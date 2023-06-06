@@ -51,8 +51,8 @@ ms.date: 06/03/2023
 | Data explorer | Yes, using native Azure tooling and MongoDB tooling such as Robo3T | Yes |
 | Cloud Providers | Azure. MongoDB wire protocol compatibility enables you to remain vendor-agnostic | Azure, AWS, and Google Cloud |
 | SQL-based connectivity | Yes | Yes |
-| Native data visualization without 3rd party BI tools | Yes, using PowerBI | Yes |
-| Database supported in on-premise and hybrid deployments | No | Yes |
+| Native data visualization without 3rd party BI tools | Yes, using Power BI | Yes |
+| Database supported in on-premises and hybrid deployments | No | Yes |
 | Embeddable database with sync for mobile devices | No, due to low user demand | Yes |
 | Granular role-based access control | Yes | Yes |
 | Encryption of data in-flight | Yes | Yes | 
