@@ -32,13 +32,21 @@ Stored access policies aren't supported for an account SAS.
 
 ## Create an account SAS
 
-An account SAS is signed with the account access key. The following code example shows how to call the [generate_account_sas](/python/api/azure-storage-blob/azure.storage.blob#azure-storage-blob-generate-account-sas) method to get the account SAS token string.
+An account SAS is signed with the account access key. The following code example shows how to call the [generate_account_sas](/python/api/azure-storage-blob/azure.storage.blob#azure-storage-blob-generate-account-sas) method to get the account SAS token string. 
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_create_account_sas":::
 
+Valid parameters for the [ResourceTypes](/python/api/azure-storage-blob/azure.storage.blob.resourcetypes) constructor are:
+
+- **service**: default is `False`; set to `True` to grant access to service-level APIs.
+- **container**: default is `False`; set to `True` to grant access to container-level APIs.
+- **object**: default is `False`; set to `True` to grant access to object-level APIs for blobs, queue messages, and files.
+
+For available permissions, see [AccountSasPermissions](/python/api/azure-storage-blob/azure.storage.blob.accountsaspermissions).
+
 ## Use an account SAS from a client
 
-To use the account SAS to access service-level APIs for the Blob service, create a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object using the account SAS and the Blob Storage endpoint for your storage account.
+To use the account SAS to access service-level APIs for the Blob service, create a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object using the account SAS and the Blob Storage endpoint for your storage account. You can also use the account SAS to authorize a [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) object or [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_use_account_sas":::
 
