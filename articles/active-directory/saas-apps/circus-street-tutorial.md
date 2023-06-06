@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Circus Street
 
-In this article, you'll learn how to integrate Circus Street with Azure Active Directory (Azure AD). Circus Street is a global leader in providing digital training including e-commerce, data analytics and digital marketing to organisations through its proprietary platform.
+In this article, you'll learn how to integrate Circus Street with Azure Active Directory (Azure AD). Circus Street is a global leader in providing digital training including e-commerce, data analytics and digital marketing to organizations through its proprietary platform.
 
 When you integrate Circus Street with Azure AD, you can:
 
@@ -62,7 +62,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
    ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already preintegrated with Azure.
 
 1. If you wish to configure the application in **SP** initiated mode, then perform the following step:
 
