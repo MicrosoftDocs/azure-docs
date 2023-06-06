@@ -26,9 +26,9 @@ To configure Quick Access, you must have:
 
 ## How it works
 
-Quick Access for Microsoft Entra Private Access unlocks the ability to specify the apps and websites that you consider to be private or internal, so you can manage how your organization accesses them. By defining this group of apps and websites, you are essentially packaging up all the private resources into one. 
+Quick Access for Microsoft Entra Private Access unlocks the ability to specify the apps and websites that you consider private or internal, so you can manage how your organization accesses them. By defining this group of apps and websites, you're essentially packaging up all the private resources into one. 
 
-By configuring Quick Access and enabling Microsoft Entra Private Access you can modernize how your organization's users access private apps and resources. Remote workers don't need to use a VPN to access these resources if they have the Global Secure Access client installed. The client quietly and seamlessly connects them to the resources they need. 
+By configuring Quick Access and enabling Microsoft Entra Private Access, you can modernize how your organization's users access private apps and resources. Remote workers don't need to use a VPN to access these resources if they have the Global Secure Access client installed. The client quietly and seamlessly connects them to the resources they need. 
 
 ## Setup overview
 
@@ -36,7 +36,7 @@ Configuring your Quick Access settings is a major component to utilizing Microso
 
 When you configure Quick Access for the first time, Microsoft Entra Private Access creates a new enterprise application. The properties of this new app are automatically configured to work with Microsoft Entra Private Access. 
 
-To configure Quick Access you also need to have a [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector group set up. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
+To configure Quick Access, you also need to have a [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector group set up. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
 
 Once you have the Quick Access app and App proxy connector group configured, you need to grant access to the app. As mentioned, the properties of the Quick Access app are predefined. One of those properties requires that you assign users and groups through Enterprise Applications. For more information, see [Properties of an enterprise application](../active-directory/manage-apps/application-properties.md).
 

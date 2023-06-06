@@ -11,8 +11,6 @@ items:
   items:
     - name: Get started with Global Secure Access
       href: how-to-get-started-with-global-secure-access.md
-    - name: Learn about traffic forwarding
-      href: concept-traffic-forwarding.md
     - name: Create a remote network
       href: how-to-create-remote-networks.md
     - name: Configure quick access

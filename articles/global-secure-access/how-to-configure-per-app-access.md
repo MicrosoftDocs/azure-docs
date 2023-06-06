@@ -30,19 +30,19 @@ To configure Quick Access, you must have:
 
 ## How it works
 
-Quick Access and per-app access for Microsoft Entra Private Access unlock the ability to specify the apps and websites that you consider to be private or internal, so you can manage how your organization accesses them. With Quick Access, you define this group of apps and websites into one app that you manage access to. With per-app access, you can package a different group of apps and websites into a separate app that you can enable or disable as needed. You can also apply separate Conditional Access policies to each of these apps for enhanced access controls.
+With Quick Access and per-app access for Microsoft Entra Private Access you can specify the apps and websites that you consider private or internal. With Quick Access, you define this group of apps and websites into one app that you manage access to. With per-app access, you can package a different group of apps and websites into a separate app that you can enable or disable as needed. You can also apply separate Conditional Access policies to each of these apps for enhanced access controls.
 
 You can include the same app or website in both your Quick Access app and in a separate app that you've configured for Microsoft Entra Private Access. The policies in place for the per-app access take priority over the policies for Quick Access.
 
-Per-app access can be enabled and disabled at any time. This feature can be used if you only need to route traffic through Global Secure Access for a specific period of time because you can disable access to a subset of apps and websites without affecting the rest of your organization's traffic.
+Per-app access can be enabled and disabled at any time. This feature can be used if you need to route traffic through Global Secure Access for a specific period of time without affecting the rest of your organization's traffic.
 
 By configuring per-app access with Microsoft Entra Private Access, you can apply traffic forwarding profiles and assign Conditional Access policies to connect your users to the right apps using comprehensive access policies. 
 
 ## Setup overview
 
-To configure per-app access you need to have a [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector group set up. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
+To configure per-app access, you need to have a [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector group set up. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
 
-Per-app access is configured by creating a new Enterprise app from the Global Secure Access area of Microsoft Entra. You create the app, select a connector group, and add network access segments. These settings make up the an individual app that you can assign users and groups to.
+Per-app access is configured by creating a new Enterprise app from the Global Secure Access area of Microsoft Entra. You create the app, select a connector group, and add network access segments. These settings make up the individual app that you can assign users and groups to.
 
 To summarize, the overall process is as follows:
 
@@ -118,7 +118,7 @@ You need to grant access to the app you created by assigning users and/or groups
 
 You can add or update the sites and apps included in your app at any time.
 
-1. Go to **Global Secure Access**> **Enterprise aplications**.
+1. Go to **Global Secure Access**> **Enterprise applications**.
 1. Search for and select your application.
 1. Select **Network access properties** from the side menu.
 1. To add a new site or app, select **Add  network access segment**.

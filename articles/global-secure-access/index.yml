@@ -40,8 +40,6 @@ landingContent:
         links:
           - text: Configure quick access
             url: how-to-configure-quick-access.md
-          - text: Deploy on premises connectors
-            url: how-to-deploy-on-premises-connectors.md
           - text: Configure traffic forwarding
             url: concept-traffic-forwarding.md
           - text: Install the Windows client
