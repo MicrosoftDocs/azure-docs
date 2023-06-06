@@ -27,7 +27,7 @@ Learn more:
 > [!NOTE] 
 > We do not recommend user accounts as service accounts because they are less secure. This includes on-premises service accounts synced to Azure AD, because they aren't converted to service principals. Instead, we recommend managed identities, or service principals, and the use of Conditional Access.
 
-Lear more: [What is Conditional Access?](../conditional-access/overview.md)
+Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
 ## Plan your service account
 

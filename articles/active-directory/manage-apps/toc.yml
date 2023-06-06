@@ -189,11 +189,11 @@
       - name: Datawiza
         items:
         - name: Integrate Datawiza with Azure AD
-          href: datawiza-with-azure-ad.md 
+          href: datawiza-configure-sha.md
         - name: Configure Oracle JDE with Azure AD 
-          href: datawiza-azure-ad-sso-oracle-jde.md
+          href: datawiza-sso-oracle-jde.md
         - name: Configure Oracle PeopleSoft with Azure AD 
-          href: datawiza-azure-ad-sso-oracle-peoplesoft.md
+          href: datawiza-sso-oracle-peoplesoft.md
         - name: Configure Datawiza for Azure AD SSO and MFA to Oracle EBS
           href: datawiza-sso-mfa-oracle-ebs.md
       - name: F5
