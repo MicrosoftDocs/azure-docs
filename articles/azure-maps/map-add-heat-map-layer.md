@@ -81,7 +81,7 @@ The previous example customized the heat map by setting the radius and opacity o
 
 The [Heat Map Layer Options] sample shows how the different options of the heat map layer that affects rendering.
 
-:::image type="content" source="./media/map-add-heat-map-layer/heat-map-layer-options.png" alt-text="Screenshot showing a map displaying a heat map.":::
+:::image type="content" source="./media/map-add-heat-map-layer/heat-map-layer-options.png" alt-text="Screenshot showing a map displaying a heat map, and a panel with editable settings that show how the different options of the heat map layer affect rendering.":::
 
 <!------------------------------------------------------
 <iframe height='700' scrolling='no' title='Heat Map Layer Options' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WYPaXr/'>Heat Map Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -98,7 +98,7 @@ Scaling the radius so that it doubles with each zoom level creates a heat map th
 
 The [Consistent zoomable Heat Map] sample shows how to create a heat map where the radius of each data point covers the same physical area on the ground, creating a more consistent user experience when zooming the map. The heat map in this sample scales consistently between zoom levels 10 and 22. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Doubling the radius with each zoom level creates a heat map that looks consistent across all zoom levels.
 
-:::image type="content" source="./media/map-add-heat-map-layer/consistent-zoomable-heat-map.png" alt-text="Screenshot showing a map displaying a heat map.":::
+:::image type="content" source="./media/map-add-heat-map-layer/consistent-zoomable-heat-map.png" alt-text="Screenshot showing a map displaying a heat map that uses a zoom expression that scales the radius for each zoom level.":::
 
 <!------------------------------------------------------
 <iframe height="500" scrolling="no" title="Consistent zoomable heat map" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
