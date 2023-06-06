@@ -503,4 +503,4 @@ Similarly, Azure Monitor can be integrated with ITSM systems through the [IT Ser
 
 * [Resource isolation in a single tenant](secure-with-azure-ad-single-tenant.md)
 
-* [Resource isolation with multiple tenants](secure-with-azure-ad-multiple-tenants.md)
+* [Resource isolation with multiple tenants](secure-multiple-tenants.md)
