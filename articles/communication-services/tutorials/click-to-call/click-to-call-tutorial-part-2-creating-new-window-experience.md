@@ -408,5 +408,7 @@ With this new window experience, your users are able to:
 
 This concludes the tutorial for click to call with a new window experience. Next will be an optional step to embed the calling surface into the widget itself keeping your users on their current page.
 
+If you would like to learn more about the Azure Communication Services UI library, check out our [storybook documentation](https://azure.github.io/communication-ui-library/?path=/story/overview--page).
+
 > [!div class="nextstepaction"]
 > [Part 3: Embedding your calling experience](./click-to-call-tutorial-part-3-embedding-your-calling-experience.md)

@@ -239,7 +239,7 @@ items:
           href: tutorials/click-to-call/click-to-call-tutorial-part-1-creating-your-widget.md
         - name: 2. Creating a new window experience
           href: tutorials/click-to-call/click-to-call-tutorial-part-2-creating-new-window-experience.md
-        - name: 3. Embedding your calling experience
+        - name: 3. (Optional) Embedding your calling experience
           href: tutorials/click-to-call/click-to-call-tutorial-part-3-embedding-your-calling-experience.md
     - name: Call management
       items:
