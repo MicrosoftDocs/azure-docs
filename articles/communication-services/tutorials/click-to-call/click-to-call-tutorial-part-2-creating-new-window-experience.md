@@ -14,7 +14,7 @@ ms.subservice: calling
 ---
 # Part 2 Creating a New Window Calling Experience
 
-Now that we have a running application with our widget on the home page, we will talk about starting the calling experience for your users with a new window. This scenario allows you to give your customer the ability to browse while still seeing your call in a new window. This can be useful in situations similar to when your users will use video and screensharing.
+Now that we have a running application with our widget on the home page, we will talk about starting the calling experience for your users with a new window. This scenario allows you to give your customer the ability to browse while still seeing your call in a new window. This can be useful in situations similar to when your users will use video and screen sharing.
 
 To start we will create a new view in the `src/views` folder called `NewWindowCallScreen.tsx`. This new screen will be used by the `App.tsx` file to go into a new call with the arguments provided to it using our `CallComposite`. The `CallComposite` can be swapped with a stateful client and UI component experience if desired as well, but that will not be covered in this tutorial. See our [storybook documentation](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-statefulcallclient--page) for more information about the stateful client.
 
@@ -173,7 +173,7 @@ Next we will create a handler that we pass to our widget that will create a new 
 
 This handler starts a new window position and place a new query arg in the window URL so that the main application knows that it is time to start a new call.
 
-Next we will add a `useEffect` hook that is creating a event handler listening for new post messages from the child window.
+Next we will add a `useEffect` hook that is creating an event handler listening for new post messages from the child window.
 
 `ClickToCallScreen.tsx`
 ```ts
@@ -228,7 +228,7 @@ Finally on this screen we will add the `startNewWindow` handler to the widget so
 
 Next we will need to make sure that our application can listen for and ask for the messages from what would be the parent window. First to start, you might recall that we added a new query parameter to the URL of the application `newSession=true`. To use this and have our app look for that in the URL we will need to create a utility function to parse out that parameter so our application will behave differently when it is received.
 
-To do that lets add a new folder `src/utils` and in this folder we will add the file `AppUtils.ts`. In this file we will put the following function:
+To do that let's add a new folder `src/utils` and in this folder we will add the file `AppUtils.ts`. In this file we will put the following function:
 
 `AppUtils.ts`
 ```ts
@@ -402,13 +402,11 @@ Now when you pass in the arguments, set your `displayName`, and click `Start Cal
 
 <img src='../media/click-to-call/Calling-screen.png' width='800' alt='click to call sample app home page with calling experience in new window'>
 
-In this case we see a PSTN call being started with no video. 
-
 With this new window experience your users will be able to:
 - continue using other tabs in their browser or other applications and still be able to see your call
 - resize the window to fit their viewing needs such as increasing the size to better see a screen share
 
-This concludes the tutorial for click to call with a new window experience. Below will be a optional step to embed the calling surface into the widget itself keeping your users on their current page.
+This concludes the tutorial for click to call with a new window experience. Next will be an optional step to embed the calling surface into the widget itself keeping your users on their current page.
 
 > [!div class="nextstepaction"]
 > [Part 3: Embedding your calling experience](./click-to-call-tutorial-part-3-embedding-your-calling-experience.md)
