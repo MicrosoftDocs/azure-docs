@@ -12613,6 +12613,12 @@
       },
 
       {
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-best-practices.md",
+        "redirect_url": "/azure/active-directory/fundamentals/secure-best-practices",
+        "redirect_document_id": true
+      },
+
+      {
         "source_path_from_root": "/articles/active-directory/manage-apps/datawiza-with-azure-ad.md",
         "redirect_url": "/azure/active-directory/manage-apps/datawiza-configure-sha",
         "redirect_document_id": true

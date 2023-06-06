@@ -181,4 +181,4 @@ Azure AD also provides information on the actions that are being performed withi
 
 * [Resource isolation with multiple tenants](secure-with-azure-ad-multiple-tenants.md)
 
-* [Best practices](secure-with-azure-ad-best-practices.md)
+* [Best practices](secure-best-practices.md)

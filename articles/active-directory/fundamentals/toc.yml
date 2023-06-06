@@ -294,7 +294,7 @@ items:
       - name: Delegating administration in multiple tenants
         href: secure-with-azure-ad-multiple-tenants.md
       - name: Best practices
-        href: secure-with-azure-ad-best-practices.md
+        href: secure-best-practices.md
   - name: Deployment guide
     items:
     - name: Azure Active Directory deployment plans
