@@ -205,13 +205,13 @@ Wait till the move operation is complete to perform any other operations on the 
 >[!Important]
 >If you encounter any error while moving the vault, refer to the [Error codes and troubleshooting section](#error-codes-and-troubleshooting).
 
-## Cross Region Restore support for PostgreSQL using Azure Backup (Preview)
+## Cross Region Restore support for PostgreSQL database using Azure Backup (Preview)
 
 Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS)  to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region. However, Cross Region Restore enables you to access and perform restores from the secondary region recovery points even when no outage occurs in the primary region; thus, enables you to perform drills to assess regional resiliency.
 
 >[!Note]
 >- Cross Region Restore is now available for PostgreSQL backups protected in Backup vaults. 
->- Backup vaults enabled with Cross Region Restore are will be automatically charged at [RA-GRS rates](https://azure.microsoft.com/pricing/details/backup/) for the PostgreSQL backups stored in the vault once the feature is generally available.
+>- Backup vaults enabled with Cross Region Restore will be automatically charged at [RA-GRS rates](https://azure.microsoft.com/pricing/details/backup/) for the PostgreSQL backups stored in the vault once the feature is generally available.
 
 ### Perform Cross Region Restore using Azure portal
 
