@@ -274,11 +274,12 @@ Annotations are currently in preview for GPT models. The following code snippet 
 
 ```python
 # Note: The openai-python library support for Azure OpenAI is in preview.
+# os.getenv() for the endpoint and key assumes that you are using environment variables.
 
 import os
 import openai
 openai.api_type = "azure"
-openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
 openai.api_version = "2023-06-01-preview" # API version required to test out Annotations preview
 openai.api_key = os.getenv("AZURE_OPENAI_KEY")
 
