@@ -38,7 +38,7 @@ This new recommendation is set to replace the current recommendation of the same
 
 ### Changes to the Defender for DevOps recommendations environment source and resource ID
 
-**Estimated date for change: June 2023**
+**Estimated date for change: July 2023**
 
 The Security DevOps recommendations will be updated to align with the overall Microsoft Defender for Cloud features and experience.  Affected recommendations will point to a new recommendation source environment and have an updated resource ID.
 
