@@ -32,7 +32,7 @@ arg("").<Azure-Resource-Graph-table-name>
 ```
 
 > [!NOTE]
->* The cross-service query ability is used for data retrieval only. For more information, see [Function supportability](#function-supportability).
+>The cross-service query ability is used for data retrieval only. For more information, see [Function supportability](#function-supportability).
 
 ## Function supportability
 
