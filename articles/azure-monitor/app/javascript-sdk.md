@@ -18,9 +18,6 @@ ms.reviewer: mmcc
 - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
 - An application that uses [JavaScript](/visualstudio/javascript)
 
-> [!TIP]
-> The JavaScript SDK tracks page views. If you want to also track mouse clicks, see [Click Analytics](./javascript-feature-extensions.md).
-
 ## Enable Application Insights
 
 To enable Application Insights, follow these steps.
