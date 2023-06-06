@@ -299,7 +299,7 @@ When you run a load test from your CI/CD pipeline, you can view the summary and 
 # [GitHub Actions](#tab/github)
 
 1. Select the **Actions** tab in your GitHub repository to view the list of workflow runs.
-    
+
 1. Select the workflow run from the list to open the run details and logging information.
 
     After the load test finishes, you can view the test summary information and the client-side metrics in the workflow log. The log also shows the steps to go to the Azure Load Testing dashboard for this load test.
@@ -326,9 +326,47 @@ When you run a load test from your CI/CD pipeline, you can view the summary and 
 
     :::image type="content" source="./media/quickstart-add-load-test-cicd/create-pipeline-download-results.png" alt-text="Screenshot that shows how to download the load test results.":::
 
+---
+
 ## Clean up resources
 
-[!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)]
+If you don't plan to use any of the resources that you created, delete them so you don't incur any further charges.
+
+# [GitHub Actions](#tab/github)
+
+1. Remove GitHub Actions changes:
+    1. In [GitHub](https://github.com), browse to your repository.
+    1. If you created a new workflow definition, delete the workflow YAML file in the `.github/workflows` folder.
+    1. If you modified an existing workflow definition, undo the modifications for running the load test, and save the workflow.
+
+1. Remove the service principal:
+
+    ```azurecli-interactive
+    az ad sp delete --id $(az ad sp show --display-name "my-load-test-cicd" -o tsv)
+    ```
+
+# [Azure Pipelines](#tab/pipelines)
+
+1. Remove Azure Pipelines changes:
+    1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project.
+        
+        Replace the `<your-organization>` text placeholder with your project identifier.
+
+    1. If you created a new pipeline": 
+        1. Select **Pipelines**, and then select your pipeline.
+        1. Select the ellipsis, and then select **Delete**.
+
+            :::image type="content" source="./media/quickstart-add-load-test-cicd/azure-pipelines-delete.png" alt-text="Screenshot that shows how to delete an Azure Pipelines definition.":::
+
+        1. Enter the pipeline name, and then select **Delete** to delete the pipeline.
+
+    1. If you modified an existing workflow definition, undo the modifications for running the load test, and save the workflow.
+
+1. Remove the service connection:    
+    1. Select **Project settings** > **Service connections**, and then select your service connection.
+    1. Select **Edit** > **Delete** to remove the service connection.
+
+---
 
 ## Next steps
 
