@@ -13,11 +13,17 @@ ms.author: ericasp
 
 # Quickstart: Look up operator information for a phone number using Azure Communication Services
 
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+
 Get started with the Phone Numbers client library for C# to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number.  Follow these steps to install the package and look up operator information about a phone number.
+
+> [!NOTE]
+> Find the code for this quickstart on [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- To enable Number Lookup service on your Azure Communication Services subscription, please complete this [form](https://forms.microsoft.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR058xZQ9HIBLikwspEUN6t5URUVDTTdWMEg5VElQTFpaMVMyM085ODkwVS4u) for us to allow-list your subscription. 
 - The latest version of [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
@@ -49,7 +55,7 @@ dotnet build
 While still in the application directory, install the Azure Communication Services PhoneNumbers client library for .NET package by using the following command.
 
 ```console
-dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0
+dotnet add package Azure.Communication.PhoneNumbers --version 1.2.0-alpha.20230531.2
 ```
 
 Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace.
@@ -63,9 +69,12 @@ using Azure.Communication.PhoneNumbers;
 Update `Main` function signature to be async.
 
 ```csharp
-static async Task Main(string[] args)
+internal class Program
 {
-  ...
+    static async Task Main(string[] args)
+    {
+        ...
+    }
 }
 ```
 
@@ -78,7 +87,7 @@ It's recommended to use a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment
 
 ```csharp
 // This code retrieves your connection string from an environment variable.
-string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
+string? connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
   
 PhoneNumbersClient client = new PhoneNumbersClient(connectionString, new PhoneNumbersClientOptions(PhoneNumbersClientOptions.ServiceVersion.V2023_05_01_Preview));
 ```
@@ -125,6 +134,10 @@ Run the application from your application directory with the `dotnet run` comman
 dotnet run
 ```
 
+## Sample code
+
+You can download the sample app from [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
+
 ## Troubleshooting
 
 Common questions and issues:
@@ -137,5 +150,8 @@ In this quickstart you learned how to:
 > [!div class="checklist"]
 > * Look up operator information for a phone number
 
-[!div class="nextstepaction"]
-[Send an SMS](../sms/send.md)
+> [!div class="nextstepaction"]
+> [Number Lookup Concept](../../concepts/numbers/number-lookup-concept.md)
+
+> [!div class="nextstepaction"]
+> [Number Lookup SDK](../../concepts/numbers/number-lookup-sdk.md)

@@ -9,7 +9,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 04/21/2022
 ms.author: msangapu
-ms.custom: "devx-track-dotnet, mvc, seodec18, devx-track-azurecli"
+ms.custom: mvc, seodec18, devx-track-azurecli
 ---
 
 # Create an ASP.NET Core app in a Docker container from Docker Hub using Azure CLI

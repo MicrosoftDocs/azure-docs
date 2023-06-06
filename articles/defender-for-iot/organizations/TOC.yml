@@ -349,6 +349,14 @@
           href: how-to-manage-the-on-premises-management-console.md
         - name: Troubleshoot on-premises management consoles
           href: how-to-troubleshoot-on-premises-management-console.md
+    - name: Maintain IoT on-premises resources
+      items:
+      - name: Discover Enterprise IoT devices
+        href: eiot-sensor.md
+        displayName: Enterprise IoT sensor
+      - name: Extra deployment steps and samples
+        href: extra-deploy-enterprise-iot.md
+        displayName: Enterprise IoT sensor
 - name: Reference
   items:
   - name: Supported protocols
@@ -461,8 +469,6 @@
     href: compliance.md
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/iot-defender/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
   - name: Release notes archive

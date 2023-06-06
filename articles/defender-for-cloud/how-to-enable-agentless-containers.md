@@ -4,12 +4,12 @@ description: Learn how to onboard Agentless Containers
 ms.service: defender-for-cloud
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 05/15/2023
+ms.date: 05/30/2023
 ---
 
 # Onboard Agentless Container posture in Defender CSPM
 
-Onboarding Agentless Container posture in Defender CSPM will allow you to gain all its [capabilities](concept-agentless-containers.md#agentless-container-posture-preview).
+Onboarding Agentless Container posture in Defender CSPM will allow you to gain all its [capabilities](concept-agentless-containers.md#capabilities).
 
 
 **To onboard Agentless Container posture in Defender CSPM:**
@@ -39,5 +39,10 @@ If you don't see results from your clusters, check the following:
 ## What do I do if I have stopped clusters?
 We suggest that you rerun the cluster to solve this issue.
 
+## Support for exemptions
+
+You can customize your vulnerability assessment experience by exempting management groups, subscriptions, or specific resources from your secure score. Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
+
 ## Next Steps
  Learn how to [view and remediate vulnerability assessment findings for registry images and running images](view-and-remediate-vulnerability-assessment-findings.md).
+

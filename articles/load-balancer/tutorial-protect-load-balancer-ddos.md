@@ -2,11 +2,11 @@
 title: "Tutorial: Protect your public load balancer with Azure DDoS Protection Standard"
 titleSuffix: Azure Load Balancer
 description: Learn how to set up a public load balancer and protect it with Azure DDoS protection.
-author: duongau
+author: mbender-ms
 ms.service: load-balancer
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 12/21/2022
-ms.author: duau
+ms.author: mbender
 ms.custom: template-tutorial
 ---
 
