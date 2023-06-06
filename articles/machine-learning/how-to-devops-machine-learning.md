@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: fkriti
 ms.author: kritifaujdar
 ms.reviewer: larryfr
-ms.date: 05/30/2022
+ms.date: 06/06/2023
 ms.topic: how-to
 ms.custom: devops-pipelines-deploy, devx-track-arm-template
 ---
@@ -55,7 +55,7 @@ https://github.com/azure/azureml-examples
 
 [!INCLUDE [include](~/articles/reusable-content/devops-pipelines/create-project.md)]
 
-## Step 3: Create a Service connection
+## Step 3: Create a service connection
 
 You can use an existing service connection.
 
@@ -229,7 +229,7 @@ jobs:
 ## Step 6: Wait for Azure Machine Learning job to complete
 
 
-In step 6, you added a job to submit an Azure Machine Learning job. In this step, you add another job that waits for the Azure Machine Learning job to complete. 
+In step 5, you added a job to submit an Azure Machine Learning job. In this step, you add another job that waits for the Azure Machine Learning job to complete. 
 
 
 # [Using Azure Resource Manager service connection](#tab/arm)
@@ -243,7 +243,7 @@ In the Pipeline review window, add a Server Job. In the steps part of the job, s
 
 The task has four inputs: `Service Connection`, `Azure Resource Group Name`, `AzureML Workspace Name` and `AzureML Job Name`. Fill these inputs. The resulting YAML for these steps is similar to the following example: 
 
->NOTE
+> [!NOTE]
 > * The Azure Machine Learning job wait task runs on a **server job**, which doesn't use up expensive agent pool resources and requires no additional charges. Server jobs (indicated by `pool: server`) run on the same machine as your pipeline. For more information, see [Server jobs](/azure/devops/pipelines/process/phases#server-jobs).
 
 > * One Azure Machine Learning job wait task can only wait on one job. You'll need to set up a separate task for each job that you want to wait on.
@@ -295,7 +295,7 @@ If you're using the Generic Service connection, you can't use the task provided 
 ---
 
 
-## Step 7: Submit pipeline and Verify your pipeline run
+## Step 7: Submit pipeline and verify your pipeline run
 
 Select __Save and run__. The pipeline will wait for the Azure Machine Learning job to complete, and end the task under `WaitForJobCompletion` with the same status as the Azure Machine Learning job. For example:
 Azure Machine Learning job `Succeeded` == Azure DevOps Task under `WaitForJobCompletion` job `Succeeded`
