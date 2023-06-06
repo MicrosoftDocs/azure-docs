@@ -27,7 +27,7 @@ In your terminal or command window, navigate to the directory where you would li
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-The command above creates a directory with the same name as `artifactId` argument. Under this directory, `src/main/java` directory contains the project source code, `src/test/java` directory contains the test source. 
+The previous command creates a directory with the same name as `artifactId` argument. Under this directory, `src/main/java` directory contains the project source code, `src/test/java` directory contains the test source. 
 
 You'll notice that the 'generate' step created a directory with the same name as the artifactId. Under this directory, `src/main/java` directory contains source code, `src/test/java` directory contains tests, and `pom.xml` file is the project's Project Object Model, or POM.
 
@@ -58,7 +58,7 @@ Azure Communication Services Call Automation SDK package is retrieved from the A
 ``` xml 
 <dependency>
   <groupId>com.azure</groupId>
-  <artifactId>azure-communication-callingserver</artifactId>
+  <artifactId>azure-communication-callautomation</artifactId>
   <version>1.0.0-alpha.20220829.1</version>
 </dependency>
 ```
@@ -77,36 +77,58 @@ In your editor of choice, open App.java file and update it with the code provide
 
 By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
 
+``` java
+AnswerCallOptions answerCallOptions = new AnswerCallOptions("<Incoming call context>", "<https://sample-callback-uri>");
+Response<AnswerCallResult> answerCallResult = callAutomationClient                                           .answerCallWithResponse(answerCallOptions)
+                          .block();
+```
+
 ## Play audio
 
 Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has just joined the call or play audio to all the participants in the call.
 
-## Play audio - Specific participant
+## Play source - Audio file
 
-In this scenario audio will be played to a specific participant that is specified in the request.
+To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. 
 
-``` java 
-var targetUser = new PhoneNumberIdentifier(<target>);
+``` java
+FileSource playSource = new FileSource().setUri(<audioUri>);
+```
+
+## Play audio to all participants
+
+In this scenario audio is played to all participants on the call.
+
+``` java
 var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
-var fileSource = new FileSource().setUri(<audioUrl>);
-var playResponse = callConnection.getCallMediaAsync().playWithResponse(
-    fileSource,
-    Collections.singletonList(targetUser),
-    new PlayOptions()
+
+var playOptions = new PlayOptions()
+    .setLoop(false)
+    .setOperationContext("operationContext");
+
+var playResponse = callConnection.getCallMediaAsync().playToAllWithResponse(
+    playSource,
+    playOptions
 ).block();
 assertEquals(202, playResponse.getStatusCode()); // The request was accepted
 ```
 
-## Play audio - All participants
+## Play audio to a specific participant
 
-In this scenario audio will be played to all participants on the call. 
+In this scenario audio is played to a specific participant. 
 
 ``` java 
+var targetUser = new PhoneNumberIdentifier(<target>);
 var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
-var fileSource = new FileSource().setUri(<audioUrl>);
-var playResponse = callConnection.getCallMediaAsync().playToAllWithResponse(
-    fileSource,
-    new PlayOptions()
+
+var playOptions = new PlayOptions()
+    .setLoop(false)
+    .setOperationContext("operationContext");
+
+var playResponse = callConnection.getCallMediaAsync().playWithResponse(
+    playSource,
+    Collections.singletonList(targetUser), // Can be a list of multiple users
+    playOptions
 ).block();
 assertEquals(202, playResponse.getStatusCode()); // The request was accepted
 ```
@@ -146,37 +168,53 @@ assertEquals(202, playResponse.getStatusCode()); // The request was accepted
 
 Your application will receive action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. Below is an example of a successful play event update.
 
-```json 
-[{
-    "id": "704a7a96-4d74-4ebe-9cd0-b7cc39c3d7b1",
-    "source": "calling/callConnections/<callConnectionId>/PlayCompleted",
-    "type": "Microsoft.Communication.PlayCompleted",
-    "data": {
-        "resultInfo": {
-            "code": 200,
-            "subCode": 0,
-            "message": "Action completed successfully."
-        },
-        "type": "playCompleted",
-        "callConnectionId": "<callConnectionId>",
-        "serverCallId": "<serverCallId>",
-        "correlationId": "<correlationId>"
-        },
-    "time": "2022-08-12T03:13:25.0252763+00:00",
-    "specversion": "1.0",
-    "datacontenttype": "application/json",
-    "subject": "calling/callConnections/<callConnectionId>/PlayCompleted"
-}]
+### Example of how you can deserialize the *PlayCompleted* event:
+
+``` java
+if (callEvent instanceof PlayCompleted) {
+     CallAutomationEventWithReasonCodeBase playCompleted= (CallAutomationEventWithReasonCodeBase) callEvent;
+     Reasoncode reasonCode = playCompleted.getReasonCode();
+     ResultInformation = playCompleted.getResultInformation();
+     //Play audio completed, Take some action on completed event.
+     // Hang up call
+     callConnection.hangUp(true);
+}
+```
+
+### Example of how you can deserialize the *PlayFailed* event:
+
+``` java
+if (callEvent instanceof PlayFailed) {
+     CallAutomationEventWithReasonCodeBase playFailed = (CallAutomationEventWithReasonCodeBase) callEvent;
+     Reasoncode reasonCode = playFailed.getReasonCode();
+     ResultInformation = playFailed.getResultInformation();
+     //Play audio failed, Take some action on failed event.
+     // Hang up call
+     callConnection.hangUp(true);
+}
 ```
 
 To learn more about other supported events, visit the [Call Automation overview document](../../../concepts/call-automation/call-automation.md#call-automation-webhook-events).
 
 ## Cancel play action
 
-Cancel all media operations, all pending media operations will be canceled. This action will also cancel other queued play actions.
+Cancel all media operations, all pending media operations are canceled. This action also cancels other queued play actions.
 
 ```console
 var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
 var cancelResponse = callConnection.getCallMediaAsync().cancelAllMediaOperationsWithResponse().block();
 assertEquals(202, cancelResponse.getStatusCode()); // The request was accepted
+```
+
+### Example of how you can deserialize the *PlayCanceled* event:
+
+``` java
+if (callEvent instanceof PlayCanceled {
+     CallAutomationEventWithReasonCodeBase playCanceled= (CallAutomationEventWithReasonCodeBase) callEvent;
+     Reasoncode reasonCode = playCanceled.getReasonCode();
+     ResultInformation = playCanceled.getResultInformation();
+     //Play audio completed, Take some action on canceled event.
+     // Hang up call
+     callConnection.hangUp(true);
+}
 ```
