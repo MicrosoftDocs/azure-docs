@@ -32,7 +32,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * [🆕 Form Recognizer Overview](overview.md?view=form-recog-3.0.0&preserve-view=true) has enhanced navigation, structured access points, and enriched images.
 
-* [🆕 Choose a Form Recognizer model](choose-model-feature.md?view=form-recog-3.0.0&preserve-view=true) is now a standalone that provides guidance for choosing the best Form Recognizer solution for your projects and workflows.
+* [🆕 Choose a Form Recognizer model](choose-model-feature.md?view=form-recog-3.0.0&preserve-view=true) provides guidance for choosing the best Form Recognizer solution for your projects and workflows.
 
 ## April 2023
 
