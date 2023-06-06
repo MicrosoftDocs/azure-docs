@@ -1006,6 +1006,31 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/spa-quickstart-portal-react-ciam.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/spa-quickstart-portal-react-ciam",
+      "redirect_document_id": true 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/spa-quickstart-portal-angular-ciam.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/spa-quickstart-portal-angular-ciam",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/spa-quickstart-portal-vanilla-js-ciam.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/spa-quickstart-portal-vanilla-js-ciam",
+      "redirect_document_id": true 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-dotnet-ciam.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/web-app-quickstart-portal-dotnet-ciam",
+      "redirect_document_id": true 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-node-js-ciam.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/web-app-quickstart-portal-node-js-ciam",
+      "redirect_document_id": true 
+    },
+    {
       "source_path_from_root": "/articles/active-directory/external-identities/conditional-access.md",
       "redirect_url": "/azure/active-directory/external-identities/authentication-conditional-access",
       "redirect_document_id": true
