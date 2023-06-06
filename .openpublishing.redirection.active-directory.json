@@ -12564,6 +12564,18 @@
         "redirect_url": "/azure/active-directory/privileged-identity-management/pim-perform-roles-and-resource-roles-review",
         "redirect_document_id": false
       },
+    
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-deployment-plans",
+        "redirect_url": "/azure/active-directory/fundamentals/deployment-plans",
+        "redirect_document_id": true
+      },
+    
+      {
+        "source_path_from_root": "/articles/active-directory/enterprise-users/clean-up-unmanaged-azure-ad-accounts",
+        "redirect_url": "/azure/active-directory/enterprise-users/clean-up-unmanaged-accounts",
+        "redirect_document_id": true
+      }
 
       {
         "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md",
@@ -12586,18 +12598,6 @@
       {
         "source_path_from_root": "/articles/active-directory/standards/configure-azure-active-directory-for-cmmc-compliance.md",
         "redirect_url": "/azure/active-directory/standards/configure-for-cmmc-compliance",
-        "redirect_document_id": true
-      },
-    
-      {
-        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-deployment-plans",
-        "redirect_url": "/azure/active-directory/fundamentals/deployment-plans",
-        "redirect_document_id": true
-      },
-    
-      {
-        "source_path_from_root": "/articles/active-directory/enterprise-users/clean-up-unmanaged-azure-ad-accounts",
-        "redirect_url": "/azure/active-directory/enterprise-users/clean-up-unmanaged-accounts",
         "redirect_document_id": true
       }
     
