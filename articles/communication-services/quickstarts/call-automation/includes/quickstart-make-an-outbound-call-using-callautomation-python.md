@@ -71,30 +71,14 @@ CALLBACK_URI_HOST = "<CALLBACK_URI_HOST_WITH_PROTOCOL>"
 
 To make the outbound call from ACS, first you will to provide the phone number you want to receive the call. To make it simple, you can update the `target_phone_number` with a phone number in the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 
-The code below will create make an outbound call using the target_phone_number you've provided and place an outbound call to that number: 
+The code below will create make an outbound call using the target_phone_number you've provided and place an outbound call to that number:
 
 ```python
-# target endpoint for ACS User
-target_phone_number = PhoneNumberIdentifier("MY_PHONE_NUMBER")
-
-# make invitation to place outbound call
-call_invite = CallInvite(target=target_phone_number)
-
-# callback url to receive callback events
-callback_url = "https://<MY-EVENT-HANDLER-URL>/api/events"
-
-# send out the invitation, creating call
-result = client.create_call(call_invite, callback_url)
-
-# this id can be used to do further actions in the call
-call_connection_id = result.call_connection_id
-
-# using call connection id, get call connection
-call_connection = client.get_call_connection(call_connection_id)
-
-# from callconnection of result above, play media to all participants
-my_file = FileSource(url="https://<FILE-SOURCE>/<SOME-FILE>.wav")
-call_connection.play_to_all(my_file)
+target_participant = PhoneNumberIdentifier(TARGET_PHONE_NUMBER)
+source_caller = PhoneNumberIdentifier(ACS_PHONE_NUMBER)
+call_invite = CallInvite(target=target_participant, source_caller_id_number=source_caller)
+call_automation_client = CallAutomationClient.from_connection_string(ACS_CONNECTION_STRING)
+call_connection_properties = call_automation_client.create_call(call_invite, CALLBACK_EVENTS_URI)
 ```
 
 ## Start Recording a Call
@@ -131,13 +115,13 @@ In the code below, we pass the audio file into the `play_prompt` parameter and t
 ```python
 file_source = FileSource(MAIN_MENU_PROMPT_URI)
 call_connection_client.start_recognizing_media(input_type=RecognizeInputType.DTMF,
-                                               target_participant=target_participant,
-                                               play_prompt=file_source,
-                                               interrupt_prompt=True,
-                                               initial_silence_timeout=10,
-                                               dtmf_inter_tone_timeout=10,
-                                               dtmf_max_tones_to_collect=1,
-                                               dtmf_stop_tones=[DtmfTone.POUND])
+        target_participant=target_participant,
+        play_prompt=file_source,
+        interrupt_prompt=True,
+        initial_silence_timeout=10,
+        dtmf_inter_tone_timeout=10,
+        dtmf_max_tones_to_collect=1,
+        dtmf_stop_tones=[DtmfTone.POUND])
 ```
 
 ## Recognize DTMF Events
