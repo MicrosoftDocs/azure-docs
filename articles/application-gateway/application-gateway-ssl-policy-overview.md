@@ -71,7 +71,7 @@ The following table shows the list of cipher suites and minimum protocol version
 When no specific SSL Policy is specified in the application gateway resource configuration, a default TLS policy gets applied. The selection of this default policy is based on the API version used to create that gateway.
 
 - **For API versions >= 2023-02-01**, the minimum protocol version is set to 1.2 (version up to 1.3 is supported). The gateways created with these API versions will see a read-only property **defaultPredefinedSslPolicy:[AppGwSslPolicy20220101](application-gateway-ssl-policy-overview.md#predefined-tls-policy)** in the resource configuration. This property defines the default TLS policy to use.
-- **For older API versions < 2023-02-01**, the minimum protocol version is set to 1.0 (versions up to 1.2 are supported) and use the predefined policy [AppGwSslPolicy20150501](application-gateway-ssl-policy-overview.md#predefined-tls-policy) as default.
+- **For older API versions < 2023-02-01**, the minimum protocol version is set to 1.0 (versions up to 1.2 are supported) as they use the predefined policy [AppGwSslPolicy20150501](application-gateway-ssl-policy-overview.md#predefined-tls-policy) as default.
 
 If the default TLS doesn’t fit your requirement, choose a different Predefined policy or use a Custom one.
 
