@@ -1,14 +1,14 @@
 ---
-title: Archive for What's new with Azure Arc-enabled servers agent
+title: Archive for What's new with Azure Connected Machine agent
 description: Release notes for Azure Connected Machine agent versions older than six months
 ms.topic: overview
 ms.date: 06/02/2023
 ms.custom: references_regions
 ---
 
-# Archive for What's new with Azure Arc-enabled servers agent
+# Archive for What's new with Azure Connected Machine agent
 
-The primary [What's new in Azure Arc-enabled servers agent?](agent-release-notes.md) article contains updates for the last six months, while this article contains all the older information.
+The primary [What's new in Azure Connected Machine agent?](agent-release-notes.md) article contains updates for the last six months, while this article contains all the older information.
 
 The Azure Connected Machine agent receives improvements on an ongoing basis. This article provides you with information about:
 
