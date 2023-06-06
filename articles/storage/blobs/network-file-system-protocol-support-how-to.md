@@ -132,6 +132,9 @@ Create a directory on your Linux system and then mount the container in the stor
      > [!TIP]
      > By using the `-t aznfs` mount option, you ensure that the NFS client always remains correctly connected to the storage endpoint even if the endpoint IP changes after the mount. NFS shares that are mounted by using the `-t nfs` mount option might become disconnected from the storage endpoint if the IP address of that endpoint changes.
 
+> [!NOTE]
+> Other optional parameters are available with the mount command. Those parameters primarily affect client-side behavior. `sys` is the only value that is currently supported by the `sec` option.
+
 ## Resolve common errors
 
 |Error | Cause/resolution|
