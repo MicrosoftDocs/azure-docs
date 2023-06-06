@@ -21,7 +21,7 @@ This project is aimed to teach developers on how to create a Click to Call exper
 Depending on your needs, you might need to create an experience for your customers to be able to get a hold of you with minimal set up on their part.
 Click to call is a concept that is meant for allowing instant interaction, whether that is reaching out to customer support, having a quick call with your financial advisor, or other customer facing teams. The goal of this tutorial is to help you make you one click away from your customers.
 
-If you want to try it out, download the code [here](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/dmceachernmsft/c2c-tutorial/ui-library-click-to-call).
+If you want to try it out, download the code from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/dmceachernmsft/c2c-tutorial/ui-library-click-to-call).
 
 Following this tutorial will:
 

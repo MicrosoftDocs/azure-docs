@@ -233,7 +233,7 @@ items:
             href: tutorials/virtual-visits/extend-teams/call.md
     - name: Click to call
       items:
-        - name: Overview
+        - name: Click to call overview
           href: tutorials/click-to-call/click-to-call-overview.md
         - name: 1. Creating your widget
           href: tutorials/click-to-call/click-to-call-tutorial-part-1-creating-your-widget.md
