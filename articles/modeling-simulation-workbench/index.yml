@@ -36,22 +36,20 @@ landingContent:
             url: ./concept-connector.md
           - text: Data Pipeline
             url: ./concept-data-pipeline.md
-          - text: License Service
+          - text: License service
             url: ./concept-license-service.md
   # Card: Get started
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Prerequisites
-            url: ./quickstart-create-portal.md#prerequisites
-          - text: Create Workbench-Azure portal
+          - text: Create an Azure Modeling and Simulation Workbench
             url: ./quickstart-create-portal.md
       - linkListType: how-to-guide
         links:
           - text: Manage users
             url: ./how-to-guide-manage-users.md
-          - text: Setup networking
+          - text: Set up networking
             url: ./how-to-guide-set-up-networking.md
           - text: Manage license service
             url: ./how-to-guide-licenses.md
