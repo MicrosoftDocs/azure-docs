@@ -1,40 +1,39 @@
 - name: Azure Large Instances 
+  href: index.yml
+- name: Overview 
+  items:
+  - name: What is Azure Large Instances? 
+    href: what-is-ali.md
+- name: Workloads 
   items: 
-  - name: Overview 
-    items:
-    - name: What is Azure Large Instances? 
-      href: what-is-ali.md
-      items: 
-        name: Workloads 
-        items: 
-        - name: Architecture
-          href: architecture.md
-        - name: SKUs  
-          href: skus.md
-        - name: Onboarding requirements  
-          href: onboarding-requirements.md
-        - name: Connect to Azure Large instances for Epic  
-          href: connect-to-azure-large-instances-for-epic.md
-        - name: Enable Express Route fast path  
-          href: Enable Express Route fast path  .md
-        - name: Enable Accelerated Networking on VMs  
-          href: enable-accelerated-networking-on-vms.md
-        - name: Quality checks   
-          href: quality-checks.md
-        - name: Configure Azure Service Health alerts  
-          href: configure-azure-service-health-alerts.md
-        - name: Azure Large Instances NETAPP storage data protection with Azure CVO   
-          href: azure-large-instances-netapp-storage-data-protection-with-azure-cvo.md
-        - name: Find your subscription ID   
-          href: find-your-subscription-id.md
-        - name: Create a volume group  
-          href: create-a-volume-group.md
-        - name: LUN and WWID mapping   
-          href: lun-and-wwid-mapping.md
-        - name: Register the Azure Large instance resource provider via the Azure portal or the Azure CLI  
-          href: register-the-azure-large-instance-resource-provider-via-the-azure-portal-cli.md    
-        - name: Common issues and their resolutions  
-          href: common-issuesa-and-their-resolutions.md
+  - name: Architecture
+    href: architecture.md
+  - name: SKUs  
+    href: skus.md
+  - name: Onboarding requirements  
+    href: onboarding-requirements.md
+  - name: Connect to Azure Large instances for Epic  
+    href: connect-to-azure-large-instances-for-epic.md
+  - name: Enable Express Route fast path  
+    href: Enable Express Route fast path  .md
+  - name: Enable Accelerated Networking on VMs  
+    href: enable-accelerated-networking-on-vms.md
+  - name: Quality checks   
+    href: quality-checks.md
+  - name: Configure Azure Service Health alerts  
+    href: configure-azure-service-health-alerts.md
+  - name: Azure Large Instances NETAPP storage data protection with Azure CVO   
+    href: azure-large-instances-netapp-storage-data-protection-with-azure-cvo.md
+  - name: Find your subscription ID   
+    href: find-your-subscription-id.md
+  - name: Create a volume group  
+    href: create-a-volume-group.md
+  - name: LUN and WWID mapping   
+    href: lun-and-wwid-mapping.md
+  - name: Register the Azure Large instance resource provider via the Azure portal or the Azure CLI  
+    href: register-the-azure-large-instance-resource-provider-via-the-azure-portal-cli.md    
+  - name: Common issues and their resolutions  
+    href: common-issuesa-and-their-resolutions.md
  
 
   
