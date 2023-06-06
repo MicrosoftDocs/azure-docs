@@ -255,4 +255,4 @@ For a guided walkthrough of many of the recommendations in this article, see the
 
 ## Next steps
 
-[Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
+[Deploy other identity features](../fundamentals/deployment-plans.md)

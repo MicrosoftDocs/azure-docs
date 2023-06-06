@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 03/14/2023
+ms.date: 05/17/2023
 ms.custom: enterprise-iot
 ---
 
@@ -16,17 +16,57 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## June 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [OT plans billed by site-based licenses](#ot-plans-billed-by-site-based-licenses) |
+
+### OT plans billed by site-based licenses
+
+Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home).
+
+- **Licenses are available for individual sites**, based on the sizes of those respective sites. A trial license is also available, covering a **Large** site size for 60 days.
+
+    Any purchase of additional licenses is automatically updated in your OT plan in the Azure portal.
+
+- **When you onboard a new sensor**, you're now requested to assign your sensor to a site that's based on your licensed site sizes.
+
+- **Existing customers** can continue to use any legacy OT plan already onboarded to an Azure subscription, with no changes in functionality. However, you cannot add a new plan to a new subscription without a corresponding license from the Microsoft 365 admin center.
+
+> [!TIP]
+> A Defender for IoT *site* is a physical location, such as a facility, campus, office building, hospital, rig, and so on. Each site can contain any number of network sensors, which identify devices across detected network traffic.
+>
+
+For more information, see:
+
+- [Defender for IoT subscription billing](billing.md)
+- [Start a Microsoft Defender for IoT trial](getting-started.md)
+- [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md)
+- [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
+
 ## May 2023
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Sensor versions 22.3.x and higher**: <br>- [Configure Active Directory and NTP settings in the Azure portal](#configure-active-directory-and-ntp-settings-in-the-azure-portal) |
+| **OT networks** | **Sensor version 22.3.9**: <br>- [New endpoint to send OT sensor logs to Defender for IoT](#new-endpoint-to-send-ot-sensor-logs-to-defender-for-iot) <br><br> **Sensor versions 22.3.x and higher**: <br>- [Configure Active Directory and NTP settings in the Azure portal](#configure-active-directory-and-ntp-settings-in-the-azure-portal) |
+
+### New endpoint to send OT sensor logs to Defender for IoT
+
+In version 22.3.9, we've added a new endpoint to our list of required endpoints to allow OT sensors to send more log data to our support teams. The additional data helps us troubleshoot customer issues, providing faster response times and more targeted solutions and recommendations.
+
+After updating your OT sensors, download the latest list of endpoints and ensure that your sensors can access all endpoints listed.
+
+For more information, see:
+
+- [Update Defender for IoT OT monitoring software](update-ot-software.md)
+- [Sensor deployment and access](how-to-manage-sensors-on-the-cloud.md#sensor-deployment-and-access)
 
 ### Configure Active Directory and NTP settings in the Azure portal
 
 Now you can configure Active Directory and NTP settings for your OT sensors remotely from the **Sites and sensors** page in the Azure portal. These settings are available for OT sensor versions 22.3.x and higher.
 
-For more information, see [Sensor setting reference](configure-sensor-settings-portal.md#sensor-setting-reference)
+For more information, see [Sensor setting reference](configure-sensor-settings-portal.md#sensor-setting-reference).
 
 ## April 2023
 
@@ -117,9 +157,9 @@ For more information, see [Deploy an SSL/TLS certificate](ot-deploy/activate-dep
 
 ### Activation files expiration updates
 
-Activation files on locally-managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
+Activation files on locally managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
 
-You'll only need to update your activation file if you're [updating an OT sensor from a legacy version](update-legacy-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally-managed to cloud-connected.
+You'll only need to update your activation file if you're [updating an OT sensor from a legacy version](update-legacy-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally managed to cloud-connected.
 
 For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 

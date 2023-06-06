@@ -6,7 +6,7 @@ keywords: azure app service, web app, security, msi, managed service identity, m
 ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
 ms.date: 04/12/2022
-ms.custom: mvc, devx-track-azurecli, ignite-2022
+ms.custom: mvc, devx-track-azurecli, ignite-2022, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 # Tutorial: Connect to Azure databases from App Service without secrets using a managed identity
 
