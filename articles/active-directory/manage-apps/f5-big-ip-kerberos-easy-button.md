@@ -165,7 +165,7 @@ The optional **Security Settings** specify whether Azure AD encrypts issued SAML
 8.    If you enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This private key is for the certificate that BIG-IP APM uses to decrypt Azure AD assertions.
 9.    If you enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. BIG-IP uploads this certificate to Azure AD to encrypt the issued SAML assertions.
 
-    ![Screenshot of Assertion Decryption Private Key and Assertion Decryption Certificates entries.](./media/f5-big-ip-kerberos-easy-button/service-provider-security-settings.png)
+![Screenshot of Assertion Decryption Private Key and Assertion Decryption Certificates entries.](./media/f5-big-ip-kerberos-easy-button/service-provider-security-settings.png)
 
 ### Azure Active Directory
 
