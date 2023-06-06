@@ -169,7 +169,7 @@ You can get descriptive details of the error ('1328' in the preceding example) b
 
 ![Pass-through Authentication](./media/tshoot-connect-pass-through-authentication/pta3.png)
 
-### Pass-through Authentication Sign-in Logs
+### Pass-through Authentication sign-in logs
 
 If audit logging is enabled, additional information can be found in the security logs of your Pass-through Authentication server. A simple way to query sign-in requests is to filter security logs using the following query:
 
