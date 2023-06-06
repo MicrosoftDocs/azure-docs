@@ -299,7 +299,7 @@ That looks like this:
 ```
 Now that we have made these changes we can start our app again if it is shut down with `npm run start`. If we go through the start call process like we did before we should see the following when starting the call: 
 
-<img src='../media/click-to-call/click-to-call-embedded-start.png' width='800'>
+<img src='../media/click-to-call/click-to-call-embedded-start.png' width='800' alt-text='click to call sample app home page with calling experience embedded in widget'>
 
 Like before this is a call starting with the video controls enabled. 
 

@@ -14,7 +14,7 @@ ms.subservice: calling
 ---
 # Creating a Click to Call Experience with Azure Communication Services
 
-<img src='../media/click-to-call/Sample-app-splash.png' width='1000'>
+<img src='../media/click-to-call/Sample-app-splash.png' width='1000' alt-text='Home page of click to call sample app'>
 
 This project is aimed to teach developers on how to create a Click to Call experience using the Azure Communication UI Library.
 

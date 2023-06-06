@@ -400,7 +400,7 @@ Now when the application runs in a new window, it will see that it is supposed t
 
 Now when you pass in the arguments, set your `displayName`, and click `Start Call` you should see the following:
 
-<img src='../media/click-to-call/Calling-screen.png' width='800'>
+<img src='../media/click-to-call/Calling-screen.png' width='800' alt-text='click to call sample app home page with calling experience in new window'>
 
 In this case we see a PSTN call being started with no video. 
 
