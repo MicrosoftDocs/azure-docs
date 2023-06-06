@@ -377,7 +377,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
     ---
 
-### Set the tags for the alert rule
+### Finish creating the alert rule
 
 1. On the **Tags** tab, set any required tags on the alert rule resource.
 
