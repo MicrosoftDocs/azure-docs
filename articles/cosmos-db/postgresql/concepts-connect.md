@@ -13,7 +13,7 @@ ms.date: 06/04/2023
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-When an Azure Cosmos DB for PostgreSQL [cluster](./concepts-cluster.md) is provisioned, every node is assigned its own [fully qualified domain name (FQDN)](https://wikipedia.org/wiki/Fully_qualified_domain_name). This FQDN is used to connect to each node provided proper [network security](./concepts-security-overview.md) was set up to grant access. FQDN is used in Postgres connection string whether private or public access is used. 
+When an Azure Cosmos DB for PostgreSQL [cluster](./concepts-cluster.md) is provisioned, every node is assigned its own [fully qualified domain name (FQDN)](https://wikipedia.org/wiki/Fully_qualified_domain_name). This FQDN is used to connect to each node provided proper [network security](./concepts-security-overview.md) was set up to grant access. The FQDN is used in the Postgres connection string whether private or public access is used. 
 
 ## Domain names in Azure Cosmos DB for PostgreSQL
 
@@ -25,7 +25,7 @@ where `node-qualifier` can be 'c' for coordinator or 'w0', 'w1', etc. for worker
 
 For instance: c-mycluster.12345678901234.postgres.cosmos.azure.com.
 
-This FQDN is resolved into a public IP for each node in the cluster. If [public access](./concepts-firewall-rules.md) is enabled on the cluster, this FQDN is used in Postgres connection string to connect to a node. 
+This FQDN is resolved into a public IP for each node in the cluster. If [public access](./concepts-firewall-rules.md) is enabled on the cluster, this FQDN is used in the Postgres connection string to connect to a node. 
 
 When you enable [private access](./concepts-private-access.md) on the cluster, Azure creates a private DNS zone for each cluster. FQDN for each node with a private endpoint is created in this private DNS zone in addition to its primary FQDN. FQDN in this private DNS zone uses the following format
 
@@ -46,7 +46,7 @@ It's important to use only FQDN to access a node as assigned public IP addresses
 > Primary FQDN format: `node-qualifier`.`cluster-name`.postgres.database.azure.com 
 > FQDN in a private DNS zone: `node-qualifier`.privatelink.`cluster-name`.postgres.database.azure.com
 >
-> where where `node-qualifier` is 'c' for coordinator and 'w0', 'w1', etc. for worker nodes and 
+> where `node-qualifier` is 'c' for coordinator and 'w0', 'w1', etc. for worker nodes and 
 > `cluster-name` is the name for the cluster you selected during cluster provisioning.
 
 **Next steps**
