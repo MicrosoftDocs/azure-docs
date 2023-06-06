@@ -62,7 +62,7 @@ sections:
       - question: What is the IP address shown in Defender for APIs alerts description page if x-forwarded-for is configured within our network? 
         answer: Defender for APIs shows the IP address of the inbound IP address from client IPs. If x-forwarded-for is used, Defender for APIs validates the IP hops as part of the x-forwarded-for used within the request to show the most accurate IP that inbound request is coming from. 
     
-      - question: We use custom domain URL within Azure API Management, will Defender for APIs show this URL as the Endpoint URL?
+      - question: We use a custom domain URL within Azure API Management, will Defender for APIs show this URL as the Endpoint URL?
         answer: Custom domain URLs aren't shown within the Endpoint URL. The Defender for APIs Endpoint URL shows the base URL of your API Management API endpoint
 
   - name: Questions about alerts in Defender for APIs 
