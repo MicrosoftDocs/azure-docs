@@ -480,7 +480,8 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
 
 1. Verify the placeholder agent was created in Azure DevOps.
 
-    1. In Azure DevOps, navigate to **Project settings** > **Agent pools** > **container-apps** > **Agents**.
+    1. In Azure DevOps, navigate to your project. 
+    1. Select **Project settings** > **Agent pools** > **container-apps** > **Agents**.
     1. Confirm that a placeholder agent named `placeholder-agent` is listed.
 
 ## Create a self-hosted agent as an event-driven job
