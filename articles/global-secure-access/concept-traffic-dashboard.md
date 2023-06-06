@@ -45,7 +45,7 @@ This widget provides a summary of how many users and devices are using the servi
 There are two product deployment widgets that look at the active and inactive devices that you have deployed.
 
 - **Active devices**: The number of distinct device IDs seen in the last 24 hours and the % change during that time.
-- **Inactive devices**: The number of distinct device IDs that were seen in the last 7 days, but not during the last 24 hours. The % change during the last 24 hours is also displayed.
+- **Inactive devices**: The number of distinct device IDs that were seen in the last seven days, but not during the last 24 hours. The % change during the last 24 hours is also displayed.
 
 ![Screenshot of the product deployment widget.](media/concept-traffic-dashboard/product-deployment.png)
 
@@ -57,7 +57,7 @@ There are two product insights widgets that look at your cross-tenant access and
 
 - **Sign-ins**: The number of sign-ins through Microsoft Entra ID to Microsoft 365 in the last 24 hours. This widget provides you with information about the activity in your tenant. 
 - **Total distinct tenants**: The number of distinct tenant IDs seen in the last 24 hours.
-- **Unseen tenants**: The number of distinct tenant IDs that were seen in the last 24 hours, but not in the previous 7 days.
+- **Unseen tenants**: The number of distinct tenant IDs that were seen in the last 24 hours, but not in the previous seven days.
 - **Users**: The number of distinct user sign-ins to other tenants in the last 24 hours. 
 - **Devices**: The number of distinct devices that signed in to other tenants in the last 24 hours.
 

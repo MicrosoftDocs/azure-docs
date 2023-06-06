@@ -24,7 +24,7 @@ This compliant network check is specific to each tenant.
    - For example: Contoso can protect their services like Exchange Online and SharePoint Online behind their compliant network check to ensure only Contoso users can access these resources. 
    - If another organization like Fabrikam was using a compliant network check, they wouldn't pass Contoso's compliant network check. 
 
-The compliant network is different than [IPv4, IPv6, or country locations](/azure/active-directory/conditional-access/location-condition) you may configure in Microsoft Entra ID. No administrator upkeep is required.
+The compliant network is different than [IPv4, IPv6, or geographic locations](/azure/active-directory/conditional-access/location-condition) you may configure in Microsoft Entra ID. No administrator upkeep is required.
 
 ## Prerequisites
 

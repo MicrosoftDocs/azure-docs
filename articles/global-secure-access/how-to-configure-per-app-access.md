@@ -34,7 +34,7 @@ With Quick Access and per-app access for Microsoft Entra Private Access you can 
 
 You can include the same app or website in both your Quick Access app and in a separate app that you've configured for Microsoft Entra Private Access. The policies in place for the per-app access take priority over the policies for Quick Access.
 
-Per-app access can be enabled and disabled at any time. This feature can be used if you need to route traffic through Global Secure Access for a specific period of time without affecting the rest of your organization's traffic.
+Per-app access can be enabled and disabled at any time. This feature can be used if you need to route traffic through Global Secure Access for a specific period of time, without affecting the rest of your organization's traffic.
 
 By configuring per-app access with Microsoft Entra Private Access, you can apply traffic forwarding profiles and assign Conditional Access policies to connect your users to the right apps using comprehensive access policies. 
 

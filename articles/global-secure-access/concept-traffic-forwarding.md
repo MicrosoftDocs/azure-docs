@@ -22,8 +22,6 @@ This article describes the traffic forwarding profiles and how they work.
 
 When traffic comes through Global Secure Access, the service evaluates the type of traffic first through the **Microsoft 365 profile** and then through the **Private access profile**. Any traffic that doesn't match the first two profiles isn't forwarded to Global Secure Access. 
 
-:::image type="content" source="media/concept-traffic-forwarding/global-secure-access-overview.png" alt-text="Diagram of the Global Secure Access process." lightbox="media/concept-traffic-forwarding/global-secure-access-overview-expanded.png":::
-
 In the previous diagram, the traffic coming into your network first passes through dedicated tunnels where Conditional Access policies can be applied. The traffic is then routed through Global Secure Access and is evaluated by the traffic profiles. The traffic is routed to the appropriate apps and resources according to your enabled policies.
 
 For each traffic forwarding profile, you can configure three main details:
@@ -38,7 +36,7 @@ The Microsoft 365 traffic forwarding profile includes SharePoint Online, Exchang
 
 ## Private access
 
-With the Private Access profile you can route traffic to your private apps and resources. This traffic forwarding profile requires configuring quick access, which includes the websites and IP addresses of the private apps and resources you want to forward to the service. 
+With the Private Access profile, you can route traffic to your private apps and resources. This traffic forwarding profile requires configuring quick access, which includes the websites and IP addresses of the private apps and resources you want to forward to the service. 
 
 ## Next steps
 
