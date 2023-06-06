@@ -5,16 +5,17 @@ description: In this quickstart, you'll learn how to make an outbound PSTN call 
 author: anujb-msft
 ms.author: anujb-msft
 ms.date: 05/26/2023
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: callautomation
 ms.custom: mode-other
+zone_pivot_groups: acs-csharp-java-javascript-python
 ---
 
 Azure Communication Services (ACS) Call Automation APIs are a powerful way to create interactive calling experiences. In this quick start we'll cover a way to make an outbound call and recognize various events in the call.
 
 :: zone pivot="programming-language-csharp"
-****[!INCLUDE [Make an outbound call C#](./includes/quickstart-make-an-outbound-call-using-callautomation-chsarp.md)]
+[!INCLUDE [Make an outbound call C#](./includes/quickstart-make-an-outbound-call-using-callautomation-chsarp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
