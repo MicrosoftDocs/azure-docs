@@ -19,7 +19,7 @@ In this article, we cover the Click Analytics plug-in, which automatically track
 
 ## Get started
 
-Users can set up the Click Analytics Auto-Collection plug-in via snippet or NPM and then optionally add a framework extension.
+Users can set up the Click Analytics Auto-Collection plug-in via SDK Loader Script or npm and then optionally add a framework extension.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -106,6 +106,10 @@ Add a framework extension, if needed.
 ### [React](#tab/react)
 
 ```javascript
+import React from 'react';
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
+
 var browserHistory = createBrowserHistory({ basename: '' });
 var reactPlugin = new ReactPlugin();
 var clickPluginInstance = new ClickAnalyticsPlugin();
@@ -163,7 +167,6 @@ import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
 import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-root',
