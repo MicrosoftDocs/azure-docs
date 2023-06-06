@@ -21,6 +21,16 @@ To perform a cross-service query, you need:
 - Reader permissions to the resources you query in Azure Resource Graph.
 - Viewer permissions to the tables you query in Azure Data Explorer.
 
+## Function supportability
+
+Azure Monitor cross-service queries support functions for Application Insights, Log Analytics, Azure Resource Graph, and Azure Data Explorer.
+This capability enables cross-cluster queries to reference an Azure Monitor, Azure Resource Graph, or Azure Data Explorer tabular function directly.
+The following commands are supported with the cross-service query:
+
+* `.show functions`
+* `.show function {FunctionName}`
+* `.show database {DatabaseName} schema as json`
+
 ## Query data in Azure Resource Graph 
 
 ### Syntax
@@ -55,16 +65,6 @@ Perf | where ObjectName == "Memory" and (CounterName == "Available MBytes Memory
 | extend _ResourceId = replace_string(replace_string(replace_string(_ResourceId, 'microsoft.compute', 'Microsoft.Compute'), 'virtualmachines','virtualMachines'),"resourcegroups","resourceGroups")
 | join hint.remote=left (arg("").Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project _ResourceId=id, tags) on _ResourceId | project-away _ResourceId1 | where tostring(tags.env) == "prod"
 ```
-
-## Function supportability
-
-Azure Monitor cross-service queries support functions for Application Insights, Log Analytics, Azure Resource Graph, and Azure Data Explorer.
-This capability enables cross-cluster queries to reference an Azure Monitor, Azure Resource Graph, or Azure Data Explorer tabular function directly.
-The following commands are supported with the cross-service query:
-
-* `.show functions`
-* `.show function {FunctionName}`
-* `.show database {DatabaseName} schema as json`
 
 ## Query data in Azure Data Explorer
 
@@ -102,7 +102,7 @@ AzureDiagnostics
 | join hint.remote=left adx("cluster=ClusterURI").AzureDiagnostics on (ColumnName)
 ```
 
-## Join data from an Azure Data Explorer cluster in one tenant with an Azure Monitor resource in another
+### Join data from an Azure Data Explorer cluster in one tenant with an Azure Monitor resource in another
 
 Cross-tenant queries between the services aren't supported. You're signed in to a single tenant for running the query that spans both resources.
 
@@ -111,7 +111,7 @@ If the Azure Data Explorer resource is in Tenant A and the Log Analytics workspa
 * Use Azure Data Explorer to add roles for principals in different tenants. Add your user ID in Tenant B as an authorized user on the Azure Data Explorer cluster. Validate that the [TrustedExternalTenant](/powershell/module/az.kusto/update-azkustocluster) property on the Azure Data Explorer cluster contains Tenant B. Run the cross query fully in Tenant B.
 * Use [Lighthouse](../../lighthouse/index.yml) to project the Azure Monitor resource into Tenant A.
 
-## Connect to Azure Data Explorer clusters from different tenants
+### Connect to Azure Data Explorer clusters from different tenants
 
 Kusto Explorer automatically signs you in to the tenant to which the user account originally belongs. To access resources in other tenants with the same user account, you must explicitly specify `TenantId` in the connection string:
 
