@@ -93,7 +93,7 @@ az spring app create \
 ```
 
 2. Set up auto scaling rules for an existing app.  
-You can also set up auto scale rules for an existing app. The following CLI commands show you how to auto scale your spring application based on [Keda MySQL Scaler](https://keda.sh/docs/2.8/scalers/mysql/).  Firstly create a secret to store your sql connection string, it is used for your scale rule auth. And then, set up a rule which scales the app based on the rows count of a table.
+You can also set up auto scale rules for an existing app. The following CLI commands show you how to auto scale your spring application based on [Keda MySQL Scaler](https://keda.sh/docs/2.8/scalers/mysql/).  Firstly create a secret to store your sql connection string, it's used for your scale rule auth. And then, set up a rule which scales the app based on the rows count of a table.
 
 ```azurecli-interactive
 az spring app update \
