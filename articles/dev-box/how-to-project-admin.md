@@ -53,4 +53,4 @@ The users can now manage the project and create dev box pools within it.
 
 ## Next steps
 
-- [Quickstart: Configure Microsoft Dev Box ](quickstart-configure-dev-box-service.md)
+- [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md)
