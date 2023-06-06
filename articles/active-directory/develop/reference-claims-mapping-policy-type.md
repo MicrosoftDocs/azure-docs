@@ -32,147 +32,145 @@ The following table lists the sets of claims that define how and when they're us
 
 ### JSON Web Token (JWT) restricted claim set
 
-The following table lists the restricted claim set for a JWT.
+The following claims are in the restricted claim set for a JWT.
+
+- `.`
+- `_claim_names`
+- `_claim_sources`
+- `aai`
+- `access_token`
+- `account_type`
+- `acct`
+- `acr`
+- `acrs`
+- `actor`
+- `ageGroup`
+- `aio`
+- `altsecid`
+- `amr`
+- `app_chain`
+- `app_displayname`
+- `app_res`
+- `appctx`
+- `appctxsender`
+- `appid`
+- `appidacr`
+- `at_hash`
+- `auth_time`
+- `azp`
+- `azpacr`
+- `c_hash`
+- `ca_enf`
+- `ca_policy_result`
+- `capolids_latebind`
+- `capolids`
+- `cc`
+- `cnf`
+- `code`
+- `controls_auds`
+- `controls`
+- `credential_keys`
+- `ctry`
+- `deviceid`
+- `domain_dns_name`
+- `domain_netbios_name`
+- `e_exp`
+- `email`
+- `endpoint`
+- `enfpolids`
+- `expires_on`
+- `fido_auth_data`
+- `fwd_appidacr`
+- `fwd`
+- `graph`
+- `group_sids`
+- `groups`
+- `hasgroups`
+- `haswids`
+- `home_oid`
+- `home_puid`
+- `home_tid`
+- `identityprovider`
+- `idp`
+- `idtyp`
+- `in_corp`
+- `instance`
+- `inviteTicket`
+- `ipaddr`
+- `isbrowserhostedapp`
+- `isViral`
+- `login_hint`
+- `mam_compliance_url`
+- `mam_enrollment_url`
+- `mam_terms_of_use_url`
+- `mdm_compliance_url`
+- `mdm_enrollment_url`
+- `mdm_terms_of_use_url`
+- `msproxy`
+- `nameid`
+- `nickname`
+- `nonce`
+- `oid`
+- `on_prem_id`
+- `onprem_sam_account_name`
+- `onprem_sid`
+- `openid2_id`
+- `origin_header`
+- `platf`
+- `polids`
+- `pop_jwk`
+- `preferred_username`
+- `primary_sid`
+- `prov_data`
+- `puid`
+- `pwd_exp`
+- `pwd_url`
+- `rdp_bt`
+- `refresh_token_issued_on`
+- `refreshtoken`
+- `rh`
+- `roles`
+- `rt_type`
+- `scp`
+- `secaud`
+- `sid`
+- `sid`
+- `signin_state`
+- `source_anchor`
+- `src1`
+- `src2`
+- `sub`
+- `target_deviceid`
+- `tbid`
+- `tbidv2`
+- `tenant_ctry`
+- `tenant_display_name`
+- `tenant_region_scope`
+- `tenant_region_sub_scope`
+- `thumbnail_photo`
+- `tid`
+- `tokenAutologonEnabled`
+- `trustedfordelegation`
+- `ttr`
+- `unique_name`
+- `upn`
+- `user_setting_sync_url`
+- `uti`
+- `ver`
+- `verified_primary_email`
+- `verified_secondary_email`
+- `vnet`
+- `wamcompat_client_info`
+- `wamcompat_id_token`
+- `wamcompat_scopes`
+- `wids`
+- `xcb2b_rclient`
+- `xcb2b_rcloud`
+- `xcb2b_rtenant`
+- `ztdid`
 
 > [!NOTE]
 > Any claim starting with "xms_" is restricted.
-
-| Claim type (name) |
-| ----- |
-|.|
-|_claim_names|
-|_claim_sources|
-|aai|
-|access_token|
-|account_type|
-|acct|
-|acr|
-|acrs|
-|actor|
-|ageGroup|
-|aio|
-|altsecid|
-|amr|
-|app_chain|
-|app_displayname|
-|app_res|
-|appctx|
-|appctxsender|
-|appid|
-|appidacr|
-|at_hash|
-|auth_time|
-|azp|
-|azpacr|
-|c_hash|
-|ca_enf|
-|ca_policy_result|
-|capolids_latebind|
-|capolids|
-|cc|
-|cnf|
-|code|
-|controls_auds|
-|controls|
-|credential_keys|
-|ctry|
-|deviceid|
-|domain_dns_name|
-|domain_netbios_name|
-|e_exp|
-|email|
-|endpoint|
-|enfpolids|
-|expires_on|
-|fido_auth_data|
-|fwd_appidacr|
-|fwd|
-|graph|
-|group_sids|
-|groups|
-|hasgroups|
-|haswids|
-|home_oid|
-|home_puid|
-|home_tid|
-|identityprovider|
-|idp|
-|idtyp|
-|in_corp|
-|instance|
-|inviteTicket|
-|ipaddr|
-|isbrowserhostedapp|
-|isViral|
-|login_hint|
-|mam_compliance_url|
-|mam_enrollment_url|
-|mam_terms_of_use_url|
-|mdm_compliance_url|
-|mdm_enrollment_url|
-|mdm_terms_of_use_url|
-|msproxy|
-|nameid|
-|nickname|
-|nonce|
-|oid|
-|on_prem_id|
-|onprem_sam_account_name|
-|onprem_sid|
-|openid2_id|
-|origin_header|
-|platf|
-|polids|
-|pop_jwk|
-|preferred_username|
-|primary_sid|
-|prov_data|
-|puid|
-|pwd_exp|
-|pwd_url|
-|rdp_bt|
-|refresh_token_issued_on|
-|refreshtoken|
-|rh|
-|roles|
-|rt_type|
-|scp|
-|secaud|
-|sid|
-|sid|
-|signin_state|
-|source_anchor|
-|src1|
-|src2|
-|sub|
-|target_deviceid|
-|tbid|
-|tbidv2|
-|tenant_ctry|
-|tenant_display_name|
-|tenant_region_scope|
-|tenant_region_sub_scope|
-|thumbnail_photo|
-|tid|
-|tokenAutologonEnabled|
-|trustedfordelegation|
-|ttr|
-|unique_name|
-|upn|
-|user_setting_sync_url|
-|uti|
-|ver|
-|verified_primary_email|
-|verified_secondary_email|
-|vnet|
-|wamcompat_client_info|
-|wamcompat_id_token|
-|wamcompat_scopes|
-|wids|
-|xcb2b_rclient|
-|xcb2b_rcloud|
-|xcb2b_rtenant|
-|ztdid|
 
 ### SAML restricted claim set
 
@@ -226,7 +224,10 @@ These claims are restricted by default, but aren't restricted if you have a [cus
  
 ## Claims mapping policy properties
 
-To control the claims that are included and where the data comes from, use the properties of a claims mapping policy. If a policy isn't set, the system issues tokens that include the core claim set, the basic claim set, and any [optional claims](active-directory-optional-claims.md) that the application has chosen to receive.
+To control the claims that are included and where the data comes from, use the properties of a claims mapping policy. Without a policy, the system issues tokens with the following claims:
+- The core claim set.
+- The basic claim set.
+- Any [optional claims](active-directory-optional-claims.md) that the application has chosen to receive.
 
 > [!NOTE]
 > Claims in the core claim set are present in every token, regardless of what this property is set to.
@@ -258,7 +259,7 @@ Set the **Source** element to one of the values in the following table.
 | `resource` | Property on the resource service principal. |
 | `audience` | Property on the service principal that is the audience of the token (either the client or resource service principal). |
 | `company` | Property on the resource tenant's Company object. |
-| `transformation` | Claims transformation. When using this claim, the **TransformationID** element must be included in the claim definition. The **TransformationID** element must match the ID element of the transformation entry in the **ClaimsTransformation** property that defines how the data for the claim is generated. |
+| `transformation` | Claims transformation. When you use this claim, the **TransformationID** element must be included in the claim definition. The **TransformationID** element must match the ID element of the transformation entry in the **ClaimsTransformation** property that defines how the data for the claim is generated. |
 
 The ID element identifies the property on the source that provides the value for the claim. The following table lists the values of the ID element for each value of Source.
 
@@ -279,7 +280,7 @@ The ID element identifies the property on the source that provides the value for
 | `user` | `streetaddress` | The street address of the user. |
 | `user` | `postalcode` | The postal code of the user.|
 | `user` | `preferredlanguage` | The preferred language of the user. |
-| `user` | `onpremisesuserprincipalname` | The on-premises UPN of the user. When using an alternate ID, the on-premises attribute `userPrincipalName` is synchronized with the `onPremisesUserPrincipalName` attribute. This attribute is only available when Alternate ID is configured.|
+| `user` | `onpremisesuserprincipalname` | The on-premises UPN of the user. When you use an alternate ID, the on-premises attribute `userPrincipalName` is synchronized with the `onPremisesUserPrincipalName` attribute. This attribute is only available when Alternate ID is configured.|
 | `user` | `mailnickname` | The mail nickname of the user. |
 | `user` | `extensionattribute1` | Extension attribute 1. |
 | `user` | `extensionattribute2` | Extension attribute 2. |
@@ -325,7 +326,7 @@ The ID element identifies the property on the source that provides the value for
 
 The only available multi-valued claim sources on a user object are multi-valued extension attributes that have been synced from Active Directory Connect. Other properties, such as `othermails` and `tags`, are multi-valued but only one value is emitted when selected as a source.
 
-Names and URIs of claims in the restricted claim set cannot be used for the claim type elements.
+Names and URIs of claims in the restricted claim set can't be used for the claim type elements.
 
 ### Group Filter
 
