@@ -9,7 +9,7 @@ services: container-instances
 ms.date:  05/11/2023
 ---
 
-# Quickstart: Deploy an ACI Spot container in Azure using the Azure CLI
+# Tutorial: Deploy a Spot container with Azure Container Instances using the Azure CLI (Preview)
 
 Spot Containers combine the simplicity of ACI with the low cost of Spot VMs making it easy and affordable for customers to run containerized interruptible workloads at scale.  Use Azure Container Instances to run serverless Spot containers. Deploy an application to a Spot container  on-demand when you want to run interruptible, containerized workloads on unused Azure capacity at low cost and you don't need a full container orchestration platform like Azure Kubernetes Service.
 

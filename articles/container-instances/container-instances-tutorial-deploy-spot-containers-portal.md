@@ -10,7 +10,7 @@ ms.date: 05/11/2023
 
 ---
 
-# Tutorial: Deploy a Spot container to Azure Container Instances via Azure portal (preview)
+# Tutorial: Deploy a Spot container with Azure Container Instances using the Azure portal (Preview)
 
 In this tutorial, you will use Azure portal to deploy a spot container to Azure Container Instances with a default quota. After deploying the container, you can browse to the running application. 
 
