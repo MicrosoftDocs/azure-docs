@@ -83,7 +83,7 @@ The script uses the Azure SDK for Cognitive Search:
     * YOUR-SEARCH-SERVICE-NAME
     * YOUR-SEARCH-SERVICE-ADMIN-API-KEY
 
-    :::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/bulk-upload/bulk-upload.py" highlight="20-22,46-48,53-54,75-80,83,69,83,135,142" :::
+    :::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/bulk-upload/bulk-upload.py" :::
 
 1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website-functions-v4/bulk-upload`, and run the following command to install the dependencies. 
 
