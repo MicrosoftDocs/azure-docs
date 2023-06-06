@@ -200,7 +200,7 @@ For example, kubernetes v1.25 upgrades to v1.26 during the v1.29 GA release. To 
 
 ## If I have pod / deployments in state 'NodeLost' or 'Unknown' can I still upgrade my cluster?
 
-You can, but we don't recommend it.  You should perform updates when the state of the cluster is known and healthy.
+You can, but we don't recommend it. You should perform updates when the state of the cluster is known and healthy.
 
 ## If I have a cluster with one or more nodes in an Unhealthy state or shut down, can I perform an upgrade?
 
@@ -208,7 +208,7 @@ No, delete/remove any nodes in a failed state or otherwise from the cluster befo
 
 ## I ran a cluster delete, but see the error `[Errno 11001] getaddrinfo failed`
 
-Most commonly, this error is arises if you have one or more Network Security Groups (NSGs) still in use that are associated with the cluster. Remove them and attempt the delete again.
+Most commonly, this error arises if you have one or more Network Security Groups (NSGs) still in use that are associated with the cluster. Remove them and attempt the delete again.
 
 ## I ran an upgrade, but now my pods are in crash loops, and readiness probes fail?
 
