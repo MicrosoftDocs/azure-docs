@@ -1,6 +1,6 @@
 ---
 title: Architecture
-description: Provides an overview of Epic for ALI architecture.
+description: Explains how to register the ALI source provider.
 ms.topic: conceptual
 ms.subservice: baremetal-epic
 ms.date: 06/01/2023

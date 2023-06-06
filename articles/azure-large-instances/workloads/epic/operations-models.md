@@ -2,7 +2,7 @@
 title: Operations model
 description: Provides an overview of the Azure Large Instances for Epic operations model.
 ms.topic: conceptual
-ms.date: 04/01/2023
+ms.date: 06/01/2023
 ---
 # Operations model
 There may be scenarios where customers need to contact Microsoft for assistance. These scenarios may vary but can broadly be grouped into the following categories:  

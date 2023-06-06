@@ -1,16 +1,14 @@
 ---
-title: Architecture
-description: Provides an overview of Epic for ALI architecture.
+title: Azure Large Instances NETAPP storage data protection
+description: Provides an overview of Epic for ALI NETAPP storage date protection.
 ms.topic: conceptual
 ms.subservice: baremetal-epic
 ms.date: 06/01/2023
 ---
 
-#  Architecture h1
-
-content
-
-
+#  Azure Large Instances NETAPP storage data protection
+ 
+  content
 
 
 ## Next steps

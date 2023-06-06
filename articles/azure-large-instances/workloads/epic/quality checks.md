@@ -2,7 +2,7 @@
 title: Quality checks
 description: Provides an overview of Azure Large Instances for Epic quality checks.
 ms.topic: conceptual
-ms.date: 04/01/2023
+ms.date: 06/01/2023
 ---
 
 # Quality checks performed   
@@ -33,4 +33,4 @@ Here are a few areas where quality checks are usually performed by Microsoft tea
 Learn how to identify and interact with ALI instances through the Azure portal.
 
 > [!div class="nextstepaction"]
-> [Manage ALI instances through the Azure portal](../../connect-baremetal-infrastructure.md)
+> [What is Azure for Large Instances?](../../what-is-azure-for-large-instances.md)
