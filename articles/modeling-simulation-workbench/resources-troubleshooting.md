@@ -6,7 +6,7 @@ ms.author: lynnar
 ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: conceptual
-ms.date: 01/01/2023
+ms.date: 06/06/2023
 # Customer intent: As a user of the Modeling and Simulation Workbench, I want to troubleshoot issues I may have encountered.
 ---
 
@@ -78,26 +78,26 @@ An *all licenses are in use for the remote desktop error* means that all license
    $lmstatPath -a -c $licenseHostname
    ```
 
-Expected output
+    Expected output
 
-   ```shell
-   lmstat - Copyright (c) <YEAR> Flexera. All Rights Reserved.
-   Flexible License Manager status on <TIME>
-   
-   License server status: <PORT>@<HOSTNAME>
-       License file(s) on <HOSTNAME>: <LICENSE_FILE_PATH>:
-   
-   <HOSTNAME>: license server UP <VERSION>
-   
-   Vendor daemon status (on <HOSTNAME>):
-   
-      <VENDOR_DAEMON>: UP <VERSION>
-   Feature usage info:
-   ...
-   Users of <FEATURE_N>:  (Total of <W> license issued;  Total of <X> licenses in use)
-   Users of <FEATURE_N+1>:  (Total of <Y> license issued;  Total of <Z> licenses in use)
-   ...
-   ```
+       ```shell
+       lmstat - Copyright (c) <YEAR> Flexera. All Rights Reserved.
+       Flexible License Manager status on <TIME>
+       
+       License server status: <PORT>@<HOSTNAME>
+           License file(s) on <HOSTNAME>: <LICENSE_FILE_PATH>:
+       
+       <HOSTNAME>: license server UP <VERSION>
+       
+       Vendor daemon status (on <HOSTNAME>):
+       
+          <VENDOR_DAEMON>: UP <VERSION>
+       Feature usage info:
+       ...
+       Users of <FEATURE_N>:  (Total of <W> license issued;  Total of <X> licenses in use)
+       Users of <FEATURE_N+1>:  (Total of <Y> license issued;  Total of <Z> licenses in use)
+       ...
+       ```
 
 1. If license file isn't expired, restart the license server from the Azure portal. Then verify if you can check out the license file.
 

@@ -48,7 +48,7 @@ items:
 - name: Resources
   items: 
     - name: Troubleshoot
-      href: ./resources-troubleshooting.md
+      href: ./resources-troubleshoot.md
     - name: Get support
       href: ./resources-get-support.md
 #- name: Reference

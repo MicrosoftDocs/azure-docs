@@ -307,7 +307,7 @@ Or instead, to delete the newly created Modeling and Simulation Workbench resour
 
 1. Open your Modeling and Simulation Workbench in the Azure portal and select **All resources** from the left side menu. Then search for the Modeling and Simulation Workbench you created. For example, in this quickstart, we used *myModSimWorkbench* as the name of the Workbench.
 
-1. To delete a resource, select the **Delete** button located on the top pane of the **Overview page for each resource. You must delete the child resources before deleting their parents. For example, first delete any Chamber VMs and Connectors. Then delete Storages. Then delete Chambers. Delete Workbenches last.
+1. To delete a resource, select the **Delete** button located on the top pane of the **Overview page** for each resource. You must delete the child resources before deleting their parents. For example, first delete any Chamber VMs and Connectors. Then delete Storages. Then delete Chambers. Delete Workbenches last.
 
 ## Next steps
 
