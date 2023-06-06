@@ -292,7 +292,7 @@ items:
       - name: Delegating administration in a single tenant
         href: secure-with-azure-ad-single-tenant.md
       - name: Delegating administration in multiple tenants
-        href: secure-with-azure-ad-multiple-tenants.md
+        href: secure-multiple-tenants.md
       - name: Best practices
         href: secure-best-practices.md
   - name: Deployment guide

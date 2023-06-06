@@ -12530,6 +12530,12 @@
       "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-tshoot-sql-connectivity",
       "redirect_document_id": false
       },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-multiple-tenants.md",
+        "redirect_url": "/azure/active-directory/fundamentals/secure-multiple-tenants",
+        "redirect_document_id": true
+      },
       
       {
       "source_path_from_root": "/articles/active-directory/hybrid/tutorial-federation.md",

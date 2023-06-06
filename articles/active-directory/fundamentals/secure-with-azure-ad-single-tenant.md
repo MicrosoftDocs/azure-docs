@@ -124,6 +124,6 @@ Configuration settings such authentication methods allowed, hybrid configuration
 
 * [Azure resource management fundamentals](secure-with-azure-ad-resource-management.md)
 
-* [Resource isolation with multiple tenants](secure-with-azure-ad-multiple-tenants.md)
+* [Resource isolation with multiple tenants](secure-multiple-tenants.md)
 
 * [Best practices](secure-best-practices.md)
