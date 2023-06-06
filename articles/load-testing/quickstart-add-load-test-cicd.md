@@ -75,7 +75,7 @@ Create a service principal in the Azure subscription and assign the Load Test Co
 
     In the next step, you store the service principal information as a GitHub Actions secret.
 
-### Store the service principal as a GitHub Actions secret
+### Store Azure credentials in GitHub Actions secret
 
 Create a GitHub Actions secret to securely store the service principal information. You use this secret in your workflow definition to connect to authenticate with Azure and access your Azure load testing resource.
 
@@ -152,6 +152,7 @@ Azure Load Testing uses Azure RBAC to grant permissions for performing specific 
 1. In the **Review + assign tab**, select **Review + assign** to add the role assignment.
 
 You can now use the service connection in your Azure Pipelines workflow definition to access your Azure load testing resource.
+
 ---
 
 ## Export load test input files
