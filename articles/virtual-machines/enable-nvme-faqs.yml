@@ -46,7 +46,7 @@ sections:
       - question: |
           What I/O size is recommended to achieve the published performance? 
         answer: |
-          To achieve the maximum IOPS (260K), it's recommended to use a 4-KiB block size. For maximum performance throughput (8 GB/s), you can choose to use one of the following : 64 KiB, 128 KiB, 256 KiB or 1 MiB block size. However, it's important to optimize the I/O size based on the specific requirements of your application and to use the recommended block sizes only as a guideline. 
+          To achieve the maximum IOPS (260 K), it's recommended to use a 4-KiB block size. For maximum performance throughput (8 GB/s), you can choose to use one of the following : 64 KiB, 128 KiB, 256 KiB or 1-MiB block size. However, it's important to optimize the I/O size based on the specific requirements of your application and to use the recommended block sizes only as a guideline. 
       - question: |
           What workloads benefit with NVMe on Ebsv5 family? 
         answer: |
