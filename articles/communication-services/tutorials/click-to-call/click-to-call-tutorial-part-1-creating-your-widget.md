@@ -439,11 +439,11 @@ import { ClickToCallScreen } from './views/ClickToCallScreen';
 
 Then if you have done this and set the arguments we defined in `App.tsx` you should see this when the app is running with `npm run start`:
 
-<img src='../media/click-to-call/Sample-app-splash.png' width='800' alt-text='click to call sample app home page widget closed'>
+<img src='../media/click-to-call/Sample-app-splash.png' width='800' alt='click to call sample app home page widget closed'>
 
 Then when you action the widget button you should see:
 
-<img src='../media/click-to-call/Sample-app-widget-open.png' width='800' alt-text='click to call sample app home page widget open'>
+<img src='../media/click-to-call/Sample-app-widget-open.png' width='800' alt='click to call sample app home page widget open'>
 
 Yay! We have made the control surface for the widget! Next we talk about what we need to add to make this widget start a call in a new window.
 
