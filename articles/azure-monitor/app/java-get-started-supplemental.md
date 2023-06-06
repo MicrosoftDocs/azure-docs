@@ -72,6 +72,8 @@ For more information, see [Using Azure Monitor Application Insights with Spring 
 
 ## Java Application servers
 
+The following sections show how to set the `applicationinsights-agent-3.4.13.jar` agent path for different application servers. You can find the configuration options [here](./java-standalone-config.md).
+
 ### Tomcat 8 (Linux)
 
 #### Tomcat installed via apt-get or yum
@@ -79,7 +81,7 @@ For more information, see [Using Azure Monitor Application Insights with Spring 
 If you installed Tomcat via `apt-get` or `yum`, you should have a file `/etc/tomcat8/tomcat8.conf`. Add this line to the end of that file:
 
 ```
-JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/applicationinsights-agent-3.4.13.jar"
+JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/[applicationinsights-agent-3.4.13.jar](https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-config#configuration-file-path)"
 ```
 
 #### Tomcat installed via download and unzip
