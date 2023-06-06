@@ -711,25 +711,25 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Timeout is invalid, it should be no more than 7 days.
 - **Cause**: The timeout can't exceed 7 days.
-- **Recommendations**: Specify the valid timeout.
+- **Recommendation**: Specify the valid timeout.
 
 ### Error code: DF-SAPODATA-ODataServiceMissed
 
 - **Message**: SAP servicePath is required when browsing entity name.
 - **Cause**: The **Service path** can't be null when browsing the entity name.
-- **Recommendations**: Specify the **Service path**.
+- **Recommendation**: Specify the **Service path**.
 
 ### Error code: DF-SAPODATA-SystemError
 
 - **Message**: System Error: Failed to get deltaToken from SAP. Please contact Microsoft support for further assistance.
 - **Cause**: Failed to get the delta token from SAP.
-- **Recommendations**: Contact Microsoft support for further assistance.
+- **Recommendation**: Contact Microsoft support for further assistance.
 
 ### Error code: DF-SAPODATA-StageAuthInvalid
 
 - **Message**: Invalid client secret provided
 - **Cause**: The service principal credential of the staging storage is incorrect.
-- **Recommendations**: Test connection in your staging storage linked service, and confirm that the authentication settings in your staging storage are correct.
+- **Recommendation**: Test connection in your staging storage linked service, and confirm that the authentication settings in your staging storage are correct.
 
 ### Error code: DF-SAPODATA-NotReached
 
@@ -745,7 +745,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Current odata service doesn't support extracting ODP data, please enable ODP for the service
 - **Cause**: The current OData service doesn't support extracting ODP data.
-- **Recommendations**: Enable ODP for the service.
+- **Recommendation**: Enable ODP for the service.
 
 ### Error code: DF-SAPODP-AuthInvalid
 
