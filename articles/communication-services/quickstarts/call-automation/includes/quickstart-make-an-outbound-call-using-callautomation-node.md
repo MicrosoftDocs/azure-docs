@@ -27,6 +27,8 @@ Find the complete sample code for this quick start on [GitHub](https://github.co
 
 ## Setup the environment
 
+Download the sample code and navigate to the project directory and run the command below which will install the necessary dependencies and setup your developer environment.
+
 ```bash
 npm install
 ```
