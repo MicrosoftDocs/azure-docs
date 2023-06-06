@@ -19,7 +19,7 @@ attached to AKS hybrid cluster.
 * Subscription ID
 * Cluster name and resource group
 * AKS-Hybrid cluster name and resource group
-* Familiar with procedures provided in [Connect to AKS Hybrid](../quickstarts-tenant-workload-deployment#connect-to-the-aks-hybrid-cluster)
+* Familiar with procedures provided in [Connect to AKS Hybrid](/azure/AkS/Hybrid/create-aks-hybrid-preview-cli#connect-to-the-aks-hybrid-cluster)
 
 Once these prerequisites have been applied, we can finalize the repair of the “Curl -vk” by performing the below workaround.
 
