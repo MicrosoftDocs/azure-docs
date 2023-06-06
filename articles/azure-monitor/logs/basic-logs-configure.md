@@ -49,7 +49,7 @@ Configure a table for Basic logs if:
     | Active Directory | [AADDomainServicesDNSAuditsGeneral](/azure/azure-monitor/reference/tables/AADDomainServicesDNSAuditsGeneral)<br> [AADDomainServicesDNSAuditsDynamicUpdates](/azure/azure-monitor/reference/tables/AADDomainServicesDNSAuditsDynamicUpdates) |
     | API Management | [ApiManagementGatewayLogs](/azure/azure-monitor/reference/tables/ApiManagementGatewayLogs)<br>[ApiManagementWebSocketConnectionLogs](/azure/azure-monitor/reference/tables/ApiManagementWebSocketConnectionLogs) |
     | Application Insights | [AppTraces](/azure/azure-monitor/reference/tables/apptraces) |
-    | Chaos Experiments | [AppTraces](/azure/azure-monitor/reference/tables/ChaosStudioExperimentEventLogs) |
+    | Chaos Experiments | [ChaosStudioExperimentEventLogs](/azure/azure-monitor/reference/tables/ChaosStudioExperimentEventLogs) |
     | Container Apps | [ContainerAppConsoleLogs](/azure/azure-monitor/reference/tables/containerappconsoleLogs) |
     | Container Insights | [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2) |
     | Container Apps Environments | [AppEnvSpringAppConsoleLogs](/azure/azure-monitor/reference/tables/AppEnvSpringAppConsoleLogs) |

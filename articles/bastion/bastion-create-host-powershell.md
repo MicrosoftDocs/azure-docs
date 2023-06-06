@@ -5,7 +5,7 @@ description: Learn how to deploy Azure Bastion using PowerShell.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.date: 06/05/2023
 ms.author: cherylmc
 ms.custom: ignite-fall-2021, devx-track-azurepowershell
 # Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
@@ -17,21 +17,21 @@ This article shows you how to deploy Azure Bastion with the Standard SKU using P
 
 Once you deploy Bastion to your virtual network, you can connect to your VMs via private IP address. This seamless RDP/SSH experience is available to all the VMs in the same virtual network. If your VM has a public IP address that you don't need for anything else, you can remove it.
 
-You can also deploy Bastion by using the following other  methods:
+:::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
+
+In this article, you create a virtual network (if you don't already have one), deploy Azure Bastion using PowerShell, and connect to a VM. You can also deploy Bastion by using the following other methods:
 
 * [Azure portal](./tutorial-create-host-portal.md)
 * [Azure CLI](create-host-cli.md)
 * [Quickstart - deploy with default settings](quickstart-host-portal.md)
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-> [!NOTE]
-> The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
->
-
 ## Prerequisites
 
 The following prerequisites are required.
+
+### Azure subscription
+
+Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 
 ### Azure PowerShell
 
@@ -66,9 +66,17 @@ You can use the following example values when creating this configuration, or yo
 | Public IP address SKU |  Standard  |
 | Assignment  | Static |
 
+> [!NOTE]
+> The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
+>
+
 ## Deploy Bastion
 
 This section helps you create a virtual network, subnets, and deploy Azure Bastion using Azure PowerShell.
+
+> [!IMPORTANT]
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+>
 
 1. Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. If you're running PowerShell locally, open your PowerShell console with elevated privileges and connect to Azure using the `Connect-AzAccount` command.
 
@@ -148,7 +156,7 @@ This section helps you create a virtual network, subnets, and deploy Azure Basti
 
 ## <a name="create-vm"></a>Create a VM
 
-You can create a VM using the [Quickstart: Create a VM using PowerShell](../virtual-machines/windows/quick-create-powershell.md) or  [Quickstart: Create a VM using the portal](../virtual-machines/windows/quick-create-portal.md) articles. Be sure you deploy the VM to the virtual network to which you deployed Bastion. The VM you create in this section isn't a part of the Bastion configuration and doesn't become a bastion host. You connect to this VM later in this tutorial via Bastion.
+You can create a VM using the [Quickstart: Create a VM using PowerShell](../virtual-machines/windows/quick-create-powershell.md) or [Quickstart: Create a VM using the portal](../virtual-machines/windows/quick-create-portal.md) articles. Be sure you deploy the VM to the virtual network to which you deployed Bastion. The VM you create in this section isn't a part of the Bastion configuration and doesn't become a bastion host. You connect to this VM later in this tutorial via Bastion.
 
 The following required roles for your resources.
 
