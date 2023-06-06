@@ -139,7 +139,7 @@ Finally, the third path is for the local/temp disk. This is available only on VM
 
 As an example of these limitations, a Standard_D2s_v3 VM is prevented from achieving the 5,000 IOPS potential of a P30 disk, whether it is cached or not, because of limits at the SSD and network levels:
 
-![Diagram of three level provisioning system with Standard_DS1v1 example allocation.](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
+![Diagram of three level provisioning system with Standard_D2s_v3 example allocation.](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
 
 Azure uses prioritized network channel for disk traffic, which gets the precedence over other low priority of network traffic. This helps disks maintain their expected performance in case of network contentions. Similarly, Azure Storage handles resource contentions and other issues in the background with automatic load balancing. Azure Storage allocates required resources when you create a disk, and applies proactive and reactive balancing of resources to handle the traffic level. This further ensures disks can sustain their expected IOPS and throughput targets. You can use the VM-level and Disk-level metrics to track the performance and setup alerts as needed.
 
