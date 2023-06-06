@@ -1,8 +1,8 @@
 ---
 title: Use #C to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
 description: See how to use C# to connect and run SQL statements on Azure Cosmos DB for PostgreSQL.
-ms.author: sasriram
-author: saimicrosoft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
