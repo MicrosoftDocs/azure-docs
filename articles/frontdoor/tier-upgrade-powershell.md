@@ -43,24 +43,26 @@ Global   myAzureFrontDoor  frontdoor myAFDResourceGroup
 
 ### WAF policies associated
 
-1. Run the [New-AzFrontDoorCdnProfileChangeSkuWafMappingObject](/powershell/module/az.cdn/new-azfrontdoorcdnprofilechangeskuwafmappingobject) command to create a new object for the WAF policy mapping.
+1. Run the [New-AzFrontDoorCdnProfileChangeSkuWafMappingObject](/powershell/module/az.cdn/new-azfrontdoorcdnprofilechangeskuwafmappingobject) command to create a new object for the WAF policy mapping. This command maps the standard WAF policy to the premium WAF policy resource ID. The premium WAF policy can be an existing one or a new one. If you're using an existing one, replace the WafPolicyId value with the resource ID of the premium WAF policy. If you're creating a new one, replace the `premiumWAFPolicyName` value with the name of the premium WAF policy. In this example, we're creating two premium WAF policies named **myPremiumWAFPolicy1** and **myPremiumWAFPolicy2**.
+
+    ```powershell-interactive
 
     Replace the following values in the command:
 
     * `<subscriptionId>`: Your subscription ID.
     * `<resourceGroupName>`: The resource group name of the WAF policy.
-    * `<wafPolicyName>`: The name of the WAF policy.
+    * `<standardWAFPolicyName>`: The name of the standard WAF policy.
 
     ```powershell-interactive
-    $waf1 = New-AzFrontDoorCdnProfileChangeSkuWafMappingObject -WafPolicyId /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/<wafPolicyName>
+    $waf1 = New-AzFrontDoorCdnProfileChangeSkuWafMappingObject SecurityPolicyName <standardWAFPolicyName> -WafPolicyId /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/myPremiumWAFPolicy1
 
-    $waf2 = New-AzFrontDoorCdnProfileChangeSkuWafMappingObject -WafPolicyId /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/<wafPolicyName>
+    $waf2 = New-AzFrontDoorCdnProfileChangeSkuWafMappingObject SecurityPolicyName <standardWAFPolicyName> -WafPolicyId /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/myPremiumWAFPolicy2
     ```
 
 1. Run the [New-AzFrontDoorCdnProfileUpgradeParametersObject](/powershell/module/az.cdn/new-azfrontdoorcdnprofileupgradeparametersobject) command to create a new object for the upgrade parameters.
 
     ```powershell-interactive
-    $upgradeParams = New-AzFrontDoorCdnProfileUpgradeParametersObject -WafPolicyMapping $waf1, $waf2
+    $upgradeParams = New-AzFrontDoorCdnProfileUpgradeParametersObject -WafPolicyMapping @{$waf1, $waf2}
     ```
 
 1. Run the [Update-AzFrontDoorCdnProfile](/powershell/module/az.cdn/update-azfrontdoorcdnprofile) command to upgrade your Azure Front Door Standard profile to Premium. The following example shows the command to upgrade a profile named **myAzureFrontDoor** in the resource group **myAFDResourceGroup**.
