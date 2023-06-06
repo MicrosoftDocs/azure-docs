@@ -94,6 +94,9 @@
         - name: Private access
           href: concepts-private-access.md
           displayName: private, link
+        - name: Node DNS names
+          href: concepts-connect.md
+          displayName: DNS, FQDN, connection, connect
         - name: Customer managed keys
           href: concepts-customer-managed-keys.md
           displayName: customer-managed, keys, cmk
