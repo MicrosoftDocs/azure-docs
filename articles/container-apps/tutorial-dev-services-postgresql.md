@@ -10,7 +10,7 @@ ms.author: ahmels
 
 # Tutorial: Create and use a PostgreSQL service for development
 
-The Azure Container Apps service enables you to provision services like PostgreSQL, [Redis](./tutorial-dev-services-redis.md), [Apache Kafka](./tutorial-dev-services-kafka.md), etc on the same environment as your applications. Those services are deployed as special type of Container Apps that is managed for you and you can connect other applications to them securely without exporting secrets, or sharing them anywhere. Those services are deployed in the same private network as your applications so you don't have to setup or manage VNETs for simple development workflows. Finally, these services compute scale to 0 like other Container Apps when not used to cut down on cost for development.
+The Azure Container Apps service enables you to provision services like PostgreSQL, Redis, and Apache Kafka on the same environment as your applications. Those services are deployed as special type of Container Apps that is managed for you and you can connect other applications to them securely without exporting secrets, or sharing them anywhere. Those services are deployed in the same private network as your applications so you don't have to setup or manage VNETs for simple development workflows. Finally, these services compute scale to 0 like other Container Apps when not used to cut down on cost for development.
 
 In this tutorial you learn how to create and use a development PostgreSQL service. There are both step-by-step Azure CLI commands, as well as Bicep template fragments for each step. For Bicep, adding all fragments to the same bicep file and deploying the template all at once or after each incremental update works equally.
 
