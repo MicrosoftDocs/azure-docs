@@ -118,7 +118,7 @@ Configuration settings such authentication methods allowed, hybrid configuration
 
 ## Next steps
 
-* [Introduction to delegated administration and isolated environments](secure-with-azure-ad-introduction.md)
+* [Introduction to delegated administration and isolated environments](secure-introduction.md)
 
 * [Azure AD fundamentals](secure-with-azure-ad-fundamentals.md)
 
@@ -126,4 +126,4 @@ Configuration settings such authentication methods allowed, hybrid configuration
 
 * [Resource isolation with multiple tenants](secure-with-azure-ad-multiple-tenants.md)
 
-* [Best practices](secure-with-azure-ad-best-practices.md)
+* [Best practices](secure-best-practices.md)
