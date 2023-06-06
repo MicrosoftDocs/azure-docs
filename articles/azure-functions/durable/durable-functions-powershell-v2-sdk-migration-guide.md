@@ -30,9 +30,9 @@ By creating a standalone DF PowerShell SDK, we're able to overcome these shortco
 
 ## Deprecation plan for the built-in DF PowerShell SDK
 
-The built-in DF SDK in the PowerShell worker will remain available for PowerShell 7.2 and prior releases. This means that existing apps will be able to continue using the built-in SDK as long as their language workers are supported. 
+The built-in DF SDK in the PowerShell worker will remain available for PowerShell 7.2 and prior releases. This means that existing apps will be able to continue using the built-in SDK as long as they continue using PowerShell 7.2 or an older release.
 
-After the new DF PowerShell SDK is GA, this new SDK package will be the recommended way of authoring Durable Functions apps. Therefore, starting with the language worker for PowerShell 7.4 onwards, new versions of the PowerShell worker will not contain a built-in Durable Functions SDK and users will instead be recommended to install the SDK using this standalone package. 
+Starting with PowerShell 7.4 onwards, the PowerShell worker will not contain a built-in DF SDK. Therefore, users will need to install the SDK separately using this standalone package. 
 
 ## Install and enable the SDK
 
