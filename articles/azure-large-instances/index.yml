@@ -15,7 +15,7 @@ metadata:
 
 
 # card 1
-  - title: Epic for Azure Large Instances
+    title: Epic for Azure Large Instances
     linkLists: 
       - linkListType: architecture
         links:
