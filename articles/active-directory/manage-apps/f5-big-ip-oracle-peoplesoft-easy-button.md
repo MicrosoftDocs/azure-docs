@@ -28,7 +28,7 @@ Integrate BIG-IP with Azure AD for many benefits:
 
 Learn more: 
 
-* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Integrate F5 BIG-IP with Azure AD](./f5-integration.md)
 * [Enable single sign-on for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description
@@ -69,9 +69,9 @@ For this scenario, SHA supports SP- and IdP-initiated flows. The following diagr
 * A BIG-IP or a BIG-IP Virtual Edition (VE) in Azure
   * See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
 * Any of the following F5 BIG-IP licenses:
-    * F5 BIG-IP® Best bundle
+    * F5 BIG-IP&reg; Best bundle
     * F5 BIG-IP APM standalone license
-    * F5 BIG-IP APM add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
+    * F5 BIG-IP APM add-on license on an existing BIG-IP F5 BIG-IP&reg; Local Traffic Manager&trade; (LTM)
     * 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php)
 * User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to the on-premises directory
   * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
@@ -292,7 +292,7 @@ Not covered in the operations guide is single log-out (SLO) functionality, which
  
 Published-application SAML federation data is imported from the tenant. This action provides the APM with the SAML sign-out endpoint for Azure AD, which ensures SP-initiated sign out terminates client and Azure AD sessions. The APM needs to know when a user signs out.
 
-When the BIG-IP webtop portal accesses published applications, the APM processes a sign out to call the Azure AD sign-out endpoint. If the BIG-IP webtop portal isn’t used, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious. SP-initiated sign out needs secure session termination. Add an SLO function to your application **Sign out** button, to redirect your client to the Azure AD SAML or BIG-IP sign out endpoint. The SAML sign out endpoint URL for your tenant in **App Registrations > Endpoints**.
+When the BIG-IP webtop portal accesses published applications, the APM processes a sign out to call the Azure AD sign-out endpoint. If the BIG-IP webtop portal isn't used, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious. SP-initiated sign out needs secure session termination. Add an SLO function to your application **Sign out** button, to redirect your client to the Azure AD SAML or BIG-IP sign out endpoint. The SAML sign out endpoint URL for your tenant in **App Registrations > Endpoints**.
 
 If you can't change the app, consider having the BIG-IP listen for application sign out calls, and trigger SLO. For more information, see **PeopleSoft Single Logout** in the following section.
 
@@ -312,7 +312,7 @@ To learn more, got o docs.oracle.com for [Oracle Access Manger Integration Guide
 
 Configure Oracle Access Manager to accept SSO from the BIG-IP. 
 
-1.	Sign into the Oracle console with admin permissions.
+1.    Sign into the Oracle console with admin permissions.
 
    ![Screenshot of the Oracle console.](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-console.png)
  
@@ -326,32 +326,32 @@ Configure Oracle Access Manager to accept SSO from the BIG-IP.
 
    ![Screenshot of User ID on the Roles tab, User Profiles.](./media/f5-big-ip-easy-button-oracle-peoplesoft/user-profiles.png)
  
-9.	Navigate to **People Tools** > **Web Profile**.
-10.	Select the web profile.
-11.	On **Security** tab, in **Public Users**, select **Allow Public Access**.
-12.	For **User ID**, enter **OAMPSFT**.
-13.	Enter the **Password**.
+9.    Navigate to **People Tools** > **Web Profile**.
+10.    Select the web profile.
+11.    On **Security** tab, in **Public Users**, select **Allow Public Access**.
+12.    For **User ID**, enter **OAMPSFT**.
+13.    Enter the **Password**.
 
    ![Screenshot of options and selections for Public Users.](./media/f5-big-ip-easy-button-oracle-peoplesoft/web-profiles.png)
  
-14.	Leave the Peoplesoft console.
-15.	Start **PeopleTools Application Designer**.
-16.	Right-click the **LDAPAUTH** field.
-17.	Select **View PeopleCode**.
+14.    Leave the Peoplesoft console.
+15.    Start **PeopleTools Application Designer**.
+16.    Right-click the **LDAPAUTH** field.
+17.    Select **View PeopleCode**.
 
    ![Screenshot of LDAPAUTH options under Application Designer.](./media/f5-big-ip-easy-button-oracle-peoplesoft/application-designer.png)
  
-18.	The **LDAPAUTH** code windows opens.
-19.	Locate the **OAMSSO_AUTHENTICATION** function.
+18.    The **LDAPAUTH** code windows opens.
+19.    Locate the **OAMSSO_AUTHENTICATION** function.
 20. Replace the **&defaultUserId** value with **OAMPSFT**. 
 
     ![Screenshot of default User ID value equals OAMPSFT under Function.](./media/f5-big-ip-easy-button-oracle-peoplesoft/oamsso-authentication-function.png)
  
-21.	Save the record. 
-22.	Navigate to **PeopleTools > Security.
-23.	Select **Security Objects**.
-24.	Select **Sign on PeopleCode**.
-25.	Enable **OAMSSO_AUTHENTICATION**.
+21.    Save the record. 
+22.    Navigate to **PeopleTools > Security.
+23.    Select **Security Objects**.
+24.    Select **Sign on PeopleCode**.
+25.    Enable **OAMSSO_AUTHENTICATION**.
  
 ### PeopleSoft Single Logout
 
@@ -359,22 +359,22 @@ When you sign out of [My Apps](https://myapplications.microsoft.com/), PeopleSof
 
 Add SLO support for PeopleSoft users.
 
-1.	Obtain the PeopleSoft portal sign-out URL.
-2.	Open the portal with a web browser.
-3.	Enable the debug tools. 
-4.	Locate the element with the **PT_LOGOUT_MENU** ID.
-5.	Save the URL path with the query parameters. In this example: `/psp/ps/?cmd=logout`.
+1.    Obtain the PeopleSoft portal sign-out URL.
+2.    Open the portal with a web browser.
+3.    Enable the debug tools. 
+4.    Locate the element with the **PT_LOGOUT_MENU** ID.
+5.    Save the URL path with the query parameters. In this example: `/psp/ps/?cmd=logout`.
 
    ![Screenshot of PeopleSoft logout URL.](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-logout-url.png)
  
 Create a BIG-IP iRule to redirect users to the SAML SP sign out endpoint: `/my.logout.php3`.
  
-1.	Navigate to **Local Traffic > iRules List.
-2.	Select **Create**. 
-3.	Enter a rule **Name**.
-4.	Enter the following command lines.
+1.    Navigate to **Local Traffic > iRules List.
+2.    Select **Create**. 
+3.    Enter a rule **Name**.
+4.    Enter the following command lines.
  
-   ```when HTTP_REQUEST {switch -glob -- [HTTP::uri] { "/psp/ps/?cmd=logout" {HTTP::redirect "/my.logout.php3" }}} ```
+   ```when HTTP_REQUEST {switch -glob -- [HTTP::uri] { "/psp/ps/?cmd=logout" {HTTP::redirect "/my.logout.php3" }}}```
 
 5. Select **Finished**.
 
@@ -385,19 +385,19 @@ Assign the iRule to the BIG-IP Virtual Server.
 
     ![Screenshot of the PeopleSoft application configuration link.](./media/f5-big-ip-easy-button-oracle-peoplesoft/link-peoplesoft-application.png)
  
-3.	From the top navigation bar, select **Virtual Server**.
-4.	For **Advanced Settings**, select **On*.
+3.    From the top navigation bar, select **Virtual Server**.
+4.    For **Advanced Settings**, select **On*.
 
-    ![Screenshot of the Advanced Aettings option on Virtual Server Properties.](./media/f5-big-ip-easy-button-oracle-peoplesoft/enable-advanced-settings.png)
+![Screenshot of the Advanced Aettings option on Virtual Server Properties.](./media/f5-big-ip-easy-button-oracle-peoplesoft/enable-advanced-settings.png)
 
-4.	Scroll to the bottom.
-5.	Under **Common**, add the iRule you created.
+4.    Scroll to the bottom.
+5.    Under **Common**, add the iRule you created.
 
-    ![Screenshot of the irule under Common on Virtual Server Configuration.](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-irule.png)
+![Screenshot of the irule under Common on Virtual Server Configuration.](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-irule.png)
  
-5.	Select **Save**.
-6.	Select **Next**.
-7.	Continue to configure settings. 
+5.    Select **Save**.
+6.    Select **Next**.
+7.    Continue to configure settings. 
  
 To learn more, go to support.f5.com for:
 
@@ -406,15 +406,15 @@ To learn more, go to support.f5.com for:
 
 ### Default to PeopleSoft landing page
  
-Redirect user requests from the root (“/”) to the external PeopleSoft portal, usually located in: “/psc/ps/EXTERNAL/HRMS/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL”
+Redirect user requests from the root ("/") to the external PeopleSoft portal, usually located in: "/psc/ps/EXTERNAL/HRMS/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL"
  
-1.	Navigate to **Local Traffic > iRule**.
-2.	Select **iRule_PeopleSoft**.
-3.	Add the following command lines.
+1.    Navigate to **Local Traffic > iRule**.
+2.    Select **iRule_PeopleSoft**.
+3.    Add the following command lines.
  
    ```when HTTP_REQUEST {switch -glob -- [HTTP::uri] {"/" {HTTP::redirect "/psc/ps/EXTERNAL/HRMS/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GB"/psp/ps/?cmd=logout" {HTTP::redirect "/my.logout.php3"} } }```
  
-4.	Assign the iRule to the BIG-IP Virtual Server.
+4.    Assign the iRule to the BIG-IP Virtual Server.
  
 ## Confirm configuration
  
@@ -464,7 +464,7 @@ When complete, revert this feature because verbose mode generates lots of data.
 
 ### BIG-IP error message
 
-If a BIG-IP error appears after Azure AD preauthentication, it’s possible the issue relates to Azure AD to BIG-IP SSO.
+If a BIG-IP error appears after Azure AD preauthentication, it's possible the issue relates to Azure AD to BIG-IP SSO.
 
 1. Navigate to **Access > Overview**.
 2. Select **Access reports**.

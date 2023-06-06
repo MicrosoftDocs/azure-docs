@@ -11106,6 +11106,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/f5-aad-integration.md",
+      "redirect_url": "/azure/active-directory/manage-apps/f5-integration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/f5-aad-password-less-vpn.md",
+      "redirect_url": "/azure/active-directory/manage-apps/f5-passwordless-vpn",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-perform-security-review.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review",
       "redirect_document_id": false

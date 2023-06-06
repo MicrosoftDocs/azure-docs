@@ -203,7 +203,7 @@
         - name: F5 BIG-IP and Azure AD integration
           items:
           - name: Integrate F5 BIG-IP with Azure AD
-            href: f5-aad-integration.md
+            href: f5-integration.md
           - name: Easy Button guided configuration
             items:
             - name: Kerberos
@@ -229,7 +229,7 @@
               - name: Form-based
                 href: f5-big-ip-forms-advanced.md 
               - name: SSL-VPN
-                href: f5-aad-password-less-vpn.md  
+                href: f5-passwordless-vpn.md  
               - name: B2C
                 href: ../../active-directory-b2c/partner-f5.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
       - name: Silverfort
