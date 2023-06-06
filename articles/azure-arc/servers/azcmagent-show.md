@@ -48,7 +48,7 @@ azcmagent show status lastHeartbeat
 
 `[property]`
 
-The name of the property to include in the output. Only those property names specified will be shown. You can use either the display name (enclose any properties with a space in quotes) or the key name from the JSON output when specifying a property.
+The name of a property to include in the output. If you want to show more than one property, separate them by spaces. You can use either the display name or the JSON key name to specify a property. For display names with spaces, enclose the property in quotes.
 
 `--os`
 
