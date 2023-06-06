@@ -28,7 +28,7 @@ From the **available upgrade versions** tab, we're able to see the different clu
 
 ![Runtime Upgrade - Choose Runtime Version](./media/RuntimeUpgrade-RuntimeVersion.png)
 
-## Upgrading Runtime using CLI
+## Upgrading cluster runtime using CLI
 
 Before executing the runtime upgrade, ensure that you're logged in to the same subscription as your target cluster via `az login`
 
