@@ -286,7 +286,7 @@ items:
       - name: Introduction
         href: secure-with-azure-ad-introduction.md
       - name: Fundamentals
-        href: secure-with-azure-ad-fundamentals.md
+        href: secure-fundamentals.md
       - name: Resource management
         href: secure-with-azure-ad-resource-management.md
       - name: Delegating administration in a single tenant

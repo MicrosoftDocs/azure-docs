@@ -12575,6 +12575,12 @@
         "redirect_url": "/azure/active-directory/fundamentals/deployment-plans",
         "redirect_document_id": true
       },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-fundamentals.md",
+        "redirect_url": "/azure/active-directory/fundamentals/secure-fundamentals",
+        "redirect_document_id": true
+      },
     
       {
         "source_path_from_root": "/articles/active-directory/enterprise-users/clean-up-unmanaged-azure-ad-accounts.md",
@@ -12613,7 +12619,7 @@
       },
 
       {
-        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-best-practices.md",
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-fundamentals.md",
         "redirect_url": "/azure/active-directory/fundamentals/secure-best-practices",
         "redirect_document_id": true
       },
