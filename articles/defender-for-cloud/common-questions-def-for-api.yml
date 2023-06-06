@@ -71,7 +71,7 @@ sections:
         answer: APIs are assessed against their behavior studying traffic for the past 30 days. The alerts on anomalous APIs may be generated sooner if the API receives significant traffic for the ML models to learn traffic behavior. 
      
       - question: How do I see some alerts for Defender for APIs? 
-        answer: You can use the Sample alerts functionality on the Security alerts page of Microsoft Defender for Cloud to get a quick overview of Defender for APIs alerts and how they operate. You can also use an alert simulator "\<Git link>" to test our rule-based detections.
+        answer: You can use the Sample alerts functionality on the Security alerts page of Microsoft Defender for Cloud to get a quick overview of Defender for APIs alerts and how they operate. You can also use an [alert simulator](defender-for-apis-validation.md#simulate-an-alert) to test our rule-based detections.
 
       - question: How do I offboard APIs from Defender for APIs? 
         answer: Follow the instructions for [offboarding](defender-for-apis-manage.md#offboard-an-api) to remove APIs one at a time from Defender for APIs. 
