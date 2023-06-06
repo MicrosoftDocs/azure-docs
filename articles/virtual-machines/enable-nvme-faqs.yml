@@ -108,7 +108,7 @@ sections:
 
               'Content-Type'  = 'application/json'
 
-                  'Authorization' = 'Bearer ' + $access_token
+              'Authorization' = 'Bearer ' + $access_token
                                                                 }
             $body = @'
                       {
@@ -116,11 +116,11 @@ sections:
 
             "supportedCapabilities": {
 
-                  "diskControllerTypes":"SCSI, NVMe"
+              "diskControllerTypes":"SCSI, NVMe"
 
-                                                      }
-                                                             }
-                                                                    }
+                                              }
+                                              }
+                                              }
             '@
 
             $get_supported_capabilities = (Invoke-WebRequest -uri $uri -Method Get -Headers $auth_header | ConvertFrom-Json).properties.supportedCapabilities
