@@ -79,7 +79,7 @@ In addition to providing global SLA performance, Azure AD now provides tenant-le
 To access your tenant-level SLA performance:
 
 1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com) using the Reports Reader role (or higher).
-1. Go to **Azure AD** and select **Scenario Health** from the side menu.
+1. Go to **Azure AD**, select **Monitoring & health**, then select **Scenario Health** from the side menu.
 1. Select the **SLA Monitoring** tab.
 1. Hover over the graph to see the SLA performance for that month.
 
