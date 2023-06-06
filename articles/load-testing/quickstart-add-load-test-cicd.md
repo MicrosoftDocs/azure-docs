@@ -185,7 +185,7 @@ Perform the following steps to download the input files for an existing load tes
 
     Use the source code repository in which you configure the CI/CD pipeline.
 
-## Add Azure Load Testing to the CI/CD workflow
+## Update the CI/CD workflow definition
 
 Azure Load Testing supports both GitHub Actions and Azure Pipelines for running load tests.
 
