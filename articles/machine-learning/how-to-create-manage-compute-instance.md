@@ -118,18 +118,21 @@ Where the file *create-instance.yml* is:
   
 You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 
-### Enable SSH access
+---
 
-SSH access is disabled by default.  SSH access can't be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
+## Enable SSH access
+
+SSH access is disabled by default.  SSH access can't be enabled or disabled after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
 
 [!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
+
+### Set up an SSH key later
+
+Although SSH cannot be enabled or disabled after creation, you do have the option to set up an SSH key later on an SSH-enabled compute instance, where you can set up the SSH key post-creation. To do this, select to enable SSH on your compute instance, and select to "Set up an SSH key later" as the SSH public key source. After the compute instance is created, you can visit the Details page of your compute instance, and click to edit your SSH keys. From there, you will be able to add your SSH key.
 
 ### Connect with SSH
 
 [!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
-
-
----
 
 ## Create on behalf of
 
