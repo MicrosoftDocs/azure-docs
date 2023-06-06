@@ -4,7 +4,7 @@ description: Learn how to automatically provision and de-provision user accounts
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: a34b8778-3a56-4a39-835d-54044079350d
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

@@ -298,7 +298,7 @@ items:
   - name: Deployment guide
     items:
     - name: Azure Active Directory deployment plans
-      href: active-directory-deployment-plans.md
+      href: deployment-plans.md
     - name: Azure Active Directory B2C deployment plans
       href: azure-active-directory-b2c-deployment-plans.md
   - name: Azure AD Operations reference

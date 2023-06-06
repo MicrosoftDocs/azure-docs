@@ -49,13 +49,24 @@ For more information, see:
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Sensor versions 22.3.x and higher**: <br>- [Configure Active Directory and NTP settings in the Azure portal](#configure-active-directory-and-ntp-settings-in-the-azure-portal) |
+| **OT networks** | **Sensor version 22.3.9**: <br>- [New endpoint to send OT sensor logs to Defender for IoT](#new-endpoint-to-send-ot-sensor-logs-to-defender-for-iot) <br><br> **Sensor versions 22.3.x and higher**: <br>- [Configure Active Directory and NTP settings in the Azure portal](#configure-active-directory-and-ntp-settings-in-the-azure-portal) |
+
+### New endpoint to send OT sensor logs to Defender for IoT
+
+In version 22.3.9, we've added a new endpoint to our list of required endpoints to allow OT sensors to send more log data to our support teams. The additional data helps us troubleshoot customer issues, providing faster response times and more targeted solutions and recommendations.
+
+After updating your OT sensors, download the latest list of endpoints and ensure that your sensors can access all endpoints listed.
+
+For more information, see:
+
+- [Update Defender for IoT OT monitoring software](update-ot-software.md)
+- [Sensor deployment and access](how-to-manage-sensors-on-the-cloud.md#sensor-deployment-and-access)
 
 ### Configure Active Directory and NTP settings in the Azure portal
 
 Now you can configure Active Directory and NTP settings for your OT sensors remotely from the **Sites and sensors** page in the Azure portal. These settings are available for OT sensor versions 22.3.x and higher.
 
-For more information, see [Sensor setting reference](configure-sensor-settings-portal.md#sensor-setting-reference)
+For more information, see [Sensor setting reference](configure-sensor-settings-portal.md#sensor-setting-reference).
 
 ## April 2023
 
