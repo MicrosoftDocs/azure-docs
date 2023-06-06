@@ -666,6 +666,9 @@ To learn more, see [Device models repository](concepts-model-repository.md).
 
 Applications, such as IoT Central, use device models. In IoT Central, a model is part of the device template that describes the capabilities of the device. IoT Central uses the device template to dynamically build a UI for the device, including dashboards and analytics.
 
+> [!NOTE]
+> IoT Central defines some extensions to the DTDL language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
+
 A custom solution can use the [digital twins model parser](concepts-model-parser.md) to understand the capabilities of a device that implements the model. To learn more, see [Use IoT Plug and Play models in an IoT solution](concepts-model-discovery.md).
 
 ### Version

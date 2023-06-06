@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 03/31/2021
+ms.date: 06/06/2023
 ---
 
 [![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples)
@@ -123,7 +123,7 @@ async function provisionDevice(payload) {
   var provSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
   var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvProtocol(), provSecurityClient);
 
-  if (!!(payload)) {
+  if (payload) {
     provisioningClient.setProvisioningPayload(payload);
   }
 
@@ -144,13 +144,13 @@ The `sendTelemetry` function shows how the device sends the temperature telemetr
 
 ```javascript
 async function sendTelemetry(deviceClient, data, index, componentName) {
-  if (!!(componentName)) {
+  if componentName) {
     console.log('Sending telemetry message %d from component: %s ', index, componentName);
   } else {
     console.log('Sending telemetry message %d from root interface', index);
   }
   const msg = new Message(data);
-  if (!!(componentName)) {
+  if (componentName) {
     msg.properties.add(messageSubjectProperty, componentName);
   }
   msg.contentType = 'application/json';

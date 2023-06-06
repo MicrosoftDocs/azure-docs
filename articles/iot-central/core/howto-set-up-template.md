@@ -194,7 +194,7 @@ The following table shows the configuration settings for a command capability:
 | Response | If enabled, a definition of the command response, including: name, display name, schema, unit, and display unit. |
 |Initial value | The default parameter value. This is an IoT Central extension to DTDL. |
 
-To learn more about how devices implement commands, see [Telemetry, property, and command payloads > Commands and long running commands](concepts-telemetry-properties-commands.md#commands).
+To learn more about how devices implement commands, see [Telemetry, property, and command payloads > Commands and long running commands](../../iot-develop/concepts-message-payloads.md#commands).
 
 #### Offline commands
 

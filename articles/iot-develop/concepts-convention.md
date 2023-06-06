@@ -42,6 +42,8 @@ To identify the model that a device or module implements, a service can get the 
 > [!NOTE]
 > Telemetry from components requires one message per component.
 
+For more telemetry examples, see [Payloads > Telemetry](concepts-message-payloads.md#telemetry)
+
 ## Read-only properties
 
 A read-only property is set by the device and reported to the back-end application.
@@ -125,6 +127,8 @@ Sample reported property payload:
   }
 }
 ```
+
+For more read-only property example, see [Payloads > Properties](concepts-message-payloads.md#properties).
 
 ## Writable properties
 
@@ -442,11 +446,18 @@ Sample reported property second payload:
 > [!NOTE]
 > You could choose to combine these two reported property payloads into a single payload.
 
+For more writable property example, see [Payloads > Properties](concepts-message-payloads.md#writable-property-types).
+
 ## Commands
 
 No component interfaces use the command name without a prefix.
 
 On a device or module, multiple component interfaces use command names with the following format: `componentName*commandName`.
+
+For more command examples, see [Payloads > Commands](concepts-message-payloads.md#commands).
+
+> [!TIP]
+> IoT Central has its own conventions for implementing [Long-running commands](../iot-central/core/howto-use-commands.md#long-running-commands) and [Offline commands](../iot-central/core/howto-use-commands.md#offline-commands).
 
 ## Next steps
 
