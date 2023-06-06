@@ -11056,6 +11056,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/migrate-applications-from-okta-to-azure-active-directory.md",
+      "redirect_url": "/azure/active-directory/manage-apps/migrate-applications-from-okta",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/privileged-identity-management/pim-apis-concept.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-apis",
       "redirect_document_id": false
@@ -12564,6 +12569,18 @@
         "redirect_url": "/azure/active-directory/privileged-identity-management/pim-perform-roles-and-resource-roles-review",
         "redirect_document_id": false
       },
+    
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-deployment-plans.md",
+        "redirect_url": "/azure/active-directory/fundamentals/deployment-plans",
+        "redirect_document_id": true
+      },
+    
+      {
+        "source_path_from_root": "/articles/active-directory/enterprise-users/clean-up-unmanaged-azure-ad-accounts.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/clean-up-unmanaged-accounts",
+        "redirect_document_id": true
+      },
 
       {
         "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md",
@@ -12606,6 +12623,6 @@
         "redirect_url": "/azure/active-directory/standards/configure-for-cmmc-compliance",
         "redirect_document_id": true
       }
-
+    
       ]
 }
