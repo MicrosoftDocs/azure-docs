@@ -139,7 +139,7 @@ The following instructions help you create a tenant app registration to authoriz
 
 8. Follow the configuration sequence.
 
-   ![Screenshot of configuration sequence under Azure AD Application Configuration.](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png#lightbox)
+![Screenshot of configuration sequence under Azure AD Application Configuration.](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png#lightbox)
    
 ### Configuration Properties
 
@@ -154,7 +154,7 @@ Use the **Configuration Properties** tab to creat new application configurations
 4. Confirm the BIG-IP connects to the tenant.
 5. Select **Next**.
 
-   ![Screenshot of options and selections for Configuration Properties.](./media/f5-big-ip-easy-button-oracle-peoplesoft/configuration-general-and-service-account-properties.png)
+![Screenshot of options and selections for Configuration Properties.](./media/f5-big-ip-easy-button-oracle-peoplesoft/configuration-general-and-service-account-properties.png)
  
 ### Service Provider
 
@@ -163,26 +163,26 @@ Use the **Service Provider** settings to define SAML SP properties for the APM i
 1. For **Host**, enter the public FQDN of the secured application.
 2. For **Entity ID**, enter the identifier Azure AD uses to identify the SAML SP requesting a token.
 
-   ![Screenshot of options and selections for Service Provider.](./media/f5-big-ip-easy-button-oracle-jde/service-provider-settings.png)
+![Screenshot of options and selections for Service Provider.](./media/f5-big-ip-easy-button-oracle-jde/service-provider-settings.png)
 
 3. (Optional) For **Security Settings**, indicate Azure AD encrypts issued SAML assertions. This option increases assurance that content tokens aren't intercepted, nor data compromised.
 
 4. From the **Assertion Decryption Private Key** list, select **Create New**.
 
-   ![Screenshot Create New in the Assertion Decryption Private Key list.](./media/f5-big-ip-oracle/configure-security-create-new.png)
+![Screenshot Create New in the Assertion Decryption Private Key list.](./media/f5-big-ip-oracle/configure-security-create-new.png)
 
 5. Select **OK**. 
 6. The **Import SSL Certificate and Keys** dialog appears in a new tab.
 7. For **Import Type**, select **PKCS 12 (IIS)**. This option imports your certificate and private key.
 8. Close the browser tab to return to the main tab.
 
-   ![Screenshot of options and selections for SSL Certificate and Key Source](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
+![Screenshot of options and selections for SSL Certificate and Key Source](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
 
 9. For **Enable Encrypted Assertion**, check the box.
 10. If you enabled encryption, from the **Assertion Decryption Private Key** list, select your certificate. This private key is for the certificate that BIG-IP APM uses to decrypt Azure AD assertions.
 11. If you enabled encryption, from the **Assertion Decryption Certificate** list, select your certificate. BIG-IP uploads this certificate to Azure AD to encrypt issued SAML assertions.
 
-   ![Screenshot of options and selections for Security Settings.](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
+![Screenshot of options and selections for Security Settings.](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
  
 ### Azure Active Directory
 
@@ -191,32 +191,32 @@ The Easy Button has templates for Oracle PeopleSoft, Oracle E-Business Suite, Or
 1. Select **Oracle PeopleSoft**.
 2. Select **Add**.
 
-   ![Screenshot of the Oracle PeopleSoft option under Azure Configuration.](./media/f5-big-ip-easy-button-oracle-peoplesoft/azure-configuration-add-big-ip-application.png)
+![Screenshot of the Oracle PeopleSoft option under Azure Configuration.](./media/f5-big-ip-easy-button-oracle-peoplesoft/azure-configuration-add-big-ip-application.png)
 
 #### Azure Configuration
 
 1. Enter **Display Name** for the app BIG-IP creates in the tenant. The name appears on an icon in [My Apps](https://myapplications.microsoft.com/).
 2. (Optional) For **Sign On URL** enter the PeopleSoft application public FQDN.
 
-   ![Screenshot of Display Name and Sign On URL options under Azure Configuration.](./media/f5-big-ip-easy-button-oracle-peoplesoft/azure-configuration-add-display-info.png)
+![Screenshot of Display Name and Sign On URL options under Azure Configuration.](./media/f5-big-ip-easy-button-oracle-peoplesoft/azure-configuration-add-display-info.png)
 
 3. Next to the **Signing Key** and **Signing Certificate**, select **refresh**. This action locates the certificate you imported.
 4. For **Signing Key Passphrase**, enter the certificate password.
 
 5. (Optional) For **Signing Option**, select an option. This selection ensures BIG-IP accepts tokens and claims signed by Azure AD.
 
-    ![Screenshot of Signing Key, Signing Certificate, and Signing Key Passprhase options under SAML Signing Certificate.](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
+![Screenshot of Signing Key, Signing Certificate, and Signing Key Passprhase options under SAML Signing Certificate.](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
 
 6. **User And User Groups** are dynamically queried from the Azure AD tenant. 
 7. Add a user or group for testing, otherwise access is denied.
 
-    ![Screenshot of the Add option under Users And User Groups.](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
+![Screenshot of the Add option under Users And User Groups.](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
  
  #### User Attributes & Claims
 
 When a user authenticates, Azure AD issues a SAML token with default claims and attributes identifying the user. The **User Attributes & Claims** tab has default claims to issue for the new application. Use it to configure more claims. The Easy Button template has the employee ID claim required by PeopleSoft.
 
-   ![Screenshot of options and selections for User Attributes & Claims.](./media/f5-big-ip-easy-button-oracle-peoplesoft/user-attributes-claims.png)
+![Screenshot of options and selections for User Attributes & Claims.](./media/f5-big-ip-easy-button-oracle-peoplesoft/user-attributes-claims.png)
  
 If needed, include other Azure AD attributes. The sample PeopleSoft application requires predefined attributes.
 
@@ -224,7 +224,7 @@ If needed, include other Azure AD attributes. The sample PeopleSoft application 
 
 The **Additional User Attributes** tab supports distributed systems that require attributes are stored in other directories for session augmentation. Attributes from an LDAP source are injected as more SSO headers to control access based on roles, Partner IDs, etc. 
 
-   ![Screenshot of options and selections for Additional User Attributes.](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
+![Screenshot of options and selections for Additional User Attributes.](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
 
    >[!NOTE] 
    >This feature has no correlation to Azure AD; it's another attribute source.
@@ -240,7 +240,7 @@ Select a policy for the application.
 
 Selected policies have the **Include** or **Exclude** option checked. If both options are checked, the policy isn't enforced.
 
-   ![Screenshot of excluded policies under Selected Policies on the Conditional Access Policy tab.](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
+![Screenshot of excluded policies under Selected Policies on the Conditional Access Policy tab.](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
 
    > [!NOTE]
    > The policy list appears once, when you select the tab. Use **Refresh** for the wizard to query the tenant. This option appears after the application is deployed.
@@ -256,7 +256,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 5. For **Client SSL Profile**, select **Use Existing**.
 6. Under **Common** select the option you created. If testing, leave the default. Client SSL Profile enables the virtual server for HTTPS, so client connections are encrypted over TLS.
 
-   ![Screenshot of options and selections for Virtual Server Properties.](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
+![Screenshot of options and selections for Virtual Server Properties.](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
  
  ### Pool Properties
 
@@ -266,7 +266,7 @@ The **Application Pool** tab has services behind a BIG-IP, represented as a pool
 2. For **Load Balancing Method**, select **Round Robin**.
 3. For **Pool Servers**, in **IP Address/Node Name** select a node, or enter an IP and port for servers hosting the PeopleSoft application.
 
-   ![Screenshot of IP Address/Node Name and Port options on Pool Properties.](./media/f5-big-ip-easy-button-oracle-peoplesoft/application-pool.png)
+![Screenshot of IP Address/Node Name and Port options on Pool Properties.](./media/f5-big-ip-easy-button-oracle-peoplesoft/application-pool.png)
 
  #### Single sign-on & HTTP Headers
 
@@ -277,7 +277,7 @@ The Easy Button wizard supports Kerberos, OAuth Bearer, and HTTP authorization h
 3. For **Header Name**, enter **PS_SSO_UID**.
 4. For **Header Value**, enter **%{session.sso.token.last.username}**.
 
-   ![Screenshot of Header Operation, Header Name, and Header value entries under Single sign-On & HTTP Headers.](./media/f5-big-ip-easy-button-oracle-peoplesoft/sso-and-http-headers.png)
+![Screenshot of Header Operation, Header Name, and Header value entries under Single sign-On & HTTP Headers.](./media/f5-big-ip-easy-button-oracle-peoplesoft/sso-and-http-headers.png)
 
    >[!NOTE] 
    >APM session variables in curly brackets are case-sensitive. For instance, if you enter OrclGUID, and the attribute name is orclguid, attribute mapping fails.
@@ -314,7 +314,7 @@ Configure Oracle Access Manager to accept SSO from the BIG-IP.
 
 1.    Sign into the Oracle console with admin permissions.
 
-   ![Screenshot of the Oracle console.](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-console.png)
+![Screenshot of the Oracle console.](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-console.png)
  
 2. Navigate to **PeopleTools > Security**.
 3. Select **User Profiles**.
@@ -324,7 +324,7 @@ Configure Oracle Access Manager to accept SSO from the BIG-IP.
 7. For **User Role**, enter **PeopleSoft User**.
 8. Select **Save**.
 
-   ![Screenshot of User ID on the Roles tab, User Profiles.](./media/f5-big-ip-easy-button-oracle-peoplesoft/user-profiles.png)
+![Screenshot of User ID on the Roles tab, User Profiles.](./media/f5-big-ip-easy-button-oracle-peoplesoft/user-profiles.png)
  
 9.    Navigate to **People Tools** > **Web Profile**.
 10.    Select the web profile.
@@ -332,14 +332,14 @@ Configure Oracle Access Manager to accept SSO from the BIG-IP.
 12.    For **User ID**, enter **OAMPSFT**.
 13.    Enter the **Password**.
 
-   ![Screenshot of options and selections for Public Users.](./media/f5-big-ip-easy-button-oracle-peoplesoft/web-profiles.png)
+![Screenshot of options and selections for Public Users.](./media/f5-big-ip-easy-button-oracle-peoplesoft/web-profiles.png)
  
 14.    Leave the Peoplesoft console.
 15.    Start **PeopleTools Application Designer**.
 16.    Right-click the **LDAPAUTH** field.
 17.    Select **View PeopleCode**.
 
-   ![Screenshot of LDAPAUTH options under Application Designer.](./media/f5-big-ip-easy-button-oracle-peoplesoft/application-designer.png)
+![Screenshot of LDAPAUTH options under Application Designer.](./media/f5-big-ip-easy-button-oracle-peoplesoft/application-designer.png)
  
 18.    The **LDAPAUTH** code windows opens.
 19.    Locate the **OAMSSO_AUTHENTICATION** function.
@@ -365,7 +365,7 @@ Add SLO support for PeopleSoft users.
 4.    Locate the element with the **PT_LOGOUT_MENU** ID.
 5.    Save the URL path with the query parameters. In this example: `/psp/ps/?cmd=logout`.
 
-   ![Screenshot of PeopleSoft logout URL.](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-logout-url.png)
+![Screenshot of PeopleSoft logout URL.](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-logout-url.png)
  
 Create a BIG-IP iRule to redirect users to the SAML SP sign out endpoint: `/my.logout.php3`.
  
@@ -383,17 +383,17 @@ Assign the iRule to the BIG-IP Virtual Server.
 1. Navigate to **Access > Guided Configuration**.
 2. Select the PeopleSoft application configuration link.
 
-    ![Screenshot of the PeopleSoft application configuration link.](./media/f5-big-ip-easy-button-oracle-peoplesoft/link-peoplesoft-application.png)
+![Screenshot of the PeopleSoft application configuration link.](./media/f5-big-ip-easy-button-oracle-peoplesoft/link-peoplesoft-application.png)
  
 3.    From the top navigation bar, select **Virtual Server**.
 4.    For **Advanced Settings**, select **On*.
 
-    ![Screenshot of the Advanced Aettings option on Virtual Server Properties.](./media/f5-big-ip-easy-button-oracle-peoplesoft/enable-advanced-settings.png)
+![Screenshot of the Advanced Aettings option on Virtual Server Properties.](./media/f5-big-ip-easy-button-oracle-peoplesoft/enable-advanced-settings.png)
 
 4.    Scroll to the bottom.
 5.    Under **Common**, add the iRule you created.
 
-    ![Screenshot of the irule under Common on Virtual Server Configuration.](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-irule.png)
+![Screenshot of the irule under Common on Virtual Server Configuration.](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-irule.png)
  
 5.    Select **Save**.
 6.    Select **Next**.
@@ -436,7 +436,7 @@ Alternatively, in BIG-IP disable the Guided Configuration strict management mode
 1. Navigate to **Access > Guided Configuration**.
 2. At the end of the row, select the **padlock**.
 
-   ![Screenshot of the padlock icon.](./media/f5-big-ip-oracle/strict-mode-padlock.png)
+![Screenshot of the padlock icon.](./media/f5-big-ip-oracle/strict-mode-padlock.png)
 
 Changes with the wizard UI aren't possible, however BIG-IP objects associated with the application published instance are unlocked for management.
 
