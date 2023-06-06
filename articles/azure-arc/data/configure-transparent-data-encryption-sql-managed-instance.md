@@ -39,6 +39,15 @@ The following limitations apply when you enable automatic TDE:
 - Only General Purpose Tier is supported.
 - Failover groups aren't supported.
 
+
+## Create a managed instance with transparent data encryption enabled
+
+The following example creates an Azure Arc-enabled SQL managed instance with one replica, TDE enabled:
+
+```azurecli
+az sql mi-arc create --name sqlmi-tde --k8s-namespace arc --tde-mode ServiceManaged --use-k8s
+```
+
 ## Turn on transparent data encryption on the managed instance
 
 When TDE is enabled on Arc-enabled SQL Managed Instance, the data service automatically does the following tasks:
@@ -53,12 +62,18 @@ You can set Azure Arc-enabled SQL Managed Instance TDE in one of two modes:
 - Service-managed
 - Customer-managed
 
+### [Customer-managed mode](#tab/customer-managed-mode)
+
 In service-managed mode, transparent data encryption requires the managed instance to use a service-managed database master key as well as the service-managed server certificate. These credentials are automatically created when service-managed transparent data encryption is enabled. 
+
+### [Service-managed mode](#tab/service-managed-mode)
 
 In customer-managed mode, transparent data encryption uses a service-managed database master key and uses keys you provide for the server certificate. To configure customer-managed mode:
 
 1. Create a certificate.
 1. Store the certificate as a secret in the same Kubernetes namespace as the instance.
+
+--- 
 
 > [!NOTE]
 > If you need to change from one mode to the other, you must disable TDE from the current mode before you apply the new mode. For details, see [Turn off transparent data encryption on the managed instance](#turn-off-transparent-data-encryption-on-the-managed-instance).
@@ -72,7 +87,7 @@ In customer-managed mode, transparent data encryption uses a service-managed dat
 
 To proceed, select the mode you want to use.
 
-### [Service-managed mode](#tab/service-managed-mode)
+### [Kubernetes native](#tab/kubernetes-native/service-managed-mode)
 
 
 To enable TDE in service-managed mode, run kubectl patch to enable service-managed TDE
@@ -85,6 +100,14 @@ Example:
 
 ```console
 kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "ServiceManaged" } } } }'
+```
+
+### [Azure CLI](#tab/az-cli/service-managed-mode)
+
+To enable TDE in service-managed mode with `az` CLI:
+
+```azurecli
+az sql mi-arc update --tde-mode CustomerManaged --tde-protector-public-key-file <cert-file> --tde-protector-private-key-file <key-file>
 ```
 
 ### [Customer-managed mode](#tab/customer-managed-mode)
@@ -129,7 +152,7 @@ When TDE is disabled on Arc-enabled SQL Managed Instance, the data service autom
 3. Drops the service-managed certificate protector.
 4. Drops the service-managed database master key in the `master` database.
 
-### [Service-managed mode](#tab/service-managed-mode)
+### [Kubernetes native](#tab/kubernetes-native/service-managed-mode)
 
 Run kubectl patch to disable service-managed TDE.
 
@@ -140,6 +163,14 @@ kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{
 Example:
 ```console
 kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "Disabled" } } } }'
+```
+
+### [Azure CLI](#tab/az-cli/service-managed-mode)
+
+To disable TDE with Azure CLI:
+
+```azurecli
+az sql mi-arc update --tde-mode Disabled
 ```
 
 ### [Customer-managed mode](#tab/customer-managed-mode)
@@ -275,6 +306,7 @@ Similar to above, to restore the credentials, copy them into the container and r
    ```
 
    ### [Linux](#tab/linux)
+
    ```console
    kubectl cp --namespace <namespace> --container arc-sqlmi <local-certificate-path> <pod-name>:<pod-certificate-path>
    ```
@@ -287,7 +319,9 @@ Similar to above, to restore the credentials, copy them into the container and r
    ---
 
 2. Copy the private key from your file system to the container.
-   ### [Windows](#tab/windows)
+
+   # [Windows](#tab/windows)
+   
    ```console
    type <local-private-key-path> | kubectl exec -i -n <namespace> -c arc-sqlmi <pod-name> -- tee <pod-private-key-path>
    ```
@@ -299,6 +333,7 @@ Similar to above, to restore the credentials, copy them into the container and r
    ```
 
    ### [Linux](#tab/linux)
+
    ```console
    kubectl cp --namespace <namespace> --container arc-sqlmi <local-private-key-path> <pod-name>:<pod-private-key-path>
    ```
