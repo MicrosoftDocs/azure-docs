@@ -1609,6 +1609,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/concept-endpoint-manager.md",
+            "redirect_url": "/azure/frontdoor/manager",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/aks/aks-resource-health.md",
             "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
             "redirect_document_id": false
@@ -22760,7 +22765,7 @@
         },
         {
             "source_path_from_root": "/articles/aks/use-mariner.md",
-            "redirect_url": "/azure/aks/use-azurelinux",
+            "redirect_url": "/azure/aks/use-azure-linux",
             "redirect_document_id": false
         },
         {
