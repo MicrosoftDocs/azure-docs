@@ -35,6 +35,11 @@ This tutorial will be broken down into three parts:
 - using post messaging to start a calling experience in a new window
 - Embed your calling experience
 
+## Prerequisites
+
+- [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
+- [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended). Use the `node --version` command to check your version.
+
 
 ### Set up the project
 
@@ -51,6 +56,8 @@ npx create-react-app ui-library-click-to-call-app --template communication-react
 # Change to the directory of the newly created App.
 cd ui-library-click-to-call-app
 ```
+
+### Get your dependencies
 
 Then you need to update the dependency array in the `package.json` to include some beta and alpha packages for this to work:
 ```json
