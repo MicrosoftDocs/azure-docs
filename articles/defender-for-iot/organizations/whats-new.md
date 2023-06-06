@@ -53,20 +53,9 @@ You can see the following new security recommendations from the Azure portal for
 
 - **Secure your vulnerable devices**: Devices with this recommendation are found with one or more vulnerabilities with a critical severity. We recommend that you follow the steps listed by the device vendor or CISA (Cybersecurity & Infrastructure Agency).
 
-    To see required remediation steps:
-    1. Choose a device from the list of unhealthy devices to see its full list of vulnerabilities.
-    1. From the **Vulnerabilities** tab, choose the link in the **Name** column for the critical CVE you are mitigating. Full details are opened in the NVD (National Vulnerability Database).
-    1. Scroll to the NVD **References to Advisories, Solutions, and Tools** section and choose any of the listed links for more information. An advisory page opens, either from the vendor or from CISA.
-    1. Find and perform the remediation steps listed for your scenario. Note that some vulnerabilities cannot be remediated with a patch.
-
 - **Set a secure password for devices with missing authentication**: Devices with this recommendation are found without authentication based on successful sign-ins. We recommend that you enable authentication, and that you set a stronger password with minimum length and complexity.
 
-- **Set a stronger password with minimum length and complexity**: Devices with this recommendation are found with weak passwords based on successful sign-ins. We recommend that you change the device password to a password that has 8 or more characters and that contains characters from 3 of the following categories:
-
-    - Uppercase letters
-    - Lowercase letters
-    - Special characters
-    - Numbers (0-9)
+- **Set a stronger password with minimum length and complexity**: Devices with this recommendation are found with weak passwords based on successful sign-ins. We recommend that you change the device password to a stronger password with minimum length and complexity.
 
 For more information, see [Supported security recommendations](recommendations.md#supported-security-recommendations).
 
