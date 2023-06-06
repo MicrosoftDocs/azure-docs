@@ -1,0 +1,24 @@
+### YamlMime:Landing
+
+title: Azure for Large Instances documentation
+summary: Learn how to use Azure Large Instances
+
+metadata:
+  title: Azure for Large Instances documentation
+  description: Learn how to use ALI.
+  services: baremetal-infrastructure 
+  ms.service: baremetal-infrastructure
+  ms.topic: landing-page
+  author: jjaygbay
+  ms.author: jjaygbay
+  ms.date: 06/01/2023
+
+
+# card 1
+  - title: Epic for Azure Large Instances
+    linkLists: 
+      - linkListType: architecture
+        links:
+         - text: Architecture
+           url: workloads/nc2-on-azure/architecture.md 
+ 
