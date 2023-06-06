@@ -3,7 +3,7 @@ title: Enable pull request annotations in GitHub or in Azure DevOps
 description: Add pull request annotations in GitHub or in Azure DevOps. By adding pull request annotations, your SecOps and developer teams so that they can be on the same page when it comes to mitigating issues.
 ms.topic: overview
 ms.custom: ignite-2022
-ms.date: 06/04/2023
+ms.date: 06/06/2023
 ---
 
 # Enable pull request annotations in GitHub and Azure DevOps
@@ -17,9 +17,9 @@ With Microsoft Defender for Cloud, you can configure PR annotations in Azure Dev
 
 ## What are pull request annotations
 
-GitHub pull request annotations are comments that are added to a pull request in GitHub or Azure DevOps. These annotations provide feedback on the code changes made in the pull request and help reviewers understand the changes that are made.
+Pull request annotations are comments that are added to a pull request in GitHub or Azure DevOps. These annotations provide feedback on the code changes made and identified security issues in the pull request and help reviewers understand the changes that are made.
 
-Annotations can be added by anyone with access to the pull request and can be used to suggest changes, ask questions, or provide feedback on the code. Annotations can also be used to track issues and bugs that need to be fixed before the code is merged into the main branch.
+Annotations can be added by a user with access to the repository, and can be used to suggest changes, ask questions, or provide feedback on the code. Annotations can also be used to track issues and bugs that need to be fixed before the code is merged into the main branch. Defender for DevOps uses annotations to surface security findings. 
 
 ## Prerequisites
 
@@ -159,7 +159,7 @@ All annotations on your pull requests will be displayed from now on based on you
 
 ### Resolve security issues in Azure DevOps
 
-Once you've configured the scanner, you'll be able to view all issues that were detected.
+Once you've configured the scanner, you're able to view all issues that were detected.
 
 **To resolve security issues in Azure DevOps**:
 
