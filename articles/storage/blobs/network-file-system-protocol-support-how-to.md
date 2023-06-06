@@ -105,7 +105,7 @@ Create a directory on your Linux system, and then mount the container in the sto
      ```
 
 > [!NOTE]
-> Other nfs v3 mount options can be used awhile mounting as they are all mostly client side options and only affect the client behaviours. For sec option, **sys** is the only supported values as of now. 
+> Other optional parameters are available with the mount command. Those parameters primarily affect client-side behavior. `sys` is the only value that is currently supported by the `sec` option.
 
 ## Resolve common errors
 
