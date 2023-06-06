@@ -23,7 +23,7 @@ The TLS parameters `ssl` and `sslmode` vary based on the capabilities of the con
 Some application frameworks don't enable TLS by default for PostgreSQL connections. However, without a secure connection, an application can't connect to the coordinator node. Consult your application's documentation to learn how to enable TLS connections.
 
 ## Applications that require certificate verification for TLS connectivity
-In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file (.cer) to connect securely. The certificate to connect to an Azure Cosmos DB for PostgreSQL is located at https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem  Download the certificate file and save it to your preferred location.
+In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file (.cer) to connect securely. The certificate to connect to an Azure Cosmos DB for PostgreSQL is located at https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem. Download the certificate file and save it to your preferred location.
 
 > [!NOTE]
 >
