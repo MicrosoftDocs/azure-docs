@@ -59,16 +59,18 @@ var callbackUriHost = Environment.GetEnvironmentVariable("VS_TUNNEL_URL")?.TrimE
 
 ## Make an outbound call
 
-To make the outbound call from ACS, this sample will use the `TARGET_PHONE_NUMBER` you defined in the `appSettings.json` file to create the call using the `CreateCallAsync` API. The code below will create make an outbound call using the `TARGET_PHONE_NUMBER` you've provided and place an outbound call to that phone number number.
+To make the outbound call from ACS, this sample will use the `targetPhonenumber` you defined earlier in the application to create the call using the `CreateCallAsync` API. The code below will create make an outbound call using the target phone number.
 
 ```csharp
-PhoneNumberIdentifier target = new PhoneNumberIdentifier(quickStartConfig.TargetPhonenumber);
-PhoneNumberIdentifier caller = new PhoneNumberIdentifier(quickStartConfig.ACSPhonenumber);
+PhoneNumberIdentifier target = new PhoneNumberIdentifier(targetPhonenumber);
+PhoneNumberIdentifier caller = new PhoneNumberIdentifier(acsPhonenumber);
 CallInvite callInvite = new CallInvite(target, caller);
-CreateCallResult createCallResult = await callAutomationClient.CreateCallAsync(callInvite, quickStartConfig.CallbackUri).ConfigureAwait(false);
+CreateCallResult createCallResult = await callAutomationClient.CreateCallAsync(callInvite, new Uri(callbackUriHost + "/api/callbacks")).ConfigureAwait(false);
 ```
 
 ## Handle call automation events
+
+Earlier in our application, we registerd the `callbackUriHost` to the Call Automation Service. This indicates the endpoint the service will use to notify us of calling events that happen. We can then iterate through the events and detect specific events our application wants to understand. In the code be below we respond to the `CallConnected` event.
 
 ```csharp
 app.MapPost("/api/callbacks", async (CloudEvent[] cloudEvents, CallAutomationClient callAutomationClient, IOptions<CallConfiguration> callConfiguration, ILogger<Program> logger) =>
@@ -105,15 +107,12 @@ Using the `FileSource` API, you can provide the service the audio file you want 
 In the code below, we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `StartRecognizingAsync`. This recognize and options API enables the telephony client to send DTMF tones that we can recognize.
 
 ```csharp
-// prepare recognize tones
-CallMediaRecognizeDtmfOptions callMediaRecognizeDtmfOptions = new CallMediaRecognizeDtmfOptions(new PhoneNumberIdentifier(quickStartConfig.TargetPhonenumber), maxTonesToCollect: 1);
-callMediaRecognizeDtmfOptions.Prompt = new FileSource("MY_WELCOME_AUDIO_FILE");
+CallMediaRecognizeDtmfOptions callMediaRecognizeDtmfOptions = new CallMediaRecognizeDtmfOptions(new PhoneNumberIdentifier(targetPhonenumber), maxTonesToCollect: 1);
+callMediaRecognizeDtmfOptions.Prompt = new FileSource(new Uri(callbackUriHost + "/audio/MainMenu.wav"));
 callMediaRecognizeDtmfOptions.InterruptPrompt = true;
-callMediaRecognizeDtmfOptions.InitialSilenceTimeout = TimeSpan.FromSeconds(10);
+callMediaRecognizeDtmfOptions.InitialSilenceTimeout = TimeSpan.FromSeconds(5);
 callMediaRecognizeDtmfOptions.InterToneTimeout = TimeSpan.FromSeconds(10);
 callMediaRecognizeDtmfOptions.StopTones = new List<DtmfTone> { DtmfTone.Pound, DtmfTone.Asterisk };
-callMediaRecognizeDtmfOptions.OperationContext = "WelcomeMessage";
-
 // Send request to recognize tones
 await callMedia.StartRecognizingAsync(callMediaRecognizeDtmfOptions);
 ```

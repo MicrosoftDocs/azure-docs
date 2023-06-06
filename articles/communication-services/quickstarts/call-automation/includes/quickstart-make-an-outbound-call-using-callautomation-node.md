@@ -97,30 +97,37 @@ recordingId = response.recordingId;
 
 ## Respond to calling events
 
+Earlier in our application, we registerd the `CALLBACK_URI` to the Call Automation Service. This indicates the endpoint the service will use to notify us of calling events that happen. We can then iterate through the events and detect specific events our application wants to understand. In the code be below we respond to the `CallConnected` event.
+
 
 ```typescript
 if (event.type === "Microsoft.Communication.CallConnected") {
-    callConnectionId = eventData.callConnectionId;
-    serverCallId = eventData.serverCallId;
-    callConnection = acsClient.getCallConnection(callConnectionId);
-}
+		console.log("Received CallConnected event");
+
+		callConnectionId = eventData.callConnectionId;
+		serverCallId = eventData.serverCallId;
+		callConnection = acsClient.getCallConnection(callConnectionId);
+
+		await startRecording();
+		await startToneRecognition();
+	} 
 ```
 
 ## Play welcome message and recognize 
 
 Using the `FileSource` API, you can provide the service the audio file you want to use for your welcome message. The ACS Call Automation service will play this message upon the `CallConnected` event. 
 
-In teh code below, we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `startRecognizing`. This recognize and options API enables the telephony client to send DTMF tones that we can recognize.
+In the code below, we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `startRecognizing`. This recognize and options API enables the telephony client to send DTMF tones that we can recognize.
 
 ```typescript
 const audioPrompt: FileSource = {
-    url: process.env.MEDIA_CALLBACK_URI + "MainMenu.wav",
-    kind: "fileSource",
+  url: MEDIA_URI + "MainMenu.wav",
+  kind: "fileSource",
 };
 
 const recognizeOptions: CallMediaRecognizeDtmfOptions = {
-    playPrompt: audioPrompt,
-    kind: "callMediaRecognizeDtmfOptions",
+  playPrompt: audioPrompt,
+  kind: "callMediaRecognizeDtmfOptions",
 };
 
 await callConnection.getCallMedia().startRecognizing(callee, 1, recognizeOptions);

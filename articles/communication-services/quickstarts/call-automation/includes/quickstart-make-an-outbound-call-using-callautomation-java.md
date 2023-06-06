@@ -89,6 +89,8 @@ recordingId = response.getValue().getRecordingId();
 
 ## Respond to calling events
 
+Earlier in our application, we registerd the `basecallbackuri` to the Call Automation Service. This indicates the endpoint the service will use to notify us of calling events that happen. We can then iterate through the events and detect specific events our application wants to understand. In the code be below we respond to the `CallConnected` event.
+
 ```java
 List<CallAutomationEventBase> events = CallAutomationEventParser.parseEvents(reqBody);
 for (CallAutomationEventBase event : events) {

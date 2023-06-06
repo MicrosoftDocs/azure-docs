@@ -64,8 +64,6 @@ TARGET_PHONE_NUMBER = "<TARGET_PHONE_NUMBER>"
 
 # Callback events URI to handle callback events.
 CALLBACK_URI_HOST = "<CALLBACK_URI_HOST_WITH_PROTOCOL>"
-
-
 ```
 
 
@@ -108,25 +106,42 @@ call_connection.play_to_all(my_file)
 The Call Automation service also enables the capability to start recording and store recordings of voice and video calls. You can learn more about the various capabilities in the Call Recording APIs [here](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/get-started-call-recording).
 
 ```python
-server_call_id = self.call_connection.get_call_properties().server_call_id
-recording_properties = self.call_automation.start_recording(call_locator=ServerCallLocator(server_call_id))
+server_call_id = event.data['serverCallId']
+recording_properties = call_automation_client.start_recording(ServerCallLocator(server_call_id))
 ```
+
 
 ## Respond to calling events
 
+Earlier in our application, we registerd the `CALLBACK_URI_HOST` to the Call Automation Service. This indicates the endpoint the service will use to notify us of calling events that happen. We can then iterate through the events and detect specific events our application wants to understand. In the code be below we respond to the `CallConnected` event.
+
 ```python
-if event.type == constants.CALL_CONNECTED_EVENT:
-    app.logger.info("Call connected, staring workflow")
+@app.route('/api/callbacks', methods=['POST'])
+def callback_events_handler():
+    for event_dict in request.json:
+        event = CloudEvent.from_dict(event_dict)
+        if event.type == "Microsoft.Communication.CallConnected":
+            # Handle Call Connected Event
+            ...
+            return Response(status=200)
 ```
 
 ## Play welcome message and recognize 
 
-Using the `file_source` parameter, you can provide the service the audio file you want to use for your welcome message. The ACS Call Automtaion service will play this message upon the `CallConnected` event. 
+Using the `file_source` parameter, you can provide the service the audio file you want to use for your welcome message. Using our sample code, the ACS Call Automtaion service will play this message upon the `CallConnected` event. 
 
-In teh code below, we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `StartRecognizingAsync`. This recognize and options API enables the telephony client to send DTMF tones that we can recognize.
+In the code below, we pass the audio file into the `play_prompt` parameter and then call `start_recognizing_media`. This recognize and options API enables the telephony client to send DTMF tones that we can recognize.
 
 ```python
-call_connection_client.play_media_to_all([FileSource(CONFIRMED_PROMPT_URI)])
+file_source = FileSource(MAIN_MENU_PROMPT_URI)
+call_connection_client.start_recognizing_media(input_type=RecognizeInputType.DTMF,
+                                               target_participant=target_participant,
+                                               play_prompt=file_source,
+                                               interrupt_prompt=True,
+                                               initial_silence_timeout=10,
+                                               dtmf_inter_tone_timeout=10,
+                                               dtmf_max_tones_to_collect=1,
+                                               dtmf_stop_tones=[DtmfTone.POUND])
 ```
 
 ## Recognize DTMF Events
@@ -145,11 +160,11 @@ if event.type == constants.RECOGNIZE_COMPLETED_EVENT:
 
 ## Hang up the call
 
-Finally, when we detect a condition that makes sense for us to terminate the call, we can use the `hang_up()` method to hang up the call.
+Finally, when we detect a condition that makes sense for us to terminate the call, we can use the `hang_up()` method to hang up the call. At this point we can also safely stop the call recording operation.
 
 ```python
-self.call_connection.hang_up(is_for_everyone=True)
-
+call_automation_client.stop_recording(recording_id)
+call_connection_client.hang_up(is_for_everyone=True)
 ```
 
 ## Run the code
