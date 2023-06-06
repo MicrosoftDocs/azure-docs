@@ -46,7 +46,7 @@ sections:
       - question: |
           What I/O size is recommended to achieve the published performance? 
         answer: |
-          To achieve the maximum IOPS (260 K), it's recommended to use a 4-KiB block size. For maximum performance throughput (8 GB/s), you can choose to use one of the following : 64 KiB, 128 KiB, 256 KiB or 1-MiB block size. However, it's important to optimize the I/O size based on the specific requirements of your application and to use the recommended block sizes only as a guideline. 
+          To achieve the maximum IOPS (260 K), it's recommended to use a 4-KiB block size. For maximum performance throughput (8 GB/s), you can choose to use one of the following: 64 KiB, 128 KiB, 256 KiB or 1-MiB block size. However, it's important to optimize the I/O size based on the specific requirements of your application and to use the recommended block sizes only as a guideline. 
       - question: |
           What workloads benefit with NVMe on Ebsv5 family? 
         answer: |
@@ -77,7 +77,7 @@ sections:
             
             :::image type="content" source="./media/enable-nvme/nvme-faq-1.png" alt-text="Screenshot of prompt to select NVMe disk controller type.":::
 
-          - Opt-in to NVMe by selecting NVMe disk controller type in Azure portal or ARM/CLI/Power Shell template. For step-by-step instructions, refer [here](enable-nvme-interface.md).
+          - Opt-in to NVMe by selecting NVMe disk controller type in Azure portal or ARM/CLI/PowerShell template. For step-by-step instructions, refer [here](enable-nvme-interface.md).
           - Only Gen2 images are supported.  
           - Choose one of the Azure regions where NVMe is enabled. 
           By meeting the five conditions, you'll be able to enable NVMe on the supported VM family in no time. Follow the above conditions while creating and resizing a VM with NVMe to ensure successful launch of feature.
@@ -85,7 +85,7 @@ sections:
           How can I resize a SCSI Ebsv5 or Ebdsv5 VM (E.g 8 vCPU) created using untagged image to a NVMe-enabled VM of the different size(E112i) without recreating the VM configurations and without tagging the image? 
         answer: |
           - The source VM e.g. E8bsv5 in this case, should use a NVMe none tagged OS image that supports NVMe  
-          - Ensure to set the destination *discontrollertype* of the VM as NVMe also in E112i VMs. Use the following Power Shell script to do so:
+          - Ensure to set the destination *discontrollertype* of the VM as NVMe also in E112i VMs. Use the following PowerShell script to do so:
 
             ```      
             $subscription_id = 'your-subscription-id'
