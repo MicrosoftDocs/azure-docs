@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/10/2023
+ms.date: 05/23/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: JasSuri
@@ -128,7 +128,7 @@ The following screenshot demonstrates how to configure the Azure HTTP trigger fu
         public Claims claims { get; set; }
         public Action()
         {
-            odatatype = "microsoft.graph.provideClaimsForToken";
+            odatatype = "microsoft.graph.tokenIssuanceStart.provideClaimsForToken";
             claims = new Claims();
         }
     }

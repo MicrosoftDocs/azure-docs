@@ -98,12 +98,16 @@ If your users are [Having trouble with two-step verification](https://support.mi
 
 ### Health check script
 
-The [Azure AD MFA NPS Extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) performs a basic health check when troubleshooting the NPS extension. Run the script and choose option **1** to isolate the cause of the potential issue.
+The [Azure AD MFA NPS Extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) performs several basic health checks when troubleshooting the NPS extension. Here's a quick summary about each available option when the script is run:
+- Option **1** - to isolate the cause of the issue: if it's an NPS or MFA issue (Export MFA RegKeys, Restart NPS, Test, Import RegKeys, Restart NPS)
+- Option **2** - to check a full set of tests, when not all users can use the MFA NPS Extension (Testing Access to Azure/Create HTML Report)
+- Option **3** - to check a specific set of tests, when a specific user can't use the MFA NPS Extension (Test MFA for specific UPN)
+- Option **4** - to collect logs to contact Microsoft support (Enable Logging/Restart NPS/Gather Logs)
 
 ### Contact Microsoft support
 
 If you need additional help, contact a support professional through [Azure Multi-Factor Authentication Server support](https://support.microsoft.com/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, the ID of the user who saw the error, and debug logs.
 
-To collect debug logs for support diagnostics, run the [Azure AD MFA NPS Extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) on the NPS server and choose option **4** to collect logs.
+To collect debug logs for support diagnostics, run the [Azure AD MFA NPS Extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) on the NPS server and choose option **4** to collect the logs to provide them to Microsoft support.
 
-At the end, zip the contents of the C:\NPS folder and attach the zipped file to the support case.
+At the end, upload the zip output file generated on the C:\NPS folder and attach it to the support case.

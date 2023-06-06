@@ -8,7 +8,7 @@ ms.subservice: security
 ms.topic: conceptual
 ms.date: 02/13/2023
 ms.author: abnarain 
-ms.custom: devx-track-azurepowershell, subject-rbac-steps
+ms.custom: subject-rbac-steps
 ---
 
 # Managed identity for Azure Data Factory

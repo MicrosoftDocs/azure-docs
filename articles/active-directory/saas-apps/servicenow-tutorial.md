@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/29/2023
+ms.date: 05/25/2023
 ms.author: jeedes
 ---
 
@@ -108,7 +108,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Reply URL|
 	|----------|
 	| `https://<instancename>.service-now.com/navpage.do` |
-	| `https://<instancename>.service-now.com/customer.do` |
+	| `https://<instancename>.service-now.com/consumer.do` |
 	|
 
 	d. In **Logout URL**, enter a URL that uses the following pattern:
@@ -177,7 +177,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	| Sign on URL |
 	|-----------|
 	|  `https://<instance-name>.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>` |
-	| `https://<instancename>.service-now.com/customer.do` |
+	| `https://<instancename>.service-now.com/consumer.do` |
 	|
 
     b. For **Identifier (Entity ID)**, enter a URL that uses the following pattern:
@@ -188,7 +188,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	| Reply URL |
 	|-----------|
 	| `https://<instancename>.service-now.com/navpage.do` |
-	| `https://<instancename>.service-now.com/customer.do` |
+	| `https://<instancename>.service-now.com/consumer.do` |
 	|
 
 	d. In **Logout URL**, enter a URL that uses the following pattern:

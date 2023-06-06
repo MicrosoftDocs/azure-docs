@@ -32,7 +32,7 @@ Private cluster is available in public regions, Azure Government, and Azure Chin
 ## Limitations
 
 * IP authorized ranges can't be applied to the private API server endpoint, they only apply to the public API server
-* [Azure Private Link service limitations].[private-link-service] apply to private clusters.
+* [Azure Private Link service limitations][private-link-service] apply to private clusters.
 * There's no support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider using [Self-hosted Agents](/azure/devops/pipelines/agents/agents).
 * If you need to enable Azure Container Registry to work with a private AKS cluster, [set up a private link for the container registry in the cluster virtual network][container-registry-private-link] or set up peering between the Container Registry virtual network and the private cluster's virtual network.
 * There's no support for converting existing AKS clusters into private clusters.
