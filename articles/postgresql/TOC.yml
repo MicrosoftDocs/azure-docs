@@ -426,6 +426,8 @@
     href: flexible-server/overview.md
   - name: Release notes
     href: flexible-server/release-notes.md
+  - name: API Release notes
+    href: flexible-server/release-notes-api.md
   - name: Compare Single Server and Flexible Server
     href: flexible-server/concepts-compare-single-server-flexible-server.md
   - name: Try Flexible Server for free
