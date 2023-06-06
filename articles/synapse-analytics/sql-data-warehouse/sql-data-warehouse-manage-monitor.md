@@ -94,8 +94,8 @@ When a DSQL plan is taking longer than expected, the cause can be a complex plan
 
 To investigate further details about a single step, inspect the `operation_type` column of the long-running query step and note the **Step Index**:
 
-* For **SQL operations** (OnOperation, RemoteOperation, ReturnOperation), proceed with Step 3
-* For **Data Movement operations** (ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation), proceed with step 4.
+* For **SQL operations** (OnOperation, RemoteOperation, ReturnOperation), proceed with [STEP 3](#step-3-investigate-sql-on-the-distributed-databases)
+* For **Data Movement operations** (ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation), proceed with [STEP 4](#step-4-investigate-data-movement-on-the-distributed-databases).
 
 ### STEP 3: Investigate SQL on the distributed databases
 
