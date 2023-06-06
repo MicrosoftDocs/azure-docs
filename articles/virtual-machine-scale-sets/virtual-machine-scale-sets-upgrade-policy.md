@@ -54,6 +54,11 @@ When a Rolling Upgrade Policy, the scale set must also have a [health probe](../
 
 The Upgrade Policy can be set during deployment or updated post deployment.  
 
+### [Portal](#tab/portal)
+
+
+:::image type="content" source="../virtual-machines/media/maxsurge/maxsurge-1.png" alt-text="Screenshot showing deploying a scale set and enabling MaxSurge.":::
+
 ### [CLI](#tab/cli)
 Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create) and set the Upgrade Policy to `Rolling` and enable `MaxSurge`. When using an Upgrade Policy set to Rolling, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
 
@@ -125,6 +130,11 @@ When using an ARM template, add the upgradePolicy to the properties section:
 
 The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. 
 
+###[Portal](#tab/portal2)
+
+:::image type="content" source="../virtual-machines/media/maxsurge/maxsurge-2.png" alt-text="Screenshot showing changing the upgrade policy and enabling MaxSurge in the Azure portal.":::
+
+
 ### [CLI](#tab/cli2)
 Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update) and enable `MaxSurge`. If you do not already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
 
@@ -177,6 +187,11 @@ If you have the Upgrade Policy set to manual, you need to trigger manual upgrade
 > [!NOTE]
 > While performing upgrades, the instances may be restarted.
 
+### [Portal](#tab/portal3)
+
+:::image type="content" source="../virtual-machines/media/maxsurge/manual-upgrade-1.png" alt-text="Screenshot showing deploying a scale set and enabling MaxSurge.":::
+
+
 ### [CLI](#tab/cli3)
 Update Virtual Machine Scale Set instances using [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
@@ -204,6 +219,11 @@ Changes to the scale set OS, data disk Profile (such as admin username and passw
 
 > [!NOTE]
 > The Reimage flag will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
+
+###[Portal](#tab/portal4)
+
+:::image type="content" source="../virtual-machines/media/maxsurge/reimage-upgrade-1.png" alt-text="Screenshot showing deploying a scale set and enabling MaxSurge.":::
+
 
 ### [CLI](#tab/cli4)
 Reimage a Virtual Machine Scale Set instance using [az vmss reimage](/cli/azure/vmss#az-vmss-reimage).
