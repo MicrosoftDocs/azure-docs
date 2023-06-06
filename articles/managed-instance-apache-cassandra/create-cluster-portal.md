@@ -238,7 +238,6 @@ sudo apt install openjdk-8-jdk openjdk-8-jre
 
 # Install the Cassandra libraries in order to get CQLSH:
 echo "deb http://archive.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
-apt update
 curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install cassandra
