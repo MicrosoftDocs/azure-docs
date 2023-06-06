@@ -3260,6 +3260,8 @@
         href: new-relic-by-organization-provisioning-tutorial.md
       - name: NordPass
         href: nordpass-provisioning-tutorial.md
+      - name: Notion
+        href: notion-provisioning-tutorial.md
       - name: OfficeSpace Software
         href: officespace-software-provisioning-tutorial.md
       - name: Olfeo SAAS
