@@ -239,17 +239,17 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 1. On the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
-
     > [!NOTE]
     > We're continually adding more regions for regional data processing.
 
-1. (Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add custom properties in key:value pairs to the alert notification payload to add more information to it. Add the property **Name** and **Value** for the custom property you want included in the payload.
+1. (Optional)  In the <a name="custom-props">**Custom properties**</a> section, if you've configured action groups for this alert rule, you can add custom properties in key:value pairs to the alert notification payload to add more information to it. Add the property **Name** and **Value** for the custom property you want included in the payload.
 
     You can also use custom properties to extract and manipulate data from alert payloads that use the common schema. You can use those values in the action group webhook or logic app.
+    
+     > [!NOTE]
+     > In this phase the custom properties are not part of the e-mail template
 
-    The format for extracting values from the common schema, use a "$", and then the path of the [common schema](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-common-schema) field inside curly brackets. For example: `${data.essentials.monitorCondition}`.
-
-
+    The format for extracting values from the common schema, use a "$", and then the path of the [Common alert schema](alerts-common-schema.md) field inside curly brackets. For example: `${data.essentials.monitorCondition}`.
 
     In the following examples, values in the **custom properties** are used to utilize data from the payload:
 
@@ -258,7 +258,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     This example creates an "Additional Details" tag with data refarding the "window start time" and "window end time".
 
     - **Name:** "Additional Details"
-    - **Value:** "Evaluation windowStartTime: \${data.alertContext.condition.windowStartTime}. windowEndTime: \${data.alertContext.condition.windowEndTime}"
+    - **Value:** "Evaluation windowStartTime: \${data.context.condition.windowStartTime}. windowEndTime: \${data.context.condition.windowEndTime}"
     - **Result:** "AdditionalDetails:Evaluation windowStartTime: 2023-04-04T14:39:24.492Z. windowEndTime: 2023-04-04T14:44:24.492Z"
 
 
@@ -266,7 +266,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     This example add the data regarding the reason of resolving or firing the alert. 
 
     - **Name:** "Alert \${data.essentials.monitorCondition} reason"
-    - **Value:** "\${data.alertContext.condition.allOf[0].metricName} \${data.alertContext.condition.allOf[0].operator} \${data.alertContext.condition.allOf[0].threshold} \${data.essentials.monitorCondition}. The value is \${data.alertContext.condition.allOf[0].metricValue}"
+    - **Value:** "\${data.context.condition.allOf[0].metricName} \${data.context.condition.allOf[0].operator} \${data.context.condition.allOf[0].threshold} \${data.essentials.monitorCondition}. The value is \${data.context.condition.allOf[0].metricValue}"
     - **Result:**  Example results could be something like:
         - "Alert Resolved reason: Percentage CPU GreaterThan5 Resolved. The value is 3.585"
         - “Alert Fired reason": "Percentage CPU GreaterThan5 Fired. The value is 10.585"
@@ -276,7 +276,6 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     > [!NOTE]
     > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
-
 
 1. On the **Details** tab, define the **Project details**.
     - Select the **Subscription**.
