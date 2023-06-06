@@ -539,7 +539,7 @@ items:
           - name: Add or delete tables and columns
             href: logs/create-custom-table.md
           - name: Set Basic or Analytics log data plan
-            displayName: Basic logs
+            displayName: Basic logs, cost optimization
             href: logs/basic-logs-configure.md
         - name: Archive and restore
           items:
@@ -556,6 +556,7 @@ items:
           - name: Dedicated clusters
             href: logs/logs-dedicated-clusters.md
           - name: Enhance data and service resiliency
+            displayName: Enhance data and service resilience in Azure Monitor Logs with availability zones
             href: logs/availability-zones.md
         - name: Monitor
           items:
