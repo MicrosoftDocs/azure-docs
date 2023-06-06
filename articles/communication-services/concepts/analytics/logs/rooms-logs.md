@@ -49,7 +49,7 @@ Communication Services offers the following types of logs that you can enable:
 | -------- | ---------------|
 | `Correlation ID` | Unique ID of the request. |
 | `Level` | The severity level of the event. |
-| `Operation Name` | The operation associated with log record. E.g., CreateRoom, PatchRoom, GetRoom, ListRooms, DeleteRoom, GetParticipants, AddParticipants, UpdateParticipants, or RemoveParticipants. |
+| `Operation Name` | The operation associated with log record. E.g., CreateRoom, PatchRoom, GetRoom, ListRooms, DeleteRoom, GetParticipants, UpdateParticipants.|
 | `Operation Version` | The api-version associated with the operation. |
 | `ResultType` | The status of the operation. |
 | `ResultSignature` | The sub status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
