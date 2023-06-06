@@ -61,19 +61,9 @@ Intelligent Tuning is an ongoing monitoring and analysis process that not only l
 workload but also tracks your current load and resource usage such as CPU or IOPS. By doing so, it makes sure not to
 disturb the normal operations of your application workload.
 
-:::image type="content" source="./media/concepts-intelligent-tuning/tuning-process.png" alt-text="Automatic tuning process.":::
-
 The process allows the database to dynamically adjust to your workload by discerning the current bloat ratio, write
 performance, and checkpoint efficiency on your instance. Armed with these insights, intelligent tuning deploys tuning
 actions designed to not only enhance your workload's performance but also to circumvent potential pitfalls.
-
-Moreover, intelligent tuning continuously keeps track of the database's performance post-change to ensure that the
-modifications are indeed bolstering your workload's performance. Any action that doesn't result in a performance
-improvement is automatically reversed.
-
-This continual verification process is a cornerstone of intelligent tuning. It guarantees that any changes made
-contribute positively to your workload's performance and avoid disruptions, thereby maintaining an unwavering commitment
-to optimizing performance and preempting potential issues.
 
 ## Autovacuum tuning
 
@@ -108,12 +98,21 @@ On the other hand, if the bloat is minimal and the autovacuum process is too agg
 scale factor, and naptime may be increased. This balance ensures minimal bloat and the efficient use of the resources by
 the autovacuum process.
 
+### Benefits of autovacuum tuning
+
+Our internal benchmarks have demonstrated that autovacuum tuning can significantly enhance the performance of the database server. The extent of these performance gains can depend on several factors, including workload characteristics, the [SKU](concepts-compute-storage#compute-tiers-vcores-and-server-types), and the PostgreSQL server version.
+
+For instance, our benchmarks revealed that the most substantial improvements are generally observed with larger SKUs (over 8vCores) and on newer versions of PostgreSQL, from version 13 onward. On these larger instances, the performance boost can range from a modest increase to as much as a sixteen-fold improvement in the transactions-per-second (TPS) ratio.
+
+In contrast, for older versions of PostgreSQL and smaller SKUs, users can still gain a performance boost, albeit at the cost of higher resource utilization (CPU, IOPS). In these cases, careful management of autovacuum tuning is crucial, and resource usage should be closely monitored.
+
 ## Writes tuning
 
 Intelligent tuning adjusts four parameters related to writes
 tuning:`bgwriter_delay`, `checkpoint_completion_target`, `max_wal_size`, and `min_wal_size`.
+
 The `bgwriter_delay` parameter determines the frequency at which the background writer process is awakened to clean "
-dirty" buffers (those that are new or modified). The background writer process is one of three processes in PostgreSQL
+dirty" buffers (those buffers that are new or modified). The background writer process is one of three processes in PostgreSQL
 that handle write operations, the other two being the checkpointer process and backends (standard client processes, such
 as application connections). The background writer process's primary role is to alleviate the load from the main
 checkpointer process and decrease the strain of backend writes. Intelligent performance checks ??? the
