@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-## Part 3 (Optional) Embedding Your Calling Experience
+# Part 3 (Optional) Embedding Your Calling Experience
 
 Finally in this optional section of the tutorial we will talk about making a embedded version of the Calling surface. We will continue from where we left off in the last section and make some modifications to our existing screens. 
 
