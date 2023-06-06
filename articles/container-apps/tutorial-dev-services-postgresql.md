@@ -19,6 +19,7 @@ In this tutorial you learn how to create and use a development PostgreSQL servic
 > * Create a PostgreSQL service
 > * Create and use a test command line App to use the dev PostgreSQL
 > * Creating or Updating an app that uses the dev service
+> * Create a `pgweb` app.
 > * Compile a final bicep template to deploy all resources using a consistent and predictable template deployment
 
 ## Prerequisites
@@ -66,7 +67,7 @@ In this tutorial you learn how to create and use a development PostgreSQL servic
         --template-file postgres-dev.bicep
     ```
 
-    ----
+    ---
 
 2. Make sure to login and upgrade/register all providers needed for your Azure Subscription
 
@@ -107,7 +108,7 @@ In this tutorial you learn how to create and use a development PostgreSQL servic
         --template-file postgres-dev.bicep
     ```
 
-    ----
+    ---
 
 1. Create a Container Apps environment
 
@@ -165,7 +166,7 @@ In this tutorial you learn how to create and use a development PostgreSQL servic
     }
     ```
 
-    ----
+    ---
 
 ## Create a PostgreSQL service
 
@@ -211,7 +212,7 @@ In this tutorial you learn how to create and use a development PostgreSQL servic
     > [!TIP]
     > The output `postgresLogs` will output a CLI command to view the logs of postgres after it's been deployed. You can run the command to view the initialization logs of the new postgres service. 
 
-    ----
+    ---
 
 1. View log output from the postgres instance
 
@@ -245,7 +246,7 @@ In this tutorial you learn how to create and use a development PostgreSQL servic
         --follow --tail 30
     ```
 
-    ----
+    ---
 
     :::image type="content" source="media/services/azure-container-apps-postgresql-service-logs.png" alt-text="Screenshot of container app PostgreSQL service logs.":::
 
@@ -314,7 +315,7 @@ We will start by creating a debug app to use `psql` cli to connect to the Postgr
     > [!TIP]
     > The output `pgsqlCliExec` will output a CLI command to exec into the test app after it's been deployed.
 
-    ----
+    ---
 
 1. Run CLI exec command to exec command to connect to the test app
 
@@ -347,7 +348,7 @@ We will start by creating a debug app to use `psql` cli to connect to the Postgr
         --command /bin/bash
     ```
 
-    ----
+    ---
 
     Using `--bind` or `serviceBinds` on the test app injects all the connection information into the application environment. Once you exec into the test container you can inspect the values using 
 
