@@ -155,7 +155,7 @@ If you create a third trigger that's scheduled to run daily at midnight and is a
 
 ### Schedule your pipelines
 
-Now that your pipelines work as you expected, you can create triggers to run them at specified cadences. For details about associating triggers with pipelines, see [Configure schedules for pipelines](scheduled-triggers.md).
+Now that your pipelines work as you expected, you can create triggers to run them at specified cadences. For details about associating triggers with pipelines, see [Configure schedules for pipelines](/azure/devops/pipelines/process/scheduled-triggers).
 
 1. On the pipeline toolbar, select **Trigger**, and then select **New/Edit**.
 
