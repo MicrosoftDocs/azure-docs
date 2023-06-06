@@ -1,32 +1,31 @@
 ---
-title: Troubleshoot accessing a CSN-connected internet hostname within the Hybrid-AKS Cluster
-description: Troubleshoot accessing a CSN-connected internet hostname within the Hybrid-AKS Cluster.
+title: Troubleshoot accessing a CSN connected internet hostname within the AKS hybrid Cluster for Azure Operator Nexus
+description: Troubleshoot accessing a CSN connected internet hostname within the AKS hybrid Cluster for Azure Operator Nexus
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
-ms.date: 05/31/2023
+ms.date: 06/06/2023
 ms.author: v-saambe
 author: v-saambe
 ---
 
-# Accessing a CSN-connected internet hostname within the Hybrid-AKS Cluster
+# Accessing a CSN connected internet hostname within the AKS hybrid Cluster
 
-This article outlines troubleshooting for scenarios where the end user
-is having issues reaching an internet hostname, which is part of the CSN
-attached to Hybrid-aks cluster.
+This article outlines troubleshooting for scenarios where the end user is having issues reaching an internet hostname, which is part of the CSN
+attached to AKS hybrid cluster.
 
 ## Prerequisites
 
-* Jump server to connect into environment.
 * Subscription ID
 * Cluster name and resource group
 * AKS-Hybrid cluster name and resource group
+* Familiar with procedures provided in [Connect to AKS Hybrid](../quickstarts-tenant-workload-deployment#connect-to-the-aks-hybrid-cluster)
 
 Once these prerequisites have been applied, we can finalize the repair of the “Curl -vk” by performing the below workaround.
 
 ## Common scenarios
 
-User logged in to the jump server and ssh would into Hybrid-aks VM using the IP address of the worker nodes or control plane VMs. From Hybrid-aks VM users couldn’t reach any egress endpoints mentioned while creating a Hybrid-aks that uses the CSN
+User logged in to the jump server and ssh would into AKS hybrid VM using the IP address of the worker nodes or control plane VMs. From AKS hybrid VM users couldn’t reach any egress endpoints mentioned while creating a AKS hybrid that uses the CSN
 
 The user is encountering an error when trying to access the fully qualified domain name (FQDN) of internet hostnames
 
