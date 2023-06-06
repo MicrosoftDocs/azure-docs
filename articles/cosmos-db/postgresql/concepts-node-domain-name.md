@@ -19,7 +19,9 @@ When an Azure Cosmos DB for PostgreSQL [cluster](./concepts-cluster.md) is provi
 
 All node domain names in Azure Cosmos DB for PostgreSQL are created in postgres.cosmos.azure.com domain. A node's FQDN is created in the following format
 
-**`node-qualifier`-`cluster-name`.`uniqueID`.postgres.cosmos.azure.com**
+```
+<node-qualifier>-<cluster-name>.<uniqueID>.postgres.cosmos.azure.com
+```
 
 where `node-qualifier` can be 'c' for coordinator or 'w0', 'w1', etc. for worker nodes; `cluster-name` is the name for the cluster you selected during cluster provisioning; `uniqueID` is a randomly generated globally unique 14-character identifier.
 
