@@ -37,7 +37,6 @@ In this tutorial you learn how to create and use a development PostgreSQL servic
     ENVIRONMENT="aca-env"
     PG_SVC="postgres01"
     PSQL_CLI_APP="psql-cloud-cli-app"
-    REST_API="rest-api"
     ```
 
     # [Bicep](#tab/bicep)
@@ -57,7 +56,6 @@ In this tutorial you learn how to create and use a development PostgreSQL servic
     param appEnvironmentName string = 'aca-env'
     param pgSvcName string = 'postgres01'
     param pgsqlCliAppName string = 'psql-cloud-cli-app'
-    param restApiAppName string = 'rest-api'
     ```
 
     to deploy the bicep template at any stage use:
@@ -424,7 +422,6 @@ param location string = resourceGroup().location
 param appEnvironmentName string = 'aca-env'
 param pgSvcName string = 'postgres01'
 param pgsqlCliAppName string = 'psql-cloud-cli-app'
-param restApiAppName string = 'rest-api'
 
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
   name: '${appEnvironmentName}-log-analytics'
