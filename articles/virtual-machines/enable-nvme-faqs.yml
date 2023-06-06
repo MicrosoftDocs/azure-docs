@@ -133,22 +133,22 @@ sections:
 
           $Update_Supported_Capabilities = (Invoke-WebRequest -uri $uri -Method PATCH -body $body -Headers $auth_header | ConvertFrom-Json)
 
-          # Get VM configuration
+          #Get VM configuration
 
           $vm = Get-AzVM -ResourceGroupName $resource_group_name -Name $vm_name
 
-          # Build a configuration with updated VM size
+          #Build a configuration with updated VM size
 
           $vm.HardwareProfile.VmSize = $vm_size_change_to
 
-          # Build a configuration with updated disk controller type
+          #Build a configuration with updated disk controller type
 
           $vm.StorageProfile.DiskControllerType = $disk_controller_change_to
 
-          # Change the VM size and VM’s disk controller type
+          #Change the VM size and VM’s disk controller type
 
           Update-AzVM -ResourceGroupName $resource_group_name -VM $vm
-          # Start the VM
+          #Start the VM
 
           Start-AzVM -ResourceGroupName $resource_group_name -Name $vm_name
           '''
