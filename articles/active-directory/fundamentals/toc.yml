@@ -284,9 +284,9 @@ items:
     - name: Secure with Azure Active Directory
       items:
       - name: Introduction
-        href: secure-with-azure-ad-introduction.md
+        href: secure-introduction.md
       - name: Fundamentals
-        href: secure-with-azure-ad-fundamentals.md
+        href: secure-fundamentals.md
       - name: Resource management
         href: secure-with-azure-ad-resource-management.md
       - name: Delegating administration in a single tenant
@@ -294,7 +294,7 @@ items:
       - name: Delegating administration in multiple tenants
         href: secure-with-azure-ad-multiple-tenants.md
       - name: Best practices
-        href: secure-with-azure-ad-best-practices.md
+        href: secure-best-practices.md
   - name: Deployment guide
     items:
     - name: Azure Active Directory deployment plans
