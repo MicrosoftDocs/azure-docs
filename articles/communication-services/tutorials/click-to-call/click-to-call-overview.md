@@ -36,7 +36,7 @@ This tutorial will be broken down into three parts:
 - Embed your calling experience
 
 
-### Setup the project
+### Set up the project
 
 If you are not creating a new application, you can skip this step.
 
