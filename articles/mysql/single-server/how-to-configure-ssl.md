@@ -7,7 +7,7 @@ author: savjani
 ms.author: pariks
 ms.topic: how-to
 ms.devlang: csharp, golang, java, javascript, php, python, ruby
-ms.custom: "devx-track-python, devx-track-csharp"
+ms.custom: devx-track-csharp
 ms.date: 06/20/2022
 ---
 
