@@ -32,11 +32,11 @@ sections:
       - question: |
           Will Azure continue to support SCSI interface VMs?
         answer: |
-          Yes, Azure will continue to support SCSI VMs on the older generation and current generation VM offerings in the GP (General Purpose) category which includes the v2, v3, v4 and v5 series. 
+          Yes, Azure continues to support SCSI VMs on the older generation and current generation VM offerings in the GP (General Purpose) category, which includes the v2, v3, v4 and v5 series. 
       - question: |
           How is the NVMe enabled Ebsv5 different from the L series VM that Azure offers?
         answer: |
-          The NVMe enabled Ebsv5 series is designed to offer the highest Azure managed disk storage performance while the L series VMs are designed to offer higher IOPS and throughout on the local NVMe disks which are ephemeral. Refer to the [VM sizes documentation](https://learn.microsoft.com/azure/virtual-machines/sizes) for details on the performance offered by the Ebsv5 and L series. 
+          The NVMe enabled Ebsv5 series is designed to offer the highest Azure managed disk storage performance while the L series VMs are designed to offer higher IOPS and throughout on the local NVMe disks, which are ephemeral. Refer to the [VM sizes documentation](https://learn.microsoft.com/azure/virtual-machines/sizes) for details on the performance offered by the Ebsv5 and L series. 
   - name: Azure Disk Storage Performance with NVMe on Ebsv5 and Ebdsv5
     questions:
       - question: |
