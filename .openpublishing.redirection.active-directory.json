@@ -12566,13 +12566,13 @@
       },
     
       {
-        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-deployment-plans",
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-deployment-plans.md",
         "redirect_url": "/azure/active-directory/fundamentals/deployment-plans",
         "redirect_document_id": true
       },
     
       {
-        "source_path_from_root": "/articles/active-directory/enterprise-users/clean-up-unmanaged-azure-ad-accounts",
+        "source_path_from_root": "/articles/active-directory/enterprise-users/clean-up-unmanaged-azure-ad-accounts.md",
         "redirect_url": "/azure/active-directory/enterprise-users/clean-up-unmanaged-accounts",
         "redirect_document_id": true
       },
