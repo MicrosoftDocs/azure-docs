@@ -12627,7 +12627,7 @@
       },
 
       {
-        "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-management-apis-overview.md.md",
+        "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-management-apis-overview.md",
         "redirect_url": "/articles/active-directory/external-identities/customers/microsoft-graph-operations.md",
         "redirect_document_id": false
       }
