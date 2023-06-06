@@ -26,6 +26,12 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 
+## June 2023
+
+- **Max IOPS support for Azure Database for MySQL- Flexible Server**
+
+  Business Critical SKU now supports 80K IOPS, enabling enhanced performance with increased IO operations per second. [Learn more](./concepts-service-tiers-storage.md#service-tiers-size-and-server-types).
+
 ## May 2023
 
 - **Read-Replica in Geo-Paired Region on Azure Database for MySQL- Flexible Server**
