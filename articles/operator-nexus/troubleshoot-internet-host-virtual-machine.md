@@ -25,7 +25,7 @@ Once these prerequisites have been applied, we can finalize the repair of the �
 
 ## Common scenarios
 
-User logged in to the jump server and ssh would into AKS hybrid VM using the IP address of the worker nodes or control plane VMs. From AKS hybrid VM users couldn’t reach any egress endpoints mentioned while creating a AKS hybrid that uses the CSN
+User logged in to the jump server and ssh would into AKS hybrid VM using the IP address of the worker nodes or control plane VMs. From AKS hybrid VM users couldn’t reach any egress endpoints mentioned while creating an AKS hybrid that uses the CSN
 
 The user is encountering an error when trying to access the fully qualified domain name (FQDN) of internet hostnames
 
