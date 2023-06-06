@@ -175,7 +175,7 @@ Devices: This tenant contains a reduced number of devices; only those that are n
 
 ## Next steps
 
-* [Introduction to delegated administration and isolated environments](secure-with-azure-ad-introduction.md)
+* [Introduction to delegated administration and isolated environments](secure-introduction.md)
 
 * [Azure AD fundamentals](secure-with-azure-ad-fundamentals.md)
 
@@ -183,4 +183,4 @@ Devices: This tenant contains a reduced number of devices; only those that are n
 
 * [Resource isolation in a single tenant](secure-with-azure-ad-single-tenant.md)
 
-* [Best practices](secure-with-azure-ad-best-practices.md)
+* [Best practices](secure-best-practices.md)
