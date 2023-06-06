@@ -17,7 +17,7 @@ ms.subservice: data
 In this document, we outline the available insights dashboard to monitor Rooms logs and metrics.
 
 ## Overview
-Within your Communications Resource, we've provided a Rooms insights feature that displays many data visualizations conveying insights from the Azure Monitor logs and metrics monitored for Rooms. The visualizations within Insights are made possible via [Azure Monitor Workbooks](../../../../azure-monitor/visualize/workbooks-overview.md). In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md). To enable Workbooks, you need to send your logs to a [Log Analytics workspace](../../../../azure-monitor/logs/log-analytics-overview.md) destination. 
+Within your Communications Resource, we've provided a **Rooms Insights** feature that displays many data visualizations conveying insights from the Azure Monitor logs and metrics monitored for Rooms. The visualizations within Insights are made possible via [Azure Monitor Workbooks](../../../../azure-monitor/visualize/workbooks-overview.md). In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md). To enable Workbooks, you need to send your logs to a [Log Analytics workspace](../../../../azure-monitor/logs/log-analytics-overview.md) destination. 
 
 :::image type="content" source="..\media\workbooks\rooms-insights\rooms-insights-overview.png" alt-text="Screenshot of Rooms Communication Services Insights dashboard.":::
 
@@ -28,13 +28,13 @@ Within your Communications Resource, we've provided a Rooms insights feature tha
 
 ## Accessing Rooms Insights for Communication Services
 
-Inside your Azure Communication Services resource, scroll down on the left nav bar to the **Monitor** category and click on the **Workbooks** tab:
+Inside your Azure Communication Services resource, scroll down on the left nav bar to the **Monitor** category and click on the **Insights** tab:
 
 :::image type="content" source="..\media\workbooks\rooms-insights\rooms-insights-overview.png" alt-text="Screenshot of Rooms Communication Services Insights dashboard.":::
 
-## Rooms Insights
+## Rooms insights
 
-The **Rooms Insights** tab displays Rooms API success Rate, Rooms API Volume by Operation Type/ Response Code, and Rooms Operation Drill-Down:
+The **Rooms** tab displays Rooms API success Rate, Rooms API Volume by Operation Type/ Response Code, and Rooms Operation Drill-Down:
 
 :::image type="content" source="..\media\workbooks\rooms-insights\rooms-insights-detail1.png" alt-text="Screenshot displays Rooms API success Rate, Rooms API Volume by Operation Type/ Response Code.":::
 

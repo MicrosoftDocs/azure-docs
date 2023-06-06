@@ -29,11 +29,11 @@ Azure Communications Services provides monitoring and analytics features via [Az
 The following are instructions for configuring your Azure Monitor resource to start creating logs and metrics for your Communications Services. For detailed documentation about using Diagnostic Settings across all Azure resources, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
 
 > [!NOTE]
-> Under diagnostic setting name please select “Operational Rooms Logs” to enable the logs for Rooms.
+> Under diagnostic setting name please select "Operational Rooms Logs" to enable the logs for Rooms.
 
-## **Overview**
+## Overview
 
-Rooms operational logs are records of events and activities that provide insights into your Rooms API requests. They captured details about the performance and functionality of the Rooms primitive, including the status of each rooms request as well as additional properties.
+Rooms operational logs are records of events and activities that provide insights into your Rooms API requests. They capture details about the performance and functionality of the Rooms primitive, including the status of each Rooms request as well as additional properties.
 Rooms operational logs contain information that help identify trends and patterns of Rooms usage.
 
 ## Log categories
@@ -47,17 +47,17 @@ Communication Services offers the following types of logs that you can enable:
 
 | Property | Description |
 | -------- | ---------------|
-| `Correlation ID` | The ID for correlated events. Can be used to identify correlated events between multiple tables |
+| `Correlation ID` | Unique ID of the request. |
 | `Level` | The severity level of the event. |
-| `Operation Name` | The operation associated with log record. e.g., CreateRoom, PatchRoom, GetRoom, ListRooms, DeleteRoom, GetParticipants, AddParticipants, UpdateParticipants, or RemoveParticipants. |
-| `Operation Version` | The API-version associated with the operation or version of the operation (if there is no API version). |
+| `Operation Name` | The operation associated with log record. E.g., CreateRoom, PatchRoom, GetRoom, ListRooms, DeleteRoom, GetParticipants, AddParticipants, UpdateParticipants, or RemoveParticipants. |
+| `Operation Version` | The api-version associated with the operation. |
 | `ResultType` | The status of the operation. |
 | `ResultSignature` | The sub status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
-|.`RoomId` | The ID of the room, which is a distinguished identifier for an existing room. |
+|.`RoomId` | The ID of the Room. |
 | `RoomLifeSpan` | The Room lifespan in minutes. |
-| `AddedRoomParticipantsCount` | The count of participants added to a room. |
-| `UpsertedRoomParticipantsCount` | The count of participants upserted in a room. |
-| `RemovedRoomParticipantsCount` | The count of participants removed in a room. |
+| `AddedRoomParticipantsCount` | The count of participants added to a Room. |
+| `UpsertedRoomParticipantsCount` | The count of participants upserted in a Room. |
+| `RemovedRoomParticipantsCount` | The count of participants removed from a Room. |
 | `TimeGenerated` | The timestamp (UTC) of when the log was generated. |
 
 
@@ -75,7 +75,7 @@ Communication Services offers the following types of logs that you can enable:
       "RoomId": "99466898241024408",
       "RoomLifespan": 61,
       "AddedRoomParticipantsCount": 4,
-      "TimeGenerated [UTC]": "5/25/2023, 4:32:49.469 AM",
+      "TimeGenerated": "5/25/2023, 4:32:49.469 AM",
       }
     ]
 ```
@@ -132,6 +132,22 @@ Communication Services offers the following types of logs that you can enable:
       "TimeGenerated": "2022-08-19T17:07:30.5393800Z",
       },
     ]
+```
+
+ #### Example ListRooms log
+
+```json
+	[
+	  {
+	  "CorrelationId": "KibM39CaXkK+HTInfsiY2w",
+	  "Level": "Informational",
+	  "OperationName": "ListRooms",
+	  "OperationVersion": "2022-03-31-preview",
+	  "ResultType": "Succeeded",
+	  "ResultSignature": "200",
+	  "TimeGenerated": "2022-08-19T17:07:30.5393800Z",
+	  },
+	]
 ```
 
 #### Example UpdateParticipants log

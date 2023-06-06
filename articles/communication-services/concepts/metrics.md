@@ -128,14 +128,15 @@ The following operations are available on Rooms API request metrics:
 
 | Operation / Route             | Description                                                                                    |
 | ----------------------------- | ---------------------------------------------------------------------------------------------- |
-| CreateRoom                    | Creates a room. |
-| DeleteRoom                    | Deletes a room. |
-| GetRoom                       | Gets a room by room id. |
-| PatchRoom                     | Updates a room by room id. |
-| AddParticipants               | Adds participants to a room.|
-| RemoveParticipants            | Removes participants from a room. |
-| GetParticipants               | Gets list of participants for a room. |
-| UpdateParticipants            | Updates list of participants for a room. |
+| CreateRoom                    | Creates a Room. |
+| DeleteRoom                    | Deletes a Room. |
+| GetRoom                       | Gets a Room by Room id. |
+| PatchRoom                     | Updates a Room by Room id. |
+| ListRooms                     | Lists all the Rooms for an ACS Resource. |
+| AddParticipants               | Adds participants to a Room.|
+| RemoveParticipants            | Removes participants from a Room. |
+| GetParticipants               | Gets list of participants for a Room. |
+| UpdateParticipants            | Updates list of participants for a Room. |
 
 :::image type="content" source="./media/rooms/rooms-metrics.png" alt-text="Rooms Request Metric.":::
 
