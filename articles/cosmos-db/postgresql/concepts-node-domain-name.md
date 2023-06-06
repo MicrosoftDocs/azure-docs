@@ -53,7 +53,7 @@ It's important to use only FQDN to access a node as assigned public IP addresses
 > where `node-qualifier` is 'c' for coordinator and 'w0', 'w1', etc. for worker nodes and 
 > `cluster-name` is the name for the cluster you selected during cluster provisioning.
 
-**Next steps**
+## Next steps
 
 * See guidance on how to [connect to a cluster with psql](./quickstart-connect-psql.md).
 * Review [public and private access fundamentals](./concepts-security-overview.md).
