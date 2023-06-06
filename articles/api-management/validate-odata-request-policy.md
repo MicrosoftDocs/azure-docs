@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 06/01/2023
+ms.date: 06/06/2023
 ms.author: danlep
 ---
 
 # Validate OData request
 
-The `validate-odata-request` policy validates the request URL, headers, and parameters of an OData request to ensure conformance with the [OData specification](https://odata.org).
+The `validate-odata-request` policy validates the request URL, headers, and parameters of a request to an OData API to ensure conformance with the [OData specification](https://odata.org).
 
 > [!NOTE]
 > This policy is currently in preview.
@@ -27,9 +27,8 @@ The `validate-odata-request` policy validates the request URL, headers, and para
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| id | Identifier of the [TBD].  |   No    | N/A   |
 | error-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
-| default-odata-version | The default OData version that is assumed if the request doesn't contain an `OData-Version` header.  | No  | N/A |
+| default-odata-version | The default OData version that is assumed for parameter validation if the request doesn't contain an `OData-Version` header.  | No  | 4.0 |
 | min-odata-version | The minimum OData version in the `OData-Version` header of the request that the policy accepts. | No  | N/A |
 | max-odata-version | The maximum OData version in the `OData-Version` header of the request that the policy accepts. | No  | N/A |
 | max-size | Maximum size of the request payload in bytes.  |  No      | N/A   |
@@ -38,19 +37,20 @@ The `validate-odata-request` policy validates the request URL, headers, and para
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ### Usage notes
 
-* Configure the policy for an OData API. For information about importing an OData API, see [Import an API from OData](import-api-from-odata.md).
+* Configure the policy for an OData API that has been [imported](import-api-from-odata.md) to API Management. 
+* This policy can only be used once in a policy section.
 
 ## Example
 
-This example validates an OData request and assumes a default OData version of 4.0 if no `OData-Version` header is present:
+The following example validates a request to an OData API and assumes a default OData version of 4.01 if no `OData-Version` header is present:
 
 ```xml
-<validate-odata-request default-odata-version="4.0" />  
+<validate-odata-request default-odata-version="4.01" />  
 ```
 
 ## Related policies

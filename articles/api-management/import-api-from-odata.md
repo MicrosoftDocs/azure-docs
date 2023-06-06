@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 06/06/2023
 ms.author: danlep
 ms.custom: 
 ---
@@ -29,15 +29,15 @@ In this article, you learn how to:
 
 * A service exposed as OData v2 or v4.
 
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+
 ## Import OData metadata
 
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, select **APIs** > **+ Add API**.
 1. Under **Create from definition**, select **OData**.
 
     :::image type="content" source="media/import-api-from-odata/odata-api.png" alt-text="Screenshot of creating an API from an OData description in the portal." :::
-1. Enter API settings. You can update settings later by going to the **Settings** tab of the API. 
+1. Enter API settings. You can update your settings later by going to the **Settings** tab of the API. 
 
     1. In **OData specification**, enter a URL for an OData metadata endpoint, typically the URL to the service root, appended with `/$metadata`. Alternatively, select a local OData XML file to import.
 
@@ -50,7 +50,7 @@ In this article, you learn how to:
 
 ## Update the OData schema
 
-You can access an editor in the portal to view the OData schema for your API. You can also update the schema from a file or an OData service endpoint.
+You can access an editor in the portal to view your API's OData schema. If the API changes, you can also update the schema in API Management from a file or an OData service endpoint.
 
 1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, select **APIs** > your OData API.
@@ -64,7 +64,7 @@ You can access an editor in the portal to view the OData schema for your API. Yo
 Secure your OData API by applying both existing [access control policies](api-management-policies.md#access-restriction-policies) and an [OData validation policy](validate-odata-request-policy.md) to protect against attacks through OData API requests.
 
 > [!TIP]
-> Configure policies for your OData API on the **API policies** tab in the portal.
+> In the portal, configure policies for your OData API on the **API policies** tab.
 
 [!INCLUDE [api-management-append-apis.md](../../includes/api-management-append-apis.md)]
 
