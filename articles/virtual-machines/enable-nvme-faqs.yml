@@ -65,7 +65,7 @@ sections:
       - question: |
           What VM families support NVMe? 
         answer: |
-          - NVMe interface is supported only the Ebsv5 and Ebdsv5 VM families. More VM families will be enabled in the future. Watch out for our product launch announcements in the Azure updates. 
+          - NVMe interface is supported only the Ebsv5 and Ebdsv5 VM families. Watch out for our product launch announcements in the Azure updates. 
           - You can learn from the [SKU API response](https://learn.microsoft.com/rest/api/compute/resource-skus/list?tabs=HTTP) about SKUs as NVMe support is added
       - question: |
           How do I enable NVMe on a VM family? 
@@ -218,7 +218,7 @@ sections:
       - question: |
           I have a SCSI Ebsv5 VM. How do I switch to NVMe of the same VM size?   
         answer: |         
-          The steps to switch from SCSI to NVMe are the same as explained in[FAQ](#how-do-i-enable-nvme-on-a-vm-family--)
+          The steps to switch from SCSI to NVMe are the same as explained in [FAQ](#how-do-i-enable-nvme-on-a-vm-family--)
       - question: |
           How can I switch back to SCSI interface from NVMe VM?   
         answer: |
