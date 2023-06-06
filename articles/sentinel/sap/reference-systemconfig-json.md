@@ -11,7 +11,7 @@ ms.date: 06/03/2023
 The *systemconfig.json* file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
 
 > [!NOTE]
-> The Microsoft Sentinel solution for SAP® applications supports the systemconfig.json file from agent version TBD and later. For previous agent versions, you can use the [systemconfig.ini file](reference-systemconfig.md). From TBD, the Microsoft Sentinel solution for SAP® applications will only support the .json file. 
+> The Microsoft Sentinel solution for SAP® applications supports the systemconfig.json file from agent version TBD and later. For previous agent versions, you can use the [systemconfig.ini file](reference-systemconfig.md).
 
 ## Systemconfig configuration file sections
 
@@ -27,160 +27,160 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 | [ABAP Table Selector](#abap-table-selector-section) | This section defines which User Master Data logs get extracted from the ABAP system. |
 
 ## Secrets Source section
-```systemconfig.json
-    {
-      "<SID_GUID>": {
-        "secrets_source": {
-          "secrets": "AZURE_KEY_VAULT|DOCKER_FIXED",
-          # Storage location of SAP credentials and Log Analytics workspace ID and key
-          # AZURE_KEY_VAULT - store in an Azure Key Vault. Requires keyvault option and intprefix option
-          # DOCKER_FIXED - store in systemconfig.ini file. Requires user, passwd, loganalyticswsid and publickey options
-          "keyvault": "<vaultname>",
-          # Azure Keyvault name, in case secrets = AZURE_KEY_VAULT
-          "intprefix": "<prefix>"
-          # intprefix - Prefix for variables created in Azure Key Vault
-    
-        },
+```json
+{
+  "<SID_GUID>": {
+    "secrets_source": {
+      "secrets": "AZURE_KEY_VAULT|DOCKER_FIXED",
+      # Storage location of SAP credentials and Log Analytics workspace ID and key
+      # AZURE_KEY_VAULT - store in an Azure Key Vault. Requires keyvault option and intprefix option
+      # DOCKER_FIXED - store in systemconfig.ini file. Requires user, passwd, loganalyticswsid and publickey options
+      "keyvault": "<vaultname>",
+      # Azure Keyvault name, in case secrets = AZURE_KEY_VAULT
+      "intprefix": "<prefix>"
+      # intprefix - Prefix for variables created in Azure Key Vault
+
+    },
 ```
 
 ## ABAP Central Instance section
-```systemconfig.json
-    "abap_central_instance": {
-          "auth_type": "PLAIN_USER_AND_PASSWORD|SNC_WITH_X509",
-          # Authentication type - username/password authentication, or X.509 authentication
-          "ashost": "<hostname>",
-          # FQDN, hostname, or IP address of the ABAP server
-    
-          "mshost": "<hostname>",
-          # FQDN, hostname, or IP address of the Message server
-    
-          "msserv": "<portnumber>",
-          # Port number, or service name (from /etc/services) of the message server
-    
-          "group": "<logon group>",
-          # Logon group of the message server
-    
-          "sysnr": "<Instance number>",
-          # Instance number of the ABAP server
-    
-          "sysid": "<SID>",
-          # System ID of the ABAP server
-    
-          "client": "<Client Number>",
-          # Client number of the ABAP server
-    
-          "user": "<username>",
-          # Username to use to connect to ABAP server. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
-    
-          "passwd": "<password>",
-          # Password to use to connect to ABAP server. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
-    
-          "snc_lib": "<path to libsapcrypto>",
-          # Full path, to the libsapcrypto.so
-          # Used when SNC is in use
-          # !!! Note: the path must be valid within the container!!!
-          "snc_partnername": "<distinguished name of the server certificate>",
-          # p: -prefixed valid SAP server SNC name, which is equal to Distinguished Name(DN) of SAP server PSE
-          # Used when SNC is in use
-          "snc_qop": "<SNC protection level>",
-          # More information available at https://docs.oracle.com/cd/E19509-01/820-5064/ggrpj/index.html
-          # Used when SNC is in use
-          "snc_myname": "<distinguished name of the client certificate>",
-          # p: -prefixed valid client SNC name, which is equal to Distinguished Name(DN) of client PSE
-          # Used when SNC is in use
-          "x509cert": "<server certificate>"
-          # Base64 encoded server certificate value in a single line (with leading ----BEGIN-CERTIFICATE--- and trailing ----END-CERTIFICATE---- removed)
-        },
+```json
+"abap_central_instance": {
+      "auth_type": "PLAIN_USER_AND_PASSWORD|SNC_WITH_X509",
+      # Authentication type - username/password authentication, or X.509 authentication
+      "ashost": "<hostname>",
+      # FQDN, hostname, or IP address of the ABAP server
+
+      "mshost": "<hostname>",
+      # FQDN, hostname, or IP address of the Message server
+
+      "msserv": "<portnumber>",
+      # Port number, or service name (from /etc/services) of the message server
+
+      "group": "<logon group>",
+      # Logon group of the message server
+
+      "sysnr": "<Instance number>",
+      # Instance number of the ABAP server
+
+      "sysid": "<SID>",
+      # System ID of the ABAP server
+
+      "client": "<Client Number>",
+      # Client number of the ABAP server
+
+      "user": "<username>",
+      # Username to use to connect to ABAP server. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
+
+      "passwd": "<password>",
+      # Password to use to connect to ABAP server. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
+
+      "snc_lib": "<path to libsapcrypto>",
+      # Full path, to the libsapcrypto.so
+      # Used when SNC is in use
+      # !!! Note: the path must be valid within the container!!!
+      "snc_partnername": "<distinguished name of the server certificate>",
+      # p: -prefixed valid SAP server SNC name, which is equal to Distinguished Name(DN) of SAP server PSE
+      # Used when SNC is in use
+      "snc_qop": "<SNC protection level>",
+      # More information available at https://docs.oracle.com/cd/E19509-01/820-5064/ggrpj/index.html
+      # Used when SNC is in use
+      "snc_myname": "<distinguished name of the client certificate>",
+      # p: -prefixed valid client SNC name, which is equal to Distinguished Name(DN) of client PSE
+      # Used when SNC is in use
+      "x509cert": "<server certificate>"
+      # Base64 encoded server certificate value in a single line (with leading ----BEGIN-CERTIFICATE--- and trailing ----END-CERTIFICATE---- removed)
+    },
 ```
 
 ## Azure Credentials section
-```systemconfig.json
-    "azure_credentials": {
-          "loganalyticswsid": "<workspace ID>",
-          # Log Analytics workspace ID. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
-    
-          "publickey": "<publickey>"
-          # Log Analytics workspace primary or secondary key. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
-    
-        },
+```json
+ "azure_credentials": {
+      "loganalyticswsid": "<workspace ID>",
+      # Log Analytics workspace ID. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
+
+      "publickey": "<publickey>"
+      # Log Analytics workspace primary or secondary key. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
+
+    },
 ```
 
 ## File Extraction ABAP section
-```systemconfig.json
-    "file_extraction_abap": {
-          "osuser": "<SAPControl username>",
-          # Username to use to authenticate to SAPControl
-    
-          "ospasswd": "<SAPControl password>",
-          # Password to use to authenticate to SAPControl
-    
-          "appserver": "<server>",
-          #SAPControl server hostname/fqdn/IP address
-    
-          "instance": "<instance>",
-          #SAPControl instance name
-    
-          "abapseverity": "<severity>",
-          # 0 = All logs ; 1 = Warning ; 2 = Error
-    
-          "abaptz": "<timezone>"
-          # GMT FORMAT
-          # example - For OS Timezone = NZST (New Zealand Standard Time) use abaptz = GMT+12
-        },
+```json
+"file_extraction_abap": {
+      "osuser": "<SAPControl username>",
+      # Username to use to authenticate to SAPControl
+
+      "ospasswd": "<SAPControl password>",
+      # Password to use to authenticate to SAPControl
+
+      "appserver": "<server>",
+      #SAPControl server hostname/fqdn/IP address
+
+      "instance": "<instance>",
+      #SAPControl instance name
+
+      "abapseverity": "<severity>",
+      # 0 = All logs ; 1 = Warning ; 2 = Error
+
+      "abaptz": "<timezone>"
+      # GMT FORMAT
+      # example - For OS Timezone = NZST (New Zealand Standard Time) use abaptz = GMT+12
+    },
 ```
 
 ## File Extraction JAVA section
-```systemconfig.json
-    "file_extraction_java": {
-          "javaosuser": "<username>",
-          # Username to use to authenticate to JAVA server
-    
-          "javaospasswd": "<password>",
-          # Password to use to authenticate to JAVA server
-    
-          "javaappserver": "<server>",
-          #JAVA server hostname/fqdn/IP address
-    
-          "javainstance": "<instance number>",
-          #JAVA instance number
-    
-          "javaseverity": "<severity>",
-          # 0 = All logs ; 1 = Warning ; 2 = Error
-    
-          "javatz": "<timezone>"
-          # GMT FORMAT
-          # example - For OS Timezone = NZST (New Zealand Standard Time) use abaptz = GMT+12
-    
-        },
+```json
+"file_extraction_java": {
+      "javaosuser": "<username>",
+      # Username to use to authenticate to JAVA server
+
+      "javaospasswd": "<password>",
+      # Password to use to authenticate to JAVA server
+
+      "javaappserver": "<server>",
+      #JAVA server hostname/fqdn/IP address
+
+      "javainstance": "<instance number>",
+      #JAVA instance number
+
+      "javaseverity": "<severity>",
+      # 0 = All logs ; 1 = Warning ; 2 = Error
+
+      "javatz": "<timezone>"
+      # GMT FORMAT
+      # example - For OS Timezone = NZST (New Zealand Standard Time) use abaptz = GMT+12
+
+    },
 ```
 
 ### Logs Activation Status section
-```systemconfig.json
-    "logs_activation_status": {
-          # GMT FORMAT
-          # example - For OS Timezone = NZST (New Zealand Standard Time) use abaptz = GMT+12
-          "ABAPAuditLog": "<True/False>",
-          "ABAPJobLog": "<True/False>",
-          "ABAPSpoolLog": "<True/False>",
-          "ABAPSpoolOutputLog": "<True/False>",
-          "ABAPChangeDocsLog": "<True/False>",
-          "ABAPAppLog": "<True/False>",
-          "ABAPWorkflowLog": "<True/False>",
-          "ABAPCRLog": "<True/False>",
-          "ABAPTableDataLog": "<True/False>",
-          # The following logs are retrieved using SAP Control interface and OS Login
-    
-          "ABAPFilesLogs": "<True/False>",
-          "SysLog": "<True/False>",
-          "ICM": "<True/False>",
-          "WP": "<True/False>",
-          "GW": "<True/False>",
-          # The following logs are retrieved using SAP Control interface and OS Login
-          "JAVAFilesLogs": "<True/False>",
+```json
+"logs_activation_status": {
+      # GMT FORMAT
+      # example - For OS Timezone = NZST (New Zealand Standard Time) use abaptz = GMT+12
+      "ABAPAuditLog": "<True/False>",
+      "ABAPJobLog": "<True/False>",
+      "ABAPSpoolLog": "<True/False>",
+      "ABAPSpoolOutputLog": "<True/False>",
+      "ABAPChangeDocsLog": "<True/False>",
+      "ABAPAppLog": "<True/False>",
+      "ABAPWorkflowLog": "<True/False>",
+      "ABAPCRLog": "<True/False>",
+      "ABAPTableDataLog": "<True/False>",
+      # The following logs are retrieved using SAP Control interface and OS Login
+
+      "ABAPFilesLogs": "<True/False>",
+      "SysLog": "<True/False>",
+      "ICM": "<True/False>",
+      "WP": "<True/False>",
+      "GW": "<True/False>",
+      # The following logs are retrieved using SAP Control interface and OS Login
+      "JAVAFilesLogs": "<True/False>",
 ```
 
 ### Connector Configuration section
-```systemconfig.json
+```json
 "connector_configuration": {
       "extractuseremail": "<True/False>",
       "apiretry": "<True/False>",
@@ -192,34 +192,34 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 ```
 
 ### ABAP Table Selector section
-```systemconfig.json
-    "abap_table_selector": {
-          # Specify True or False to configure whether table should be collected from the SAP system
-    
-          "AGR_TCODES_FULL": "<True/False>",
-          "USR01_FULL": "<True/False>",
-          "USR02_FULL": "<True/False>",
-          "USR02_INCREMENTAL": "<True/False>",
-          "AGR_1251_FULL": "<True/False>",
-          "AGR_USERS_FULL": "<True/False>",
-          "AGR_USERS_INCREMENTAL": "<True/False>",
-          "AGR_PROF_FULL": "<True/False>",
-          "UST04_FULL": "<True/False>",
-          "USR21_FULL": "<True/False>",
-          "ADR6_FULL": "<True/False>",
-          "ADCP_FULL": "<True/False>",
-          "USR05_FULL": "<True/False>",
-          "USGRP_USER_FULL": "<True/False>",
-          "USER_ADDR_FULL": "<True/False>",
-          "DEVACCESS_FULL": "<True/False>",
-          "AGR_DEFINE_FULL": "<True/False>",
-          "AGR_DEFINE_INCREMENTAL": "<True/False>",
-          "PAHI_FULL": "<True/False>",
-          "AGR_AGRS_FULL": "<True/False>",
-          "USRSTAMP_FULL": "<True/False>",
-          "USRSTAMP_INCREMENTAL": "<True/False>",
-          "SNCSYSACL_FULL": "<True/False>",
-          "USRACL_FULL": "<True/False>"
+```json
+"abap_table_selector": {
+      # Specify True or False to configure whether table should be collected from the SAP system
+
+      "AGR_TCODES_FULL": "<True/False>",
+      "USR01_FULL": "<True/False>",
+      "USR02_FULL": "<True/False>",
+      "USR02_INCREMENTAL": "<True/False>",
+      "AGR_1251_FULL": "<True/False>",
+      "AGR_USERS_FULL": "<True/False>",
+      "AGR_USERS_INCREMENTAL": "<True/False>",
+      "AGR_PROF_FULL": "<True/False>",
+      "UST04_FULL": "<True/False>",
+      "USR21_FULL": "<True/False>",
+      "ADR6_FULL": "<True/False>",
+      "ADCP_FULL": "<True/False>",
+      "USR05_FULL": "<True/False>",
+      "USGRP_USER_FULL": "<True/False>",
+      "USER_ADDR_FULL": "<True/False>",
+      "DEVACCESS_FULL": "<True/False>",
+      "AGR_DEFINE_FULL": "<True/False>",
+      "AGR_DEFINE_INCREMENTAL": "<True/False>",
+      "PAHI_FULL": "<True/False>",
+      "AGR_AGRS_FULL": "<True/False>",
+      "USRSTAMP_FULL": "<True/False>",
+      "USRSTAMP_INCREMENTAL": "<True/False>",
+      "SNCSYSACL_FULL": "<True/False>",
+      "USRACL_FULL": "<True/False>"
     }
 ```
 ## Next steps
