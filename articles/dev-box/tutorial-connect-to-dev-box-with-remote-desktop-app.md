@@ -12,7 +12,7 @@ ms.topic: tutorial
 
 # Tutorial: Use a Remote Desktop client to connect to a dev box
 
-After you configure the Microsoft Dev Box Preview service and create dev boxes, you can connect to them by using a browser or by using a Remote Desktop client.
+After you configure the Microsoft Dev Box service and create dev boxes, you can connect to them by using a browser or by using a Remote Desktop client.
 
 Remote Desktop apps let you use and control a dev box from almost any device. For your desktop or laptop, you can choose to download the Remote Desktop client for Windows Desktop or Microsoft Remote Desktop for Mac. You can also download a Remote Desktop app for your mobile device: Microsoft Remote Desktop for iOS or Microsoft Remote Desktop for Android.
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you must first:
 
-- [Configure Microsoft Dev Box Preview](./quickstart-configure-dev-box-service.md).
+- [Configure Microsoft Dev Box ](./quickstart-configure-dev-box-service.md).
 - [Create a dev box](./quickstart-create-dev-box.md#create-a-dev-box) on the [developer portal](https://aka.ms/devbox-portal).
 
 ## Download the client and connect to your dev box
@@ -160,7 +160,7 @@ The dev box might take a few moments to stop.
 
 ## Next steps
 
-To learn about managing Microsoft Dev Box Preview, see:
+To learn about managing Microsoft Dev Box , see:
 
 - [Provide access to project admins](./how-to-project-admin.md)
 - [Provide access to dev box users](./how-to-dev-box-user.md)

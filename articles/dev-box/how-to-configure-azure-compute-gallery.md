@@ -31,7 +31,7 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 - A compute gallery. Images stored in a compute gallery can be used in a dev box definition, provided they meet the requirements listed in the [Compute gallery image requirements](#compute-gallery-image-requirements) section.
  
 > [!NOTE]
-> Microsoft Dev Box Preview doesn't support community galleries.
+> Microsoft Dev Box doesn't support community galleries.
 
 ## Compute gallery image requirements 
 
@@ -62,13 +62,13 @@ The image version must meet the following requirements:
 
 ## Provide permissions for services to access a gallery
 
-When you use an Azure Compute Gallery image to create a dev box definition, the Windows 365 service validates the image to ensure that it meets the requirements to be provisioned for a dev box. The Dev Box Preview service replicates the image to the regions specified in the attached network connections, so the images are present in the region that's required for dev box creation.
+When you use an Azure Compute Gallery image to create a dev box definition, the Windows 365 service validates the image to ensure that it meets the requirements to be provisioned for a dev box. The Dev Box service replicates the image to the regions specified in the attached network connections, so the images are present in the region that's required for dev box creation.
 
 To allow the services to perform these actions, you must provide permissions to your gallery as follows.
 
 ### Add a user-assigned identity to the dev center
 
-1. [Follow the steps to create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).  
+1. [Follow the steps to create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity). 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box, enter **dev box**. In the list of results, select **Dev centers**.
 1. Open your dev center. On the left menu, select **Identity**.
@@ -179,4 +179,4 @@ The gallery is detached from the dev center. The gallery and its images aren't d
 
 ## Next steps
 
-- Learn more about [key concepts in Microsoft Dev Box Preview](./concept-dev-box-concepts.md).
+- Learn more about [key concepts in Microsoft Dev Box ](./concept-dev-box-concepts.md).
