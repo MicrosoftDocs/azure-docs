@@ -45,7 +45,7 @@ Learn more about [Azure Pipelines ecosystem support](/azure/devops/pipelines/eco
 
 1. When prompted, select the location of your source code: either **Azure Repos Git** or **GitHub**.
 
-    1. You might be redirected to GitHub to sign in. If so, enter your GitHub credentials.
+   You might be redirected to GitHub to sign in. If so, enter your GitHub credentials.
 
 1. When the list of repositories appears, select your repository.
 
