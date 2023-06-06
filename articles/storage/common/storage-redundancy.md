@@ -24,7 +24,7 @@ When deciding which redundancy option is best for your scenario, consider the tr
 - Whether your application requires read access to the replicated data in the secondary region if the primary region becomes unavailable for any reason (geo-replication with read access).
 
 > [!NOTE]
-> The features and regional availability described in this article are also available to accounts that have a hierarchical namespace (Azure Blob storage).
+> The features and regional availability described in this article are also available to accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2 and Blob storage with HNS).
 
 The services that comprise Azure Storage are managed through a common Azure resource called a *storage account*. The storage account represents a shared pool of storage that can be used to deploy storage resources such as blob containers (Blob Storage), file shares (Azure Files), tables (Table Storage), or queues (Queue Storage). For more information about Azure Storage accounts, see [Storage account overview](storage-account-overview.md).
 
