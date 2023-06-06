@@ -258,6 +258,10 @@ items:
           href: how-to-manage-admin-accounts.md
         - name: Manage customer accounts
           href: how-to-manage-customer-accounts.md
+    - name: Troubleshoot
+      items:
+        - name: Known issues
+          href: troubleshooting-known-issues.md
     - name: Management APIs
       items:
         - name: Microsoft Graph
@@ -270,6 +274,8 @@ items:
       href: reference-user-permissions.md
     - name: Group and application roles support
       href: reference-group-app-roles-support.md
+    - name: Company branding CSS template reference guide
+      href: /azure/active-directory/fundamentals/reference-company-branding-css-template
     - name: Help and support options
       href: ../../develop/developer-support-help-options.md?context=/azure/active-directory/external-identities/customers/context/customers-context
     - name: MSAL references 
