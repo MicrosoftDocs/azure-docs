@@ -319,3 +319,7 @@ In this quickstart, you:
 * Connected your AKS cluster to your App Configuration store using the App Configuration Kubernetes Provider.
 * Created a ConfigMap with data from your App Configuration store.
 * Ran the application with configuration from your App Configuration store without changing your application code.
+
+## Next Steps
+
+To learn more about the Azure App Configuration Kubernetes Provider, see [Azure App Configuration Kubernetes Provider reference](./reference-kubernetes-provider.md).
