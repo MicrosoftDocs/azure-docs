@@ -35,7 +35,13 @@ For more information about Azure Storage redundancy, see [Azure Storage redundan
 Some features and services are not supported for account failover. See [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services) for a detailed list.
 
 > [!IMPORTANT]
-> Customer-managed account failover for accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2) is currently in PREVIEW.
+> Customer-managed account failover for accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2) is currently in PREVIEW and only supported in the following regions:
+>
+> - (Asia Pacific) Central India
+> - (Europe) Switzerland North
+> - (Europe) Switzerland West
+> - (North America) Canada Central
+>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > In the event of a disaster that affects the primary region, Microsoft will manage the failover for accounts with a hierarchical namespace. For more information, see [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover).

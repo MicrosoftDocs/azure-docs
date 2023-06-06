@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/09/2023
+ms.date: 06/06/2023
 ms.author: jammart
 ms.subservice: common
 ms.custom: references_regions
@@ -255,7 +255,13 @@ All geo-redundant offerings support Microsoft-managed failover in the event of a
 | **Microsoft-managed failover** | All account types | General-purpose v2 accounts |
 
 > [!IMPORTANT]
-> Customer-managed account failover for accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2) is currently in PREVIEW.
+> Customer-managed account failover for accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2) is currently in PREVIEW and only supported in the following regions:
+>
+> - (Asia Pacific) Central India
+> - (Europe) Switzerland North
+> - (Europe) Switzerland West
+> - (North America) Canada Central
+>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > In the event of a disaster that affects the primary region, Microsoft will manage the failover for accounts with a hierarchical namespace. For more information, see [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover).
