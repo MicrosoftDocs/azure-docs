@@ -43,4 +43,5 @@ ACI Spot containers preview release includes these limitations such as
 
 ## Next Steps 
 
-* For a deployment example, see [Deploy a spot container group with Azure portal](./container-instances-tutorial-deploy-spot-containers-portal.md) 
+* For a deployment example with the Azure portal, see [Deploy a Spot container with Azure Container Instances using the Azure portal](container-instances-tutorial-deploy-spot-containers-portal.md)
+* For a deployment example with the Azure CLI, see [Deploy a Spot container with Azure Container Instances using the Azure CLI](container-instances-tutorial-deploy-spot-containers-cli.md)
