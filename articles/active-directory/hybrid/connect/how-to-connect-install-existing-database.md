@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Install Azure AD Connect using an existing ADSync database
-Azure AD Connect requires a SQL Server database to store data. You can either use the default SQL Server 2012 Express LocalDB installed with Azure AD Connect or use your own full version of SQL. Previously, when you installed Azure AD Connect, a new database named ADSync was always created. With Azure AD Connect version 1.1.613.0 (or after), you have the option to install Azure AD Connect by pointing it to an existing ADSync database.
+Azure AD Connect requires a SQL Server database to store data. You can either use the default SQL Server 2019 Express LocalDB installed with Azure AD Connect or use your own full version of SQL. Previously, when you installed Azure AD Connect, a new database named ADSync was always created. With Azure AD Connect version 1.1.613.0 (or after), you have the option to install Azure AD Connect by pointing it to an existing ADSync database.
 
 ## Benefits of using an existing ADSync database
 By pointing to an existing ADSync database:
