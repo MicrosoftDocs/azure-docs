@@ -100,7 +100,7 @@ for further information.
 
 
 ## Contact us
-Give us feedback on this document [Health Insights Support](healthinsightsdev@microsoft.com).
+Give us feedback on this document [Health Insights Support](mailto:health-ai-feedback@microsoft.com)
 
 
 ## About this document
