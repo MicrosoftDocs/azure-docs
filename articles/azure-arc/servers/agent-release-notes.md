@@ -16,6 +16,27 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
 
+## Version 1.31 - June 2023
+
+Download for [Windows]() or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### New features
+
+- Added support for Amazon Linux 2023
+- [azcmagent show](azcmagent-show.md) no longer requires administrator privileges
+- You can now filter the output of [azcmagent show](azcmagent-show.md) by specifying the properties you wish to output
+
+### Fixed
+
+- Added an error message when a pending reboot on the machine affects extension operations
+- The scheduled task that checks for agent updates no longer outputs a file
+- Improved formatting for clock skew calculations
+- Improved reliability when upgrading extensions by explicitly asking extensions to stop before trying to upgrade.
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Update Management Center extension for Linux, Microsoft Defender Endpoint for Linux, and Azure Security Agent for Linux to prevent timeouts during installation
+- [azcmagent disconnect](azcmagent-disconnect.md) now closes any active SSH or Windows Admin Center connections
+- Improved output of the [azcmagent check](azcmagent-check.md) command
+- Fixed an issue that could cause the agent to crash if the location specified 
+
 ## Version 1.30 - May 2023
 
 Download for [Windows](https://download.microsoft.com/download/7/7/9/779eae73-a12b-4170-8c5e-abec71bc14cf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
@@ -54,19 +75,6 @@ Download for [Windows](https://download.microsoft.com/download/5/9/7/59789af8-58
 - JSON output for `azcmagent connect` now includes Azure portal URL for the server
 - Linux installation script now installs the `gnupg` package if it's missing on Debian operating systems
 - Removed weekly restarts for the extension and guest configuration services
-
-## Version 1.27 - February 2023
-
-Download for [Windows](https://download.microsoft.com/download/8/4/5/845d5e04-bb09-4ed2-9ca8-bb51184cddc9/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
-
-### Fixed
-
-- The extension service now correctly restarts when the Azure Connected Machine agent is upgraded by Update Management Center
-- Resolved issues with the hybrid connectivity component that could result in the "himds" service crashing, the server showing as "disconnected" in Azure, and connectivity issues with Windows Admin Center and SSH
-- Improved handling of resource move scenarios that could impact Windows Admin Center and SSH connectivity
-- Improved reliability when changing the [agent configuration mode](security-overview.md#local-agent-security-controls) from "monitor" mode to "full" mode.
-- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Sentinel DNS extension to improve log collection reliability
-- Tenant IDs are better validated when connecting the server
 
 ## Next steps
 

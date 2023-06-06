@@ -2,7 +2,7 @@
 title: Archive for What's new with Azure Arc-enabled servers agent
 description: Release notes for Azure Connected Machine agent versions older than six months
 ms.topic: overview
-ms.date: 05/08/2023
+ms.date: 06/02/2023
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,19 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Previous releases
 - Known issues
 - Bug fixes
+
+## Version 1.27 - February 2023
+
+Download for [Windows](https://download.microsoft.com/download/8/4/5/845d5e04-bb09-4ed2-9ca8-bb51184cddc9/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Fixed
+
+- The extension service now correctly restarts when the Azure Connected Machine agent is upgraded by Update Management Center
+- Resolved issues with the hybrid connectivity component that could result in the "himds" service crashing, the server showing as "disconnected" in Azure, and connectivity issues with Windows Admin Center and SSH
+- Improved handling of resource move scenarios that could impact Windows Admin Center and SSH connectivity
+- Improved reliability when changing the [agent configuration mode](security-overview.md#local-agent-security-controls) from "monitor" mode to "full" mode.
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Sentinel DNS extension to improve log collection reliability
+- Tenant IDs are better validated when connecting the server
 
 ## Version 1.26 - January 2023
 
