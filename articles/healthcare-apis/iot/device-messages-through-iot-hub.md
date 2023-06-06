@@ -124,7 +124,7 @@ When deployment is completed, the following resources and access roles are creat
 
   * **Azure Event Hubs Data Sender** role. In this deployment, the sender role is named *devicedatasender* and can be used to provide access to the event hub using a shared access signature (SAS). To learn more about authorizing access using a SAS, see [Authorizing access to Event Hubs resources using Shared Access Signatures](../../event-hubs/authorize-access-shared-access-signature.md). The **Azure Event Hubs Data Sender** role isn't used in this tutorial.
 
-* IoT hub with [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) configured to send device messages to the event hub.
+* IoT hub with [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) configured to route device messages to the event hub.
 
 * [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md), which provides send access from the IoT hub to the event hub. The managed identity has the **Azure Event Hubs Data Sender** role in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the event hub.
 
@@ -211,7 +211,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
    After you select **Send**, it might take up to five minutes for the FHIR resources to be available in the FHIR service.
 
    > [!IMPORTANT]
-   > To avoid device spoofing in device-to-cloud (D2C) messages, Azure IoT Hub enriches all device messages with additional properties before sending it to the MedTech service device event hub. For example: **Properties**: `iothub-creation-time-utc` and **SystemProperties**: `iothub-connection-device-id`. For more information, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties) and [How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md). 
+   > To avoid device spoofing in device-to-cloud (D2C) messages, Azure IoT Hub enriches all device messages with additional properties before routing them to the event hub. For example: **Properties**: `iothub-creation-time-utc` and **SystemProperties**: `iothub-connection-device-id`. For more information, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties) and [How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md). 
    >
    > You do not want to send this example device message to your IoT hub as the enrichments will be duplicated by the IoT hub and cause an error with your MedTech service. This is only an example of how your device messages are enriched by the IoT hub. 
    >
