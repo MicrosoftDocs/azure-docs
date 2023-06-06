@@ -10,8 +10,8 @@ ms.workload: identity
 ms.custom: devx-track-dotnet
 ROBOTS: NOINDEX
 ms.subservice: ciam
-ms.topic: portal
-ms.date: 05/22/2023
+ms.topic: conceptual
+ms.date: 06/06/2023
 ---
 
 # Portal quickstart for ASP.NET web app
