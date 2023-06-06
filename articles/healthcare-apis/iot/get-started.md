@@ -15,7 +15,7 @@ ms.custom: mode-api
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-This article and diagram outlines the basic steps to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). These steps may help you analyze the MedTech service [deployment](deploy-choose-method.md) options and determine which deployment method is best for you.
+This article and diagram outlines the basic steps to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). These steps may help you analyze the MedTech service [deployment options](deploy-choose-method.md) and determine which deployment method is best for you.
 
 As a prerequisite, you need an Azure subscription and have been granted the proper permissions to deploy Azure resource groups and resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in Azure PowerShell, Azure CLI, and REST API scripts.
 
