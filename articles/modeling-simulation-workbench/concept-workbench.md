@@ -1,5 +1,5 @@
 ---
-title: Azure Modeling and Simulation Workbench
+title: "Workbench: Azure Modeling and Simulation Workbench"
 description: Overview of Azure Modeling and Simulation Workbench workbench component.
 author: lynnar
 ms.author: lynnar
@@ -10,11 +10,9 @@ ms.date: 01/01/2023
 # Customer intent: As a Modeling and Simulation Workbench user, I want to understand the workbench component.
 ---
 
-# Azure Modeling and Simulation Workbench
+# Workbench: Azure Modeling and Simulation Workbench
 
-## Workbench - an introduction
-
-For the Microsoft Azure Modeling and Simulation Workbench user, the workbench provides a placeholder for housing several Modeling and Simulation Workbench components. A workbench in an Azure Modeling and Simulation Workbench refers to the series of supporting services that span compute, storage, networking, and more to optimize workload performance.
+An Azure Modeling and Simulation Workbench is a placeholder for housing several workbench components for users. A workbench refers to a series of supporting services that optimize workload performance in Azure Modeling and Simulation Workbench, such as: computing, storage, and networking.
 
 ## Workbench components
 
@@ -22,7 +20,7 @@ A workbench hosts Azure resources in a closed environment of virtual machines, s
 
 Multiple teams can work on shared projects within a workbench using Modeling and Simulation Workbench's collaborative and secure design environment.
 
-The chamber and connector have its own admin that manages the space, the components, and its users. Authorized users are able to access and modify systems and transform the components and services as per their project requirements. High-performance VMs can be decommissioned after use owing to the sizeable investment involved in keeping them running.
+The chamber and [connector](./concept-connector.md) have its own admin that manages the space, the components, and its users. Authorized users can access and modify systems and transform the components and services as per their project requirements. Users can also delete high-performance VMs after use to save on costs.
 
 ## Workbench infrastructure
 
@@ -50,4 +48,4 @@ The Azure virtual network enables over-provisioned network resources with high b
 
 ## Next steps
 
-- [What's next - User Personas](./concept-user-personas.md)
+- [User personas](./concept-user-personas.md)

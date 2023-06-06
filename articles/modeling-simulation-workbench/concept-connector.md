@@ -1,5 +1,5 @@
 ---
-title: Azure Modeling and Simulation Workbench connector
+title: "Connector: Azure Modeling and Simulation Workbench"
 description: Overview of how the Azure Modeling and Simulation Workbench implements connectors.
 author: lynnar
 ms.author: lynnar
@@ -10,7 +10,7 @@ ms.date: 01/01/2023
 #Customer intent: As a Modeling and Simulation Workbench user, I want to understand the connector component.
 ---
 
-# Azure Modeling and Simulation Workbench connector
+# Connector: Azure Modeling and Simulation Workbench
 
 Connectors are used to define and configure the network access between an organization's on-premises or cloud environment into the Azure Modeling and Simulation Workbench chamber. The connector supports protocols established through VPN, Azure Express Route, or network Access Control Lists.
 
@@ -24,12 +24,4 @@ For those organizations who don't have an Azure network setup, or prefer to use 
 
 ## Next steps
 
-- [What's next - Data Pipeline](./concept-data-pipeline.md)
-
-Choose an article to know more:
-
-- [Workbench](./concept-workbench.md)
-
-- [User Personas](./concept-user-personas.md)
-
-- [Chamber](./concept-chamber.md)
+- [Data pipeline](./concept-data-pipeline.md)

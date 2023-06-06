@@ -36,24 +36,20 @@ landingContent:
             url: ./concept-connector.md
           - text: Data Pipeline
             url: ./concept-data-pipeline.md
-          - text: License Service
+          - text: License service
             url: ./concept-license-service.md
   # Card: Get started
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Azure Onboarding
-            url: ./quickstart-create-portal.md#azure-onboarding
-          - text: Modeling and Simulation Workbench Onboarding
-            url: ./quickstart-create-portal.md#modeling-and-simulation-workbench-onboarding
-          - text: Create Workbench-Azure portal
+          - text: Create an Azure Modeling and Simulation Workbench
             url: ./quickstart-create-portal.md
       - linkListType: how-to-guide
         links:
           - text: Manage users
             url: ./how-to-guide-manage-users.md
-          - text: Setup networking
+          - text: Set up networking
             url: ./how-to-guide-set-up-networking.md
           - text: Manage license service
             url: ./how-to-guide-licenses.md
@@ -65,8 +61,6 @@ landingContent:
             url: ./how-to-guide-manage-storage.md
 #          - name: Disaster Recovery
 #            href: ./how-to-guide-disaster-recovery.md
-          - text: Troubleshooting
-            url: ./how-to-guide-troubleshooting.md
   # Card: Reference
 #  - title: Reference
 #    linkLists:
