@@ -13,7 +13,7 @@ Azure Monitor lets you query data in [Azure Resource Graph](../../governance/res
 
 ## Permissions
 
-[!INCLUDE [azure-monitor-log-queries](../../../includes/azure-monitor-log-queries.md)
+[!INCLUDE [log-analytics-query-permissions](../../../includes/log-analytics-query-permissions.md)]
 
 ## Cross-query your Log Analytics or Application Insights resources and Azure Resource Graph
 
