@@ -128,7 +128,9 @@ SSH access is disabled by default.  SSH access can't be enabled or disabled afte
 
 ### Set up an SSH key later
 
-Although SSH cannot be enabled or disabled after creation, you do have the option to set up an SSH key later on an SSH-enabled compute instance, where you can set up the SSH key post-creation. To do this, select to enable SSH on your compute instance, and select to "Set up an SSH key later" as the SSH public key source. After the compute instance is created, you can visit the Details page of your compute instance, and click to edit your SSH keys. From there, you will be able to add your SSH key.
+Although SSH cannot be enabled or disabled after creation, you do have the option to set up an SSH key later on an SSH-enabled compute instance. This allows you to set up the SSH key post-creation. To do this, select to enable SSH on your compute instance, and select to "Set up an SSH key later" as the SSH public key source. After the compute instance is created, you can visit the Details page of your compute instance and click to edit your SSH keys. From there, you will be able to add your SSH key.
+
+An example of a common use case for this is when creating a compute instance on behalf of another user (see [Create on behalf of](#create-on-behalf-of)) When provisioning a compute instance on behalf of another user, you can enable SSH for the new compute instance owner by selecting "Set up an SSH key later". This allows for the new owner of the compute instance to set up their SSH key for their newly owned compute instance once it has been created and assigned to them following the steps above.
 
 ### Connect with SSH
 
