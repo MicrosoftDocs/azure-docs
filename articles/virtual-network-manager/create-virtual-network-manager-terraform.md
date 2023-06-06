@@ -94,7 +94,7 @@ In this article, you learn how to:
     terraform output virtual_network_names
     ``` 
   
-1. For each virtual network name printed in the previous step, run [az network manager list-effective-connectivity-config](/cli/azure/network/manager#az-network-manager-list-effective-connectivity-config) to display 
+1. For each virtual network name printed in the previous step, run [az network manager list-effective-connectivity-config](/cli/azure/network/manager#az-network-manager-list-effective-connectivity-config) to print the effective (applied) configurations. Replace the `<virtual_network_name>` placeholder with the vnet name.
 
     ```azurecli
 		az network manager list-effective-connectivity-config \
