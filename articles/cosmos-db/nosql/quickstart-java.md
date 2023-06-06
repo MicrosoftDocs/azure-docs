@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 03/16/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022, passwordless-java, devx-track-azurecli
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022, passwordless-java, devx-track-azurecli, devx-track-extended-java
 ---
 
 # Quickstart: Build a Java app to manage Azure Cosmos DB for NoSQL data
