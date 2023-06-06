@@ -2,6 +2,8 @@
 title: Architecture
 description: Provides an overview of Epic for ALI architecture.
 ms.topic: conceptual
+author: jjaygbay
+ms.author: jacobjaygbay@microsoft.com
 ms.subservice: baremetal-epic
 ms.date: 06/01/2023
 ---

@@ -2,6 +2,7 @@
 title: Operations model
 description: Provides an overview of the Azure Large Instances for Epic operations model.
 ms.topic: conceptual
+author: jjaygbay
 ms.date: 06/01/2023
 ---
 # Operations model

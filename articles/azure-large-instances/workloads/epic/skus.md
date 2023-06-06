@@ -2,6 +2,7 @@
 title: SKUs
 description: Provides a list of Epic for ALI SKUs.
 ms.topic: conceptual
+author: jjaygbay
 ms.subservice: baremetal-epic
 ms.date: 06/01/2023
 ---

@@ -2,6 +2,7 @@
 title: Configure Azure service health alerta
 description: Explains how to configure Azure service health alerts.
 ms.topic: conceptual
+author: jjaygbay
 ms.subservice: baremetal-epic
 ms.date: 06/01/2023
 ---
