@@ -1,17 +1,17 @@
 ---
-title: Troubleshoot Azure Arc-enabled servers agent connection issues
+title: Troubleshoot Azure Connected Machine agent connection issues
 description: This article tells how to troubleshoot and resolve issues with the Connected Machine agent that arise with Azure Arc-enabled servers when trying to connect to the service.
 ms.date: 10/13/2022
 ms.topic: conceptual
 ---
 
-# Troubleshoot Azure Arc-enabled servers agent connection issues
+# Troubleshoot Azure Connected Machine agent connection issues
 
 This article provides information for troubleshooting issues that may occur configuring the Azure Connected Machine agent for Windows or Linux. Both the interactive and at-scale installation methods when configuring connection to the service are included. For general information, see [Azure Arc-enabled servers overview](./overview.md).
 
 ## Agent error codes
 
-Use the following table to identify and resolve issues when configuring the Azure Arc-enabled servers agent. You will need the `AZCM0000` ("0000" can be any four digit number) error code printed to the console or script output.
+Use the following table to identify and resolve issues when configuring the Azure Connected Machine agent. You will need the `AZCM0000` ("0000" can be any four digit number) error code printed to the console or script output.
 
 | Error code | Probable cause | Suggested remediation |
 |------------|----------------|-----------------------|
