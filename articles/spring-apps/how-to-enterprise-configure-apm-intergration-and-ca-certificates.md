@@ -1,7 +1,7 @@
 ---
 title: How to configure APM integration and CA certificates
-titleSuffix: Azure Spring Apps Enterprise
-description: How to configure APM integration and CA certificates in the Azure Spring Apps Enterprise plan
+titleSuffix: Azure Spring Apps Enterprise plan
+description: Shows you how to configure APM integration and CA certificates in the Azure Spring Apps Enterprise plan.
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-apps
@@ -17,13 +17,13 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to configure Application Performance Monitor (APM) integration and certificate authority (CA) certificates in the Azure Spring Apps Enterprise plan.
+This article shows you how to configure application performance monitor (APM) integration and certificate authority (CA) certificates in the Azure Spring Apps Enterprise plan.
 
-You can enable and disable Tanzu Build Service on an Azure Springs Apps Enterprise instance. For more information, see the [Build Service on demand](how-to-enterprise-build-service.md#build-service-on-demand) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
+You can enable or disable Tanzu Build Service on an Azure Springs Apps Enterprise plan instance. For more information, see the [Build Service on demand](how-to-enterprise-build-service.md#build-service-on-demand) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
 
 ## Prerequisites
 
-- An Azure Spring Apps Enterprise plan instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise plan instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
 
 ## Supported scenarios - APM and CA certificates integration
@@ -214,7 +214,7 @@ If Build Service is disabled, you can only deploy an application with a containe
 
 You can use multiple instances of Azure Spring Apps Enterprise, where some instances build and deploy images and others only deploy images. Consider the following scenario:
 
-- For one instance, you enable Build Service with a user container registry. Then you build from an artifact-file or source-code with APM or CA certificate into a container image and deploy to the current Azure Spring Apps instance or other service instances. For more information, see, the [Build and deploy polyglot applications](how-to-enterprise-deploy-polyglot-apps.md#build-and-deploy-polyglot-applications), section of [How to deploy polyglot apps in Azure Spring Apps Enterprise tier](How-to-enterprise-deploy-polyglot-apps.md).
+- For one instance, you enable Build Service with a user container registry. Then you build from an artifact-file or source-code with APM or CA certificate into a container image and deploy to the current Azure Spring Apps instance or other service instances. For more information, see, the [Build and deploy polyglot applications](how-to-enterprise-deploy-polyglot-apps.md#build-and-deploy-polyglot-applications), section of [How to deploy polyglot apps in Azure Spring Apps Enterprise](How-to-enterprise-deploy-polyglot-apps.md).
 
 - In another instance with Build Service disabled, you deploy an application with the container image in your registry and also make use of APM and CA certificates.
 
@@ -318,11 +318,11 @@ When building and and also at runtime, you can use the [paketo-buidpacks/ca-cert
 
 In an Azure Spring Apps Enterprise instance on the Azure portal, the CA certificates display in **Public Key Certificates** on the **TLS/SSL settings** page as shown in the following screenshot:
 
-:::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/public-key-certificates.png" alt-text="Screenshot of Azure portal showing the Public key certificates on the SSL/TLS settings page." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/public-key-certificates.png":::
+:::image type="content" source="media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/public-key-certificates.png" alt-text="Screenshot of Azure portal showing the Public Key Certificates section of the TLS/SSL settings page." lightbox="media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/public-key-certificates.png":::
 
 You can configure the CA certificates on the Build Service **Edit binding** page. The following screenshot shows selecting a certificate to configure binding from the `succeeded` certificates in the **CA Certificates** list:
 
-:::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/ca-certificates-buildpack-binding.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder page with the Edit binding for CA Certificates panel open." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/ca-certificates-buildpack-binding.png":::
+:::image type="content" source="media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/ca-certificates-buildpack-binding.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder page with the Edit binding for CA Certificates panel open." lightbox="media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/ca-certificates-buildpack-binding.png":::
 
 ## Manage APM integration and CA certificates in Azure Spring Apps
 
@@ -344,22 +344,22 @@ To edit buildpack bindings using the Azure portal, use the following steps:
 
    After a builder is bound to the buildpack bindings, the buildpack bindings are enabled for an app deployed with the builder.
 
-   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/edit-binding.png" alt-text="Screenshot of Azure portal showing the Build Service page with the Bindings Edit link highlighted for a selected builder." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/edit-binding.png":::
+   :::image type="content" source="media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/edit-binding.png" alt-text="Screenshot of Azure portal showing the Build Service page with the Bindings Edit link highlighted for a selected builder." lightbox="media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/edit-binding.png":::
 
 1. Review the bindings on the **Edit binding for default builder** page.
 
-   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/show-service-binding.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder page with the binding types and their status listed.":::
+   :::image type="content" source="media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/show-service-binding.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder page with the binding types and their status listed.":::
 
    You can do the following binding tasks:
 
    - Create a buildpack binding. Select a **Binding type** that has a status of **Unbound**, and then select **Edit Binding** from the context menu and specify the binding properties.
    - Unbind a buildpack binding. Select a **Binding type** that has a status of **Bound** and then select **Unbind binding** from the context menu.
 
-   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-command.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder page with the Unbind binding option highlighted for a selected binding type." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-command.png":::
+   :::image type="content" source="media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-command.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder page with the Unbind binding option highlighted for a selected binding type." lightbox="media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-command.png":::
 
    To unbind a buildpack binding by editing binding properties, select **Edit Binding**, and then select **Unbind**.
 
-   :::image type="content" source=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing the Edit binding page with the Unbind button highlighted." lightbox=" media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-properties.png":::
+   :::image type="content" source="media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing the Edit binding page with the Unbind button highlighted." lightbox="media/how-to-enterprise-configure-apm-intergration-and-ca-certificates/unbind-binding-properties.png":::
 
 When you unbind a binding, the bind status changes from **Bound** to **Unbound**.
 

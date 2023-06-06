@@ -24,7 +24,7 @@ VMware Tanzu Build Service automates container creation, management, and governa
 
 VMware Tanzu Buildpacks provide framework and runtime support for applications. Buildpacks typically examine your applications to determine what dependencies to download and how to configure applications to communicate with bound services.
 
-[Language Family Buildpacks for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-index.html) provide easy out-of-the-box support for the most popular language runtimes and app configurations. These composite buildpacks combine multiple component buildpacks into ordered groupings. The groupings satisfy each buildpack’s requirements. For more information, see [Buildpacks](https://paketo.io/docs/concepts/buildpacks/#composite-buildpacks).
+The [language family buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-index.html) are [composite buildpacks](https://paketo.io/docs/concepts/buildpacks/#composite-buildpacks) that provide easy out-of-the-box support for the most popular language runtimes and app configurations. These buildpacks combine multiple component buildpacks into ordered groupings. The groupings satisfy each buildpack's requirements.
 
 ## Builders
 
@@ -60,27 +60,27 @@ The following image shows the resources given to the Tanzu Build Service Agent P
 
 :::image type="content" source="media/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Build Service page with 'General info' highlighted." lightbox="media/how-to-enterprise-build-service/agent-pool-size.png":::
 
-## Build Service on demand
+## Build service on demand
 
 You can enable or disable the build service when you create an Azure Spring Apps Enterprise plan instance.
 
 ### Build and deployment characteristics
 
-By default, the Tanzu Build Service is enabled so that you can use a container registry. If you disable Build Service, you can deploy an application only with a custom container image. You have the following options:
+By default, the Tanzu Build Service is enabled so that you can use a container registry. If you disable the build service, you can deploy an application only with a custom container image. You have the following options:
 
 - Build service enabled with an Azure Spring Apps managed container registry
 
   Azure Spring Apps provides a managed Azure Container Registry to store built images for your applications. You can execute build and deployment together only as one command, but not separately. You can only use the built container images to deploy applications in the same service instance. The images aren't accessible by other Azure Spring Apps Enterprise service instances.
 
-- Enable Build Service with your own container registry
+- Enable the build service with your own container registry
 
   This scenario separates build from deployment. You can execute builds from an application's source code or artifacts to a container image separately from the application deployment. You can deploy the container images stored in your owned container registry across other Azure Spring Apps Enterprise service instances.
 
-- Disable Build Service
+- Disable the build service
 
-  When Build Service is disabled, you can deploy applications only with container images. These images can be built from other Azure Spring Apps service instances or from your own custom container image.
+  When the build service is disabled, you can deploy applications only with container images. These images can be built from other Azure Spring Apps service instances or from your own custom container image.
 
-### Configure Build Service settings
+### Configure build service settings
 
 You can configure Tanzu Build Service and container registry settings using the Azure portal or the Azure CLI.
 
@@ -93,15 +93,15 @@ Use the following steps to enable Tanzu Build Service when provisioning an Azure
 1. Select **Next: VMware Tanzu settings**.
 1. In **VMware Tanzu settings**, select **Enable Build Service**. For **Container registry**, the default setting is **Use a managed Azure Container Registry to store built images**.
 
-   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png" alt-text="Screenshot of the Azure portal showing VMware Tanzu Settings for the Azure Spring Apps Create page with default Build Service setttings highlighted." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png":::
+   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png" alt-text="Screenshot of the Azure portal showing V M ware Tanzu Settings for the Azure Spring Apps Create page with default Build Service setttings highlighted." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png":::
 
 1. Of you select **Use your own container registry to store built images (preview)** for **Container registry**, provide your container registry's server, username and password.
 
-   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png" alt-text="Screenshot of the Azure portal showing VMware Tanzu Settings for the Azure Spring Apps Create page with use your own container registry highlighted." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png":::
+   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png" alt-text="Screenshot of the Azure portal showing V M ware Tanzu Settings for the Azure Spring Apps Create page with use your own container registry highlighted." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png":::
 
 1. If you disable **Enable Build Service**, the container registry options aren't provided but you can deploy applications with container images.
 
-   :::image type="content" source="media/how-to-enterprise-build-service/disable-build-service.png" alt-text="Screenshot of the Azure portal showing VMware Tanzu Settings for the Azure Spring Apps Create page with the Enable Build Service not selected." lightbox="media/how-to-enterprise-build-service/disable-build-service.png":::
+   :::image type="content" source="media/how-to-enterprise-build-service/disable-build-service.png" alt-text="Screenshot of the Azure portal showing V M ware Tanzu Settings for the Azure Spring Apps Create page with the Enable Build Service not selected." lightbox="media/how-to-enterprise-build-service/disable-build-service.png":::
 
 1. Select **Review and create** to finish completing the Azure Spring Apps Enterprise instance.
 
@@ -147,9 +147,9 @@ Use the following steps to enable Tanzu Build Service when provisioning an Azure
 
 1. Prepare a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
-1. Use the following commands to create an Azure Spring Apps service instance depending on whether Build Service is enabled or disabled and your preferred container registry setting.
+1. Use the following commands to create an Azure Spring Apps service instance depending on whether sthe build ervice is enabled or disabled and your preferred container registry setting.
 
-   - Use the following command to create an Azure Spring Apps service instance with Build Service enabled and using a managed Azure Container Registry. The Build Service is enabled by default.
+   - Use the following command to create an Azure Spring Apps service instance with the build service enabled and using a managed Azure Container Registry. The build service is enabled by default.
 
      ```azurecli
      az spring create \
@@ -158,7 +158,7 @@ Use the following steps to enable Tanzu Build Service when provisioning an Azure
          --sku enterprise 
      ```
 
-   - Use the following command to create an Azure Spring Apps service instance with Build Service enabled and using your own container registry. The Build Service is enabled by default.
+   - Use the following command to create an Azure Spring Apps service instance with the build service enabled and using your own container registry. The build service is enabled by default.
 
      ```azurecli
      az spring create \
@@ -170,7 +170,7 @@ Use the following steps to enable Tanzu Build Service when provisioning an Azure
          --registry-password <your-container-registry-password>
      ```
 
-   - Use the following command to create an Azure Spring Apps service instance with Build Service disabled.
+   - Use the following command to create an Azure Spring Apps service instance with the build service disabled.
 
      ```azurecli
      az spring create \
@@ -184,7 +184,7 @@ Use the following steps to enable Tanzu Build Service when provisioning an Azure
 
 ## Deploy polyglot applications
 
-You can deploy polyglot applications in an Azure Spring Apps Enterprise service instance with Tanzu Build Service either enabled or disabled. For more information, see [How to deploy polyglot apps in Azure Spring Apps Enterprise tier](how-to-enterprise-deploy-polyglot-apps.md).
+You can deploy polyglot applications in an Azure Spring Apps Enterprise service instance with Tanzu Build Service either enabled or disabled. For more information, see [How to deploy polyglot apps in Azure Spring Apps Enterprise](how-to-enterprise-deploy-polyglot-apps.md).
 
 ## Configure APM integration and CA certificates
 

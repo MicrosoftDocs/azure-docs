@@ -1,6 +1,7 @@
 ---
-title: Deploy web static files in Azure Spring Apps Enterprise
-description: Learn how to deploy web static files in the Azure Spring Apps Enterprise plan.
+title: Deploy web static files
+titleSuffix: Azure Spring Apps Enterprise plan
+description: Learn how to deploy web static files.
 author: karlerickson
 ms.author: yili7
 ms.service: spring-apps
@@ -16,22 +17,19 @@ ms.custom: event-tier1-build-2022, devx-track-java
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to deploy your static files to Azure Spring Apps Enterprise plan using the Tanzu Web Servers buildpack. This approach is useful if you have applications that are purely for holding static files such as HTML, CSS, or front-end applications built with the JavaScript framework of your choice. You can directly deploy these applications with an automatically configured web server (HTTPD and NGINX) to serve those assets.
+This article shows you how to deploy your static files to an Azure Spring Apps Enterprise plan instance using the Tanzu Web Servers buildpack. This approach is useful if you have applications that are purely for holding static files like HTML, CSS, or front-end applications built with the JavaScript framework of your choice. You can directly deploy these applications with an automatically configured web server (HTTPD and NGINX) to serve those assets.
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
-- [Git](https://git-scm.com/downloads).
-- An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise plan instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 - One or more applications running in Azure Spring Apps. For more information on creating apps, see [How to Deploy Spring Boot applications from Azure CLI](./how-to-launch-from-source.md).
+- [Azure CLI](/cli/azure/install-azure-cli), version 2.45.0 or higher.
 - Your static files or dynamic front-end application - for example, a React app.
 
 ## Deploy your static files
 
 > [!NOTE]
->
-> To understand the build and deployment scenarios for the Azure Springs Apps service instance you intend to use, see the [Build service on demand](how-to-enterprise-build-service.md#build-service-on-demand) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md). Also see [How to deploy polyglot apps](how-to-enterprise-deploy-polyglot-apps.md). This article focuses on describing web static file specific deployment configurations and troubleshooting.
+> This article focuses on describing deployment configurations and troubleshooting specific to web static file deployment. To understand the general build and deployment scenarios for the Azure Springs Apps Enterprise plan, see the [Build service on demand](how-to-enterprise-build-service.md#build-service-on-demand) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md) and [How to deploy polyglot apps](how-to-enterprise-deploy-polyglot-apps.md).
 
 You can deploy static files to Azure Spring Apps using NGINX or HTTPD web servers in the following ways:
 
