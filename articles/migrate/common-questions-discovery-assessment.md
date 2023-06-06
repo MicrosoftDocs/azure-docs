@@ -48,7 +48,7 @@ For "Performance-based" assessment, the assessment report export says 'Percentag
 
 ## How can I understand details of errors causing performance data collection issues?
 
-You can now understand what errors you need to rememdiate to resolve performance data collection issues in Azure V and Azure VMware Solution assessments. Follow these steps:
+You can now understand what errors you need to remediate to resolve performance data collection issues in Azure VM and Azure VMware Solution assessments. Follow these steps:
 - Go to Azure Migrate > **Servers, databases and web apps** > **Migration goals**, select **Resolve issues** on the Discovery and assessment tool.
 - Select **Affected objects** next to the assessment and select the link in the error ID column to review the error details and remediation actions.
 

@@ -178,11 +178,12 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | Server Depreciation | (Total server hardware acquisition cost)/(Depreciable life) | Depreciable life = 4 years |     |
 | Storage Depreciation | (Total storage hardware acquisition cost)/(Depreciable life) | Depreciable life = 4 years |     |
 | Fit out and Networking Equipment | (Total network hardware acquisition cost)/(Depreciable life) | Depreciable life = 5 years |     |
-| License Amortization | (virtualization cost + Windows Server + SQL Server + Linux OS)/(Depreciable life) | Depreciable life = 5 years | VMware licenses aren't retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure).|
+| License Amortization | (virtualization cost + Windows Server + SQL Server + Linux OS)/(Depreciable life) | Depreciable life = 5 years | VMware licenses aren't retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure.|
 | **Operating Asset Expense (OPEX) (B)** |     |     |     |
 | Network maintenance | Per year |     |     |
 | Storage maintenance | Per year | Power draw per Server, Average price per KW per month based on location. |     |
-| License Support | License support cost for virtualization + Windows Server + SQL Server + Linux OS |     | VMware licenses aren't retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure). |
+| License Support | License support cost for virtualization + Windows Server + SQL Server + Linux OS |     | VMware licenses aren't retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure. |
+| Security | Per year |  Per server annual security/protection cost.  |  |
 | Datacenter Admin cost | Number of people * hourly cost * 730 hours | Cost per hour based on location. |     |
 
 #### Future state (on-premises + Azure)
