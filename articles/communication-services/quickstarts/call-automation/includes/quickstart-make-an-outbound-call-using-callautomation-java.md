@@ -1,0 +1,174 @@
+---
+title: Quickstart - Make an outbound call using Call Automation
+titleSuffix: An Azure Communication Services quickstart
+description: In this quickstart, you'll learn how to make an outbound PSTN call using Azure Communication Services using Call Automation
+author: anujb-msft
+ms.author: anujb-msft
+ms.date: 05/26/2023
+ms.topic: quickstart
+ms.service: azure-communication-services
+ms.subservice: callautomation
+ms.custom: mode-other
+---
+
+Azure Communication Services (ACS) Call Automation APIs are a powerful way to create interactive calling experiences. In this quick start we'll cover a way to make an outbound call and recognize various events in the call.
+
+## Sample Code
+
+Find the complete sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_OutboundCalling)
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
+- A [phone number](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number) in your Azure Communication Services resource that can make outbound calls. NB: phone numbers are not available in free subscriptions.
+- Create and host a Azure Dev Tunnel. Instructions [here](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/get-started)
+- [Java Development Kit (JDK) version 11 or above](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+- [Apache Maven](https://maven.apache.org/download.cgi)
+
+
+## Setup and host your Azure DevTunnel
+
+[Azure DevTunnels](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands below to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We will then use this endpoint to notify your application of calling events from the ACS Call Automation service.
+
+```bash
+devtunnel create --allow-anonymous
+devtunnel port create -p MY_SPRINGAPP_PORT
+devtunnel host
+```
+
+## Update your application configuration
+
+Then open the `application.yml` file in the `/resources` folder to configure the values below:
+
+- `connectionstring`: The connection string for your ACS resource. You can find your ACS connection string using the instructions [here](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=linux&pivots=platform-azp#access-your-connection-strings-and-service-endpoints). 
+- `basecallbackuri`: Once you have your DevTunnel host initialized, update this field with that URI.
+- `callerphonenumber`: update this field with with the ACS phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+- `targetphonenumber`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+
+```yaml
+acs:
+  connectionstring: <YOUR ACS CONNECTION STRING>
+  basecallbackuri: <YOUR DEV TUNNEL ENDPOINT>
+  callerphonenumber: <YOUR ACS PHONE NUMBER>
+  targetphonenumber: <YOUR TARGET PHONE NUMBER>
+```
+
+
+## Make an outbound call and play media
+
+To make the outbound call from ACS, this sample will use the `targetphonenumber` you defined in the `application.yml` file to create the call using the `createCallWithResponse` API.
+
+```java
+PhoneNumberIdentifier caller = new PhoneNumberIdentifier(appConfig.getCallerphonenumber());
+PhoneNumberIdentifier target = new PhoneNumberIdentifier(appConfig.getTargetphonenumber());
+CallInvite callInvite = new CallInvite(target, caller);
+CreateCallOptions createCallOptions = new CreateCallOptions(callInvite, appConfig.getCallBackUri());
+Response<CreateCallResult> result = client.createCallWithResponse(createCallOptions, Context.NONE);
+```
+
+## Start Recording a Call
+
+The Call Automation service also enables the capability to start recording and store recordings of voice and video calls. You can learn more about the various capabilities in the Call Recording APIs [here](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/get-started-call-recording).
+
+
+```java
+ServerCallLocator serverCallLocator = new ServerCallLocator(
+    client.getCallConnection(callConnectionId)
+        .getCallProperties()
+        .getServerCallId());
+        
+StartRecordingOptions startRecordingOptions = new StartRecordingOptions(serverCallLocator);
+
+Response<RecordingStateResult> response = client.getCallRecording()
+    .startWithResponse(startRecordingOptions, Context.NONE);
+
+recordingId = response.getValue().getRecordingId();
+```
+
+
+## Respond to calling events
+
+```java
+List<CallAutomationEventBase> events = CallAutomationEventParser.parseEvents(reqBody);
+for (CallAutomationEventBase event : events) {
+    String callConnectionId = event.getCallConnectionId();
+    if (event instanceof CallConnected) {
+        log.info("CallConnected event received");
+    }
+    else if (event instanceof RecognizeCompleted) {
+        log.info("Recognize Completed event received");
+    }
+}
+```
+
+## Play welcome message and recognize 
+
+Using the `FileSource` API, you can provide the service the audio file you want to use for your welcome message. The ACS Call Automation service will play this message upon the `CallConnected` event. 
+
+In the code below, we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `startRecognizingWithResponse`. This recognize and options API enables the telephony client to send DTMF tones that we can recognize.
+
+```java
+PhoneNumberIdentifier target = new PhoneNumberIdentifier(appConfig.getTargetphonenumber());
+CallMediaRecognizeDtmfOptions recognizeDtmfOptions = new CallMediaRecognizeDtmfOptions(target, 1);
+
+PlaySource playSource = new FileSource()
+    .setUrl(appConfig.getBasecallbackuri() + "/" + mediaFile)
+    .setPlaySourceCacheId(mediaFile);
+
+recognizeDtmfOptions.setPlayPrompt(playSource)
+    .setInterruptPrompt(true)
+    .setInitialSilenceTimeout(Duration.ofSeconds(15));
+
+client.getCallConnection(callConnectionId)
+    .getCallMedia()
+    .startRecognizingWithResponse(recognizeDtmfOptions, Context.NONE);
+```
+
+## Recognize DTMF Events
+
+When the telephony endpoint selects a DTMF tone, ACS Call Automation will trigger the webhook we have setup and notify us with the `RecognizeCompleted` event. This gives us the ability to respond to a specific DTMF tone and trigger an action. 
+
+```java
+else if (event instanceof RecognizeCompleted) {
+    log.info("Recognize Completed event received");
+    RecognizeCompleted recognizeEvent = (RecognizeCompleted) event;
+    DtmfResult dtmfResult = (DtmfResult) recognizeEvent
+            .getRecognizeResult().get();
+    DtmfTone selectedTone = dtmfResult.getTones().get(0);
+
+    switch(selectedTone.convertToString()) {
+        case "1":
+            log.info("Received DTMF tone 1.");
+            playToAll(callConnectionId, "Confirmed.wav");
+            break;
+
+        case "2":
+            log.info("Received DTMF tone 2.");
+            playToAll(callConnectionId, "Goodbye.wav");
+            break;
+
+        default:
+            log.info("Unexpected DTMF received: {}", selectedTone.convertToString());
+            playToAll(callConnectionId, "Invalid.wav");
+            break;
+    }
+
+```
+
+## Hang up the call
+
+Finally, when we detect a condition that makes sense for us to terminate the call, we can use the `hangUp` method to hang up the call.
+
+```java
+client.getCallConnection(callConnectionId).hangUp(true);
+```
+
+## Run the code
+
+Navigate to the directory containing the pom.xml file and use the following mvn commands:
+- Compile the application: `mvn compile`
+- Build the package: `mvn package`
+- Execute the app: `mvn exec:java`
+
+
