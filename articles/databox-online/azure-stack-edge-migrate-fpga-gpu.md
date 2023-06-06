@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/02/2021
+ms.date: 06/06/2023
 ms.author: alkohli  
 ---
 # Migrate workloads from an Azure Stack Edge Pro FPGA to an Azure Stack Edge Pro GPU
@@ -73,7 +73,9 @@ This table summarizes the overall flow for migration, describing the steps requi
 
 ## Prepare source device
 
-The preparation includes that you identify the Edge cloud shares, Edge local shares, and the IoT Edge modules deployed on the device. 
+The preparation includes that you identify the Edge cloud shares, Edge local shares, and the IoT Edge modules deployed on the device.
+
+### [Migrate to Azure Stack Edge Pro 2](#tab/migrate-to-ase-pro2)
 
 ### 1. Record configuration data
 
@@ -118,6 +120,11 @@ Data in Edge local shares stays on the device. Do these steps on your *source* d
 
 <!--- If you have deployed IoT Edge workloads, the configuration data is shared on a share on the device. Back up the data in these shares.-->
 
+### [Migrate to Azure Stack Edge Pro GPU](#tab/migrate-to-ase-pro-gpu)
+
+Content for GPU tab... > prepare source device
+
+---
 
 ## Prepare target device
 
