@@ -15,7 +15,7 @@ ms.reviewer: ergreenl
 ms.custom: enterprise-apps
 ---
 
-# Integrating Azure Active Directory with applications getting started guide
+# Integrating Azure Active Directory with applications getting started guide 
 
 This topic summarizes the process for integrating applications with Azure Active Directory (AD). Each of the sections below contain a brief summary of a more detailed topic so you can identify which parts of this getting started guide are relevant to you.
 
