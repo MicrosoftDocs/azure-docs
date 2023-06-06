@@ -47,10 +47,12 @@ items:
   - name: Traffic forwarding profiles
     expanded: false
     items:
-      - name: Mange the Microsoft 365 profile
+      - name: Manage the Microsoft 365 profile
         href: how-to-manage-microsoft-365-profile.md
       - name: Manage the Private Access profile
         href: how-to-manage-private-access-profile.md
+      - name: Configure per-app access
+        href: how-to-configure-per-app-access.md
   - name: Logs and monitoring
     expanded: false
     items:

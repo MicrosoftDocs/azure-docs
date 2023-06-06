@@ -44,7 +44,7 @@ Conditional Access policies are created and applied to the profile in the Condit
 1. Create a new Conditional Access policy. For more information, see [Building a Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-policies.md).
 1. Under **Target Resources** select **No target resources selected**.
 1. Select **Network Access (Preview)** from the menu.
-1. From the new menu that appears, select the Private access traffic option. . 
+1. From the new menu that appears, select the Private access traffic option.
 
     ![Screenshot of the Conditional Access fields that relate to traffic forwarding profiles.](media/how-to-enable-private-access-profile/conditional-access-menu-options.png)
 
