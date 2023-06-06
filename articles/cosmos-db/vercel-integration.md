@@ -42,7 +42,7 @@ Use this guide if you have already identified the Vercel project(s) or want to i
 
 1. Select Vercel Projects for the Integration with Azure Cosmos DB. After you have the prerequisites ready, visit the Cosmos DB [integrations page on the Vercel marketplace](https://vercel.com/integrations/azurecosmosdb) and select Add Integration
 
-   :::image type="content" source="./media/integrations/vercel/add-add_integration.png" alt-text="Screenshot shows the Azure Cosmos DB integration page on Vercel's marketplace." lightbox="./media/integrations/vercel/add_integration.png":::
+   :::image type="content" source="./media/integrations/vercel/add_integration.png" alt-text="Screenshot shows the Azure Cosmos DB integration page on Vercel's marketplace." lightbox="./media/integrations/vercel/add_integration.png":::
 
 2. Choose All projects or Specific projects for the integration. In this guide we proceed by choosing specific projects, select continue
 
@@ -101,7 +101,7 @@ You could use this [template](https://vercel.com/new/clone?demo-title=CosmosDB%2
 
 2. Select the integration to set up Cosmos DB connection keys, these steps are described in detail in previous section.
 
-   :::image type="content" source="./media/integrations/vercel/add-add_integrations.png" alt-text="Screenshot shows the required permissions" lightbox="./media/integrations/vercel/add_integrations.png":::
+   :::image type="content" source="./media/integrations/vercel/add_integrations.png" alt-text="Screenshot shows the required permissions" lightbox="./media/integrations/vercel/add_integrations.png":::
 
 3. Set the environment variables for the database name and container name, and finally select Deploy
 
