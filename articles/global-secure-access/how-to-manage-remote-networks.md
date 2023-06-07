@@ -16,11 +16,8 @@ Remote networks connect your users in remote locations to Global Secure Access. 
 This article explains how to manage your existing remote networks for Global Secure Access.
 
 ## Prerequisites
-<!--- confirm and make consistent with all articles --->
-- **Microsoft Entra Internet Access Premium license** for your Microsoft Entra ID tenant
-- **Global Secure Access Administrator** role in Microsoft Entra ID
-- The **Microsoft Graph** module must be installed to use PowerShell
-- Administrator consent is required when using Microsoft Graph Explorer for the Microsoft Graph API
+
+- A **Global Secure Access Administrator** role in Microsoft Entra ID
 
 ## Update remote networks
 

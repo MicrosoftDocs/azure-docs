@@ -1,6 +1,6 @@
 ---
-title: How to use enriched Office 365 logs
-description: Learn how to use enriched Office 365 logs for Global Secure Access.
+title: How to use enriched Microsoft 365 logs
+description: Learn how to use enriched Microsoft 365 logs for Global Secure Access.
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
@@ -10,9 +10,11 @@ ms.service: network-access
 ms.custom: 
 ---
 
-# How to use the Global Secure Access enriched Office 365 logs
+# How to use the Global Secure Access enriched Microsoft 365 logs
 
-With your Microsoft 365 traffic flowing through the Microsoft Entra Private Access service, you want to gain insights into the performance, experience, and availability of the Microsoft 365 apps your organization uses. The *enriched Office 365 logs* provide you with the information you need to gain these insights. You can integrate the logs with a third-party security information and event management (SIEM) tool for further analysis. This article describes how to use the *enriched Office 365 logs* to gain insights into your Microsoft 365 traffic.
+With your Microsoft 365 traffic flowing through the Microsoft Entra Private Access service, you want to gain insights into the performance, experience, and availability of the Microsoft 365 apps your organization uses. The enriched Microsoft 365 logs provide you with the information you need to gain these insights. You can integrate the logs with a third-party security information and event management (SIEM) tool for further analysis.
+
+This article describes the information in the logs and how to export them.
 
 ## Prerequisites
 To use this feature, you need the following roles, subscriptions, and resources:
@@ -25,7 +27,7 @@ To use this feature, you need the following roles, subscriptions, and resources:
 
 ## What the logs provide
 
-The *enriched Office 365 logs* provide information about Microsoft 365 workloads, so you can review network diagnostic data, performance data, and security events relevant to Microsoft 365 apps. For example, if access to Microsoft 365 is blocked for a user in your organization, you need visibility into how the user's device is connecting to your network.
+The enriched Microsoft 365 logs provide information about Microsoft 365 workloads, so you can review network diagnostic data, performance data, and security events relevant to Microsoft 365 apps. For example, if access to Microsoft 365 is blocked for a user in your organization, you need visibility into how the user's device is connecting to your network.
 
 These logs provide:
 - Improved latency and predictability
@@ -36,7 +38,7 @@ These logs are a subset of the logs available in the [Microsoft 365 audit log](/
 
 ## How to export the logs
 
-To view the enriched Office 365 logs, you must export or stream the log to an endpoint, such as a SIEM tool. Before you can stream logs to a SIEM tool, you need to create an Azure event hub and event hub namespace. For more information, see [Set up an Event Hubs namespace and an event hub](../event-hubs/event-hubs-create.md).
+To view the enriched Microsoft 365 logs, you must export or stream the log to an endpoint, such as a SIEM tool. Before you can stream logs to a SIEM tool, you need to create an Azure event hub and event hub namespace. For more information, see [Set up an Event Hubs namespace and an event hub](../event-hubs/event-hubs-create.md).
 
 Once the event hub is created, you configure Diagnostic settings to select the logs you want to route to the event hub. The logs are then routed through the event hub to your SIEM tool of choice. Learn how to [stream your activity logs to an event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
@@ -49,7 +51,7 @@ If you need long-term storage for your logs and you don't plan on querying them 
 1. Go to **Microsoft Entra ID** > **Monitoring and health** > **Diagnostic settings**.
 1. Select **Add Diagnostic setting**.
 1. Give your diagnostic setting a name.
-1. Select `EnrichedOffice365AuditLogs`.
+1. Select `EnrichedMicrosoft365AuditLogs`.
 1. Select either **Stream to an event hub** or **Archive to a storage account** option, and complete the fields that appear.
     - To archive to a storage account, provide the number of days to retain the logs and select the appropriate subscription and storage account.
     - To stream to an event hub, select the subscription and event hub details. Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool.

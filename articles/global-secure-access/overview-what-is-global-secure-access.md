@@ -33,6 +33,11 @@ Microsoft Entra Internet Access secures access to Microsoft 365 apps while prote
 - Deploy side-by-side with 3rd party SSE solutions.
 - Acquire network traffic from the desktop client or from a remote network, such as a branch location.
 
+The following capabilities are available in the Private Preview of Microsoft Entra Internet Access. To request access to the Private Preview, complete [this form](www.microsoft.com).
+
+- Enable web content filtering to regulate access to websites based on their content categories.
+- Filter unauthorized traffic from accessing a specific network through secure web gateway.
+
 ## Microsoft Entra Private Access
 
 Microsoft Entra Private Access provides your users - whether in an office or working remotely - secured access to your private, corporate resources. Microsoft Entra Private Access builds on the capabilities of Microsoft Entra ID App Proxy and extends access to any private resource, port, and protocol.
@@ -42,7 +47,11 @@ Remote users can connect to private apps across hybrid and multicloud environmen
 ### Key features
 
 - Enable per-app access to private resources without requiring a legacy VPN.
-- All TCP-based apps are supported.
+- Detect threats faster using near real-time logs, enriched with network and device signals
+- Improve the precision of risk assessments on users, locations, and devices. 
+- Deploy side-by-side with 3rd party SSE solutions.
+- Acquire network traffic from the desktop client.
+- The product will support all ports and protocols (UDP); however, at this time only TCP-based apps are supported.
 
 ## Next steps
 

@@ -20,13 +20,15 @@ This article describes how to configure per-app access for Microsoft Entra Priva
 
 ## Prerequisites
 
-To configure Quick Access, you must have:
+To configure per-app access, you must have:
 
-- An Azure AD Premium P1/P2 license.
-- **Microsoft Entra Internet Access Premium license** for your Microsoft Entra ID tenant
-- **Global Secure Access Administrator** role in Microsoft Entra ID
-- An App proxy license and the **Application Administrator** role in Microsoft Entra ID
-- An [App proxy Connector group](../active-directory/app-proxy/application-proxy-connector-groups.md)
+- A **Global Secure Access Administrator** role in Microsoft Entra ID
+
+To manage App Proxy connector groups, which is required for per-app access, you must have:
+
+- A Microsoft Entra ID Premium P1/P2 license
+- An **Application Administrator** role in Microsoft Entra ID
+- An App Proxy license
 
 ## How it works
 

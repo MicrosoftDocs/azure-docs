@@ -15,8 +15,7 @@ The Global Secure Access client allows organizations control over network traffi
 
 ## Prerequisites
 
-- A working Azure AD tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Administrators who interact with **Global Secure Access preview** features must have the [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md). To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) to activate just-in-time privileged role assignments.
+- A **Global Secure Access Administrator** role in Microsoft Entra ID
 - The Global Secure Access client is supported on the following 64-bit versions of Windows:
    - Windows 11 version XXXX or higher
    - Windows 10 version XXXX or higher
