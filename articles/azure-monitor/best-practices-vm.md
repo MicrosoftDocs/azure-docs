@@ -8,8 +8,8 @@ ms.date: 05/16/2023
 ms.reviewer: bwren
 ---
 
-# Best practices for monitoring virtual machines in Azure Monitor
-This article provides architectural best practices for monitoring virtual machines using Azure Monitor. The guidance is based on the five pillars of architecture excellence described in [Azure Well-Architected Framework](/azure/architecture/framework/).
+# Best practices for monitoring virtual machines and client workloads in Azure Monitor
+This article provides architectural best practices for monitoring virtual machines and their client workflows using Azure Monitor. The guidance is based on the five pillars of architecture excellence described in [Azure Well-Architected Framework](/azure/architecture/framework/).
 
 
 
