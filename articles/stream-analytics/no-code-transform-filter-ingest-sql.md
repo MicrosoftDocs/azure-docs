@@ -51,7 +51,7 @@ In this section, you create an Azure Stream Analytics job using the no-code edit
 1. On the **Event hub** window, review **Serialization** and **Authentication mode** settings, and select **Connect**.
  
     :::image type="content" source="./media/no-code-transform-filter-ingest-sql/event-hub-configuration.png" alt-text="Screenshot showing the Event Hubs connection configuration." lightbox="./media/no-code-transform-filter-ingest-sql/event-hub-configuration.png" :::
-1. When the connection is established successfully and you have datain your Event Hubs instance, you see two things:
+1. When the connection is established successfully and you have data in your Event Hubs instance, you see two things:
     - Fields that are present in the input data. You can choose **Add field** or select the three dot symbol next to a field to remove, rename, or change its type.  
     
         :::image type="content" source="./media/no-code-transform-filter-ingest-sql/no-code-schema.png" alt-text="Screenshot showing the Event Hubs field list where you can remove, rename, or change the field type." lightbox="./media/no-code-transform-filter-ingest-sql/no-code-schema.png" :::
