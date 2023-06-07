@@ -28,6 +28,7 @@ If you're having issues with Defender for DevOps these frequently asked question
 - [What programming languages are supported by Defender for DevOps?](#what-programming-languages-are-supported-by-defender-for-devops) 
 - [I'm getting an error that informs me that there's no CLI tool](#im-getting-an-error-that-informs-me-that-theres-no-cli-tool)
 - [Can I migrate the connector to a different region?](#can-i-migrate-the-connector-to-a-different-region)
+- [How can I see the MSDO scan results in GitHub?(#how-can-i-see-the-msdo-scan-results-in-github)
 
 ### Scan specific folders for secrets in ADO repos with CredScan
 If you want to scan specific folders in Azure DevOps repos with CredScan, you can use:
@@ -163,6 +164,14 @@ For example, can I migrate the connector from the Central US region to the West 
 We don’t support automatic migration for the Defender for DevOps connectors from one region to another at this time.
 
 If you want to move a connector’s location, for example a GitHub or Azure DevOps connector, to be stored in a different region than the original one where the connector was created, the recommendation is to delete the existing connector and then to create another connector in the new region.
+
+### How can I see the MSDO scan results in GitHub
+
+Follow the guidance to set up the GitHUb Action [here](https://learn.microsoft.com/en-us/azure/defender-for-cloud/github-action).
+
+Ensure that you have Read and Write permissions set on the workflow permissions in the GitHub repository. See more [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions).
+
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/6423037/90fe1da6-2d41-4cf0-b93c-e69d1a348aff)
 
 ## Next steps
 
