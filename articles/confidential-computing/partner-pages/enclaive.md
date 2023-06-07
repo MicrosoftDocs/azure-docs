@@ -12,8 +12,6 @@ ms.author: ananyagarg
 ---
 
 # Enclaive
-:::image type="content" source="../media/partner-pages-images/enclaive.jpg" alt-text="Enclaive logo.":::
-
 
 ## Overview
 

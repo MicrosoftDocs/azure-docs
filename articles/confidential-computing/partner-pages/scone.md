@@ -12,7 +12,6 @@ ms.author: ananyagarg
 ---
 
 # Scontain
-:::image type="content" source="../media/partner-pages-images/scone.jpg" alt-text="Scontain logo.":::
 
 ## Overview
 

@@ -11,12 +11,10 @@ ms.date: 03/29/2023
 ms.author: ananyagarg
 ---
 
-![alt-text-1]("../media/partner-pages-images/anjuna.jpg" "Anjuna") ! 
 # Anjuna Security
 
 
 ## Overview
-<img align="left" width="100" height="100" src="../media/partner-pages-images/anjuna.jpg" alt-text="Fortanix logo.">
 
 Anjuna Confidential Computing software makes it quick and simple to protect cloud data and intellectual property by using Microsoft [Azure confidential computing](../index.yml) infrastructure. 
 
@@ -34,5 +32,5 @@ Get started today with the Azure Marketplace solution - there's a [SaaS offering
 
 ## Learn more
 
-> Learn more about [Edgeless Systems](https://www.edgeless.systems/)
+> Learn more about [Anjuna Security](https://www.anjuna.io/)
 > Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
