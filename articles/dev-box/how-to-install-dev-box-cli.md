@@ -33,7 +33,7 @@ az extension list
 ### Update the Dev Box CLI extension
 You can update the Dev Box CLI extension if you already have it installed.
 
-To update a version of the extension that's  installed
+To update a version of the extension that's installed
 ``` azurecli
 az extension update --name devcenter
 ```

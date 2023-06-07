@@ -1,7 +1,7 @@
 ---
 title: Create & configure a dev box by using the developer portal
 titleSuffix: Microsoft Dev Box
-description: Learn how to create, delete, and connect to Microsoft Dev Box Preview dev boxes by using the developer portal.
+description: Learn how to create, delete, and connect to Microsoft Dev Box dev boxes by using the developer portal.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Manage a dev box by using the developer portal
 
-You can preconfigure a dev box to manage all of your tools, services, source code, and prebuilt binaries that are specific to your project. Microsoft Dev Box Preview provides an environment that's ready to build on, so you can run your app in minutes.
+You can preconfigure a dev box to manage all of your tools, services, source code, and prebuilt binaries that are specific to your project. Microsoft Dev Box provides an environment that's ready to build on, so you can run your app in minutes.
 
 ## Permissions
 
@@ -55,7 +55,7 @@ You can delete dev boxes after you finish your tasks. Say you finished fixing yo
 > [!NOTE]
 > Ensure that neither you nor your team members need the dev box before deleting. You can't retrieve dev boxes after deletion.
 
-[!INCLUDE [clean up resources](./includes/clean-up-resources.md)]  
+[!INCLUDE [clean up resources](./includes/clean-up-resources.md)] 
 
 ## Next steps
 
