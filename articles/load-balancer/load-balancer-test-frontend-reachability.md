@@ -30,8 +30,7 @@ This section describes testing reachability of a standard load balancer front-en
 
 ### [Linux](#tab/linux-outside)
 
-This section describes testing reachability of a standard load balancer front-end from a Linux device outside of Azure. 
----
+This section describes testing reachability of a standard load balancer front-end from a Linux device outside of Azure.
 
 ### Test the load balancer's front-end
 
