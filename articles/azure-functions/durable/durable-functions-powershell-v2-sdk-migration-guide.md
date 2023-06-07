@@ -10,7 +10,7 @@ ms.reviewer: azfuncdf
 # Guide to the standalone Durable Functions PowerShell SDK
 
 The Durable Functions (DF) PowerShell SDK is now available, _in preview_, as a standalone package in the PowerShell Gallery: [`AzureFunctions.PowerShell.Durable.SDK`](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK).
-Moving forward, this package will be the recommended means of developing Durable Functions SDK. In this article, we explain the benefits of this change, and what changes you can expect when adopting this new package.
+Moving forward, this package will be the recommended means of authoring Durable Functions apps with PowerShell. In this article, we explain the benefits of this change, and what changes you can expect when adopting this new package.
 
 > [!NOTE]
 > This package is currently in **preview.**
@@ -32,7 +32,7 @@ By creating a standalone DF PowerShell SDK, we're able to overcome these shortco
 
 The built-in DF SDK in the PowerShell worker will remain available for PowerShell 7.2 and prior releases. This means that existing apps will be able to continue using the built-in SDK as long as they continue using PowerShell 7.2 or an older release.
 
-Starting from PowerShell 7.4 onwards, the PowerShell worker will not contain a built-in DF SDK. Therefore, users will need to install the SDK separately using this standalone package. 
+Starting from PowerShell 7.4 onwards, the PowerShell worker will not contain a built-in DF SDK. Therefore, users will need to install the SDK separately using this standalone package; the installation steps are described below. 
 
 ## Install and enable the SDK
 
@@ -82,13 +82,50 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 ### Install and import the SDK
 
-To install the standalone DF SDK, you'll need to follow the [guidance regarding creating an app-level modules folder](./../functions-reference-powershell.md#function-app-level-modules-folder). Make sure to review the aforementioned docs for details. In summary, you will need to place the SDK package inside a `".\Modules"` directory located at the root of your app.
+You have two options for installing the SDK package: as a [managed dependency](./../functions-reference-powershell.md#dependency-management), or installing it as a [custom module](./../functions-reference-powershell.md#custom-modules). In this section, we describe both options, but only one of them is needed.
+
+##### Installation option 1: Using Managed Dependencies
+
+To install the SDK as a managed dependency, you'll need to follow the [managed dependencies guidance](./../functions-reference-powershell.md#dependency-management). Please sure the guidance for details.
+In summary, you first need to ensure your `host.json` as a `managedDependency` property set to `true`. Below is an example `host.json` that satisfies this requirement:
+
+```JSON
+{
+  "version": "2.0",
+  "managedDependency": {
+    "enabled": true
+  },
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[3.*, 4.0.0)"
+  },
+}
+```
+
+Then you simply need to specify an entry for the DF SDK in your `requirements.psd1` file, as in the example below:
+
+```PowerShell
+# This file enables modules to be automatically managed by the Functions service.
+# See https://aka.ms/functionsmanageddependency for additional information.
+#
+@{
+    # For latest supported version, go to 'https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK/'.
+    'AzureFunctions.PowerShell.Durable.SDK' = '1.*'
+}
+```
+
+#### Installation option 2: Using Custom Modules
+
+To install the standalone DF SDK as a custom module, you'll need to follow the [guidance regarding creating an app-level modules folder](./../functions-reference-powershell.md#function-app-level-modules-folder). Make sure to review the aforementioned docs for details.
+In summary, you will need to place the SDK package inside a `".\Modules"` directory located at the root of your app.
 
 For example, from within your application's root, and after creating a `".\Modules"` directory, you may download the standalone SDK into the modules directory as such:
 
 ```powershell
 Save-Module -Name AzureFunctions.PowerShell.Durable.SDK -AllowPrerelease -Path ".\Modules"
 ```
+
+#### Importing the SDK
 
 The final step is importing the SDK into your code's session. To do this, import the PowerShell SDK via `Import-Module AzureFunctions.PowerShell.Durable.SDK -ErrorAction Stop` in your `profile.ps1` file.
 For example, if your app was scaffolded through templates, your `profile.ps1` file may end up looking as such:
