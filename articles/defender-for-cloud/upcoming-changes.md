@@ -23,6 +23,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) |  July 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | July 2023
 | [General availability release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) | July 2023
+| [Business model and pricing updates for Defender for Key-Vault, Defender for Azure Resource Manager, and Defender for DNS](#business-model-and-pricing-updates-for-defender-for-key-vault-defender-for-azure-resource-manager-and-Defender-for-dns) | July 2023
 
 ### Release of containers vulnerability assessment runtime recommendation powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM
 
@@ -106,6 +107,25 @@ With this release, the recommendation `Container registry images should have vul
 Customers with both Defender for Containers plan and Defender CSPM plan should [disable the Qualys recommendation](tutorial-security-policy.md#disable-a-security-recommendation), to avoid multiple reports for the same images with potential impact on secure score. If you're currently using the sub-assesment API or Azure Resource Graph or continuous export, you should also update your requests to the new schema used by the MDVM recommendation prior to disabling the Qualys recommendation and using MDVM results instead.
 
 Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
+
+### Business model and pricing updates for Defender for Key-Vault, Defender for Azure Resource Manager, and Defender for DNS
+
+**Estimated date for change: July 2023**
+
+Microsoft Defender for Cloud’s Defender plans for service layer protection, available as Defender for Key Vault, Azure Resource Manager, and DNS, is transitioning to a new business model, impacting pricing and packaging. The new models will be publicly available on July 7, 2023. It is designed to address customer feedback on spending predictability and simplifying cost structure.
+### Business model and pricing changes summary:
+
+Existing customers of Defender for Key-Vault, Defender for Azure Resource Manager, and Defender for DNS will keep the current business model and pricing unless they actively switching to the new ones.
+### -	Defender for Azure Resource Manager: 
+This plan will move to a fixed price per subscription at $5/subscription/month. Customers can switch to the new business model by moving to the Defender for Azure Resource Manager new per-subscription model.
+
+### -	Defender for Key Vault: 
+This plan will move to a fixed price per vault at $0.25/vault/month with no overage charge. Customers can switch to the new business model by moving to the Defender for Key Vault new per-vault model
+
+### -	Defender for DNS:
+Starting July 7, 2023, Defender for Servers Plan 2 customers will
+get Defender for DNS value as part of it with no extra charges. Customers of both Defender for Server Plan 2 and Defender for DNS will not be charged for Defender for DNS. Moving forward the Defender for DNS will not be available as a standalone plan.
+
 
 ## Next steps
 
