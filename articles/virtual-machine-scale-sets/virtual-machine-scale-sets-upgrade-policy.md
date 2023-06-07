@@ -56,7 +56,7 @@ The Upgrade Policy can be set during deployment or updated post deployment.
 
 ### [Portal](#tab/portal)
 
-During the Virtual Machine Scale Set creation using the Azure portal, under the **Management** tab, set the Upgrade Policy to **Rolling** and enable MaxSurge. 
+During the Virtual Machine Scale Set creation in the Azure portal, under the **Management** tab, set the Upgrade Policy to **Rolling**, **Automatic**, or **Manual**. 
 
 :::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/maxsurge-1.png" alt-text="Screenshot showing deploying a scale set and enabling MaxSurge.":::
 
@@ -192,7 +192,7 @@ If you have the Upgrade Policy set to manual, you need to trigger manual upgrade
 
 ### [Portal](#tab/portal3)
 
-Select the Virtual Machine Scale Set you want to perform instance upgrades for. In the menu under **Settings**, select **Instances** and select the instances you want to upgrade. Once selected, click the **Upgrade** option located at the top of the screen. 
+Select the Virtual Machine Scale Set you want to perform instance upgrades for. In the menu under **Settings**, select **Instances** and select the instances you want to upgrade. Once selected, click the **Upgrade** option.
 
 :::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/manual-upgrade-1.png" alt-text="Screenshot showing how to perform manual upgrades using the Azure portal.":::
 
@@ -227,7 +227,7 @@ Changes to the scale set OS, data disk Profile (such as admin username and passw
 
 ### [Portal](#tab/portal4)
 
-Select the Virtual Machine Scale Set you want to perform instance upgrades for. In the menu under **Settings**, select **Instances** and select the instances you want to reimage. Once selected, click the **Reimage** option located at the top of the screen. 
+Select the Virtual Machine Scale Set you want to perform instance upgrades for. In the menu under **Settings**, select **Instances** and select the instances you want to reimage. Once selected, click the **Reimage** option.
 
 
 :::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/reimage-upgrade-1.png" alt-text="Screenshot showing reimaging scale set instances using the Azure portal.":::
