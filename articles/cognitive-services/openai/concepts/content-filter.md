@@ -24,9 +24,9 @@ The following sections provide information about the content filtering categorie
 
 The content filtering system integrated in Azure OpenAI Service contains neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but is not subject to filtering.
 
-### Categories
-
 The default content filtering configuration is set to filter at the medium severity threshold for all four content harms categories for both prompts and completions. That means that content that is detected at severity level medium or high is filtered, while content detected at severity level low is not filtered by the content filters.
+
+### Categories
 
 |Category|Description|
 |--------|-----------|
@@ -364,10 +364,20 @@ print(response)
 The following code snippet shows how to retrieve annotations when content was filtered:
 
 ```python
+# Note: The openai-python library support for Azure OpenAI is in preview.
+# os.getenv() for the endpoint and key assumes that you are using environment variables.
+
+import os
+import openai
+openai.api_type = "azure"
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
+openai.api_version = "2023-06-01-preview" # API version required to test out Annotations preview
+openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+
 try:
     openai.Completion.create(
         prompt="<HARMFUL_PROMPT>",
-        engine="<MODEL_DEPLOYMENT_NAME",
+        engine="<MODEL_DEPLOYMENT_NAME>",
     )
 except openai.error.InvalidRequestError as e:
     if e.error.code == "content_filter" and e.error.innererror:
