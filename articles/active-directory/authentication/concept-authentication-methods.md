@@ -103,7 +103,7 @@ The following additional verification methods can be used in certain scenarios:
 
 ## Usable and non-usable methods
 
-Administrators can view which authentication methods are available for a user in the Azure portal. Usable methods are listed first, followed by non-usable methods. 
+Administrators can view user authentication methods in the Azure portal. Usable methods are listed first, followed by non-usable methods. 
 
 Each authentication method can become non-usable for different reasons. For example, a Temporary Access Pass may expire, or FIDO2 security key may fail attestation. The portal will be updated to provide the reason for why the method is non-usable. 
 
