@@ -11,6 +11,7 @@ ms.reviewer: larryfr
 ms.date: 03/01/2022
 ms.topic: troubleshooting
 ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Troubleshooting environment issues
@@ -109,8 +110,8 @@ for your jobs or model deployments while using system-managed environments.
 System vulnerabilities in an environment are usually introduced from the base image. For example, vulnerabilities marked as "Ubuntu" or "Debian" are from the system level of the environment–the base Docker image. If the base image is from a third-party issuer, please check if the latest version has fixes for the flagged vulnerabilities. Most common sources for the base images in Azure Machine Learning are:
 
 - Microsoft Artifact Registry (MAR) aka Microsoft Container Registry (mcr.microsoft.com). 
-	- Images can be listed from MAR homepage, calling _catalog API, or [/tags/list](https://mcr.microsoft.com/v2/azureml/openmpi4.1.0-ubuntu20.04/tags/list)_
-	- Source and release notes for training base images from AzureML can be found in [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers)
+    - Images can be listed from MAR homepage, calling _catalog API, or [/tags/list](https://mcr.microsoft.com/v2/azureml/openmpi4.1.0-ubuntu20.04/tags/list)_
+    - Source and release notes for training base images from AzureML can be found in [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers)
 - Nvidia (nvcr.io, or [nvidia's Profile](https://hub.docker.com/u/nvidia/#!))
 
 If the latest version of your base image does not resolve your vulnerabilities, base image vulnerabilities can be addressed by installing versions recommended by a vulnerability scan:
@@ -180,7 +181,9 @@ This issue can happen when the name of your custom environment uses terms reserv
 
 ## *Docker issues*
 
-*Applies to: Azure CLI & Python SDK v1*
+:::moniker range="azureml-api-1"
+[!INCLUDE [machine-learning-cli-v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 To create a new environment, you must use one of the following approaches (see [DockerSection](https://aka.ms/azureml/environment/environment-docker-section)):
 * Base image
@@ -192,8 +195,11 @@ To create a new environment, you must use one of the following approaches (see [
 * Docker build context
     * Provide the location of the build context (URL)
     * The build context must contain at least a Dockerfile, but may contain other files as well
+:::moniker-end
 
-*Applies to: Azure CLI & Python SDK v2*
+:::moniker range="azureml-api-2"
+[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
 
 To create a new environment, you must use one of the following approaches:
 * Docker image
@@ -207,9 +213,12 @@ To create a new environment, you must use one of the following approaches:
     * You must specify a base Docker image for the environment; Azure Machine Learning builds the conda environment on top of the Docker image provided
     * Provide the relative path to the conda file
     * [Sample here](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
+:::moniker-end
 
+:::moniker range="azureml-api-1"
 ### Missing Docker definition
-*Applies to: Python SDK v1*
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+
 <!--issueDescription-->
 This issue can happen when your environment definition is missing a `DockerSection`. This section configures settings related to the final Docker image built from your environment specification.
  
@@ -238,27 +247,33 @@ myenv.docker.base_dockerfile = dockerfile
  
 **Resources**
 * [DockerSection](https://aka.ms/azureml/environment/environment-docker-section)
+:::moniker-end
 
 ### Too many Docker options
 <!--issueDescription-->
  
 **Potential causes:**
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 You have more than one of these Docker options specified in your environment definition
 * `base_image`
 * `base_dockerfile`
 * `build_context`
 * See [DockerSection](https://aka.ms/azureml/environment/docker-section-class)
+:::moniker-end
 
-*Applies to: Azure CLI & Python SDK v2*
+:::moniker range="azureml-api-2"
+[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
 
 You have more than one of these Docker options specified in your environment definition
 * `image`
 * `build`
 * See [azure.ai.ml.entities.Environment](https://aka.ms/azureml/environment/environment-class-v2)
- 
+:::moniker-end 
+
 **Affected areas (symptoms):**
 * Failure in registering your environment
 <!--/issueDescription-->
@@ -267,7 +282,8 @@ You have more than one of these Docker options specified in your environment def
 
 Choose which Docker option you'd like to use to build your environment. Then set all other specified options to None.
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Environment
@@ -282,27 +298,31 @@ myenv.docker.base_image = "pytorch/pytorch:latest"
 # Having both base dockerfile and base image set will cause failure. Delete the one you won't use.
 myenv.docker.base_image = None
 ```
+:::moniker-end
 
 ### Missing Docker option
 <!--issueDescription-->
  
 **Potential causes:**
 
-*Applies to: Python SDK v1*
-
+:::moniker range="azureml-api-1"
 You didn't specify one of the following options in your environment definition
 * `base_image`
 * `base_dockerfile`
 * `build_context`
 * See [DockerSection](https://aka.ms/azureml/environment/docker-section-class)
+:::moniker-end
 
-*Applies to: Azure CLI & Python SDK v2*
+:::moniker range="azureml-api-2"
+[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
 
 You didn't specify one of the following options in your environment definition
 * `image`
 * `build`
 * See [azure.ai.ml.entities.Environment](https://aka.ms/azureml/environment/environment-class-v2)
- 
+:::moniker-end
+
 **Affected areas (symptoms):**
 * Failure in registering your environment
 <!--/issueDescription-->
@@ -463,12 +483,12 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 
 * You've specified Docker attributes in your environment definition that are now deprecated
 * The following are deprecated properties:
-	* `enabled`
-	* `arguments`
-	* `shared_volumes`
-	* `gpu_support`
-		* Azure Machine Learning now automatically detects and uses NVIDIA Docker extension when available
-	* `smh_size`
+    * `enabled`
+    * `arguments`
+    * `shared_volumes`
+    * `gpu_support`
+        * Azure Machine Learning now automatically detects and uses NVIDIA Docker extension when available
+    * `smh_size`
 
 **Affected areas (symptoms):**
 * Failure in registering your environment
@@ -559,10 +579,10 @@ This issue can happen when you've specified properties in your environment defin
 
 **Potential causes:**
 * You specified a Docker build context, along with at least one of the following properties in your environment definition:
-	* Environment variables
-	* Conda dependencies
-	* R
-	* Spark
+    * Environment variables
+    * Conda dependencies
+    * R
+    * Spark
 
 **Affected areas (symptoms):**
 * Failure in registering your environment
@@ -594,11 +614,11 @@ If you specified any of the above-listed properties in your environment definiti
 
 The following are accepted location types:
 * Git
-	* You can provide git URLs to Azure Machine Learning, but you can't use them to build images yet. Use a storage account until builds have Git support
+    * You can provide git URLs to Azure Machine Learning, but you can't use them to build images yet. Use a storage account until builds have Git support
 * Storage account
-	* See this [storage account overview](../storage/common/storage-account-overview.md)
-	* See how to [create a storage account](../storage/common/storage-account-create.md)
-	
+    * See this [storage account overview](../storage/common/storage-account-overview.md)
+    * See how to [create a storage account](../storage/common/storage-account-create.md)
+    
 **Resources**
 * See [DockerBuildContext Class](/python/api/azureml-core/azureml.core.environment.dockerbuildcontext)
 * [Understand build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context)
@@ -619,10 +639,10 @@ The following are accepted location types:
 For scenarios in which you're storing your Docker build context in a storage account
 * You must specify the path of the build context as 
 
-	`https://<storage-account>.blob.core.windows.net/<container>/<path>`
+    `https://<storage-account>.blob.core.windows.net/<container>/<path>`
 * Ensure that the location you provided is a valid URL
 * Ensure that you've specified a container and a path
-	
+    
 **Resources**
 * See [DockerBuildContext Class](/python/api/azureml-core/azureml.core.environment.dockerbuildcontext)
 * [Python SDK/Azure CLI v2 sample](https://aka.ms/azureml/environment/create-env-build-context-v2)
@@ -633,8 +653,8 @@ For scenarios in which you're storing your Docker build context in a storage acc
 <!--issueDescription-->
 **Potential causes:**
 * You used a deprecated base image
-	* Azure Machine Learning can't provide troubleshooting support for failed builds with deprecated images
-	* Azure Machine Learning doesn't update or maintain these images, so they're at risk of vulnerabilities
+    * Azure Machine Learning can't provide troubleshooting support for failed builds with deprecated images
+    * Azure Machine Learning doesn't update or maintain these images, so they're at risk of vulnerabilities
 
 The following base images are deprecated:
 * `azureml/base`
@@ -903,7 +923,7 @@ Ensure that `conda_dependencies` is a JSONified version of the conda dependencie
 ```json
 "condaDependencies": {
     "channels": [
-	"anaconda",
+    "anaconda",
         "conda-forge"
     ],
     "dependencies": [
