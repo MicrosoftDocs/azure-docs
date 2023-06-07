@@ -3,7 +3,7 @@ items:
   href: /azure/storage/container-storage/
 - name: Overview
   items:
-  - name: What is Storage Tasks?
+  - name: What are Storage Tasks?
     href: overview.md
   expanded: true
 - name: Quickstarts
@@ -24,8 +24,10 @@ items:
     href: storage-task-create.md
   - name: Define conditions
     href: storage-task-condition-edit.md
-  - name: Create an assignment
-    href: storage-task-assignment-manage.md
+  - name: Create and manage an assignment
+    href: storage-task-assignment-create.md
+  - name: Review task results
+    href: storage-task-review-runs-resolve-problems.md
   expanded: true
 - name: Reference
   items:

@@ -21,6 +21,10 @@ Put something here.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
+## Required permissions
+
+Show built-in roles or custom roles with specific actions permissions required to list, read, create, manage and delete storage tasks.
+
 ## Anatomy of a condition
 
 Describe a condition here
@@ -35,9 +39,17 @@ The following table lists supported properties, operands, actions, and values.
 
 - Show adding, nesting, and other constructions with their impact on results (if - else conditions etc.)
 
-## Previewing and refining conditions
+## String matching in conditions
 
-Something here.
+Explain matching and wild card patterns.
+
+## Previewing the effect of conditions on a target
+
+(Use an include file to share this section with the assignment article)
+
+Describe the experience and the benefit. 
+
+It can be used to try things out. Then, you can debug issues. For example, tags value and count apply only to accounts that do not have a hierarchical namespace enabled.
 
 ## See also
 

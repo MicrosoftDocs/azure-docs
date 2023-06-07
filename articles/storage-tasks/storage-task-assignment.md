@@ -21,11 +21,17 @@ Put something here.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
-## Anatomy of a Storage Task assignment
+To create an assignment, see [Create and manage a Storage Task assignment](storage-task-assignment-create.md).
 
-Describe the components - Task, managed identity role assignment, storage account targets, execution context
+## Status
 
-## Role assignments required to perform each task
+Enabled/disabled.
+
+## Execution context
+
+Something here about storage account targets, number of accounts supported and other constraints along with blob prefix and other details.
+
+## Role assignments
 
 When you create a task assignment, choose an Azure Built-in or custom role that has the permission necessary to perform the tasks that you've defined. 
 
@@ -34,6 +40,30 @@ The following table shows the least privileged built-in Azure role required to p
 | Task | Azure RBAC actions | Least privileged built-in Azure role |
 |--|--|
 | SetBlobTier | [Microsoft.Storage/storageAccounts/blobServices/write](../role-based-access-control/resource-provider-operations.md) | [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) |
+
+## Trigger
+
+What sets it off - run now? on a schedule?
+
+## Constraints
+
+Put something here
+
+## Execution reports
+
+Put something here.
+
+## Previewing the effect of conditions
+
+(Use an include file to share this section with the conditions article)
+
+Describe the experience and the benefit. 
+
+It can be used to try things out. Then, you can debug issues. For example, tags value and count apply only to accounts that do not have a hierarchical namespace enabled.
+
+Describe the experience and the benefit. 
+
+It can be used to try things out. Then, you can debug issues. For example, tags value and count apply only to accounts that do not have a hierarchical namespace enabled.
 
 ## See also
 

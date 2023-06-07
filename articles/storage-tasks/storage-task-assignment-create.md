@@ -1,5 +1,5 @@
 ---
-title: Manage a Storage Task Assignment
+title: Create and manage a Storage Task assignment
 description: Description of how to article
 author: normesta
 ms.service: storage-tasks
@@ -8,7 +8,7 @@ ms.author: normesta
 ms.date: 05/10/2023
 ---
 
-# Manage Storage Task Assignments
+# Create and manage a Storage Task assignment
 
 You can assign, enable, preview a task. Then, after you run a task, you can review the results of that run.
 
@@ -48,7 +48,7 @@ Put something here.
 
 ---
 
-## Preview an assignment
+## Preview conditions
 
 Intro of task goes here.
 
