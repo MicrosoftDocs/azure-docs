@@ -12,7 +12,7 @@ ms.date: 05/10/2023
 
 You can assign, enable, preview a task. Then, after you run a task, you can review the results of that run.
 
-## Assign a task
+## Create an assignment
 
 Intro of task goes here.
 
@@ -30,7 +30,7 @@ Put something here.
 
 ---
 
-## Enable a task assignment
+## Enable an assignment
 
 Intro of task goes here.
 
@@ -48,7 +48,7 @@ Put something here.
 
 ---
 
-## Preview a task assignment
+## Preview an assignment
 
 Intro of task goes here.
 

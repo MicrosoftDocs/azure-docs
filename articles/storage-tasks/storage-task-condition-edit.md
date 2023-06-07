@@ -1,5 +1,5 @@
 ---
-title: Edit Storage Task Conditions
+title: Define Storage Task conditions
 description: Description of how to article
 author: normesta
 ms.service: storage-tasks
@@ -8,11 +8,11 @@ ms.author: normesta
 ms.date: 05/10/2023
 ---
 
-# Edit Storage Task Conditions
+# Define Storage Task Conditions
 
 Description goes here.
 
-## Define conditions
+## Add or edit conditions
 
 Include guidance for these types of things:
 

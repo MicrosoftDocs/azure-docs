@@ -12,15 +12,17 @@ items:
     href: storage-task-quickstart-portal.md
 - name: Concepts
   items: 
+  - name: Storage Task conditions
+    href: storage-task-conditions.md
   - name: Storage Task Permissions
     href: storage-task-permission.md
   - name: Monitor Storage Tasks
     href: monitor-storage-tasks.md
 - name: How-To
   items: 
-  - name: Edit Storage Task Conditions
+  - name: Define the conditions of a Storage Task
     href: storage-task-condition-edit.md
-  - name: Manage a Storage Task Assignment
+  - name: Assign a Storage Task to storage accounts
     href: storage-task-assignment-manage.md
   expanded: true
 - name: Reference
