@@ -17,11 +17,13 @@ With your Microsoft 365 traffic flowing through the Microsoft Entra Private Acce
 This article describes the information in the logs and how to export them.
 
 ## Prerequisites
-To use this feature, you need the following roles, subscriptions, and resources:
 
-* An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
-* An Azure AD Premium P1 or P2 tenant. 
-* **Global Administrator** or **Security Administrator** access for the Azure AD tenant.
+To use the enriched logs, you need the following roles, subscriptions, and resources:
+
+* Global Secure Access is dependent upon some features that require a Microsoft Entra ID Premium P1 or P2 license.
+* Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing.
+    * A **Global Secure Access Administrator** role to manage the Global Secure Access preview features
+    * A **Global Administrator** or **Security Administrator** role is required to export logs.
 * To integrate with SIEM tools, you need an **Azure Event Hubs namespace**
 * To archive logs, you need an **[Azure storage account](../storage/common/storage-account-create.md)** that you have `ListKeys` permissions for.
 
