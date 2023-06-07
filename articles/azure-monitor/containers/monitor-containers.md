@@ -55,13 +55,6 @@ The following Azure services are used to monitor Kubernetes clusters.
 - If you have no existing solution for collection of your Kubernetes logs, then you should use Container insights to collect the logs in a Log Analytics workspace.
 - If you have an existing solution for collection of your Kubernetes logs such as Datadog and Splunk, then follow their documentation for collection of logs from your Azure Kubernetes clusters. You may also choose to use Container insights for your AKS logs but also forward those logs to another system using [data export](../logs/logs-data-export.md).
 
-## Personas
-
-| Persona | Levels | Description |
-|:---|:---|:---|
-| Platform Engineer / Cluster admin | 1-3 | Responsible for kubernetes cluster. Provisions and maintains platform used by developer. |
-| Developer | 4 | Develop and maintain the application running on the cluster. Responsible for application specific traffic including application performance and failures. Maintains reliability of the application according to SLAs. |
-| Network engineer | 5 | Responsible for traffic between workloads and any ingress/egress with the cluster. Analyzes network traffic and performs threat analysis. |
 
 
 ## Security monitoring
@@ -80,6 +73,9 @@ Azure Monitor was designed to monitor the availability and performance of cloud 
 |:---|:---|
 | Azure Monitor workspace | You require at least one [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) to support Managed Prometheus.  There's no cost for the workspaces, but you do incur ingestion and retention costs when you collect data. See [Azure Monitor Logs pricing details](../logs/cost-logs.md) for details. For information on design considerations for a workspace configuration, see [Azure Monitor workspace architecture](../essentials/azure-monitor-workspace-overview.md#azure-monitor-workspace-architecture). |
 | Log Analytics workspace | You require at least one [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) if you enable Container insights or if you collect resource logs.There's no cost for the workspaces, but you do incur ingestion costs when you collect data. See [Azure Monitor pricing](https://aka.ms/azmonpricing) for details. For information on design considerations for a workspace configuration, see [Designing your Azure Monitor Logs deployment](../logs/workspace-design.md). |
+
+### Send Activity log to Log Analytics workspace
+Configuration changes to your AKS cluster are stored in the [Activity log](../essentials/activity-log-overview.md). [Send this data to your Log Analytics workspace](../essentials/activity-log.md) to analyze it with other monitoring data.  There is no cost for this data collection.
 
 
 ### Configure collection from Prometheus
@@ -343,6 +339,35 @@ AKS relies on a Virtual Machine Scale Set that must be healthy to run AKS worklo
 ### Prometheus alerts
 
 You can configure Prometheus alerts to cover scenarios where Azure Monitor either doesn't have the data required for an alerting condition or the alerting may not be responsive enough. For example, Azure Monitor doesn't collect critical information for the API server. You can create a log query alert using the data from the kube-apiserver resource log category, but it can take up to several minutes before you receive an alert, which may not be sufficient for your requirements. In this case, we recommend configuring Prometeus alerts.
+
+
+## Personas
+
+| Persona | Levels | Description |
+|:---|:---|:---|
+| Platform Engineer / Cluster admin | 1-3 | Responsible for kubernetes cluster. Provisions and maintains platform used by developer. |
+| Developer | 4 | Develop and maintain the application running on the cluster. Responsible for application specific traffic including application performance and failures. Maintains reliability of the application according to SLAs. |
+| Network engineer | 5 | Responsible for traffic between workloads and any ingress/egress with the cluster. Analyzes network traffic and performs threat analysis. |
+
+### Platform Engineer
+
+#### Fleet Architect
+The Fleet Architect is similar to the cluster administrator but is responsible for multiple clusters. They need visibility across the entire environment and must perform administrative tasks at scale. 
+
+**How can I monitor overall patch status of the clusters?**
+This information is available in the Activity log. 
+
+``` kql
+AzureActivity
+| where CategoryValue == "Administrative"
+| where OperationNameValue == "MICROSOFT.CONTAINERSERVICE/MANAGEDCLUSTERS/WRITE"
+| extend properties=parse_json(Properties_d) 
+| where properties.message == "Upgrade Succeeded"
+| order by TimeGenerated desc
+```
+
+**How can I monitor the health of multiple clusters?**
+Use either workbooks in Container insights or dashboards in Grafana.
 
 ## Next steps
 
