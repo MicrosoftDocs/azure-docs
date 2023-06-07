@@ -172,11 +172,11 @@ Trackers are unique codes or values found within web pages and often are used to
 
 In this section, Defender EASM provides the tracker type (e.g. GoogleAnalyticsID), the unique identifier value, and the first and last seen dates.
 
-### Web components & CVEs
+### Web components
 
 Web components are details describing the infrastructure of an asset as observed through a Microsoft scan. These components provide a high-level understanding of the technologies leveraged on the asset. Microsoft categorizes the specific components and includes version numbers when possible.
 
-![Screenshot of top of Web components & CVEs tab.](media/Inventory_10.png)
+![Screenshot of top of Web components tab.](media/Inventory_10.png)
 
 The Web components section provides the category, name and version of the component, as well as a list of any applicable CVEs that should be remediated. Defender EASM also provides a first and last seen date as well as a recency indicator; a checked box indicates that this infrastructure was observed during our most recent scan of the asset.
 
