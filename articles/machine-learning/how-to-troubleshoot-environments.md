@@ -331,7 +331,8 @@ You didn't specify one of the following options in your environment definition
 
 Choose which Docker option you'd like to use to build your environment, then populate that option in your environment definition.
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Environment
@@ -339,7 +340,9 @@ myenv = Environment(name="myEnv")
 myenv.docker.base_image = "pytorch/pytorch:latest"
 ```
 
-*Applies to: Python SDK v2*
+:::moniker-end
+:::moniker range="azureml-api-2"
+[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
 env_docker_image = Environment(
@@ -349,10 +352,15 @@ env_docker_image = Environment(
 )
 ml_client.environments.create_or_update(env_docker_image)
 ```
+:::moniker-end
 
 **Resources**
+:::moniker range="azureml-api-2"
 * [Create and manage reusable environments v2](https://aka.ms/azureml/environment/create-and-manage-reusable-environments)
+:::moniker-end
+:::moniker range="azureml-api-1"
 * [Environment class v1](https://aka.ms/azureml/environment/environment-class-v1)
+:::moniker-end
 
 ### Container registry credentials missing either username or password
 <!--issueDescription-->
@@ -367,7 +375,8 @@ ml_client.environments.create_or_update(env_docker_image)
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1*
+:::moniker range="azureml-api-1"
+[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
 
 Add the missing username or password to your environment definition to fix the issue
 
@@ -382,8 +391,10 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ws.set_connection("connection1", "ACR", "<URL>", "Basic", "{'Username': '<username>', 'Password': '<password>'}")
 ```
+:::moniker-end
 
-*Applies to: Azure CLI extensions v1 & v2*
+[!INCLUDE [machine-learning-cli-v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
 
 Create a workspace connection from a YAML specification file
 
