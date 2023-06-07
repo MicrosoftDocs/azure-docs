@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice:
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/01/2023
+ms.date: 06/06/2023
 ---
 
 # How to capture changed data from ADLS Gen2 to Azure SQL DB using a Change Data Capture (CDC) resource
@@ -53,7 +53,7 @@ In this tutorial, you follow these steps:
 
   :::image type="content" source="media/adf-cdc/change-data-capture-resource-93.png" alt-text="Screenshot of the selection box to choose or create a new linked service.":::
   
-7.	You can optionally set advanced source configurations that include selection of column delimiter or row delimiter and many more settings.
+7.	Use the **Source settings** to optionally set advanced source configurations which includes selection of column or row delimiter and many more source settings.
 
   :::image type="content" source="media/adf-cdc/change-data-capture-resource-94.png" alt-text="Screenshot of Advanced Source settings to set delimiters":::
 
@@ -62,11 +62,11 @@ In this tutorial, you follow these steps:
 
 8.	Use the **Browse** button to select your source data folder. 
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-67.png" alt-text="Screenshot of a folder icon to browse for a folder path.":::
+  :::image type="content" source="media/adf-cdc/change-data-capture-resource-95.png" alt-text="Screenshot of a folder icon to browse for a folder path.":::
 
 9.	Once you’ve selected a folder path, select **Continue** to set your data target. 
 
-  :::image type="content" source="media/adf-cdc/change-data-capture-resource-68.png" alt-text="Screenshot of the continue button in the guided process to proceed to select data targets.":::
+  :::image type="content" source="media/adf-cdc/change-data-capture-resource-96.png" alt-text="Screenshot of the continue button in the guided process to proceed to select data targets.":::
 
 > [!NOTE]
 > You can choose to add multiple source folders with the **+** button. The other sources must also use the same linked service that you’ve already selected. 
