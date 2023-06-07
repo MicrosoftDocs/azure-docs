@@ -23,7 +23,7 @@ A [device model](concepts-modeling-guide.md) defines the:
 > [!TIP]
 > Azure IoT Central is a service that follows the Plug and Play conventions. In IoT Central, the device model is part of a [device template](../iot-central/core/concepts-device-templates.md). IoT Central currently supports [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) with an [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md). An IoT Central application expects to receive UTF-8 encoded JSON data.
 
-This article describes the JSON payloads that devices send and receive for telemetry, properties, and commands defined in a device template.
+This article describes the JSON payloads that devices send and receive for telemetry, properties, and commands defined in a DTDL device model.
 
 The article doesn't describe every possible type of telemetry, property, and command payload, but the examples illustrate key types.
 

@@ -74,7 +74,7 @@ You can use the Azure IoT device SDK to send a property update to your Azure IoT
 
 For example implementations in multiple languages, see [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 
-The following view in Azure IoT Central application shows the properties you can see. The view automatically makes the **Device model** property a _read-only device property_.
+The following view in Azure IoT Central application shows the device read-only properties:
 
 :::image type="content" source="media/howto-use-properties/read-only.png" alt-text="Screenshot that shows the view of a read-only property." lightbox="media/howto-use-properties/read-only.png":::
 

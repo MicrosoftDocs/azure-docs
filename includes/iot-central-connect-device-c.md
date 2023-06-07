@@ -64,6 +64,8 @@ Expect this operation to take several minutes to complete.
 
 In the copy of the Microsoft Azure IoT SDK for C you downloaded previously, open the *azure-iot-sdk-c/iothub_client/samples/pnp/pnp_temperature_controller/pnp_temperature_controller.c* and *azure-iot-sdk-c/iothub_client/samples/pnp/pnp_temperature_controller/pnp_thermostat_component.c* files in a text editor.
 
+The sample implements the multiple-component [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) Digital Twin Definition Language model.
+
 When you run the sample to connect to IoT Central, it uses the Device Provisioning Service (DPS) to register the device and generate a connection string. The sample retrieves the DPS connection information it needs from the command-line environment.
 
 In *pnp_temperature_controller.c*, the `main` function first calls `CreateDeviceClientAndAllocateComponents` to:

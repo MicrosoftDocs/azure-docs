@@ -22,6 +22,8 @@ To complete the steps in this article, you need the following resources:
 
 In the copy of the Microsoft Azure IoT SDK for C# repository you downloaded previously, open the *azure-iot-sdk-csharp-main\azureiot.sln"* solution file in Visual Studio. In **Solution Explorer**, expand the *PnpDeviceSamples > TemperatureController* folder and open the *Program.cs* and *TemperatureControllerSample.cs* files to view the code for this sample.
 
+The sample implements the multiple-component [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) Digital Twin Definition Language model.
+
 When you run the sample to connect to IoT Central, it uses the Device Provisioning Service (DPS) to register the device and generate a connection string. The sample retrieves the DPS connection information it needs from the environment.
 
 In *Program.cs*, the `Main` method calls `SetupDeviceClientAsync` to:

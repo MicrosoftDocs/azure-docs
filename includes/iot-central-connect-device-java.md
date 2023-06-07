@@ -24,6 +24,8 @@ To complete the steps in this article, you need the following resources:
 
 In the copy of the Microsoft Azure IoT SDK for Java you downloaded previously, open the *azure-iot-sdk-java/iothub/device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/device/TemperatureController.java* file in a text editor.
 
+The sample implements the multiple-component [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) Digital Twin Definition Language model.
+
 When you run the sample to connect to IoT Central, it uses the Device Provisioning Service (DPS) to register the device and generate a connection string. The sample retrieves the DPS connection information it needs from the command-line environment.
 
 The `main` method:

@@ -128,7 +128,7 @@ Sample reported property payload:
 }
 ```
 
-For more read-only property example, see [Payloads > Properties](concepts-message-payloads.md#properties).
+For more read-only property examples, see [Payloads > Properties](concepts-message-payloads.md#properties).
 
 ## Writable properties
 
@@ -446,7 +446,7 @@ Sample reported property second payload:
 > [!NOTE]
 > You could choose to combine these two reported property payloads into a single payload.
 
-For more writable property example, see [Payloads > Properties](concepts-message-payloads.md#writable-property-types).
+For more writable property examples, see [Payloads > Properties](concepts-message-payloads.md#writable-property-types).
 
 ## Commands
 
