@@ -555,7 +555,8 @@ items:
             href: logs/workspace-design.md
           - name: Dedicated clusters
             href: logs/logs-dedicated-clusters.md
-          - name: Enhance data and service resiliency
+          - name: Enhance resilience with availability zones
+            displayName: Enhance data and service resilience in Azure Monitor Logs with availability zones
             href: logs/availability-zones.md
         - name: Monitor
           items:
