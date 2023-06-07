@@ -86,8 +86,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 4. Input the project **Name**, **Location**, and **Solution name**, and select **Create**.
 
    ![Screenshot showing the Create a Stream Analytics project dialog box.](./media/stream-analytics-quick-create-vs/create-stream-analytics-project.png)
-
-Notice the elements that are included in an Azure Stream Analytics project.
+5. Notice the elements that are included in an Azure Stream Analytics project.
 
     :::image type="content" source="./media/stream-analytics-quick-create-vs/stream-analytics-project.png" alt-text="Screenshot showing the Solution Explorer window for a sample Stream Analytics application project in Visual Studio.":::
 
