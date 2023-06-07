@@ -85,8 +85,6 @@
     href: container-instances-confidential-overview.md
   - name: Attestation in Confidential containers
     href: confidential-containers-attestation-concepts.md 
-  - name: About Azure Container Instances Spot containers
-    href: container-instances-spot-containers-overview.md
 - name: How-to guides
   items:
   - name: Deploy
