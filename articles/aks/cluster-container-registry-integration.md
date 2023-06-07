@@ -40,8 +40,9 @@ If you don't already have an ACR, create one using the following command.
 
 ```azurecli
 # Set this variable to the name of your ACR. The name must be globally unique.
+# Connected registry name must use only lowercase
 
-MYACR=myContainerRegistry
+MYACR=mycontainerregistry
 
 az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 ```
@@ -50,8 +51,9 @@ az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 
 ```azurepowershell
 # Set this variable to the name of your ACR. The name must be globally unique.
+# Connected registry name must use only lowercase
 
-$MYACR = 'myContainerRegistry'
+$MYACR = 'mycontainerregistry'
 
 New-AzContainerRegistry -Name $MYACR -ResourceGroupName myContainerRegistryResourceGroup -Sku Basic
 ```
@@ -66,8 +68,9 @@ If you already have an ACR, use the following command to create a new AKS cluste
 
 ```azurecli
 # Set this variable to the name of your ACR. The name must be globally unique.
+# Connected registry name must use only lowercase
 
-MYACR=myContainerRegistry
+MYACR=mycontainerregistry
 
 # Create an AKS cluster with ACR integration.
 
@@ -91,8 +94,9 @@ This command may take several minutes to complete.
 
 ```azurepowershell
 # Set this variable to the name of your ACR. The name must be globally unique.
-
-$MYACR = 'myContainerRegistry'
+# Connected registry name must use only lowercase
+ 
+$MYACR = 'mycontainerregistry'
 
 # Create an AKS cluster with ACR integration.
 
