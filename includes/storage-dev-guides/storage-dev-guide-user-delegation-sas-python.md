@@ -63,7 +63,7 @@ Once you have the user delegation key, you can use that key to create any number
 
 Use one of the following methods to request the user delegation key:
 
-- [get_user_delegation_key](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient?view=azure-python#azure-storage-blob-blobserviceclient-get-user-delegation-key)
+- [get_user_delegation_key](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#azure-storage-blob-blobserviceclient-get-user-delegation-key)
 
 The following code example shows how to request the user delegation key:
 
