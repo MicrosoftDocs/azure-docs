@@ -30,8 +30,9 @@ This tutorial describes the steps you need to perform in both Humbol and Azure A
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
+* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md). 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* Active contract with Humbol including SCIM API usage with Humbol Inc.
 * A user account in Humbol with Admin permissions.
 
 ## Step 1. Plan your provisioning deployment
@@ -41,6 +42,13 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Humbol to support provisioning with Azure AD
 Contact Humbol support to configure Humbol to support provisioning with Azure AD.
+
+1. As Humbol Admin login to your [Humbol](https://my.humbol.app/login) organization.
+1. Go to organization's API [settings page](https://my.humbol.app/settings#apis).
+   1. On this page you can find the organization SCIM API url. Copy it.
+   1. Create SCIM API token and copy the value. 
+   > [!NOTE]
+   > The token value is not saved anywhere on the Humbol service, so if you lose it, you should create a new one and remove old one.
 
 ## Step 3. Add Humbol from the Azure AD application gallery
 
@@ -100,13 +108,17 @@ This section guides you through the steps to configure the Azure AD provisioning
    |preferredLanguage|String||
    |name.givenName|String||&check;
    |name.familyName|String||&check;
-   |addresses[type eq "work"].locality|String||&check;
-   |addresses[type eq "work"].region|String||&check;
-   |addresses[type eq "work"].country|String||&check;
-   |roles[primary eq "True"].value|String||&check;
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||&check;
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String||&check;
+   |addresses[type eq "work"].locality|String||
+   |addresses[type eq "work"].region|String||
+   |addresses[type eq "work"].country|String||
+   |roles[primary eq "True"].value|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String||
 
+   > [!NOTE]
+   > * If you include `roles[primary eq "True"].value` every user must have precisely one role. 
+   > * Another option is to remove the role attribute mapping and manage Humbol user roles inside the Humbol application.
+   
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. To enable the Azure AD provisioning service for Humbol, change the **Provisioning Status** to **On** in the **Settings** section.
