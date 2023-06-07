@@ -24,7 +24,7 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ### Microsoft Sentinel solution for SAP® applications: new systemconfig.json file
 
-Microsoft Sentinel solution for SAP® applications uses the new *systemconfig.json* file from agent versions deployed on June 22 and later. For previous agent versions, you must still use the *[systemconfig.ini file](sap/reference-systemconfig.md)*.
+Microsoft Sentinel solution for SAP® applications uses the new *[systemconfig.json](sap/reference-systemconfig-json.md)* file from agent versions deployed on June 22 and later. For previous agent versions, you must still use the *[systemconfig.ini file](sap/reference-systemconfig.md)*.
 
 ## May 2023
 

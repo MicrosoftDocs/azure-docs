@@ -135,6 +135,10 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 ```
 
 ## Azure Credentials section
+
+> [!NOTE]
+> Remove all comments before you use this file for configuration and deployment.
+
 ```json
  "azure_credentials": {
       "loganalyticswsid": "<workspace ID>",
@@ -175,6 +179,10 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 ```
 
 ## File Extraction JAVA section
+
+> [!NOTE]
+> Remove all comments before you use this file for configuration and deployment.
+
 ```json
 "file_extraction_java": {
       "javaosuser": "<username>",
