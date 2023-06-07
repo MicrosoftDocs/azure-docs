@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 06/07/2023
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -47,6 +47,9 @@ Groups created in | Security group default behavior | Microsoft 365 group defaul
 1. Browse to **Azure Active Directory** > **Groups**, and then select **General** settings.
 
     ![Azure Active Directory groups general settings.](./media/groups-self-service-management/groups-settings-general.png)
+
+  >[!IMPORTANT]
+  > In November 2023, the setting ***Restrict users access to My Groups*** will change to restrict users ability to see and edit security groups in My Groups. If the setting is currently set to **Yes**, users will be able to access My Groups in November 2023, but will not be able to see security groups.
 
 1. Set **Owners can manage group membership requests in the Access Panel** to **Yes**.
 
