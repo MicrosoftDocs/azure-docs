@@ -100,7 +100,7 @@ Whenever you’re in any usage experience, click the **Open the last run query**
 
 :::image type="content" source="./media/usage-overview/open-last-run-query-icon.png" alt-text="Screenshot of the Application Insights Session pane in the Azure portal. The Open the last run query icon is highlghted." lightbox="./media/usage-overview/open-last-run-query-icon.png":::
 
-You can modify the underlying query to get the kind of information you’re looking for. 
+You can then modify the underlying query to get the kind of information you’re looking for. 
 
 Here’s an example of an underlying query about page views. Go ahead and paste it directly into the query editor to test it out.
 
