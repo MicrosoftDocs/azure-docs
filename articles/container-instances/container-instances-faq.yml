@@ -16,7 +16,7 @@ sections:
       - question: |
           How large can my container image be?
         answer: |
-          The maximum size for a deployable container image on Azure Container Instances is 15 GB. You might be able to deploy larger images depending on the exact availability at the moment you deploy, but larger image size is not guaranteed.
+          The maximum size for a deployable container image on Azure Container Instances is 15 GB. You might be able to deploy larger images depending on the exact availability at the moment you deploy, but larger image size isn't guaranteed.
           
           The size of your container image impacts how long it takes to deploy, so generally you want to keep your container images as small as possible.
           
@@ -25,7 +25,7 @@ sections:
         answer: |
           Because one of the main determinants of deployment times is the image size, look for ways to reduce the size. Remove layers you don't need, or reduce the size of layers in the image (by picking a lighter base OS image). For example, if you're running Linux containers, consider using Alpine as your base image rather than a full Ubuntu Server. Similarly, for Windows containers, use a Nano Server base image if possible. 
           
-          You should also check the list of pre-cached images in Azure Container Images, available via the [List Cached Images](/rest/api/container-instances/2022-09-01/location/list-cached-images) API. You might be able to switch out an image layer for one of the pre-cached images. 
+          You should also check the list of precached images in Azure Container Images, available via the [List Cached Images](/rest/api/container-instances/2022-09-01/location/list-cached-images) API. You might be able to switch out an image layer for one of the precached images. 
           
           See more [detailed guidance](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) on reducing container startup time.
           
@@ -59,10 +59,10 @@ sections:
       - question: |
           What .NET or .NET Core image layer should I use in my container? 
         answer: |
-          Use the smallest image that satisfies your requirements. For Linux, you could use a *runtime-alpine* .NET Core image, which has been supported since the release of .NET Core 2.1. For Windows, if you're using the full .NET Framework, then you need to use a Windows Server Core image (runtime-only image, such as  *4.7.2-windowsservercore-ltsc2016*). Runtime-only images are smaller but do not support workloads that require the .NET SDK.
+          Use the smallest image that satisfies your requirements. For Linux, you could use a *runtime-alpine* .NET Core image, which has been supported since the release of .NET Core 2.1. For Windows, if you're using the full .NET Framework, then you need to use a Windows Server Core image (runtime-only image, such as  *4.7.2-windowsservercore-ltsc2016*). Runtime-only images are smaller but don't support workloads that require the .NET SDK.
           
           > [!NOTE]
-          > ACI cannot pull images from non OCI-compliant registries.
+          > ACI can't pull images from non OCI-compliant registries.
           
       - question: |
           What types of container registries are compatible with ACI?
@@ -127,7 +127,7 @@ sections:
       - question: |
           When will ACI be in a specific region?
         answer: |
-          Current region availability is published [here](container-instances-region-availability.md). If you've a requirement for a specific region, contact Azure Support.
+          Current region availability is published [here](container-instances-region-availability.md). If you have a requirement for a specific region, contact Azure Support.
           
   - name: Features and scenarios
     questions:
@@ -144,12 +144,12 @@ sections:
       - question: |
           Does the ACI service reserve ports for service functionality?
         answer: |
-          Yes, the ACI service does reserve the following ports for service functionality: 22, 443, 1025-1027, 3389-3399, 9999, 19000, 19080, 19390, 19100, 20000-30000, 49152-65534. Please avoid using these ports in your container group definition.
+          Yes, the ACI service does reserve the following ports for service functionality: 22, 443, 1025-1027, 3389-3399, 9999, 19000, 19080, 19390, 19100, 20000-30000, 49152-65534. Avoid using these ports in your container group definition.
 
       - question: |
-          Can you take a dependencyon the container group's IP address?
+          Can you take a dependency on the container group's IP address?
         answer: |
-          Container group IP addresses are subject to change after being created or deleted. We recommend that your application code does not take a dependency on the container group's IP address. We also suggest using [NAT Gateway](container-instances-nat-gateway.md) or [Application Gateway](container-instances-application-gateway.md) if you would like to maintain a static IP address.
+          Container group IP addresses are subject to change after being created or deleted. We recommend that your application code doesn't take a dependency on the container group's IP address. We also suggest using [NAT Gateway](container-instances-nat-gateway.md) or [Application Gateway](container-instances-application-gateway.md) if you would like to maintain a static IP address.
 
   - name: Pricing
     questions:
@@ -188,7 +188,38 @@ sections:
       - question: |
           Is there an additional cost for confidential container on Azure Container Instances?
         answer: |
-          Confidential containers on Azure Container Instances do have an additional cost compared to standard SKU container groups. For more details, see [pricing page](https://azure.microsoft.com/pricing/details/container-instances/).
+          Confidential containers on Azure Container Instances do have an additional cost compared to standard SKU container groups. For more information, see [pricing page](https://azure.microsoft.com/pricing/details/container-instances/).
+
+  - name: Spot containers on Azure Container Instances (Preview)
+    questions:
+      - question: | 
+          What are ACI Spot containers?
+        answer: |
+          ACI Spot containers are a new feature that allows customers to run interruptible, containerized workloads on unused Azure capacity at up to 70% discounted prices vs regular-priority ACI containers.
+      - question: | 
+          When should I use ACI Spot containers?     
+        answer: |
+          ACI Spot containers may be preempted when Azure has insufficient surplus capacity and customers are billed for per-second memory/core usage. With ACI Spot Containers, you can now run your containerized workloads such as batch processing, Monte Carlo simulations, dev/test workloads and parallelizable offline workloads that can tolerate interruptions on Azure at a fraction of the cost of traditional ACI pricing. This offering is targeted at customers who wants to run interruptible workloads with no strict availability requirement. 
+      - question: |
+          Are there any features that aren't supported on ACI spot containers?
+        answer: | 
+          GPU based ACI container deployments, availability zones, support for ACI deployments with Public IP and ACI deployments behind custom virtual network with Private IP aren't supported with Spot containers. 
+      - question: | 
+          What is the default quota for ACI Spot containers?
+        answer: |
+          All customers get a default quota of 10 vCPU cores and 10 container groups.
+      - question: | 
+          How do I file quota requests for ACI Spot containers?
+        answer: |
+          Customers can file support request to increase capacity for Spot containers by  selecting the issue type as "Services and Subscription limits(quotas)" and new quota type as "StandardSpotCores" added for ACI Spot containers offering when you're requested to fill in the requested details.
+      - question: |
+          What regions are ACI Spot containers available?
+        answer: |
+          Azure Container Instances(ACI) Spot containers are only available in select regions during Public Preview. See [Resource and region availability](container-instances-region-availability.md) for more information.
+      - question: |
+          Is there an additional cost for ACI Spot containers?
+        answer: |
+          ACI Spot containers are offered at discounted price and offer up to a 70% discount on top of regular priority ACI containers. The discounts would vary per month in each region. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/container-instances/).
 
 additionalContent: |
 
