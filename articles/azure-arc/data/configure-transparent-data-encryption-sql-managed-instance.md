@@ -78,6 +78,12 @@ In customer-managed mode, TDE uses a service-managed database master key and use
 
 The following section explains how to enable TDE in service-managed mode.
 
+# [Customer-managed](#tab/customer-managed)
+
+The following section explains how to enable TDE in customer-managed mode.
+
+---
+
 # [Azure CLI](#tab/azure-cli/service-managed)
 
 The following section explains how to enable TDE in customer-managed mode.
