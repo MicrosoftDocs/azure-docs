@@ -265,7 +265,7 @@ You can configure web server by using a customized server configuration file. Yo
 
 Deploying static files to the Azure Spring Apps Enterprise supports the Dynatrace buildpack binding. The `htpasswd` buildpack binding isn't supported.
 
-For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
+For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
 
 ## Common build and deployment errors
 
