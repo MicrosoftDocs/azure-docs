@@ -53,7 +53,7 @@ There are multiple built-in Azure Policy definitions to manage WAF resources. A 
 
 ### Require Premium Tier
 
-- **Azure Front Door profiles should use Premium tier that supports managed WAF rules and private link**: 
+- **Azure Front Door profiles should use Premium tier that supports managed WAF rules and private link**: Mandates that all of your Azure Front Door profiles are on the premium tier instead of the standard tier. Azure Front Door Premium is optimized for security, and gives you access to the most up to date WAF rulesets and functionality.
 
 ### Enable All Rules
 
