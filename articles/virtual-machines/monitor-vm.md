@@ -82,23 +82,17 @@ To analyze other log data that you collect from your virtual machines, use [log 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. These alerts can help you identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts).
 
 ### Recommended alerts
-Start by enabling recommended alerts. These are a predefined set of alert rules based on host metrics for the VM. You can quickly enable and customize each of these rules with a few clicks in the Azure portal. See [Tutorial: Enable recommended alert rules for Azure virtual machine](../azure-monitor/vm/tutorial-monitor-vm-alert-recommended.md).
-
-### Availability alert
-Use the VM availability metric to alert when a VM isn't running. This metric is currently in public preview and not yet included in recommended alerts, so you must create the alert rule yourself. See [Tutorial: Create availability alert rule for Azure virtual machine (preview)](../azure-monitor/vm/tutorial-monitor-vm-alert-availability.md).
-
-You can create a single alert rule based on the availability metric to monitor multiple VMs in the same region since Azure virtual machines support . 
-
-1. Create a new metric alert rule.
-2. Set the scope to the subscription or resource group that contains the VMs you want to monitor.
-3. Select *Virtual machines* for the **Resource type** and the **Location** with the VMs you want to monitor.
-4. In the **Condition** tab, click **See all signals** since the availability metric isn't included in the list of common signals.
-5. Select **VM Availability Metric (Preview)** and then clik **Apply**.
-6. 
+Start by enabling recommended alerts. These are a predefined set of alert rules based on host metrics for the VM. You can quickly enable and customize each of these rules with a few clicks in the Azure portal. See [Tutorial: Enable recommended alert rules for Azure virtual machine](../azure-monitor/vm/tutorial-monitor-vm-alert-recommended.md). This includes the [VM availability metric](monitor-vm-reference.md#vm-availability-metric-preview) which alerts when the VM stops running.
 
 ### Multi-resource metric alerts
-Using recommended alerts, a separate alert rule is created for each VM. You can choose to instead use a [multi-resource alert rule](../azure-monitor/alerts/alerts-types.md#monitor-multiple-resources) to use a single alert rule that applies to all VMs in a particular resource group or subscription (within the same region). Use the guidance at [Create a new alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=metric) to create a metric alert rule using a subscription or resource group for the scope and the other details from alert rules created by recommended alerts.
+Using recommended alerts, a separate alert rule is created for each VM. You can choose to instead use a [multi-resource alert rule](../azure-monitor/alerts/alerts-types.md#monitor-multiple-resources) to use a single alert rule that applies to all VMs in a particular resource group or subscription (within the same region). Use the following process or see [Create availability alert rule for Azure virtual machine (preview)](../azure-monitor/vm/tutorial-monitor-vm-alert-availability.md) for a tutorial using the availability metric.
 
+1. Create a new [metric alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=metric).
+2. Set the scope to the subscription or resource group that contains the VMs you want to monitor.
+3. Select *Virtual machines* for the **Resource type** and the **Location** with the VMs you want to monitor.
+4. In the **Condition** tab, select the signal you want to alert on. This list includes the most common signals Click **See all signals** for a complete list.
+5. Select **VM Availability Metric (Preview)** and then click **Apply**.
+6. 
 
 ### Other alert rules
 For more information about the various alerts for Azure virtual machines, see the following resources:
