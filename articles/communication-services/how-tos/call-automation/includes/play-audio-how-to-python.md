@@ -16,11 +16,37 @@ ms.author: kpunjabi
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Save the connection string for this resource. 
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
-
+- Have Python installed, you can install from the [official site](https://www.python.org/).
 
 ## Create a new Python application
 
-**NEED STEPS HERE**
+### Setup a Python virtual environment for your project
+``` console
+python -m venv play-audio-app
+```
+
+### Activate your virtual environment
+On windows, use the following command:
+``` console
+.\ play-audio-quickstart \Scripts\activate
+```
+On Unix, use the following command:
+``` console
+source play-audio-quickstart /bin/activate
+```
+
+### Install the Azure Communication Services Call Automation package 
+
+``` console
+pip install azure-communication-callautomation
+```
+Create your application file in your project directory, for example, name it app.py. You will write your Python code in this file.  
+
+Run your application using Python with the following command. This will execute the Python code you have written.  
+
+``` console
+python app.py
+```
 
 ## Prepare your audio file
 
