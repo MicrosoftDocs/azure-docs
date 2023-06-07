@@ -170,12 +170,14 @@ function InitMap()
 
 ## Customize a symbol layer
 
-The symbol layer has many styling options available. Here is a tool to test out these various styling options.
+The symbol layer has many styling options available. The [Symbol Layer Options] sample shows how the different options of the symbol layer that affects rendering.
 
-<br/>
+:::image type="content" source="./media/map-add-symbol/symbol-layer-options.png"alt-text="A screenshot of map with a panel on the left side of the map with the various symbol options that can be interactively set.":::
 
+<!-----------------------------------------------------------------------------------------------
 <iframe height='700' scrolling='no' title='Symbol Layer Options' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/PxVXje/'>Symbol Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+-------------------------------------------------------------------------------------------------->
 
 > [!TIP]
 > When you want to render only text with a symbol layer, you can hide the icon by setting the `image` property of the icon options to `'none'`.
@@ -221,3 +223,5 @@ See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
 > [Add HTML Makers](map-add-bubble-layer.md)
+
+[Symbol Layer Options]: https://samples.azuremaps.com/?search=symbol%20layer&sample=symbol-layer-options
