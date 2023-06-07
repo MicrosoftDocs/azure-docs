@@ -19,8 +19,6 @@ Use this article to find the entity categories that can be returned by [Named En
 
 > [!NOTE]
 > * Starting form API version 2023-04-15-preview, the category and subcategory fields are replaced with entity types and tags to introduce better flexibility. 
-> * __Entity types__ represent the lowest (or finest) granuality at which the entity has been detected and can be considered to be the base class that has been detected.
-> * __Entity tags__ are used to further identify an entity where a detected entity is tagged by the entity type and additional tags to differentiate the identified entity. The entity tags list could be considered to include categories, subcategories, sub-subcategories, and so on.
 
 # [Generally Avaialble API](#tab/ga-api)
  
@@ -1291,56 +1289,6 @@ This entity type could be tagged by the following entity tags:
 ## Type: Skill
 
 Capabilities, skills, or expertise
-
-# [Generally Avaialble to Preview API Mappings](#tab/ga-to-preview-api)
-
-| Type           | Tags                                   |
-|----------------|----------------------------------------|
-| Date           | Temporal, Date                         |
-| DateRange      | Temporal, DateRange                    |
-| DateTime       | Temporal, DateTime                     |
-| DateTimeRange  | Temporal, DateTimeRange                |
-| Duration       | Temporal, Duration                     |
-| SetTemporal    | Temporal, SetTemporal                  |
-| Time           | Temporal, Time                         |
-| TimeRange      | Temporal, TimeRange                    |
-| City           | GPE, Location, City                    |
-| State          | GPE, Location, State                   |
-| CountryRegion  | GPE, Location, CountryRegion           |
-| Continent      | GPE, Location, Continent               |
-| GPE            | Location, GPE                          |
-| Location       | Location                               |
-| Airport        | Structural, Location                   |
-| Structural     | Location, Structural                   |
-| Geological     | Location, Geological                   |
-| Age            | Numeric, Age                           |
-| Currency       | Numeric, Currency                      |
-| Number         | Numeric, Number                        |
-| NumberRange    | Numeric, NumberRange                   |
-| Percentage     | Numeric, Percentage                    |
-| Ordinal        | Numeric, Ordinal                       |
-| Temperature    | Numeric, Dimension, Temperature         |
-| Speed          | Numeric, Dimension, Speed               |
-| Weight         | Numeric, Dimension, Weight              |
-| Height         | Numeric, Dimension, Height              |
-| Length         | Numeric, Dimension, Length              |
-| Volume         | Numeric, Dimension, Volume              |
-| Area           | Numeric, Dimension, Area                |
-| Information    | Numeric, Dimension, Information         |
-| Address        | Address                                |
-| Person         | Person                                 |
-| PersonType     | PersonType                             |
-| Organization   | Organization                           |
-| Product        | Product                                |
-| ComputingProduct | Product, ComputingProduct             |
-| IP             | IP                                     |
-| Email          | Email                                  |
-| URL            | URL                                    |
-| Skill          | Skill                                  |
-| Event          | Event                                  |
-| CulturalEvent  | Event, CulturalEvent                   |
-| SportsEvent    | Event, SportsEvent                     |
-| NaturalEvent   | Event, NaturalEvent                    |
 
 ---
 
