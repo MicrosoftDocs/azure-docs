@@ -72,7 +72,7 @@ For more information, see [Using Azure Monitor Application Insights with Spring 
 
 ## Java Application servers
 
-The following sections show how to set the `applicationinsights-agent-3.4.13.jar` agent path for different application servers. You can find the configuration options [here](./java-standalone-config.md).
+The following sections show how to set the Application Insights Java agent path for different application servers. You can find the configuration options [here](./java-standalone-config.md).
 
 ### Tomcat 8 (Linux)
 
