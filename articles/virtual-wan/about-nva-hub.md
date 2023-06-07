@@ -33,6 +33,8 @@ Deploying NVAs into a Virtual WAN hub provides the following benefits:
 
 ## Partners
 
+The following tables describes the Network Virtual Appliances that are eligible to be deployed in the Virtual WAN hub and the relevant use cases (connectivity and/or firewall). The Virtual WAN NVA Vendor Identifier column corresponds to the NVA Vendor that is displayed in Azure portal when you deploy a new NVA or view existing NVA's deployed in the Virtual Hub.
+ 
 [!INCLUDE [NVA partners](../../includes/virtual-wan-nva-hub-partners.md)]
 
 ## Basic use cases
