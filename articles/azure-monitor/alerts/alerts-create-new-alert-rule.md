@@ -14,7 +14,7 @@ This article shows you how to create an alert rule. To learn more about alerts, 
 
 You create an alert rule by combining:
  - The resources to be monitored.
- - The signal or telemetry from the resource.
+ - The signal or data from the resource.
  - Conditions.
 
 You then define these elements for the resulting alert actions by using:
@@ -133,7 +133,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log alert rule.":::
 
-    1. (Optional) If you are querying an ADX cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
+    1. (Optional) If you're querying an ADX cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
         ```azurecli
          adx(cluster).table    
          | where MyTS >= ago(5m) and MyTS <= now()
@@ -265,7 +265,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     **Example 1**
 
-    This example creates an "Additional Details" tag with data refarding the "window start time" and "window end time".
+    This example creates an "Additional Details" tag with data regarding the "window start time" and "window end time".
 
     - **Name:** "Additional Details"
     - **Value:** "Evaluation windowStartTime: \${data.context.condition.windowStartTime}. windowEndTime: \${data.context.condition.windowEndTime}"
@@ -273,7 +273,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 
     **Example 2**
-    This example add the data regarding the reason of resolving or firing the alert. 
+    This example adds the data regarding the reason of resolving or firing the alert. 
 
     - **Name:** "Alert \${data.essentials.monitorCondition} reason"
     - **Value:** "\${data.context.condition.allOf[0].metricName} \${data.context.condition.allOf[0].operator} \${data.context.condition.allOf[0].threshold} \${data.essentials.monitorCondition}. The value is \${data.context.condition.allOf[0].metricValue}"
@@ -489,7 +489,7 @@ ARM templates for activity log alerts contain additional properties for the cond
 |resourceGroup     |Name of the resource group for the affected resource in the activity log event.        |
 |resourceProvider     |For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](../../azure-resource-manager/management/resource-providers-and-types.md).         |
 |status     |String describing the status of the operation in the activity event. Possible values are `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, or `Resolved`.         |
-|subStatus     |Usually, this field is the HTTP status code of the corresponding REST call. This field can also include other strings describing a sub-status. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.         |
+|subStatus     |Usually, this field is the HTTP status code of the corresponding REST call. This field can also include other strings describing a substatus. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.         |
 |resourceType     |The type of the resource affected by the event. An example is `Microsoft.Resources/deployments`.         |
 
 For more information about the activity log fields, see [Azure activity log event schema](../essentials/activity-log-schema.md).
