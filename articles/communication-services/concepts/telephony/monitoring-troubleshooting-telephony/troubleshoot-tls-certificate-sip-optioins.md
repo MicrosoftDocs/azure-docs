@@ -14,15 +14,15 @@ description: Learn how to troubleshoot Azure Communication Services direct routi
 
 When you set up a direct routing, you might experience the following Session Border Controller (SBC) connectivity issues:
 
-- Session Initiation Protocol (SIP) OPTIONS are not received.
+- Session Initiation Protocol (SIP) OPTIONS aren't received.
 - Transport Layer Security (TLS) connections problems occur.
 - The SBC doesn't respond.
 - The SBC is marked as inactive in the Azure portal.
 
-Such issues are most likely caused by either or both of the following conditions:
+The following conditions are most likely to cause such issues:
 
 - A TLS certificate experiences problems.
-- An SBC is not configured correctly for direct routing.
+- An SBC isn't configured correctly for direct routing.
 
 This article lists some common issues that are related to SIP OPTIONS and TLS certificates, and provides resolutions that you can try.  
 
@@ -32,10 +32,10 @@ This article lists some common issues that are related to SIP OPTIONS and TLS ce
 
 - The SIP proxy checks the connection request.
 
-  - If the request is not valid, the TLS connection is closed and the SIP proxy does not receive SIP OPTIONS from the SBC.
+  - If the request isn't valid, the TLS connection is closed and the SIP proxy doesn't receive SIP OPTIONS from the SBC.
   - If the request is valid, the TLS connection is established, and the SBC sends SIP OPTIONS to the SIP proxy.
 
-- After SIP proxy receives SIP OPTIONS, it checks the Record-Route to determine whether the SBC FQDN belongs to a known Communication resource. If the FQDN information is not detected there, the SIP proxy checks the Contact header.
+- After SIP proxy receives SIP OPTIONS, it checks the Record-Route to determine whether the SBC FQDN belongs to a known Communication resource. If the FQDN information isn't detected there, the SIP proxy checks the Contact header.
 
 - If the SBC FQDN is detected and recognized, the SIP proxy sends a **200 OK** message by using the same TLS connection.
 
@@ -47,16 +47,16 @@ This article lists some common issues that are related to SIP OPTIONS and TLS ce
 
 ### SIP OPTIONS issues
 
-After the TLS connection is successfully established, and the SBC is able to send and receive messages to and from the Teams SIP proxy, there might still be problems that affect the format or content of SIP OPTIONS.
+After the TLS connection is successfully established, and the SBC is able to send and receive messages to and from the SIP proxy, there might still be problems that affect the format or content of SIP OPTIONS.
 <br><br>
 <details>
 <summary><b>SBC doesn't receive a "200 OK" response from SIP proxy</b></summary>
 
 This situation might occur if you’re using an older version of TLS. To enforce stricter security, enable TLS 1.2.
 
-Make sure that your SBC certificate is not self-signed and that you got it from a [trusted Certificate Authority (CA)](../direct-routing-infrastructure.md#sbc-certificates-and-domain-names).
+Make sure that your SBC certificate isn't self-signed and that you got it from a [trusted Certificate Authority (CA)](../direct-routing-infrastructure.md#sbc-certificates-and-domain-names).
 
-If you’re using the minimum required version of TLS or higher, and your SBC certificate is valid, then the issue might occur because the FQDN is misconfigured in your SIP profile and not recognized as belonging to any Communication resource. Check for the following conditions, and fix any errors that you find:
+If you’re using TLS version 1.2 or higher, and your SBC certificate is valid, then the issue might occur because the FQDN is misconfigured in your SIP profile and not recognized as belonging to any Communication resource. Check for the following conditions, and fix any errors that you find:
 
 - The FQDN provided by the SBC in the Record-Route or Contact header is different from what is configured in Azure Communication resource.
 - The Contact header contains an IP address instead of the FQDN.
@@ -70,16 +70,16 @@ If you’re using the minimum required version of TLS or higher, and your SBC ce
 
 The SBC receives the **200 OK** response from the SIP proxy but not the SIP OPTIONS that were sent from the SIP proxy. If this error occurs, make sure that the FQDN that's listed in the Record-Route or Contact header is correct and resolves to the correct IP address.
 
-Another possible cause for this issue might be firewall rules that are preventing incoming traffic. Make sure that firewall rules are configured to allow incoming connections from all [SIP proxy signalling IP addresses](../direct-routing-infrastructure.md#sip-signaling-fqdns).
+Another possible cause for this issue might be firewall rules that are preventing incoming traffic. Make sure that firewall rules are configured to allow incoming connections from all [SIP proxy signaling IP addresses](../direct-routing-infrastructure.md#sip-signaling-fqdns).
 
 </details>
 
 <details>
 <summary><b>SBC status is intermittently inactive</b></summary>
 
-This issue might occur in the following situations:
+This issue might occur if:
   
-- The SBC is configured to send SIP OPTIONS not to FQDNs but to the specific IP addresses that they resolve to. During maintenance or outages, these IP addresses might change to a different datacenter. Therefore, the SBC will be sending SIP OPTIONS to an inactive or unresponsive datacenter. Do the following:
+- The SBC is configured to send SIP OPTIONS not to FQDNs but to the specific IP addresses that they resolve to. During maintenance or outages, these IP addresses might change to a different datacenter. Therefore, the SBC is sending SIP OPTIONS to an inactive or unresponsive datacenter. To resolve the issue:
 
    - Make sure that the SBC is discoverable and configured to send SIP OPTIONS to only FQDNs.
    - Make sure that all devices in the route, such as SBCs and firewalls, are configured to allow communication to and from all Microsoft SIP signaling FQDNs.
@@ -94,7 +94,7 @@ This issue might occur in the following situations:
 
    For more information, see [SIP Signaling: FQDNS](///link to sip signaling fqdns).
 
-- The installed root or intermediate certificate isn't part of the SBC certificate chain issuer. When the SBC starts the three-way handshake during the authentication process, the Azure service won't be able to validate the certificate chain on the SBC and will reset the connection. The SBC may be able to authenticate again as soon as the public root certificate is loaded again on the service cache or the certificate chain is fixed on the SBC. Make sure that the intermediate and root certificate installed on the SBC are correct.
+- The installed root or intermediate certificate isn't part of the SBC certificate chain issuer. When the SBC starts the three-way handshake during the authentication process, the Azure service is unable to validate the certificate chain on the SBC and resets the connection. The SBC may be able to authenticate again as soon as the public root certificate is loaded again on the service cache or the certificate chain is fixed on the SBC. Make sure that the intermediate and root certificates installed on the SBC are correct.
   
   For more information about certificates, see [SBC certificates and domain names](../direct-routing-infrastructure.md#sbc-certificates-and-domain-names).
   
@@ -110,13 +110,13 @@ For more information about certificates, see [SBC certificates and domain names]
 
 ### TLS connection issues
 
-If the TLS connection is closed right away and SIP OPTIONS are not received from the SBC, or if **200 OK** is not received from the SBC, then the problem might be with the TLS version. The TLS version configured on the SBC should be 1.2 or higher.
+If the TLS connection is closed right away and SIP OPTIONS aren't received from the SBC, or if **200 OK** isn't received from the SBC, then the problem might be with the TLS version. The TLS version configured on the SBC should be 1.2 or higher.
 <br><br>
 <details>
 
 <summary><b>SBC certificate is self-signed or not from a trusted CA</b></summary>
 
-If the SBC certificate is self-signed, it is not valid. Make sure that the SBC certificate is obtained from a trusted Certificate Authority (CA).
+If the SBC certificate is self-signed, it isn't valid. Make sure that the SBC certificate is obtained from a trusted Certificate Authority (CA).
 
 For a list of supported CAs, see [SBC certificates and domain names](../direct-routing-infrastructure.md#sbc-certificates-and-domain-names).
 
@@ -125,7 +125,7 @@ For a list of supported CAs, see [SBC certificates and domain names](../direct-r
 <details>
 <summary><b>SBC doesn't trust SIP proxy certificate</b></summary>
 
-If the SBC doesn't trust the SIP proxy certificate, download and install the Baltimore CyberTrust root certificate **and** he DigiCert Global Root G2 certificates on the SBC. To download those certificate, see [Microsoft 365 encryption chains](/microsoft-365/compliance/encryption-office-365-certificate-chains).
+If the SBC doesn't trust the SIP proxy certificate, download and install the Baltimore CyberTrust root certificate **and** he DigiCert Global Root G2 certificates on the SBC. To download those certificates, see [Microsoft 365 encryption chains](/microsoft-365/compliance/encryption-office-365-certificate-chains).
 
 For a list of supported CAs, see [SBC certificates and domain names](../direct-routing-infrastructure.md#sbc-certificates-and-domain-names).
 
@@ -136,7 +136,7 @@ For a list of supported CAs, see [SBC certificates and domain names](../direct-r
 
 If the SBC connection status in the Azure portal indicates that the SBC certificate is expired, request or renew the certificate from a trusted Certificate Authority (CA). Then, install it on the SBC. For a list of supported CAs, see [SBC certificates and domain names](../direct-routing-infrastructure.md#sbc-certificates-and-domain-names).
   
-When you renew the SBC certificate, you must remove the TLS connections that were established from the SBC to Microsoft with the old certificate and re-establish them with the new certificate. Doing so will ensure that certificate expiration warnings aren't triggered in Azure portal.
+When you renew the SBC certificate, you must remove the TLS connections that were established from the SBC to Microsoft with the old certificate and re-establish them with the new certificate. Doing so ensures that certificate expiration warnings aren't triggered in Azure portal.
 To remove the old TLS connections, restart the SBC during a time frame that has low traffic such as a maintenance window. If you can't restart the SBC, contact the vendor for instructions to force the closure of all old TLS connections.
 
 </details>
@@ -146,7 +146,7 @@ To remove the old TLS connections, restart the SBC during a time frame that has 
 
 Check that a valid SBC certificate and all required intermediate certificates are installed correctly, and that the TLS connection settings on the SBC are correct.
 
-Sometimes, even if everything looks correct, a closer examination of the packet capture might reveal that the TLS certificate is not provided to the Microsoft infrastructure.
+Sometimes, even if everything looks correct, a closer examination of the packet capture might reveal that the TLS certificate isn't provided to the Microsoft infrastructure.
 
 </details>
 
@@ -155,7 +155,7 @@ Sometimes, even if everything looks correct, a closer examination of the packet 
 
 The TLS connection is interrupted or not set up even though the certificates and SBC settings experience no issues.
 
-The TLS connection may have been closed by one of the intermediary devices (such as a firewall or a router) on the path between the SBC and the Microsoft network. Check for any connection issues within your managed network, and fix them.
+One of the intermediary devices (such as a firewall or a router) on the path between the SBC and the Microsoft network might close the TLS connection. Check for any connection issues within your managed network, and fix them.
 
 </details>
 

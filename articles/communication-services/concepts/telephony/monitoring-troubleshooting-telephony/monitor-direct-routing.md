@@ -30,7 +30,7 @@ Azure Communication Services direct routing uses SIP OPTIONS sent by the Session
 
 For example, if there are several SBCs available to route a call, direct routing considers the SIP OPTIONS information received from each SBC to determine routing.
 
-Here is an example of the configuration:
+Here's an example of the configuration:
 
 ![[SIP options configuration example.](../../media/monitoring-troubleshooting-telephony/sip-options-config-routing.png)](../../media/monitoring-troubleshooting-telephony/sip-options-config-routing.png#lightbox)
 
@@ -46,9 +46,9 @@ When a call is made, the following logic applies:
 
 Direct routing takes the regular interval OPTIONS three times (the regular interval is one minute). If OPTIONS were sent during the last three minutes, the SBC is considered healthy.
 
-If the SBC in the example sent OPTIONS at any period between 11:12 AM and 11:15 AM (the time the call was made), it's considered healthy. If not, the SBC will be demoted from the route.
+If the SBC in the example sent OPTIONS at any period between 11:12 AM and 11:15 AM (the time the call was made), it's considered healthy. If not, the SBC is demoted from the route.
 
-Demotion means that the SBC won't be tried first. For example, we have sbc1.contoso.com and sbc2.contoso.com with equal priority.  
+Demotion means that the SBC isn't tried first. For example, we have sbc1.contoso.com and sbc2.contoso.com with equal priority.  
 
 If sbc1.contoso.com doesn't send SIP OPTIONS on a regular interval as previously described, it's demoted. Next, sbc2.contoso.com tries for the call. If sbc2.contoso.com can't deliver the call, the sbc1.contoso.com (demoted) is tried again before a failure is generated. 
 
@@ -63,7 +63,7 @@ You can use the following tools to monitor your configuration:
 - Azure portal
 - SBC logs
 
-In the direct routing blade of Azure portal you can check [SBC connection status](../direct-routing-provisioning.md#session-border-controller-connection-status).
+In the direct routing section of Azure portal, you can check [SBC connection status](../direct-routing-provisioning.md#session-border-controller-connection-status).
 If calls can be made, you can also check [Azure monitors logs](../../analytics/logs/voice-and-video-logs.md) that provide descriptive SIP error codes
 
 SBC logs also is a great source of data for troubleshooting. Reach out to your SBC vendor's documentation on how to configure and collect those logs.
