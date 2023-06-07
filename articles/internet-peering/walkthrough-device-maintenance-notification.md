@@ -87,7 +87,7 @@ Azure Peering Service notifications will now be forwarded to you based on your a
 
 #### More information
 
-For more information on the notification platform Service Health and forwarding notifications, refer to [its official documentation](https://learn.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal?WT.mc_id=Portal-Microsoft_Azure_Support).
+For more information on the notification platform Service Health and forwarding notifications, more information can be found at: [Create activity log alerts on service notifications using the Azure portal](../../articles/service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## Legacy peerings
 
