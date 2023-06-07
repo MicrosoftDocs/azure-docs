@@ -25,7 +25,7 @@ An Exchange hybrid deployment offers organizations the ability to extend the fea
 
  :::image type="content" source="media/exchange-hybrid/exchange-hybrid.png" alt-text="Conceptual image of exchange hybrid scenario." lightbox="media/exchange-hybrid/exchange-hybrid.png":::
 
-This scenario is now supported in cloud sync.  Cloud sync accomplishes this by detecting Exchange on-premises schema attributes and then "writing back" the exchange on-line attributes to your on-premises AD environment.
+This scenario is now supported in cloud sync.  Cloud sync detects the Exchange on-premises schema attributes and then "writes back" the exchange on-line attributes to your on-premises AD environment.
 
 For more information on Exchange Hybrid deployments, see [Exchange Hybrid](/exchange/exchange-hybrid)
 
@@ -60,12 +60,12 @@ Cloud sync synchronizes Exchange On-line attributes back to users and groups in 
 
 
 ## Provisioning on-demand
-Provisiong on-demand with Exchange hybrid writeback requires 2 steps.  You need to first provision or create the user, so that the Exchange online attriubtes can then be written back to the user or group.  The steps are:
+Provisioning on-demand with Exchange hybrid writeback requires two steps.  You need to first provision or create the user, so that the Exchange online attributes can then be written back to the user or group.  The steps are:
 
 	1.  Provision and synch the intial user or group - this brings the user/group into the cloud.
 	2.  Writeback the attributes back - this writes the attributes to the user/group on-premises.
 
-To provision on-demand with Exchange hybrid use the following steps
+Provisioning on-demand with Exchange hybrid use the following steps
 
 
  1.  In the Azure portal, select **Azure Active Directory**.
@@ -74,16 +74,16 @@ To provision on-demand with Exchange hybrid use the following steps
  4. Under **Configuration**, select your configuration.
  5. On the left, select **Provision on demand**.
  6. Enter the distinguished name of a user and select the **Provision** button.
- 7. After provisioning finishes, a success screen appears with four green check marks. Any errors appear to the left.
- 8. Click **Next**.  You will be on the **Writeback exchange attributes to Active Directory** tab and the synchronization will begin.  
- 9. Once this has finished you should see the success details.
+ 7. When provisioning finishes, a success screen appears with four green check marks. 
+ 8. Click **Next**.  On the **Writeback exchange attributes to Active Directory** tab, the synchronization starts.  
+ 9. When this has finished you should see the success details.
 
 ## API for schema detection
-Prior to enabling and using Exchange hybrid writeback, cloud sync needs to determine whether or not the on-premises Active Directory has been extended to include the Exchange schema.  This is done automatically by either restarting the provisioning agent or using an API call.
+Prior to enabling and using Exchange hybrid writeback, cloud sync needs to determine whether or not the on-premises Active Directory has been extended to include the Exchange schema.  The refresh can be done automatically by restarting the provisioning agent or manually using an API call.
 
-You can use the [directoryDefinition:discover](/graph/api/directorydefinition-discover?view=graph-rest-beta&tabs=http) to intiate schema discovery. 
+You can use the [directoryDefinition:discover](/graph/api/directorydefinition-discover?view=graph-rest-beta&tabs=http&preserve-view=true) to initiate schema discovery. 
 
-POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema/directories/{directoryId}/discover
+```POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema/directories/{directoryId}/discover```
 
 Things to remember when using the API to refresh or discover the schema.
 	- The job id needs to be the AD2AADProvisioning job id
