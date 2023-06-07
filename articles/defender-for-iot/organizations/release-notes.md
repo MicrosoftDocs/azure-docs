@@ -105,6 +105,8 @@ To understand whether a feature is supported in your sensor version, check the r
 
 This version includes bug fixes for stability improvements.
 
+- [Improved monitoring and support for OT sensor logs](whats-new.md#improved-monitoring-and-support-for-ot-sensor-logs)
+
 ### 22.3.8
 
 **Release date**: 04/2023
