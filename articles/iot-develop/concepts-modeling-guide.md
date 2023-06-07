@@ -128,6 +128,9 @@ This article describes how to design and author your own models and covers topic
 
 To learn more, see the [Digital Twins Definition Language](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md) specification.
 
+> [!NOTE]
+> IoT Central currently supports [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) with an [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
+
 ## Model structure
 
 Properties, telemetry, and commands are grouped into interfaces. This section describes how you can use interfaces to describe simple and complex models by using components and inheritance.

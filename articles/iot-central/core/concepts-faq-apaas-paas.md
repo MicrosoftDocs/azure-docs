@@ -49,7 +49,7 @@ So that you can seamlessly migrate devices from your IoT Central applications to
 - The updatable DPS pattern ensures that the device can move seamlessly between IoT Central applications and the PaaS solution without any downtime.
 
 > [!NOTE]
-> IoT Central defines some extensions to the DTDL language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
+> IoT Central defines some extensions to the DTDL v2 language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 ## Move existing data out of IoT Central
 

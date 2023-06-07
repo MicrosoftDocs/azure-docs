@@ -21,7 +21,7 @@ A [device model](concepts-modeling-guide.md) defines the:
 * Commands that the service calls on a device.
 
 > [!TIP]
-> Azure IoT Central is a service that follows the Plug and Play conventions. In IoT Central, the device model is part of a [device templates](../iot-central/core/concepts-device-templates.md). An IoT Central application expects to receive UTF-8 encoded JSON data.
+> Azure IoT Central is a service that follows the Plug and Play conventions. In IoT Central, the device model is part of a [device template](../iot-central/core/concepts-device-templates.md). IoT Central currently supports [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) with an [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md). An IoT Central application expects to receive UTF-8 encoded JSON data.
 
 This article describes the JSON payloads that devices send and receive for telemetry, properties, and commands defined in a device template.
 
@@ -29,7 +29,7 @@ The article doesn't describe every possible type of telemetry, property, and com
 
 Each example shows a snippet from the device model that defines the type and example JSON payloads to illustrate how the device should interact with a Plug and Play aware service such as IoT Central.
 
-The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). There are some [DTDL extensions that IoT Central](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md) uses.
+The example JSON snippets in this article use [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). There are also some [DTDL extensions that IoT Central](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md) uses.
 
 For sample device code that shows some of these payloads in use, see the [Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub](tutorial-connect-device.md) tutorial or the [Create and connect a client application to your Azure IoT Central application](../iot-central/core/tutorial-connect-device.md) tutorial.
 

@@ -85,7 +85,7 @@ The JSON file that defines the device model uses the [Digital Twin Definition La
 To learn more about DTDL models, see the [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md).
 
 > [!NOTE]
-> IoT Central defines some extensions to the DTDL language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
+> IoT Central defines some extensions to the DTDL v2 language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 ## Properties
 

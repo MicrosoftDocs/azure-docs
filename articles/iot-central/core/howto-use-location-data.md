@@ -57,7 +57,6 @@ For reference, the [Digital Twins Definition Language (DTDL) V2](https://github.
 > [!NOTE]
 > The **geopoint** schema type is not part of the [DTDL specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
-
 ## Send location data from a device
 
 When a device sends data for the **DeviceLocation** property shown in the previous section, the payload looks like the following JSON snippet:
