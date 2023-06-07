@@ -55,13 +55,16 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >[!TIP]
     >We recommend increasing the resources allocated to Docker when testing large applications. This can be done by selecting the **Docker Icon**, then selecting **Advanced** to adjust the number of cores and memory.
 
-2. Start the cluster.<br/>
-    <b>Latest:</b>
+2. Start the cluster.
+
+   **Latest:**
+   
     ```bash
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:latest
     ```
 
-    <b>Ubuntu 18.04 LTS:</b>
+   **Ubuntu 18.04 LTS:**
+   
     ```bash
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
     ```
