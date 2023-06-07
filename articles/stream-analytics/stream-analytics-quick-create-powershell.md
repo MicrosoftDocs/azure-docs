@@ -291,7 +291,7 @@ New-AzStreamAnalyticsTransformation `
     -Query "SELECT * INTO BlobOutput FROM IoTHubInput WHERE Temperature > 27" `
     -StreamingUnit 1 `
     -Name $jobTransformationName
-    ```
+```
 
 ## Run the IoT simulator
 
