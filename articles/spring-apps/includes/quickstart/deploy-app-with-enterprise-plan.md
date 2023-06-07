@@ -50,6 +50,16 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 ### 3.2 Provision an instance of Azure Spring Apps
 
+1. Accept the legal terms and privacy statements for the Enterprise tier. Note: This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Apps.
+
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.SaaS
+   az term accept \ 
+      --publisher vmware-inc \ 
+      --product azure-spring-cloud-vmware-tanzu-2 \ 
+      --plan asa-ent-hr-mtr
+   ```
+
 1. Use the following commands to define variables for this quickstart with the names of your resources and desired settings:
 
    ```azurecli-interactive
@@ -75,8 +85,6 @@ Use the following steps to create an Azure Spring Apps service instance.
        --name ${SERVICE_NAME} \
        --sku Enterprise
    ```
-
-1. Select **Y** to install the Azure Spring Apps extension and run it.
 
 ### 3.3 Create an app in your Azure Spring Apps instance
 
