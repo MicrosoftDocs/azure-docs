@@ -169,6 +169,35 @@ To open the Migrate to Azure SQL wizard:
    > [!IMPORTANT]
    > If loopback check functionality is enabled and the source SQL Server instance and file share are on the same computer, the source can't access the file share by using an FQDN. To fix this issue, [disable loopback check functionality](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd).
 
+* The [Azure SQL migration extension for Azure Data Studio](./migration-using-azure-data-studio.md) no longer requires specific configurations on your Azure Storage account network settings to migrate your SQL Server databases to Azure. However, depending on your database backup location and desired storage account network settings, there are a few steps needed to ensure your resources can access the Azure Storage account. See the below table for the various migration scenarios and network configurations.
+
+| Scenario | Database backup location | Network fileshare | Azure Storage account container |
+| --- | --- | --- | --- |
+| Storage Account network access |  |  | 
+| Enabled from all networks | | No extra steps | No extra steps |  | 
+| Enabled from selected virtual networks and IP addresses |  | [See 1a](#1a---azure-blob-storage-network-configuration) | [See 2a](#2a---azure-blob-storage-network-configuration-private-endpoint)  |  | 
+| Enabled from selected virtual networks and IP addresses + private endpoint |  | [See 1b](#1b---azure-blob-storage-network-configuration) | [See 2b](#2b---azure-blob-storage-network-configuration-private-endpoint) |  | 
+
+> ### 1a - Azure Blob storage network configuration
+If you have your Self-Hosted Integration Runtime (SHIR) installed on an Azure VM, see section [1b - Azure Blob storage network configuration](#1b---azure-blob-storage-network-configuration). If you have your Self-Hosted Integration Runtime (SHIR) installed on your on-premises network, you will need to add your client IP address of the hosting machine in your Azure Storage account as so: 
+
+:::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/storage-networking-details.png" alt-text="Screenshot that shows the storage account network details":::
+
+To do this, connect to the Azure Portal from the SHIR machine, open the Azure Storage account configuration, select **Networking**, and then mark the **Add your client IP address** checkbox. Select **Save** to make the change persistent. See section [2a - Azure Blob storage network configuration (Private endpoint)](#2a---azure-blob-storage-network-configuration-private-endpoint) for the remaining steps.
+
+> ### 1b - Azure Blob storage network configuration
+If your SHIR is hosted on an Azure VM, you will need to add the virtual network of the VM to the Azure Storage account since the VM will have a non-public IP address that cannot be added to the IP address range section. 
+
+:::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/storage-networking-firewall.png" alt-text="Screenshot that shows the storage account network firewall configuration":::
+
+To do this, locate your Azure Storage account, from the **Data storage** panel select **Networking**, then mark the **Add existing virtual network** checkbox. A new panel opens up, select the subscription, virtual network, and subnet of the Azure VM hosting the Integration Runtime. This information can be found on the **Overview** page of the Azure Virtual Machine. The subnet may say **Service endpoint required** if so, select **Enable**. Once everything is ready, save the updates. Refer to section [2a - Azure Blob storage network configuration (Private endpoint)a](#2a---azure-blob-storage-network-configuration-private-endpoint) for the remaining required steps.
+
+> ### 2a - Azure Blob storage network configuration (Private endpoint)
+ If your backups are placed directly into an Azure Storage Container, all the above steps are unnecessary since there is no Integration Runtime communicating with the Azure Storage account. However, we still need to ensure that the target SQL Server instance can communicate with the Azure Storage account to restore the backups from the container. To do this, follow the instructions in section [1b - Azure Blob storage network configuration](#1b---azure-blob-storage-network-configuration), specifying the target SQL instance Virtual Network when filling out the "Add existing virtual network" popup.
+
+> ### 2b - Azure Blob storage network configuration (Private endpoint)
+If you have a private endpoint setup on your Azure Storage account, follow the steps outlined in section [2a - Azure Blob storage network configuration (Private endpoint)](#2a---azure-blob-storage-network-configuration-private-endpoint). However, you will additionally need to select the subnet of the private endpoint, not just the target SQL Server subnet. Ensure the private endpoint is hosted in the same VNet as the target SQL Server instance. If it is not, create another private endpoint using the process in the Azure Storage account configuration section.
+
 ## Create a Database Migration Service instance
 
 In **Step 6: Azure Database Migration Service** in the Migrate to Azure SQL wizard, create a new instance of Azure Database Migration Service or reuse an existing instance that you created earlier.
