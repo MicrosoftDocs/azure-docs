@@ -6,6 +6,26 @@ ms.date: 11/01/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.29.0: June 2023 release
+
+#### New Features
+
+* **C++, C#, Java** - Preview of Embedded Speech Translation APIs. Now you can do speech translation without cloud connection!
+* **Java Script** - Continuous Language Identification (LID) now enabled for speech translation.
+* **Java Script** - Community contribution for adding `LocaleName` property to `VoiceInfo` class. Thank you GitHub user [shivsarthak](https://github.com/shivsarthak) for the pull request. 
+* **C++, C#, Java** - Added support for resampling Embedded Text-to-Speech (TTS) output from 16kHz to 48kHz sample rate.
+* Added support for `hi-IN` locale in Intent Recognizer with Simple Patter Matching.
+
+#### Bug fixes
+
+* Fixed a crash caused by race condition in Speech Recognizer destruction, as seen in some of our Android tests
+* Fixed possible deadlocks in Intent Recognizer with Simple Pattern Matcher
+
+#### Samples
+
+* New Embedded Speech Translation samples
+
+
 ### Speech SDK 1.28.0: May 2023 release
 
 #### Breaking change
