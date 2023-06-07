@@ -172,7 +172,7 @@ In some scenarios, you can aggregate data locally, and then periodically upload 
 
 ## .NET configuration
 
-For projects using .NET Framework, this section lists some quick configuration settings that you can use to make significant performance improvements. If you're using other languages, check to see if similar concepts apply in your chosen language.
+For projects using .NET Framework, this section lists some quick configuration settings that you can use to make significant performance improvements. If you're using a language other than .NET, check to see if similar concepts apply in your chosen language.
 
 ### Increase default connection limit
 
