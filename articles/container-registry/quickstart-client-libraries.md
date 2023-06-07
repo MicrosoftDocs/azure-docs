@@ -654,7 +654,7 @@ func Example_listTagsWithAnonymousAccess() {
 }
 ```
 
-### Set artifact properties asynchronously
+### Set artifact properties
 
 This sample assumes the registry has a repository `hello-world` with image tagged `latest`.
 
