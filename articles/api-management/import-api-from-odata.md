@@ -73,5 +73,4 @@ Secure your OData API by applying both existing [access control policies](api-ma
 ## Next steps
 
 > [!div class="nextstepaction"]
-> * [Create and publish a product](api-management-howto-add-products.md)
 > * [Transform and protect a published API](transform-api.md)

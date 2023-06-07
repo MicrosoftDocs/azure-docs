@@ -20,7 +20,7 @@ The `validate-odata-request` policy validates the request URL, headers, and para
 ## Policy statement
 
 ```xml
-<validate-odata-request id="id" error-variable-name="variable name" default-odata-version="OData version number" min-odata-version="OData version number" max-odata-version="OData version number" max-size="size in bytes" />
+<validate-odata-request error-variable-name="variable name" default-odata-version="OData version number" min-odata-version="OData version number" max-odata-version="OData version number" max-size="size in bytes" />
 ```
 
 ## Attributes
