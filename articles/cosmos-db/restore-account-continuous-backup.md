@@ -424,7 +424,7 @@ az cosmosdb restore \
 
 ```
 
-If `**--enable-public-network**` is not set, restored account is accessible from public network. Please ensure to pass `` False` to the `**--enable-public-network** `` option to prevent public network access for restored account.
+If `--enable-public-network` is not set, restored account is accessible from public network. Please ensure to pass `False` to the `--enable-public-network` option to prevent public network access for restored account.
 
  > [!NOTE]
  > For restoring with public network access disabled, you'll need to install the cosmosdb-preview 0.23.0 of CLI extension   by executing `az extension update --name cosmosdb-preview `. You would also require version 2.17.1 of the CLI.
