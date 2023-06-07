@@ -24,8 +24,6 @@ A virtual network is the fundamental building block for private networks in Azur
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
-
 ## Create a resource group
 
 1. Use [az group create](/cli/azure/group#az-group-create) to create a resource group to host the virtual network. Use the following code to create a resource group named **test-rg** in the **eastus2** Azure region.
@@ -82,7 +80,8 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over s
         --name bastion \
         --public-ip-address public-ip \
         --resource-group test-rg \
-        --vnet-name vnet-1 --location eastus2
+        --vnet-name vnet-1 \
+        --location eastus2
     ```
 
 It takes about 10 minutes for the Bastion resources to deploy. You can create VMs in the next section while Bastion deploys to your virtual network.
