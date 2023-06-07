@@ -44,7 +44,7 @@ The *Enriched Office 365 logs* provide you with the information you need to gain
 
 Customers use existing *Office Audit logs* for monitoring, detection, investigation, and analytics. We understand the importance of these logs and have partnered with Microsoft 365 to include SharePoint logs. These enriched logs include details like client information and original public IP details that can be used for troubleshooting security scenarios.
 
-Customers use the existing Office Audit logs for monitoring, detection, investigation, and analytics. The *Enriched Office 365 logs* build on these logs by adding information from SharePoint logs, such as client information and original public IP details, that can be used for security scenarios. 
+Customers use the existing Office Audit logs for monitoring, detection, investigation, and analytics. The *Enriched Office 365 logs* build on these logs by adding information from SharePoint logs, such as client information and original public IP details that can be used for security scenarios. 
 
 For more information, see [Enriched Office 365 logs](how-to-view-enriched-logs.md).
 
