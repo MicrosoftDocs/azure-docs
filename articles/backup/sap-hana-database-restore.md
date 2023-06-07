@@ -1,8 +1,8 @@
 ---
 title: Restore SAP HANA databases on Azure VMs
 description: In this article, you'll learn how to restore SAP HANA databases that are running on Azure virtual machines. You can also use Cross Region Restore to restore your databases to a secondary region.
-ms.topic: conceptual
-ms.date: 10/07/2022
+ms.topic: how-to
+ms.date: 06/20/2023
 ms.service: backup
 ms.custom: ignite-2022
 author: jyothisuri
@@ -13,7 +13,7 @@ ms.author: jsuri
 
 This article describes how to restore SAP HANA databases that are running on Azure virtual machines (VMs) and that the Azure Backup service has backed up to a Recovery Services vault. You can use the restored data to create copies for development and test scenarios or to return to a previous state.
 
-Azure Backup now supports backup and restore of SAP HANA System Replication (HSR) databases (preview).
+Azure Backup now supports backup and restore of SAP HANA System Replication (HSR) databases.
 
 >[!Note]
 >The restore process for HANA databases with HSR is the same as the restore process for HANA databases without HSR. As per SAP advisories, you can restore databases with HSR mode as *standalone* databases. If the target system has the HSR mode enabled, first disable the mode, and then restore the database.

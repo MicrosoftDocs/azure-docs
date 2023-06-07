@@ -2,7 +2,7 @@
 title: Azure Backup Architecture for SAP HANA Backup
 description: Learn about Azure Backup architecture for SAP HANA backup.
 ms.topic: conceptual
-ms.date: 09/07/2022
+ms.date: 06/20/2023
 ms.service: backup
 ms.custom: ignite-2022
 author: jyothisuri
@@ -100,7 +100,7 @@ In the following sections you'll learn about different SAP HANA setups and their
 
 :::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/azure-network-with-udr-and-nva-or-azure-firewall-and-private-endpoint-or-service-endpoint.png" alt-text="Diagram showing the SAP HANA setup if Azure network with UDR + NVA / Azure Firewall + Private Endpoint or Service Endpoint.":::
 
-### Backup architecture for database with HANA System Replication (preview)
+### Backup architecture for database with HANA System Replication
 
 The backup service resides in both the physical nodes of the HSR setup. Once you confirm that these nodes are in a replication group (using the [pre-registration script](sap-hana-database-with-hana-system-replication-backup.md#run-the-preregistration-script)), Azure Backup groups the nodes logically, and creates a single backup item during protection configuration. 
 
