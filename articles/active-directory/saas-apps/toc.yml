@@ -3266,6 +3266,8 @@
         href: officespace-software-provisioning-tutorial.md
       - name: Olfeo SAAS
         href: olfeo-saas-provisioning-tutorial.md
+      - name: OpenForms
+        href: openforms-provisioning-tutorial.md
       - name: OpenText Directory Services
         href: open-text-directory-services-provisioning-tutorial.md
       - name: Oracle Cloud Infrastructure Console
