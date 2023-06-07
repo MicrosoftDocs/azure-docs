@@ -63,6 +63,12 @@ additionalContent:
               url: /training/modules/intro-to-azure-firewall-manager/
             - text: Introduction to Azure Web Application Firewall
               url: /training/modules/introduction-azure-web-application-firewall/
+        - title: Architecture
+          links:
+            - text: Securely managed web applications
+              url: /azure/architecture/example-scenario/apps/fully-managed-secure-apps
+            - text: Firewall and Application Gateway for virtual networks
+              url: /azure/architecture/example-scenario/gateway/firewall-application-gateway
 
     - title: Secure your virtual networks  # < 60 chars (optional)
       items:
@@ -81,6 +87,12 @@ additionalContent:
               url: /training/modules/configure-network-security-groups/
             - text: Secure and isolate access to Azure resources by using network security groups and service endpoints
               url: /training/modules/secure-and-isolate-with-nsg-and-service-endpoints/
+        - title: Architecture
+          links:
+            - text: Hub-spoke network topology in Azure
+              url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+            - text: Choose between virtual network peering and VPN gateways
+              url: /azure/architecture/reference-architectures/hybrid-networking/vnet-peering
     - title: Protect your apps
       items:
         # Card
@@ -102,6 +114,12 @@ additionalContent:
               url: /training/modules/introduction-azure-ddos-protection/
             - text: Introduction to Azure Private Link
               url: /training/modules/introduction-azure-private-link/
+        - title: Architecture
+          links:
+            - text: Azure Private Link in a hub-and-spoke network
+              url: /azure/architecture/guide/networking/private-link-hub-spoke-network
+            - text: Guide to Private Link and DNS in Azure Virtual WAN
+              url: /azure/architecture/guide/networking/private-link-virtual-wan-dns-guide
     - title: Secure your virtual machines # < 60 chars (optional)
       items:
         # Card
@@ -117,3 +135,8 @@ additionalContent:
               url: /training/modules/intro-to-azure-bastion/
             - text: Connect to a VM using Azure Bastion
               url: /training/modules/connect-vm-with-azure-bastion/
+        - title: Architecture
+          links:
+            - text: Multilayered protection for Azure virtual machine access
+              url: /azure/architecture/solution-ideas/articles/multilayered-protection-azure-vm
+
