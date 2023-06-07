@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 06/06/2023
+ms.date: 06/07/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -26,9 +26,20 @@ Updates in June include:
 
 |Date |Update  |
 |---------|---------|
+| June 7 | [Express configuration for vulnerability assessments in Defender for SQL is now Generally Available](#express-configuration-for-vulnerability-assessments-in-defender-for-sql-is-now-generally-available) |
 |June 6 | [Additional scopes added to existing Azure DevOps Connectors](#additional-scopes-added-to-existing-azure-devops-connectors) |
 |June 5 |   [Onboarding directly (without Azure Arc) to Defender for Servers is now Generally Available](#onboarding-directly-without-azure-arc-to-defender-for-servers-is-now-generally-available)      |
 |June 4     | [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm)        |
+
+### Express configuration for vulnerability assessments in Defender for SQL is now Generally Available
+
+June 7
+
+Express configuration for vulnerability assessments in Defender for SQL is now Generally Available. Express configuration provides a streamlined onboarding experience for SQL vulnerability assessments through the use of a one-click configuration (or an API call). There is no additional settings or dependencies on managed storage accounts needed.
+
+Check out this [blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-sql-vulnerability-assessment-updates/ba-p/3837732) to learn more about express configuration.
+
+You can learn the differences between [express and classic configuration](sql-azure-vulnerability-assessment-overview.md#what-are-the-express-and-classic-configurations).
 
 ### Additional scopes added to existing Azure DevOps Connectors 
 
@@ -642,25 +653,6 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 | Recommendation | Description | Severity |
 |--|--|--|
 | Diagnostic logs in Virtual Machine Scale Sets should be enabled | Enable logs and retain them for up to a year, enabling you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. | Low |
-
-## December 2022
-
-Updates in December include:
-
-- [Announcing express configuration for vulnerability assessment in Defender for SQL](#announcing-express-configuration-for-vulnerability-assessment-in-defender-for-sql)
-
-### Announcing express configuration for vulnerability assessment in Defender for SQL
-
-The express configuration for vulnerability assessment in Microsoft Defender for SQL provides security teams with a streamlined configuration experience on Azure SQL Databases and Dedicated SQL Pools outside of Synapse Workspaces.
-
-With the express configuration experience for vulnerability assessments, security teams can:
-
-- Complete the vulnerability assessment configuration in the security configuration of the SQL resource, without any another settings or dependencies on customer-managed storage accounts.
-- Immediately add scan results to baselines so that the status of the finding changes from **Unhealthy** to **Healthy** without rescanning a database.
-- Add multiple rules to baselines at once and use the latest scan results.
-- Enable vulnerability assessment for all Azure SQL Servers when you turn on Microsoft Defender for databases at the subscription-level.
-
-Learn more about [Defender for SQL vulnerability assessment](sql-azure-vulnerability-assessment-overview.md).
 
 ## Next steps
 
