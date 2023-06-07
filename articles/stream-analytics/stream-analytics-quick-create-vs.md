@@ -172,10 +172,9 @@ Notice the elements that are included in an Azure Stream Analytics project.
 2. Change the **Job output start mode** to **JobStartTime** and select **Start**.
 
     :::image type="content" source="./media/stream-analytics-quick-create-vs/stream-analytics-start-configuration.png" alt-text="Screenshot showing the Stream Analytics Start Job Configuration dialog box.":::
-3. Note the job status has changed to **Running**, and there are input/output events. This may take a few minutes.
+3. Note the job status has changed to **Running**, and there are input/output events. This may take a few minutes. Select the **Refresh** button on the toolbar to refresh metrics. 
 
-   ![Running Stream Analytics job](./media/stream-analytics-quick-create-vs/stream-analytics-job-running.png)
-
+    :::image type="content" source="./media/stream-analytics-quick-create-vs/stream-analytics-job-running.png" alt-text="Screenshot showing the job status as running and metrics for the job." lightbox="./media/stream-analytics-quick-create-vs/stream-analytics-job-running.png":::
 4. To view results, on the **View** menu, select **Cloud Explorer**, and navigate to the storage account in your resource group. Under **Blob Containers**, double-click **container1**, and then the **output** file path.
 
    ![View results](./media/stream-analytics-quick-create-vs/stream-analytics-vs-results.png)
