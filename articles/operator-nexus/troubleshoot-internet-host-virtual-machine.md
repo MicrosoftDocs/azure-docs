@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot accessing a CSN connected internet hostname within the AKS hybrid Cluster for Azure Operator Nexus
-description: Troubleshoot accessing a CSN connected internet hostname within the AKS hybrid Cluster for Azure Operator Nexus
+title: Troubleshoot accessing a CSN connected internet hostname within the AKS hybrid cluster for Azure Operator Nexus
+description: Troubleshoot accessing a CSN connected internet hostname within the AKS hybrid cluster for Azure Operator Nexus
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
@@ -9,7 +9,7 @@ ms.author: v-saambe
 author: v-saambe
 ---
 
-# Accessing a CSN connected internet hostname within the AKS hybrid Cluster
+# Accessing a CSN connected internet hostname within the AKS hybrid cluster
 
 This article outlines troubleshooting for scenarios where the end user is having issues reaching an internet hostname, which is part of the CSN
 attached to AKS hybrid cluster.
@@ -89,7 +89,7 @@ export HTTPS_PROXY="http://169.xxx.x.xx.xxxx"
 curl -vk <https://ubuntu.com>
 ~~~
 
-If a customer is running their rpm install with a shell script, they must ensure setting the http(s)\_proxy locally inside their shell script explicitly. They can also try setting the proxy as an option inline on rpm with the--httpproxy and--httpport options.
+If a customer is running their rpm install with a shell script, they must ensure setting the http(s)\_proxy locally inside their shell script explicitly. They can also try setting the proxy as an option inline on rpm with the '--httpproxy' and '--httpport' options.
 
 [for additional information](https://www.xmodulo.com/how-to-install-rpm-packages-behind-proxy.html)
 
@@ -102,7 +102,6 @@ sudo rpm --import <https://aglet.packages.cloudpassage.com/cloudpassage.package
 --httpproxy 169.xxx.x.xx  --httpport 3128
 ~~~
 
-~~~NOTE
-!Note
+
+[!Note]
 Keep in mind if you set them system-wide, they may "lose" their ability to run kubectl locally. Set them inline within the script first to help minimize the effects.
-~~~
