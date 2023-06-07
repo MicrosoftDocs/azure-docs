@@ -1,5 +1,7 @@
 - name: Choose your model
   href: choose-model.md
+- name: Comparing MongoDB Atlas
+  href: cosmos-db-vs-mongodb-atlas.md
 - name: RU-based
   items:
     - name: RU-based MongoDB documentation
@@ -190,6 +192,8 @@
               href: ../analytical-store-introduction.md
             - name: Change data capture (CDC)
               href: ../analytical-store-change-data-capture.md
+            - name: Time travel (preview)
+              href: ../synapse-link-time-travel.md
         - name: Back up and restore
           items:
             - name: Back up and restore introduction
@@ -413,6 +417,8 @@
               href: ../access-previews.md
             - name: Integrate with Azure services
               href: integrations-overview.md
+            - name: Vercel
+              href: ../vercel-integration.md
         - name: Migrate data to Azure Cosmos DB
           items:
             - name: Options to migrate data into Azure Cosmos DB

@@ -1603,7 +1603,16 @@
             "redirect_url": "/azure/frontdoor/web-application-firewall",
             "redirect_document_id": false
         },
-
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-configure-route.md",
+            "redirect_url": "/azure/frontdoor/how-to-configure-endpoints",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/concept-endpoint-manager.md",
+            "redirect_url": "/azure/frontdoor/manager",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/aks/aks-resource-health.md",
             "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
@@ -9024,6 +9033,26 @@
             "redirect_url": "/azure/container-instances/quickstart-docker-cli",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/container-instances/container-instances-quotas.md",
+            "redirect_url": "/azure/container-instances/container-instances-resource-and-quota-limits",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-instances/container-instances-tutorial-deploy-spot-containers-portal.md",
+            "redirect_url": "/azure/container-instances/container-instances-overview",
+            "redirect_document_id": false
+        },   
+        {
+            "source_path_from_root": "/articles/container-instances/container-instances-tutorial-deploy-spot-containers-cli.md",
+            "redirect_url": "/azure/container-instances/container-instances-overview",
+            "redirect_document_id": false
+        },   
+        {
+            "source_path_from_root": "/articles/container-instances/container-instances-spot-containers-overview.md",
+            "redirect_url": "/azure/container-instances/container-instances-overview",
+            "redirect_document_id": false
+        },       
         {
             "source_path_from_root": "/articles/container-registry/container-registry-managed-get-started-azure-cli.md",
             "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli",
@@ -22751,7 +22780,7 @@
         },
         {
             "source_path_from_root": "/articles/aks/use-mariner.md",
-            "redirect_url": "/azure/aks/use-azurelinux",
+            "redirect_url": "/azure/aks/use-azure-linux",
             "redirect_document_id": false
         },
         {

@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 01/27/2023
-ms.custom: devx-track-csharp, mode-api
+ms.custom: devx-track-csharp, mode-api, devx-track-dotnet
 ---
 # Quickstart: Create a search index using the Azure.Search.Documents client library
 

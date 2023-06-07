@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/14/2023
+ms.date: 06/06/2023
 ms.author: normesta
 ms.subservice: blobs
 ms.custom: engagement-fy23, devx-track-arm-template
@@ -28,8 +28,8 @@ You can enable blob versioning with the Azure portal, PowerShell, Azure CLI, or 
 To enable blob versioning for a storage account in the Azure portal:
 
 1. Navigate to your storage account in the portal.
-1. Under **Blob service**, choose **Data protection**.
-1. In the **Versioning** section, select **Enabled**.
+2. Under **Data management**, choose **Data protection**.
+3. In the **Tracking** section, select **Enable versioning for blobs**, and then choose whether to keep all versions or delete them after a period of time.
 
     :::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Screenshot showing how to enable blob versioning in Azure portal":::
 
