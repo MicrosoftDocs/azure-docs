@@ -8,7 +8,7 @@ ms.date: 04/29/2020
 ---
 # Create a function app on Linux in an Azure App Service plan
 
-Azure Functions lets you host your functions on Linux in a default Azure App Service container. This article walks you through how to use the [Azure portal](https://portal.azure.com) to create a Linux-hosted function app that runs in an [App Service plan](dedicated-plan.md). You can also [bring your own custom container](functions-create-function-linux-custom-image.md).
+Azure Functions lets you host your functions on Linux in a default Azure App Service container. This article walks you through how to use the [Azure portal](https://portal.azure.com) to create a Linux-hosted function app that runs in an [App Service plan](dedicated-plan.md). You can also [bring your own custom container](functions-how-to-custom-container.md#azure-portal-create-using-containers).
 
 [!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)] 
 
@@ -35,11 +35,11 @@ You must have a function app to host the execution of your functions on Linux. T
     | **Subscription** | Your subscription | The subscription under which this new function app is created. |
     | **[Resource Group](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which to create your function app. |
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
-    |**Publish**| **Code** (default) | Option to publish code files or a Docker container. |
-    | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET Core** for C# and F# functions. |
-    |**Version**| Version number | Choose the version of your installed runtime.  |
-    |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
-
+    | **Do you want to deploy code or container image?**| Code (default) | Expects a code project to be deployed. To deploy a containerized function app, see [Azure portal create using containers](functions-how-to-custom-container.md#azure-portal-create-using-containers). |
+    | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. In-portal editing is only available for JavaScript, PowerShell, TypeScript, and C# script. C# class library, Java, and Python functions must be [developed locally](../articles/azure-functions/functions-develop-local.md#local-development-environments).  |
+    |**Version**| Version number | Choose the version of your installed runtime. |
+    |**Region**| Preferred region | Select a [region](https://azure.microsoft.com/regions/) that's near you or near other services that your functions can access. |
+    |**Operating system**| Linux | Container deployment is only supported on Linux. |
     :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Basics page":::
 
 1. Select **Next : Hosting**. On the **Hosting** page, enter the following settings.
