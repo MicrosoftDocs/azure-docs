@@ -26,7 +26,7 @@ There are various reasons why a health check might not run at its defined interv
 
 * The cluster is busy executing many jobs or services during a period of heavy load.
 
-* A small number of hosts in the cluster are hosting many components and so are required to run many alerts. If the number of components is large, alert jobs might miss their scheduled intervals.
+* A few of hosts in the cluster are hosting many components and so are required to run many alerts. If the number of components is large, alert jobs might miss their scheduled intervals.
 
 ## Resolution
 
