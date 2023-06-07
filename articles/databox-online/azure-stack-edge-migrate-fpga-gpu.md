@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/06/2023
+ms.date: 06/07/2023
 ms.author: alkohli  
 ---
 # Migrate workloads from an Azure Stack Edge Pro FPGA to an Azure Stack Edge Pro GPU
@@ -30,17 +30,23 @@ This section provides a comparative summary of capabilities between the Azure St
 
 ### [Migrate to Azure Stack Edge Pro 2](#tab/migrate-to-ase-pro2)
 
+|    Capability  | Azure Stack Edge Pro 2 (Target device)  | Azure Stack Edge Pro FPGA (Source device)|
+|----------------|-----------------------|------------------------|
+| Hardware       | Hardware acceleration: 0, 1, or 2 Nvidia A2 GPUs <br> CPU usable - 32 vCPUs <br> Memory - 48 GiB - 224 GiB usable RAM <br> Network interface - 4 <br> Power supply units - 1 <br> For more information, see [Azure Stack Edge Pro 2 technical specifications](azure-stack-edge-pro-2-technical-specifications-compliance.md).   | Hardware acceleration: Intel Arria 10 FPGA <br> Compute - 32 vCPUs <br> Memory - 102 GiB usable RAM <br> Network interface - 6 <br> Power supply units - 2 <br> For more information, see [Azure Stack Edge Pro FPGA technical specifications](azure-stack-edge-technical-specifications-compliance.md).  |
+| Usable storage | Storage - 720 GB - 2.5 TB <br> After reserving space for parity resiliency and internal use | 12.5 TB <br> After reserving space for internal use |
+| Security       | Certificates |                                                     |
+| Workloads      | IoT Edge workloads <br> VM workloads <br> Kubernetes workloads| IoT Edge workloads |
+| Pricing        | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/)  |
+
+### [Migrate to Azure Stack Edge Pro GPU](#tab/migrate-to-ase-pro-gpu)
+
 |    Capability  | Azure Stack Edge Pro GPU (Target device)  | Azure Stack Edge Pro FPGA (Source device)|
 |----------------|-----------------------|------------------------|
 | Hardware       | Hardware acceleration: 1 or 2 Nvidia T4 GPUs <br> Compute, memory, network interface, power supply unit, and power cord specifications are identical to the device with FPGA.  | Hardware acceleration: Intel Arria 10 FPGA <br> Compute, memory, network interface, power supply unit, and power cord specifications are identical to the device with GPU.          |
 | Usable storage | 4.19 TB <br> After reserving space for parity resiliency and internal use | 12.5 TB <br> After reserving space for internal use |
 | Security       | Certificates |                                                     |
 | Workloads      | IoT Edge workloads <br> VM workloads <br> Kubernetes workloads| IoT Edge workloads |
-| Pricing        | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/)|
-
-### [Migrate to Azure Stack Edge Pro GPU](#tab/migrate-to-ase-pro-gpu)
-
-Content for GPU tab... > comparison summary
+| Pricing        | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/)  |
 
 ---
 
@@ -49,17 +55,16 @@ Content for GPU tab... > comparison summary
 To create your migration plan, consider the following information:
 
 - Develop a schedule for migration. 
-- When you migrate data, you may experience a downtime. We recommend that you schedule migration during a downtime maintenance window as the process is disruptive. You will set up and restore configurations in this downtime as described later in this document.
-- Understand the total length of downtime and communicate it to all the stakeholders.
-- Identify the local data that needs to be migrated from the source device. As a precaution, ensure that all the data on the existing storage has a recent backup. 
-
+- When you migrate data, you may experience downtime. We recommend that you schedule migration during a downtime maintenance window as the process is disruptive. You will set up and restore configurations in this downtime as described later in this document.
+- Understand the total duration of downtime and communicate it to all stakeholders.
+- Identify local data to be migrated from the source device. As a precaution, ensure that all data on the existing storage has a recent backup. 
 
 ## Migration considerations 
 
 Before you proceed with the migration, consider the following information: 
 
-- An Azure Stack Edge Pro GPU device can't be activated against an Azure Stack Edge Pro FPGA resource. You should create a new resource for the Azure Stack Edge Pro GPU device as described in [Create an Azure Stack Edge Pro GPU order](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
-- The Machine Learning models deployed on the source device that used the FPGA will need to be changed for the target device with GPU. For help with the models, you can contact Microsoft Support. The custom models deployed on the source device that did not use the FPGA (used CPU only) should work as-is on the target device (using CPU).
+- An Azure Stack Edge device can't be activated against an Azure Stack Edge Pro FPGA resource. Instead, create a new resource for the target Azure Stack Edge device as described in [Create an Azure Stack Edge Pro GPU order](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
+- The Machine Learning models deployed on the source device that used the FPGA will need to be changed for the target device. For help with the models, you can contact Microsoft Support. The custom models deployed on the source device that did not use the FPGA (used CPU only) should work as-is on the target device (using CPU).
 - The IoT Edge modules deployed on the source device may require changes before the modules can be successfully deployed on the target device. 
 - The source device supports NFS 3.0 and 4.1 protocols. The target device only supports NFS 3.0 protocol.
 - The source device support SMB and NFS protocols. The target device supports storage via the REST protocol using storage accounts in addition to the SMB and NFS protocols for shares.
@@ -67,7 +72,7 @@ Before you proceed with the migration, consider the following information:
 
 ## Migration steps at-a-glance
 
-This table summarizes the overall flow for migration, describing the steps required for migration and the location where to take these steps.
+The following table summarizes the overall flow for migration, describing the steps required for migration and the location where the steps take place.
 
 | In this phase | Do this step| On this device |
 |---------------|-------------|----------------|
