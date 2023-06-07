@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Create a .NET MAUI shell app, add MSALClient, and include an image resource"
-description: This tutorial demonstrate how to create a .NET MAUI shell app, add MSALClient, and include an image resource.
+description: This tutorial demonstrates how to create a .NET MAUI shell app, add MSALClient, and include an image resource.
 author: henrymbuguakiarie
 manager: mwongerapk
 

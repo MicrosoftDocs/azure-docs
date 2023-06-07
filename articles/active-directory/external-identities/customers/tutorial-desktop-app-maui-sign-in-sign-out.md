@@ -103,14 +103,14 @@ The next steps will organize our code so that the `main view` is defined.
    - `<VerticalStackLayout>` is the child object of the ContentPage. This layout control arranges its children vertically, one after the other.
    - `<Image>` displays an image, in this case it's using the _azure_active_directory.png_ that you downloaded earlier.
    - `<Label>` controls display text.
-   - `<Button>` can be pressed by the user, which raise the `Clicked` event. You can run code in response to the `Clicked` event.
+   - `<Button>` can be pressed by the user, which raises the `Clicked` event. You can run code in response to the `Clicked` event.
    - `Clicked="OnSignInClicked"` the `Clicked` event of the button is assigned to the `OnSignInClicked` event handler, which will be defined in the code-behind file. You'll create this code in the next step.
 
 #### Handle the OnSignInClicked event
 
 The next step is to add the code for the button's `Clicked` event.
 
-1. In the **Solution Explorer** pane of Visual Studio, expand the **MainView.xaml** file to reveal it's code-behind file **MainView.xaml.cs**. Open the **MainView.xaml.cs** and replace the content of the file with following code:
+1. In the **Solution Explorer** pane of Visual Studio, expand the **MainView.xaml** file to reveal its code-behind file **MainView.xaml.cs**. Open the **MainView.xaml.cs** and replace the content of the file with following code:
 
    ```csharp
    // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -273,7 +273,7 @@ The next step is to add the code to handle `ClaimsView` data.
     }
    ```
 
-   The _ClaimsView.xaml.cs_ code represents the code-behind for a claims view in a .NET MAUI app. It starts by importing the necessary namespaces and defining the `ClaimsView` class, which extends `ContentPage`. The `IdTokenClaims` property is an enumerable of strings, initially set to a single string indicating no claims found. The `ClaimsView` constructor sets the binding context to the current instance, initializes the view components, and calls the `SetViewDataAsync` method asynchronously. The `SetViewDataAsync` method attempts to acquire a token silently, retrieves the claims from the authentication result, and sets the `IdTokenClaims` property to display them in the `ListView` named `Claims`. If a `MsalUiRequiredException` occurs, indicating that user interaction is needed for authentication, the app navigates to the claims view.
+   The _ClaimsView.xaml.cs_ code represents the code-behind for a claim view in a .NET MAUI app. It starts by importing the necessary namespaces and defining the `ClaimsView` class, which extends `ContentPage`. The `IdTokenClaims` property is an enumerable of strings, initially set to a single string indicating no claims found. The `ClaimsView` constructor sets the binding context to the current instance, initializes the view components, and calls the `SetViewDataAsync` method asynchronously. The `SetViewDataAsync` method attempts to acquire a token silently, retrieves the claims from the authentication result, and sets the `IdTokenClaims` property to display them in the `ListView` named `Claims`. If a `MsalUiRequiredException` occurs, indicating that user interaction is needed for authentication, the app navigates to the claims view.
 
    The `OnBackButtonPressed` method overrides the back button behavior to always return true, preventing the user from going back from this view. The `SignOutButton_Clicked` event handler signs the user out using the `PublicClientSingleton` instance, and upon completion, navigates to the `main view`.
 
@@ -325,7 +325,7 @@ The `AppShell` class defines an app's visual hierarchy, the XAML markup used in 
 
 ## Add platform-specific code
 
-A .NET MAUI app project contains a Platforms folder, with each child folder representing a platform that .NET MAUI can target. To provides application-specific behavior to supplement the default application class, you modify `Platforms/Windows/App.xaml.cs`. Replace the content of the file with following code:
+A .NET MAUI app project contains a Platforms folder, with each child folder representing a platform that .NET MAUI can target. To provide application-specific behavior to supplement the default application class, you modify `Platforms/Windows/App.xaml.cs`. Replace the content of the file with following code:
 
 ```csharp
 using SignInMaui.MSALClient;

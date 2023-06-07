@@ -25,9 +25,9 @@ items:
         - name: .NET MAUI
           items:
             - name: Prepare tenant
-              href: tutorial-desktop-app-maui-prepare-tenant.md
+              href: tutorial-desktop-app-maui-sign-in-prepare-tenant.md
             - name: Prepare app
-              href: tutorial-desktop-app-maui-prepare-app.md
+              href: tutorial-desktop-app-maui-sign-in-prepare-app.md
             - name: Sign in and sign out
               href: tutorial-desktop-app-maui-sign-in-sign-out.md
 - name: Concepts
