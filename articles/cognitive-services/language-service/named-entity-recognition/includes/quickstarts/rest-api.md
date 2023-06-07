@@ -73,6 +73,12 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
 
 ### JSON response
 
+> [!NOTE]
+> * The Generally Available API and the current Preview API have different response formats, please refer to the [generally available to preview api mapping article](../../concepts/ga-preview-mapping.md).
+> * The preview API is available startin from API version `2023-04-15-preview`.
+
+# [Generally Avaialble API](#tab/ga-api)
+
 ```json
 {
 	"kind": "EntityRecognitionResults",
@@ -107,5 +113,49 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
 	}
 }
 ```
+
+# [Preview API](#tab/preview-api)
+
+```json
+{
+	"kind": "EntityRecognitionResults",
+	"results": {
+		"documents": [{
+			"id": "1",
+			"entities": [{
+				"text": "trip",
+				"type": "Event",
+				"offset": 18,
+				"length": 4,
+				"score": 0.74,
+				"tags": ["Event"]
+			}, {
+				"text": "Seattle",
+				"type": "Location",
+				"offset": 26,
+				"length": 7,
+				"score": 1.0,
+				"tags": ["Location", "GPE", "City"]
+			}, {
+				"text": "last week",
+				"type": "Temporal",
+				"offset": 34,
+				"length": 9,
+				"score": 0.8,
+				"tags": ["Temporal", "DateRange"],
+				"metadata": {
+					"begin": "2022-01-03 00:00:00",
+					"end": "2022-01-10 00:00:00"
+				}
+			}],
+			"warnings": []
+		}],
+		"errors": [],
+		"modelVersion": "2023-04-01"
+	}
+}
+```
+
+---
 
 
