@@ -51,6 +51,14 @@ The following client libraries are the **minimum** version required
 | JavaScript | [microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) | ghcr.io/azure/azure-workload-identity/msal-node | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-node) | No |
 | Python | [microsoft-authentication-library-for-python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | ghcr.io/azure/azure-workload-identity/msal-python | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-python) | No |
 
+## Microsoft Identity Web Library
+
+| Language | Library | Minimum Version | Example |
+|-----------|-----------|----------|----------|
+| .NET | [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) | 2.11.1 | [Link](TODO) |
+
+See the tutorial [Use Microsoft.Identity.Web library to leverage workload identity with an application on Azure Kubernetes Service (AKS)][tutorial-use-workload-identity], which helps you configure a Web API with Microsoft.Identity.Web to use a workload identity and deploy it on Azure Kubernetes Service cluster.
+
 ## Limitations
 
 - You can only have 20 federated identity credentials per managed identity.
