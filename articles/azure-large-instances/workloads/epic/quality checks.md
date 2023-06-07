@@ -3,6 +3,8 @@ title: Quality checks
 description: Provides an overview of Azure Large Instances for Epic quality checks.
 ms.topic: conceptual
 author: jjaygbay
+ms.author: jacobjaygbay
+ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 

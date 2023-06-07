@@ -4,7 +4,7 @@ description: Provides resolutions for common issues that arise in working with A
 ms.topic: conceptual
 author: jjaygbay
 ms.author: jacobjaygbay
-ms.subservice: baremetal-epic
+ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
