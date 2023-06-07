@@ -400,7 +400,7 @@ We will start by creating an app to use `./kafka-topics.sh`, `./kafka-console-pr
         --bootstrap-server $KAFKA_BOOTSTRAP_SERVERS \
         --command-config kafka.props
     # Topic: quickstart-events	TopicId: lCkTKmvZSgSUCHozhhvz1Q	PartitionCount: 1	ReplicationFactor: 1	Configs: segment.bytes=1073741824
-	Topic: quickstart-events	Partition: 0	Leader: 1	Replicas: 1	Isr: 1
+    # Topic: quickstart-events	Partition: 0	Leader: 1	Replicas: 1	Isr: 1
     ```
 
 1. Use `kafka-console-producer.sh` to write some events to the topic
