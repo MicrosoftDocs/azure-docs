@@ -56,13 +56,13 @@ In this tutorial, you learn how to:
 
 1. Once you have created one or more rules, select **Save**. This action creates your rules engine configuration.
 
-1. Once you have created a rule engine configuration, you can associate the configuration with a route. While a single configuration can be applied to many route rules, a route rule may only have one rules engine configuration. To associate the configuration, go to the **Front Door designer**, select a route under *Route rules*. Under **Rules engine configuration**, and select the configuration to associate.
+1. Once you have created a rule engine configuration, you can associate the configuration with a routing rule. A single configuration can be applied to multiple routing rules, but a routing rule can only have one rules engine configuration. To associate the configuration, go to the **Front Door designer** and select a **Route**. Then select the **Rules engine configuration** to associate to the routing rule.
 
     :::image type="content" source="./media/front-door-rules-engine/rules-engine-tutorial-5.png" alt-text="Screenshot of rules engine configuration associate from the routing rule page.":::
 
 ## Configure Rules Engine in Azure CLI
 
-1. Install [Azure CLI](/cli/azure/install-azure-cli). Add “front-door” extension:- az extension add --name front-door. Then, login and switch to your subscription az account set --subscription <name_or_Id>.
+1. Install [Azure CLI](/cli/azure/install-azure-cli). Add “front-door” extension:- az extension add --name front-door. Then, sign in and switch to your subscription az account set --subscription <name_or_Id>.
 
 1. Start by creating a Rules Engine - this example shows one rule with one header-based action and one match condition. 
 
@@ -110,7 +110,7 @@ In the preceding steps, you configured and associated rules engine configuration
 
     :::image type="content" source="./media/front-door-rules-engine/front-door-rule-engine-routing-association.png" alt-text="Screenshot of the associate routing rules from the menu.":::
 
-1. Uncheck all routing rules this Rule Engine configuration is associated to and click save.
+1. Uncheck all routing rules this Rule Engine configuration is associated to and select save.
 
     :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Routing rule association":::
 
@@ -123,7 +123,7 @@ In the preceding steps, you configured and associated rules engine configuration
 In this tutorial, you learned how to:
 
 * Create a Rule engine configuration
-* Associate a configuration to a routing rules.
+* Associate a configuration to a routing rule.
 
 To learn how to add security headers with Rule engine, continue to the next tutorial.
 
