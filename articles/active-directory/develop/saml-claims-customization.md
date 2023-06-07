@@ -169,7 +169,7 @@ The following image shows an example of the first level of transformation:
 
 :::image type="content" source="./media/saml-claims-customization/regexreplace-transform1.png" alt-text="Screenshot of the first level of transformation.":::
 
-The following table provides information about the first level of transformations. The actions listed in the table correspond to the labels in the previous image. Select **Edit** to open the claims transformation blade.
+The actions listed in the following table provide information about the first level of transformations and correspond to the labels in the previous image. Select **Edit** to open the claims transformation blade.
 
 | Action | Field | Description |
 | :----- | :---- | :---------- |
