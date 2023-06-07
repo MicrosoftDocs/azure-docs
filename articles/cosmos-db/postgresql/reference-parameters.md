@@ -239,7 +239,7 @@ There are four modes available to express conversion preference:
 
 * **auto:** (Default) Azure Cosmos DB for PostgreSQL converts either all local or all distributed
   tables to support local and distributed table joins. Azure Cosmos DB for PostgreSQL decides which to
-  convert using a heuristic. It will convert distributed tables if they're
+  convert using a heuristic. It converts distributed tables if they're
   joined using a constant filter on a unique index (such as a primary key). The
   conversion ensures less data gets moved between workers.
 * **never:** Azure Cosmos DB for PostgreSQL doesn't allow joins between local and distributed tables.
@@ -398,8 +398,8 @@ The supported values for this enum are:
 -   **off:** Turn off logging any queries that generate multiple tasks
     (that is, span multiple shards)
 -   **debug:** Logs statement at DEBUG severity level.
--   **log:** Logs statement at LOG severity level. The log line will
-    include the SQL query that was run.
+-   **log:** Logs statement at LOG severity level. The log line 
+    includes the SQL query that was run.
 -   **notice:** Logs statement at NOTICE severity level.
 -   **warning:** Logs statement at WARNING severity level.
 -   **error:** Logs statement at ERROR severity level.
@@ -462,8 +462,8 @@ default value is false.
 
 ##### citus.enable_repartitioned_insert_select (boolean)
 
-By default, an INSERT INTO … SELECT statement that can’t be pushed down will
-attempt to repartition rows from the SELECT statement and transfer them between
+By default, an INSERT INTO … SELECT statement that can’t be pushed down 
+attempts to repartition rows from the SELECT statement and transfer them between
 workers for insertion. However, if the target table has too many shards then
 repartitioning will probably not perform well. The overhead of processing the
 shard intervals when determining how to partition the results is too great.
@@ -727,7 +727,7 @@ The following [managed PgBouncer](./concepts-connection-pool.md) parameters can 
 * [log_duration](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DURATION) - Logs the duration of each completed SQL statement
 * [log_error_verbosity](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY) - Sets the verbosity of logged messages
 * [log_lock_waits](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LOCK-WAITS) - Logs long lock waits
-* [log_min_duration_statement](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT) - Sets the minimum execution time (in milliseconds) above which statements will be logged. -1 disables logging statement durations
+* [log_min_duration_statement](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT) - Sets the minimum execution time (in milliseconds) above which statements are logged. -1 disables logging statement durations
 * [log_min_error_statement](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-ERROR-STATEMENT) - Causes all statements generating error at or above this level to be logged
 * [log_min_messages](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES) - Sets the message levels that are logged
 * [log_replication_commands](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-REPLICATION-COMMANDS) - Logs each replication command
