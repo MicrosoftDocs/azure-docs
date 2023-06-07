@@ -185,7 +185,7 @@ For projects using .NET Framework, you can use the following code to increase th
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
 ```
 
-To learn more about connection pool limits in .NET, see [.NET Framework Connection Pool Limits and the new Azure SDK for .NET](https://devblogs.microsoft.com/azure-sdk/net-framework-connection-pool-limits/).
+To learn more about connection pool limits in .NET Framework, see [.NET Framework Connection Pool Limits and the new Azure SDK for .NET](https://devblogs.microsoft.com/azure-sdk/net-framework-connection-pool-limits/).
 
 For other programming languages, see the documentation to determine how to set the connection limit.
 
