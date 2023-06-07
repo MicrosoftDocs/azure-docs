@@ -33,7 +33,7 @@ Updates in June include:
 
 ### Express configuration for vulnerability assessments in Defender for SQL is now Generally Available
 
-June 7
+June 7, 2023
 
 Express configuration for vulnerability assessments in Defender for SQL is now Generally Available. Express configuration provides a streamlined onboarding experience for SQL vulnerability assessments by using a one-click configuration (or an API call). There's no extra settings or dependencies on managed storage accounts needed.
 
