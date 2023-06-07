@@ -43,17 +43,13 @@ There are multiple built-in Azure Policy definitions to manage WAF resources. A 
 
 - **Azure Application Gateway should have Resource logs enabled**: Mandates the enabling of Resource logs and Metrics on all Application Gateways, including WAF. The policy definition has two effects: AuditIfNotExists and Disable. AuditIfNotExists tracks when an Application Gateway does not have resource logs, metrics enabled and notifies the user that the Application Gateway does not comply. Disabled turns off the policy assignment.
 
-### Turn on Rate Limiting
+### Recommended WAF Configurations 
+
+- **Azure Front Door profiles should use Premium tier that supports managed WAF rules and private link**: Mandates that all of your Azure Front Door profiles are on the premium tier instead of the standard tier. Azure Front Door Premium is optimized for security, and gives you access to the most up to date WAF rulesets and functionality.
 
 - **Enable Rate Limit rule to protect against DDoS attacks on Azure Front Door WAF**: Rate limiting can help protect your application against DDoS attacks. The Azure Web Application Firewall (WAF) rate limit rule for Azure Front Door helps protect against DDoS by controlling the number of requests allowed from a particular client IP address to the application during a rate limit duration.
 
-### Upgrade from Config to Policy
-
 - **Migrate WAF from WAF Config to WAF Policy on Application Gateway**: If you have WAF Config instead of WAF Policy, then you may want to move to the new WAF Policy. Web Application Firewall (WAF) policies offer a richer set of advanced features over WAF config, progivde a higher scale, better performance, and unlike legacy WAF configuration, WAF policies can be defined once and shared across multiple gateways, listeners, and URL paths. Going forward, the latest features and future enhancements are only available via WAF policies.
-
-### Require Premium Tier
-
-- **Azure Front Door profiles should use Premium tier that supports managed WAF rules and private link**: Mandates that all of your Azure Front Door profiles are on the premium tier instead of the standard tier. Azure Front Door Premium is optimized for security, and gives you access to the most up to date WAF rulesets and functionality.
 
 ## Launch an Azure Policy
 
