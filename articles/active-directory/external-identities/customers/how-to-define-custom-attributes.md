@@ -52,9 +52,9 @@ If your application relies on certain built-in or custom user attributes, you ca
 
 1. Under **User attributes**, choose the attributes you want to collect from the user during sign-up. Select **Show more** to choose from the full list of attributes, including **Job Title**, **Display Name**, and **Postal Code**. 
 
-   This list also includes any custom attributes you defined as described in the previous section. For example, the new **Rewards number** now appears in the list.
+   This list also includes any custom attributes you defined as described in the previous section. For example, the new **Rewards number** attribute now appears in the list.
 
-   :::image type="content" source="media/how-to-define-custom-attributes/user-attributes-show-more.png" alt-text="Screenshot of the user attribute options on the Create a user flow page.":::
+   :::image type="content" source="media/how-to-define-custom-attributes/user-attributes-show-more.png" alt-text="Screenshot of the user attribute options on the Create a user flow page." lightbox="media/how-to-define-custom-attributes/user-attributes-show-more.png":::
 
 1. Select **OK**.
 
