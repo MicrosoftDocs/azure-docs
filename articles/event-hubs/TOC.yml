@@ -323,6 +323,8 @@
           href: transport-layer-security-audit-minimum-version.md
         - name: Configure TLS version for client
           href: transport-layer-security-configure-client-version.md
+        - name: Migrate to passwordless connections
+          href: passwordless-migration-event-hubs.md
     - name: Troubleshoot
       items:
         - name: Troubleshoot connectivity issues
