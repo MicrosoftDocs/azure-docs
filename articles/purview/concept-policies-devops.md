@@ -42,7 +42,7 @@ Three elements define a DevOps policy:
 
   A role maps to a set of actions that the policy permits on the data resource. DevOps policies support the SQL Performance Monitor and SQL Security Auditor roles. Both of these roles provide access to SQL system metadata, and more specifically to dynamic management views (DMVs) and dynamic management functions (DMFs). But the set of DMVs and DMFs that these roles grant is different. We provide some popular examples [later in this article](#mapping-of-popular-dmvs-and-dmfs).
 
-  The [Create, list, update, and delete Microsoft Purview DevOps policies](how-to-policies-devops-authoring-generic) article details the role definition for each data source type. That is, it provides a mapping of roles in Microsoft Purview to the actions that are permitted in that type of data source. For example, the role definition for SQL Performance Monitor and SQL Security Auditor includes *Connect* actions at the server and database level on the data source side.
+  The [Create, list, update, and delete Microsoft Purview DevOps policies](how-to-policies-devops-authoring-generic.md) article details the role definition for each data source type. That is, it provides a mapping of roles in Microsoft Purview to the actions that are permitted in that type of data source. For example, the role definition for SQL Performance Monitor and SQL Security Auditor includes *Connect* actions at the server and database level on the data source side.
 
 In essence, the DevOps policy assigns the role's related permissions to the subject and is enforced in the scope of the data resource's path.
 
