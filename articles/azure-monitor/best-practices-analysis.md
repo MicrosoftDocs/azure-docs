@@ -8,7 +8,7 @@ ms.date: 06/07/2023
 ms.reviewer: bwren
 
 ---
-# Analyze and visualize data
+# Analyze and visualize monitoring data
 
 This article describes built-in features for visualizing and analyzing collected data in Azure Monitor. Visualizations like charts and graphs can help you analyze your monitoring data to drill down on issues and identify patterns. You can create custom visualizations to meet the requirements of different users in your organization. 
 
