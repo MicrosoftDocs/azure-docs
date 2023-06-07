@@ -16,7 +16,15 @@ ms.author: normesta
 
 Put something here.
 
-## Conceptual H1 heading
+## Include standard headings
+
+Put something here.
+
+## Storage Tasks view
+
+Put something here
+
+## Storage account view
 
 Put something here.
 

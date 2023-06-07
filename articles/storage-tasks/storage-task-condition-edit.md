@@ -12,6 +12,8 @@ ms.date: 05/10/2023
 
 Description goes here.
 
+To learn more about Storage Task conditions, see [Storage Task conditions](storage-task-conditions.md)
+
 ## Add or edit conditions
 
 Include guidance for these types of things:

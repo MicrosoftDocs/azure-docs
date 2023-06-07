@@ -36,9 +36,7 @@ Give customers some example of tasks they might accomplish by using tasks. For e
 
 ## How it works
 
-\<Show diagram here\>
-
-By referring to diagram, describe the flow of activities
+Maybe a diagram?
 
 - You create a task and define the conditions
 - You assign a task to operate on one or more storage accounts
@@ -46,13 +44,6 @@ By referring to diagram, describe the flow of activities
 - Tasks run asynchronously. If the task lacks permission to perform operations on any of the storage accounts, then \<describe how the failure manifests to the user\>
 - You can check on the results
 - You can monitor task activity
-
-See these articles for step-by-step guidance:
-
-- [Quickstart: Create, assign, and run a Storage Task by using the Azure portal](storage-task-quickstart-portal.md)
-- [Edit Storage Task Conditions](storage-task-condition-edit.md)
-- [Manage Storage Task Assignments](storage-task-assignment-manage.md)
-- [Monitor Storage Tasks](monitor-storage-tasks.md)
 
 ## Supported Regions
 

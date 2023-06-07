@@ -67,5 +67,5 @@ It can be used to try things out. Then, you can debug issues. For example, tags 
 
 ## See also
 
-- [Quickstart: Create, assign, and run a Storage Task by using the Azure portal](storage-task-quickstart-portal.md)
-- [Known issues with Azure Storage Tasks](storage-task-known-issues.md)
+- [Create and manage an assignment](storage-task-assignment-create.md)
+

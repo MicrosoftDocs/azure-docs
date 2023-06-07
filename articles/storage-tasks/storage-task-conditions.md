@@ -21,9 +21,7 @@ Put something here.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
-## Required permissions
-
-Show built-in roles or custom roles with specific actions permissions required to list, read, create, manage and delete storage tasks.
+To learn how to add and edit Storage Tasks conditions, see [Define conditions](storage-task-condition-edit.md).
 
 ## Anatomy of a condition
 
@@ -51,7 +49,13 @@ Describe the experience and the benefit.
 
 It can be used to try things out. Then, you can debug issues. For example, tags value and count apply only to accounts that do not have a hierarchical namespace enabled.
 
+## Authorizing access to the Storage Task
+
+Show built-in roles or custom roles with specific actions permissions required to list, read, create, manage and delete storage tasks.
+
+These perms will need to be applied to the task for any other collaborators to edit or create assignments.
+
 ## See also
 
-- [Quickstart: Create, assign, and run a Storage Task by using the Azure portal](storage-task-quickstart-portal.md)
-- [Known issues with Azure Storage Tasks](storage-task-known-issues.md)
+- [Define conditions](storage-task-condition-edit.md)
+- [Storage Task assignments](storage-task-assignment.md)

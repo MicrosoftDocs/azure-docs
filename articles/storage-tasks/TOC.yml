@@ -26,7 +26,7 @@ items:
     href: storage-task-condition-edit.md
   - name: Create and manage an assignment
     href: storage-task-assignment-create.md
-  - name: Review task results
+  - name: Review results
     href: storage-task-review-runs-resolve-problems.md
   expanded: true
 - name: Reference

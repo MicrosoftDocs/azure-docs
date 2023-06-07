@@ -14,6 +14,8 @@ ms.author: normesta
 
 Description goes here.
 
+To learn more about Storage Tasks, see [Storage Tasks Overview](overview.md).
+
 ## Prerequisites
 
 - Prerequisites go here.
@@ -24,5 +26,5 @@ Put something here.
 
 ## Next steps
 
-Next steps go here.
+[Create a Storage Task](storage-task-create.md)
 

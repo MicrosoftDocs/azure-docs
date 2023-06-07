@@ -30,7 +30,25 @@ Put something here.
 
 ---
 
-## View metrics
+## View metrics in Storage Tasks view
+
+For more information about the task report see [Storage Task Monitoring](monitor-storage-tasks.md).
+
+### [Portal](#tab/azure-portal)
+
+Put something here.
+
+### [PowerShell](#tab/powershell)
+
+Put something here.
+
+### [Azure CLI](#tab/azure-cli)
+
+Put something here.
+
+---
+
+## View metrics in Storage Accounts view
 
 For more information about the task report see [Storage Task Monitoring](monitor-storage-tasks.md).
 
@@ -51,3 +69,5 @@ Put something here.
 ## See also
 
 - [Storage Tasks Overview](overview.md)
+- [Define conditions](storage-task-condition-edit.md)
+- [Create and manage an assignment](storage-task-assignment-create.md)
