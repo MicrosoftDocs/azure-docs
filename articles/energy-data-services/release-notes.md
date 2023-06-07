@@ -27,6 +27,10 @@ This page will be updated with the details about the upcoming release approximat
 
 ## April 2023
 
+### Support for Private Links during instance provisioning
+
+Azure Private link enables access to Azure Data Manager for Energy instance over a private endpoint in your virtual network, which ensures restricted access to the service. With this feature, you can now configure private endpoints to your Azure Data Manager for Energy instance during the instance creation. Your service instance can now have private connectivity from the very beginning. Learn more about [how to set up private links](how-to-set-up-private-links.md).
+
 ### Enabled Monitoring of OSDU Service Logs
 
 Now you can configure diagnostic settings of your Azure Data Manager for Energy Preview to export OSDU Service Logs to Azure Monitor. You can access, query, & analyze the logs in a Log Analytics Workspace. You can archive them in a storage account for later use. Learn more about [how to integrate OSDU service logs with Azure Monitor](how-to-integrate-osdu-service-logs-with-azure-monitor.md)

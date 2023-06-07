@@ -1160,3 +1160,4 @@ The following rule groups and rules are available when using Web Application Fir
 ## Next steps
 
 - [Customize Web Application Firewall rules using the Azure portal](application-gateway-customize-waf-rules-portal.md)
+- [Learn more about Azure network security](../../networking/security/index.yml)

@@ -1,21 +1,21 @@
 ---
 title: 'CLI (v2) schedule YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) schedule YAML schema.
+description: Reference documentation for the CLI (v2) job schedule YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: lochen
+author: cloga
 ms.author: lochen
-ms.date: 08/15/2022
+ms.date: 05/17/2023
 ms.reviewer: lagayhar
 ---
 
-# CLI (v2) schedule YAML schema
+# CLI (v2) job schedule YAML schema
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/schedule.schema.json.
 
@@ -27,11 +27,11 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | --- | ---- | ----------- | -------------- |
 | `$schema` | string | The YAML schema. | |
 | `name` | string | **Required.** Name of the schedule. | |
-| `version` | string | Version of the schedule. If omitted, Azure Machine Learning autogenerates a version. | |
+| `version` | string | Version of the schedule. If omitted, Azure Machine Learning will autogenerate a version. | |
 | `description` | string | Description of the schedule. | |
 | `tags` | object | Dictionary of tags for the schedule. | |
 | `trigger` | object | The trigger configuration to define rule when to trigger job. **One of `RecurrenceTrigger` or `CronTrigger` is required.** | |
-| `create_job` | object or string | **Required.** The definition of the job that triggered by a  schedule. **One of `string` or `JobDefinition` is required.**| |
+| `create_job` | object or string | **Required.** The definition of the job that will be triggered by a  schedule. **One of `string` or `JobDefinition` is required.**| |
 
 ### Trigger configuration
 
@@ -42,10 +42,10 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `type` | string | **Required.** Specifies the schedule type. |recurrence|
 |`frequency`| string | **Required.** Specifies the unit of time that describes how often the schedule fires.|`minute`, `hour`, `day`, `week`, `month`|
 |`interval`| integer | **Required.** Specifies the interval at which the schedule fires.| |
-|`start_time`| string |Describes the start date and time with timezone. If start_time is omitted, the first job will run instantly, and the future jobs trigger based on the schedule, saying start_time will match the job created time. If the start time is in the past, the first job will run at the next calculated run time.|
-|`end_time`| string |Describes the end date and time with timezone. If end_time is omitted, the schedule runs until it's explicitly disabled.|
+|`start_time`| string |Describes the start date and time with timezone. If start_time is omitted, the first job will run instantly and the future jobs will be triggered based on the schedule, saying start_time will be equal to the job created time. If the start time is in the past, the first job will run at the next calculated run time.|
+|`end_time`| string |Describes the end date and time with timezone. If end_time is omitted, the schedule will continue to run until it's explicitly disabled.|
 |`timezone`| string |Specifies the time zone of the recurrence. If omitted, by default is UTC. |See [appendix for timezone values](#timezone)|
-|`pattern`|object|Specifies the pattern of the recurrence. If pattern is omitted, the job(s) is triggered according to the logic of start_time, frequency and interval.| |
+|`pattern`|object|Specifies the pattern of the recurrence. If pattern is omitted, the job(s) will be triggered according to the logic of start_time, frequency and interval.| |
 
 #### Recurrence schedule
 
@@ -67,8 +67,8 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | --- | ---- | ----------- | -------------- |
 | `type` | string | **Required.** Specifies the schedule type. |cron|
 | `expression` | string | **Required.** Specifies the cron expression to define how to trigger jobs. expression uses standard crontab expression to express a recurring schedule. A single expression is composed of five space-delimited fields:`MINUTES HOURS DAYS MONTHS DAYS-OF-WEEK`||
-|`start_time`| string |Describes the start date and time with timezone. If start_time is omitted, the first job will run instantly and the future jobs trigger based on the schedule, saying start_time will match the job created time. If the start time is in the past, the first job will run at the next calculated run time.|
-|`end_time`| string |Describes the end date and time with timezone. If end_time is omitted, the schedule continues to run until it's explicitly disabled.|
+|`start_time`| string |Describes the start date and time with timezone. If start_time is omitted, the first job will run instantly and the future jobs will be triggered based on the schedule, saying start_time will be equal to the job created time. If the start time is in the past, the first job will run at the next calculated run time.|
+|`end_time`| string |Describes the end date and time with timezone. If end_time is omitted, the schedule will continue to run until it's explicitly disabled.|
 |`timezone`| string |Specifies the time zone of the recurrence. If omitted, by default is UTC. |See [appendix for timezone values](#timezone)|
 
 ### Job definition
@@ -79,7 +79,7 @@ Customer can directly use `create_job: azureml:<job_name>` or can use the follow
 | --- | ---- | ----------- | -------------- |
 |`type`| string | **Required.** Specifies the job type. Only pipeline job is supported.|`pipeline`|
 |`job`| string | **Required.** Define how to reference a job, it can be `azureml:<job_name>` or a local pipeline job yaml such as `file:hello-pipeline.yml`.| |
-| `experiment_name` | string | Experiment name to organize the job under. The run record of each job will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, it uses schedule name as default value. | |
+| `experiment_name` | string | Experiment name to organize the job under. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, we'll take schedule name as default value. | |
 |`inputs`| object | Dictionary of inputs to the job. The key is a name for the input within the context of the job and the value is the input value.| |
 |`outputs`|object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration.| |
 | `settings` | object | Default settings for the pipeline job. See [Attributes of the `settings` key](#attributes-of-the-settings-key) for the set of configurable properties. | |
@@ -88,49 +88,25 @@ Customer can directly use `create_job: azureml:<job_name>` or can use the follow
 
 | Key | Type | Description | Default value |
 | --- | ---- | ----------- | ------------- |
-| `default_datastore` | string | Name of the datastore to use as the default datastore for the pipeline job. This value must be a reference to an existing datastore in the workspace using the `azureml:<datastore-name>` syntax. Any outputs defined in the `outputs` property of the parent pipeline job or child step jobs are stored in this datastore. If omitted, outputs are stored in the workspace blob datastore. | |
-| `default_compute` | string | Name of the compute target to use as the default compute for all steps in the pipeline. If compute is defined at the step level, it overrides this default compute for that specific step. This value must be a reference to an existing compute in the workspace using the `azureml:<compute-name>` syntax. | |
-| `continue_on_step_failure` | boolean | Whether the execution of steps in the pipeline should continue if one step fails. The default value is `False`, which means that if one step fails, the pipeline execution is stopped, canceling any running steps. | `False` |
+| `default_datastore` | string | Name of the datastore to use as the default datastore for the pipeline job. This value must be a reference to an existing datastore in the workspace using the `azureml:<datastore-name>` syntax. Any outputs defined in the `outputs` property of the parent pipeline job or child step jobs will be stored in this datastore. If omitted, outputs will be stored in the workspace blob datastore. | |
+| `default_compute` | string | Name of the compute target to use as the default compute for all steps in the pipeline. If compute is defined at the step level, it will override this default compute for that specific step. This value must be a reference to an existing compute in the workspace using the `azureml:<compute-name>` syntax. | |
+| `continue_on_step_failure` | boolean | Whether the execution of steps in the pipeline should continue if one step fails. The default value is `False`, which means that if one step fails, the pipeline execution will be stopped, canceling any running steps. | `False` |
 
 ### Job inputs
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `type` | string | The type of job input. Specify `uri_file` for input data that points to a single file source, or `uri_folder` for input data that points to a folder source. | `uri_file`, `uri_folder` | `uri_folder` |
-| `path` | string | The path to the data to use as input, specified in a few ways: <br><br> - A local path to the data source file or folder, for example, `path: ./iris.csv`. The data uploads during job submission. <br><br> - A URI of a cloud path to the file or folder to use as the input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml://` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). <br><br> - An existing registered Azure Machine Learning data asset to use as the input. To reference a registered data asset, use the `azureml:<data_name>:<data_version>` syntax or `azureml:<data_name>@latest` (to reference the latest version of that data asset), for example, `path: azureml:cifar10-data:1` or `path: azureml:cifar10-data@latest`. | | |
-| `mode` | string | Mode of how the data should be delivered to the compute target. <br><br> For read-only mount (`ro_mount`), the data is consumed as a mount path. A folder mounts as a folder and a file mounts as a file. Azure Machine Learning resolves the input to the mount path. <br><br> In the `download` mode, the data downloads to the compute target. Azure Machine Learning resolves the input to the downloaded path. <br><br> If you only want the URL of the storage location of the data artifact(s), instead of mounting or downloading the data itself, you can use the `direct` mode. This passes in the URL of the storage location as the job input. In this case, you're fully responsible for handling credentials to access the storage. | `ro_mount`, `download`, `direct` | `ro_mount` |
+| `path` | string | The path to the data to use as input. This can be specified in a few ways: <br><br> - A local path to the data source file or folder, for example, `path: ./iris.csv`. The data will get uploaded during job submission. <br><br> - A URI of a cloud path to the file or folder to use as the input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml://` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). <br><br> - An existing registered Azure Machine Learning data asset to use as the input. To reference a registered data asset, use the `azureml:<data_name>:<data_version>` syntax or `azureml:<data_name>@latest` (to reference the latest version of that data asset), for example, `path: azureml:cifar10-data:1` or `path: azureml:cifar10-data@latest`. | | |
+| `mode` | string | Mode of how the data should be delivered to the compute target. <br><br> For read-only mount (`ro_mount`), the data will be consumed as a mount path. A folder will be mounted as a folder and a file will be mounted as a file. Azure Machine Learning will resolve the input to the mount path. <br><br> For `download` mode the data will be downloaded to the compute target. Azure Machine Learning will resolve the input to the downloaded path. <br><br> If you only want the URL of the storage location of the data artifact(s) rather than mounting or downloading the data itself, you can use the `direct` mode. This will pass in the URL of the storage location as the job input. In this case, you're fully responsible for handling credentials to access the storage. | `ro_mount`, `download`, `direct` | `ro_mount` |
 
 ### Job outputs
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | The type of job output. For the default `uri_folder` type, the output corresponds to a folder. | `uri_folder` | `uri_folder` |
-| `path` | string | The path to the data to use as input, specified in a few ways: <br><br> - A local path to the data source file or folder, for example, `path: ./iris.csv`. The data uploads during job submission. <br><br> - A URI of a cloud path to the file or folder to use as the input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml://` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). <br><br> - An existing registered Azure Machine Learning data asset to use as the input. To reference a registered data asset, use the `azureml:<data_name>:<data_version>` syntax or `azureml:<data_name>@latest` (to reference the latest version of that data asset), for example, `path: azureml:cifar10-data:1` or `path: azureml:cifar10-data@latest`. | | |
-| `mode` | string | Mode of how output file(s) are delivered to the destination storage. For read-write mount mode (`rw_mount`) the output directory is a mounted directory. In the upload mode, the written file(s) upload at the end of the job. | `rw_mount`, `upload` | `rw_mount` |
-
-### Import data definition (preview)
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
-Customer can directly use `import_data: ./<data_import>.yaml` or can use the following properties to define the data import definition.
-
-| Key | Type | Description | Allowed values |
-| --- | ---- | ----------- | -------------- |
-|`type`| string | **Required.** Specifies the data asset type that you want to import the data as. It can be mltable when importing from a Database source, or uri_folder when importing from a FileSource.|`mltable`, `uri_folder`|
-| `name` | string | **Required.** Data asset name to register the imported data under. | |
-| `path` | string | **Required.** The path to the datastore that takes in the imported data, specified in one of two ways:  <br><br> - **Required.** A URI of datastore path. Only supported URI type is `azureml`. For more information on how to use the `azureml://` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). To avoid an over-write, a unique path for each import is recommended. To do this, parameterize the path as shown in this example - `azureml://datastores/<datastore_name>/paths/<source_name>/${{name}}`. The "datastore_name" in the example can be a datastore that you have created or can be workspaceblobstore. Alternately a "managed datastore" can be selected by referencing as shown: `azureml://datastores/workspacemanagedstore`, where the system automatically assigns a unique path. | Azure Machine Learning://<>|
-| `source` | object | External source details of the imported data source. See [Attributes of the `source`](#attributes-of-source-preview) for the set of source properties. | |
-
-### Attributes of `source` (preview)
-
-| Key | Type | Description | Allowed values | Default value |
-| --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | The type of external source from where you intend to import data from. Only the following types are allowed at the moment -  `Database` or `FileSystem`| `Database`, `FileSystem` | |
-| `query` | string | Define this value only when the `type` defined above is `database` The query in the external source of type `Database` that defines or filters data that needs to be imported.| | |
-| `path` | string | Define this only when the `type` defined above is `FileSystem` The path of the folder in the external source of type `FileSystem` where the file(s) or data that needs to be imported resides.| | |
-| `connection` | string | **Required.** The connection property for the external source referenced in the format of `azureml:<connection_name>` | | |
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+| `type` | string | The type of job output. For the default `uri_folder` type, the output will correspond to a folder. | `uri_folder` | `uri_folder` |
+| `path` | string | The path to the data to use as input. This can be specified in a few ways: <br><br> - A local path to the data source file or folder, for example, `path: ./iris.csv`. The data will get uploaded during job submission. <br><br> - A URI of a cloud path to the file or folder to use as the input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml://` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). <br><br> - An existing registered Azure Machine Learning data asset to use as the input. To reference a registered data asset, use the `azureml:<data_name>:<data_version>` syntax or `azureml:<data_name>@latest` (to reference the latest version of that data asset), for example, `path: azureml:cifar10-data:1` or `path: azureml:cifar10-data@latest`. | | |
+| `mode` | string | Mode of how output file(s) will get delivered to the destination storage. For read-write mount mode (`rw_mount`) the output directory will be a mounted directory. For upload mode the file(s) written will get uploaded at the end of the job. | `rw_mount`, `upload` | `rw_mount` |
 
 ## Remarks
 
@@ -140,108 +116,23 @@ The `az ml schedule` command can be used for managing Azure Machine Learning mod
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/schedules). A couple are shown below.
 
-## YAML: Schedule for a job with recurrence pattern
+## YAML: Schedule with recurrence pattern
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-:::code language="yaml" source="~/azureml-examples-main/CLI/schedules/recurrence-job-schedule.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/schedules/recurrence-job-schedule.yml":::
 
-## YAML: Schedule for a job with cron expression
+## YAML: Schedule with cron expression
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-:::code language="yaml" source="~/azureml-examples-main/CLI/schedules/cron-job-schedule.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-job-schedule.yml":::
 
-## YAML: Schedule for data import with recurrence pattern  (preview)
-```yml
-$schema: https://azuremlschemas.azureedge.net/latest/schedule.schema.json
-name: simple_recurrence_import_schedule
-display_name: Simple recurrence import schedule
-description: a simple hourly recurrence import schedule
-
-trigger:
-  type: recurrence
-  frequency: day #can be minute, hour, day, week, month
-  interval: 1 #every day
-  schedule:
-    hours: [4,5,10,11,12]
-    minutes: [0,30]
-  start_time: "2022-07-10T10:00:00" # optional - default will be schedule creation time
-  time_zone: "Pacific Standard Time" # optional - default will be UTC
-
-import_data: ./my-snowflake-import-data.yaml
-
-```
-## YAML: Schedule for data import definition inline with recurrence pattern on managed datastore (preview)
-```yml
-$schema: https://azuremlschemas.azureedge.net/latest/schedule.schema.json
-name: inline_recurrence_import_schedule
-display_name: Inline recurrence import schedule
-description: an inline hourly recurrence import schedule
-
-trigger:
-  type: recurrence
-  frequency: day #can be minute, hour, day, week, month
-  interval: 1 #every day
-  schedule:
-    hours: [4,5,10,11,12]
-    minutes: [0,30]
-  start_time: "2022-07-10T10:00:00" # optional - default will be schedule creation time
-  time_zone: "Pacific Standard Time" # optional - default will be UTC
-
-import_data:
-  type: mltable
-  name: my_snowflake_ds
-  path: azureml://datastores/workspacemanagedstore
-  source:
-    type: database
-    query: select * from TPCH_SF1.REGION
-    connection: azureml:my_snowflake_connection
-
-```
-
-## YAML: Schedule for data import with cron expression (preview)
-```yml
-$schema: https://azuremlschemas.azureedge.net/latest/schedule.schema.json
-name: simple_cron_import_schedule
-display_name: Simple cron import schedule
-description: a simple hourly cron import schedule
-
-trigger:
-  type: cron
-  expression: "0 * * * *"
-  start_time: "2022-07-10T10:00:00" # optional - default will be schedule creation time
-  time_zone: "Pacific Standard Time" # optional - default will be UTC
-
-import_data: ./my-snowflake-import-data.yaml
-```
-## YAML: Schedule for data import definition inline with cron expression (preview)
-```yml
-$schema: https://azuremlschemas.azureedge.net/latest/schedule.schema.json
-name: inline_cron_import_schedule
-display_name: Inline cron import schedule
-description: an inline hourly cron import schedule
-
-trigger:
-  type: cron
-  expression: "0 * * * *"
-  start_time: "2022-07-10T10:00:00" # optional - default will be schedule creation time
-  time_zone: "Pacific Standard Time" # optional - default will be UTC
-
-import_data:
-  type: mltable
-  name: my_snowflake_ds
-  path: azureml://datastores/workspaceblobstore/paths/snowflake/${{name}}
-  source:
-    type: database
-    query: select * from TPCH_SF1.REGION
-    connection: azureml:my_snowflake_connection
-```
 ## Appendix
 
 ### Timezone
 
-The current schedule supports the timezones in this table. The key can be used directly in the Python SDK, while the value can be used in the YAML job. The table is organized by UTC(Coordinated Universal Time).
+Current schedule supports the following timezones. The key can be used directly in the Python SDK, while the value can be used in the YAML job. The table is organized by UTC(Coordinated Universal Time).
 
 | UTC         | Key                             | Value                             |
 |-------------|---------------------------------|-----------------------------------|
@@ -376,3 +267,4 @@ The current schedule supports the timezones in this table. The key can be used d
 | UTC +13:00  | TONGA__STANDARD_TIME            | "Tonga Standard Time"             |
 | UTC +13:00  | SAMOA_STANDARD_TIME             | "Samoa Standard Time"             |
 | UTC +14:00  | LINE_ISLANDS_STANDARD_TIME      | "Line Islands Standard Time"      |
+

@@ -1,11 +1,11 @@
 ---
-title: Plan and troubleshoot Azure User Principal name (UPN) changes
-description: Understand known issues and mitigations for UPN changes
+title: Plan and troubleshoot User Principal Name changes in Azure Active Directory
+description: Understand known issues and mitigations for User Principal Name (UPN) changes
 services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 05/23/2023
 ms.author: gasinh
 author: gargi-sinha
 manager: martinco
@@ -74,7 +74,7 @@ If the userPrincipalName attribute value doesn't correspond to a verified domain
 
 Use our best practices to test bulk UPN changes. Have a tested roll-back plan for reverting UPNs if issues can't be resolved. After your pilot is running, target small user sets, with organizational roles, and sets of apps or devices. This process helps you understand the user experience. Include this information in your communications to stakeholders and users.
 
-Learn more: [Azure Active Directory deployment plans](../../fundamentals/active-directory-deployment-plans.md)
+Learn more: [Azure Active Directory deployment plans](../../fundamentals/deployment-plans.md)
 
 Create a procedure to change UPNs for individual users. We recommend a procedure that includes documentation about known issues and workarounds.
 
@@ -120,7 +120,7 @@ Users might experience single sign-on issues with applications that depend on Az
 
 ### Workaround
 
-Allow enough time for the UPN change to sync to Azure AD. After you verify the new UPN appears in the Azure portal, ask the user to select the "Other user" tile to sign in with their new UPN. You can verify using PowerShell. See, [Get-AzureADUser](/powershell/module/azuread/get-azureaduser?view=azureadps-2.0&preserve-view=true). After users sign in with a new UPN, references to the old UPN might appear on the **Access work or school** Windows setting.
+Allow enough time for the UPN change to sync to Azure AD. After you verify the new UPN appears in the Azure portal, ask the user to select the "Other user" tile to sign in with their new UPN. You can verify using Microsoft Graph PowerShell. See, [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser). After users sign in with a new UPN, references to the old UPN might appear on the **Access work or school** Windows setting.
 
    ![Screenshot of User-1 and Other-user domains, on the sign-in screen.](./media/howto-troubleshoot-upn-changes/other-user.png)
 

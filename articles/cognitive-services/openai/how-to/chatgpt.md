@@ -5,6 +5,7 @@ description: Learn about the options for how to use the ChatGPT and GPT-4 models
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: cognitive-services
+ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
 ms.date: 05/15/2023
 manager: nitinme

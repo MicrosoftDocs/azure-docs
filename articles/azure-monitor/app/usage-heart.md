@@ -28,31 +28,38 @@ These dimensions are measured independently, but they interact with each other.
 
 ## Get started
 ### Prerequisites
-
- - **Azure subscription**: [Create an Azure subscription for free](https://azure.microsoft.com/free/).
- - **Application Insights resource**: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource).
+ - **Azure subscription**: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
+ - **Application Insights resource**: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
+ - **Click Analytics**: Set up the [Click Analytics Autocollection plug-in](javascript-feature-extensions.md).
  - **Specific attributes**: Instrument the following attributes to calculate HEART metrics.
 
-  | Source          | Attribute            | Description                                |
-  |-----------------|----------------------|--------------------------------------------|
-  | customEvents    | user_AuthenticatedId | Unique authenticated user identifier       |
-  | customEvents    | session_Id           | Unique session identifier                  |
-  | customEvents    | appName              | Unique Application Insights app identifier |
-  | customEvents    | itemType             | Category of customEvents record            |
-  | customEvents    | timestamp            | Datetime of event                          |
-  | customEvents    | operation_Id         | Correlate telemetry events                 |
-  | customEvents    | user_Id         	   | Unique user identifier                  	  |
-  | customEvents*   | parentId             | Name of feature                            |
-  | customEvents*   | pageName             | Name of page                               |
-  | customEvents*   | actionType           | Category of Click Analytics record         |
-  | pageViews       | user_AuthenticatedId | Unique authenticated user identifier       |
-  | pageViews       | session_Id           | Unique session identifier                  |
-  | pageViews       | appName              | Unique Application Insights app identifier |
-  | pageViews       | timestamp            | Datetime of event                          |
-  | pageViews       | operation_Id         | Correlate telemetry events                 |
-  | pageViews       | user_Id            	 | Unique user identifier                     |
+  | Source                               | Attribute            | Description                                |
+  |--------------------------------------|----------------------|--------------------------------------------|
+  | customEvents                         | session_Id           | Unique session identifier                  |
+  | customEvents                         | appName              | Unique Application Insights app identifier |
+  | customEvents                         | itemType             | Category of customEvents record            |
+  | customEvents                         | timestamp            | Datetime of event                          |
+  | customEvents                         | operation_Id         | Correlate telemetry events                 |
+  | customEvents                         | user_Id         	    | Unique user identifier                  	 |
+  | customEvents <sup>[1](#FN1)</sup>    | parentId             | Name of feature                            |
+  | customEvents <sup>[1](#FN1)</sup>    | pageName             | Name of page                               |
+  | customEvents <sup>[1](#FN1)</sup>    | actionType           | Category of Click Analytics record         |
+  | pageViews                            | user_AuthenticatedId | Unique authenticated user identifier       |
+  | pageViews                            | session_Id           | Unique session identifier                  |
+  | pageViews                            | appName              | Unique Application Insights app identifier |
+  | pageViews                            | timestamp            | Datetime of event                          |
+  | pageViews                            | operation_Id         | Correlate telemetry events                 |
+  | pageViews                            | user_Id            	 | Unique user identifier                    |
 
-*Use the [Click Analytics Autocollection plug-in](javascript-feature-extensions.md) via npm to emit these attributes.
+- If you're setting up the authenticated user context, instrument the below attributes:
+
+| Source                               | Attribute            | Description                                |
+|--------------------------------------|----------------------|--------------------------------------------|
+| customEvents                         | user_AuthenticatedId | Unique authenticated user identifier       |
+
+**Footnotes**
+
+<a name="FN1">1</a>: To emit these attributes, use the [Click Analytics Autocollection plug-in](javascript-feature-extensions.md) via npm.
 
 >[!TIP]
 > To understand how to effectively use the Click Analytics plug-in, see [Feature extensions for the Application Insights JavaScript SDK (Click Analytics)](javascript-feature-extensions.md#use-the-plug-in).
@@ -71,6 +78,9 @@ You only have to interact with the main workbook, **HEART Analytics - All Sectio
 ### Confirm that data is flowing
 
 To validate that data is flowing as expected to light up the metrics accurately, select the **Development Requirements** tab.
+
+> [!IMPORTANT]
+> Unless you [set the authenticated user context](./javascript-feature-extensions.md#set-the-authenticated-user-context), you must select **Anonymous Users** from the **ConversionScope** dropdown to see telemetry data.
 
 :::image type="content" source="media/usage-overview/development-requirements-1.png" alt-text="Screenshot that shows the Development Requirements tab of the HEART Analytics - All Sections workbook.":::
 
@@ -195,8 +205,7 @@ To view your saved workbook, under **Monitoring**, go to the **Workbooks** secti
 For more on editing workbook templates, see [Azure Workbooks templates](../visualize/workbooks-templates.md).
 
 ## Next steps
-- Set up the [Click Analytics Autocollection plug-in](javascript-feature-extensions.md) via npm.
 - Check out the [GitHub repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Autocollection plug-in.
 - Use [Events Analysis in the Usage experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
-- Find click data under the content field within the `customDimensions` attribute in the `CustomEvents` table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). See a [sample app](https://go.microsoft.com/fwlink/?linkid=2152871) for more guidance.
+- Find click data under the content field within the `customDimensions` attribute in the `CustomEvents` table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). See [sample app](https://go.microsoft.com/fwlink/?linkid=2152871) for more guidance.
 - Learn more about the [Google HEART framework](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36299.pdf).

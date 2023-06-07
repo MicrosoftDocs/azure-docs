@@ -7,12 +7,12 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 08/30/2022
+ms.date: 05/31/2023
 ---
 
 # Azure support for export controls
 
-To help you navigate export control rules, Microsoft has published the [Microsoft Azure Export Controls](https://aka.ms/Azure-Export-Paper) whitepaper. It describes US export controls particularly as they apply to software and technical data, reviews potential sources of export control risks, and offers specific guidance to help you assess your obligations under these controls.
+To help you navigate export control rules, Microsoft has published the [Microsoft Azure Export Controls](https://aka.ms/Azure-Export-Paper) whitepaper. It describes US export controls particularly as they apply to software and technical data, reviews potential sources of export control risks, and offers specific guidance to help you assess your obligations under these controls. Extra information is available from the Cloud Export FAQ, which is accessible from Frequently Asked Questions on [Exporting Microsoft products](https://www.microsoft.com/exporting).
 
 > [!NOTE]
 > **Disclaimer:** You're wholly responsible for ensuring your own compliance with all applicable laws and regulations. Information provided in this article doesn't constitute legal advice, and you should consult your legal advisor for any questions regarding regulatory compliance.
@@ -146,8 +146,9 @@ Learn more about:
 - [Microsoft government solutions](https://www.microsoft.com/enterprise/government)
 - [What is Azure Government?](./documentation-government-welcome.md)
 - [Explore Azure Government](https://azure.microsoft.com/global-infrastructure/government/)
+- [Exporting Microsoft products](https://www.microsoft.com/exporting)
 - [Azure Government compliance](./documentation-government-plan-compliance.md)
 - [Azure EAR compliance offering](/azure/compliance/offerings/offering-ear)
-- [Azure FedRAMP compliance offering](/azure/compliance/offerings/offering-fedramp)
 - [Azure ITAR compliance offering](/azure/compliance/offerings/offering-itar)
 - [Azure DoE 10 CFR Part 810 compliance offering](/azure/compliance/offerings/offering-doe-10-cfr-part-810)
+- [Azure FedRAMP compliance offering](/azure/compliance/offerings/offering-fedramp)

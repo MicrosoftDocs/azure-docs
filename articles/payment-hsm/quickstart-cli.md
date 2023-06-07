@@ -13,7 +13,9 @@ ms.date: 03/25/2023
 
 # Quickstart: Create an Azure Payment HSM with the Azure CLI
 
-This article describes how to create, update, and delete an Azure Payment HSM by using the [az dedicated-hsm](/cli/azure/dedicated-hsm) Azure CLI command.
+[!INCLUDE [Payment HSM intro](./includes/about-payment-hsm.md)]
+
+This quickstart describes how to create, update, and delete an Azure Payment HSM by using the [az dedicated-hsm](/cli/azure/dedicated-hsm) Azure CLI command.
 
 ## Prerequisites
 

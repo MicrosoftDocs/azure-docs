@@ -5,7 +5,7 @@ description: Learn about the different model capabilities that are available wit
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 05/15/2023
-ms.custom: event-tier1-build-2022, references_regions
+ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
@@ -21,6 +21,7 @@ Azure OpenAI provides access to many different models, grouped by family and cap
 |--|--|
 | [GPT-4](#gpt-4-models) | A set of models that improve on GPT-3.5 and can understand as well as generate natural language and code. |
 | [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. This includes the new [ChatGPT model](#chatgpt-gpt-35-turbo). |
+| [DALL-E](#dall-e-models) | A series of models that can generate original images from natural language. |
 | [Codex](#codex-models) | A series of models that can understand and generate code, including translating natural language to code. |
 | [Embeddings](#embeddings-models) | A set of models that can understand and use embeddings. An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Currently, we offer three families of Embeddings models for different functionalities: similarity, text search, and code search. |
 
@@ -110,6 +111,10 @@ The ChatGPT model (gpt-35-turbo) is a language model designed for conversational
 
 To learn more about the ChatGPT model and how to interact with the Chat API check out our [in-depth how-to](../how-to/chatgpt.md).
 
+### DALL-E models
+
+The DALL-E models, currently in preview, generate images from text prompts that the user provides.
+
 ## Codex models
 
 The Codex models are descendants of our base GPT-3 models that can understand and generate code. Their training data contains both natural language and billions of lines of public code from GitHub.
@@ -140,10 +145,13 @@ Currently, we offer three families of Embeddings models for different functional
 
 Each family includes models across a range of capability. The following list indicates the length of the numerical vector returned by the service, based on model capability:
 
-- Ada: 1024 dimensions
-- Babbage: 2048 dimensions
-- Curie: 4096 dimensions
-- Davinci: 12288 dimensions
+|  Base Model  |  Model(s)  |  Dimensions  |
+|---|---|---|
+| Ada | models ending in -001 (Version 1) | 1024 |
+| Ada | text-embedding-ada-002 (Version 2) | 1536 |
+| Babbage |  | 2048 |
+| Curie |  | 4096 |
+| Davinci |  | 12288 |
 
 Davinci is the most capable, but is slower and more expensive than the other models. Ada is the least capable, but is both faster and cheaper.
 
@@ -197,7 +205,7 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 | text-davinci-fine-tune-002 | N/A | N/A |  |  |
 | gpt-35-turbo<sup>1</sup> (ChatGPT) | East US, France Central, South Central US, West Europe | N/A | 4,096 | Sep 2021 |
 
-<br><sup>1</sup> Currently, only version `0301` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
+<br><sup>1</sup> Currently, only version `0301` of this model is available.
 
 ### GPT-4 Models
 
@@ -205,11 +213,18 @@ These models can only be used with the Chat Completion API.
 
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
-| `gpt-4` <sup>1,</sup><sup>2</sup> (preview)     |  East US, France Central |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1,</sup><sup>2</sup> (preview) |  East US, France Central |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>1,</sup><sup>2</sup>      |  East US, France Central |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1,</sup><sup>2</sup>  |  East US, France Central |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
 <sup>2</sup> Currently, only version `0314` of this model is available.
+
+### Dall-E Models
+
+|  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (characters) | Training Data (up to)  |
+|  --- |  --- | --- | --- | --- |
+| dalle2 | East US | N/A | 1000 | N/A |
+
 
 ### Codex Models
 

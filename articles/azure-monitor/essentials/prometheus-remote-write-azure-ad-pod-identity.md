@@ -12,7 +12,7 @@ ms.reviewer: rapadman
 
 
 > [!NOTE] 
-> The remote write sidecar should only be configured via the following steps only if the AKS cluster already has the Azure AD pod enabled. This approach is not recommended as AAD pod identity has been deprecated to be replace by [Azure Workload Identity]  (https://learn.microsoft.com/azure/active-directory/workload-identities/workload-identities-verview)
+> The remote write sidecar should only be configured via the following steps only if the AKS cluster already has the Azure AD pod enabled. This approach is not recommended as AAD pod identity has been deprecated to be replace by [Azure Workload Identity](/azure/active-directory/workload-identities/workload-identities-overview)
 
 
 To configure remote write for Azure Monitor managed service for Prometheus using Azure AD pod identity, follow the steps below.
@@ -26,7 +26,7 @@ To configure remote write for Azure Monitor managed service for Prometheus using
     az role assignment create --role "Virtual Machine Contributor" --assignee <managed identity clientID> --scope <Node ResourceGroup Id> 
     ```	 
 
-    The node resource group of the AKS cluster contains resources that you will require for other steps in this process. This resource group has the name MC_<AKS-RESOURCE-GROUP>_<AKS-CLUSTER-NAME>_<REGION>. You can locate it from the Resource groups menu in the Azure portal.
+    The node resource group of the AKS cluster contains resources that you will require for other steps in this process. This resource group has the name MC_\<AKS-RESOURCE-GROUP\>_\<AKS-CLUSTER-NAME\>_\<REGION\>. You can locate it from the Resource groups menu in the Azure portal.
 
 1. Grant user-assigned managed identity `Monitoring Metrics Publisher` roles.
 

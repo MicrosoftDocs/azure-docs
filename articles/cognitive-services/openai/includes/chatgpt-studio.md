@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use ChatGPT via the Azure OpenAI Studio'
+title: 'Quickstart: Use ChatGPT via the Azure AI Studio'
 titleSuffix: Azure OpenAI Service
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Azure OpenAI Studio. 
+description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Azure AI Studio. 
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -21,17 +21,20 @@ keywords:
 
 <sup>1</sup> **GPT-4 models are currently only available by request.** To access these models, existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
 
-## Go to Azure OpenAI Studio
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
 
-Navigate to Azure OpenAI Studio at [https://oai.azure.com/](https://oai.azure.com/) and sign-in with credentials that have access to your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
+## Go to Azure AI Studio
 
-From the Azure OpenAI Studio landing page, select **Chat playground**.
+Navigate to Azure AI Studio at [https://oai.azure.com/](https://oai.azure.com/) and sign-in with credentials that have access to your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-:::image type="content" source="../media/quickstarts/chatgpt-playground.png" alt-text="Screenshot of the Azure OpenAI Studio landing page with Chat playground highlighted." lightbox="../media/quickstarts/chatgpt-playground.png":::
+From the Azure AI Studio landing page, select **Chat playground**.
+
+:::image type="content" source="../media/quickstarts/chatgpt-playground.png" alt-text="Screenshot of the Azure AI Studio landing page with Chat playground highlighted." lightbox="../media/quickstarts/chatgpt-playground.png":::
 
 ## Playground
 
-Start exploring OpenAI capabilities with a no-code approach through the Azure OpenAI Studio Chat playground. From this page, you can quickly iterate and experiment with the capabilities.
+Start exploring OpenAI capabilities with a no-code approach through the Azure AI Studio Chat playground. From this page, you can quickly iterate and experiment with the capabilities.
 
 :::image type="content" source="../media/quickstarts/chatgpt-playground-load.png" alt-text="Screenshot of the Chat playground page." lightbox="../media/quickstarts/chatgpt-playground-load.png":::
 
@@ -100,6 +103,9 @@ response = openai.ChatCompletion.create(
   presence_penalty=0,
   stop=None)
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the playground.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
 
 ### Understanding the prompt structure
 
