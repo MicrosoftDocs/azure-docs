@@ -14,7 +14,7 @@ keywords:
 
 # Content filtering
 
-Azure OpenAI Service includes a content filtering system  that works alongside core models. This system works by running both the prompt and completion  through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Variations in API configurations and application design may affect completions and thus filtering behavior. The content filtering system supports the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. It might not be able to detect inappropriate content in languages that it hasn't been trained or tested to process.
+Azure OpenAI Service includes a content filtering system  that works alongside core models. This system works by running both the prompt and completion  through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Variations in API configurations and application design may affect completions and thus filtering behavior. The content filtering system supports the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. It might not be able to detect inappropriate content in languages that it has not been trained or tested to process.
 
 In addition to the content filtering system, the Azure OpenAI Service performs monitoring to detect content and/or behaviors that suggest use of the service in a manner that may violate applicable product terms. For more information about understanding and mitigating risks associated with your application, see the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?tabs=text). For more information about how data is processed in connection with content filtering and abuse monitoring, see [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext#preventing-abuse-and-harmful-content-generation).  
 
@@ -25,7 +25,7 @@ The following sections provide information about the content filtering categorie
 
 The content filtering system integrated in Azure OpenAI Service contains neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but isn't subject to filtering.
 
-The default content filtering configuration is set to filter at the medium severity threshold for all four content harms categories for both prompts and completions. That means that content that is detected at severity level medium or high is filtered, while content detected at severity level low isn't filtered by the content filters.
+The default content filtering configuration is set to filter at the medium severity threshold for all four content harms categories for both prompts and completions. That means that content that is detected at severity level medium or high is filtered, while content detected at severity level low is not filtered by the content filters.
 
 ### Categories
 
