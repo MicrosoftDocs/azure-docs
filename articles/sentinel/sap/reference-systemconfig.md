@@ -10,8 +10,10 @@ ms.date: 06/03/2023
 
 The *systemconfig.ini* file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
 
-> [!NOTE]
-> From agent version TBD and later, we recommend that you use the [systemconfig.json file](reference-systemconfig-json.md).
+> [!IMPORTANT]
+> Microsoft Sentinel solution for SAP® applications uses the new *[systemconfig.json file](reference-systemconfig-json.md)* from agent versions deployed on June 22 and later. For previous agent versions, you must still use the *systemconfig.ini* file. 
+>
+> If you update the agent version, the configuration file is automatically migrated. 
 
 ## Systemconfig configuration file sections
 

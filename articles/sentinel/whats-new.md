@@ -20,6 +20,11 @@ See these [important announcements](#announcements) about recent changes to feat
 ## June 2023
 
 - [Classic alert automation due for deprecation](#classic-alert-automation-due-for-deprecation) (see Announcements)
+- [Microsoft Sentinel solution for SAP® applications: new systemconfig.json file](#microsoft-sentinel-solution-for-sap®-applications-new-systemconfigjson-file)
+
+### Microsoft Sentinel solution for SAP® applications: new systemconfig.json file
+
+Microsoft Sentinel solution for SAP® applications uses the new *systemconfig.json* file from agent versions deployed on June 22 and later. For previous agent versions, you must still use the *[systemconfig.ini file](reference-systemconfig.md)*.
 
 ## May 2023
 

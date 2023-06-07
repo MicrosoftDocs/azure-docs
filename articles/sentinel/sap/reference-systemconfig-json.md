@@ -10,8 +10,36 @@ ms.date: 06/03/2023
 
 The *systemconfig.json* file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
 
-> [!NOTE]
-> The Microsoft Sentinel solution for SAP® applications supports the systemconfig.json file from agent version TBD and later. For previous agent versions, you can use the [systemconfig.ini file](reference-systemconfig.md).
+> [!IMPORTANT]
+> Microsoft Sentinel solution for SAP® applications uses the new *systemconfig.json* file from agent versions deployed on June 22 and later. For previous agent versions, you must still use the *[systemconfig.ini file](reference-systemconfig.md)*.
+
+## File structure
+
+```json
+{ 
+
+"<SID_GUID>": { 
+
+    "secrets_source": {},
+
+    "abap_central_instance": {},
+
+    "azure_credentials": {},
+
+    "file_extraction_abap": {},
+
+    "file_extraction_java": {},
+
+    "logs_activation_status" {},
+
+    "connector_configuration": {},
+
+    "abap_table_selector":: {}
+
+...
+
+}
+```
 
 ## Systemconfig configuration file sections
 
@@ -27,27 +55,36 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 | [ABAP Table Selector](#abap-table-selector-section) | This section defines which User Master Data logs get extracted from the ABAP system. |
 
 ## Secrets Source section
+
+> [!NOTE]
+> Remove all comment sections before you use this file for configuration and deployment.
+
 ```json
-{
-  "<SID_GUID>": {
-    "secrets_source": {
-      "secrets": "AZURE_KEY_VAULT|DOCKER_FIXED",
-      # Storage location of SAP credentials and Log Analytics workspace ID and key
-      # AZURE_KEY_VAULT - store in an Azure Key Vault. Requires keyvault option and intprefix option
-      # DOCKER_FIXED - store in systemconfig.ini file. Requires user, passwd, loganalyticswsid and publickey options
-      "keyvault": "<vaultname>",
-      # Azure Keyvault name, in case secrets = AZURE_KEY_VAULT
-      "intprefix": "<prefix>"
-      # intprefix - Prefix for variables created in Azure Key Vault
+"secrets_source": {
+  "secrets": "AZURE_KEY_VAULT|DOCKER_FIXED",
+  # Storage location of SAP credentials and Log Analytics workspace ID and key
+  # AZURE_KEY_VAULT - store in an Azure Key Vault. Requires keyvault option and intprefix option
+  # DOCKER_FIXED - store in systemconfig.ini file. Requires user, passwd, loganalyticswsid and publickey options
+
+  "keyvault": "<vaultname>",
+  # Azure Keyvault name, in case secrets = AZURE_KEY_VAULT
+
+  "intprefix": "<prefix>"
+  # intprefix - Prefix for variables created in Azure Key Vault
 
     },
 ```
 
 ## ABAP Central Instance section
+
+> [!NOTE]
+> Remove all comment sections before you use this file for configuration and deployment.
+
 ```json
 "abap_central_instance": {
       "auth_type": "PLAIN_USER_AND_PASSWORD|SNC_WITH_X509",
       # Authentication type - username/password authentication, or X.509 authentication
+
       "ashost": "<hostname>",
       # FQDN, hostname, or IP address of the ABAP server
 
@@ -78,16 +115,20 @@ The *systemconfig.json* file is used to configure behavior of the data collector
       "snc_lib": "<path to libsapcrypto>",
       # Full path, to the libsapcrypto.so
       # Used when SNC is in use
-      # !!! Note: the path must be valid within the container!!!
+      # !!! Note - the path must be valid within the container.
+
       "snc_partnername": "<distinguished name of the server certificate>",
       # p: -prefixed valid SAP server SNC name, which is equal to Distinguished Name(DN) of SAP server PSE
       # Used when SNC is in use
+
       "snc_qop": "<SNC protection level>",
-      # More information available at https://docs.oracle.com/cd/E19509-01/820-5064/ggrpj/index.html
+      # More information available at docs.oracle.com/cd/E19509-01/820-5064/ggrpj/index.html
       # Used when SNC is in use
+
       "snc_myname": "<distinguished name of the client certificate>",
       # p: -prefixed valid client SNC name, which is equal to Distinguished Name(DN) of client PSE
       # Used when SNC is in use
+
       "x509cert": "<server certificate>"
       # Base64 encoded server certificate value in a single line (with leading ----BEGIN-CERTIFICATE--- and trailing ----END-CERTIFICATE---- removed)
     },
@@ -106,6 +147,10 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 ```
 
 ## File Extraction ABAP section
+
+> [!NOTE]
+> Remove all comment sections before you use this file for configuration and deployment.
+
 ```json
 "file_extraction_abap": {
       "osuser": "<SAPControl username>",
@@ -155,6 +200,10 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 ```
 
 ### Logs Activation Status section
+
+> [!NOTE]
+> Remove all comment sections before you use this file for configuration and deployment.
+
 ```json
 "logs_activation_status": {
       # GMT FORMAT
@@ -168,18 +217,23 @@ The *systemconfig.json* file is used to configure behavior of the data collector
       "ABAPWorkflowLog": "<True/False>",
       "ABAPCRLog": "<True/False>",
       "ABAPTableDataLog": "<True/False>",
+      
       # The following logs are retrieved using SAP Control interface and OS Login
-
       "ABAPFilesLogs": "<True/False>",
       "SysLog": "<True/False>",
       "ICM": "<True/False>",
       "WP": "<True/False>",
       "GW": "<True/False>",
+      
       # The following logs are retrieved using SAP Control interface and OS Login
       "JAVAFilesLogs": "<True/False>",
 ```
 
 ### Connector Configuration section
+
+> [!NOTE]
+> Remove all comment sections before you use this file for configuration and deployment.
+
 ```json
 "connector_configuration": {
       "extractuseremail": "<True/False>",
@@ -192,6 +246,10 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 ```
 
 ### ABAP Table Selector section
+
+> [!NOTE]
+> Remove all comment sections before you use this file for configuration and deployment.
+
 ```json
 "abap_table_selector": {
       # Specify True or False to configure whether table should be collected from the SAP system
