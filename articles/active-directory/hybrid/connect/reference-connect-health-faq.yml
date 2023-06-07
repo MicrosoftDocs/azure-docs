@@ -34,9 +34,9 @@ sections:
           
           |Role| Operating system / Version|
           |--|--|
-          |Active Directory Federation Services (AD FS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+          |Active Directory Federation Services (AD FS)| <ul><li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> <li> Windows Server 2022  </li> </ul>|
           |Azure AD Connect | Version 1.0.9125 or higher|
-          |Active Directory Domain Services (AD DS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+          |Active Directory Domain Services (AD DS)| <ul><li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> <li> Windows Server 2022  </li> </ul>|
           
           Windows Server Core installations aren't supported.
           
@@ -61,21 +61,7 @@ sections:
           | 3 | 51 | 1 Active Directory Federation Services (AD FS) server, 1 AD FS proxy, and 1 domain controller |
           | 4 | 76 | 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
           | 5 | 101 | 1 Azure AD Connect server, 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
-          
-      - question: |
-          Does Azure AD Connect Health support Azure Germany Cloud?
-        answer: |
-          Azure AD Connect Health isn't supported in Germany Cloud except for the [sync errors report feature](how-to-connect-health-sync.md#object-level-synchronization-error-report).
-          
-          | Roles | Features | Supported in German Cloud |
-          | ------ | --------------- | --- |
-          | Connect Health for Sync | Monitoring / Insight / Alerts / Analysis | No |
-          |  | Sync error report | Yes |
-          | Connect Health for AD FS | Monitoring / Insight / Alerts / Analysis | No |
-          | Connect Health for AD DS | Monitoring / Insight / Alerts / Analysis | No |
-          
-          To ensure the agent connectivity of Connect Health for sync, configure the [installation requirement](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) accordingly.
-          
+                   
   - name: Installation questions
     questions:
       - question: |
@@ -111,7 +97,7 @@ sections:
         answer: |
           No. The installation of the agents will not require you to reboot the server. However, installation of some prerequisite steps might require a reboot of the server.
           
-          For example, on Windows Server 2008 R2, installation of .NET 4.5 Framework requires a server reboot.
+          For example, installation of .NET 4.6.2 Framework may require a server reboot.
           
       - question: |
           Does Azure AD Connect Health work through a pass-through HTTP proxy?

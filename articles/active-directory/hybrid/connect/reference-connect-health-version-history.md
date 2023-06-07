@@ -27,6 +27,17 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](./reference-connect-version-history.md)
 For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 
+## May / June 2023
+**Agent Updates**
+
+Microsoft Azure AD Connect Health ADFS Agents (versions 4.5.x)
+
+- New version of the Azure AD Connect Health ADFS agent that uses an updated architecture.
+  - Updated installer package
+  - Migration to MSAL authentication library
+  - New pre-requisite checks
+  - Improved logging
+
 ## 27 March 2023
 **Agent Update**
 
