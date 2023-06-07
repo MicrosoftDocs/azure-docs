@@ -10,7 +10,7 @@ ms.topic: how-to
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: automl
+ms.custom: automl, devx-track-dotnet
 ---
 
 # Make predictions with an AutoML ONNX model in .NET

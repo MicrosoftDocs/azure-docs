@@ -94,8 +94,8 @@ Rich Health States reporting contains four Health States, *Initializing*, *Healt
 
 | Protocol | Health State | Description |
 | -------- | ------------ | ----------- |
-| http/https | Healthy | To send a *Healthy* signal, the application is expected to return a probe response with: **Probe Response Code**: Status 2xx, Probe Response Body: `{"ApplicationHealthState": "Healthy"}` |
-| http/https | Unhealthy | To send an *Unhealthy* signal, the application is expected to return a probe response with: **Probe Response Code**: Status 2xx, Probe Response Body: `{"ApplicationHealthState": "Unhealthy"}` |
+| http/https | Healthy | To send a *Healthy* signal, the application is expected to return a probe response with: **Probe Response Code**: Status 2xx, **Probe Response Body**: `{"ApplicationHealthState": "Healthy"}` |
+| http/https | Unhealthy | To send an *Unhealthy* signal, the application is expected to return a probe response with: **Probe Response Code**: Status 2xx, **Probe Response Body**: `{"ApplicationHealthState": "Unhealthy"}` |
 | http/https | Initializing | The instance automatically enters an *Initializing* state at extension start time. For more information, see [Initializing state](#initializing-state). |
 | http/https | Unknown | An *Unknown* state may occur in the following scenarios: when a non-2xx status code is returned by the application, when the probe request times out, when the application endpoint is unreachable or incorrectly configured, when a missing or invalid value is provided for `ApplicationHealthState` in the response body, or when the grace period expires. For more information, see [Unknown state](#unknown-state). |
 
@@ -167,8 +167,8 @@ The following JSON shows the schema for the Application Health extension. The ex
       "protocol": "<protocol>",
       "port": <port>,
       "requestPath": "</requestPath>",
-      "intervalInSeconds": 5.0,
-      "numberOfProbes": 1.0
+      "intervalInSeconds": 5,
+      "numberOfProbes": 1
     }
   }
 }  
@@ -211,8 +211,8 @@ The following JSON shows the schema for the Rich Health States extension. The ex
       "protocol": "<protocol>",
       "port": <port>,
       "requestPath": "</requestPath>",
-      "intervalInSeconds": 5.0,
-      "numberOfProbes": 1.0,
+      "intervalInSeconds": 5,
+      "numberOfProbes": 1,
       "gracePeriod": 600
     }
   }

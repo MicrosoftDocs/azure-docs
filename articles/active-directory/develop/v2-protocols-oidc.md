@@ -161,7 +161,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Parameter | Description |
 | --- | --- |
-| `id_token` | The ID token that the app requested. You can use the `id_token` parameter to verify the user's identity and begin a session with the user. For more information about ID tokens and their contents, see the [ID token reference](id-tokens.md). |
+| `id_token` | The ID token that the app requested. You can use the `id_token` parameter to verify the user's identity and begin a session with the user. For more information about ID tokens and their contents, see the [ID token reference](id-token-claims-reference.md). |
 | `state` | If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 ### Error response
@@ -210,7 +210,7 @@ If you validate ID tokens in your application, we recommend *not* doing so manua
 
 ### What to validate in an ID token
 
-In addition to validating ID token's signature, you should validate several of its claims as described in [Validating an ID token](id-tokens.md#validating-an-id-token) in the [ID token reference](id-tokens.md). Also see [Important information about signing key-rollover](active-directory-signing-key-rollover.md).
+In addition to validating ID token's signature, you should validate several of its claims as described in [Validating an ID token](id-tokens.md#validate-tokens). Also see [Important information about signing key-rollover](active-directory-signing-key-rollover.md).
 
 Several other validations are common and vary by application scenario, including:
 
@@ -280,7 +280,7 @@ Response parameters mean the same thing regardless of the flow used to acquire t
 | `token_type` | Always "Bearer" |
 | `expires_in`| How long until the access token expires, in seconds. |
 | `scope` | The permissions granted on the access token. Because the UserInfo endpoint is hosted on Microsoft Graph, it's possible for `scope` to contain others previously granted to the application (for example, `User.Read`). |
-| `id_token` | The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [ID token reference](id-tokens.md). |
+| `id_token` | The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [ID token reference](id-token-claims-reference.md). |
 | `state` | If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 [!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
@@ -304,7 +304,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 For a description of possible error codes and recommended client responses, see [Error codes for authorization endpoint errors](#error-codes-for-authorization-endpoint-errors).
 
-When you have an authorization code and an ID token, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the ID token [exactly as described](id-tokens.md#validating-an-id-token). To get access tokens, follow the steps described in [OAuth code flow documentation](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token).
+When you have an authorization code and an ID token, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the ID token as described in the [validate tokens](id-tokens.md#validate-tokens). To get access tokens, follow the steps described in [OAuth code flow documentation](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token).
 
 ### Calling the UserInfo endpoint
 

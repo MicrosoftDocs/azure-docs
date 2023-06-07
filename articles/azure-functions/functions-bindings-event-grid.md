@@ -4,7 +4,7 @@ description: Understand how to handle Event Grid events in Azure Functions.
 
 ms.topic: reference
 ms.date: 03/04/2022
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -136,4 +136,3 @@ The Event Grid output binding is only available for Functions 2.x and higher. Ev
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid
 [Update your extensions]: ./functions-bindings-register.md
-

@@ -17,11 +17,14 @@ There are scenarios where you may have search parameters in the FHIR service in 
 
 ## How to run a reindex job 
 
-To reindex the entire FHIR service database and make your custom search parameter operational, use the following `POST` call with the JSON formatted `Parameters` resource in the request body:
+Reindex job can be executed against entire FHIR service database and against specific custom search parameter.
+
+### Run reindex job on entire FHIR service database
+To run reindex job, use the following `POST` call with the JSON formatted `Parameters` resource in the request body:
 
 ```json
 POST {{FHIR_URL}}/$reindex 
-
+content-type: application/fhir+json
 { 
 
 "resourceType": "Parameters",  
@@ -85,11 +88,12 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
   ]
 }
 ```
-In case, there is a need to run reindex job against specific custom search parameter, use the following `POST` call with the JSON formatted `Parameters` resource in the request body:
+### Run reindex job against specific custom search parameter
+To run reindex job against specific custom search parameter, use the following `POST` call with the JSON formatted `Parameters` resource in the request body:
 
 ```json
 POST {{FHIR_URL}}/$reindex 
-
+content-type: application/fhir+json
 { 
 
 "resourceType": "Parameters",  
@@ -135,6 +139,10 @@ An example response is shown below:
 
       "name": "startTime",
       "valueDateTime": "2021-04-16T23:11:35.4223217+00:00"
+    },
+    {
+      "name": "lastModified",
+      "valueDateTime": "2023-04-16T23:24:49.4543978+00:00"
     },
     {
 
@@ -214,7 +222,7 @@ If you want to use any of the parameters above, you can pass them into the `Para
 ```json
 
 POST {{FHIR_URL}}/$reindex 
-
+content-type: application/fhir+json
 {
   "resourceType": "Parameters",
   "parameter": [

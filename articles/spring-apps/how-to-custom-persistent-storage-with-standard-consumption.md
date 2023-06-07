@@ -6,7 +6,7 @@ ms.author: yitaopan
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 03/21/2023
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # How to enable your own persistent storage in Azure Spring Apps with the Standard consumption and dedicated plan

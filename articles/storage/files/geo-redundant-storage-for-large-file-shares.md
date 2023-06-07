@@ -27,7 +27,7 @@ Azure Files geo-redundancy for large file shares (the "Preview") is subject to t
 
 ## Geo-redundant storage options
 
-Azure maintains multiple copies of your storage account to ensure durability and high availability. For protection against regional outages, you can configure your storage account for GRS or GZRS to copy your data asynchronously in two geographic regions that are hundreds of miles apart. This preview adds GRS and GZRS support for standard storage accounts that have the large file shares feature enabled.
+Azure maintains multiple copies of your data to ensure durability and high availability. For protection against regional outages, you can configure your storage account for GRS or GZRS to copy your data asynchronously in two geographic regions that are hundreds of miles apart. This preview adds GRS and GZRS support for standard storage accounts that have the large file shares feature enabled.
 
 - **Geo-redundant storage (GRS)** copies your data synchronously three times within a single physical location in the primary region. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times.
 

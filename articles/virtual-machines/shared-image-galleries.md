@@ -73,8 +73,7 @@ Image definitions contain metadata for the image to allow grouping of images tha
    | IsAcceleratedNetworkSupported | True, False | Create VM's with accelerated networking enabled. When set to `True` on Image definition, capturing VMs that don't support accelerated networking is not supported. | Private, direct shared, community |
    | DiskControllerType | ["SCSI", "NVMe"], ["SCSI"] | Set this to use either SCSI or NVMe disk type. NVMe VMs and disks can only be captured in image definitions that are tagged to be supporting NVMe. | Private, direct shared, community |
  
-
-- SecurityType determines the security features that are enabled on the VM. Some types limited, based on the type of gallery that they are stored in:
+   When you specify a SecurityType using the `features` parameter, it limits the security features that are enabled on the VM. Some types limited, based on the type of gallery that they are stored in:
 
    | SecurityType | Accepted Values | Definition | Supported in |
    |--|--|--|--|
@@ -85,7 +84,7 @@ Image definitions contain metadata for the image to allow grouping of images tha
    | TrustedLaunchAndConfidentialVmSupported | TrustedLaunchAndConfidentialVmSupported | It's a generic Gen2 image that does not contain the VMGS blob. Gen2 VM, TrustedLaunch VM, or a ConfidentialVM can be created from this image type. | Private, direct shared, community |
 
 
-For more information, see the CLI examples for adding [image definition features and SecurityType](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create).
+   For more information, see the CLI examples for adding [image definition features and SecurityType](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create) or the [PowerShell examples](/powershell/module/az.compute/new-azgalleryimagedefinition#example-4-create-an-image-definition-for-generalized-windows-images-and-set-features).
 
 ## Image versions
 
@@ -123,6 +122,7 @@ Image definition:
 - Recommended memory
 - Description
 - End of life date
+- ReleaseNotes
 
 Image version:
 - Regional replica count
