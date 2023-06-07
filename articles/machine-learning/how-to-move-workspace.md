@@ -99,7 +99,7 @@ The following scenarios __are not__ supported:
 * Workspace with computes (either existing computes or in the process of creating the compute).
 * Workspace with deployed services.
 * Workspace with online endpoints/deployments.
-* Workspace configured for [customer managed-key](/azure/machine-learning/how-to-setup-customer-managed-keys.md).
+* Workspace configured for [customer managed-key](how-to-setup-customer-managed-keys.md).
 * Workspace with currently running labelling projects.
 * Workspace linked with Azure Databricks.
 * Workspace move across regions.
