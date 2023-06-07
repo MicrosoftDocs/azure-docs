@@ -257,7 +257,7 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
 
     ----
 
-    :::image type="content" source="media/services/azure-container-apps-kafka-service-logs.png" alt-text="Screenshot of container app PostgreSQL service logs.":::
+    :::image type="content" source="media/services/azure-container-apps-kafka-service-logs.png" alt-text="Screenshot of container app kafka service logs.":::
 
 ## Create a command line test apps
 
@@ -434,7 +434,7 @@ We will start by creating an app to use `./kafka-topics.sh`, `./kafka-console-pr
     # this is my third event
     ```
 
-:::image type="content" source="media/services/azure-container-apps-kafka-cli-output.png" alt-text="Screenshot of container app PostgreSQL service logs.":::
+:::image type="content" source="media/services/azure-container-apps-kafka-cli-output.png" alt-text="Screenshot of container app kafka cli output logs.":::
 
 ## Using a dev service with an existing app
 
