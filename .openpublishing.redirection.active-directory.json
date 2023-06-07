@@ -12530,6 +12530,12 @@
       "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-tshoot-sql-connectivity",
       "redirect_document_id": false
       },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-multiple-tenants.md",
+        "redirect_url": "/azure/active-directory/fundamentals/secure-multiple-tenants",
+        "redirect_document_id": true
+      },
       
       {
       "source_path_from_root": "/articles/active-directory/hybrid/tutorial-federation.md",
@@ -12612,6 +12618,12 @@
       },
 
       {
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-best-practices.md",
+        "redirect_url": "/azure/active-directory/fundamentals/secure-fundamentals",
+        "redirect_document_id": false
+      },
+      
+      {
         "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-fundamentals.md",
         "redirect_url": "/azure/active-directory/fundamentals/secure-fundamentals",
         "redirect_document_id": true
@@ -12654,8 +12666,26 @@
       },
 
       {
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-resource-management.md",
+        "redirect_url": "/azure/active-directory/fundamentals/secure-resource-management",
+        "redirect_document_id": true
+      },
+      
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-single-tenant.md",
+        "redirect_url": "/azure/active-directory/fundamentals/secure-single-tenant",
+        "redirect_document_id": true
+      },
+
+      {
         "source_path_from_root": "/articles/active-directory/manage-apps/datawiza-azure-ad-sso-oracle-peoplesoft.md",
         "redirect_url": "/azure/active-directory/manage-apps/datawiza-sso-oracle-peoplesoft",
+        "redirect_document_id": true
+      },
+      
+      {
+        "source_path_from_root": "/articles/active-directory/manage-apps/silverfort-azure-ad-integration.md",
+        "redirect_url": "/azure/active-directory/manage-apps/silverfort-integration",
         "redirect_document_id": true
       },
 
