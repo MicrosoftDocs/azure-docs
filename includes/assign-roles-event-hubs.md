@@ -44,7 +44,7 @@ To assign a role at the resource level using the Azure CLI, you first must retri
 az eventhubs eventhub show \
     --resource-group '<your-resource-group-name>' \
     --namespace-name '<your-event-hubs-namespace>' \
-    --name '<your-event-hub-name>'
+    --name '<your-event-hub-name>' \
     --query id
 ```
 
