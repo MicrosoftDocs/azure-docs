@@ -21,6 +21,7 @@ In this article, you use the Azure CLI to do the following tasks:
 ## Prerequisites
 - If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - If you're new to Azure Event Grid, read through [Event Grid overview](/azure/event-grid/overview) before starting this tutorial.
+- Register the Event Grid resource provider as per [Register the Event Grid resource provider](/azure/event-grid/custom-event-quickstart-portal#register-the-event-grid-resource-provider).
 - Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments.
 - Use the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart).
 - If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
@@ -63,8 +64,9 @@ Save the Namespace object in namespace.json file in resources folder.
     "properties": {
         "inputSchema": "CloudEventSchemaV1_0",
         "topicSpacesConfiguration": {
-            "state": "Enabled",
-        }
+            "state": "Enabled"
+        },
+        "isZoneRedundant": true
     },
     "location": "{Add region name}"
 }
@@ -85,14 +87,13 @@ Store the client object in client1.json file.  Update the allowedThumbprints fie
 
 ```json
 {
-    "properties": {
-        "state": "Enabled",
-        "authenticationName": “client1-authnID", 
-        "clientCertificateAuthentication": {
-            "allowedThumbprints": [
-                "{Your client 1 certificate thumbprint}"
-            ]
-        }
+    "state": "Enabled",
+    "authenticationName": "client1-authnID", 
+    "clientCertificateAuthentication": {
+        "validationScheme": "ThumbprintMatch",
+        "allowedThumbprints": [
+            "{Your client 1 certificate thumbprint}"
+        ]
     }
 }
 ```
@@ -100,7 +101,7 @@ Store the client object in client1.json file.  Update the allowedThumbprints fie
 Use the az resource command to create the first client.  Update the command with your subscription ID, Resource group ID, and a Namespace name.
 
 ```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces/clients --id /subscriptions/{Subscription ID}/resourceGroups/{Resource Group}/providers/Microsoft.EventGrid/namespaces/{Namespace Name}/clients/{Client Name} --is-full-object --api-version 2023-06-01-preview --properties @./resources/client1.json
+az resource create --resource-type Microsoft.EventGrid/namespaces/clients --id /subscriptions/{Subscription ID}/resourceGroups/{Resource Group}/providers/Microsoft.EventGrid/namespaces/{Namespace Name}/clients/{Client Name} --api-version 2023-06-01-preview --properties @./resources/client1.json
 ```
 
 > [!NOTE]
@@ -113,18 +114,16 @@ Store the below object in topicspace.json file.
 
 ```json
 { 
-    "properties": {
-        "topicTemplates": [
-            "contosotopics/topic1"
-        ]
-    }
+    "topicTemplates": [
+        "contosotopics/topic1"
+    ]
 }
 ```
 
 Use the az resource command to create the topic space.  Update the command with your subscription ID, Resource group ID, namespace name, and a topic space name.
 
 ```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces/topicSpaces --id /subscriptions/{Subscription ID}/resourceGroups/{Resource Group}/providers/Microsoft.EventGrid/namespaces/{Namespace Name}/topicSpaces/{Topic Space Name} --is-full-object --api-version 2023-06-01-preview --properties @./resources/topicspace.json
+az resource create --resource-type Microsoft.EventGrid/namespaces/topicSpaces --id /subscriptions/{Subscription ID}/resourceGroups/{Resource Group}/providers/Microsoft.EventGrid/namespaces/{Namespace Name}/topicSpaces/{Topic Space Name} --api-version 2023-06-01-preview --properties @./resources/topicspace.json
 ```
 
 ## Create PermissionBindings
@@ -133,11 +132,9 @@ Store the first permission binding object in permissionbinding1.json file.  Repl
 
 ```json
 {
-    "properties": {
-        "clientGroupName": "$all",
-        "permission": "Publisher”,
-        "topicSpaceName": "{Your topicspace name}"
-    }
+    "clientGroupName": "$all",
+    "permission": "Publisher",
+    "topicSpaceName": "{Your topicspace name}"
 }
 ```
 
@@ -151,11 +148,9 @@ Store the second permission binding object in permissionbinding2.json file.  Rep
 
 ```json
 {
-    "properties": {
-        "clientGroupName": "$all",
-        "permission": "Subscriber”,
-        "topicSpaceName": "{Your topicspace name}"
-    }
+    "clientGroupName": "$all",
+    "permission": "Subscriber",
+    "topicSpaceName": "{Your topicspace name}"
 }
 ```
 
@@ -177,6 +172,9 @@ You need to install the MQTTnet package (version 4.1.4.563) from NuGet to run th
 
 **Sample C# code to connect a client, publish/subscribe MQTT message on a topic**
 
+> [!IMPORTANT]
+> Please update the client certificate and key pem file paths depending on location of your client certificate files.  Also, ensure the client authentication name, topic information match with your configuration.
+
 ```csharp
 using MQTTnet.Client;
 using MQTTnet;
@@ -193,7 +191,8 @@ var mqttClient = new MqttFactory().CreateMqttClient();
 
 var connAck = await mqttClient!.ConnectAsync(new MqttClientOptionsBuilder()
     .WithTcpServer(hostname, 8883)
-    .WithClientId(clientId).WithCredentials(“client1-authnID”, "")  //use client authentication name in the username
+    .WithClientId(clientId)
+    .WithCredentials("client1-authnID", "")  //use client authentication name in the username
     .WithTls(new MqttClientOptionsBuilderTlsParameters()
     {
         UseTls = true,

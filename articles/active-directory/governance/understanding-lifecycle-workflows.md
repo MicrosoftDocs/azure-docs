@@ -143,8 +143,11 @@ The time-based attribute can be either one of two values, which are automaticall
 
 The values employeeHireDate and employeeLeaveDateTime must be set within Azure AD for users. For more information on this process, see [How to synchronize attributes for Lifecycle workflows](how-to-lifecycle-workflow-sync-attributes.md)
 
-The offset determines how many days before or after the time-based attribute the workflow should be triggered. For example, if the attribute is employeeHireDate and offsetInDays is 7, then the workflow should trigger one week(7 days) before the employee hire date. The offsetInDays value can be as far ahead, or behind, as 60.
+The offset determines how many days before or after the time-based attribute the workflow should be triggered. For example, if the attribute is employeeHireDate and offsetInDays is 7, then the workflow should trigger one week(7 days) before the employee hire date. The offsetInDays value can be as far ahead, or behind, as 180.
 
+
+> [!NOTE]
+> The offsetInDays value in the Azure portal is shown as *Days from event*. When you schedule a workflow to run, this value is used as the baseline for who a workflow will run. Currently there is a 3 day window in processing scheduled workflows. For example, if you schedule a workflow to run for users who joined 7 days ago, a user who meets the execution conditions for the workflow, but joined between 7 to 10 days ago would have the workflow ran for them.
 
 ## Configure scope
 
@@ -158,6 +161,9 @@ The scope is made up of the following two parts:
 - Rule: Where you can set expressions on user properties that define for whom the scheduled workflow runs. You can add extra expressions using **And, And not, Or, Or not** to create complex conditionals, and apply the workflow more granularly across your organization. Lifecycle Workflows supports a [rich set of user properties](/graph/api/resources/identitygovernance-rulebasedsubjectset#supported-user-properties-and-query-parameters) for configuring the scope.
 
 [![Extra expressions.](media/understanding-lifecycle-workflows/workflow-8.png)](media/understanding-lifecycle-workflows/workflow-8.png#lightbox)
+
+>[!NOTE]
+> The rule evaluation is case-sensitive.
 
 For a detailed guide on setting the execution conditions for a workflow, see: [Create a lifecycle workflow.](create-lifecycle-workflow.md)
 
