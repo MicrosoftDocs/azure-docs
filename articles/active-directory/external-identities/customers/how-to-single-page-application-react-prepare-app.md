@@ -65,7 +65,7 @@ Identity related **npm** packages must be installed in the project to enable use
     export const msalConfig = {
         auth: {
             clientId: 'Enter_the_Application_Id_Here', // This is the ONLY mandatory field that you need to supply.
-            authority: 'https://login.microsoftonline.com/Enter_the_Tenant_Id_Here', // Defaults to "https://login.microsoftonline.com/common"
+            authority: 'https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/', // Replace the placeholder with your tenant subdomain
             redirectUri: '/', // Points to window.location.origin. You must register this URI on Azure Portal/App Registration.
             postLogoutRedirectUri: '/', // Indicates the page to navigate after logout.
             navigateToLoginRequestUrl: false, // If "true", will navigate back to the original request location before processing the auth code response.
@@ -115,15 +115,15 @@ Identity related **npm** packages must be installed in the project to enable use
     * An optional silentRequest object can be used to achieve silent SSO
     * between applications by providing a "login_hint" property.
     */
-    export const silentRequest = {
-        scopes: ["openid", "profile"],
-        loginHint: "example@domain.net"
-    };
+    // export const silentRequest = {
+    //    scopes: ["openid", "profile"],
+    //    loginHint: "example@domain.net"
+    // };
     ```
 
 1. Replace the following values with the values from the Azure portal.
     - Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
-    - The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
+    - In **Authority**, find `Enter_the_Tenant_Subdomain_Here` and replace it with the subdomain of your tenant. For example, if your tenant primary domain is *caseyjensen@onmicrosoft.com*, the value you should enter is *casyjensen*.
 
 
 ## Modify index.js to include the authentication provider
