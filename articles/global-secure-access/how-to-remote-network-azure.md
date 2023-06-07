@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Simulate remote network connectivity
+description: Use Azure virtual network gateway to simulate customer premises equipment
 
 ms.service: network-access
 ms.subservice: 
@@ -31,14 +31,14 @@ Instead of using a physical customer premise equipment (CPE) to set up the IPSec
    - Virtual Machines 
    - Network Security Groups 
 - A user with the Entra Network Access Administrator role assigned.
-- An defined remote network created using the steps in the article, [How to create a remote network](how-to-create-remote-networks.md).
+- A defined remote network created using the steps in the article, [How to create a remote network](how-to-create-remote-networks.md).
 
 
 ## Simulate customer premises equipment and branch connectivity
 
-In the following example we will create a virual network gateway to simulate CPE and connectivity to...
+In the following example, we create a virtual network gateway to simulate CPE and connectivity to...
 
-We will create all of our resources inside of the same resource group so that they can be cleaned up easily after the fact. 
+We'll create all of our resources inside of the same resource group so that they can be cleaned up easily after the fact. 
 
 GlobalSecureAccess-Pilot
 
@@ -66,7 +66,7 @@ GlobalSecureAccess-Pilot
    1. Select the subscription and the resource group defined previously.
    1. Provide a descriptive **Virtual network name**.
    1. Select the desired region for the deployment.
-   1. For this tutorial we will accept the default configuration and select **Review + create**.
+   1. For this tutorial, we accept the default configuration and select **Review + create**.
 1. Select **Create**.
 1. When the deployment is complete, select **Go to resource**.
 1. Browse to **Subnets** on the left side of the virtual network window.
