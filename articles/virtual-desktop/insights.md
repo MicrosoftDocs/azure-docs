@@ -15,8 +15,6 @@ manager: femila
 
 Azure Virtual Desktop Insights is a dashboard built on Azure Monitor Workbooks that helps IT professionals understand their Azure Virtual Desktop environments. This topic will walk you through how to set up Azure Virtual Desktop Insights to monitor your Azure Virtual Desktop environments.
 
-# [Log Analytics agent](#tab/analytics)
-
 ## Prerequisites
 
 Before you start using Azure Virtual Desktop Insights, you'll need to set up the following things:
@@ -47,6 +45,8 @@ You can open Azure Virtual Desktop Insights with one of the following methods:
 - Search for and select **Azure Virtual Desktop** from the Azure portal, then select **Insights**.
 - Search for and select **Azure Monitor** from the Azure portal. Select **Insights Hub** under **Insights**, then select **Azure Virtual Desktop**.
 Once you have the page open, enter the **Subscription**, **Resource group**, **Host pool**, and **Time range** of the environment you want to monitor.
+
+# [Log Analytics agent](#tab/analytics)
 
 ## Log Analytics settings
 
@@ -168,44 +168,9 @@ To set up Windows Event Logs using the configuration workbook:
 1. Make sure all the required Windows Event Logs are enabled by checking the **Missing Event Logs** list. 
 
 >[!NOTE]
->If automatic event deployment fails, select **Open agent configuration** in the configuration workbook to manually add any missing Windows Event Logs. 
-
-## Optional: configure alerts
-
-Azure Virtual Desktop Insights allows you to monitor Azure Monitor alerts happening within your selected subscription in the context of your Azure Virtual Desktop data. Azure Monitor alerts are an optional feature on your Azure subscriptions, and you need to set them up separately from Azure Virtual Desktop Insights. You can use the Azure Monitor alerts framework to set custom alerts on Azure Virtual Desktop events, diagnostics, and resources. To learn more about Azure Monitor alerts, see [Azure Monitor Log Alerts](../azure-monitor/alerts/alerts-log.md).
+>If automatic event deployment fails, select **Open agent configuration** in the configuration workbook to manually add any missing Windows Event Logs.
 
 # [Azure Monitor Agent (preview)](#tab/monitor)
-
-## Prerequisites
-
-Before you start using Azure Virtual Desktop Insights, you'll need to set up the following things:
-
-- All Azure Virtual Desktop environments you monitor must be based on the latest release of Azure Virtual Desktop that’s compatible with Azure Resource Manager.
-- At least one configured Log Analytics Workspace. Use a designated Log Analytics workspace for your Azure Virtual Desktop session hosts to ensure that performance counters and events are only collected from session hosts in your Azure Virtual Desktop deployment.
-- Enable data collection for the following things in your Log Analytics workspace:
-    - Diagnostics from your Azure Virtual Desktop environment
-    - Recommended performance counters from your Azure Virtual Desktop session hosts
-    - Recommended Windows Event Logs from your Azure Virtual Desktop session hosts
-
- The data setup process described in this article is the only one you'll need to monitor Azure Virtual Desktop. You can disable all other items sending data to your Log Analytics workspace to save costs.
-
-Anyone monitoring Azure Virtual Desktop Insights for your environment will also need the following read-access permissions:
-
-- Read-access to the Azure resource groups that hold your Azure Virtual Desktop resources.
-- Read-access to the subscription's resource groups that hold your Azure Virtual Desktop session hosts.
-- Read access to the Log Analytics workspace. In the case that multiple Log Analytics workspaces are used, read access should be granted to each to allow viewing data.
-
-> [!NOTE]
-> Read access only lets admins view data. They'll need different permissions to manage resources in the Azure Virtual Desktop portal.
-
-## Open Azure Virtual Desktop Insights
-
-You can open Azure Virtual Desktop Insights with one of the following methods:
-
-- Go to [aka.ms/avdi](https://aka.ms/avdi).
-- Search for and select **Azure Virtual Desktop** from the Azure portal, then select **Insights**.
-- Search for and select **Azure Monitor** from the Azure portal. Select **Insights Hub** under **Insights**, then select **Azure Virtual Desktop**.
-Once you have the page open, enter the **Subscription**, **Resource group**, **Host pool**, and **Time range** of the environment you want to monitor.
 
 ## Log Analytics settings
 
@@ -301,11 +266,11 @@ To set up your remaining session hosts using the configuration workbook:
 >[!NOTE]
 >For larger host pools (over 1,000 session hosts) or if you encounter deployment issues, we recommend you [install the Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-manage.md#install) when you create a session host by using an Azure Resource Manager template.
 
+---
+
 ## Optional: configure alerts
 
 Azure Virtual Desktop Insights allows you to monitor Azure Monitor alerts happening within your selected subscription in the context of your Azure Virtual Desktop data. Azure Monitor alerts are an optional feature on your Azure subscriptions, and you need to set them up separately from Azure Virtual Desktop Insights. You can use the Azure Monitor alerts framework to set custom alerts on Azure Virtual Desktop events, diagnostics, and resources. To learn more about Azure Monitor alerts, see [Azure Monitor Log Alerts](../azure-monitor/alerts/alerts-log.md).
-
----
 
 ## Diagnostic and usage data
 
