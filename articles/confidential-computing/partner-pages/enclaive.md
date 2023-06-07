@@ -1,6 +1,6 @@
 ---
 title: Enclaive
-description: Confidential computing solutions from Fortanix on Azure
+description: Confidential computing solutions from Enclaive on Azure
 services: virtual-machines
 author: ananyagarg
 ms.service: virtual-machines
@@ -39,5 +39,5 @@ All Enclaive solutions on Azure can be found at the  [Azure Marketplace solution
 
 ## Learn more
 
-> Learn more about [Edgeless Systems](https://www.edgeless.systems/)
+> Learn more about [Enclaive](https://enclaive.io/).
 > Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.

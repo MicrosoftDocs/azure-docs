@@ -32,5 +32,6 @@ Get started today with the Azure Marketplace solution - there's a [SaaS offering
 
 ## Learn more
 
-> Learn more about [Anjuna Security](https://www.anjuna.io/)
+> Learn more about [Anjuna Security](https://www.anjuna.io/).
+
 > Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
