@@ -242,7 +242,7 @@ KubePodInventory
 
 ## Container logs
 
-Container logs for AKS are stored in [the ContainerLogV2 table](../container-insights-logging-v2.md). You can run the following sample queries to look for the stderr/stdout log output from target pods, deployments, or namespaces.
+Container logs for AKS are stored in [the ContainerLogV2 table](./container-insights-logging-v2.md). You can run the following sample queries to look for the stderr/stdout log output from target pods, deployments, or namespaces.
 
 ### Container logs for a specific pod, namespace, and container
 
