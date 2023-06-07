@@ -26,26 +26,30 @@ landingContent:
         links:
           - text: Get started with Global Secure Access
             url: how-to-get-started-with-global-secure-access.md
+          - text: Install the Windows client
+            url: how-to-install-windows-client.md
 
-  - title: Security at the edge
+  - title: Remote networks
     linkLists:
       - linkListType: concept
         links:
           - text: Understand remote network connectivity
             url: concept-remote-network-connectivity.md
+          - text: Create a remote network
+            url: how-to-create-remote-networks.md
 
-  - title: Connect
+  - title: Traffic forwarding
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Learn about traffic forwarding
+            url: concept-traffic-forwarding.md
           - text: Configure quick access
             url: how-to-configure-quick-access.md
-          - text: Configure traffic forwarding
-            url: concept-traffic-forwarding.md
-          - text: Install the Windows client
-            url: how-to-install-windows-client.md
-          - text: Manage remote networks
-            url: how-to-manage-remote-networks.md
+          - text: Manage the Microsoft 365 traffic profile
+            url: how-to-manage-microsoft-365-profile.md
+          - text: Manage the private access traffic profile
+            url: how-to-manage-private-access-profile.md
 
   - title: Conditional Access
     linkLists:
@@ -55,14 +59,18 @@ landingContent:
             url: how-to-target-resource.md
           - text: Source IP restoration
             url: how-to-source-ip-restoration.md
+          - text: Compliant network check
+            url: how-to-compliant-network.md
 
   - title: Monitor
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Audit logs
-            url: how-to-access-audit-logs.md
           - text: Network traffic dashboard
             url: concept-traffic-dashboard.md
-          - text: Enriched Office 365 logs
+          - text: Audit logs
+            url: how-to-access-audit-logs.md
+          - text: Network traffic logs
+            url: how-to-view-traffic-logs.md
+          - text: Enriched Microsoft 365 logs
             url: how-to-view-enriched-logs.md

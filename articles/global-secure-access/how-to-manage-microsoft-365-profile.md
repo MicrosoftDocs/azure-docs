@@ -17,6 +17,8 @@ With the Microsoft 365 profile enabled, Microsoft Entra Internet Access acquires
 - SharePoint Online and OneDrive for Business
 - Microsoft 365 Common and Office Online
 
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
+
 ## Prerequisites
 
 To enable the Microsoft 365 traffic forwarding profile for your tenant, you must have:
@@ -53,7 +55,7 @@ Conditional Access policies are created and applied to the profile in the Condit
 
 1. Select the **View** link for **Conditional Access policies applicable**.
 
-    ![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-enable-microsoft-365-profile/Microsoft 365-profile-view-link.png)
+    ![Screenshot of traffic forwarding profiles with Conditional Access link highlighted.](media/how-to-enable-microsoft-365-profile/Microsoft-365-profile-view-link.png)
 
 1. Select a link from the list to view the policy details. 
 

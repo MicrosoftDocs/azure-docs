@@ -16,6 +16,8 @@ Global Secure Access supports two connectivity options: installing a client on e
 
 This article describes the key concepts of remote network connectivity along with common scenarios where it may be useful.
 
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
+
 ## What is a remote network? 
 
 Remote networks are remote locations or networks that require internet connectivity. For example, many organizations have a central headquarters and branch office locations in different geographic areas. These branch offices need access to corporate data and services. They need a secure way to talk to the data center, headquarters, and remote workers. The security of remote network is crucial for many types of organizations.

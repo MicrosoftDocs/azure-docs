@@ -14,13 +14,15 @@ ms.custom:
 
 Device links are the customer premises equipment (CPE) used in your remote networks. End users and guests connect to Global Secure Access through the device links. You can create device links when you create a new remote network or manage the device links after the office is created.
 
-This article explains how to add, edit, and delete device links for a remote networks for Global Secure Access.
+This article explains how to add, edit, and delete device links for remote networks for Global Secure Access.
+
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Prerequisites 
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID
 
-## Add a device link to a remote networks
+## Add a device link to a remote network
 
 If you didn't add device links when you created the remote networks or you want to add a new device link, you can add a device link at any time.
 
@@ -69,7 +71,7 @@ To delete a device link, navigate to the device link details page and select the
 
 The link ASN is the autonomous system number of the CPE. The ASN is a unique number that identifies a network on the internet. The ASN is used to exchange routing information between the CPE and the Microsoft network. The ASN must be a 32-bit integer between 1 and 4294967295. The ASN must be unique for each device link.
 
-The following ASNs are reserved by Azure and cannot be used for your on-premises VPN devices when connecting to Azure VPN gateways:
+The following ASNs are reserved by Azure and can't be used for your on-premises VPN devices when connecting to Azure VPN gateways:
 - 8075
 - 8076
 - 12076 (public)
@@ -83,4 +85,4 @@ The following ASNs are reserved by Azure and cannot be used for your on-premises
 While setting up IPsec connectivity from virtual network gateways to Azure virtual WAN VPN, the ASN for Local Network Gateway is required to be 65515.
 
 ## Next steps
-- [List remote networks](how-to-list-remote networks.md)
+- [List remote networks](how-to-list-remote-networks.md)

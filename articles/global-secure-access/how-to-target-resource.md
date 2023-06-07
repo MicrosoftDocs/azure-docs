@@ -20,6 +20,8 @@ Conditional Access on traffic profiles provides administrators with enormous con
 
 This functionality allows administrators to consistently enforce Conditional Access policy based on [traffic profiles](concept-traffic-forwarding.md), not just applications or actions. Administrators can target specific traffic profiles like Microsoft 365, private, or internet with these policies. Users can access these configured endpoints or traffic profiles only when they satisfy the configured Conditional Access policies. 
 
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
+
 ## Prerequisites
 
 * A working Microsoft Entra ID tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

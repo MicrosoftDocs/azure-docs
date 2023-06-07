@@ -16,6 +16,8 @@ With the traffic forwarding profiles in Global Secure Access, you can apply poli
 
 This article describes the traffic forwarding profiles and how they work.
 
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
+
 ## Traffic forwarding
 
 **Traffic forwarding** enables you to configure the type of network traffic to route through the Microsoft Entra Private Access and Microsoft Entra Internet Access services. You set up profiles to manage how specific types of traffic are managed. 

@@ -15,8 +15,7 @@ Remote networks are remote locations, such as a branch location, or networks tha
 
 This article explains how to create a remote network for Global Secure Access.
 
-> [!IMPORTANT]
-> At this time, remote networks can only be assigned to the Microsoft 365 traffic forwarding profile. The private access traffic forwarding profile requires that your end users connect to Global Secure Access with the Global Secure Access client.
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Prerequisites
 
@@ -76,6 +75,9 @@ You can assign the remote network to a traffic forwarding profile when you creat
 
 1. Select the appropriate traffic forwarding profile.
 1. Select the **Review + Create** button.
+
+> [!IMPORTANT]
+> At this time, remote networks can only be assigned to the Microsoft 365 traffic forwarding profile. The private access traffic forwarding profile requires that your end users connect to Global Secure Access with the Global Secure Access client.
 
 ### Review and create
 

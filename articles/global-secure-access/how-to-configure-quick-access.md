@@ -14,6 +14,8 @@ ms.custom:
 
 With Global Secure Access, you can define specific websites or IP addresses to include in the traffic for Microsoft Entra Private Access. Your organization's employees can then access the apps and sites that you specify. This article describes how to configure Quick Access for Microsoft Entra Private Access.
 
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
+
 ## Prerequisites
 
 To configure Quick Access, you must have:
@@ -25,6 +27,11 @@ To manage App Proxy connector groups, which is required for Quick Access, you mu
 - An **Application Administrator** role in Microsoft Entra ID
 - A Microsoft Entra ID Premium P1/P2 license
 - An App Proxy license
+
+### Known limitations
+
+- Avoid overlapping app segments between Quick Access and per-app access.
+- Tunneling traffic to Private Access destinations by IP address is supported only for IP ranges outside of the end-user device local subnet. 
 
 ## How it works
 
@@ -115,7 +122,7 @@ You need to grant access to the Quick Access app you created by assigning users 
 
 If you're viewing the Quick Access app properties, select **Users and groups** from the side menu. Otherwise you can go to **Enterprise applications**, search for and select your application, then select **Users and groups** from the side menu.
 
-Add users and groups following the instructions in the [Assign users and groups to an application.](../active-directory/manage-apps/assign-user-or-group-access-portal.md) article.
+Add users and groups following the instructions in the [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md) article.
 
 ### Update quick access ranges
 

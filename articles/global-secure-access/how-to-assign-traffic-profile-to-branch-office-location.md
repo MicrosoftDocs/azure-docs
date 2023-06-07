@@ -14,6 +14,8 @@ ms.custom:
 
 Learn how to assign a traffic profile to a remote network for Global Secure Access.
 
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
+
 ## Prerequisites 
 
 To assign a traffic forwarding profile to a remote network, you must have:

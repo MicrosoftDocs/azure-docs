@@ -16,6 +16,8 @@ With your Microsoft 365 traffic flowing through the Microsoft Entra Private Acce
 
 This article describes the information in the logs and how to export them.
 
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
+
 ## Prerequisites
 
 To use the enriched logs, you need the following roles, subscriptions, and resources:

@@ -13,14 +13,21 @@ summary: |
   Frequently asked questions related to Global Secure Access.
 
 sections:
-  - name: Microsoft Entra Private Access and Microsoft Entra Internet Access
+  - name: Common platform questions
     questions:
       - question: | 
           What features are part of Microsoft Entra Private Access and Microsoft Entra Internet Access?
         answer: |
           Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access.
           To learn more about specific features in each product, see [What is Global Secure Access?](overview-what-is-global-secure-access.md).
-          
+      - question: | 
+          Does Global Secure Access allow B2B logins?
+        answer: |
+          At this time, B2B logins are not supported.
+      - question: | 
+          Does Global Secure Access support IPv6?
+        answer: |
+          At this time, only IPv4 is supported.
   - name: Remote network connectivity
     questions:
         - question: |

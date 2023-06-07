@@ -6,35 +6,26 @@ items:
   items:
   - name: What is Global Secure Access?
     href: overview-what-is-global-secure-access.md
-- name: Get started
-  expanded: true
-  items:
-    - name: Get started with Global Secure Access
-      href: how-to-get-started-with-global-secure-access.md
-    - name: Create a remote network
-      href: how-to-create-remote-networks.md
-    - name: Configure quick access
-      href: how-to-configure-quick-access.md
-    - name: Install the Windows client
-      href: how-to-install-windows-client.md
-    - name: Simulate remote network connectivity
-      href: how-to-remote-network-azure.md
-    - name: Explore the network traffic dashboard
-      href: concept-traffic-dashboard.md
+  - name: Get started with Global Secure Access
+    href: how-to-get-started-with-global-secure-access.md
+  - name: Install the Windows client
+    href: how-to-install-windows-client.md
 - name: How-to guides
   expanded: true
   items:
   - name: Remote networks
     expanded: false
     items:
-      - name: Assign a traffic forwarding profile to remote networks
-        href: how-to-assign-traffic-profile-to-branch-office-location.md
+      - name: Create a remote network
+        href: how-to-create-remote-networks.md
+      - name: Manage remote network device links
+        href: how-to-manage-remote-network-device-links.md
       - name: List remote networks
         href: how-to-list-remote-networks.md
       - name: Manage remote networks
         href: how-to-manage-remote-networks.md
-      - name: Manage remote network device links
-        href: how-to-manage-remote-network-device-links.md
+      - name: Assign a traffic forwarding profile to remote networks
+        href: how-to-assign-traffic-profile-to-branch-office-location.md
   - name: Conditional Access
     expanded: false
     items:
@@ -49,10 +40,17 @@ items:
   - name: Traffic forwarding profiles
     expanded: false
     items:
+      - name: Traffic forwarding profiles
+        href: concept-traffic-forwarding.md
       - name: Manage the Microsoft 365 profile
         href: how-to-manage-microsoft-365-profile.md
       - name: Manage the Private Access profile
         href: how-to-manage-private-access-profile.md
+  - name: Applications
+    expanded: false
+    items:
+      - name: Configure quick access
+        href: how-to-configure-quick-access.md 
       - name: Configure per-app access
         href: how-to-configure-per-app-access.md
   - name: Logs and monitoring
@@ -60,6 +58,8 @@ items:
     items:
       - name: Global Secure Access logs and monitoring
         href: concept-global-secure-access-logs-monitoring.md
+      - name: Explore the network traffic dashboard
+        href: concept-traffic-dashboard.md
       - name: Audit logs
         href: how-to-access-audit-logs.md
       - name: Enriched Office 365 logs
@@ -71,8 +71,6 @@ items:
   items:
   - name: Remote network connectivity
     href: concept-remote-network-connectivity.md
-  - name: Traffic forwarding profiles
-    href: concept-traffic-forwarding.md
 - name: Reference
   expanded: true
   items:
