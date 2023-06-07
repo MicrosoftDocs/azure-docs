@@ -259,7 +259,6 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
 
     :::image type="content" source="media/services/azure-container-apps-kafka-service-logs.png" alt-text="Screenshot of container app PostgreSQL service logs.":::
 
-
 ## Create a command line test apps
 
 We will start by creating an app to use `./kafka-topics.sh`, `./kafka-console-producer.sh`, and `kafka-console-consumer.sh` to connect to the Kafka instance.
@@ -316,7 +315,7 @@ We will start by creating an app to use `./kafka-topics.sh`, `./kafka-console-pr
       }
     }
 
-    output kafkaCliExec string = 'az containerapp exec -n ${kafkaCli.name} -g ${resourceGroup().name} --revision ${kafkaCli.properties.latestRevisionName} --command /bin/bash'
+    output kafkaCliExec string = 'az containerapp exec -n ${kafkaCli.name} -g ${resourceGroup().name} --command /bin/bash'
     ```
 
     > [!TIP]
@@ -382,8 +381,8 @@ We will start by creating an app to use `./kafka-topics.sh`, `./kafka-console-pr
     First create a `kafka.props` file
 
     ```bash
-    echo "security.protocol=$KAFKA_SECURITY_PROTOCOL" >> kafka.props
-    echo "sasl.mechanism=$KAFKA_SASL_MECHANISM" >> kafka.props
+    echo "security.protocol=$KAFKA_SECURITY_PROTOCOL" >> kafka.props && \
+    echo "sasl.mechanism=$KAFKA_SASL_MECHANISM" >> kafka.props && \
     echo "sasl.jaas.config=$KAFKA_PROPERTIES_SASL_JAAS_CONFIG" >> kafka.props
     ```
 
@@ -434,6 +433,8 @@ We will start by creating an app to use `./kafka-topics.sh`, `./kafka-console-pr
     # this is my second event
     # this is my third event
     ```
+
+:::image type="content" source="media/services/azure-container-apps-kafka-cli-output.png" alt-text="Screenshot of container app PostgreSQL service logs.":::
 
 ## Using a dev service with an existing app
 
@@ -627,7 +628,7 @@ resource kafkaUi 'Microsoft.App/containerApps@2023-04-01-preview' = {
 
 output kafkaUiUrl string = 'https://${kafkaUi.properties.configuration.ingress.fqdn}'
 
-output kafkaCliExec string = 'az containerapp exec -n ${kafkaCli.name} -g ${resourceGroup().name} --revision ${kafkaCli.properties.latestRevisionName} --command /bin/bash'
+output kafkaCliExec string = 'az containerapp exec -n ${kafkaCli.name} -g ${resourceGroup().name} --command /bin/bash'
 
 output kafkaLogs string = 'az containerapp logs show -n ${kafka.name} -g ${resourceGroup().name} --follow --tail 30'
 ```
