@@ -25,6 +25,9 @@ To enable Application Insights, follow these steps.
 > [!TIP] 
 > Good news! We're making it even easier to enable JavaScript. Check out where [SDK Loader Script injection by configuration is available](./codeless-overview.md#sdk-loader-script-injection-by-configuration)!
 
+> [!NOTE]
+> If you have a React, React Native, or Angular application, we offer the React, React Native, and Angular plug-ins, which will improve your data collection experience. The following documentation still applies to you, but you can [optionally add these plug-ins after you enable Application Insights](#5-optional-advanced-sdk-configuration).
+
 ### 1. Add the JavaScript code
 
 Two methods are available to add the code to enable Application Insights via the Application Insights JavaScript SDK.
@@ -144,49 +147,22 @@ To add SDK configuration, add each configuration option directly under `connecti
 
 If you can't run the application or you aren't getting data as expected, see the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
 
-## Advanced SDK configuration
+### 5. (Optional) Advanced SDK configuration
 
-Additional information is available for the following advanced scenarios:
+If you want to use the extra features provided by plugins for specific frameworks, see:
 
 - [React plugin](javascript-framework-extensions.md?tabs=react)
 - [React native plugin](javascript-framework-extensions.md?tabs=reactnative)
 - [Angular plugin](javascript-framework-extensions.md?tabs=reactnative)
-- [Click Analytics plugin](javascript-feature-extensions.md)
 
-## Frequently asked questions
+> [!TIP]
+> We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics plug-in](javascript-feature-extensions.md).
 
-#### What is collected automatically?
+## Support
 
-When you enable the App Insights JavaScript SDK, the following data classes are collected automatically:
-
-- Uncaught exceptions in your app, including information on
-    - Stack trace
-    - Exception details and message accompanying the error
-    - Line & column number of error
-    - URL where error was raised
-- Network Dependency Requests made by your app XHR and Fetch (fetch collection is disabled by default) requests, include information on
-    - Url of dependency source
-    - Command & Method used to request the dependency
-    - Duration of the request
-    - Result code and success status of the request
-    - ID (if any) of user making the request
-    - Correlation context (if any) where request is made
-- User information (for example, Location, network, IP)
-- Device information (for example, Browser, OS, version, language, model)
-- Session information
-
-> [!Note]
-> For some applications, such as single-page applications (SPAs), the duration may not be recorded and will default to 0.
-
-For more information, see the following link: https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-monitor/app/data-retention-privacy.md
-
-## Troubleshooting
-
-See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
-
-## Release notes
-
-Detailed release notes regarding updates and bug fixes can be found on [GitHub](https://github.com/microsoft/ApplicationInsights-JS/releases)
+- If you're having trouble with enabling Application Insights, see the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
+- For a list of open issues related to the Application Insights JavaScript SDK, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-JS/issues).
 
 ## Next steps
 
@@ -196,3 +172,4 @@ Detailed release notes regarding updates and bug fixes can be found on [GitHub](
 * [JavaScript telemetry initializers](api-filtering-sampling.md#javascript-telemetry-initializers)
 * [Build-measure-learn](usage-overview.md)
 * [JavaScript SDK advanced topics](javascript-sdk-advanced.md)
+* See the detailed [release notes](https://github.com/microsoft/ApplicationInsights-JS/releases) on GitHub for updates and bug fixes.
