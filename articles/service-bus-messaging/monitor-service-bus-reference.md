@@ -97,9 +97,8 @@ This section lists the types of resource logs you can collect for Azure Service 
 - Operational logs
 - Virtual network and IP filtering logs
 - Runtime Audit logs
-- Application Metric logs
 
-Azure Service Bus now supports sending to any of two destination tables- Azure Diagnostic and Resource specific tables. There are some changes to schema entries for the log emitted in different tables as highlighted below. 
+Azure Service Bus now supports sending logs to any of two destination tables-Azure Diagnostic and [Resource specific tables](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs#resource-specific) . 
 
 ### Operational logs
 Operational log entries include elements listed in the following table:
@@ -116,8 +115,8 @@ Operational log entries include elements listed in the following table:
 | `Status` | Operation status | Yes | Yes|
 | `Caller` | Caller of operation (the Azure portal or management client) | Yes | Yes|
 | `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes|
-|  `Type 	`| AZMSOperationalLogs| No | Yes|
-| `Category'| Category of logs  emitted.| Yes | No|
+|  `Type 	`| Type of logs emitted | Yes | Yes|
+| `Category`| Category of logs  emitted.| Yes | No|
 
 Here's an example of an operational log JSON string:
 
@@ -161,14 +160,6 @@ Here's an example of an operational log JSON string:
 
 
 
-
-
-
-
-
-
-
-
 ### Events and operations captured in operational logs
 Operational logs capture all management operations that are performed on the Azure Service Bus namespace. Data operations aren't captured, because of the high volume of data operations that are conducted on Azure Service Bus.
 
@@ -190,7 +181,7 @@ The following management operations are captured in operational logs:
 ### Virtual network and IP filtering logs
 Service Bus virtual network (VNet) connection event JSON includes elements listed in the following table:
 
-| Name | Description | Supported in Azure Diagnostics | Supported in AZMSVnetConnectionEvents Resource Specific table 
+| Name | Description | Supported in Azure Diagnostics | Supported in AZMSVnetConnectionEvents (Resource specific table) 
 | ---  | ----------- |---| ---| 
 | `SubscriptionId` | Azure subscription ID | Yes | Yes
 | `NamespaceName` | Namespace name | Yes | Yes
@@ -203,7 +194,7 @@ Service Bus virtual network (VNet) connection event JSON includes elements liste
 | `ResourceId` | Azure Resource Manager resource ID. | Yes | Yes
 | `Category` | ServiceBusVNetConnectionEvent | Yes | No
 | `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
-|  `Type`  | AZMSVNetConnectionEvents| No | Yes
+|  `Type`  | AZMSVNetConnectionEvents| Yes | Yes
 
 > [!NOTE] 
 > Virtual network logs are generated only if the namespace allows access from selected networks or from specific IP addresses (IP filter rules).
@@ -245,7 +236,7 @@ Runtime audit logs capture aggregated diagnostic information for various data pl
 
 Runtime audit logs include the elements listed in the following table:
 
-Name | Description | Supported in Azure Diagnostics | Supported in Resource Specific
+Name | Description | Supported in Azure Diagnostics | Supported in AZMSRuntimeAuditLogs (Resource specific table)
 ------- | -------| ---|---| 
 `ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes
 `ActivityName` | Runtime operation name.  | Yes | Yes
@@ -302,16 +293,6 @@ Here's an example of a runtime audit log entry:
  }
 
 ```
-
-
-
-## Application metric logs 
-
-Application metrics logs capture the aggregated information on certain metrics related to data plane operations. The captured information includes the following runtime metrics.
-
-Name | Description | Supported in AzureDiagnostics | Supported in Resource Specific
----| ---| ---|---|
-`NamespaceActiveConnections`| Details of active connections established from a client to the Service Bus. | Yes | Yes
 
 ## Azure Monitor Logs tables
 Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
