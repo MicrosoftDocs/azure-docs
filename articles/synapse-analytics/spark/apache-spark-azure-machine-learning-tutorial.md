@@ -5,10 +5,10 @@ author: midesa
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: machine-learning
+ms.custom: devx-track-python
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: sngun
- 
 ---
 # Tutorial: Train a model in Python with automated machine learning
 

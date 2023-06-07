@@ -4,6 +4,7 @@ description: This article provides guidance on how to enable Azure Monitor on ap
 ms.topic: conceptual
 ms.date: 05/20/2023
 ms.devlang: csharp, javascript, typescript, python
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
 ---
 
@@ -1136,9 +1137,9 @@ app.MapGet("/", () =>
 app.Run();
 ```
 
-By default, the activity ends up in the Application Insights `dependencies` table with dependency type `InProc`.
-
-For code representing a background job not captured by an instrumentation library, we recommend setting `ActivityKind.Server` in the `StartActivity` method to ensure it appears in the Application Insights `requests` table.
+When calling `StartActivity` it will default to `ActivityKind.Internal` but you can provide any other `ActivityKind`.
+`ActivityKind.Client`, `ActivityKind.Producer`, and `ActivityKind.Internal` are mapped to Application Insights `dependencies`.
+`ActivityKind.Server` and `ActivityKind.Consumer` are mapped to Application Insights `requests`.
 
 #### [.NET](#tab/net)
 
@@ -1158,6 +1159,10 @@ using (var activity = activitySource.StartActivity("CustomActivity"))
     // your code here
 }
 ```
+
+When calling `StartActivity` it will default to `ActivityKind.Internal` but you can provide any other `ActivityKind`.
+`ActivityKind.Client`, `ActivityKind.Producer`, and `ActivityKind.Internal` are mapped to Application Insights `dependencies`.
+`ActivityKind.Server` and `ActivityKind.Consumer` are mapped to Application Insights `requests`.
 
 #### [Java](#tab/java)
   

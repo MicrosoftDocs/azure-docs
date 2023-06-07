@@ -96,7 +96,7 @@ For further information about which assets aren't fully curated, you can select 
 
 :::image type="content" source="./media/data-stewardship/asset-curation-view-details.png" alt-text="Screenshot of the data stewardship asset curation chart, with the view details button highlighted below the chart.":::
 
-In the **View details** page, if you select a specific collection, it will list all assets with attribute values or blanks, that make up the ***fully curated*** assets.
+In the **View details** page, if you select a specific collection, it will list all assets with attribute values or blanks that make up the ***fully curated*** assets.
 
 :::image type="content" source="./media/data-stewardship/asset-curation-select-collection.png" alt-text="Screenshot of the asset curation detailed view, shown after selecting View Details beneath the asset curation chart.":::
 
@@ -132,3 +132,4 @@ This graph shows how the assets and key metrics have been trending over:
 
 Learn more about Microsoft Purview Data Estate Insights through:
 * [Data Estate Insights Concepts](concept-insights.md)
+* [Catalog adoption insights](catalog-adoption-insights.md)
