@@ -17,7 +17,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to use the Azure Spring Apps Maven plugin to configure and deploy applications to Azure Spring Apps.
 
@@ -133,7 +133,7 @@ To generate configurations and deploy the app, follow these steps:
                <configuration>
                    <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                    <clusterName>v-spr-cld</clusterName>
-                   <appName>customers-service</appName>
+                   <appName>hellospring</appName>
    ```
 
    The POM file now contains the plugin dependencies and configurations.

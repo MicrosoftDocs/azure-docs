@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 02/17/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.custom: devx-track-js, ignite-2022
+ms.custom: ignite-2022
 ---
 # Geospatial and GeoJSON location data in Azure Cosmos DB
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

@@ -1,13 +1,13 @@
 ---
 title: Customize CoreDNS for Azure Kubernetes Service (AKS)
-description: Learn how to customize CoreDNS to add subdomains or extend custom DNS endpoints using Azure Kubernetes Service (AKS)
+description: Learn how to customize CoreDNS to add subdomains, extend custom DNS endpoints, and change scaling logic using Azure Kubernetes Service (AKS)
 ms.subservice: aks-networking
 author: asudbring
 ms.topic: how-to
 ms.date: 03/03/2023
 ms.author: allensu
 
-#Customer intent: As a cluster operator or developer, I want to learn how to customize the CoreDNS configuration to add sub domains or extend to custom DNS endpoints within my network
+#Customer intent: As a cluster operator or developer, I want to learn how to customize the CoreDNS configuration to add sub domains or extend to custom DNS endpoints within my network. I also want to learn how to customize the logic for CoreDNS pod scaling.
 ---
 
 # Customize CoreDNS with Azure Kubernetes Service
@@ -204,6 +204,26 @@ data:
 
 For general CoreDNS troubleshooting steps, such as checking the endpoints or resolution, see [Debugging DNS resolution][coredns-troubleshooting].
 
+## Configure CoreDNS pod scaling
+
+Sudden spikes in DNS traffic within AKS clusters are a common occurrence due to the elasticity that AKS provides for workloads. These spikes can lead to an increase in memory consumption by CoreDNS pods. In some cases, this increased memory consumption could cause `Out of memory` issues. To preempt this issue, AKS clusters auto scale CoreDNS pods to reduce memory usage per pod. The default settings for this auto scaling logic are stored in the `coredns-autoscaler` ConfigMap. However, you may observe that the default auto scaling of CoreDNS pods is not always aggressive enough to prevent `Out of memory` issues for your CoreDNS pods. In this case, you can directly modify the `coredns-autoscaler` ConfigMap. Please note that simply increasing the number of CoreDNS pods without addressing the root cause of the `Out of memory` issue may only provide a temporary fix. If there is not enough memory available across the nodes where the CoreDNS pods are running, increasing the number of CoreDNS pods will not help. You may need to investigate further and implement appropriate solutions such as optimizing resource usage, adjusting resource requests and limits, or adding more memory to the nodes.
+
+CoreDNS uses [horizontal cluster proportional autoscaler][cluster-proportional-autoscaler] for pod auto scaling. The `coredns-autoscaler` ConfigMap can be edited to configure the scaling logic for the number of CoreDNS pods. The `coredns-autoscaler` ConfigMap currently supports two different ConfigMap key values: `linear` and `ladder` which correspond to two supported control modes. The `linear` controller yields a number of replicas in [min,max] range equivalent to `max( ceil( cores * 1/coresPerReplica ) , ceil( nodes * 1/nodesPerReplica ) )`. The `ladder` controller calculates the number of replicas by consulting two different step functions, one for core scaling and another for node scaling, yielding the max of the two replica values. For more information on the control modes and ConfigMap format, please consult the [upstream documentation][cluster-proportional-autoscaler-control-patterns].
+
+To retrieve the `coredns-autoscaler` ConfigMap, you can run the `kubectl get configmap coredns-autoscaler -n kube-system -o yaml` command which will return the following:
+
+```yaml
+apiVersion: v1
+data:
+  ladder: '{"coresToReplicas":[[1,2],[512,3],[1024,4],[2048,5]],"nodesToReplicas":[[1,2],[8,3],[16,4],[32,5]]}'
+kind: ConfigMap
+metadata:
+  name: coredns-autoscaler
+  namespace: kube-system
+  resourceVersion: "..."
+  creationTimestamp: "..."
+```
+
 ### Enable DNS query logging
 
 1. Add the following configuration to your coredns-custom ConfigMap:
@@ -250,6 +270,8 @@ To learn more about core network concepts, see [Network concepts for application
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [coredns hosts]: https://coredns.io/plugins/hosts/
 [coredns-troubleshooting]: https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/
+[cluster-proportional-autoscaler]: https://github.com/kubernetes-sigs/cluster-proportional-autoscaler
+[cluster-proportional-autoscaler-control-patterns]: https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#control-patterns-and-configmap-formats
 
 <!-- LINKS - internal -->
 [concepts-network]: concepts-network.md

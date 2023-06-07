@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 11/25/2022
 ms.author: dmwendia
 ms.reviewer: saeeda, jmprieur, engagement-fy23
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-extended-java
 ---
 
 # Logging in MSAL for Java

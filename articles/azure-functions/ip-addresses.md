@@ -49,6 +49,9 @@ nslookup <APP_NAME>.azurewebsites.net
 
 Each function app has a set of available outbound IP addresses. Any outbound connection from a function, such as to a back-end database, uses one of the available outbound IP addresses as the origin IP address. You can't know beforehand which IP address a given connection will use. For this reason, your back-end service must open its firewall to all of the function app's outbound IP addresses.
 
+> [!TIP]
+> For some platform-level features such as [Key Vault references](../app-service/app-service-key-vault-references.md), the origin IP might not be one of the outbound IPs, and you should not configure the target resource to rely on these specific addresses. It is recommended that the app instead use a virtual network integration, as the platform will route traffic to the target resource through that network.
+
 To find the outbound IP addresses available to a function app:
 
 # [Azure portal](#tab/portal)

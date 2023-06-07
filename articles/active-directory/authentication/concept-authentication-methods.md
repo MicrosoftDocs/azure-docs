@@ -65,7 +65,8 @@ The following table outlines when an authentication method can be used during a 
 | Method                         | Primary authentication | Secondary authentication  |
 |--------------------------------|:----------------------:|:-------------------------:|
 | Windows Hello for Business     | Yes                    | MFA\*                     |
-| Microsoft Authenticator        | Yes                    | MFA and SSPR              |
+| Microsoft Authenticator (Push) | No                     | MFA and SSPR              |
+| Microsoft Authenticator (Passwordless) | Yes            | No                        |
 | Authenticator Lite             | No                     | MFA                       |
 | FIDO2 security key             | Yes                    | MFA                       |
 | Certificate-based authentication | Yes                  | No                        |

@@ -2539,7 +2539,7 @@ ___
 <code><b>trim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
 Trims a string of leading and trailing characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter.  
 * ``trim('  dumbo  ') -> 'dumbo'``  
-* ``trim('!--!du!mbo!', '-!') -> 'du!mbo'``  
+* ``trim('!--!du!mbo!', '-!') -> 'dumbo'``  
 ___
 
 

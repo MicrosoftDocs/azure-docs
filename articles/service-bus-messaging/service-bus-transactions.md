@@ -14,6 +14,7 @@ This article discusses the transaction capabilities of Microsoft Azure Service B
 > [!NOTE]
 > - The basic tier of Service Bus doesn't support transactions. The standard and premium tiers support transactions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 > - Mixing management and messaging operations in a transaction isn't supported. 
+> - JavaScript SDK doesn't support transactions. 
 
 ## Transactions in Service Bus
 

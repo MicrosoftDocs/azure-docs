@@ -34,7 +34,7 @@ Templates are JavaScript Object Notation (JSON) files. To create templates, you 
 
 You also need either Azure PowerShell or Azure Command-Line Interface (CLI) to deploy the template. If you use Azure CLI, you need to have version 2.37.0 or later. For the installation instructions, see:
 
-- [Install Azure PowerShell](/powershell/azure/install-az-ps)
+- [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
 - [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
 - [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux)
 - [Install Azure CLI on macOS](/cli/azure/install-azure-cli-macos)

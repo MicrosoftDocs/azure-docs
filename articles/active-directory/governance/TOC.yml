@@ -28,6 +28,8 @@
         href: identity-governance-applications-existing-users.md
       - name: Governing a nonprovisionable application's users - PowerShell
         href: identity-governance-applications-not-provisioned-users.md
+      - name: Manage access to SAP applications
+        href: sap.md
     - name: Entitlement Management
       items:
       - name: Manage access to resources
@@ -42,6 +44,8 @@
         href: entitlement-management-onboard-external-user.md
       - name: Migrate an organizational role model
         href: identity-governance-organizational-roles.md
+      - name: Automated ServiceNow Ticket Creation Integration
+        href: entitlement-management-ticketed-provisioning.md  
     - name: Access Reviews
       items:
       - name: Review access to Microsoft 365 groups - Microsoft Graph
@@ -140,6 +144,8 @@
         href: entitlement-management-logic-apps-integration.md
       - name: Delegate to access package managers
         href: entitlement-management-delegate-managers.md
+      - name: Set up group writeback
+        href: entitlement-management-group-writeback.md  
     - name: Access package managers and Access package assignment managers
       items:
       - name: Create a new access package

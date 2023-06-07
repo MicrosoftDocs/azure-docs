@@ -113,7 +113,7 @@ Use this method for automated deployment of the 'Digital Shadows Searchlight' co
 (add any other settings required by the Function App)
 Set the `uri` value to: `<add uri value>` 
 >Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Azure Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details.
- - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: https://<CustomerId>.ods.opinsights.azure.us. 
+ - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`. 
 4. Once all application settings have been entered, click **Save**.
 
 

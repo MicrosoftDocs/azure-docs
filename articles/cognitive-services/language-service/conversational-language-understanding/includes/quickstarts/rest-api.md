@@ -14,13 +14,11 @@ ms.custom: ignite-fall-2021
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 [!INCLUDE [create a new resource from the Azure portal](../resource-creation-azure-portal.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Create-new-resource" target="_target">I ran into an issue</a>
+
 
 ## Get your resource keys and endpoint
 
@@ -29,8 +27,7 @@ ms.custom: ignite-fall-2021
 
     :::image type="content" source="../../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal" lightbox="../../../media/azure-portal-resource-credentials.png":::
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Get-resource-keys-and-endpoint" target="_target">I ran into an issue</a>
+
 
 ## Import a new CLU sample project
 
@@ -38,22 +35,19 @@ Once you have a Language resource created, create a conversational language unde
 
 For this quickstart, you can download [this sample project](https://go.microsoft.com/fwlink/?linkid=2196152) and import it. This project can predict the intended commands from user input, such as: reading emails, deleting emails, and attaching a document to an email. 
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=RESTAPI&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Create-a-conversational-language-understanding-project" target="_target">I ran into an issue</a>
+
 
 ### Trigger the import project job 
 
 [!INCLUDE [create and import project](../rest-api/import-project.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Trigger-import-project-job" target="_target">I ran into an issue</a>
+
 
 ### Get the import job status
 
 [!INCLUDE [get import project status](../rest-api/get-import-status.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Get-import-job-status" target="_target">I ran into an issue</a>
+
 
 ## Start training your model
 
@@ -61,8 +55,7 @@ Typically, after you create a project, you should [build schema](../../how-to/bu
 
 [!INCLUDE [train model](../rest-api/train-model.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Train-model" target="_target">I ran into an issue</a>
+
 
 ### Get the training job status
 
@@ -70,8 +63,7 @@ Training may take time to complete - sometimes between 10 and 30 minutes. You ca
 
  [!INCLUDE [get training model status](../rest-api/get-training-status.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Get-training-job-status" target="_target">I ran into an issue</a>
+
 
 ## Deploy your model
 
@@ -81,15 +73,13 @@ Generally after training a model you would review its evaluation details. In thi
 
 [!INCLUDE [deploy model](../rest-api/deploy-model.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Submit-deployment-job" target="_target">I ran into an issue</a>
+
 
 ### Get deployment job status
 
 [!INCLUDE [get deployment status](../rest-api/get-deployment-status.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Get-deployment-job-status" target="_target">I ran into an issue</a>
+
 
 ## Query model 
 
@@ -99,8 +89,7 @@ Once deployment succeeds, you can begin querying your deployed model for predict
 
 [!INCLUDE [test model](../rest-api/query-model.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Query-model" target="_target">I ran into an issue</a>
+
 
 ## Clean up resources
 
@@ -108,5 +97,4 @@ When you don't need your project anymore, you can delete your project using the 
 
 [!INCLUDE [Delete project](../rest-api/delete-project.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
+

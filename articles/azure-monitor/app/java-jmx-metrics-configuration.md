@@ -4,7 +4,7 @@ description: Configure extra JMX metrics collection for Azure Monitor Applicatio
 ms.topic: conceptual
 ms.date: 05/13/2023
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
 ---
 
@@ -60,13 +60,6 @@ Knowing what metrics are available, you can configure the agent to collect them.
       }
 ],
 ```
-
-## Types of collected metrics and available configuration options?
-
-We support numeric and boolean JMX metrics, while other types aren't supported and is ignored. 
-
-Currently, the wildcards and aggregated attributes aren't supported, that's why every attribute 'object name'/'attribute' pair must be configured separately. 
-
 
 ## Where do I find the JMX Metrics in application insights?
 

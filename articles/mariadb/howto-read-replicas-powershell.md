@@ -21,7 +21,7 @@ You can create and manage read replicas using PowerShell.
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](/powershell/azure/install-az-ps) installed
+- The [Az PowerShell module](/powershell/azure/install-azure-powershell) installed
   locally or [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-powershell.md)
 

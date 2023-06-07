@@ -50,6 +50,16 @@ For the past release history, see [Kubernetes history](https://en.wikipedia.org/
 | 1.26 | Dec 2022 | Feb 2023 | Apr 2023 | Mar 2024
 | 1.27 | Apr 2023 | May 2023 | Jun 2023 | Jun 2024
 
+## AKS Components Breaking Changes by Version
+
+Note important changes to make, before you upgrade to any of the available minor versions per below. 
+
+|AKS Component/Add on | v1.24  | v1.25 | v1.26 |
+|--------------|-------------------|-----------------------------------------------------------|---------------------------------------------------------------------------|
+| Overlay VPA | 0.11.0, no breaking changes |0.12.0</br><b>Breaking Changes:</b></br>Switch to using policy [v1 API](https://github.com/kubernetes/autoscaler/pull/4895) and Switch to using [CronJobs v1 API](https://github.com/kubernetes/autoscaler/pull/4887)|0.12.0</br><b>Breaking Changes:</b></br>Switch to using policy [v1 API](https://github.com/kubernetes/autoscaler/pull/4895) and Switch to using [CronJobs v1 API](https://github.com/kubernetes/autoscaler/pull/4887)
+|OS Images (Ubuntu)| Ubuntu 18.04 by default with cgroupv1 | Ubuntu 22.04 by default with cgroupv2.</br><b>Breaking Changes:</b></br> If you deploy Java applications with the JDK, prefer to use JDK 11.0.16 and later or JDK 15 and later, which fully support cgroup v2 | Ubuntu 22.04 by default with cgroupv2.</br><b>Breaking Changes:</b></br>If you deploy Java applications with the JDK, prefer to use JDK 11.0.16 and later or JDK 15 and later, which fully support cgroup v2
+
+
 ## Alias minor version
 
 > [!NOTE]

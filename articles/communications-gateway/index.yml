@@ -27,6 +27,8 @@ landingContent:
         links:
           - text: Interoperability with Microsoft Teams
             url: interoperability.md
+          - text: Mobile Control Point
+            url: mobile-control-point.md
           - text: Emergency calling
             url: emergency-calling.md
           - text: Reliability

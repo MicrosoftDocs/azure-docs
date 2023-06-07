@@ -3,7 +3,7 @@ title: Deploy IPv6 dual stack application - Basic Load Balancer - CLI
 titlesuffix: Azure Virtual Network
 description: Learn how to deploy a dual stack (IPv4 + IPv6) application with Basic Load Balancer using Azure CLI.
 author: mbender-ms
-ms.service: virtual-network
+ms.service: load-balancer
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/10/2023

@@ -195,7 +195,7 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-For more information about speech-to-text, see [the basics of speech recognition](../../../get-started-speech-to-text.md).
+For more information about speech to text, see [the basics of speech recognition](../../../get-started-speech-to-text.md).
 
 ## Synthesize translations
 

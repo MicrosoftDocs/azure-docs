@@ -7,6 +7,7 @@ ms.author: sidandrews
 ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 04/11/2023
 ---
@@ -290,6 +291,7 @@ Azure Cosmos DB for MongoDB vCore supports the following aggregation pipeline fe
 | `$replaceRoot` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$replaceWith` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$sample` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$search` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes, only with [vector search](vector-search.md) |
 | `$set` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$skip` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$sort` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
@@ -649,7 +651,8 @@ Azure Cosmos DB for MongoDB vCore supports the following indexes and index prope
 | `Multikey Index` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `Text Index` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `Geospatial Index` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `Hashed Index` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `Hashed Index` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `Vector Index (only available in Cosmos DB)` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes, with [vector search](vector-search.md) |
 
 ### Index properties
 

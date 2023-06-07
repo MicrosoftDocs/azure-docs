@@ -160,6 +160,7 @@ Sample JSON:
 
 ### Delete a business metadata attribute from an entity
 
+
 You can send a `DELETE` request to the following endpoint:
 
 ```
@@ -177,6 +178,9 @@ Sample JSON:
 ```
 
 ### Delete a business metadata type definition
+
+>[!NOTE]
+>You can only delete business metadata type definition if it has no references, i.e., if it has not been assigned to any assets in the catalog.
 
 You can send a `DELETE` request to the following endpoint:
 

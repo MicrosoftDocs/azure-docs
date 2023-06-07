@@ -99,8 +99,11 @@ Only the following tables are currently supported for custom log ingestion:
 - [**SecurityEvent**](/azure/azure-monitor/reference/tables/securityevent)
 - [**CommonSecurityLog**](/azure/azure-monitor/reference/tables/commonsecuritylog)
 - [**Syslog**](/azure/azure-monitor/reference/tables/syslog)
+- [**ASimAuditEventLogs**](/azure/azure-monitor/reference/tables/asimauditeventlogs)
+- **ASimAuthenticationEventLogs**
 - [**ASimDnsActivityLogs**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs)
 - [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs)
+- [**ASimWebSessionLogs**](/azure/azure-monitor/reference/tables/asimwebsessionlogs)
 
 ## Known issues
 

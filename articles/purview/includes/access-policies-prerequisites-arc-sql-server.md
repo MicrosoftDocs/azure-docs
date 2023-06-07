@@ -4,37 +4,20 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 02/02/2023
+ms.date: 05/12/2023
 ms.custom: references_regions
 ---
-- Get [SQL Server version 2022 or later](https://www.microsoft.com/sql-server/sql-server-2022) running on Windows and install it.
-- Complete the process to onboard that [SQL Server instance with Azure Arc](/sql/sql-server/azure-arc/connect).
+- Get [SQL Server on-premises version 2022](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) running on Windows and install it. You can try the free Developer edition.
+- Next, onboard the [SQL Server instance with Azure Arc](/sql/sql-server/azure-arc/connect).
 - Enable [Azure Active Directory authentication in SQL Server](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial). For a simpler setup, follow [this article](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#setting-up-azure-ad-admin-using-the-azure-portal).
 
 #### Region support
 
-Policy enforcement is available in only the following regions for Microsoft Purview:
-
-- East US
-- East US 2
-- South Central US
-- West Central US
-- West US
+Policy enforcement is available in all Microsoft Purview regions except:
 - West US2
-- West US3
-- Canada Central
-- Brazil South
-- North Europe
-- West Europe
-- France Central
-- Switzerland North
-- UK South
-- UAE North
-- South Africa North
-- Central India
-- Korea Central
-- Japan East
-- Australia East
+- East Asia
+- US Gov Virginia
+- China North 3
 
 #### Security considerations for Azure Arc-enabled SQL Server
 

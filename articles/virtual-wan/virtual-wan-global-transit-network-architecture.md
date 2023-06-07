@@ -125,7 +125,7 @@ This flag is visible when the user edits a virtual network connection, a VPN con
 
 The Azure Virtual WAN hubs interconnect all the networking end points across the hybrid network and potentially see all transit network traffic. Virtual WAN hubs can be converted to Secured Virtual Hubs by deploying the Azure Firewall inside VWAN hubs to enable cloud-based security, access, and policy control. Orchestration of Azure Firewalls in virtual WAN hubs can be performed by Azure Firewall Manager.
 
-[Azure Firewall Manager](../firewall-manager/index.yml) provides the capabilities to manage and scale security for global transit networks. Azure Firewall Manager provides ability to centrally manage routing, global policy management, advanced Internet security services via third-party along with the Azure Firewall.
+[Azure Firewall Manager](../firewall-manager/index.yml) provides the capabilities to manage and scale security for global transit networks. Azure Firewall Manager provides ability to centrally manage routing, global policy management, advanced Internet security services via third-party along with the Azure Firewall. To learn about how to secure your private and internet traffic, please see [Virtual Hub Routing Intent](how-to-routing-policies.md).
 
 :::image type="content" source="./media/virtual-wan-global-transit-network-architecture/secured-hub.png" alt-text="Diagram of secured virtual hub with Azure Firewall." lightbox="./media/virtual-wan-global-transit-network-architecture/secured-hub.png":::
 
@@ -176,12 +176,12 @@ This is a two step configuration:
 
 2. Configure which Connections (Vnet and Branch) can route traffic to the internet (0.0.0.0/0) via the Azure FW in the hub or Trusted Security Provider. This step ensures that the default route is propagated to selected branches and Vnets that are attached to the Virtual WAN hub via the Connections. 
 
-### Force Tunneling Traffic to On-premises Firewall in a Secured Virtual Hub
+### Force tunneling traffic to on-premises firewall in a Secured Virtual Hub
 
 If there is already a default route learned (via BGP) by the Virtual Hub from one of the Branches (VPN or ER sites), this default route is overridden by the default route learned from Azure Firewall Manager setting. In this case, all traffic that is entering the hub from Vnets and branches destined to internet, will be routed to the Azure Firewall or Trusted Security Provider.
 
 > [!NOTE]
-> Currently there is no option to select on-premises Firewall or Azure Firewall (and Trusted Security Provider) for internet bound traffic originating from Vnets, Branches or Users. The default route learned from the Azure Firewall Manager setting is always preferred over the default route learned from one of the branches.
+> Currently there is no option to select on-premises firewall or Azure Firewall (and Trusted Security Provider) for internet bound traffic originating from Vnets, Branches or Users. The default route learned from the Azure Firewall Manager setting is always preferred over the default route learned from one of the branches.
 
 
 ## Next steps

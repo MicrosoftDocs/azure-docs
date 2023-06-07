@@ -21,7 +21,7 @@ Here are the typical scenarios for processing and analyzing clickstream:
 ## Prerequisites
 * Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 * Install [Git](https://git-scm.com/downloads).
-* Azure PowerShell module. [Visit here to install or upgrade](/powershell/azure/install-Az-ps).
+* Azure PowerShell module. [Visit here to install or upgrade](/powershell/azure/install-azure-powershell).
 
 ## Filter clickstream requests
 

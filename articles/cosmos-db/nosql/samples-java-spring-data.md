@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: sample
 ms.date: 08/26/2021
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ---

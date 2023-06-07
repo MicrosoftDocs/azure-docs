@@ -101,6 +101,12 @@ landingContent:
             url: ./automation/supportability.md
           - text: Get started with the automation framework
             url: ./automation/get-started.md
+          - text: Plan your deployment of the automation framework
+            url: ./automation/plan-deployment.md
+      - linkListType: quickstart
+        links:
+          - text: Configure Azure DevOps Services for automation framework
+            url: ./automation/configure-devops.md
 
   - title: SAP on Azure Large Instances
     linkLists:

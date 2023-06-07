@@ -13,10 +13,6 @@ items:
     items:
     - name: Providers in Azure Monitor for SAP solutions
       href: providers.md
-    - name: Security
-      items:
-      - name: Security baseline
-        href: security-baseline.md
   - name: How-to guides
     items:
     - name: Set up network for Azure Monitor for SAP solutions
@@ -25,6 +21,8 @@ items:
       href: get-alerts-portal.md
     - name: Enable TLS in Azure Monitor for SAP solutions
       href: enable-tls-azure-monitor-sap-solutions.md
+    - name: Enable Insights to troubleshoot SAP workload issues
+      href: enable-sap-insights.md
     - name: Provider configuration
       items:
       - name: Configure NetWeaver provider
