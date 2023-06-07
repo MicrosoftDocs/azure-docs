@@ -464,6 +464,8 @@
         href: chronus-saml-tutorial.md
       - name: Cimpl
         href: cimpl-tutorial.md
+      - name: Circus Street
+        href: circus-street-tutorial.md
       - name: Cirrus Identity Bridge for Azure AD
         href: cirrus-identity-bridge-for-azure-ad-tutorial.md  
       - name: Cisco AnyConnect
@@ -1447,6 +1449,8 @@
         href: kpifire-tutorial.md
       - name: KPMG Leasing Tool
         href: kpmg-tool-tutorial.md
+      - name: Krisp Technologies
+        href: krisp-technologies-tutorial.md
       - name: Kronos
         href: kronos-tutorial.md
       - name: Kronos Workforce Dimensions
@@ -2203,6 +2207,8 @@
         href: schoox-tutorial.md
       - name: Sciforma
         href: sciforma-tutorial.md
+      - name: Scilife Azure AD SSO
+        href: scilife-azure-ad-sso-tutorial.md
       - name: SciQuest Spend Director
         href: sciquest-spend-director-tutorial.md
       - name: ScreenSteps
@@ -3266,6 +3272,8 @@
         href: officespace-software-provisioning-tutorial.md
       - name: Olfeo SAAS
         href: olfeo-saas-provisioning-tutorial.md
+      - name: OpenForms
+        href: openforms-provisioning-tutorial.md
       - name: OpenText Directory Services
         href: open-text-directory-services-provisioning-tutorial.md
       - name: Oracle Cloud Infrastructure Console

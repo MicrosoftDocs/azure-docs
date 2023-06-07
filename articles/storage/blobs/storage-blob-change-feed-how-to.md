@@ -11,7 +11,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Process change feed in Azure Blob Storage
