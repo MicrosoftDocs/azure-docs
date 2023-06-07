@@ -97,7 +97,7 @@ Name | Description | Supported in Azure Diagnostics | Supported in Resource Spec
 `ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes 
 `ActivityName` | Runtime operation name.| Yes | Yes 
 `ResourceId` | Resource associated with the activity. | Yes | Yes
-`Timestamp` | Aggregation time. | Yes | Yes
+`Timestamp` | Aggregation time. | Yes | No
  `TimeGenerated [UTC]`|Time of executed operation (in UTC)| No | Yes
 `Status` | Status of the activity (success or failure). | Yes | Yes 
 `Protocol` | Type of the protocol associated with the operation. | Yes | Yes 
@@ -114,7 +114,7 @@ Name | Description | Supported in Azure Diagnostics | Supported in Resource Spec
 
 Here's an example of a runtime audit log entry:
 
-```json
+```AzureDiagnostics
 {
     "ActivityId": "<activity id>",
     "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
@@ -128,6 +128,24 @@ Here's an example of a runtime audit log entry:
     "ClientIp": "x.x.x.x",
     "Count": 1,
     "Category": "RuntimeAuditLogs"
+ }
+
+```
+```AZMSRuntimeAuditLogs
+{
+    "ActivityId": "<activity id>",
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
+    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/<Event Hubs namespace>/eventhubs/<event hub name>",
+    "TimeGenerated (UTC)": "1/1/2021 8:40:06 PM +00:00",
+    "Status": "Success | Failure",
+    "Protocol": "AMQP | KAFKA | HTTP | Web Sockets", 
+    "AuthType": "SAS | Azure Active Directory", 
+    "AuthId": "<AAD application name | SAS policy name>",
+    "NetworkType": "Public | Private", 
+    "ClientIp": "x.x.x.x",
+    "Count": 1,
+    "Type": "AZMSRuntimeAUditLogs",
+    "Provider":"EVENTHUB"
  }
 
 ```
@@ -149,11 +167,12 @@ Name | Description
 `OutgoinMessages` | Details of number of messages consumed from Event Hubs. 
 `OutgoingBytes` | Details of Consumer throughput from Event Hubs.
 
-Application Metric logs shares partial common schema to Runtime Audit logs and is specifically built to track runtime operations for Application Groups.
-
+Application Metric logs shares partial common schema to Runtime Audit logs  as shown above. 
 
 ## Azure Monitor Logs tables
 Azure Event Hubs uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#event-hubs).
+
+You can view our sample queries to get started with different log categories. 
 
 > [!IMPORTANT]
 > Dimensions aren't exported to a Log Analytics workspace. 
