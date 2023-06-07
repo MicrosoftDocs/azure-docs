@@ -72,7 +72,7 @@ In customer-managed mode, TDE uses a service-managed database master key and use
 To enable in this mode, use Kubernetes tools. At this time, you can't use Azure CLI to enable this mode.
 
 > [!NOTE]
-> If you need to change from one mode to the other, you must disable TDE from the current mode before you apply the new mode. For details, see [Turn off TDE on the managed instance](#turn-off-transparent-data-encryption-on-the-managed-instance).
+> If you need to change from one mode to the other, you must disable TDE from the current mode before you apply the new mode. For details, see [Turn off TDE on the managed instance](#turn-off-tde-on-the-managed-instance).
 >
 > For example, if the service is encrypted using service-managed mode, go to `Disabled` mode before you enable customer-managed mode. 
 >
