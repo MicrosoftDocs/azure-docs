@@ -1,5 +1,5 @@
 ---
-title: Simulate remote network connectivity for Microsoft Entra Private Acces or Microsoft Entra Internet Access
+title: Simulate remote network connectivity for Microsoft Entra Private Access or Microsoft Entra Internet Access
 description: Use Azure virtual network gateway to simulate customer premises equipment
 
 ms.service: network-access

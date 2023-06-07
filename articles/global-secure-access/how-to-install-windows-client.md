@@ -1,5 +1,5 @@
 ---
-title: How to install the Global Secure Access Windows client
+title: The Global Secure Access Windows client
 description: Install the Global Secure Access Windows client to enable client connectivity.
 ms.service: network-access
 ms.topic: how-to
@@ -9,15 +9,11 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: lirazb
 ---
-# Install the Global Secure Access client
+# The Global Secure Access client
 
 The Global Secure Access client allows organizations control over network traffic at the edge computing device, giving organizations the ability to route specific traffic profiles through Microsoft Entra Internet Access and Microsoft Entra Private Access. Routing traffic in this method allows for more controls like continuous access evaluation (CAE), device compliance, or multifactor authentication to be required for resource access.
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
-> [!IMPORTANT]
-> Microsoft Azure Active Directory is becoming Microsoft Entra ID, for more information see our [blog post](https://aka.ms/AADRebrandFAQ).
-Steps in these articles may vary slightly based on the portal you start from. Content will be updated to reflect the new Microsoft Entra admin center over the next few months. 
 
 ## Prerequisites
 
@@ -91,10 +87,10 @@ To troubleshoot the Global Secure Access client, right-click the client icon in 
 - Switch user
    - Forces sign-in screen to change user or reauthenticate the existing user.
 - Pause
-   - This option can be used to temporarily disable traffic tunneling. 
+   - This option can be used to temporarily disable traffic tunneling <!---and traffic flows through the network as before.---> 
    - This option stops the Windows services related to client. When these services are stopped, traffic is no longer tunneled from the client machine to the cloud service. If the client machine is restarted, the services automatically restart with it.
 - Resume
-   - This option starts the underlying services related to the Global Secure Access Client. This option would be used to resume after temporarily pausing the client for troubleshooting.
+   - This option starts the underlying services related to the Global Secure Access Client. This option would be used to resume after temporarily pausing the client for troubleshooting. Traffic resumes tunneling from the client to the cloud service.
 - Restart
    - This option stops and starts the Windows services related to client.
 - Collect logs
@@ -104,11 +100,15 @@ To troubleshoot the Global Secure Access client, right-click the client icon in 
    - Runs a script to test client components ensuring the client is configured and working as expected. 
 - Connection Diagnostics
    - Summary tab shows policy version, last update date and time, and tenant information.
-      - Hostname acquisition state changes to green when traffic is tunneled successfully.
-   - Flows provide a means to see what traffic and process is tunneling traffic, similar to a network trace.
+      - Hostname acquisition state changes to green when new traffic acquired by FQDN is tunneled successfully.
+   - Flows provide a means to see what network connections are being tunneled to cloud service.
    - HostNameAcquisition provides a list mapping specific hostnames to their original and generated IP addresses that were tunneled.
-   - Services provides the current state of the underlying services that the Global Secure Access client requires to properly tunnel client traffic.
-   - Channels list the traffic forwarding profiles assigned to the client.
+   - Services provides the current state of the underlying Windows services that the Global Secure Access client requires to properly tunnel client traffic.
+   - Channels list the traffic forwarding profiles assigned to the client and their state.
+
+### Event logs
+
+
 
 ## Next steps
 
