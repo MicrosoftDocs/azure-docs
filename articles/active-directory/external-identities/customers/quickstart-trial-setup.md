@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: quickstart
-ms.date: 05/10/2023
+ms.date: 05/31/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or IT admin, I want to set up the customer tenant free trial.
 ---
-# Quickstart: Get started with Azure AD for customers (Preview)
+# Quickstart: Get started with Azure AD for customers (preview)
 
 Get started with Azure AD for customers (Preview) that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in customer tenant features, Azure AD for customers can serve as the identity provider and access management service for your customers. 
 
@@ -38,8 +38,7 @@ During the free trial period, you'll have access to all product features with fe
 | Group and User management. |  :heavy_check_mark: |  :heavy_check_mark:  |
 | **Cloud-agnostic solution** with multi-language auth SDK support.  |  :heavy_check_mark: |  :heavy_check_mark:  | 
 
-> [!IMPORTANT]
-> Azure AD for customers is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
 
 ## Sign up to your customer tenant free trial
 
@@ -89,6 +88,9 @@ Follow the steps below, to download and run the sample app.
 ## Explore Azure AD for customers
 
 Follow the articles below to learn more about the configuration the guide created for you or to configure your own apps. You can always come back to the [admin center](https://entra.microsoft.com/) to customize your tenant and explore the full range of configuration options for your tenant.
+
+> [!NOTE]
+> The next time you return to your tenant, you might be prompted to set up additional authentication factors for added security of your tenant admin account.
 
 ## Next steps
  - [Register an app in CIAM](how-to-register-ciam-app.md)

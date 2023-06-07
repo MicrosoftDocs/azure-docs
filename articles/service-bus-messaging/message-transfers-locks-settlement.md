@@ -107,7 +107,7 @@ If a receiving client fails to process a message and knows that redelivering the
 
 A special case of settlement is deferral, which is discussed in a [separate article](message-deferral.md).
 
-The `Complete`, `Deadletter`, or `RenewLock` operations may fail due to network issues, if the held lock has expired, or there are other service-side conditions that prevent settlement. In one of the latter cases, the service sends a negative acknowledgment that surfaces as an exception in the API clients. If the reason is a broken network connection, the lock is dropped since Service Bus doesn't support recovery of existing AMQP links on a different connection.
+The `Complete`, `DeadLetter`, or `RenewLock` operations may fail due to network issues, if the held lock has expired, or there are other service-side conditions that prevent settlement. In one of the latter cases, the service sends a negative acknowledgment that surfaces as an exception in the API clients. If the reason is a broken network connection, the lock is dropped since Service Bus doesn't support recovery of existing AMQP links on a different connection.
 
 If `Complete` fails, which occurs typically at the very end of message handling and in some cases after minutes of processing work, the receiving application can decide whether it preserves the state of the work and ignores the same message when it's delivered a second time, or whether it tosses out the work result and retries as the message is redelivered.
 

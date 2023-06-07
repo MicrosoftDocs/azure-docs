@@ -43,17 +43,17 @@ This guide walks you through the Azure portal creation experience.
 
 ## Deploy a model
 
-Before you can generate text or inference, you need to deploy a model. You can select from one of several available models in Azure OpenAI Studio.
+Before you can generate text or inference, you need to deploy a model. You can select from one of several available models in Azure AI Studio.
 
 Davinci is the most capable model family and can perform any task the other models can perform and often with less instruction. For applications requiring a lot of understanding of the content, like summarization for a specific audience and creative content generation, Davinci is going to produce the best results.
 
 To deploy a model, follow these steps:
 
-1. Sign in to [Azure OpenAI Studio](https://oai.azure.com).
+1. Sign in to [Azure AI Studio](https://oai.azure.com).
 1. Select the subscription and OpenAI resource to work with. 
 1. Select **Manage deployments in your resource** > **Go to Deployments** under **Manage your deployments and models**. You might first need to scroll down on the landing page.
 
-    :::image type="content" source="../media/create-resource/deployment.png" alt-text="Screenshot of Azure OpenAI Studio page with the 'Go to Deployments' button highlighted." lightbox="../media/create-resource/deployment.png":::
+    :::image type="content" source="../media/create-resource/deployment.png" alt-text="Screenshot of Azure AI Studio page with the 'Go to Deployments' button highlighted." lightbox="../media/create-resource/deployment.png":::
 
 1. Select **Create new deployment** from the **Management** > **Deployments** page.
 1. Select a model from the drop-down. For getting started in the East US region, we recommend the `text-davinci-003` model. In other regions you should start with the `text-davinci-002` model. Some models are not available in all regions. For a list of available models per region, see [Model Summary table and region availability](../concepts/models.md#model-summary-table-and-region-availability).

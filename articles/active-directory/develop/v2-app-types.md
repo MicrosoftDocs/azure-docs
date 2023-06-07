@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 09/09/2022
 ms.author: cwerner
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q2, devx-track-js
 ---
 
 # Application types for the Microsoft identity platform

@@ -12,12 +12,16 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 05/15/2023
+ms.date: 06/01/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## June 2023
+
+* [Customer-managed keys](configure-customer-managed-keys.md) for Azure NetApp Files now supports the option to Disable public access on the key vault that contains your encryption key. Selecting this option enhances network security by denying public configurations and allowing only connections through private endpoints. 
 
 ## May 2023 
 
