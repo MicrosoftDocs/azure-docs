@@ -43,7 +43,7 @@ Download for [Windows](https://download.microsoft.com/download/7/7/9/779eae73-a1
 
 ### New features
 
-- Introduced a scheduled task that checks for agent updates on a daily basis. Currently, the update mechanism is inactive and no changes will be made to your server even if a newer agent version is available. In the future, you will be able to schedule updates of the Azure Connected Machine agent from Azure. See [Automatic agent upgrades](manage-agent.md#automatic-agent-upgrades) for more information.
+- Introduced a scheduled task that checks for agent updates on a daily basis. Currently, the update mechanism is inactive and no changes are made to your server even if a newer agent version is available. In the future, you'll be able to schedule updates of the Azure Connected Machine agent from Azure. For more information, see [Automatic agent upgrades](manage-agent.md#automatic-agent-upgrades).
 
 ### Fixed
 
@@ -56,8 +56,8 @@ Download for [Windows](https://download.microsoft.com/download/2/7/0/27063536-94
 
 ### New features
 
-- The agent now compares the time on the local system and Azure service when checking network connectivity and creating the resource in Azure. If the clocks are offset by more than 120 seconds (2 minutes), a non-blocking error will be printed to the console. You may encounter TLS connection errors if the time of your computer does not match the time in Azure.
-- `azcmagent show` now supports an `--os` flag to print additional OS information to the console
+- The agent now compares the time on the local system and Azure service when checking network connectivity and creating the resource in Azure. If the clocks are offset by more than 120 seconds (2 minutes), a nonblocking error is shown. You may encounter TLS connection errors if the time of your computer doesn't match the time in Azure.
+- `azcmagent show` now supports an `--os` flag to print extra OS information to the console
 
 ### Fixed
 
