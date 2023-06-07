@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Sign in users in .NET MAUI shell app"
-description: This tutorial demonstrate how to sign in users in .NET MAUI shell app and runs on window platform.
+description: This tutorial demonstrates how to add sign-in and sign-out code in .NET Multi-platform App UI (.NET MAUI) and how to run the app on the Windows platform.
 author: henrymbuguakiarie
 manager: mwongerapk
 
@@ -13,7 +13,7 @@ ms.date: 06/05/2023
 
 # Tutorial: Sign in users in .NET MAUI shell app
 
-This tutorial shows you how to create .NET Multi-platform App UI (.NET MAUI) ContentPage (XAML) template, add sign-in code and run the app to go through the sign-in flow.
+This tutorial shows you how to add sign-in and sign-out code in .NET Multi-platform App UI (.NET MAUI) and how to run the app on the Windows platform.
 
 In this tutorial, you learn how to:
 
@@ -22,16 +22,16 @@ In this tutorial, you learn how to:
 > - Add sign-in and sign-out code.
 > - Modify the app Shell.
 > - Add platform-specific code.
-> - Add app settings
-> - Run and test .NET MAUI desktop app.
+> - Add app settings.
+> - Run and test .NET MAUI shell app.
 
 ## Prerequisites
 
-- [Tutorial: Create .NET MAUI shell app and add MSAL client](tutorial-desktop-app-maui-sign-in-prepare-app.md)
+- [Tutorial: Create a .NET MAUI shell app, add MSALClient, and include an image resource](tutorial-desktop-app-maui-sign-in-prepare-app.md)
 
 ## Add sign-in and sign-out code
 
-The user interface of a .NET Multi-platform App UI (.NET MAUI) app is constructed of objects that map to the native controls of each target platform. The main control groups used to create the user interface of a .NET MAUI app are pages, layouts, and views.
+The user interface of a .NET MAUI app is constructed of objects that map to the native controls of each target platform. The main control groups used to create the user interface of a .NET MAUI app are pages, layouts, and views.
 
 ### Add main view page
 
@@ -103,14 +103,14 @@ The next steps will organize our code so that the `main view` is defined.
    - `<VerticalStackLayout>` is the child object of the ContentPage. This layout control arranges its children vertically, one after the other.
    - `<Image>` displays an image, in this case it's using the _azure_active_directory.png_ that you downloaded earlier.
    - `<Label>` controls display text.
-   - `<Button>` controls can be pressed by the user, which raise the Clicked event. You can run code in response to the Clicked event.
-   - `Clicked="OnSignInClicked"` the Clicked event of the button is assigned to the `OnSignInClicked` event handler, which will be defined in the code-behind file. You'll create this code in the next step.
+   - `<Button>` can be pressed by the user, which raise the `Clicked` event. You can run code in response to the `Clicked` event.
+   - `Clicked="OnSignInClicked"` the `Clicked` event of the button is assigned to the `OnSignInClicked` event handler, which will be defined in the code-behind file. You'll create this code in the next step.
 
 #### Handle the OnSignInClicked event
 
-The next step is to add the code for the button's Clicked event.
+The next step is to add the code for the button's `Clicked` event.
 
-1. In the **Solution Explorer** pane of Visual Studio, expand the _MainView.xaml_ file to reveal it's code-behind file _MainView.xaml.cs_. Open the _MainView.xaml.cs_ and replace the content of the file with following code:
+1. In the **Solution Explorer** pane of Visual Studio, expand the **MainView.xaml** file to reveal it's code-behind file **MainView.xaml.cs**. Open the **MainView.xaml.cs** and replace the content of the file with following code:
 
    ```csharp
    // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -223,7 +223,7 @@ The next steps will organize our code so that the `claims view` is defined.
 
 The next step is to add the code to handle `ClaimsView` data.
 
-1. In the **Solution Explorer** pane of Visual Studio, expand the _ClaimsView.xaml_ file to reveal it's code-behind file _ClaimsView.xaml.cs_. Open the _ClaimsView.xaml.cs_ and replace the content of the file with following code:
+1. In the **Solution Explorer** pane of Visual Studio, expand the **ClaimsView.xaml** file to reveal its code-behind file **ClaimsView.xaml.cs**. Open the **ClaimsView.xaml.cs** and replace the content of the file with following code:
 
    ```csharp
     using SignInMaui.MSALClient;
@@ -301,7 +301,7 @@ The `AppShell` class defines an app's visual hierarchy, the XAML markup used in 
 
    The XAML code defines an `AppShell` class that disables the flyout behavior and sets the main content to a `ShellContent` element with a title `Home` and a content template pointing to the `MainView` class.
 
-1. In the **Solution Explorer** pane of Visual Studio, expand the _AppShell.xaml_ file to reveal it's code-behind file _AppShell.xaml.cs_. Open the _AppShell.xaml.cs_ and replace the content of the file with following code:
+1. In the **Solution Explorer** pane of Visual Studio, expand the **AppShell.xaml** file to reveal its code-behind file **AppShell.xaml.cs**. Open the **AppShell.xaml.cs** and replace the content of the file with following code:
 
    ```csharp
    // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -377,7 +377,7 @@ In the code, you configure the redirect URI for the application and initialized 
 
 Settings allow the separation of data that configures the behavior of an app from the code, allowing the behavior to be changed without rebuilding the app. The `MauiAppBuilder` provides `ConfigurationManager` that is built in to configure settings in our .NET MAUI app. Let's add the `appsettings.json` file as an `EmbeddedResource`.
 
-To create app settings, follow these steps:
+To create `appsettings.json`, follow these steps:
 
 1. In the **Solution Explorer** pane of Visual Studio, right-click on the **SignInMaui** project > **Add** > **New Item...**.
 1. Select **Web** > **JavaScript JSON Configuration File**. Name the file `appsettings.json`.

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Create .NET MAUI shell app and add MSAL client"
-description: This tutorial demonstrate how to create a .NET MAUI shell app and add MSAL client.
+title: "Tutorial: Create a .NET MAUI shell app, add MSALClient, and include an image resource"
+description: This tutorial demonstrate how to create a .NET MAUI shell app, add MSALClient, and include an image resource.
 author: henrymbuguakiarie
 manager: mwongerapk
 
@@ -11,9 +11,9 @@ ms.subservice: ciam
 ms.date: 06/05/2023
 ---
 
-# Tutorial: Create .NET MAUI shell app and add MSALClient
+# Tutorial: Create a .NET MAUI shell app, add MSALClient, and include an image resource
 
-This tutorial shows you how to create .NET MAUI shell app, add a custom Microsoft Authentication Libraries (MSAL) client helper to intialize MSAL SDK and install required libraries.
+This tutorial demonstrates how to create a .NET MAUI shell app, add a custom Microsoft Authentication Library (MSAL) client helper to initialize MSAL SDK, install required libraries and include an image resource.
 
 In this tutorial, you learn how to:
 
@@ -62,13 +62,13 @@ Download the following files:
 ### Move the MSALClient files with Visual Studio
 
 1. In the **Solution Explorer** pane, right-click on the **SignInMaui** project and select **Add** > **New Folder**. Name the folder _MSALClient_.
-1. Right-click on _MSALClient_, select **Add** > **Existing Item...**.
+1. Right-click on **MSALClient** folder, select **Add** > **Existing Item...**.
 1. Navigate to the folder that contains the downloaded MSALClient files.
 1. Hold down _CTRL_ and select on each of the MSALClient files you downloaded, then select **Add**
 
 ## Install required packages
 
-The following packages needs to be installed:
+You need to install the following packages:
 
 - _Microsoft.Identity.Client_ - This package contains the binaries of the Microsoft Authentication Library for .NET (MSAL.NET).
 - _Microsoft.Extensions.Configuration.Json_ - This package contains JSON configuration provider implementation for Microsoft.Extensions.Configuration.
@@ -91,7 +91,7 @@ Repeat the process to install the remaining required packages.
 
 ## Add image resource
 
-Some controls can use images, which enhances how users interact with your app. In this section you'll download one image you'll use in your app.
+In this section, you'll download an image that you'll use in your app to enhance how users interact with it.
 
 Download the following image:
 
@@ -104,7 +104,7 @@ Download the following image:
 1. Navigate to the folder that contains the downloaded images.
 1. Change the filter to file type filter to **Image Files**.
 1. Select the image you downloaded.
-1. Select **Add**
+1. Select **Add**.
 
 ## Next steps
 

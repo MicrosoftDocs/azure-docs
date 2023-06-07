@@ -16,6 +16,20 @@ items:
   items: 
     - name: Samples by app type and language
       href: samples-ciam-all.md
+- name: Tutorials
+  expanded: true
+  items: 
+    - name: Desktop app
+      expanded: true
+      items:
+        - name: .NET MAUI
+          items:
+            - name: Prepare tenant
+              href: tutorial-desktop-app-maui-prepare-tenant.md
+            - name: Prepare app
+              href: tutorial-desktop-app-maui-prepare-app.md
+            - name: Sign in and sign out
+              href: tutorial-desktop-app-maui-sign-in-sign-out.md
 - name: Concepts
   expanded: true
   items: 
