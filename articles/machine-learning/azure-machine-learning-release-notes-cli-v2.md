@@ -24,6 +24,101 @@ In this article, learn about Azure Machine Learning CLI (v2) releases.
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes-v2%22&locale=en-us`
 
+## 2023-05-09
+
+### Azure Machine Learning CLI (v2) v2.16.0
+
+- `az ml job connect-ssh`
+  - This command is marked as GA.
+
+- `az ml job show-services`
+  - This command is marked as GA.
+
+- `az ml model download`
+  - Fixed issue where, when downloading a model from a registry via the `--registry-name` argument, `workspace_name` was mandatory.
+
+- `az ml model create`
+  - Add `--stage(-s)` flag to add the stage of the model.
+
+- `az ml model update`
+  - Add `--stage(-s)` flag to update the stage of the model.
+
+- `az ml model list`
+  - Add `--stage(-s)` flag to list by the stage of the model.
+
+- `az ml workspace delete`
+  - Add `--purge(-p)` flag to force to purge instead of soft delete.
+
+- `az ml workspace create`
+  - Add `--enable-data-isolation(-e)` flag to determine if a workspace has data isolation enabled.
+
+
+## 2023-03-21
+
+### Azure Machine Learning CLI (v2) v2.15.0
+
+- `az ml compute`
+  - Added `--tags` to create and update for AzureML Compute.
+
+- `az ml data import`
+  - Support create a data asset version by first importing data from database and file_system to Azure cloud storage.
+
+- `az ml data list-materialization-status`
+  - Support list status of data import materialization jobs that create data asset versions of <asset_name> via `--name` argumant.
+
+- `az ml online-deployment update`
+  - Added `--skip-script-validation` to create for AzureML Online Deployment.
+
+- `az ml workspace provision-network`
+  - Support to provision managed network for workspace
+
+
+## 2023-02-03
+
+### Azure Machine Learning CLI (v2) v2.14.0
+
+- `az ml compute`
+  - Added `--location` to create for AzureML Compute.
+  - Added `--enable-node-public-ip` to create for Compute.
+
+- `az ml data`
+  - Minor edits to help text
+
+- `az ml data list`
+  - Added support for listing data assets in a registry via the `--registry-name` argument
+
+- `az ml data show`
+  - Added support for showing a data asset in a registry via the `--registry-name` argument
+
+- `az ml data create`
+  - Added support for creating a data asset in a registry via the `--registry-name` argument
+  - Added support for promoting a data asset from a workspace to a registry
+
+- `az ml workspace create`
+  - Added support for creating a workspace with a managed network with `--managed-network` argument
+
+- `az ml workspace update`
+  - Added support for updating a workspace with a managed network with `--managed-network` argument
+
+- `az ml compute connect-ssh`
+  - Added support for connecting to a compute instance via SSH
+
+- `az ml workspace outbound-rule`
+  - Added support for listing a managed network's outbound rules for a workspace `az ml workspace outbound-rule list`
+  - Added support for showing a managed network's outbound rules for a workspace `az ml workspace outbound-rule show`
+  - Added support for removing a managed network's outbound rules for a workspace `az ml workspace outbound-rule remove`
+  - Added support for creating or updating a managed network's outbound rules for a workspace `az ml workspace outbound-rule set`
+
+
+
+## 2022-12-06
+
+### Azure Machine Learning CLI (v2) v2.12.0
+
+- Improved error message for `az ml` commands that are registry enabled, when neither workspace nor registry name is passed.
+- `az ml compute`
+  - Fixed issue caused by no-wait parameter.
+
 ## 2022-11-08
 
 ### Azure Machine Learning CLI (v2) v2.11.0
