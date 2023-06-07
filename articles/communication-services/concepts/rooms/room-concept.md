@@ -138,6 +138,10 @@ Earlier public preview version of Rooms API supported two configurations for Roo
 
 The "Open Room" concept is now deprecated. Going forward, "Invite Only" rooms will be the only supported Room type.
 
+## Known Limitations
+
+- Azure Communication Services Call Automation capabilities currently do not support Rooms call.
+
 ## Next steps:
 - Use the [QuickStart to create, manage and join a room](../../quickstarts/rooms/get-started-rooms.md).
 - Learn how to [join a room call](../../quickstarts/rooms/join-rooms-call.md).
