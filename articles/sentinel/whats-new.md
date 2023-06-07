@@ -17,6 +17,10 @@ See these [important announcements](#announcements) about recent changes to feat
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## June 2023
+
+- [Classic alert automation due for deprecation](#classic-alert-automation-due-for-deprecation) (see Announcements)
+
 ## May 2023
 
 - Connect your threat intelligence platform or custom solution to Microsoft Sentinel with the new [upload indicators API](#connect-threat-intelligence-with-the-upload-indicators-api)
@@ -151,6 +155,7 @@ To give you more flexibility in scheduling your analytics rule execution times a
 
 ## Announcements
 
+- [Classic alert automation due for deprecation](#classic-alert-automation-due-for-deprecation)
 - [When disconnecting and connecting the MDI alerts connector - UniqueExternalId field is not populated (use the AlertName field)](#when-disconnecting-and-connecting-the-mdi-alerts-connector---uniqueexternalid-field-is-not-populated-use-the-alertname-field)
 - [Microsoft Defender for Identity alerts will no longer refer to the MDA policies in the Alert ExternalLinks properties](#microsoft-defender-for-identity-alerts-will-no-longer-refer-to-the-mda-policies-in-the-alert-externallinks-properties)
 - [WindowsEvent table enhancements](#windowsevent-table-enhancements)
@@ -159,6 +164,19 @@ To give you more flexibility in scheduling your analytics rule execution times a
 - [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
 - [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
 - [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table)
+
+### Classic alert automation due for deprecation
+
+Automated responses to alerts, in the form of playbooks, can be run in one of two ways:
+- **Classic:** adding the playbook to the list under **Alert automation (classic)** in the **Automated response** tab of the analytics rule that produced the alert.
+
+- **Automation rule:** creating an automation rule to run in response to the creation of alerts, and the automation rule will run the playbook. This method has [several advantages, as described here](migrate-playbooks-to-automation-rules.md).
+
+As of **June 2023**, you can no longer add playbooks to be run using the **Classic** method; rather, you must use [automation rules](automate-incident-handling-with-automation-rules.md).
+
+Playbooks in the existing **Classic** lists will continue to run until this method's scheduled deprecation in **March 2026**.
+
+We strongly encourage you to migrate any remaining playbooks in your **Classic** lists to run from automation rules instead. [Learn how to migrate playbooks to automation rules](migrate-playbooks-to-automation-rules.md).
 
 ### When disconnecting and connecting the MDI alerts connector - UniqueExternalId field is not populated (use the AlertName field) 
 

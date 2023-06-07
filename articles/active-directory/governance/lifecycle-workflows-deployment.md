@@ -38,7 +38,7 @@ Lifecycle Workflows are an [Azure AD Identity Governance](identity-governance-ov
  
 Planning your Lifecycle Workflow deployment is essential to make sure you achieve your desired governance strategy for users in your organization.
 
-For more information on deployment plans, see [Azure AD deployment plans](../fundamentals/active-directory-deployment-plans.md)
+For more information on deployment plans, see [Azure AD deployment plans](../fundamentals/deployment-plans.md)
 
 ## License requirements
 
@@ -56,7 +56,7 @@ Consider your organizational needs to determine the strategy for deploying Lifec
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that project roles are clear.
+When technology projects fail, they typically do so because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/deployment-plans.md) and that project roles are clear.
 
 For Lifecycle Workflows, you'll likely include representatives from the following teams within your organization:
 
@@ -256,7 +256,7 @@ In your pilot, we recommend that you:
 * Start with Lifecycle Workflows where the results are applied to a small subset of users.
 * Monitor audit logs to ensure all events are properly audited.
 
-For more information, see [Best practices for a pilot.](../fundamentals/active-directory-deployment-plans.md).
+For more information, see [Best practices for a pilot.](../fundamentals/deployment-plans.md).
 
 
 

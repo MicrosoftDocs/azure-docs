@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/25/2023
+ms.date: 05/31/2023
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -54,11 +54,12 @@ This section provides references for solutions for Linux OSS applications and da
 ### Oracle
 
 * [Oracle Database with Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)
-* [Oracle Databases on Microsoft Azure Using Azure NetApp Files](https://www.netapp.com/media/17105-tr4780.pdf)
 * [Oracle VM images and their deployment on Microsoft Azure: Shared storage configuration options](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
+* [Oracle On Azure IaaS Recommended Practices For Success](https://github.com/Azure/Oracle-Workloads-for-Azure/blob/main/Oracle%20on%20Azure%20IaaS%20Recommended%20Practices%20for%20Success.pdf)
 * [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)
 * [Oracle database performance on Azure NetApp Files single volumes](performance-oracle-single-volumes.md)
 * [Benefits of using Azure NetApp Files with Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
+* [Oracle Databases on Microsoft Azure Using Azure NetApp Files](https://www.netapp.com/media/17105-tr4780.pdf)
 
 ### Financial analytics and trading
 * [Host a Murex MX.3 workload on Azure](/azure/architecture/example-scenario/finance/murex-mx3-azure)
@@ -175,11 +176,11 @@ This section provides references for Virtual Desktop infrastructure solutions.
 * [Create an FSLogix profile container for a host pool using Azure NetApp Files](../virtual-desktop/create-fslogix-profile-container.md)
 * [Azure Virtual Desktop at enterprise scale](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 * [Microsoft FSLogix for the enterprise - Azure NetApp Files best practices](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#azure-netapp-files-best-practices)
+* [Enhanced Performance and Scalability: Azure AD-joined Session Hosts with Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/enhanced-performance-and-scalability-azure-ad-joined-session/ba-p/3836576)
 * [Setting up Azure NetApp Files for MSIX App Attach](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/setting-up-azure-netapp-files-for-msix-app-attach-step-by-step/m-p/1990021)
 * [Multiple forests with AD DS and Azure AD – Azure Example Scenarios](/azure/architecture/example-scenario/wvd/multi-forest)
 * [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop – Azure Example Scenarios](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr)
 * [Deploy Esri ArcGIS Pro in Azure Virtual Desktop – Azure Example Scenarios](/azure/architecture/example-scenario/data/esri-arcgis-azure-virtual-desktop)
-
 
 ### Citrix   
 
@@ -226,6 +227,7 @@ This section provides solutions for Azure platform services.
 
 * [Astra: protect, recover, and manage your AKS workloads on Azure NetApp Files](https://cloud.netapp.com/hubfs/Astra%20Azure%20Documentation.pdf) 
 * [Integrate Azure NetApp Files with Azure Kubernetes Service](../aks/azure-netapp-files.md)
+* [Azure NetApp Files SMB volumes for Azure Kubernetes Services with Astra Trident on Windows](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-smb-volumes-for-azure-kubernetes-services/ba-p/3052900)
 * [Application data protection for AKS workloads on Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)
 * [Disaster Recovery of AKS workloads with Astra Control Service and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-of-aks-workloads-with-astra-control-service/ba-p/2948089)
 * [Protecting MongoDB on AKS/ANF with Astra Control Service using custom execution hooks](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-mongodb-on-aks-anf-with-astra-control-service-using/ba-p/3057574)
