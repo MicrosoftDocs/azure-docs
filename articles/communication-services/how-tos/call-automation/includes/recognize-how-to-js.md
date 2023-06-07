@@ -15,6 +15,7 @@ ms.author: kpunjabi
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the connection string for this resource. 
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
+- Have Node.js installed, you can install it from their [official website](https://nodejs.org).
 
 ## Technical specifications
 
@@ -32,8 +33,22 @@ The following parameters are available to customize the Recognize function:
 | OperationContext | String | Not set | String that developers can pass mid action, useful for allowing developers to store context about the events they receive. | Optional |
 
 ## Create a new Javascript application
+Create a new Javascript application in your project directory. Initialize a new Node.js project with the following command. This creates a package.json file for your project which is used to manage your project's dependencies. 
 
-**NEED INSTRUCTIONS**
+``` console
+npm init -y
+```
+
+### Install the Azure Communication Services Call Automation package
+``` console
+npm install @azure/communication-call-automation
+```
+
+Create a new JavaScript file in your project directory, for example, name it app.js. You will write your JavaScript code in this file. Run your application using Node.js with the following command. This will execute the JavaScript code you have written. 
+
+``` console
+node app.js
+```
 
 ## Establish a call
 
