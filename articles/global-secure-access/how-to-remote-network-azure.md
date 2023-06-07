@@ -1,5 +1,5 @@
 ---
-title: Simulate remote network connectivity
+title: Simulate remote network connectivity for Microsoft Entra Private Acces or Microsoft Entra Internet Access
 description: Use Azure virtual network gateway to simulate customer premises equipment
 
 ms.service: network-access
@@ -36,11 +36,11 @@ Instead of using a physical customer premise equipment (CPE) to set up the IPSec
 
 ## Simulate customer premises equipment and branch connectivity
 
-In the following example, we create a virtual network gateway to simulate CPE and connectivity to...
+In the following example, we create a virtual network gateway to simulate CPE and connectivity.
 
 We'll create all of our resources inside of the same resource group so that they can be cleaned up easily after the fact. 
 
-GlobalSecureAccess-Pilot
+<!---GlobalSecureAccess-Pilot--->
 
 ### Create a resource group
 
