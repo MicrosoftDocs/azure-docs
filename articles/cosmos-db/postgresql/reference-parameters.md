@@ -626,11 +626,11 @@ The supported values are:
 * **taskId:** sort by task ID.
 
 ## Managed PgBouncer parameters
-The following PgBouncer parameters can be configured on single node or coordinator.
+The following [managed PgBouncer](./concepts-connection-pool.md) parameters can be configured on single node or coordinator.
 
 | Parameter Name             | Description | Default | 
 |----------------------|--------|-------------|
-| pgbouncer.default_pool_size | Set this parameter value to the number of connections per user/database pair      | 295       | 
+| pgbouncer.default_pool_size | Set this parameter value to the number of connections per user/database pair.      | 295       | 
 | pgbouncer.ignore_startup_parameters | Comma-separated list of parameters that PgBouncer can ignore. For example, you can let PgBouncer ignore `extra_float_digits` parameter. Some parameters are allowed, all others raise error. This ability is needed to tolerate overenthusiastic JDBC wanting to unconditionally set 'extra_float_digits=2' in startup packet. Use this option if the library you use report errors such as `pq: unsupported startup parameter: extra_float_digits`. | extra_float_digits, ssl_renegotiation_limit  |
 | pgBouncer.max_client_conn | Set this parameter value to the highest number of client connections to PgBouncer that you want to support.     | 2000     | 
 | pgBouncer.min_pool_size | Add more server connections to pool if below this number.    |   0 (Disabled)   |
