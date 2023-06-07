@@ -940,6 +940,8 @@
           href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: ODBC driver
           href: odbc-driver.md
+        - name: Vercel
+          href: ../vercel-integration.md
 - name: Reference
   items:
     - name: .NET SDKs
