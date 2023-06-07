@@ -14,31 +14,32 @@ ms.date: 06/06/2022
 This article describes how you can use the no code editor to easily create a Stream Analytics job, which continuously reads data from an Event Hubs instance (event hub), transforms the data, and then writes results to an Azure SQL database.
 
 ## Prerequisites
+Your Azure Event Hubs and Azure SQL Database resources must be publicly accessible and not be behind a firewall or secured in an Azure Virtual Network. The data in your Event Hubs must be serialized in either JSON, CSV, or Avro format. 
 
- - Your Azure Event Hubs and Azure SQL database resources must be publicly accessible and not be behind a firewall or secured in an Azure Virtual Network. If you want to try steps in this article, follow these steps. 
-    - [Create an event hub](../event-hubs/event-hubs-create.md) if you don't have one already. This step is required if you want to test the steps in this article.
-    - Generate data in the event hub. On the **Event Hubs Instance** page, select **Generate data (preview)** on the left menu, select **Stock data** for **Dataset**, and then select **Send** to send some sample data to the event hub. 
+If you want to try steps in this article, follow these steps. 
+
+- [Create an event hub](../event-hubs/event-hubs-create.md) if you don't have one already. Generate data in the event hub. On the **Event Hubs Instance** page, select **Generate data (preview)** on the left menu, select **Stock data** for **Dataset**, and then select **Send** to send some sample data to the event hub. This step is required if you want to test steps in this article. 
     
-        :::image type="content" source="./media/no-code-transform-filter-ingest-sql/send-stock-data-to-event-hub.png" alt-text="Screenshot showing the Generate data (preview) page of an Event Hubs instance." lightbox="./media/no-code-transform-filter-ingest-sql/send-stock-data-to-event-hub.png"::: 
-    - [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md). Here are a few important points to note while creating the database.
-        1. On the **Basics** page, select **Create new** for **Server**. Then, on the **Create SQL Database server** page, select **Use SQL authentication**, and specify admin user ID and password. 
-        1. On the **Networking** page, follow these steps:
-            1. Enable **Public endpoint**.
-            1. Select **Yes** for **Allow Azure services and resources to access this server**. 
-            1. Select **Yes** for **Add current client IP address**.
-        1. On the **Additional settings** page, select **None** for **Use existing data**. 
-        1. In the article, skip steps in the **Query the database** and **Clean up resources** sections. 
-- If you want to test steps, create a table in the SQL database by using the **Query editor (preview)**. 
+    :::image type="content" source="./media/no-code-transform-filter-ingest-sql/send-stock-data-to-event-hub.png" alt-text="Screenshot showing the Generate data (preview) page of an Event Hubs instance." lightbox="./media/no-code-transform-filter-ingest-sql/send-stock-data-to-event-hub.png"::: 
+- [Create an Azure SQL database](/azure/azure-sql/database/single-database-create-quickstart). Here are a few important points to note while creating the database.
+    1. On the **Basics** page, select **Create new** for **Server**. Then, on the **Create SQL Database server** page, select **Use SQL authentication**, and specify admin user ID and password. 
+    1. On the **Networking** page, follow these steps:
+        1. Enable **Public endpoint**.
+        1. Select **Yes** for **Allow Azure services and resources to access this server**. 
+        1. Select **Yes** for **Add current client IP address**.
+    1. On the **Additional settings** page, select **None** for **Use existing data**. 
+    1. In the article, skip steps in the **Query the database** and **Clean up resources** sections. 
+    1. If you want to test steps, create a table in the SQL database by using the **Query editor (preview)**. 
 
-    ```sql
-    create table stocks (
-        symbol varchar(4),
-        price decimal
-    )
-    ```
-- The data in your Event Hubs must be serialized in either JSON, CSV, or Avro format. For testing purposes, use the default value to follow steps in this article. 
+        ```sql
+        create table stocks (
+            symbol varchar(4),
+            price decimal
+        )
+        ```
 
-## Develop a Stream Analytics job to transform event hub data and store to SQL database
+## Use no-code editor to create a Stream Analytics job 
+In this section, you create an Azure Stream Analytics job using the no-code editor. The job transforms data streaming from an Event Hubs instance (event hub) and store result data in an Azure SQL database. 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the **Event Hubs Instance** page for your event hub.
 1. Select **Features** > **Process Data** on the left menu and then select **Start** on the **Transform and store data to SQL database** card.
@@ -47,17 +48,19 @@ This article describes how you can use the no code editor to easily create a Str
 1. Enter a name for the Stream Analytics job, then select **Create**. You see the Stream Analytics job diagram with Event Hubs window to the right. 
     
     :::image type="content" source="./media/no-code-transform-filter-ingest-sql/create-new-stream-analytics-job.png" alt-text="Screenshot showing where to enter a job name." lightbox="./media/no-code-transform-filter-ingest-sql/create-new-stream-analytics-job.png" :::
-1. On the **Event hub** window, review **Serialization** and **Authentication mode** settings, and select **Connect**. 
+1. On the **Event hub** window, review **Serialization** and **Authentication mode** settings, and select **Connect**.
+ 
     :::image type="content" source="./media/no-code-transform-filter-ingest-sql/event-hub-configuration.png" alt-text="Screenshot showing the Event Hubs connection configuration." lightbox="./media/no-code-transform-filter-ingest-sql/event-hub-configuration.png" :::
-
-1. When the connection is established successfully and you have data streams flowing into your Event Hubs instance, you see two things:
+1. When the connection is established successfully and you have datain your Event Hubs instance, you see two things:
     - Fields that are present in the input data. You can choose **Add field** or select the three dot symbol next to a field to remove, rename, or change its type.  
+    
         :::image type="content" source="./media/no-code-transform-filter-ingest-sql/no-code-schema.png" alt-text="Screenshot showing the Event Hubs field list where you can remove, rename, or change the field type." lightbox="./media/no-code-transform-filter-ingest-sql/no-code-schema.png" :::
-    - A live sample of incoming data in the **Data preview** table under the diagram view. It automatically refreshes periodically. You can select **Pause streaming preview** to see a static view of the sample input data.  
+    - A live sample of incoming data in the **Data preview** table under the diagram view. It automatically refreshes periodically. You can select **Pause streaming preview** to see a static view of the sample input data.
+      
         :::image type="content" source="./media/no-code-transform-filter-ingest-sql/no-code-sample-input.png" alt-text="Screenshot showing sample data under Data Preview." lightbox="./media/no-code-transform-filter-ingest-sql/no-code-sample-input.png" :::
 1. Select the **Group by** tile to aggregate the data. In the **Group by** configuration panel, You can specify the field that you want to **Group By** along with the **Time window**. 
 
-    In the following example, average of price and symbol are used.
+    In the following example, average of **price** and **symbol** are used.
 
     :::image type="content" source="./media/no-code-transform-filter-ingest-sql/group-by-operation-configuration.png" alt-text="Screenshot that shows the group by operator configuration." lightbox="./media/no-code-transform-filter-ingest-sql/group-by-operation-configuration.png" :::
 1. You can validate the results of the step in the **Data preview** section.
@@ -80,6 +83,7 @@ This article describes how you can use the no code editor to easily create a Str
 
     :::image type="content" source="./media/no-code-transform-filter-ingest-sql/no-code-output-static-preview.png" alt-text="Screenshot showing the Get static preview/Refresh static preview option." lightbox="./media/no-code-transform-filter-ingest-sql/no-code-output-static-preview.png" :::
 1. Select **Save** and then select **Start** the Stream Analytics job.  
+
     :::image type="content" source="./media/no-code-transform-filter-ingest-sql/no-code-save-start.png" alt-text="Screenshot showing the Save and Start options." lightbox="./media/no-code-transform-filter-ingest-sql/no-code-save-start.png" :::
 1. To start the job, specify:  
     - The number of **Streaming Units (SUs)** the job runs with. SUs represents the amount of compute and memory allocated to the job. We recommended that you start with three and then adjust as needed. 
