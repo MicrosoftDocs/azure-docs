@@ -26,11 +26,13 @@ The MS Graph Inbound Provisioning API endpoint opens the provisioning pipeline t
 ## Supported Scenarios
 
 Several inbound user provisioning scenarios can be enabled using the inbound provisioning API endpoint. The diagram below demonstrates the most common scenarios. 
+> [!dive class-"mx-imgBorder:]
+> ![Diagram that shows API scenarios.](./media/application-provisioning-api-concepts/api-workflow-scenarios.png)
 
-![Diagram that shows API scenarios.](./media/application-provisioning-api-concepts/api-workflow-scenarios.png)
+:::image type="content" source="media/application-provisioning-api-concepts/api-workflow-scenarios.png" alt-text="Diagram that shows API scenarios.." lightbox="media/application-provisioning-api-concepts/api-workflow-scenarios.png":::
 
 ## How long will it take to provision users?
-When you're using automatic user provisioning with an application, there are some things to keep in mind. First, Azure AD automatically provisions and updates user accounts in an app based on things like [user and group assignment](../manage-apps/assign-user-or-group-access-portal.md). The sync happens at a regularly scheduled time interval, typically every 40 minutes.
+When you're using automatic user provisioning with an application, there are some things to keep in mind. First, Azure AD automatically provisions and updates user accounts in an app based on things like [user and group assignment][def]. The sync happens at a regularly scheduled time interval, typically every 40 minutes.
 
 The time it takes for a given user to be provisioned depends mainly on whether your provisioning job is running an initial cycle or an incremental cycle.
 
@@ -75,3 +77,6 @@ Summary of factors that influence the time it takes to complete an **initial cyc
 
 ## Next steps
 [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md)
+
+
+[def]: ../manage-apps/assign-user-or-group-access-portal.md
