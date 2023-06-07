@@ -20,7 +20,7 @@ Inference
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-After you train machine learning models or pipelines, you need to deploy them to production so that others can use them for _inference_. Inference is the process of applying new input data to the machine learning model or pipeline to generate outputs. These outputs are typically referred to as "predictions," but strictly speaking, inferencing can be used to generate outputs for various machine learning tasks like classification, clustering, and so on. In Azure Machine Learning, you perform inferencing by using __endpoints and deployments__. Endpoints and deployments allow you to decouple the interface of your production workload from the implementation that serves it.
+After you train machine learning models or pipelines, you need to deploy them to production so that others can use them for _inference_. Inference is the process of applying new input data to the machine learning model or pipeline to generate outputs. These outputs are typically referred to as "predictions," but strictly speaking, inferencing can be used to generate outputs for other machine learning tasks, such as classification and clustering. In Azure Machine Learning, you perform inferencing by using __endpoints and deployments__. Endpoints and deployments allow you to decouple the interface of your production workload from the implementation that serves it.
 
 ## Intuition
 
@@ -32,7 +32,7 @@ Furthermore, say that a data scientist, Alice, is working on implementing the ap
 
 :::image type="content" source="media/concept-endpoints/concept-deployment.png" alt-text="A diagram showing the concept of a deployment.":::
 
-Finally, let's imagine that after a couple of months, the organization discovers that the application performs poorly on images with less than ideal illumination conditions. Bob, another data scientist, knows a lot about data augmentation techniques that help a model build robustness on that factor. However, Bob feels more comfortable using Torch to implement the model and trains a new model using Torch. Bob wants to try this model in production gradually until the organization is ready to retire the old model. The new model also shows better performance when deployed to GPU, so the deployment needs to include a GPU. In this scenario, Bob's model and the resources, such as the code and the compute, that are required to run the model make up __another deployment under the same endpoint__.
+Finally, let's imagine that after a couple of months, the organization discovers that the application performs poorly on images with less than ideal illumination conditions. Bob, another data scientist, knows a lot about data augmentation techniques that help a model build robustness on that factor. However, Bob feels more comfortable using Torch to implement the model and trains a new model with Torch. Bob wants to try this model in production gradually until the organization is ready to retire the old model. The new model also shows better performance when deployed to GPU, so the deployment needs to include a GPU. In this scenario, Bob's model and the resources, such as the code and the compute, that are required to run the model make up __another deployment under the same endpoint__.
 
 :::image type="content" source="media/concept-endpoints/concept-deployment-routing.png" alt-text="A diagram showing the concept of an endpoint with multiple deployments.":::
 
@@ -40,8 +40,9 @@ Finally, let's imagine that after a couple of months, the organization discovers
 
 An **endpoint** is a stable and durable URL that can be used to request or invoke a model. You provide the required inputs to the endpoint and get the outputs back. An endpoint provides:
 
-- a stable and durable URL (like _endpoint-name.region.inference.ml.azure.com_).
-- an authentication and authorization mechanism.
+- a stable and durable URL (like _endpoint-name.region.inference.ml.azure.com_),
+- an authentication mechanism, and
+- an authentication mechanism.
 
 A **deployment** is a set of resources required for hosting the model or component that does the actual inferencing. A single endpoint can contain multiple deployments. These deployments can host independent assets and consume different resources based on the needs of the assets. Endpoints have a routing mechanism that can direct requests to specific deployments in the endpoint.
 
@@ -49,7 +50,7 @@ To function properly, __each endpoint must have at least one deployment__. Endpo
 
 ## Online and batch endpoints
 
-Azure Machine Learning allows you to implement [online endpoints](concept-endpoints-online.md) and [batch endpoints](concept-endpoints-batch.md). Online endpoints are designed for real-time inference so that when you invoke the endpoint, the results are returned in the endpoint's response. Batch endpoints, on the other hand, are designed for long-running batch inference; each time you invoke the endpoint you generate a batch job that performs the actual work.
+Azure Machine Learning allows you to implement [online endpoints](concept-endpoints-online.md) and [batch endpoints](concept-endpoints-batch.md). Online endpoints are designed for real-time inference—when you invoke the endpoint, the results are returned in the endpoint's response. Batch endpoints, on the other hand, are designed for long-running batch inference. Each time you invoke a batch endpoint you generate a batch job that performs the actual work.
 
 ### Choosing the right endpoint for your use-case
 
