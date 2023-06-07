@@ -40,13 +40,6 @@ Learn more about Microsoft Defender for Storage [capabilities](../../defender-fo
 
 ## Prerequisites for Malware Scanning
 
-### Networking configuration
-
-Malware Scanning supports storage accounts with “Networking” > “Public network access” enabled, either from all networks or from selected virtual networks. 
-Malware Scanning is not supported for storage accounts with “Public network access” set to disabled.
-
-:::image type="content" source="../../defender-for-cloud/media/azure-defender-storage-configure/networking.png" alt-text="Screenshot showing where to configure Public network access.":::
-
 ### Permissions
 
 To enable and configure Malware Scanning, you must have Owner roles (such as Subscription Owner or Storage Account Owner) or specific roles with the necessary data actions. Learn more about the [required permissions](../../defender-for-cloud/support-matrix-defender-for-storage.md).
