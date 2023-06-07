@@ -107,4 +107,8 @@ Agentless secret scanning for Azure VMs supports the following attack path scena
 
 ## Remediate secrets with recommendations
 
-Each secret that is found will trigger recommendations that can be remediated from the Recommendations page. These recommendations are aggregated into two recommendation types under the Remediate vulnerabilities security control.
+If a secret is found on your resource, that resource will trigger an affiliated recommendation that is located under the Remediate vulnerabilities security control on the recommendations page. Depending on your resources, either or both of the following recommendations will appear:
+
+- **Azure resources**: `Machines should have secrets findings resolved`
+
+- **AWS resources**: `EC2 instances should have secret findings resolved`
