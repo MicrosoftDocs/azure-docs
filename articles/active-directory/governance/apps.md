@@ -1,6 +1,6 @@
 ---
-title: Entra Identity Governance integrations
-description: This page provides an overview of the Entra Identity Governance integrations available to automate provisioning and governance controls.
+title: Microsoft Entra ID Governance integrations
+description: This page provides an overview of the Microsoft Entra ID Governance integrations available to automate provisioning and governance controls.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.custom: contperf-fy21q3-portal
 ms.reviewer: amycolannino
 ---
 
-# Entra Identity Governance integrations
+# Microsoft Entra ID Governance integrations
 
-[Microsoft Entra Identity Governance](identity-governance-applications-prepare.md) allows you to balance your organization's need for security and employee productivity with the right processes and visibility. This page provides an overview of the hundreds of Entra Identity Governance integrations available. These application integrations are used to automate [identity lifecycle management](what-is-identity-lifecycle-management.md) and implement governance controls across your organization. Through these rich integrations, you can automate providing users [access to applications](entitlement-management-overview.md), perform [periodic reviews](access-reviews-overview.md) of who has access to an application, and secure them with capabilities such as multi-factor authentication. 
+[Microsoft Entra ID Governance](identity-governance-applications-prepare.md) allows you to balance your organization's need for security and employee productivity with the right processes and visibility. This page provides an overview of the hundreds of Entra Identity Governance integrations available. These application integrations are used to automate [identity lifecycle management](what-is-identity-lifecycle-management.md) and implement governance controls across your organization. Through these rich integrations, you can automate providing users [access to applications](entitlement-management-overview.md), perform [periodic reviews](access-reviews-overview.md) of who has access to an application, and secure them with capabilities such as multi-factor authentication. 
 
 ## Featured integrations
 
@@ -33,10 +33,10 @@ ms.reviewer: amycolannino
 | ITSM| [ServiceNow](../../active-directory/saas-apps/servicenow-provisioning-tutorial.md)|
 
 
-## Entra Identity Governance integrations
-The list below provides key integrations between Entra Identity Governance and various applications, including both provisioning and SSO integrations. For a full list of applications that Microsoft Entra integrates with specifically for SSO, see [here](../../active-directory/saas-apps/tutorial-list.md). 
+## Microsoft Entra ID Governance integrations
+The list below provides key integrations between Microsoft Entra ID Governance and various applications, including both provisioning and SSO integrations. For a full list of applications that integrate specifically for SSO, see [here](../../active-directory/saas-apps/tutorial-list.md). 
 
-Microsoft Entra identity governance can be integrated with many other applications, using standards such as OpenID Connect, SAML, SCIM, SQL and LDAP. If you're using a SaaS application which isn't listed, then [ask the SaaS vendor to onboard](../manage-apps/v2-howto-app-gallery-listing.md).  For integration with other applications, see [integrating applications with Azure AD](identity-governance-applications-integrate.md).
+Microsoft Entra ID Governance can be integrated with many other applications, using standards such as OpenID Connect, SAML, SCIM, SQL and LDAP. If you're using a SaaS application which isn't listed, then [ask the SaaS vendor to onboard](../manage-apps/v2-howto-app-gallery-listing.md).  For integration with other applications, see [integrating applications with Azure AD](identity-governance-applications-integrate.md).
 
 | Application | Automated provisioning | Single Sign On (SSO)|
 | :--- | :-:  | :-: |
