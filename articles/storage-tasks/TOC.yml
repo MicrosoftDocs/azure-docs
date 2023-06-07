@@ -10,6 +10,7 @@ items:
   items:
   - name: Create, assign, and run a Storage Task
     href: storage-task-quickstart-portal.md
+    expanded: true
 - name: Concepts
   items: 
   - name: Storage Task conditions
@@ -18,6 +19,7 @@ items:
     href: storage-task-assignment.md
   - name: Monitor Storage Tasks
     href: monitor-storage-tasks.md
+  expanded: true
 - name: How-To
   items: 
   - name: Create a Storage Task
@@ -35,6 +37,7 @@ items:
     href: /rest/api/storageservices/blob-service-rest-api
   - name: Monitoring data Reference
     href: storage-tasks-monitor-data-reference.md
+  expanded: true
 - name: Resources
   items:
     - name: FAQ
@@ -47,3 +50,4 @@ items:
       href: /answers/topics/azure-blob-storage.html
     - name: Storage Tasks on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-blob-storage
+  expanded: true
