@@ -46,7 +46,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. In the command prompt, type the following command: 
 
 ```cmd
-    ping <Input your load balancer's public IP address>
+    ping <Input your load balancer public IP address>
 ```
 
 3. Review ping's output.
@@ -59,7 +59,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. Type the following command:
 
 ```bash
-    ping <Input your load balancer's public IP address>
+    ping <Input your load balancer public IP address>
 ```
 
 3. Review ping's output.
@@ -72,7 +72,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. In the command prompt, type the following command:
 
 ```cmd
-    tracert <Input your load balancer's public IP address>
+    tracert <Input your load balancer public IP address>
 ```
 
 3. Review tracert's output.
@@ -85,7 +85,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. Type the following command:
 
 ```bash
-    traceroute -I <Input your load balancer's public IP address>
+    traceroute -I <Input your load balancer public IP address>
 ```
 
 3. Review traceroute's output.
@@ -153,7 +153,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. In the command prompt, type the following command:
 
 ```cmd
-    ping <Input your load balancer's public IP address>
+    ping <Input your load balancer public IP address>
 ```
 
 3. Review ping's output.
@@ -166,7 +166,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. Type the following command:
 
 ```bash
-    ping <Input your load balancer's public IP address>
+    ping <Input your load balancer public IP address>
 ```
 
 3. Review ping's output.
@@ -179,7 +179,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. In the command prompt, type the following command:
 
 ```dos
-    tracert <Input your load balancer's public IP address>
+    tracert <Input your load balancer public IP address>
 ```
 
 3. Review tracert's output.
@@ -192,7 +192,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. Type the following command:
 
 ```bash
-    traceroute -I <Input your load balancer's public IP address>
+    traceroute -I <Input your load balancer public IP address>
 ```
 
 3. Review traceroute's output.
