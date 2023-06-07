@@ -37,6 +37,8 @@ The following types of images aren't supported:
 * ARM64 images 
 * Specialized images
 
+## Create an image
+
  ### Register the features
 
 To use VM Image Builder with prefetch, you need to register the below features. Check your registration by running the following commands:
