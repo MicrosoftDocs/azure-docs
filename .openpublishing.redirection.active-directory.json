@@ -12561,7 +12561,6 @@
       "redirect_document_id": false
       },
       
-      
       {
       "source_path_from_root": "/articles/active-directory/hybrid/whatis-aadc-admin-agent.md",
       "redirect_url": "/azure/active-directory/hybrid/connect/whatis-aadc-admin-agent",
@@ -12734,7 +12733,31 @@
         "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-management-apis-overview.md",
         "redirect_url": "/azure/active-directory/external-identities/customers/microsoft-graph-operations",
         "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-passwords-faq.yml",
+        "redirect_url": "/azure/active-directory/authentication/passwords-faq",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-certificate-based-authentication-android.md",
+        "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-federation-android",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-certificate-based-authentication-ios.md",
+        "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-federation-ios",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-certificate-based-authentication-get-started.md",
+        "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-federation-get-started",
+        "redirect_document_id": false
       }
-    
+      
       ]
 } 
