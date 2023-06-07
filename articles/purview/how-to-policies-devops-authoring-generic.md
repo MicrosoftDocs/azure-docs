@@ -29,7 +29,7 @@ Before you author policies in the Microsoft Purview policy portal, you need to c
 1. Register the data source in Microsoft Purview. Follow the "Prerequisites" and "Register" sections of the [source pages](./microsoft-purview-connector-overview.md) for your resources.
 1. Turn on the **Data use management** toggle in the data source registration. For more information, including additional permissions that you need for this step, see [Enable Data use management on your Microsoft Purview sources](how-to-enable-data-use-management.md).
 
-## Create a DevOps policy
+## Create a new DevOps policy
 
 To create a DevOps policy, first ensure that you have the Microsoft Purview Policy Author role at the root collection level. Check the section on managing Microsoft Purview role assignments in [this guide](./how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections). Then, follow these steps:
 
@@ -95,7 +95,7 @@ To delete a DevOps policy, first ensure that you have the Microsoft Purview Poli
 
    ![Screenshot that shows selections for deleting a SQL DevOps policy.](./media/how-to-policies-devops-authoring-generic/enter-devops-policies-to-delete.png)
 
-## Test a DevOps policy
+## Test the DevOps policy
 
 After you create a policy, any of the Azure AD users that you selected as subjects can now connect to the data sources in the scope of the policy. To test, use SQL Server Management Studio (SSMS) or any SQL client and try to query some dynamic management views (DMVs) and dynamic management functions (DMFs). The following sections list a few examples. For more examples, consult the mapping of popular DMVs and DMFs in [What can I accomplish with Microsoft Purview DevOps policies?](./concept-policies-devops.md#mapping-of-popular-dmvs-and-dmfs).
 
@@ -138,7 +138,7 @@ The Azure AD principal that you're testing with should be denied, which means th
 
 ![Screenshot that shows a test to access user data.](./media/how-to-policies-devops-authoring-generic/test-access-user-data.png)
 
-## Role definitions
+## Role definition detail
 
 The following table maps Microsoft Purview data policy roles to specific actions in SQL data sources.
 

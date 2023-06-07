@@ -79,7 +79,7 @@ These are the benefits:
 
 ## DevOps policies API
 
-Many sophisticated customers prefer to interact with Microsoft Purview via scripts rather than via the UI. Microsoft Purview DevOps policies now support a REST API that offers full create, read, update, and delete (CRUD) capability. This capability includes listing, policies for SQL Performance Monitor, and policies for SQL Security Auditor. For more information, see the [API specification]((/rest/api/purview/devopspolicydataplane/devops-policy)).
+Many sophisticated customers prefer to interact with Microsoft Purview via scripts rather than via the UI. Microsoft Purview DevOps policies now support a REST API that offers full create, read, update, and delete (CRUD) capability. This capability includes listing, policies for SQL Performance Monitor, and policies for SQL Security Auditor. For more information, see the [API specification](/rest/api/purview/devopspolicydataplane/devops-policy).
 
 ![Screenshot that shows where to find the DevOps API on the Azure REST API menu.](./media/concept-policies-devops/devops-policy-api.png).
 
