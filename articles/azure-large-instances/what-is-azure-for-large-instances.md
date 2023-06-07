@@ -2,6 +2,7 @@
 title: What is Azure for Large Instances?
 description: Provides an overview of the Azure for Large Instances.
 ms.author: jacobjaygbay
+ms.service: baremetal
 ms.custom: references_regions
 ms.topic: conceptual
 author: jjaygbay
