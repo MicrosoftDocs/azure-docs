@@ -116,7 +116,7 @@ az group delete --name acispotdemo
 In this tutorial, you created a Spot container on Azure Container Instances with a default quota and eviction policy using the Azure CLI.
 
 * [Check out the overview for ACI Spot containers](container-instances-spot-containers-overview.md)
-* [Try out Spot containers with Azure Container Instances using the Azure CLI](container-instances-tutorial-deploy-spot-containers-cli.md)
+* [Try out Spot containers with Azure Container Instances using the Azure portal](container-instances-tutorial-deploy-spot-containers-portal.md)
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
