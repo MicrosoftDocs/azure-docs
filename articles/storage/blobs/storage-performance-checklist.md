@@ -37,7 +37,6 @@ This article organizes proven practices for performance into a checklist you can
 | &nbsp; |Direct client access |[Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
 | &nbsp; |Caching |[Is your application caching data that is frequently accessed and rarely changed?](#reading-data) |
 | &nbsp; |Caching |[Is your application batching updates by caching them on the client and then uploading them in larger sets?](#uploading-data-in-batches) |
-| &nbsp; |.NET configuration |[Are you using .NET Core 2.1 or later for optimum performance?](#use-net-core) |
 | &nbsp; |.NET configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
 | &nbsp; |.NET configuration |[For .NET applications, have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
 | &nbsp; |Parallelism |[Have you ensured that parallelism is bounded appropriately so that you don't overload your client's capabilities or approach the scalability targets?](#unbounded-parallelism) |
@@ -213,7 +212,7 @@ For best performance, always use the latest client libraries and tools provided 
 
 ## Handle service errors
 
-Azure Storage returns an error when the service can't process a request. Understanding the errors that may be returned by Azure Storage in a given scenario is helpful for optimizing performance.
+Azure Storage returns an error when the service can't process a request. Understanding the errors that may be returned by Azure Storage in a given scenario is helpful for optimizing performance. For a list of common error codes, see [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes).
 
 ### Timeout and Server Busy errors
 
@@ -247,9 +246,9 @@ For importing large volumes of data into Blob storage, consider using the Azure 
 
 ## Content distribution
 
-Sometimes an application needs to serve the same content to many users (for example, a product demo video used in the home page of a website), located in either the same or multiple regions. In this scenario, use a Content Delivery Network (CDN) such as Azure CDN to distribute blob content geographically. Unlike an Azure Storage account that exists in a single region and that can't deliver content with low latency to other regions, Azure CDN uses servers in multiple data centers around the world. Additionally, a CDN can typically support much higher egress limits than a single storage account.
+Sometimes an application needs to serve the same content to many users (for example, a product demo video used in the home page of a website), located in either the same or multiple regions. In this scenario, use a Content Delivery Network (CDN) such as Azure Front Door. Azure Front Door is Microsoft’s modern cloud CDN that provides fast, reliable, and secure access between your users and your applications’ static and dynamic web content across the globe. Unlike an Azure Storage account that exists in a single region and that can't deliver content with low latency to other regions, Azure Front Door delivers your content using Microsoft’s global edge network with hundreds of [global and local points of presence (PoPs)](../../frontdoor/edge-locations-by-region.md). Additionally, a CDN can typically support much higher egress limits than a single storage account.
 
-For more information about Azure CDN, see [Azure CDN](../../cdn/cdn-overview.md).
+For more information about Azure Front Door, see [Azure Front Door](../../frontdoor/front-door-overview.md).
 
 ## Use metadata
 
