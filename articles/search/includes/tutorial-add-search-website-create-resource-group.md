@@ -11,12 +11,6 @@ ms.service: cognitive-search
 
     :::image type="content" source="../media/tutorial-javascript-overview/visual-studio-code-create-resource-group.png" alt-text="Screenshot of Visual Studio Code, in Azure explorer, showing **Create Resource Group** option.":::
 1. Enter a resource group name, such as `cognitive-search-website-tutorial`. 
-1. Select from of the following locations:
-    * westus2
-    * centralus
-    * eastus2
-    * westeurope
-    * eastasia
  
 1. When you create the Cognitive Search and Static Web Apps resources, later in the tutorial, use this resource group. 
 
