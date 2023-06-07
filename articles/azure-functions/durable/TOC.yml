@@ -127,7 +127,7 @@
   - name: Java API
     items:
     - name: Durable Functions bindings for Java
-      href: /java/api/com.microsoft.dufrabletask.azurefunctions
+      href: /java/api/com.microsoft.durabletask.azurefunctions
     - name: Durable Task core SDK for Java
       href: /java/api/com.microsoft.durabletask
   - name: Azure storage provider
