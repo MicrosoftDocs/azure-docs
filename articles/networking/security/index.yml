@@ -20,6 +20,9 @@ highlightedContent:
     - title: Azure network security overview 
       itemType: overview # controls the icon image and super-title text 
       url: ../../security/fundamentals/network-overview.md
+    - title: Configure network security
+      itemType: learn
+      url: /training/modules/network-security/
     - title: What's new in Azure Networking and Security? 
       itemType: whats-new 
       url: https://azure.microsoft.com/en-us/updates/?category=networking&query=security
@@ -87,6 +90,8 @@ additionalContent:
               url: /training/modules/configure-network-security-groups/
             - text: Secure and isolate access to Azure resources by using network security groups and service endpoints
               url: /training/modules/secure-and-isolate-with-nsg-and-service-endpoints/
+            - text: Troubleshoot platform-as-a-service issues in Microsoft Azure
+              url:  /training/modules/troubleshoot-platform-service-issues/
         - title: Architecture
           links:
             - text: Hub-spoke network topology in Azure
@@ -114,6 +119,8 @@ additionalContent:
               url: /training/modules/introduction-azure-ddos-protection/
             - text: Introduction to Azure Private Link
               url: /training/modules/introduction-azure-private-link/
+            - text: Design and implement private access to Azure Services
+              url: /training/modules/design-implement-private-access-to-azure-services/
         - title: Architecture
           links:
             - text: Azure Private Link in a hub-and-spoke network
