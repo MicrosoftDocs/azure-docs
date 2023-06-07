@@ -18,7 +18,7 @@ Quota provides the flexibility to actively manage the allocation of rate limits 
 
 ## Introduction to quota
 
-Azure OpenAI's quota feature allows you to assign rate limits to your deployments, up-to a global limit called your “quota”.  Quota is assigned to your subscription on a per-region, per-model basis in units of Tokens-per-Minute (TPM).  When you onboard a subscription to Azure OpenAI, you will receive default quota for most available models. Then, you will assign TPM to each deployment as it is created, and the available quota for that model will be reduced by that amount. You can continue to create deployments and assign them TPM until you reach your quota limit.  Once that happens, you can only create new deployments of that model by reducing the TPM assigned to other deployments of the same model (thus freeing TPM for use), or by requesting and being approved for a model quota increase in the desired region.
+Azure OpenAI's quota feature enables assignment of rate limits to your deployments, up-to a global limit called your “quota”.  Quota is assigned to your subscription on a per-region, per-model basis in units of Tokens-per-Minute (TPM).  When you onboard a subscription to Azure OpenAI, you will receive default quota for most available models. Then, you will assign TPM to each deployment as it is created, and the available quota for that model will be reduced by that amount. You can continue to create deployments and assign them TPM until you reach your quota limit.  Once that happens, you can only create new deployments of that model by reducing the TPM assigned to other deployments of the same model (thus freeing TPM for use), or by requesting and being approved for a model quota increase in the desired region.
 
 > [!NOTE]
 > With a quota of 240,000 TPM for GPT-35-Turbo in East US, a customer can create a single deployment of 240K TPM, 2 deployments of 120 TPM each, or any number of deployments in one or multiple Azure OpenAI resources as long as their TPM adds up to less than 240K total in that region.
@@ -94,7 +94,7 @@ RPM throttling is based on the number of requests received over time.  The imple
 
 To minimize issues related to throttling, it's a good idea to use the following techniques:
 
-- Set max-tokens and n-best to the minimum values that serve the needs of your scenario.  For example, don’t set a large max-tokens value if you expect your responses to be small.
+- Set max_tokens and best_of to the minimum values that serve the needs of your scenario.  For example, don’t set a large max-tokens value if you expect your responses to be small.
 - Use quota management to increase TPM on deployments with high traffic, and to reduce TPM on deployments with limited needs.
 - Implement retry logic in your application.
 - Avoid sharp changes in the workload. Increase the workload gradually.
