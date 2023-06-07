@@ -9,7 +9,7 @@ ms.service: azure-signalr
 ms.topic: how-to
 ---
 
-# Geo-Replication in Azure SignalR Service (Preview)
+# Azure SignalR Service Geo-Replication (Preview)
 
 Companies seeking local presence or requiring a robust failover system often choose to deploy services across multiple Azure regions. With the integration of geo-replication in Azure SignalR, managing multi-region scenarios has become significantly easier.
 
