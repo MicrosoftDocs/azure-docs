@@ -35,27 +35,4 @@ Microsoft Sentinel can run on workspaces in the following regions:
 
 |North America  |South America |Asia  |Europe  |Australia  |Africa |
 |---------|---------|---------|---------|---------|---------|
-|- West US 2<br>- South Central US<br>- East US<br>- East US 2<br>- West US 3<br>- Central US<br>- North Central US<br>- West US<br>- USGov Virginia<br>- USGov Arizona<br>- USSec East<br>- USNat West<br>- Canada Central<br>- West Central US<br>- Canada East<br>- USGov Texas<br>- Central US EUAP<br>- East US 2 EUAP<br>- USSec West<br>- USNat East     |- Brazil South<br>- Brazil Southeast |- Southeast Asia<br>- Japan East<br>- China East 2<br>- East Asia<br>- Central India<br>- Korea Central<br>- UAE North<br>- Jio India West<br>- Jio India Central<br>- China North 3<br>- South India<br>- Korea South<br>- China North 2<br>- West India<br>- UAE Central<br>- Japan West<br>- China East 3<br>- Malaysia South         |- West Europe<br>- North Europe<br>- UK South<br>- Norway East<br>- Switzerland North<br>- France Central<br>- Germany West Central<br>- Norway West<br>- Germany North<br>- UK West<br>- France South<br>- Switzerland West	         |- Australia East<br>- Australia Central 2<br>- Australia Southeast<br>- Australia Central	         |- South Africa North<br>- South Africa West	 |
-
-#### North America
-
-- West US 2
-- South Central US
-- East US
-- East US 2
-- West US 3
-- Central US
-- North Central US
-- West US
-- USGov Virginia
-- USGov Arizona
-- USSec East
-- USNat West
-- Canada Central
-- West Central US
-- Canada East
-- USGov Texas
-- Central US EUAP
-- East US 2 EUAP
-- USSec West
-- USNat East
+|• West US 2<br>• South Central US<br>• East US<br>• East US 2<br>• West US 3<br>• Central US<br>• West Central US<br>• North Central US<br>• West US<br>• Central US EUAP<br>• East US 2 EUAP<br>• USGov Virginia<br>• USGov Texas<br>• USGov Arizona<br>• USSec East<br>• USSec West<br>• USNat West<br>• USNat East<br>• Canada Central<br>• Canada East     |• Brazil South<br>• Brazil Southeast |• Southeast Asia<br>• East Asia<br>• Japan East<br>• Japan West<br>• China East 2<br>• China North 3<br>• China North 2<br>• China East 3<br>• Central India<br>• South India<br>• West India<br>• Jio India West<br>• Jio India Central<br>• Korea Central<br>• Korea South<br>• UAE North<br>• UAE Central<br>• Malaysia South         |• West Europe<br>• North Europe<br>• UK South<br>• UK West<br>• Norway East<br>• Norway West<br>• Switzerland North<br>• Switzerland West<br>• France Central<br>• France South<br>• Germany West Central<br>• Germany North	         |• Australia East<br>• Australia Central 2<br>• Australia Southeast<br>• Australia Central	         |• South Africa North<br>• South Africa West	 |
