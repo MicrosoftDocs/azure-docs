@@ -65,7 +65,7 @@ We have the following tagging strategy for the [self-hosted gateway container im
 
 * Supported third-party open-source projects, for example: Open Telemetry and DAPR (Distributed Application Runtime). 
 
-## Microsoft does not provide technical support for the following examples 
+### Microsoft does not provide technical support for the following examples 
 
 * Questions about how to use the self-hosted gateway inside Kubernetes. For example, Microsoft Support doesn't provide advice on how to create custom ingress controllers, service mesh, use application workloads, or apply third-party or open-source software packages or tools. 
 

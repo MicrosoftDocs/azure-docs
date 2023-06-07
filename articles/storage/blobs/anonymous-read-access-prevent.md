@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 05/23/2023
 ms.author: tamram
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -125,6 +125,22 @@ StorageBlobLogs
 ```
 
 You can also configure an alert rule based on this query to notify you about anonymous requests. For more information, see [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
+
+### Responses to anonymous requests
+
+When Blob Storage receives an anonymous request, that request will succeed if all of the following conditions are true:
+
+- Anonymous public access is allowed for the storage account.
+- The container is configured to allow anonymous public access.
+- The request is for read access.
+
+If any of those conditions are not true, then the request will fail. The response code on failure depends on whether the anonymous request was made with a version of the service that supports the bearer challenge. The bearer challenge is supported with service versions 2019-12-12 and newer:
+
+- If the anonymous request was made with a service version that supports the bearer challenge, then the service returns error code 401 (Unauthorized).
+- If the anonymous request was made with a service version that does not support the bearer challenge and anonymous public access is disallowed for the storage account, then the service returns error code 409 (Conflict).
+- If the anonymous request was made with a service version that does not support the bearer challenge and anonymous public access is allowed for the storage account, then the service returns error code 404 (Not Found).
+
+For more information about the bearer challenge, see [Bearer challenge](/rest/api/storageservices/authorize-with-azure-active-directory#bearer-challenge).
 
 ## Remediate anonymous public access for the storage account
 
@@ -263,20 +279,6 @@ To disallow public access for a storage account with a template, create a templa
 > Disallowing public access for a storage account does not affect any static websites hosted in that storage account. The **$web** container is always publicly accessible.
 >
 > After you update the public access setting for the storage account, it may take up to 30 seconds before the change is fully propagated.
-
-### Responses to anonymous requests
-
-When Blob Storage receives an anonymous request, that request will succeed if all of the following conditions are true:
-
-- Anonymous public access is allowed for the storage account.
-- The container is configured to allow anonymous public access.
-- The request is for read access.
-
-If any of those conditions are not true, then the request will fail. The response code on failure depends on whether the anonymous request was made with a version of the service that supports the bearer challenge:
-
-- If the anonymous request was made with a service version that supports the bearer challenge, then the service returns error code 401 (Unauthorized).
-- If the anonymous request was made with a service version that does not support the bearer challenge and anonymous public access is disallowed for the storage account, then the service returns error code 409 (Conflict).
-- If the anonymous request was made with a service version that does not support the bearer challenge and anonymous public access is allowed for the storage account, then the service returns error code 404 (Not Found).
 
 ## Sample script for bulk remediation
 

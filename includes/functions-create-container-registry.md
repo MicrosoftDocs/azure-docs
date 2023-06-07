@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/12/2023
+ms.date: 06/05/2023
 ms.author: glenga
 ---
 
@@ -19,7 +19,7 @@ Before you begin, you must have the following requirements in place:
 ::: zone pivot="programming-language-csharp"
 + The [.NET 6 SDK](https://dotnet.microsoft.com/download).
 
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
++ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.0.5198, or a later version.
 ::: zone-end  
 <!---add back programming-language-other-->
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"

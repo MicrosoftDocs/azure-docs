@@ -3,18 +3,18 @@ title: Quickstart - Set up a customer tenant free trial
 description: Use our quickstart to set up the customer tenant free trial.
 services: active-directory
 author: csmulligan
-manager: celestedg
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: quickstart
-ms.date: 05/10/2023
+ms.date: 05/31/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
-#Customer intent: As a dev, devops, or it admin, I want to set up the customer tenant free trial.
+#Customer intent: As a dev, devops, or IT admin, I want to set up the customer tenant free trial.
 ---
-# Quickstart: Get started with Azure AD for customers (Preview)
+# Quickstart: Get started with Azure AD for customers (preview)
 
 Get started with Azure AD for customers (Preview) that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in customer tenant features, Azure AD for customers can serve as the identity provider and access management service for your customers. 
 
@@ -26,7 +26,7 @@ Your free trial of a customer tenant provides you with the opportunity to try ne
 During the free trial period, you'll have access to all product features with few exceptions. See the following table for comparison: 
 
 |  Features | Azure AD for customers Trial (without credit card) | Azure Active Directory account includes Partners (needs credit card)  | 
-|----------|-----------|------------|
+|----------|:-----------:|:------------:|
 | **Self-service account experiences** (Sign-up, sign-in, and password recovery.)   | :heavy_check_mark: |  :heavy_check_mark:  | 
 | **MFA** (With email OTP.)  | :heavy_check_mark: |  :heavy_check_mark:  |  
 | **Custom token augmentation** (From external sources.) |  :heavy_check_mark: |  :heavy_check_mark:  |
@@ -38,12 +38,11 @@ During the free trial period, you'll have access to all product features with fe
 | Group and User management. |  :heavy_check_mark: |  :heavy_check_mark:  |
 | **Cloud-agnostic solution** with multi-language auth SDK support.  |  :heavy_check_mark: |  :heavy_check_mark:  | 
 
-> [!IMPORTANT]
-> Azure AD for customers is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
 
 ## Sign up to your customer tenant free trial
 
-1. Open your browser and visit [https://aka.ms/ciam-free-trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
+1. Open your browser and visit <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">https://aka.ms/ciam-free-trial</a>.
 1. You can sign in to the customer trial tenant using your personal account, and your Microsoft account (MSA) or GitHub account.  
 1. You'll notice that a domain name and location have been set for you. The domain name and the data location can't be changed later in the free trial. Select **Change settings** if you would like to adjust them.
 1. Select **Continue** and hang on while we set up your trial. It will take a few minutes for the trial to become ready for the next step.
@@ -89,6 +88,9 @@ Follow the steps below, to download and run the sample app.
 ## Explore Azure AD for customers
 
 Follow the articles below to learn more about the configuration the guide created for you or to configure your own apps. You can always come back to the [admin center](https://entra.microsoft.com/) to customize your tenant and explore the full range of configuration options for your tenant.
+
+> [!NOTE]
+> The next time you return to your tenant, you might be prompted to set up additional authentication factors for added security of your tenant admin account.
 
 ## Next steps
  - [Register an app in CIAM](how-to-register-ciam-app.md)

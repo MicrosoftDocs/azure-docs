@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 10/17/2022
+ms.date: 05/24/2023
 ms.service: virtual-wan
 ms.topic: include
 
@@ -23,4 +23,5 @@ ms.topic: include
    * **Propagate to labels**: Labels are a logical group of route tables. For this setting, select from the dropdown.
    * **Static routes**: Configure static routes, if necessary. Configure static routes for Network Virtual Appliances (if applicable). Virtual WAN supports a single next hop IP for static route in a virtual network connection. For example, if you have a separate virtual appliance for ingress and egress traffic flows, it would be best to have the virtual appliances in separate VNets and attach the VNets to the virtual hub.
    * **Bypass Next Hop IP for workloads within this VNet**: This setting lets you deploy NVAs and other workloads into the same VNet without forcing all the traffic through the NVA. This setting can only be configured when you're configuring a new connection. If you want to use this setting for a connection you've already created, delete the connection, then add a new connection.
+   * **Propagate static route**: This setting is currently being rolled out. This setting lets you propagate static routes defined in the **Static routes** section to route tables specified in **Propagate to Route Tables**. Additionally, routes will be propagated to route tables that have labels specified as **Propagate to labels**. These routes can be propagated inter-hub, except for the default route 0/0.
 1. Once you've completed the settings you want to configure, click **Create** to create the connection.

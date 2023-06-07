@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory External Identities"
 description: "New and updated documentation for the Azure Active Directory External Identities."
-ms.date: 04/28/2023
+ms.date: 06/01/2023
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -14,6 +14,17 @@ manager: CelesteDG
 # Azure Active Directory External Identities: What's new
 
 Welcome to what's new in Azure Active Directory External Identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the External Identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## May 2023
+
+### New article
+
+- [Set up tenant restrictions V2 (Preview)](tenant-restrictions-v2.md)
+
+### Updated articles
+
+- [Overview: Cross-tenant access with Azure AD External Identities](cross-tenant-access-overview.md) Graph API links were updated.
+- [Reset redemption status for a guest user](reset-redemption-status.md) Screenshots were updated.
 
 ## April 2023
 
@@ -35,12 +46,3 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 - [Billing model for Azure AD External Identities](external-identities-pricing.md)
 - [Tutorial: Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)
 
-## February 2023
-
-### Updated articles
-
-- [Email one-time passcode authentication](one-time-passcode.md)
-- [Secure your API used an API connector in Azure AD External Identities self-service sign-up user flows](self-service-sign-up-secure-api-connector.md)
-- [Azure Active Directory External Identities: What's new](whats-new-docs.md)
-- [Authentication and Conditional Access for External Identities](authentication-conditional-access.md)
-- [Quickstart: Add a guest user with PowerShell](b2b-quickstart-invite-powershell.md)

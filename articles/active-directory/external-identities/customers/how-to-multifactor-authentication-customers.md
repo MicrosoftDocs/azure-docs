@@ -24,7 +24,7 @@ ms.custom: it-pro
 
 ## Prerequisites
 
-- An Azure AD customer tenant (if you don't have a tenant, you can start a [free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl)).
+- An Azure AD customer tenant (if you don't have a tenant, you can start a <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">free trial</a>.
 - A [sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md).
 - An app that's registered in your customer tenant, added to the sign-up and sign-in user flow, and updated to point to the user flow for authentication.
 - An account with Conditional Access Administrator, Security Administrator, or Global Administrator privileges to configure Conditional Access policies and MFA.
