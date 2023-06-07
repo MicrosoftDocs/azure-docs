@@ -14,7 +14,7 @@ ms.author: mbullwin
 
 # Manage Azure OpenAI Service quota
 
-Quota provides the flexibility to actively manage the allocation of rate limits across the deployments within your subscription. This article walks you through the process of managing your Azure OpenAI quota.
+Quota provides the flexibility to actively manage the allocation of rate limits across the deployments within your subscription. This article walks through the process of managing your Azure OpenAI quota.
 
 ## Introduction to quota
 
