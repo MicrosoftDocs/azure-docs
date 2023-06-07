@@ -10,7 +10,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 1/29/2021
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ---
 
 # Collect telemetry data for search traffic analytics
