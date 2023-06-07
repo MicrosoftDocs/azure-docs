@@ -20,21 +20,21 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 
 "<SID_GUID>": { 
 
-    "secrets_source": {},
+    "secrets_source": {...},
 
-    "abap_central_instance": {},
+    "abap_central_instance": {...},
 
-    "azure_credentials": {},
+    "azure_credentials": {...},
 
-    "file_extraction_abap": {},
+    "file_extraction_abap": {...},
 
-    "file_extraction_java": {},
+    "file_extraction_java": {...},
 
-    "logs_activation_status" {},
+    "logs_activation_status" {...},
 
-    "connector_configuration": {},
+    "connector_configuration": {...},
 
-    "abap_table_selector":: {}
+    "abap_table_selector":: {...}
 
 ...
 
@@ -57,7 +57,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 ## Secrets Source section
 
 > [!NOTE]
-> Remove all comment sections before you use this file for configuration and deployment.
+> Remove all comments before you use this file for configuration and deployment.
 
 ```json
 "secrets_source": {
@@ -78,7 +78,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 ## ABAP Central Instance section
 
 > [!NOTE]
-> Remove all comment sections before you use this file for configuration and deployment.
+> Remove all comments before you use this file for configuration and deployment.
 
 ```json
 "abap_central_instance": {
@@ -149,7 +149,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 ## File Extraction ABAP section
 
 > [!NOTE]
-> Remove all comment sections before you use this file for configuration and deployment.
+> Remove all comments before you use this file for configuration and deployment.
 
 ```json
 "file_extraction_abap": {
@@ -202,7 +202,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 ### Logs Activation Status section
 
 > [!NOTE]
-> Remove all comment sections before you use this file for configuration and deployment.
+> Remove all comments before you use this file for configuration and deployment.
 
 ```json
 "logs_activation_status": {
@@ -232,7 +232,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 ### Connector Configuration section
 
 > [!NOTE]
-> Remove all comment sections before you use this file for configuration and deployment.
+> Remove all comments before you use this file for configuration and deployment.
 
 ```json
 "connector_configuration": {
@@ -248,7 +248,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
 ### ABAP Table Selector section
 
 > [!NOTE]
-> Remove all comment sections before you use this file for configuration and deployment.
+> Remove all comments before you use this file for configuration and deployment.
 
 ```json
 "abap_table_selector": {
