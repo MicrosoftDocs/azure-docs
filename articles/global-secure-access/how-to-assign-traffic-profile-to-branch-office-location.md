@@ -15,10 +15,10 @@ ms.custom:
 Learn how to assign a traffic profile to a remote network for Global Secure Access.
 
 ## Prerequisites 
-- Global Secure Access license for your Microsoft Entra Identity tenant.  
-- Entra Network Access Administrator role in Microsoft Entra Identity.
-- Microsoft Graph module when using PowerShell.
-- Admin consent when using Graph explorer for Microsoft Graph API. 
+
+To assign a traffic forwarding profile to a remote network, you must have:
+
+- A **Global Secure Access Administrator** role in Microsoft Entra ID. 
 
 ## Assign a Microsoft 365 traffic profile to a branch location
 

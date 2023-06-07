@@ -18,10 +18,7 @@ Reviewing your remote networks is an important part of managing your Global Secu
 
 Listing remote networks requires the following prerequisites:
 
-- **Microsoft Entra Internet Access Premium license** for your Microsoft Entra Identity tenant
-- **Microsoft Entra Network Access Administrator** role in Microsoft Entra ID
-- The **Microsoft Graph** module must be installed to use PowerShell
-- Administrator consent is required when using Microsoft Graph Explorer for the Microsoft Graph API. 
+- A **Global Secure Access Administrator** role in Microsoft Entra ID
 
 ## List all remote networks using the Microsoft Entra admin center
 

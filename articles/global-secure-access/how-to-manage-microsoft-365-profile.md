@@ -21,10 +21,7 @@ With the Microsoft 365 profile enabled, Microsoft Entra Internet Access acquires
 
 To enable the Microsoft 365 traffic forwarding profile for your tenant, you must have:
 
-- **Microsoft Entra Internet Access Premium license** for your Microsoft Entra Identity tenant
-- **Microsoft Entra Network Global Secure Access Administrator** role in Microsoft Entra ID
-- The **Microsoft Graph** module must be installed to use PowerShell
-- Administrator consent is required when using Microsoft Graph Explorer for the Microsoft Graph API
+- A **Global Secure Access Administrator** role in Microsoft Entra ID
 
 ## Microsoft 365 traffic policies
 

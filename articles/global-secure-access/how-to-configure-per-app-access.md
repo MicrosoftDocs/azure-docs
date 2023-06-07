@@ -20,13 +20,15 @@ This article describes how to configure per-app access for Microsoft Entra Priva
 
 ## Prerequisites
 
-To configure Quick Access, you must have:
+To configure per-app access, you must have:
 
-- An Azure AD Premium P1/P2 license.
-- **Microsoft Entra Internet Access Premium license** for your Microsoft Entra ID tenant
-- **Global Secure Access Administrator** role in Microsoft Entra ID
-- An App proxy license and the **Application Administrator** role in Microsoft Entra ID
-- An [App proxy Connector group](../active-directory/app-proxy/application-proxy-connector-groups.md)
+- A **Global Secure Access Administrator** role in Microsoft Entra ID
+
+To manage App Proxy connector groups, which is required for per-app access, you must have:
+
+- A Microsoft Entra ID Premium P1/P2 license
+- An **Application Administrator** role in Microsoft Entra ID
+- An App Proxy license
 
 ## How it works
 
@@ -104,7 +106,7 @@ After you create the new app, you can view and manage the details from **Enterpr
 
 ### Assign users and groups
 
-You need to grant access to the app you created by assigning users and/or groups to the app. For more information, see [Assign users and groups to an application.](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
+You need to grant access to the app you created by assigning users and/or groups to the app. For more information, see [Assign users and groups to an application.](../active-directory/manage-apps/assign-user-or-group-access-portal.md)
 
 > [!IMPORTANT]
 > The **Enabled for users to sign-in?** option is set to **Yes** and must remain set this way. Changing this setting to No means users will not be able to access the sites and apps through Entra Private Access.

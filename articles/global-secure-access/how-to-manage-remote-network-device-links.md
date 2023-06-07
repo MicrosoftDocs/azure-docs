@@ -17,10 +17,8 @@ Device links are the customer premises equipment (CPE) used in your remote netwo
 This article explains how to add, edit, and delete device links for a remote networks for Global Secure Access.
 
 ## Prerequisites 
-- **Microsoft Entra Internet Access Premium license** for your Microsoft Entra Identity tenant
-- **Microsoft Entra Network Access Administrator** role in Microsoft Entra ID
-- The **Microsoft Graph** module must be installed to use PowerShell
-- Administrator consent is required when using Microsoft Graph Explorer for the Microsoft Graph API
+
+- A **Global Secure Access Administrator** role in Microsoft Entra ID
 
 ## Add a device link to a remote networks
 

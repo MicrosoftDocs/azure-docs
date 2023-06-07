@@ -18,11 +18,13 @@ With Global Secure Access, you can define specific websites or IP addresses to i
 
 To configure Quick Access, you must have:
 
-- An Azure AD Premium P1/P2 license.
-- **Microsoft Entra Internet Access Premium license** for your Microsoft Entra ID tenant
-- **Global Secure Access Administrator** role in Microsoft Entra ID
-- An App proxy license and the **Application Administrator** role in Microsoft Entra ID
-- An [App proxy Connector group](../active-directory/app-proxy/application-proxy-connector-groups.md)
+- A **Global Secure Access Administrator** role in Microsoft Entra ID
+
+To manage App Proxy connector groups, which is required for Quick Access, you must have:
+
+- An **Application Administrator** role in Microsoft Entra ID
+- A Microsoft Entra ID Premium P1/P2 license
+- An App Proxy license
 
 ## How it works
 

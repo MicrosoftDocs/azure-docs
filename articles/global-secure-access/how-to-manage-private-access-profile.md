@@ -18,11 +18,7 @@ The private access traffic forwarding profile routes traffic to your private net
 
 To enable the Microsoft 365 traffic forwarding profile for your tenant, you must have:
 
-- **Microsoft Entra Internet Access Premium license** for your Microsoft Entra ID tenant
-- **Global Secure Access Administrator** role in Microsoft Entra ID
-- The **Microsoft Graph** module must be installed to use PowerShell
-- Administrator consent is required when using Microsoft Graph Explorer for the Microsoft Graph API
-- Configure Quick Access with internal resources and at least one user assigned to the app
+- A **Global Secure Access Administrator** role in Microsoft Entra ID
 
 The **Private access profile** looks at traffic going to your organization's private, internal applications and sites. Your [Quick Access configurations](how-to-configure-quick-access.md) define the apps and sites that make up your Private access traffic forwarding profile.
 

@@ -20,10 +20,7 @@ This article explains how to create a remote network for Global Secure Access.
 
 ## Prerequisites
 
-- **Microsoft Entra Internet Access Premium license** for your Microsoft Entra ID tenant
 - **Global Secure Access Administrator** role in Microsoft Entra ID
-- The **Microsoft Graph** module must be installed to use PowerShell
-- Administrator consent is required when using Microsoft Graph Explorer for the Microsoft Graph API
 
 ## Create a remote network with the Microsoft Entra admin center
 

@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: conceptual
-ms.date: 05/15/2023
+ms.date: 06/07/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -16,7 +16,15 @@ As an IT administrator, you need to monitor the performance, experience, and ava
 
 ## Prerequisites
 
-Audit logs are available for all services that you have licensed. Streaming logs to a Log Analytics workspace requires an Azure AD Premium P1 or P2 tenant. You also need **Global Administrator** or **Security Administrator** to set up Diagnostic settings to configure log streaming.
+- Audit logs are available for all services that you have licensed
+- Accessing audit logs requires one of the following roles:
+    - Reports Reader
+    - Security Reader
+    - Security Administrator
+    - Global Reader
+    - Global Administrator
+- Streaming logs to a Log Analytics workspace requires a Microsoft Entra ID Premium P1/P2 license
+- A **Global Administrator** or **Security Administrator** role is required to set up Diagnostic settings to configure log streaming.
 
 ## Network traffic dashboard
 
@@ -36,7 +44,7 @@ The *Enriched Office 365 logs* provide you with the information you need to gain
 
 Customers use existing *Office Audit logs* for monitoring, detection, investigation, and analytics. We understand the importance of these logs and have partnered with Microsoft 365 to include SharePoint logs. These enriched logs include details like client information and original public IP details that can be used for troubleshooting security scenarios.
 
-Customers use the existing Office Audit logs for monitoring, detection, investigation, and analytics. The *Enriched Office 365 logs* build on these logs by adding information from SharePoint logs, such as client information and original public IP details, that can be used for security scenarios. 
+Customers use the existing Office Audit logs for monitoring, detection, investigation, and analytics. The *Enriched Office 365 logs* build on these logs by adding information from SharePoint logs, such as client information and original public IP details that can be used for security scenarios. 
 
 For more information, see [Enriched Office 365 logs](how-to-view-enriched-logs.md).
 
