@@ -43,7 +43,7 @@ Create a new search resource using PowerShell and the **Az.Search** module. In t
 1. Load the **Az.Search** module: 
 
    ```powershell
-   Install-Module -Name Az.Search
+   Install-Module -Name Az.Search -Scope CurrentUser
    ```
 
 1. Create a new search service. Use the following cmdlet as a template, substituting valid values for the resource group, service name, tier, region, partitions, and replicas:
