@@ -3,13 +3,17 @@ title: Azure Functions on Kubernetes with KEDA
 description: Understand how to run Azure Functions in Kubernetes in the cloud or on-premises using KEDA, Kubernetes-based event driven autoscaling.
 author: eamonoreilly
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.custom: build-2023
+ms.date: 05/11/2023
 ms.author: eamono
 ---
 
 # Azure Functions on Kubernetes with KEDA
 
-The Azure Functions runtime provides flexibility in hosting where and how you want.  [KEDA](https://keda.sh) (Kubernetes-based Event Driven Autoscaling) pairs seamlessly with the Azure Functions runtime and tooling to provide event driven scale in Kubernetes.
+The Azure Functions runtime provides flexibility in hosting where and how you want. [KEDA](https://keda.sh) (Kubernetes-based Event Driven Autoscaling) pairs seamlessly with the Azure Functions runtime and tooling to provide event driven scale in Kubernetes.
+
+> [!IMPORTANT]
+> Azure Functions on Kubernetes using KEDA is an open-source effort that you can use free of cost. Best-effort support is provided by contributors and from the community, so please use [GitHub issues in the Azure Functions repository](https://github.com/Azure/Azure-Functions/issues) to report bugs and raise feature requests. Azure Functions deployment to Azure Container Apps, which runs on managed Kubernetes clusters in Azure, is currently in preview. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
 
 ## How Kubernetes-based functions work
 
@@ -78,7 +82,7 @@ You can remove KEDA from your cluster in one of the following ways:
 KEDA has support for the following Azure Function triggers:
 
 * [Azure Storage Queues](functions-bindings-storage-queue.md)
-* [Azure Service Bus Queues](functions-bindings-service-bus.md)
+* [Azure Service Bus](functions-bindings-service-bus.md)
 * [Azure Event / IoT Hubs](functions-bindings-event-hubs.md)
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
 * [RabbitMQ Queue](https://github.com/azure/azure-functions-rabbitmq-extension)

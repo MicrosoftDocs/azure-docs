@@ -3,14 +3,15 @@ title: Azure CLI Script Sample - Route traffic for high availability of applicat
 description: Azure CLI Script Sample - Route traffic for high availability of applications
 services: traffic-manager
 documentationcenter: traffic-manager
-author: asudbring
-manager: KumudD
+author: greg-lindsay
+manager: Kumud
 ms.service: traffic-manager
 ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
-ms.date: 06/26/2018
+ms.date: 04/27/2023
 ms.author: allensu
 ---
 
@@ -29,7 +30,7 @@ This script creates a resource group, two app service plans, two web apps, a tra
 
 ## Clean up deployment 
 
-After the script sample has been run, the follow command can be used to remove the resource group, App Service app, and all related resources.
+After the script sample has been run, the following command can be used to remove the resource group, App Service app, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup1 --yes
@@ -44,7 +45,7 @@ This script uses the following commands to create a resource group, web app, tra
 |---|---|
 | [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](/cli/azure/appservice/plan) | Creates an App Service plan. This is like a server farm for your Azure web app. |
-| [az webapp create](/cli/azure/webapp#az_webapp_create) | Creates an Azure web app within the App Service plan. |
+| [az webapp create](/cli/azure/webapp#az-webapp-create) | Creates an Azure web app within the App Service plan. |
 | [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile) | Creates an Azure Traffic Manager profile. |
 | [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint) | Adds an endpoint to an Azure Traffic Manager Profile. |
 

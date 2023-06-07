@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver | Microsoft Docs'
+title: 'Tutorial: Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP NetWeaver.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/11/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -49,6 +49,8 @@ To configure the integration of SAP NetWeaver into Azure AD, you need to add SAP
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **SAP NetWeaver** in the search box.
 1. Select **SAP NetWeaver** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for SAP NetWeaver
 
@@ -157,7 +159,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. SAP NetWeaver application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![edit attribue](common/edit-attribute.png)
+	![edit attribute](common/edit-attribute.png)
 
 1. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
@@ -335,7 +337,7 @@ If you are expecting a role to be assigned to the users, you can select it from 
 	![Configure OAuth](./media/sapnetweaver-tutorial/oauth03.png)
 
 	> [!NOTE]
-	> Message `soft state status is not supported` – can be ignored, as no problem. For more details, refer [here](https://help.sap.com/doc/saphelp_nw74/7.4.16/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true).
+	> Message `soft state status is not supported` – can be ignored, as no problem.
 
 ### Create a service user for the OAuth 2.0 Client
 

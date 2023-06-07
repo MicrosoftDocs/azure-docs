@@ -5,10 +5,10 @@ services: expressroute
 author: duongau
 
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-
 ---
 # Configure custom alerts to monitor advertised routes
 
@@ -60,7 +60,7 @@ In order to create an Automation account, you need privileges and permissions. F
 
 ### <a name="about"></a>1. Create an automation account
 
-Create an Automation account with run-as permissions. For instructions, see [Create an Azure Automation account](../automation/quickstarts/create-account-portal.md).
+Create an Automation account with run-as permissions. For instructions, see [Create an Azure Automation account](../automation/quickstarts/create-azure-automation-account-portal.md).
 
 :::image type="content" source="./media/custom-route-alert-portal/create-account.png" alt-text="Add automation account" lightbox="./media/custom-route-alert-portal/create-account-expand.png":::
 
@@ -271,9 +271,9 @@ For this logic app, you build a workflow that regularly monitors ExpressRoute ga
 
 :::image type="content" source="./media/custom-route-alert-portal/logic-apps-workflow.png" alt-text="Logic Apps workflow":::
 
-### 1. Create a logic app
+### 1. Create a logic app resource
 
-In **Logic app designer**, create a logic app using the **Blank Logic App** template. For steps, see [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+In the Azure portal, create a Consumption logic app resource and then select the **Blank Logic App** template. For more information, see [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 :::image type="content" source="./media/custom-route-alert-portal/blank-template.png" alt-text="Blank template":::
 

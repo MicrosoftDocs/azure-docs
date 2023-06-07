@@ -9,11 +9,14 @@ ms.date: 05/06/2020
 
 # Data collection for your app
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 A Language Understanding (LUIS) app needs data as part of app development.
 
 ## Data used in LUIS
 
-LUIS uses text as data to train and test your LUIS app for classification for [intents](luis-concept-intent.md) and for extraction of [entities](luis-concept-entity-types.md). You need a large enough data set that you have sufficient data to create separate data sets for both training and test that have the diversity and distribution called out specifically below.  The data in each of these sets should not overlap.
+LUIS uses text as data to train and test your LUIS app for classification for [intents](luis-concept-intent.md) and for extraction of [entities](concepts/entities.md). You need a large enough data set that you have sufficient data to create separate data sets for both training and test that have the diversity and distribution called out specifically below.  The data in each of these sets should not overlap.
 
 ## Training data selection for example utterances
 
@@ -28,7 +31,7 @@ Select utterances for your training set based on the following criteria:
     * **Input diversity**: Consider your data input path. If you are collecting data from one person, department or input device (microphone) you are likely missing diversity that will be important for your app to learn about all input paths.
     * **Punctuation diversity**: Consider that people use varying levels of punctuation in text applications and make sure you have a diversity of how punctuation is used. If you're using data that comes from speech, it won't have any punctuation, so your data shouldn't either.
 * **Data distribution**: Make sure the data spread across intents represents the same spread of data your client application receives. If your LUIS app will classify utterances that are requests to schedule a leave (50%), but it will also see utterances about inquiring about leave days left (20%), approving leaves (20%) and some out of scope and chit chat (10%) then your data set should have the sample percentages of each type of utterance.
-* **Use all data forms**: If your LUIS app will take data in multiple forms, make sure to include those forms in your training utterances. For example, if your client application takes both speech and typed text input, you need to have speech-to-text generated utterances as well as typed utterances.  You will see different variations in how people speak from how they type as well as different errors in speech recognition and typos.  All of this variation should be represented in your training data.
+* **Use all data forms**: If your LUIS app will take data in multiple forms, make sure to include those forms in your training utterances. For example, if your client application takes both speech and typed text input, you need to have speech to text generated utterances as well as typed utterances.  You will see different variations in how people speak from how they type as well as different errors in speech recognition and typos.  All of this variation should be represented in your training data.
 * **Positive and negative examples**: To teach a LUIS app, it must learn about what the intent is (positive) and what it is not (negative). In LUIS, utterances can only be positive for a single intent. When an utterance is added to an intent, LUIS automatically makes that same example utterance a negative example for all the other intents.
 * **Data outside of application scope**: If your application will see utterances that fall outside of your defined intents, make sure to provide those. The examples that aren’t assigned to a particular defined intent will be labeled with the **None** intent.  It’s important to have realistic examples for the **None** intent to properly predict utterances that are outside the scope of the defined intents.
 
@@ -74,5 +77,4 @@ Once the first version of your app is published, you should update your test set
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn how LUIS alters your data before prediction](luis-concept-data-alteration.md)
+[Learn how LUIS alters your data before prediction](luis-concept-data-alteration.md)

@@ -1,12 +1,12 @@
 ---
 title: Azure Service Fabric Programmatic Scaling 
 description: Scale an Azure Service Fabric cluster in or out programmatically, according to custom triggers
-author: mjrousos
-
-ms.topic: conceptual
-ms.date: 01/23/2018
-ms.author: mikerou
-ms.custom: devx-track-csharp, devx-track-azurepowershell
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Scale a Service Fabric cluster programmatically 

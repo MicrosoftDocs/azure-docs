@@ -2,14 +2,14 @@
 title: "Configure Read Aloud"
 titleSuffix: Azure Applied AI Services
 description: This article will show you how to configure the various options for Read Aloud.
-author: metanMSFT
-manager: guillasi
+author: rwallerms
+manager: nitinme
 
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 06/29/2020
-ms.author: metang
+ms.author: rwaller
 ---
 
 # How to configure Read Aloud

@@ -3,8 +3,9 @@ author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
+ms.custom: ignite-2022
 ms.topic: include
-ms.date: 11/01/2021
+ms.date: 05/16/2023
 ---
 
 ### Copy activity support
@@ -13,12 +14,12 @@ ms.date: 11/01/2021
 | ------------------- | ------------------- | 
 | Azure Blob Storage | Yes |
 | Azure Cognitive Search | Yes | 
-| Azure Cosmos DB (SQL API) \* | Yes | 
-| Azure Cosmos DB's API for MongoDB \* | Yes |
+| Azure Cosmos DB for NoSQL \* | Yes | 
+| Azure Cosmos DB for MongoDB \* | Yes |
 | Azure Data Explorer \* | Yes | 
 | Azure Data Lake Storage Gen1 | Yes | 
 | Azure Data Lake Storage Gen2 | Yes | 
-| Azure Database for Maria DB \* | Yes | 
+| Azure Database for MariaDB \* | Yes | 
 | Azure Database for MySQL \* | Yes | 
 | Azure Database for PostgreSQL \* | Yes |
 | Azure Files | Yes | 
@@ -34,7 +35,7 @@ ms.date: 11/01/2021
 | SQL Server \* | Yes | 
 | Teradata \* | Yes |
 
-*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
+*\* Microsoft Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
 If you use Self-hosted Integration Runtime, note the minimal version with lineage support for:
 
@@ -50,18 +51,21 @@ Currently, if you use the following copy activity features, the lineage is not y
 - Compression setting for Binary, delimited text, Excel, JSON, and XML files.
 - Source partition options for Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, and SAP Table.
 - Copy data to file-based sink with setting of max rows per file.
+- Column level lineage is not currently supported by ADF copy for resource sets.
 
 In additional to lineage, the data asset schema (shown in Asset -> Schema tab) is reported for the following connectors:
 
 - CSV and Parquet files on Azure Blob, Azure Files, ADLS Gen1, ADLS Gen2, and Amazon S3
 - Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
 
+For external tables, lineage only shows the relationship between the stored procedure and tables. The relationship of the external tables to their original files are not currently shown.
+
 ### Data Flow support
 
 | Data store | Supported |
 | ------------------- | ------------------- | 
 | Azure Blob Storage | Yes |
-| Azure Cosmos DB (SQL API) \* | Yes | 
+| Azure Cosmos DB for NoSQL \* | Yes | 
 | Azure Data Lake Storage Gen1 | Yes |
 | Azure Data Lake Storage Gen2 | Yes |
 | Azure Database for MySQL \* | Yes | 
@@ -71,8 +75,10 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 | Azure Synapse Analytics \* | Yes |
 | Azure Dedicated SQL pool (formerly SQL DW) \* | Yes | 
 
-*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
+*\* Microsoft Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
 #### Limitations on data flow lineage
 
-Currently, data flow lineage doesn't integrate with Purview [resource set](../concept-resource-sets.md).
+- Currently, data flow lineage doesn't integrate with Microsoft Purview [resource set](../concept-resource-sets.md).
+- For external tables, lineage only shows the relationship between the stored procedure and tables. The relationship of the external tables to their original files are not currently shown.
+- For the lineage of Dataflow activity, Microsoft Purview only support showing the source and sink involved. The detailed lineage for Dataflow transformation isn't supported yet.

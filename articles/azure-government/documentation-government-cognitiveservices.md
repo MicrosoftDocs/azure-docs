@@ -6,7 +6,6 @@ cloud: gov
 documentationcenter: ''
 
 ms.service: azure-government
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
@@ -22,7 +21,7 @@ This article provides developer guidance for using Computer Vision, Face API, Te
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- Install and Configure [Azure PowerShell](/powershell/azure/install-az-ps)
+- Install and Configure [Azure PowerShell](/powershell/azure/install-azure-powershell)
 - Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
 
 ## Part 1: Provision Cognitive Services accounts
@@ -606,7 +605,7 @@ Response:
    }
 ]
 ```
-For more information, see [public documentation](../cognitive-services/Face/index.yml), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
+For more information, see [public documentation](../cognitive-services/computer-vision/index-identity.yml), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
 
 ## Text Analytics

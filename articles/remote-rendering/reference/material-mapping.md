@@ -30,6 +30,7 @@ The following table shows the mapping:
 |   occlusionFactor   |   occlusion                |
 |   occlusionTexture  |   occlusionMap             |
 |   normalTexture     |   normalMap                |
+|   normalTextureInfo.scale |   normalMapScale     |
 |   alphaCutoff       |   alphaClipThreshold       |
 |   alphaMode.OPAQUE  |   alphaClipEnabled = false, isTransparent = false |
 |   alphaMode.MASK    |   alphaClipEnabled = true, isTransparent = false  |
@@ -54,17 +55,17 @@ Additionally to the base feature set, Azure Remote Rendering supports the follow
 
 ## FBX
 
-The FBX format is closed-source and FBX materials are not compatible with PBR materials in general. FBX uses a complex description of surfaces with many unique parameters and properties and **not all of them are used by the Azure Remote Rendering pipeline**.
+The FBX format is closed-source and FBX materials aren't compatible with PBR materials in general. FBX uses a complex description of surfaces with many unique parameters and properties and **not all of them are used by the Azure Remote Rendering pipeline**.
 
 > [!IMPORTANT]
 > The Azure Remote Rendering model conversion pipeline only supports **FBX 2011 and higher**.
 
 The FBX format defines a conservative approach for materials, there are only two types in the official FBX specification:
 
-* *Lambert* - Not commonly used for quite some time already, but it is still supported by converting to Phong at conversion time.
+* *Lambert* - Not commonly used for quite some time already, but it's still supported by converting to Phong at conversion time.
 * *Phong* - Almost all materials and most content tools use this type.
 
-The Phong model is more accurate and it is used as the *only* model for FBX materials. Below it will be referred as the *FBX Material*.
+The Phong model is more accurate and it's used as the *only* model for FBX materials. Below it will be referred as the *FBX Material*.
 
 > Maya uses two custom extensions for FBX by defining custom properties for PBR and Stingray types of a material. These details are not included in the FBX specification, so it's not supported by Azure Remote Rendering currently.
 
@@ -72,7 +73,7 @@ FBX Materials use the Diffuse-Specular-SpecularLevel concept, so to convert from
 
 > All colors and textures in FBX are in sRGB space (also known as Gamma space) but Azure Remote Rendering works with linear space during visualization and at the end of the frame converts everything back to sRGB space. The Azure Remote Rendering asset pipeline converts everything to linear space to send it as prepared data to the renderer.
 
-This table shows how textures are mapped from FBX Materials to Azure Remote Rendering materials. Some of them are not directly used but in combination with other textures participating in the formulas (for instance the diffuse texture):
+This table shows how textures are mapped from FBX Materials to Azure Remote Rendering materials. Some of them aren't directly used but in combination with other textures participating in the formulas (for instance the diffuse texture):
 
 | FBX | Azure Remote Rendering |
 |:-----|:----|
@@ -116,9 +117,9 @@ Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
 
 `Metalness` is calculated from `Diffuse` and `Specular` using this [formula from the glTF specification](https://github.com/bghgary/glTF/blob/gh-pages/convert-between-workflows-bjs/js/babylon.pbrUtilities.js).
 
-The idea here is that we solve the equation: Ax<sup>2</sup> + Bx + C = 0.
+The idea here is, that we solve the equation: Ax<sup>2</sup> + Bx + C = 0.
 Basically, dielectric surfaces reflect around 4% of light in a specular way, and the rest is diffuse. Metallic surfaces reflect no light in a diffuse way, but all in a specular way.
-This formula has a few drawbacks, because there is no way to distinguish between glossy plastic and glossy metallic surfaces. We assume most of the time the surface has metallic properties, and so glossy plastic/rubber surfaces may not look as expected.
+This formula has a few drawbacks, because there's no way to distinguish between glossy plastic and glossy metallic surfaces. We assume most of the time the surface has metallic properties, and so glossy plastic/rubber surfaces may not look as expected.
 
 ```cpp
 dielectricSpecularReflectance = 0.04
@@ -137,7 +138,7 @@ Metalness = clamp(value, 0.0, 1.0);
 `Albedo` is computed from `Diffuse`, `Specular`, and `Metalness`.
 
 As described in the Metalness section, dielectric surfaces reflect around 4% of light.  
-The idea here is to linearly interpolate between `Dielectric` and `Metal` colors using `Metalness` value as a factor. If metalness is `0.0`, then depending on specular it will be either a dark color (if specular is high) or diffuse will not change (if no specular is present). If metalness is a large value, then the diffuse color will disappear in favor of specular color.
+The idea here is to linearly interpolate between `Dielectric` and `Metal` colors using `Metalness` value as a factor. If metalness is `0.0`, then depending on specular it will be either a dark color (if specular is high) or diffuse won't change (if no specular is present). If metalness is a large value, then the diffuse color will disappear in favor of specular color.
 
 ```cpp
 dielectricSpecularReflectance = 0.04
@@ -149,12 +150,12 @@ albedoRawColor = lerpColors(dielectricColor, metalColor, metalness * metalness)
 AlbedoRGB = clamp(albedoRawColor, 0.0, 1.0);
 ```
 
-`AlbedoRGB` has been computed by the formula above, but the alpha channel requires more computations. The FBX format is vague about transparency and has many ways to define it. Different content tools use different methods. The idea here is to unify them into one formula. It makes some assets incorrectly shown as transparent, though, if they are not created in a common way.
+`AlbedoRGB` has been computed by the formula above, but the alpha channel requires more computations. The FBX format is vague about transparency and has many ways to define it. Different content tools use different methods. The idea here is to unify them into one formula. It makes some assets incorrectly rendered as transparent, though, if they aren't created in a common way.
 
 This is computed from `TransparentColor`, `TransparencyFactor`, `Opacity`:
 
 if `Opacity` is defined, then use it directly: `AlbedoAlpha` = `Opacity` else  
-if `TransparencyColor` is defined, then `AlbedoAlpha` = 1.0 - ((`TransparentColor`.Red + `TransparentColor`.Green + `TransparentColor`.Blue) / 3.0) else  
+if `TransparencyColor` is defined, then `AlbedoAlpha` = 1.0 - ((`TransparentColor.Red` + `TransparentColor.Green` + `TransparentColor.Blue`) / 3.0) else  
 if `TransparencyFactor`, then `AlbedoAlpha` = 1.0 - `TransparencyFactor`
 
 The final `Albedo` color has four channels, combining the `AlbedoRGB` with the `AlbedoAlpha`.
@@ -165,8 +166,8 @@ To summarize here, `Albedo` will be very close to the original `Diffuse`, if `Sp
 
 ### Known issues
 
-* The current formula does not work well for simple colored geometry. If `Specular` is bright enough, then all geometries become reflective metallic surfaces without any color. The workaround here is to lower `Specular` to 30% from the original or to use the conversion setting [fbxAssumeMetallic](../how-tos/conversion/configure-model-conversion.md#converting-from-older-fbx-formats-with-a-phong-material-model).
-* PBR materials were recently added to `Maya` and `3DS Max` content creation tools. They use custom user-defined black-box properties to pass it to FBX. Azure Remote Rendering does not read those properties because they are not documented and the format is closed-source.
+* The current formula doesn't work well for simple colored geometry. If `Specular` is bright enough, then all geometries become reflective metallic surfaces without any color. The workaround in this case is to lower `Specular` to 30% from the original or to use the conversion setting [fbxAssumeMetallic](../how-tos/conversion/configure-model-conversion.md#conversion-from-earlier-fbx-formats-and-phong-material-models).
+* PBR materials were recently added to `Maya` and `3DS Max` content creation tools. They use custom user-defined black-box properties to pass it to FBX. Azure Remote Rendering doesn't read those properties because they aren't documented and the format is closed-source.
 
 ## Next steps
 

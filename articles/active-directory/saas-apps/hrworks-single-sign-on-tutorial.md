@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with HRworks Single Sign-On | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with HRworks Single Sign-On'
 description: Learn how to configure single sign-on between Azure Active Directory and HRworks Single Sign-On.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/29/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -48,6 +48,8 @@ To configure the integration of HRworks Single Sign-On into Azure AD, you need t
 1. In the **Add from the gallery** section, type **HRworks Single Sign-On** in the search box.
 1. Select **HRworks Single Sign-On** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for HRworks Single Sign-On
 
 Configure and test Azure AD SSO with HRworks Single Sign-On using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in HRworks Single Sign-On.
@@ -77,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://login.hrworks.de/?companyId=<COMPANY_ID>&directssologin=true`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [HRworks Single Sign-On Client support team](https://www.hrworks.de/dienstleistungen/support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. See [HRworks Single Sign-On Helpcenter article](https://help.hrworks.de/en/single-sign-on) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -113,15 +115,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure HRworks Single Sign-On SSO
 
-1. To automate the configuration within HRworks Single Sign-On, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up HRworks Single Sign-On** will direct you to the HRworks Single Sign-On application. From there, provide the admin credentials to sign into HRworks Single Sign-On. The browser extension will automatically configure the application for you and automate steps 3-4.
 
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup HRworks Single Sign-On manually, open a new web browser window and sign into your HRworks Single Sign-On company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your HRworks Single Sign-On company site as an administrator
 
 1. Click on **Administrator** > **Basics** > **Security** > **Single Sign-on** from the left side of menu bar and perform the following steps:
 

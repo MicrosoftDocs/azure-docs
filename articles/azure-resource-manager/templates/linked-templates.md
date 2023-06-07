@@ -2,8 +2,8 @@
 title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template (ARM template) to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 04/26/2023
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Using linked and nested templates when deploying Azure resources
@@ -17,8 +17,11 @@ For a tutorial, see [Tutorial: Deploy a linked template](./deployment-tutorial-l
 > [!NOTE]
 > For linked or nested templates, you can only set the deployment mode to [Incremental](deployment-modes.md). However, the main template can be deployed in complete mode. If you deploy the main template in the complete mode, and the linked or nested template targets the same resource group, the resources deployed in the linked or nested template are included in the evaluation for complete mode deployment. The combined collection of resources deployed in the main template and linked or nested templates is compared against the existing resources in the resource group. Any resources not included in this combined collection are deleted.
 >
-> If the linked or nested template targets a different resource group, that deployment uses incremental mode.
+> If the linked or nested template targets a different resource group, that deployment uses incremental mode. For more information, see [Deployment Scope](./deploy-to-resource-group.md#deployment-scopes).
 >
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [modules](../bicep/modules.md).
 
 ## Nested template
 
@@ -590,7 +593,7 @@ For more information, see:
 
 ## Dependencies
 
-As with other resource types, you can set dependencies between the linked templates. If the resources in one linked template must be deployed before resources in a second linked template, set the second template dependent on the first.
+As with other resource types, you can set dependencies between the nested/linked templates. If the resources in one nested/linked template must be deployed before resources in a second nested/linked template, set the second template dependent on the first.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/linked-dependency.json" highlight="10,22,24":::
 

@@ -24,6 +24,9 @@ You can use this service to easily place managed instances of Apache Cassandra d
 - **Simplified deployment:** After the hybrid connectivity is established, deployment of new data centers in Azure is easy through [simple commands](manage-resources-cli.md#create-datacenter).
 - **Metrics:** each datacenter node provisioned by the service emits metrics using [Metric Collector for Apache Cassandra](https://github.com/datastax/metric-collector-for-apache-cassandra). The metrics can be [visualized in Prometheus or Grafana](visualize-prometheus-grafana.md). The service is also integrated with [Azure Monitor for metrics and diagnostic logging](monitor-clusters.md).
 
+>[!NOTE]
+> The service currently supports Cassandra versions 3.11 and 4.0. Both versions are GA. See our [Azure CLI Quickstart](create-cluster-cli.md) (step 5) for specifying Cassandra version during cluster deployment.
+
 ### Simplified scaling
 
 In the managed instance, scaling up and scaling down nodes in a datacenter is fully managed. You select the number of nodes you need, and with a [simple command](manage-resources-cli.md#update-datacenter), the scaling orchestrator takes care of establishing their operation within the Cassandra ring.

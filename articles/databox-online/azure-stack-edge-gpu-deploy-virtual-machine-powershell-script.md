@@ -6,8 +6,9 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 05/24/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using an Azure PowerShell script so that I can efficiently manage my VMs.
 ---
@@ -189,7 +190,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     Location             : DBELocal
     Tags                 :
     
-     New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig201221071831  -ResourceGroupName rg201221071831
+     New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig201221071831  -ResourceGroupName rg201221071831 -HyperVGeneration V1
     
     ResourceGroupName    : rg201221071831
     SourceVirtualMachine :

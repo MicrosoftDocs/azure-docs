@@ -1,16 +1,16 @@
 ---
-title: "Tutorial: Call Microsoft Graph in a Node.js console app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Call Microsoft Graph in a Node.js console app"
 description: In this tutorial, you build a console app for calling Microsoft Graph to a Node.js console app.
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: devx-track-js
 ms.topic: tutorial
-ms.date: 02/17/2021
-ms.author: marsma
+ms.date: 12/12/2021
+ms.author: cwerner
 ---
 
 # Tutorial: Call the Microsoft Graph API in a Node.js console app
@@ -45,63 +45,75 @@ Use the following settings for your app registration:
 
 ## Create the project
 
-Create a folder to host your application, for example *NodeConsoleApp*.
 
-1. First, change to your project directory in your terminal and then run the following NPM commands:
+1. Start by creating a directory for this Node.js tutorial project. For example, *NodeConsoleApp*.
 
-```console
+1. In your terminal, change into the directory you created (the project root), and then run the following commands:
+
+    ```console
     npm init -y
     npm install --save dotenv yargs axios @azure/msal-node
-```
+    ```
 
-2. Next, create a folder named *bin*. Then, inside this folder, create file named *index.js* and add the following code:
+1. Next, edit the *package.json* file in the project root and prefix the value of `main` with `bin/`, like this:
 
-```JavaScript
-#!/usr/bin/env node
+    ```json
+    "main": "bin/index.js",
+    ```
 
-// read in env settings
-require('dotenv').config();
+1. Now create the *bin* directory, and inside *bin*, add the following code to a new file named *index.js*:
 
-const yargs = require('yargs');
+    ```JavaScript
+    #!/usr/bin/env node
 
-const fetch = require('./fetch');
-const auth = require('./auth');
+    // read in env settings
+    require('dotenv').config();
 
-const options = yargs
-    .usage('Usage: --op <operation_name>')
-    .option('op', { alias: 'operation', describe: 'operation name', type: 'string', demandOption: true })
-    .argv;
+    const yargs = require('yargs');
 
-async function main() {
-    console.log(`You have selected: ${options.op}`);
+    const fetch = require('./fetch');
+    const auth = require('./auth');
 
-    switch (yargs.argv['op']) {
-        case 'getUsers':
+    const options = yargs
+        .usage('Usage: --op <operation_name>')
+        .option('op', { alias: 'operation', describe: 'operation name', type: 'string', demandOption: true })
+        .argv;
 
-            try {
-                // here we get an access token
-                const authResponse = await auth.getToken(auth.tokenRequest);
+    async function main() {
+        console.log(`You have selected: ${options.op}`);
 
-                // call the web API with the access token
-                const users = await fetch.callApi(auth.apiConfig.uri, authResponse.accessToken);
+        switch (yargs.argv['op']) {
+            case 'getUsers':
 
-                // display result
-                console.log(users);
-            } catch (error) {
-                console.log(error);
-            }
+                try {
+                    // here we get an access token
+                    const authResponse = await auth.getToken(auth.tokenRequest);
 
-            break;
-        default:
-            console.log('Select a Graph operation first');
-            break;
-    }
-};
+                    // call the web API with the access token
+                    const users = await fetch.callApi(auth.apiConfig.uri, authResponse.accessToken);
 
-main();
-```
+                    // display result
+                    console.log(users);
+                } catch (error) {
+                    console.log(error);
+                }
 
-This file references two other node modules: *auth.js* which contains an implementation of MSAL Node for acquiring access tokens, and *fetch.js* which contains a method for making an HTTP request to Microsoft Graph API with an access token. After completing the rest of the tutorial, the file and folder structure of your project should look similar to the following:
+                break;
+            default:
+                console.log('Select a Graph operation first');
+                break;
+        }
+    };
+
+    main();
+    ```
+
+The *index.js* file you just created references two other node modules that you'll create next:
+
+- *auth.js* - Uses MSAL Node for acquiring access tokens from the Microsoft identity platform.
+- *fetch.js* - Requests data from the Microsoft Graph API by including access tokens (acquired in *auth.js*) in HTTP requests to the API.
+
+At the end of the tutorial, your project's file and directory structure should look similar to this:
 
 ```
 NodeConsoleApp/
@@ -115,7 +127,7 @@ NodeConsoleApp/
 
 ## Add authentication logic
 
-Inside the *bin* folder, create another file named *auth.js* and add the following code for acquiring an access token to present when calling the Microsoft Graph API.
+Inside the *bin* directory, add the following code to a new file named *auth.js*. The code in *auth.js* acquires an access token from the Microsoft identity platform for including in Microsoft Graph API requests.
 
 ```JavaScript
 const msal = require('@azure/msal-node');
@@ -128,7 +140,7 @@ const msal = require('@azure/msal-node');
 const msalConfig = {
     auth: {
         clientId: process.env.CLIENT_ID,
-        authority: process.env.AAD_ENDPOINT + process.env.TENANT_ID,
+        authority: process.env.AAD_ENDPOINT + '/' + process.env.TENANT_ID,
         clientSecret: process.env.CLIENT_SECRET,
     }
 };
@@ -136,7 +148,7 @@ const msalConfig = {
 /**
  * With client credentials flows permissions need to be granted in the portal by a tenant administrator.
  * The scope is always in the format '<resource>/.default'. For more, visit:
- * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
+ * https://learn.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
  */
 const tokenRequest = {
     scopes: [process.env.GRAPH_ENDPOINT + '/.default'],
@@ -180,8 +192,8 @@ CLIENT_ID=Enter_the_Application_Id_Here
 CLIENT_SECRET=Enter_the_Client_Secret_Here
 
 # Endpoints
-AAD_ENDPOINT=Enter_the_Cloud_Instance_Id_Here
-GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here
+AAD_ENDPOINT=Enter_the_Cloud_Instance_Id_Here/
+GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here/
 ```
 
 Fill in these details with the values you obtain from Azure app registration portal:
@@ -222,7 +234,7 @@ async function callApi(endpoint, accessToken) {
     console.log('request made to web API at: ' + new Date().toString());
 
     try {
-        const response = await axios.default.get(endpoint, options);
+        const response = await axios.get(endpoint, options);
         return response.data;
     } catch (error) {
         console.log(error)

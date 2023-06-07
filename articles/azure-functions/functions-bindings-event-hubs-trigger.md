@@ -1,11 +1,11 @@
 ---
 title: Azure Event Hubs trigger for Azure Functions
 description: Learn to use Azure Event Hubs trigger in Azure Functions.
-author: craigshoemaker
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
-ms.date: 02/21/2020
-ms.author: cshoe
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 03/03/2023
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Event Hubs trigger for Azure Functions
@@ -16,9 +16,11 @@ For information on setup and configuration details, see the [overview](functions
 
 [!INCLUDE [functions-bindings-event-hubs-trigger](../../includes/functions-bindings-event-hubs-trigger.md)]
 
+[!INCLUDE [functions-event-hubs-connections](../../includes/functions-event-hubs-connections.md)]
+
 ## host.json settings
 
-The [host.json](functions-host-json.md#eventhub) file contains settings that control Event Hub trigger behavior. See the [host.json settings](functions-bindings-event-hubs.md#hostjson-settings) section for details regarding available settings.
+The [host.json](functions-host-json.md#eventhub) file contains settings that control Event Hubs trigger behavior. See the [host.json settings](functions-bindings-event-hubs.md#hostjson-settings) section for details regarding available settings.
 
 ## Next steps
 

@@ -17,13 +17,13 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Az
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 This quickstart requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/key-vault-cli-rg-creation.md)]
+[!INCLUDE [Create a resource group](../../../includes/cli-rg-create.md)]
 
 ## Create a key vault
 
@@ -33,7 +33,7 @@ This quickstart requires version 2.0.4 or later of the Azure CLI. If using Azure
 
 To add a secret to the vault, you just need to take a couple of additional steps. This password could be used by an application. The password will be called **ExamplePassword** and will store the value of **hVFkk965BuUv** in it.
 
-Use the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) command below to create a secret in Key Vault called **ExamplePassword** that will store the value **hVFkk965BuUv** :
+Use the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command below to create a secret in Key Vault called **ExamplePassword** that will store the value **hVFkk965BuUv** :
 
 ```azurecli
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "ExamplePassword" --value "hVFkk965BuUv"
@@ -43,7 +43,7 @@ az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "Exampl
 
 You can now reference this password that you added to Azure Key Vault by using its URI. Use **`https://<your-unique-keyvault-name>.vault.azure.net/secrets/ExamplePassword`** to get the current version.
 
-To view the value contained in the secret as plain text, use the Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret#az_keyvault_secret_show) command:
+To view the value contained in the secret as plain text, use the Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret#az-keyvault-secret-show) command:
 
 ```azurecli
 az keyvault secret show --name "ExamplePassword" --vault-name "<your-unique-keyvault-name>" --query "value"
@@ -53,7 +53,7 @@ Now, you have created a Key Vault, stored a secret, and retrieved it.
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-delete-resources.md)]
+[!INCLUDE [Create a key vault](../../../includes/cli-rg-delete.md)]
 
 ## Next steps
 

@@ -24,6 +24,8 @@
       href: quickstart-create-mariadb-server-database-using-azure-cli.md
     - name: Create DB - Azure PowerShell
       href: quickstart-create-mariadb-server-database-using-azure-powershell.md
+    - name: Create DB - Bicep
+      href: quickstart-create-mariadb-server-database-bicep.md
     - name: Create DB - ARM template
       href: quickstart-create-mariadb-server-database-arm-template.md
       displayName: deploy azure resource manager template
@@ -63,10 +65,6 @@
       href: tutorial-design-database-cli.md
     - name: Azure PowerShell
       href: tutorial-design-database-using-powershell.md
-  - name: Samples
-    items:
-    - name: Azure CLI
-      href: sample-scripts-azure-cli.md
   - name: Drivers and tools compatibility
     href: concepts-compatibility.md
   - name: Connection resiliency
@@ -228,6 +226,24 @@
     href: howto-troubleshoot-common-connection-issues.md
   - name: Troubleshoot query performance
     href: howto-troubleshoot-query-performance.md  
+- name: Samples
+  items:
+  - name: Azure CLI Samples
+    items:
+    - name: Samples overview
+      href: sample-scripts-azure-cli.md
+    - name: Create a server with firewall rule
+      href: ./scripts/sample-create-server-and-firewall-rule.md
+    - name: Create server with vNet rule
+      href: ./scripts/sample-create-server-with-vnet-rule.md
+    - name: Scale a server
+      href: ./scripts/sample-scale-server.md
+    - name: Change server configurations
+      href: ./scripts/sample-change-server-configuration.md
+    - name: Restore a server
+      href: ./scripts/sample-point-in-time-restore.md
+    - name: Manipulate with server logs
+      href: ./scripts/sample-server-logs.md
 - name: Reference
   items:
   - name: Azure CLI

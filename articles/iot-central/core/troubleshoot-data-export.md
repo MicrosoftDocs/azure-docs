@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot data exports from Azure IoT Central | Microsoft Docs
-description: Troubleshoot issues with data exports in IoT Central
+title: Troubleshoot data exports from Azure IoT Central
+description: Troubleshoot data exports in IoT Central for issues such as managed identity permissions and virtual network configuration
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/26/2021
+ms.date: 06/10/2022
 ms.topic: troubleshooting
 ms.service: iot-central
 
@@ -28,6 +28,6 @@ To learn more, see [Export data](howto-export-data.md?tabs=managed-identity).
 
 ## Next steps
 
-If you need more help, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
+If you need more help, you can contact the Azure experts on the [Microsoft Q&A and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
 
-For more information, see [Azure IoT support and help options](../../iot-fundamentals/iot-support-help.md).
+For more information, see [Azure IoT support and help options](../../iot/iot-support-help.md).

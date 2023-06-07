@@ -5,6 +5,7 @@ description: Learn how to use the Execute R Script component in Azure Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: reference
 
 author: likebupt
@@ -82,7 +83,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## Access to registered dataset
 
-You can refer to the following sample code to access to the [registered datasets](../how-to-create-register-datasets.md) in your workspace:
+You can refer to the following sample code to access to the [registered datasets](../v1/how-to-create-register-datasets.md) in your workspace:
 
 ```R
 azureml_main <- function(dataframe1, dataframe2){

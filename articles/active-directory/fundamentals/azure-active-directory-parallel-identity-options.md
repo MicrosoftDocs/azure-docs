@@ -3,13 +3,12 @@ title: 'Parallel and combined identity infrastructure options'
 description: This article describes the various options available for organizations to run multiple tenants and multi-cloud scenarios
 services: active-directory
 author: martincoetzer
-manager: martincoetzer
+manager: travisgr
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 08/17/2022
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
@@ -264,3 +263,4 @@ In this approach, Contoso would configure a [direct federation](../external-iden
 - [Setup Inbound provisioning for Azure AD](../app-provisioning/plan-cloud-hr-provision.md)
 - [Setup B2B direct federation](../external-identities/direct-federation.md)
 - [Multi-tenant user management options](multi-tenant-user-management-introduction.md)
+- [What is application provisioning?](../app-provisioning/user-provisioning.md)

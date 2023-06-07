@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/25/2022
 ---
 
 # System variables supported by Azure Data Factory and Azure Synapse Analytics
@@ -32,15 +32,15 @@ These system variables can be referenced anywhere in the pipeline JSON.
 | @pipeline().TriggerName|Name of the trigger that invoked the pipeline |
 | @pipeline().TriggerTime|Time of the trigger run that invoked the pipeline. This is the time at which the trigger **actually** fired to invoke the pipeline run, and it may differ slightly from the trigger's scheduled time.  |
 | @pipeline().GroupId | ID of the group to which pipeline run belongs. |
-| @pipeline()?TriggeredByPipelineName | Name of the pipeline that triggers the pipeline run. Applicable when the pipeline run is triggered by an ExecutePipeline activity. Evaluate to _Null_ when used in other circumstances. Note the question mark after @pipeline() |
-| @pipeline()?TriggeredByPipelineRunId | Run ID of the pipeline that triggers the pipeline run. Applicable when the pipeline run is triggered by an ExecutePipeline activity. Evaluate to _Null_ when used in other circumstances. Note the question mark after @pipeline() |
+| @pipeline()?.TriggeredByPipelineName | Name of the pipeline that triggers the pipeline run. Applicable when the pipeline run is triggered by an ExecutePipeline activity. Evaluate to _Null_ when used in other circumstances. Note the question mark after @pipeline() |
+| @pipeline()?.TriggeredByPipelineRunId | Run ID of the pipeline that triggers the pipeline run. Applicable when the pipeline run is triggered by an ExecutePipeline activity. Evaluate to _Null_ when used in other circumstances. Note the question mark after @pipeline() |
 
 >[!NOTE]
 >Trigger-related date/time system variables (in both pipeline and trigger scopes) return UTC dates in ISO 8601 format, for example, `2017-06-01T22:20:00.4061448Z`.
 
 ## Schedule trigger scope
 
-These system variables can be referenced anywhere in the trigger JSON for triggers of type [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger).
+These system variables can be referenced anywhere in the trigger JSON for triggers of type [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger-with-json).
 
 | Variable Name | Description |
 | --- | --- |
@@ -80,7 +80,7 @@ These system variables can be referenced anywhere in the trigger JSON for trigge
 
 | Variable Name | Description
 | --- | --- |
-| @triggerBody().event.eventType | Type of events that triggered the Custom Event Trigger run. Event type is customer defined field and take on any values of string type. |
+| @triggerBody().event.eventType | Type of events that triggered the Custom Event Trigger run. Event type is customer-defined field and take on any values of string type. |
 | @triggerBody().event.subject | Subject of the custom event that caused the trigger to fire. |
 | @triggerBody().event.data._keyName_ | Data field in custom event is a free from JSON blob, which customer can use to send messages and data. Please use data._keyName_ to reference each field. For example, @triggerBody().event.data.callback returns the value for the _callback_ field stored under _data_. |
 | @trigger().startTime | Time at which the trigger fired to invoke the pipeline run. |

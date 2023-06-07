@@ -37,8 +37,8 @@
       href: template-create-instance.md
     - name: Configure scoped synchronization using Azure AD PowerShell
       href: powershell-scoped-synchronization.md
-    - name: Create a resource forest and trust using Azure PowerShell
-      href: create-resource-forest-powershell.md
+    - name: Create a forest trust using Azure PowerShell
+      href: create-forest-trust-powershell.md
 - name: Concepts
   items:
     - name: Administration basics
@@ -47,20 +47,16 @@
       href: scenarios.md
     - name: Replica sets
       href: concepts-replica-sets.md
-    - name: Forests and trusts
-      items:
-        - name: Resource forests
-          href: concepts-resource-forest.md
-        - name: Forest trusts
-          href: concepts-forest-trust.md
+    - name: Forests trusts
+      href: concepts-forest-trust.md
     - name: How Azure AD DS synchronization works
       href: synchronization.md
     - name: How password hash synchronization works
       href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Custom attributes
+      href: concepts-custom-attributes.md
     - name: Virtual network considerations
       href: network-considerations.md
-    - name: Classic deployment migration benefits
-      href: concepts-migration-benefits.md
     - name: What is Azure Active Directory?
       href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Azure Active Directory architecture
@@ -83,14 +79,16 @@
           href: manage-dns.md
         - name: Check health status
           href: check-health.md
+        - name: Fleet metrics
+          href: fleet-metrics.md
         - name: Configure email notifications
           href: notifications.md
         - name: Delete a managed domain
           href: delete-aadds.md
-        - name: Migrate from a Classic deployment
-          href: migrate-from-classic-vnet.md
         - name: Change SKU
           href: change-sku.md
+        - name: Retrieve data
+          href: how-to-data-retrieval.md
     - name: Secure Azure AD DS
       items:
         - name: Secure your managed domain
@@ -105,6 +103,8 @@
           href: use-azure-monitor-workbooks.md
         - name: Secure remote access to VMs
           href: secure-remote-vm-access.md
+        - name: Security baseline
+          href: /security/benchmark/azure/baselines/azure-active-directory-domain-services-security-baseline?toc=/azure/active-directory-domain-services/TOC.json          
     - name: Domain-join VMs
       items:
         - name: Windows Server VM from template
@@ -119,6 +119,10 @@
           href: join-ubuntu-linux-vm.md
         - name: SUSE Linux Enterprise
           href: join-suse-linux-vm.md
+    - name: AD authentication through LDAP Linux
+      items:
+        - name: Active Directory authentication non domain joined Linux Virtual Machines
+          href: ad-auth-no-join-linux-vm.md
     - name: Deploy applications
       items:
         - name: Deploy Azure AD Application Proxy
@@ -162,6 +166,8 @@
   items:
     - name: FAQs
       href: faqs.yml
+    - name: Feature availability
+      href: feature-availability.md
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=active-directory-ds
     - name: Pricing

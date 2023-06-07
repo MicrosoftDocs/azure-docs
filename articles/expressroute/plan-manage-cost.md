@@ -6,15 +6,14 @@ ms.author: duau
 ms.custom: subject-cost-optimization
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 05/18/2021
+ms.date: 12/27/2022
 ---
-
 
 # Plan and manage costs for Azure ExpressRoute
 
-This article describes how you plan for and manage costs for Azure ExpressRoute. First, you use the Azure pricing calculator to help plan for ExpressRoute costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs. 
+This article describes how you can plan for and manage costs for Azure ExpressRoute. First, you use the Azure pricing calculator to help plan for ExpressRoute costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs. 
 
-After you've started using Azure ExpressRoute resources, use the Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. The costs for Azure ExpressRoute are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure ExpressRoute, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
+After you've started using Azure ExpressRoute resources, use the Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. The costs for Azure ExpressRoute are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure ExpressRoute, you're billed for all Azure services and resources used in your Azure subscription, including any third-party services.
 
 ## Prerequisites
 
@@ -58,7 +57,7 @@ If you're using an ExpressRoute gateway to link a virtual network to the Express
 
 ## Understand the full billing model for ExpressRoute
 
-Azure ExpressRoute runs on Azure infrastructure that accrues costs along with ExpressRoute when you deploy the new resource. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources. 
+Azure ExpressRoute runs on Azure infrastructure that accrues costs along with ExpressRoute when you deploy the new resource. It's important to understand that extra infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources. 
 
 ### Costs that typically accrue with ExpressRoute
 
@@ -70,7 +69,7 @@ Inbound data transfer is included in the monthly cost of the ExpressRoute circui
 
 #### ExpressRoute Direct
 
-ExpressRoute Direct has a monthly port fee that includes the circuit fee for Local and Standard SKU ExpressRoute circuits. For Premium SKU circuits, there is an extra circuit fee. Outbound data transfer is charged per GB used depending on the zone number of the peering location. The outbound data charge only applies to Standard and Premium SKUs.
+ExpressRoute Direct has a monthly port fee that includes the circuit fee for Local and Standard SKU ExpressRoute circuits. For Premium SKU circuits, there's an extra circuit fee. Outbound data transfer is charged per GB used depending on the zone number of the peering location. The outbound data charge only applies to Standard and Premium SKUs.
  
 #### ExpressRoute Global Reach
 
@@ -82,7 +81,7 @@ If you have an ExpressRoute gateway after deleting the ExpressRoute circuit, you
 
 ### Using Azure Prepayment credit
 
-You can pay for ExpressRoute charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
+You can pay for ExpressRoute charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including the ones from the Azure Marketplace.
 
 ## Monitor costs
 
@@ -113,11 +112,11 @@ In the preceding example, you see the current cost for the service. Costs by Azu
 
 You can create [budgets](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. 
 
-Budgets can be created with filters for specific resources or services in Azure if you want more granularity present in your monitoring. Filters help ensure that you don't accidentally create new resources that cost you additional money. For more about the filter options when you create a budget, see [Group and filter options](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Budgets can be created with filters for specific resources or services in Azure if you want more granularity present in your monitoring. Filters help ensure that you don't accidentally create new resources that cost you more money. For more about the filter options when you create a budget, see [Group and filter options](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 ## Export cost data
 
-You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. Exporting cost data is helpful when you need or others to do data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 ## Next steps
 
@@ -125,4 +124,4 @@ You can also [export your cost data](../cost-management-billing/costs/tutorial-e
 - Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+- Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.

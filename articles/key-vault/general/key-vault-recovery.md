@@ -3,10 +3,11 @@ title: Azure Key Vault recovery overview | Microsoft Docs
 description: Key Vault Recovery features are designed to prevent the accidental or malicious deletion of your key vault and secrets, keys, and certificate stored inside key-vault.
 ms.service: key-vault
 ms.subservice: general
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-ms.date: 09/30/2020
+ms.date: 08/18/2022
 ---
 
 # Azure Key Vault recovery management with soft delete and purge protection
@@ -20,7 +21,7 @@ For more information about Key Vault, see
 ## Prerequisites
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-* [PowerShell module](/powershell/azure/install-az-ps).
+* [Azure PowerShell](/powershell/azure/install-azure-powershell).
 * [Azure CLI](/cli/azure/install-azure-cli)
 * A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
 * The user will need the following permissions (at subscription level) to perform operations on soft-deleted vaults:
@@ -32,22 +33,21 @@ For more information about Key Vault, see
   |Microsoft.KeyVault/locations/operationResults/read| To check purging state of vault|
   |[Key Vault Contributor](../../role-based-access-control/built-in-roles.md#key-vault-contributor)|To recover soft-deleted vault|
 
-
 ## What are soft-delete and purge protection
 
 [Soft delete](soft-delete-overview.md) and purge protection are two different key vault recovery features.
 
-> [!IMPORTANT]
-> Turning on soft delete is critical to ensuring that your key vaults and credentials are protected from accidental deletion. However, turning on soft delete is considered a breaking change because it may require you to change your application logic or provide additional permissions to your service principals. Before turning on soft delete using the instructions below, please make sure that your application is compatible with the change using this document [**here**.](soft-delete-change.md)
-
 **Soft delete** is designed to prevent accidental deletion of your key vault and keys, secrets, and certificates stored inside key vault. Think of soft-delete like a recycle bin. When you delete a key vault or a key vault object, it will remain recoverable for a user configurable retention period or a default of 90 days. Key vaults in the soft deleted state can also be **purged** which means they are permanently deleted. This allows you to recreate key vaults and key vault objects with the same name. Both recovering and deleting key vaults and objects require elevated access policy permissions. **Once soft delete has been enabled, it cannot be disabled.**
+
+> [!IMPORTANT]
+> You must enable soft-delete on your key vaults immediately. The ability to opt out of soft-delete is deprecated and will be removed in February 2025. See full details [here](soft-delete-change.md)
 
 It is important to note that **key vault names are globally unique**, so you won't be able to create a key vault with the same name as a key vault in the soft deleted state. Similarly, the names of keys, secrets, and certificates are unique within a key vault. You won't be able to create a secret, key, or certificate with the same name as another in the soft deleted state.
 
 **Purge protection** is designed to prevent the deletion of your key vault, keys, secrets, and certificates by a malicious insider. Think of this as a recycle bin with a time based lock. You can recover items at any point during the configurable retention period. **You will not be able to permanently delete or purge a key vault until the retention period elapses.** Once the retention period elapses the key vault or key vault object will be purged automatically.
 
 > [!NOTE]
-> Purge Protection is designed so that no administrator role or permission can  override, disable, or circumvent purge protection. **Once purge protection is enabled, it cannot be disabled or overridden by anyone including Microsoft.** This means you must recover a deleted key vault or wait for the retention period to elapse before reusing the key vault name.
+> Purge Protection is designed so that no administrator role or permission can override, disable, or circumvent purge protection. **Once purge protection is enabled, it cannot be disabled or overridden by anyone including Microsoft.** This means you must recover a deleted key vault or wait for the retention period to elapse before reusing the key vault name.
 
 For more information about soft-delete, see [Azure Key Vault soft-delete overview](soft-delete-overview.md)
 
@@ -79,7 +79,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 
 1. Log in to the Azure portal.
 1. Click on the search bar at the top of the page.
-1. Under "Recent Services" click "Key Vault". Do not click an individual key vault.
+1. Search for the "Key Vault" service. Do not click an individual key vault.
 1. At the top of the screen click the option to "Manage deleted vaults"
 1. A context pane will open on the right side of your screen.
 1. Select your subscription.
@@ -256,71 +256,69 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 
 * Verify if a key-vault has soft-delete enabled
 
-    ```powershell
+    ```azurepowershell
     Get-AzKeyVault -VaultName "ContosoVault"
     ```
 
 * Delete key vault
 
-    ```powershell
+    ```azurepowershell
     Remove-AzKeyVault -VaultName 'ContosoVault'
     ```
 
 * List all soft-deleted key vaults
 
-    ```powershell
+    ```azurepowershell
     Get-AzKeyVault -InRemovedState
     ```
 
 * Recover soft-deleted key-vault
 
-    ```powershell
+    ```azurepowershell
     Undo-AzKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
     ```
 
 * Purge soft-deleted key-vault **(WARNING! THIS OPERATION WILL PERMANENTLY DELETE YOUR KEY VAULT)**
 
-    ```powershell
+    ```azurepowershell
     Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
     ```
 
 * Enable purge-protection on key-vault
 
-    ```powershell
-    ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
-
-    Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
+    ```azurepowershell
+    Update-AzKeyVault -VaultName ContosoVault -ResourceGroupName ContosoRG -EnablePurgeProtection
     ```
 
 ## Certificates (PowerShell)
 
 * Grant permissions to recover and purge certificates
 
-    ```powershell
+    ```azurepowershell
     Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToCertificates recover,purge
     ```
 
 * Delete a Certificate
 
-  ```powershell
+  ```azurepowershell
   Remove-AzKeyVaultCertificate -VaultName ContosoVault -Name 'MyCert'
   ```
 
 * List all deleted certificates in a key vault
 
-  ```powershell
+  ```azurepowershell
   Get-AzKeyVaultCertificate -VaultName ContosoVault -InRemovedState
   ```
 
 * Recover a certificate in the deleted state
 
-  ```powershell
+  ```azurepowershell
   Undo-AzKeyVaultCertificateRemoval -VaultName ContosoVault -Name 'MyCert'
   ```
 
 * Purge a soft-deleted certificate **(WARNING! THIS OPERATION WILL PERMANENTLY DELETE YOUR CERTIFICATE)**
 
-  ```powershell
+  ```azurepowershell
   Remove-AzKeyVaultcertificate -VaultName ContosoVault -Name 'MyCert' -InRemovedState
   ```
 
@@ -328,31 +326,31 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 
 * Grant permissions to recover and purge keys
 
-    ```powershell
+    ```azurepowershell
     Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys recover,purge
     ```
 
-* Delete a Key
+* Delete a key
 
-  ```powershell
+  ```azurepowershell
   Remove-AzKeyVaultKey -VaultName ContosoVault -Name 'MyKey'
   ```
 
-* List all deleted certificates in a key vault
+* List all deleted keys in a key vault
 
-  ```powershell
+  ```azurepowershell
   Get-AzKeyVaultKey -VaultName ContosoVault -InRemovedState
   ```
 
 * To recover a soft-deleted key
 
-    ```powershell
+    ```azurepowershell
     Undo-AzKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey
     ```
 
 * Purge a soft-deleted key **(WARNING! THIS OPERATION WILL PERMANENTLY DELETE YOUR KEY)**
 
-    ```powershell
+    ```azurepowershell
     Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
     ```
 
@@ -360,32 +358,32 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 
 * Grant permissions to recover and purge secrets
 
-    ```powershell
+    ```azurepowershell
     Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToSecrets recover,purge
     ```
 
 * Delete a secret named SQLPassword
 
-  ```powershell
-  Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
+  ```azurepowershell
+  Remove-AzKeyVaultSecret -VaultName ContosoVault -Name SQLPassword
   ```
 
 * List all deleted secrets in a key vault
 
-  ```powershell
+  ```azurepowershell
   Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
   ```
 
 * Recover a secret in the deleted state
 
-  ```powershell
-  Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
+  ```azurepowershell
+  Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPassword
   ```
 
 * Purge a secret in deleted state **(WARNING! THIS OPERATION WILL PERMANENTLY DELETE YOUR KEY)**
 
-  ```powershell
-  Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
+  ```azurepowershell
+  Remove-AzKeyVaultSecret -VaultName ContosoVault -Name SQLPassword -InRemovedState 
   ```
 ---
 

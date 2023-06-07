@@ -1,21 +1,21 @@
 ---
-title: Conditional Access - Block legacy authentication - Azure Active Directory
+title: Block legacy authentication with Conditional Access
 description: Create a custom Conditional Access policy to block legacy authentication protocols
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/05/2021
+ms.date: 08/22/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
-ms.reviewer: calebb, davidspo
+manager: amycolannino
+ms.reviewer: calebb, lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Block legacy authentication
+# Common Conditional Access policy: Block legacy authentication
 
 Due to the increased risk associated with legacy authentication protocols, Microsoft recommends that organizations block authentication requests using these protocols and require modern authentication. For more information about why blocking legacy authentication is important, see the article [How to: Block legacy authentication to Azure AD with Conditional Access](block-legacy-authentication.md).
 
@@ -25,18 +25,16 @@ Organizations can choose to deploy this policy using the steps outlined below or
 
 ## Create a Conditional Access policy
 
-The following steps will help create a Conditional Access policy to block legacy authentication requests. This policy is put in to [Report-only mode](howto-conditional-access-insights-reporting.md) to start so administrators can determine the impact they will have on existing users. When administrators are comfortable that the policy applies as they intend, they can switch to **On** or stage the deployment by adding specific groups and excluding others.
+The following steps will help create a Conditional Access policy to block legacy authentication requests. This policy is put in to [Report-only mode](howto-conditional-access-insights-reporting.md) to start so administrators can determine the impact they'll have on existing users. When administrators are comfortable that the policy applies as they intend, they can switch to **On** or stage the deployment by adding specific groups and excluding others.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**
+1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
-   1. Under **Exclude**, select **Users and groups** and choose any accounts that must maintain the ability to use legacy authentication. Exclude at least one account to prevent yourself from being locked out. If you do not exclude any account, you will not be able to create this policy.
-   1. Select **Done**.
+   1. Under **Exclude**, select **Users and groups** and choose any accounts that must maintain the ability to use legacy authentication. Exclude at least one account to prevent yourself from being locked out. If you don't exclude any account, you won't be able to create this policy.
 1. Under **Cloud apps or actions**, select **All cloud apps**.
-   1. Select **Done**.
 1. Under **Conditions** > **Client apps**, set **Configure** to **Yes**.
    1. Check only the boxes **Exchange ActiveSync clients** and **Other clients**.
    1. Select **Done**.

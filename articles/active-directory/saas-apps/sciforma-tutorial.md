@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Sciforma | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Sciforma'
 description: Learn how to configure single sign-on between Azure Active Directory and Sciforma.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Sciforma
@@ -45,6 +45,8 @@ To configure the integration of Sciforma into Azure AD, you need to add Sciforma
 1. In the **Add from the gallery** section, type **Sciforma** in the search box.
 1. Select **Sciforma** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Sciforma
 
 Configure and test Azure AD SSO with Sciforma using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Sciforma.
@@ -71,9 +73,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.sciforma.net/sciforma/saml`
+    `https://<SUBDOMAIN>.sciforma.net/sciforma`
 
-    b. In the **Sign on URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.sciforma.net/sciforma/saml/post`
+
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.sciforma.net/sciforma/main.html`
 
 	> [!NOTE]

@@ -4,7 +4,7 @@ description: Common capacity issue errors and mitigation techniques are provided
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
-ms.date: 04/22/2020
+ms.date: 02/27/2023
 ---
 
 # Troubleshoot resource creation failures in Azure HDInsight

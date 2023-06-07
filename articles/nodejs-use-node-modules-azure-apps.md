@@ -1,22 +1,18 @@
 ---
 title: Working with Node.js Modules
 description: Learn how to work with Node.js modules when using Azure App Service or Cloud Services.
-services: ''
 documentationcenter: nodejs
 author: rloutlaw
 manager: rloutlaw
-editor: ''
-
 ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.prod: azure-nodejs
+ms.devlang: javascript
+ms.custom: devx-track-js
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
-
 ---
+
 # Using Node.js Modules with Azure applications
 This document provides guidance on using Node.js modules with applications hosted on Azure. It provides guidance on ensuring that your application uses a specific version of a module as well as using native modules with Azure.
 
@@ -87,4 +83,3 @@ For more information, see the [Node.js Developer Center](/azure/developer/javasc
 
 [specify the Node.js version]: ./app-service/overview.md
 [How to use the Azure Command-Line Interface for Mac and Linux]:cli-install-nodejs.md
-[Custom Website Deployment Scripts with Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo

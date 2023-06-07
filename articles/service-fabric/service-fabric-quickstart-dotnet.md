@@ -2,8 +2,12 @@
 title: Quickly create a .NET app on Service Fabric in Azure
 description: In this quickstart, you create a .NET application for Azure using the Service Fabric reliable services sample application.
 ms.topic: quickstart
-ms.date: 06/26/2019
-ms.custom: mvc, devcenter, vs-azure, mode-other
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-dotnet
+services: service-fabric
+ms.date: 07/11/2022
 ---
 # Quickstart: Deploy a .NET reliable services application to Service Fabric
 
@@ -19,7 +23,7 @@ Using this application you learn how to:
 * Use ASP.NET core as a web front end
 * Store application data in a stateful service
 * Debug your application locally
-* Scale-out the application across multiple nodes
+* Scale out the application across multiple nodes
 * Perform a rolling application upgrade
 
 ## Prerequisites
@@ -179,7 +183,7 @@ In this quickstart, you learned how to:
 * Use ASP.NET core as a web front end
 * Store application data in a stateful service
 * Debug your application locally
-* Scale-out the application across multiple nodes
+* Scale out the application across multiple nodes
 * Perform a rolling application upgrade
 
 To learn more about Service Fabric and .NET, take a look at this tutorial:

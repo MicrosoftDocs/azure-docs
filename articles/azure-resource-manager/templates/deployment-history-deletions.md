@@ -2,8 +2,8 @@
 title: Deployment history deletions
 description: Describes how Azure Resource Manager automatically deletes deployments from the deployment history. Deployments are deleted when the history is close to exceeding the limit of 800.
 ms.topic: conceptual
-ms.date: 06/04/2021
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 05/22/2023
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
 # Automatic deletions from deployment history
 
@@ -77,7 +77,7 @@ To reenable automatic deletions, use Azure REST API or Azure CLI.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az feature register](/cli/azure/feature#az_feature_register).
+For Azure CLI, use [az feature register](/cli/azure/feature#az-feature-register).
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Resources --name DisableDeploymentGrooming
@@ -89,7 +89,7 @@ To see the current status of your subscription, use:
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
-To reenable automatic deletions, use [az feature unregister](/cli/azure/feature#az_feature_unregister).
+To reenable automatic deletions, use [az feature unregister](/cli/azure/feature#az-feature-unregister).
 
 ```azurecli-interactive
 az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming

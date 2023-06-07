@@ -24,8 +24,6 @@ Before you begin this tutorial, you must have the following:
 
 ## Register Data Lake Storage Gen1 as a source for Data Catalog
 
-> [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/ADCwithADL/player]
-
 1. Go to `https://azure.microsoft.com/services/data-catalog`, and click **Get started**.
 1. Log into the Azure Data Catalog portal, and click **Publish data**.
 

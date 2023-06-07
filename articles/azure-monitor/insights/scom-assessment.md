@@ -4,7 +4,8 @@ description: You can use the System Center Operations Manager Health Check solut
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2018
+ms.date: 05/31/2023
+ms.reviewer: shijain
 
 ---
 
@@ -205,9 +206,9 @@ View the summarized compliance assessments for your infrastructure and then dril
 ### To view recommendations for a focus area and take corrective action
 1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
-3. In the Log Analytics subscriptions pane, select a workspace and then click the **Workspace summary** menu item.  
+3. In the Log Analytics subscriptions pane, select a workspace and then click the **Workspace summary (deprecated)** menu item.  
 4. On the **Overview** page, click the **System Center Operations Manager Health Check** tile.
-5. On the **System Center Operations Manager Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
+5. On the **System Center Operations Manager Health Check** page, review the summary information in one of the focus area sections and then click one to view recommendations for that focus area.
 6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![focus area](./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
 7. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
 
@@ -255,7 +256,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 3. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 
-## System Center Operations Manager Health Check solution FAQ
+## Frequently asked questions
 
 *I added the Health Check solution to my Log Analytics workspace. But I don’t see the recommendations. Why not?* After adding the solution, use the following steps view the recommendations on the Log Analytics dashboard.  
 

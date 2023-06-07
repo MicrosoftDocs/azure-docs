@@ -2,8 +2,8 @@
 title: Use Java Message Service 2.0 API with Azure Service Bus Premium
 description: How to use the Java Message Service (JMS) with Azure Service Bus
 ms.topic: article
-ms.date: 09/20/2021
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.date: 12/16/2022
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-extended-java
 ---
 
 # Use Java Message Service 2.0 API with Azure Service Bus Premium
@@ -11,23 +11,21 @@ ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 This article explains how to use the popular **Java Message Service (JMS) 2.0** API to interact with Azure Service Bus over the Advanced Message Queueing Protocol (AMQP 1.0) protocol.
 
 > [!NOTE]
-> Support for Java Message Service (JMS) 2.0 API is only available on the **Azure Service Bus Premium tier**.
->
+> Support for Java Message Service (JMS) 2.0 API is only available in the **premium tier**.>
 
 ## Pre-requisites
 
 ### Get started with Service Bus
 
-This guide assumes that you already have a Service Bus namespace. If you don't, then you can [create the namespace and queue](service-bus-create-namespace-portal.md) using the [Azure portal](https://portal.azure.com). 
-
-For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues through the Azure portal](service-bus-quickstart-portal.md).
+This guide assumes that you already have a Service Bus namespace. If you don't, [create a namespace and a queue](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal) using the [Azure portal](https://portal.azure.com). For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues through the Azure portal](service-bus-quickstart-portal.md).
 
 ### Set up a Java Development environment
 
 To develop Java applications, you need to set up the appropriate development environment - 
-   * Either the JDK (Java Development Kit) or the JRE (Java Runtime Environment) is installed.
-   * The JDK or JRE is added to the build path and the appropriate system variables.
-   * A Java IDE is installed to utilize the JDK or JRE. For example, Eclipse or IntelliJ.
+
+- Either the JDK (Java Development Kit) or the JRE (Java Runtime Environment) is installed.
+- The JDK or JRE is added to the build path and the appropriate system variables.
+- A Java IDE is installed to utilize the JDK or JRE. For example, Eclipse or IntelliJ.
 
 To learn more about how to prepare your developer environment for Java on Azure, utilize [this guide](/azure/developer/java/fundamentals/).
 
@@ -37,13 +35,12 @@ To learn more about how to prepare your developer environment for Java on Azure,
 
 ## Downloading the Java Message Service (JMS) client library
 
-To utilize all the features available on Azure Service Bus Premium tier, the below library must be added to the build path of the project.
+To utilize all the features available in the premium tier, add the following library to the build path of the project.
 
-[Azure-servicebus-jms](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms)
+[Azure-servicebus-jms](https://central.sonatype.com/artifact/com.microsoft.azure/azure-servicebus-jms/1.0.0)
 
 > [!NOTE]
-> To add the [Azure-servicebus-jms](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) to the build path, utilize the preferred dependency management tool for your project like [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/).
->
+> To add the [Azure-servicebus-jms](https://central.sonatype.com/artifact/com.microsoft.azure/azure-servicebus-jms/1.0.0) to the build path, use the preferred dependency management tool for your project like [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/).
 
 ## Coding Java applications
 
@@ -81,18 +78,14 @@ To connect with Azure Service Bus using JMS clients, you need the **connection s
     >[!IMPORTANT]
     > Although similarly named, a JMS 'Session' and Service Bus 'Session' is completely independent of each other.
     >
-    > In JMS 1.1, Session is an essential building block of the API that allows creation of the MessageProducer, MessageConsumer and the Message itself. For more details, review the [JMS API programming model](https://docs.oracle.com/javaee/6/tutorial/doc/bnceh.html)
+    > In JMS 1.1, Session is an essential building block of the API that allows creation of the `MessageProducer`, `MessageConsumer`, and the `Message` itself. For more details, review the [JMS API programming model](https://docs.oracle.com/javaee/6/tutorial/doc/bnceh.html)
     >
-    > In Service Bus, [sessions](message-sessions.md) are service and client side construct to enable FIFO processing on Queues and Subscriptions.
+    > In Service Bus, [sessions](message-sessions.md) are service and client side construct to enable FIFO processing on queues and subscriptions.
     >
 
 ### Write the JMS application
 
-Once the `Session` or `JMSContext` has been instantiated, your application can use the familiar JMS APIs to perform both management and data operations.
-
-Refer to the list of [supported JMS features](how-to-use-java-message-service-20.md#what-jms-features-are-supported) to see which APIs are supported.
-
-Below are some sample code snippets to get started with JMS -
+Once the `Session` or `JMSContext` has been instantiated, your application can use the familiar JMS APIs to perform both management and data operations. Refer to the list of [supported JMS features](how-to-use-java-message-service-20.md#what-jms-features-are-supported) to see which APIs are supported. Here are some sample code snippets to get started with JMS -
 
 #### Sending messages to a queue and topic
 

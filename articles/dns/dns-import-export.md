@@ -3,10 +3,11 @@ title: Import and export a domain zone file - Azure CLI
 titleSuffix: Azure DNS
 description: Learn how to import and export a DNS (Domain Name System) zone file to Azure DNS by using Azure CLI 
 services: dns
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
-ms.date: 04/29/2021
-ms.author: rohink
+ms.custom: devx-track-azurecli
+ms.date: 04/25/2023
+ms.author: greglin
 ms.topic: how-to
 ---
 
@@ -18,7 +19,7 @@ In this article, you'll learn how to  import and export a DNS zone file in Azure
 
 A DNS zone file is a text file containing information about every Domain Name System (DNS) record in the zone. It follows a standard format, making it suitable for transferring DNS records between DNS systems. Using a zone file is a fast and convenient way to import DNS zones into Azure DNS. You can also export a zone file from Azure DNS to use with other DNS systems.
 
-Azure DNS supports importing and exporting zone files by using the Azure command-line interface (CLI). Zone file import is currently **not** supported with Azure PowerShell or the Azure portal.
+Azure DNS supports importing and exporting zone files via the Azure CLI. Importing zone files via Azure PowerShell or the Azure portal is **not** supported currently.
 
 Azure CLI is a cross-platform command-line tool used for managing Azure services. It's available for Windows, Mac, and Linux from the [Azure downloads page](https://azure.microsoft.com/downloads/).
 
@@ -30,9 +31,12 @@ Before you import a DNS zone file into Azure DNS, you need to obtain a copy of t
 * If your DNS zone is hosted on Windows DNS, the default folder for the zone files is **%systemroot%\system32\dns**. The full path to each zone file is also shown on the **General** tab of the DNS console.
 * If your DNS zone is hosted using BIND, the location of the zone file for each zone gets specified in the BIND configuration file **named.conf**.
 
+> [!IMPORTANT]
+> If the zone file that you import contains CNAME entries that point to names in another private zone, Azure DNS resolution of the CNAME will fail unless the other zone is also imported, or the CNAME entries are modified.
+
 ## Import a DNS zone file into Azure DNS
 
-Importing a zone file creates a new zone in Azure DNS if the zone doesn't already exist. If the zone exist, then the record sets in the zone file will be merged with the existing record sets.
+Importing a zone file creates a new zone in Azure DNS if the zone doesn't already exist. If the zone exists, then the record sets in the zone file will be merged with the existing record sets.
 
 ### Merge behavior
 

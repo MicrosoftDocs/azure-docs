@@ -1,13 +1,11 @@
 ---
 title: 'Enable and work with Azure Bastion resource logs'
 description: Learn how to enable and work with Azure Bastion diagnostic logs.
-services: bastion
-author: charwen
-
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
-ms.author: charwen
+ms.author: cherylmc
 
 ---
 
@@ -15,9 +13,12 @@ ms.author: charwen
 
 As users connect to workloads using Azure Bastion, Bastion can log diagnostics of the remote sessions. You can then use the diagnostics to view which users connected to which workloads, at what time, from where, and other such relevant logging information. In order to use the diagnostics, you must enable diagnostics logs on Azure Bastion. This article helps you enable diagnostics logs, and then view the logs.
 
+>[!NOTE]
+>To view all resource logs available for Bastion, select each of the resource logs. If you exclude the 'All Logs' setting, you will not see all the available resource logs.
+
 ## <a name="enable"></a>Enable the resource log
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your Azure Bastion resource and select **Diagnostics settings** from the Azure Bastion page.
+1. In the [Azure portal](https://portal.azure.com), go to your Azure Bastion resource and select **Diagnostics settings** from the Azure Bastion page.
 
    ![Screenshot that shows the "Diagnostics settings" page.](./media/diagnostic-logs/1diagnostics-settings.png)
 2. Select **Diagnostics settings**, then select **+Add diagnostic setting** to add a destination for the logs.
@@ -37,7 +38,7 @@ To access your diagnostics logs, you can directly use the storage account that y
 1. Navigate to your storage account resource, then to **Containers**. You see the **insights-logs-bastionauditlogs** blob created in your storage account blob container.
 
    ![diagnostics settings](./media/diagnostic-logs/1-navigate-to-logs.png)
-2. As you navigate to inside the container, you see various folders in your blob. These folders indicate the resource hierarchy for your Azure Bastion resource.
+2. As you go inside the container, you see various folders in your blob. These folders indicate the resource hierarchy for your Azure Bastion resource.
 
    ![add diagnostic setting](./media/diagnostic-logs/2-resource-h.png)
 3. Navigate to the full hierarchy of your Azure Bastion resource whose diagnostics logs you wish to access/view. The 'y=', 'm=', 'd=', 'h=' and 'm=' indicate the year, month, day, hour, and minute respectively for the resource logs.
@@ -66,7 +67,7 @@ To access your diagnostics logs, you can directly use the storage account that y
       "message":"Successfully Connected.",
       "resourceType":"VM",
       "targetVMIPAddress":"172.16.1.5",
-      "userEmail":"<userAzureAccountEmailAddress>"
+      "userEmail":"<userAzureAccountEmailAddress>",
       "tunnelId":"<tunnelID>"
    },
    "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
@@ -96,7 +97,7 @@ To access your diagnostics logs, you can directly use the storage account that y
       "message":"Login Failed",
       "resourceType":"VM",
       "targetVMIPAddress":"172.16.1.5",
-      "userEmail":"<userAzureAccountEmailAddress>"
+      "userEmail":"<userAzureAccountEmailAddress>",
       "tunnelId":"<tunnelID>"
    },
    "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",

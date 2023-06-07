@@ -1,8 +1,8 @@
 ---
-title: Microsoft identity platform accounts & tenant profiles on Android | Azure
+title: Microsoft identity platform accounts & tenant profiles on Android
 description: An overview of the Microsoft identity platform accounts for Android
 services: active-directory
-author: shoatman
+author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.devlang: java
 ms.date: 09/14/2019
-ms.author: shoatman
+ms.author: cwerner
 ms.custom: aaddev, devx-track-java, has-adal-ref
 ms.reviewer: shoatman
 ---
@@ -103,7 +103,7 @@ While an account may be a member or guest in multiple organizations, MSAL doesn'
 The claims exposed on the account object are always the claims from the 'home tenant'/{authority} for an account. If that account hasn't been used to request a token for their home tenant, MSAL can't provide claims via the account object.  For example:
 
 ```java
-// Psuedo Code
+// Pseudo Code
 IAccount account = getAccount("accountid");
 
 String username = account.getClaims().get("preferred_username");
@@ -113,7 +113,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> To see a list of claims available from the account object, refer to [claims in an id_token](./id-tokens.md#claims-in-an-id-token)
+> To see a list of claims available from the account object, refer to the [ID token claims reference](./id-token-claims-reference.md).
 
 > [!TIP]
 > To include additional claims in your id_token, refer to the optional claims documentation in [How to: Provide optional claims to your Azure AD app](./active-directory-optional-claims.md)
@@ -123,7 +123,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 To access claims about an account as they appear in other tenants, you first need to cast your account object to `IMultiTenantAccount`. All accounts may be multi-tenant, but the number of tenant profiles available via MSAL is based on which tenants you have requested tokens from using the current account.  For example:
 
 ```java
-// Psuedo Code
+// Pseudo Code
 IAccount account = getAccount("accountid");
 IMultiTenantAccount multiTenantAccount = (IMultiTenantAccount)account;
 

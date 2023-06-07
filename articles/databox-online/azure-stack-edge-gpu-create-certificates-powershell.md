@@ -6,6 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
+ms.custom: devx-track-azurepowershell
 ms.topic: article
 ms.date: 06/01/2021
 ms.author: alkohli

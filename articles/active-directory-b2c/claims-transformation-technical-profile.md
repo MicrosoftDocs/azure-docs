@@ -1,7 +1,7 @@
 ---
-title: Define a Claims transformation technical profile
+title: Define a claims transformation technical profile
 titleSuffix: Azure AD B2C
-description: Define a Claims transformation technical profile in a custom policy in Azure Active Directory B2C.
+description: Define a claims transformation technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 01/17/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -35,7 +35,7 @@ The following example shows a claims transformation technical profile:
 
 ## Output claims
 
-The **OutputClaims** element is mandatory. You should provide at least one output claim returned by the technical profile. The following example shows how to set default values in the output claims:
+The **OutputClaims** element is mandatory. Provide at least one output claim returned by the technical profile. The following example shows how to set default values in the output claims:
 
 ```xml
 <OutputClaims>
@@ -78,7 +78,7 @@ TransformationClaimType="collection" />
 </TechnicalProfile>
 ```
 
-The claims transformation technical profile enables you to execute a claims transformation from any user journey's orchestration step. In the following example, the orchestration step calls one of the unlink technical profiles, such as **UnLink-Facebook-OAUTH**. This technical profile calls the claims transformation technical profile **RemoveAlternativeSecurityIdByIdentityProvider**, which generates a new **AlternativeSecurityIds2** claim that contains the list of user social identities, while removing the Facebook identity from the collections.
+The claims transformation technical profile enables you to execute a claims transformation from any user journey's orchestration step. In the following example, the orchestration step calls one of the unlink technical profiles, such as **UnLink-Facebook-OAUTH**. This technical profile calls the output claims transformation **RemoveAlternativeSecurityIdByIdentityProvider**, which generates a new **AlternativeSecurityIds2** claim. The output claim contains the list of user's social identities, while removing the Facebook identity from the collections.
 
 ```xml
 <UserJourney Id="AccountUnLink">
@@ -100,7 +100,8 @@ The claims transformation technical profile enables you to execute a claims tran
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
+| IncludeClaimResolvingInClaimsHandling | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this metadata to `true`. |
+| ContentDefinitionReferenceId | No | The identifier of the [content definition](contentdefinitions.md) associated with this technical profile. The content definition metadata is required for [FormatLocalizedString](string-transformations.md#formatlocalizedstring), [GetLocalizedStringsTransformation](string-transformations.md#getlocalizedstringstransformation), and [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) claims transformations.|
 
 ## Use a validation technical profile
 

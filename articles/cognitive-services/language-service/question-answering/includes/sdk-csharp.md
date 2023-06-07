@@ -1,19 +1,19 @@
 ---
 title: "Quickstart: Question answering client library for .NET"
 description: This quickstart shows how to get started with the question answering client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. Question answering enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals.
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.topic: include
-ms.date: 11/11/2021
+ms.date: 07/12/2022
 ---
 
 Use this quickstart for the question answering client library for .NET to:
 
-* Get an answer from a knowledge base.
+* Get an answer from a project.
 * Get an answer from a body of text that you send along with your question.
 * Get the confidence score for the answer to your question.
 
- [API reference documentation][questionanswering_refdocs]|[Source code][questionanswering_client_src] | [Package (NuGet)][questionanswering_nuget_package]  | [Samples][questionanswering_samples] |
+ [Reference documentation][questionanswering_refdocs] | [Package (NuGet)][questionanswering_nuget_package]  | [Additional samples][questionanswering_samples] | [Library source code][questionanswering_client_src]
 
 [questionanswering_nuget_package]: https://www.nuget.org/packages/Azure.AI.Language.QuestionAnswering/
 [questionanswering_refdocs]: /dotnet/api/Azure.AI.Language.QuestionAnswering/
@@ -24,11 +24,18 @@ Use this quickstart for the question answering client library for .NET to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Question answering, requires a [Language resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint. <!--TODO: Change link-->
+* Question answering, requires a [Language resource](https://portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint. <!--TODO: Change link-->
     * After your Language resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect to the API. Paste your key and endpoint into the code below later in the quickstart.
-* An existing knowledge base to query. If you have not setup a knowledge base, you can follow the instructions in the [**Language Studio quickstart**](../quickstart/sdk.md). Or add a knowledge base that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
+* To create a Language resource with [Azure CLI](../../../cognitive-services-apis-create-account-cli.md) provide the following additional properties during resource creation configure Custom Question Answering  with your Language resource `--api-properties qnaAzureSearchEndpointId=/subscriptions/<azure-subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Search/searchServices/<azure-search-service-name> qnaAzureSearchEndpointKey=<azure-search-service-auth-key>`
+* An existing project to query. If you have not set up a project, you can follow the instructions in the [**Language Studio quickstart**](../quickstart/sdk.md). Or add a project that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
+
+
 
 ## Setting up
+
+[!INCLUDE [Create environment variables](../../includes/environment-variables.md)]
+
+
 
 ### CLI
 
@@ -60,20 +67,25 @@ Within the application directory, install the custom question answering client l
 dotnet add package Azure.AI.Language.QuestionAnswering
 ```
 
-## Query a knowledge base
 
-#### Generate an answer from a knowledge base
 
-The example below will allow you to query a knowledge base using `GetAnswers` to get an answer to your question.
+## Query a project
+
+#### Generate an answer from a project
+
+The example below will allow you to query a project using `GetAnswers` to get an answer to your question.
 
 You will need to update the code below and provide your own values for the following variables.
 
 |Variable name | Value |
 |--------------------------|-------------|
-| `endpoint`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. An example endpoint is: `https://southcentralus.api.cognitive.microsoft.com/`|
-| `credential` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either Key1 or Key2. Always having two valid keys always for secure key rotation with zero downtime. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. The key value is part of the sample request.|
+| `endpoint`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy project** > **Get prediction URL**. An example endpoint is: `https://southcentralus.api.cognitive.microsoft.com/`|
+| `credential` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either Key1 or Key2. Always having two valid keys always for secure key rotation with zero downtime. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy project** > **Get prediction URL**. The key value is part of the sample request.|
 | `projectName` | The name of your question answering project.|
-| `deploymentName`             | There are two possible values: `test`, and `production`. `production` is dependent on you having deployed your knowledge base from **Language Studio** > **question answering** > **Deploy knowledge base**.|
+| `deploymentName`             | There are two possible values: `test`, and `production`. `production` is dependent on you having deployed your project from **Language Studio** > **question answering** > **Deploy project**.|
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 From the project directory, open the *program.cs* file and replace with the following code:
 
@@ -89,8 +101,9 @@ namespace question_answering
         static void Main(string[] args)
         {
 
-            Uri endpoint = new Uri("https://{YOUR-ENDPOINT}.api.cognitive.microsoft.com/");
-            AzureKeyCredential credential = new AzureKeyCredential("{YOUR-LANGUAGE-RESOURCE-KEY}");
+            // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+            Uri endpoint = new Uri("LANGUAGE_ENDPOINT");
+            AzureKeyCredential credential = new AzureKeyCredential("LANGUAGE_KEY");
             string projectName = "{YOUR-PROJECT-NAME}";
             string deploymentName = "production";
 
@@ -142,7 +155,7 @@ A:If you want to see how much battery you have left, go to **Start  **> **Settin
 (0.9185)
 ```
 
-The confidence score returns a value between 0 and 1. You can think of this like a percentage and multiply by 100 so a confidence score of 0.9185 means question answering is 91.85% confident this is the correct answer to the question based on the knowledge base.
+The confidence score returns a value between 0 and 1. You can think of this like a percentage and multiply by 100 so a confidence score of 0.9185 means question answering is 91.85% confident this is the correct answer to the question based on the project.
 
 If you want to exclude answers where the confidence score falls below a certain threshold, you use  `AnswerOptions` to add the `ConfidenceScoreThreshold` property.
 
@@ -163,9 +176,11 @@ A:No good match found in KB
 (0)
 ```
 
-## Query text without a knowledge base
 
-You can also use question answering without a knowledge base with `GetAnswersFromText`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
+
+## Query text without a project
+
+You can also use question answering without a project with `GetAnswersFromText`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
 
 For this example, you only need to modify the variables for `endpoint` and `credential`.
 
@@ -225,3 +240,4 @@ namespace questionansweringcsharp
 To run the code above, replace the `Program.cs` with the contents of the script block above and modify the `endpoint` and `credential` variables to correspond to the language resource you created as part of the prerequisites.
 
 In this case, we iterate through all responses and only return the response with the highest confidence score that is greater than 0.9. To understand more about the options available with `GetAnswersFromText`.
+

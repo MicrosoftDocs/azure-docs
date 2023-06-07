@@ -1,8 +1,12 @@
 ---
 title: Deploy GPU-enabled container instance 
-description: Learn how to deploy Azure container instances to run compute-intensive container apps using GPU resources.
-ms.topic: article
-ms.date: 07/22/2020
+description: Learn how to deploy Azure container instances to run compute-intensive container applications using GPU resources.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Deploy container instances that use GPU resources
@@ -13,6 +17,13 @@ This article shows how to add GPU resources when you deploy a container group by
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+
+## Prerequisites
+
+> [!NOTE]
+> Due to some current limitations, not all limit increase requests are guaranteed to be approved.
+
+* If you would like to use this sku for your production container deployments, create an [Azure Support request](https://azure.microsoft.com/support) to increase the limit. 
 
 ## Preview limitations
 
@@ -58,9 +69,9 @@ When deploying GPU resources, set CPU and memory resources appropriate for the w
 
 * **CUDA drivers** - Container instances with GPU resources are pre-provisioned with NVIDIA CUDA drivers and container runtimes, so you can use container images developed for CUDA workloads.
 
-  We support only CUDA 9.0 at this stage. For example, you can use the following base images for your Dockerfile:
-  * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
-  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+  We support up through CUDA 11 at this stage. For example, you can use the following base images for your Dockerfile:
+  * [nvidia/cuda:11.4.2-base-ubuntu20.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow:devel-gpu](https://hub.docker.com/r/tensorflow/tensorflow)
 
   > [!NOTE]
   > To improve reliability when using a public container image from Docker Hub, import and manage the image in a private Azure container registry, and update your Dockerfile to use your privately managed base image. [Learn more about working with public images](../container-registry/buffer-gate-public-content.md).
@@ -74,7 +85,7 @@ One way to add GPU resources is to deploy a container group by using a [YAML fil
 
 ```yaml
 additional_properties: {}
-apiVersion: '2019-12-01'
+apiVersion: '2021-09-01'
 name: gpucontainergroup
 properties:
   containers:
@@ -94,19 +105,19 @@ properties:
 
 Deploy the container group with the [az container create][az-container-create] command, specifying the YAML file name for the `--file` parameter. You need to supply the name of a resource group and a location for the container group such as *eastus* that supports GPU resources.  
 
-```azurecli
+```azurecli-interactive
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location eastus
 ```
 
 The deployment takes several minutes to complete. Then, the container starts and runs a CUDA vector addition operation. Run the [az container logs][az-container-logs] command to view the log output:
 
-```azurecli
+```azurecli-interactive
 az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
 ```
 
 Output:
 
-```Console
+```output
 [Vector addition of 50000 elements]
 Copy input data from the host memory to the CUDA device
 CUDA kernel launch with 196 blocks of 256 threads
@@ -140,7 +151,7 @@ Another way to deploy a container group with GPU resources is by using a [Resour
       {
         "name": "[parameters('containerGroupName')]",
         "type": "Microsoft.ContainerInstance/containerGroups",
-        "apiVersion": "2019-12-01",
+        "apiVersion": "2021-09-01",
         "location": "[resourceGroup().location]",
         "properties": {
             "containers": [
@@ -177,13 +188,13 @@ az deployment group create --resource-group myResourceGroup --template-file gpud
 
 The deployment takes several minutes to complete. Then, the container starts and runs the TensorFlow job. Run the [az container logs][az-container-logs] command to view the log output:
 
-```azurecli
+```azurecli-interactive
 az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer
 ```
 
 Output:
 
-```Console
+```output
 2018-10-25 18:31:10.155010: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
 2018-10-25 18:31:10.305937: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
 name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
@@ -212,13 +223,13 @@ Adding run metadata for 999
 
 Because using GPU resources may be expensive, ensure that your containers don't run unexpectedly for long periods. Monitor your containers in the Azure portal, or check the status of a container group with the [az container show][az-container-show] command. For example:
 
-```azurecli
+```azurecli-interactive
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table
 ```
 
 When you're done working with the container instances you created, delete them with the following commands:
 
-```azurecli
+```azurecli-interactive
 az container delete --resource-group myResourceGroup --name gpucontainergroup -y
 az container delete --resource-group myResourceGroup --name gpucontainergrouprm -y
 ```
@@ -234,7 +245,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
-[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az_container_create

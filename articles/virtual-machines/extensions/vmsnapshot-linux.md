@@ -9,9 +9,9 @@ ms.subservice: extensions
 ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 12/17/2018
 ms.author: trinadhk
-
 ---
 # VM Snapshot Linux extension for Azure Backup
 
@@ -87,9 +87,9 @@ az backup protection enable-for-vm \
     --policy-name DefaultPolicy
 ```
 
-## Azure Powershell deployment
+## Azure PowerShell deployment
 
-Azure Powershell can be used to enable backup on a virtual machine. Once the backup is configured, first scheduled backup job will install the Vm snapshot extension on the VM.
+Azure PowerShell can be used to enable backup on a virtual machine. Once the backup is configured, first scheduled backup job will install the Vm snapshot extension on the VM.
 
 ```azurepowershell
 $targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "myResourceGroup" -Name "myRecoveryServicesVault"

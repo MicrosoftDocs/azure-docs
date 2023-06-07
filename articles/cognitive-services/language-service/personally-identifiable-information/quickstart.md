@@ -3,20 +3,22 @@ title: "Quickstart: Detect Personally Identifying Information (PII) in text"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to start using the PII detection API.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 11/19/2021
-ms.author: aahi
-ms.custom: language-service-pii, ignite-fall-2021, mode-other
+ms.date: 02/17/2023
+ms.author: jboback
+ms.devlang: csharp, java, javascript, python
+ms.custom: language-service-pii, ignite-fall-2021, mode-other, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
-# Quickstart: Detect Personally Identifiable Information (PII) 
+# Quickstart: Detect Personally Identifiable Information (PII)
 
-Use this article to get started detecting and redacting sensitive information in text, using the NER and PII client library and REST API. Follow these steps to try out examples code for mining text:
+> [!NOTE]
+> This quickstart only covers PII detection in documents. To learn more about detecting PII in conversations, see [How to detect and redact PII in conversations](how-to-call-for-conversations.md).
 
 ::: zone pivot="programming-language-csharp"
 
@@ -54,6 +56,8 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+
 
 ## Next steps
 

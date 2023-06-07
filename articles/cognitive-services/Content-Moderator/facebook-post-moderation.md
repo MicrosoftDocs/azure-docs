@@ -18,7 +18,7 @@ ms.author: pafarley
 
 [!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
-In this tutorial, you will learn how to use Azure Content Moderator to help moderate the posts and comments on a Facebook page. Facebook will send the content posted by visitors to the Content Moderator service. Then your Content Moderator workflows will either publish the content or create reviews within the Review tool, depending on the content scores and thresholds. See the [Build 2017 demo video](https://channel9.msdn.com/Events/Build/2017/T6033) for a working example of this scenario.
+In this tutorial, you will learn how to use Azure Content Moderator to help moderate the posts and comments on a Facebook page. Facebook will send the content posted by visitors to the Content Moderator service. Then your Content Moderator workflows will either publish the content or create reviews within the Review tool, depending on the content scores and thresholds.
 
 > [!IMPORTANT]
 > In 2018, Facebook implemented a more strict vetting policy for Facebook Apps. You will not be able to complete the steps of this tutorial if your app has not been reviewed and approved by the Facebook review team.
@@ -43,7 +43,7 @@ This diagram illustrates each component of this scenario:
 
 ## Create a review team
 
-Refer to the [Try Content Moderator on the web](quick-start.md) quickstart for instructions on how to sign up for the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/) and create a review team. Take note of the **Team ID** value on the **Credentials** page.
+Refer to the [Try Content Moderator on the web](quick-start.md) quickstart for instructions on how to sign up for the Content Moderator Review tool and create a review team. Take note of the **Team ID** value on the **Credentials** page.
 
 ## Configure image moderation workflow
 

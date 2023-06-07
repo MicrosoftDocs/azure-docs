@@ -1,5 +1,5 @@
 ---
-title: Code samples for Azure Active Directory v1.0 | Microsoft Docs
+title: Code samples for Azure Active Directory v1.0
 description: Provides an index of Azure Active Directory (v1.0 endpoint) code samples, organized by scenario.
 documentationcenter: dev-center-name
 author: jmprieur
@@ -25,6 +25,9 @@ This section provides links to samples you can use to learn more about the Azure
 
 > [!NOTE]
 > If you are interested in Azure AD V2 code samples, see [v2.0 code samples by scenario](../develop/sample-v2-code.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+
+> [!WARNING]
+> Support for Active Directory Authentication Library (ADAL) will end in December, 2022. Apps using ADAL on existing OS versions will continue to work, but technical support and security updates will end. Without continued security updates, apps using ADAL will become increasingly vulnerable to the latest security attack patterns. For more information, see [Migrate apps to MSAL](..\develop\msal-migration.md).
 
 To understand the basic scenario for each sample type, see [Authentication scenarios for Azure AD](v1-authentication-scenarios.md).
 
@@ -85,7 +88,7 @@ The following samples illustrate public client applications (desktop/mobile appl
 The following samples show desktop or web applications that access the Microsoft Graph or a web API with no user (with the application identity).
 
 Client application | Platform | Flow/Grant | Calls an ASP.NET or ASP.NET Core 2.0 Web API
------------------- | -------- | ---------- | -------------------- 
+------------------ | -------- | ---------- | --------------------
 Daemon app (Console)          | ![This image shows the .NET Framework logo](media/sample-v2-code/logo-netframework.png) | Client Credentials with app secret or certificate | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
 Daemon app (Console)         | ![This image shows the .NET Core logo](media/sample-v2-code/logo-netcore.png) | Client Credentials with certificate| [dotnetcore-daemon-certificate-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
 ASP.NET Web App  | ![This image shows the .NET Framework logo](media/sample-v2-code/logo-netframework.png) | Client credentials | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
@@ -94,7 +97,7 @@ ASP.NET Web App  | ![This image shows the .NET Framework logo](media/sample-v2-c
 
 ### Web API protected by Azure Active Directory
 
-The following sample shows how to protect a node.js web API with Azure AD.
+The following sample shows how to protect a Node.js web API with Azure AD.
 
 In the previous sections of this article, you can also find other samples illustrating a client application **calling** an ASP.NET or ASP.NET Core **Web API**. These samples are not mentioned again in this section, but you will find them in the last column of the tables above or below
 

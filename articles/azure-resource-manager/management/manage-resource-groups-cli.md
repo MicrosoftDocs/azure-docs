@@ -3,19 +3,19 @@ title: Manage resource groups - Azure CLI
 description: Use Azure CLI to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
 author: mumian
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.author: jgao
-ms.custom: devx-track-azurecli
+ms.date: 03/31/2023
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
 
-# Manage Azure Resource Manager resource groups by using Azure CLI
+# Manage Azure Resource Groups by using Azure CLI
 
 Learn how to use Azure CLI with [Azure Resource Manager](overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using Azure CLI](manage-resources-cli.md).
 
-Other articles about managing resource groups:
+## Prerequisites
 
-- [Manage Azure resource groups by using the Azure portal](manage-resources-portal.md)
-- [Manage Azure resource groups by using Azure PowerShell](manage-resources-powershell.md)
+* Azure CLI. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+
+* After installing, sign in for the first time. For more information, see [How to sign into the Azure CLI](/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli).
 
 ## What is a resource group
 
@@ -25,7 +25,7 @@ The resource group stores metadata about the resources. When you specify a locat
 
 ## Create resource groups
 
-to create a resource group, use [az group create](/cli/azure/group#az_group_create).
+To create a resource group, use [az group create](/cli/azure/group#az-group-create).
 
 ```azurecli-interactive
 az group create --name demoResourceGroup --location westus
@@ -33,13 +33,13 @@ az group create --name demoResourceGroup --location westus
 
 ## List resource groups
 
-To list the resource groups in your subscription, use [az group list](/cli/azure/group#az_group_list).
+To list the resource groups in your subscription, use [az group list](/cli/azure/group#az-group-list).
 
 ```azurecli-interactive
 az group list
 ```
 
-To get one resource group, use [az group show](/cli/azure/group#az_group_show).
+To get one resource group, use [az group show](/cli/azure/group#az-group-show).
 
 ```azurecli-interactive
 az group show --name exampleGroup
@@ -47,7 +47,7 @@ az group show --name exampleGroup
 
 ## Delete resource groups
 
-To delete a resource group, use [az group delete](/cli/azure/group#az_group_delete).
+To delete a resource group, use [az group delete](/cli/azure/group#az-group-delete).
 
 ```azurecli-interactive
 az group delete --name exampleGroup
@@ -59,16 +59,42 @@ For more information about how Azure Resource Manager orders the deletion of res
 
 You can deploy Azure resources by using Azure CLI, or by deploying an Azure Resource Manager (ARM) template or Bicep file.
 
+### Deploy resources by using storage operations
+
 The following example creates a storage account. The name you provide for the storage account must be unique across Azure.
 
 ```azurecli-interactive
 az storage account create --resource-group exampleGroup --name examplestore --location westus --sku Standard_LRS --kind StorageV2
 ```
 
-To deploy an ARM template or Bicep file, use [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create).
+### Deploy resources by using an ARM template or Bicep file
+
+To deploy an ARM template or Bicep file, use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create).
 
 ```azurecli-interactive
 az deployment group create --resource-group exampleGroup --template-file storage.bicep
+```
+
+The following example shows the Bicep file named `storage.bicep` that you're deploying:
+
+```bicep
+@minLength(3)
+@maxLength(11)
+param storagePrefix string
+
+var uniqueStorageName = concat(storagePrefix, uniqueString(resourceGroup().id))
+
+resource uniqueStorage 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+  name: uniqueStorageName
+  location: 'eastus'
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: {
+    supportsHttpsTrafficOnly: true
+  }
+}
 ```
 
 For more information about deploying an ARM template, see [Deploy resources with Resource Manager templates and Azure CLI](../templates/deploy-cli.md).
@@ -79,19 +105,19 @@ For more information about deploying a Bicep file, see [Deploy resources with Bi
 
 Locking prevents other users in your organization from accidentally deleting or modifying critical resources.
 
-To prevent a resource group and its resources from being deleted, use [az lock create](/cli/azure/lock#az_lock_create).
+To prevent a resource group and its resources from being deleted, use [az lock create](/cli/azure/lock#az-lock-create).
 
 ```azurecli-interactive
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleGroup
 ```
 
-To get the locks for a resource group, use [az lock list](/cli/azure/lock#az_lock_list).
+To get the locks for a resource group, use [az lock list](/cli/azure/lock#az-lock-list).
 
 ```azurecli-interactive
 az lock list --resource-group exampleGroup
 ```
 
-To delete a lock, use [az lock delete](/cli/azure/lock#az_lock_delete)
+To delete a lock, use [az lock delete](/cli/azure/lock#az-lock-delete).
 
 ```azurecli-interactive
 az lock delete --name exampleLock --resource-group exampleGroup
@@ -101,7 +127,7 @@ For more information, see [Lock resources with Azure Resource Manager](lock-reso
 
 ## Tag resource groups
 
-You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](tag-resources.md#azure-cli).
+You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](tag-resources-cli.md).
 
 ## Export resource groups to templates
 

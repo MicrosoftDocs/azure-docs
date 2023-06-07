@@ -5,12 +5,10 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Bring your own Machine Learning (ML) into Microsoft Sentinel
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -42,7 +40,6 @@ With the BYO-ML platform, you can get a jump start on building your own ML model
 - The libraries support data movements. Training and scoring notebooks demonstrate the end-to-end experience and serve as a template for you to adapt to your environment.
 
 ### Use cases
- 
 The BYO-ML platform and package significantly reduce the time and effort you'll need to build your own ML detections, and they unleash the capability to address specific security problems in Microsoft Sentinel. The platform supports the following use cases:
 
 **Train an ML algorithm to get a customized model:** You can take an existing ML algorithm (shared by Microsoft or by the user community) and easily train it on your own data to get a customized ML model that better fits your data and environment.
@@ -95,11 +92,12 @@ To build custom ML models based on your own data in Microsoft Sentinel, you will
 
 For this example, you need to have your training data for File Share Access log in the Azure blob storage. The format of the data is documented in the notebook and libraries.
 
-You can automatically export your data from Log Analytics using the [Azure Command Line Interface (CLI)](/cli/azure/monitor/log-analytics). 
+You can automatically export your data from Log Analytics using the [Azure CLI](/cli/azure/monitor/log-analytics). 
 
 You must be assigned the **Contributor** role in your Log Analytics workspace, your Storage account, and your EventHub resource in order to run the commands. 
 
 Here is a sample set of commands to setup automatic exporting:
+
 
 ```azurecli
 
@@ -115,10 +113,10 @@ az monitor log-analytics cluster list
 az account set --subscription "SUBSCRIPTION_NAME"
  
 # Export to Storage - all tables
-az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIStr --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent
+az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIStr --destination "DESTINATION_NAME" --enable "true" --tables SecurityEvent
  
 # Export to EventHub - all tables
-az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIEH --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent Heartbeat"]
+az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIEH --destination "DESTINATION_NAME" --enable "true" --tables ["SecurityEvent","Heartbeat"]
 
 # List export settings
 az monitor log-analytics workspace data-export list --resource-group "RG_NAME" --workspace-name "WS_NAME"
@@ -167,3 +165,4 @@ Once you've set up the analytics rule based on the ML results, if there are resu
 In this document, you learned how to use Microsoft Sentinel's BYO-ML platform for creating or importing your own machine learning algorithms to analyze data and detect threats.
 
 - See posts about machine learning and lots of other relevant topics in the [Microsoft Sentinel Blog](https://aka.ms/azuresentinelblog).
+

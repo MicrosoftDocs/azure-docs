@@ -7,8 +7,6 @@ ms.author: rifox
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-> [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
 Dominant speakers for a call is an extended feature of the core `Call` API and allows you to obtain a list of the active speakers in the call. 
 
@@ -35,7 +33,7 @@ const dominantSpeakersChangedHandler = () => {
     // Get the most up to date list of dominant speakers
     let dominantSpeakers = callDominantSpeakersApi.dominantSpeakers;
 };
-callDominantSpeakersApi.api(Features.CallDominantSpeakers).on('dominantSpeakersChanged', dominantSpeakersChangedHandler);
+callDominantSpeakersApi.on('dominantSpeakersChanged', dominantSpeakersChangedHandler);
 ``` 
 #### Handle the Dominant Speaker's video streams
 

@@ -16,16 +16,13 @@ The `az containerapp show` command returns the fully qualified domain name of a 
 az containerapp show \
   --resource-group <RESOURCE_GROUP_NAME> \
   --name <CONTAINER_APP_NAME> \
-  --query configuration.ingress.fqdn
+  --query properties.configuration.ingress.fqdn
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az containerapp show `
-  --resource-group <RESOURCE_GROUP_NAME> `
-  --name <CONTAINER_APP_NAME> `
-  --query configuration.ingress.fqdn
+(Get-AzContainerApp -Name <CONTAINER_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>).IngressFqdn
 ```
 
 ---

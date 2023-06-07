@@ -9,9 +9,9 @@ services: notification-hubs
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-dotnet
 ms.date: 08/17/2020
 ms.author: sethm
 ms.reviewer: thsomasu

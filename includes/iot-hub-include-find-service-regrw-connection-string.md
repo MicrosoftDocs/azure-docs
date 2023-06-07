@@ -1,12 +1,12 @@
 ---
 title: include file
 description: include file
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: include file
 ---
 <!-- This tells how to create a custom shared access policy that has service connect and registry RW permissions for your IoT hub and get the connection string for it-->
@@ -19,7 +19,7 @@ To create a shared access policy that grants **service connect** and **registry 
 
 1. From the menu above the list of policies, select **Add shared access policy**.
 
-1. Under **Add a shared access policy**, enter a descriptive name for your policy, such as *serviceAndRegistryReadWrite*. Under **Permissions**, select **Registry write** and **Service connect**, and then select **Add**. (The **Registry read** permission is included automatically when you select **Registry write**.)
+1. Under **Add shared access policy**, enter a descriptive name for your policy, such as *serviceAndRegistryReadWrite*. Under **Permissions**, select **Registry Write** and **Service Connect**, and then select **Add**. (The **Registry Read** permission is included automatically when you select **Registry Write**.)
 
     :::image type="content" source="./media/iot-hub-include-find-service-regrw-connection-string/iot-hub-add-svc-regrw-policy.png" alt-text="Screen capture that shows how to add a new shared access policy" border="true":::
 

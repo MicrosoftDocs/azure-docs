@@ -3,7 +3,7 @@ title: How to create alerts for Azure Automation Change Tracking and Inventory
 description: This article tells how to configure Azure alerts to notify about the status of changes detected by Change Tracking and Inventory.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/15/2020
+ms.date: 11/24/2022
 ms.topic: conceptual
 ---
 
@@ -65,4 +65,4 @@ Once you have your alerts configured, you can set up an action group, which is a
 
 * Learn about [log queries](../../azure-monitor/logs/log-query-overview.md) to retrieve and analyze data from a Log Analytics workspace.
 
-* Manage [usage and costs with Azure Monitor Logs](../../azure-monitor/logs/manage-cost-storage.md) describes how to control your costs by changing your data retention period, and how to analyze and alert on your data usage.
+* [Analyze usage in Log Analytics workspace](../../azure-monitor/logs/analyze-usage.md) describes how to analyze and alert on your data usage.

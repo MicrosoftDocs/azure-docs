@@ -2,7 +2,8 @@
 title: Template functions - comparison
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to compare values.
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.custom: devx-track-arm-template
+ms.date: 05/22/2023
 ---
 
 # Comparison functions for ARM templates
@@ -15,6 +16,9 @@ Resource Manager provides several functions for making comparisons in your Azure
 * [greaterOrEquals](#greaterorequals)
 * [less](#less)
 * [lessOrEquals](#lessorequals)
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see the [coalesce](../bicep/operators-logical.md) logical operator and [comparison](../bicep/operators-comparison.md) operators.
 
 ## coalesce
 
@@ -79,7 +83,7 @@ The equals function is often used with the `condition` element to test whether a
   "condition": "[equals(parameters('newOrExisting'),'new')]",
   "type": "Microsoft.Storage/storageAccounts",
   "name": "[variables('storageAccountName')]",
-  "apiVersion": "2017-06-01",
+  "apiVersion": "2022-09-01",
   "location": "[resourceGroup().location]",
   "sku": {
     "name": "[variables('storageAccountType')]"

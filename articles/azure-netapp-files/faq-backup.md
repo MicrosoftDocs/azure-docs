@@ -4,9 +4,9 @@ description: Answers frequently asked questions (FAQs) about using the Azure Net
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-author: b-juche
-ms.author: b-juche
-ms.date: 10/11/2021
+author: b-hchen
+ms.author: anfdocs
+ms.date: 09/10/2022
 ---
 # Azure NetApp Files backup FAQs
 

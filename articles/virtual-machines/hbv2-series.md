@@ -1,12 +1,10 @@
 ---
 title: HBv2-series - Azure Virtual Machines
 description: Specifications for the HBv2-series VMs.
-author: vermagit
 ms.service: virtual-machines
-ms.subservice: vm-sizes-hpc
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.author: amverma
+ms.date: 03/04/2023
 ms.reviewer: jushiman
 ---
 
@@ -31,13 +29,17 @@ HBv2-series VMs feature 200 Gb/sec Mellanox HDR InfiniBand. These VMs are connec
 | Size | vCPU | Processor | Memory (GiB) | Memory bandwidth GB/s | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (Gb/s) | MPI support | Temp storage (GiB) | Max data disks | Max Ethernet vNICs |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 456 | 350 | 2.45 | 3.1 | 3.3 | 200 | All | 480 + 960 | 8 | 8 |
+| Standard_HB120-96rs_v2 | 96 | AMD EPYC 7V12 | 456 | 350 | 2.45 | 3.1 | 3.3 | 200 | All | 480 + 960 | 8 | 8 |
+| Standard_HB120-64rs_v2 | 64 | AMD EPYC 7V12 | 456 | 350 | 2.45 | 3.1 | 3.3 | 200 | All | 480 + 960 | 8 | 8 |
+| Standard_HB120-32rs_v2 | 32 | AMD EPYC 7V12 | 456 | 350 | 2.45 | 3.1 | 3.3 | 200 | All | 480 + 960 | 8 | 8 |
+| Standard_HB120-16rs_v2 | 16 | AMD EPYC 7V12 | 456 | 350 | 2.45 | 3.1 | 3.3 | 200 | All | 480 + 960 | 8 | 8 |
 
 Learn more about the:
-- [Architecture and VM topology](./workloads/hpc/hbv2-series-overview.md)
-- Supported [software stack](./workloads/hpc/hbv2-series-overview.md#software-specifications) including supported OS
-- Expected [performance](./workloads/hpc/hbv2-performance.md) of the HBv2-series VM
+- [Architecture and VM topology](hbv2-series-overview.md)
+- Supported [software stack](hbv2-series-overview.md#software-specifications) including supported OS
+- Expected [performance](hbv2-performance.md) of the HBv2-series VM
 
-[!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
+[!INCLUDE [hpc-include](./includes/hpc-include.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

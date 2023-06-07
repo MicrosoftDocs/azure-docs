@@ -14,6 +14,8 @@ ms.date: 03/18/2021
 
 # Azure Time Series Insights Gen2 event sources
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 Your Azure Time Series Insights Gen2 environment can have up to two streaming event sources. Two types of Azure resources are supported as inputs:
 
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)

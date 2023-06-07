@@ -40,7 +40,7 @@ dependencies {
 ### Initialize the required objects
 
 To create a `CallAgent` instance you have to call the `createCallAgent` method on a `CallClient` instance. This asynchronously returns a `CallAgent` instance object.
-The `createCallAgent` method takes a `CommunicationUserCredential` as an argument, which encapsulates an [access token](../../../../quickstarts/access-tokens.md).
+The `createCallAgent` method takes a `CommunicationUserCredential` as an argument, which encapsulates an [access token](../../../../quickstarts/identity/access-tokens.md).
 To access the `DeviceManager`, a callAgent instance must be created first, and then you can use the `CallClient.getDeviceManager` method to get the DeviceManager.
 
 ```java

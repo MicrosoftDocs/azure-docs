@@ -1,11 +1,10 @@
 ---
 title: 'Tutorial: Train a model by using automated machine learning'
 description: Tutorial on how to train a machine learning model without code in Azure Synapse Analytics.
-services: synapse-analytics
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: jrasnick, garye
+ms.reviewer: sngun, garye
 
 ms.date: 09/03/2021
 author: nelgson
@@ -36,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 For this tutorial, you need a Spark table. The following notebook creates one:
 
-1. Download the notebook [Create-Spark-Table-NYCTaxi- Data.ipynb](https://go.microsoft.com/fwlink/?linkid=2149229).
+1. Download the notebook [Create-Spark-Table-NYCTaxi- Data.ipynb](https://github.com/Azure-Samples/Synapse/blob/ec6faf976d580b793548a4e137b71a0c7e0d287a/MachineLearning/Create%20Spark%20Table%20with%20NYC%20Taxi%20Data.ipynb).
 
 1. Import the notebook to Synapse Studio.
 

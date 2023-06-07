@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 09/30/2021
+  ms.date: 04/23/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -19,32 +19,39 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
+
   - title: Get started
     linkLists:
     - linkListType: overview
       links:
       - text: What is centralized management?
-        url: overview-azure-hybrid-benefit-scope.md?toc=/azure/cost-management-billing/scope-level/toc.json
+        url: overview-azure-hybrid-benefit-scope.md
+    - linkListType: video
+      links:
+      - text: Demo - Reduce costs and increase SQL license utilization using Azure Hybrid Benefit
+        url: https://aka.ms/azure/pricing/CM_AHB_SQL/DevVideo
     - linkListType: tutorial
       links:
-      - text: Optimize centrally managed Azure Hybrid Benefit
-        url: tutorial-azure-hybrid-benefits-sql.md?toc=/azure/cost-management-billing/scope-level/toc.json
-    - linkListType: how-to-guide
-      links:
       - text: Create SQL Server license assignments
-        url: create-sql-license-assignments.md?toc=/azure/cost-management-billing/scope-level/toc.json
+        url: create-sql-license-assignments.md
+      - text: Optimize centrally managed Azure Hybrid Benefit
+        url: tutorial-azure-hybrid-benefits-sql.md
 
   # Card (optional)
   - title: Manage
     linkLists:
+    - linkListType: concept
+      links:
+      - text: SQL IaaS extension registration options
+        url: sql-iaas-extension-registration.md
     - linkListType: how-to-guide
       links:
       - text: Transition to centrally managed Azure Hybrid Benefit
-        url: transition-existing.md?toc=/azure/cost-management-billing/scope-level/toc.json
+        url: transition-existing.md
     - linkListType: reference
       links:
       - text: FAQ
-        url: faq-azure-hybrid-benefit-scope.yml?toc=/azure/cost-management-billing/scope-level/toc.json
+        url: faq-azure-hybrid-benefit-scope.yml
 
   # Card (optional)
   - title: Learn more
@@ -52,6 +59,6 @@ landingContent:
     - linkListType: concept
       links:
       - text: How Azure applies assigned licenses
-        url: manage-licenses-centrally.md?toc=/azure/cost-management-billing/scope-level/toc.json
+        url: manage-licenses-centrally.md
       - text: SQL Server HADR vs Azure Hybrid Benefit
-        url: sql-server-hadr-licenses.md?toc=/azure/cost-management-billing/scope-level/toc.json
+        url: sql-server-hadr-licenses.md

@@ -4,21 +4,22 @@
  author: timlt
  ms.service: iot-develop
  ms.topic: include
- ms.date: 08/03/2021
+ ms.date: 04/27/2023
  ms.author: timlt
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli 
+ ms.devlang: azurecli
 ---
 
-[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/pnp)
+[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples/pnp)
 
 In this quickstart, you learn a basic Azure IoT application development workflow. You use the Azure CLI and IoT Explorer to create an Azure IoT hub and a device. Then you use an Azure IoT device SDK sample to run a temperature controller, connect it securely to the hub, and send telemetry. The temperature controller sample application runs on your local machine and generates simulated sensor data to send to IoT Hub.
 
 ## Prerequisites
 This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on the following OS and device versions:
 
-- Windows 10
+- Windows 10 or Windows 11
 - Ubuntu 20.04 LTS
-- Raspberry Pi OS version 10 (Raspian) running on a Raspberry Pi 3 Model B+
+- Raspberry Pi OS (Raspbian) version 10, running on a Raspberry Pi 3 Model B+
 
 Install the following prerequisites on your development machine except where noted for Raspberry Pi:
 
@@ -40,21 +41,21 @@ In this section, you use the Python SDK to send messages from a device to your I
     > [!NOTE]
     > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.
 
-1. Clone the [Azure IoT Python SDK device samples](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples) to your local machine:
+1. Clone the [Azure IoT Python SDK device samples](https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples/) to your local machine:
 
     ```console
-    git clone https://github.com/Azure/azure-iot-sdk-python
+    git clone --branch v2 https://github.com/Azure/azure-iot-sdk-python
     ```
 1. Navigate to the sample directory:
 
     **Windows**
     ```console
-    cd azure-iot-sdk-python\azure-iot-device\samples\pnp
+    cd azure-iot-sdk-python\samples\pnp
     ```
 
     **Linux or Raspberry Pi OS**
     ```console
-    cd azure-iot-sdk-python/azure-iot-device/samples/pnp
+    cd azure-iot-sdk-python/samples/pnp
     ```
 
 
@@ -93,7 +94,7 @@ In this section, you use the Python SDK to send messages from a device to your I
 1. Run the code for the following sample file.
 
     ```console
-    python3 temp_controller_with_thermostats.py
+    python temp_controller_with_thermostats.py
     ```
     > [!NOTE]
     > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT Plug and Play, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
@@ -125,7 +126,7 @@ To read telemetry sent by individual device components, you can use the plug and
 
 To view device telemetry with Azure CLI:
 
-1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to monitor events sent from the device to your IoT hub. Use the names that you created previously in Azure IoT for your device and IoT hub.
+1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az-iot-hub-monitor-events) command to monitor events sent from the device to your IoT hub. Use the names that you created previously in Azure IoT for your device and IoT hub.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}
@@ -141,7 +142,7 @@ To view device telemetry with Azure CLI:
       module: ''
       origin: mydevice
       payload:
-        temperature: 29
+        temperature: 28
     
     event:
       component: thermostat2
@@ -149,6 +150,5 @@ To view device telemetry with Azure CLI:
       module: ''
       origin: mydevice
       payload:
-        temperature: 48
+        temperature: 10
     ```
-    

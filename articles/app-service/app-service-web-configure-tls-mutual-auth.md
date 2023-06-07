@@ -5,8 +5,8 @@ description: Learn how to authenticated client certificates on TLS. Azure App Se
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 12/11/2020
-ms.custom: "devx-track-csharp, seodec18"
-
+ms.devlang: csharp
+ms.custom: devx-track-csharp, seodec18, devx-track-extended-java, devx-track-js
 ---
 # Configure TLS mutual authentication for Azure App Service
 
@@ -26,11 +26,59 @@ To set up your app to require client certificates:
 
 1. Set **Client certificate mode** to **Require**. Click **Save** at the top of the page.
 
+### [Azure CLI](#tab/azurecli)
 To do the same with Azure CLI, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app-name> --resource-group <group-name>
 ```
+### [Bicep](#tab/bicep)
+
+For Bicep, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sampe Bicep snippet is provided for you:
+
+```bicep
+resource appService 'Microsoft.Web/sites@2020-06-01' = {
+  name: webSiteName
+  location: location
+  kind: 'app'
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      linuxFxVersion: linuxFxVersion
+    }
+    clientCertEnabled: true
+    clientCertMode: 'Required'
+    clientCertExclusionPaths: '/sample1;/sample2'
+  }
+}
+```
+
+### [ARM](#tab/arm)
+
+For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sampe ARM template snippet is provided for you:
+
+```ARM
+{
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2020-06-01",
+    "name": "[parameters('webAppName')]",
+    "location": "[parameters('location')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]",
+        "siteConfig": {
+            "linuxFxVersion": "[parameters('linuxFxVersion')]"
+        },
+        "clientCertEnabled": true,
+        "clientCertMode": "Required",
+        "clientCertExclusionPaths": "/sample1;/sample2"
+    }
+}
+```
+
+---
 
 ## Exclude paths from requiring authentication
 
@@ -78,6 +126,9 @@ public class Startup
         {
             options.ForwardedHeaders =
                 ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            // Only loopback proxies are allowed by default. Clear that restriction to enable this explicit configuration.
+            options.KnownNetworks.Clear();
+            options.KnownProxies.Clear();
         });       
         
         // Configure the application to client certificate forwarded the frontend load balancer

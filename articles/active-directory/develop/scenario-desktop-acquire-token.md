@@ -1,18 +1,16 @@
 ---
-title: Acquire a token to call a web API (desktop app) | Azure
-titleSuffix: Microsoft identity platform
+title: Acquire a token to call a web API (desktop app)
 description: Learn how to build a desktop app that calls web APIs to acquire a token for the app
 services: active-directory
-author: maliksahil
+author: OwenRichards1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/25/2021
-ms.author: sahmalik
-ms.custom: aaddev, devx-track-python, has-adal-ref
+ms.date: 03/27/2023
+ms.author: owenrichards
+ms.custom: aaddev, has-adal-ref, engagement-fy23
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
@@ -22,7 +20,7 @@ After you've built an instance of the public client application, you'll use it t
 
 ## Recommended pattern
 
-The web API is defined by its `scopes`. Whatever the experience you provide in your application, the pattern to use is:
+The web API is defined by its *scopes*. Whatever the experience you provide in your application, the pattern to use is:
 
 - Systematically attempt to get a token from the token cache by calling `AcquireTokenSilent`.
 - If this call fails, use the `AcquireToken` flow that you want to use, which is represented here by `AcquireTokenXX`.
@@ -176,7 +174,7 @@ let accounts = await msalTokenCache.getAllAccounts();
 
             const tokenRequest = {
                 code: response["authorization_code"],
-                codeVerifier: verifier // PKCE Code Verifier 
+                codeVerifier: verifier, // PKCE Code Verifier 
                 redirectUri: "your_redirect_uri",
                 scopes: ["User.Read"],
             };
@@ -216,6 +214,10 @@ There are various ways you can acquire tokens in a desktop application.
 - [Device code flow](scenario-desktop-acquire-token-device-code-flow.md)
 
 ---
+
+> [!IMPORTANT]
+If users need to use multi-factor authentication (MFA) to log in to the application, they will be blocked instead.
+
 ## Next steps
 
 Move on to the next article in this scenario,

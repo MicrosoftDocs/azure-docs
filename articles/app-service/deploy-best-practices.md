@@ -2,12 +2,10 @@
 title: Deployment best practices 
 description: Learn about the key mechanisms of deploying to Azure App Service. Find language-specific recommendations and other caveats.
 keywords: azure app service, web app, deploy, deployment, pipelines, build
-author: jasonfreeberg
-
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
-ms.author: jafreebe
+ms.custom: UpdateFrequency3
 ---
 
 # Deployment Best Practices
@@ -152,7 +150,7 @@ For more information on best practices, visit [App Service Diagnostics](./overvi
 - Choose **Best Practices** homepage tile.
 - Click **Best Practices for Availability & Performance** or **Best Practices for Optimal Configuration** to view the current state of your app in regards to these best practices.
 
-You can also use this link to directly open App Service Diagnostics for your resource: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.
+You can also use this link to directly open App Service Diagnostics for your resource: `https://portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.
 
 ## More resources
 

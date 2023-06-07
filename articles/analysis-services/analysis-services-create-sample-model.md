@@ -2,9 +2,9 @@
 title: Tutorial - Add a sample model- Azure Analysis Services | Microsoft Docs
 description: In this tutorial, learn how to add a sample model in Azure Analysis Services.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: tutorial
-ms.date: 10/12/2021
+ms.date: 01/26/2023
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, from the portal, I want to add a basic sample model database to my server for testing tool and client connections and queries.
@@ -36,20 +36,20 @@ Sign in to the [portal](https://portal.azure.com/).
 
 1. In server **Overview**, click **New model**.
 
-    ![Create a sample model](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
+    ![Screen showing New model button.](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
 
 2. In **New model** > **Choose a data source**,  verify **Sample data** is selected, and then click **Add**.
 
-    ![Select New model](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
+    ![Screen showing New model dialog.](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
 3. In **Overview**, verify the `adventureworks` sample model is added.
 
-    ![Select sample data](./media/analysis-services-create-sample-model/aas-create-sample-verify.png)
+    ![Screen showing new model on the server.](./media/analysis-services-create-sample-model/aas-create-sample-verify.png)
 
 
 ## Clean up resources
 
-Your sample model is using cache memory resources. If you are not using your sample model for testing, you should remove it from your server.
+Your sample model is using cache memory resources. If you're not using your sample model for testing, you should remove it from your server.
 
 These steps describe how to delete a model from a server by using SSMS.
 

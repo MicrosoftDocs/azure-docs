@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
-ms.date: 06/17/2020
+ms.date: 01/20/2023
 ms.author: sebansal
 ---
 
@@ -108,7 +108,7 @@ If you want to add more information when creating the CSR, define it in **Subjec
 Example
 
    ```azure-powershell
-   SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+   SubjectName="CN = learn.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
    ```
 
 > [!NOTE]
@@ -145,5 +145,5 @@ Example
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)
 - [Azure Key Vault REST API reference](/rest/api/keyvault)
-- [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate)
-- [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy)
+- [Vaults - Create or Update](/rest/api/keyvault/keyvault/vaults/create-or-update)
+- [Vaults - Update Access Policy](/rest/api/keyvault/keyvault/vaults/update-access-policy)

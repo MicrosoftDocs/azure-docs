@@ -3,20 +3,23 @@ title: Connect Syslog data to Microsoft Sentinel | Microsoft Docs
 description: Connect any machine or appliance that supports Syslog to Microsoft Sentinel by using an agent on a Linux machine between the appliance and Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/05/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
 # Collect data from Linux-based sources using Syslog
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 **Syslog** is an event logging protocol that is common to Linux. You can use the Syslog daemon built into Linux devices and appliances to collect local events of the types you specify, and have it send those events to Microsoft Sentinel using the **Log Analytics agent for Linux** (formerly known as the OMS agent).
 
 This article describes how to connect your data sources to Microsoft Sentinel using Syslog. For more information about supported connectors for this method, see [Data connectors reference](data-connectors-reference.md).
+
+Learn how to [collect Syslog with the Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
+
+> [!IMPORTANT]
+> The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 
 ## Architecture
 
@@ -43,6 +46,10 @@ There are three steps to configuring Syslog collection:
 
 - **Configure the Log Analytics agent itself**. This is done from within Microsoft Sentinel, and the configuration is sent to all installed agents.
 
+## Prerequisites
+
+Before you begin, install the solution for **Syslog** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+
 ## Configure your Linux machine or appliance
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
@@ -57,7 +64,7 @@ There are three steps to configuring Syslog collection:
     |---------|---------|
     |**For an Azure Linux VM**     |    1. Expand **Install agent on Azure Linux virtual machine**. <br><br>2. Select the **Download & install agent for Azure Linux Virtual machines >** link.<br><br>3. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect.     |
     |**For any other Linux machine**     |     1. Expand **Install agent on a non-Azure Linux Machine** <br><br>2. Select the **Download & install agent for non-Azure Linux machines >** link.<br><br>3. In the **Agents management** blade, select the **Linux servers** tab, then copy the command for **Download and onboard agent for Linux** and run it on your Linux machine.<br><br>        If you want to keep a local copy of the Linux agent installation file, select the **Download Linux Agent** link above the "Download and onboard agent" command. |
-    |     |         |
+
 
    > [!NOTE]
    > Make sure you configure security settings for these devices according to your organization's security policy. For example, you can configure the network settings to align with your organization's network security policy, and change the ports and protocols in the daemon to align with the security requirements.
@@ -72,8 +79,8 @@ Having already set up [data collection from your CEF sources](connect-common-eve
 
 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Microsoft Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.
 
-    ```c
-    sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable
+    ```bash
+    sudo -u omsagent python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable
     ```
 
 ## Configure your device's logging settings
@@ -82,6 +89,11 @@ Many device types have their own data connectors appearing in the **Data connect
 
 All connectors listed in the gallery will display any specific instructions on their respective connector pages in the portal, as well as in their sections of the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.
 
+If the instructions on your data connector's page in Microsoft Sentinel indicate that the Kusto functions are deployed as [Advanced Security Information Model (ASIM)](normalization.md) parsers, make sure that you have the ASIM parsers deployed to your workspace.
+
+Use the link in the data connector page to deploy your parsers, or follow the instructions from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/ASIM).
+
+For more information, see [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md).
 
 ## Configure the Log Analytics agent
 
@@ -102,6 +114,8 @@ All connectors listed in the gallery will display any specific instructions on t
 ## Find your data
 
 1. To query the syslog log data in **Logs**, type `Syslog` in the query window.
+
+    (Some connectors using the Syslog mechanism might store their data in tables other than `Syslog`. Consult your connector's section in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.)
 
 1. You can use the query parameters described in [Using functions in Azure Monitor log queries](../azure-monitor/logs/functions.md) to parse your Syslog messages. You can then save the query as a new Log Analytics function and use it as a new data type.
 

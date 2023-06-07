@@ -4,7 +4,7 @@ description: Tutorial - Learn how to integrate your existing on-premises Prometh
 services: synapse-analytics 
 author: jejiang
 ms.author: jejiang
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
@@ -36,8 +36,8 @@ To use the Azure Synapse Prometheus connector in your on-premises Prometheus ser
 
 #### 2.1 Create a service principal:
 
-```bash
-az ad sp create-for-rbac --name <service_principal_name> --role Contributor
+```azurecli
+az ad sp create-for-rbac --name <service_principal_name> --role Contributor --scopes /subscriptions/<subscription_id>
 ```
 
 The result should look like:

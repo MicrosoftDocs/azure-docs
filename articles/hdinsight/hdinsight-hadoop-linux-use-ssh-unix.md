@@ -3,8 +3,8 @@ title: Use SSH with Hadoop - Azure HDInsight
 description: "You can access HDInsight using Secure Shell (SSH). This document provides information on connecting to HDInsight using the ssh commands from Windows, Linux, Unix, or macOS clients."
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-azurepowershell
-ms.date: 02/28/2020
+ms.custom: H1Hack27Feb2017, hdinsightactive, hdiseo17may2017, seoapr2020
+ms.date: 04/24/2023
 ---
 
 # Connect to HDInsight (Apache Hadoop) using SSH
@@ -82,7 +82,7 @@ You're prompted for information during the key creation process. For example, wh
 | ------- | ------- |
 | Azure portal | Uncheck __Use cluster login password for SSH__, and then select __Public Key__ as the SSH authentication type. Finally, select the public key file or paste the text contents of the file in the __SSH public key__ field.</br>:::image type="content" source="./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png" alt-text="SSH public key dialog in HDInsight cluster creation"::: |
 | Azure PowerShell | Use the `-SshPublicKey` parameter of the [New-AzHdinsightCluster](/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet and pass the contents of the public key as a string.|
-| Azure CLI | Use the `--sshPublicKey` parameter of the [`az hdinsight create`](/cli/azure/hdinsight#az_hdinsight_create) command and pass the contents of the public key as a string. |
+| Azure CLI | Use the `--sshPublicKey` parameter of the [`az hdinsight create`](/cli/azure/hdinsight#az-hdinsight-create) command and pass the contents of the public key as a string. |
 | Resource Manager Template | For an example of using SSH keys with a template, see [Deploy HDInsight on Linux with SSH key](https://azure.microsoft.com/resources/templates/hdinsight-linux-ssh-publickey/). The `publicKeys` element in the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.hdinsight/hdinsight-linux-ssh-publickey/azuredeploy.json) file is used to pass the keys to Azure when creating the cluster. |
 
 ## Authentication: Password
@@ -101,7 +101,7 @@ SSH accounts can be secured using a password. When you connect to HDInsight usin
 | --------------- | ---------------- |
 | Azure portal | By default, the SSH user account has the same password as the cluster login account. To use a different password, uncheck __Use cluster login password for SSH__, and then enter the password in the __SSH password__ field.</br>:::image type="content" source="./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png" alt-text="SSH password dialog in HDInsight cluster creation":::|
 | Azure PowerShell | Use the `--SshCredential` parameter of the [New-AzHdinsightCluster](/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet and pass a `PSCredential` object that contains the SSH user account name and password. |
-| Azure CLI | Use the `--ssh-password` parameter of the [`az hdinsight create`](/cli/azure/hdinsight#az_hdinsight_create) command and provide the password value. |
+| Azure CLI | Use the `--ssh-password` parameter of the [`az hdinsight create`](/cli/azure/hdinsight#az-hdinsight-create) command and provide the password value. |
 | Resource Manager Template | For an example of using a password with a template, see [Deploy HDInsight on Linux with SSH password](https://azure.microsoft.com/resources/templates/hdinsight-linux-ssh-password/). The `linuxOperatingSystemProfile` element in the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.hdinsight/hdinsight-linux-ssh-password/azuredeploy.json) file is used to pass the SSH account name and password to Azure when creating the cluster.|
 
 ### Change the SSH password
@@ -210,7 +210,7 @@ If the SSH account is secured using __SSH keys__, make sure that SSH forwarding 
     /tmp/ssh-rfSUL1ldCldQ/agent.1792
     ```
 
-    If nothing is returned, then `ssh-agent` isn't running. For more information, see the agent startup scripts information at [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) or consult your SSH client documentation.
+    If nothing is returned, then `ssh-agent` isn't running.
 
 4. Once you've verified that **ssh-agent** is running, use the following to add your SSH private key to the agent:
 

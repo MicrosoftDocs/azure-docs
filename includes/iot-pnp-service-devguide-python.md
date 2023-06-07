@@ -3,14 +3,14 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/17/2022
 ---
 
 The following resources are also available:
 
 - [Python SDK reference documentation](/python/api/azure-iot-hub/azure.iot.hub)
-- [Service client samples](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)
-- [Digital Twins samples](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-hub/samples/get_digital_twin_sample.py)
+- [Service client samples](https://github.com/Azure/azure-iot-hub-python/blob/main/samples/iothub_registry_manager_method_sample.py)
+- [Digital Twins samples](https://github.com/Azure/azure-iot-hub-python/blob/main/samples/get_digital_twin_sample.py)
 
 ## IoT Hub service client examples
 

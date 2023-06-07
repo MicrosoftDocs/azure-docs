@@ -6,7 +6,6 @@ ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
 ms.custom: mode-other
@@ -76,6 +75,7 @@ The one-click ingestion wizard guides you through the one-click ingestion proces
 > [!NOTE]
 > This section describes the wizard using Event Hub as the data source. You can also use these steps to ingest data from a blob, file, blob container, and a ADLS Gen2 container.
 >
+> Replace the example values with actual values for your Synapse workspace.
 
 1. On the **Destination** tab, choose the database and table for the ingested data.
 
@@ -88,7 +88,7 @@ The one-click ingestion wizard guides you through the one-click ingestion proces
 
     1. Fill out the Event Hub data connection details using the following information:
 
-        | Setting | Suggested value | Description |
+        | Setting | Example value | Description |
         |--|--|--|
         | Data connection name | *ContosoDataConnection* | The name of the Event Hub data connection |
         | Subscription | *Contoso_Synapse* | The subscription where the Event Hub resides. |

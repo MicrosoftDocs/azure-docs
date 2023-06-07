@@ -1,3 +1,0 @@
-- [Quickstart: Recognize speech from a microphone](../../get-started-speech-to-text.md)
-- [Quickstart: Recognize speech from a file](../../get-started-speech-to-text.md)
-- [Quickstart: Create a custom voice assistant](~/articles/cognitive-services/speech-service/quickstarts/voice-assistants.md)

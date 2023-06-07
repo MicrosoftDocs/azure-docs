@@ -3,19 +3,12 @@ title: Connect Azure Active Directory data to Microsoft Sentinel | Microsoft Doc
 description: Learn how to collect data from Azure Active Directory, and stream Azure AD sign-in, audit, and provisioning logs into Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 12/23/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
 # Connect Azure Active Directory (Azure AD) data to Microsoft Sentinel
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-> [!IMPORTANT]
-> As indicated below, some of the available log types are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 You can use Microsoft Sentinel's built-in connector to collect data from [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) and stream it into Microsoft Sentinel. The connector allows you to stream the following log types:
 
@@ -33,16 +26,21 @@ You can use Microsoft Sentinel's built-in connector to collect data from [Azure 
 
 - [**Provisioning logs**](../active-directory/reports-monitoring/concept-provisioning-logs.md) (also in **PREVIEW**), which contain system activity information about users, groups, and roles provisioned by the Azure AD provisioning service. 
 
+> [!IMPORTANT]
+> Some of the available log types are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Prerequisites
 
 - An Azure Active Directory P1 or P2 license is required to ingest sign-in logs into Microsoft Sentinel. Any Azure AD license (Free/O365/P1/P2) is sufficient to ingest the other log types. Additional per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Microsoft Sentinel.
 
-- Your user must be assigned the Microsoft Sentinel Contributor role on the workspace.
+- Your user must be assigned the [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role on the workspace.
 
-- Your user must be assigned the Global Administrator or Security Administrator roles on the tenant you want to stream the logs from.
+- Your user must be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) roles on the tenant you want to stream the logs from.
 
-- Your user must have read and write permissions to the Azure AD diagnostic settings in order to be able to see the connection status. 
+- Your user must have read and write permissions to the Azure AD diagnostic settings in order to be able to see the connection status.
+- Install the solution for **Azure Active Directory** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 ## Connect to Azure Active Directory
 

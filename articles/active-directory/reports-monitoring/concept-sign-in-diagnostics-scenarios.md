@@ -3,24 +3,17 @@
 title: Sign in diagnostics for Azure AD scenarios
 description: Lists the scenarios that are supported by the sign-in diagnostics for Azure AD.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/12/2021
-ms.author: markvi
-ms.reviewer: tspring  
-
-# Customer intent: As an Azure AD administrator, I want to know the scenarios that are supported by the sign in diagnostics for Azure AD so that I can determine whether the tool can help me with a sign-in issue.
+ms.date: 11/04/2022
+ms.author: sarahlipsey
+ms.reviewer: besiler  
 ms.collection: M365-identity-device-management
+# Customer intent: As an Azure AD administrator, I want to know the scenarios that are supported by the sign in diagnostics for Azure AD so that I can determine whether the tool can help me with a sign-in issue.
 ---
 
 # Sign in diagnostics for Azure AD scenarios
@@ -79,11 +72,7 @@ The sign-in diagnostic for Azure AD provides you with support for the following 
     
     - Pass Through Authentication
     
-    - Seamless single sign on
-
-
-
-
+    - Seamless single sign-on
 
 
 
@@ -274,7 +263,7 @@ For more information, see [How to block legacy authentication to Azure AD with C
 
 This diagnostic scenario detects a blocked or interrupted sign-in due to the user being from another organization-a B2B sign-in-where a Conditional Access policy requires that the client's device is joined to the resource tenant. 
 
-For more information, see [Conditional Access for B2B collaboration users](../external-identities/conditional-access.md). 
+For more information, see [Conditional Access for B2B collaboration users](../external-identities/authentication-conditional-access.md). 
 
 ### Blocked by risk policy 
 

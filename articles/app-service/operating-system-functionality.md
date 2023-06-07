@@ -4,8 +4,8 @@ description: Learn about the OS functionality in Azure App Service on Windows. F
 
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
-ms.date: 09/09/2021
-ms.custom: seodec18
+ms.date: 01/21/2022
+ms.custom: UpdateFrequency3
 
 ---
 # Operating system functionality on Azure App Service
@@ -29,7 +29,8 @@ Because App Service supports a seamless scaling experience between different tie
 ## Development frameworks
 App Service pricing tiers control the amount of compute resources (CPU, disk storage, memory, and network egress) available to apps. However, the breadth of framework functionality available to apps remains the same regardless of the scaling tiers.
 
-App Service supports a variety of development frameworks, including ASP.NET, classic ASP, Node.js, PHP, and Python - all of which run as extensions within IIS. In order to simplify and normalize security configuration, App Service apps typically run the various development frameworks with their default settings. One approach to configuring apps could have been to customize the API surface area and functionality for each individual development framework. App Service instead takes a more generic approach by enabling a common baseline of operating system functionality regardless of an app's development framework.
+App Service supports a variety of development frameworks, including ASP.NET, classic ASP, Node.js, PHP, and Python.
+In order to simplify and normalize security configuration, App Service apps typically run the various development frameworks with their default settings. The frameworks and runtime components provided by the platform are updated regularly to satisfy security and compliance requirements, for this reason we do not guarantee specific minor/patch versions and recommend customers target major version as needed.
 
 The following sections summarize the general kinds of operating system functionality available to App Service apps.
 
@@ -45,6 +46,8 @@ At its core, App Service is a service running on top of the Azure PaaS (platform
 
 - An operating system drive (`%SystemDrive%`), whose size varies depending on the size of the VM.
 - A resource drive (`%ResourceDrive%`) used by App Service internally.
+
+A best practice is to always use the environment variables `%SystemDrive%` and `%ResourceDrive%` instead of hard-coded file paths.  The root path returned from these two environment variables has shifted over time from `d:\` to `c:\`.  However, older applications hard-coded with file path references to `d:\` will continue to work because the App Service platform automatically remaps `d:\` to instead point at `c:\`.  As noted above, it is highly recommended to always use the environment variables when building file paths and avoid confusion over platform changes to the default root file path.
 
 It is important to monitor your disk utilization as your application grows. If the disk quota is reached, it can have adverse effects to your application. For example: 
 

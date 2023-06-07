@@ -1,27 +1,28 @@
 ---
-title: PowerShell script to create resource lock for Azure Cosmos MongoDB API database and collection
-description: Create resource lock for Azure Cosmos MongoDB API database and collection
-author: markjbrown
-ms.author: mjbrown
+title: PowerShell script to create resource lock for Azure Cosmos DB MongoDB API database and collection
+description: Create resource lock for Azure Cosmos DB MongoDB API database and collection
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.topic: sample
 ms.date: 06/12/2020 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, ignite-2022
 ---
 
-# Create a resource lock for Azure Cosmos MongoDB API database and collection using Azure PowerShell
-[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
+# Create a resource lock for Azure Cosmos DB MongoDB API database and collection using Azure PowerShell
+[!INCLUDE[MongoDB](../../../includes/appliesto-mongodb.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
 This sample requires Azure PowerShell Az 5.4.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed.
-If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure.
 
 > [!IMPORTANT]
-> Resource locks do not work for changes made by users connecting using any MongoDB SDK, Mongoshell, any tools or the Azure Portal unless the Cosmos DB account is first locked with the `disableKeyBasedMetadataWriteAccess` property enabled. To learn more about how to enable this property see, [Preventing changes from SDKs](../../../role-based-access-control.md#prevent-sdk-changes).
+> Resource locks do not work for changes made by users connecting using any MongoDB SDK, Mongoshell, any tools or the Azure Portal unless the Azure Cosmos DB account is first locked with the `disableKeyBasedMetadataWriteAccess` property enabled. To learn more about how to enable this property see, [Preventing changes from SDKs](../../../role-based-access-control.md#prevent-sdk-changes).
 
 ## Sample script
 

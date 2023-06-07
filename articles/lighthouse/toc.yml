@@ -123,7 +123,7 @@
     displayName: samples, policies, definitions
     href: ./samples/policy-reference.md
   - name: Terraform
-    href: https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html
+    href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lighthouse_assignment
   - name: Ansible
     href: https://docs.ansible.com/ansible/latest/collections/azure/azcollection/index.html#plugins-in-azure-azcollection
 - name: Resources

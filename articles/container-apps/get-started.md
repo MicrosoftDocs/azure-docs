@@ -1,28 +1,31 @@
 ---
-title: 'Quickstart: Deploy your first container app'
-description: Deploy your first application to Azure Container Apps Preview.
+title: 'Quickstart: Deploy your first container app with containerapp up'
+description: Deploy your first application to Azure Container Apps using the Azure CLI containerapp up command.
 services: container-apps
-author: craigshoemaker
+author: lanceleonard
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 11/02/2021
-ms.author: cshoe
-ms.custom: ignite-fall-2021, mode-other
+ms.date: 03/29/2023
+ms.author: v-laleonard
+ms.custom: devx-track-azurecli, event-tier1-build-2022
+ms.devlang: azurecli
 ---
 
-# Quickstart: Deploy your first container app
+# Quickstart: Deploy your first container app with containerapp up
 
-Azure Container Apps Preview enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
+The Azure Container Apps service enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while you leave behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
-In this quickstart, you create a secure Container Apps environment and deploy your first container app.
+In this quickstart, you create and deploy your first container app using the `az containerapp up` command.
 
 ## Prerequisites
 
+- An Azure account with an active subscription.
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Setup
 
-Begin by signing in to Azure from the CLI. Run the following command, and follow the prompts to complete the authentication process.
+To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
 
 # [Bash](#tab/bash)
 
@@ -30,229 +33,140 @@ Begin by signing in to Azure from the CLI. Run the following command, and follow
 az login
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
+```azurepowershell
 az login
 ```
 
 ---
 
-Next, install the Azure Container Apps extension to the CLI.
+Ensure you're running the latest version of the CLI via the upgrade command.
 
 # [Bash](#tab/bash)
 
 ```azurecli
-az extension add \
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
+az upgrade
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-az extension add `
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
+```azurepowershell
+az upgrade
 ```
 
 ---
 
-Now that the extension is installed, register the `Microsoft.Web` namespace.
+Next, install or update the Azure Container Apps extension for the CLI.
 
 # [Bash](#tab/bash)
 
 ```azurecli
-az provider register --namespace Microsoft.Web
+az extension add --name containerapp --upgrade
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-az provider register --namespace Microsoft.Web
+
+```azurepowershell
+az extension add --name containerapp --upgrade
 ```
 
 ---
 
-Next, set the following environment variables:
+Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
 
 # [Bash](#tab/bash)
 
 ```azurecli
-RESOURCE_GROUP="my-container-apps"
-LOCATION="canadacentral"
-LOG_ANALYTICS_WORKSPACE="my-container-apps-logs"
-CONTAINERAPPS_ENVIRONMENT="my-environment"
+az provider register --namespace Microsoft.App
 ```
 
-# [PowerShell](#tab/powershell)
+```azurecli
+az provider register --namespace Microsoft.OperationalInsights
+```
 
-```powershell
-$RESOURCE_GROUP="my-container-apps"
-$LOCATION="canadacentral"
-$LOG_ANALYTICS_WORKSPACE="my-container-apps-logs"
-$CONTAINERAPPS_ENVIRONMENT="my-environment"
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+az provider register --namespace Microsoft.App
+```
+
+```azurepowershell
+az provider register --namespace Microsoft.OperationalInsights
 ```
 
 ---
 
-With these variables defined, you can create a resource group to organize the services related to your new container app.
+Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
+
+
+## Create and deploy the container app
+
+Create and deploy your first container app with the `containerapp up` command. This command will:
+
+- Create the resource group
+- Create the Container Apps environment
+- Create the Log Analytics workspace
+- Create and deploy the container app using a public container image
+
+Note that if any of these resources already exist, the command will use them instead of creating new ones.
+
 
 # [Bash](#tab/bash)
 
 ```azurecli
-az group create \
-  --name $RESOURCE_GROUP \
-  --location "$LOCATION"
-```
-
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az group create `
-  --name $RESOURCE_GROUP `
-  --location "$LOCATION"
-```
-
----
-
-With the CLI upgraded and a new resource group available, you can create a Container Apps environment and deploy your container app.
-
-## Create an environment
-
-An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
-
-Azure Log Analytics is used to monitor your container app required when creating a Container Apps environment.
-
-Create a new Log Analytics workspace with the following command:
-
-# [Bash](#tab/bash)
-
-```azurecli
-az monitor log-analytics workspace create \
-  --resource-group $RESOURCE_GROUP \
-  --workspace-name $LOG_ANALYTICS_WORKSPACE
-```
-
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az monitor log-analytics workspace create `
-  --resource-group $RESOURCE_GROUP `
-  --workspace-name $LOG_ANALYTICS_WORKSPACE
-```
-
----
-
-Next, retrieve the Log Analytics Client ID and client secret.
-
-# [Bash](#tab/bash)
-
-Make sure to run each query separately to give enough time for the request to complete.
-
-```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
-```
-
-```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
-```
-
-# [PowerShell](#tab/powershell)
-
-Make sure to run each query separately to give enough time for the request to complete.
-
-```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
-```
-
-```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
-```
-
----
-
-Individual container apps are deployed to an Azure Container Apps environment. To create the environment, run the following command:
-
-# [Bash](#tab/bash)
-
-```azurecli
-az containerapp env create \
-  --name $CONTAINERAPPS_ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
-  --location "$LOCATION"
-```
-
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az containerapp env create `
-  --name $CONTAINERAPPS_ENVIRONMENT `
-  --resource-group $RESOURCE_GROUP `
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
-  --location "$LOCATION"
-```
-
----
-
-## Create a container app
-
-Now that you have an environment created, you can deploy your first container app. Using the `containerapp create` command, deploy a container image to Azure Container Apps.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az containerapp create \
+az containerapp up \
   --name my-container-app \
-  --resource-group $RESOURCE_GROUP \
-  --environment $CONTAINERAPPS_ENVIRONMENT \
+  --resource-group my-container-apps \
+  --location centralus \
+  --environment 'my-container-apps' \
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
   --target-port 80 \
-  --ingress 'external' \
-  --query configuration.ingress.fqdn
+  --ingress external \
+  --query properties.configuration.ingress.fqdn
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-az containerapp create `
+```powershell
+az containerapp up `
   --name my-container-app `
-  --resource-group $RESOURCE_GROUP `
-  --environment $CONTAINERAPPS_ENVIRONMENT `
+  --resource-group my-container-apps `
+  --location centralus `
+  --environment  my-container-apps `
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
   --target-port 80 `
-  --ingress 'external' `
-  --query configuration.ingress.fqdn
+  --ingress external `
+  --query properties.configuration.ingress.fqdn
 ```
 
 ---
+
+> [!NOTE]
+> Make sure the value for the `--image` parameter is in lower case.
 
 By setting `--ingress` to `external`, you make the container app available to public requests.
 
-Here, the `create` command returns the container app's fully qualified domain name. Copy this location to a web browser and you'll see the following message.
+## Verify deployment
 
-:::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Your first Azure Container Apps deployment.":::
+The `up` command returns the fully qualified domain name for the container app. Copy this location to a web browser.
+
+The following message is displayed when the container app is deployed:
+
+:::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Screenshot of container app web page.":::
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
+If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this quickstart.
 
-# [Bash](#tab/bash)
+>[!CAUTION]
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
 
-```azurecli
-az group delete \
-  --name $RESOURCE_GROUP
-```
-
-# [PowerShell](#tab/powershell)
 
 ```azurecli
-az group delete `
-  --name $RESOURCE_GROUP
+az group delete --name my-container-apps
 ```
-
----
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
@@ -260,4 +174,4 @@ az group delete `
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Environments in Azure Container Apps](environment.md)
+> [Communication between microservices](communicate-between-microservices.md)

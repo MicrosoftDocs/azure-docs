@@ -30,7 +30,11 @@
     - name: Virtual networks
       href: ../../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=/azure/networking/fundamentals/toc.json
     - name: Cross-premises connectivity - VPN
-      href: ../../vpn-gateway/design.md?toc=/azure/networking/fundamentals/toc.json
+      items:
+      - name: VPN Gateway
+        href: ../../vpn-gateway/design.md?toc=/azure/networking/fundamentals/toc.json
+      - name: Virtual WAN
+        href: ../../virtual-wan//virtual-wan-about.md?toc=/azure/networking/fundamentals/toc.json
     - name: Cross-premises connectivity - dedicated private
       href: ../../expressroute/expressroute-workflows.md?toc=/azure/networking/fundamentals/toc.json
   - name: Microsoft global network
@@ -52,11 +56,20 @@
     - name: Route network traffic
       href: ../../virtual-network/virtual-networks-udr-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Connect virtual networks
-      href: ../../virtual-network/virtual-network-peering-overview.md?toc=/azure/networking/fundamentals/toc.json
+      items:
+      - name: Virtual network peering
+        href: ../../virtual-network/virtual-network-peering-overview.md?toc=/azure/networking/fundamentals/toc.json
+      - name: Virtual network manager
+        href: ../../virtual-network-manager/overview.md?toc=/azure/networking/fundamentals/toc.json
+
     - name: Private access to resources 
       href: ../../private-link/private-endpoint-overview.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Connect on-premises to Azure - VPN encryption
-      href: ../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Connect on-premises to Azure - VPN encryption       
+      items:
+      - name: VPN Gateway
+        href: ../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=/azure/networking/fundamentals/toc.json
+      - name: Virtual WAN
+        href: ../../virtual-wan//virtual-wan-about.md?toc=/azure/networking/fundamentals/toc.json
     - name: Extend on-premises to Azure - private connection
       href: ../../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=/azure/networking/fundamentals/toc.json
     - name: Outbound-only internet connectivity
@@ -67,12 +80,16 @@
       href: ../../virtual-network/network-security-groups-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Private Endpoint
       href: ../../private-link/private-endpoint-overview.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Network firewall
+    - name: Azure Firewall
       href: ../../firewall/overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Azure Firewall Manager
+      href: ../../firewall-manager/overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: DDoS protection
       href: ../../ddos-protection/ddos-protection-overview.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Web application firewall
+    - name: Web Application Firewall
       href: ../../web-application-firewall/overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Azure Bastion
+      href: ../../bastion/bastion-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ../security-controls-policy.md
@@ -91,7 +108,7 @@
   - name: Network monitoring
     items:
     - name: Monitor your network with Azure Monitor
-      href: ../../azure-monitor/insights/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+      href: ../../network-watcher/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Monitor and repair network health
       href: ../../network-watcher/network-watcher-monitoring-overview.md?toc=/azure/networking/fundamentals/toc.json 
 - name: How-to guides
@@ -105,13 +122,17 @@
     - name: Optimize routing costs 
       href: ../../virtual-network/ip-services/routing-preference-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: Create a NAT gateway for outbound connection
-      href: ../../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
+      href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: Create an Azure DNS zone and record
       href: ../../dns/dns-getstarted-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Route traffic using route tables
       href: ../../virtual-network/tutorial-create-route-table-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Connect virtual networks
-      href: ../../virtual-network/tutorial-connect-virtual-networks-portal.md?toc=/azure/networking/fundamentals/toc.json
+      items:
+      - name: Connect virtual networks with peering
+        href: ../../virtual-network/tutorial-connect-virtual-networks-portal.md?toc=/azure/networking/fundamentals/toc.json
+      - name: Create a hub and spoke topology with Virtual Network Manager
+        href: ../../virtual-network-manager/how-to-create-hub-and-spoke.md?toc=/azure/networking/fundamentals/toc.json
     - name: Private access to resources 
       href: ../../private-link/create-private-endpoint-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Connect on-premises network to a virtual network - VPN encryption
@@ -145,4 +166,12 @@
     - name: Monitor communications between Azure resources
       href: ../../network-watcher/connection-monitor-create-using-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Azure Monitor Network Insights
-      href:  ../../azure-monitor/insights/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+      href:  ../../network-watcher/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+  - name: Troubleshooting
+    items: 
+    - name: Troubleshoot Microsoft.Network Failed provisioning state
+      href: ../troubleshoot-failed-state.md?toc=/azure/networking/fundamentals/toc.json
+- name: Resources
+  items:
+  - name: Lumenisity UoS Patents
+    href: lumenisity-patent-list.md

@@ -25,7 +25,7 @@ When an event is triggered, the Event Grid service sends data about that event t
 This section contains an example of what that data would look like for each event.
 
 > [!IMPORTANT]
-> Microsoft.Communication.UserDisconnected event is in Public Preview. During this preview time, the logs associated to the user disconnected state may be replicated globally. You can get the disconnected state by subscribing to this event through Event Grid.
+> The logs associated to the user disconnected state may be replicated globally. You can get the disconnected state by subscribing to this event through Event Grid.
 
 > [!NOTE]
 > Microsoft.Communication.UserDisconnected event is applicable only in the context of chat.

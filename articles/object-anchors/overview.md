@@ -44,7 +44,7 @@ The service will then convert your asset into an Azure Object Anchors model. Dow
 
 Each dimension of an asset should be between 1 meter to 10 meters, and the file size should be less than 150 MB.
 
-The asset formats currently supported are: `fbx`, `ply`, `obj`, `glb`, and `gltf`.
+The asset formats currently supported are: `fbx`, `ply`, `obj`, and `glb`.
 
 ## Next steps
 

@@ -1,12 +1,12 @@
 ---
 title: Enable replication for private endpoints in Azure Site Recovery 
 description: This article describes how to configure replication for VMs with private endpoints from one Azure region to another by using Site Recovery.
-author: Harsha-CS
-ms.author: harshacs
+author: ankitaduttaMSFT
+ms.author: ankitadutta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/14/2020
-ms.custom: references_regions
+ms.date: 04/23/2022
+ms.custom: references_regions, subject-rbac-steps, engagement-fy23
 ---
 # Replicate machines with private endpoints
 
@@ -161,7 +161,7 @@ additional fully qualified domain names are added to the same private endpoint.
 
 The five domain names are formatted with the following pattern:
 
-`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.privatelink.siterecovery.windowsazure.com`
 
 ## Approve private endpoints for Site Recovery
 
@@ -220,22 +220,31 @@ following role permissions depending on the type of storage account:
   - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
   - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
 
-The following steps describe how to add a role-assignment to your storage accounts, one at a time:
+The following steps describe how to add a role assignment to your storage accounts, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. Go to the storage account and navigate to **Access control (IAM)** on the left side of the page.
+1. In the Azure portal, navigate to the cache storage account you created.
 
-1. Once on **Access control (IAM)**, in the "Add a role assignment" box select **Add**.
+1. Select **Access control (IAM)**.
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Shows the Access control (IAM) page on a storage account and the 'Add a role assignment' button in the Azure portal.":::
+1. Select **Add > Add role assignment**.
 
-1. In the "Add a role assignment" side page, choose the role from the list above in the **Role**
-   drop-down. Enter the **name** of the vault and select **Save**.
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Shows the Access control (IAM) page on a storage account and the options to select a Role and which principal to grant that role to in the Azure portal.":::
+1. On the **Role** tab, select one of the roles listed in the beginning of this section.
 
-In addition to these permissions, MS trusted services need to be allowed access as well. Go to
-"Firewalls and virtual networks" and select "Allow trusted Microsoft services to access this storage
-account" checkbox in **Exceptions**.
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. Select your Azure subscription.
+
+1. Select **System-assigned managed identity**, search for a vault, and then select it.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+In addition to these permissions, you need to allow access to Microsoft trusted services. To do so, follow these steps:
+
+1. Go to **Firewalls and virtual networks**.
+
+1. In **Exceptions**, select **Allow trusted Microsoft services to access this storage account**.
 
 ## Protect your virtual machines
 
@@ -309,7 +318,7 @@ domain names to private IPs.
       private DNS zone.
 
       These fully qualified domain names match the pattern:
-      `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.privatelink.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Shows the page to add a DNS A type record for the fully qualified domain name to the private endpoint in the Azure portal.":::
 

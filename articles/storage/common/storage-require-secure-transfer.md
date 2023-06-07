@@ -3,15 +3,16 @@ title: Require secure transfer to ensure secure connections
 titleSuffix: Azure Storage
 description: Learn how to require secure transfer for requests to Azure Storage. When you require secure transfer for a storage account, any requests originating from an insecure connection are rejected.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.author: tamram
+ms.author: jammart
 ms.reviewer: fryu
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurecli
+ms.devlang: azurecli
 ---
 
 # Require secure transfer to ensure secure connections
@@ -64,7 +65,7 @@ To require secure transfer programmatically, set the *enableHttpsTrafficOnly* pr
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This sample requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+This sample requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 Run `Connect-AzAccount` to create a connection with Azure.
 

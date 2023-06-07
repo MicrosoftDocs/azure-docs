@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 01/13/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -46,7 +46,7 @@ The following is an example of a user flow for gathering parental consent:
 
 2. The application processes the JSON token and shows a screen to the minor, notifying them that parental consent is required and requesting the consent of a parent online.
 
-3. Azure AD B2C shows a sign-in journey that the user can sign in to normally and issues a token to the application that is set to include **legalAgeGroupClassification = "minorWithParentalConsent"**. The application collects the email address of the parent and verifies that the parent is an adult. To do so, it uses a trusted source, such as a national ID office, license verification, or credit card proof. If verification is successful, the application prompts the minor to sign in by using the Azure AD B2C user flow. If consent is denied (for example, if **legalAgeGroupClassification = "minorWithoutParentalConsent"**), Azure AD B2C returns a JSON token (not a login) to the application to restart the consent process. It is optionally possible to customize the user flow so that a minor or an adult can regain access to a minor's account by sending a registration code to the minor's email address or the adult's email address on record.
+3. Azure AD B2C shows a sign-in journey that the user can sign in to normally and issues a token to the application that is set to include **legalAgeGroupClassification = "minorWithParentalConsent"**. The application collects the email address of the parent and verifies that the parent is an adult. To do so, it uses a trusted source, such as a national/regional ID office, license verification, or credit card proof. If verification is successful, the application prompts the minor to sign in by using the Azure AD B2C user flow. If consent is denied (for example, if **legalAgeGroupClassification = "minorWithoutParentalConsent"**), Azure AD B2C returns a JSON token (not a login) to the application to restart the consent process. It is optionally possible to customize the user flow so that a minor or an adult can regain access to a minor's account by sending a registration code to the minor's email address or the adult's email address on record.
 
 4. The application offers an option to the minor to revoke consent.
 
@@ -135,11 +135,11 @@ When you develop your application, you ordinarily capture users' acceptance of t
 
 The following steps describe how you can manage terms of use:
 
-1. Record the acceptance of the terms of use and the date of acceptance by using the Graph API and extended attributes. You can do so by using both built-in and custom user flows. We recommend that you create and use the **extension_termsOfUseConsentDateTime** and **extension_termsOfUseConsentVersion** attributes.
+1. Record the acceptance of the terms of use and the date of acceptance by using the Graph API and extended attributes. You can do so by using both built-in user flows and custom policies. We recommend that you create and use the **extension_termsOfUseConsentDateTime** and **extension_termsOfUseConsentVersion** attributes.
 
-2. Create a required check box labeled "Accept Terms of Use," and record the result during sign-up. You can do so by using both built-in and custom user flows.
+2. Create a required check box labeled "Accept Terms of Use," and record the result during sign-up. You can do so by using both built-in user flows and custom policies.
 
-3. Azure AD B2C stores the terms of use agreement and the user's acceptance. You can use the Graph API to query for the status of any user by reading the extension attribute that's used to record the response (for example, read **termsOfUseTestUpdateDateTime**). You can do so by using both built-in and custom user flows.
+3. Azure AD B2C stores the terms of use agreement and the user's acceptance. You can use the Graph API to query for the status of any user by reading the extension attribute that's used to record the response (for example, read **termsOfUseTestUpdateDateTime**). You can do so by using both built-in user flows and custom policies.
 
 4. Require acceptance of updated terms of use by comparing the date of acceptance to the date of the latest version of the terms of use. You can compare the dates only by using a custom user flow. Use the extended attribute **extension_termsOfUseConsentDateTime**, and compare the value to the claim of **termsOfUseTextUpdateDateTime**. If the acceptance is old, force a new acceptance by displaying a self-asserted screen. Otherwise, block access by using policy logic.
 

@@ -9,14 +9,15 @@ editor: ''
 
 ms.assetid: a0c394df-957b-49b3-a283-38824f8847fd
 ms.service: storsimple
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 08/19/2022
 ms.author: manuaery
 ---
 # Use the StorSimple Device Manager service to log a Support request for the StorSimple Virtual Array
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
 
 ## Overview
 

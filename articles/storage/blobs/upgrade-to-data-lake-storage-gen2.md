@@ -1,17 +1,17 @@
 ---
-title: Upgrading Azure Blob Storage to Azure Data Lake Storage Gen2  | Microsoft Docs
+title: Upgrading Azure Blob Storage to Azure Data Lake Storage Gen2 
 description: Description goes here.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 01/25/2022
 ms.author: normesta
 
 ---
 
 # Upgrading Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities
 
-This article helps you unlock capabilities such as file and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage Gen2. The most popular capabilities include:
+This article helps you to enable a hierarchical namespace and unlock capabilities such as file and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage Gen2. The most popular capabilities include:
 
 - Higher throughput, input/output operations per second (IOPS), and storage capacity limits.
 
@@ -80,7 +80,7 @@ Renaming a blob is far more efficient because client applications can rename a b
 
 ## Impact on costs
 
-Storage costs aren't impacted, but transactions costs are impacted. Use these pages to assess compare costs. 
+There is no cost to perform the upgrade. After you upgrade, the cost to store your data doesn't change, but the cost of a transaction does change. Use these pages to assess compare costs. 
 
 - [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 

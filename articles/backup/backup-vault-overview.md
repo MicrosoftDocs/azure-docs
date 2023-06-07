@@ -2,8 +2,11 @@
 title: Overview of Backup vaults
 description: An overview of Backup vaults.
 ms.topic: conceptual
-ms.date: 10/31/2021
+ms.date: 06/06/2023
 ms.custom: references_regions
+ms.service: backup
+author: jyothisuri
+ms.author: jsuri
 ---
 # Backup vaults overview
 
@@ -15,11 +18,11 @@ This article describes the features of a Backup vault. A Backup vault is a stora
 
 ## Storage settings in the Backup vault
 
-A Backup vault is an entity that stores the backups and recovery points created over time. The Backup vault also contains the backup policies that are associated with the protected virtual machines.
+A Backup vault is an entity that stores the backups and recovery points created over time. The Backup vault also contains the backup policies that are associated with the protected resources.
 
 - Azure Backup automatically handles storage for the vault. Choose the storage redundancy that matches your business needs when creating the Backup vault.
 
-- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md#geo-redundant-storage) and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
+- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md#geo-redundant-storage), [zonal (preview)](../storage/common/storage-redundancy.md#zone-redundant-storage), and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
 
 ## Encryption settings in the Backup vault
 
@@ -38,7 +41,7 @@ To create a Backup vault, follow these steps.
 
 ### Sign in to Azure
 
-Sign in to the Azure portal at <https://portal.azure.com>.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create Backup vault
 
@@ -82,7 +85,7 @@ Ensure that you cycle through the **Datasource type** filter options in **Backup
 ### Proper way to delete a vault
 
 >[!WARNING]
-The following operation is destructive and can't be undone. All backup data and backup items associated with the protected server will be permanently deleted. Proceed with caution.
+>The following operation is destructive and can't be undone. All backup data and backup items associated with the protected server will be permanently deleted. Proceed with caution.
 
 To properly delete a vault, you must follow the steps in this order:
 
@@ -117,16 +120,16 @@ In the **Backup Instances** tile, you get a summarized view of all backup instan
 
 ![Backup jobs](./media/backup-vault-overview/backup-jobs.png)
 
-## Move a Backup vault across Azure subscriptions/resource groups (Public Preview)
+## Move a Backup vault across Azure subscriptions/resource groups
 
 This section explains how to move a Backup vault (configured for Azure Backup) across Azure subscriptions and resource groups using the Azure portal.
 
 >[!Note]
->You can also move Backup vaults to a different resource group or subscription using [PowerShell](/powershell/module/az.resources/move-azresource?view=azps-6.3.0&preserve-view=true) and [CLI](/cli/azure/resource?view=azure-cli-latest&preserve-view=true#az_resource_move).
+>You can also move Backup vaults to a different resource group or subscription using [PowerShell](/powershell/module/az.resources/move-azresource) and [CLI](/cli/azure/resource#az-resource-move).
 
 ### Supported regions
 
-The vault move across subscriptions and resource groups is supported in all public regions.
+The vault move across subscriptions and resource groups is supported in all public and national regions.
 
 ### Use Azure portal to move Backup vault to a different resource group
 
@@ -154,7 +157,7 @@ The vault move across subscriptions and resource groups is supported in all publ
 
    :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-inline.png" alt-text="Screenshot showing the Backup vault validation status." lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-expanded.png"::: 
 
-1. Select the checkbox _I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs_’ to confirm, and then select **Move**.
+1. Select the checkbox **I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs** to confirm, and then select **Move**.
  
    >[!Note]
    >The resource path changes after moving vault across resource groups or subscriptions. Ensure that you update the tools and scripts with the new resource path after the move operation completes.
@@ -192,7 +195,7 @@ Wait till the move operation is complete to perform any other operations on the 
 
    :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-inline.png" alt-text="Screenshot showing the validation status of Backup vault to be moved to another Azure subscription." lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-expanded.png"::: 
 
-1. Select the checkbox _I understand that tools and scripts associated with moved resources will not work until I update them to use new resource   IDs_ to confirm, and then select **Move**.
+1. Select the checkbox **I understand that tools and scripts associated with moved resources will not work until I update them to use new resource   IDs** to confirm, and then select **Move**.
  
    >[!Note]
    >The resource path changes after moving vault across resource groups or subscriptions. Ensure that you update the tools and scripts with the new resource path after the move operation completes.
@@ -201,6 +204,8 @@ Wait till the move operation is complete to perform any other operations on the 
 
 >[!Important]
 >If you encounter any error while moving the vault, refer to the [Error codes and troubleshooting section](#error-codes-and-troubleshooting).
+
+
 
 ### Error codes and troubleshooting
 
@@ -223,11 +228,13 @@ Troubleshoot the following common issues you might encounter during Backup vault
 **Cause**: You may face this error if you try to perform any operations on the Backup vault while it’s being moved. 
 
 **Recommendation**: Wait till the move operation is complete, and then retry. 
+
 #### UserErrorBackupVaultResourceMoveNotAllowedForMultipleResources
 
 **Cause**: You may face this error if you try to move multiple Backup vaults  in a single attempt. 
 
 **Recommentation**: Ensure that only one Backup vault is selected for every move operation. 
+
 #### UserErrorBackupVaultResourceMoveNotAllowedUntilResourceProvisioned
 
 **Cause**: You may face this error if the vault is not yet provisioned. 
@@ -239,6 +246,54 @@ Troubleshoot the following common issues you might encounter during Backup vault
 **Cause**: Resource move for Backup vault is currently not supported in the selected Azure region.
 
 **Recommendation**: Ensure that you've selected one of the supported regions to move Backup vaults. See [Supported regions](#supported-regions).
+
+#### UserErrorCrossTenantMSIMoveNotSupported 
+
+**Cause**: This error occurs if the subscription with which resource is associated has moved to a different Tenant, but the Managed Identity is still associated with the old Tenant.
+
+**Recommendation**: Remove the Managed Identity from the existing Tenant; move the resource and add it again to the new one.
+
+## Cross Region Restore support for PostgreSQL using Azure Backup (preview)
+
+Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS)  to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region. However, Cross Region Restore enables you to access and perform restores from the secondary region recovery points even when no outage occurs in the primary region; thus, enables you to perform drills to assess regional resiliency.
+
+>[!Note]
+>- Cross Region Restore is now available for PostgreSQL backups protected in Backup vaults. 
+>- Backup vaults enabled with Cross Region Restore will be automatically charged at [RA-GRS rates](https://azure.microsoft.com/pricing/details/backup/) for the PostgreSQL backups stored in the vault once the feature is generally available.
+
+### Perform Cross Region Restore using Azure portal
+
+Follow these steps:
+
+1. Sign in to [Azure portal](https://portal.azure.com/).
+
+2. [Create a new Backup vault](backup-vault-overview.md#create-backup-vault) or choose an existing Backup vault, and then enable Cross Region Restore by going to **Properties** > **Cross Region Restore (Preview)**, and choose **Enable**.
+
+   :::image type="content" source="./media/backup-vault-overview/enable-cross-region-restore-for-postgresql-database.png" alt-text="Screenshot shows how to enable Cross Region Restore for PostgreSQL database." lightbox="./media/backup-vault-overview/enable-cross-region-restore-for-postgresql-database.png":::
+
+3. Go to the Backup vault’s **Overview** pane, and then [configure a backup for PostgreSQL database](backup-azure-database-postgresql.md).
+
+   Once the backup is complete in the primary region, it can take up to *12 hours* for the recovery point in the primary region to get replicated to the secondary region.
+
+4. To check the availability of recovery point in the secondary region, go to the **Backup center** > **Backup Instances** > **Filter  to Azure Database for PostgreSQL servers**, filter **Instance Region** as *Secondary Region*, and then select the required Backup Instance.
+
+   :::image type="content" source="./media/backup-vault-overview/check-availability-of-recovery-point-in-secondary-region.png" alt-text="Screenshot shows how to check availability for the recovery points in the secondary region." lightbox="./media/backup-vault-overview/check-availability-of-recovery-point-in-secondary-region.png":::
+
+   The recovery points available in the secondary region are now listed.
+
+5. Choose **Restore to secondary region**.
+
+   :::image type="content" source="./media/backup-vault-overview/initiate-restore-to-secondary-region.png" alt-text="Screenshot shows how to initiate restores to the secondary region." lightbox="./media/backup-vault-overview/initiate-restore-to-secondary-region.png":::
+
+   You can also trigger restores from the respective backup instance.
+
+   :::image type="content" source="./media/backup-vault-overview/trigger-restores-from-respective-backup-instance.png" alt-text="Screenshot shows how to trigger restores from the respective backup instance." lightbox="./media/backup-vault-overview/trigger-restores-from-respective-backup-instance.png":::
+
+6. Select **Restore to secondary region** to review the target region selected, and then select the appropriate recovery point and restore parameters.
+
+7. Once the restore starts, you can monitor the completion of the restore operation under **Backup Jobs** of the Backup vault by filtering **Jobs workload type** to *Azure Database for PostgreSQL servers* and **Instance Region** to *Secondary Region*.
+
+   :::image type="content" source="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png" alt-text="Screenshot shows how to monitor the postgresql restore to the secondary region." lightbox="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png":::
 
 ## Next steps
 

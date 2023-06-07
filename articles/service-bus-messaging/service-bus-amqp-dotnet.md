@@ -3,6 +3,8 @@ title: Use legacy WindowsAzure.ServiceBus .NET framework library with AMQP 1.0 |
 description: This article describes how to use the legacy WindowsAzure.ServiceBus .NET framework library with AMQP (Advanced Messaging Queuing Protocol).
 ms.topic: article
 ms.date: 04/30/2021
+ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ---
 
 # Use legacy WindowsAzure.ServiceBus .NET framework library with AMQP 1.0

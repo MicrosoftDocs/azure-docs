@@ -1,13 +1,13 @@
 ---
 title: Azure Lighthouse in enterprise scenarios
 description: The capabilities of Azure Lighthouse can be used to simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
-ms.date: 10/21/2021
+ms.date: 05/10/2023
 ms.topic: conceptual
 ---
 
 # Azure Lighthouse in enterprise scenarios
 
-A common scenario for [Azure Lighthouse](../overview.md) is when a service provider manages resources in Azure Active Directory (Azure AD) tenants that belong to customers. The capabilities of Azure Lighthouse can also be used to simplify cross-tenant management within an enterprise that uses multiple Azure AD tenants.
+A common scenario for [Azure Lighthouse](../overview.md) involves a service provider that manages resources in in its customers' Azure Active Directory (Azure AD) tenants. The capabilities of Azure Lighthouse can also be used to simplify cross-tenant management within an enterprise that uses multiple Azure AD tenants.
 
 ## Single vs. multiple tenants
 
@@ -15,7 +15,7 @@ For most organizations, management is easier with a single Azure AD tenant. Havi
 
 Some organizations may need to use multiple Azure AD tenants. This might be a temporary situation, as when acquisitions have taken place and a long-term tenant consolidation strategy hasn't been defined yet. Other times, organizations may need to maintain multiple tenants on an ongoing basis due to wholly independent subsidiaries, geographical or legal requirements, or other considerations.
 
-In cases where a multi-tenant architecture is required, Azure Lighthouse can help centralize and streamline management operations. By using Azure Lighthouse, users in one managing tenant can perform [cross-tenant management functions](cross-tenant-management-experience.md) in a centralized, scalable manner.
+In cases where a [multitenant architecture](/azure/architecture/guide/multitenant/overview) is required, Azure Lighthouse can help centralize and streamline management operations. By using Azure Lighthouse, users in one managing tenant can perform [cross-tenant management functions](cross-tenant-management-experience.md) in a centralized, scalable manner.
 
 ## Tenant management architecture
 
@@ -61,5 +61,6 @@ Continuing with that example, Tenant A users with the appropriate permissions ca
 
 ## Next steps
 
+- Explore options for [resource organization in multitenant architectures](/azure/architecture/guide/multitenant/approaches/resource-organization).
 - Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
 - Learn more about [how Azure Lighthouse works](architecture.md).

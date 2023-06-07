@@ -42,6 +42,8 @@ ms.date: 06/03/2020
 
     Assigned keys and resources are visible in the LUIS portal in the Manage section, on the **Azure resources** page. The app ID is available in the same Manage section, on the **Application Settings** page.
 
+    [!INCLUDE [Remember to remove credentials when you're done](app-secrets.md)]
+
 1. With a command prompt in the same directory as where you created the file, enter the following command to run the file:
 
     ```console
@@ -158,5 +160,4 @@ When you are finished with this quickstart, delete the file from the file system
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Best practices for an app](../luis-concept-best-practices.md)
+[Best practices for an app](../luis-concept-best-practices.md)

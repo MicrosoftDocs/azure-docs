@@ -3,6 +3,7 @@ title: 'Quickstart: Send events using C - Azure Event Hubs'
 description: 'Quickstart: This article provides a walkthrough for creating a C application that sends events to Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 09/23/2021
+ms.devlang: c
 ms.custom: mode-other
 ---
 
@@ -18,7 +19,7 @@ To complete this tutorial, you need the following:
 
 * A C development environment. This tutorial assumes the gcc stack on an Azure Linux VM with Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-* **Create an Event Hubs namespace and an event hub**. Use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Get the value of access key for the event hub by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the access key in the code you write later in this tutorial. The default key name is: **RootManageSharedAccessKey**.
+* **Create an Event Hubs namespace and an event hub**. Use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Get the value of access key for the event hub by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#azure-portal). You use the access key in the code you write later in this tutorial. The default key name is: **RootManageSharedAccessKey**.
 
 ## Write code to send messages to Event Hubs
 In this section shows how to write a C app to send events to your event hub. The code uses the Proton AMQP library from the [Apache Qpid project](https://qpid.apache.org/). This is analogous to using Service Bus queues and topics with AMQP from C as shown [in this sample](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). For more information, see the [Qpid Proton documentation](https://qpid.apache.org/proton/index.html).

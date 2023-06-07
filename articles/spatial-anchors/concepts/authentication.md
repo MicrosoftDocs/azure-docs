@@ -1,11 +1,11 @@
 ---
 title: Authentication and authorization
 description: Learn about the various ways an app or service can authenticate to Azure Spatial Anchors, and the levels of control that you have to gate access to Spatial Anchors.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
@@ -14,6 +14,9 @@ ms.custom: devx-track-csharp, subject-rbac-steps
 # Authentication and authorization to Azure Spatial Anchors
 
 In this article, you'll learn the various ways you can authenticate to Azure Spatial Anchors from your app or web service. You'll also learn about the ways you can use Azure role-based access control (Azure RBAC) in Azure Active Directory (Azure AD) to control access to your Spatial Anchors accounts.
+
+> [!WARNING]
+> We recommend that you use account keys for quick onboarding, but only during development/prototyping. We don't recommend that you ship your application to production with an embedded account key in it. Instead, use the user-based or service-based Azure AD authentication approaches described next.
 
 ## Overview
 
@@ -81,9 +84,6 @@ configuration.AccountKey(LR"(MyAccountKey)");
 ---
 
 After you set that property, the SDK will handle the exchange of the account key for an access token and the necessary caching of tokens for your app.
-
-> [!WARNING]
-> We recommend that you use account keys for quick onboarding, but only during development/prototyping. We don't recommend that you ship your application to production with an embedded account key in it. Instead, use the user-based or service-based Azure AD authentication approaches described next.
 
 ## Azure AD user authentication
 

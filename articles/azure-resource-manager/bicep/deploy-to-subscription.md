@@ -2,6 +2,7 @@
 title: Use Bicep to deploy resources to subscription
 description: Describes how to create a Bicep file that deploys resources to the Azure subscription scope. It shows how to create a resource group.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 11/22/2021
 ---
 
@@ -14,9 +15,9 @@ To simplify the management of resources, you can deploy resources at the level o
 > [!NOTE]
 > You can deploy to 800 different resource groups in a subscription level deployment.
 
-### Microsoft Learn
+### Training resources
 
-To learn more about deployment scopes, and for hands-on guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) on **Microsoft Learn**.
+If you would rather learn about deployment scopes through step-by-step guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/training/modules/deploy-resources-scopes-bicep/).
 
 ## Supported resources
 
@@ -57,16 +58,16 @@ For creating new resource groups, use:
 For managing your subscription, use:
 
 * [budgets](/azure/templates/microsoft.consumption/budgets)
-* [configurations - Advisor ](/azure/templates/microsoft.advisor/configurations)
+* [configurations - Advisor](/azure/templates/microsoft.advisor/configurations)
 * [lineOfCredit](/azure/templates/microsoft.billing/billingaccounts/lineofcredit)
 * [locks](/azure/templates/microsoft.authorization/locks)
-* [profile - Change Analysis ](/azure/templates/microsoft.changeanalysis/profile)
+* [profile - Change Analysis](/azure/templates/microsoft.changeanalysis/profile)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [tags](/azure/templates/microsoft.resources/tags)
 
 For monitoring, use:
 
-* [diagnosticSettings](/templates/microsoft.insights/diagnosticsettings)
+* [diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 * [logprofiles](/azure/templates/microsoft.insights/logprofiles)
 
 For security, use:
@@ -104,7 +105,7 @@ To deploy to a subscription, use the subscription-level deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create). The following example deploys a template to create a resource group:
+For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). The following example deploys a template to create a resource group:
 
 ```azurecli-interactive
 az deployment sub create \

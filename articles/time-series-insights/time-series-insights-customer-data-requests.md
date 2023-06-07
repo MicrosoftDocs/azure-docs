@@ -14,6 +14,8 @@ ms.custom: seodec18
 
 # Summary of customer data request features
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 Azure Time Series Insights is a managed cloud service with storage, analytics, and visualization components that make it easy to ingest, store, explore, and analyze billions of events simultaneously.
 
 [!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]

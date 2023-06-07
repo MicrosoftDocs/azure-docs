@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Trakstar | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Trakstar'
 description: Learn how to configure single sign-on between Azure Active Directory and Trakstar.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/27/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Trakstar
@@ -48,6 +48,8 @@ To configure the integration of Trakstar into Azure AD, you need to add Trakstar
 1. In the **Add from the gallery** section, type **Trakstar** in the search box.
 1. Select **Trakstar** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Trakstar
 
 Configure and test Azure AD SSO with Trakstar using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Trakstar.
@@ -75,9 +77,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	| Field name | Value | Note | 
 	| ---------------------- | ----- | ---- |
-	| **Reply URL (Assertion Consumer Service URL)** | `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>` | Replace `<YOUR_NAMESPACE>` with a real value, which is visible in the **ACS (Consumer) URL** field in Trakstar Perform. See the note that appears after this table. |
-	| **Sign on URL** | `https://app.trakstar.com/auth/saml/?namespace=<YOUR_NAMESPACE>` | This URL is _similar_ to the preceding URL, but it doesn't have the `/callback` portion. |
-	| **Identifier (Entity ID)** | `https://app.trakstar.com` | |
+	| **Reply URL (Assertion Consumer Service URL)** | `https://perform.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>` | Replace `<YOUR_NAMESPACE>` with a real value, which is visible in the **ACS (Consumer) URL** field in Trakstar Perform. See the note that appears after this table. |
+	| **Sign on URL** | `https://perform.trakstar.com/auth/saml/?namespace=<YOUR_NAMESPACE>` | This URL is _similar_ to the preceding URL, but it doesn't have the `/callback` portion. |
+	| **Identifier (Entity ID)** | `https://perform.trakstar.com` | |
 	
 	> [!NOTE]
 	> These values are only examples. You must use the values that are specific to your namespace in Trakstar Perform, which are visible by signing into the application and going to **Settings** > **Authentication & SSO** > **SAML 2.0** > **Configure**.

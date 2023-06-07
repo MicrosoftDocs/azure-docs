@@ -3,7 +3,7 @@ title: Develop script actions to customize Azure HDInsight clusters
 description: Learn how to use Bash scripts to customize HDInsight clusters. Script actions allow you to run scripts during or after cluster creation to change cluster configuration settings or install additional software.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 11/28/2019
+ms.date: 04/26/2023
 ---
 
 # Script action development with HDInsight
@@ -115,7 +115,7 @@ The best practice is to download and archive everything in an Azure Storage acco
 > [!IMPORTANT]  
 > The storage account used must be the default storage account for the cluster or a public, read-only container on any other storage account.
 
-For example, the samples provided by Microsoft are stored in the [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage account. This location is a public, read-only container maintained by the HDInsight team.
+For example, the samples provided by Microsoft are stored in the `https://hdiconfigactions.blob.core.windows.net/`  storage account. This location is a public, read-only container maintained by the HDInsight team.
 
 ### <a name="bPS4"></a>Use pre-compiled resources
 

@@ -1,44 +1,44 @@
 ---
-title: Initialize MSAL.NET client applications | Azure
-titleSuffix: Microsoft identity platform
+title: Initialize MSAL.NET client applications
 description: Learn about initializing public client and confidential client applications using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: mmacy
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/18/2019
-ms.author: marsma
+ms.date: 12/19/2022
+ms.author: dmwendia
 ms.reviewer: saeeda
-ms.custom: "devx-track-csharp, aaddev"
+ms.custom: devx-track-csharp, aaddev, engagement-fy23, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn about initializing client applications so I can decide if this platform meets my application development needs and requirements.
 ---
 
 # Initialize client applications using MSAL.NET
+
 This article describes initializing public client and confidential client applications using the Microsoft Authentication Library for .NET (MSAL.NET).  To learn more about the client application types, see [Public client and confidential client applications](msal-client-applications.md).
 
-With MSAL.NET 3.x, the recommended way to instantiate an application is by using the application builders: `PublicClientApplicationBuilder` and `ConfidentialClientApplicationBuilder`. They offer a powerful mechanism to configure the application either from the code, or from a configuration file, or even by mixing both approaches.
-
-[API reference documentation](/dotnet/api/microsoft.identity.client) | [Package on NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/) | [Library source code](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Code samples](sample-v2-code.md)
+With MSAL.NET 3.x, the recommended way to instantiate an application is by using the application builders: `PublicClientApplicationBuilder` and `ConfidentialClientApplicationBuilder`. They offer a powerful mechanism to configure the application from the code, a configuration file, or even by mixing both approaches.
 
 ## Prerequisites
-Before initializing an application, you first need to [register it](quickstart-register-app.md) so that your app can be integrated with the Microsoft identity platform.  After registration, you may need the following information (which can be found in the Azure portal):
 
-- The client ID (a string representing a GUID)
-- The identity provider URL (named the instance) and the sign-in audience for your application. These two parameters are collectively known as the authority.
-- The tenant ID if you are writing a line of business application solely for your organization (also named single-tenant application).
-- The application secret (client secret string) or certificate (of type X509Certificate2) if it's a confidential client app.
-- For web apps, and sometimes for public client apps (in particular when your app needs to use a broker), you'll have also set the redirectUri where the identity provider will contact back your application with the security tokens.
+Before initializing an application, you first need to register it so that your app can be integrated with the Microsoft identity platform. Refer to the [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md) for more information. After registration, you may need the following information (which can be found in the Azure portal):
 
-## Ways to initialize applications
+- **Application (client) ID** - This is a string representing a GUID.
+- **Directory (tenant) ID** - Provides identity and access management (IAM) capabilities to applications and resources used by your organization. It can specify if you're writing a line of business application solely for your organization (also named single-tenant application).
+- The identity provider URL (named the **instance**) and the sign-in audience for your application. These two parameters are collectively known as the authority.
+- **Client credentials** - which can take the form of an application secret (client secret string) or certificate (of type `X509Certificate2`) if it's a confidential client app.
+- For web apps, and sometimes for public client apps (in particular when your app needs to use a broker), you'll have also set the **Redirect URI** where the identity provider will contact back your application with the security tokens.
+
+## Initializing applications
+
 There are many different ways to instantiate client applications.
 
 ### Initializing a public client application from code
 
-The following code instantiates a public client application, signing-in users in the Microsoft Azure public cloud, with their work and school accounts, or their personal Microsoft accounts.
+The following code instantiates a public client application, signing-in users in the Microsoft Azure public cloud, with their work, school or personal Microsoft accounts.
 
 ```csharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
@@ -57,7 +57,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
     .Build();
 ```
 
-As you might know, in production, rather than using a client secret, you might want to share with Azure AD a certificate. The code would then be the following:
+In production however, certificates are recommended as they're more secure than client secrets. They can be created and uploaded to the Azure portal. The code would then be the following:
 
 ```csharp
 IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create(clientId)
@@ -78,7 +78,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 ### Initializing a confidential client application from configuration options
 
-The same kind of pattern applies to confidential client applications. You can also add other parameters using `.WithXXX` modifiers (here a certificate).
+The same kind of pattern applies to confidential client applications. You can also add other parameters using `.WithXXX` modifiers. This example uses `.WithCertificate`.
 
 ```csharp
 ConfidentialClientApplicationOptions options = GetOptions(); // your own method
@@ -89,26 +89,11 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 ## Builder modifiers
 
-In the code snippets using application builders, a number of `.With` methods can be applied as modifiers (for example, `.WithCertificate` and `.WithRedirectUri`). 
+In the code snippets using application builders, many `.With` methods can be applied as modifiers (for example, `.WithCertificate` and `.WithRedirectUri`). 
 
 ### Modifiers common to public and confidential client applications
 
-The modifiers you can set on a public client or confidential client application builder are:
-
-|Modifier | Description|
-|--------- | --------- |
-|[`.WithAuthority()`](/dotnet/api/microsoft.identity.client.abstractapplicationbuilder-1.withauthority)  | Sets the application default authority to an Azure AD authority, with the possibility of choosing the Azure Cloud, the audience, the tenant (tenant ID or domain name), or providing directly the authority URI.|
-|`.WithAdfsAuthority(string)` | Sets the application default authority to be an ADFS authority.|
-|`.WithB2CAuthority(string)` | Sets the application default authority to be an Azure AD B2C authority.|
-|`.WithClientId(string)` | Overrides the client ID.|
-|`.WithComponent(string)` | Sets the name of the library using MSAL.NET (for telemetry reasons). |
-|`.WithDebugLoggingCallback()` | If called, the application will call `Debug.Write` simply enabling debugging traces. See [Logging](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) for more information.|
-|`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Set the application level extra query parameters that will be sent in all authentication request. This is overridable at each token acquisition method level (with the same `.WithExtraQueryParameters pattern`).|
-|`.WithHttpClientFactory(IMsalHttpClientFactory httpClientFactory)` | Enables advanced scenarios such as configuring for an HTTP proxy, or to force MSAL to use a particular HttpClient (for instance in ASP.NET Core web apps/APIs).|
-|`.WithLogging()` | If called, the application will call a callback with debugging traces. See [Logging](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) for more information.|
-|`.WithRedirectUri(string redirectUri)` | Overrides the default redirect URI. In the case of public client applications, this will be useful for scenarios involving the broker.|
-|`.WithTelemetry(TelemetryCallback telemetryCallback)` | Sets the delegate used to send telemetry.|
-|`.WithTenantId(string tenantId)` | Overrides the tenant ID, or the tenant description.|
+The modifiers you can set on a public client or confidential client application builder can be found in the `AbstractApplicationBuilder<T>` class. The different methods can be found in the [Azure SDK for .NET documentation](/dotnet/api/microsoft.identity.client.abstractapplicationbuilder-1).
 
 ### Modifiers specific to Xamarin.iOS applications
 
@@ -120,18 +105,13 @@ The modifiers you can set on a public client application builder on Xamarin.iOS 
 
 ### Modifiers specific to confidential client applications
 
-The modifiers you can set on a confidential client application builder are:
+The modifiers you can set that are specific to a confidential client application builder can be found in the `ConfidentialClientApplicationBuilder` class. The different methods can be found in the [Azure SDK for .NET documentation](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder). 
 
-|Modifier | Description|
-|--------- | --------- |
-|`.WithCertificate(X509Certificate2 certificate)` | Sets the certificate identifying the application with Azure AD.|
-|`.WithClientSecret(string clientSecret)` | Sets the client secret (app password) identifying the application with Azure AD.|
-
-These modifiers are mutually exclusive. If you provide both, MSAL will throw a meaningful exception.
+Modifiers such as `.WithCertificate(X509Certificate2 certificate)` and `.WithClientSecret(string clientSecret)` are mutually exclusive. If you provide both, MSAL will throw a meaningful exception.
 
 ### Example of usage of modifiers
 
-Let's assume that your application is a line-of-business application, which is only for your organization.  Then you can write:
+Let's assume that your application is a line-of-business application, which is only for your organization. Then you can write:
 
 ```csharp
 IPublicClientApplication app;
@@ -140,7 +120,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-Where it becomes interesting is that programming for national clouds has now simplified. If you want your application to be a multi-tenant application in a national cloud, you could write, for instance:
+Programming for national clouds has simplified, so if you want your application to be a multi-tenant application in a national cloud, you could write, for instance:
 
 ```csharp
 IPublicClientApplication app;
@@ -149,7 +129,8 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-There is also an override for ADFS (ADFS 2019 is currently not supported):
+There's also an override for ADFS (MSAL.NET will only support ADFS 2019 or later):
+
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
@@ -157,7 +138,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-Finally, if you are an Azure AD B2C developer, you can specify your tenant like this:
+Finally, if you're an Azure AD B2C developer, you can specify your tenant like this:
 
 ```csharp
 IPublicClientApplication app;
@@ -165,6 +146,16 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .WithB2CAuthority("https://fabrikamb2c.b2clogin.com/tfp/{tenant}/{PolicySignInSignUp}")
         .Build();
 ```
+
+## See also
+
+[API reference documentation](/dotnet/api/microsoft.identity.client) 
+
+[Package on NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/)
+
+[Library source code](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) 
+
+[Code samples](sample-v2-code.md)
 
 ## Next steps
 

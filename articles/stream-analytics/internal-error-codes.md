@@ -1,11 +1,12 @@
 ---
 title: Troubleshoot with Azure Stream Analytics error codes
 description: Troubleshoot Azure Stream Analytics issues with internal error codes.
-ms.author: sidram
-author: sidramadoss
+author: ahartoon
+ms.author: anboisve
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ---
 
 # Azure Stream Analytics internal error codes
@@ -14,7 +15,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## CosmosDBOutputBatchSizeTooLarge
 
-* **Cause**: The batch size used to write to Cosmos DB is too large. 
+* **Cause**: The batch size used to write to Azure Cosmos DB is too large. 
 * **Recommendation**: Retry with a smaller batch size.
 
 ## Next steps

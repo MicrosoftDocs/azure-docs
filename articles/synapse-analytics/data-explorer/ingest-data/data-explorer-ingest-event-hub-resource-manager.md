@@ -6,9 +6,9 @@ ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
+ms.custom: devx-track-arm-template
 ---
 
 # Create an Event Hub data connection for Azure Synapse Data Explorer by using Azure Resource Manager template (Preview)

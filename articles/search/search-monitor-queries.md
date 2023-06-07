@@ -8,14 +8,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 02/27/2023
 ---
 
 # Monitor query requests in Azure Cognitive Search
 
-This article explains how to measure query performance and volume using metrics and resource logging. It also explains how to collect the input terms used in queries - necessary information when you need to assess the utility and effectiveness of your search corpus.
+This article explains how to measure query performance and volume using built-in metrics and resource logging. It also explains how to get the query strings entered by application users.
 
-The Azure portal shows basic metrics about query latency, query load (QPS), and throttling. Historical data that feeds into these metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, you must enable a [diagnostic setting](search-monitor-logs.md) that specifies a storage option for persisting logged events and metrics.
+The Azure portal shows basic metrics about query latency, query load (QPS), and throttling. Historical data that feeds into these metrics can be accessed in the portal for 30 days. For longer retention, or to report on operational data and query strings, you must enable a [diagnostic setting](monitor-azure-cognitive-search.md) that specifies a storage option for persisting logged operations and metrics.
 
 Conditions that maximize the integrity of data measurement include:
 
@@ -23,7 +23,7 @@ Conditions that maximize the integrity of data measurement include:
 
 + Use a single replica and partition, if possible, to create a contained and isolated environment. If you use multiple replicas, query metrics are averaged across multiple nodes, which can lower the precision of results. Similarly, multiple partitions mean that data is divided, with the potential that some partitions might have different data if indexing is also underway. When tuning query performance, a single node and partition gives a more stable environment for testing.
 
-> [!Tip]
+> [!TIP]
 > With additional client-side code and Application Insights, you can also capture clickthrough data for deeper insight into what attracts the interest of your application users. For more information, see [Search traffic analytics](search-traffic-analytics.md).
 
 ## Query volume (QPS)
@@ -114,7 +114,7 @@ For deeper exploration, open metrics explorer from the **Monitoring** menu so th
 
 ## Return query strings entered by users
 
-When you enable resource logging, the system captures query requests in the **AzureDiagnostics** table. As a prerequisite, you must have already enabled [resource logging](search-monitor-logs.md), specifying a log analytics workspace or another storage option.
+When you enable resource logging, the system captures query requests in the **AzureDiagnostics** table. As a prerequisite, you must have already enabled [resource logging](monitor-azure-cognitive-search.md), specifying a log analytics workspace or another storage option.
 
 1. Under the Monitoring section, select **Logs** to open up an empty query window in Log Analytics.
 
@@ -184,4 +184,4 @@ If you specified an email notification, you will receive an email from "Microsof
 If you haven't done so already, review the fundamentals of search service monitoring to learn about the full range of oversight capabilities.
 
 > [!div class="nextstepaction"]
-> [Monitor operations and activity in Azure Cognitive Search](search-monitor-usage.md)
+> [Monitor operations and activity in Azure Cognitive Search](monitor-azure-cognitive-search.md)

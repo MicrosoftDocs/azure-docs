@@ -2,12 +2,18 @@
 title: Declare resources in templates
 description: Describes how to declare resources to deploy in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.custom: devx-track-arm-template
+ms.date: 09/28/2022
 ---
 
 # Resource declaration in ARM templates
 
 To deploy a resource through an Azure Resource Manager template (ARM template), you add a resource declaration. Use the `resources` array in a JSON template.
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [resource declaration](../bicep/resource-declaration.md).
+
+You are limited to 800 resources in a template. For more information, see [Template limits](./best-practices.md#template-limits).
 
 ## Set resource type and version
 
@@ -78,7 +84,7 @@ For more information, see [Set resource location in ARM template](resource-locat
 
 ## Set tags
 
-You can apply tags to a resource during deployment. Tags help you logically organize your deployed resources. For examples of the different ways you can specify the tags, see [ARM template tags](../management/tag-resources.md#arm-templates).
+You can apply tags to a resource during deployment. Tags help you logically organize your deployed resources. For examples of the different ways you can specify the tags, see [ARM template tags](../management/tag-resources-templates.md).
 
 ## Set resource-specific properties
 

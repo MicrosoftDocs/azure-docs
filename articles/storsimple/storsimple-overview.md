@@ -1,28 +1,127 @@
 ---
 title: StorSimple 8000 series solution overview | Microsoft Docs
-description: Describes StorSimple tiering, the device, virtual device, services, and storage management, and introduces key terms used in StorSimple.
+description: Describes StorSimple data copy resources, data migration, device decommission operations, end of support, tiering, virtual device, and storage management, and introduces key terms used in StorSimple.
 services: storsimple
 documentationcenter: NA
-author: SharS
-manager: timlt
+author: alkohli
+manager: alkohli
 editor: ''
 
 ms.assetid: 7144d218-db21-4495-88fb-e3b24bbe45d1
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.custom: devx-track-azurepowershell
 ms.workload: TBD
-ms.date: 11/02/2021
-ms.author: timlt
-
+ms.date: 05/12/2023
+ms.author: alkohli
+ROBOTS: NOINDEX
 ---
+
 # StorSimple 8000 series: a hybrid cloud storage solution
 
-[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+> [!CAUTION]
+> **Action Required:** StorSimple Data Manager, StorSimple Device Manager, StorSimple 1200, and StorSimple 8000 have reached their end of support. We're no longer updating this content regularly. Check the Microsoft Product Lifecycle for information about how this product, service, technology, or API is supported. StorSimple management services have been decommissioned and removed from the Azure platform. 
 
-## Overview
-Welcome to Microsoft Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Microsoft Azure cloud storage. StorSimple is an efficient, cost-effective, and easy to manage storage area network (SAN) solution that eliminates many of the issues and expenses that are associated with enterprise storage and data protection. It uses the proprietary StorSimple 8000 series device, integrates with cloud services, and provides a set of management tools for a seamless view of all enterprise storage, including cloud storage. (The StorSimple deployment information published on the Microsoft Azure website applies to StorSimple 8000 series devices only. If you are using a StorSimple 5000/7000 series device, go to [StorSimple Help](http://onlinehelp.storsimple.com/).)
+The following resources are available to help you migrate backup files or to copy live data to your own environment, and to provide documentation to decommission a StorSimple appliance. 
+
+|Resource   |Description   |
+|---------------------------|----------------------------|
+|[Azure StorSimple 8000 Series Copy Utility](https://aka.ms/storsimple-copy-utility)     |Microsoft is providing a read-only data copy utility to recover and migrate your backup files from StorSimple cloud snapshots. The StorSimple 8000 Series Copy Utility is designed to run in your environment. You can install and configure the Utility, and then use your Service Encryption Key to authenticate and download your metadata from the cloud.|
+|[Azure StorSimple 8000 Series Copy Utility documentation](https://aka.ms/storsimple-copy-utility-docs)    |Instructions for use of the Copy Utility. |
+|[StorSimple archived documentation](https://aka.ms/storsimple-archive-docs)   |Archived StorSimple articles from Microsoft technical documentation.   |
+
+## Copy data and then decommission your appliance
+
+Use the following steps to copy data to your environment and then decommission your StorSimple 8000 appliance. If your data has already been migrated to your own environment, you can proceed with decommissioning your appliance.
+
+**Step 1. Copy backup files or live data to your own environment.**
+
+- **Backup files.** If you have backup files, use the Azure StorSimple 8000 Series Copy Utility to migrate backup files to your environment. For more information, see [Copy Utility documentation](https://aka.ms/storsimple-copy-utility-docs).
+- **Live data.** If you have live data to copy, you can access and copy live data to your environment via iSCSI.
+
+**Step 2. Decommission your device.**
+
+After you complete your data migration, use the following steps to decommission the device. Before you decommission your device, make sure to copy all data from your appliance, using either local host copy operations or using the Utility.
+
+Decommission operations can't be undone. We recommend that you complete your data migration as soon as possible.
+
+1.	Disconnect the iSCSI session on the host – that is, the iSCSI Initiators.
+2.	Reset the device to factory default:
+
+    This procedure describes how to reset your Azure StorSimple device to factory default settings using Windows PowerShell for StorSimple. Resetting a device removes all data and settings from the entire cluster by default.
+
+    Use the following steps to reset your device to factory default settings:
+
+    1. Access the device through its serial console. Check the banner message to ensure that you're connected to the **Active** controller.
+    2. In the serial console menu, choose option 1: **Log in with full access.**
+    3. At the prompt, type the following command to reset the entire cluster, removing all data, metadata, and controller settings:
+
+    ```azurepowershell
+    Reset-HcsFactoryDefault
+    ```
+    To instead reset a single controller, use the [Reset-HcsFactoryDefault](https://learn.microsoft.com/previous-versions/windows/powershell-scripting/dn688132(v=wps.630)) cmdlet with the *-scope* parameter.
+
+    The system reboots multiple times. You'll be notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
+
+**Step 3. Shut down the device.**
+
+This section explains how to shut down a running or a failed StorSimple device from a remote computer. A device is turned off after both the device controllers are shut down. A device shutdown is complete when the device is physically moved or is taken out of service.
+
+**Step 3.1** - Use the following steps to identify and shut down the passive controller on your device. Perform this operation in Windows PowerShell for StorSimple.
+
+1. Access the device via the serial console or a telnet session from a remote computer. To connect to Controller 0 or Controller 1, follow these steps to use PuTTY to connect to the device serial console.
+
+   To connect to Windows PowerShell for StorSimple, you need to use terminal emulation software such as PuTTY. You can use PuTTY when you access the device directly through the serial console or by opening a telnet session from a remote computer.
+   1. To connect through the serial console, connect your serial cable to the device, directly or through a USB-serial adapter.
+   2. Open Control Panel and then open Device Manager.
+   3. Identify the COM port as shown in the following illustration.
+
+      ![Screenshot of a PuTTY connection COM port](./media/storsimple-overview/storsimple-overview-putty-connection-1.png)
+
+   4. Start PuTTY.
+   5. In the right pane, change **Connection type** to **Serial**.
+   6. In the right pane, specify the appropriate COM port. Make sure that the serial configuration parameters are set as follows:
+   - Speed: 115200
+   - Data bits: 8
+   - Stop bits: 1
+   - Parity: None
+   - Flow control: None
+
+    These settings are shown in the following illustration.
+
+    ![Screenshot of a PuTTY serial configuration](./media/storsimple-overview/storsimple-overview-putty-configuration-2.png)
+ 
+    If the default flow control setting doesn’t work, try setting Flow control to XON/XOFF.
+
+    7. Select **Open** to start a serial session.
+
+2. In the serial console menu, select option 1: **Log in with full access.**
+3. In the banner message, make a note of the controller you're connected to, Controller 0 or Controller 1, and whether it’s the active or the passive (standby) controller.
+
+   1. Run the following command to shut down a single controller:
+
+   ```azurepowershell
+   Stop-HcsController 
+   ```
+
+   This shuts down the controller you're connected to. When you stop the active controller, the device fails over to the passive controller.
+
+   2. To restart a controller, at the prompt, run the following command:
+
+   ```azurepowershell
+   Restart-HcsController
+   ```
+
+   This restarts the controller you're connected to. When you restart the active controller, it fails over to the passive controller before the restart.
+
+**Step 3.2** - Repeat the previous step to shut down the active controller.
+
+**Step 3.3** - You must now look at the back plane of the device. After the two controllers are shut down, the status LEDs on both the controllers should be blinking red. To turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position. This turns off the device.
+
+## StorSimple 8000 series overview
+
+Welcome to Microsoft Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Microsoft Azure cloud storage. StorSimple is an efficient, cost-effective, and easy to manage storage area network (SAN) solution that eliminates many of the issues and expenses that are associated with enterprise storage and data protection. It uses the proprietary StorSimple 8000 series device, integrates with cloud services, and provides a set of management tools for a seamless view of all enterprise storage, including cloud storage. The StorSimple deployment information published on the Microsoft Azure website applies to StorSimple 8000 series devices only.
 
 StorSimple uses [storage tiering](#automatic-storage-tiering) to manage stored data across various storage media. The current working set is stored on-premises on solid state drives (SSDs). Data that is used less frequently is stored on hard disk drives (HDDs), and archival data is pushed to the cloud. Moreover, StorSimple uses deduplication and compression to reduce the amount of storage that the data consumes. For more information, go to [Deduplication and compression](#deduplication-and-compression). For definitions of other key terms and concepts that are used in the StorSimple 8000 series documentation, go to [StorSimple terminology](#storsimple-terminology) at the end of this article.
 
@@ -33,15 +132,15 @@ The following table describes some of the key benefits that Microsoft Azure Stor
 
 | Feature | Benefit |
 | --- | --- |
-| Transparent integration |Uses the iSCSI protocol to invisibly link data storage facilities. Data stored in the cloud, at the datacenter, or on remote servers appears to be stored at a single location. |
+| Transparent integration |Uses the iSCSI protocol to invisibly link data storage facilities. Data stored in the cloud, at the datacenter, or on remote servers appear to be stored at a single location. |
 | Reduced storage costs |Allocates sufficient local or cloud storage to meet current demands and extends cloud storage only when necessary. It further reduces storage requirements and expense by eliminating redundant versions of the same data (deduplication) and by using compression. |
 | Simplified storage management |Provides system administration tools to configure and manage data stored on-premises, on a remote server, and in the cloud. Additionally, you can manage backup and restore functions from a Microsoft Management Console (MMC) snap-in.|
-| Improved disaster recovery and compliance |Does not require extended recovery time. Instead, it restores data as it is needed so that normal operations can continue with minimal disruption. Additionally, you can configure policies to specify backup schedules and data retention. |
+| Improved disaster recovery and compliance |Doesn't require extended recovery time. Instead, it restores data as it is needed so that normal operations can continue with minimal disruption. Additionally, you can configure policies to specify backup schedules and data retention. |
 | Data mobility |Data uploaded to Microsoft Azure cloud services can be accessed from other sites for recovery and migration purposes. Additionally, you can use StorSimple to configure StorSimple Cloud Appliances on virtual machines (VMs) running in Microsoft Azure. The VMs can then use virtual devices to access stored data for test or recovery purposes. |
 | Business continuity |Allows StorSimple 5000-7000 series users to migrate their data to a StorSimple 8000 series device. |
 | Availability in the Azure Government Portal |StorSimple is available in the Azure Government Portal. For more information, see [Deploy your on-premises StorSimple device in the Government Portal](storsimple-8000-deployment-walkthrough-gov-u2.md). |
 | Data protection and availability |The StorSimple 8000 series supports Zone Redundant Storage (ZRS), in addition to Locally Redundant Storage (LRS) and Geo-redundant storage (GRS). Refer to [this article on Azure Storage redundancy options](../storage/common/storage-redundancy.md) for ZRS details. |
-| Support for critical applications |StorSimple lets you identify appropriate volumes as locally pinned to ensure that data that is required by critical applications is not tiered to the cloud. Locally pinned volumes are not subject to cloud latencies or connectivity issues. For more information about locally pinned volumes, see [Use the StorSimple Device Manager service to manage volumes](storsimple-8000-manage-volumes-u2.md). |
+| Support for critical applications |StorSimple lets you identify appropriate volumes as locally pinned to ensure that data that is required by critical applications isn't tiered to the cloud. Locally pinned volumes aren't subject to cloud latencies or connectivity issues. For more information about locally pinned volumes, see [Use the StorSimple Device Manager service to manage volumes](storsimple-8000-manage-volumes-u2.md). |
 | Low latency and high performance |You can create cloud appliances that take advantage of the high performance, low latency features of Azure premium storage. For more information about StorSimple premium cloud appliances, see [Deploy and manage a StorSimple Cloud Appliance in Azure](storsimple-8000-cloud-appliance-u2.md). |
 
 
@@ -52,7 +151,7 @@ The Microsoft Azure StorSimple solution includes the following components:
 * **StorSimple Cloud Appliance** – also known as the StorSimple Virtual Appliance. A software version of the StorSimple device that replicates the architecture and most capabilities of the physical hybrid storage device. The StorSimple Cloud Appliance runs on a single node in an Azure virtual machine. Premium virtual devices, which take advantage of Azure premium storage, are available in Update 2 and later.
 * **StorSimple Device Manager service** – an extension of the Azure portal that lets you manage a StorSimple device or StorSimple Cloud Appliance from a single web interface. You can use the StorSimple Device Manager service to create and manage services, view and manage devices, view alerts, manage volumes, and view and manage backup policies and the backup catalog.
 * **Windows PowerShell for StorSimple** – a command-line interface that you can use to manage the StorSimple device. Windows PowerShell for StorSimple has features that allow you to register your StorSimple device, configure the network interface on your device, install certain types of updates, troubleshoot your device by accessing the support session, and change the device state. You can access Windows PowerShell for StorSimple by connecting to the serial console or using Windows PowerShell remoting.
-* **Azure PowerShell StorSimple cmdlets** – a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](/powershell/module/servicemanagement/azure.service/#azure).
+* **Azure PowerShell StorSimple cmdlets** – a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](/powershell/azure/get-started-azureps#find-commands).
 * **StorSimple Snapshot Manager** – an MMC snap-in that uses volume groups and the Windows Volume Shadow Copy Service to generate application-consistent backups. In addition, you can use StorSimple Snapshot Manager to create backup schedules and clone or restore volumes.
 * **StorSimple Adapter for SharePoint** – a tool that transparently extends Microsoft Azure StorSimple storage and data protection to SharePoint Server farms, while making StorSimple storage viewable and manageable from the SharePoint Central Administration portal.
 
@@ -79,7 +178,7 @@ Only one controller is active at any point in time. If the active controller fai
 For more information, go to [StorSimple hardware components and status](storsimple-8000-monitor-hardware-status.md).
 
 ## StorSimple Cloud Appliance
-You can use StorSimple to create a cloud appliance that replicates the architecture and capabilities of the physical hybrid storage device. The StorSimple Cloud Appliance (also known as the StorSimple Virtual Appliance) runs on a single node in an Azure virtual machine. (A cloud appliance can only be created on an Azure virtual machine. You cannot create one on a StorSimple device or an on-premises server.)
+You can use StorSimple to create a cloud appliance that replicates the architecture and capabilities of the physical hybrid storage device. The StorSimple Cloud Appliance (also known as the StorSimple Virtual Appliance) runs on a single node in an Azure virtual machine. (A cloud appliance can only be created on an Azure virtual machine. You can't create one on a StorSimple device or an on-premises server.)
 
 The cloud appliance has the following features:
 
@@ -108,7 +207,7 @@ You can use the StorSimple Device Manager service to perform all administration 
 For more information, go to [Use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
 
 ## Windows PowerShell for StorSimple
-Windows PowerShell for StorSimple provides a command-line interface that you can use to create and manage the Microsoft Azure StorSimple service and set up and monitor StorSimple devices. It is a Windows PowerShell–based, command-line interface that includes dedicated cmdlets for managing your StorSimple device. Windows PowerShell for StorSimple has features that allow you to:
+Windows PowerShell for StorSimple provides a command-line interface that you can use to create and manage the Microsoft Azure StorSimple service and set up and monitor StorSimple devices. It's a Windows PowerShell–based, command-line interface that includes dedicated cmdlets for managing your StorSimple device. Windows PowerShell for StorSimple has features that allow you to:
 
 * Register a device.
 * Configure the network interface on a device.
@@ -121,7 +220,7 @@ You can access Windows PowerShell for StorSimple from a serial console (on a hos
 For more information, go to [Use Windows PowerShell for StorSimple to administer your device](storsimple-8000-windows-powershell-administration.md).
 
 ## Azure PowerShell StorSimple cmdlets
-The Azure PowerShell StorSimple cmdlets are a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](/powershell/module/servicemanagement/azure.service/).
+The Azure PowerShell StorSimple cmdlets are a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](/powershell/azure/get-started-azureps#find-commands).
 
 ## StorSimple Snapshot Manager
 StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that you can use to create consistent, point-in-time backup copies of local and cloud data. The snap-in runs on a Windows Server–based host. You can use StorSimple Snapshot Manager to:
@@ -133,7 +232,7 @@ StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that
 
 Backups are captured as snapshots, which record only the changes since the last snapshot was taken and require far less storage space than full backups. You can create backup schedules or take immediate backups as needed. Additionally, you can use StorSimple Snapshot Manager to establish retention policies that control how many snapshots will be saved. If you later need to restore data from a backup, StorSimple Snapshot Manager lets you select from the catalog of local or cloud snapshots. 
 
-If a disaster occurs or if you need to restore data for another reason, StorSimple Snapshot Manager restores it incrementally as it is needed. Data restoration does not require that you shut down the entire system while you restore a file, replace equipment, or move operations to another site.
+If a disaster occurs or if you need to restore data for another reason, StorSimple Snapshot Manager restores it incrementally as it's needed. Data restoration doesn't require that you shut down the entire system while you restore a file, replace equipment, or move operations to another site.
 
 For more information, go to [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
@@ -162,7 +261,7 @@ To enable quick access, StorSimple stores very active data (hot data) on SSDs in
 > In Update 2 or later, you can specify a volume as locally pinned, in which case the data remains on the local device and is not tiered to the cloud. 
 
 
-StorSimple adjusts and rearranges data and storage assignments as usage patterns change. For example, some information might become less active over time. As it becomes progressively less active, it is migrated from SSDs to HDDs and then to the cloud. If that same data becomes active again, it is migrated back to the storage device.
+StorSimple adjusts and rearranges data and storage assignments as usage patterns change. For example, some information might become less active over time. As it becomes progressively less active, it's migrated from SSDs to HDDs and then to the cloud. If that same data becomes active again, it's migrated back to the storage device.
 
 The storage tiering process occurs as follows:
 
@@ -181,7 +280,7 @@ The storage tiering process occurs as follows:
 
 StorSimple deduplicates customer data across all the snapshots and the primary data (data written by hosts). While deduplication is great for storage efficiency, it makes the question of “what is in the cloud” complicated. The tiered primary data and the snapshot data overlap with each other. A single chunk of data in the cloud could be used as tiered primary data and also be referenced by several snapshots. Every cloud snapshot ensures that a copy of all the point-in-time data is locked into the cloud until that snapshot is deleted.
 
-Data is only deleted from the cloud when there are no references to that data. For example, if we took a cloud snapshot of all the data that is in the StorSimple device and then deleted some primary data, we would see the _primary data_ drop immediately. The _cloud data_, which includes the tiered data and the backups, stays the same because a snapshot is still referencing the cloud data. After the cloud snapshot is deleted (and any other snapshot that referenced the same data), cloud consumption drops. Before we remove cloud data, we check that no snapshots still reference that data. This process is called _garbage collection_ and is a background service running on the device. Removal of cloud data is not immediate as the garbage collection service checks for other references to that data before the deletion. The speed of garbage collection depends on the total number of snapshots and the total data. Typically, the cloud data is cleaned up in less than a week.
+Data is only deleted from the cloud when there are no references to that data. For example, if we took a cloud snapshot of all the data that is in the StorSimple device and then deleted some primary data, we would see the _primary data_ drop immediately. The _cloud data_, which includes the tiered data and the backups, stays the same because a snapshot is still referencing the cloud data. After the cloud snapshot is deleted (and any other snapshot that referenced the same data), cloud consumption drops. Before we remove cloud data, we check that no snapshots still reference that data. This process is called _garbage collection_ and is a background service running on the device. Removal of cloud data isn't immediate as the garbage collection service checks for other references to that data before the deletion. The speed of garbage collection depends on the total number of snapshots and the total data. Typically, the cloud data is cleaned up in less than a week.
 
 
 ### Thin provisioning
@@ -217,7 +316,7 @@ A summary of the supported StorSimple workloads is tabulated below.
 
 *Yes&#42; - Solution guidelines and restrictions should be applied.*
 
-The following workloads are not supported by StorSimple 8000 series devices. If deployed on StorSimple, these workloads will result in an unsupported configuration.
+The following workloads aren't supported by StorSimple 8000 series devices. If deployed on StorSimple, these workloads will result in an unsupported configuration.
 
 * Medical imaging
 * Exchange
@@ -257,7 +356,7 @@ Before deploying your Microsoft Azure StorSimple solution, we recommend that you
 | --- | --- |
 | access control record (ACR) |A record associated with a volume on your Microsoft Azure StorSimple device that determines which hosts can connect to it. The determination is based on the iSCSI Qualified Name (IQN) of the hosts (contained in the ACR) that are connecting to your StorSimple device. |
 | AES-256 |A 256-bit Advanced Encryption Standard (AES) algorithm for encrypting data as it moves to and from the cloud. |
-| allocation unit size (AUS) |The smallest amount of disk space that can be allocated to hold a file in your Windows file systems. If a file size is not an even multiple of the cluster size, extra space must be used to hold the file (up to the next multiple of the cluster size) resulting in lost space and fragmentation of the hard disk. <br>The recommended AUS for Azure StorSimple volumes is 64 KB because it works well with the deduplication algorithms. |
+| allocation unit size (AUS) |The smallest amount of disk space that can be allocated to hold a file in your Windows file systems. If a file size isn't an even multiple of the cluster size, extra space must be used to hold the file (up to the next multiple of the cluster size) resulting in lost space and fragmentation of the hard disk. <br>The recommended AUS for Azure StorSimple volumes is 64 KB because it works well with the deduplication algorithms. |
 | automated storage tiering |Automatically moving less active data from SSDs to HDDs and then to a tier in the cloud, and then enabling management of all storage from a central user interface. |
 | backup catalog |A collection of backups, usually related by the application type that was used. This collection is displayed in the Backup Catalog blade of the StorSimple Device Manager service UI. |
 | backup catalog file |A file containing a list of available snapshots currently stored in the backup database of StorSimple Snapshot Manager. |
@@ -283,7 +382,7 @@ Before deploying your Microsoft Azure StorSimple solution, we recommend that you
 | iSCSI initiator |A software component that enables a host computer running Windows to connect to an external iSCSI-based storage network. |
 | iSCSI Qualified Name (IQN) |A unique name that identifies an iSCSI target or initiator. |
 | iSCSI target |A software component that provides centralized iSCSI disk subsystems in storage area networks. |
-| live archiving |A storage approach in which archival data is accessible all the time (it is not stored off-site on tape, for example). Microsoft Azure StorSimple uses live archiving. |
+| live archiving |A storage approach in which archival data is accessible all the time (it isn't stored off-site on tape, for example). Microsoft Azure StorSimple uses live archiving. |
 | locally pinned volume |a volume that resides on the device and is never tiered to the cloud. |
 | local snapshot |A point-in-time copy of volume data that is stored on the Microsoft Azure StorSimple device. |
 | Microsoft Azure StorSimple |A powerful solution consisting of a datacenter storage appliance and software that enables IT organizations to leverage cloud storage as though it were datacenter storage. StorSimple simplifies data protection and data management while reducing costs. The solution consolidates primary storage, archive, backup, and disaster recovery (DR) through seamless integration with the cloud. By combining SAN storage and cloud data management on an enterprise-class platform, StorSimple devices enable speed, simplicity, and reliability for all storage-related needs. |
@@ -299,14 +398,15 @@ Before deploying your Microsoft Azure StorSimple solution, we recommend that you
 | StorSimple Adapter for SharePoint |A Microsoft Azure StorSimple component that transparently extends StorSimple storage and data protection to SharePoint Server farms. |
 | StorSimple Device Manager service |An extension of the Azure portal that allows you to manage your Azure StorSimple on-premises and virtual devices. |
 | StorSimple Snapshot Manager |A Microsoft Management Console (MMC) snap-in for managing backup and restore operations in Microsoft Azure StorSimple. |
-| take backup |A feature that allows the user to take an interactive backup of a volume. It is an alternate way of taking a manual backup of a volume as opposed to taking an automated backup via a defined policy. |
+| take backup |A feature that allows the user to take an interactive backup of a volume. It's an alternate way of taking a manual backup of a volume as opposed to taking an automated backup via a defined policy. |
 | thin provisioning |A method of optimizing the efficiency with which the available storage space is used in storage systems. In thin provisioning, the storage is allocated among multiple users based on the minimum space required by each user at any given time. See also *fat provisioning*. |
 | tiering |Arranging data in logical groupings based on current usage, age, and relationship to other data. StorSimple automatically arranges data in tiers. |
-| volume |Logical storage areas presented in the form of drives. StorSimple volumes correspond to the volumes mounted by the host, including those volumes discovered through the use of iSCSI and a StorSimple device. |
+| volume |Logical storage areas presented in the form of drives. StorSimple volumes correspond to the volumes mounted by the host, including those volumes discovered by using iSCSI and a StorSimple device. |
 | volume container |A grouping of volumes and the settings that apply to them. All volumes in your StorSimple device are grouped into volume containers. Volume container settings include storage accounts, encryption settings for data sent to cloud with associated encryption keys, and bandwidth consumed for operations involving the cloud. |
 | volume group |In StorSimple Snapshot Manager, a volume group is a collection of volumes configured to facilitate backup processing. |
 | Volume Shadow Copy Service (VSS) |A Windows Server operating system service that facilitates application consistency by communicating with VSS-aware applications to coordinate the creation of incremental snapshots. VSS ensures that the applications are temporarily inactive when snapshots are taken. |
 | Windows PowerShell for StorSimple |A Windows PowerShell–based command-line interface used to operate and manage your StorSimple device. While maintaining some of the basic capabilities of Windows PowerShell, this interface has additional dedicated cmdlets that are geared towards managing a StorSimple device. |
 
 ## Next steps
-Learn about [StorSimple security](storsimple-8000-security.md).
+
+- [StorSimple 8000 series copy utility documentation](https://aka.ms/storsimple-copy-utility-docs).

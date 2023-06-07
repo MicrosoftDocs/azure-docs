@@ -1,12 +1,12 @@
 ---
-title: What's new with Azure Arc-enabled servers agent
-description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
+title: What's new with Azure Connected Machine agent
+description: This article has release notes for Azure Connected Machine agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 09/01/2021
+ms.date: 05/08/2023
 ms.custom: references_regions
 ---
 
-# What's new with Azure Arc-enabled servers agent
+# What's new with Azure Connected Machine agent
 
 The Azure Connected Machine agent receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
@@ -14,78 +14,59 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 - Known issues
 - Bug fixes
 
-This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
+This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Connected Machine agent](agent-release-notes-archive.md).
 
-## November 2021
+## Version 1.30 - May 2023
 
-Version 1.13
+Download for [Windows](https://download.microsoft.com/download/7/7/9/779eae73-a12b-4170-8c5e-abec71bc14cf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
-- Improved reliability when installing or upgrading the agent.
+- Resolved an issue that could cause the agent to go offline after rotating its connectivity keys.
+- `azcmagent show` no longer shows an incomplete resource ID or Azure portal page URL when the agent isn't configured.
+
+## Version 1.29 - April 2023
+
+Download for [Windows](https://download.microsoft.com/download/2/7/0/27063536-949a-4b16-a29a-3d1dcb29cff7/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
-- Local configuration of agent settings now available using the [azcmagent config command](manage-agent.md#config).
-- Proxy server settings can be [configured using agent-specific settings](manage-agent.md#update-or-remove-proxy-settings) instead of environment variables.
-- Extension operations will execute faster using a new notification pipeline. You may need to adjust your firewall or proxy server rules to allow the new network addresses for this notification service (see [networking configuration](agent-overview.md#networking-configuration)). The extension manager will fall back to the existing behavior of checking every 5 minutes when the notification service cannot be reached.
-- Detection of the AWS account ID, instance ID, and region information for servers running in Amazon Web Services.
-
-## October 2021
-
-Version 1.12
+- The agent now compares the time on the local system and Azure service when checking network connectivity and creating the resource in Azure. If the clocks are offset by more than 120 seconds (2 minutes), a non-blocking error will be printed to the console. You may encounter TLS connection errors if the time of your computer does not match the time in Azure.
+- `azcmagent show` now supports an `--os` flag to print additional OS information to the console
 
 ### Fixed
 
-- Improved reliability when validating signatures of extension packages.
-- `azcmagent_proxy remove` command on Linux now correctly removes environment variables on Red Hat Enterprise Linux and related distributions.
-- `azcmagent logs` now includes the computer name and timestamp to help disambiguate log files.
+- Fixed an issue that could cause the guest configuration service (gc_service) to repeatedly crash and restart on Linux systems
+- Resolved a rare condition under which the guest configuration service (gc_service) could consume excessive CPU resources
+- Removed "sudo" calls in internal install script that could be blocked if SELinux is enabled
+- Reduced how long network checks wait before determining a network endpoint is unreachable
+- Stopped writing error messages in "himds.log" referring to a missing certificate key file for the ATS agent, an inactive component reserved for future use.
 
-## September 2021
+## Version 1.28 - March 2023
 
-Version 1.11
-
-### Fixed
-
-- The agent can now be installed on Windows systems with the [System objects: Require case insensitivity for non-Windows subsystems](/windows/security/threat-protection/security-policy-settings/system-objects-require-case-insensitivity-for-non-windows-subsystems) policy set to Disabled.
-- The guest configuration policy agent will now automatically retry if an error is encountered during service start or restart events.
-- Fixed an issue that prevented guest configuration audit policies from successfully executing on Linux machines.
-
-## August 2021
-
-Version 1.10
+Download for [Windows](https://download.microsoft.com/download/5/9/7/59789af8-5833-4c91-8dc5-91c46ad4b54f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
-- The guest configuration policy agent can now configure and remediate system settings. Existing policy assignments continue to be audit-only. Learn more about the Azure Policy [guest configuration remediation options](../../governance/policy/concepts/guest-configuration-policy-effects.md).
-- The guest configuration policy agent now restarts every 48 hours instead of every 6 hours.
+- Improved reliability of delete requests for extensions
+- More frequent reporting of VM UUID (system firmware identifier) changes
+- Improved reliability when writing changes to agent configuration files
+- JSON output for `azcmagent connect` now includes Azure portal URL for the server
+- Linux installation script now installs the `gnupg` package if it's missing on Debian operating systems
+- Removed weekly restarts for the extension and guest configuration services
 
-## July 2021
+## Version 1.27 - February 2023
 
-Version 1.9
-
-## New features
-
-Added support for the Indonesian language
-
-### Fixed
-
-Fixed a bug that prevented extension management in the West US 3 region
-
-Version 1.8
-
-### New features
-
-- Improved reliability when installing the Azure Monitor Agent extension on Red Hat and CentOS systems
-- Added agent-side enforcement of max resource name length (54 characters)
-- Guest Configuration policy improvements:
-  - Added support for PowerShell-based Guest Configuration policies on Linux operating systems
-  - Added support for multiple assignments of the same Guest Configuration policy on the same server
-  - Upgraded PowerShell Core to version 7.1 on Windows operating systems
+Download for [Windows](https://download.microsoft.com/download/8/4/5/845d5e04-bb09-4ed2-9ca8-bb51184cddc9/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
-- The agent will continue running if it is unable to write service start/stop events to the Windows application event log
+- The extension service now correctly restarts when the Azure Connected Machine agent is upgraded by Update Management Center
+- Resolved issues with the hybrid connectivity component that could result in the "himds" service crashing, the server showing as "disconnected" in Azure, and connectivity issues with Windows Admin Center and SSH
+- Improved handling of resource move scenarios that could impact Windows Admin Center and SSH connectivity
+- Improved reliability when changing the [agent configuration mode](security-overview.md#local-agent-security-controls) from "monitor" mode to "full" mode.
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Sentinel DNS extension to improve log collection reliability
+- Tenant IDs are better validated when connecting the server
 
 ## Next steps
 

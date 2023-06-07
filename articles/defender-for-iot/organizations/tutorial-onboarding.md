@@ -1,110 +1,69 @@
 ---
-title: Microsoft Defender for IoT trial setup
-description: In this tutorial, you will learn how to onboard to Microsoft Defender for IoT with a virtual sensor, on a virtual machine, with a trial subscription of Microsoft Defender for IoT.
-author: ElazarK
-ms.author: v-ekrieg
+title: Onboard and activate a virtual OT sensor - Microsoft Defender for IoT.
+description: This tutorial describes how to set up a virtual OT network sensor to monitor your OT network traffic.
 ms.topic: tutorial
-ms.date: 11/09/2021
-ms.custom: template-tutorial
+ms.date: 05/23/2023
 ---
 
-# Tutorial: Microsoft Defender for IoT trial setup
+# Tutorial: Onboard and activate a virtual OT sensor
 
-This tutorial will help you learn how to onboard to Microsoft Defender for IoT with a virtual sensor, on a virtual machine, with a trial subscription of Microsoft Defender for IoT. This tutorial will show you the optimal setup for someone who wishes to test Microsoft Defender for IoT, before signing up, and incorporating it into their environment.
+This tutorial describes the basics of setting up a Microsoft Defender for IoT OT sensor, using a trial subscription of Microsoft Defender for IoT and your own virtual machine.
 
-By using virtual environments, along with the software needed to create a sensor, Defender for IoT allows you to:
+For a full, end-to-end deployment, make sure to follow steps to plan and prepare your system, and also fully calibrate and fine-tune your settings. For more information, see [Deploy Defender for IoT for OT monitoring](ot-deploy/ot-deploy-path.md).
 
-- Use passive, agentless network monitoring to gain a complete inventory of all your IoT, and OT devices, their details, and how they communicate, with zero effect on the IoT, and OT network.
-
-- Identify risks and vulnerabilities in your IoT, and OT environment. For example, identify unpatched devices, open ports, unauthorized applications, and unauthorized connections. You can also identify changes to device configurations, PLC code, and firmware.
-
-- Detect anomalous or unauthorized activities with specialized IoT, and OT-aware threat intelligence and behavioral analytics. You can even detect advanced threats missed by static IOCs, like zero-day malware, fileless malware, and living-off-the-land tactics.
-
-- Integrate into Microsoft Sentinel for a bird's-eye view of your entire organization. Implement unified IoT, and OT security governance with integration into your existing workflows, including third-party tools like Splunk, IBM QRadar, and ServiceNow.
+> [!NOTE]
+> If you're looking to set up security monitoring for enterprise IoT systems, see [Enable Enterprise IoT security in Defender for Endpoint](eiot-defender-for-endpoint.md).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Onboard with Microsoft Defender for IoT
-> * Download the ISO for the virtual sensor
-> * Create a virtual machine for the sensor
+> * Create a VM for the sensor
+> * Onboard a virtual sensor
+> * Configure a virtual SPAN port
+> * Provision for cloud management
+> * Download software for a virtual sensor
 > * Install the virtual sensor software
-> * Configure a SPAN port
-> * Onboard, and activate the virtual sensor
+> * Activate the virtual sensor
 
 ## Prerequisites
 
-- Permissions: Azure **Subscription Owners**, or **Subscription Contributors** level.
+Before you start, make sure that you have the following:
 
-- At least one device to monitor connected to a SPAN port on the switch.
+- Completed [Quickstart: Get started with Defender for IoT](getting-started.md) so that you have an Azure subscription added to Defender for IoT.
 
-- Either VMware (ESXi 5.5 or later), or Hyper-V hypervisor (Windows 10 Pro or Enterprise) is installed and operational.
+- Access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). For more information, see [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md).
 
-- An Azure account. If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+- Make sure that you have a network switch that supports traffic monitoring via a SPAN port. You'll also need at least one device to monitor, connected to the switch's SPAN port.
 
-## Onboard with Microsoft Defender for IoT
+- VMware, ESXi 5.5 or later, installed and operational on your sensor.
 
-To get started with Microsoft Defender for IoT, you must have a Microsoft Azure subscription. If you do not have a subscription, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+- <a name="hw"></a>Available hardware resources for your VM as follows:
 
-To evaluate Defender for IoT, you can use a trial subscription. The trial is valid for 30 days and supports up to 1000 committed devices. The trial allows you to deploy a virtual sensor on your network. Use the sensors to monitor traffic, analyze data, generate alerts, learn about network risks and vulnerabilities, and more. The trial also allows you to deploy a virtual on-premises management console to view the aggregated information generated by the sensor.
+    | Deployment type | Corporate | Enterprise | SMB |
+    |--|--|--|--|
+    | **Maximum bandwidth** | 2.5 Gb/sec | 800 Mb/sec | 160 Mb/sec |
+    | **Maximum protected devices** | 12,000 | 10,000 | 800 |
 
-**To onboard a subscription to Microsoft Defender for IoT**:
+- An understanding of [OT monitoring with virtual appliances](ot-virtual-appliances.md).
 
-1. Navigate to the [Azure portal](https://portal.azure.com/).
+- Details for the following network parameters to use for your sensor appliance:
 
-1. Search for, and select **Microsoft Defender for IoT**.
+    - A management network IP address
+    - A sensor subnet mask
+    - An appliance hostname
+    - A DNS address
+    - A default gateway
+    - Any input interfaces
 
-1. Select **Onboard subscription**.
+## Create a VM for your sensor
 
-    :::image type="content" source="media/tutorial-onboarding/onboard-subscription.png" alt-text="Screenshot of the selecting the onboard subscription button from the Getting started page.":::
+This procedure describes how to create a VM for your sensor with VMware ESXi.
 
-1. On the Pricing page, select **Start with a trial**.
+Defender for IoT also supports other processes, such as using Hyper-V or physical sensors. For more information, see [Defender for IoT installation](how-to-install-software.md).
 
-   :::image type="content" source="media/tutorial-onboarding/start-with-trial.png" alt-text="Screenshot of the start with a trial button to open the trial window.":::
+**To create a VM for your sensor**:
 
-1. Select a subscription from the Onboard trial subscription pane and then select **Evaluate**.
-
-1. Confirm your evaluation.
-
-## Download the ISO for the virtual sensor
-
-The virtual appliances have minimum specifications that are required for both the sensor and management console. The following table shows the specifications needed for the sensor depending on your environment.
-
-### Virtual sensor
-
-| Type | Corporate | Enterprise | SMB |
-|--|--|--|--|
-| vCPU | 32 | 8 | 4 |
-| Memory | 32 GB | 32 GB | 8 GB |
-| Storage | 5.6 TB | 1.8 TB | 500 GB |
-
-**To download the ISO file for the virtual sensor**:
-
-1. Navigate to the [Azure portal](https://portal.azure.com/).
-
-1. Search for, and select **Microsoft Defender for IoT**.
-
-1. On the Getting started page, select the **Sensor** tab.
-
-1. Select **Download**.
-
-    :::image type="content" source="media/tutorial-onboarding/sensor-download.png" alt-text="Screenshot of the sensor tab, select download, to download the ISO file for the virtual sensor.":::
-
-## Create a virtual machine for the sensor
-
-The virtual sensor supports both VMware, and Hyper-V deployment options. Before you begin the installation, make sure you have the following items:
-
-- VMware (ESXi 5.5 or later), or Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational.
-
-- Available hardware resources for the virtual machine.
-
-- ISO installation file for the Microsoft Defender for IoT sensor.
-
-- Make sure the hypervisor is running.
-
-### Create the virtual machine for the sensor with ESXi
-
-**To create the virtual machine for the sensor (ESXi)**:
+1. Make sure that VMware is running on your machine.
 
 1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
 
@@ -114,7 +73,7 @@ The virtual sensor supports both VMware, and Hyper-V deployment options. Before 
 
 1. Select **Create new virtual machine**, and then select **Next**.
 
-1. Add a sensor name and choose:
+1. Add a sensor name and then define the following options:
 
    - Compatibility: **&lt;latest ESXi version&gt;**
 
@@ -126,146 +85,89 @@ The virtual sensor supports both VMware, and Hyper-V deployment options. Before 
 
 1. Choose the relevant datastore and select **Next**.
 
-1. Change the virtual hardware parameters according to the required [architecture](#download-the-iso-for-the-virtual-sensor).
+1. Change the virtual hardware parameters according to the required specifications for your needs. For more information, see the [table in the Prerequisites](#hw) section above.
 
-1. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier.
+Your VM is now prepared for your Defender for IoT software installation. You'll continue by installing the software later on in this tutorial, after you've onboarded your sensor in the Azure portal, configured traffic mirroring, and provisioned the machine for cloud management.
 
-1. Select **Next** > **Finish**.
+## Onboard the virtual sensor
 
-1. Power on the VM, and open a console.
+Before you can start using your Defender for IoT sensor, you'll need to onboard your new virtual sensor to your Azure subscription.
 
-### Create a virtual machine for the sensor with Hyper-V
+**To onboard the virtual sensor:**
 
-This procedure describes how to create a virtual machine by using Hyper-V.
+1. In the Azure portal, go to the [**Defender for IoT > Getting started**](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) page.
 
-**To create a virtual machine with Hyper-V**:
+1. At the bottom left, select **Set up OT/ICS Security**.
 
-1. Create a virtual disk in Hyper-V Manager.
+    Alternately, from the Defender for IoT **Sites and sensors** page, select **Onboard OT sensor** > **OT**.
 
-1. Select **format = VHDX**.
+    By default, on the **Set up OT/ICS Security** page, **Step 1: Did you set up a sensor?** and **Step 2: Configure SPAN port or TAP​** of the wizard are collapsed.
 
-1. Select **type = Dynamic Expanding**.
+    You'll install software and configure traffic mirroring later on in the deployment process, but should have your appliances ready and traffic mirroring method planned.
 
-1. Enter the name and location for the VHD.
+1. In **Step 3: Register this sensor with Microsoft Defender for IoT**, define the following values:
 
-1. Enter the required size (according to the [architecture](#download-the-iso-for-the-virtual-sensor)).
+    |Field name |Description  |
+    |---------|---------|
+    |**Resource name**     |  Select the site you want to attach your sensors to, or select **Create site** to create a new site.  <br><br>If you're creating a new site: <br>1. In the **New site** field, enter your site's name and select the checkmark button. <br>2.  From the **Site size** menu, select your site's size. The sizes listed in this menu are the sizes that you're licensed for, based on the licenses [you'd purchased](how-to-manage-subscriptions.md) in the Microsoft 365 admin center.     |
+    |**Display name**     |    Enter a meaningful name for your site to be shown across Defender for IoT.   |
+    |**Tags**     |   Enter tag key and values to help you identify and locate your site and sensor in the Azure portal.      |
+    |**Zone**     | Select the zone you want to use for your OT sensor, or select **Create zone** to create a new one.        |
 
-1. Review the summary and select **Finish**.
+    For more information, see [Plan OT sites and zones](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
 
-1. On the **Actions** menu, create a new virtual machine.
+1. When you're done with all other fields, select **Register** to add your sensor to Defender for IoT. A success message is displayed and your activation file is automatically downloaded. The activation file is unique for your sensor and contains instructions about your sensor's management mode.
 
-1. Enter a name for the virtual machine.
+    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-1. Select **Specify Generation** > **Generation 1**.
+1. Save the downloaded activation file in a location that will be accessible to the user signing into the console for the first time so they can activate the sensor.
 
-1. Specify the memory allocation (according to the [architecture](#download-the-iso-for-the-virtual-sensor)) and select the check box for dynamic memory.
+    You can also download the file manually by selecting the relevant link in the **Activate your sensor** box. You'll use this file to activate your sensor, as described [below](#activate-your-sensor).
 
-1. Configure the network adaptor according to your server network topology.
+1. In the **Add outbound allow rules** box, select the **Download endpoint details** link to download a JSON list of the endpoints you must configure as secure endpoints from your sensor.
 
-1. Connect the VHDX created previously to the virtual machine.
+    Save the downloaded file locally. You'll use the endpoints listed in the downloaded file to [later in this tutorial](#provision-for-cloud-management) to ensure that your new sensor can successfully connect to Azure.
 
-1. Review the summary and select **Finish**.
+    > [!TIP]
+    > You can also access the list of required endpoints from the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
+ 
+1. At the bottom left of the page, select **Finish**. You can now see your new sensor listed on the Defender for IoT **Sites and sensors** page.
 
-1. Right-click the new virtual machine and select **Settings**.
+    Until you activate your sensor, the sensor's status will show as **Pending Activation**.
 
-1. Select **Add Hardware** and add a new network adapter.
-
-1. Select the virtual switch that will connect to the sensor management network.
-
-1. Allocate CPU resources (according to the [architecture](#download-the-iso-for-the-virtual-sensor)).
-
-1. Connect the management console's ISO image to a virtual DVD drive.
-
-1. Start the virtual machine.
-
-1. On the **Actions** menu, select **Connect** to continue the software installation.
-
-## Install the virtual sensor software with ESXi or Hyper-V
-
-Either ESXi, or Hyper-V can be used to install the software for the virtual sensor.
-
-**To install the software on the virtual sensor**:
-
-1. Open the virtual machine console.
-
-1. The VM will start from the ISO image, and the language selection screen will appear. Select **English**.
-
-1. Select the required [architecture](#download-the-iso-for-the-virtual-sensor).
-
-1. Define the appliance profile and network properties:
-
-    | Parameter | Configuration |
-    | ----------| ------------- |
-    | **Hardware profile** | Based on the required [architecture](#download-the-iso-for-the-virtual-sensor). |
-    | **Management interface** | **ens192** |
-    | **Network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br>**appliance hostname:** <br/>**DNS:** <br/>**default gateway:** <br/>**input interfaces:**|
-    | **bridge interfaces:** | There's no need to configure the bridge interface. This option is for special use cases only. |
-
-1. Enter **Y** to accept the settings.
-
-1. Sign-in credentials are automatically generated and presented. Copy the username and password in a safe place, because they're required to sign-in, and manage your device. The username and password will not be presented again.
-
-    - **Support**: The administrative user for user management.
-
-    - **CyberX**: The equivalent of root for accessing the appliance.
-
-1. The appliance restarts.
-
-1. Access the sensor via the IP address previously configured: `https://ip_address`.
-
-### Post-installation validation
-
-To validate the installation of a physical appliance, you need to perform many tests.
-
-The validation is available to both the **Support**, and **CyberX** user.
-
-**To access the post validation tool**:
-
-1. Sign in to the sensor.
-
-1. Select **System Settings** from the left side pane.
-
-1. Select the :::image type="icon" source="media/tutorial-onboarding/system-statistics-icon.png" border="false"::: button.
-
-    :::image type="content" source="media/tutorial-onboarding/system-health-check-screen.png" alt-text="Screenshot of the system health check." lightbox="media/tutorial-onboarding/system-health-check-screen-expanded.png":::
-
-For post-installation validation, you must test to ensure the system is running, that you have the right version, and to verify that all of the input interfaces that were configured during the installation process are running.
-
-**To verify that the system is running**:
-
-1. Select **Appliance**, and ensure that each line item shows `Running` and the bottom line states `System is up`.
-
-1. Select **Version**, and ensure that the correct version appears.
-
-1. Select **ifconfig** to display the parameters for the appliance's physical interfaces, and ensure that they are correct.
+For more information, see [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).
 
 ## Configure a SPAN port
 
-A virtual switch does not have mirroring capabilities. However, you can use promiscuous mode in a virtual switch environment. Promiscuous mode  is a mode of operation, as well as a security, monitoring and administration technique, that is defined at the virtual switch, or portgroup level. By default, Promiscuous mode is disabled. When Promiscuous mode is enabled the virtual machine’s network interfaces that are in the same portgroup will use the Promiscuous mode to view all network traffic that goes through that virtual switch. You can implement a workaround with either ESXi, or Hyper-V.
+Virtual switches don't have mirroring capabilities. However, for the sake of this tutorial you can use *promiscuous mode* in a virtual switch environment to view all network traffic that goes through the virtual switch.
 
-:::image type="content" source="media/tutorial-onboarding/purdue-model.png" alt-text="A screenshot of where in your architecture the sensor should be placed.":::
+This procedure describes how to configure a SPAN port using a workaround with VMware ESXi.
 
-### Configure a SPAN port with ESXi
+> [!NOTE]
+> Promiscuous mode is an operating mode and a security monitoring technique for a VM's interfaces in the same portgroup level as the virtual switch to view the switch's network traffic. Promiscuous mode is disabled by default but can be defined at the virtual switch or portgroup level.
+>
 
-**To configure a SPAN port with ESXi**:
+**To configure a monitoring interface with Promiscuous mode on an ESXi v-Switch**:
 
-1. Open vSwitch properties.
+1. Open the vSwitch properties page and select **Add standard virtual switch**.
 
-1. Select **Add**.
+1. Enter **SPAN Network** as the network label.
 
-1. Select **Virtual Machine** > **Next**.
-
-1. Insert a network label **SPAN Network**, select **VLAN ID** > **All**, and then select **Next**.
-
-1. Select **Finish**.
-
-1. Select **SPAN Network** > **Edit*.
+1. In the MTU field, enter **4096**.
 
 1. Select **Security**, and verify that the **Promiscuous Mode** policy is set to **Accept** mode.
 
-1. Select **OK**, and then select **Close** to close the vSwitch properties.
+1. Select **Add** to close the vSwitch properties.
 
-1. Open the **XSense VM** properties.
+1. Highlight the vSwitch you have just created, and select **Add uplink**.
+
+1. Select the physical NIC you will use for the SPAN traffic, change the MTU to **4096**, then select **Save**.
+
+1. Open the **Port Group** properties page and select **Add Port Group**.
+
+1.  Enter **SPAN Port Group** as the name, enter **4095** as the VLAN ID, and select **SPAN Network** in the vSwitch drop down, then select **Add**.
+
+1. Open the **OT Sensor VM** properties.
 
 1. For **Network Adapter 2**, select the **SPAN** network.
 
@@ -273,204 +175,161 @@ A virtual switch does not have mirroring capabilities. However, you can use prom
 
 1. Connect to the sensor, and verify that mirroring works.
 
-### Configure a SPAN port with Hyper-V
+[!INCLUDE [validate-traffic-mirroring](includes/validate-traffic-mirroring.md)]
 
-Prior to starting you will need to:
+## Provision for cloud management
 
-- Ensure that there is no instance of a virtual appliance running.
+This section describes how to configure endpoints to define in firewall rules, ensuring that your OT sensors can connect to Azure.
 
-- Enable Ensure SPAN on the data port, and not the management port.
+For more information, see [Methods for connecting sensors to Azure](architecture-connections.md).
 
-- Ensure that the data port SPAN configuration is not configured with an IP address.
+**To configure endpoint details**:
 
-**To configure a SPAN port with Hyper-V**:
+Open the file you'd downloaded earlier to view the list of required endpoints. Configure your firewall rules so that your sensor can access each of the required endpoints, over port 443.
 
-1. Open the Virtual Switch Manager.
+> [!TIP]
+> You can also download the list of required endpoints from the **Sites and sensors** page in the Azure portal. Go to **Sites and sensors** > **More actions** > **Download endpoint details**. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
-1. In the Virtual Switches list, select **New virtual network switch** > **External** as the dedicated spanned network adapter type.
+For more information, see [Provision sensors for cloud management](ot-deploy/provision-cloud-management.md).
 
-    :::image type="content" source="media/tutorial-onboarding/new-virtual-network.png" alt-text="Screenshot of selecting new virtual network and external before creating the virtual switch.":::
+## Download software for your virtual sensor
 
-1. Select **Create Virtual Switch**.
+This section describes how to download and install the sensor software on your own machine. 
 
-1. Under connection type, select **External Network**.
+**To download software for your virtual sensors**:
 
-1. Ensure the checkbox for **Allow management operating system to share this network adapter** is checked.
+1. In the Azure portal, go to the [**Defender for IoT > Getting started**](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) page, and select the **Sensor** tab.
 
-   :::image type="content" source="media/tutorial-onboarding/external-network.png" alt-text="Select external network, and allow the management operating system to share the network adapter.":::
+1. In the **Purchase an appliance and install software** box, ensure that the default option is selected for the latest and recommended software version, and then select **Download**.
 
-1. Select **OK**.
+1. Save the downloaded software in a location that will be accessible from your VM.
 
-#### Attach a SPAN Virtual Interface to the virtual switch
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-You are able to attach a SPAN Virtual Interface to the Virtual Switch through Windows PowerShell, or through Hyper-V Manager.
+## Install sensor software
 
-**To attach a SPAN Virtual Interface to the virtual switch with PowerShell**:
+This procedure describes how to install the sensor software on your VM.
 
-1. Select the newly added SPAN virtual switch, and add a new network adapter with the following command:
+> [!NOTE]
+> Towards the end of this process you will be presented with the usernames and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
 
-    ```bash
-    ADD-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 -Name Monitor -SwitchName vSwitch_Span
-    ```
+**To install the software on the virtual sensor**:
 
-1. Enable port mirroring for the selected interface as the span destination with the following command:
+1. If you had closed your VM, sign into the ESXi again and open your VM settings.
 
-    ```bash
-    Get-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 | ? Name -eq Monitor | Set-VMNetworkAdapter -PortMirroring Destination
-    ```
+1. For **CD/DVD Drive 1**, select **Datastore ISO file** and select the Defender for IoT software you'd [downloaded earlier](#download-software-for-your-virtual-sensor).
 
-    | Parameter | Description |
-    |--|--|
-    | VK-C1000V-LongRunning-650 | CPPM VA name |
-    |vSwitch_Span |Newly added SPAN virtual switch name |
-    |Monitor |Newly added adapter name |
+1. Select **Next** > **Finish**.
 
-1. Select **OK**.
+1. Power on the VM, and open a console.
 
-These commands set the name of the newly added adapter hardware to be `Monitor`. If you are using Hyper-V Manager, the name of the newly added adapter hardware is set to `Network Adapter`.
+1. When the installation boots, you're first prompted to select the hardware profile you want to use.
 
-**To attach a SPAN Virtual Interface to the virtual switch with Hyper-V Manager**:
+    For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
 
-1. Under the Hardware list, select **Network Adapter**.
+    After you've selected the hardware profile, the following steps occur, and can take a few minutes:
 
-1. In the Virtual Switch field, select **vSwitch_Span**.
+    - System files are installed
+    - The sensor appliance reboots
+    - Sensor files are installed
 
-    :::image type="content" source="media/tutorial-onboarding/vswitch-span.png" alt-text="Screenshot of selecting the following options on the virtual switch screen.":::
+    When the installation steps are complete, the Ubuntu **Package configuration** screen is displayed, with the `Configuring iot-sensor` wizard, showing a prompt to  select your monitor interfaces.
 
-1. In the Hardware list, under the Network Adapter drop-down list, select **Advanced Features**.
+    In the `Configuring iot-sensor` wizard, use the up or down arrows to navigate, and the SPACE bar to select an option. Press ENTER to advance to the next screen.
 
-1. In the Port Mirroring section, select **Destination** as the mirroring mode for the new virtual interface.
+1. In the wizard's `Select monitor interfaces` screen, select the interfaces you want to monitor.
 
-    :::image type="content" source="media/tutorial-onboarding/destination.png" alt-text="Screenshot of the selections needed to configure mirroring mode.":::
+    By default, `eno1` is reserved for the management interface and we recommend that you leave this option unselected.
 
-1. Select **OK**.
+    > [!IMPORTANT]
+    > Make sure that you select only interfaces that are connected.
+    >
+    > If you select interfaces that are enabled but not connected, the sensor will show a *No traffic monitored* health notification in the Azure portal. If you connect more traffic sources after installation and want to monitor them with Defender for IoT, you can add them via the [CLI](../references-work-with-defender-for-iot-cli-commands.md).
 
-#### Enable Microsoft NDIS Capture Extensions for the Virtual Switch
+1. In the `Select erspan monitor interfaces` screen, select any ERSPAN monitoring ports that you have. The wizard lists available interfaces, even if you don't have any ERSPAN monitoring ports in your system. If you have no ERSPAN monitoring ports, leave all options unselected.
 
-Microsoft NDIS Capture Extensions will need to be enabled for the new virtual switch.
+1. In the `Select management interface` screen, we recommend keeping the default `eno1` value selected as the management interface.
 
-**To enable Microsoft NDIS Capture Extensions for the newly added virtual switch**:
+1. In the `Enter sensor IP address` screen, enter the IP address for the sensor appliance you're installing.
 
-1. Open the Virtual Switch Manager on the Hyper-V host.
+1. In the `Enter path to the mounted backups folder` screen, enter the path to the sensor's mounted backups. We recommend using the default path of `/opt/sensor/persist/backups`.
 
-1. In the Virtual Switches list, expand the virtual switch name `vSwitch_Span` and select **Extensions**.
+1. In the `Enter Subnet Mask` screen, enter the IP address for the sensor's subnet mask.
 
-1. In the Switch Extensions field, select **Microsoft NDIS Capture**.
+1. In the `Enter Gateway` screen, enter the sensor's default gateway IP address.
 
-    :::image type="content" source="media/tutorial-onboarding/microsoft-ndis.png" alt-text="Screenshot of enabling the Microsoft NDIS by selecting it from the switch extensions menu.":::
+1. In the `Enter DNS server` screen, enter the sensor's DNS server IP address.
 
-1. Select **OK**.
+1. In the `Enter hostname` screen, enter the sensor hostname.
 
-#### Set the Mirroring Mode on the external port
+1. In the `Run this sensor as a proxy server (Preview)` screen, select `<Yes>` only if you want to configure a proxy, and then enter the proxy credentials as prompted.
 
-Mirroring mode will need to be set on the external port of the new virtual switch to be the source.
+    The default configuration is without a proxy.
 
-You will need to configure the Hyper-V virtual switch (vSwitch_Span) to forward any traffic that comes to the external source port, to the virtual network adapter that you configured as the destination.
+    For more information, see [Configure proxy settings on an OT sensor](connect-sensors.md).
 
-Use the following PowerShell commands to set the external virtual switch port to source mirror mode:
+1. <a name="credentials"></a>The installation process starts running and then shows the credentials screen.
 
-```bash
-$ExtPortFeature=Get-VMSystemSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Settings"
-$ExtPortFeature.SettingData.MonitorMode=2
-Add-VMSwitchExtensionPortFeature -ExternalPort -SwitchName vSwitch_Span -VMSwitchExtensionFeature $ExtPortFeature
-```
+    Save the usernames and passwords listed, as the passwords are unique and this is the only time that the credentials are shown. Copy the credentials to a safe place so that you can use them when signing into the sensor for the first time.
 
-| Parameter | Description |
-|--|--|
-| vSwitch_Span | Newly added SPAN virtual switch name. |
-| MonitorMode=2 | Source |
-| MonitorMode=1 | Destination |
-| MonitorMode=0 | None |
+    For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
-Use the following PowerShell command to verify the monitoring mode status:
+    Select `<Ok>` when you're ready to continue.
 
-```bash
-Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Settings" -SwitchName vSwitch_Span -ExternalPort | select -ExpandProperty SettingData
-```
+    The installation continues running again, and then reboots when the installation is complete. Upon reboot, you're prompted to enter credentials to sign in.
 
-| Parameter | Description |
-|--|--|
-| vSwitch_Span | Newly added SPAN virtual switch name |
-## Onboard, and activate the virtual sensor
+1. Enter the credentials for the `support` user with the credentials that you'd copied down in the [previous step](#credentials).
 
-Before you can start using your Defender for IoT sensor, you will need to onboard the created virtual sensor to your Azure subscription, and download the virtual sensor's activation file to activate the sensor.
+    - If the `iot-sensor login:` prompt disappears, press **ENTER** to have it shown again.
+    - When you enter your password, the password characters don't display on the screen. Make sure you enter them carefully.
 
-### Onboard the virtual sensor
+    When you have successfully signed in, the following confirmation screen appears:
 
-**To onboard the virtual sensor:**
+    :::image type="content" source="media/tutorial-install-components/install-complete.png" alt-text="Screenshot of install confirmation.":::
 
-1. Go to [Defender for IoT: Getting started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal.
+### Post-installation validation
 
-1. Select **Onboard sensor**.
+This procedure describes how to validate your installation using the sensor's own system health checks, and is available to both the *support* and *cyberx* sensor users.
 
-   :::image type="content" source="media/tutorial-onboarding/onboard-a-sensor.png" alt-text="Screenshot of selecting to onboard the sensor to start the onboarding process for your sensor.":::
+**To validate your installation**:
 
-1. Enter a name for the sensor.
+1. Sign in to the OT sensor as the `support` user.
 
-   We recommend that you include the IP address of the sensor as part of the name, or use an easily identifiable name. Naming your sensor in this way will ensure easier tracking.
+1. Select **System Settings** > **Sensor management** > **System Health Check**.
 
-1. Select a subscription from the drop-down menu.
+1. Select the following commands:
 
-    :::image type="content" source="media/tutorial-onboarding/name-subscription.png" alt-text="Screenshot of entering a meaningful name, and connect your sensor to a subscription.":::
+    - **Appliance** to check that the system is running. Verify that each line item shows **Running** and that the last line states that the **System is up**.
+    - **Version** to verify that you have the correct version installed.
+    - **ifconfig** to verify that all input interfaces configured during installation are running.
 
-1. Choose a sensor connection mode by using the **Cloud connected** toggle. If the toggle is on, the sensor is cloud connected. If the toggle is off, the sensor is locally managed.
+For more post-installation validation tests, such as gateway, DNS or firewall checks, see [Validate an OT sensor software installation](ot-deploy/post-install-validation-ot-software.md).
 
-   - **Cloud-connected sensors**: Information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Microsoft Sentinel. In addition, threat intelligence packages can be pushed from Defender for IoT to sensors. Conversely when, the sensor is not cloud connected, you must download  threat intelligence packages and then upload them to your enterprise sensors. To allow Defender for IoT to push packages to sensors, enable the **Automatic Threat Intelligence Updates** toggle. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
+## Activate your sensor
 
-      For cloud connected sensors, the name defined during onboarding is the name that appears in the sensor console. You can't change this name from the console directly. For locally managed sensors, the name applied during onboarding will be stored in Azure but can be updated in the sensor console.
+This procedure describes how to use the sensor activation file downloaded from Defender for IoT in the Azure portal to activate your newly added sensor.
 
-   - **Locally managed sensors**: Information that sensors detect is displayed in the sensor console. If you're working in an air-gapped network and want a unified view of all information detected by multiple locally managed sensors, work with the on-premises management console.
+**To activate your sensor**:
 
-1. Select a site to associate your sensor to within an IoT Hub. The IoT Hub will serve as a gateway between this sensor and Microsoft Defender for IoT. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [View onboarded sensors](how-to-manage-sensors-on-the-cloud.md#view-onboarded-sensors).
+1. In a browser, go to the sensor console by entering the IP defined during the installation. The sign-in dialog box opens.
 
-1. Select **Register**.
+1. Enter the credentials for the `support` user with the credentials defined during the sensor installation.
 
-### Download the sensor activation file
+1. Select **Login**. The **Sensor Network Settings** tab opens.
 
-Once registration is complete for the sensor, you will be able to download an activation file for the sensor. The sensor activation file contains instructions about the management mode of the sensor. The activation file you download, will be unique for each sensor that you deploy. The user who signs in to the sensor console for the first time, will uploads the activation file to the sensor.
+1. In the **Sensor Network Settings** tab, you can modify the sensor network configuration defined during installation. For the sake of this tutorial, leave the default values as they are, and select **Next**.
 
-**To download an activation file:**
+1. In the **Activation** tab, select **Upload** to upload the activation file you'd downloaded when [onboarding the virtual sensor](#onboard-the-virtual-sensor).
 
-1. On the **Onboard Sensor** page, select **Register**
+    Make sure that the confirmation message includes the name of the sensor that you're deploying.
 
-1. Select **download activation file**.
+1. Select the **Approve these terms and conditions** option, and then select **Activate** to continue in the **Certificates** screen.
 
-1. Make the file accessible to the user who's signing in to the sensor console for the first time.
+1. In the **SSL/TLS Certificates** tab, you can import a trusted CA certificate, which is the recommended process for production environments. However, for the sake of the tutorial, you can select **Use Locally generated self-signed certificate**, and then select **Save**.
 
-### Sign in and activate the sensor
-
-**To sign in and activate:**
-
-1. Go to the sensor console from your browser by using the IP defined during the installation.
-
-    :::image type="content" source="media/tutorial-onboarding/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Screenshot of the Microsoft Defender for IoT sensor.":::
-
-1. Enter the credentials defined during the sensor installation.
-
-1. After you sign in, the **Activation** dialog box opens. Select **Upload** and go to the activation file that you downloaded during the sensor onboarding.
-
-   :::image type="content" source="media/tutorial-onboarding/activation-upload-screen-with-upload-button.png" alt-text="Screenshot of selecting to upload and go to the activation file.":::
-
-1. Accept the terms and conditions.
-
-1. Select **Activate**. The SSL/TLS certificate dialog box opens.
-
-1. Define a certificate name.
-
-1. Upload the CRT and key files.
-
-1. Enter a passphrase and upload a PEM file if necessary.
-
-1. Select **Next**. The validation screen opens. By default, validation between the management console and connected sensors is enabled.
-
-1. Turn off the **Enable system-wide validation** toggle to disable validation. We recommend that you enable validation.
-
-1. Select **Save**.  
-
-You might need to refresh your screen after uploading the CA-signed certificate.
+Your sensor is activated and onboarded to Defender for IoT. In the **Sites and sensors** page, you can see that the **Sensor status** column shows a green check mark, and lists the status as **OK**.
 
 ## Next steps
 
-Learn how to set up [other appliances](how-to-install-software.md#about-defender-for-iot-appliances).
-
-Read about the [agentless architecture](architecture.md).
+> [!div class="step-by-step"]
+> [Full deployment path for OT monitoring](ot-deploy/ot-deploy-path.md)

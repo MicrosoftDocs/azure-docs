@@ -2,14 +2,13 @@
 title: Metrics and Alerts in Azure Traffic Manager
 description: In this article, learn the metrics and alerts available for Traffic Manager in Azure.
 services: traffic-manager
-author: duongau
+author: greg-lindsay
 ms.service: traffic-manager
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 06/11/2018
-ms.author: duau
+ms.date: 04/27/2023
+ms.author: greglin
+ms.custom: template-concept
 ---
 
 # Traffic Manager metrics and alerts

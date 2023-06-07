@@ -33,13 +33,13 @@ After signing into GitHub and authorizing the Microsoft application, you'll get 
 
 [Azure Credit Subscription for Visual Studio Subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers) offers a suite of services to create, deploy, and manage applications on your preferred platforms and devices. Use your credits in Azure for learning, development, and test services, plus collaboration tools and access to Azure DevOps Services.  
 
-Support for GitHub authentication makes it easier to experiment with Azure services. Choose from Virtual Machines, Websites, SQL Databases, and Mobile Services. Use Windows Virtual Desktop to deploy and manage hundreds of VMs for development and testing purposes.  
+Support for GitHub authentication makes it easier to experiment with Azure services. Choose from Virtual Machines, Websites, SQL Databases, and Mobile Services. Use [Azure Virtual Desktop](../../virtual-desktop/overview.md) to deploy and manage hundreds of VMs for development and testing purposes.  
 
 To get started with the Azure Monthly Credit Subscription using your GitHub account, select “Sign in using GitHub” on any [Microsoft sign in page](https://login.microsoftonline.com)  
 
 ![Screenshot of the sign in options page.](media/how-to-sign-into-azure-with-github/sign-in.png "Sign in options page.")  
 
-![Screenshot of the Microsoft sign into Github to continue to Microsoft-Corporation.](media/how-to-sign-into-azure-with-github/microsoft-sign-in.png "Sign into Github to continue to Microsoft-Corporation.")  
+![Screenshot of the Microsoft sign into GitHub to continue to Microsoft-Corporation.](media/how-to-sign-into-azure-with-github/microsoft-sign-in.png "Sign into GitHub to continue to Microsoft-Corporation.")  
 
 If you haven’t activated your credits yet, go to the [Monthly Azure Credits for Visual Studio Subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers) page, select “Activate Your Credits” then “Sign in with GitHub” to get started.  
 

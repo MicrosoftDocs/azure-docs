@@ -1,20 +1,20 @@
 ---
 title: Query types 
 titleSuffix: Azure Cognitive Search
-description: Learn about the types of queries supported in Cognitive Search, including free text, filter, autocomplete and suggestions, geo-search, system queries, and document lookup.
+description: Learn about the types of queries supported in Cognitive Search, including free text, filter, autocomplete and suggestions, geospatial search, system queries, and document lookup.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 03/01/2023
 ---
 # Querying in Azure Cognitive Search
 
-Azure Cognitive Search offers a rich query language to support a broad range of scenarios, from free text search, to highly-specified query patterns. This article describes query requests, and what kinds of queries you can create.
+Azure Cognitive Search offers a rich query language to support a broad range of scenarios, from free text search, to highly-specified query patterns. This article describes query requests and the kinds of queries you can create.
 
-In Cognitive Search, a query is a full specification of a round-trip **`search`** operation, with parameters that both inform query execution and shape the response coming back. Parameters and parsers determine the type of query request. The following query example is a free text query with a boolean operator, using the [Search Documents (REST API)](/rest/api/searchservice/search-documents), targeting the [hotels-sample-index](search-get-started-portal.md) documents collection.
+In Cognitive Search, a query is a full specification of a round-trip **`search`** operation, with parameters that both inform query execution and shape the response coming back. To illustrate, the following query example calls the [Search Documents (REST API)](/rest/api/searchservice/search-documents). It's a parameterized, free text query with a boolean operator, targeting the [hotels-sample-index](search-get-started-portal.md) documents collection. It also selects which fields are returned in results.
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -32,23 +32,23 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 Parameters used during query execution include:
 
-+ **`queryType`** sets the parser, which is either the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
++ **`queryType`** sets the parser: `simple`, `full`. The [default simple query parser](search-query-simple-examples.md) is optimal for full text search. The [full Lucene query parser](search-query-lucene-examples.md) is for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search. This parameter can also be set to `semantic` for [semantic search](semantic-search-overview.md) for advanced semantic modeling on the query response.
 
-+ **`searchMode`** specifies whether matches are based on "all" criteria or "any" criteria in the expression. The default is any.
++ **`searchMode`** specifies whether matches are based on "all" criteria (favors precision) or "any" criteria (favors recall) in the expression. The default is "any".
 
-+ **`search`** provides the match criteria, usually whole terms or phrases, with or without operators. Any field that is attributed as *searchable* in the index schema is a candidate for this parameter.
++ **`search`** provides the match criteria, usually whole terms or phrases, with or without operators. Any field that is attributed as "searchable" in the index schema is a candidate for this parameter.
 
 + **`searchFields`** constrains query execution to specific searchable fields. During development, it's helpful to use the same field list for select and search. Otherwise a match might be based on field values that you can't see in the results, creating uncertainty as to why the document was returned.
 
 Parameters used to shape the response:
 
-+ **`select`** specifies which fields to return in the response. Only fields marked as *retrievable* in the index can be used in a select statement.
++ **`select`** specifies which fields to return in the response. Only fields marked as "retrievable" in the index can be used in a select statement.
 
 + **`top`** returns the specified number of best-matching documents. In this example, only 10 hits are returned. You can use top and skip (not shown) to page the results.
 
 + **`count`** tells you how many documents in the entire index match overall, which can be more than what are returned. 
 
-+ **`orderby`** is used if you want to sort results by a value, such as a rating or location. Otherwise, the default is to use the relevance score to rank results. A  field must be attributed as *sortable* to be a candidate for this parameter.
++ **`orderby`** is used if you want to sort results by a value, such as a rating or location. Otherwise, the default is to use the relevance score to rank results. A  field must be attributed as "sortable" to be a candidate for this parameter.
 
 The above list is representative but not exhaustive. For the full list of parameters on a query request, see [Search Documents (REST API)](/rest/api/searchservice/search-documents).
 
@@ -60,7 +60,7 @@ With a few notable exceptions, a query request iterates over inverted indexes th
 
 ## Full text search
 
-If your search app includes a search box that collects term inputs, then full text search is probably the query operation backing that experience. Full text search accepts terms or phrases passed in a **`search`** parameter in all *searchable* fields in your index. Optional boolean operators in the query string can specify inclusion or exclusion criteria. Both the simple parser and full parser support full text search.
+If your search app includes a search box that collects term inputs, then full text search is probably the query operation backing that experience. Full text search accepts terms or phrases passed in a **`search`** parameter in all "searchable" fields in your index. Optional boolean operators in the query string can specify inclusion or exclusion criteria. Both the simple parser and full parser support full text search.
 
 In Cognitive Search, full text search is built on the Apache Lucene query engine. Query strings in full text search undergo lexical analysis to make scans more efficient. Analysis includes lower-casing all terms, removing stop words like "the", and reducing terms to primitive root forms. The default analyzer is Standard Lucene.
 
@@ -68,7 +68,8 @@ When matching terms are found, the query engine reconstitutes a search document 
 
 If you're implementing full text search, understanding how your content is tokenized will help you debug any query anomalies. Queries over hyphenated strings or special characters could necessitate using an analyzer other than the default standard Lucene to ensure the index contains the right tokens. You can override the default with [language analyzers](index-add-language-analyzers.md#language-analyzer-list) or [specialized analyzers](index-add-custom-analyzers.md#built-in-analyzers) that modify lexical analysis. One example is [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) that treats the entire contents of a field as a single token. This is useful for data like zip codes, IDs, and some product names. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md).
 
-If you anticipate heavy use of Boolean operators, which is more likely in indexes that contain large text blocks (a content field or long descriptions), be sure to test queries with the **`searchMode=Any|All`** parameter to evaluate the impact of that setting on boolean search.
+> [!TIP]
+> If you anticipate heavy use of Boolean operators, which is more likely in indexes that contain large text blocks (a content field or long descriptions), be sure to test queries with the **`searchMode=Any|All`** parameter to evaluate the impact of that setting on boolean search.
 
 ## Autocomplete and suggested queries
 
@@ -76,18 +77,27 @@ If you anticipate heavy use of Boolean operators, which is more likely in indexe
 
 ## Filter search
 
-Filters are widely used in apps that include Cognitive Search. On application pages, filters are often visualized as facets in link navigation structures for user-directed filtering. Filters are also used internally to expose slices of indexed content. For example, you might initialize a search page using a filter on a product category, or a language if an index contains fields in both English and French.
+Filters are widely used in apps that are based on Cognitive Search. On application pages, filters are often visualized as facets in link navigation structures for user-directed filtering. Filters are also used internally to expose slices of indexed content. For example, you might initialize a search page using a filter on a product category, or a language if an index contains fields in both English and French.
 
 You might also need filters to invoke a specialized query form, as described in the following table. You can use a filter with an unspecified search (**`search=*`**) or with a query string that includes terms, phrases, operators, and patterns.
 
 | Filter scenario | Description |
 |-----------------|-------------|
 | Range filters | In Azure Cognitive Search, range queries are built using the filter parameter. For more information and examples, see [Range filter example](search-query-simple-examples.md#example-5-range-filters). |
-| Geo-location search | If a searchable field is of [Edm.GeographyPoint type](/rest/api/searchservice/supported-data-types), you can create a filter expression for "find near me" or map-based search controls. Fields that drive geo-search contain coordinates. For more information and an example, see [Geo-search example](search-query-simple-examples.md#example-6-geo-search). |
-| Faceted navigation | In [faceted navigation](search-faceted-navigation.md) tree, users can select facets, narrowing the results on each click. Each facet is backed by a filter that excludes documents that no longer match the criteria. |
+| Faceted navigation | In [faceted navigation](search-faceted-navigation.md) tree, users can select facets. When backed by filters, search results narrow on each click. Each facet is backed by a filter that excludes documents that no longer match the criteria provided by the facet. |
 
 > [!NOTE]
 > Text that's used in a filter expression is not analyzed during query processing. The text input is presumed to be a verbatim case-sensitive character pattern that either succeeds or fails on the match. Filter expressions are constructed using [OData syntax](query-odata-filter-orderby-syntax.md) and passed in a **`filter`** parameter in all *filterable* fields in your index. For more information, see [Filters in Azure Cognitive Search](search-filters.md).
+
+## Geospatial search
+
+Geospatial search matches on a location's latitude and longitude coordinates for "find near me" or map-based search experience. In Azure Cognitive Search, you can implement geospatial search by following these steps:
+
++ Define a filterable field of one of these types: [Edm.GeographyPoint, Collection(Edm.GeographyPoint, Edm.GeographyPolygon)](/rest/api/searchservice/supported-data-types).
++ Verify the incoming documents include the appropriate coordinates.
++ After indexing is complete, build a query that uses a filter and a [geo-spatial function](search-query-odata-geo-spatial-functions.md). 
+
+For more information and an example, see [Geospatial search example](search-query-simple-examples.md#example-6-geospatial-search).
 
 ## Document look-up
 

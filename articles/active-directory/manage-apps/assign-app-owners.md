@@ -1,30 +1,30 @@
 ---
 title: Assign enterprise application owners
-titleSuffix: Azure AD
-description: Assign owners to applications in Azure Active Directory
+description: Learn how to assign owners to applications in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: saipradeepb23
+author: omondiatieno
 manager: celesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: app-mgmt
 ms.topic: how-to
-ms.date: 08/03/2021
-ms.author: saibandaru
-#Customer intent: As an Azure AD administrator, I want to assign owners to enterprise applications.
+ms.date: 01/26/2023
+ms.author: jomondi
+ms.reviewer: saibandaru
+zone_pivot_groups: enterprise-apps-minus-aad-powershell
+ms.custom: enterprise-apps
 
+#Customer intent: As an Azure AD administrator, I want to assign owners to enterprise applications.
 ---
 
 # Assign enterprise application owners
 
-Assigning owners is a simple way to grant the ability to manage all aspects of Azure AD configuration for a specific application registration or enterprise application. As an owner, a user can manage the organization-specific configuration of the enterprise application, such as the single sign-on configuration, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the enterprise applications they own.
-
-Only users can be owners of enterprise applications. Groups cannot be assigned as owners. Owners can add credentials to an application and use those credentials to impersonate the application’s identity. The application may have more permissions than the owner, and thus would be an elevation of privilege over what the owner has access to as a user or service principal. 
-
-An application owner could potentially create or update users or other objects while impersonating the application, depending on the application's permissions. Owners of applications have the same permissions as application administrators scoped to an individual application. For more information, see [Azure AD built-in roles](../roles/permissions-reference.md#application-administrator). 
+An [owner of an enterprise application](overview-assign-app-owners.md) in Azure Active Directory (Azure AD) can manage the organization-specific configuration of the application, such as single sign-on, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the enterprise applications they own. In this article, you learn how to assign an owner of an application.
 
 ## Assign an owner
+
+:::zone pivot="portal"
 
 To assign an owner to an enterprise application:
 
@@ -33,6 +33,46 @@ To assign an owner to an enterprise application:
 3. Select **Owners**, and then select **Add** to get a list of user accounts that you can choose an owner from.
 4. Search for and select the user account that you want to be an owner of the application.
 5. Click **Select** to add the user account that you chose as an owner of the application.
+
+:::zone-end
+
+:::zone pivot="ms-powershell"
+
+Use the following Microsoft Graph PowerShell cmdlet to add an owner to an enterprise application.
+
+You'll need to consent to the `Application.ReadWrite.All` permission.
+
+In the following example, the user's object ID is 8afc02cb-4d62-4dba-b536-9f6d73e9be26 and the applicationId is 46e6adf4-a9cf-4b60-9390-0ba6fb00bf6b.
+
+```powershell
+Import-Module Microsoft.Graph.Applications
+
+$params = @{
+    "@odata.id" = "https://graph.microsoft.com/v1.0/directoryObjects/8afc02cb-4d62-4dba-b536-9f6d73e9be26"
+}
+
+New-MgServicePrincipalOwnerByRef -ServicePrincipalId '46e6adf4-a9cf-4b60-9390-0ba6fb00bf6b' -BodyParameter $params
+```
+:::zone-end
+
+:::zone pivot="ms-graph"
+
+To assign an owner to an application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
+
+You'll need to consent to the `Application.ReadWrite.All` permission.
+
+Run the following Microsoft Graph query to assign an owner to an application. You need the object ID of the user you want to assign the application to. In the following example, the user's object ID is 8afc02cb-4d62-4dba-b536-9f6d73e9be26 and the appId is 46e6adf4-a9cf-4b60-9390-0ba6fb00bf6b.
+
+```http
+POST https://graph.microsoft.com/v1.0/servicePrincipals(appId='46e6adf4-a9cf-4b60-9390-0ba6fb00bf6b')/owners/$ref
+Content-Type: application/json
+
+{
+    "@odata.id": "https://graph.microsoft.com/v1.0/directoryObjects/8afc02cb-4d62-4dba-b536-9f6d73e9be26"
+}
+```
+
+:::zone-end
 
 > [!NOTE]
 > If the user setting **Restrict access to Azure AD administration portal** is set to `Yes`, non-admin users will not be able to use the Azure portal to manage the applications they own. For more information about the actions that can be performed on owned enterprise applications, see [Owned enterprise applications](../fundamentals/users-default-permissions.md#owned-enterprise-applications). 

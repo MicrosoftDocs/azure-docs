@@ -16,8 +16,6 @@ ms.custom: template-how-to
 
 This guide outlines the steps to create and manage a Job Router queue.
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -29,30 +27,40 @@ This guide outlines the steps to create and manage a Job Router queue.
 To create a simple queue in Job Router, use the SDK to specify the **queue ID**, **name**, and a **distribution policy ID**. The distribution policy must be created in advance as the Job Router will validate its existence upon creation of the queue. In the following example, a distribution policy is created to control how Job offers are generated for Workers.
 
 ```csharp
-var distributionPolicy = await client.SetDistributionPolicyAsync(
-    id: "Longest_Idle_45s_Min1Max10",
-    name: "Longest Idle matching with a 45s offer expiration; min 1, max 10 offers",
-    offerTTL: TimeSpan.FromSeconds(45),
-    mode: new LongestIdleMode(
-        minConcurrentOffers: 1,
-        maxConcurrentOffers: 10)
+var distributionPolicy = await administrationClient.CreateDistributionPolicyAsync(
+    new CreateDistributionPolicyOptions(
+        distributionPolicyId: "Longest_Idle_45s_Min1Max10",
+        offerTtl: TimeSpan.FromSeconds(45),
+        mode: new LongestIdleMode(
+            minConcurrentOffers: 1,
+            maxConcurrentOffers: 10)
+    {
+        Name = "Longest Idle matching with a 45s offer expiration; min 1, max 10 offers"
+    }
 );
 
-var queue = await client.SetQueueAsync(
-    id: "XBOX_DEFAULT_QUEUE",
-    name: "XBOX Default Queue",
-    distributionPolicy: "Longest_Idle_45s_Min1Max10"
+var queue = await administrationClient.CreateQueueAsync(
+    options: new CreateQueueOptions("XBOX_DEFAULT_QUEUE", "Longest_Idle_45s_Min1Max10")
+    {
+        Name = "XBOX Default Queue"
+    }
 );
 ```
 ## Update a queue
 
-The Job Router SDK will create a new queue or update an existing queue when the `SetQueue` or `SetQueueAsync` method is called.
+The Job Router SDK will update an existing queue when the `UpdateQueue` or `UpdateQueueAsync` method is called.
 
 ```csharp
-var queue = await client.SetQueueAsync(
-    id: "XBOX_DEFAULT_QUEUE",
-    name: "XBOX Default Queue",
-    distributionPolicy: "Longest_Idle_45s_Min1Max10"
+var queue = await administrationClient.UpdateQueueAsync(
+    options: new UpdateQueueOptions("XBOX_DEFAULT_QUEUE")
+    {
+        Name = "XBOX Default Queue",
+        DistributionPolicyId = "Longest_Idle_45s_Min1Max10",
+        Labels = new Dictionary<string, LabelValue>()
+        {
+            ["Additional-Queue-Label"] = new LabelValue("ChatQueue")
+        }
+    });
 );
 ```
 

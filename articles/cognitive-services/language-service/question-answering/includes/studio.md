@@ -4,7 +4,7 @@ description: You can create a question answering project from your own content, 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
-ms.date: 10/06/2021
+ms.date: 06/06/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -15,6 +15,8 @@ You can create a question answering project from your own content, such as FAQs 
 > [!div class="checklist"]
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 > * A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled. Remember your Azure Active Directory ID, Subscription, language resource name you selected when you created the resource.
+
+
 
 ## Create your first question answering project
 
@@ -55,9 +57,11 @@ You can create a question answering project from your own content, such as FAQs 
 
     After successfully adding the source, you can then edit the source contents to add more custom question answer sets.
 
+
+
 ## Test your project
 
-1. Select the link to your source, this will open the edit knowledge base page.
+1. Select the link to your source, this will open the edit project page.
 
 2. Select **Test** from the menu bar > Enter the question **How do I setup my surface book?**. An answer will be generated based on the question answer pairs that were automatically identified and extracted from your source URL:
 
@@ -73,12 +77,14 @@ You can create a question answering project from your own content, such as FAQs 
 
     From the **Inspect** interface, you can see the level of confidence that this response will answer the question and directly edit a given question and answer response pair.
 
+
+
 ## Deploy your project
 
-1. Select the Deploy knowledge base icon to enter the deploy knowledge base menu.
+1. Select the Deploy project icon to enter the deploy project menu.
 
     > [!div class="mx-imgBorder"]
-    > ![Deploy knowledge base](../media/create-test-deploy/deploy-knowledge-base.png)
+    > ![Deploy project](../media/create-test-deploy/deploy-knowledge-base.png)
 
     When you deploy a project, the contents of your project move from the `test` index to a `prod` index in Azure Search.
 
@@ -88,3 +94,4 @@ You can create a question answering project from your own content, such as FAQs 
     > ![Successful deployment](../media/create-test-deploy/successful-deployment.png)
 
     Your project is now successfully deployed. You can use the endpoint to answer questions in your own custom application to answer or in a bot.
+

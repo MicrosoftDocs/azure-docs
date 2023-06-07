@@ -3,12 +3,13 @@ title: Configure a site-to-site VPN in vWAN for Azure VMware Solution
 description: Learn how to establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel into Azure VMware Solutions.
 ms.topic: how-to
 ms.custom: contperf-fy22q1
-ms.date: 06/30/2021
+ms.service: azure-vmware
+ms.date: 04/11/2022
 ---
 
 # Configure a site-to-site VPN in vWAN for Azure VMware Solution
 
-In this article, you'll establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel terminating in the Microsoft Azure Virtual WAN hub. The hub contains the Azure VMware Solution ExpressRoute gateway and the site-to-site VPN gateway. It connects an on-premise VPN device with an Azure VMware Solution endpoint.
+In this article, you'll establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel terminating in the Microsoft Azure Virtual WAN hub. The hub contains the Azure VMware Solution ExpressRoute gateway and the site-to-site VPN gateway. It connects an on-premises VPN device with an Azure VMware Solution endpoint.
 
 :::image type="content" source="media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png" alt-text="Diagram showing VPN site-to-site tunnel architecture." border="false":::
 
@@ -27,7 +28,7 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
 >You can also [create a gateway in an existing hub](../virtual-wan/virtual-wan-expressroute-portal.md#existinghub).
 
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
+[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-basics.md)]
 
 ## Create a VPN gateway 
 
@@ -78,7 +79,7 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
 >[!IMPORTANT]
 >This is an optional step and applies only to policy-based VPNs. 
 
-[Policy-based VPN setups](../virtual-wan/virtual-wan-custom-ipsec-portal.md) require on-premise and Azure VMware Solution networks to be specified, including the hub ranges.  These ranges specify the encryption domain of the policy-based VPN tunnel on-premise endpoint.  The Azure VMware Solution side only requires the policy-based traffic selector indicator to be enabled. 
+[Policy-based VPN setups](../virtual-wan/virtual-wan-custom-ipsec-portal.md) require on-premises and Azure VMware Solution networks to be specified, including the hub ranges.  These ranges specify the encryption domain of the policy-based VPN tunnel on-premises endpoint.  The Azure VMware Solution side only requires the policy-based traffic selector indicator to be enabled. 
 
 1. In the Azure portal, go to your Virtual WAN hub site and, under **Connectivity**, select **VPN (Site to site)**.
 
@@ -112,7 +113,7 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
 
 1. Select your VPN site name and then select **Connect VPN sites**. 
 
-1. In the **Pre-shared key** field, enter the key previously defined for the on-premise endpoint. 
+1. In the **Pre-shared key** field, enter the key previously defined for the on-premises endpoint. 
 
    >[!TIP]
    >If you don't have a previously defined key, you can leave this field blank. A key is generated for you automatically. 
@@ -170,7 +171,7 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
 
    1. Select **Add** to establish the link. 
 
-1. Test your connection by [creating an NSX-T segment](./tutorial-nsx-t-network-segment.md) and provisioning a VM on the network. Ping both the on-premise and Azure VMware Solution endpoints.
+1. Test your connection by [creating an NSX-T Data Center segment](./tutorial-nsx-t-network-segment.md) and provisioning a VM on the network. Ping both the on-premises and Azure VMware Solution endpoints.
 
    >[!NOTE]
    >Wait approximately 5 minutes before you test connectivity from a client behind your ExpressRoute circuit, for example, a VM in the VNet that you created earlier.

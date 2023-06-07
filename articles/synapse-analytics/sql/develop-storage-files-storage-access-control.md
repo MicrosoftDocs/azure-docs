@@ -8,7 +8,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick  
+ms.reviewer: sngun  
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -23,7 +23,7 @@ This article describes the types of credentials you can use and how credential l
 ## Storage permissions
 
 A serverless SQL pool in Synapse Analytics workspace can read the content of files stored in Azure Data Lake storage. You need to configure permissions on storage to enable a user who executes a SQL query to read the files. There are three methods for enabling the access to the files:
-- **[Role based access control (RBAC)](../../role-based-access-control/overview.md)** enables you to assign a role to some Azure AD user in the tenant where your storage is placed. A reader must have `Storage Blob Data Reader`, `Storage Blob Data Contributor`, or `Storage Blob Data Owner` RBAC role on storage account. A user who writes data in the Azure storage must have `Storage Blob Data Writer` or `Storage Blob Data Owner` role. Note that `Storage Owner` role does not imply that a user is also `Storage Data Owner`.
+- **[Role based access control (RBAC)](../../role-based-access-control/overview.md)** enables you to assign a role to some Azure AD user in the tenant where your storage is placed. A reader must have `Storage Blob Data Reader`, `Storage Blob Data Contributor`, or `Storage Blob Data Owner` RBAC role on storage account. A user who writes data in the Azure storage must have `Storage Blob Data Contributor` or `Storage Blob Data Owner` role. Note that `Storage Owner` role does not imply that a user is also `Storage Data Owner`.
 - **Access Control Lists (ACL)** enable you to define a fine grained [Read(R), Write(W), and Execute(X) permissions](../../storage/blobs/data-lake-storage-access-control.md#levels-of-permission) on the files and directories in Azure storage. ACL can be assigned to Azure AD users. If readers want to read a file on a path in Azure Storage, they must have Execute(X) ACL on every folder in the file path, and Read(R) ACL on the file. [Learn more how to set ACL permissions in storage layer](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls).
 - **Shared access signature (SAS)** enables a reader to access the files on the Azure Data Lake storage using the time-limited token. The reader doesn’t even need to be authenticated as Azure AD user. SAS token contains the permissions granted to the reader as well as the period when the token is valid. SAS token is good choice for time-constrained access to any user that doesn't even need to be in the same Azure AD tenant. SAS token can be defined on the storage account or on specific directories. Learn more about [granting limited access to Azure Storage resources using shared access signatures](../../storage/common/storage-sas-overview.md).
 
@@ -88,7 +88,9 @@ You can access publicly available files placed on Azure storage accounts that [a
 ---
 
 #### Cross-tenant scenarios
-In cases when Azure Storage is in a different tenant from the Synapse serverless SQL pool, authorization via **Service Principal** is the recommended method. **SAS** authorization is also possible, while **Managed Identity** is not supported. 
+In cases when Azure Storage is in a different tenant from the Synapse serverless SQL pool, authorization via **Service Principal** is the recommended method. **SAS** authorization is also possible, while **Managed Identity** is not supported.
+> [!NOTE]
+> In case when Azure Storage is protected with a firewall **Service Principal** will not be supported.
 
 ### Supported authorization types for databases users
 
@@ -114,7 +116,7 @@ You can use the following combinations of authorization and Azure Storage types:
 
 ## Firewall protected storage
 
-You can configure storage accounts to allow access to specific serverless SQL pool by creating a [resource instance rule](../../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-from-azure-resource-instances-preview).
+You can configure storage accounts to allow access to specific serverless SQL pool by creating a [resource instance rule](../../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-from-azure-resource-instances).
 When accessing storage that is protected with the firewall, you can use **User Identity** or **Managed Identity**.
 
 > [!NOTE]
@@ -234,25 +236,39 @@ To query a file located in Azure Storage, your serverless SQL pool end point nee
 - Server-level CREDENTIAL is used for ad-hoc queries executed using `OPENROWSET` function. Credential name must match the storage URL.
 - DATABASE SCOPED CREDENTIAL is used for external tables. External table references `DATA SOURCE` with the credential that should be used to access storage.
 
-To allow a user to create or drop a credential, admin can GRANT/DENY ALTER ANY CREDENTIAL permission to a user:
+To allow a user to create or drop a server-level credential, admin can GRANT ALTER ANY CREDENTIAL permission to the user:
 
 ```sql
 GRANT ALTER ANY CREDENTIAL TO [user_name];
 ```
+To allow a user to create or drop a database scoped credential, admin can GRANT CONTROL permission on the database to the user:
+
+```sql
+GRANT CONTROL ON DATABASE::[database_name] TO [user_name];
+```
+
 
 Database users who access external storage must have permission to use credentials.
 
 ### Grant permissions to use credential
 
-To use the credential, a user must have `REFERENCES` permission on a specific credential. To grant a `REFERENCES` permission ON a storage_credential for a specific_user, execute:
+To use the credential, a user must have `REFERENCES` permission on a specific credential. 
+
+To grant a `REFERENCES` permission ON a server-level credential for a specific_user, execute:
 
 ```sql
-GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
+GRANT REFERENCES ON CREDENTIAL::[server-level_credential] TO [specific_user];
 ```
 
-## Server-scoped credential
+To grant a `REFERENCES` permission ON a DATABASE SCOPED CREDENTIAL for a specific_user, execute:
 
-Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the base URL of Azure storage (optionally followed by a container name). A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). You'll need to provide a CREDENTIAL NAME argument.
+```sql
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[database-scoped_credential] TO [specific_user];
+```
+
+## Server-level credential
+
+Server-level credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-level credential **must** match the base URL of Azure storage (optionally followed by a container name). A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). You'll need to provide a CREDENTIAL NAME argument.
 
 > [!NOTE]
 > The `FOR CRYPTOGRAPHIC PROVIDER` argument is not supported.
@@ -265,7 +281,7 @@ Server-level CREDENTIAL name must match the full path to the storage account (an
 | Azure Data Lake Storage Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Storage Gen2 | https  | <storage_account>.dfs.core.windows.net              |
 
-Server-scoped credentials enable access to Azure storage using the following authentication types:
+Server-level credentials enable access to Azure storage using the following authentication types:
 
 ### [User Identity](#tab/user-identity)
 
@@ -312,7 +328,7 @@ Optionally, you can use just the base URL of the storage account, without contai
 
 ### [Public access](#tab/public-access)
 
-Database scoped credential isn't required to allow access to publicly available files. Create [data source without database scoped credential](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) to access publicly available files on Azure storage.
+Server-level credential isn't required to allow access to publicly available files. Create [data source without credential](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) to access publicly available files on Azure storage.
 
 ---
 
@@ -390,7 +406,7 @@ The database scoped credential doesn't need to match the name of storage account
 
 ### [Public access](#tab/public-access)
 
-Database scoped credential isn't required to allow access to publicly available files. Create [data source without database scoped credential](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) to access publicly available files on Azure storage.
+Database scoped credential isn't required to allow access to publicly available files. Create [data source without credential](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) to access publicly available files on Azure storage.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE mysample
@@ -419,7 +435,7 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
        WITH ( FORMAT_TYPE = PARQUET)
 GO
 CREATE EXTERNAL DATA SOURCE publicData
-WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<public_container>/<path>' )
+WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<public_container>/<path>' )
 GO
 
 CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
@@ -466,7 +482,7 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
 GO
 
 CREATE EXTERNAL DATA SOURCE mysample
-WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>'
+WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>'
 -- Uncomment one of these options depending on authentication method that you want to use to access data source:
 --,CREDENTIAL = WorkspaceIdentity 
 --,CREDENTIAL = SasCredential 

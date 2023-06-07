@@ -10,7 +10,7 @@ ms.service: api-management
 ms.topic: article
 ms.date: 09/21/2021
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Backends in API Management
@@ -28,7 +28,10 @@ API Management also supports using other Azure resources as an API backend, such
 
 Custom backends require extra configuration to authorize the credentials of requests to the backend service and define API operations. Configure and manage custom backends in the Azure portal, or using Azure APIs or tools.
 
-After creating a backend, you can reference the backend URL in your APIs. Use the [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy to redirect an incoming API request to the custom backend instead of the default backend for that API.
+After creating a backend, you can reference the backend in your APIs. Use the [`set-backend-service`](set-backend-service-policy.md) policy to redirect an incoming API request to the custom backend instead of the default backend for that API.
+
+> [!NOTE]
+> When you use the `set-backend-service` policy to redirect requests to a custom backend, refer to the backend by its name (`backend-id`), not by its URL.
 
 ## Benefits of backends
 
@@ -46,4 +49,3 @@ For **Developer** and **Premium** tiers, an API Management instance deployed in 
 
 * Set up a [Service Fabric backend](how-to-configure-service-fabric-backend.md) using the Azure portal.
 * Backends can also be configured using the API Management [REST API](/rest/api/apimanagement), [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementbackend), or [Azure Resource Manager templates](../service-fabric/service-fabric-tutorial-deploy-api-management.md).
-

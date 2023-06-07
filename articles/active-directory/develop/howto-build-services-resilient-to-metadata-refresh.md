@@ -1,9 +1,8 @@
 ---
-title: "How to: Build services that are resilient to Azure AD's OpenID Connect metadata refresh | Azure"
-titleSuffix: Microsoft identity platform
+title: "How to: Build services that are resilient to Azure AD's OpenID Connect metadata refresh"
 description: Learn how to ensure that your web app or web api is resilient to Azure AD's OpenID Connect metadata refresh.
 services: active-directory
-author: jmprieur
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +10,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/21/2021
-ms.author: jmprieur
-ms.reviewer: marsma, shermanouko
+ms.author: henrymbugua
+ms.reviewer: jmprieur, shermanouko
 ms.custom: aaddev
 # Customer intent: As a web app or web API developer, I want to learn how to ensure that my app is resilient to outages due to Azure AD OpenID Connect metadata refresh.
 ---
@@ -36,7 +35,7 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
     // shouldn’t be necessary as it’s true by default
     options.RefreshOnIssuerKeyNotFound = true;
     …
-};
+});
 ```
 
 ## ASP.NET/ OWIN

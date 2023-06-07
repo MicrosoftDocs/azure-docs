@@ -4,7 +4,7 @@ description: This article describes the changes and several transition scenarios
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/30/2021
+ms.date: 04/20/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -28,7 +28,7 @@ When you assign licenses to a subscription using the new experience, changes are
 When you enroll in the scope-level management of Azure Hybrid Benefit experience, you’ll see your current Azure Hybrid Benefit usage that’s enabled for individual resources. For more information on the overall experience, see [Create SQL Server license assignments for Azure Hybrid Benefit](create-sql-license-assignments.md). If you're a subscription contributor and you don’t have the billing administrator role required, you can analyze the usage of different types of SQL Server licenses in Azure by using a PowerShell script. The script generates a snapshot of the usage across multiple subscriptions or the entire account. For details and examples of using the script, see the [sql-license-usage PowerShell script](https://github.com/anosov1960/sql-server-samples/tree/master/samples/manage/azure-hybrid-benefit) example script. Once you’ve run the script, identify and engage your billing administrator about the opportunity to shift Azure Hybrid Benefit management to the subscription or billing account scope level.
 
 > [!NOTE]
-> The script includes support for normalized core licenses (NCL). 
+> The script includes support for normalized cores (NC). 
 
 ## HADR benefit for SQL Server VMs
 

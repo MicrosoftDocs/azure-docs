@@ -8,9 +8,11 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
+ms.custom: build-2023
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 12/29/2022
 ms.author: kengaderdus
+ms.reviewer: yoelhor
 ms.subservice: B2C
 ---
 
@@ -116,7 +118,7 @@ The name of the claim is the name of the Azure AD attribute unless the **Partner
 - The value of the **userPrincipalName** claim must be in the format of `user@tenant.onmicrosoft.com`.
 - The **displayName** claim is required and cannot be an empty string.
 
-## Azure AD technical provider operations
+## Azure AD technical profile operations
 
 ### Read
 
@@ -266,17 +268,3 @@ The following settings can be used to configure the error message displayed upon
 See the following article, for example of using Azure AD technical profile:
 
 - [Add claims and customize user input using custom policies in Azure Active Directory B2C](configure-user-input.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-

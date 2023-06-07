@@ -12,7 +12,7 @@ ms.assetid: c528cf6f-5f16-4a06-beea-fa1207541a47
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 01/23/2018
@@ -312,4 +312,4 @@ Azure API Management service provides an ideal place to capture the HTTP traffic
 * Learn more about API Management and Event Hubs integration
   * [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
   * [Logger entity reference](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [log-to-eventhub policy reference](./api-management-advanced-policies.md#log-to-eventhub)
+  * [log-to-eventhub policy reference](./log-to-eventhub-policy.md)

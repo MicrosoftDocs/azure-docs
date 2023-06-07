@@ -1,19 +1,18 @@
 ---
-title: Understanding layers in the Azure Maps Power BI visual | Microsoft Azure Maps
-description: In this article, you will learn about the different layers available in the Microsoft Azure Maps visual for Power BI.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/26/2020
-ms.topic: conceptual
+title: Layers in an Azure Maps Power BI visual
+titleSuffix: Microsoft Azure Maps
+description: In this article, you will learn about the different layers available in an Azure Maps Power BI visual.
+author: deniseatmicrosoft
+ms.author: limingchen
+ms.date: 11/29/2021
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
-ms.custom: 
 ---
 
-# Understanding layers in the Azure Maps Power BI visual
+# Layers in Azure Maps Power BI visual
 
-There are two types of layers available in the Azure Maps visual. The first type focuses on rendering data that is passed into the **Fields** pane of the visual and consist of the following layers, let's call these data rendering layers.
+There are two types of layers available in an Azure Maps Power BI visual. The first type focuses on rendering data that is passed into the **Fields** pane of the visual and consist of the following layers, let's call these data rendering layers.
 
 :::row:::
     :::column span="":::
@@ -24,11 +23,27 @@ There are two types of layers available in the Azure Maps visual. The first type
         ![Bubble layer on map](media/power-bi-visual/bubble-layer-thumb.png)
     :::column-end:::
     :::column span="":::
-        **Bar chart layer**
+        **3D column layer**
 
-        Renders points as 3D bars on the map.
+        Renders points as 3D columns on the map.
+        ![3D column layer on map](media/power-bi-visual/3d-column-layer-thumb.png)
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column span="":::
+        **Filled map layer**
+
+        Provides a visual display to shows differences in values across a geography or region.
+
+        ![Filled Map layer on map](media/power-bi-visual/filled-map.png)
+    :::column-end:::
+    :::column span="":::
+        **Heat map layer**
+
+        Shows data "hot spots" on a map.
         
-        ![Bar chart layer on map](media/power-bi-visual/bar-chart-layer-thumb.png)
+        ![Heat map layer on map](media/power-bi-visual/heat-map-sm.png)
     :::column-end:::
 :::row-end:::
 
@@ -64,7 +79,7 @@ These layers also have an option to be positioned relative to other layers in th
 
 ## General layer settings
 
-The general layer section of the **Format** pane are common settings that apply to the layers that are connected to the Power BI dataset in the **Fields** pane (Bubble layer, Bar chart).
+The general layer section of the **Format** pane are common settings that apply to the layers that are connected to the Power BI dataset in the **Fields** pane (Bubble layer, 3D column layer).
 
 | Setting     | Description   |
 |-------------|---------------|
@@ -82,7 +97,7 @@ Change how your data is displayed on the map:
 > [Add a bubble layer](power-bi-visual-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Add a bar chart layer](power-bi-visual-add-bar-chart-layer.md)
+> [Add a 3D column layer](power-bi-visual-add-3d-column-layer.md)
 
 Add more context to the map:
 

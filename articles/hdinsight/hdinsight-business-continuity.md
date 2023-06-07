@@ -4,7 +4,7 @@ description: This article gives an overview of best practices, single region ava
 keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 05/27/2022
 ---
 
 # Azure HDInsight business continuity
@@ -76,7 +76,7 @@ It doesn't always take a catastrophic event to impact business functionality. Se
 
 ### HDInsight metastore
 
-HDInsight uses [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_4/) as a metastore, which provides an SLA of 99.99%. Three replicas of data persist within a data center with synchronous replication. If there is a replica loss, an alternate replica is served seamlessly. [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md) is supported out of the box with a maximum of four data centers. When there is a failover, either manual or data center, the first replica in the hierarchy will automatically become read-write capable. For more information, see [Azure SQL Database business continuity](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
+HDInsight uses [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_4/) as a metastore, which provides an SLA of 99.99%. Three replicas of data persist within a data center with synchronous replication. If there is a replica loss, an alternate replica is served seamlessly. [Active geo-replication](/azure/azure-sql/database/active-geo-replication-overview) is supported out of the box with a maximum of four data centers. When there is a failover, either manual or data center, the first replica in the hierarchy will automatically become read-write capable. For more information, see [Azure SQL Database business continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview).
 
 ### HDInsight Storage
 

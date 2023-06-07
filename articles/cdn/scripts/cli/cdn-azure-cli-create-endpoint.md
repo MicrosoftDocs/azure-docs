@@ -3,12 +3,13 @@ title: Create an Azure Content Delivery Network (CDN) profile and endpoint using
 description: Azure CLI sample scripts to create an Azure CDN profile, endpoint, origin group, origin, and custom domain.
 author: duongau
 ms.author: duau
-manager: danielgi
-ms.date: 03/09/2021
+manager: kumudd
+ms.date: 02/27/2023
 ms.topic: sample
 ms.service: azure-cdn
-ms.devlang: azurecli 
+ms.devlang: azurecli
 ms.custom: devx-track-azurecli
+ms.tool: azure-cli
 ---
 
 # Create an Azure CDN profile and endpoint using the Azure CLI
@@ -21,7 +22,7 @@ As an alternative to the Azure portal, you can use these sample Azure CLI script
 - Create a CDN origin.
 - Create a custom domain and enable HTTPS.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample scripts
 
@@ -81,12 +82,12 @@ az group delete --name MyResourceGroup
 
 ## Azure CLI commands used in this article
 
-- [az cdn endpoint create](/cli/azure/cdn/endpoint#az_cdn_endpoint_create)
-- [az cdn endpoint update](/cli/azure/cdn/endpoint#az_cdn_endpoint_update)
-- [az cdn origin create](/cli/azure/cdn/origin#az_cdn_origin_create)
-- [az cdn origin-group create](/cli/azure/cdn/origin-group#az_cdn_origin_group_create)
-- [az cdn profile create](/cli/azure/cdn/profile#az_cdn_profile_create)
-- [az group create](/cli/azure/group#az_group_create)
-- [az group delete](/cli/azure/group#az_group_delete)
-- [az cdn custom-domain create](/cli/azure/cdn/custom-domain#az_cdn_custom_domain_create)
-- [az cdn custom-domain enable-https](/cli/azure/cdn/custom-domain#az_cdn_custom_domain_enable_https)
+- [az cdn endpoint create](/cli/azure/cdn/endpoint#az-cdn-endpoint-create)
+- [az cdn endpoint update](/cli/azure/cdn/endpoint#az-cdn-endpoint-update)
+- [az cdn origin create](/cli/azure/cdn/origin#az-cdn-origin-create)
+- [az cdn origin-group create](/cli/azure/cdn/origin-group#az-cdn-origin-group-create)
+- [az cdn profile create](/cli/azure/cdn/profile#az-cdn-profile-create)
+- [az group create](/cli/azure/group#az-group-create)
+- [az group delete](/cli/azure/group#az-group-delete)
+- [az cdn custom-domain create](/cli/azure/cdn/custom-domain#az-cdn-custom-domain-create)
+- [az cdn custom-domain enable-https](/cli/azure/cdn/custom-domain#az-cdn-custom-domain-enable-https)

@@ -15,6 +15,8 @@ ms.date: 12/14/2020
 
 # Visualize data from Azure Time Series Insights in Power BI
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 Azure Time Series Insights is a platform for storing, managing, querying, and visualizing time-series data in the cloud. [Power BI](https://powerbi.microsoft.com) is a business analytics tool with rich visualization capabilities that allows you to share insights and results across your organization. Both services can now be integrated allowing you to augment the powerful analytics of Azure Time Series Insights with the strong data visualization and easy sharing capabilities of Power BI.
 
 You'll learn how to:

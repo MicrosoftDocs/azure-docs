@@ -74,7 +74,7 @@ This value is the state of the last operation performed on a container group. Ge
 > [!IMPORTANT]
 > Additionally, users should not create dependencies on non-terminal provisioning states. Dependencies on **Succeeded** and **Failed** states are acceptable.
 
-In addition to the JSON view, provisioning state can be also be found in the [response body of the HTTP call](/rest/api/container-instances/containergroups/createorupdate#response).
+In addition to the JSON view, provisioning state can be also be found in the [response body of the HTTP call](/rest/api/container-instances/2022-09-01/container-groups/create-or-update#response).
 
 ### Create, start, and restart operations
 
@@ -93,7 +93,7 @@ These states are applicable to PUT (create) and POST (start/restart) events.
 
 - **Repairing**: The container group is getting moved in order to repair an unhealthy state.
 
-- **Failed**: The container group failed to reach the **Succeeded** provisioning state. Failure can occur for many reasons (inaccessible network profile, low capacity in the designated region, full consumption of user quota, timeout after 30 minutes, etc.). More information on the failure can be found under `events` in the JSON view.
+- **Failed**: The container group failed to reach the **Succeeded** provisioning state. Failure can occur for many reasons (low capacity in the designated region, full consumption of user quota, timeout after 30 minutes, etc.). More information on the failure can be found under `events` in the JSON view.
     > [!NOTE]
     > A failed state does not mean that the resource is removed or stops attempting to succeed. The container group state will indicate the current state of the group. If you want to ensure the container group does not run after a **Failed** provisioning state, then you will have to stop or delete it.
 

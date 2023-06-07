@@ -1,17 +1,17 @@
 ---
 title: Application Management certificates frequently asked questions
-titleSuffix: Azure AD
 description: Learn answers to frequently asked questions (FAQ) about managing certificates for apps using Azure Active Directory as an Identity Provider (IdP).  
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/19/2021
-ms.author: davidmu
+ms.date: 03/03/2023
+ms.author: jomondi
 ms.reviewer: sureshja, saumadan
+ms.custom: enterprise-apps
 ---
 
 # Application Management certificates frequently asked questions
@@ -29,6 +29,9 @@ You can find the steps [here](manage-certificates-for-federated-single-sign-on.m
 ## How can I customize the expiration date for the certificates issued by Azure AD?
 
 By default, Azure AD configures a certificate to expire after three years when it is created automatically during SAML single sign-on configuration. Because you can't change the date of a certificate after you save it, you need to create a new certificate. For steps on how to do so, please refer [Customize the expiration date for your federation certificate and roll it over to a new certificate](manage-certificates-for-federated-single-sign-on.md#customize-the-expiration-date-for-your-federation-certificate-and-roll-it-over-to-a-new-certificate).
+
+> [!NOTE]
+> The recommended way to create SAML applications is through the Azure AD Application Gallery, which will automatically create a three-year valid X509 certificate for you. 
 
 ## How can I automate the certificates expiration notifications?
 
@@ -48,6 +51,13 @@ The owner of the application or Global Administrator or Application Administrato
 ## I need more details about certificate signing options
 
 In Azure AD, you can set up certificate signing options and the certificate signing algorithm. To learn more, see [Advanced SAML token certificate signing options for Azure AD apps](certificate-signing-options.md).
+
+## What type of certificate can I use for configuring the SAML Certificate for single sign-on?
+
+The recommendation for the SAML single sign-on certificate depends on your organization's security requirements and policies. 
+If your organization has an internal certificate authority (PKI), using a certificate from the internal PKI can provide a higher level of security and trust. This is because the internal PKI is under the control of your organization and can be managed and monitored to ensure the security of the certificate.
+
+On the other hand, if your organization doesn't have an internal certificate authority, using a certificate from an external certificate authority such as DigiCert can provide a higher level of trust and security. This is because external certificate authorities are trusted by many organizations and are subject to strict security and validation requirements.
 
 ## I need to replace the certificate for Azure AD Application Proxy applications and need more instructions
 
@@ -76,3 +86,7 @@ To renew an application token signing certificate, see [How to renew a token sig
 ## How do I update Azure AD after changing my federation certificates?
 
 To update Azure AD after changing your federation certificates, see [Renew federation certificates for Microsoft 365 and Azure Active Directory](../hybrid/how-to-connect-fed-o365-certs.md).
+
+## Can I use the same SAML certificate across different apps?
+
+When it's the first time configuring SSO on an enterprise app, we do provide a default SAML certificate that is used across Azure AD. However, if you need to use the same certificate across multiple apps that aren't the default Azure AD one, then you need to use an external Certificate Authority and upload the PFX file. The reason is that Azure AD doesn't provide access to private keys from internally issued certificates.

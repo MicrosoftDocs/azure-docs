@@ -129,6 +129,7 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
     ```gradle
     implementation 'com.google.firebase:firebase-core:16.0.8'
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
+    implementation 'com.google.firebase:firebase-iid:21.1.0'
     ```
 
 2. Add the following plug-in at the end of the file if it's not already there. 
@@ -169,7 +170,7 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
 
 1. In the Project View, expand **app** > **src** > **main** > **java**. Right-click your package folder under **java**, select **New**, and then select **Java Class**. Enter **NotificationSettings** for the name, and then select **OK**.
 
-    Make sure to update these three placeholders in the following code for the `NotificationSettings` class:
+    Make sure to update these two placeholders in the following code for the `NotificationSettings` class:
 
    * **HubListenConnectionString**: The **DefaultListenAccessSignature** connection string for your hub. You can copy that connection string by clicking **Access Policies** in your hub in the [Azure portal].
    * **HubName**: Use the name of your hub that appears in the hub page in the [Azure portal].

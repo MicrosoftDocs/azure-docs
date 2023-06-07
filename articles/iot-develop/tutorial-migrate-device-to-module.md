@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Connect a generic Azure IoT Plug and Play module | Microsoft Docs
 description: Tutorial - Use sample C# IoT Plug and Play device code in a generic module.
-author: RamIoTMalhotra
-ms.author: ramal
-ms.date: 9/22/2020
+author: dominicbetts
+ms.author: dobett
+ms.date: 11/17/2022
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
@@ -15,7 +15,12 @@ services: iot-develop
 
 This tutorial shows you how to connect a generic IoT Plug and Play [module](../iot-hub/iot-hub-devguide-module-twins.md).
 
-A device is an IoT Plug and Play device if it publishes its model ID when it connects to an IoT hub and implements the properties and methods described in the Digital Twins Definition Language (DTDL) model identified by the model ID. To learn more about how devices use a DTDL and model ID, see [IoT Plug and Play developer guide](./concepts-developer-guide-device.md). Modules use model IDs and DTDL models in the same way.
+A device is an IoT Plug and Play device if it:
+
+* Publishes its model ID when it connects to an IoT hub.
+* Implements the properties and methods described in the Digital Twins Definition Language (DTDL) model identified by the model ID.
+
+To learn more about how devices use a DTDL and model ID, see [IoT Plug and Play developer guide](./concepts-developer-guide-device.md). Modules use model IDs and DTDL models in the same way.
 
 To demonstrate how to implement an IoT Plug and Play module, this tutorial shows you how to:
 
@@ -28,9 +33,9 @@ To demonstrate how to implement an IoT Plug and Play module, this tutorial shows
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
-To complete this tutorial on Windows, install the following software on your local Windows environment:
+To complete this tutorial, install the following software in your local development environment:
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/).
+* Install the latest .NET for your operating system from [https://dot.net](https://dot.net).
 * [Git](https://git-scm.com/download/).
 
 Use the Azure IoT explorer tool to add a new device called **my-module-device** to your IoT hub.
@@ -86,58 +91,65 @@ Add a module called **my-module** to the **my-module-device**:
 
 If you haven't already done so, clone the Azure IoT Hub Device C# SDK GitHub repository to your local machine:
 
-Open a command prompt in a folder of your choice. Use the following command to clone the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository into this location:
+Open a command prompt in a folder of your choice. Use the following command to clone the [Azure IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository into this location:
 
-```cmd
-git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
+```cmd/sh
+git clone https://github.com/Azure/azure-iot-sdk-csharp.git
 ```
 
 ## Prepare the project
 
 To open and prepare the sample project:
 
-1. Open the *azure-iot-sdk-csharp\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* project file in Visual Studio 2019.
+1. Navigate to the *azure-iot-sdk-csharp/iothub/device/samples/solutions/PnpDeviceSamples/Thermostat* folder.
 
-1. In Visual Studio, navigate to **Project > Thermostat Properties > Debug**. Then add the following environment variables to the project:
+1. Add the following environment variables to your shell environment:
 
     | Name | Value |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | connectionString |
     | IOTHUB_MODULE_CONNECTION_STRING | The module connection string you made a note of previously |
 
-    To learn more about the sample configuration, see the [sample readme](https://github.com/Azure-Samples/azure-iot-samples-csharp/blob/main/iot-hub/Samples/device/PnpDeviceSamples/readme.md).
+    To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/solutions/PnpDeviceSamples#readme).
 
 ## Modify the code
 
 To modify the code to work as a module instead of a device:
 
-1. In Visual Studio, open *Parameter.cs* and modify the line that sets the **PrimaryConnectionString** variable as follows:
+1. In your text editor or IDE, open *Parameter.cs* and modify the line that sets the **PrimaryConnectionString** variable as follows:
 
     ```csharp
     public string PrimaryConnectionString { get; set; } = Environment.GetEnvironmentVariable("IOTHUB_MODULE_CONNECTION_STRING");
     ```
 
-1. In Visual Studio, open *Program.cs* and replace the seven instances of the `DeviceClient` class with the `ModuleClient` class.
+1. In your text editor or IDE, open *Program.cs* and replace the nine instances of the `DeviceClient` class with the `ModuleClient` class.
 
     > [!TIP]
     > Use the Visual Studio search and replace feature with **Match case** and **Match whole word** enabled to replace `DeviceClient` with `ModuleClient`.
 
-1. In Visual Studio, open *Thermostat.cs* and replace both instances of the `DeviceClient` class with the `ModuleClient` class as follows.
+1. In your text editor or IDE, open *Thermostat.cs* and replace both instances of the `DeviceClient` class with the `ModuleClient` class.
 
 1. Save the changes to the files you modified.
+
+1. To run the sample in your shell environment, make sure you're in the *azure-iot-sdk-csharp/iothub/device/samples/solutions/PnpDeviceSamples/Thermostat* folder and that the environment variables are set. Then run:
+
+    ```cmd/sh
+    dotnet build
+    dotnet run
+    ```
 
 If you run the code and then use the Azure IoT explorer to view the updated module twin, you see the updated device twin with the model ID and module reported property:
 
 ```json
 {
   "deviceId": "my-module-device",
-  "moduleId": "my-mod",
+  "moduleId": "my-module",
   "etag": "AAAAAAAAAAE=",
-  "deviceEtag": "NjgzMzQ1MzQ1",
+  "deviceEtag": "MTk0ODMyMjI4",
   "status": "enabled",
   "statusUpdateTime": "0001-01-01T00:00:00Z",
   "connectionState": "Connected",
-  "lastActivityTime": "0001-01-01T00:00:00Z",
+  "lastActivityTime": "2022-11-16T13:56:43.1711257Z",
   "cloudToDeviceMessageCount": 0,
   "authenticationType": "sas",
   "x509Thumbprint": {
@@ -145,7 +157,7 @@ If you run the code and then use the Azure IoT explorer to view the updated modu
     "secondaryThumbprint": null
   },
   "modelId": "dtmi:com:example:Thermostat;1",
-  "version": 3,
+  "version": 5,
   "properties": {
     "desired": {
       "$metadata": {
@@ -154,11 +166,32 @@ If you run the code and then use the Azure IoT explorer to view the updated modu
       "$version": 1
     },
     "reported": {
-      "maxTempSinceLastReboot": 5,
+      "targetTemperature": {
+        "value": 0,
+        "ac": 203,
+        "av": 0,
+        "ad": "Initialized with default value"
+      },
+      "maxTempSinceLastReboot": 23.4,
       "$metadata": {
-        "$lastUpdated": "2020-09-28T08:53:45.9956637Z",
+        "$lastUpdated": "2022-11-16T14:06:59.4376422Z",
+        "targetTemperature": {
+          "$lastUpdated": "2022-11-16T13:55:55.6688872Z",
+          "value": {
+            "$lastUpdated": "2022-11-16T13:55:55.6688872Z"
+          },
+          "ac": {
+            "$lastUpdated": "2022-11-16T13:55:55.6688872Z"
+          },
+          "av": {
+            "$lastUpdated": "2022-11-16T13:55:55.6688872Z"
+          },
+          "ad": {
+            "$lastUpdated": "2022-11-16T13:55:55.6688872Z"
+          }
+        },
         "maxTempSinceLastReboot": {
-          "$lastUpdated": "2020-09-28T08:53:45.9956637Z"
+          "$lastUpdated": "2022-11-16T14:06:59.4376422Z"
         }
       },
       "$version": 2
@@ -171,9 +204,9 @@ If you run the code and then use the Azure IoT explorer to view the updated modu
 
 The service SDKs let you retrieve the model ID of connected IoT Plug and Play devices and modules. You can use the service SDKs to set writable properties and call commands:
 
-1. In another instance of Visual Studio, open the *azure-iot-sdk-csharp\iot-hub\Samples\service\PnpServiceSamples\Thermostat\Thermostat.csproj* project.
+1. In another shell environment, navigate to the *azure-iot-sdk-csharp\iothub\service\samples\solutions\PnpServiceSamples\Thermostat* folder.
 
-1. In Visual Studio, navigate to **Project > Thermostat Properties > Debug**. Then add the following environment variables to the project:
+1. Add the following environment variables to your shell environment:
 
     | Name | Value |
     | ---- | ----- |
@@ -183,41 +216,54 @@ The service SDKs let you retrieve the model ID of connected IoT Plug and Play de
     > [!TIP]
     > You can also find your IoT hub connection string in the Azure IoT explorer tool.
 
-1. Open the *Program.cs* file and modify the line that calls a command as follows:
+1. In your text editor or IDE, open the *ThermostatSample.cs* file and modify the line that calls a command as follows:
 
     ```csharp
-    CloudToDeviceMethodResult result = await s_serviceClient.InvokeDeviceMethodAsync(s_deviceId, "my-module", commandInvocation);
+    CloudToDeviceMethodResult result = await _serviceClient.InvokeDeviceMethodAsync(_deviceId, "my-module", commandInvocation);
     ```
 
-1. In the *Program.cs* file, modify the line that retrieves the device twin as follows:
+1. In the *ThermostatSample.cs* file, modify the line that retrieves the device twin as follows:
 
     ```csharp
     Twin twin = await s_registryManager.GetTwinAsync(s_deviceId, "my-module");
     ```
 
-1. Make sure the module client sample is still running, and then run this service sample. The output from the service sample shows the model ID from the device twin and the command call:
+1. Save your changes.
 
-    ```cmd
-    [09/28/2020 10:52:55]dbug: Thermostat.Program[0]
-      Initialize the service client.
-    [09/28/2020 10:52:55]dbug: Thermostat.Program[0]
-      Get Twin model Id and Update Twin
-    [09/28/2020 10:52:59]dbug: Thermostat.Program[0]
-      Model Id of this Twin is: dtmi:com:example:Thermostat;1
-    [09/28/2020 10:52:59]dbug: Thermostat.Program[0]
-      Invoke a command
-    [09/28/2020 10:53:00]dbug: Thermostat.Program[0]
-      Command getMaxMinReport invocation result status is: 200
+1. Make sure the module client sample is still running, and then run this service sample:
+
+    ```cmd/sh
+    dotnet build
+    dotnet run
     ```
 
-    The output from the module client shows the command handler's response:
+The output from the service sample shows the model ID from the device twin and the command call:
 
-    ```cmd
-    [09/28/2020 10:53:00]dbug: Thermostat.ThermostatSample[0]
-      Command: Received - Generating max, min and avg temperature report since 28/09/2020 10:52:55.
-    [09/28/2020 10:53:00]dbug: Thermostat.ThermostatSample[0]
-      Command: MaxMinReport since 28/09/2020 10:52:55: maxTemp=25.4, minTemp=25.4, avgTemp=25.4, startTime=28/09/2020 10:52:56, endTime=28/09/2020 10:52:56
-    ```
+```cmd
+[11/16/2022 14:27:56]dbug: Microsoft.Azure.Devices.Samples.ThermostatSample[0]
+  Get the my-module-device device twin.
+...
+[11/16/2022 14:27:58]dbug: Microsoft.Azure.Devices.Samples.ThermostatSample[0]
+  The my-module-device device twin has a model with ID dtmi:com:example:Thermostat;1.
+[11/16/2022 14:27:58]dbug: Microsoft.Azure.Devices.Samples.ThermostatSample[0]
+  Update the targetTemperature property on the my-module-device device twin to 44.
+[11/16/2022 14:27:58]dbug: Microsoft.Azure.Devices.Samples.ThermostatSample[0]
+  Get the my-module-device device twin.
+...
+[11/16/2022 14:27:58]dbug: Microsoft.Azure.Devices.Samples.ThermostatSample[0]
+  Invoke the getMaxMinReport command on my-module-device device twin.
+[11/16/2022 14:27:59]dbug: Microsoft.Azure.Devices.Samples.ThermostatSample[0]
+  Command getMaxMinReport was invoked on device twin my-module-device.
+Device returned status: 200.
+Report: {"maxTemp":23.4,"minTemp":23.4,"avgTemp":23.39999999999999,"startTime":"2022-11-16T14:26:00.7446533+00:00","endTime":"2022-11-16T14:27:54.3102604+00:00"}
+```
+
+The output from the module client shows the command handler's response:
+
+```cmd
+[11/16/2022 14:27:59]Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0] Command: Received - Generating max, min and avg temperature report since 16/11/2022 14:25:58.
+[11/16/2022 14:27:59]Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0] Command: MaxMinReport since 16/11/2022 14:25:58: maxTemp=23.4, minTemp=23.4, avgTemp=23.39999999999999, startTime=16/11/2022 14:26:00, endTime=16/11/2022 14:27:54
+```
 
 ## Convert to an IoT Edge module
 
@@ -233,7 +279,7 @@ You can use the Azure IoT Explorer tool to see:
 * The model ID of your IoT Edge device in the module twin.
 * Telemetry from the IoT Edge device.
 * IoT Edge module twin property updates triggering IoT Plug and Play notifications.
-* The IoT Edge module react to your IoT Plug and Play commands.
+* The IoT Edge module reacts to your IoT Plug and Play commands.
 
 ## Clean up resources
 

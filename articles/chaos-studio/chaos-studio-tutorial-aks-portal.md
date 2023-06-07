@@ -1,10 +1,10 @@
 ---
 title: Create an experiment that uses an AKS Chaos Mesh fault using Azure Chaos Studio with the Azure portal
 description: Create an experiment that uses an AKS Chaos Mesh fault with the Azure portal
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: how-to
-ms.date: 11/01/2021
-ms.author: johnkem
+ms.date: 04/21/2022
+ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: template-how-to, ignite-fall-2021
 ---
@@ -18,7 +18,14 @@ Azure Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-sour
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-- An AKS cluster. If you do not have an AKS cluster, you can [follow these steps to create one](../aks/kubernetes-walkthrough-portal.md).
+- An AKS cluster with a Linux node pool. If you do not have an AKS cluster, see the AKS quickstart [using the Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [using Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or [using the Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
+
+> [!WARNING]
+> AKS Chaos Mesh faults are only supported on Linux node pools.
+
+## Limitations
+
+- Previously, Chaos Mesh faults didn't work with private clusters. You can now use Chaos Mesh faults with private clusters by configuring [VNet Injection in Chaos Studio](chaos-studio-private-networking.md).
 
 ## Set up Chaos Mesh on your AKS cluster
 
@@ -26,12 +33,15 @@ Before you can run Chaos Mesh faults in Chaos Studio, you need to install Chaos 
 
 1. Run the following commands in an [Azure Cloud Shell](../cloud-shell/overview.md) window where you have the active subscription set to be the subscription where your AKS cluster is deployed. Replace `$RESOURCE_GROUP` and `$CLUSTER_NAME` with the resource group and name of your cluster resource.
 
-```bash
+```azurecli
 az aks get-credentials -g $RESOURCE_GROUP -n $CLUSTER_NAME
+```
+
+```bash
 helm repo add chaos-mesh https://charts.chaos-mesh.org
 helm repo update
 kubectl create ns chaos-testing
-helm install chaos-mesh chaos-mesh/chaos-mesh --namespace=chaos-testing --version 2.0.3 --set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/run/containerd/containerd.sock
+helm install chaos-mesh chaos-mesh/chaos-mesh --namespace=chaos-testing --set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/run/containerd/containerd.sock
 ```
 
 2. Verify that the Chaos Mesh pods are installed by running the following command:
@@ -90,8 +100,8 @@ With your AKS cluster now onboarded, you can create your experiment. A chaos exp
           namespace: chaos-testing
         spec:
           action: pod-failure
-          mode: one
-          duration: '30s'
+          mode: all
+          duration: '600s'
           selector:
             namespaces:
               - default
@@ -100,8 +110,8 @@ With your AKS cluster now onboarded, you can create your experiment. A chaos exp
 
         ```yaml
         action: pod-failure
-        mode: one
-        duration: '30s'
+        mode: all
+        duration: '600s'
         selector:
           namespaces:
             - default
@@ -109,11 +119,9 @@ With your AKS cluster now onboarded, you can create your experiment. A chaos exp
     4. Use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minimize it.
 
         ```json
-        {"action":"pod-failure","mode":"one","duration":"30s","selector":{"namespaces":["default"]}}
+        {"action":"pod-failure","mode":"all","duration":"600s","selector":{"namespaces":["default"]}}
         ```
-    5. Paste the minimized JSON into the **json** field in the portal.
-
-
+    5. Paste the minimized JSON into the **jsonSpec** field in the portal.
 
 
 Click **Next: Target resources >**

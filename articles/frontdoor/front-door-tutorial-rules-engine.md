@@ -1,14 +1,11 @@
 ---
-title: 'Tutorial: Configure Rules Engine - Azure Front Door'
+title: 'Tutorial: Configure Rules Engine'
+titleSuffix: Azure Front Door
 description: This article provides a tutorial on how to configure Rules Engine in both the Azure portal and CLI.
 services: frontdoor
-documentationcenter: ''
 author: duongau
-editor: ''
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/09/2020
 ms.author: duau 
@@ -37,9 +34,11 @@ In this tutorial, you learn how to:
 1. Click **Add Rule** to create your first rule. Then, by clicking **Add condition** or **Add action** you can define your rule.
     
     > [!NOTE]
-    >- To delete a condition or action from rule, use the trash can on the right-hand side of the specific condition or action.
+    > - To delete a condition or action from rule, use the trash can on the right-hand side of the specific condition or action.
     > - To create a rule that applies to all incoming traffic, do not specify any conditions.
-    > - To stop evaluating rules once the first match condition is met, check **Stop evaluating remaining rule**. If this is checked and all of the match conditions of a particular rule are met, then the remaining rules in the configuration will not be executed.  
+    > - To stop evaluating rules once the first match condition is met, check **Stop evaluating remaining rule**. If this is checked and all of the match conditions of a particular rule are met, then the remaining rules in the configuration will not be executed.
+    > - All paths in Rules Engine are case sensitive.
+    > - Header names should adhere to [RFC 7230](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6).
 
     ![Rules Engine configuration](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
 

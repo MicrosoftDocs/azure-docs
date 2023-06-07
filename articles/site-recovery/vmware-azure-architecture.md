@@ -4,13 +4,15 @@ description: This article provides an overview of components and architecture us
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/19/2021
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # VMware to Azure disaster recovery architecture - Classic
 
 This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the [Azure Site Recovery](site-recovery-overview.md) service - Classic.
 
-For architecture details in Preview, [see this article](vmware-azure-architecture-preview.md)
+For details about modernized architecture, [see this article](vmware-azure-architecture-modernized.md)
 
 
 ## Architectural components
@@ -31,7 +33,7 @@ The following table and graphic provide a high-level view of the components used
 For Site Recovery to work as expected, you need to modify outbound network connectivity to allow your environment to replicate.
 
 > [!NOTE]
-> Site Recovery doesn't support using an authentication proxy to control network connectivity.
+> Site Recovery of VMware/Physical machines using Classic architecture doesn't support using an authentication proxy to control network connectivity. The same is supported when using the [modernized architecutre](vmware-azure-architecture-modernized.md).
 
 ### Outbound connectivity for URLs
 
@@ -52,8 +54,11 @@ For exhaustive list of URLs to be filtered for communication between on-premises
     - For VMware VMs, replication is block-level, near-continuous, using the Mobility service agent running on the VM.
     - Any replication policy settings are applied:
         - **RPO threshold**. This setting does not affect replication. It helps with monitoring. An event is raised, and optionally an email sent, if the current RPO exceeds the threshold limit that you specify.
-        - **Recovery point retention**. This setting specifies how far back in time you want to go when a disruption occurs. Maximum retention on premium storage is 24 hours. On standard storage it's 72 hours.
+        - **Recovery point retention**. This setting specifies how far back in time you want to go when a disruption occurs. Maximum retention is 15 days on Managed disk.
         - **App-consistent snapshots**. App-consistent snapshot can be taken every 1 to 12 hours, depending on your app needs. Snapshots are standard Azure blob snapshots. The Mobility agent running on a VM requests a VSS snapshot in accordance with this setting, and bookmarks that point-in-time as an application consistent point in the replication stream.
+        >[!NOTE]
+        >High recovery point retention period may have an implication on the storage cost since more recovery points may need to be saved. 
+        
 
 2. Traffic replicates to Azure storage public endpoints over the internet. Alternately, you can use Azure ExpressRoute with [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Replicating traffic over a site-to-site virtual private network (VPN) from an on-premises site to Azure isn't supported.
 3. Initial replication operation ensures that entire data on the machine at the time of enable replication is sent to Azure. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are sent to the process server.
@@ -79,19 +84,9 @@ For exhaustive list of URLs to be filtered for communication between on-premises
 6. If default resynchronization fails outside office hours and a manual intervention is required, then an error is generated on the specific machine in Azure portal. You can resolve the error and trigger the resynchronization manually.
 7. After completion of resynchronization, replication of delta changes will resume.
 
-## Replication policy
-
-When you enable Azure VM replication, by default Site Recovery creates a new replication policy with the default settings summarized in the table.
-
-**Policy setting** | **Details** | **Default**
---- | --- | ---
-**Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 24 hours
-**App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | Every four hours
-
 ### Managing replication policies
 
-You can manage and modify the default replication policies settings as follows:
-- You can modify the settings as you enable replication.
+- You can customize the settings of replication policies as you enable replication.
 - You can create a replication policy at any time, and then apply it when you enable replication.
 
 ### Multi-VM consistency

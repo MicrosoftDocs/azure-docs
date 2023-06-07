@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Azure Government Portal
+  - name: Azure Government portal
     href: documentation-government-get-started-connect-with-portal.md
   - name: Azure CLI
     href: documentation-government-get-started-connect-with-cli.md
@@ -41,20 +41,16 @@
       href: documentation-government-plan-compliance.md
     - name: Identity
       href: documentation-government-plan-identity.md
-  - name: Manage
-    items:
-    - name: Azure Monitor logs
-      href: documentation-government-manage-oms.md
-    - name: Marketplace
-      href: documentation-government-manage-marketplace.md
   - name: Industry segments
     items:
-    - name: Export controls
-      href: documentation-government-overview-itar.md
-    - name: Justice and public safety
-      href: documentation-government-overview-jps.md
     - name: Department of Defense
       href: documentation-government-overview-dod.md
+    - name: Export controls
+      href: documentation-government-overview-itar.md
+    - name: Power and utilities
+      href: documentation-government-overview-nerc.md
+    - name: Public safety and justice
+      href: documentation-government-overview-jps.md
     - name: Worldwide public sector
       href: documentation-government-overview-wwps.md
 - name: How-to guides
@@ -85,6 +81,14 @@
       href: connect-with-azure-pipelines.md
     - name: Use DISA CAP
       href: documentation-government-ase-disa-cap.md
+  - name: Manage
+    items:
+    - name: Azure Monitor logs
+      href: documentation-government-manage-oms.md
+    - name: Marketplace
+      href: documentation-government-manage-marketplace.md
+    - name: Access EA billing account
+      href: documentation-government-how-to-access-enterprise-agreement-billing-account.md
 - name: Compliance
   items:
   - name: Trusted Internet Connections with Azure
@@ -124,4 +128,4 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Trial
-    href: https://azure.microsoft.com/en-us/global-infrastructure/government/request/
+    href: https://azure.microsoft.com/global-infrastructure/government/request/

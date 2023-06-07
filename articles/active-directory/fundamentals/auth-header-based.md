@@ -2,15 +2,15 @@
 title: Header-based authentication with Azure Active Directory
 description: Architectural guidance on achieving header-based authentication with Azure Active Directory.
 services: active-directory
-author: BarbaraSelden
-manager: daveba
+author: janicericketts
+manager: martinco
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 10/10/2020
-ms.author: baselden
+ms.date: 01/10/2023
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management

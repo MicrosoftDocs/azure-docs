@@ -1,5 +1,5 @@
 ---
-title: What is Microsoft Azure Cognitive Services Text Translation?
+title: What is Azure Text Translation?
 titlesuffix: Azure Cognitive Services
 description: Integrate the Text Translation API into your applications, websites, tools, and other solutions to provide multi-language user experiences.
 services: cognitive-services
@@ -8,27 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
 ms.subservice: translator-text
-ms.date: 08/09/2021
+ms.date: 04/26/2023
 ms.author: lajanuar
-ms.custom: cog-serv-seo-aug-2020
-keywords: translator, text translation, machine translation, translation service, custom translator
 ---
 
-# What is Text Translation?
+# What is Azure Text Translation?
 
- Text translation is a cloud-based REST API feature of the Translator service that uses neural machine translation technology to enable quick and accurate source-to-target text translation in real time across all [supported languages](language-support.md). In this overview, you'll learn how the Text Translation REST APIs enable you to build intelligent solutions for your applications and workflows.
+ Azure Text Translation is a cloud-based REST API feature of the Translator service that uses neural machine translation technology to enable quick and accurate source-to-target text translation in real time across all [supported languages](language-support.md). In this overview, you learn how the Text Translation REST APIs enable you to build intelligent solutions for your applications and workflows.
 
 Text translation documentation contains the following article types:
 
 * [**Quickstarts**](quickstart-translator.md). Getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](translator-how-to-signup.md). Instructions for accessing and using the service in more specific or customized ways.
+* [**How-to guides**](how-to-create-translator-resource.md). Instructions for accessing and using the service in more specific or customized ways.
 * [**Reference articles**](reference/v3-0-reference.md). REST API documentation and programming language-based content.
 
 ## Text translation features
 
- The following methods are supported by the Text Translation feature:
+ Text Translation supports the following methods:
 
-* [**Languages**](reference/v3-0-languages.md). Returns a list of languages supported by **Translate**, **Transliterate**, and **Dictionary Lookup** operations. This request does not require authentication; just copy and paste the following GET request into Postman or your favorite API tool or browser:
+* [**Languages**](reference/v3-0-languages.md). Returns a list of languages supported by **Translate**, **Transliterate**, and **Dictionary Lookup** operations. This request doesn't require authentication; just copy and paste the following GET request into Postman or your favorite API tool or browser:
 
     ```http
     https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
@@ -56,7 +54,7 @@ Add Text Translation to your projects and applications using the following resou
 
     > [!IMPORTANT]
     >
-    > * The Translator container is in gated preview. To use it, you must complete and submit the [**Azure Cognitive Services Application for Gated Services**](https://aka.ms/csgate-translator) online request form and have it approved to acquire access to the container.
+    > * To use the Translator container you must complete and submit the [**Azure Cognitive Services Application for Gated Services**](https://aka.ms/csgate-translator) online request form and have it approved to acquire access to the container.
     >
     > * The [**Translator container image**](https://hub.docker.com/_/microsoft-azure-cognitive-services-translator-text-translation) supports limited features compared to cloud offerings.
     >
@@ -65,9 +63,9 @@ Add Text Translation to your projects and applications using the following resou
 
 Ready to begin?
 
-* [**Create a Translator resource**](translator-how-to-signup.md "Go to the Azure portal.") in the Azure portal.
+* [**Create a Translator resource**](how-to-create-translator-resource.md "Go to the Azure portal.") in the Azure portal.
 
-* [**Get your access keys and API endpoint**](translator-how-to-signup.md#authentication-keys-and-endpoint-url). An endpoint URL and read-only key are required for authentication.
+* [**Get your access keys and API endpoint**](how-to-create-translator-resource.md#authentication-keys-and-endpoint-url). An endpoint URL and read-only key are required for authentication.
 
 * Explore our [**Quickstart**](quickstart-translator.md "Learn to use Translator via REST and a preferred programming language.") and view use cases and code samples for the following programming languages: 
   * [**C#/.NET**](quickstart-translator.md?tabs=csharp)

@@ -3,21 +3,20 @@ title: "Quickstart: Use the Language Detection client library"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to start using Language Detection.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 11/02/2021
-ms.author: aahi
-ms.custom: language-service-language-detection, ignite-fall-2021, mode-other
+ms.date: 02/17/2023
+ms.author: jboback
+ms.devlang: csharp, java, javascript, python
+ms.custom: language-service-language-detection, ignite-fall-2021, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 keywords: text mining, language detection
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
 # Quickstart: using the Language Detection client library and REST API
-
-Use this article to get started with Language Detection using the client library and REST API. Follow these steps to try out examples code for mining text:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -55,6 +54,8 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+
 
 ## Next steps
 

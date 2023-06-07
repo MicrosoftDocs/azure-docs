@@ -38,7 +38,7 @@ If you already have an App Service app and want to configure local Git deploymen
 
 # [Azure CLI](#tab/cli)
 
-Run [`az webapp create`](/cli/azure/webapp#az_webapp_create) with the `--deployment-local-git` option. For example:
+Run [`az webapp create`](/cli/azure/webapp#az-webapp-create) with the `--deployment-local-git` option. For example:
 
 ```azurecli-interactive
 az webapp create --resource-group <group-name> --plan <plan-name> --name <app-name> --runtime "<runtime-flag>" --deployment-local-git
@@ -68,7 +68,7 @@ If you haven't created an app yet, see [Create a Git enabled app](#create-a-git-
 
 # [Azure CLI](#tab/cli)
 
-Run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_local_git). For example:
+Run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git). For example:
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
@@ -142,6 +142,8 @@ When you push commits to your App Service repository, App Service deploys the fi
     az webapp config appsettings set --name <app-name> --resource-group <group-name> --settings DEPLOYMENT_BRANCH='main'
     git push azure main
     ```
+
+    You can also change the `DEPLOYMENT_BRANCH` app setting in the Azure Portal, by selecting **Configuration** under **Settings** and adding a new Application Setting with a name of `DEPLOYMENT_BRANCH` and value of `main`.
 
 ## Troubleshoot deployment
 

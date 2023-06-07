@@ -3,12 +3,12 @@ title: Translate links and URLs Azure Active Directory Application Proxy
 description: Learn how to redirect hard-coded links for apps published with Azure Active Directory Application Proxy.
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---

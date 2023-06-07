@@ -5,21 +5,24 @@ author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.date: 08/05/2021
+ms.date: 11/22/2022
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli, vmss-flex
+ms.custom: mimckitt, vmss-flex
 ---
 
 # Orchestration modes API comparison 
 
-This article compares the API differences between Uniform and [Flexible orchestration](..\virtual-machines\flexible-virtual-machine-scale-sets.md) modes for virtual machine scale sets. To learn more about Uniform and Flexible virtual machine scale sets, see [orchestration modes](virtual-machine-scale-sets-orchestration-modes.md).
+> [!NOTE]
+> We recommend using Flexible Virtual Machine Scale Sets for new workloads. Learn more about this new orchestration mode in our [Flexible Virtual Machine Scale Sets overview](flexible-virtual-machine-scale-sets.md).
+
+This article compares the API differences between Uniform and [Flexible orchestration](..\virtual-machines\flexible-virtual-machine-scale-sets.md) modes for Virtual Machine Scale Sets. To learn more about Uniform and Flexible Virtual Machine Scale Sets, see [orchestration modes](virtual-machine-scale-sets-orchestration-modes.md).
 
 
 ## Instance view
 
 | Uniform API | Flexible alternative |
 |-|-|
-| Virtual machine scale sets Instance View | Get instance view on individual VMs; Use Resource Graph to query power state |
+| Virtual Machine Scale Sets Instance View | Get instance view on individual VMs; Use Resource Graph to query power state |
 
 
 ## Scale set lifecycle batch operations  
@@ -27,7 +30,7 @@ This article compares the API differences between Uniform and [Flexible orchestr
 | Uniform API | Flexible alternative |
 |-|-|
 | [Deallocate](/rest/api/compute/virtualmachinescalesetvms/deallocate)  | [Invoke Single VM API - Deallocate](/rest/api/compute/virtualmachines/deallocate)   |
-| [Delete](/rest/api/compute/virtualmachinescalesetvms/delete)  | [Invoke Single VM API -Delete](/rest/api/compute/virtualmachines/delete)  |
+| [Delete](/rest/api/compute/virtualmachinescalesetvms/delete)  | VMSS Batch delete API supported by VMSS in Flexible Orchestration Mode |
 | [Get Instance View](/rest/api/compute/virtualmachinescalesetvms/getinstanceview)  | [Invoke Single VM API - Instance View](/rest/api/compute/virtualmachines/instanceview)  |
 | [Perform Maintenance](/rest/api/compute/virtualmachinescalesetvms/performmaintenance)  | [Invoke Single VM API - Perform Maintenance](/rest/api/compute/virtualmachines/performmaintenance)  |
 | [Power Off](/rest/api/compute/virtualmachinescalesetvms/poweroff)  | [Invoke Single VM API - Power Off](/rest/api/compute/virtualmachines/poweroff)  |
@@ -43,7 +46,7 @@ This article compares the API differences between Uniform and [Flexible orchestr
 
 **Uniform API:**
 
-Virtual machine scale sets VM Get or Update Instance:
+Virtual Machine Scale Sets VM Get or Update Instance:
 - [Get](/rest/api/compute/virtualmachinescalesetvms/get) 
 - [Update](/rest/api/compute/virtualmachinescalesetvms/update)
 
@@ -89,7 +92,7 @@ resources
 
 **Uniform API:**
 
-Virtual machine scale sets Operations:
+Virtual Machine Scale Sets Operations:
 - [Update Instances](/rest/api/compute/virtual-machine-scale-sets/update-instances)
 - [Deallocate](/rest/api/compute/virtual-machine-scale-sets/deallocate)
 - [Perform Maintenance](/rest/api/compute/virtual-machine-scale-sets/perform-maintenance)
@@ -112,7 +115,7 @@ Virtual machines Operations:
 
 **Uniform API:**
 
-Virtual machine scale sets VM Extension:
+Virtual Machine Scale Sets VM Extension:
 - [Create Or Update](/rest/api/compute/virtual-machine-scale-set-vm-extensions/create-or-update)
 - [Delete](/rest/api/compute/virtual-machine-scale-set-vm-extensions/delete)
 - [Get](/rest/api/compute/virtual-machine-scale-set-vm-extensions/get)
@@ -140,13 +143,13 @@ Invoke operations on individual VMs.
 
 **Uniform API:**
 
-Uniform virtual machine scale sets APIs:
+Uniform Virtual Machine Scale Sets APIs:
 - [Convert To Single Placement Group](/rest/api/compute/virtual-machine-scale-sets/convert-to-single-placement-group)
 - [Force Recovery Service Fabric Platform Update Domain Walk](/rest/api/compute/virtual-machine-scale-sets/force-recovery-service-fabric-platform-update-domain-walk)
 
 **Flexible alternative:**
 
-Not supported on Flexible virtual machine scale sets.
+Not supported on Flexible Virtual Machine Scale Sets.
 
 
 ## Next steps

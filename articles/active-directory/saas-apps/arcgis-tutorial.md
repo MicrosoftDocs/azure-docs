@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ArcGIS Online | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with ArcGIS Online'
 description: Learn how to configure single sign-on between Azure Active Directory and ArcGIS Online.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/18/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with ArcGIS Online
@@ -46,6 +46,8 @@ To configure the integration of ArcGIS Online into Azure AD, you need to add Arc
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **ArcGIS Online** in the search box.
 1. Select **ArcGIS Online** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for ArcGIS Online
 
@@ -117,7 +119,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure ArcGIS Online SSO
 
-1. If you want to setup ArcGIS Online manually, open a new web browser window and log into your ArcGIS company site as an administrator and perform the following steps:
+
+
+
+1. In a different web browser window, sign in to your ArcGIS Online company site as an administrator
 
 2. Go to the **Organization** -> **Settings**. 
 

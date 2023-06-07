@@ -4,12 +4,11 @@ description: In this tutorial, you learn how to join a Teams meeting using the A
 author: chpalm
 ms.author: rifox
 ms.date: 03/10/2021
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
-ms.custom: mode-other
 ---
 
-In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Calling SDK for JavaScript.
+In this quickstart, you learn how to join a Teams meeting using the Azure Communication Services Calling SDK for JavaScript.
 
 ## Sample Code
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-calling-to-teams-meeting).
@@ -22,7 +21,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 ## Add the Teams UI controls
 
 Replace code in index.html with following snippet.
-The text box will be used to enter the Teams meeting context and the button will be used to join the specified meeting:
+The text box is used to enter the Teams meeting context and the button is used to join the specified meeting:
 
 ```html
 <!DOCTYPE html>
@@ -45,7 +44,7 @@ The text box will be used to enter the Teams meeting context and the button will
             Hang Up
         </button>
     </div>
-    <script src="./bundle.js"></script>
+    <script src="./app.js" type="module"></script>
 </body>
 
 </html>
@@ -53,7 +52,7 @@ The text box will be used to enter the Teams meeting context and the button will
 
 ## Enable the Teams UI controls
 
-Replace content of client.js file with following snippet.
+Replace content of app.js file with following snippet.
 
 ```javascript
 import { CallClient } from "@azure/communication-calling";
@@ -71,7 +70,7 @@ const recordingStateElement = document.getElementById('recording-state');
 async function init() {
     const callClient = new CallClient();
     const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
-    callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'ACS user'});
+    callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'Test user'});
     teamsMeetingJoinButton.disabled = false;
 }
 init();
@@ -116,7 +115,7 @@ You can also get the required meeting information from the **Join Meeting** URL 
 
 ## Run the code
 
-Webpack users can use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
+Run the following command to bundle your application host on a local webserver:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map

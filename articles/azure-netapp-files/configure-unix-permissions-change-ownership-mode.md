@@ -3,7 +3,7 @@ title: Configure Unix permissions and change ownership mode for Azure NetApp Fil
 description: Describes how to set the Unix permissions and the change ownership mode options for Azure NetApp Files NFS and dual-protocol volumes. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 08/06/2021
-ms.author: b-juche
+ms.date: 02/28/2023
+ms.author: anfdocs
 ---
 # Configure Unix permissions and change ownership mode for NFS and dual-protocol volumes
 
@@ -38,43 +37,17 @@ The change ownership mode (**`Chown Mode`**) functionality enables you to set th
 ## Considerations  
 
 * The Unix permissions you specify apply only for the volume mount point (root directory).  
-* You cannot modify the Unix permissions on source or destination volumes that are in a cross-region replication configuration. 
+* You can modify the Unix permissions on the source volume *but not on the destination volume* that is in a cross-region replication configuration.
 
 ## Steps
 
-1. The Unix permissions and change ownership mode features are currently in preview. Before using these features for the first time, you need to register the features:   
-
-    1. Register the **Unix permissions** feature:   
-
-        ```azurepowershell-interactive
-        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFUnixPermissions
-        ```
-
-    2.  Register the **change ownership mode** feature:    
-
-        ```azurepowershell-interactive
-        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFChownMode
-        ```
-
-    3. Check the status of the feature registration:    
-
-        > [!NOTE]
-        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-        ```azurepowershell-interactive
-        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFUnixPermissions  
-        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFChownMode
-        ```
-        
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
-2. You can specify the **Unix permissions** and change ownership mode (**`Chown Mode`**) settings under the **Protocol** tab when you [create an NFS volume](azure-netapp-files-create-volumes.md) or [create a dual-protocol volume](create-volumes-dual-protocol.md). 
+1. You can specify the **Unix permissions** and change ownership mode (**`Chown Mode`**) settings under the **Protocol** tab when you [create an NFS volume](azure-netapp-files-create-volumes.md) or [create a dual-protocol volume](create-volumes-dual-protocol.md). 
 
     The following example shows the Create a Volume screen for an NFS volume. 
 
     ![Screenshots that shows the Create a Volume screen for NFS.](../media/azure-netapp-files/unix-permissions-create-nfs-volume.png)
 
-3. For existing NFS or dual-protocol volumes, you can set or modify **Unix permissions** and **change ownership mode** as follows:  
+2. For existing NFS or dual-protocol volumes, you can set or modify **Unix permissions** and **change ownership mode** as follows:  
 
     1. To modify Unix permissions, right-click the **volume**, and select **Edit**. In the Edit window that appears, specify a value for **Unix Permissions**.  
         ![Screenshots that shows the Edit screen for Unix permissions.](../media/azure-netapp-files/unix-permissions-edit.png)

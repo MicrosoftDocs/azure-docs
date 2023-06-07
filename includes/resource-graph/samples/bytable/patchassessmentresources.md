@@ -1,9 +1,9 @@
 ---
-author: georgewallace
+author: davidsmatlak
 ms.service: resource-graph
 ms.topic: include
-ms.date: 10/12/2021
-ms.author: gwallace
+ms.date: 07/07/2022
+ms.author: davidsmatlak
 ms.custom: generated
 ---
 

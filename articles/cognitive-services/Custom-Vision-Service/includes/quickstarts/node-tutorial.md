@@ -3,7 +3,8 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 10/26/2020
-ms.custom: devx-track-js
+ms.custom:
+ms.topic: include
 ---
 
 This guide provides instructions and sample code to help you get started using the Custom Vision client library for Node.js to build an image classification model. You'll create a project, add tags, train the project, and use the project's prediction endpoint URL to programmatically test it. Use this example as a template for building your own image recognition app.
@@ -26,9 +27,10 @@ Reference documentation [(training)](/javascript/api/@azure/cognitiveservices-cu
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The current version of [Node.js](https://nodejs.org/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision"  title="Create a Custom Vision resource"  target="_blank">create a Custom Vision resource </a> in the Azure portal to create a training and prediction resource and get your keys and endpoint. Wait for it to deploy and click the **Go to resource** button.
-    * You will need the key and endpoint from the resources you create to connect your application to Custom Vision. You'll paste your key and endpoint into the code below later in the quickstart.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision"  title="Create a Custom Vision resource"  target="_blank">create a Custom Vision resource </a> in the Azure portal to create a training and prediction resource.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+
+[!INCLUDE [create environment variables](../environment-variables.md)]
 
 ## Setting up
 
@@ -69,13 +71,6 @@ Create variables for your resource's Azure endpoint and keys.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js?name=snippet_creds)]
 
-> [!IMPORTANT]
-> Go to the Azure portal. If the Custom Vision Training resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page. 
->
->You can find the prediction resource ID on the resource's **Properties** tab in the Azure portal, listed as **Resource ID**.
->
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the Cognitive Services [security](../../../cognitive-services-security.md) article.
-
 Also add fields for your project name and a timeout parameter for asynchronous calls.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js?name=snippet_vars)]
@@ -87,7 +82,7 @@ Also add fields for your project name and a timeout parameter for asynchronous c
 |---|---|
 |[TrainingAPIClient](/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient) | This class handles the creation, training, and publishing of your models. |
 |[PredictionAPIClient](/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient)| This class handles the querying of your models for image classification predictions.|
-|[Prediction](/javascript/api/@azure/cognitiveservices-customvision-prediction/prediction)| This interface defines a single prediction on a single image. It includes properties for the object ID and name, and a confidence score.|
+|[Prediction](/javascript/api/@azure/cognitiveservices-customvision-prediction/)| This interface defines a single prediction on a single image. It includes properties for the object ID and name, and a confidence score.|
 
 ## Code examples
 
@@ -110,7 +105,7 @@ Instantiate client objects with your endpoint and key. Create an **ApiKeyCredent
 
 ## Create a new Custom Vision project
 
-Start a new function to contain all of your Custom Vision function calls. Add the following code to to create a new Custom Vision service project.
+Start a new function to contain all of your Custom Vision function calls. Add the following code to create a new Custom Vision service project.
 
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js?name=snippet_create)]
@@ -126,9 +121,6 @@ To create classification tags to your project, add the following code to your fu
 ## Upload and tag images
 
 First, download the sample images for this project. Save the contents of the [sample Images folder](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) to your local device.
-
-> [!NOTE]
-> Do you need a broader set of images to complete your training? Trove, a Microsoft Garage project, allows you to collect and purchase sets of images for training purposes. Once you've collected your images, you can download them and then import them into your Custom Vision project in the usual way. Visit the [Trove page](https://www.microsoft.com/ai/trove?activetab=pivot1:primaryr3) to learn more.
 
 To add the sample images to the project, insert the following code after the tag creation. This code uploads each image with its corresponding tag.
 

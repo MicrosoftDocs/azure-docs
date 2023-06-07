@@ -9,15 +9,17 @@ editor: ''
 
 ms.assetid: 
 ms.service: storsimple
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2017
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Safely install and operate your StorSimple device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
+
 ![Warning Icon](./media/storsimple-safety/IC740879.png)
 ![Read Safety Notice Icon](./media/storsimple-safety/IC740885.png) **READ SAFETY AND HEALTH INFORMATION**
 
@@ -54,7 +56,7 @@ To reduce the likelihood of injury, electrical shock, or death:
 
 * When powered by multiple AC sources, disconnect all supply power for complete isolation.
 * Permanently unplug the unit before you move it or if you think it has become damaged in any way.
-* Provide a safe electrical earth connection to the power supply cords. Verify that the grounding of the enclosure meets the national and local requirements before applying power.
+* Provide a safe electrical earth connection to the power supply cords. Verify that the grounding of the enclosure meets the national/regional and local requirements before applying power.
 * Ensure that the power connection is always disconnected prior to the removal of a PCM from the enclosure.
 * Given that the plug on the power supply cord is the main disconnect device, ensure that the socket outlets are located near the equipment and are easily accessible.
 

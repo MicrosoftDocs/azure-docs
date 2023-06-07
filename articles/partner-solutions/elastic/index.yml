@@ -9,9 +9,9 @@ metadata:
   ms.service: partner-services
   ms.topic: landing-page
   ms.collection: na
-  author: tfitzmac
-  ms.author: tomfitz
-  ms.date: 10/22/2021
+  author: flang-msft
+  ms.author: franlanglois
+  ms.date: 03/08/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -27,7 +27,7 @@ landingContent:
         links:
           - text: Manage the Elastic integration with Azure
             url: manage.md
-      
+
   # Card
   - title: Create Elastic resource
     linkLists:
@@ -39,4 +39,15 @@ landingContent:
         links:
           - text: Troubleshooting Elastic integration with Azure
             url: troubleshoot.md
-          
+
+  # Card
+  - title: Explore reference content
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/elastic
+          - text: Azure PowerShell
+            url: /powershell/module/az.elastic/#elastic
+          - text: REST API
+            url: /rest/api/elastic

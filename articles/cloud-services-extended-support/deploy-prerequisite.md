@@ -20,6 +20,9 @@ To ensure a successful Cloud Services (extended support) deployment review the b
 Cloud Service (extended support) deployments must be in a virtual network. Virtual network can be created through [Azure portal](../virtual-network/quick-create-portal.md), [PowerShell](../virtual-network/quick-create-powershell.md), [Azure CLI](../virtual-network/quick-create-cli.md) or [ARM Template](../virtual-network/quick-create-template.md). The virtual network and subnets must also be referenced in the Service Configuration (.cscfg) under the [NetworkConfiguration](schema-cscfg-networkconfiguration.md) section. 
 
 For a virtual networks belonging to the same resource group as the cloud service, referencing only the virtual network name in the Service Configuration (.cscfg) file is sufficient. If the virtual network and cloud service are in two different resource groups, then the complete Azure Resource Manager ID of the virtual network needs to be specified in the Service Configuration (.cscfg) file.
+
+> [!NOTE]
+> Virtual Network and cloud service located in a different resource groups is not supported in Visual Studio 2019. Please consider using the ARM template or Portal for successful deployments in such scenarios
  
 #### Virtual Network located in same resource group
 ```xml
@@ -67,7 +70,7 @@ Remove old diagnostics settings for each role in the Service Configuration (.csc
 > Changes in service definition file (.csdef) requires the package file (.cspkg) to be generated again. Please build and repackage your .cspkg post making the following changes in the .csdef file to get the latest settings for your cloud service
 
 ### 1) Virtual Machine sizes
-The following sizes are deprecated in Azure Resource Manager. However, if you want to continue to use them update the `vmsize` name with the associated Azure Resource Manager naming convention.  
+The sizes listed in the left column below are deprecated in Azure Resource Manager. However, if you want to continue to use them update the `vmsize` name with the associated Azure Resource Manager naming convention.  
 
 | Previous size name | Updated size name | 
 |---|---|

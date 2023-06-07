@@ -6,13 +6,18 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/18/2022
 ms.author: duau
 ---
 
 # Connect Azure Front Door Premium to a storage account origin with Private Link
 
-This article will guide you through how to configure Azure Front Door Premium SKU to connect to your storage account origin privately using the Azure Private Link service.
+This article will guide you through how to configure Azure Front Door Premium tier to connect to your storage account origin privately using the Azure Private Link service.
+
+## Prerequisites
+
+* An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Create a [Private Link](../../private-link/create-private-link-service-portal.md) service for your origin web server.
 
 ## Sign in to Azure
 
@@ -30,17 +35,27 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
     :::image type="content" source="../media/how-to-enable-private-link-storage-account/private-endpoint-storage-account.png" alt-text="Screenshot of enabling private link to a storage account.":::
 
-1. For **Select an Azure resource**, select **In my directory**. Select or enter the following settings to configure the site you want Azure Front Door Premium to connect with privately.
+1. The table below has information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the storage blob you want Azure Front Door Premium to connect with privately.
 
     | Setting | Value |
     | ------- | ----- |
+    | Name | Enter a name to identify this storage blog origin. |
+    | Origin Type | Storage (Azure Blobs) |
+    | Host name | Select the host from the dropdown that you want as an origin. |
+    | Origin host header | You can customize the host header of the origin or leave it as default. |
+    | HTTP port | 80 (default) |
+    | HTTPS port | 443 (default) |
+    | Priority | Different origin can have different priorities to provide primary, secondary, and backup origins. |
+    | Weight | 1000 (default). Assign weights to your different origin when you want to distribute traffic.|
     | Region | Select the region that is the same or closest to your origin. |
-    | Resource type | Select **Microsoft.Storage/storageAccounts**. |
-    | Resource | Select your storage account. |
-    | Target sub resource | You can select *blob* or *web*. |
-    | Request message | Customize message or choose the default. |
+    | Target sub resource | The type of sub-resource for the resource selected above that your private endpoint will be able to access. You can select *blob* or *web*. |
+    | Request message | Custom message to see while approving the Private Endpoint. |
 
-1. Then select **Add** to save your configuration.
+1. Then select **Add** to save your configuration. Then select **Update** to save the origin group settings.
+
+> [!NOTE]
+> Ensure the **origin path** in your routing rule is configured correctly with the storage container file path so file requests can be acquired.
+> 
 
 ## Approve private endpoint connection from the storage account
 

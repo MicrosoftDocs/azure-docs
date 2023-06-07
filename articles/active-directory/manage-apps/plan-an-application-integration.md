@@ -2,20 +2,20 @@
 
 title: Get started integrating Azure Active Directory with apps
 description: This article is a getting started guide for integrating Azure Active Directory (AD) with on-premises applications, and cloud applications.
-titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/05/2021
-ms.author: davidmu
+ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 ---
 
-# Integrating Azure Active Directory with applications getting started guide
+# Integrating Azure Active Directory with applications getting started guide 
 
 This topic summarizes the process for integrating applications with Azure Active Directory (AD). Each of the sections below contain a brief summary of a more detailed topic so you can identify which parts of this getting started guide are relevant to you.
 
@@ -90,7 +90,7 @@ With Microsoft Azure AD Application Proxy, you can provide access to application
 
 ### Integrating custom applications
 
-If you want to add your custom application to the Azure Application Gallery, see [Publish your app to the Azure AD app gallery](../develop/v2-howto-app-gallery-listing.md).
+If you want to add your custom application to the Azure Application Gallery, see [Publish your app to the Azure AD app gallery](../manage-apps/v2-howto-app-gallery-listing.md).
 
 ## Managing access to applications
 
@@ -104,7 +104,7 @@ The following articles describe ways you can manage access to applications once 
 
 ## Next steps
 
-For in-depth information, you can download Azure Active Directory deployment plans from [GitHub](../fundamentals/active-directory-deployment-plans.md). For gallery applications, you can download deployment plans for single sign-on, Conditional Access, and user provisioning through the [Azure portal](https://portal.azure.com).
+For in-depth information, you can download Azure Active Directory deployment plans from [GitHub](../fundamentals/deployment-plans.md). For gallery applications, you can download deployment plans for single sign-on, Conditional Access, and user provisioning through the [Azure portal](https://portal.azure.com).
 
 To download a deployment plan from the Azure portal:
 

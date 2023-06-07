@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Envoy | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Envoy'
 description: Learn how to configure single sign-on between Azure Active Directory and Envoy.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/25/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Envoy
+# Tutorial: Azure AD SSO integration with Envoy
 
 In this tutorial, you'll learn how to integrate Envoy with Azure Active Directory (Azure AD). When you integrate Envoy with Azure AD, you can:
 
@@ -27,6 +27,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Envoy single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -51,6 +54,8 @@ To configure the integration of Envoy into Azure AD, you need to add Envoy from 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Envoy** in the search box.
 1. Select **Envoy** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Envoy
 
@@ -121,15 +126,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Envoy SSO
 
-1. To automate the configuration within Envoy, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Setup Envoy** will direct you to the Envoy application. From there, provide the admin credentials to sign into Envoy. The browser extension will automatically configure the application for you and automate steps 3-5.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup Envoy manually, open a new web browser window and sign into your Envoy company site as an administrator and perform the following steps.
+1. In a different web browser window, sign in to your Envoy company site as an administrator
 
 4. Go to **Integrations** > **All integrations** and click to **Install** SAML under **Single sign-on**.
 
@@ -150,9 +150,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Envoy test user
 
-In this section, a user called Britta Simon is created in Envoy. Envoy supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Envoy, a new one is created after authentication.
+In this section, a user called Britta Simon is created in Envoy. 
 
-Envoy also supports automatic user provisioning, you can find more details [here](./envoy-provisioning-tutorial.md) on how to configure automatic user provisioning.
+Envoy supports automatic user provisioning, which you can read about [here](./envoy-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

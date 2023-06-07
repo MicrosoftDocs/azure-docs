@@ -4,7 +4,7 @@ description: Use the extended features in the Apache Spark History Server to deb
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/25/2019
+ms.date: 08/23/2022
 ---
 
 # Use the extended features of the Apache Spark History Server to debug and diagnose Spark applications
@@ -296,7 +296,7 @@ If you want to upgrade with a hotfix, use the following script, which will upgra
 
 #### Use the bash file from the Azure portal
 
-1. Launch the [Azure portal](https://ms.portal.azure.com), and then select your cluster.
+1. Launch the [Azure portal](https://portal.azure.com), and then select your cluster.
 2. Complete a [script action](../hdinsight-hadoop-customize-cluster-linux.md) with the following parameters.
 
     |Property |Value |

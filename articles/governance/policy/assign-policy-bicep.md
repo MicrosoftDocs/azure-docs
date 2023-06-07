@@ -1,16 +1,16 @@
 ---
-title: "Quickstart: New policy assignment with Bicep (Preview) file"
-description: In this quickstart, you use a Bicep (Preview) file to create a policy assignment to identify non-compliant resources.
-ms.date: 08/17/2021
+title: "Quickstart: New policy assignment with Bicep file"
+description: In this quickstart, you use a Bicep file to create a policy assignment to identify non-compliant resources.
+ms.date: 03/24/2022
 ms.topic: quickstart
-ms.custom: subject-bicepqs
+ms.custom: subject-bicepqs, devx-track-bicep
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources by using a Bicep file
 
 The first step in understanding compliance in Azure is to identify the status of your resources.
 This quickstart steps you through the process of using a
-[Bicep (Preview)](https://github.com/Azure/bicep) file compiled to an Azure Resource
-Manager template (ARM template) to create a policy assignment to identify virtual machines that
+[Bicep](https://github.com/Azure/bicep) file compiled to an Azure Resource
+Manager (ARM) deployment template to create a policy assignment to identify virtual machines that
 aren't using managed disks. At the end of this process, you'll successfully identify virtual
 machines that aren't using managed disks. They're _non-compliant_ with the policy assignment.
 
@@ -26,12 +26,11 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
   account before you begin.
 - Bicep version `0.3` or higher installed. If you don't yet have Bicep CLI or need to update, see
-  [Install Bicep (Preview)](../../azure-resource-manager/bicep/install.md).
+  [Install Bicep](../../azure-resource-manager/bicep/install.md).
 
 ## Review the Bicep file
 
-In this quickstart, you create a policy assignment and assign a built-in policy definition called
-_Audit VMs that do not use managed disks_ (`06a78e20-9358-41c9-923c-fb736d382a4d`). For a partial
+In this quickstart, you create a policy assignment and assign a built-in policy definition called [_Audit VMs that do not use managed disks_](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json). For a partial
 list of available built-in policies, see [Azure Policy samples](./samples/index.md).
 
 Create the following Bicep file as `assignment.bicep`:
@@ -105,7 +104,7 @@ If there are any existing resources that aren't compliant with this new assignme
 under **Non-compliant resources**.
 
 For more information, see
-[How compliance works](./how-to/get-compliance-data.md#how-compliance-works).
+[How compliance works](./concepts/compliance-states.md).
 
 ## Clean up resources
 

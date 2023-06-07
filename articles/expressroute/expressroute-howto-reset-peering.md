@@ -1,16 +1,17 @@
 ---
-title: 'Azure ExpressRoute: Reset circuit peering'
+title: 'Azure ExpressRoute: Reset circuit peering using Azure PowerShell'
 description: Learn how to enable and disable peerings for an Azure ExpressRoute circuit using Azure PowerShell.
 services: expressroute
 author:  charwen
 
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: duau
 ---
 
-# Reset ExpressRoute circuit peerings
+# Reset ExpressRoute circuit peerings using Azure PowerShell
 
 This article describes how to enable and disable peerings of an ExpressRoute circuit using PowerShell. Peerings are enabled by default when you create them. When you disable a peering, the BGP session on both the primary and the secondary connection of your ExpressRoute circuit will be shut down. You'll lose connectivity for this peering to Microsoft. When you enable a peering, the BGP session on both the primary and the secondary connection of your ExpressRoute circuit will be established. The connectivity to Microsoft will be restored for this peering. You can enable and disable peering for Microsoft Peering and Azure Private Peering independently on the ExpressRoute circuit.
 
@@ -129,14 +130,22 @@ There are a two scenarios where you may find it helpful to reset your ExpressRou
    AllowClassicOperations           : False
    GatewayManagerEtag               :
    ```
-6. Run the following commands to change the state of the peering.
+6. Run the following commands to change the peering state to disabled.
 
    ```azurepowershell-interactive
    $ckt.Peerings[0].State = "Disabled"
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
-   The peering should be in a state you set. 
+   The peering should be in a disabled state you set. 
 
+7. Run the following commands to change the peering state back to enabled.
+
+   ```azurepowershell-interactive
+   $ckt.Peerings[0].State = "Enabled"
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
+   The peering should be in a enabled state you set.
+   
 ## Next steps
 If you need help with troubleshooting an ExpressRoute problem, see the following articles:
 * [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)

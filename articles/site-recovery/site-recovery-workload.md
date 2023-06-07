@@ -2,7 +2,10 @@
 title: About disaster recovery for on-premises apps with Azure Site Recovery
 description: Describes the workloads that can be protected using disaster recovery with the Azure Site Recovery service.
 ms.topic: conceptual
+ms.service: site-recovery
 ms.date: 03/18/2020
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # About disaster recovery for on-premises apps
@@ -24,7 +27,7 @@ Site Recovery contributes to application-level protection and recovery as follow
 - App-agnostic and provides replication for any workloads running on a supported machine.
 - Near-synchronous replication, with recovery point objectives (RPO) as low as 30 seconds to meet the needs of most critical business apps.
 - App-consistent snapshots, for single or multi-tier applications.
-- Integration with SQL Server AlwaysOn, and partnership with other application-level replication technologies. For example, Active Directory replication, SQL AlwaysOn, and Exchange Database Availability Groups (DAGs).
+- Integration with SQL Server Always On, and partnership with other application-level replication technologies. For example, Active Directory replication, SQL Always On, and Exchange Database Availability Groups (DAGs).
 - Flexible recovery plans that enable you to recover an entire application stack with a single click, and to include external scripts and manual actions in the plan.
 - Advanced network management in Site Recovery and Azure to simplify app network requirements. Network management such as the ability to reserve IP addresses, configure load-balancing, and integration with Azure Traffic Manager for low recovery time objectives (RTO) network switchovers.
 - A rich automation library that provides production-ready, application-specific scripts that can be downloaded and integrated with recovery plans.
@@ -33,19 +36,19 @@ Site Recovery contributes to application-level protection and recovery as follow
 
 Site Recovery can replicate any app running on a supported machine. We've partnered with product teams to do additional testing for the apps specified in the following table.
 
-| **Workload** |**Replicate Azure VMs to Azure** |**Replicate Hyper-V VMs to a secondary site** | **Replicate Hyper-V VMs to Azure** | **Replicate VMware VMs to a secondary site** | **Replicate VMware VMs to Azure** |
-| --- | --- | --- | --- | --- |---|
-| Active Directory, DNS |Yes |Yes |Yes |Yes |Yes|
-| Web apps (IIS, SQL) |Yes |Yes |Yes |Yes |Yes|
-| System Center Operations Manager |Yes |Yes |Yes |Yes |Yes|
-| SharePoint |Yes |Yes |Yes |Yes |Yes|
-| SAP<br/><br/>Replicate SAP site to Azure for non-cluster |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft)|
-| Exchange (non-DAG) |Yes |Yes |Yes |Yes |Yes|
-| Remote Desktop/VDI |Yes |Yes |Yes |Yes |Yes|
-| Linux (operating system and apps) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft)|
-| Dynamics AX |Yes |Yes |Yes |Yes |Yes|
-| Windows File Server |Yes |Yes |Yes |Yes |Yes|
-| Citrix XenApp and XenDesktop |No|N/A |No |N/A |No |
+|**Workload** |**Replicate Azure VMs to Azure** |**Replicate Hyper-V VMs to a secondary site** |**Replicate Hyper-V VMs to Azure** |**Replicate VMware VMs to Azure** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Active Directory, DNS |Yes |Yes |Yes |Yes|
+| Web apps (IIS, SQL) |Yes |Yes |Yes |Yes|
+| System Center Operations Manager |Yes |Yes |Yes |Yes|
+| SharePoint |Yes |Yes |Yes |Yes|
+| SAP<br/><br/>Replicate SAP site to Azure for non-cluster |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft)|
+| Exchange (non-DAG) |Yes |Yes |Yes |Yes|
+| Remote Desktop/VDI |Yes |Yes |Yes |Yes|
+| Linux (operating system and apps) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft)|
+| Dynamics AX |Yes |Yes |Yes |Yes|
+| Windows File Server |Yes |Yes |Yes |Yes|
+| Citrix XenApp and XenDesktop |No|N/A |No |No |
 
 ## Replicate Active Directory and DNS
 
@@ -62,7 +65,7 @@ SQL Server provides a data services foundation for many business apps in an on-p
 Site Recovery provides:
 
 - A simple and cost-effective disaster recovery solution for SQL Server. Replicate multiple versions and editions of SQL Server standalone servers and clusters, to Azure or to a secondary site.
-- Integration with SQL AlwaysOn Availability Groups, to manage failover and failback with Azure Site Recovery recovery plans.
+- Integration with SQL Always On Availability Groups, to manage failover and failback with Azure Site Recovery recovery plans.
 - End-to-end recovery plans for the all tiers in an application, including the SQL Server databases.
 - Scaling of SQL Server for peak loads with Site Recovery, by _bursting_ them into larger IaaS virtual machine sizes in Azure.
 - Easy testing of SQL Server disaster recovery. You can run test failovers to analyze data and run compliance checks, without impacting your production environment.

@@ -1,13 +1,14 @@
 ---
 title: Service Fabric Cluster Resource Manager - Placement Policies 
 description: Overview of additional placement policies and rules for Service Fabric Services
-author: masnider
-
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: masnider
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Placement policies for service fabric services
 Placement policies are additional rules that can be used to govern service placement in some specific, less-common scenarios. Some examples of those scenarios are:
 
@@ -99,7 +100,7 @@ Replicas are _normally_ distributed across fault and upgrade domains when the cl
 > For more information on constraints and constraint priorities generally, check out [this topic](service-fabric-cluster-resource-manager-management-integration.md#constraint-priorities).
 >
 
-If you've ever seen a health message such as "`The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: FaultDomain`", then you've hit this condition or something like it. Usually only one or two replicas are packed together temporarily. So long as there are fewer than a quorum of replicas in a given domain, you're safe. Packing is rare, but it can happen, and usually these situations are transient since the nodes come back. If the nodes do stay down and the Cluster Resource Manager needs to build replacements, usually there are other nodes available in the ideal fault domains.
+If you've ever seen a health message such as "`The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: FaultDomain`", then you've hit this condition or something like it. Usually only one or two replicas are packed together temporarily. So long as there is fewer than a quorum of replicas in a given domain, you're safe. Packing is rare, but it can happen, and usually these situations are transient since the nodes come back. If the nodes do stay down and the Cluster Resource Manager needs to build replacements, usually there are other nodes available in the ideal fault domains.
 
 Some workloads would prefer always having the target number of replicas, even if they are packed into fewer domains. These workloads are betting against total simultaneous permanent domain failures and can usually recover local state. Other workloads would rather take the downtime earlier than risk correctness or loss of data. Most production workloads run with more than three replicas, more than three fault domains, and many valid nodes per fault domain. Because of this, the default behavior allows domain packing by default. The default behavior allows normal balancing and failover to handle these extreme cases, even if that means temporary domain packing.
 
@@ -125,6 +126,15 @@ The **AllowMultipleStatelessInstancesOnNode** placement policy allows placement 
 
 If you've ever seen a health message such as "`The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: ReplicaExclusion`", then you've hit this condition or something like it. 
 
+To opt in to apply this placement policy on your service, enable the following configurations:
+
+```xml
+<Section Name="Common">
+  <Parameter Name="AllowCreateUpdateMultiInstancePerNodeServices" Value="True" />
+  <Parameter Name="HostReuseModeForExclusiveStateless" Value="1" />
+</Section>
+```
+
 By specifying the `AllowMultipleStatelessInstancesOnNode` policy on the service, InstanceCount can be set beyond the number of nodes in the cluster.
 
 Code:
@@ -139,10 +149,6 @@ PowerShell:
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateless –PartitionSchemeSingleton –PlacementPolicy @(“AllowMultipleStatelessInstancesOnNode”) -InstanceCount 10 -ServicePackageActivationMode ExclusiveProcess 
 ```
-
-> [!NOTE]
-> The placement policy is currently in preview and behind the `EnableUnsupportedPreviewFeatures` cluster setting. Since this is a preview feature for now, setting the preview config prevents the cluster from getting upgraded to/from. In other words, you will need to create a new cluster to try out the feature.
->
 
 > [!NOTE]
 > Currently the policy is only supported for Stateless services with ExclusiveProcess [service package activation mode](/dotnet/api/system.fabric.description.servicepackageactivationmode).

@@ -2,7 +2,8 @@
 title: Template functions - logical
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to determine logical values.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.custom: devx-track-arm-template
+ms.date: 02/11/2022
 ---
 
 # Logical functions for ARM templates
@@ -17,13 +18,16 @@ Resource Manager provides several functions for making comparisons in your Azure
 * [or](#or)
 * [true](#true)
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see the [bool](../bicep/bicep-functions-logical.md) logical function and [logical](../bicep/operators-logical.md) operators.
+
 ## and
 
 `and(arg1, arg2, ...)`
 
 Checks whether all parameter values are true.
 
-The `and` function isn't supported in Bicep, use the [&& operator](../bicep/operators-logical.md#and-) instead.
+The `and` function isn't supported in Bicep. Use the [&& operator](../bicep/operators-logical.md#and-) instead.
 
 ### Parameters
 
@@ -56,6 +60,8 @@ The output from the preceding example is:
 `bool(arg1)`
 
 Converts the parameter to a boolean.
+
+In Bicep, use the [bool](../bicep/bicep-functions-logical.md#bool) logical function.
 
 ### Parameters
 
@@ -92,7 +98,7 @@ The output from the preceding example with the default values is:
 
 Returns false.
 
-The `false` function isn't available in Bicep.  Use the `false` keyword instead.
+The `false` function isn't available in Bicep. Use the `false` keyword instead.
 
 ### Parameters
 
@@ -171,11 +177,11 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
     }
   },
   "resources": [
-    {
+   {
       "condition": "[not(empty(parameters('logAnalytics')))]",
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "apiVersion": "2017-03-30",
-      "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
+      "apiVersion": "2022-11-01",
+      "name": "[format('{0}/omsOnboarding', parameters('vmName'))]",
       "location": "[parameters('location')]",
       "properties": {
         "publisher": "Microsoft.EnterpriseCloud.Monitoring",
@@ -183,10 +189,10 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
-          "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
+          "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, null())]"
         },
         "protectedSettings": {
-          "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
+          "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, null())]"
         }
       }
     }
@@ -206,7 +212,7 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
 
 Converts boolean value to its opposite value.
 
-The `not` function isn't supported in Bicep, use the [! operator](../bicep/operators-logical.md#not-) instead.
+The `not` function isn't supported in Bicep. Use the [! operator](../bicep/operators-logical.md#not-) instead.
 
 ### Parameters
 
@@ -248,7 +254,7 @@ The output from the preceding example is:
 
 Checks whether any parameter value is true.
 
-The `or` function isn't supported in Bicep, use the [|| operator](../bicep/operators-logical.md#or-) instead.
+The `or` function isn't supported in Bicep. Use the [|| operator](../bicep/operators-logical.md#or-) instead.
 
 ### Parameters
 
@@ -282,7 +288,7 @@ The output from the preceding example is:
 
 Returns true.
 
-The `true` function isn't available in Bicep.  Use the `true` keyword instead.
+The `true` function isn't available in Bicep. Use the `true` keyword instead.
 
 ### Parameters
 

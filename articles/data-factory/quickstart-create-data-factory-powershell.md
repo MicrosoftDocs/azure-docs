@@ -1,13 +1,13 @@
 ---
 title: Copy data in Blob Storage using Azure Data Factory
 description: Create an Azure Data Factory using PowerShell to copy data from one location in Azure Blob storage to another location.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.devlang: powershell
 ms.topic: quickstart
-ms.date: 04/10/2020
-ms.author: jingwang
+ms.date: 08/18/2022
+ms.author: jianleishen
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Create an Azure Data Factory using PowerShell
@@ -29,7 +29,7 @@ This quickstart describes how to use PowerShell to create an Azure Data Factory.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 >[!WARNING]
 >If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 

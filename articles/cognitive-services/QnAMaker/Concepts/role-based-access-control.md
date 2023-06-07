@@ -11,6 +11,8 @@ ms.date: 05/15/2020
 
 Collaborate with other authors and editors using Azure role-based access control (Azure RBAC) placed on your QnA Maker resource.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Access is provided on the QnA Maker resource
 
 All permissions are controlled by the permissions placed on the QnA Maker resource. These permissions align to read, write, publish, and full access. You can allow collaboration among multiple users by [updating RBAC access](../how-to/manage-qna-maker-app.md) for QnA Maker resource.

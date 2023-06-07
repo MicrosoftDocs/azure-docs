@@ -23,5 +23,7 @@ AzureMigration.ps1
 !/.vscode/extensions.json
 .gitignore
 **/.vscode/settings.json
+*.pdn
 
-desktop.ini
+# Pycharm
+.idea/*

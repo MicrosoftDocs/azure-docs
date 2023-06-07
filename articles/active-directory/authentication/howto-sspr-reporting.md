@@ -1,15 +1,15 @@
 ---
-title: Self-service password reset reports - Azure Active Directory
+title: Self-service password reset reports
 description: Reporting on Azure AD self-service password reset events
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 01/29/2023
 ms.author: justinha
 author: justinha
-manager: daveba
-ms.reviewer: rhicock
+manager: amycolannino
+ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.custom: ignite-fall-2021
 ---
@@ -48,7 +48,7 @@ In the Azure portal experience, we have improved the way that you can view passw
 
 ### Combined registration
 
-If you have enabled [combined registration](./concept-registration-mfa-sspr-combined.md), information regarding user activity in the audit logs will be found under **Security** > **Authentication Methods**.
+[combined registration](./concept-registration-mfa-sspr-combined.md) security information registration and management events can be found in the audit logs under **Security** > **Authentication Methods**.
 
 ## Description of the report columns in the Azure portal
 

@@ -2,18 +2,24 @@
 title: Filtering and preprocessing in the Application Insights SDK | Microsoft Docs
 description: Write telemetry processors and telemetry initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 ms.topic: conceptual
-ms.date: 11/23/2016
+ms.date: 11/14/2022
+ms.devlang: csharp, javascript, python
 ms.custom: "devx-track-js, devx-track-csharp"
+ms.reviewer: cithomas
 ---
 
 # Filter and preprocess telemetry in the Application Insights SDK
 
-You can write and configure plug-ins for the Application Insights SDK to customize how telemetry can be enriched and processed before it's sent to the Application Insights service.
+You can write code to filter, modify, or enrich your telemetry before it's sent from the SDK. The processing includes data that's sent from the standard telemetry modules, such as HTTP request collection and dependency collection.
+
+* [Filtering](./api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcessor`. For example, you could reduce the volume of telemetry by excluding requests from robots. Unlike sampling, You have full control what is sent or discarded, but it will affect any metrics based on aggregated logs. Depending on how you discard items, you might also lose the ability to navigate between related items.
+
+* [Add or Modify properties](./api-filtering-sampling.md#add-properties) to any telemetry sent from your app by implementing an `ITelemetryInitializer`. For example, you could add calculated values or version numbers by which to filter the data in the portal.
 
 * [Sampling](sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when you diagnose a problem. In the portal, the total counts are multiplied to compensate for the sampling.
-* Filtering with telemetry processors lets you filter out telemetry in the SDK before it's sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. Filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what's transmitted, but it affects your statistics. For example, you might filter out all successful requests.
-* [Telemetry initializers add or modify properties](#add-properties) to any telemetry sent from your app, which includes telemetry from the standard modules. For example, you could add calculated values or version numbers by which to filter the data in the portal.
-* [The SDK API](./api-custom-events-metrics.md) is used to send custom events and metrics.
+
+> [!NOTE]
+> [The SDK API](./api-custom-events-metrics.md) is used to send custom events and metrics.
 
 Before you start:
 
@@ -23,7 +29,7 @@ Before you start:
 
 ## Filtering
 
-This technique gives you direct control over what's included or excluded from the telemetry stream. Filtering can be used to drop telemetry items from being sent to Application Insights. You can use filtering in conjunction with sampling, or separately.
+This technique gives you direct control over what's included or excluded from the telemetry stream. Filtering can be used to drop telemetry items from being sent to Application Insights. You can use filtering with sampling, or separately.
 
 To filter telemetry, you write a telemetry processor and register it with `TelemetryConfiguration`. All telemetry goes through your processor. You can choose to drop it from the stream or give it to the next processor in the chain. Telemetry from the standard modules, such as the HTTP request collector and the dependency collector, and telemetry you tracked yourself is included. For example, you can filter out telemetry about requests from robots or successful dependency calls.
 
@@ -34,7 +40,9 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
 >
 >
 
-### Create a telemetry processor (C#)
+### Create a telemetry processor 
+
+### C#
 
 1. To create a filter, implement `ITelemetryProcessor`.
 
@@ -43,6 +51,7 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
     ```csharp
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.DataContracts;
 
     public class SuccessfulDependencyFilter : ITelemetryProcessor
     {
@@ -113,7 +122,7 @@ ASP.NET **Core/Worker service apps**
 > [!NOTE]
 > Adding a processor by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
 
-For apps written by using [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) or [WorkerService](worker-service.md#adding-telemetry-processors), adding a new telemetry processor is done by using the `AddApplicationInsightsTelemetryProcessor` extension method on `IServiceCollection`, as shown. This method is called in the `ConfigureServices` method of your `Startup.cs` class.
+For apps written by using [ASP.NET Core](asp-net-core.md#add-telemetry-processors) or [WorkerService](worker-service.md#add-telemetry-processors), adding a new telemetry processor is done by using the `AddApplicationInsightsTelemetryProcessor` extension method on `IServiceCollection`, as shown. This method is called in the `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -126,6 +135,8 @@ For apps written by using [ASP.NET Core](asp-net-core.md#adding-telemetry-proces
         services.AddApplicationInsightsTelemetryProcessor<AnotherProcessor>();
     }
 ```
+
+To register telemetry processors that need parameters in ASP.NET Core, create a custom class implementing **ITelemetryProcessorFactory**. Call the constructor with the desired parameters in the **Create** method and then use **AddSingleton<ITelemetryProcessorFactory, MyTelemetryProcessorFactory>()**.
 
 ### Example filters
 
@@ -192,6 +203,10 @@ public void Process(ITelemetry item)
 
 <a name="add-properties"></a>
 
+### Java
+
+To learn more about telemetry processors and their implementation in Java, reference the [Java telemetry processors documentation](./java-standalone-telemetry-processors.md).
+
 ### JavaScript web applications
 
 **Filter by using ITelemetryInitializer**
@@ -220,7 +235,7 @@ Use telemetry initializers to enrich telemetry with additional information or to
 
 For example, Application Insights for a web package collects telemetry about HTTP requests. By default, it flags as failed any request with a response code >=400. But if you want to treat 400 as a success, you can provide a telemetry initializer that sets the success property.
 
-If you provide a telemetry initializer, it's called whenever any of the Track*() methods are called. This includes `Track()` methods called by the standard telemetry modules. By convention, these modules don't set any property that was already set by an initializer. Telemetry initializers are called before calling telemetry processors. So any enrichments done by initializers are visible to processors.
+If you provide a telemetry initializer, it's called whenever any of the Track*() methods are called. This initializer includes `Track()` methods called by the standard telemetry modules. By convention, these modules don't set any property that was already set by an initializer. Telemetry initializers are called before calling telemetry processors. So any enrichments done by initializers are visible to processors.
 
 **Define your initializer**
 
@@ -294,7 +309,7 @@ ASP.NET **Core/Worker service apps: Load your initializer**
 > [!NOTE]
 > Adding an initializer by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
 
-For apps written by using [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) or [WorkerService](worker-service.md#adding-telemetryinitializers), adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown. This is done in the `Startup.ConfigureServices` method.
+For apps written using [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) or [WorkerService](worker-service.md#add-telemetry-initializers), adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown. Accomplish this step in the `Startup.ConfigureServices` method.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -307,25 +322,26 @@ For apps written by using [ASP.NET Core](asp-net-core.md#adding-telemetryinitial
 ### JavaScript telemetry initializers
 *JavaScript*
 
-Insert a telemetry initializer using the snippet onInit callback:
+Insert a telemetry initializer by adding the onInit callback function in the [SDK Loader Script configuration](./javascript-sdk.md?tabs=sdkloaderscript#sdk-loader-script-configuration):
 
 ```html
 <script type="text/javascript">
-!function(T,l,y){<!-- Removed the Snippet code for brevity -->}(window,document,{
+!function(v,y,T){<!-- Removed the SDK Loader Script code for brevity -->}(window,document,{
 src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
 crossOrigin: "anonymous",
 onInit: function (sdk) {
   sdk.addTelemetryInitializer(function (envelope) {
+    envelope.data = envelope.data || {};
     envelope.data.someField = 'This item passed through my telemetry initializer';
   });
 }, // Once the application insights instance has loaded and initialized this method will be called
 cfg: { // Application Insights Configuration
-    instrumentationKey: "YOUR_INSTRUMENTATION_KEY"
+    connectionString: "YOUR_CONNECTION_STRING"
 }});
 </script>
 ```
 
-For a summary of the noncustom properties available on the telemetry item, see [Application Insights Export Data Model](./export-data-model.md).
+For a summary of the noncustom properties available on the telemetry item, see [Application Insights Export Data Model](./export-telemetry.md#application-insights-export-data-model).
 
 You can add as many initializers as you like. They're called in the order that they're added.
 
@@ -469,31 +485,17 @@ public void Initialize(ITelemetry telemetry)
 }
 ```
 
-#### Add information from HttpContext
+#### Control the client IP address used for geolocation mappings
 
-The following sample initializer reads data from [`HttpContext`](/aspnet/core/fundamentals/http-context) and appends it to a `RequestTelemetry` instance. The `IHttpContextAccessor` is automatically provided through constructor dependency injection.
+The following sample initializer sets the client IP which will be used for geolocation mapping, instead of the client socket IP address, during telemetry ingestion. 
 
 ```csharp
-public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
+public void Initialize(ITelemetry telemetry)
 {
-    private readonly IHttpContextAccessor httpContextAccessor;
-
-    public HttpContextRequestTelemetryInitializer(IHttpContextAccessor httpContextAccessor)
-    {
-        this.httpContextAccessor =
-            httpContextAccessor ??
-            throw new ArgumentNullException(nameof(httpContextAccessor));
-    }
-
-    public void Initialize(ITelemetry telemetry)
-    {
-        var requestTelemetry = telemetry as RequestTelemetry;
-        if (requestTelemetry == null) return;
-
-        var claims = this.httpContextAccessor.HttpContext.User.Claims;
-        Claim oidClaim = claims.FirstOrDefault(claim => claim.Type == "oid");
-        requestTelemetry.Properties.Add("UserOid", oidClaim?.Value);
-    }
+    var request = telemetry as RequestTelemetry;
+    if (request == null) return true;
+    request.Context.Location.Ip = "{client ip address}"; // Could utilize System.Web.HttpContext.Current.Request.UserHostAddress;   
+    return true;
 }
 ```
 
@@ -505,8 +507,8 @@ What's the difference between telemetry processors and telemetry initializers?
 * Telemetry initializers always run before telemetry processors.
 * Telemetry initializers may be called more than once. By convention, they don't set any property that was already set.
 * Telemetry processors allow you to completely replace or discard a telemetry item.
-* All registered telemetry initializers are guaranteed to be called for every telemetry item. For telemetry processors, SDK guarantees calling the first telemetry processor. Whether the rest of the processors are called or not is decided by the preceding telemetry processors.
-* Use telemetry initializers to enrich telemetry with additional properties or override an existing one. Use a telemetry processor to filter out telemetry.
+* All registered telemetry initializers are called for every telemetry item. For telemetry processors, SDK guarantees calling the first telemetry processor. Whether the rest of the processors are called or not is decided by the preceding telemetry processors.
+* Use telemetry initializers to enrich telemetry with more properties or override an existing one. Use a telemetry processor to filter out telemetry.
 
 > [!NOTE]
 > JavaScript only has telemetry initializers which can [filter out events by using ITelemetryInitializer](#javascript-web-applications)

@@ -1,14 +1,15 @@
 ---
-title: Troubleshoot custom security attributes in Azure AD (Preview) - Azure Active Directory
+title: Troubleshoot custom security attributes in Azure AD (Preview)
 description: Learn how to troubleshoot custom security attributes in Azure Active Directory.
 services: active-directory
 author: rolyon
+manager: amycolannino
 ms.author: rolyon
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 02/20/2023
 ms.collection: M365-identity-device-management
 ---
 
@@ -90,7 +91,7 @@ There are no custom security attributes defined and assigned yet for your tenant
 
 **Solution 3**
 
-Add and assign custom security attributes to users or enterprise applications. For more information, see [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md), [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md), or [Assign or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md).
+Add and assign custom security attributes to users or enterprise applications. For more information, see [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md), [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md), or [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md).
 
 ## Symptom - Custom security attributes cannot be deleted
 
@@ -110,6 +111,55 @@ When you try to add an eligible Azure AD role assignment using [Azure AD Privile
 
 PIM currently does not support adding an eligible Azure AD role assignment at an attribute set scope.
 
+## Symptom - Insufficient privileges when using Graph Explorer
+
+When you try to use [Graph Explorer](/graph/graph-explorer/graph-explorer-overview) to call Microsoft Graph APIs for custom security attributes, you see a message similar to the following:
+
+```
+Forbidden - 403. You need to consent to the permissions on the Modify permissions (Preview) tab
+Authorization_RequestDenied
+Insufficient privileges to complete the operation.
+```
+
+![Screenshot of Graph Explorer displaying an insufficient privileges error message.](./media/custom-security-attributes-troubleshoot/graph-explorer-insufficient-privileges.png)
+
+**Cause 1**
+
+You have not consented to the required custom security attribute permissions to make the API call.
+
+**Solution 1**
+
+Open the Permissions panel, select the appropriate custom security attribute permission, and click **Consent**. In the Permissions requested window that appears, review the requested permissions.
+
+![Screenshot of Graph Explorer Permissions panel with CustomSecAttributeDefinition selected.](./media/custom-security-attributes-troubleshoot/graph-explorer-permissions-consent.png)
+
+**Cause 2**
+
+You are not assigned the required custom security attribute role to make the API call. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
+
+**Solution 2**
+
+Make sure that you are assigned the required custom security attribute role. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
+
+## Symptom - Request_UnsupportedQuery error
+
+When you try to call Microsoft Graph APIs for custom security attributes, you see a message similar to the following:
+
+```
+Bad Request - 400
+Request_UnsupportedQuery
+Unsupported or invalid query filter clause specified for property '<AttributeSet>_<Attribute>' of resource 'CustomSecurityAttributeValue'.
+```
+
+**Cause**
+
+The request isn't formatted correctly.
+
+**Solution**
+
+If required, add `ConsistencyLevel=eventual` in the request or the header. You might also need to include `$count=true` to ensure the request is routed correctly. For more information, see [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples).
+
+![Screenshot of Graph Explorer with ConsistencyLevel header added.](./media/custom-security-attributes-troubleshoot/graph-explorer-consistency-level-header.png)
 
 ## Next steps
 

@@ -7,13 +7,7 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: Configure hybrid Azure AD join for managed domains
-    href: hybrid-azuread-join-managed-domains.md
-  - name: Configure hybrid Azure AD join for federated domains
-    href: hybrid-azuread-join-federated-domains.md
-  - name: Configure hybrid Azure AD join manually
-    href: hybrid-azuread-join-manual.md
-  - name: Configure Azure AD join during Windows 10 first-run experience
+  - name: Azure AD join a new Windows device
     href: azuread-joined-devices-frx.md
 - name: Concepts
   expanded: true
@@ -33,18 +27,43 @@
 - name: How-to guides
   expanded: false
   items:
-  - Name: Plan your Azure AD device deployment
+  - name: Plan your Azure AD device deployment
     href: plan-device-deployment.md
-  - name: Plan your Azure AD join implementation
-    href: azureadjoin-plan.md
-  - name: Assign local admins to Azure AD joined devices
-    href: assign-local-admin.md
-  - name: Plan your hybrid Azure AD join implementation
-    href: hybrid-azuread-join-plan.md
-  - name: Controlled validation of hybrid Azure AD join
-    href: hybrid-azuread-join-control.md
+  - name: Azure AD join
+    expanded: false
+    items:
+    - name: Plan your Azure AD join implementation
+      href: azureadjoin-plan.md
+    - name: Assign local admins to Azure AD joined devices
+      href: assign-local-admin.md
+  - name: Hybrid Azure AD join
+    expanded: false
+    items:
+    - name: Plan your hybrid Azure AD join implementation
+      href: hybrid-azuread-join-plan.md
+    - name: Targeted hybrid Azure AD join deployment
+      href: hybrid-azuread-join-control.md 
+    - name: Configure hybrid Azure AD join
+      href: howto-hybrid-azure-ad-join.md
+    - name: Verifying hybrid Azure AD join
+      href: howto-hybrid-join-verify.md
+    - name: Troubleshoot hybrid Azure AD join
+      expanded: false
+      items:
+      - name: Troubleshoot hybrid Azure AD joined Windows current version
+        href: troubleshoot-hybrid-join-windows-current.md
+      - name: Troubleshoot pending device state
+        href: /troubleshoot/azure/active-directory/pending-devices?toc=/azure/active-directory/fundamentals/toc.json
+      - name: Troubleshoot using dsregcmd
+        href: troubleshoot-device-dsregcmd.md
+      - name: Troubleshoot hybrid Azure AD joined down level Windows devices
+        href: troubleshoot-hybrid-join-windows-legacy.md
+  - name: Local Administrator Password Solution
+    href: howto-manage-local-admin-passwords.md
   - name: Manage device identities
     href: device-management-azure-portal.md
+  - name: Troubleshooting Windows devices
+    href: troubleshoot-device-windows-joined.md
   - name: Manage stale devices
     href: manage-stale-devices.md
   - name: Azure Linux VMs and Azure AD
@@ -55,23 +74,11 @@
     href: howto-device-identity-virtual-desktop-infrastructure.md
   - name: Frequently asked questions
     href: faq.yml
-  - name: Troubleshoot device identities
-    items: 
-    - name: Troubleshoot hybrid Azure AD joined Windows current devices
-      href: troubleshoot-hybrid-join-windows-current.md
-    - name: Troubleshoot pending device state
-      href: /troubleshoot/azure/active-directory/pending-devices
-    - name: Troubleshoot using dsregcmd
-      href: troubleshoot-device-dsregcmd.md
-    - name: Troubleshoot hybrid Azure AD joined down level Windows devices
-      href: troubleshoot-hybrid-join-windows-legacy.md
   - name: Enterprise state roaming
     items:
-    - name: What is enterprise state roaming?
-      href: enterprise-state-roaming-overview.md
     - name: Enable enterprise state roaming
       href: enterprise-state-roaming-enable.md
-    - name: Enable enterprise state FAQs
+    - name: Enterprise state roaming FAQs
       href: enterprise-state-roaming-faqs.yml
     - name: Troubleshoot enterprise state roaming
       href: enterprise-state-roaming-troubleshooting.md
@@ -79,11 +86,20 @@
       href: enterprise-state-roaming-group-policy-settings.md
     - name: Enterprise state roaming Windows settings
       href: enterprise-state-roaming-windows-settings-reference.md
+  - name: Troubleshooting SSO on Apple devices
+    href: troubleshoot-mac-sso-extension-plugin.md
 - name: Reference
   items:
+  - name: Hybrid Azure AD join reference
+    expanded: false
+    items:
+    - name: Configure hybrid Azure AD join manually
+      href: hybrid-azuread-join-manual.md
+    - name: Enable older operating systems
+      href: howto-hybrid-join-downlevel.md
   - name: Enforce TLS 1.2
     href: reference-device-registration-tls-1-2.md
-  - name: Graph APIs
+  - name: Microsoft Graph APIs
     href: /graph/api/resources/device
 - name: Resources
   items:

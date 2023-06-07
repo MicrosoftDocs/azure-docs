@@ -17,7 +17,7 @@ ms.author: travisw
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 > * [Set up your development environment and create an empty project](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
 > * Create a bot connected to the [Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Make sure that you have access to a microphone for audio capture
@@ -27,7 +27,7 @@ Before you get started, make sure to:
 
 ## Create and configure a project
 
-[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
+[Install the Speech SDK](../../../../quickstarts/setup-platform.md?pivots=programming-language-java&tabs=android) by using Android Studio.
 
 ## Create user interface
 
@@ -85,7 +85,7 @@ Next, replace the contents of the `activity_main.xml` with the following code:
 This XML defines a simple UI to interact with your bot.
 
 - The `button` element initiates an interaction and invokes the `onBotButtonClicked` method when clicked.
-- The `recoText` element will display the speech-to-text results as you talk to your bot.
+- The `recoText` element will display the speech to text results as you talk to your bot.
 - The `activityText` element will display the JSON payload for the latest Bot Framework activity from your bot.
 
 The text and graphical representation of your UI should now look like this:
@@ -204,7 +204,7 @@ The text and graphical representation of your UI should now look like this:
                 }
 
                 if (activityArgs.hasAudio()) {
-                    // Text-to-speech audio associated with the activity is 16 kHz 16-bit mono PCM data
+                    // Text to speech audio associated with the activity is 16 kHz 16-bit mono PCM data
                     final int sampleRate = 16000;
                     int bufferSize = AudioTrack.getMinBufferSize(sampleRate, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT);
 
@@ -260,7 +260,7 @@ The text and graphical representation of your UI should now look like this:
 
    ![Screenshot of Select Deployment Target window](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-12-deploy.png)
 
-Once the application and its activity have launched, click the button to begin talking to your bot. Transcribed text will appear as you speak and the latest activity have you received from your bot will appear when it is received. If your bot is configured to provide spoken responses, the speech-to-text will automatically play.
+Once the application and its activity have launched, click the button to begin talking to your bot. Transcribed text will appear as you speak and the latest activity have you received from your bot will appear when it is received. If your bot is configured to provide spoken responses, the speech to text will automatically play.
 
 ![Screenshot of the Android application](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-completed-turn.png)
 

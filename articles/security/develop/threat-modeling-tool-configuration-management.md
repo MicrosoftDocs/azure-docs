@@ -13,7 +13,6 @@ ms.service: security
 ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
@@ -23,7 +22,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 # Security Frame: Configuration Management | Mitigations 
 | Product/Service | Article |
 | --------------- | ------- |
-| **Web Application** | <ul><li>[Implement Content Security Policy (CSP), and disable inline JavaScript](#csp-js)</li><li>[Enable browser's XSS filter](#xss-filter)</li><li>[ASP.NET applications must disable tracing and debugging prior to deployment](#trace-deploy)</li><li>[Access third-party Javascripts from trusted sources only](#js-trusted)</li><li>[Ensure that authenticated ASP.NET pages incorporate UI Redressing or click-jacking defenses](#ui-defenses)</li><li>[Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web Applications](#cors-aspnet)</li><li>[Enable ValidateRequest attribute on ASP.NET Pages](#validate-aspnet)</li><li>[Use locally hosted latest versions of JavaScript libraries](#local-js)</li><li>[Disable automatic MIME sniffing](#mime-sniff)</li><li>[Remove standard server headers on Windows Azure Web Sites to avoid fingerprinting](#standard-finger)</li></ul> |
+| **Web Application** | <ul><li>[Implement Content Security Policy (CSP), and disable inline JavaScript](#csp-js)</li><li>[Enable browser's XSS filter](#xss-filter)</li><li>[ASP.NET applications must disable tracing and debugging prior to deployment](#trace-deploy)</li><li>[Access third-party JavaScripts from trusted sources only](#js-trusted)</li><li>[Ensure that authenticated ASP.NET pages incorporate UI Redressing or click-jacking defenses](#ui-defenses)</li><li>[Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web Applications](#cors-aspnet)</li><li>[Enable ValidateRequest attribute on ASP.NET Pages](#validate-aspnet)</li><li>[Use locally hosted latest versions of JavaScript libraries](#local-js)</li><li>[Disable automatic MIME sniffing](#mime-sniff)</li><li>[Remove standard server headers on Windows Azure Web Sites to avoid fingerprinting](#standard-finger)</li></ul> |
 | **Database** | <ul><li>[Configure a Windows Firewall for Database Engine Access](#firewall-db)</li></ul> |
 | **Web API** | <ul><li>[Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web API](#cors-api)</li><li>[Encrypt sections of Web API's configuration files that contain sensitive data](#config-sensitive)</li></ul> |
 | **IoT Device** | <ul><li>[Ensure that all admin interfaces are secured with strong credentials](#admin-strong)</li><li>[Ensure that unknown code cannot execute on devices](#unknown-exe)</li><li>[Encrypt OS and other partitions of IoT Device with BitLocker](#partition-iot)</li><li>[Ensure that only the minimum services/features are enabled on devices](#min-enable)</li></ul> |
@@ -54,7 +53,7 @@ This policy allows scripts to load only from the web application's server and go
 ### Example
 Inline scripts will not execute. Following are examples of inline scripts 
 ```JavaScript
-<script> some Javascript code </script>
+<script> some JavaScript code </script>
 Event handling attributes of HTML tags (for example, <button onclick="function(){}">
 javascript:alert(1);
 ```
@@ -87,7 +86,7 @@ Example: var str="alert(1)"; eval(str);
 | **References**              | [ASP.NET Debugging Overview](/previous-versions/ms227556(v=vs.140)), [ASP.NET Tracing Overview](/previous-versions/bb386420(v=vs.140)), [How to: Enable Tracing for an ASP.NET Application](/previous-versions/0x5wc973(v=vs.140)), [How to: Enable Debugging for ASP.NET Applications](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Steps** | When tracing is enabled for the page, every browser requesting it also obtains the trace information that contains data about internal server state and workflow. That information could be security sensitive. When debugging is enabled for the page, errors happening on the server result in a full stack trace data presented to the browser. That data may expose security-sensitive information about the server's workflow. |
 
-## <a id="js-trusted"></a>Access third-party Javascripts from trusted sources only
+## <a id="js-trusted"></a>Access third-party JavaScripts from trusted sources only
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -96,7 +95,7 @@ Example: var str="alert(1)"; eval(str);
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Third-party Javascripts should be referenced only from trusted sources. The reference endpoints should always be on TLS. |
+| **Steps** | Third-party JavaScripts should be referenced only from trusted sources. The reference endpoints should always be on TLS. |
 
 ## <a id="ui-defenses"></a>Ensure that authenticated ASP.NET pages incorporate UI Redressing or click-jacking defenses
 
@@ -157,7 +156,7 @@ If access to Web.config is available, then CORS can be added through the followi
 ```
 
 ### Example
-If access to web.config is not available, then CORS can be configured by adding the following CSharp code: 
+If access to web.config is not available, then CORS can be configured by adding the following C# code: 
 ```csharp
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://example.com")
 ```
@@ -285,7 +284,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | SQL Azure, OnPrem |
 | **Attributes**              | N/A, SQL Version - V12 |
-| **References**              | [How to configure an Azure SQL Database firewall](../../azure-sql/database/firewall-configure.md), [Configure a Windows Firewall for Database Engine Access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) |
+| **References**              | [How to configure an Azure SQL Database firewall](/azure/azure-sql/database/firewall-configure), [Configure a Windows Firewall for Database Engine Access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) |
 | **Steps** | Firewall systems help prevent unauthorized access to computer resources. To access an instance of the SQL Server Database Engine through a firewall, you must configure the firewall on the computer running SQL Server to allow access |
 
 ## <a id="cors-api"></a>Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web API

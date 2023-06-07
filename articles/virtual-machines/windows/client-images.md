@@ -1,13 +1,13 @@
 ---
 title: Use Windows client images in Azure 
 description: How to use Visual Studio subscription benefits to deploy Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios
-author: mimckitt
+author: ebolton-cyber
+ms.author: edewebolton
 ms.subservice: imaging
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
-ms.author: mimckitt
 
 ---
 # Use Windows client in Azure for dev/test scenarios
@@ -28,7 +28,7 @@ Certain Windows client images are available from the Azure Marketplace. Visual S
 The following table details the offer IDs that are eligible to deploy Windows client images through the Azure Marketplace. The Windows client images are only visible to the following offers. 
 
 > [!NOTE]
-> Image offers are under **Windows Client** in the Azure Marketplace. Use **Windows Client** when searching for client images available to Visual Studio subscribers. If you need to purchase a Visual Stuido subscription, see the various options at [Buy Visual Studio](https://visualstudio.microsoft.com/vs/pricing/?tab=business)
+> Image offers are under **Windows Client** in the Azure Marketplace. Use **Windows Client** when searching for client images available to Visual Studio subscribers. If you need to purchase a Visual Studio subscription, see the various options at [Buy Visual Studio](https://visualstudio.microsoft.com/vs/pricing/?tab=business)
 
 | Offer Name | Offer Number | Available client images | 
 |:--- |:---:|:---:|

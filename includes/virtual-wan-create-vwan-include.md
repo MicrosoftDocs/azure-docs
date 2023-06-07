@@ -1,7 +1,7 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 08/19/2021
+ms.date: 05/25/2022
 ms.service: virtual-wan
 ms.topic: include
 
@@ -18,7 +18,7 @@ ms.topic: include
 
    * **Subscription**: Select the subscription that you want to use.
    * **Resource group**: Create new or use existing.
-   * **Resource group location**: Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to manage and locate the WAN resource that you create.
+   * **Resource group location**: Choose a resource location from the dropdown. A WAN is a global resource and doesn't live in a particular region. However, you must select a region in order to manage and locate the WAN resource that you create.
    * **Name**: Type the Name that you want to call your virtual WAN.
    * **Type**: Basic or Standard. Select **Standard**. If you select Basic, understand that Basic virtual WANs can only contain Basic hubs. Basic hubs can only be used for site-to-site connections.
 

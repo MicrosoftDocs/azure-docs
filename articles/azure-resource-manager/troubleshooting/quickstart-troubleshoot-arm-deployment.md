@@ -1,20 +1,22 @@
 ---
-title: Troubleshoot ARM template deployments
-description: Learn how to troubleshoot Azure Resource Manager template (ARM template) deployments.
-ms.date: 11/08/2021
+title: Troubleshoot ARM template JSON deployments
+description: Learn how to troubleshoot Azure Resource Manager template (ARM template) JSON deployments.
+ms.date: 04/05/2023
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell, mode-other
+ms.custom: mode-arm, devx-track-arm-template
 ---
 
-# Quickstart: Troubleshoot ARM template deployments
+# Quickstart: Troubleshoot ARM template JSON deployments
 
-This quickstart describes how to troubleshoot Azure Resource Manager template (ARM template) deployment errors. You'll set up a template with errors and learn how to fix the errors.
+This quickstart describes how to troubleshoot Azure Resource Manager template (ARM template) JSON deployment errors. You'll set up a template with errors and learn how to fix the errors.
+
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 There are three types of errors that are related to a deployment:
 
-- **Validation errors** occur before a deployment begins and are caused by syntax errors in your file. Your editor can identify these errors.
+- **Validation errors** occur before a deployment begins and are caused by syntax errors in your file. A code editor like Visual Studio Code can identify these errors.
 - **Preflight validation errors** occur when a deployment command is run but resources aren't deployed. These errors are found without starting the deployment. For example, if a parameter value is incorrect, the error is found in preflight validation.
-- **Deployment errors** occur during the deployment process and can only be found by assessing the deployment's progress.
+- **Deployment errors** occur during the deployment process and can only be found by assessing the deployment's progress in your Azure environment.
 
 All types of errors return an error code that you use to troubleshoot the deployment. Validation and preflight errors are shown in the activity log but don't appear in your deployment history.
 
@@ -24,7 +26,7 @@ To complete this quickstart, you need the following items:
 
 - If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
-- Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+- Install the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a template with errors
 
@@ -140,7 +142,7 @@ The template fails preflight validation and the deployment isn't run. The `prefi
 
 Storage names must be between 3 and 24 characters and use only lowercase letters and numbers. The prefix value created an invalid storage name. For more information, see [Resolve errors for storage account names](error-storage-account-name.md). To fix the preflight error, use a prefix that's 11 characters or less and contains only lowercase letters or numbers.
 
-Because the deployment didn't run there's no deployment history.
+Because the deployment didn't run, there's no deployment history.
 
 :::image type="content" source="media/quickstart-troubleshoot-arm-deployment/preflight-no-deploy.png" alt-text="Screenshot of resource group overview that shows no deployment for preflight error.":::
 
@@ -178,7 +180,7 @@ The deployment begins and is visible in the deployment history. The deployment f
 
 :::image type="content" source="media/quickstart-troubleshoot-arm-deployment/deployment-failed.png" alt-text="Screenshot of resource group overview that shows a failed deployment.":::
 
-To fix the deployment error you would change the reference function to use a valid resource. For more information, see [Resolve resource not found errors](error-not-found.md). For this quickstart, delete the comma that precedes `vnetResult` and all of `vnetResult`. Save the file and rerun the deployment.
+To fix the deployment error, change the reference function to use a valid resource. For more information, see [Resolve resource not found errors](error-not-found.md). For this quickstart, delete the comma that precedes `vnetResult` and all of `vnetResult`. Save the file and rerun the deployment.
 
 ```json
 "vnetResult": {

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with 8x8 | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with 8x8'
 description: Learn how to configure single sign-on between Azure Active Directory and 8x8.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/28/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -51,6 +51,8 @@ To configure the integration of 8x8 into Azure AD, you need to add 8x8 from the 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **8x8** in the search box.
 1. Select **8x8** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for 8x8
 
@@ -127,15 +129,7 @@ The next part of the tutorial depends on what kind of subscription you have with
 
 ### Configure 8x8 Admin Console
 
-1. To automate the configuration within 8x8, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
-
-	![My apps extension](common/install-myappssecure-extension.png)
-
-1. After adding extension to the browser, click on **Set up 8x8** will direct you to the 8x8 application. From there, provide the admin credentials to sign into 8x8. The browser extension will automatically configure the application for you and automate steps 3-6.
-
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup 8x8 manually, sign in to 8x8 [Admin Console](https://admin.8x8.com/) as an administrator.
+1. In a different web browser window, sign in to the 8x8 [Admin Console](https://admin.8x8.com/) as an administrator.
 
 1. From the home page click **Identity Management**.
 

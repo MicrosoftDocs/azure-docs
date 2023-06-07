@@ -1,14 +1,20 @@
 ---
-title: Monitor B2B messages by using Azure Monitor
-description: Troubleshoot AS2, X12, and EDIFACT messages by setting up Azure Monitor logs and collecting diagnostics data for Azure Logic Apps
+title: Monitor B2B messages with Azure Monitor
+description: Troubleshoot AS2, X12, and EDIFACT messages with Azure Monitor logs and collecting diagnostics data for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: divswa, logicappspm
-ms.topic: article
-ms.date: 01/30/2020
+ms.reviewer: divswa, azla
+ms.topic: how-to
+ms.date: 08/23/2022
 ---
 
 # Set up Azure Monitor logs and collect diagnostics data for B2B messages in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
+> [!NOTE]
+> This article applies only to Consumption logic apps. For information about monitoring Standard logic apps, review 
+> [Enable or open Application Insights after deployment for Standard logic apps](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights).
 
 After you set up B2B communication between trading partners in your integration account, those partners can exchange messages by using protocols such as AS2, X12, and EDIFACT. To check that this communication works the way you expect, you can set up [Azure Monitor logs](../azure-monitor/logs/data-platform-logs.md) for your integration account. [Azure Monitor](../azure-monitor/overview.md) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using Azure Monitor logs, you can record and store data about runtime data and events, such as trigger events, run events, and action events in a [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). For messages, logging also collects information such as:
 
@@ -17,7 +23,7 @@ After you set up B2B communication between trading partners in your integration 
 * Correlations between messages and acknowledgments
 * Detailed error descriptions for failures
 
-Azure Monitor lets you create [log queries](../azure-monitor/logs/log-query-overview.md) to help you find and review this information. You can also [use this diagnostics data with other Azure services](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), such as Azure Storage and Azure Event Hubs.
+Azure Monitor lets you create [log queries](../azure-monitor/logs/log-query-overview.md) to help you find and review this information. You can also [use this diagnostics data with other Azure services](monitor-workflows-collect-diagnostic-data.md#other-destinations), such as Azure Storage and Azure Event Hubs.
 
 To set up logging for your integration account, [install the Logic Apps B2B solution](#install-b2b-solution) in the Azure portal. This solution provides aggregated information for B2B message events. Then, to enable logging and creating queries for this information, set up [Azure Monitor logs](#set-up-resource-logs).
 

@@ -2,16 +2,21 @@
 title: Create an Azure Event Hubs schema registry
 description: This article shows you how to create a schema registry in an Azure Event Hubs namespace.
 ms.topic: quickstart
-ms.date: 06/01/2021
+ms.date: 09/09/2022
 ms.custom: references_regions, ignite-fall-2021, mode-other
 ---
 
-# Create an Azure Event Hubs schema registry
-This article shows you how to create a schema group with schemas in a schema registry hosted by Azure Event Hubs. For an overview of the Schema Registry feature of Azure Event Hubs, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md).
+# Quickstart: Create an Azure Event Hubs schema registry using Azure portal
+
+**Azure Schema Registry** is a feature of Event Hubs, which provides a central repository for schemas for event-driven and messaging-centric applications. It provides the flexibility for your producer and consumer applications to **exchange data without having to manage and share the schema**. It also provides a simple governance framework for reusable schemas and defines relationship between schemas through a grouping construct (schema groups). For more information, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md).
+
+This article shows you how to create a schema group with schemas in a schema registry hosted by Azure Event Hubs. 
 
 > [!NOTE]
 > - The feature isn't available in the **basic** tier.
+> - Make sure that you are a member of one of these roles: **Owner**, **Contributor**, or **Schema Registry Contributor**. For details about role-based access control, see [Schema Registry overview](schema-registry-concepts.md#azure-role-based-access-control).
 > - If the event hub is in a **virtual network**, you won't be able to create schemas in the Azure portal unless you access the portal from a VM in the same virtual network. 
+
 
 ## Prerequisites
 [Create an Event Hubs namespace](event-hubs-create.md#create-an-event-hubs-namespace). You can also use an existing namespace. 
@@ -23,9 +28,12 @@ This article shows you how to create a schema group with schemas in a schema reg
     :::image type="content" source="./media/create-schema-registry/namespace-page.png" alt-text="Image showing the Schema Registry page in the Azure portal":::
 1. On the **Create Schema Group** page, do these steps:
     1. Enter a **name** for the schema group.
-    1. For **Serialization type**, pick a serialization format that applies to all schemas in the schema group. Currently, **Avro** is the only type supported, so select **Avro**. 
-    1. Select a **compatibility mode** for all schemas in the group. For **Avro**, forward and backward compatibility modes are supported. 
-    1. Then, select **Create** to create the schema group. 
+    1. For **Serialization type**, pick **Avro** serialization format that applies to all schemas in the schema group. 
+    
+        > [!NOTE]
+        > Currently, Schema Registry doesn't support **JSON** serialization. 
+    3. Select a **compatibility mode** for all schemas in the group. For **Avro**, forward and backward compatibility modes are supported. 
+    4. Then, select **Create** to create the schema group. 
     
         :::image type="content" source="./media/create-schema-registry/create-schema-group-page.png" alt-text="Image showing the page for creating a schema group":::
 1. Select the name of the **schema group** in the list of schema groups.
@@ -84,6 +92,18 @@ In this section, you add a schema to the schema group using the Azure portal.
     :::image type="content" source="./media/create-schema-registry/new-version.png" alt-text="Image showing the new version of schema":::    
 1. Select `1` to see the version 1 of the schema. 
 
+## Clean up resources
+
+> [!NOTE]
+> Don't clean up resources if you want to continue to the next quick start linked from **Next steps**. 
+
+1. Navigate to the **Event Hubs Namespace** page. 
+1. Select **Schema Registry** on the left menu.
+1. Select the **schema group** you created in this quickstart. 
+1. On the **Schema Group** page, select **Delete** on the toolbar.
+1. On the **Delete Schema Group** page, type the name of the schema group, and select **Delete**.
 
 ## Next steps
-For more information about schema registry, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md).
+
+> [!div class="nextstepaction"]
+> [Validate schema when sending and receiving events - AMQP and .NET](schema-registry-dotnet-send-receive-quickstart.md).

@@ -3,7 +3,7 @@ title: Publish built-in apps in Azure Virtual Desktop - Azure
 description: How to publish built-in apps in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 05/25/2023
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -24,22 +24,40 @@ To publish a built-in app:
 3. Finally, run the following cmdlet with `<PackageFamilyName>` replaced by the **PackageFamilyName** you found in the previous step:
 
    ```powershell
-   New-AzWvdApplication -Name <applicationname> -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -FilePath "shell:appsFolder\<PackageFamilyName>!App" -CommandLineSetting <Allow|Require|DoNotAllow> -IconIndex 0 -IconPath <iconpath> -ShowInPortal:$true
+   $parameters = @{
+       Name = '<ApplicationName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       ApplicationGroupName = '<ApplicationGroupName>'
+       FilePath = 'shell:appsFolder\<PackageFamilyName>!App'
+       CommandLineSetting = '<Allow|Require|DoNotAllow>'
+       IconIndex = '0'
+       IconPath = '<IconPath>'
+       ShowInPortal = $true
+    }
+
+   New-AzWvdApplication @parameters
    ```
 
 >[!NOTE]
 > Azure Virtual Desktop only supports publishing apps with install locations that begin with `C:\Program Files\WindowsApps`.
 
-## Update app icons
-
-After you publish an app, it will have the default Windows app icon instead of its regular icon picture. To change the icon to its regular icon, put the image of the icon you want on a network share. Supported image formats are PNG, BMP, GIF, JPG, JPEG, and ICO.
-
 ## Publish Microsoft Edge
 
-The process you use to publish Microsoft Edge is a little different from the publishing process for other apps. To publish Microsoft Edge with the default homepage, run this cmdlet:
+To publish Microsoft Edge with the default homepage, run this cmdlet:
 
 ```powershell
-New-AzWvdApplication -Name -ResourceGroupName -ApplicationGroupName -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" -CommandLineSetting <Allow|Require|DoNotAllow> -iconPath "C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\microsoftedge.exe" -iconIndex 0 -ShowInPortal:$true
+$parameters = @{
+    Name = '<ApplicationName>'
+    ResourceGroupName = '<ResourceGroupName>'
+    ApplicationGroupName = '<ApplicationGroupName>'
+    FilePath = 'shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge'
+    CommandLineSetting = '<Allow|Require|DoNotAllow>'
+    IconIndex = '0'
+    IconPath = 'C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\microsoftedge'
+    ShowInPortal = $true
+}
+
+New-AzWvdApplication @parameters
 ```
 
 ## Next steps

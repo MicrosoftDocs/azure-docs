@@ -1,21 +1,20 @@
 ---
 title: Troubleshooting Azure Monitor alerts and notifications
 description: Common issues with Azure Monitor alerts and possible solutions. 
-author: ofirmanor
-ms.author: ofmanor
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 2/23/2022
+ms.reviewer: ofmanor
 ---
 # Troubleshooting problems in Azure Monitor alerts
 
-This article discusses common problems in Azure Monitor alerting and notifications.
+This article discusses common problems in Azure Monitor alerting and notifications. Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](./alerts-overview.md).
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](./alerts-overview.md).
+You can see fired alerts in the Azure portal.
 
-If you have a problem with an alert firing or not firing when expected, refer to the articles below. You can see "fired" alerts in the Azure portal.
+Refer to these articles for troubleshooting information about metric or log alerts that are not behaving as expected:
 
-- [Troubleshooting Azure Monitor Metric Alerts in Microsoft Azure](alerts-troubleshoot-metric.md)  
-- [Troubleshooting Azure Monitor Log Alerts in Microsoft Azure](alerts-troubleshoot-log.md)
+- [Troubleshoot Azure Monitor metric alerts](alerts-troubleshoot-metric.md)
+- [Troubleshoot Azure Monitor log alerts](alerts-troubleshoot-log.md)
 
 If the alert fires as intended according to the Azure portal but the proper notifications do not occur, use the information in the rest of this article to troubleshoot that problem.
 
@@ -31,7 +30,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md):
 
-    ![Alert history tab with suppression from alert processing rule](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
+    ![Screenshot of alert history tab with suppression from alert processing rule.](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
 
 1. **Is the type of action "Email Azure Resource Manager Role"?**
 
@@ -49,13 +48,11 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
 1. **Was the email processed by inbox rules or a spam filter?**
 
-    Verify that there are no inbox rules that delete those emails or move them to a side folder. For example, inbox rules could catch specific senders or specific words in the subject.
+    Verify that there are no inbox rules that delete those emails or move them to a side folder. For example, inbox rules could catch specific senders or specific words in the subject. Also, check:
 
-    Also, check:
-
-   - the spam settings of your email client (like Outlook, Gmail)
-      - the sender limits / spam settings / quarantine settings of your email server (like Exchange, Microsoft 365, G-suite)
-      - the settings of your email security appliance, if any (like Barracuda, Cisco).
+   - The spam settings of your email client (like Outlook, Gmail)
+   - The sender limits / spam settings / quarantine settings of your email server (like Exchange, Microsoft 365, G-suite)
+   - The settings of your email security appliance, if any (like Barracuda, Cisco).
 
 1. **Have you accidentally unsubscribed from the action group?**
 
@@ -63,11 +60,11 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
     1. Open the action group in the portal and check the Status column:
 
-    ![action group status column](media/alerts-troubleshoot/action-group-status.png)
+    ![Screenshot of action group status column.](media/alerts-troubleshoot/action-group-status.png)
 
     2. Search your email for the unsubscribe confirmation:
 
-    ![unsubscribed from alert action group](media/alerts-troubleshoot/unsubscribe-action-group.png)
+    ![Screenshot of email about being unsubscribed from alert action group.](media/alerts-troubleshoot/unsubscribe-action-group.png)
 
     To subscribe again – either use the link in the unsubscribe confirmation email you have received, or remove the email address from the action group, and then add it back again. 
  
@@ -75,7 +72,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
     Email is [rate limited](alerts-rate-limiting.md) to no more than 100 emails every hour to each email address. If you pass this threshold, additional email notifications are dropped.  Check if you have received a message indicating that your email address has been temporarily rate limited: 
  
-   ![Email rate limited](media/alerts-troubleshoot/email-paused.png)
+   ![Screenshot of an email about being rate limited.](media/alerts-troubleshoot/email-paused.png)
 
    If you would like to receive high-volume of notifications without rate limiting, consider using a different action, such as webhook, logic app, Azure function, or automation runbooks, none of which are rate limited. 
 
@@ -87,7 +84,7 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md): 
 
-    ![Alert history tab with suppression from alert processing rule](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
+    ![Screenshot of alert history tab with suppression from alert processing rule.](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
 
    If that was unintentional, you can modify, disable, or delete the alert processing rule.
  
@@ -120,7 +117,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md):
 
-    ![Alert history tab with suppression from alert processing rule](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
+    ![Screenshot of alert history tab with suppression from alert processing rule.](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
  
     If that was unintentional, you can modify, disable, or delete the alert processing rule.
 
@@ -128,7 +125,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
     1. **Have the source IP addresses been blocked?**
     
-       Add the [IP addresses](./action-groups.md#action-specific-information) that the webhook is called from to your allow list.
+       Add the [IP addresses](../app/ip-addresses.md) that the webhook is called from to your allowlist.
 
     1. **Does your webhook endpoint work correctly?**
 
@@ -137,9 +134,16 @@ If you can see a fired alert in the portal, but its configured action did not tr
     1. **Are you calling Slack or Microsoft Teams?**  
     Each of these endpoints expects a specific JSON format. Follow [these instructions](../alerts/action-groups-logic-app.md) to configure a logic app action instead.
 
-    1. **Did your webhook became unresponsive or returned errors?** 
+    1. **Did your webhook become unresponsive or return errors?** 
 
-        Our timeout period for a webhook response is 10 seconds. The webhook call will be retried up to two additional times when the following HTTP status codes are returned: 408, 429, 503, 504, or when the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second and final retry happens after 100 seconds. If the second retry fails, the endpoint will not be called again for 30 minutes for any action group.
+        The webhook response timeout period is 10 seconds. When the HTTP endpoint does not respond or when the following HTTP status codes are returned, the webhook call is retried up to two times:
+        
+    - `408`
+    -  `429`
+    - `503`
+    - `504`
+   
+        One retry occurs after 10 seconds and another retry occurs after 100 seconds. If the second retry fails, the endpoint is not called again for 15 minutes for any action group.
 
 ## Action or notification happened more than once 
 
@@ -157,7 +161,7 @@ If you have received a notification for an alert (such as an email or an SMS) mo
 
     To check which action groups were triggered, check the alert history tab. You would see there both action groups defined in the alert rule, and action groups added to the alert by alert processing rules: 
 
-    ![Action repeated in multiple action groups](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
+    ![Screenshot of multiple action groups in an alert.](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
 
 ## Action or notification has an unexpected content
 
@@ -169,11 +173,11 @@ If you have received the alert, but believe some of its fields are missing or in
 
     For example, for webhook action: 
 
-    ![webhook action schema option](media/alerts-troubleshoot/webhook.png)
+    ![Screenshot of webhook action schema option.](media/alerts-troubleshoot/webhook.png)
 
     Check if the format specified at the action level is what you expect. For example, you may have developed code that responds to alerts (webhook, function, logic app, etc.), expecting one format, but later in the action you or another person specified a different format.  
 
-    Also, check the payload format (JSON) for [activity log alerts](../alerts/activity-log-alerts-webhook.md), for [log search alerts](../alerts/alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](../alerts/alerts-common-schema-definitions.md), and for the deprecated [classic metric alerts](./alerts-webhooks.md).
+    Also, check the payload format (JSON) for [activity log alerts](../alerts/activity-log-alerts-webhook.md), for [log search alerts](../alerts/alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](../alerts/alerts-common-schema.md), and for the deprecated [classic metric alerts](./alerts-webhooks.md).
 
  
 1. **Activity log alerts: Is the information available in the activity log?** 
@@ -186,10 +190,10 @@ If you can see a fired alert in the portal, but a related alert processing rule 
 
 1. **Is the alert processing rule enabled?** 
 
-    Check the alert processing rule status column to verify that the related action role is enabled. 
+    Check the alert processing rule status field to verify that the related action role is enabled. By default, the portal rule list only shows rules that are enabled, but you can change the filter to show all rules. 
 
-    ![graphic](media/alerts-troubleshoot/action-rule-status.png) 
-
+    :::image type="content" source="media/alerts-troubleshoot/alerts-troubleshoot-alert-processing-rules-status.png" alt-text="Screenshot of alert processing rule list highlighting the status field and status filter.":::
+   
     If it is not enabled, you can enable the alert processing rule by selecting it and clicking Enable. 
 
 1. **Is it a service health alert?** 
@@ -202,11 +206,11 @@ If you can see a fired alert in the portal, but a related alert processing rule 
 
     Here is an example of alert processing rule suppressing all action groups: 
  
-     ![Alert history tab with suppression from alert processing rule](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
+     ![Screenshot of alert history tab with suppression from alert processing rule.](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
 
     Here is an example of an alert processing rule adding another action group:
 
-    ![Action repeated in multiple action groups](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
+    ![Screenshot of action repeated in multiple action groups.](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
  
 
 1. **Does the alert processing rule scope and filter match the fired alert?** 
@@ -226,7 +230,7 @@ To locate it, follow these steps:
 
 1. Scroll down in the alert fields of the first tab (the summary tab) until you locate it, and copy it. That field also includes a "Copy to clipboard" helper button you can use.  
 
-    ![find alert ID](media/alerts-troubleshoot/get-alert-id.png)
+    ![Screenshot of finding the alert ID field in the alert summary tab.](media/alerts-troubleshoot/get-alert-id.png)
 
 ## Problem creating, updating, or deleting alert processing rules in the Azure portal
 
@@ -238,7 +242,7 @@ If you received an error while trying to create, update or delete an [alert proc
 
 1. **Did you verify the alert processing rule parameters?**  
 
-    Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) command. 
+    Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
 
 
 ## Next steps

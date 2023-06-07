@@ -34,11 +34,13 @@
     href: how-to-manage-monitor-devtest.md
   - name: Manage reliability & performance
     href: how-to-manage-reliability-performance.md
+  - name: Expired or removed subscriptions
+    href: troubleshoot-expired-removed-subscription.md
 - name: Resources
   items: 
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
-      href: https://azure.microsoft.com/en-us/pricing/dev-test/ 
+      href: https://azure.microsoft.com/pricing/dev-test/ 
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/

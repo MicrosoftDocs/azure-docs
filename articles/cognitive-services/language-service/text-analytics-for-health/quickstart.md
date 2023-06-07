@@ -3,22 +3,24 @@ title: "Quickstart: Use the Text Analytics for health REST API and client librar
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to start using Text Analytics for health.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 11/02/2021
-ms.author: aahi
-ms.custom: language-service-health, ignite-fall-2021, mode-other
+ms.date: 02/17/2023
+ms.author: jboback
+ms.devlang: csharp, java, javascript, python
+ms.custom: language-service-health, ignite-fall-2021, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 keywords: text mining, health, text analytics for health
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
-# Quickstart: using Text Analytics for health client library and REST API
+# Quickstart: Using Text Analytics for health client library and REST API
 
-Use this article to get started with Text Analytics for health using the client library and REST API. Follow these steps to try out examples code for mining text:
+This article contains Text Analytics for health quickstarts that help with using the supported client libraries, C#, Java, NodeJS, and Python as well as with using the REST API.
 
+[!INCLUDE [Use Language Studio](../includes/use-language-studio.md)]
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# quickstart](includes/quickstarts/csharp-sdk.md)]
@@ -45,7 +47,7 @@ Use this article to get started with Text Analytics for health using the client 
 
 ::: zone pivot="rest-api"
 
-[!INCLUDE [REST API quickstart](includes/quickstarts/rest-api.md)]
+[!INCLUDE [REST API quickstart](includes/quickstarts/rest-api.md)] 
 
 ::: zone-end
 
@@ -56,6 +58,9 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+
+
 ## Next steps
 
-* [Text Analytics for health overview](overview.md)
+* [How to call the hosted API](./how-to/call-api.md)
+* [How to use the service with Docker containers](./how-to/use-containers.md) 

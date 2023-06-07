@@ -7,7 +7,7 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli, mode-api
-#Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Azure PowerShell."
+#Customer intent: As an IT admin/developer I want to create a Stream Analytics job, configure input and output, analyze data by using Azure PowerShell.
 ---
 
 # Quickstart: Create a Stream Analytics job using Azure PowerShell
@@ -22,7 +22,7 @@ The example job reads streaming data from an IoT Hub device. The input data is g
 
 * If you don't have an Azure subscription, create a [free account.](https://azure.microsoft.com/free/)
 
-* This quickstart requires the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version that is installed on your local machine. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+* This quickstart requires the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version that is installed on your local machine. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 * Some IoT Hub actions are not supported by Azure PowerShell and must be completed using Azure CLI version 2.0.70 or later and the IoT extension for Azure CLI. [Install the Azure CLI](/cli/azure/install-azure-cli) and use `az extension add --name azure-iot` to install the IoT extension.
 
@@ -74,28 +74,28 @@ The following Azure CLI code block does many commands to prepare the input data 
     az account set --subscription "<your subscription>"
     ```
 
-2. Create an IoT Hub using the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command. This example creates an IoT Hub called **MyASAIoTHub**. Because IoT Hub names are unique, you need to come up with your own IoT Hub name. Set the SKU to F1 to use the free tier if it is available with your subscription. If not, choose the next lowest tier.
+2. Create an IoT Hub using the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. This example creates an IoT Hub called **MyASAIoTHub**. Because IoT Hub names are unique, you need to come up with your own IoT Hub name. Set the SKU to F1 to use the free tier if it is available with your subscription. If not, choose the next lowest tier.
 
     ```azurecli
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
     ```
 
-    Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub show-connection-string](/cli/azure/iot/hub#az_iot_hub_show_connection_string) command. Copy the entire connection string and save it for when you add the IoT Hub as input to your Stream Analytics job.
+    Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) command. Copy the entire connection string and save it for when you add the IoT Hub as input to your Stream Analytics job.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-3. Add a device to IoT Hub using the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) command. This example creates a device called **MyASAIoTDevice**.
+3. Add a device to IoT Hub using the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command. This example creates a device called **MyASAIoTDevice**.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
     ```
 
-4. Get the device connection string using the [az iot hub device-identity show-connection-string](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_show_connection_string) command. Copy the entire connection string and save it for when you create the Raspberry Pi simulator.
+4. Get the device connection string using the [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az-iot-hub-device-identity-connection-string-show) command. Copy the entire connection string and save it for when you create the Raspberry Pi simulator.
 
     ```azurecli
-    az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
+    az iot hub device-identity connection-string show --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
     ```
 
     **Output example:**
@@ -142,32 +142,18 @@ The following Azure PowerShell code block uses commands to create blob storage t
 
 ## Create a Stream Analytics job
 
-Create a Stream Analytics job with [New-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/new-azstreamanalyticsjob) cmdlet. This cmdlet takes the job name, resource group name, and job definition as parameters. The job name can be any friendly name that identifies your job. It can have alphanumeric characters, hyphens, and underscores only and it must be between 3 and 63 characters long. The job definition is a JSON file that contains the properties required to create a job. On your local machine, create a file named `JobDefinition.json` and add the following JSON data to it:
+Create a Stream Analytics job with [New-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/new-azstreamanalyticsjob) cmdlet. This cmdlet takes the job name, resource group name, location, and sku name as parameters. The job name can be any friendly name that identifies your job. It can have alphanumeric characters, hyphens, and underscores only and it must be between 3 and 63 characters long.
 
-```json
-{
-  "location":"WestUS2",
-  "properties":{
-    "sku":{
-      "name":"standard"
-    },
-    "eventsOutOfOrderPolicy":"adjust",
-    "eventsOutOfOrderMaxDelayInSeconds":10,
-    "compatibilityLevel": 1.1
-  }
-}
-```
-
-Next, run the `New-AzStreamAnalyticsJob` cmdlet. Replace the value of `jobDefinitionFile` variable with the path where you've stored the job definition JSON file.
+Run the `New-AzStreamAnalyticsJob` cmdlet.
 
 ```powershell
 $jobName = "MyStreamingJob"
-$jobDefinitionFile = "C:\JobDefinition.json"
+$resourceGroup = "MyResourceGroup"
 New-AzStreamAnalyticsJob `
   -ResourceGroupName $resourceGroup `
-  -File $jobDefinitionFile `
   -Name $jobName `
-  -Force
+  -Location centralus `
+  -SkuName Standard
 ```
 
 ## Configure input to the job
@@ -277,7 +263,7 @@ Add a transformation your job by using the [New-AzStreamAnalyticsTransformation]
     "properties":{
         "streamingUnits":1,
         "script":null,
-        "query":" SELECT * INTO BlobOutput FROM IoTHubInput HAVING Temperature > 27"
+        "query":" SELECT * INTO BlobOutput FROM IoTHubInput WHERE Temperature > 27"
     }
 }
 ```

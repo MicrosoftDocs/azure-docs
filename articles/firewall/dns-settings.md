@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/23/2021
+ms.date: 10/07/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -65,8 +65,7 @@ If you want to enable FQDN (fully qualified domain name) filtering in network ru
 
 :::image type="content" source="media/dns-settings/dns-proxy-2.png" alt-text="D N S proxy configuration using a custom D N S server.":::
 
-If you enable FQDN filtering in network rules, and you don't configure client virtual machines to use the firewall as a DNS proxy, then DNS requests from these clients might travel to a DNS server at a different time or return a different response compared to that of the firewall. DNS proxy puts Azure Firewall in the path of the client requests to avoid inconsistency.
-
+If you enable FQDN filtering in network rules, and you don't configure client virtual machines to use the firewall as a DNS proxy, then DNS requests from these clients might travel to a DNS server at a different time or return a different response compared to that of the firewall. It’s recommended to configure client virtual machines to use the Azure Firewall as their DNS proxy. This puts Azure Firewall in the path of the client requests to avoid inconsistency.
 
 When Azure Firewall is a DNS proxy, two caching function types are possible:
 
@@ -172,7 +171,7 @@ If all DNS servers are unavailable, there's no fallback to another DNS server.
 
 ### Health checks
 
-DNS proxy performs five-second health check loops for as long as the upstream servers report as unhealthy. Once an upstream server is considered healthy, the firewall stops health checks until the next error. When a healthy proxy returns an error during the exchange, the firewall selects another DNS server in the list. 
+DNS proxy performs five-second health check loops for as long as the upstream servers report as unhealthy. The health checks are a recursive DNS query to the root name server. Once an upstream server is considered healthy, the firewall stops health checks until the next error. When a healthy proxy returns an error, the firewall selects another DNS server in the list. 
 
 ## Next steps
 

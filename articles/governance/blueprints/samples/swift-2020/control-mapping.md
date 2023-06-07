@@ -28,7 +28,7 @@ audit requirements** built-in policy initiative.
 > compliance in Azure Policy is only a partial view of your overall compliance status. The
 > associations between controls and Azure Policy definitions for this compliance blueprint sample
 > may change over time. To view the change history, see the
-> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/swift-2020/control-mapping.md).
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/governance/blueprints/samples/swift-2020/control-mapping.md).
 
 ## 1.2 and 5.1 Account Management
 
@@ -308,7 +308,7 @@ integration and the ability to review post-attack mitigation reports. This bluep
 enabled. Understanding the capability difference between the service tiers can help you select the
 best solution to address denial of service protections for your Azure environment.
 
-- Azure DDoS Protection Standard should be enabled
+- Azure DDoS Protection should be enabled
 
 ## 1.1 and 6.1 Boundary Protection
 

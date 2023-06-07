@@ -1,5 +1,5 @@
 ---
-title: Move Azure Public IP configuration to another Azure region Azure portal
+title: Move Azure Public IP configuration to another Azure region - Azure portal
 description: Use a template to move Azure Public IP configuration from one Azure region to another using the Azure portal.
 author: asudbring
 ms.service: virtual-network

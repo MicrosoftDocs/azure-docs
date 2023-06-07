@@ -3,7 +3,7 @@ title: Manage backup policies for Azure NetApp Files | Microsoft Docs
 description: Describes how to modify or suspend a backup policy for Azure NetApp Files volumes. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,14 +11,13 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.author: b-juche
+ms.date: 08/18/2022
+ms.author: anfdocs
 ---
 # Manage backup policies for Azure NetApp Files 
 
-A snapshot policy configuration is required for Azure NetApp Files [policy-based backups](backup-configure-policy-based.md) to automatically back up a volume. After you have set up Azure NetApp Files backups using a backup policy, you can modify or suspend a backup policy as needed.  
+After you have set up Azure NetApp Files backups using [a backup policy](backup-configure-policy-based.md), you can modify or suspend a backup policy as needed.  
 
 Manual backups are not affected by changes in the backup policy.
 

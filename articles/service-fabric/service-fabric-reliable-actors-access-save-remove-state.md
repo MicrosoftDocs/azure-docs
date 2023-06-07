@@ -1,10 +1,14 @@
 ---
 title: Manage Azure Service Fabric state 
 description: Learn about accessing, saving, and removing state for an Azure Service Fabric Reliable Actor, and considerations when designing an application.
-ms.topic: conceptual
-ms.date: 03/19/2018
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Access, save, and remove Reliable Actors state
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) are single-threaded objects that can encapsulate both logic and state and maintain state reliably. Every actor instance has its own [state manager](service-fabric-reliable-actors-state-management.md): a dictionary-like data structure that reliably stores key/value pairs. The state manager is a wrapper around a state provider. You can use it to store data regardless of which [persistence setting](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) is used.
 
@@ -310,6 +314,6 @@ class MyActorImpl extends FabricActor implements  MyActor
 
 ## Next steps
 
-State that's stored in Reliable Actors must be serialized before its written to disk and replicated for high availability. Learn more about [Actor type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+State that's stored in Reliable Actors must be serialized before it's written to disk and replicated for high availability. Learn more about [Actor type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
 Next, learn more about [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md).

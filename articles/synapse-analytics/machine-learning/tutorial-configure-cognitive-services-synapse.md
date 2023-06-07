@@ -1,11 +1,10 @@
 ---
 title: 'Quickstart: Prerequisites for Cognitive Services in Azure Synapse Analytics'
 description: Learn how to configure the prerequisites for using Cognitive Services in Azure Synapse.
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart
-ms.reviewer: jrasnick, garye
+ms.reviewer: sngun, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
@@ -37,39 +36,39 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 [Azure Cognitive Services](../../cognitive-services/index.yml) includes many types of services. Follow services are examples used in the Azure Synapse tutorials.
 
-You can create a [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource in the Azure portal:
+You can create a [Text Analytics](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource in the Azure portal:
 
 ![Screenshot that shows Text Analytics in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00b.png)
 
-You can create an [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource in the Azure portal:
+You can create an [Anomaly Detector](https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) resource in the Azure portal:
 
 ![Screenshot that shows Anomaly Detector in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00a.png)
 
-You can create an [Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) resource in the Azure portal:
+You can create an [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) resource in the Azure portal:
 
 ![Screenshot that shows Form Recognizer in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-form-recognizer.png)
 
-You can create a [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource in the Azure portal:
+You can create a [Translator](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource in the Azure portal:
 
 ![Screenshot that shows Translator in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-translator.png)
 
-You can create a [Computer Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) resource in the Azure portal:
+You can create a [Computer Vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) resource in the Azure portal:
 
 ![Screenshot that shows Computer Vision in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-computer-vision.png)
 
 
-You can create a [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace) resource in the Azure portal:
+You can create a [Face](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) resource in the Azure portal:
 
 ![Screenshot that shows Face in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-face.png)
 
 
-You can create a [Speech](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) resource in the Azure portal:
+You can create a [Speech](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) resource in the Azure portal:
 
 ![Screenshot that shows Speech in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-speech.png)
 
 ## Create a key vault and configure secrets and access
 
-1. Create a [key vault](https://ms.portal.azure.com/#create/Microsoft.KeyVault) in the Azure portal.
+1. Create a [key vault](https://portal.azure.com/#create/Microsoft.KeyVault) in the Azure portal.
 2. Go to **Key Vault** > **Access policies**, and grant the [Azure Synapse workspace MSI](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics) permissions to read secrets from Azure Key Vault.
 
    > [!NOTE]

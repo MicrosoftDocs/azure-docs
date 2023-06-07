@@ -9,13 +9,13 @@ services: notification-hubs
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: windows
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: article
 ms.date: 09/14/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Send secure push notifications from Azure Notification Hubs

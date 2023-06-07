@@ -1,7 +1,7 @@
 ---
 title: Image Moderation - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Use Content Moderator's machine-assisted image moderation and human-in-the-loop Review tool to moderate images for adult and racy content.
+description: Use Content Moderator's machine-assisted image moderation to moderate images for adult and racy content.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -16,7 +16,7 @@ ms.author: pafarley
 
 # Learn image moderation concepts
 
-Use Content Moderator's machine-assisted image moderation and [Review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate images for adult and racy content. Scan images for text content and extract that text, and detect faces. You can match images against custom lists, and take further action.
+Use Content Moderator's machine-assisted image moderation to moderate images for adult and racy content. Scan images for text content and extract that text, and detect faces. You can match images against custom lists, and take further action.
 
 ## Evaluating for adult and racy content
 
@@ -142,12 +142,7 @@ Example extract:
 }
 ```
 
-## Review tool
-
-For more nuanced cases, use the Content Moderator [Review tool](Review-Tool-User-Guide/human-in-the-loop.md) and its API to surface the moderation results and content in the review for your human moderators. They review the machine-assigned tags and confirm their final decisions.
-
-![Image review for human moderators](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## Next steps
 
-Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples. Also see [Reviews, workflows, and jobs](./review-api.md) to learn how to set up human reviews.
+Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples.

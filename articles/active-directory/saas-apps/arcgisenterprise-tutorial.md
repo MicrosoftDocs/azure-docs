@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ArcGIS Enterprise | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with ArcGIS Enterprise'
 description: Learn how to configure single sign-on between Azure Active Directory and ArcGIS Enterprise.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with ArcGIS Enterprise
+# Tutorial: Azure AD SSO integration with ArcGIS Enterprise
 
 In this tutorial, you'll learn how to integrate ArcGIS Enterprise with Azure Active Directory (Azure AD). When you integrate ArcGIS Enterprise with Azure AD, you can:
 
@@ -48,6 +48,8 @@ To configure the integration of ArcGIS Enterprise into Azure AD, you need to add
 1. In the **Add from the gallery** section, type **ArcGIS Enterprise** in the search box.
 1. Select **ArcGIS Enterprise** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for ArcGIS Enterprise
 
 Configure and test Azure AD SSO with ArcGIS Enterprise using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in ArcGIS Enterprise.
@@ -73,11 +75,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps, if you wish to configure the application in **IDP** Initiated mode:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a value using the following pattern:
     `<EXTERNAL_DNS_NAME>.portal`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin2`
+    `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -117,15 +119,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure ArcGIS Enterprise SSO
 
-1. To automate the configuration within ArcGIS Enterprise, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-    ![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up ArcGIS Enterprise** will direct you to the ArcGIS Enterprise application. From there, provide the admin credentials to sign into ArcGIS Enterprise. The browser extension will automatically configure the application for you and automate steps 3-7.
 
-    ![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup ArcGIS Enterprise manually, log in to your ArcGIS Enterprise company site as an administrator.
+1. In a different web browser window, sign in to your ArcGIS Enterprise company site as an administrator
 
 
 1. Select **Organization >EDIT SETTINGS**.

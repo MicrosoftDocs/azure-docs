@@ -2,6 +2,7 @@
 title: Azure Event Grid - Enable diagnostic logs for Event Grid resources
 description: This article provides step-by-step instructions on how to enable diagnostic logs for Event Grid resources.
 ms.topic: how-to
+ms.custom: devx-track-arm-template, build-2023
 ms.date: 11/11/2021
 ---
 
@@ -9,14 +10,14 @@ ms.date: 11/11/2021
 
 This article provides step-by-step instructions for enabling diagnostic settings for Event Grid resources. These settings allow you to capture and view diagnostic information so that you can troubleshoot any failures. The following table shows the settings available for different types of Event Grid resources - custom topics, system topics, and domains.
 
-| Diagnostic setting |  Event Grid topics | Event Grid system topics | Event Grid domains |
-| ------------- |  --------- | ----------- | ----------- |
-| [DeliveryFailures](diagnostic-logs.md#schema-for-publishdelivery-failure-logs)  | Yes | Yes | Yes |
-| [PublishFailures](diagnostic-logs.md#schema-for-publishdelivery-failure-logs)  | Yes | No | Yes |
-| [DataPlaneRequests](diagnostic-logs.md#schema-for-data-plane-requests) | Yes | No | Yes |
+| Diagnostic setting |  Event Grid topics | Event Grid system topics | Event domains | Event Grid partner namespaces |
+| ------------- |  --------- | ----------- | ----------- | ----------- |
+| [DeliveryFailures](monitor-push-reference.md#schema-for-publishdelivery-failure-logs)  | Yes | Yes | Yes | No |
+| [PublishFailures](monitor-push-reference.md#schema-for-publishdelivery-failure-logs)  | Yes | No | Yes | Yes |
+| [DataPlaneRequests](monitor-push-reference.md#schema-for-data-plane-operations-logs) | Yes | No | Yes | Yes |
 
 > [!IMPORTANT]
-> For schemas of delivery failures, publish failures, and data plane requests, see [Diagnostic logs](diagnostic-logs.md). 
+> For schemas of delivery failures, publish failures, and data plane requests, see [Diagnostic logs](monitor-push-reference.md). 
 
 ## Prerequisites
 
@@ -88,7 +89,7 @@ You can also enable collection of all **metrics** for the system topic.
 1. Once you enable a storage account as a capture destination, Event Grid starts emitting diagnostic logs. You should see new containers named **insights-logs-deliveryfailures** and **insights-logs-publishfailures** in the storage account.
 
     ![Storage - containers for diagnostic logs](./media/enable-diagnostic-logs-topic/storage-containers.png)
-2. As you navigate through one of the containers, you'll end up at a blob in JSON format. The file contains log entries for either a delivery failure or a publish failure. The navigation path represents the **ResourceId** of the event grid topic and the timestamp (minute level) as to when the log entries were emitted. The blob/JSON file, which is downloadable, in the end adheres to the schema described in the next section.
+2. As you navigate through one of the containers, you'll end up at a blob in JSON format. The file contains log entries for either a delivery failure or a publish failure. The navigation path represents the **ResourceId** of the Event Grid topic and the timestamp (minute level) as to when the log entries were emitted. The blob/JSON file, which is downloadable, in the end adheres to the schema described in the next section.
 
     ![JSON file in the storage](./media/enable-diagnostic-logs-topic/select-json.png)
 3. You should see content in the JSON file similar to the following example:
@@ -106,9 +107,9 @@ You can also enable collection of all **metrics** for the system topic.
 
 ## Use Azure Resource Manager template
 
-Here's a sample Azure Resource Manager template to enable diagnostic settings for an event grid topic. When you deploy this sample template, the following resources are created.
+Here's a sample Azure Resource Manager template to enable diagnostic settings for an Event Grid topic. When you deploy this sample template, the following resources are created.
 
-- An event grid topic
+- An Event Grid topic
 - A Log Analytics workspace
 
 Then, it creates a diagnostic setting on the topic to send diagnostic information to the Log Analytics workspace.
@@ -202,12 +203,12 @@ Then, it creates a diagnostic setting on the topic to send diagnostic informatio
 
 Event Grid can publish audit traces for data plane operations. To enable the feature, select **audit** in the **Category groups** section or select **DataPlaneRequests** in the **Categories** section.
 
-The audit trace can be used to ensure that data access is allowed only for authorized purposes. It collects information about security control such as resource name, operation type, network access, level, region and more. For more information about how to enable the diagnostic setting, see [Diagnostic logs in Event Grid topics and Event Grid domains](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-topics-and-domains).
+The audit trace can be used to ensure that data access is allowed only for authorized purposes. It collects information about security control such as resource name, operation type, network access, level, region and more. For more information about how to enable the diagnostic setting, see [Diagnostic logs in Event Grid topics and Event domains](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-topics-and-domains).
 ![Select the audit traces](./media/enable-diagnostic-logs-topic/enable-audit-logs.png)
 
 > [!IMPORTANT]
-> For more information about the `DataPlaneRequests` schema, see [Diagnostic logs](diagnostic-logs.md).
+> For more information about the `DataPlaneRequests` schema, see [Diagnostic logs](monitor-push-reference.md).
 
 ## Next steps
 
-For the log schema and other conceptual information about diagnostic logs for topics or domains, see [Diagnostic logs](diagnostic-logs.md).
+For the log schema and other conceptual information about diagnostic logs for topics or domains, see [Diagnostic logs](monitor-push-reference.md).

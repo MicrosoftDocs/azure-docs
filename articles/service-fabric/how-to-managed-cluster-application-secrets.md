@@ -2,7 +2,11 @@
 title: Deploy application secrets to a Service Fabric managed cluster
 description: Learn about Azure Service Fabric application secrets and how to deploy them to a managed cluster
 ms.topic: how-to
-ms.date: 8/23/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Deploy application secrets to a Service Fabric managed cluster
@@ -32,7 +36,7 @@ Alternatively, we also support [KeyVaultReference](service-fabric-keyvault-refer
 To create your own key vault and setup certificates, follow the instructions from Azure Key Vault by using the [Azure CLI, PowerShell, Portal, and more][key-vault-certs].
 
 >[!NOTE]
-> The key vault must be [enabled for template deployment](../key-vault/general/manage-with-cli2.md#bkmk_KVperCLI) to allow the compute resource provider to get certificates from it and install it on cluster nodes.
+> The key vault must be [enabled for template deployment](../key-vault/general/manage-with-cli2.md#setting-key-vault-advanced-access-policies) to allow the compute resource provider to get certificates from it and install it on cluster nodes.
 
 ## Install the certificate in your cluster
 This certificate must be installed on each node in the cluster and Service Fabric managed clusters helps make this easy. The managed cluster service can push version-specific secrets to the nodes to help install secrets that won't change often like installing a private root CA to the nodes. For most production workloads we suggest using [KeyVault extension][key-vault-windows]. The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault vs a static version.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Documo | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Documo'
 description: Learn how to configure single sign-on between Azure Active Directory and Documo.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/05/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
@@ -34,7 +34,6 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Documo supports **SP and IDP** initiated SSO.
-* Documo supports **Just In Time** user provisioning.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -49,6 +48,8 @@ To configure the integration of Documo into Azure AD, you need to add Documo fro
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Documo** in the search box.
 1. Select **Documo** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 
 ## Configure and test Azure AD SSO for Documo
@@ -145,7 +146,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Documo test user
 
-In this section, a user called Britta Simon is created in Documo. Documo supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Documo, a new one is created after authentication.
+In this section, a user called B.Simon is created in Documo. 
+
+1. Navigate to the [Users page](https://app.documo.com?redirectTo=/users) on the Documo app.
+1. Click the **New user** button.
+1. Fill out the user form with name, email, phone number, user role, and password information. Make sure the **email** field matches the email for B.Simon in **Azure AD**.
+1. Click **Create**.
 
 ## Test SSO 
 
