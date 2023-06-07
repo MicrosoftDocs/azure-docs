@@ -13,7 +13,7 @@ items:
       href: best-practices-plan.md
     - name: Configure data collection
       href: best-practices-data-collection.md
-    - name: Analysis and visualizations
+    - name: Analyze and visualize monitoring data
       href: best-practices-analysis.md
     - name: Configure alerts and automated actions
       href: best-practices-alerts.md
