@@ -28,6 +28,9 @@ A device template contains a device model and view definitions. The REST API let
 
 The device model section of a device template specifies the capabilities of a device you want to connect to your application. Capabilities include telemetry, properties, and commands. The model is defined using [DTDL V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md).
 
+> [!NOTE]
+> IoT Central defines some extensions to the DTDL language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
+
 ## Device templates REST API
 
 The IoT Central REST API lets you:
