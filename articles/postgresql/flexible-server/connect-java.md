@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
-ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, passwordless-java
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, passwordless-java, devx-track-extended-java
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 11/07/2022
