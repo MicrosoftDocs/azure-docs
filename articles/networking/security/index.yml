@@ -42,25 +42,17 @@ additionalContent:
     - title: Secure your perimeter  # < 60 chars (optional)
       items:
         # Card
-        - title: Overview
+        - title: I want to...
           links:
-            - text: What is Azure Firewall?
+            - text: Protect my outbound network connections
               url: ../../firewall/overview.md
-            - text: What is Azure Firewall Manager?
+            - text: Manage my network firewall
               url: ../../firewall-manager/overview.md
-            - text: What is Web Application Firewall?
+            - text: Protect my inbound web application connections
               url: ../../web-application-firewall/overview.md
             - text: See more
               url: ../../firewall/index.yml
-        - title: Concepts
-          links:
-            - text: Azure Firewall Standard features
-              url: ../../firewall/features.md
-            - text: Azure Firewall Premium features
-              url: ../../firewall/premium-features.md
-            - text: What is a secured virtual hub?
-              url: ../../firewall-manager/secured-virtual-hub.md
-        - title: Learn
+        - title: Training
           links:
             - text: Introduction to Azure Firewall
               url: /training/modules/introduction-azure-firewall/
@@ -72,21 +64,15 @@ additionalContent:
     - title: Secure your virtual networks  # < 60 chars (optional)
       items:
         # Card
-        - title: Overview
+        - title: I want to...
           links:
-            - text: Network security groups 
+            - text: Filter network traffic between Azure resources
               url: ../../virtual-network/network-security-groups-overview.md
-            - text: Virtual Network service endpoints
+            - text: Secure access to Azure services
               url: ../../virtual-network/virtual-network-service-endpoints-overview.md
             - text: See more
               url: ../../virtual-network/index.yml
-        - title: Concepts
-          links:
-            - text: How network security groups filter network traffic
-              url: ../../virtual-network/network-security-group-how-it-works.md
-            - text: Virtual Network service endpoints
-              url: ../../virtual-network/virtual-network-service-endpoints-overview.md
-        - title: Learn
+        - title: Training
           links:
             - text: Configure network security groups
               url: /training/modules/configure-network-security-groups/
@@ -95,25 +81,19 @@ additionalContent:
     - title: Protect your apps
       items:
         # Card
-        - title: Overview
+        - title: I want to...
           links:
-            - text: What is Azure DDoS Protection?
+            - text: Protect my service from DDoS attacks
               url: ../../ddos-protection/ddos-protection-overview.md
-            - text: What is Azure Private Link?
+            - text: Securely access my PaaS Services in Azure
               url: ../../private-link/private-link-overview.md
-            - text: What is a Private Endpoint?
+            - text: Create a private interface to connect to a service
               url: ../../private-link/private-endpoint-overview.md
-            - text: What is Private Link service?
+            - text: Connect a service using a private link 
               url: ../../private-link/private-link-service-overview.md
             - text: See more
               url: ../..//ddos-protection/index.yml
-        - title: Concepts
-          links:
-            - text: Types of DDoS attacks
-              url: ../../ddos-protection/types-of-attacks.md
-            - text: Azure Private Link availability
-              url: ../../private-link/availability.md
-        - title: Learn
+        - title: Training
           links:
             - text: Introduction to Azure DDoS Protection
               url: /training/modules/introduction-azure-ddos-protection/
@@ -122,17 +102,13 @@ additionalContent:
     - title: Secure your virtual machines # < 60 chars (optional)
       items:
         # Card
-        - title: Overview
+        - title: I want to...
           links:
-            - text: What is Azure Bastion?
+            - text: Connect to my VMs without a public IP address exposure
               url: ../../bastion/bastion-overview.md
             - text: See more
               url: ../../bastion/index.yml
-        - title: Concepts
-          links:
-            - text: VNet peering and Azure Bastion
-              url: ../../bastion/vnet-peering.md
-        - title: Learn
+        - title: Training
           links:
             - text: Introduction to Azure Bastion
               url: /training/modules/intro-to-azure-bastion/
