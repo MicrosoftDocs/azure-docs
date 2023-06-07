@@ -8,7 +8,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
 ms.reviewer: mikeray
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 06/06/2023
 ms.custom: template-how-to, event-tier1-build-2022
 ---
 
