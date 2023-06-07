@@ -39,7 +39,7 @@ The following types of images aren't supported:
 
 ## Create an image
 
- ### Register the features
+ ### Register the feature
 
 To use VM Image Builder with prefetch, you need to register the below features. Check your registration by running the following commands:
 
