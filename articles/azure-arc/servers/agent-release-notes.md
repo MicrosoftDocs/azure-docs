@@ -35,11 +35,15 @@ Download for [Windows]() or [Linux](manage-agent.md#installing-a-specific-versio
 - Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Update Management Center extension for Linux, Microsoft Defender Endpoint for Linux, and Azure Security Agent for Linux to prevent timeouts during installation
 - [azcmagent disconnect](azcmagent-disconnect.md) now closes any active SSH or Windows Admin Center connections
 - Improved output of the [azcmagent check](azcmagent-check.md) command
-- Fixed an issue that could cause the agent to crash if the location specified 
+- Better handling of spaces in the `--location` parameter of [azcmagent connect](azcmagent-connect.md)
 
 ## Version 1.30 - May 2023
 
 Download for [Windows](https://download.microsoft.com/download/7/7/9/779eae73-a12b-4170-8c5e-abec71bc14cf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### New features
+
+- Introduced a scheduled task that checks for agent updates on a daily basis. Currently, the update mechanism is inactive and no changes will be made to your server even if a newer agent version is available. In the future, you will be able to schedule updates of the Azure Connected Machine agent from Azure. See [Automatic agent upgrades](manage-agent.md#automatic-agent-upgrades) for more information.
 
 ### Fixed
 
