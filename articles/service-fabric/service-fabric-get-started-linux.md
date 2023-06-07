@@ -5,13 +5,11 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: devx-track-dotnet, devx-track-extended-java
 services: service-fabric
 ms.date: 07/14/2022
 
 # Maintainer notes: Keep these documents in sync:
-# service-fabric-get-started-linux.md
-# service-fabric-get-started-mac.md
-# service-fabric-local-linux-cluster-windows.md
 # service-fabric-local-linux-cluster-windows-wsl2.md
 ---
 

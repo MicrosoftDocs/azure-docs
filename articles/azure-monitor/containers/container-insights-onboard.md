@@ -78,7 +78,7 @@ If you have a Kubernetes cluster with Windows nodes, review and configure the ne
 
 ## Authentication
 
-Container insights now supports authentication by using managed identity (in preview). This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a *Monitoring Metrics Publisher* role to the cluster.
+Container insights defaults to managed identity authentication. This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a *Monitoring Metrics Publisher* role to the cluster.
 
 > [!NOTE]
 > Container insights preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available." They're excluded from the service-level agreements and limited warranty. Container insights previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use. For more information, see [Frequently asked questions about Azure Kubernetes Service](../../aks/faq.md).
