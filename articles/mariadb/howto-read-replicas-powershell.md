@@ -6,9 +6,7 @@ author: savjani
 ms.author: pariks
 ms.topic: how-to
 ms.date: 06/24/2022
-ms.custom:
-- devx-track-azurepowershell
-- kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment
 ---
 
 # How to create and manage read replicas in Azure Database for MariaDB using PowerShell
