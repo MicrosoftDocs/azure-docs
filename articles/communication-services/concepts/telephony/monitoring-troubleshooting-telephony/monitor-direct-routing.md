@@ -30,11 +30,11 @@ Azure Communication Services direct routing uses SIP OPTIONS sent by the Session
 
 For example, if there are several SBCs available to route a call, direct routing considers the SIP OPTIONS information received from each SBC to determine routing.
 
-The diagram shows an example of the configuration:
+Here is an example of the configuration:
 
-![SIP options configuration example.](media/sip-options-config-example.png) <--------------------------------------------------->
+![[SIP options configuration example.](../../media/monitoring-troubleshooting-telephony/sip-options-config-routing.png)](../../media/monitoring-troubleshooting-telephony/sip-options-config-routing.png#lightbox)
 
-When a user makes a call to number +1 425 \<any seven digits>, direct routing evaluates the route. There are two SBCs in the route: `sbc1.contoso.com` and `sbc2.contoso.com`. Both SBCs have equal priority in the route. Before picking an SBC, the routing mechanism evaluates the health of each SBC, based on when the SBC sent the SIP OPTIONS last time.
+When an ACS app makes a call to number +1 425 \<any seven digits>, direct routing evaluates the route. There are two SBCs in the route: `sbc.contoso.com` and `sbc2.contoso.com`. Both SBCs have equal priority in the route. Before picking an SBC, the routing mechanism evaluates the health of each SBC, based on when the SBC sent the SIP OPTIONS last time.
 
 An SBC is considered healthy if statistics at the moment of sending the call shows that the SBC sends OPTIONS every minute.  
 
