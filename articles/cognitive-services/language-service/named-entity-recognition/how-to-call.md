@@ -103,7 +103,7 @@ This would return all `Location` entites only falling under the `GPE` tag and ig
         [
             "GPE"
         ],
-        "excludeList: :
+        "excludeList": :
         [
             "Continent",
             "CountryRegion"
