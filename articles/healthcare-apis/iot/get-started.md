@@ -15,14 +15,14 @@ ms.custom: mode-api
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-This article and diagram outlines the basic steps to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). These steps may help you analyze the MedTech service [deployment options](deploy-choose-method.md) and determine which deployment method is best for you.
+This article and diagram outlines the basic steps to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). These steps may help you to assess the [MedTech service deployment methods](deploy-choose-method.md) and determine which deployment method is best for you.
 
-As a prerequisite, you need an Azure subscription and have been granted the proper permissions to deploy Azure resource groups and resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in Azure PowerShell, Azure CLI, and REST API scripts.
-
-:::image type="content" source="media/get-started/get-started-with-medtech-service.png" alt-text="Diagram showing the MedTech service deployment overview." lightbox="media/get-started/get-started-with-medtech-service.png":::
+As a prerequisite, you need an Azure subscription and have been granted the proper permissions to deploy Azure resource groups and resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in Azure PowerShell, Azure CLI, or REST API scripts.
 
 > [!TIP]
-> See the MedTech service article, [Choose a deployment method for the MedTech service](deploy-choose-method.md), for a description of the different deployment methods that can help to simply and automate the deployment of the MedTech service. 
+> See the MedTech service article, [Choose a deployment method for the MedTech service](deploy-choose-method.md), for a description of the different deployment methods that can help to simplify and automate the deployment of the MedTech service. 
+
+:::image type="content" source="media/get-started/get-started-with-medtech-service.png" alt-text="Diagram showing the MedTech service deployment overview." lightbox="media/get-started/get-started-with-medtech-service.png":::
 
 ## Deploy resources
 
