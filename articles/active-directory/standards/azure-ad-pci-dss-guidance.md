@@ -124,7 +124,7 @@ Where applications and resources use Azure AD for identity and access management
 
 Learn more
 
-* [Introduction to delegated administration and isolated environments](../fundamentals/secure-with-azure-ad-introduction.md)
+* [Introduction to delegated administration and isolated environments](../fundamentals/secure-introduction.md)
 * [How to use the Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)
 * [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
 * [What are access reviews?](../governance/access-reviews-overview.md)
@@ -180,7 +180,7 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
 PCI-DSS cites no specific geographic location for credit card data storage. However, it requires cardholder data is stored securely, which might include geographic restrictions, depending on the organization's security and regulatory requirements. Different countries and regions have data protection and privacy laws. Consult with a legal or compliance advisor to determine applicable data residency requirements. 
 
-Learn more: [Azure AD and data residency](../fundamentals/azure-ad-data-residency.md)
+Learn more: [Azure AD and data residency](../fundamentals/data-residency.md)
 
 ### Third-party security risks
 

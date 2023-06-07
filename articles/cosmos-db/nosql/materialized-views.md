@@ -2,14 +2,14 @@
 title: Materialized views (preview)
 titleSuffix: Azure Cosmos DB for NoSQL
 description: Efficiently query a base container with predefined filters using Materialized views for Azure Cosmos DB for NoSQL.
-author: AbhinavDAIICT
+author: AbhinavTrips
 ms.author: abtripathi
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 05/10/2023
+ms.date: 06/01/2023
 ---
 
 # Materialized views for Azure Cosmos DB for NoSQL (preview)
@@ -219,7 +219,7 @@ Once your account and Materialized View Builder is set up, you should be able to
                 "kind": "Hash"
               },
               "materializedViewDefinition": {
-                "sourceCollectionName": "mv-src",
+                "sourceCollectionId": "mv-src",
                 "definition": "SELECT s.accountId, s.emailAddress, CONCAT(s.name.first, s.name.last) FROM s"
               }
             },
@@ -247,7 +247,7 @@ Once your account and Materialized View Builder is set up, you should be able to
         az rest \
             --method PUT \
             --uri "https://management.azure.com$accountIdsqlDatabases/";\
-        URL6="$databaseName/containers/$materializedViewName?api-version=2022-11-15-preview" \
+                  "$databaseName/containers/$materializedViewName?api-version=2022-11-15-preview" \
             --body @definition.json \
             --headers content-type=application/json
         ```
@@ -258,7 +258,7 @@ Once your account and Materialized View Builder is set up, you should be able to
         az rest \
             --method GET \
             --uri "https://management.azure.com$accountIdsqlDatabases/";\
-        URL6="$databaseName/containers/$materializedViewName?api-version=2022-11-15-preview" \
+                  "$databaseName/containers/$materializedViewName?api-version=2022-11-15-preview" \
             --headers content-type=application/json \
             --query "{mvCreateStatus: properties.Status}"
         ```

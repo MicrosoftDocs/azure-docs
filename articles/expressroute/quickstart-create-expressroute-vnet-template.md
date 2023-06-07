@@ -13,7 +13,9 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 # Quickstart: Create an ExpressRoute circuit with private peering using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create an ExpressRoute circuit with private peering.
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an ExpressRoute circuit with private peering.
+
+:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using ARM template .":::
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
