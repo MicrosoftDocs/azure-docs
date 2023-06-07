@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 08/02/2022
+ms.date: 06/06/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL server parameters
@@ -24,7 +24,7 @@ all worker nodes, or just for the coordinator node.
 
 > [!NOTE]
 >
-> clusters running older versions of the Citus Engine may not
+> Clusters running older versions of [the Citus extension](./reference-versions.md#citus-and-other-extension-versions) may not
 > offer all the parameters listed below.
 
 ### General configuration
@@ -624,6 +624,19 @@ The supported values are:
 
 * **execution-time:** sort by execution time.
 * **taskId:** sort by task ID.
+
+## Managed PgBouncer parameters
+The following PgBouncer parameters can be configured on single node or coordinator.
+
+| Parameter Name             | Description | Default | 
+|----------------------|--------|-------------|
+| pgbouncer.default_pool_size | Set this parameter value to the number of connections per user/database pair      | 295       | 
+| pgbouncer.ignore_startup_parameters | Comma-separated list of parameters that PgBouncer can ignore. For example, you can let PgBouncer ignore `extra_float_digits` parameter. Some parameters are allowed, all others raise error. This ability is needed to tolerate overenthusiastic JDBC wanting to unconditionally set 'extra_float_digits=2' in startup packet. Use this option if the library you use report errors such as `pq: unsupported startup parameter: extra_float_digits`. | extra_float_digits, ssl_renegotiation_limit  |
+| pgBouncer.max_client_conn | Set this parameter value to the highest number of client connections to PgBouncer that you want to support.     | 2000     | 
+| pgBouncer.min_pool_size | Add more server connections to pool if below this number.    |   0 (Disabled)   |
+| pgBouncer.pool_mode | Set this parameter value to TRANSACTION for transaction pooling (which is the recommended setting for most workloads).      | TRANSACTION     |
+| pgbouncer.query_wait_timeout | Maximum time (in seconds) queries are allowed to spend waiting for execution. If the query isn't assigned to a server during that time, the client is disconnected. | 20s |
+| pgbouncer.server_idle_timeout | If a server connection has been idle more than this many seconds it will be closed. If 0 then this timeout is disabled. | 60s |
 
 ## PostgreSQL parameters
 
