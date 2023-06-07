@@ -27,7 +27,7 @@ The following table lists the sets of claims that define how and when they're us
 | Claim set | Description |
 |-----------|-------------|
 | Core claim set | Present in every token regardless of the policy. These claims are also considered restricted, and can't be modified. |
-| Basic claim set | Includes the claims that are included by default for tokens in addition to the core claim set. You can [omit or modify basic claims](saml-claims-customization.md#omit-the-basic-claims-from-tokens) by using the claims mapping policies. |
+| Basic claim set | Includes the claims that are included by default for tokens in addition to the core claim set. You can omit or modify basic claims by using the claims mapping policies. |
 | Restricted claim set | Can't be modified using a policy. The data source can't be changed, and no transformation is applied when generating these claims. |
 
 ### JSON Web Token (JWT) restricted claim set
@@ -170,7 +170,7 @@ The following claims are in the restricted claim set for a JWT.
 - `ztdid`
 
 > [!NOTE]
-> Any claim starting with "xms_" is restricted.
+> Any claim starting with `xms_` is restricted.
 
 ### SAML restricted claim set
 
@@ -209,7 +209,7 @@ The following table lists the SAML claims that are in the restricted claim set.
 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`  |
 | `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` |
 
-These claims are restricted by default, but aren't restricted if you [set the AcceptMappedClaims property](saml-claims-customization.md#update-the-application-manifest) to `true` in your app manifest *or* have a [custom signing key](saml-claims-customization.md#configure-a-custom-signing-key):
+These claims are restricted by default, but aren't restricted if you [set the AcceptMappedClaims property](saml-claims-customization.md) to `true` in your app manifest *or* have a [custom signing key](saml-claims-customization.md):
 
 - `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname`
 - `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`
@@ -217,7 +217,7 @@ These claims are restricted by default, but aren't restricted if you [set the Ac
 - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid`
 - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname`
 
-These claims are restricted by default, but aren't restricted if you have a [custom signing key](saml-claims-customization.md#configure-a-custom-signing-key):
+These claims are restricted by default, but aren't restricted if you have a [custom signing key](saml-claims-customization.md):
 
  - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`
  - `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`
