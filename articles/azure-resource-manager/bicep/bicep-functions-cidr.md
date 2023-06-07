@@ -129,17 +129,14 @@ The preceding example returns the following array:
 
 `cidrHost(network, hostIndex)`
 
-Calculates the usable IP address of the host with the specified index on the specified IP address range in CIDR notation. For example, in the case of `192.168.1.0/24`, there are reserved IP addresses:
+Calculates the usable IP address of the host with the specified index on the specified IP address range in CIDR notation. For example, in the case of `192.168.1.0/24`, there are reserved IP addresses: `192.168.1.0` serves as the network identifier address, while `192.168.1.255` functions as the broadcast address. Only IP addresses ranging from `192.168.1.1` to `192.168.1.254` can be assigned to hosts, which we refer to as "usable" IP addresses. So, when the function is passed a hostIndex of `0`, `192.168.1.1` is returned.
+
+Within Azure, there are additional IP addresses reserved in each subnet, which include the first four and the last IP address, totaling five reserved IP addresses. For instance, in the case of the IP address range `192.168.1.0/24`, the following addresses are reserved:
 
 - `192.168.1.0` : Network address.
 - `192.168.1.1` : Reserved by Azure for the default gateway.
 - `192.168.1.2`, `192.168.1.3` : Reserved by Azure to map the Azure DNS IPs to the VNet space.
 - `192.168.1.255` : Network broadcast address.
-
-Only IP addresses ranging from `192.168.1.4` to `192.168.1.254` can be assigned to hosts, which we refer to as "usable" IP addresses. So, when the function is passed a hostIndex of `0`, `192.168.1.4` is returned.
-
-> [!NOTE]
-> The function currently returns "192.168.1.1" as the first usable IP address for the preceding example. Until the function is fixed, you can use the following alternative: "cidrHost('192.168.1.0/24', 0+3)" to obtain the desired result.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -147,8 +144,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:-|:-|:-|:-|
-| network | Yes | string | String containing an ip network to convert (must be correct networking format). |
-| hostIndex | Yes | int |  The index of the host IP address to return. |
+| network | Yes | string | String containing an IP network to convert. The provided string must be in the correct networking format. |
+| hostIndex | Yes | int | The index determines the host IP address to be returned. If you use the value `0`, it gives you the first usable IP address for a non-Azure network. However, if you use `0+3`, it provides you with the first usable IP address for an Azure subnet.|
 
 ### Return value
 
@@ -156,42 +153,42 @@ A string of the IP address.
 
 ### Examples
 
-The following example calculates the first five usable host IP addresses from the specified /24:
+The following example calculates the first five usable host IP addresses from the specified /24 on non-Azure networks:
 
 ```bicep
-output v4hosts array = [for i in range(0+3, 5): cidrHost('10.144.3.0/24', i)]
+output v4hosts array = [for i in range(0, 5): cidrHost('10.144.3.0/24', i)]
 ```
 
 The preceding example returns the following array:
 
 ```json
 [
+  "10.144.3.1"
+  "10.144.3.2"
+  "10.144.3.3"
   "10.144.3.4"
   "10.144.3.5"
-  "10.144.3.6"
-  "10.144.3.7"
-  "10.144.3.8"
 ]
 ```
 
-The following example calculates the first five usable host IP addresses from the specified /52:
+The following example calculates the first five usable host IP addresses from the specified /52 on non-Azure networks:
 
 ```bicep
-output v6hosts array = [for i in range(0+3, 5): cidrHost('fdad:3236:5555:3000::/52', i)]
+output v6hosts array = [for i in range(0, 5): cidrHost('fdad:3236:5555:3000::/52', i)]
 ```
 
 The preceding example returns the following array:
 
 ```json
 [
+  "fdad:3236:5555:3000::1"
+  "fdad:3236:5555:3000::2"
+  "fdad:3236:5555:3000::3"
   "fdad:3236:5555:3000::4"
   "fdad:3236:5555:3000::5"
-  "fdad:3236:5555:3000::6"
-  "fdad:3236:5555:3000::7"
-  "fdad:3236:5555:3000::8"
 ]
 ```
 
 ## Next steps
 
-* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
+- For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
