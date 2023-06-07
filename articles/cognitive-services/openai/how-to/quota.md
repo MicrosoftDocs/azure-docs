@@ -22,7 +22,7 @@ When you initially create a model deployment, you have the option of assigning a
 
 To create a new deployment from within the Azure AI Studio under **Management** select **Deployments** > **Create new deployment**.
 
-The option to set the TPM will appear under the **Advanced options** drop-down:
+The option to set the TPM is under the **Advanced options** drop-down:
 
 :::image type="content" source="../media/quota/deployment.png" alt-text="Screenshot of the deployment UI of Azure OpenAI Studio" lightbox="../media/quota/deployment.png":::
 
@@ -55,15 +55,15 @@ For an all up view of your quota allocations across deployments in a given regio
 
 ## Migrating existing deployments
 
-As part of the transition to the new quota system and TPM based capacity allocation, all existing Azure OpenAI model deployments will be automatically migrated to using quota. In cases where the existing TPM/RPM allocation exceeds the default values due to previous custom increase requests, equivalent max amounts of TPM/RPM capacity will be allocated.
+As part of the transition to the new quota system and TPM based capacity allocation, all existing Azure OpenAI model deployments have been automatically migrated to using quota. In cases where the existing TPM/RPM allocation exceeds the default values due to previous custom increase requests, equivalent max amounts of TPM/RPM capacity were allocated.
 
 ## How throttling works
 
-Quota provides the ability to manage **Tokens Per Minute (TPM)** which in turn corresponds to a certain amount of **Requests Per Minute (RPM)**. For completion and chat completion calls, TPM is calculated not by the sum of input and response tokens, but instead is based on the value set for the max_tokens parameter in each completion call. This is important to understand, in that a particularly high max_tokens setting could unexpectedly lead to throttling even in cases where technically that number of tokens was not generated due completion responses below the max_tokens parameter setting.
+Quota provides the ability to manage **Tokens Per Minute (TPM)** which in turn corresponds to a certain amount of **Requests Per Minute (RPM)**. For completion and chat completion calls, TPM is calculated not by the sum of input and response tokens, but instead is based solely on the max_tokens parameter value in each completion call. This is important to understand, in that a particularly high max_tokens setting could unexpectedly lead to throttling even in cases where technically that number of tokens was not generated due to generated responses below the max_tokens parameter threshold.
 
-For standard deployments you should self-limit your traffic to remain below your max TPM and RPM values.The underlying rate limit algorithms are designed to assume a fairly even distribution of traffic. While the rate limits are set per minute, throttling evaluation occurs at a variable, but more frequent interval. Sudden spikes in requests that if sustained for 60 seconds would breach your rate limit can trigger preemptive 429 throttling errors prior to your RPM threshold being exhausted.  
+For standard deployments you should self-limit your traffic to remain below your max TPM and RPM values. The underlying rate limit algorithms are designed to assume a fairly even distribution of traffic. While the rate limits are set per minute, throttling evaluation occurs at a variable/more frequent interval. Sudden spikes in requests that if sustained for 60 seconds would breach your rate limit, can trigger preemptive 429 throttling errors prior to your RPM threshold being exhausted.  
 
-The alternative to **Standard** quota is **Provisioned Throughput**. This new pricing model, announced at Build 2023, allows you to reserve model processing capacity on a monthly or yearly commitment tier. This is valuable to those who require guaranteed support for production workload growth, consistent throughput and latency, or benefit from predictable budgeting throughout the year. **Provisioned Throughput is a limited-access capability available to select customers today.**  Your Azure sales team can provide details on this offering and its suitability to your scenario.
+The alternative to **Standard** quota is **Provisioned Throughput**. This new pricing model, announced at Build 2023, allows you to reserve model processing capacity on a monthly or yearly commitment tier. This provides guaranteed support for production workload growth, consistent throughput and latency, and allows for predictable budgeting throughout the year. **Provisioned Throughput is a limited-access capability available to select customers today.**  Your Azure sales team can provide details on this offering and its suitability to your scenario.
 
 ### General best practices to mitigate rate-limit throttling
 
