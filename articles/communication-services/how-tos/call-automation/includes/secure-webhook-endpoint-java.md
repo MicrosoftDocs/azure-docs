@@ -3,7 +3,7 @@
 Each mid-call webhook callback sent by Call Automation uses a signed JSON Web Token (JWT) in the Authentication header of the inbound HTTPS request. You can use standard Open ID Connect (OIDC) JWT validation techniques to ensure the integrity of the token as follows. The lifetime of the JWT is five (5) minutes and a new token is created for every event sent to the callback URI.
 
 1. Obtain the Open ID configuration URL: <https://acscallautomation.communication.azure.com/calling/.well-known/acsopenidconfiguration>
-2. The following sample was created using [spring initializr](https://start.spring.io/) with Maven as project build tool.
+2. The following sample uses Spring framework, created using [spring initializr](https://start.spring.io/) with Maven as project build tool.
 3. Add the following dependencies in your `pom.xml`:
 
 ```
@@ -55,7 +55,6 @@ public class TokenValidationConfiguration {
         http.authorizeRequests()
                 .mvcMatchers("/api/callbacks").permitAll()
                 .anyRequest()
-                .authenticated()
                 .and()
                 .oauth2ResourceServer()
                 .jwt()
