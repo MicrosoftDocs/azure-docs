@@ -146,13 +146,17 @@ Similar to dates, you can have ambiguous datetime entities. For example, "May 3r
 
 ```json
 "metadata": {
-                "timex": "XXXX-05-03T12",
-                "value": "2022-05-03 12:00:00"
-            },
-            {
-                "timex": "XXXX-05-03T12",
-                "value": "2023-05-03 12:00:00"
-            }
+                 "dateValues": [ 
+                       {
+                           "timex": "XXXX-05-03T12",
+                           "value": "2022-05-03 12:00:00"
+                       },
+                       {
+                           "timex": "XXXX-05-03T12",
+                           "value": "2023-05-03 12:00:00"
+                       }
+                  ]
+              }
 ```
 
 ### Datetime ranges
