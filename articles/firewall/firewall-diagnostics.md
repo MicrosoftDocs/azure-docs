@@ -42,7 +42,7 @@ It can take a few minutes for the data to appear in your logs after you complete
 
 
 3. Select **Add diagnostic setting**. The **Diagnostics settings** page provides the settings for the diagnostic logs.
-5. In this example, Azure Monitor logs stores the logs, so type **Firewall log analytics** for the name.
+5. Type a name for the diagnostic setting.
 6. Under **Logs**, select **Azure Firewall Application Rule (Legacy Azure Diagnostics)**, **Azure Firewall Network Rule (Legacy Azure Diagnostics)**, and **Azure Firewall Dns Proxy (Legacy Azure Diagnostics)** to collect  the logs.
 7. Select **Send to Log Analytics** to configure your workspace.
 8. Select your subscription.
