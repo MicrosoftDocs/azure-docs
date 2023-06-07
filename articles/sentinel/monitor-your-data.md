@@ -8,14 +8,14 @@ ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
-# Use Azure Monitor workbooks to visualize and monitor your data
+# Use workbooks to visualize and monitor your data
 
 After you have connected your data sources to Microsoft Sentinel, visualize and monitor the data using the Microsoft Sentinel adoption of Azure Monitor Workbooks. While the Workbooks are displayed differently in Microsoft Sentinel, it might be useful for you to see how to [create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md). Microsoft Sentinel allows you to create custom workbooks across your data or, use existing workbook templates available with packaged solutions or as standalone content from the content hub. These templates allow you to quickly gain insights across your data as soon as you connect a data source.
 
 This article describes how to visualize your data in Microsoft Sentinel.
 
 > [!div class="checklist"]
-> * Use existing workbook
+> * Use workbook templates
 > * Create new workbooks
 
 ## Prerequisites
@@ -23,11 +23,11 @@ This article describes how to visualize your data in Microsoft Sentinel.
 - You must have at least **Workbook reader** or **Workbook contributor** permissions on the resource group of the Microsoft Sentinel workspace.
 
    The workbooks that you see in Microsoft Sentinel are saved within the Microsoft Sentinel workspace's resource group and are tagged by the workspace in which they were created.
-- To use an existing workbook, install the solution that contains the workbook from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+- To use a workbook template, install the solution that contains the workbook or install the workbook as a standalone item from the **Content Hub**. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
  
-## Use an existing workbook
+## Use a workbook template
 
-1. Go to **Workbooks** and then select **Templates** to see the list of available workbooks.
+1. Go to **Workbooks** and then select **Templates** to see the list of workbook templates installed.
 
     To see which are relevant to the data types you have connected, the **Required data types** field in each workbook lists the data type next to a green check mark if you already stream relevant data to Microsoft Sentinel.
 
