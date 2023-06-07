@@ -45,7 +45,7 @@ To improve Speech to text recognition accuracy, customization is available for s
 
 # [Text to speech](#tab/tts)
 
-The tables in this section summarizes the locales and voices supported for Text to speech. Please see the table footnotes for more details.
+The table in this section summarizes the locales and voices supported for Text to speech. Please see the table footnotes for more details.
 
 Additional remarks for Text to speech locales are included in the [Voice styles and roles](#voice-styles-and-roles), [Prebuilt neural voices](#prebuilt-neural-voices), and [Custom Neural Voice](#custom-neural-voice) sections below. 
 
