@@ -258,19 +258,19 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
 In a logic app workflow, some connectors have dependencies on artifacts such as maps, schemas, or assemblies. In Visual Studio Code, you can upload these artifacts to your logic app project, similar to how you can upload these artifacts in the Azure portal through the logic app resource menu under **Artifacts**, for example:
 
-![Screenshot shows Azure portal and Standard logic app resource menu with Artifacts section highlighted.](./media/create-single-tenant-workflows-visual-studio-code/show-artifact-in-portal.jpg)
+:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/show-artifacts-portal.png" alt-text="Screenshot shows Azure portal and Standard logic app resource menu with Artifacts section highlighted." lightbox="media/create-single-tenant-workflows-visual-studio-code/show-artifacts-portal.png":::
 
 ### Add maps to your project
 
 To add maps to your project, in your project hierarchy, expand **Artifacts** > **Maps**, which is the folder where you can put your maps.
 
-![Screenshot shows Visual Studio Code project hierarchy with Artifacts and Maps folders expanded.](./media/create-single-tenant-workflows-visual-studio-code/map-upload-in-vs-code.jpg)
+:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/map-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code project hierarchy with Artifacts and Maps folders expanded." lightbox="media/create-single-tenant-workflows-visual-studio-code/map-upload-visual-studio-code.png":::
 
 ### Add schemas to your project
 
 To add schemas to your project, in your project hierarchy, expand **Artifacts** > **Schemas**, which is the folder where you can put your schemas.
 
-![Screenshot shows Visual Studio Code project hierarchy with Artifacts and Schemas folders expanded.](./media/create-single-tenant-workflows-visual-studio-code/schema-upload-in-vs-code.jpg)
+:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/schema-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code project hierarchy with Artifacts and Schemas folders expanded." lightbox="media/create-single-tenant-workflows-visual-studio-code/schema-upload-visual-studio-code.png":::
 
 ### Add assemblies to your project
 
@@ -282,7 +282,7 @@ A Standard logic app can currently use or reference the following assembly types
 
 You can upload these assemblies to your project in Visual Studio Code, similar how you upload them in the Azure portal through your logic app resource menu under **Artifacts** > **Assemblies**.
 
-![Screenshot shows Azure portal, logic app resource menu, under Artifacts, with Assemblies selected.](./media/create-single-tenant-workflows-visual-studio-code/assembly-upload-on-portal.jpg)
+:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/assembly-upload-portal.png" alt-text="Screenshot shows Azure portal, logic app resource menu, under Artifacts, with Assemblies selected." lightbox="media/create-single-tenant-workflows-visual-studio-code/assembly-upload-portal.png":::
 
 The following section provides more information about each assembly type and where exactly to put them in your project.
 
@@ -300,7 +300,7 @@ The following section provides more information about each assembly type and whe
 
 The following image shows where to put each assembly type in your project:
 
-![Screenshot shows Visual Studio Code, logic app project, and where to upload assemblies.](./media/create-single-tenant-workflows-visual-studio-code/assembly-upload-in-vs-code.jpg)
+:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/assembly-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code, logic app project, and where to upload assemblies." lightbox="media/create-single-tenant-workflows-visual-studio-code/assembly-upload-visual-studio-code.png":::
 
 ### Migrate NuGet-based projects to use "lib\\*" assemblies
 
@@ -323,7 +323,7 @@ If you created your logic app project when assemblies support wasn't available f
 > For a project that runs on Linux or MacOS, make sure to update the directory separator. For example, 
 > review the following image that shows the previous code added to the **<*project-name*>.csproj** file.
 >
-> ![Screenshot shows migrated assemblies and added code in csproj file.](./media/create-single-tenant-workflows-visual-studio-code/migrating-old-projects-to-assemblies.jpg)
+:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/migrate-projects-assemblies-visual-studio-code.png" alt-text="Screenshot shows migrated assemblies and added code in the CSPROJ file." lightbox="media/create-single-tenant-workflows-visual-studio-code/migrate-projects-assemblies-visual-studio-code.png":::
 
 <a name="open-workflow-definition-designer"></a>
 
