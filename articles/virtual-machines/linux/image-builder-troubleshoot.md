@@ -4,7 +4,7 @@ description: This article helps you troubleshoot common problems and errors you 
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 05/17/2023
+ms.date: 06/07/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -524,7 +524,7 @@ Increase the build VM size.
 
 ### The build finished but no artifacts were created
 
-#### Error
+#### Warning
 
 ```text
 [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT Build 'azure-arm' errored: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded
@@ -542,13 +542,10 @@ Increase the build VM size.
 Done exporting Packer logs to Azure for Packer prefix: [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT
 ```
 
-#### Cause
-
-The build timed out while it was waiting for the required Azure resources to be created.
 
 #### Solution
 
-Rerun the build to try again.
+The above warning can safely be ignored.
 
 ### Resource not found
 
