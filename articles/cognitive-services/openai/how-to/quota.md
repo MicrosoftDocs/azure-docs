@@ -14,11 +14,28 @@ ms.author: mbullwin
 
 # Manage Azure OpenAI Service quota
 
-Quota gives you the ability to actively manage how capacity is divided across resources at the subscription level. Instead of being tied to the default limits you can adjust and set your own custom allocations across your model deployments. This article will walk you through the process of managing your Azure OpenAI quota.
+Quota provides the flexibility to actively manage the allocation of rate limits across the deployments within your subscription. This article will walk you through the process of managing your Azure OpenAI quota.
+
+## Introduction to quota
+
+Azure OpenAI's quota feature allows you to assign rate limits to your deployments, up-to a global limit called your “quota”.  Quota is assigned to your subscription on a per-region, per-model basis in units of Tokens-per-Minute (TPM).  When you onboard a subscription to Azure OpenAI, you will receive default quota for most available models. Then, you will assign TPM to each deployment as it is created, and the available quota for that model will be reduced by that amount. You can continue to create deployments and assign them TPM until you reach your quota limit.  Once that happens, you can only create new deployments of that model by reducing the TPM assigned to other deployments of the same model (thus freeing TPM for use), or by requesting and being approved for a model quota increase in the desired region.
+
+> [!NOTE]
+> With a quota of 240,000 TPM for GPT-35-Turbo in East US, a customer can create a single deployment of 240K TPM, 2 deployments of 120 TPM each, or any number of deployments in one or multiple Azure OpenAI resources as long as their TPM adds up to less than 240K total in that region.
+
+When a deployment is created, the assigned TPM will directly map to the token-per-minute rate limit enforced on its inferencing requests. A request-per-minute rate limit will also be enforced whose value will be set proportionally to the TPM assignment using the following ratios:
+
+- GPT-4, GPT-4-32K models:  1 RPM per 1000 TPM.
+- All other models: 10 RPM per 1000 TPM.
+
+The flexibility to distribute TPM globally within a subscription and region has allowed Azure OpenAI Service to loosen other restrictions:
+
+- The maximum resources per region are increased to 50.
+- The limit on creating 2 or more deployments of the same model in a resource has been removed.
 
 ## Assign quota
 
-When you initially create a model deployment, you have the option of assigning a set amount of Tokens Per Minute (TPM) to that deployment. TPM can be modified in increments of 1,000, and increasing TPM will also result in an increase in Requests Per Minute (RPM). The amount of increase in RPM is dependent on the corresponding model type for your deployment.
+When you create a model deployment, you have the option to assign Tokens Per Minute (TPM) to that deployment. TPM can be modified in increments of 1,000, and will map to the TPM and RPM rate limits enforced on your deployment, as discussed above.
 
 To create a new deployment from within the Azure AI Studio under **Management** select **Deployments** > **Create new deployment**.
 
@@ -27,6 +44,11 @@ The option to set the TPM is under the **Advanced options** drop-down:
 :::image type="content" source="../media/quota/deployment.png" alt-text="Screenshot of the deployment UI of Azure OpenAI Studio" lightbox="../media/quota/deployment.png":::
 
 Post deployment you can adjust your TPM allocation by selecting **Edit deployment** under **Management** > **Deployments** in Azure AI Studio. You can also modify this selection within the new quota management experience under **Management** > **Quotas**.
+
+Quotas and limits are subject to change, for the most up-date-information consult our quotas and limits article. 
+
+> [!IMPORTANT]
+> Quotas and limits are subject to change, for the most up-date-information consult our [quotas and limits article](../quotas-limits.md).
 
 ## Model specific settings
 
@@ -39,38 +61,44 @@ Different model deployments, also called model classes have unique max TPM value
 
 All other model classes have a common max TPM value.
 
-> [!IMPORTANT]
-> Quotas and limits are subject to change, for the most up-date-information consult our [quotas and limits article](../quotas-limits.md).
-
-## View quota
+## View and request quota
 
 For an all up view of your quota allocations across deployments in a given region, select **Management** > **Quota** in Azure OpenAI Studio:
 
 :::image type="content" source="../media/quota/quota.png" alt-text="Screenshot of the quota UI of Azure OpenAI Studio" lightbox="../media/quota/quota.png":::
 
-- **Quota Name**: What model classes have a deployment in the currently selected region. If a deployment doesn't exist in a region for a particular model class, it will not appear in this dashboard until a model is deployed.
+- **Quota Name**: There is one quota value per region for each model type. The quota covers all versions of that model.  The quota name can be expanded in UI to show the deployments that are using the quota
 - **Deployment**: Model deployments divided by model class.
-- **Usage/Limit**: Current TPM usage / max TPM per model class.
-- **Current usage**: Percent of TPM allocated per model class.
+- **Usage/Limit**: For the quota name, this shows the how much quota is used by deployments and the total quota approved for this subscription and region. This amount of quota used is also represented in the bar graph..
+- **Request Quota**: The icon in this field navigates to a form where requests to increase quota can be submitted.
 
 ## Migrating existing deployments
 
-As part of the transition to the new quota system and TPM based capacity allocation, all existing Azure OpenAI model deployments have been automatically migrated to using quota. In cases where the existing TPM/RPM allocation exceeds the default values due to previous custom increase requests, equivalent max amounts of TPM/RPM capacity were allocated.
+As part of the transition to the new quota system and TPM based capacity allocation, all existing Azure OpenAI model deployments have been automatically migrated to use quota. In cases where the existing TPM/RPM allocation exceeds the default values due to previous custom rate-limit increases, equivalent TPM were assigned to the impacted deployments.
 
 ## How throttling works
 
-Quota provides the ability to manage **Tokens Per Minute (TPM)** which in turn corresponds to a certain amount of **Requests Per Minute (RPM)**. For completion and chat completion calls, TPM is calculated not by the sum of input and response tokens, but instead is based solely on the max_tokens parameter value in each completion call. This is important to understand, in that a particularly high max_tokens setting could unexpectedly lead to throttling even in cases where technically that number of tokens was not generated due to generated responses below the max_tokens parameter threshold.
+Assigning TPM to a deployment sets the tokens-per-minute (TPM) and requests-per-minute (RPM) rate limits for the deployment, as described above.TPM throttling is based on the maximum number of tokens estimated to be processed by a request at the time the request is received. It is not the same as the token count used for billing, which is computed after all processing is completed.  
 
-You should self-limit your traffic to remain below your max TPM and RPM values. The underlying rate limit algorithms are designed to assume a fairly even distribution of traffic. While the rate limits are set per minute, throttling evaluation occurs at a variable/more frequent interval. Sudden spikes in requests that if sustained for 60 seconds would breach your rate limit, can trigger preemptive 429 throttling errors prior to the defined RPM threshold being exhausted.  
+As each request is received, Azure OpenAI computes an estimated max processed-token count that includes the following:
 
-### General best practices to mitigate rate-limit throttling
+- Prompt text and count
+- The max-tokens setting
+- The best-of setting
+
+As requests come into the deployment endpoint, the estimated max-processed-token count is added to a running token count of all requests that is reset each minute.  If at any time during that minute, the TPM rate limit value is reached, then further requests will receive a 429 response code until the counter resets.
+
+RPM throttling is based on the number of requests received over time.  The implementation of the RPM throttle expects that requests be evenly distributed over a one minute period.  If this average flow is not maintained, then requests may receive a 429 response even though the limit is not met when measured over the course of a minute.  To implement this behavior, Azure OpenAI Service evaluates the rate of incoming requests over a small period of time, typically 1 or 10 seconds.  If the number of requests received during that time exceeds what would be expected at the set RPM limit, then new requests will receive a 429 response code until the next evaluation period. For example, if Azure OpenAI is monitoring request rate on 1 second intervals, then throttling will occur for a 600 RPM deployment if more than 10 requests are received during each 1 second period (600 requests per minute = 10 requests per second).
+
+### Best practices to mitigate rate-limit throttling
 
 To minimize issues related to throttling, it's a good idea to use the following techniques:
 
+- Set max-tokens and n-best to the minimum values that serve the needs of your scenario.  For example, don’t set a large max-tokens value if you expect your responses to be small.
+- Use quota management to increase TPM on deployments with high traffic, and to reduce TPM on deployments with limited needs.
 - Implement retry logic in your application.
 - Avoid sharp changes in the workload. Increase the workload gradually.
 - Test different load increase patterns.
-- Create another Azure OpenAI service resource in the same or different regions.
 
 ## Next steps
 
