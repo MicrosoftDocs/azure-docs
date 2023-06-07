@@ -217,7 +217,7 @@ Next, create the configuration file that your static web app uses to interface w
 
 ```json
 {
-  "$schema": "https://dataapibuilder.azureedge.net/schemas/latest/dab.draft.schema.json",
+  "$schema": "https://github.com/Azure/data-api-builder/releases/latest/download/dab.draft.schema.json",
   "data-source": {
     "database-type": "mysql",
     "options": {
