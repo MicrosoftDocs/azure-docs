@@ -76,13 +76,7 @@ In customer-managed mode, TDE uses a service-managed database master key and use
 ---
 
 > [!NOTE]
-> If you need to change from one mode to the other, you must disable TDE from the current mode before you apply the new mode. For details, see [Turn off TDE on the managed instance](#turn-off-tde-on-the-managed-instance).
->
-> For example, if the service is encrypted using service-managed mode, go to `Disabled` mode before you enable customer-managed mode. 
->
->  ```console
->  kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "Disabled" } } } }'
->  ```
+> If you need to change from one mode to the other, you must disable TDE from the current mode before you apply the new mode. To disable, before you proceed, follow the instructions at [Turn off TDE on the managed instance](#turn-off-tde-on-the-managed-instance).
 
 ### Enable
 
