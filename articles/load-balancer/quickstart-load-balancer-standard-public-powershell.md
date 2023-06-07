@@ -4,10 +4,10 @@ titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer using Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.date: 03/17/2022
+ms.date: 05/01/2023
 ms.topic: quickstart
 ms.service: load-balancer
-ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
+ms.custom: devx-track-azurepowershell, mode-api, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
 
@@ -21,7 +21,7 @@ Get started with Azure Load Balancer by using Azure PowerShell to create a publi
 
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -254,7 +254,7 @@ New-AzNetworkSecurityGroup @nsg
 
 ## Create virtual machines
 
-In this section, you'll create the two virtual machines for the backend pool of the load balancer.
+In this section, you create the two virtual machines for the backend pool of the load balancer.
 
 * Create two network interfaces with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)
 
@@ -298,8 +298,8 @@ $ns = @{
 $nsg = Get-AzNetworkSecurityGroup @ns
 
 ## For loop with variable to create virtual machines for load balancer backend pool. ##
-for ($i=1; $i -le 2; $i++)
-{
+for ($i=1; $i -le 2; $i++){
+
     ## Command to create network interface for VMs ##
     $nic = @{
         Name = "myNicVM$i"

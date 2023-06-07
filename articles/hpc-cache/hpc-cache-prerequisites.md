@@ -3,6 +3,7 @@ title: Azure HPC Cache prerequisites
 description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 2/15/2023
 ms.author: kianaharris

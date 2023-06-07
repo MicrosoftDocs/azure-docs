@@ -19,6 +19,8 @@
   - name: Create notification hub - Template
     displayName: Resource Manager
     href: create-notification-hub-template.md
+  - name: Create notification hub - Terraform
+    href: create-notification-hub-terraform.md
   - name: Configure a notification hub
     href: configure-notification-hub-portal-pns-settings.md  
 - name: Tutorials
@@ -93,12 +95,10 @@
     href: uwp-react.md
 - name: Concepts
   items:
-  - name: Availability zones
-    href: availability-zones.md
+  - name: High availability
+    href: notification-hubs-high-availability.md
   - name: EU Data Boundary
     href: eu-data-boundary.md
-  - name: Cross-region disaster recovery
-    href: cross-region-recovery.md
   - name: Data encryption at rest
     href: encrypt-at-rest.md
   - name: Transport Layer Security (TLS)

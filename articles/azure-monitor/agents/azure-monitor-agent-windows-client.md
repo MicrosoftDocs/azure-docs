@@ -62,7 +62,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 ## Install the agent
 1. Download the Windows MSI installer for the agent using [this link](https://go.microsoft.com/fwlink/?linkid=2192409). You can also download it from **Monitor** > **Data Collection Rules** > **Create** experience on Azure portal (shown below):
 	[![Diagram shows download agent link on Azure portal.](media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png)](media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal-focus.png#lightbox)
-2. Open an elevated admin command prompt window and update path to the location where you downloaded the installer.
+2. Open an elevated admin command prompt window and change directory to the location where you downloaded the installer.
 3. To install with **default settings**, run the following command:
 	```cli
 	msiexec /i AzureMonitorAgentClientSetup.msi /qn

@@ -7,7 +7,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-| Locale (BCP-47) | Language | Text-to-speech voices |
+| Locale (BCP-47) | Language | Text to speech voices |
 | ----- | ----- | ----- |
 | `af-ZA` | Afrikaans (South Africa) | `af-ZA-AdriNeural`<sup>2</sup> (Female)<br/>`af-ZA-WillemNeural`<sup>2</sup> (Male) |
 | `am-ET` | Amharic (Ethiopia) | `am-ET-AmehaNeural`<sup>2</sup> (Male)<br/>`am-ET-MekdesNeural`<sup>2</sup> (Female) |
@@ -52,7 +52,7 @@ ms.author: eur
 | `en-PH` | English (Philippines) | `en-PH-JamesNeural` (Male)<br/>`en-PH-RosaNeural` (Female) |
 | `en-SG` | English (Singapore) | `en-SG-LunaNeural` (Female)<br/>`en-SG-WayneNeural` (Male) |
 | `en-TZ` | English (Tanzania) | `en-TZ-ElimuNeural` (Male)<br/>`en-TZ-ImaniNeural` (Female) |
-| `en-US` | English (United States) | `en-US-AIGenerate1Neural`<sup>1</sup> (Male)<br/>`en-US-AIGenerate2Neural`<sup>1</sup> (Female)<br/>`en-US-AmberNeural` (Female)<br/>`en-US-AnaNeural` (Female, Child)<br/>`en-US-AriaNeural` (Female)<br/>`en-US-AshleyNeural` (Female)<br/>`en-US-BrandonNeural` (Male)<br/>`en-US-ChristopherNeural` (Male)<br/>`en-US-CoraNeural` (Female)<br/>`en-US-DavisNeural` (Male)<br/>`en-US-ElizabethNeural` (Female)<br/>`en-US-EricNeural` (Male)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-JacobNeural` (Male)<br/>`en-US-JaneNeural` (Female)<br/>`en-US-JasonNeural` (Male)<br/>`en-US-JennyMultilingualNeural`<sup>3</sup> (Female)<br/>`en-US-JennyNeural` (Female)<br/>`en-US-MichelleNeural` (Female)<br/>`en-US-MonicaNeural` (Female)<br/>`en-US-NancyNeural` (Female)<br/>`en-US-RogerNeural`<sup>1</sup> (Male)<br/>`en-US-SaraNeural` (Female)<br/>`en-US-SteffanNeural` (Male)<br/>`en-US-TonyNeural` (Male) |
+| `en-US` | English (United States) | `en-US-AIGenerate1Neural`<sup>1</sup> (Male)<br/>`en-US-AIGenerate2Neural`<sup>1</sup> (Female)<br/>`en-US-AmberNeural` (Female)<br/>`en-US-AnaNeural` (Female, Child)<br/>`en-US-AriaNeural` (Female)<br/>`en-US-AshleyNeural` (Female)<br/>`en-US-BrandonNeural` (Male)<br/>`en-US-ChristopherNeural` (Male)<br/>`en-US-CoraNeural` (Female)<br/>`en-US-DavisNeural` (Male)<br/>`en-US-ElizabethNeural` (Female)<br/>`en-US-EricNeural` (Male)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-JacobNeural` (Male)<br/>`en-US-JaneNeural` (Female)<br/>`en-US-JasonNeural` (Male)<br/>`en-US-JennyMultilingualNeural`<sup>3</sup> (Female)<br/>`en-US-JennyNeural` (Female)<br/>`en-US-MichelleNeural` (Female)<br/>`en-US-MonicaNeural` (Female)<br/>`en-US-NancyNeural` (Female)<br/>`en-US-RogerNeural` (Male)<br/>`en-US-SaraNeural` (Female)<br/>`en-US-SteffanNeural` (Male)<br/>`en-US-TonyNeural` (Male) |
 | `en-ZA` | English (South Africa) | `en-ZA-LeahNeural` (Female)<br/>`en-ZA-LukeNeural` (Male) |
 | `es-AR` | Spanish (Argentina) | `es-AR-ElenaNeural` (Female)<br/>`es-AR-TomasNeural` (Male) |
 | `es-BO` | Spanish (Bolivia) | `es-BO-MarceloNeural` (Male)<br/>`es-BO-SofiaNeural` (Female) |

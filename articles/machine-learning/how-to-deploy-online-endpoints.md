@@ -21,7 +21,7 @@ Learn how to use an online endpoint to deploy your model, so you don't have to c
 
 You'll also learn how to view the logs and monitor the service-level agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that you can use for real-time scoring. 
 
-Online endpoints are endpoints that are used for real-time inferencing. There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. For more information on endpoints and differences between managed online endpoints and Kubernetes online endpoints, see [What are Azure Machine Learning endpoints?](concept-endpoints.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
+Online endpoints are endpoints that are used for real-time inferencing. There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. For more information on endpoints and differences between managed online endpoints and Kubernetes online endpoints, see [What are Azure Machine Learning endpoints?](concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
 
 Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure.
 
@@ -329,6 +329,9 @@ The following table describes the key attributes of a deployment:
 | Environment    | The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification.                                                                                                                                                                                                                 |
 | Instance type  | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).                                                                                                                                                                                                                            |
 | Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                |
+
+> [!NOTE]
+> The model and container image (as defined in Environment) can be referenced again at any time by the deployment when the instances behind the deployment go through security patches and/or other recovery operations. If you used a registered model or container image in Azure Container Registry for deployment and removed the model or the container image, the deployments relying on these assets can fail when reimaging happens. If you removed the model or the container image, ensure the dependent deployments are re-created or updated with alternative model or container image.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -642,7 +645,7 @@ ml_client.online_endpoints.get(name=endpoint_name, local=True)
 
 The method returns [`ManagedOnlineEndpoint` entity](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint). The `provisioning_state` is `Succeeded`.
 
-```python
+```
 ManagedOnlineEndpoint({'public_network_access': None, 'provisioning_state': 'Succeeded', 'scoring_uri': 'http://localhost:49158/score', 'swagger_uri': None, 'name': 'endpt-10061534497697', 'description': 'this is a sample endpoint', 'tags': {}, 'properties': {}, 'id': None, 'Resource__source_path': None, 'base_path': '/path/to/your/working/directory', 'creation_context': None, 'serialize': <msrest.serialization.Serializer object at 0x7ffb781bccd0>, 'auth_mode': 'key', 'location': 'local', 'identity': None, 'traffic': {}, 'mirror_traffic': {}, 'kind': None})
 ```
 
@@ -691,7 +694,7 @@ ml_client.online_endpoints.invoke(
 If you want to use a REST client (like curl), you must have the scoring URI. To get the scoring URI, run the following code. In the returned data, find the `scoring_uri` attribute. Sample curl based commands are available later in this doc.
 
 ```python
-endpoint = ml_client.online_endpoints.get(endpoint_name)
+endpoint = ml_client.online_endpoints.get(endpoint_name, local=True)
 scoring_uri = endpoint.scoring_uri
 ```
 
@@ -813,7 +816,7 @@ One way to create a managed online endpoint in the studio is from the **Models**
     > * Optionally, you can add a description and tags to your endpoint.
 
 1. Keep the default selections: __Managed__ for the compute type and __key-based authentication__ for the authentication type.
-1. Select __Next__, until you get to the "Deployment" page. Here, check the box for __Enable Application Insights diagnostics and data collection__ to allow you view graphs of your endpoint's activities in the studio later.
+1. Select __Next__, until you get to the "Deployment" page. Here, toggle __Application Insights diagnostics__ to Enabled to allow you view graphs of your endpoint's activities in the studio later and analyze metrics and logs using Application Insights.
 1. Select __Next__ to go to the "Environment" page. Here, select the following options:
 
     * __Select scoring file and dependencies__: Browse and select the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.

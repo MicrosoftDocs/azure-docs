@@ -1,8 +1,8 @@
 ### YamlMime:FAQ
 metadata:
-  title: Speech-to-text FAQ
+  title: Speech to text FAQ
   titleSuffix: Azure Cognitive Services
-  description: Get answers to frequently asked questions about the speech-to-text service.
+  description: Get answers to frequently asked questions about the speech to text service.
   services: cognitive-services
   author: eric-urban
   manager: nitinme
@@ -11,18 +11,18 @@ metadata:
   ms.topic: faq
   ms.date: 08/25/2022
   ms.author: eur
-title: Speech-to-text FAQ
+title: Speech to text FAQ
 summary: |
-  This article answers commonly asked questions about the speech-to-text service. If you can't find answers to your questions here, check out [other support options](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
+  This article answers commonly asked questions about the speech to text service. If you can't find answers to your questions here, check out [other support options](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
   
 
 sections:
   - name: General
     questions:
       - question: |
-          What is the difference between a base model and a custom speech-to-text model?
+          What is the difference between a base model and a custom speech to text model?
         answer: |
-          A baseline speech-to-text model has been trained with Microsoft-owned data and is already deployed in the cloud. You can create and use a custom model to better fit an environment that has specific ambient noise or language. Factory floors, cars, or noisy streets would require an adapted acoustic model. Topics such as biology, physics, radiology, product names, and custom acronyms would require an adapted language model. If you want to train a custom model, you should start with related text to improve the recognition of special terms and phrases.
+          A baseline speech to text model has been trained with Microsoft-owned data and is already deployed in the cloud. You can create and use a custom model to better fit an environment that has specific ambient noise or language. Factory floors, cars, or noisy streets would require an adapted acoustic model. Topics such as biology, physics, radiology, product names, and custom acronyms would require an adapted language model. If you want to train a custom model, you should start with related text to improve the recognition of special terms and phrases.
 
       - question: |
           Where do I start if I want to use a base model?

@@ -22,11 +22,10 @@ Application Gateway supports TLS termination at the gateway, after which traffic
 - **Intelligent routing** – By decrypting the traffic, the application gateway has access to the request content, such as headers, URI, and so on, and can use this data to route requests.
 - **Certificate management** – Certificates only need to be purchased and installed on the application gateway and not all backend servers. This saves both time and money.
 
-To configure TLS termination, a TLS/SSL certificate must be added to the listener. This allows the Application Gateway to decrypt incoming traffic and encrypt response traffic to the client. The certificate provided to the Application Gateway must be in Personal Information Exchange (PFX) format, which contains both the private and public keys.
+To configure TLS termination, a TLS/SSL certificate must be added to the listener. This allows the Application Gateway to decrypt incoming traffic and encrypt response traffic to the client. The certificate provided to the Application Gateway must be in Personal Information Exchange (PFX) format, which contains both the private and public keys. The supported PFX algorithms are listed at [PFXImportCertStore function](/windows/win32/api/wincrypt/nf-wincrypt-pfximportcertstore#remarks).
 
 > [!IMPORTANT] 
 > The certificate on the listener requires the entire certificate chain to be uploaded (the root certificate from the CA, the intermediates and the leaf certificate) to establish the chain of trust. 
-
 
 > [!NOTE] 
 > Application gateway doesn't provide any capability to create a new certificate or send a certificate request to a certification authority.
@@ -35,6 +34,8 @@ For the TLS connection to work, you need to ensure that the TLS/SSL certificate 
 
 - That the current date and time is within the "Valid from" and "Valid to" date range on the certificate.
 - That the certificate's "Common Name" (CN) matches the host header in the request. For example, if the client is making a request to `https://www.contoso.com/`, then the CN must be `www.contoso.com`.
+
+If you have errors with the backend certificate common name (CN), see our [troubleshooting guide](./application-gateway-backend-health-troubleshooting.md#common-name-cn-doesnt-match).  
 
 ### Certificates supported for TLS termination
 

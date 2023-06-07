@@ -10,7 +10,6 @@ ms.topic: conceptual
 ms.date: 01/30/2023
 ms.author: vikurpad
 ms.custom: references_regions
-recommendations: false
 ---
 
 # Tips for labeling custom model datasets

@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN Preview volume from a 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 04/24/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022, devx-track-azurepowershell
@@ -39,7 +39,7 @@ In your virtual network, enable the Storage service endpoint on your subnet. Thi
 # [Portal](#tab/azure-portal)
 
 1. Navigate to your virtual network and select **Service Endpoints**.
-1. Select **+ Add** and for **Service** select **Microsoft.Storage**.
+1. Select **+ Add** and for **Service** select **Microsoft.Storage.Global**.
 1. Select any policies you like, and the subnet you deploy your Elastic SAN into and select **Add**.
 
 :::image type="content" source="media/elastic-san-create/elastic-san-service-endpoint.png" alt-text="Screenshot of the virtual network service endpoint page, adding the storage service endpoint." lightbox="media/elastic-san-create/elastic-san-service-endpoint.png":::
@@ -55,13 +55,13 @@ $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Na
 
 $subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $virtualNetwork -Name $subnetName
 
-$virtualNetwork | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix $subnet.AddressPrefix -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
+$virtualNetwork | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix $subnet.AddressPrefix -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
+az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage.Global"
 ```
 ---
 
@@ -69,7 +69,7 @@ az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "my
 
 Now that you've enabled the service endpoint, configure the network security settings on your volume groups. You can grant network access to a volume group from one or more Azure virtual networks.
 
-By default, no network access is allowed to any volumes in a volume group. Adding a virtual network to your volume group lets you establish iSCSI connections from clients in the same virtual network and subnet to the volumes in the volume group. For details on accessing your volumes from another region, see [Enabling access to virtual networks in other regions (preview)](elastic-san-networking.md#enabling-access-to-virtual-networks-in-other-regions-preview).
+By default, no network access is allowed to any volumes in a volume group. Adding a virtual network to your volume group lets you establish iSCSI connections from clients in the same virtual network and subnet to the volumes in the volume group. For details on accessing your volumes from another region, see [Azure Storage cross-region service endpoints](elastic-san-networking.md#azure-storage-cross-region-service-endpoints).
 
 # [Portal](#tab/azure-portal)
 
@@ -113,7 +113,7 @@ Install the Multipath I/O package for your Linux distribution. The installation 
 
 Once you've installed the package, check if **/etc/multipath.conf** exists. If **/etc/multipath.conf** doesn't exist, create an empty file and use the settings in the following example for a general configuration. As an example, `mpathconf --enable` will create **/etc/multipath.conf** on RHEL. 
 
-You'll need to make some modifications to **/etc/multipath.conf**. You'll need to add the devices section in the following example, and the defaults section in the following example sets some defaults are generally applicable. If you need to make any other specific configurations, such as excluding volumes from the multipath topology, see the man page for multipath.conf.
+You'll need to make some modifications to **/etc/multipath.conf**. You'll need to add the devices section in the following example, and the defaults section in the following example sets some defaults are generally applicable. If you need to make any other specific configurations, such as excluding volumes from the multipath topology, see the main page for multipath.conf.
 
 ```config
 defaults {

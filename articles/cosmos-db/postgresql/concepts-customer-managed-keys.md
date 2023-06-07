@@ -8,7 +8,7 @@ ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 04/06/2023
 ---
-# Customer-managed keys in Azure Cosmos DB for PostgreSQL
+# Data Encryption with Customer Managed Keys Preview
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

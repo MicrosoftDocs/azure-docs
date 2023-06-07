@@ -1,6 +1,6 @@
 ---
 title: Chaos Studio fault and action library
-description: Understand the available actions you can use with Chaos Studio including any prerequisites and parameters.
+description: Understand the available actions you can use with Chaos Studio, including any prerequisites and parameters.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: article
@@ -12,18 +12,18 @@ ms.custom: ignite-fall-2021, ignite-2022
 
 # Chaos Studio fault and action library
 
-The following faults are available for use today. Visit the [Fault Providers](./chaos-studio-fault-providers.md) page to understand which resource types are supported.
+The faults listed in this article are currently available for use. To understand which resource types are supported, see [Supported resource types and role assignments for Chaos Studio](./chaos-studio-fault-providers.md).
 
 ## Time delay
 
 | Property | Value |
 |-|-|
-| Fault Provider | N/A |
-| Supported OS Types | N/A |
-| Description | Adds a time delay before, between, or after other actions. This fault is useful for waiting for the impact of a fault to appear in a service, or for waiting for an activity outside of the experiment to complete. For example, waiting for autohealing to occur before injecting another fault. |
+| Fault provider | N/A |
+| Supported OS types | N/A |
+| Description | Adds a time delay before, between, or after other actions. This fault is useful for waiting for the effect of a fault to appear in a service, or for waiting for an activity outside of the experiment to complete. An example is waiting for autohealing to occur before injecting another fault. |
 | Prerequisites | N/A |
 | Urn | urn:csci:microsoft:chaosStudio:timedDelay/1.0 |
-| duration | The duration of the delay in ISO 8601 format (Example: PT10M) |
+| Duration | The duration of the delay in ISO 8601 format (for example, PT10M). |
 
 ### Sample JSON
 
@@ -44,16 +44,16 @@ The following faults are available for use today. Visit the [Fault Providers](./
 
 | Property | Value |
 |-|-|
-| Capability Name | CPUPressure-1.0 |
+| Capability name | CPUPressure-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows, Linux |
-| Description | Adds CPU pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial CPU pressure is removed at the end of the duration or if the experiment is canceled. On Windows, the "% Processor Utility" performance counter is used at fault start to determine current CPU percentage, which is subtracted from the `pressureLevel` defined in the fault so that % Processor Utility will hit approximately the `pressureLevel` defined in the fault parameters. |
-| Prerequisites | **Linux:** Running the fault on a Linux VM requires the **stress-ng** utility to be installed. You can install it using the package manager for your Linux distro, </br> APT Command to install stress-ng: *sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng* </br> YUM Command to install stress-ng: *sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng*  |
-| | **Windows:** None. |
+| Supported OS types | Windows, Linux. |
+| Description | Adds CPU pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial CPU pressure is removed at the end of the duration or if the experiment is canceled. On Windows, the **% Processor Utility** performance counter is used at fault start to determine current CPU percentage, which is subtracted from the `pressureLevel` defined in the fault so that **% Processor Utility** hits approximately the `pressureLevel` defined in the fault parameters. |
+| Prerequisites | **Linux**: Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng`  |
+| | **Windows**: None. |
 | Urn | urn:csci:microsoft:agent:cpuPressure/1.0 |
 | Parameters (key, value)  |
-| pressureLevel | An integer between 1 and 99 that indicates how much CPU pressure (%) will be applied to the VM. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
+| pressureLevel | An integer between 1 and 99 that indicates how much CPU pressure (%) is applied to the VM. |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 ```json
@@ -82,23 +82,23 @@ The following faults are available for use today. Visit the [Fault Providers](./
 
 ### Limitations
 Known issues on Linux:
-1. Stress effect may not be terminated correctly if AzureChaosAgent is unexpectedly killed.
-2. Linux CPU fault is only tested on Ubuntu 16.04-LTS and Ubuntu 18.04-LTS.
+* Stress effect might not be terminated correctly if `AzureChaosAgent` is unexpectedly killed.
+* Linux CPU fault is only tested on Ubuntu 16.04-LTS and Ubuntu 18.04-LTS.
 
 ## Physical memory pressure
 
 | Property | Value |
 |-|-|
-| Capability Name | PhysicalMemoryPressure-1.0 |
+| Capability name | PhysicalMemoryPressure-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows, Linux |
-| Description | Add physical memory pressure up to the specified value on the VM where this fault is injected during of the fault action. The artificial physical memory pressure is removed at the end of the duration or if the experiment is canceled. |
-| Prerequisites | **Linux:** Running the fault on a Linux VM requires the **stress-ng** utility to be installed. You can install it using the package manager for your Linux distro, </br> APT Command to install stress-ng: *sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng* </br> YUM Command to install stress-ng: *sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng*  |
-| | **Windows:** None. |
+| Supported OS types | Windows, Linux. |
+| Description | Adds physical memory pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial physical memory pressure is removed at the end of the duration or if the experiment is canceled. |
+| Prerequisites | **Linux**: Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng`  |
+| | **Windows**: None. |
 | Urn | urn:csci:microsoft:agent:physicalMemoryPressure/1.0 |
 | Parameters (key, value) |  |
-| pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) will be applied to the VM. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
+| pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) is applied to the VM. |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -127,21 +127,21 @@ Known issues on Linux:
 ```
 
 ### Limitations
-Currently, the Windows agent doesn't reduce memory pressure when other applications increase their memory usage. If the overall memory usage exceeds 100%, the Windows agent may crash.
+Currently, the Windows agent doesn't reduce memory pressure when other applications increase their memory usage. If the overall memory usage exceeds 100%, the Windows agent might crash.
 
 ## Virtual memory pressure
 
 | Property | Value |
 |-|-|
-| Capability Name | VirtualMemoryPressure-1.0 |
+| Capability name | VirtualMemoryPressure-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows |
-| Description | Add virtual memory pressure up to the specified value on the VM where this fault is injected during the fault action. The artificial virtual memory pressure is removed at the end of the duration or if the experiment is canceled. |
+| Supported OS types | Windows |
+| Description | Adds virtual memory pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial virtual memory pressure is removed at the end of the duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:virtualMemoryPressure/1.0 |
 | Parameters (key, value) |  |
-| pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) will be applied to the VM. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
+| pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) is applied to the VM. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -173,15 +173,15 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 | Property | Value |
 |-|-|
-| Capability Name | DiskIOPressure-1.0 |
+| Capability name | DiskIOPressure-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows |
+| Supported OS types | Windows |
 | Description | Uses the [diskspd utility](https://github.com/Microsoft/diskspd/wiki) to add disk pressure to the primary storage of the VM where it's injected during the fault action. This fault has five different modes of execution. The artificial disk pressure is removed at the end of the duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:diskIOPressure/1.0 |
 | Parameters (key, value) |  |
-| pressureMode | The preset mode of disk pressure to add to the primary storage of the VM. Must be one of the PressureModes in the table below. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
+| pressureMode | The preset mode of disk pressure to add to the primary storage of the VM. Must be one of the `PressureModes` in the following table. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Pressure modes
 
@@ -223,17 +223,17 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 | Property | Value |
 |-|-|
-| Capability Name | LinuxDiskIOPressure-1.0 |
+| Capability name | LinuxDiskIOPressure-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Linux |
-| Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. For details on how pressure is applied see https://wiki.ubuntu.com/Kernel/Reference/stress-ng. |
-| Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. You can install it using the package manager for your Linux distro, </br> APT Command to install stress-ng: *sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng* </br> YUM Command to install stress-ng: *sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng* |
+| Supported OS types | Linux |
+| Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. For information on how pressure is applied, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
+| Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng` |
 | Urn | urn:csci:microsoft:agent:linuxDiskIOPressure/1.0 |
 | Parameters (key, value) |  |
-| workerCount | Number of worker processes to run. Setting `workerCount` to 0 will generate as many worker processes as there are number of processors. |
-| fileSizePerWorker | Size of the temporary file a worker will perform I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes (g) (for example, 4m for 4 megabytes, 256g for 256 gigabytes) |
-| blockSize | Block size to be used for disk I/O operations, capped at 4 megabytes. Integer plus a unit in bytes (b), kilobytes (k), or megabytes (m) (for example, 512k for 512 kilobytes) |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
+| workerCount | Number of worker processes to run. Setting `workerCount` to 0 generated as many worker processes as there are number of processors. |
+| fileSizePerWorker | Size of the temporary file that a worker performs I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes (g) (for example, 4 m for 4 megabytes and 256 g for 256 gigabytes). |
+| blockSize | Block size to be used for disk I/O operations, capped at 4 megabytes. Integer plus a unit in bytes, kilobytes, or megabytes (for example, 512 k for 512 kilobytes). |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -269,18 +269,18 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-## Arbitrary Stress-ng stress
+## Arbitrary stress-ng stress
 
 | Property | Value |
 |-|-|
-| Capability Name | StressNg-1.0 |
+| Capability name | StressNg-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Linux |
-| Description | Run any stress-ng command by passing arguments directly to stress-ng. Useful for when one of the pre-defined faults for stress-ng doesn't meet your needs. |
-| Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. You can install it using the package manager for your Linux distro, </br> APT Command to install stress-ng: *sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng* </br> YUM Command to install stress-ng: *sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng* |
+| Supported OS types | Linux |
+| Description | Runs any stress-ng command by passing arguments directly to stress-ng. Useful when one of the predefined faults for stress-ng doesn't meet your needs. |
+| Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng` |
 | Urn | urn:csci:microsoft:agent:stressNg/1.0 |
 | Parameters (key, value) |  |
-| stressNgArguments | One or more arguments to pass to the stress-ng process. For details on possible stress-ng arguments see https://wiki.ubuntu.com/Kernel/Reference/stress-ng |
+| stressNgArguments | One or more arguments to pass to the stress-ng process. For information on possible stress-ng arguments, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
 
 ### Sample JSON
 
@@ -308,19 +308,19 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-## Stop Windows service
+## Stop service
 
 | Property | Value |
 |-|-|
-| Capability Name | StopService-1.0 |
+| Capability name | StopService-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows |
-| Description | Uses the Windows Service Controller APIs to stop a Windows service during the fault, restarting it at the end of the duration or if the experiment is canceled. |
+| Supported OS types | Windows, Linux. |
+| Description | Stops a Windows service or a Linux systemd service during the fault. Restarts it at the end of the duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:stopService/1.0 |
 | Parameters (key, value) |  |
-| serviceName | The name of the Windows service you want to stop. You can run `sc.exe query` in command prompt to explore service names, Windows service friendly names aren't supported. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
+| serviceName | Name of the Windows service or Linux systemd service you want to stop. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -348,19 +348,23 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
+### Limitations
+* **Windows**: Service-friendly names aren't supported. Use `sc.exe query` in the command prompt to explore service names.
+* **Linux**: Other service types besides systemd, like sysvinit, aren't supported.
+
 ## Time change
 
 | Property | Value |
 |-|-|
-| Capability Name | TimeChange-1.0 |
+| Capability name | TimeChange-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows |
-| Description | Changes the system time of the VM where it's injected, and resets the time at the end of the expiriment or if the experiment is canceled. |
+| Supported OS types | Windows. |
+| Description | Changes the system time of the VM where it's injected and resets the time at the end of the experiment or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:timeChange/1.0 |
 | Parameters (key, value) |  |
 | dateTime | A DateTime string in [ISO8601 format](https://www.cryptosys.net/pki/manpki/pki_iso8601datetime.html). If YYYY-MM-DD values are missing, they're defaulted to the current day when the experiment runs. If Thh:mm:ss values are missing, the default value is 12:00:00 AM. If a 2-digit year is provided (YY), it's converted to a 4-digit year (YYYY) based on the current century. If \<Z\> is missing, it's defaulted to the offset of the local timezone. \<Z\> must always include a sign symbol (negative or positive). |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -392,16 +396,16 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 | Property | Value |
 |-|-|
-| Capability Name | KillProcess-1.0 |
+| Capability name | KillProcess-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows, Linux |
+| Supported OS types | Windows, Linux. |
 | Description | Kills all the running instances of a process that matches the process name sent in the fault parameters. Within the duration set for the fault action, a process is killed repetitively based on the value of the kill interval specified. This fault is a destructive fault where system admin would need to manually recover the process if self-healing is configured for it. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:killProcess/1.0 |
 | Parameters (key, value) |  |
-| processName | Name of a process running on a VM (without the .exe) |
-| killIntervalInMilliseconds | Amount of time the fault will wait in between successive kill attempts in milliseconds. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
+| processName | Name of a process running on a VM (without the .exe). |
+| killIntervalInMilliseconds | Amount of time the fault waits in between successive kill attempts in milliseconds. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -437,16 +441,16 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 | Property | Value |
 |-|-|
-| Capability Name | DnsFailure-1.0 |
+| Capability name | DnsFailure-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows |
-| Description | Substitutes DNS lookup request responses with a specified error code. DNS lookup requests that will be substituted must:<ul><li>Originate from the VM</li><li>Match the defined fault parameters</li></ul>**Note**: DNS lookups that aren't made by the Windows DNS client won't be affected by this fault. |
+| Supported OS types | Windows |
+| Description | Substitutes DNS lookup request responses with a specified error code. DNS lookup requests that are substituted must:<ul><li>Originate from the VM.</li><li>Match the defined fault parameters.</li></ul>DNS lookups that aren't made by the Windows DNS client won't be affected by this fault. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:dnsFailure/1.0 |
 | Parameters (key, value) |  |
-| hosts | Delimited JSON array of host names to fail DNS lookup request for.<br><br>This property accepts wildcards (`*`), but only for the first subdomain in an address and only applies to the subdomain for which they're specified. For example:<ul><li>\*.microsoft.com is supported</li><li>subdomain.\*.microsoft isn't supported</li><li>\*.microsoft.com won't account for multiple subdomains in an address such as subdomain1.subdomain2.microsoft.com.</li></ul>   |
-| dnsFailureReturnCode | DNS error code to be returned to the client for the lookup failure (FormErr, ServFail, NXDomain, NotImp, Refused, XDomain, YXRRSet, NXRRSet, NotAuth, NotZone). For more details on DNS return codes, visit [the IANA website](https://www.iana.org/assignments/dns-parameters/dns-parameters.xml#dns-parameters-6) |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
+| hosts | Delimited JSON array of host names to fail DNS lookup request for.<br><br>This property accepts wildcards (`*`), but only for the first subdomain in an address and only applies to the subdomain for which they're specified. For example:<ul><li>\*.microsoft.com is supported.</li><li>subdomain.\*.microsoft isn't supported.</li><li>\*.microsoft.com won't account for multiple subdomains in an address, such as subdomain1.subdomain2.microsoft.com.</li></ul>   |
+| dnsFailureReturnCode | DNS error code to be returned to the client for the lookup failure (FormErr, ServFail, NXDomain, NotImp, Refused, XDomain, YXRRSet, NXRRSet, NotAuth, NotZone). For more information on DNS return codes, see the [IANA website](https://www.iana.org/assignments/dns-parameters/dns-parameters.xml#dns-parameters-6). |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -481,26 +485,26 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 ### Limitations
 
 * The DNS Failure fault requires Windows 2019 RS5 or newer.
-* DNS Cache will be ignored during the duration of the fault for the host names defined in the fault.
+* DNS Cache is ignored during the duration of the fault for the host names defined in the fault.
 
 ## Network latency
 
 | Property | Value |
 |-|-|
-| Capability Name | NetworkLatency-1.0 |
+| Capability name | NetworkLatency-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows |
+| Supported OS types | Windows, Linux. |
 | Description | Increases network latency for a specified port range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
+| Prerequisites | Agent (for Windows) must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkLatency/1.0 |
 | Parameters (key, value) |  |
 | latencyInMilliseconds | Amount of latency to be applied in milliseconds. |
 | destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 16. |
-| address | IP address indicating the start of the IP range. |
+| address | IP address that indicates the start of the IP range. |
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -536,19 +540,19 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 | Property | Value |
 |-|-|
-| Capability Name | NetworkDisconnect-1.0 |
+| Capability name | NetworkDisconnect-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows |
+| Supported OS types | Windows, Linux. |
 | Description | Blocks outbound network traffic for specified port range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
+| Prerequisites | Agent (for Windows) must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkDisconnect/1.0 |
 | Parameters (key, value) |  |
 | destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 16. |
-| address | IP address indicating the start of the IP range. |
+| address | IP address that indicates the start of the IP range. |
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -577,25 +581,25 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 ```
 
 > [!WARNING]
-> The network disconnect fault only affects new connections. Existing **active** connections continue to persist. You can restart the service or process to force connections to break.
+> The network disconnect fault only affects new connections. Existing *active* connections continue to persist. You can restart the service or process to force connections to break.
 
 ## Network disconnect with firewall rule
 
 | Property | Value |
 |-|-|
-| Capability Name | NetworkDisconnectViaFirewall-1.0 |
+| Capability name | NetworkDisconnectViaFirewall-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS Types | Windows |
+| Supported OS types | Windows |
 | Description | Applies a Windows firewall rule to block outbound traffic for specified port range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
+| Prerequisites | Agent must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkDisconnectViaFirewall/1.0 |
 | Parameters (key, value) |  |
-| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 3. |
-| address | IP address indicating the start of the IP range. |
+| destinationFilters | Delimited JSON array of packet filters that define which outbound packets to target for fault injection. Maximum of three. |
+| address | IP address that indicates the start of the IP range. |
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -623,17 +627,17 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-## ARM virtual machine shutdown
+## Azure Resource Manager virtual machine shutdown
 | Property | Value |
 |-|-|
-| Capability Name | Shutdown-1.0 |
+| Capability name | Shutdown-1.0 |
 | Target type | Microsoft-VirtualMachine |
-| Supported OS Types | Windows, Linux |
-| Description | Shuts down a VM for the duration of the fault, and restarts it at the end of the expiriment or if the experiment is canceled. Only Azure Resource Manager VMs are supported. |
+| Supported OS types | Windows, Linux. |
+| Description | Shuts down a VM for the duration of the fault. Restarts it at the end of the experiment or if the experiment is canceled. Only Azure Resource Manager VMs are supported. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachine:shutdown/1.0 |
 | Parameters (key, value) |  |
-| abruptShutdown | (Optional) Boolean indicating if the VM should be shut down gracefully or abruptly (destructive). |
+| abruptShutdown | (Optional) Boolean that indicates if the VM should be shut down gracefully or abruptly (destructive). |
 
 ### Sample JSON
 
@@ -657,7 +661,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-## ARM Virtual Machine Scale Set instance shutdown
+## Azure Resource Manager virtual machine scale set instance shutdown
 
 This fault has two available versions that you can use, Version 1.0 and Version 2.0.
 
@@ -665,15 +669,15 @@ This fault has two available versions that you can use, Version 1.0 and Version 
 
 | Property | Value |
 |-|-|
-| Capability Name | Version 1.0 |
+| Capability name | Version 1.0 |
 | Target type | Microsoft-VirtualMachineScaleSet |
-| Supported OS Types | Windows, Linux |
-| Description | Shuts down or kills a Virtual Machine Scale Set instance during the fault, and restarts the VM at the end of the fault duration or if the experiment is canceled. |
+| Supported OS types | Windows, Linux. |
+| Description | Shuts down or kills a virtual machine scale set instance during the fault and restarts the VM at the end of the fault duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0 |
 | Parameters (key, value) |  |
-| abruptShutdown | (Optional) Boolean indicating if the Virtual Machine Scale Set instance should be shut down gracefully or abruptly (destructive). |
-| instances | A string that is a delimited array of Virtual Machine Scale Set instance IDs to which the fault will be applied. |
+| abruptShutdown | (Optional) Boolean that indicates if the virtual machine scale set instance should be shut down gracefully or abruptly (destructive). |
+| instances | A string that's a delimited array of virtual machine scale set instance IDs to which the fault is applied. |
 
 #### Version 1.0 sample JSON
 
@@ -705,21 +709,21 @@ This fault has two available versions that you can use, Version 1.0 and Version 
 
 | Property | Value |
 |-|-|
-| Capability Name | Shutdown-2.0 |
+| Capability name | Shutdown-2.0 |
 | Target type | Microsoft-VirtualMachineScaleSet |
-| Supported OS Types | Windows, Linux |
-| Description | Shuts down or kills a Virtual Machine Scale Set instance during the fault, and restarts the VM at the end of the fault duration or if the experiment is canceled. Supports [dynamic targeting](chaos-studio-tutorial-dynamic-target-cli.md). |
+| Supported OS types | Windows, Linux. |
+| Description | Shuts down or kills a virtual machine scale set instance during the fault. Restarts the VM at the end of the fault duration or if the experiment is canceled. Supports [dynamic targeting](chaos-studio-tutorial-dynamic-target-cli.md). |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/2.0 |
-| [filter](/azure/templates/microsoft.chaos/experiments?pivots=deployment-language-arm-template#filter-objects-1) | (Optional) Available starting with Version 2.0. Used to filter the list of targets in a selector. Currently supports filtering on a list of zones, and the filter is only applied to VMSS resources within a zone.<ul><li>If no filter is specified, this fault will shut down all instances in the VMSS.</li><li>The experiment will target all VMSS instances in the specified zones.</li><li>If a filter results in no targets, the experiment will fail.</li></ul> |
+| [filter](/azure/templates/microsoft.chaos/experiments?pivots=deployment-language-arm-template#filter-objects-1) | (Optional) Available starting with Version 2.0. Used to filter the list of targets in a selector. Currently supports filtering on a list of zones. The filter is only applied to virtual machine scale set resources within a zone:<ul><li>If no filter is specified, this fault shuts down all instances in the virtual machine scale set.</li><li>The experiment targets all virtual machine scale set instances in the specified zones.</li><li>If a filter results in no targets, the experiment fails.</li></ul> |
 | Parameters (key, value) |  |
-| abruptShutdown | (Optional) Boolean indicating if the Virtual Machine Scale Set instance should be shut down gracefully or abruptly (destructive). |
+| abruptShutdown | (Optional) Boolean that indicates if the virtual machine scale set instance should be shut down gracefully or abruptly (destructive). |
 
 #### Version 2.0 sample JSON snippets
 
-The snippets below show how to configure both [dynamic filtering](chaos-studio-tutorial-dynamic-target-cli.md) and the shutdown 2.0 fault.
+The following snippets show how to configure both [dynamic filtering](chaos-studio-tutorial-dynamic-target-cli.md) and the shutdown 2.0 fault.
 
-Configuring a filter for dynamic targeting:
+Configure a filter for dynamic targeting:
 
 ```json
 {
@@ -742,7 +746,7 @@ Configuring a filter for dynamic targeting:
 }
 ```
 
-Configuring the shutdown fault:
+Configure the shutdown fault:
 
 ```json
 {
@@ -764,17 +768,20 @@ Configuring the shutdown fault:
 }
 ```
 
+### Limitations
+Currently, only virtual machine scale sets configured with the **Uniform** orchestration mode are supported. If your virtual machine scale set uses **Flexible** orchestration, you can use the Azure Resource Manager virtual machine shutdown fault to shut down selected instances.
+
 ## Azure Cosmos DB failover
 
 | Property | Value |
 |-|-|
-| Capability Name | Failover-1.0 |
+| Capability name | Failover-1.0 |
 | Target type | Microsoft-CosmosDB |
-| Description | Causes an Azure Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](../cosmos-db/high-availability.md) |
+| Description | Causes an Azure Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](../cosmos-db/high-availability.md). |
 | Prerequisites | None. |
 | Urn | `urn:csci:microsoft:cosmosDB:failover/1.0` |
 | Parameters (key, value) |  |
-| readRegion | The read region that should be promoted to write region during the failover, for example, "East US 2" |
+| readRegion | The read region that should be promoted to write region during the failover, for example, `East US 2`. |
 
 ### Sample JSON
 
@@ -802,14 +809,14 @@ Configuring the shutdown fault:
 
 | Property | Value |
 |-|-|
-| Capability Name | NetworkChaos-2.1 |
+| Capability name | NetworkChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
 | Supported node pool OS types | Linux |
-| Description | Causes a network fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-network-chaos-on-kubernetes/) to run against your AKS cluster. Useful for recreating AKS incidents resulting from network outages, delays, duplications, loss, and corruption. |
+| Description | Causes a network fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-network-chaos-on-kubernetes/) to run against your Azure Kubernetes Service (AKS) cluster. Useful for re-creating AKS incidents that result from network outages, delays, duplications, loss, and corruption. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:networkChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via ARM template, REST API, or Azure CLI, JSON-escaped Chaos Mesh spec that uses the [NetworkChaos kind](https://chaos-mesh.org/docs/simulate-network-chaos-on-kubernetes/#create-experiments-using-the-yaml-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property, don't include metadata, kind, etc. |
+| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [NetworkChaos kind](https://chaos-mesh.org/docs/simulate-network-chaos-on-kubernetes/#create-experiments-using-the-yaml-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
 
 ### Sample JSON
 
@@ -836,14 +843,14 @@ Configuring the shutdown fault:
 
 | Property | Value |
 |-|-|
-| Capability Name | PodChaos-2.1 |
+| Capability name | PodChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
 | Supported node pool OS types | Linux |
-| Description | Causes a pod fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-pod-chaos-on-kubernetes/) to run against your AKS cluster. Useful for recreating AKS incidents that are a result of pod failures or container issues. |
+| Description | Causes a pod fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-pod-chaos-on-kubernetes/) to run against your AKS cluster. Useful for re-creating AKS incidents that are a result of pod failures or container issues. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:podChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via ARM template, REST API, or Azure CLI, JSON-escaped Chaos Mesh spec that uses the [PodChaos kind](https://chaos-mesh.org/docs/simulate-pod-chaos-on-kubernetes/#create-experiments-using-yaml-configuration-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property, don't include metadata, kind, etc. |
+| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [PodChaos kind](https://chaos-mesh.org/docs/simulate-pod-chaos-on-kubernetes/#create-experiments-using-yaml-configuration-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
 
 ### Sample JSON
 
@@ -870,14 +877,14 @@ Configuring the shutdown fault:
 
 | Property | Value |
 |-|-|
-| Capability Name | StressChaos-2.1 |
+| Capability name | StressChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
 | Supported node pool OS types | Linux |
-| Description | Causes a stress fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-heavy-stress-on-kubernetes/) to run against your AKS cluster. Useful for recreating AKS incidents due to stresses over a collection of pods, for example, due to high CPU or memory consumption. |
+| Description | Causes a stress fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-heavy-stress-on-kubernetes/) to run against your AKS cluster. Useful for re-creating AKS incidents because of stresses over a collection of pods, for example, due to high CPU or memory consumption. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:stressChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via ARM template, REST API, or Azure CLI, JSON-escaped Chaos Mesh spec that uses the [StressChaos kind](https://chaos-mesh.org/docs/simulate-heavy-stress-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property, don't include metadata, kind, etc. |
+| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [StressChaos kind](https://chaos-mesh.org/docs/simulate-heavy-stress-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
 
 ### Sample JSON
 
@@ -904,14 +911,14 @@ Configuring the shutdown fault:
 
 | Property | Value |
 |-|-|
-| Capability Name | IOChaos-2.1 |
+| Capability name | IOChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
 | Supported node pool OS types | Linux |
-| Description | Causes an IO fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-io-chaos-on-kubernetes/) to run against your AKS cluster. Useful for recreating AKS incidents due to IO delays and read/write failures when using IO system calls such as `open`, `read`, and `write`. |
+| Description | Causes an IO fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-io-chaos-on-kubernetes/) to run against your AKS cluster. Useful for re-creating AKS incidents because of IO delays and read/write failures when you use IO system calls such as `open`, `read`, and `write`. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:IOChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via ARM template, REST API, or Azure CLI, JSON-escaped Chaos Mesh spec that uses the [IOChaos kind](https://chaos-mesh.org/docs/simulate-io-chaos-on-kubernetes/#create-experiments-using-the-yaml-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property, don't include metadata, kind, etc. |
+| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [IOChaos kind](https://chaos-mesh.org/docs/simulate-io-chaos-on-kubernetes/#create-experiments-using-the-yaml-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
 
 ### Sample JSON
 
@@ -938,14 +945,14 @@ Configuring the shutdown fault:
 
 | Property | Value |
 |-|-|
-| Capability Name | TimeChaos-2.1 |
+| Capability name | TimeChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
 | Supported node pool OS types | Linux |
-| Description | Causes a change in the system clock on your AKS cluster using  [Chaos Mesh](https://chaos-mesh.org/docs/simulate-time-chaos-on-kubernetes/). Useful for recreating AKS incidents that result from distributed systems falling out of sync, missing/incorrect leap year/leap second logic, and more. |
+| Description | Causes a change in the system clock on your AKS cluster by using  [Chaos Mesh](https://chaos-mesh.org/docs/simulate-time-chaos-on-kubernetes/). Useful for re-creating AKS incidents that result from distributed systems falling out of sync, missing/incorrect leap year/leap second logic, and more. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:timeChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via ARM template, REST API, or Azure CLI, JSON-escaped Chaos Mesh spec that uses the [TimeChaos kind](https://chaos-mesh.org/docs/simulate-time-chaos-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property, don't include metadata, kind, etc. |
+| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [TimeChaos kind](https://chaos-mesh.org/docs/simulate-time-chaos-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
 
 ### Sample JSON
 
@@ -972,14 +979,14 @@ Configuring the shutdown fault:
 
 | Property | Value |
 |-|-|
-| Capability Name | KernelChaos-2.1 |
+| Capability name | KernelChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
 | Supported node pool OS types | Linux |
-| Description | Causes a kernel fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-kernel-chaos-on-kubernetes/) to run against your AKS cluster. Useful for recreating AKS incidents due to Linux kernel-level errors such as a mount failing or memory not being allocated. |
+| Description | Causes a kernel fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-kernel-chaos-on-kubernetes/) to run against your AKS cluster. Useful for re-creating AKS incidents because of Linux kernel-level errors, such as a mount failing or memory not being allocated. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:kernelChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via ARM template, REST API, or Azure CLI, JSON-escaped Chaos Mesh spec that uses the [KernelChaos kind](https://chaos-mesh.org/docs/simulate-kernel-chaos-on-kubernetes/#configuration-file).You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property, don't include metadata, kind, etc. |
+| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [KernelChaos kind](https://chaos-mesh.org/docs/simulate-kernel-chaos-on-kubernetes/#configuration-file).You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
 
 ### Sample JSON
 
@@ -1006,14 +1013,14 @@ Configuring the shutdown fault:
 
 | Property | Value |
 |-|-|
-| Capability Name | HTTPChaos-2.1 |
+| Capability name | HTTPChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
 | Supported node pool OS types | Linux |
-| Description | Causes an HTTP fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-http-chaos-on-kubernetes/) to run against your AKS cluster. Useful for recreating incidents due HTTP request and response processing failures, such as delayed or incorrect responses. |
+| Description | Causes an HTTP fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-http-chaos-on-kubernetes/) to run against your AKS cluster. Useful for re-creating incidents because of HTTP request and response processing failures, such as delayed or incorrect responses. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:httpChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via ARM template, REST API, or Azure CLI, JSON-escaped Chaos Mesh spec that uses the [HTTPChaos kind](https://chaos-mesh.org/docs/simulate-http-chaos-on-kubernetes/#create-experiments). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property, don't include metadata, kind, etc. |
+| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [HTTPChaos kind](https://chaos-mesh.org/docs/simulate-http-chaos-on-kubernetes/#create-experiments). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
 
 ### Sample JSON
 
@@ -1040,14 +1047,14 @@ Configuring the shutdown fault:
 
 | Property | Value |
 |-|-|
-| Capability Name | DNSChaos-2.1 |
+| Capability name | DNSChaos-2.1 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
 | Supported node pool OS types | Linux |
-| Description | Causes a DNS fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-dns-chaos-on-kubernetes/) to run against your AKS cluster. Useful for recreating incidents due to DNS failures. |
+| Description | Causes a DNS fault available through [Chaos Mesh](https://chaos-mesh.org/docs/simulate-dns-chaos-on-kubernetes/) to run against your AKS cluster. Useful for re-creating incidents because of DNS failures. |
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md) and the [DNS service must be installed](https://chaos-mesh.org/docs/simulate-dns-chaos-on-kubernetes/#deploy-chaos-dns-service). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:dnsChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via ARM template, REST API, or Azure CLI, JSON-escaped Chaos Mesh spec that uses the [DNSChaos kind](https://chaos-mesh.org/docs/simulate-dns-chaos-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property, don't include metadata, kind, etc. |
+| jsonSpec | A JSON-formatted and, if created via an Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [DNSChaos kind](https://chaos-mesh.org/docs/simulate-dns-chaos-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
 
 ### Sample JSON
 
@@ -1074,21 +1081,21 @@ Configuring the shutdown fault:
 
 | Property | Value |
 |-|-|
-| Capability Name | SecurityRule-1.0 |
+| Capability name | SecurityRule-1.0 |
 | Target type | Microsoft-NetworkSecurityGroup |
-| Description | Enables manipulation or rule creation in an existing Azure Network Security Group or set of Azure Network Security Groups, assuming the rule definition is applicable cross security groups. Useful for simulating an outage of a downstream or cross-region dependency/non-dependency, simulating an event that's expected to trigger a logic to force a service failover, simulating an event that is expected to trigger an action from a monitoring or state management service, or as an alternative for blocking or allowing network traffic where Chaos Agent can't be deployed. |
+| Description | Enables manipulation or rule creation in an existing Azure network security group (NSG) or set of Azure NSGs, assuming the rule definition is applicable across security groups. Useful for: <ul><li>Simulating an outage of a downstream or cross-region dependency/nondependency.<li>Simulating an event that's expected to trigger a logic to force a service failover.<li>Simulating an event that's expected to trigger an action from a monitoring or state management service.<li>Using as an alternative for blocking or allowing network traffic where Chaos Agent can't be deployed. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:networkSecurityGroup:securityRule/1.0 |
 | Parameters (key, value) |  |
-| name | A unique name for the security rule that will be created. The fault will fail if another rule already exists on the NSG with the same name. Must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens. |
+| name | A unique name for the security rule that's created. The fault fails if another rule already exists on the NSG with the same name. Must begin with a letter or number. Must end with a letter, number, or underscore. May contain only letters, numbers, underscores, periods, or hyphens. |
 | protocol | Protocol for the security rule. Must be Any, TCP, UDP, or ICMP. |
-| sourceAddresses | A string representing a json-delimited array of CIDR formatted IP addresses. Can also be a service tag name for an inbound rule, for example, "AppService". Asterisk '*' can also be used to match all source IPs. |
-| destinationAddresses | A string representing a json-delimited array of CIDR formatted IP addresses. Can also be a service tag name for an outbound rule, for example, "AppService". Asterisk '*' can also be used to match all destination IPs. |
-| action | Security group access type. Must be either Allow or Deny |
-| destinationPortRanges | A string representing a json-delimited array of single ports and/or port ranges, such as 80 or 1024-65535. |
-| sourcePortRanges | A string representing a json-delimited array single ports and/or port ranges, such as 80 or 1024-65535. |
-| priority | A value between 100 and 4096 that's unique for all security rules within the network security group. The fault will fail if another rule already exists on the NSG with the same priority. |
-| direction | Direction of the traffic impacted by the security rule. Must be either Inbound or Outbound. |
+| sourceAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a service tag name for an inbound rule, for example, `AppService`. An asterisk `*` can also be used to match all source IPs. |
+| destinationAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a service tag name for an outbound rule, for example, `AppService`. An asterisk `*` can also be used to match all destination IPs. |
+| action | Security group access type. Must be either Allow or Deny. |
+| destinationPortRanges | A string that represents a JSON-delimited array of single ports and/or port ranges, such as 80 or 1024-65535. |
+| sourcePortRanges | A string that represents a JSON-delimited array of single ports and/or port ranges, such as 80 or 1024-65535. |
+| priority | A value between 100 and 4096 that's unique for all security rules within the NSG. The fault fails if another rule already exists on the NSG with the same priority. |
+| direction | Direction of the traffic affected by the security rule. Must be either Inbound or Outbound. |
 
 ### Sample JSON
 
@@ -1147,25 +1154,25 @@ Configuring the shutdown fault:
 
 ### Limitations
 
-* The fault can only be applied to an existing Network Security Group.
-* When an NSG rule that is intended to deny traffic is applied existing connections won't be broken until they've been **idle** for 4 minutes. One workaround is to add another branch in the same step that uses a fault that would cause existing connections to break when the NSG fault is applied. For example, killing the process, temporarily stopping the service, or restarting the VM would cause connections to reset.
-* Rules are applied at the start of the action. Any external changes to the rule during the duration of the action will cause the experiment to fail.
+* The fault can only be applied to an existing NSG.
+* When an NSG rule that's intended to deny traffic is applied, existing connections won't be broken until they've been **idle** for 4 minutes. One workaround is to add another branch in the same step that uses a fault that would cause existing connections to break when the NSG fault is applied. For example, killing the process, temporarily stopping the service, or restarting the VM would cause connections to reset.
+* Rules are applied at the start of the action. Any external changes to the rule during the duration of the action cause the experiment to fail.
 * Creating or modifying Application Security Group rules isn't supported.
-* Priority values must be unique on each NSG targeted. Attempting to create a new rule that has the same priority value as another will cause the experiment to fail.
+* Priority values must be unique on each NSG targeted. Attempting to create a new rule that has the same priority value as another causes the experiment to fail.
 
 ## Azure Cache for Redis reboot
 
 | Property | Value |
 |-|-|
-| Capability Name | Reboot-1.0 |
+| Capability name | Reboot-1.0 |
 | Target type | Microsoft-AzureClusteredCacheForRedis |
 | Description | Causes a forced reboot operation to occur on the target to simulate a brief outage. |
-| Prerequisites | The target Azure Cache for Redis resource must be a Redis Cluster, which requires that the cache must be a Premium Tier cache. Standard and Basic Tiers aren't supported. |
+| Prerequisites | N/A |
 | Urn | urn:csci:microsoft:azureClusteredCacheForRedis:reboot/1.0 |
-| Fault type | Discrete |
+| Fault type | Discrete. |
 | Parameters (key, value) |  |
-| rebootType | The node types where the reboot action is to be performed which can be specified as PrimaryNode, SecondaryNode or AllNodes.  |
-| shardId | The ID of the shard to be rebooted.  |
+| rebootType | The node types where the reboot action is to be performed, which can be specified as PrimaryNode, SecondaryNode, or AllNodes.  |
+| shardId | The ID of the shard to be rebooted. Only relevant for Premium tier caches. |
 
 ### Sample JSON
 
@@ -1194,20 +1201,19 @@ Configuring the shutdown fault:
 
 ### Limitations
 
-* The reboot fault causes a forced reboot to better simulate an outage event, which means there is the potential for data loss to occur.
-* The reboot fault is a **discrete** fault type. Unlike continuous faults, it's a one-time action and therefore has no duration.
+* The reboot fault causes a forced reboot to better simulate an outage event, which means there's the potential for data loss to occur.
+* The reboot fault is a **discrete** fault type. Unlike continuous faults, it's a one-time action and has no duration.
 
-
-## Cloud Services (Classic) shutdown
+## Cloud Services (classic) shutdown
 
 | Property | Value |
 |-|-|
-| Capability Name | Shutdown-1.0 |
+| Capability name | Shutdown-1.0 |
 | Target type | Microsoft-DomainName |
-| Description | Stops a deployment during the fault and restarts the deployment at the end of the fault duration or if the experiment is canceled. |
+| Description | Stops a deployment during the fault. Restarts the deployment at the end of the fault duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:domainName:shutdown/1.0 |
-| Fault type | Continuous |
+| Fault type | Continuous. |
 | Parameters | None.  |
 
 ### Sample JSON
@@ -1227,19 +1233,18 @@ Configuring the shutdown fault:
 }
 ```
 
-## Disable Autoscale
+## Disable autoscale
 
 | Property | Value |
 | --- | --- |
 | Capability name | DisaleAutoscale |
 | Target type | Microsoft-AutoscaleSettings |
-| Description | Disables the [autoscale service](/azure/azure-monitor/autoscale/autoscale-overview). When autoscale is disabled, resources such as Virtual Machine Scale Sets, Web apps, Service bus, and [more](/azure/azure-monitor/autoscale/autoscale-overview#supported-services-for-autoscale) aren't automatically added or removed based on the load of the application.
+| Description | Disables the [autoscale service](/azure/azure-monitor/autoscale/autoscale-overview). When autoscale is disabled, resources such as virtual machine scale sets, web apps, service bus, and [more](/azure/azure-monitor/autoscale/autoscale-overview#supported-services-for-autoscale) aren't automatically added or removed based on the load of the application.
 | Prerequisites | The autoScalesetting resource that's enabled on the resource must be onboarded to Chaos Studio.
 | Urn | urn:csci:microsoft:autoscalesettings:disableAutoscale/1.0 |
-| Fault type | Continuous |
+| Fault type | Continuous. |
 | Parameters (key, value) |   |
-| enableOnComplete | Boolean. Configures whether autoscaling will be re-enabled once the action is done. Default is `true`. |
-
+| enableOnComplete | Boolean. Configures whether autoscaling is reenabled after the action is done. Default is `true`. |
 
 ```json
 {
@@ -1265,14 +1270,13 @@ Configuring the shutdown fault:
 
 | Property | Value |
 |-|-|
-| Capability Name | DenyAccess-1.0 |
+| Capability name | DenyAccess-1.0 |
 | Target type | Microsoft-KeyVault |
-| Description | Blocks all network access to a Key Vault by temporarily modifying the Key Vault network rules, preventing an application dependent on the Key Vault from accessing secrets, keys, and/or certificates. If the Key Vault allows access to all networks, this is changed to only allow access from selected networks with no virtual networks in the allowed list at the start of the fault and returned to allowing access to all networks at the end of the fault duration. If they Key Vault is set to only allow access from selected networks, any virtual networks in the allowed list are removed at the start of the fault and restored at the end of the fault duration. |
-| Prerequisites | The target Key Vault can't have any firewall rules and must not be set to allow Azure services to bypass the firewall. If the target Key Vault is set to only allow access from selected networks, there must be at least one virtual network rule. The Key Vault can't be in recover mode. |
+| Description | Blocks all network access to a key vault by temporarily modifying the key vault network rules. This action prevents an application dependent on the key vault from accessing secrets, keys, and/or certificates. If the key vault allows access to all networks, this setting is changed to only allow access from selected networks. No virtual networks are in the allowed list at the start of the fault. All networks are allowed access at the end of the fault duration. If the key vault is set to only allow access from selected networks, any virtual networks in the allowed list are removed at the start of the fault. They're restored at the end of the fault duration. |
+| Prerequisites | The target key vault can't have any firewall rules and must not be set to allow Azure services to bypass the firewall. If the target key vault is set to only allow access from selected networks, there must be at least one virtual network rule. The key vault can't be in recover mode. |
 | Urn | urn:csci:microsoft:keyVault:denyAccess/1.0 |
-| Fault type | Continuous |
+| Fault type | Continuous. |
 | Parameters (key, value) | None. |
-
 
 ### Sample JSON
 
@@ -1293,18 +1297,17 @@ Configuring the shutdown fault:
 
 ## Key Vault Disable Certificate
 
-
 | Property  | Value |
 | ---- | --- |
-| Capability Name | DisableCertificate-1.0 |
-| Target Type | Microsoft-KeyVault |
-| Description | Using certificate properties, fault will disable the certificate for specific duration (provided by user) and enables it after this fault duration. |
-| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before attempting to run the fault. |
+| Capability name | DisableCertificate-1.0 |
+| Target type | Microsoft-KeyVault |
+| Description | By using certificate properties, the fault disables the certificate for a specific duration (provided by the user). It enables the certificate after this fault duration. |
+| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before you attempt to run the fault. |
 | Urn | urn:csci:microsoft:keyvault:disableCertificate/1.0 |
-| Fault Type | Continuous |
+| Fault type | Continuous. |
 | Parameters (key, value) | |
-| certificateName | Name of AKV certificate on which fault will be executed |
-| version | The certificate version that should be updated; if not specified, the latest version will be updated. |
+| certificateName | Name of Azure Key Vault certificate on which the fault is executed. |
+| version | Certificate version that should be updated. If not specified, the latest version is updated. |
 
 ### Sample JSON
 
@@ -1337,14 +1340,14 @@ Configuring the shutdown fault:
 	
 | Property  | Value |
 | ---- | --- |
-| Capability Name | IncrementCertificateVersion-1.0 |
-| Target Type | Microsoft-KeyVault |
-| Description | Generates new certificate version and thumbprint using the Key Vault Certificate client library. Current working certificate will be upgraded to this version. |
-| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before attempting to run the fault. |
+| Capability name | IncrementCertificateVersion-1.0 |
+| Target type | Microsoft-KeyVault |
+| Description | Generates a new certificate version and thumbprint by using the Key Vault Certificate client library. Current working certificate is upgraded to this version. |
+| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before you attempt to run the fault. |
 | Urn | urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0 |
-| Fault Type | Discrete |
+| Fault type | Discrete. |
 | Parameters (key, value) | |
-| certificateName | Name of AKV certificate on which fault will be executed |
+| certificateName | Name of Azure Key Vault certificate on which the fault is executed. |
 
 ### Sample JSON
 
@@ -1372,24 +1375,24 @@ Configuring the shutdown fault:
 
 | Property  | Value |        
 | ---- | --- |  
-| Capability Name | UpdateCertificatePolicy-1.0        |
-| Target Type | Microsoft-KeyVault        |
-| Description | Certificate policies (examples: certificate validity period, certificate type, key size, or key type) are updated based on the user input and reverted after the fault duration.        |
-| Prerequisites |  For OneCert certificates, the domain must be registered with OneCert before attempting to run the fault.       |
+| Capability name | UpdateCertificatePolicy-1.0        |
+| Target type | Microsoft-KeyVault        |
+| Description | Certificate policies (for example, certificate validity period, certificate type, key size, or key type) are updated based on user input and reverted after the fault duration.        |
+| Prerequisites |  For OneCert certificates, the domain must be registered with OneCert before you attempt to run the fault.       |
 | Urn | urn:csci:microsoft:keyvault:updateCertificatePolicy/1.0        |
-| Fault Type | Continuous        |
+| Fault type | Continuous.        |
 | Parameters (key, value) |     |    
-| certificateName | Name of AKV certificate on which fault will be executed |
-| version | The certificate version that should be updated; if not specified, the latest version will be updated. |
-| enabled | Bool. Value indicating whether the new certificate version will be enabled  |
-| validityInMonths | The validity period of the certificate in months  |
-| certificateTransparency | Indicates whether the certificate should be published to the certificate transparency list when created  |
-| certificateType | the certificate type |
-| contentType | The content type of the certificate, eg Pkcs12 when the certificate contains raw PFX bytes, or Pem when it contains ASCII PEM-encoded btes. Pkcs12 is the default value assumed |
-| keySize | The size of the RSA key: 2048, 3072, or 4096 |
-| exportable | Boolean. Value indicating if the certificate key is exportable from the vault or secure certificate store |
-| reuseKey | Boolean. Value indicating if the certificate key should be reused when rotating the certificate|
-| keyType | The type of backing key to be generated when issuing new certificates: RSA or EC |
+| certificateName | Name of Azure Key Vault certificate on which the fault is executed. |
+| version | Certificate version that should be updated. If not specified, the latest version is updated. |
+| enabled | Boolean. Value that indicates if the new certificate version is enabled.  |
+| validityInMonths | Validity period of the certificate in months.  |
+| certificateTransparency | Indicates whether the certificate should be published to the certificate transparency list when created.  |
+| certificateType | Certificate type. |
+| contentType | Content type of the certificate. For example, it's Pkcs12 when the certificate contains raw PFX bytes or Pem when it contains ASCII PEM-encoded bytes. Pkcs12 is the default value assumed. |
+| keySize | Size of the RSA key: 2048, 3072, or 4096. |
+| exportable | Boolean. Value that indicates if the certificate key is exportable from the vault or secure certificate store. |
+| reuseKey | Boolean. Value that indicates if the certificate key should be reused when the certificate is rotated.|
+| keyType | Type of backing key generated when new certificates are issued, such as RSA or EC. |
 
 ### Sample JSON
 

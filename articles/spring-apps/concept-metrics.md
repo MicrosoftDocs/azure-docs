@@ -14,7 +14,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 Azure Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics. Use the metrics explorer to investigate the health and utilization of your resources.
 
@@ -84,7 +84,7 @@ You can also use the **Apply splitting** option, which will draw multiple lines 
 ## User metrics options
 
 > [!NOTE]
-> For spring boot applications, you need to [add spring-boot-starter-actuator dependency](concept-manage-monitor-app-spring-boot-actuator.md#add-actuator-dependency) to see metrics from spring boot actuator.
+> For Spring Boot applications, to see metrics from Spring Boot Actuator, add the `spring-boot-starter-actuator` dependency. For more information, see the [Add actuator dependency](concept-manage-monitor-app-spring-boot-actuator.md#add-actuator-dependency) section of [Manage and monitor app with Spring Boot Actuator](concept-manage-monitor-app-spring-boot-actuator.md).
 
 The following tables show the available metrics and details.
 

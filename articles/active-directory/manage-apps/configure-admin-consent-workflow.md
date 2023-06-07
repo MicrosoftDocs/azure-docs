@@ -12,7 +12,7 @@ ms.date: 09/02/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.custom: contperf-fy22q2
+ms.custom: contperf-fy22q2, enterprise-apps
 #customer intent: As an admin, I want to configure the admin consent workflow.
 ---
 
@@ -47,13 +47,13 @@ To enable the admin consent workflow and choose reviewers:
 
    - **Select users, groups, or roles that will be designated as reviewers for admin consent requests** - Reviewers can view, block, or deny admin consent requests, but only global administrators can approve admin consent requests. People designated as reviewers can view incoming requests in the **My Pending** tab after they have been set as reviewers. Any new reviewers won't be able to act on existing or expired admin consent requests.
    - **Selected users will receive email notifications for requests** - Enable or disable email notifications to the reviewers when a request is made.  
-   - **Selected users will receive request expiration reminders** - Enable or disable reminder email notifications to the reviewers when a request is about to expire.
+   - **Selected users will receive request expiration reminders** - Enable or disable reminder email notifications to the reviewers when a request is about to expire. The first about-to-expire reminder email is likely sent out in the middle of the configured "Consent request expires after (days)." For example, if consent is configured to expire in three days, the first reminder email is usually sent out on the second day, and the last expiration email is almost immediately out once the consent is expired.
    - **Consent request expires after (days)** - Specify how long requests stay valid.
 
 1. Select **Save**. It can take up to an hour for the workflow to become enabled.
 
 > [!NOTE]
-> You can add or remove reviewers for this workflow by modifying the **Who can review admin consent requests** list. A current limitation of this feature is that a reviewer retains the ability to review requests that were made while they were designated as a reviewer. Additionally, new reviewers will not be assigned to requests that were created before they were set as a reviewer.
+> You can add or remove reviewers for this workflow by modifying the **Who can review admin consent requests** list. A current limitation of this feature is that a reviewer retains the ability to review requests that were made while they were designated as a reviewer and will receive expiration reminder emails for those requests after they're removed from the reviewers list. Additionally, new reviewers will not be assigned to requests that were created before they were set as a reviewer.
 
 ## Configure the admin consent workflow using Microsoft Graph
 

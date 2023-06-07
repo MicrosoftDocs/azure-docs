@@ -22,7 +22,7 @@ At the core of IoT Plug and Play, is a device _model_ that describes a device's 
 
 To learn more about how IoT Plug and Play uses device models, see [IoT Plug and Play device developer guide](concepts-developer-guide-device.md) and [IoT Plug and Play service developer guide](concepts-developer-guide-service.md).
 
-To define a model, you use the Digital Twins Definition Language (DTDL) V2. DTDL uses a JSON variant called [JSON-LD](https://json-ld.org/). The following snippet shows the model for a thermostat device that:
+To define a model, you use the Digital Twins Definition Language (DTDL). DTDL uses a JSON variant called [JSON-LD](https://json-ld.org/). The following snippet shows the model for a thermostat device that:
 
 - Has a unique model ID: `dtmi:com:example:Thermostat;1`.
 - Sends temperature telemetry.
@@ -126,7 +126,10 @@ The thermostat model has a single interface. Later examples in this article show
 
 This article describes how to design and author your own models and covers topics such as data types, model structure, and tools.
 
-To learn more, see the [Digital Twins Definition Language V2](https://github.com/Azure/opendigitaltwins-dtdl) specification.
+To learn more, see the [Digital Twins Definition Language](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md) specification.
+
+> [!NOTE]
+> IoT Central currently supports [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) with an [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 ## Model structure
 
@@ -642,7 +645,7 @@ There's a DTDL authoring extension for VS Code.
 
 To install the DTDL extension for VS Code, go to [DTDL editor for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl). You can also search for **DTDL** in the **Extensions** view in VS Code.
 
-When you've installed the extension, use it to help you author DTDL model files in VS code:
+When you've installed the extension, use it to help you author DTDL model files in VS Code:
 
 - The extension provides syntax validation in DTDL model files, highlighting errors as shown on the following screenshot:
 
@@ -665,6 +668,9 @@ To learn more, see [Device models repository](concepts-model-repository.md).
 ### Use
 
 Applications, such as IoT Central, use device models. In IoT Central, a model is part of the device template that describes the capabilities of the device. IoT Central uses the device template to dynamically build a UI for the device, including dashboards and analytics.
+
+> [!NOTE]
+> IoT Central defines some extensions to the DTDL language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 A custom solution can use the [digital twins model parser](concepts-model-parser.md) to understand the capabilities of a device that implements the model. To learn more, see [Use IoT Plug and Play models in an IoT solution](concepts-model-discovery.md).
 
@@ -690,5 +696,5 @@ The following list summarizes some key constraints and limits on models:
 
 Now that you've learned about device modeling, here are some more resources:
 
-- [Digital Twins Definition Language V2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
+- [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md)
 - [Model repositories](./concepts-model-repository.md)

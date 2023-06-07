@@ -2,7 +2,7 @@
 title: Email Azure Backup Reports
 description: Create automated tasks to receive periodic reports via email
 ms.topic: conceptual
-ms.date: 04/06/2023
+ms.date: 04/17/2023
 author: jyothisuri
 ms.service: backup
 ms.author: jsuri
@@ -25,6 +25,9 @@ To configure email tasks via Backup Reports, perform the following steps:
     ![Email Tab](./media/backup-azure-configure-backup-reports/email-tab.png)
 
 3.	After you click **Submit** and **Confirm**, the logic app will get created. The logic app and the associated API connections are created with the tag **UsedByBackupReports: true** for easy discoverability. You'll need to perform a one-time authorization step for the logic app to run successfully, as described in the section below.
+
+> [!NOTE]
+> Support for Backup vault workloads (Azure Database for PostgreSQL Server, Azure Blobs, Azure Disks) is added to the logic app templates in April 2023. So, if you've deployed these logic apps on an earlier date, you'll have to redeploy these using the above steps if you want to see data for Backup vault workloads in your email reports.
 
 ## Authorize connections to Azure Monitor Logs and Office 365
 
@@ -77,9 +80,9 @@ To troubleshoot this issue:
     * **Azure Monitor Logs Connector has not been not authorized**: To fix this issue, follow the authorization steps as provided above.
     * **Error in the LA query**: In case you have customized the logic app with your own queries, an error in any of the LA queries might be causing the logic app to fail. You can select the relevant step and view the error which is causing the query to run incorrectly.
 
-### Scenario 3: Error in authorizing O365 API connection
+### Scenario 3: Error in authorizing Microsoft 365 API connection
 
-When attempting to authorize the O365 API connection, you might see an error of the form _Test connection failed. Error 'REST API is not yet supported for this mailbox. This error can occur for sandbox (test) accounts or for accounts that are on a dedicated (on-premises) mail server._ 
+When attempting to authorize the Microsoft 365 API connection, you might see an error of the form _Test connection failed. Error 'REST API is not yet supported for this mailbox. This error can occur for sandbox (test) accounts or for accounts that are on a dedicated (on-premises) mail server._ 
 
 This error can occur if the mailbox is on a dedicated Microsoft Exchange Server and isn't a valid Office 365 mailbox. [Learn more](/connectors/office365/#common-errors)
 

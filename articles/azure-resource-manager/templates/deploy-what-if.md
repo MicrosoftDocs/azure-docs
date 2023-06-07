@@ -39,7 +39,7 @@ To install the module, use:
 Install-Module -Name Az -Force
 ```
 
-For more information about installing modules, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+For more information about installing modules, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Install Azure CLI module
 

@@ -10,12 +10,8 @@ ms.date: 05/25/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
-ms.custom:
-   - tracking-python
-   - devx-track-js
-   - mode-other
-   - kr2b-contr-experiment
-zone_pivot_groups: acs-azcli-js-csharp-java-python-power-platform
+ms.custom: tracking-python, devx-track-js, mode-other, kr2b-contr-experiment, devx-track-extended-java, devx-track-python
+zone_pivot_groups: acs-azcli-js-csharp-java-python-logic-apps
 ---
 # Quickstart: Send an SMS message
 

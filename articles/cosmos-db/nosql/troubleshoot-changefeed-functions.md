@@ -4,8 +4,8 @@ description: This article discusses common issues, workarounds, and diagnostic s
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
-ms.date: 04/07/2023
+ms.custom: ignite-2022, build-2023
+ms.date: 04/11/2023
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
@@ -72,7 +72,7 @@ To resolve this issue:
 
 * Upgrade to the latest available version.
 
-### Your Azure function fails to start, with error message "Forbidden (403); Substatus: 5300... The given request [POST ...] can't be authorized by AAD token in data plane"
+### Your Azure function fails to start, with error message "Forbidden (403); Substatus: 5300... The given request [POST ...] can't be authorized by Azure AD token in data plane"
 
 This error means that your function is attempting to [perform a non-data operation by using Azure Active Directory (Azure AD) identities](troubleshoot-forbidden.md#non-data-operations-are-not-allowed). You can't use `CreateLeaseContainerIfNotExists = true` when you're using Azure AD identities.
 
@@ -112,13 +112,15 @@ This scenario can have multiple causes. Consider trying any or all of the follow
 
 ### Some changes are repeated in my trigger
 
-The concept of a *change* is an operation on a document. The most common scenarios where events for the same document are received are:
+The concept of a *change* is an operation on an item. The most common scenarios where events for the same item are received are:
 
-* The account is using the *eventual consistency* model. While it's consuming the change feed at an eventual consistency level, there could be duplicate events in-between subsequent change feed read operations. That is, the *last* event of one read operation might appear as the *first* event of the next.
+* Your Function is failing during execution. If your Function has enabled [retry policies](../../azure-functions/functions-bindings-error-pages.md#retries) or in cases where your Function execution is exceeding the allowed execution time, the same batch of changes can be delivered again to your Function. This is expected and by design, look at your Function logs for indication of failures and make sure you have enabled [trigger logs](how-to-configure-cosmos-db-trigger.md#enabling-trigger-specific-logs) for further details.
 
-* The document is being updated. The change feed can contain multiple operations for the same documents. If the document is receiving updates, it can pick up multiple events (one for each update). One easy way to distinguish among different operations for the same document is to track the `_lsn` [property for each change](../change-feed.md#change-feed-and-_etag-_lsn-or-_ts). If the properties don't match, the changes are different.
+* There is a load balancing of leases across instances. When instances increase or decrease, [load balancing](change-feed-processor.md#dynamic-scaling) can cause the same batch of changes to be delivered to multiple Function instances. This is expected and by design, and should be transient. The [trigger logs](how-to-configure-cosmos-db-trigger.md#enabling-trigger-specific-logs) include the events when an instance acquires and releases leases.
 
-* If you're identifying documents only by `id`, remember that the unique identifier for a document is the `id` and its partition key. (Two documents can have the same `id` but a different partition key.)
+* The item is being updated. The change feed can contain multiple operations for the same item. If the item is receiving updates, it can pick up multiple events (one for each update). One easy way to distinguish among different operations for the same item is to track the `_lsn` [property for each change](change-feed-modes.md#parsing-the-response-object). If the properties don't match, the changes are different.
+
+* If you're identifying items only by `id`, remember that the unique identifier for an item is the `id` and its partition key. (Two items can have the same `id` but a different partition key).
 
 ### Some changes are missing in your trigger
 

@@ -1,7 +1,7 @@
 ---
 title: Install Microsoft Defender for IoT on-premises management console software - Microsoft Defender for IoT
 description: Learn how to install Microsoft Defender for IoT on-premises management console software. Use this article if you're reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
-ms.date: 12/13/2022
+ms.date: 04/18/2023
 ms.topic: install-set-up-deploy
 ---
 
@@ -58,39 +58,51 @@ The installation process takes about 20 minutes. After the installation, the sys
 
     - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
-1. Select your preferred language for the installation process. For example:
+1. The initial console window lists installation languages. Select the language you want to use. For example:
 
    :::image type="content" source="../media/tutorial-install-components/on-prem-language-select.png" alt-text="Screenshot of selecting your preferred language for the installation process.":::
 
-1. From the options displayed, select the management release you want to install based on the hardware profile you're using. 
+1. The console lists a series of installation options. Select the option that best matches your requirements.
 
-1. Define the following network properties as prompted:
+    The installation wizard starts running. This step takes several minutes to complete, and includes system reboots.
 
-    - For the **Configure management network interface** prompt: For Dell appliances, enter `eth0` and `eth1`. For HP appliances, enter `enu1` and `enu2`, or `possible value`.
+    When complete, a screen similar to the following appears, prompting you to enter your management interface:
 
-    - For the **Configure management network IP address**, **Configure subnet mask**, **Configure DNS**, and **Configure default gateway IP address** prompts, enter the relevant values for each item.
+   :::image type="content" source="../media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Screenshot of the management interface prompt.":::
 
-1. **(Optional)** To install a secondary Network Interface Card (NIC), define a hardware profile, and network properties as prompted.
+1. At each prompt, enter the following values:
 
-    For the **Configure sensor monitoring interface**, enter `eth1` or `possible value`. For other prompts, enter the relevant values for each item.
+    |Prompt  |Value  |
+    |---------|---------|
+    |`configure management network interface`     |  Enter your management interface. For the following appliances, enter specific values:<br><br> - **Dell**: Enter `eth0, eth1`<br>    - **HP**: Enter `enu1, enu2` <br><br>    Other appliances may have different options.     |
+    |`configure management network IP address`     |    Enter the on-premises management console's IP address.     |
+    |`configure subnet mask`     | Enter the on-premises management console's subnet mask address.        |
+    |`configure DNS`     | Enter the on-premises management console's DNS address.        |
+    |`configure default gateway IP address`     |   Enter the IP address for the on-premises management console's default gateway.      |
 
-    For example:
+1. (Optional) Enhance security to your on-premises management console by adding a secondary NIC dedicated for attached sensors within an IP address range. When you use a secondary NIC, the first is dedicated for end-users, and the secondary supports the configuration of a gateway for routed networks.
 
-    :::image type="content" source="../media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot that shows the Secondary NIC install questions.":::
+    If you're installing a secondary Network Interface Card (NIC), enter the following details for the sensor's monitoring interface as prompted:
 
-    If you choose not to install the secondary NIC now, you can [do so at a later time](../how-to-manage-the-on-premises-management-console.md#add-a-secondary-nic-after-installation).
+    | Prompt  |Value  |
+    |---------|---------|
+    |`configure sensor monitoring interface`     |  Enter `eth1` or another value as needed for your system.      |
+    |`configure an IP address for the sensor monitoring interface`     |    Enter the secondary NIC's IP address |
+    |`configure a subnet mask for the sensor monitoring interface`     | Enter the secondary NIC's subnet mask address.        |
 
-1. Accept the settings and continue by entering `Y`.
+    If you choose not to install the secondary NIC now, you can [do so at a later time](#add-a-secondary-nic-after-installation-optional).
 
-1. <a name="users"></a>After about 10 minutes, the two sets of credentials appear. For example:
+1. When prompted, enter `Y` to accept the settings. The installation process runs for about 10 minutes.
 
-   :::image type="content" source="../media/tutorial-install-components/credentials-screen.png" alt-text="Screenshot of the credentials that appear that must be copied as they won't be presented again.":::
+1. <a name="users"></a>When the installation process is complete, an appliance ID is displayed with a set of credentials for the *cyberx* privileged user. Save the credentials carefully as they won't be displayed again.
 
-   Save the usernames and passwords, you'll need these credentials to access the platform the first time you use it.
+    When you're ready, press **ENTER** to continue. An appliance ID is displayed with a set of credentials for the *support* privileged user. Save these credentials carefully as well, as they won't be displayed again either.
 
     For more information, see [Default privileged on-premises users](../roles-on-premises.md#default-privileged-on-premises-users).
 
-1. Select **Enter** to continue.
+1. When you're ready, press **ENTER** to continue.
+
+    The installation is complete and you're prompted to sign in. Sign in using one of the privileged user credentials you saved from the previous step. At this point, you can also browse to the on-premises management console's IP address in a browser and sign in there.
 
 ## Configure network adapters for a VM deployment
 
@@ -104,7 +116,7 @@ After deploying an on-premises management console sensor on a [virtual appliance
     |Adapters  |Description  |
     |---------|---------|
     |**Single network adapter**     |   To use a single network adapter, add **Network adapter 1** to connect to the on-premises management console UI and any connected OT sensors.      |
-    |**Secondary NIC**     |   To use a secondary NIC in addition to your main network adapter, add: <br> <br> - **Network adapter 1** to connect to the on-premises management console UI <br>  - **Network adapter 2**, to connect to connected OT sensors     |
+    |<a name=add-a-secondary-nic-after-installation-optional></a>**Secondary NIC**     |   To use a secondary NIC in addition to your main network adapter, add: <br> <br> - **Network adapter 1** to connect to the on-premises management console UI <br>  - **Network adapter 2**, to connect to connected OT sensors     |
 
 For more information, see:
 

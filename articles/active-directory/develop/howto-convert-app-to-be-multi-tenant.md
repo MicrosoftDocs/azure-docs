@@ -169,7 +169,7 @@ To learn more about making API calls to Azure AD and Microsoft 365 services like
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
-[AAD-App-Branding]:howto-add-branding-in-azure-ad-apps.md
+[AAD-App-Branding]:howto-add-branding-in-apps.md
 [AAD-App-Manifest]:reference-azure-ad-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md

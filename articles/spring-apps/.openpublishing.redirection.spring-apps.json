@@ -19,6 +19,11 @@
             "source_path": "how-to-enterprise-deploy-non-java-apps.md",
             "redirect_url": "/azure/spring-apps/how-to-enterprise-deploy-polyglot-apps",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "how-to-distributed-tracing.md",
+            "redirect_url": "/azure/spring-apps/how-to-application-insights",
+            "redirect_document_id": false
         }
     ]
 }

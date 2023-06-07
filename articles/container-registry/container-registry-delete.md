@@ -184,21 +184,28 @@ As mentioned in the [Manifest digest](container-registry-concepts.md#manifest-di
    ```output
    [
      {
-       "digest": "sha256:7ca0e0ae50c95155dbb0e380f37d7471e98d2232ed9e31eece9f9fb9078f2728",
-       "tags": [
-         "latest"
-       ],
-       "timestamp": "2018-07-11T21:38:35.9170967Z"
-     },
-     {
-       "digest": "sha256:d2bdc0c22d78cde155f53b4092111d7e13fe28ebf87a945f94b19c248000ceec",
-       "tags": [],
-       "timestamp": "2018-07-11T21:32:21.1400513Z"
+    "architecture": "amd64",
+    "changeableAttributes": {
+      "deleteEnabled": true,
+      "listEnabled": true,
+      "quarantineDetails": "{\"state\":\"Scan Passed\",\"link\":\"https://aka.ms/test\",\"scanner\":\"Azure Security Monitoring-Qualys Scanner\",\"result\":{\"version\":\"2020-05-13T00:23:31.954Z\",\"summary\":[{\"severity\":\"High\",\"count\":2},{\"severity\":\"Medium\",\"count\":0},{\"severity\":\"Low\",\"count\":0}]}}",
+      "quarantineState": "Passed",
+      "readEnabled": true,
+      "writeEnabled": true
+    },
+    "configMediaType": "application/vnd.docker.container.image.v1+json",
+    "createdTime": "2020-05-16T04:25:14.3112885Z",
+    "digest": "sha256:eef2ef471f9f9d01fd2ed81bd2492ddcbc0f281b0a6e4edb700fbf9025448388",
+    "imageSize": 22906605,
+    "lastUpdateTime": "2020-05-16T04:25:14.3112885Z",
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "os": "linux",
+    "timestamp": "2020-05-16T04:25:14.3112885Z"
      }
    ]
    ```
 
-As you can see in the output of the last step in the sequence, there is now an orphaned manifest whose `"tags"` property is an empty list. This manifest still exists within the registry, along with any unique layer data that it references. **To delete such orphaned images and their layer data, you must delete by manifest digest**.
+The tags array is removed from meta-data when an image is **untagged**. This manifest still exists within the registry, along with any unique layer data that it references. **To delete such orphaned images and their layer data, you must delete by manifest digest**.
 
 ## Automatically purge tags and manifests
 

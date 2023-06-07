@@ -75,7 +75,7 @@ ms.author: eur
 | `es-PR` | Spanish (Puerto Rico) | Plain text<br/><br/>Pronunciation |
 | `es-PY` | Spanish (Paraguay) | Plain text<br/><br/>Pronunciation |
 | `es-SV` | Spanish (El Salvador) | Plain text<br/><br/>Pronunciation |
-| `es-US` | Spanish (United States) | Plain text<br/><br/>Pronunciation |
+| `es-US` | Spanish (United States) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `es-UY` | Spanish (Uruguay) | Plain text<br/><br/>Pronunciation |
 | `es-VE` | Spanish (Venezuela) | Plain text<br/><br/>Pronunciation |
 | `et-EE` | Estonian (Estonia) | Plain text<br/><br/>Pronunciation |
@@ -115,7 +115,7 @@ ms.author: eur
 | `mr-IN` | Marathi (India) | Plain text |
 | `ms-MY` | Malay (Malaysia) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `mt-MT` | Maltese (Malta) | Plain text |
-| `my-MM` | Burmese (Myanmar) | Plain text |
+| `my-MM` | Burmese (Myanmar) | Not supported |
 | `nb-NO` | Norwegian Bokmål (Norway) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `ne-NP` | Nepali (Nepal) | Plain text |
 | `nl-BE` | Dutch (Belgium) | Plain text |

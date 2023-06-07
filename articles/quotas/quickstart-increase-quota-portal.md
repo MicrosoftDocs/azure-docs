@@ -45,6 +45,8 @@ If your request is not fulfilled, you'll see a link to create a support request.
 
 ## Next steps
 
-Advance to the next article to learn how to increase VM-family vCPU quotas.
-> [!div class="nextstepaction"]
-> [Increase VM-family vCPU quotas](per-vm-quota-requests.md)
+- [Increase VM-family vCPU quotas](per-vm-quota-requests.md)
+- [Increase regional vCPU quotas](regional-quota-requests.md)
+- [Increase spot vCPU family quotas](spot-quota.md)
+- [Increase networking quotas](networking-quota-requests.md)
+- [Increase Azure Storage account quotas](storage-account-quota-requests.md)

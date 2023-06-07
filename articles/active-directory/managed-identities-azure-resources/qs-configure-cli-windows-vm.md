@@ -132,7 +132,7 @@ To assign a user-assigned identity to a VM during its creation, your account nee
 3. Create a VM using [az vm create](/cli/azure/vm/#az-vm-create). The following example creates a VM associated with the new user-assigned identity, as specified by the `--assign-identity` parameter, with the specified `--role` and `--scope`. Be sure to replace the `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, `<USER ASSIGNED IDENTITY NAME>`, `<ROLE>`, and `<SUBSCRIPTION>` parameter values with your own values. 
 
    ```azurecli-interactive 
-   az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME> --role <ROLE> --scope <SUBSCRIPTION> 
+   az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image <SKU linux image>  --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME> --role <ROLE> --scope <SUBSCRIPTION> 
    ```
 
 ### Assign a user-assigned managed identity to an existing Azure VM

@@ -8,7 +8,7 @@ author: sunilagarwal
 ms.reviewer: ""
 ms.topic: how-to
 ms.date: 06/24/2022
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
 
 # Data encryption for Azure Database for PostgreSQL Single server by using the Azure CLI

@@ -60,7 +60,7 @@ To configure Bizagi Studio for Digital Process Automation to support provisionin
 
 5. Copy and save the **Client Secret**. In the Azure portal, for your Bizagi Studio for Digital Process Automation application, on the **Provisioning** tab, the client secret value is entered in the **Secret Token** field.
 
-   ![Screenshot of Oauth, with Client Secret highlighed.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/secret.png)
+   ![Screenshot of Oauth, with Client Secret highlighted.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/secret.png)
 
 ## Add the application from the Azure AD gallery
 

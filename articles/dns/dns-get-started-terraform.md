@@ -3,8 +3,8 @@ title: 'Quickstart: Create an Azure DNS zone and record using Terraform'
 description: 'In this article, you create an Azure DNS zone and record using Terraform'
 ms.topic: quickstart
 ms.service: dns
-ms.date: 3/17/2023
-ms.custom: devx-track-terraform
+ms.date: 4/14/2023
+ms.custom: devx-track-terraform, ai-gen-docs
 author: TomArcherMsft
 ms.author: tarcher
 ---

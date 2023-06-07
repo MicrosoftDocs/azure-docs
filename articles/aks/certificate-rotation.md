@@ -19,10 +19,6 @@ This article shows you how certificate rotation works in your AKS cluster.
 
 This article requires that you are running the Azure CLI version 2.0.77 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Limitation
-
-Certificate rotation is not supported for stopped AKS clusters. 
-
 ## AKS certificates, Certificate Authorities, and Service Accounts
 
 AKS generates and uses the following certificates, Certificate Authorities, and Service Accounts:

@@ -94,7 +94,7 @@ The following table is intended to highlight the key actions for the following l
 
 The following table is intended to highlight the key actions for the following license subscriptions:
 
-- Azure Active Directory Premium P2 (Azure AD P2)
+- Azure Active Directory Premium P2
 - Enterprise Mobility + Security (EMS E5)
 - Microsoft 365 (E5, A5)
 
@@ -130,5 +130,5 @@ The following table is intended to highlight the key actions for the following l
 
 ## Next steps
 
-- For detailed deployment guidance for individual features of Azure AD, review the [Azure AD project deployment plans](active-directory-deployment-plans.md).
+- For detailed deployment guidance for individual features of Azure AD, review the [Azure AD project deployment plans](deployment-plans.md).
 - Organizations can use [identity secure score](identity-secure-score.md) to track their progress against other Microsoft recommendations.

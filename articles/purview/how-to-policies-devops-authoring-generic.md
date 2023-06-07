@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 05/30/2023
 ms.custom:
 ---
 # Create, list, update and delete Microsoft Purview DevOps policies
@@ -118,58 +118,52 @@ SELECT * FROM [databaseName].schemaName.tableName
 This section contains a reference of how relevant Microsoft Purview data policy roles map to specific actions in SQL data sources.
 
 >[!NOTE]
-> The roles below may be expanded in the future to include additional actions that become available as long as they are are consistent with the spirit of the role.
+> The role definitions below may be expanded in the future to include additional actions that become available as long as they are consistent with the spirit of the role.
 
 | **Microsoft Purview policy role definition** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
 |                                     |                                      |
-| *SQL Performance Monitor* |Microsoft.Sql/sqlservers/Connect |
-||Microsoft.Sql/sqlservers/databases/Connect |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabasePerformanceState/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/ServerPerformanceState/rows/select |
-|||               
-| *SQL Security Auditor* |Microsoft.Sql/sqlservers/Connect |
-||Microsoft.Sql/sqlservers/databases/Connect |
-||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityState/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityState/rows/select |
-||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
+| *SQL Performance Monitor* |Microsoft.Sql/Sqlservers/Connect |
+||Microsoft.Sql/Sqlservers/Databases/Connect |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabasePerformanceState/Rows/Select |
+||Microsoft.Sql/Sqlservers/SystemViewsAndFunctions/ServerPerformanceState/Rows/Select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseGeneralMetadata/Rows/Select |
+||Microsoft.Sql/Sqlservers/SystemViewsAndFunctions/ServerGeneralMetadata/Rows/Select |
+||Microsoft.Sql/Sqlservers/Databases/DBCCs/ViewDatabasePerformanceState/Execute |
+||Microsoft.Sql/Sqlservers/DBCCs/ViewServerPerformanceState/Execute |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Create |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Options/Alter |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Events/Add |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Events/Drop |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/State/Enable |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/State/Disable |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Drop
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Target/Add |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Target/Drop |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Create |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Options/Alter |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Events/Add |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Events/Drop |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/State/Enable |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/State/Disable |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Drop |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Target/Add |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Target/Drop |
 |||
-
->[!NOTE]
-> The role definition for SQL Performance Monitor will be expanded around April 2023 to include the following actions.
-
-- /Sqlservers/Databases/SystemViewsAndFunctions/DatabasePerformanceState/Rows/Select
-- /Sqlservers/SystemViewsAndFunctions/ServerPerformanceState/Rows/Select
-- /Sqlservers/Databases/SystemViewsAndFunctions/DatabaseGeneralMetadata/Rows/Select
-- /Sqlservers/SystemViewsAndFunctions/ServerGeneralMetadata/Rows/Select
-- /Sqlservers/Databases/DBCCs/ViewDatabasePerformanceState/Execute
-- /Sqlservers/DBCCs/ViewServerPerformanceState/Execute
-- /Sqlservers/Databases/ExtendedEventSessions/Create
-- /Sqlservers/Databases/ExtendedEventSessions/Options/Alter
-- /Sqlservers/Databases/ExtendedEventSessions/Events/Add
-- /Sqlservers/Databases/ExtendedEventSessions/Events/Drop
-- /Sqlservers/Databases/ExtendedEventSessions/State/Enable
-- /Sqlservers/Databases/ExtendedEventSessions/State/Disable
-- /Sqlservers/Databases/ExtendedEventSessions/Drop
-- /Sqlservers/Databases/ExtendedEventSessions/Target/Add
-- /Sqlservers/Databases/ExtendedEventSessions/Target/Drop
-- /Sqlservers/ExtendedEventSessions/Create
-- /Sqlservers/ExtendedEventSessions/Options/Alter
-- /Sqlservers/ExtendedEventSessions/Events/Add
-- /Sqlservers/ExtendedEventSessions/Events/Drop
-- /Sqlservers/ExtendedEventSessions/State/Enable
-- /Sqlservers/ExtendedEventSessions/State/Disable
-- /Sqlservers/ExtendedEventSessions/Drop
-- /Sqlservers/ExtendedEventSessions/Target/Add
-- /Sqlservers/ExtendedEventSessions/Target/Drop
-
+| *SQL Security Auditor* |Microsoft.Sql/Sqlservers/Connect |
+||Microsoft.Sql/Sqlservers/Databases/Connect |
+||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityState/rows/select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseSecurityState/rows/select |
+||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
+|||
 
 ## Next steps
 Check the blogs, videos and related documents
+* Blog: [Microsoft Purview DevOps policies for Azure SQL Database is now generally available](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-for-azure-sql-database-is-now/ba-p/3775885)
 * Blog: [Inexpensive solution for managing access to SQL health, performance and security information](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/inexpensive-solution-for-managing-access-to-sql-health/ba-p/3750512)
 * Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
-* Blog: [Microsoft Purview DevOps policies enter General Availability](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-enter-ga-simplify-access/ba-p/3674057)
+* Blog: [Microsoft Purview DevOps policies API is now public](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-api-is-now-public/ba-p/3818931)
 * Video: [Pre-requisite for policies: The "Data use management" option](https://youtu.be/v_lOzevLW-Q)
 * Video: [DevOps policies quick overview](https://aka.ms/Microsoft-Purview-DevOps-Policies-Video)
 * Video: [DevOps policies deep dive](https://youtu.be/UvClpdIb-6g)

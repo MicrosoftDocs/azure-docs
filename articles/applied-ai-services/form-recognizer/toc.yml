@@ -4,15 +4,25 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Form Recognizer?
+  - name: 🆕 What is Azure Form Recognizer?
     displayName: models, develop, development
     href: overview.md
+  - name: 🆕 Choose a model
+    href: choose-model-feature.md
   - name: Form Recognizer Studio
     displayName: get started
     href: form-recognizer-studio-overview.md
   - name: Form Recognizer SDK
-    displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, preview, beta, package, version,AzureKeyCredential, Azure key credential, key, endpoint
-    href: sdk-overview.md
+    items:
+      - name: Public preview
+        displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, package, version,AzureKeyCredential, Azure key credential, key, endpoint
+        href: sdk-preview.md
+      - name: General availability
+        displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, preview, beta, package, version,AzureKeyCredential, Azure key credential, key, endpoint
+        href: sdk-overview.md
+      - name: Changelog and release history
+        displayName: latest, update, beta, package, preview, version
+        href: changelog-release-history.md  
   - name: Language support
     displayName: locale, handwritten, handwriting, text, detect, detection
     href: language-support.md
@@ -64,6 +74,9 @@ items:
     - name: 🆕 Build a custom classification model (preview)
       displayName: custom, classifier, splitter
       href: how-to-guides/build-a-custom-classifier.md
+    - name: Project sharing with custom models
+      displayName: project, share, sharing
+      href: how-to-guides/project-share-custom-models.md  
     - name: Compose custom extraction models
       displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
       href: how-to-guides/compose-custom-models.md
@@ -157,12 +170,12 @@ items:
   - name: 🆕 Query field extraction (preview)
     displayName: queries, fields, OpenAI, chat
     href: concept-query-fields.md
-  - name: 🆕 Health insurance card model (preview)
-    displayName: health, proof, hospital
-    href: concept-insurance-card.md
   - name: 🆕 Add-on capabilities (preview)
     displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
     href: concept-add-on-capabilities.md
+  - name: 🆕 Health insurance card model
+    displayName: health, proof, hospital
+    href: concept-insurance-card.md
   - name: W-2 form model
     displayName: wages, taxes, salary, employees
     href: concept-w2.md
@@ -180,7 +193,7 @@ items:
     href: concept-business-card.md
   - name: Custom models
     items:
-    - name: Custom model
+    - name: Custom model overview
       displayName: table, label, ocr, confidence, template, neural
       href: concept-custom.md
     - name: Custom template model

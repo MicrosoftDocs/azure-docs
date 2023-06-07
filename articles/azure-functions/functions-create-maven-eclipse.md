@@ -4,7 +4,7 @@ description: How-to guide to create and publish a simple HTTP triggered serverle
 ms.topic: quickstart
 ms.date: 07/01/2018
 ms.devlang: java
-ms.custom: mvc, devcenter, devx-track-java
+ms.custom: mvc, devcenter, devx-track-java, devx-track-extended-java
 ---
 
 # Create your first function with Java and Eclipse 

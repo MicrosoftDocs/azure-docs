@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 11/27/2018
+ms.date: 05/03/2023
 ---
 
 # Troubleshoot Azure VM extension issues
@@ -84,8 +84,16 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
 
    If the process isn't running, restart it by using the following commands:
 
-   - For Ubuntu: `service walinuxagent start`
-   - For other distributions: `service waagent start`
+    - For Ubuntu/Debian:
+
+    ```bash
+       sudo systemctl enable --now walinuxagent.service
+    ```
+    - For other distributions: 
+
+    ```bash
+       sudo systemctl enable --now waagent.service
+    ```
 
 1. [Configure the automatic restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 1. Enable protection of the virtual machine.
