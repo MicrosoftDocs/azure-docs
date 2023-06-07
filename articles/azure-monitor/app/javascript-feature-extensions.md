@@ -196,7 +196,7 @@ export class AppComponent {
 ```
 
 > [!NOTE] 
-> To add Angular configuration, see [Enable Correlation for Angular](./javascript-framework-extensions.md?tabs=angular#enable-correlation).For more information on the Angular plug-in, see [Angular plug-in](./javascript-framework-extensions.md?tabs=angular#angular-plugin-for-application-insights-javascript-sdk).
+> To add Angular configuration, see [Enable Correlation for Angular](./javascript-framework-extensions.md?tabs=angular#enable-correlation). For more information on the Angular plug-in, see [Angular plug-in](./javascript-framework-extensions.md?tabs=angular#angular-plugin-for-application-insights-javascript-sdk).
 
 ---
 
