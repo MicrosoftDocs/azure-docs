@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 06/08/2023
+ms.date: 06/07/2023
 ms.author: mbullwin
 ---
 
