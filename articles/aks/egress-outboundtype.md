@@ -101,33 +101,32 @@ Migration is only supported between `loadBalancer`, `managedNATGateway` (if usin
 
 * Install and update the `aks-preview` extension.
 
-    ```azurecli
-    # Install aks-preview extension
-    az extension add --name aks-preview
-
-    # Update aks-preview extension
-    az extension update --name aks-preview
-    ```
+```azurecli
+# Install aks-preview extension
+az extension add --name aks-preview
+# Update aks-preview extension
+az extension update --name aks-preview
+```
 
 ### Register the `AKS-OutBoundTypeMigrationPreview` feature flag
 
 1. Register the `AKS-OutBoundTypeMigrationPreview` feature flag using the [`az feature register`][az-feature-register] command. It takes a few minutes for the status to show *Registered*.
 
-    ```azurecli-interactive
-    az feature register --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreview"
-    ```
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreview"
+```
 
 2. Verify the registration status using the [`az feature show`][az-feature-show] command.
 
-    ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreview"
-    ```
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreview"
+```
 
 3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
 
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
 
 ### Update cluster to use a new outbound type
 
@@ -135,9 +134,9 @@ Migration is only supported between `loadBalancer`, `managedNATGateway` (if usin
 
 ### Update cluster from loadbalancer to managedNATGateway  
 
-    ```azurecli-interactive
-    az aks update -g <resourceGroup> -n <clusterName> --outbound-type managedNATGateway --nat-gateway-managed-outbound-ip-count <number of managed outbound ip>
-    ```
+```azurecli-interactive
+az aks update -g <resourceGroup> -n <clusterName> --outbound-type managedNATGateway --nat-gateway-managed-outbound-ip-count <number of managed outbound ip>
+```
 
 ### Update cluster from managedNATGateway to loadbalancer
 
@@ -161,8 +160,8 @@ az aks update -g <resourceGroup> -n <clusterName> --outbound-type userDefinedRou
 ### Update cluster from loadbalancer to userAssignedNATGateway in BYO vnet scenario
 
 - Associate nat gateway with subnet where the workload is associated with. Please refer to [Create a managed or user-assigned NAT gateway](nat-gateway.md)
-- 
-- ```azurecli-interactive
+
+```azurecli-interactive
 az aks update -g <resourceGroup> -n <clusterName> --outbound-type userAssignedNATGateway
 ```
 
