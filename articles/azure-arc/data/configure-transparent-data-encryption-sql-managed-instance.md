@@ -86,7 +86,7 @@ The following section explains how to enable TDE in customer-managed mode.
 
 # [Azure CLI](#tab/azure-cli/service-managed)
 
-The following section explains how to enable TDE in customer-managed mode.
+To enable TDE in service managed mode, run the following command:
 
 ```azurecli
 az sql mi-arc update --tde-mode ServiceManaged
@@ -94,7 +94,7 @@ az sql mi-arc update --tde-mode ServiceManaged
 
 # [Kubernetes native tools](#tab/kubernetes-native/service-managed)
 
-To enable TDE in service-managed mode, run kubectl patch to enable service-managed TDE
+To enable TDE in service-managed mode, run kubectl patch to enable service-managed TDE:
 
 ```console
 kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "ServiceManaged" } } } }'
