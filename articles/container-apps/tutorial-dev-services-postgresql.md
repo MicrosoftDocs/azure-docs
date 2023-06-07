@@ -2,7 +2,7 @@
 title: 'Tutorial: Create and use a PostgreSQL service for development'
 description: Create and use a PostgreSQL service for development
 services: container-apps
-author: ahmels
+author: ahmelsayed
 ms.service: container-apps
 ms.topic: tutorial
 ms.date: 06/06/2023
@@ -292,7 +292,7 @@ We will start by creating a debug app to use `psql` cli to connect to the Postgr
             {
               name: 'psql'
               image: 'mcr.microsoft.com/k8se/services/postgres:14'
-              command: [ '/bin/sleep' 'infinity' ]
+              command: [ '/bin/sleep', 'infinity' ]
             }
           ]
           scale: {
@@ -526,7 +526,7 @@ resource pgsqlCli 'Microsoft.App/containerApps@2023-04-01-preview' = {
         {
           name: 'psql'
           image: 'mcr.microsoft.com/k8se/services/postgres:14'
-          command: [ '/bin/sleep' 'infinity' ]
+          command: [ '/bin/sleep', 'infinity' ]
         }
       ]
       scale: {
