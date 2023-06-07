@@ -1,13 +1,13 @@
 ---
 title: Create a custom image for Confidential VMs
 description: Learn how to use the Azure CLI to create an image from a vhd.
-author: simranparkhe, corsini
+author: simranparkhe
 ms.service: virtual-machines
 mms.subservice: confidential-computing
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 6/09/2023
-ms.author: simranparkhe, corsini
+ms.author: corsini
 ms.custom: devx-track-azurecli
 ---
 
@@ -113,4 +113,4 @@ az group create --name $resourceGroupName --location eastus
     ```
 ## Next Steps
 > [!div class="nextstepaction"]
-> [Connect and attest the CVM through Microsoft Azure Attestation Sample App](quick-create-confidential-vm-cli-amd.md)
+> [Connect and attest the CVM through Microsoft Azure Attestation Sample App](quick-create-confidential-vm-azure-cli-amd.md)
