@@ -26,6 +26,8 @@ The content filtering system integrated in Azure OpenAI Service contains neural 
 
 ### Categories
 
+The default content filtering configuration is set to filter at the medium severity threshold for all four content harms categories for both prompts and completions. That means that content that is detected at severity level medium or high is filtered, while content detected at severity level low is not filtered by the content filters.
+
 |Category|Description|
 |--------|-----------|
 | Hate   |The hate category describes language attacks or uses that include pejorative or discriminatory language with reference to a person or identity group on the basis of certain differentiating attributes of these groups including but not limited to race, ethnicity, nationality, gender identity and expression, sexual orientation, religion, immigration status, ability status, personal appearance, and body size. |
@@ -270,7 +272,7 @@ The table below outlines the various ways content filtering can appear:
 
 When annotations are enabled as shown in the code snippet below, the following information is returned via the API: content filtering category (hate, sexual, violence, self-harm); within each content filtering category, the severity level (safe, low, medium or high); filtering status (true or false).
 
-Annotations are currently in preview for GPT models. The following code snippet shows how to use annotations in preview:
+Annotations are currently in preview for Completions and Chat Completions (GPT models); the following code snippet shows how to use annotations in preview:
 
 ```python
 # Note: The openai-python library support for Azure OpenAI is in preview.
@@ -285,9 +287,10 @@ openai.api_key = os.getenv("AZURE_OPENAI_KEY")
 
 response = openai.Completion.create(
     engine="text-davinci-003", # engine = "deployment_name".
-    prompt="When was Microsoft founded?"
+    prompt="{Example prompt where a severity level of low is detected}" 
+    # Content that is detected at severity level medium or high is filtered, 
+    # while content detected at severity level low is not filtered by the content filters.
 )
-
 
 print(response)
 
@@ -314,13 +317,13 @@ print(response)
         },
         "violence": {
           "filtered": false,
-          "severity": "safe"
+          "severity": "low"
         }
       },
       "finish_reason": "length",
       "index": 0,
       "logprobs": null,
-      "text": "\").contains(KEYWORDS_WHEN))\nprint(test(\"When was Microsoft founded?\")."
+      "text": {"\")(\"Example model response will be returned\").}"
     }
   ],
   "created": 1685727831,
@@ -357,6 +360,28 @@ print(response)
   }
 }
 ```
+
+The following code snippet shows how to retrieve annotations when content was filtered:
+
+```python
+try:
+    openai.Completion.create(
+        prompt="<HARMFUL_PROMPT>",
+        engine="<MODEL_DEPLOYMENT_NAME",
+    )
+except openai.error.InvalidRequestError as e:
+    if e.error.code == "content_filter" and e.error.innererror:
+        content_filter_result = e.error.innererror.content_filter_result
+        # print the formatted JSON
+        print(content_filter_result)
+
+        # or access the individual categories and details
+        for category, details in content_filter_result.items():
+            print(f"{category}:\n filtered={details['filtered']}\n severity={details['severity']}")
+
+```
+
+For details on the inference REST API endpoints for Azure OpenAI and how to create Chat and Completions please follow [Azure OpenAI Service REST API reference guidance](../reference.md). Annotations are returned for all scenarios when using `2023-06-01-preview`.
 
 ### Example scenario: An input prompt containing content that is classified at a filtered category and severity level is sent to the completions API
 
