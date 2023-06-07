@@ -80,11 +80,11 @@ Use this guide if you have already identified the Vercel project(s) or want to i
 
 2. Modify pages/index.tsx to add your code.
 
-Make changes to pages/index.tsx according to your needs. You could check out the code at **lib/cosmosdb.ts** to see how the `@azure/cosmos` JavaScript client is initialized.
+   Make changes to pages/index.tsx according to your needs. You could check out the code at **lib/cosmosdb.ts** to see how the `@azure/cosmos` JavaScript client is initialized.
 
 3. Push the changes to a GitHub repository.
 
-### Set up environment variables.
+### Set up environment variables
 
 - COSMOSDB_CONNECTION_STRING - You need your Cosmos DB connection string. You can find these in the Azure portal in the keys section.
 
