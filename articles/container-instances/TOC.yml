@@ -53,12 +53,6 @@
       href: container-instances-tutorial-deploy-confidential-containers-cce-arm.md
     - name: Deploy a confidential container group - Portal
       href: container-instances-tutorial-deploy-confidential-container-default-portal.md 
-  - name: Deploy a Spot container group
-    items: 
-    - name: Deploy a Spot container group - Azure CLI
-      href: container-instances-tutorial-deploy-spot-containers-cli.md
-    - name: Deploy a Spot container group - Portal
-      href: container-instances-tutorial-deploy-spot-containers-portal.md 
 - name: Samples
   items:
   - name: Code samples
