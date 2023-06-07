@@ -115,7 +115,7 @@ Download for [Windows](https://download.microsoft.com/download/1/3/5/135f1f2b-7b
 - The agent now supports Red Hat Enterprise Linux 8 servers that have FIPS mode enabled.
 - Agent telemetry uses the proxy server when configured.
 - Improved accuracy of network connectivity checks
-- The agent retains extension allow and blocklists when switching the agent from monitoring mode to full mode. Use [azcmagent config clear](manage-agent.md#config) to reset individual configuration settings to the default state.
+- The agent retains extension allow and blocklists when switching the agent from monitoring mode to full mode. Use [azcmagent config clear](azcmagent-config.md) to reset individual configuration settings to the default state.
 
 ## Version 1.21 - August 2022
 
@@ -157,7 +157,7 @@ Download for [Windows](https://download.microsoft.com/download/f/b/1/fb143ada-1b
 ### Fixed
 
 - Agents configured to use private endpoints correctly download extensions over the private endpoint
-- Renamed the `--use-private-link` flag on [azcmagent check](manage-agent.md#check) to `--enable-pls-check` to more accurately represent its function
+- Renamed the `--use-private-link` flag on [azcmagent check](azcmagent-check.md) to `--enable-pls-check` to more accurately represent its function
 
 ## Version 1.19 - June 2022
 
@@ -200,7 +200,7 @@ Download for [Windows](https://download.microsoft.com/download/a/3/4/a34bb824-d5
 ### New features
 
 - The default resource name for AWS EC2 instances is now the instance ID instead of the hostname. To override this behavior, use the `--resource-name PreferredResourceName` parameter to specify your own resource name when connecting a server to Azure Arc.
-- The network connectivity check during onboarding now verifies private endpoint configuration if you specify a private link scope. You can run the same check anytime by running [azcmagent check](manage-agent.md#check) with the new `--use-private-link` parameter.
+- The network connectivity check during onboarding now verifies private endpoint configuration if you specify a private link scope. You can run the same check anytime by running [azcmagent check](azcmagent-check.md) with the new `--use-private-link` parameter.
 - You can now disable the extension manager with the [local agent security controls](security-overview.md#local-agent-security-controls).
 
 ### Fixed
@@ -275,7 +275,7 @@ Download for [Windows](https://download.microsoft.com/download/8/a/9/8a963958-c4
 
 ### New features
 
-- Local configuration of agent settings now available using the [azcmagent config command](manage-agent.md#config).
+- Local configuration of agent settings now available using the [azcmagent config command](azcmagent-config.md).
 - Support for configuring proxy server settings [using agent-specific settings](manage-agent.md#update-or-remove-proxy-settings) instead of environment variables.
 - Extension operations execute faster using a new notification pipeline. You may need to adjust your firewall or proxy server rules to allow the new network addresses for this notification service (see [networking configuration](network-requirements.md)). The extension manager falls back to the existing behavior of checking every 5 minutes when the notification service is inaccessible.
 - Detection of the AWS account ID, instance ID, and region information for servers running in Amazon Web Services.

@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Managing and maintaining the Connected Machine agent
 
-After initial deployment of the Azure Connected Machine agent, you may need to reconfigure the agent, upgrade it, or remove it from the computer. These routine maintenance tasks can be done manually or through automation (which reduces both operational error and expenses).
+After initial deployment of the Azure Connected Machine agent, you may need to reconfigure the agent, upgrade it, or remove it from the computer. These routine maintenance tasks can be done manually or through automation (which reduces both operational error and expenses). This article describes the operational aspects of the agent. See the [azcmagent CLI documentation](azcmagent.md) for command line reference information.
 
 ## Installing a specific version of the agent
 
@@ -279,11 +279,11 @@ For Azure Arc-enabled servers, before you rename the machine, it's necessary to 
 
 2. Remove any VM extensions installed on the machine. You can do this using the [Azure portal](manage-vm-extensions-portal.md#remove-extensions), the [Azure CLI](manage-vm-extensions-cli.md#remove-extensions), or [Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions).
 
-3. Use the **azcmagent** tool with the [Disconnect](manage-agent.md#disconnect) parameter to disconnect the machine from Azure Arc and delete the machine resource from Azure. You can run this manually while logged on interactively, with a Microsoft identity [access token](../../active-directory/develop/access-tokens.md), or with the service principal you used for onboarding (or with a [new service principal that you create](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
+3. Use the **azcmagent** tool with the [Disconnect](azcmagent-disconnect.md) parameter to disconnect the machine from Azure Arc and delete the machine resource from Azure. You can run this manually while logged on interactively, with a Microsoft identity [access token](../../active-directory/develop/access-tokens.md), or with the service principal you used for onboarding (or with a [new service principal that you create](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
 
     Disconnecting the machine from Azure Arc-enabled servers doesn't remove the Connected Machine agent, and you do not need to remove the agent as part of this process.
 
-4. Re-register the Connected Machine agent with Azure Arc-enabled servers. Run the `azcmagent` tool with the [Connect](manage-agent.md#connect) parameter to complete this step. The agent will default to using the computer's current hostname, but you can choose your own resource name by passing the `--resource-name` parameter to the connect command.
+4. Re-register the Connected Machine agent with Azure Arc-enabled servers. Run the `azcmagent` tool with the [Connect](azcmagent-connect.md) parameter to complete this step. The agent will default to using the computer's current hostname, but you can choose your own resource name by passing the `--resource-name` parameter to the connect command.
 
 5. Redeploy the VM extensions that were originally deployed to the machine from Azure Arc-enabled servers. If you deployed the Azure Monitor for VMs (insights) agent or the Log Analytics agent using an Azure Policy definition, the agents are redeployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
