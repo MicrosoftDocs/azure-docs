@@ -16,7 +16,7 @@ ms.author: ananyagarg
 
 ## Overview
 
-Decentriq is an enterprise SaaS platform providing data clean rooms powered by [Azure Confidential Computing](/articles/confidential-computing/index.yml).
+Decentriq is an enterprise SaaS platform providing data clean rooms powered by [Azure Confidential Computing](../index.yml).
 
 Decentriq Data Clean Rooms enable organizations to collaborate with external partners in a secure and compliant way without the need to share any data. Decentriq uniquely combines technologies such as confidential computing, synthetic data and differential privacy to guarantee trust and privacy in data collaboration. 
 
