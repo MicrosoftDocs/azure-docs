@@ -623,7 +623,7 @@ See the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/az
 
 Each sample assumes the container registry endpoint url is "https://myregistry.azurecr.io".
 
-### List tags asynchronously
+### List tags
 
 This sample assumes the registry has a repository `hello-world`.
 
