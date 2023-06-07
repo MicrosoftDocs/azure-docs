@@ -13,52 +13,35 @@ ms.custom: devx-track-csharp, mode-api, devx-track-dotnet
 ---
 # Quickstart: Create a search index using the Azure SDKs
 
-Here is an intro sentence.
+Learn how to use the **Azure.Search.Documents** client library in the Azure SDKs to create, load, and query a search index using sample data.
 
 ## Prerequisites
-
-Before you begin, have the following tools and services:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
 + An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart.
 
++ An API key and search endpdoint:
+
+  1. [Sign in to the Azure portal](https://portal.azure.com/).
+
+  1. In your search service **Overview** page, copy the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+
+  1. In **Settings** > **Keys**, get an admin key for full rights on the service, required if you're creating or deleting objects. There are two interchangeable primary and secondary keys. Choose either one.
+
+     ![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
+
+## Create, load, and query an index
+
+**Azure.Search.Documents** client libraries are available in Azure SDK for .NET, Python, Java, and JavaScript.
+
 ## [**.NET**](#tab/dotnet)
 
-Learn how to use the [Azure.Search.Documents (version 11) client library](/dotnet/api/overview/azure/search.documents-readme) to create a .NET Core console application in C# that creates, loads, and queries a search index.
+Use the [Azure.Search.Documents (version 11) client library](/dotnet/api/overview/azure/search.documents-readme) to create a .NET Core console application in C# that creates, loads, and queries a search index.
 
 You can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) to start with a finished project or follow the steps in this article to create your own.
 
-> [!NOTE]
-> Looking for an earlier version? See [Create a search index using Microsoft.Azure.Search v10](/previous-versions/azure/search/search-get-started-dotnet-v10) instead.
-
-### Prerequisites
-
-+ [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code was tested on the free Community edition of Visual Studio 2019.
-
-When setting up your project, you'll download the [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/).
-
-Azure SDK for .NET conforms to [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support), which means .NET Framework 4.6.1 and .NET Core 2.1 as minimum requirements.
-
-### Set up your project
-
-Assemble service connection information, and then start Visual Studio to create a new Console App project that can run on. Select NET Core 3.1 for the run time.
-
-<a name="get-service-info"></a>
-
-#### Copy a key and endpoint
-
-Calls to the service require a URL endpoint and an access key on every request. As a first step, find the API key and URL to add to your project. You'll specify both values when creating the client in a later step.
-
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
-
-2. In **Settings** > **Keys**, get an admin key for full rights on the service, required if you're creating or deleting objects. There are two interchangeable primary and secondary keys. You can use either one.
-
-   ![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
-
-All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
-
-#### Install the NuGet package
+#### Start a project and install the NuGet package
 
 After the project is created, add the client library. The [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) consists of one client library that provides all of the APIs used to work with a search service in .NET.
 
@@ -533,7 +516,7 @@ If you're using a free service, remember that you're limited to three indexes, i
 
 ## Next steps
 
-In this C# quickstart, you worked through a set of tasks to create an index, load it with documents, and run queries. At different stages, we took shortcuts to simplify the code for readability and comprehension. Now that you're familiar with the basic concepts, try the next tutorial to call Cognitive Search APIs in the context of a web app.
+In this quickstart, you worked through a set of tasks to create an index, load it with documents, and run queries. At different stages, we took shortcuts to simplify the code for readability and comprehension. Now that you're familiar with the basic concepts, try a tutorial hat calls the Cognitive Search APIs in a web app.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Add search to web apps](tutorial-csharp-overview.md)
