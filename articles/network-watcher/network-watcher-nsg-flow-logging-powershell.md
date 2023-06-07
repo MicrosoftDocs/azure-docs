@@ -61,7 +61,6 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.Insights'
     ```
 
     > [!NOTE]
-    > - The storage account can't have network rules that restrict network access to only Microsoft services or specific virtual networks.
     > - If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
 
 1. Create the flow log using [New-AzNetworkWatcherFlowLog](/powershell/module/az.network/new-aznetworkwatcherflowlog). The flow log is created in the Network Watcher default resource group **NetworkWatcherRG**.
