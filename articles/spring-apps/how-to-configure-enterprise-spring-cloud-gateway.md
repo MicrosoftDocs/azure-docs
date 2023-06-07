@@ -46,7 +46,7 @@ To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway autom
 
 You can enable and disable Spring Cloud Gateway after service creation using the Azure portal or Azure CLI. Before disabling Spring Cloud Gateway, you're required to unassign its endpoint and remove all route configs.
 
-### [Azure portal](#tab/Portal)
+### [Azure portal](#tab/Azure-portal)
 
 Use the following steps to enable or disable Spring Cloud Gateway using the Azure portal:
 
@@ -610,15 +610,7 @@ Use the following steps to update addon configuration.
 
 ### [Azure CLI](#tab/Azure-CLI) 
 
-Use the following command to update addon configs for Spring Cloud Gateway.
-
-```azurecli
-az spring gateway update \
-    --addon-configs-file <file-name-of-addon-configs-json>
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-instance-name>
-```
-The sample addon configs JSON file looks like:
+Prepare the addon configs JSON file `<file-name-of-addon-configs-json>.json`, the content looks like:
 ```json
 {
     "sso": {
@@ -629,6 +621,15 @@ The sample addon configs JSON file looks like:
         "groupId": "id1"
     }
 }
+```
+
+Use the following command to update addon configs for Spring Cloud Gateway.
+
+```azurecli
+az spring gateway update \
+    --addon-configs-file <file-name-of-addon-configs-json>.json
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name>
 ```
 
 ## Next steps
