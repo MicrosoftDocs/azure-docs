@@ -6,25 +6,11 @@ ms.author: rmpablos
 ms.date: 11/17/2022
 ms.topic: conceptual
 ms.service: iot-develop
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 services: iot-develop
 zone_pivot_groups: programming-languages-set-twenty-seven
 
 #- id: programming-languages-set-twenty-seven
-## Owner: dobett
-#  title: Programming languages
-#  prompt: Choose a programming language
-#  pivots:
-#  - id: programming-language-ansi-c
-#    title: C
-#  - id: programming-language-csharp
-#    title: C#
-#  - id: programming-language-java
-#    title: Java
-#  - id: programming-language-javascript
-#    title: JavaScript
-#  - id: programming-language-python
-#    title: Python
-#  - id: programming-language-embedded-c
 #    title: Embedded C
 ---
 

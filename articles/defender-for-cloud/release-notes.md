@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 06/05/2023
+ms.date: 06/06/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -26,8 +26,21 @@ Updates in June include:
 
 |Date |Update  |
 |---------|---------|
+|June 6 | [Additional scopes added to existing Azure DevOps Connectors](#additional-scopes-added-to-existing-azure-devops-connectors) |
 |June 5 |   [Onboarding directly (without Azure Arc) to Defender for Servers is now Generally Available](#onboarding-directly-without-azure-arc-to-defender-for-servers-is-now-generally-available)      |
 |June 4     | [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm)        |
+
+### Additional scopes added to existing Azure DevOps Connectors 
+
+June 6
+
+Defender for DevOps added the following additional scopes to the Azure DevOps (ADO) application:
+
+- **Advance Security management**: `vso.advsec_manage`. Which is needed in order to allow you to enable, disable and manage GitHub Advanced Security for ADO. 
+
+- **Container Mapping**: `vso.extension_manage`, `vso.gallery_manager`; Which is needed in order to allow you to share the decorator extension with the ADO organization.  
+
+Only new Defender for DevOps customers that are trying to onboard ADO resources to Microsoft Defender for Cloud are affected by this change.
 
 ### Onboarding directly (without Azure Arc) to Defender for Servers is now Generally Available
 
@@ -557,7 +570,7 @@ Microsoft Defender for DevOps has expanded its preview and is now available in t
 
 Learn more about [Microsoft Defender for DevOps](defender-for-devops-introduction.md).
 
-### The built-in policy \[Preview]: Private endpoint should be configured for Key Vault has been deprecated
+### The built-in policy [Preview]: Private endpoint should be configured for Key Vault has been deprecated
 
 The built-in policy [`[Preview]: Private endpoint should be configured for Key Vault`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f0bc445-3935-4915-9981-011aa2b46147) has been deprecated and has been replaced with the [`[Preview]: Azure Key Vaults should use private link`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6abeaec-4d90-4a02-805f-6b26c4d3fbe9) policy.
 
@@ -634,9 +647,9 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 
 Updates in December include:
 
-- [Announcing express configuration for vulnerability assessment in Defender for SQL](#announcing-express-configuration-for-vulnerability-assessment-in-defender-for-sql)
+- [Announcing express configuration for vulnerability assessment in Defender for SQL (in preview)](#announcing-express-configuration-for-vulnerability-assessment-in-defender-for-sql-in-preview)
 
-### Announcing express configuration for vulnerability assessment in Defender for SQL
+### Announcing express configuration for vulnerability assessment in Defender for SQL (in preview)
 
 The express configuration for vulnerability assessment in Microsoft Defender for SQL provides security teams with a streamlined configuration experience on Azure SQL Databases and Dedicated SQL Pools outside of Synapse Workspaces.
 
@@ -652,3 +665,4 @@ Learn more about [Defender for SQL vulnerability assessment](sql-azure-vulnerabi
 ## Next steps
 
 For past changes to Defender for Cloud, see [Archive for what's new in Defender for Cloud?](release-notes-archive.md).
+
