@@ -116,7 +116,7 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create two VMs named **VM1** a
 
 The VMs take a few minutes to create. After Azure creates each VM, Azure CLI returns output similar to the following message:
 
-    ```output
+```output
     {
       "fqdns": "",
       "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/CreateVNetQS-rg/providers/Microsoft.Compute/virtualMachines/vm-2",
@@ -128,7 +128,7 @@ The VMs take a few minutes to create. After Azure creates each VM, Azure CLI ret
       "resourceGroup": "test-rg"
       "zones": ""
     }
-    ```
+```
 
 >[!NOTE]
 >VMs in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
