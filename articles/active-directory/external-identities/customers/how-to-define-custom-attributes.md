@@ -82,11 +82,9 @@ You can choose the order in which the attributes are displayed on the sign-up pa
 
    - To change the order of display, select an attribute, and then select **Move up**, **Move down**, **Move to the top**, or **Move to the bottom**.
 
-   :::image type="content" source="media/how-to-define-custom-attributes/page-layouts.png" alt-text="Screenshot of page layout options for a user flow.":::
+   :::image type="content" source="media/how-to-define-custom-attributes/page-layouts.png" alt-text="Screenshot of page layout options for a user flow." lightbox="media/how-to-define-custom-attributes/page-layouts.png":::   
 
 1. Select **Save**.
-
-1. Select **Create**. The new user flow appears in the user flows list. (You might need to refresh the page.)
 
 ## Next steps
 
