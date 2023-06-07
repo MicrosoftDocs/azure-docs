@@ -19,7 +19,7 @@ There are multiple built-in Azure Policy definitions to manage WAF resources. A 
 
 ### Enable Web Application Firewall (WAF)
 
-- **Azure Web Application Firewall should be enabled for Azure Front Door entry-points**: Azure Front Door Services are evaluated on if there's a WAF present on resource creation. The policy definition has three effects: Audit, Deny, and Disable. Audit tracks when an Azure Front Door Service doesn't have a WAF and lets users see what Azure Front Door Service doesn't comply. Deny prevents any Azure Front Door Service from being created if a WAF isn't attached. Disabled turns off the policy assignment.
+- **Azure Web Application Firewall should be enabled for Azure Front Door entry-points**: Azure Front Door Services are evaluated on if there's a WAF present or not. The policy definition has three effects: Audit, Deny, and Disable. Audit tracks when an Azure Front Door Service doesn't have a WAF and lets users see what Azure Front Door Service doesn't comply. Deny prevents any Azure Front Door Service from being created if a WAF isn't attached. Disabled turns off the policy assignment.
 
 - **Web Application Firewall (WAF) should be enabled for Application Gateway**: Application Gateways are evaluated on if there's a WAF present on resource creation. The policy definition has three effects: Audit, Deny, and Disable. Audit tracks when an Application Gateway doesn't have a WAF and lets users see what Application Gateway doesn't comply. Deny prevents any Application Gateway from being created if a WAF isn't attached. Disabled turns off the policy assignment.
 
@@ -72,4 +72,4 @@ There are multiple built-in Azure Policy definitions to manage WAF resources. A 
 
 5.	Select the **Parameters** tab and update the policy assignment parameters. To further clarify what the parameter does, hover over the info icon next to the parameter name for further clarification.
 
-6.	Select **Review + create** to finalize your policy assignment. The policy assignment takes approximately 15 minutes until it is active for new resources.
+6.	Select **Review + create** to finalize your policy assignment. The policy assignment takes approximately 15 minutes until it's active for new resources.
