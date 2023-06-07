@@ -2,6 +2,8 @@
 title: Prefer options
 description: The API supports setting some request options using the Prefer header. This section describes how to set each preference and their values.
 ms.date: 11/29/2021
+author: guywi-ms
+ms.author: guywild
 ms.topic: article
 ---
 # Prefer options
