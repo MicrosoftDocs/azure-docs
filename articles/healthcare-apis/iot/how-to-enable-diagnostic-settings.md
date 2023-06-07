@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 04/28/2023
+ms.date: 06/07/2023
 ms.author: jasteppe
 ---
 
@@ -162,7 +162,7 @@ The MedTech service comes with pre-defined queries that can be used anytime in y
 > [!TIP]
 > To learn how to use the Log Analytics workspace, see [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 >
-> To learn how to troubleshoot the MedTech service error messages and conditions, see [Troubleshoot MedTech service errors](troubleshoot-errors.md).   
+> For assistance troubleshooting MedTech service errors, see [Troubleshoot errors using the MedTech service logs](troubleshoot-errors-logs.md).  
 
 ## Next steps
 
