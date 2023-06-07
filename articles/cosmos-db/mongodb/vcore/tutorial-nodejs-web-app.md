@@ -35,20 +35,27 @@ To complete this tutorial, you need the following resources:
 - A [GitHub account](https://github.com/join).
   - GitHub comes with free Codespaces hours for all users. For more information, see [GitHub Codespaces free utilization](https://github.com/features/codespaces#pricing).
 
-## 1 - Set up your environment
+## 1 - Configure dev environment
 
-Let's start by setting up your dev environment. You have the choice of **GitHub Codespaces** or **Visual Studio Code** as your integrated development environment (IDE).
+A [development container](https://containers.dev/) environment is available with all dependencies required to complete every exercise in this project. You can run the development container in GitHub Codespaces or locally using Visual Studio Code.
 
 ### [GitHub Codespaces](#tab/github-codespaces)
 
-For the most straightforward dev environment, we use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled on your machine. Codespaces also preconfigures your local MongoDB database for testing.
+[GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this training module.
 
-1. Create a new GitHub Codespace on the `main` branch of the [`azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app`](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app) GitHub repository.
+> [!IMPORTANT]
+> All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+
+1. Start the process to create a new GitHub Codespace on the `main` branch of the [`azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app`](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app) GitHub repository.
 
     > [!div class="nextstepaction"]
     > [Open this project in GitHub Codespaces](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=611024069)
 
-1. Wait for the Codespace to start. This startup process can take two to three minutes.
+1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
+
+    :::image type="content" source="media/tutorial-nodejs-web-app/codespace-configuration.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
+
+1. Wait for the codespace to start. This startup process can take a few minutes.
 
 1. Open a new terminal in the codespace.
 
@@ -80,39 +87,66 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
     > | Azure CLI | &ge; 2.46.0 |
     >
 
+1. Close the terminal.
+
+1. The remaining steps in this tutorial take place in the context of this development container.
+
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-Alternatively, you can complete this tutorial in [Visual Studio Code](https://code.visualstudio.com) with software installed on your local machine.
+The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this training module.
 
-1. Make sure you have the following prerequisites installed:
+1. Open **Visual Studio Code** in the context of an empty directory.
 
-    | Tool | Version |
-    | --- | --- |
-    | [Docker](https://www.docker.com/) | &ge; 20.10.0 |
-    | [Node.js](https://nodejs.org/) | &ge; 18.0150 |
-    | [Node Package Manager (npm)](https://nodejs.org/) | &ge; 9.5.0 |
-    | [Azure CLI](/cli/azure) | &ge; 2.46.0 |
+1. Ensure that you have the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed in Visual Studio Code.
 
-1. Make sure you have the following extensions installed:
-
-    | Extension | Marketplace link |
-    | --- | --- |
-    | MongoDB for VS Code | [mongodb.mongodb-vscode](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) |
-
-1. Open **Visual Studio Code** with an empty workspace.
-
-1. Open a new terminal.
+1. Open a new terminal in the editor.
 
     > [!TIP]
     > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
     >
     > :::image type="content" source="media/tutorial-nodejs-web-app/open-terminal-option.png" lightbox="media/tutorial-nodejs-web-app/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
 
-1. Use `git clone` to clone the MERN application from GitHub.
+1. Clone the [`azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app`](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app) GitHub repository into the current directory.
 
-    ```shell
+    ```bash
     git clone https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app.git .
     ```
+
+1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
+
+    :::image type="content" source="media/tutorial-nodejs-web-app/reopen-container-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within the context of a development container.":::
+
+    > [!TIP]
+    > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This is functionally equivalent to using the command palette to reopen the current workspace in a container.
+    >
+    > :::image type="content" source="media/tutorial-nodejs-web-app/reopen-container-toast.png" alt-text="Screenshot of a toast notification to reopen the current folder within the context of a development container.":::
+
+1. Check the versions of the tools you use in this tutorial.
+
+    ```shell
+    docker --version
+
+    node --version
+
+    npm --version
+
+    az --version
+    ```
+
+    > [!NOTE]
+    > This tutorial requires the following versions of each tool which are preinstalled in your environment:
+    >
+    > | Tool | Version |
+    > | --- | --- |
+    > | Docker | &ge; 20.10.0 |
+    > | Node.js | &ge; 18.0150 |
+    > | NPM | &ge; 9.5.0 |
+    > | Azure CLI | &ge; 2.46.0 |
+    >
+
+1. Close the terminal.
+
+1. The remaining steps in this tutorial take place in the context of this development container.
 
 ---
 
@@ -271,13 +305,14 @@ Now, let's validate that the application works seamlessly with Azure Cosmos DB f
     ```shell
     exit
     ```
+
 1. In the **client/** directory, create a new **.env** file.
 
 1. In the **client/.env** file, add an environment variable for this value:
 
     | Environment Variable | Value |
     | --- | --- |
-    | `CONNECTION_STRING` | The connection string to the Azure Cosmos DB for MongoDB vCore cluster. Use the same connection string you used with the mongo shell:
+    | `CONNECTION_STRING` | The connection string to the Azure Cosmos DB for MongoDB vCore cluster. Use the same connection string you used with the mongo shell. |
 
     ```output
     CONNECTION_STRING=<your-connection-string>
@@ -431,6 +466,40 @@ When you're working in your own subscription, at the end of a project, it's a go
     ```azurecli
     az group list
     ```
+
+## Clean up dev environment
+
+You may also wish to clean up your development environment or return it to its typical state.
+
+### [GitHub Codespaces](#tab/github-codespaces)
+
+Deleting the GitHub Codespaces environment ensures that you can maximize the amount of free per-core hours entitlement you get for your account.
+
+> [!IMPORTANT]
+> For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+
+1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
+
+1. Locate your currently running codespaces sourced from the [`azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app`](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app) GitHub repository.
+
+    :::image type="content" source="media/tutorial-nodejs-web-app/codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
+
+1. Open the context menu for the codespace and then select **Delete**.
+
+    :::image type="content" source="media/tutorial-nodejs-web-app/codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
+
+### [Visual Studio Code](#tab/visual-studio-code)
+
+You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
+
+1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
+
+    :::image type="content" source="media/tutorial-nodejs-web-app/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+
+> [!TIP]
+> Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
+
+---
 
 ## Next steps
 

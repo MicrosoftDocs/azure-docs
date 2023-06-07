@@ -237,12 +237,14 @@ and have it inherited by dependency and log telemetry, which are captured in the
 
 ```json
 {
-  "inheritedAttributes": [
-    {
-      "key": "mycustomer",
-      "type": "string"
-    }
-  ]
+  "preview": {
+    "inheritedAttributes": [
+      {
+        "key": "mycustomer",
+        "type": "string"
+      }
+    ]
+  }
 }
 ```
 

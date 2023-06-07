@@ -3,7 +3,9 @@ title:  Collecting Event Tracing for Windows (ETW) Events for analysis Azure Mon
 description: Learn how to collect Event Tracing for Windows (ETW) for analysis in Azure Monitor Logs.
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/07/2022
+author: guywi-ms
+ms.author: guywild
+ms.date: 05/31/2023
 ms. reviewer: shseth
 ---
 # Collecting Event Tracing for Windows (ETW) Events for analysis Azure Monitor Logs
