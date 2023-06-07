@@ -110,9 +110,26 @@ kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { 
 
 To enable TDE in customer-managed mode with Azure CLI:
 
-```azurecli
-az sql mi-arc update --tde-mode CustomerManaged --tde-protector-private-key-file <private-key-file> --tde-protector-public-key-file <public-key-file>
-```
+1. Create a certificate. 
+
+   ```console
+   openssl req -x509 -newkey rsa:2048 -nodes -keyout <key-file> -days 365 -out <cert-file>
+   ```
+
+1. Create a secret for the certificate.
+
+   > [!IMPORTANT]
+   > Store the secret in the same namespace as the managed instance
+
+   ```console
+   kubectl create secret generic <tde-secret-name> --from-literal=privatekey.pem="$(cat <key-file>)" --from-literal=certificate.pem="$(cat <cert-file>) --namespace <namespace>"
+   ```
+
+1. Update the following example. nable customer-managed TDE
+
+   ```azurecli
+   az sql mi-arc update --tde-mode CustomerManaged --tde-protector-private-key-file <key-file> --tde-protector-public-key-file <cert-file>
+   ```
 
 # [Kubernetes native tools](#tab/kubernetes-native/customer-managed)
 
