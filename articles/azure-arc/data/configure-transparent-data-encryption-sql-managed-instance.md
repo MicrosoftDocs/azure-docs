@@ -143,7 +143,7 @@ To enable TDE in customer-managed mode:
    kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "CustomerManaged", "protectorSecret": "sqlmi-tde-protector-cert-secret" } } } }'
    ```
 
-# [Azure CLI](#tab/azure-cli/customer-managed)
+# [Azure CLI](#tab/xxxxxxazure-cli/customer-managed)
 
 Azure CLI does not currently support this task.
 
