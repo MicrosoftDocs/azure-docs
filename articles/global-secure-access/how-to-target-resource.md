@@ -27,11 +27,7 @@ This functionality allows administrators to consistently enforce Conditional Acc
    * [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md)
    * [Conditional Access Administrator](../active-directory/roles/permissions-reference.md#conditional-access-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) to create and interact with Conditional Access policies.
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running.
-* You must be routing your Microsoft 365, Internet, or private network traffic through the **Global Secure Access preview** using the steps in [How to enable the Microsoft 365 traffic forwarding profile](how-to-enable-microsoft-365-profile.md).
-
-### Known limitations
-
-- At this time, Conditional Access policies can only be applied to the Microsoft 365 traffic forwarding profile.
+* You must be routing your Microsoft 365, Internet, or private network traffic through the **Global Secure Access preview** using the steps in [How to enable the Microsoft 365 traffic forwarding profile](how-to-manage-microsoft-365-profile.md).
 
 ## Create a Conditional Access policy targeting the Microsoft 365 traffic profile
 

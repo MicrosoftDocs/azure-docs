@@ -84,4 +84,4 @@ Traffic profiles can be assigned to remote networks, so that the network traffic
 
 ## Next steps
 
-- [How to enable the Private access traffic profile](how-to-enable-private-access-profile.md)
+- [How to manage the Private access traffic profile](how-to-manage-private-access-profile.md)

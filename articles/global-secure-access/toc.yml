@@ -11,8 +11,6 @@ items:
   items:
     - name: Get started with Global Secure Access
       href: how-to-get-started-with-global-secure-access.md
-    - name: Learn about traffic forwarding
-      href: concept-traffic-forwarding.md
     - name: Create a remote network
       href: how-to-create-remote-networks.md
     - name: Configure quick access
@@ -49,15 +47,12 @@ items:
   - name: Traffic forwarding profiles
     expanded: false
     items:
-      - name: Enable Microsoft 365 profile
-        href: how-to-enable-microsoft-365-profile.md
-      - name: Enable Private access profile
-        href: how-to-enable-private-access-profile.md
-  - name: Applications
-    expanded: false
-    items:
-      - name: Deploy on premises connectors
-        href: how-to-deploy-on-premises-connectors.md
+      - name: Manage the Microsoft 365 profile
+        href: how-to-manage-microsoft-365-profile.md
+      - name: Manage the Private Access profile
+        href: how-to-manage-private-access-profile.md
+      - name: Configure per-app access
+        href: how-to-configure-per-app-access.md
   - name: Logs and monitoring
     expanded: false
     items:
