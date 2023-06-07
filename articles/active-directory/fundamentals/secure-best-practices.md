@@ -499,8 +499,8 @@ Similarly, Azure Monitor can be integrated with ITSM systems through the [IT Ser
 
 * [Azure AD fundamentals](secure-with-azure-ad-fundamentals.md)
 
-* [Azure resource management fundamentals](secure-with-azure-ad-resource-management.md)
+* [Azure resource management fundamentals](secure-resource-management.md)
 
-* [Resource isolation in a single tenant](secure-with-azure-ad-single-tenant.md)
+* [Resource isolation in a single tenant](secure-single-tenant.md)
 
-* [Resource isolation with multiple tenants](secure-with-azure-ad-multiple-tenants.md)
+* [Resource isolation with multiple tenants](secure-multiple-tenants.md)
