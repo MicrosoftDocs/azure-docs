@@ -268,8 +268,7 @@ We will start by creating a debug app to use `psql` cli to connect to the Postgr
         --resource-group "$RESOURCE_GROUP" \
         --min-replicas 1 \
         --max-replicas 1 \
-        --command "/bin/sleep" \
-        --args "infinity"
+        --command "/bin/sleep" "infinity"
     ```
 
     # [Bicep](#tab/bicep)
@@ -292,8 +291,7 @@ We will start by creating a debug app to use `psql` cli to connect to the Postgr
             {
               name: 'psql'
               image: 'mcr.microsoft.com/k8se/services/postgres:14'
-              command: [ '/bin/sleep' ]
-              args: [ 'infinity' ]
+              command: [ '/bin/sleep' 'infinity' ]
             }
           ]
           scale: {
@@ -407,6 +405,62 @@ POSTGRES_CONNECTION_STRING=host=postgres01 database=postgres user=postgres passw
 
 Then using the CLI (or bicep) you can update the app to add a `--bind $PG_SVC` to use the created dev service.
 
+## Deploying `pgweb` and binding it to the the PostgreSQL service
+
+For example, we can deploy [pgweb](https://github.com/sosedoff/pgweb) to view and manage the PostgreSQL instance we have.
+
+
+```bicep
+resource pgweb 'Microsoft.App/containerApps@2023-04-01-preview' = {
+  name: 'pgweb'
+  location: location
+  properties: {
+    environmentId: appEnvironment.id
+    configuration: {
+      ingress: {
+        external: true
+        targetPort: 8081
+      }
+    }
+    template: {
+      serviceBinds: [
+        {
+          serviceId: postgres.id
+          name: 'postgres'
+        }
+      ]
+      containers: [
+        {
+          name: 'pgweb'
+          image: 'docker.io/sosedoff/pgweb:latest'
+          command: [
+            '/bin/sh'
+          ]
+          args: [
+            '-c'
+            'PGWEB_DATABASE_URL=$POSTGRES_URL /usr/bin/pgweb --bind=0.0.0.0 --listen=8081'
+          ]
+        }
+      ]
+    }
+  }
+}
+
+output pgwebUrl string = 'https://${pgweb.properties.configuration.ingress.fqdn}'
+```
+
+deploy the bicep template with the same command
+
+```bash
+az deployment group create -g $RESOURCE_GROUP \
+    --query 'properties.outputs.*.value' \
+    --template-file postgres-dev.bicep
+```
+
+and visit the url printed url
+
+:::image type="content" source="media/services/azure-container-apps-postgresql-psql-data.png" alt-text="Screenshot of pgweb Container App connecting to PostgreSQL service.":::
+
 
 ## Final Bicep template for deploying all resources
 
@@ -471,8 +525,7 @@ resource pgsqlCli 'Microsoft.App/containerApps@2023-04-01-preview' = {
         {
           name: 'psql'
           image: 'mcr.microsoft.com/k8se/services/postgres:14'
-          command: [ '/bin/sleep' ]
-          args: [ 'infinity' ]
+          command: [ '/bin/sleep' 'infinity' ]
         }
       ]
       scale: {
@@ -483,9 +536,46 @@ resource pgsqlCli 'Microsoft.App/containerApps@2023-04-01-preview' = {
   }
 }
 
+resource pgweb 'Microsoft.App/containerApps@2023-04-01-preview' = {
+  name: 'pgweb'
+  location: location
+  properties: {
+    environmentId: appEnvironment.id
+    configuration: {
+      ingress: {
+        external: true
+        targetPort: 8081
+      }
+    }
+    template: {
+      serviceBinds: [
+        {
+          serviceId: postgres.id
+          name: 'postgres'
+        }
+      ]
+      containers: [
+        {
+          name: 'pgweb'
+          image: 'docker.io/sosedoff/pgweb:latest'
+          command: [
+            '/bin/sh'
+          ]
+          args: [
+            '-c'
+            'PGWEB_DATABASE_URL=$POSTGRES_URL /usr/bin/pgweb --bind=0.0.0.0 --listen=8081'
+          ]
+        }
+      ]
+    }
+  }
+}
+
 output pgsqlCliExec string = 'az containerapp exec -n ${pgsqlCli.name} -g ${resourceGroup().name} --revision ${pgsqlCli.properties.latestRevisionName} --command /bin/bash'
 
 output postgresLogs string = 'az containerapp logs show -n ${postgres.name} -g ${resourceGroup().name} --follow --tail 30'
+
+output pgwebUrl string = 'https://${pgweb.properties.configuration.ingress.fqdn}'
 ```
 
 Then use the Azure CLI to deploy it
