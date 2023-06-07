@@ -32,6 +32,7 @@ The following are instructions for configuring your Azure Monitor resource to st
  
  :::image type="content" source="..\logs\call-automation-logs.png" alt-text="Screenshot of diagnostic settings for call automation.":::
 
+
 ## Resource log categories
 
 Communication Services offers the following types of logs that you can enable:
