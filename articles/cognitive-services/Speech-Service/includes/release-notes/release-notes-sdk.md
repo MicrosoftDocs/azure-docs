@@ -11,8 +11,8 @@ ms.author: eur
 #### New Features
 
 * **C++, C#, Java** - Preview of Embedded Speech Translation APIs. Now you can do speech translation without cloud connection!
-* **Java Script** - Continuous Language Identification (LID) now enabled for speech translation.
-* **Java Script** - Community contribution for adding `LocaleName` property to `VoiceInfo` class. Thank you GitHub user [shivsarthak](https://github.com/shivsarthak) for the pull request. 
+* **JavaScript** - Continuous Language Identification (LID) now enabled for speech translation.
+* **JavaScript** - Community contribution for adding `LocaleName` property to `VoiceInfo` class. Thank you GitHub user [shivsarthak](https://github.com/shivsarthak) for the pull request. 
 * **C++, C#, Java** - Added support for resampling Embedded Text-to-Speech (TTS) output from 16kHz to 48kHz sample rate.
 * Added support for `hi-IN` locale in Intent Recognizer with Simple Pattern Matching.
 
