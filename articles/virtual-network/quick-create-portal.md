@@ -81,17 +81,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 1. Close the Bastion connection to VM2.
 
-## Clean up resources
-
-When you're done using the virtual network and VMs, you can delete the resource group and all its resources.
-
-1. In the Azure portal, search for and select **Resource groups**.
-
-1. On the **Resource groups** page, select the **test-rg** resource group.
-
-1. On the **test-rg** page, select **Delete resource group**.
-
-1. Enter **test-rg** in **Enter resource group name to confirm deletion** and select **Delete**.
+[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
 
 ## Next steps
 
