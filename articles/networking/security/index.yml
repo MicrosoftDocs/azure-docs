@@ -32,6 +32,9 @@ highlightedContent:
     - title: How to use Azure Bastion to connect securely to your Azure VMs
       itemType: video
       url: https://www.youtube.com/watch?v=WElUQm02BTU&list=PLLasX02E8BPDT2Z2pdCHNCkENpcQWy5n6&index=79
+    - title: What is Azure Web Application Firewall?
+      itemType: video
+      url: https://www.microsoft.com/en-us/videoplayer/embed/RWCwkM
 
 
 # additionalContent section (optional)
@@ -46,10 +49,10 @@ additionalContent:
           links:
             - text: Protect my outbound network connections
               url: ../../firewall/overview.md
-            - text: Manage my network firewall
-              url: ../../firewall-manager/overview.md
             - text: Protect my inbound web application connections
               url: ../../web-application-firewall/overview.md
+            - text: Manage my network firewall
+              url: ../../firewall-manager/overview.md
             - text: See more
               url: ../../firewall/index.yml
         - title: Training
