@@ -323,7 +323,7 @@ If you created your logic app project when assemblies support wasn't available f
 > For a project that runs on Linux or MacOS, make sure to update the directory separator. For example, 
 > review the following image that shows the previous code added to the **<*project-name*>.csproj** file.
 >
-:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/migrate-projects-assemblies-visual-studio-code.png" alt-text="Screenshot shows migrated assemblies and added code in the CSPROJ file." lightbox="media/create-single-tenant-workflows-visual-studio-code/migrate-projects-assemblies-visual-studio-code.png":::
+> :::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/migrate-projects-assemblies-visual-studio-code.png" alt-text="Screenshot shows migrated assemblies and added code in the CSPROJ file." lightbox="media/create-single-tenant-workflows-visual-studio-code/migrate-projects-assemblies-visual-studio-code.png":::
 
 <a name="open-workflow-definition-designer"></a>
 
