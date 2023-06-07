@@ -33,6 +33,8 @@ This section describes testing reachability of a standard load balancer frontend
 
 ---
 
+### Test the load balancer's frontend
+
 Choose either ping or traceroute to test reachability of a standard load balancer frontend from a device outside of Azure.
 
 ### [Ping](#tab/ping/windows-outside)
@@ -42,7 +44,7 @@ Follow these steps to test reachability of a standard public load balancer front
 1. From your Windows device, open the **Search taskbar** and enter `cmd`. Select **Command Prompt**.
 2. In the command prompt, type the following command: 
 
-```dos
+```cmd
     ping <Input your load balancer’s public IPv4 address>
 ```
 
@@ -68,7 +70,7 @@ Follow these steps to test reachability of a standard public load balancer front
 1. From your Windows device, open the **Search taskbar** and enter `cmd`. Select **Command Prompt**.
 2. In the command prompt, type the following command:
 
-```dos
+```cmd
     traceroute -I <Input your load balancer’s public IPv4 address>
 ```
 
@@ -125,7 +127,6 @@ This section describes how to test reachability of a standard public load balanc
 
 1. Return to **Overview** in the virtual machine’s menu and select **Connect**.
 1. Sign in to your virtual machine using RDP, SSH, or Bastion.
-1. Depending on your VM’s operating system, follow these steps:
 
 ### [Windows](#tab/windowsvm)
 
@@ -133,7 +134,7 @@ This section describes how to test reachability of a standard public load balanc
 
 ---
 
-### Test the Load Balancer’s frontend
+### Test the load balancer's frontend
 
 Choose either ping or tracert to test reachability of a standard public load balancer frontend from an Azure Virtual Machine.
 
@@ -144,7 +145,7 @@ Follow these steps to test reachability of a standard public load balancer front
 1. From your Windows device, open the **Search taskbar** and enter `cmd`. Select **Command Prompt**.
 2. In the command prompt, type the following command:
 
-```dos
+```cmd
     ping <Input your load balancer’s public IPv4 address>
 ```
 
