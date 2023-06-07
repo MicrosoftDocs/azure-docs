@@ -11,40 +11,41 @@ ms.reviewer: Xema Pathak
 # Tutorial: Create availability alert rule for Azure virtual machine (preview)
 One of the most common monitoring requirements for a virtual machine is to create an alert if it stops running. The best method for this is to create a metric alert rule in Azure Monitor using the **VM availability** metric which is currently in public preview.
 
+You can create an availability alert rule for a single VM using the VM Availability metrics with [recommended alerts](tutorial-monitor-vm-alert-recommended.md). This tutorial shows how to create a single rule that will apply to all virtual machines in a subscription or resource group in a particular region.
+
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * View the VM availability metric that indicates whether a VM is running.
+> * View the VM availability metric in metrics explorer.
 > * Create an alert rule using the VM availability metric to notify you if the virtual machine is unavailable.
 > * Create an action group to be proactively notified when an alert is created.
 
  
-
-> [!NOTE]
-> You can now create an availability alert rule using the VM Availability metrics with [recommended alerts](tutorial-monitor-vm-alert-recommended.md).
 
 ## Prerequisites
 To complete the steps in this article you need the following: 
 
 - An Azure virtual machine to monitor.
 
-## View the VM availability metric
-Start by viewing the VM availability metric for your VM. Open the **Overview** page for the VM and then the **Monitoring** tab. This shows trending for several common metrics for the VM. Scroll down to view the chart for VM availability (preview). The value of the metric will be 1 when the VM is running and 0 when it's not.
-
-:::image type="content" source="media/tutorial-monitor-vm/vm-availability-metric.png" alt-text="Screenshot of VM Availability metric for a VM." lightbox="media/tutorial-monitor-vm/vm-availability-metric.png":::
+## View VM availability metric in metrics explorer
+There are multiple methods to create an alert rule in Azure Monitor. In this tutorial, we'll create it from [metrics explorer](../essentials/metrics-getting-started.md), which will prefill required values such as the VM and metric we want to monitor. You'll just need to provide the detailed logic for the alert rule.
 
 
-## Create alert rule
-There are multiple methods to create an alert rule in Azure Monitor. In this tutorial, we'll create it right from the metric value. This will prefill required values such as the VM and metric we want to monitor. You'll just need to provide the detailed logic for the alert rule.
+1. Select **Metrics** from the **Monitor** menu in the Azure portal.
+2. Select either a subscription or a resource group with VMs to monitor.
+3. For **Resource type**, select *Virtual machines*, and select the **Location** with VMs to monitor.
+5. Click **Apply** to set the scope for metrics explorer.
 
-> [!TIP]
-> You can create an alert rule for a group of VMs in the same region by changing the scope of the alert rule to a subscription or resource group.
+    :::image type="content" source="media/tutorial-monitor-vm/metric-explorer-scope.png" alt-text="Screenshot of metrics explorer scope selection." lightbox="media/tutorial-monitor-vm/metric-explorer-scope.png":::
 
-Click on the **VM availability** chart to open the metric in [metrics explorer](../essentials/metrics-getting-started.md). This is a tool in Azure Monitor that allows you to interactively analyze metrics collected from your Azure resources. Click **New alert rule**. This starts the creation of a new alert rule using the VM availability metric and the current VM. 
 
-:::image type="content" source="media/tutorial-monitor-vm/vm-availability-metric-explorer.png" alt-text="Screenshot of VM Availability metric in metrics explorer." lightbox="media/tutorial-monitor-vm/vm-availability-metric-explorer.png":::
+6. Select *VM Availability metric* for **Metric**. The value is displayed  for each VM in the selected scope.
 
-Set the following values for the **Alert logic**. This specifies that the alert will fire whenever the average value of the availability metric falls below 1, which indicates that the VM isn't running.
+    :::image type="content" source="media/tutorial-monitor-vm/vm-availability-metric-explorer.png" alt-text="Screenshot of VM Availability metric in metrics explorer." lightbox="media/tutorial-monitor-vm/vm-availability-metric-explorer.png":::
+
+7. Click **New Alert Rule** to create an alert rule and open its configuration.
+
+9. Set the following values for the **Alert logic**. This specifies that the alert will fire whenever the average value of the availability metric falls below 1, which indicates that the VM isn't running.
 
 | Setting | Value |
 |:---|:---|
