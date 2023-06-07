@@ -21,6 +21,8 @@ The following diagram demonstrates a typical architecture of Azure NetApp Files 
 
 :::image type="content" source="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud." lightbox="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png"::: 
 
+[!VIDEO https://learn.microsoft.com/video/media/e8a43876-2d8f-4d06-a69b-afb847825f08/126394_Azure_Storage_HowtoDeploy_000001_thumbnailAuto_w1120.jpg] 
+
 ## Prerequisites
 
 Before you begin the prerequisites, review the [Performance best practices](#performance-best-practices) section to learn about optimal performance of NFS datastores on Azure NetApp Files volumes.
