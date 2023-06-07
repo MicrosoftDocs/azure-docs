@@ -9,7 +9,7 @@ ms.date: 04/20/2023
 
 The Azure Connected Machine agent command line tool, azcmagent, helps you configure, manage, and troubleshoot a server's connection with Azure Arc. The azcmagent CLI is installed with the Azure Connected Machine agent and controls actions specific to the server where it's running. Once the server is connected to Azure Arc, you can use the [Azure CLI](/cli/azure/connectedmachine) or [Azure PowerShell](/powershell/module/az.connectedmachine/) module to enable extensions, manage tags, and perform other operations on the server resource.
 
-Unless otherwise specified, the command syntax and flags represent available options in the most recent release of the Azure Connected Machine agent. For more information, see [What's new with the Azure Arc-enabled servers agent](agent-release-notes.md).
+Unless otherwise specified, the command syntax and flags represent available options in the most recent release of the Azure Connected Machine agent. For more information, see [What's new with the Azure Connected Machine agent](agent-release-notes.md).
 
 ## Commands
 
