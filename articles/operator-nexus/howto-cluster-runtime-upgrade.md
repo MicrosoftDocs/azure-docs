@@ -12,11 +12,15 @@ ms.date: 06/06/2023
 
 # Upgrading cluster runtime from Azure CLI
 
-This how-to guide explains the steps for installing the required az CLI and extensions required to interact with Operator Nexus.
+This how-to guide explains the steps for installing the required Azure CLI and extensions required to interact with Operator Nexus.
 
-If you haven't already installed the Azure CLI: [Install Azure CLI][installation-instruction]. The aka.ms links download the latest available version of the extension.
+## Prerequisites
 
-Installation of the `networkcloud` extension is required to run a version upgrade. If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/operator-nexus/howto-install-cli-extensions.md).
+1. The [Install Azure CLI][installation-instruction] must be installed.
+2. the `networkcloud` extension is required.  If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/operator-nexus/howto-install-cli-extensions.md).
+3. Access to the Azure portal for the target cluster to be upgraded.
+4. You must be logged in to the same subscription as your target cluster via `az login`
+5. Target cluster must be in a running state, with all control plane nodes healthy and 80+% of compute nodes in a running and healthy state.
 
 ## Finding available runtime versions
 
@@ -30,16 +34,14 @@ From the **available upgrade versions** tab, we're able to see the different clu
 
 ## Upgrading cluster runtime using CLI
 
-Before executing the runtime upgrade, ensure that you're logged in to the same subscription as your target cluster via `az login`
-
-To perform an upgrade of the runtime, use the following az CLI command:
+To perform an upgrade of the runtime, use the following Azure CLI command:
 
 ```azurecli
 az networkcloud cluster update-version --cluster-name "clusterName" --target-cluster-version
   "versionNumber" --resource-group "resourceGroupName"
 ```
 
-The runtime upgrade is a long process. The upgrade is considered to be finished 80% of compute nodes and 75% of management/control nodes have been successfully upgraded.
+The runtime upgrade is a long process. The upgrade is considered to be finished 80% of compute nodes and 100% of management/control nodes have been successfully upgraded.
 
 Upgrading all the nodes can conservatively take 6 hours but can take more if other processes, like firmware updates, are also part of the upgrade.
 Due to the length of the upgrade process, it's advised to check the Cluster's detail status periodically for the current state of the upgrade.
@@ -72,6 +74,6 @@ From here, we recommend checking Cluster logs or configured LAW, to see if there
 If hardware failure during an upgrade has occurred, the runtime upgrade continues as long as the set thresholds are met for the compute and management/control nodes. Once the machine is fixed or replaced, it gets provisioned with the current platform runtime's OS, which contains the newer version of the runtime.
 
 If a hardware failure occurs, and the runtime upgrade has failed because thresholds weren't met for compute and control nodes, re-execution of the runtime upgrade may be needed depending on when the failure occurred and the state of the node pool. If the node pool spec was updated before a failure, then the upgraded OS would be used when the nodes are reprovisioned.
-If the node pool's spec wasn't updated to the upgraded OS before the hardware failure, the machine would be provisioned with the previous OS version. To upgrade to the new runtime version, a new ClusterUpdateVersionAction (CUVA) would need to be submitted. When the new CUVA is submitted, only the nodes with the previous OS version will upgrade Hosts that were successful in the previous upgrade action won't.
+If the node pool's spec wasn't updated to the upgraded OS before the hardware failure, the machine would be provisioned with the previous OS version. To upgrade to the new runtime version, submit a new cluster upgrade request and only the nodes with the previous OS version will upgrade Hosts that were successful in the previous upgrade action won't.
 <!-- LINKS - External -->
 [installation-instruction]: https://aka.ms/azcli
