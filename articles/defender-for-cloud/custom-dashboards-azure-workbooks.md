@@ -223,7 +223,7 @@ To move workbooks that you've built in other Azure services into your Microsoft 
 
 1. From the toolbar, select **Edit**.
 
-y=>y.attrs.isDirty&&!E0(y)&&y.attrs.depth!==void 0?(l.delim=l.repeat(" ",3*y.attrs.depth),l.delim):"" :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-workbooks.png" alt-text="Editing a workbook.":::
+    :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-workbooks.png" alt-text="Editing a workbook.":::
 
 1. From the toolbar, select **</>** to enter the Advanced Editor.
 
