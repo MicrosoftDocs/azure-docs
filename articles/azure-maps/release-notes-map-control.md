@@ -26,6 +26,10 @@ This document contains information about new features and other changes to the M
 
 - Fixed an error in subsequent `map.setStyle()` calls if the raw Maplibre style is retrieved in the `stylechanged` event callback on style serialization.
 
+#### Other changes (3.0.0-preview.8)
+
+- Updated attribution logo and link.
+
 #### Installation (3.0.0-preview.8)
 
 The preview is available on [npm][3.0.0-preview.8] and CDN.
@@ -266,6 +270,10 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 - Fixed an exception that occurred while updating the property of a layout that that no longer exists.
 
 - Fixed an issue where BubbleLayer's accessible indicators didn't update when the data source was modified.
+
+#### Other changes (2.3.0)
+
+- Updated attribution logo and link.
 
 ### [2.2.7] (May 2, 2023)
 
