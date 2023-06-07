@@ -87,8 +87,8 @@ You can use the [directoryDefinition:discover](/graph/api/directorydefinition-di
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema/directories/{directoryId}/discover
 ```
 Things to remember when using the API to refresh or discover the schema.
-	- The job id needs to be the AD2AADProvisioning job id
-	- The directory id needs to be AD directory id
+ - The job id needs to be the AD2AADProvisioning job id
+ - The directory id needs to be AD directory id
 
 ## Next steps
 
