@@ -1,8 +1,6 @@
 ---
 title: Azure Monitor Log Analytics API response format
-description: The Azure Monitor Log Analytics API response is JSON that contains an array of table objects.
-author: AbbyMSFT
-ms.author: abbyweisberg
+description: The Azure Monitor Log Analytics API response is JSON that contains an array of 
 ms.date: 11/21/2021
 ms.topic: article
 ---

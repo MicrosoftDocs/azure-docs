@@ -1,8 +1,7 @@
 ---
 title: API access and authentication
 description: Learn how to authenticate and access the Azure Monitor Log Analytics API.
-author: AbbyMSFT
-ms.author: abbyweisberg
+author: guywi-ms
 ms.date: 11/28/2022
 ms.topic: article
 ---

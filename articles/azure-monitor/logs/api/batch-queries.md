@@ -1,8 +1,7 @@
 ---
 title: Batch queries
 description: The Azure Monitor Log Analytics API supports batching.
-author: AbbyMSFT
-ms.author: abbyweisberg
+author: guywi-ms
 ms.date: 11/22/2021
 ms.topic: article
 ---
