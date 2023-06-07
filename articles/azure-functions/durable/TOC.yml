@@ -127,7 +127,7 @@
   - name: Java API
     items:
     - name: Durable Functions bindings for Java
-      href: /java/api/com.microsoft.durabletask.azurefunctions
+      href: /java/api/com.microsoft.dufrabletask.azurefunctions
     - name: Durable Task core SDK for Java
       href: /java/api/com.microsoft.durabletask
   - name: Azure storage provider
@@ -146,6 +146,8 @@
       href: durable-functions-webjobs-sdk.md
     - name: Durable entities in .NET
       href: durable-functions-dotnet-entities.md
+    - name: Guide to the standalone DF PowerShell SDK
+      href: durable-functions-powershell-v2-sdk-migration-guide.md
   - name: Deploy
     items:
     - name: Continuous deployment
