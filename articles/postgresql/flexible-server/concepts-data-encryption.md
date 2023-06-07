@@ -7,7 +7,7 @@ ms.reviewer: maghan
 ms.date: 1/24/2023
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.topic: conceptual
 ---
 

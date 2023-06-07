@@ -47,7 +47,7 @@ Technology project success depends on managing expectations, outcomes, and respo
   - Ask questions, get answers, and receive notifications
 - Identify a partner or resource outside your organization to support you
 
-Learn more: [Include the right stakeholders](active-directory-deployment-plans.md)
+Learn more: [Include the right stakeholders](deployment-plans.md)
 
 ### Communications
 

@@ -5,7 +5,7 @@ description: Learn how to deploy Azure Bastion using CLI
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 06/05/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
 ms.custom: ignite-fall-2021, devx-track-azurecli 
@@ -44,6 +44,10 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 This section helps you deploy Azure Bastion using Azure CLI.
 
+> [!IMPORTANT]
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+>
+
 1. If you don't already have a virtual network, create a resource group and a virtual network using [az group create](/cli/azure/group#az-group-create) and [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
    ```azurecli-interactive
@@ -69,8 +73,6 @@ This section helps you deploy Azure Bastion using Azure CLI.
    ```
 
 1. Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a new Azure Bastion resource for your virtual network. It takes about 10 minutes for the Bastion resource to create and deploy.
-
-   [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
    The following example deploys Bastion using the **Basic** SKU tier. The SKU determines the features that your Bastion deployment supports. You can also deploy using the **Standard** SKU. If you don't specify a SKU in your command, the SKU defaults to Standard.  For more information, see [Bastion SKUs](configuration-settings.md#skus).
 
