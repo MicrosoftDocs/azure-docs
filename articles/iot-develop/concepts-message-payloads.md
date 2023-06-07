@@ -1,12 +1,12 @@
 ---
-title: Device message payloads in Azure IoT Central
-description: Device templates specify the telemetry, properties, and commands a device uses. Understand the format of the data a device can exchange with IoT Central.
+title: Plug and Play device message payloads
+description: Understand the format of the telemetry, property, and command messages that a Plug and Play device can exchange with a service.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/24/2023
+ms.date: 06/05/2023
 ms.topic: conceptual
-ms.service: iot-central
-services: iot-central
+ms.service: iot
+services: iot
 ms.custom: device-developer
 
 # This article applies to device developers.
@@ -14,42 +14,38 @@ ms.custom: device-developer
 
 # Telemetry, property, and command payloads
 
-A [device template](concepts-device-templates.md) in Azure IoT Central is a blueprint that defines the:
+A [device model](concepts-modeling-guide.md) defines the:
 
-* Telemetry a device sends to IoT Central.
-* Properties a device synchronizes with IoT Central.
-* Commands that IoT Central calls on a device.
-
-This article describes the JSON payloads that devices send and receive for telemetry, properties, and commands defined in a device template.
-
-> [!IMPORTANT]
-> IoT Central expects to receive UTF-8 encoded JSON data.
-
-The article doesn't describe every possible type of telemetry, property, and command payload, but the examples illustrate all the key types.
-
-Each example shows a snippet from the device model that defines the type and example JSON payloads to illustrate how the device should interact with the IoT Central application.
-
-> [!NOTE]
-> IoT Central accepts any valid JSON but it can only be used for visualizations if it matches a definition in the device model. You can export data that doesn't match a definition, see  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
-
-The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md).
+* Telemetry a device sends to a service.
+* Properties a device synchronizes with a service.
+* Commands that the service calls on a device.
 
 > [!TIP]
-> To troubleshoot device payload issues, see [Unmodeled data issues](troubleshoot-connection.md#unmodeled-data-issues) or use the **Raw data** view of the device in your IoT Central application.
+> Azure IoT Central is a service that follows the Plug and Play conventions. In IoT Central, the device model is part of a [device template](../iot-central/core/concepts-device-templates.md). IoT Central currently supports [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) with an [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md). An IoT Central application expects to receive UTF-8 encoded JSON data.
 
-For sample device code that shows some of these payloads in use, see the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
+This article describes the JSON payloads that devices send and receive for telemetry, properties, and commands defined in a DTDL device model.
+
+The article doesn't describe every possible type of telemetry, property, and command payload, but the examples illustrate key types.
+
+Each example shows a snippet from the device model that defines the type and example JSON payloads to illustrate how the device should interact with a Plug and Play aware service such as IoT Central.
+
+The example JSON snippets in this article use [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). There are also some [DTDL extensions that IoT Central](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md) uses.
+
+For sample device code that shows some of these payloads in use, see the [Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub](tutorial-connect-device.md) tutorial or the [Create and connect a client application to your Azure IoT Central application](../iot-central/core/tutorial-connect-device.md) tutorial.
 
 ## View raw data
 
-IoT Central lets you view the raw data that a device sends to an application. This view is useful for troubleshooting issues with the payload sent from a device. To view the raw data a device is sending:
+If you're using IoT Central, you can view the raw data that a device sends to an application. This view is useful for troubleshooting issues with the payload sent from a device. To view the raw data a device is sending:
 
 1. Navigate to the device from the **Devices** page.
 
 1. Select the **Raw data** tab:
 
-    :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Screenshot that shows the raw data view." lightbox="media/concepts-telemetry-properties-commands/raw-data.png":::
+    :::image type="content" source="media/concepts-message-payloads/raw-data.png" alt-text="Screenshot that shows the raw data view." lightbox="media/concepts-message-payloads/raw-data.png":::
 
     On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows data from the device that doesn't match any property or telemetry definitions in the device template.
+
+For more troubleshooting tips, see [Troubleshoot why data from your devices isn't showing up in Azure IoT Central](../iot-central/core/troubleshoot-connection.md).
 
 ## Telemetry
 
@@ -65,19 +61,9 @@ Don't create telemetry types with the following names. IoT Central uses these re
 * `$metadata`
 * `$version`
 
-### Telemetry timestamps
-
-By default, IoT Central uses the message enqueued time when it displays telemetry on dashboards and charts. Message enqueued time is set internally when IoT Central receives the message from the device.
-
-A device can set the `iothub-creation-time-utc` property when it creates a message to send to IoT Central. If this property is present, IoT Central uses it when it displays telemetry on dashboards and charts.
-
-You can export both the enqueued time and the `iothub-creation-time-utc` property when you export telemetry from your IoT Central application.
-
-To learn more about message properties, see [System Properties of device-to-cloud IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
-
 ### Telemetry in components
 
-If the telemetry is defined in a component, add a custom message property called `$.sub` with the name of the component as defined in the device model. To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md). This tutorial shows how to use different programming languages to send telemetry from a component.
+If the telemetry is defined in a component, add a custom message property called `$.sub` with the name of the component as defined in the device model. To learn more, see [Tutorial: Connect an IoT Plug and Play multiple component device applications](tutorial-multiple-components.md). This tutorial shows how to use different programming languages to send telemetry from a component.
 
 > [!IMPORTANT]
 > To display telemetry from components hosted in IoT Edge modules correctly, use [IoT Edge version 1.2.4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.4) or later. If you use an earlier version, telemetry from your components in IoT Edge modules displays as *_unmodeleddata*.
@@ -157,7 +143,7 @@ The device sends meter voltage telemetry using the following payload. The device
 
 ### Primitive types
 
-This section shows examples of primitive telemetry types that a device streams to an IoT Central application.
+This section shows examples of primitive telemetry types that a device can stream.
 
 The following snippet from a device model shows the definition of a `boolean` telemetry type:
 
@@ -276,35 +262,7 @@ A device client should send the telemetry as JSON that looks like the following 
 
 ### Complex types
 
-This section shows examples of complex telemetry types that a device streams to an IoT Central application.
-
-The following snippet from a device model shows the definition of a `geopoint` telemetry type:
-
-```json
-{
-  "@type": "Telemetry",
-  "displayName": {
-    "en": "GeopointTelemetry"
-  },
-  "name": "GeopointTelemetry",
-  "schema": "geopoint"
-}
-```
-
-> [!NOTE]
-> The **geopoint** schema type is not part of the [Digital Twins Definition Language specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
-
-A device client should send the telemetry as JSON that looks like the following example. IoT Central displays the value as a pin on a map:
-
-```json
-{
-  "GeopointTelemetry": {
-    "lat": 47.64263,
-    "lon": -122.13035,
-    "alt": 0
-  }
-}
-```
+This section shows examples of complex telemetry types that a device can stream.
 
 The following snippet from a device model shows the definition of an `Enum` telemetry type:
 
@@ -461,9 +419,40 @@ A device client should send the telemetry as JSON that looks like the following 
 }
 ```
 
+The following snippet from a device model shows the definition of a `geopoint` telemetry type:
+
+```json
+{
+  "@type": "Telemetry",
+  "displayName": {
+    "en": "GeopointTelemetry"
+  },
+  "name": "GeopointTelemetry",
+  "schema": "geopoint"
+}
+```
+
+> [!NOTE]
+> The **geopoint** schema type is part of the [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md) to DTDL. IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
+
+A device client should send the telemetry as JSON that looks like the following example. IoT Central displays the value as a pin on a map:
+
+```json
+{
+  "GeopointTelemetry": {
+    "lat": 47.64263,
+    "lon": -122.13035,
+    "alt": 0
+  }
+}
+```
+
 ### Event and state types
 
 This section shows examples of telemetry events and states that a device sends to an IoT Central application.
+
+> [!NOTE]
+> The **event** and **state** schema types are part of the [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md) to DTDL.
 
 The following snippet from a device model shows the definition of a `integer` event type:
 
@@ -539,12 +528,9 @@ A device client should send the state as JSON that looks like the following exam
 
 To learn more about the DTDL property naming rules, see [DTDL > Property](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#property). You can't start a property name using the `_` character.
 
-> [!NOTE]
-> The payload formats for properties applies to applications created on or after 07/14/2020.
-
 ### Properties in components
 
-If the property is defined in a component, wrap the property in the component name. The following example sets the `maxTempSinceLastReboot` in the `thermostat2` component. The marker `__t` indicates that this a component:
+If the property is defined in a component, wrap the property in the component name. The following example sets the `maxTempSinceLastReboot` in the `thermostat2` component. The marker `__t` indicates that this section defines a component:
 
 ```json
 {
@@ -559,7 +545,7 @@ To learn more, see [Tutorial: Create and connect a client application to your Az
 
 ### Primitive types
 
-This section shows examples of primitive property types that a device sends to an IoT Central application.
+This section shows examples of primitive property types that a device sends to a service.
 
 The following snippet from a device model shows the definition of a `boolean` property type:
 
@@ -683,36 +669,7 @@ A device client should send a JSON payload that looks like the following example
 
 ### Complex types
 
-This section shows examples of complex property types that a device sends to an IoT Central application.
-
-The following snippet from a device model shows the definition of a `geopoint` property type:
-
-```json
-{
-  "@type": "Property",
-  "displayName": {
-    "en": "GeopointProperty"
-  },
-  "name": "GeopointProperty",
-  "schema": "geopoint",
-  "writable": false
-}
-```
-
-> [!NOTE]
-> The **geopoint** schema type is not part of the [Digital Twins Definition Language specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
-
-A device client should send a JSON payload that looks like the following example as a reported property in the device twin:
-
-```json
-{
-  "GeopointProperty": {
-    "lat": 47.64263,
-    "lon": -122.13035,
-    "alt": 0
-  }
-}
-```
+This section shows examples of complex property types that a device sends to a service.
 
 The following snippet from a device model shows the definition of an `Enum` property type:
 
@@ -835,11 +792,40 @@ A device client should send a JSON payload that looks like the following example
 }
 ```
 
+The following snippet from a device model shows the definition of a `geopoint` property type:
+
+```json
+{
+  "@type": "Property",
+  "displayName": {
+    "en": "GeopointProperty"
+  },
+  "name": "GeopointProperty",
+  "schema": "geopoint",
+  "writable": false
+}
+```
+
+> [!NOTE]
+> The **geopoint** schema type is part of the [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md) to DTDL. IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
+
+A device client should send a JSON payload that looks like the following example as a reported property in the device twin:
+
+```json
+{
+  "GeopointProperty": {
+    "lat": 47.64263,
+    "lon": -122.13035,
+    "alt": 0
+  }
+}
+```
+
 ### Writable property types
 
-This section shows examples of writable property types that a device receives from an IoT Central application.
+This section shows examples of writable property types that a device receives from a service.
 
-If the writable property is defined in a component, the desired property message includes the component name. The following example shows the message requesting the device to update the `targetTemperature` in the `thermostat2` component. The marker `__t` indicates that this a component:
+If the writable property is defined in a component, the desired property message includes the component name. The following example shows the message requesting the device to update the `targetTemperature` in the `thermostat2` component. The marker `__t` indicates that this section defines a component:
 
 ```json
 {
@@ -853,23 +839,16 @@ If the writable property is defined in a component, the desired property message
 }
 ```
 
-To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
+To learn more, see [Connect an IoT Plug and Play multiple component device applications](tutorial-multiple-components.md).
 
-IoT Central expects a response from the device to writable property updates. The response message should include the `ac` and `av` fields. The `ad` field is optional. See the following snippets for examples.
+The device or module should confirm that it received the property by sending a reported property. The reported property should include:
 
-`ac` is a numeric field that uses the values in the following table:
+* `value` - the actual value of the property (typically the received value, but the device may decide to report a different value).
+* `ac` - an acknowledgment code that uses an HTTP status code.
+* `av` - an acknowledgment version that refers to the `$version` of the desired property. You can find this value in the desired property JSON payload.
+* `ad` - an optional acknowledgment description.
 
-| Value | Label | Description |
-| ----- | ----- | ----------- |
-| `'ac': 200` | Completed | The property change operation was successfully completed. |
-| `'ac': 202`  or `'ac': 201` | Pending | The property change operation is pending or in progress |
-| `'ac': 203` | Pending | The property change operation was initiated by the device |
-| `'ac': 4xx` | Error | The requested property change wasn't valid or had an error |
-| `'ac': 5xx` | Error | The device experienced an unexpected error when processing the requested change. |
-
-`av` is the version number sent to the device.
-
-`ad` is an option string description.
+To learn more about these fields, see [IoT Plug and Play conventions > Acknowledgment responses](concepts-convention.md#acknowledgment-responses)
 
 The following snippet from a device model shows the definition of a writable `string` property type:
 
@@ -885,7 +864,7 @@ The following snippet from a device model shows the definition of a writable `st
 }
 ```
 
-The device receives the following payload from IoT Central:
+The device receives the following payload from the service:
 
 ```json
 {  
@@ -893,7 +872,10 @@ The device receives the following payload from IoT Central:
 }
 ```
 
-The device should send the following JSON payload to IoT Central after it processes the update. This message includes the version number of the original update received from IoT Central. When IoT Central receives this message, it marks the property as **synced** in the UI:
+The device should send the following JSON payload to the service after it processes the update. This message includes the version number of the original update received from the service.
+
+> [!TIP]
+> If the service is IoT Central, it marks the property as **synced** in the UI when it receives this message:
 
 ```json
 {
@@ -949,7 +931,7 @@ The following snippet from a device model shows the definition of a writable `En
 }
 ```
 
-The device receives the following payload from IoT Central:
+The device receives the following payload from the service:
 
 ```json
 {  
@@ -957,7 +939,10 @@ The device receives the following payload from IoT Central:
 }
 ```
 
-The device should send the following JSON payload to IoT Central after it processes the update. This message includes the version number of the original update received from IoT Central. When IoT Central receives this message, it marks the property as **synced** in the UI:
+The device should send the following JSON payload to the service after it processes the update. This message includes the version number of the original update received from the service.
+
+> [!TIP]
+> If the service is IoT Central, it marks the property as **synced** in the UI when it receives this message:
 
 ```json
 {
@@ -1102,142 +1087,9 @@ The following snippet shows an example response payload sent from the device. Us
 { "Field1": 87, "Field2": "Another string value" }
 ```
 
-### Long running commands
-
-The following snippet from a device model shows the definition of a command. The command has an integer parameter and expects the device to return an integer value:
-
-```json
-{
-  "@type": "Command",
-  "request": {
-    "@type": "CommandPayload",
-    "displayName": {
-      "en": "RequestParam"
-    },
-    "name": "RequestParam",
-    "schema": "integer"
-  },
-  "response": {
-    "@type": "CommandPayload",
-    "displayName": {
-      "en": "ResponseParam"
-    },
-    "name": "ResponseParam",
-    "schema": "integer"
-  },
-  "displayName": {
-    "en": "LongRunningCommandSimple"
-  },
-  "name": "LongRunningCommandSimple"
-}
-```
-
-The device receives an integer value as the request payload. If the device needs time to process this command, it should return an empty response payload with a `202` HTTP response code to indicate the device has accepted the request for processing.
-
-When the device has finished processing the request, it should send a property to IoT Central that looks like the following example. The property name must be the same as the command name:
-
-```json
-{
-  "LongRunningCommandSimple": {
-    "value": 87
-  }
-}
-```
-
-### Offline commands
-
-In the IoT Central web UI, you can select the **Queue if offline** option for a command. Offline commands are one-way notifications to the device from your solution that are delivered as soon as a device connects. Offline commands can have a request parameter but don't return a response.
-
-Offline commands are marked as `durable` if you export the model as DTDL.
-
-Offline commands use [IoT Hub cloud-to-device messages](../../iot-hub/iot-hub-devguide-messages-c2d.md) to send the command and payload to the device.
-
-The payload of the message the device receives is the raw value of the parameter. A custom property called `method-name` stores the name of the IoT Central command. The following table shows some example payloads:
-
-| IoT Central request schema | Example payload received by device |
-| -------------------------- | ---------------------------------- |
-| No request parameter       | `@`                                |
-| Double                     | `1.23`                             |
-| String                     | `sample string`                    |
-| Object                     | `{"StartTime":"2021-01-05T08:00:00.000Z","Bank":2}` |
-
-The following snippet from a device model shows the definition of a command. The command has an object parameter with a datetime field and an enumeration:
-
-```json
-{
-  "@type": "Command",
-  "displayName": {
-    "en": "Generate Diagnostics"
-  },
-  "name": "GenerateDiagnostics",
-  "request": {
-    "@type": "CommandPayload",
-    "displayName": {
-      "en": "Payload"
-    },
-    "name": "Payload",
-    "schema": {
-      "@type": "Object",
-      "displayName": {
-        "en": "Object"
-      },
-      "fields": [
-        {
-          "displayName": {
-            "en": "StartTime"
-          },
-          "name": "StartTime",
-          "schema": "dateTime"
-        },
-        {
-          "displayName": {
-            "en": "Bank"
-          },
-          "name": "Bank",
-          "schema": {
-            "@type": "Enum",
-            "displayName": {
-              "en": "Enum"
-            },
-            "enumValues": [
-              {
-                "displayName": {
-                  "en": "Bank 1"
-                },
-                "enumValue": 1,
-                "name": "Bank1"
-              },
-              {
-                "displayName": {
-                  "en": "Bank2"
-                },
-                "enumValue": 2,
-                "name": "Bank2"
-              },
-              {
-                "displayName": {
-                  "en": "Bank3"
-                },
-                "enumValue": 3,
-                "name": "Bank3"
-              }
-            ],
-            "valueSchema": "integer"
-          }
-        }
-      ]
-    }
-  }
-}
-```
-
-If you enable the **Queue if offline** option in the device template UI for the command in the previous snippet, then the message the device receives includes the following properties:
-
-| Property name | Example value |
-| ---------- | ----- |
-| `custom_properties` | `{'method-name': 'GenerateDiagnostics'}` |
-| `data` | `{"StartTime":"2021-01-05T08:00:00.000Z","Bank":2}` |
+> [!TIP]
+> IoT Central has its own conventions for implementing [Long-running commands](../iot-central/core/howto-use-commands.md#long-running-commands) and [Offline commands](../iot-central/core/howto-use-commands.md#offline-commands).
 
 ## Next steps
 
-Now that you've learned about device templates, a suggested next steps is to read [IoT Central device connectivity guide](overview-iot-central-developer.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
+Now that you've learned about device payloads, a suggested next steps is to read the [Device developer guide](concepts-developer-guide-device.md).
