@@ -3,7 +3,7 @@ title: Migrate from a Run As account to Managed identities
 description: This article describes how to migrate from a Run As account to managed identities in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/29/2023
+ms.date: 06/06/2023
 ms.topic: conceptual 
 ms.custom:
 ---
@@ -32,7 +32,7 @@ Before you migrate from a Run As account or Classic Run As account to a managed 
     > - There are two ways to use managed identities in hybrid runbook worker scripts: either the system-assigned managed identity for the Automation account *or* the virtual machine (VM) managed identity for an Azure VM running as a hybrid runbook worker. 
     > - The VM's user-assigned managed identity and the VM's system-assigned managed identity will *not* work in an Automation account that's configured with an Automation account's managed identity. When you enable the Automation account's managed identity, you can use only the Automation account's system-assigned managed identity and not the VM managed identity. For more information, see [Use runbook authentication with managed identities](automation-hrw-run-runbooks.md).
 
-1. Assign the same role to the managed identity to access the Azure resources that match the Run As account. Follow the steps in [Check the role assignment for the Azure Automation Run As account](manage-run-as-account.md#check-role-assignment-for-azure-automation-run-as-account).
+1. Assign the same role to the managed identity to access the Azure resources that match the Run As account. Follow the steps in [Check the role assignment for the Azure Automation Run As account](manage-run-as-account.md#check-role-assignment-for-azure-automation-run-as-account). Use this [script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/AssignMIRunAsRoles.ps1) to enable the System assigned identity in an Automation account and assign the same set of permissions present in Azure Automation Run as account to System Assigned identity of the Automation account.
 
    Ensure that you don't assign high-privilege permissions like contributor or owner to the Run As account. Follow the role-based access control (RBAC) guidelines to limit the permissions from the default contributor permissions assigned to a Run As account by using [this script](manage-run-as-account.md#limit-run-as-account-permissions). 
 
