@@ -149,11 +149,11 @@
         - name: Federated CBA with Azure AD
           items:
           - name: Configure CBA with federation
-            href: active-directory-certificate-based-authentication-get-started.md
+            href: certificate-based-authentication-federation-get-started.md
           - name: Use on Android Devices
-            href: active-directory-certificate-based-authentication-android.md
+            href: certificate-based-authentication-federation-android.md
           - name: Use on iOS Devices
-            href: active-directory-certificate-based-authentication-ios.md
+            href: certificate-based-authentication-federation-ios.md
       - name: Use a Temporary Access Pass
         href: howto-authentication-temporary-access-pass.md
       - name: Use SMS-based authentication
@@ -305,7 +305,7 @@
     - name: SSPR writeback
       href: troubleshoot-sspr-writeback.md
     - name: SSPR FAQ
-      href: active-directory-passwords-faq.yml
+      href: passwords-faq.yml
     - name: MFA FAQ
       href: multi-factor-authentication-faq.yml
     - name: NPS extension
