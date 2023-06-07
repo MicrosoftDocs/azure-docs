@@ -95,7 +95,7 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
         --location "$LOCATION"
     ```
 
-    # [Bicep](#tab/bash)
+    # [Bicep](#tab/bicep)
 
     ```bash
     az group create \
