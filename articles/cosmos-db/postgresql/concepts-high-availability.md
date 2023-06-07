@@ -21,7 +21,7 @@ happens within a few minutes, and promoted nodes always have fresh data through
 PostgreSQL synchronous streaming replication.
 
 All primary nodes in a cluster are provisioned into one availability zone
-for better latency between the nodes. The preferred availability zone allows to put all cluster nodes in the same availability zone where the application is deployed. This proximity could improve performance further by decreasing app-database latency. The standby nodes are provisioned into
+for better latency between the nodes. The preferred availability zone allows you to put all cluster nodes in the same availability zone where the application is deployed. This proximity could improve performance further by decreasing app-database latency. The standby nodes are provisioned into
 another availability zone. The Azure portal
 [displays](concepts-cluster.md#node-availability-zone) the availability
 zone of each primary node in a cluster.

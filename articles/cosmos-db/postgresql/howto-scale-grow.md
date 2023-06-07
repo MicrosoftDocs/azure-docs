@@ -1,6 +1,6 @@
 ---
 title: Configure cluster - Azure Cosmos DB for PostgreSQL
-description: Adjust cluster CPU/memory and disk resources to deal with increased load or enable HA for improved availablity.
+description: Adjust cluster CPU/memory and disk resources to deal with increased load or enable HA for improved availability.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -73,7 +73,7 @@ To change the storage amount for all worker nodes, on the **Scale** screen, sele
 
 You can choose preferred [availability zone](./concepts-cluster.md#node-availability-zone) for nodes if your cluster is in an Azure region that supports availability zones. If you select preferred availability zone during cluster provisioning, Azure Cosmos DB for PostgreSQL provisions all cluster nodes into selected availability zone. If you select or change preferred availability zone after provisioning, all cluster nodes are moved to the new preferred availability zone during next [scheduled maintenance](./concepts-maintenance.md). 
 
-To select preferred availability zone for all cluster nodes, on the **Scale** screen, specify a zone in **Preferred availability zone** list. To let Azure Cosmos DB for PostgreSQL service select an availabilty zone for cluster, choose 'No preference'.
+To select preferred availability zone for all cluster nodes, on the **Scale** screen, specify a zone in **Preferred availability zone** list. To let Azure Cosmos DB for PostgreSQL service select an availability zone for cluster, choose 'No preference'.
 
 ## Next steps
 

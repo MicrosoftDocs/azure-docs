@@ -52,7 +52,7 @@ assigned to a zone. (Only [certain
 regions](https://azure.microsoft.com/global-infrastructure/geographies/#geographies)
 support availability zones.)
 
-Azure Cosmos DB for PostgreSQL allows to set a preferred availability zone for cluster. Usually the reason for it is to put cluster nodes in the same availability zone where the application and the rest of the application stack components are.
+Azure Cosmos DB for PostgreSQL allows you to set a preferred availability zone for cluster. Usually the reason for it is to put cluster nodes in the same availability zone where the application and the rest of the application stack components are.
 
 If [high availability](./concepts-high-availability.md) is enabled for the cluster, and a node [fails
 over](concepts-high-availability.md) to a standby, you may see its availability
