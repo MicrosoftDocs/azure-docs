@@ -9,7 +9,7 @@ ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
 
-# Geo-replication in Azure Web PubSub 
+# Geo-replication (Preview) in Azure Web PubSub 
 
 ## What is geo-replication feature?
 Mission critial apps often need to have a robust failover system and serve users closer to where they are. Before the release of the geo-replication feature, developers needed to deploy multiple Web PubSub resources and write custom code to orchestrate communcation across resources. Now, with quick configuration through Azure portal, you can easily enable this feature. 
