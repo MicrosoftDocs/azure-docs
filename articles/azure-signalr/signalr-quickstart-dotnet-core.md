@@ -4,6 +4,7 @@ description: A quickstart for using Azure SignalR Service to create a chat room 
 author: vicancy
 ms.service: signalr
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ms.topic: quickstart
 ms.date: 08/03/2022
 ms.author: lianwei

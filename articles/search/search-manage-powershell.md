@@ -123,7 +123,7 @@ ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups
 Commands from [**Az.Search**](/powershell/module/az.search) are not available until you load the module.
 
 ```azurepowershell-interactive
-Install-Module -Name Az.Search
+Install-Module -Name Az.Search -Scope CurrentUser
 ```
 
 ### List all Az.Search commands

@@ -41,16 +41,6 @@ This section provides references for solutions for Linux OSS applications and da
 * [AIX UNIX on-premises to Azure Linux migration - Azure Example Scenarios](/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux)
 * [Leverage Azure NetApp Files for R Studio workloads](https://techcommunity.microsoft.com/t5/azure-storage-blog/leverage-azure-netapp-files-for-r-studio-workloads/ba-p/2935878)
 
-### Mainframe refactor
-
-* [General mainframe refactor to Azure - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)
-* [Refactor mainframe applications with Advanced - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-advanced)
-* [Refactor mainframe applications with Astadia – Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-astadia)
-* [Refactor mainframe computer systems that run Adabas & Natural - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-adabas-aks)
-* [Refactor IBM z/OS mainframe coupling facility (CF) to Azure - Azure Example Scenarios](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)
-* [Refactor mainframe applications to Azure with Raincode compilers - Azure Example Scenarios](/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture)
-
-
 ### Oracle
 
 * [Oracle Database with Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)
@@ -64,6 +54,10 @@ This section provides references for solutions for Linux OSS applications and da
 ### Financial analytics and trading
 * [Host a Murex MX.3 workload on Azure](/azure/architecture/example-scenario/finance/murex-mx3-azure)
 
+### Product Lifecycle Management
+
+* [Use Teamcenter PLM with Azure NetApp Files](/azure/architecture/example-scenario/manufacturing/teamcenter-plm-netapp-files)
+
 ### Machine Learning
 *	[Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
 *	[Distributed training in Azure: Lane detection - Solution design](https://www.netapp.com/media/32427-tr-4896-design.pdf)
@@ -73,6 +67,15 @@ This section provides references for solutions for Linux OSS applications and da
 
 * [Moodle deployment with Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/moodle-azure-netapp-files)
 * [Moodle on Azure NetApp Files NFS storage](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630)
+
+### Mainframe refactor
+
+* [General mainframe refactor to Azure - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)
+* [Refactor mainframe applications with Advanced - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-advanced)
+* [Refactor mainframe applications with Astadia – Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-astadia)
+* [Refactor mainframe computer systems that run Adabas & Natural - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-adabas-aks)
+* [Refactor IBM z/OS mainframe coupling facility (CF) to Azure - Azure Example Scenarios](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)
+* [Refactor mainframe applications to Azure with Raincode compilers - Azure Example Scenarios](/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture)
 
 ## Windows Apps and SQL Server solutions
 
@@ -176,11 +179,11 @@ This section provides references for Virtual Desktop infrastructure solutions.
 * [Create an FSLogix profile container for a host pool using Azure NetApp Files](../virtual-desktop/create-fslogix-profile-container.md)
 * [Azure Virtual Desktop at enterprise scale](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 * [Microsoft FSLogix for the enterprise - Azure NetApp Files best practices](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#azure-netapp-files-best-practices)
+* [Enhanced Performance and Scalability: Azure AD-joined Session Hosts with Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/enhanced-performance-and-scalability-azure-ad-joined-session/ba-p/3836576)
 * [Setting up Azure NetApp Files for MSIX App Attach](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/setting-up-azure-netapp-files-for-msix-app-attach-step-by-step/m-p/1990021)
 * [Multiple forests with AD DS and Azure AD – Azure Example Scenarios](/azure/architecture/example-scenario/wvd/multi-forest)
 * [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop – Azure Example Scenarios](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr)
 * [Deploy Esri ArcGIS Pro in Azure Virtual Desktop – Azure Example Scenarios](/azure/architecture/example-scenario/data/esri-arcgis-azure-virtual-desktop)
-
 
 ### Citrix   
 
@@ -227,6 +230,7 @@ This section provides solutions for Azure platform services.
 
 * [Astra: protect, recover, and manage your AKS workloads on Azure NetApp Files](https://cloud.netapp.com/hubfs/Astra%20Azure%20Documentation.pdf) 
 * [Integrate Azure NetApp Files with Azure Kubernetes Service](../aks/azure-netapp-files.md)
+* [Azure NetApp Files SMB volumes for Azure Kubernetes Services with Astra Trident on Windows](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-smb-volumes-for-azure-kubernetes-services/ba-p/3052900)
 * [Application data protection for AKS workloads on Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)
 * [Disaster Recovery of AKS workloads with Astra Control Service and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-of-aks-workloads-with-astra-control-service/ba-p/2948089)
 * [Protecting MongoDB on AKS/ANF with Astra Control Service using custom execution hooks](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-mongodb-on-aks-anf-with-astra-control-service-using/ba-p/3057574)
