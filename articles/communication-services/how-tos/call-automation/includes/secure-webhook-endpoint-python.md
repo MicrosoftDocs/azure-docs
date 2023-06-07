@@ -4,9 +4,8 @@ Each mid-call webhook callback sent by Call Automation uses a signed JSON Web To
 
 1. Obtain the Open ID configuration URL: <https://acscallautomation.communication.azure.com/calling/.well-known/acsopenidconfiguration>
 2. Install the following packages:
-    - [express npm](https://www.npmjs.com/package/express)
-    - [jwks-rsa npm](https://www.npmjs.com/package/jwks-rsa)
-    - [jsonwebtoken npm](https://www.npmjs.com/package/jsonwebtoken)
+    - [flask pypi](https://pypi.org/project/Flask/)
+    - [PyJWT pypi](https://pypi.org/project/PyJWT/)
 
 ```console
 pip install flask pyjwt
