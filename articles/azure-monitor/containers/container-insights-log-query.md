@@ -240,6 +240,69 @@ KubePodInventory
     ContainerStatus = strcat("Container Status: ", ContainerStatus)
 ```
 
+## Container logs
+
+Container logs for AKS are stored in [the ContainerLogV2 table](../container-insights-logging-v2.md). You can run the following sample queries to look for the stderr/stdout log output from target pods, deployments, or namespaces.
+
+### Container logs for a specific pod, namespace, and container
+
+```kusto
+ContainerLogV2
+| where _ResourceId =~ "clusterResourceId"
+| where PodNamespace == "podNameSpace"
+| where PodName == "podName"
+| where ContainerName == "containerName"
+| project TimeGenerated, Computer, ContainerId, LogMessage, LogSource
+```
+
+### Container logs for a specific deployment
+
+``` kusto
+let KubePodInv = KubePodInventory
+| where _ResourceId =~ "clusterResourceId"
+| where Namespace == "deploymentNamespace"
+| where ControllerKind == "ReplicaSet"
+| extend deployment = reverse(substring(reverse(ControllerName), indexof(reverse(ControllerName), "-") + 1))
+| where deployment == "deploymentName"
+| extend ContainerId = "ContainerID"
+| summarize arg_max(TimeGenerated, *)  by deployment, ContainerId, PodStatus, ContainerStatus
+| project deployment, ContainerId, PodStatus, ContainerStatus;
+
+KubePodInv
+| join
+(
+    ContainerLogV2
+  | where TimeGenerated >= startTime and TimeGenerated < endTime
+  | where PodNamespace == "deploymentNamespace"
+  | where PodName startswith "deploymentName"
+) on ContainerId
+| project TimeGenerated, deployment, PodName, PodStatus, ContainerName, ContainerId, ContainerStatus, LogMessage, LogSource
+
+```
+
+### Container logs for any failed pod in a specific namespace
+
+``` kusto
+    let KubePodInv = KubePodInventory
+    | where TimeGenerated >= startTime and TimeGenerated < endTime
+    | where _ResourceId =~ "clustereResourceId"
+    | where Namespace == "podNamespace"
+    | where PodStatus == "Failed"
+    | extend ContainerId = "ContainerID"
+    | summarize arg_max(TimeGenerated, *)  by  ContainerId, PodStatus, ContainerStatus
+    | project ContainerId, PodStatus, ContainerStatus;
+
+    KubePodInv
+    | join
+    (
+        ContainerLogV2
+    | where TimeGenerated >= startTime and TimeGenerated < endTime
+    | where PodNamespace == "podNamespace"
+    ) on ContainerId
+    | project TimeGenerated, PodName, PodStatus, ContainerName, ContainerId, ContainerStatus, LogMessage, LogSource
+
+```
+
 ## Resource logs
 
 Resource logs for AKS are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. You can distinguish different logs with the **Category** column. For a description of each category, see [AKS reference resource logs](../../aks/monitor-aks-reference.md). The following examples require a diagnostic extension to send resource logs for an AKS cluster to a Log Analytics workspace. For more information, see [Configure monitoring](../../aks/monitor-aks.md#configure-monitoring).
