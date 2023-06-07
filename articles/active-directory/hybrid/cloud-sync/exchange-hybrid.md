@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 
 
-# What is Exchange Hybrid Writeback
+# What is Exchange hybrid writeback with cloud sync
 
 An Exchange hybrid deployment offers organizations the ability to extend the feature-rich experience and administrative control they have with their existing on-premises Microsoft Exchange organization to the cloud. A hybrid deployment provides the seamless look and feel of a single Exchange organization between an on-premises Exchange organization and Exchange Online. 
 
@@ -41,7 +41,7 @@ Exchange Hybrid Writeback is disabled by default.
  4.  Click on an existing configuration.
  5.  At the top, select **Properties**.  You should see Exchange hybrid writeback disabled.
  6.  Select the pencil next to **Basic**.
- 7   On the right, place a check in **Exchange hybrid writeback** and click **Apply**.
+ 7. On the right, place a check in **Exchange hybrid writeback** and click **Apply**.
 
 
 ## Attributes synchronized
@@ -62,8 +62,8 @@ Cloud sync synchronizes Exchange On-line attributes back to users and groups in 
 ## Provisioning on-demand
 Provisioning on-demand with Exchange hybrid writeback requires two steps.  You need to first provision or create the user, so that the Exchange online attributes can then be written back to the user or group.  The steps are:
 
-	1.  Provision and synch the intial user or group - this brings the user/group into the cloud.
-	2.  Writeback the attributes back - this writes the attributes to the user/group on-premises.
+- Provision and synch the intial user or group - this brings the user/group into the cloud.
+- Writeback the attributes back - this writes the attributes to the user/group on-premises.
 
 Provisioning on-demand with Exchange hybrid use the following steps
 
@@ -83,8 +83,9 @@ Prior to enabling and using Exchange hybrid writeback, cloud sync needs to deter
 
 You can use the [directoryDefinition:discover](/graph/api/directorydefinition-discover?view=graph-rest-beta&tabs=http&preserve-view=true) to initiate schema discovery. 
 
-```POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema/directories/{directoryId}/discover```
-
+```
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema/directories/{directoryId}/discover
+```
 Things to remember when using the API to refresh or discover the schema.
 	- The job id needs to be the AD2AADProvisioning job id
 	- The directory id needs to be AD directory id
