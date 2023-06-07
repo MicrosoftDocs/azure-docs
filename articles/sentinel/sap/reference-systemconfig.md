@@ -6,6 +6,7 @@ ms.author: lwainstein
 ms.topic: reference
 ms.date: 06/03/2023
 ---
+
 # Systemconfig.ini file reference
 
 The *systemconfig.ini* file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
