@@ -1,19 +1,18 @@
 ---
 title: Add a polygon layer to a map | Microsoft Azure Maps
 description: Learn how to add polygons or circles to maps. See how to use the Azure Maps Web SDK to customize geometric shapes and make them easy to update and maintain.
-author: eriklindeman
-ms.author: eriklind
-ms.date: 07/29/2019
-ms.topic: conceptual
+author: dubiety
+ms.author: yuchungchen
+ms.date: 06/07/2023
+ms.topic: how-to
 ms.service: azure-maps
-ms.custom: codepen
 ---
 
 # Add a polygon layer to the map
 
 This article shows you how to render the areas of `Polygon` and `MultiPolygon` feature geometries on the map using a polygon layer. The Azure Maps Web SDK also supports the creation of Circle geometries as defined in the [extended GeoJSON schema](extend-geojson.md#circle). These circles are transformed into polygons when rendered on the map. All feature geometries can easily be updated when wrapped with the [atlas.Shape](/javascript/api/azure-maps-control/atlas.shape) class.
 
-## Use a polygon layer 
+## Use a polygon layer
 
 When a polygon layer is connected to a data source and loaded on the map, it renders the area with `Polygon` and `MultiPolygon` features. To create a polygon, add it to a data source, and render it with a polygon layer using the [PolygonLayer](/javascript/api/azure-maps-control/atlas.layer.polygonlayer) class.
 
@@ -66,7 +65,6 @@ In addition to filling a polygon with a color, you may use an image pattern to f
   See the Pen <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>Polygon fill pattern</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
 
 > [!TIP]
 > The Azure Maps web SDK provides several customizable image templates you can use as fill patterns. For more information, see the [How to use image templates](how-to-use-image-templates-web-sdk.md) document.
