@@ -1,10 +1,11 @@
 ---
-title: Tutorial: Create and use a PostgreSQL service for development
+title: 'Tutorial: Create and use a PostgreSQL service for development'
 description: Create and use a PostgreSQL service for development
 services: container-apps
+author: ahmels
 ms.service: container-apps
 ms.topic: tutorial
-ms.data: 06/06/2023
+ms.date: 06/06/2023
 ms.author: ahmels
 ---
 
