@@ -131,7 +131,7 @@ You can also run custom queries to divide Application Insights data to generate 
 > It can take up to 10 minutes for new custom metrics to appear in the Azure portal.
 
 > [!TIP]
-> If you're adding the Click Analytics plugin, [add Click Analytics advanced configuration](./javascript-feature-extensions.md#advanced-configuration) if needed.
+> If you're adding the Click Analytics plug-in, [add Click Analytics advanced configuration](./javascript-feature-extensions.md#advanced-configuration) if needed.
 
 ### Use React Hooks
 
@@ -434,7 +434,7 @@ JavaScript correlation is turned off by default in order to minimize the telemet
 If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of 0.
 
 > [!TIP]
-> If you're adding the Click Analytics plugin, [add Click Analytics advanced configuration](./javascript-feature-extensions.md#advanced-configuration) if needed.
+> If you're adding the Click Analytics plug-in, [add Click Analytics advanced configuration](./javascript-feature-extensions.md#advanced-configuration) if needed.
 
  
 ## [Angular](#tab/angular)
@@ -573,7 +573,7 @@ The Angular Plugin automatically tracks route changes and collects other Angular
 If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of 0. 
 
 > [!TIP]
-> If you're adding the Click Analytics plugin, [add Click Analytics advanced configuration](./javascript-feature-extensions.md#advanced-configuration) if needed.
+> If you're adding the Click Analytics plug-in, [add Click Analytics advanced configuration](./javascript-feature-extensions.md#advanced-configuration) if needed.
 
 ---
 

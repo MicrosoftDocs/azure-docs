@@ -157,7 +157,7 @@ appInsights.loadAppInsights();
 ```
 
 > [!NOTE] 
-> For more information on the React Native plug-in, see [React Native plug-in](./javascript-framework-extensions.md?tabs=reactnative#react-native-plugin-for-application-insights-javascript-sdk).
+> To add React Native configuration, see [Enable Correlation for React Native](./javascript-framework-extensions.md?tabs=reactnative#enable-correlation). For more information on the React Native plug-in, see [React Native plug-in](./javascript-framework-extensions.md?tabs=reactnative#react-native-plugin-for-application-insights-javascript-sdk).
 
 ### [Angular](#tab/angular)
 
@@ -195,7 +195,8 @@ export class AppComponent {
 }
 ```
 
-For more information on the Angular plug-in, see [Angular plug-in](./javascript-framework-extensions.md?tabs=angular#angular-plugin-for-application-insights-javascript-sdk).
+> [!NOTE] 
+> To add Angular configuration, see [Enable Correlation for Angular](./javascript-framework-extensions.md?tabs=angular#enable-correlation).For more information on the Angular plug-in, see [Angular plug-in](./javascript-framework-extensions.md?tabs=angular#angular-plugin-for-application-insights-javascript-sdk).
 
 ---
 
@@ -246,7 +247,7 @@ If you declare `parentDataTag` and define the `data-parentid` or `data-*-parenti
 > Once `parentDataTag` is included in *any* HTML element across your application *the SDK begins looking for parents tags across your entire application* and not just the HTML element where you used it.
 
 > [!CAUTION]
-> If you're using the HEART workbook with the Click Analytics plugin, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
+> If you're using the HEART workbook with the Click Analytics plug-in, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
 
 ### `customDataPrefix`
 
