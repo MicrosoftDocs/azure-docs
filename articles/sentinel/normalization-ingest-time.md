@@ -28,8 +28,11 @@ Ingest time parsing enables transforming events to a normalized schema as they a
 Normalized data can be stored in Microsoft Sentinel's native normalized tables, or in a custom table that uses an ASIM schema. A custom table that has a schema close to, but not identical, to an ASIM schema, also provides the performance benefits of ingest time normalization.
 
 Currently, ASIM supports the following native normalized tables as a destination for ingest time normalization:
+- [**ASimAuditEventLogs**](/azure/azure-monitor/reference/tables/asimauditeventlogs) for the [Audit Event](normalization-schema-audit.md) schema.
+- **ASimAuthenticationEventLogs** for the [Authentication](normalization-schema-authentication.md) schema.
 - [**ASimDnsActivityLogs**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs) for the [DNS](normalization-schema-dns.md) schema.
 - [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs) for the [Network Session](normalization-schema-network.md) schema 
+- [**ASimWebSessionLogs**](/azure/azure-monitor/reference/tables/asimwebsessionlogs) for the [Web Session](normalization-schema-web.md) schema.
 
 The advantage of native normalized tables is that they are included by default in the ASIM unifying parsers. Custom normalized tables can be included in the unifying parsers, as discussed in [Manage Parsers](normalization-manage-parsers.md).
 

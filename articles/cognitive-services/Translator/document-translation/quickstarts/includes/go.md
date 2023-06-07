@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 03/17/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -30,8 +30,8 @@ If you haven't already done so, [download and install Go](https://go.dev/doc/ins
     go version
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=GO&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment)
+<!-- > [!div class="nextstepaction"]
+> [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=GO&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment) -->
 
 ## Translate all documents in a storage container
 

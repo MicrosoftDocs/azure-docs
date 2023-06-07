@@ -29,15 +29,7 @@ See the [project development lifecycle](../overview.md#project-development-lifec
 
 ## Data labeling guidelines
 
-After [building your schema](build-schema.md) and [creating your project](create-project.md), you will need to label your data. Labeling your data is important so your model knows which words will be associated with the entities you need to extract. You will want to spend time labeling your utterances - introducing and refining the data that will be used to in training your models.
-
-
-<!--  Composition guidance where does this live -->
-
-<!-- 
-  > [!NOTE]
-  >  An entity's learned components is only defined when you label utterances for that entity. You can also have entities that include _only_ list or prebuilt components without labelling learned components. see the [entity components](../concepts/entity-components.md) article for more information.
- -->
+After [building your schema](build-schema.md) and [creating your project](create-project.md), you will need to label your data. Labeling your data is important so your model knows which words and sentences will be associated with the intents and entities in your project. You will want to spend time labeling your utterances - introducing and refining the data that will be used to in training your models.
 
 As you add utterances and label them, keep in mind:
 
@@ -45,9 +37,9 @@ As you add utterances and label them, keep in mind:
 
 * The precision, consistency and completeness of your labeled data are key factors to determining model performance. 
 
-    * **Label precisely**: Label each entity to its right type always. Only include what you want extracted, avoid unnecessary data in your labels.
+    * **Label precisely**: Label each intent and entity to its right type always. Only include what you want classified and extracted, avoid unnecessary data in your labels.
     * **Label consistently**:  The same entity should have the same label across all the utterances.
-    * **Label completely**: Label all the instances of the entity in all your utterances.
+    * **Label completely**: Provide varied utterances for every intent. Label all the instances of the entity in all your utterances.
 
 * For [Multilingual projects](../language-support.md#multi-lingual-option), adding utterances in other languages increases the model's performance in these languages, but avoid duplicating your data across all the languages you would like to support. For example, to improve a calender bot's performance with users, a developer might add examples mostly in English, and a few in Spanish or French as well. They might add utterances such as:
 
@@ -91,15 +83,76 @@ Use the following steps to label your utterances:
 
 
   > [!NOTE]
-  > list and prebuilt components are not shown in the data labeling page, and all labels here only apply to the **learned component**.
+  > List and prebuilt components are not shown in the data labeling page, and all labels here only apply to the **learned component**.
 
 To remove a label:
   1. From within your utterance, select the entity you want to remove a label from.
   3. Scroll through the menu that appears, and select **Remove label**.
 
-To delete or rename an entity:
+To delete an entity:
   1. Select the entity you want to edit in the right side pane.
   2. Click on the three dots next to the entity, and select the option you want from the drop-down menu.
+
+## Suggest utterances with Azure OpenAI
+
+In CLU, use Azure OpenAI to suggest utterances to add to your project using GPT models. You first need to get access and create a resource in Azure OpenAI. You'll then need to create a deployment for the GPT models. Follow the pre-requisite steps [here](../../../openai/how-to/create-resource.md).
+
+Before you get started, the suggest utterances feature is only available if your Language resource is in the following regions:
+* East US
+* South Central US
+* West Europe
+
+In the Data Labeling page: 
+
+1. Click on the **Suggest utterances** button. A pane will open up on the right side prompting you to select your Azure OpenAI resource and deployment. 
+2. On selection of an Azure OpenAI resource, click **Connect**, which allows your Language resource to have direct access to your Azure OpenAI resource. It assigns your Language resource the role of `Cognitive Services User` to your Azure OpenAI resource, which allows your current Language resource to have access to Azure OpenAI's service. If the connection fails, follow these [steps](#add-required-configurations-to-azure-openai-resource) below to add the right role to your Azure OpenAI resource manually. 
+3. Once the resource is connected, select the deployment. The recommended model for the Azure OpenAI deployment is `text-davinci-002`.
+4. Select the intent you'd like to get suggestions for. Make sure the intent you have selected has at least 5 saved utterances to be enabled for utterance suggestions. The suggestions provided by Azure OpenAI are based on the **most recent utterances** you've added for that intent. 
+5. Click on **Generate utterances**. Once complete, the suggested utterances will show up with a dotted line around it, with the note *Generated by AI*. Those suggestions need to be accepted or rejected. Accepting a suggestion simply adds it to your project, as if you had added it yourself. Rejecting it deletes the suggestion entirely. Only accepted utterances will be part of your project and used for training or testing. You can accept or reject by clicking on the green check or red cancel buttons beside each utterance. You can also use the `Accept all` and `Reject all` buttons in the toolbar. 
+
+:::image type="content" source="../media/suggest-utterances.png" alt-text="A screenshot showing utterance suggestions in Language Studio." lightbox="../media/suggest-utterances.png":::
+
+Using this feature entails a charge to your Azure OpenAI resource for a similar number of tokens to the suggested utterances generated. Details for Azure OpenAI's pricing can be found [here](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
+
+### Add required configurations to Azure OpenAI resource
+
+If connecting your Language resource to an Azure OpenAI resource fails, follow these steps:
+
+Enable identity management for your Language resource using the following options:
+
+### [Azure portal](#tab/portal)
+
+Your Language resource must have identity management, to enable it using [Azure portal](https://portal.azure.com/):
+
+1. Go to your Language resource
+2. From left hand menu, under **Resource Management** section, select **Identity**
+3. From **System assigned** tab, make sure to set **Status** to **On**
+
+### [Language Studio](#tab/studio)
+
+Your Language resource must have identity management, to enable it using [Language Studio](https://aka.ms/languageStudio):
+
+1. Click the settings icon in the top right corner of the screen
+2. Select **Resources**
+3. Select the check box **Managed Identity** for your Language resource.
+
+---
+
+After enabling managed identity, assign the role `Cognitive Services User` to your Azure OpenAI resource using the managed identity of your Language resource. 
+
+  1. Go to the [Azure portal](https://portal.azure.com/) and navigate to your Azure OpenAI resource.
+  2. Click on the Access Control (IAM) tab on the left. 
+  3. Click on Add > Add role assignment. 
+  4. Select "Job function roles" and click Next.
+  5. Select `Cognitive Services User` from the list of roles and click Next.
+  6. Select Assign access to "Managed identity" and click on "Select members". 
+  7. Under "Managed identity" select "Language".
+  8. Search for your resource and select it. Then click on the Select button below and next to complete the process.
+  9. Review the details and click on Review + Assign.
+
+:::image type="content" source="../media/add-role-azure-openai.gif" alt-text="Multiple screenshots showing the steps to add the required role to your Azure OpenAI resource." lightbox="../media/add-role-azure-openai.gif":::
+
+After a few minutes, refresh the Language Studio and you will be able to successfully connect to Azure OpenAI.
 
 ## Next Steps
 * [Train Model](./train-model.md)

@@ -1,6 +1,6 @@
 ---
 title: "Deploy Helm Charts using GitOps on Azure Arc-enabled Kubernetes cluster"
-ms.date: 03/21/2023
+ms.date: 05/08/2023
 ms.topic: how-to
 description: "Use GitOps with Helm for an Azure Arc-enabled cluster configuration"
 ---
@@ -10,7 +10,7 @@ description: "Use GitOps with Helm for an Azure Arc-enabled cluster configuratio
 > [!IMPORTANT]
 > This article is for GitOps with Flux v1.  GitOps with Flux v2 is now available for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the tutorial for GitOps with Flux v2](./tutorial-use-gitops-flux2.md). We recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible.
 >
-> Support for Flux v1-based cluster configuration resources created prior to May 1, 2023 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on May 1, 2023, you won't be able to create new Flux v1-based cluster configuration resources.
+> Support for Flux v1-based cluster configuration resources created prior to January 1, 2024 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on January 1, 2024, you won't be able to create new Flux v1-based cluster configuration resources.
 Helm is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers like APT and Yum, Helm is used to manage Kubernetes charts, which are packages of pre-configured Kubernetes resources.
 
 This article shows you how to configure and use Helm with Azure Arc-enabled Kubernetes.

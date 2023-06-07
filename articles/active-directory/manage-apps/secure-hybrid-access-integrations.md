@@ -11,6 +11,8 @@ ms.workload: identity
 ms.date: 01/19/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
+
 ---
 
 # Secure hybrid access with Azure Active Directory partner integrations
@@ -572,7 +574,7 @@ To help protect legacy applications, while using networking and delivery control
 * **Citrix ADC**
   * [Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](../saas-apps/citrix-netscaler-tutorial.md)
 * **F5 BIG-IP Access Policy Manager**
-  * [Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](./f5-aad-integration.md)
+  * [Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](./f5-integration.md)
 * **Kemp LoadMaster**
   * [Tutorial: Azure AD SSO integration with Kemp LoadMaster Azure AD integration](../saas-apps/kemp-tutorial.md)
 * **Pulse Secure Virtual Traffic Manager**
@@ -585,7 +587,7 @@ The following VPN solution providers connect with Azure AD to enable modern auth
 * **Fortinet FortiGate**
   * [Tutorial: Azure AD SSO integration with FortiGate SSL VPN](../saas-apps/fortigate-ssl-vpn-tutorial.md)
 * **F5 BIG-IP Access Policy Manager**
-  * [Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](./f5-aad-password-less-vpn.md)
+  * [Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](./f5-passwordless-vpn.md)
 * **Palo Alto Networks GlobalProtect**
   * [Tutorial: Azure AD SSO integration with Palo Alto Networks - Admin UI](../saas-apps/paloaltoadmin-tutorial.md)
 * **Pulse Connect Secure**

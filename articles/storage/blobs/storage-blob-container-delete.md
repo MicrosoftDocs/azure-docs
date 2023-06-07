@@ -12,7 +12,7 @@ ms.date: 03/28/2022
 
 ms.subservice: blobs
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Delete and restore a blob container with .NET

@@ -3,6 +3,7 @@ title: Use AzureRM PowerShell scripts to manage StorSimple devices
 description: Learn how to use Azure Resource Manager SDK-based scripts to manage your StorSimple 8000 series device.
 author: alkohli
 ms.service: storsimple
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 08/18/2022
 ms.author: alkohli
@@ -51,8 +52,8 @@ This section takes an example script and details the various steps required to r
 Before you begin, ensure that you have:
 
 *	Azure PowerShell installed. To install Azure PowerShell modules:
-    * In a Windows environment, follow the steps in [Install and configure Azure PowerShell](/powershell/azure/install-az-ps). You can install Azure PowerShell on your Windows Server host for your StorSimple if using one.
-    * In a Linux or MacOS environment, follow the steps in [Install and configure Azure PowerShell on MacOS or Linux](/powershell/azure/install-az-ps).
+    * In a Windows environment, follow the steps in [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell). You can install Azure PowerShell on your Windows Server host for your StorSimple if using one.
+    * In a Linux or MacOS environment, follow the steps in [Install and configure Azure PowerShell on MacOS or Linux](/powershell/azure/install-azure-powershell).
 
 For more information about using Azure PowerShell, go to [Get started with using Azure PowerShell](/powershell/azure/get-started-azureps).
 

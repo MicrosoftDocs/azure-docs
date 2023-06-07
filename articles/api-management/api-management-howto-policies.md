@@ -100,6 +100,16 @@ When configuring a policy, you must first select the scope at which the policy a
 
 For more information, see [Set or edit policies](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order).
 
+### GraphQL resolver policies
+
+In API Management, a [GraphQL resolver](configure-graphql-resolver.md) is configured using policies scoped to a specific operation type and field in a [GraphQL schema](graphql-apis-overview.md#resolvers).
+
+* Currently, API Management supports GraphQL resolvers that specify HTTP data sources. Configure a single [`http-data-source`](http-data-source-policy.md) policy with elements to specify a request to (and optionally response from) an HTTP data source.
+* You can't include a resolver policy in policy definitions at other scopes such as API, product, or all APIs. It also doesn't inherit policies configured at other scopes.
+* The gateway evaluates a resolver-scoped policy *after* any configured `inbound` and `backend` policies in the policy execution pipeline.
+
+For more information, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
+
 ## Examples
 
 ### Apply policies specified at different scopes

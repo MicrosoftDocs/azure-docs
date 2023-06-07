@@ -1,7 +1,7 @@
 ---
 title: Deployment technologies in Azure Functions
 description: Learn the different ways you can deploy code to Azure Functions.
-ms.custom: vs-azure, vscode-azure-extension-update-not-needed
+ms.custom: vs-azure, vscode-azure-extension-update-not-needed, build-2023
 ms.topic: conceptual
 ms.date: 05/18/2022
 ---
@@ -19,8 +19,8 @@ The following table describes the available deployment methods for your Function
 | Deployment&nbsp;type | Methods | Best for... |
 | -- | -- | -- |
 | Tools-based |	&bull;&nbsp;[Visual&nbsp;Studio&nbsp;Code&nbsp;publish](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Visual Studio publish](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Core Tools publish](functions-run-local.md#publish) | Deployments during development and other ad hoc deployments. Deployments are managed locally by the tooling. |
-| App Service-managed| &bull;&nbsp;[Deployment&nbsp;Center&nbsp;(CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Container&nbsp;deployments](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  Continuous deployment (CI/CD) from source control or from a container registry. Deployments are managed by the App Service platform (Kudu).|
-| External pipelines|&bull;&nbsp;[Azure Pipelines](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[GitHub Actions](functions-how-to-github-actions.md) | Production and DevOps pipelines that include additional validation, testing, and other actions be run as part of an automated deployment. Deployments are managed by the pipeline. |
+| App Service-managed| &bull;&nbsp;[Deployment&nbsp;Center&nbsp;(CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Container&nbsp;deployments](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) |  Continuous deployment (CI/CD) from source control or from a container registry. Deployments are managed by the App Service platform (Kudu).|
+| External pipelines|&bull;&nbsp;[Azure Pipelines](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[GitHub Actions](functions-how-to-github-actions.md) | Production and Azure pipelines that include additional validation, testing, and other actions be run as part of an automated deployment. Deployments are managed by the pipeline. |
 
 While specific Functions deployments use the best technology based on their context, most deployment methods are based on [zip deployment](#zip-deploy).
 
@@ -95,6 +95,12 @@ Linux function apps running in the Consumption plan don't have an SCM/Kudu site,
 
 Function apps running on Linux in the [Dedicated (App Service) plan](dedicated-plan.md) and the [Premium plan](functions-premium-plan.md) also have a limited SCM/Kudu site.
 
+### App content storage
+
+Several deployment methods store the deployed or built application payload on the storage account associated with the function app. The Azure Files content share is generally used if configured, but some methods will instead store the payload in the blob store associated with the `AzureWebJobsStorage` connection. See the details in the "Where app content is stored" paragraphs of each deployment technology covered in the next section.
+
+[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
+
 ## Deployment technology details
 
 The following deployment methods are available in Azure Functions.
@@ -109,6 +115,8 @@ You can use an external package URL to reference a remote package (.zip) file th
 
 >__When to use it:__ External package URL is the only supported deployment method for Azure Functions running on Linux in the Consumption plan, if the user doesn't want a [remote build](#remote-build) to occur. When you update the package file that a function app references, you must [manually sync triggers](#trigger-syncing) to tell Azure that your application has changed. When you change the contents of the package file and not the URL itself, you must also restart your function app manually.
 
+>__Where app content is stored:__ App content is stored at the URL specified. This could be on Azure Blobs, possibly in the storage account specified by the `AzureWebJobsStorage` connection. Some client tools may default to deploying to a blob in this account. For example, for Linux Consumption apps, the Azure CLI will attempt to deploy through a package stored in a blob on the account specified by `AzureWebJobsStorage`.
+
 ### Zip deploy
 
 Use zip deploy to push a .zip file that contains your function app to Azure. Optionally, you can set your app to start [running from package](run-functions-from-deployment-package.md), or specify that a [remote build](#remote-build) occurs.
@@ -119,18 +127,24 @@ Use zip deploy to push a .zip file that contains your function app to Azure. Opt
 
 >__When to use it:__ Zip deploy is the recommended deployment technology for Azure Functions.
 
+>__Where app content is stored:__ App content from a zip deploy by default is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created. In Linux Consumption, the app content instead is persisted on a blob in the storage account specified by the `AzureWebJobsStorage` connection.
+
 ### Docker container
 
-You can deploy a Linux container image that contains your function app.
+You can deploy a function app running in a Linux container.
 
->__How to use it:__ Create a Linux function app in the Premium or Dedicated plan and specify which container image to run from. You can do this in two ways:
+>__How to use it:__ Create your functions in a Linux container then deploy the container to a Premium or Dedicated plan in Azure Functions or another container host. Use the [Azure Functions Core Tools](functions-run-local.md#) to create a Dockerfile for your project that you use to build a containerized function app. You can use the container in the following deployments: 
 >
->+ Create a Linux function app on an Azure App Service plan in the Azure portal. For **Publish**, select **Docker Image**, and then configure the container. Enter the location where the image is hosted.
->+ Create a Linux function app on an App Service plan by using the Azure CLI. To learn how, see [Create a function on Linux by using a custom image](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
+>+ Deploy to Azure Functions resources you create in the Azure portal. For **Publish**, select **Docker Image**, and then configure the container. Enter the location where the image is hosted. Requires either [Premium plan](functions-premium-plan.md) or [Dedicated (App Service) plan](dedicated-plan.md) hosting. 
+>+ Deploy to Azure Functions resources you create from the command line. Requires either a Premium or Dedicated (App Service) plan. To learn how, see [Create your first containerized Azure Functions](functions-deploy-container.md). 
+>+ Deploy to Azure Container Apps (preview). To learn how, see [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-apps.md).
+>+ Deploy to Azure Arc (preview). To learn how, see [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md).
+>+ Deploy to a Kubernetes cluster. You can deploy to a cluster using [Azure Functions Core Tools](functions-run-local.md). Use the [`func kubernetes deploy`](functions-core-tools-reference.md#func-kubernetes-deploy) command. 
 >
->To deploy to a Kubernetes cluster as a custom container, in [Azure Functions Core Tools](functions-run-local.md), use the [`func kubernetes deploy`](functions-core-tools-reference.md#func-kubernetes-deploy) command.
 
->__When to use it:__ Use the Docker container option when you need more control over the Linux environment where your function app runs. This deployment mechanism is available only for Functions running on Linux.
+>__When to use it:__ Use the Docker container option when you need more control over the Linux environment where your function app runs and where the container is hosted. This deployment mechanism is available only for functions running on Linux.
+
+>__Where app content is stored:__ App content is stored in the specified container registry as a part of the image.
 
 ### Web Deploy (MSDeploy)
 
@@ -142,6 +156,8 @@ Web Deploy packages and deploys your Windows applications to any IIS server, inc
 
 >__When to use it:__ Web Deploy is supported and has no issues, but the preferred mechanism is [zip deploy with Run From Package enabled](#zip-deploy). To learn more, see the [Visual Studio development guide](functions-develop-vs.md#publish-to-azure).
 
+>__Where app content is stored:__ App content is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created.
+
 ### Source control
 
 Use source control to connect your function app to a Git repository. An update to code in that repository triggers deployment. For more information, see the [Kudu Wiki](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
@@ -149,6 +165,8 @@ Use source control to connect your function app to a Git repository. An update t
 >__How to use it:__ Use Deployment Center in the Functions area of the portal to set up publishing from source control. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
 
 >__When to use it:__ Using source control is the best practice for teams that collaborate on their function apps. Source control is a good deployment option that enables more sophisticated deployment pipelines.
+
+>__Where app content is stored:__ The app content is in the source control system, but a locally cloned and built app content from is stored on the app file system, which may be backed by Azure Files from the storage account specified when the function app was created.
 
 ### Local Git
 
@@ -158,6 +176,8 @@ You can use local Git to push code from your local machine to Azure Functions by
 
 >__When to use it:__ In general, we recommend that you use a different deployment method. When you publish from local Git, you must [manually sync triggers](#trigger-syncing).
 
+>__Where app content is stored:__ App content is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created.
+
 ### Cloud sync
 
 Use cloud sync to sync your content from Dropbox and OneDrive to Azure Functions.
@@ -166,6 +186,8 @@ Use cloud sync to sync your content from Dropbox and OneDrive to Azure Functions
 
 >__When to use it:__ In general, we recommend other deployment methods. When you publish by using cloud sync, you must [manually sync triggers](#trigger-syncing).
 
+>__Where app content is stored:__ The app content is in the cloud store, but a local copy is stored on the app file system, which may be backed by Azure Files from the storage account specified when the function app was created.
+
 ### FTP
 
 You can use FTP to directly transfer files to Azure Functions.
@@ -173,6 +195,8 @@ You can use FTP to directly transfer files to Azure Functions.
 >__How to use it:__ Follow the instructions in [Deploy content by using FTP/s](../app-service/deploy-ftp.md).
 
 >__When to use it:__ In general, we recommend other deployment methods. When you publish by using FTP, you must [manually sync triggers](#trigger-syncing).
+
+>__Where app content is stored:__ App content is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created.
 
 ### Portal editing
 
@@ -185,6 +209,8 @@ In the portal-based editor, you can directly edit the files that are in your fun
 >+ [Visual Studio Code](./create-first-function-vs-code-csharp.md)
 >+ [Azure Functions Core Tools (command line)](functions-run-local.md)
 >+ [Visual Studio](functions-create-your-first-function-visual-studio.md)
+
+>__Where app content is stored:__ App content is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created.
 
 The following table shows the operating systems and languages that support portal editing:
 

@@ -87,15 +87,17 @@ Azure Cost Management + Billing includes several built-in dashboards for deep co
 >[!NOTE]
 >You might need additional access to cost management data. See [Assign access to cost management data](../cost-management-billing/costs/assign-access-acm-data.md).
 
-To limit the view to Azure Monitor charges, [create a filter](../cost-management-billing/costs/group-filter.md) for the following service names:
+To create a view just Azure Monitor charges, [create a filter](../cost-management-billing/costs/group-filter.md) for the following service names:
 
 - Azure Monitor
-- Application Insights
 - Log Analytics
 - Insight and Analytics
+- Application Insights
 
 >[!NOTE]
 >Usage for Azure Monitor Logs (Log Analytics) can be billed with the **Log Analytics** service (for Pay-as-you-go Data Ingestion and Data Retention), or with the **Azure Monitor** service (for Commitment Tiers, Basic Logs, Search, Search Jobs, Data Archive and Data Export) or with the **Insight and Analytics** service when using the legacy Per Node pricing tier.  Except for a small set of legacy resources, classic Application Insights data ingestion and retention are billed as the **Log Analytics** service. Note then when you change your workspace from a Pay-as-you-go pricing tier to a Commitment Tier, on your bill, the costs will appear to shift from Log Analytics to Azure Monitor, reflecting the service associated to each pricing tier. 
+
+[Classic Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/convert-classic-resource) usage is billed using Log Analytics data ingestion and retention meters. In the context of biling, the Application Insights service is only includes usage for multi-step web tests and some old Application Insights resources still using legacy classic-mode Application Insights pricing tiers.
 
 Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources, so you might want to add them to your filter. 
 
@@ -133,7 +135,11 @@ You can get more usage details about Log Analytics workspaces and Application In
 
 ### Log Analytics workspace
 
-To learn about your usage trends and choose the most cost-effective [commitment tier](logs/cost-logs.md#commitment-tiers) for your Log Analytics workspace, select **Usage and estimated costs** from the **Log Analytics workspace** menu in the Azure portal.
+To learn about your usage trends and choose the most cost-effective pricing tier (Pay-as-you-go or a [commitment tier](logs/cost-logs.md#commitment-tiers)) for your Log Analytics workspace, select **Usage and estimated costs** from the **Log Analytics workspace** menu in the Azure portal.
+
+> [!NOTE]
+> 
+> **Usage and estimated costs** does *not* show your actual billed usage. It calculates what your data ingestion charges would have been for the last 31 days of usage if your workspace had been in each of the available pricing tiers. You can use these estimated costs to select the lowest cost tier based on your workspace's data ingestion.
 
 :::image type="content" source="logs/media/manage-cost-storage/usage-estimated-cost-dashboard-01.png" alt-text="Screenshot that shows Usage and estimated costs.":::
 

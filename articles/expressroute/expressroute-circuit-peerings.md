@@ -12,6 +12,9 @@ ms.author: duau
 ---
 # ExpressRoute circuits and peering
 
+> [!IMPORTANT]
+> Public peering for ExpressRoute is being retired on **March 31, 2024**. For more information, see [**retirement notice**](https://azure.microsoft.com/updates/retirement-notice-migrate-from-public-peering-by-march-31-2024/).
+
 ExpressRoute circuits connect your on-premises infrastructure to Microsoft through a connectivity provider. This article helps you understand ExpressRoute circuits and routing domains/peering. The following figure shows a logical representation of connectivity between your WAN and Microsoft.
 
 ![Diagram showing how ExpressRoute circuits connect your on-premises infrastructure to Microsoft through a connectivity provider.](./media/expressroute-circuit-peerings/expressroute-basic.png)
@@ -29,7 +32,7 @@ ExpressRoute circuits don't map to any physical entities. A circuit is uniquely 
 
 New ExpressRoute circuits can include two independent peerings: Private peering and Microsoft peering. Whereas existing ExpressRoute circuits may have three peerings: Azure Public, Azure Private and Microsoft. Each peering is a pair of independent BGP sessions, each of them configured redundantly for high availability. There's a 1:N (1 <= N <= 3) mapping between an ExpressRoute circuit and routing domains. An ExpressRoute circuit can have any one, two, or all three peerings enabled per ExpressRoute circuit.
 
-Each circuit has a fixed bandwidth (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 10 Gbps) and is mapped to a connectivity provider and a peering location. The bandwidth you select is shared across all circuit peerings
+Each circuit has a fixed bandwidth (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps) and is mapped to a connectivity provider and a peering location. The bandwidth you select is shared across all circuit peerings
 
 ### <a name="quotas"></a>Quotas, limits, and limitations
 
@@ -44,10 +47,10 @@ Default quotas and limits apply for every ExpressRoute circuit. Refer to the [Az
     * Can only be done using Azure CLI or Azure PowerShell.
     * Billing type must be **unlimited**.
 * Changing from *MeteredData* to *UnlimitedData*.
+* Downgrade from Premium SKU to Standard.
 
 #### Unsupported workflow
 
-* Downgrade from Premium to Standard SKU.
 * Changing from *UnlimitedData* to *MeteredData*.
 
 ## <a name="routingdomains"></a>ExpressRoute peering

@@ -4,6 +4,7 @@ description: This article shows you how to upgrade your existing function apps r
 ms.service: azure-functions
 ms.date: 03/15/2023
 ms.devlang: javascript, typescript
+ms.custom: devx-track-js
 ms.topic: how-to
 ---
 
@@ -23,11 +24,45 @@ Version 4 was designed with the following goals in mind:
 
 Version 4 of the Node.js programming model requires the following minimum versions:
 
-- [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0-alpha.8+
+- [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0-alpha.9+
 - [Node.js](https://nodejs.org/en/download/releases/) v18+
 - [TypeScript](https://www.typescriptlang.org/) v4+
 - [Azure Functions Runtime](./functions-versions.md) v4.16+
-- [Azure Functions Core Tools](./functions-run-local.md) v4.0.4915+ (if running locally)
+- [Azure Functions Core Tools](./functions-run-local.md) v4.0.5095+ (if running locally)
+
+## Enable v4 programming model
+
+The following application setting is required to run the v4 programming model while it is in preview: 
+- Name: `AzureWebJobsFeatureFlags`
+- Value: `EnableWorkerIndexing`
+
+If you're running locally using [Azure Functions Core Tools](functions-run-local.md), you should add this setting to your `local.settings.json` file. If you're running in Azure, follow these steps with the tool of your choice:
+
+# [Azure CLI](#tab/azure-cli-set-indexing-flag)
+
+Replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and resource group, respectively.
+
+```azurecli 
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --settings AzureWebJobsFeatureFlags=EnableWorkerIndexing
+```
+
+# [Azure PowerShell](#tab/azure-powershell-set-indexing-flag)
+
+Replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and resource group, respectively.
+
+```azurepowershell
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobsFeatureFlags" = "EnableWorkerIndexing"}
+```
+
+# [VS Code](#tab/vs-code-set-indexing-flag)
+
+1. Make sure you have the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed
+1. Press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
+1. Choose your subscription and function app when prompted
+1. For the name, type `AzureWebJobsFeatureFlags` and press <kbd>Enter</kbd>. 
+1. For the value, type `EnableWorkerIndexing` and press <kbd>Enter</kbd>.
+
+---
 
 ## Include the npm package
 
@@ -327,6 +362,13 @@ The http request and response types are now a subset of the [fetch standard](htt
 
 ## Troubleshooting
 
-If you see the following error, make sure you [set the `EnableWorkerIndexing` flag](./functions-reference-node.md#enable-v4-programming-model) and you're using the minimum version of all [requirements](#requirements):
+If you see the following error, make sure you [set the `EnableWorkerIndexing` flag](#enable-v4-programming-model) and you're using the minimum version of all [requirements](#requirements):
 
 > No job functions found. Try making your job classes and methods public. If you're using binding extensions (e.g. Azure Storage, ServiceBus, Timers, etc.) make sure you've called the registration method for the extension(s) in your startup code (e.g. builder.AddAzureStorage(), builder.AddServiceBus(), builder.AddTimers(), etc.).
+
+If you see the following error, make sure you're using Node.js version 18.x:
+
+> System.Private.CoreLib: Exception while executing function: Functions.httpTrigger1. System.Private.CoreLib: Result: Failure
+> Exception: undici_1.Request is not a constructor
+
+For any other issues or feedback, feel free to file an issue on our [GitHub repo](https://github.com/Azure/azure-functions-nodejs-library/issues).

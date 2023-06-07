@@ -4,15 +4,13 @@ description: Set up your mobile application developed using Visual Studio Mobile
 services: traffic-manager
 documentationcenter: traffic-manager
 author: greg-lindsay
-
 ms.service: traffic-manager
 ms.devlang: java
 ms.topic: how-to
-ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: greglin
-ms.custom: devx-track-java
+ms.custom: template-how-to, devx-track-java
 ---
 
 # How to send Real User Measurements to Traffic Manager with Visual Studio Mobile Center

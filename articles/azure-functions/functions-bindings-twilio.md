@@ -4,7 +4,7 @@ description: Understand how to use Twilio bindings with Azure Functions.
 ms.topic: reference
 ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, python
-ms.custom: "devx-track-csharp, H1Hack27Feb2017"
+ms.custom: devx-track-csharp, H1Hack27Feb2017, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -76,10 +76,6 @@ This version of the extension should already be available to your function app w
 # [Functions 1.x](#tab/functionsv1)
 
 You can add the extension to your project by explicitly installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), version 2.x. To learn more, see [Explicitly install extensions](functions-bindings-register.md#explicitly-install-extensions).
-
----
-
-::: zone-end
 
 ---
 
@@ -218,7 +214,6 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 ```
 
 ---
-
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript"

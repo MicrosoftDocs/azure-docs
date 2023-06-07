@@ -272,6 +272,8 @@
       href: logic-apps-enterprise-integration-flatfile.md
     - name: XML and JSON transforms
       items:
+      - name: Create maps in Visual Studio Code
+        href: create-maps-data-transformation-visual-studio-code.md
       - name: Transform XML
         href: logic-apps-enterprise-integration-transform.md
       - name: Process XML
@@ -300,6 +302,10 @@
       href: logic-apps-azure-functions.md
     - name: Azure Logic Apps
       href: logic-apps-http-endpoint.md
+    - name: Azure Monitor Application Insights
+      href: ../connectors/connectors-azure-application-insights.md
+    - name: Azure Monitor Logs
+      href: ../connectors/connectors-azure-monitor-logs.md
     - name: Azure Service Bus
       href: ../connectors/connectors-create-api-servicebus.md
     - name: Azure SQL Database
@@ -353,7 +359,13 @@
     - name: RosettaNet
       href: logic-apps-enterprise-integration-rosettanet.md
     - name: SAP
-      href: logic-apps-using-sap-connector.md
+      items:
+      - name: Prerequisites and setup
+        href: logic-apps-using-sap-connector.md
+      - name: Create common example workflows
+        href: sap-create-example-scenario-workflows.md
+      - name: Generate schemas for SAP artifacts
+        href: sap-generate-schemas-for-artifacts.md
     - name: SFTP - SSH
       href: ../connectors/connectors-sftp-ssh.md
     - name: Sliding Window

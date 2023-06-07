@@ -53,13 +53,13 @@ To specify what happens to the attached resources when you delete a VM, use the 
 - `--data-disk-delete-option` - data disk.
 - `--nic-delete-option` - NIC.
 
-In this example, we create a VM and set the OS disk and NIC to be deleted when we delete the VM.
+In this example, we create a VM named *myVM* in the resource group named *myResourceGroup* using an image named *myImage*, and set the OS disk and NIC to be deleted when we delete the VM.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image myImage \
     --public-ip-sku Standard \
     --nic-delete-option delete \
     --os-disk-delete-option delete \
@@ -100,23 +100,28 @@ This example shows how to set the data disk and NIC to be deleted when the VM is
 PUT 
 https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/myVM?api-version=xx  
 { 
-"storageProfile": { 
+  "storageProfile": { 
     "dataDisks": [ 
-        { "diskSizeGB": 1023, 
+        { 
+          "diskSizeGB": 1023, 
           "name": "myVMdatadisk", 
           "createOption": "Empty", 
           "lun": 0, 
-          "deleteOption": “Delete” 
-       }    ] 
-},  
-"networkProfile": { 
+          "deleteOption": "Delete"
+       }
+    ] 
+  },  
+  "networkProfile": { 
       "networkInterfaces": [ 
-        { "id": "/subscriptions/.../Microsoft.Network/networkInterfaces/myNIC", 
+        { 
+          "id": "/subscriptions/.../Microsoft.Network/networkInterfaces/myNIC", 
           "properties": { 
             "primary": true, 
-  	    "deleteOption": “Delete” 
-          }        } 
-      ]  
+  	         "deleteOption": "Delete"
+          }
+        } 
+      ]
+  }
 } 
 ```
 
@@ -143,9 +148,9 @@ PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/provider
 
             "id": "/subscriptions/../publicIPAddresses/test-ip", 
 
-          "properties": { 
-            “deleteOption”: “Delete” 
-            } 
+            "properties": { 
+              "deleteOption": "Delete"
+            }
           }, 
 
           "subnet": { 
@@ -264,15 +269,14 @@ PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegr
         "networkProfile": { 
             "networkInterfaces": [ 
                 { 
-                    "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Network/networkInterfaces/nic336" 
-                , 
+                   "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Network/networkInterfaces/nic336", 
                    "properties": { 
-                   "deleteOption": "Delete" 
-} 
-} 
+                     "deleteOption": "Delete" 
+                    } 
+                } 
             ] 
         } 
-} 
+    } 
 } 
 ```
 ---
@@ -363,14 +367,14 @@ You can use the Azure REST API to apply force delete to your scale set. Use the 
 
 ## FAQ
 
-### Q: Does this feature work with shared disks?
+### Q: Does this feature work with shared disks?
 
-A: For shared disks, you can't set the ‘deleteOption’ property to ‘Delete’. You can leave it blank or set it to ‘Detach’
+A: For shared disks, you can't set the ‘deleteOption’ property to ‘Delete’. You can leave it blank or set it to ‘Detach’
 
 
 ### Q: Which Azure resources support this feature?
 
-A: This feature is supported on all managed disk types used as OS disks and Data disks, NICs, and Public IPs
+A: This feature is supported on all managed disk types used as OS disks and Data disks, NICs, and Public IPs
 
 
 ### Q: Can I use this feature on disks and NICs that aren't associated with a VM?

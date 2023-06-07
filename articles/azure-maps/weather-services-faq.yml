@@ -27,7 +27,7 @@ sections:
         answer: |
           Azure Maps is built with the collaboration of world-class mobility and location technology partners, including AccuWeather, who provides the underlying weather data. To read the announcement of Azure Map's collaboration with AccuWeather, see [Rain or shine: Azure Maps Weather Services will bring insights to your enterprise](https://azure.microsoft.com/blog/rain-or-shine-azure-maps-weather-services-will-bring-insights-to-your-enterprise/).
           
-          AccuWeather has real-time weather and environmental information available anywhere in the world, largely because of their partnerships with many national governmental weather agencies and other proprietary arrangements. A list of this foundational information is provided below.
+          AccuWeather has real-time weather and environmental information available anywhere in the world, largely because of their partnerships with many governmental weather agencies and other proprietary arrangements. A list of this foundational information is provided below.
           
           * Publicly available global surface observations from government agencies
           * Proprietary surface observation datasets from governments and private companies
@@ -39,7 +39,7 @@ sections:
           * Air quality observations
           * Observations from departments of transportation
           
-          Tens of thousands of surface observations, along with other data, are incorporated to create and influence the current conditions made available to users. These surface observations include not only freely available standard datasets, but also unique observations obtained from national meteorological services in many countries/regions, such as India, Brazil, Canada, and other proprietary inputs. These unique datasets increase the spatial and temporal resolution of current condition data for our users.
+          Tens of thousands of surface observations, along with other data, are incorporated to create and influence the current conditions made available to users. These surface observations include not only freely available standard datasets, but also unique observations obtained from meteorological services in many countries/regions, such as India, Brazil, Canada, and other proprietary inputs. These unique datasets increase the spatial and temporal resolution of current condition data for our users.
           
           These datasets are reviewed in real time for accuracy for the Digital Forecast System, which uses AccuWeather’s proprietary artificial intelligence algorithms to continuously modify the forecasts, ensuring they always incorporate the latest data and, in that way, maximize their continual accuracy.
           

@@ -16,6 +16,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 In this quickstart, you will learn how to connect to the database on Azure Database for PostgreSQL Single Server and run SQL statements to query using Python on macOS, Ubuntu Linux, or Windows.
 
 > [!TIP]

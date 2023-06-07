@@ -3,16 +3,16 @@ title: Azure Kubernetes Service (AKS) backup using Azure Backup prerequisites
 description: This article explains the prerequisites for Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 03/20/2023
+ms.date: 03/27/2023
 author: jyothisuri
 ms.author: jsuri
 ---
 
 # Prerequisites for Azure Kubernetes Service backup using Azure Backup (preview)
 
-This article describes the prerequisites for Azure Kubernetes Sercuce (AKS) backup.
+This article describes the prerequisites for Azure Kubernetes Service (AKS) backup.
 
-Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. Based on the least privileged security model, a Backup vault must have *Trusted Access* enabled to communicate with the AKS cluster. 
+Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. Based on the least privileged security model, a Backup vault must have *Trusted Access* enabled to communicate with the AKS cluster.
 
 ## Backup Extension
 
@@ -24,11 +24,11 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - You need to install Backup Extension on both the source cluster to be backed up and the target cluster where the restore will happen.
 
-- Backup Extension can be installed in the cluster from the *AKS portal* blade on the **Backup** tab under **Settings**. You can also use the Azure CLI commands to [manage the installation and other operations on the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#manage-operations).
+- Backup Extension can be installed in the cluster from the *AKS portal* blade on the **Backup** tab under **Settings**. You can also use the Azure CLI commands to [manage the installation and other operations on the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#backup-extension-related-operations).
 
-- Before you install an extension in an AKS cluster, you must register the `Microsoft.KubernetesConfiguration` resource provider at the subscription level. Learn how to [register the resource provider](azure-kubernetes-service-cluster-manage-backups.md#register-the-resource-provider).
+- Before you install an extension in an AKS cluster, you must register the `Microsoft.KubernetesConfiguration` resource provider at the subscription level. Learn how to [register the resource provider](azure-kubernetes-service-cluster-manage-backups.md#resource-provider-registrations).
 
-Learn [how to manage the operation to install Backup Extension using Azure CLI](azure-kubernetes-service-cluster-manage-backups.md#manage-operations).
+Learn [how to manage the operation to install Backup Extension using Azure CLI](azure-kubernetes-service-cluster-manage-backups.md#backup-extension-related-operations).
 
 ## Trusted Access
 
@@ -38,9 +38,14 @@ Your Azure resources access AKS clusters through the AKS regional gateway using 
 
 For AKS backup, the Backup vault accesses your AKS clusters via Trusted Access to configure backups and restores. The Backup vault is assigned a pre-defined role **Microsoft.DataProtection/backupVaults/backup-operator** in the AKS cluster, allowing it to only perform specific backup operations. 
 
-Before you enable Trusted Access between a Backup vault and an AKS cluster, [enable a *feature flag* on the cluster's subscription](azure-kubernetes-service-cluster-manage-backups.md#enable-the-feature-flag).
+To enable Trusted Access between a Backup vault and an AKS cluster, you must register the `TrustedAccessPreview`  feature flag on `Microsoft.ContainerService` at the subscription level. Learn more [to register the resource provider](azure-kubernetes-service-cluster-manage-backups.md#enable-the-feature-flag).
 
-Learn [how to enable Trusted Access](azure-kubernetes-service-cluster-manage-backups.md#enable-trusted-access).
+Learn [how to enable Trusted Access](azure-kubernetes-service-cluster-manage-backups.md#register-the-trusted-access).
+
+>[!Note]
+>- You can install the Backup Extension on your AKS cluster directly from the Azure portal under the *Backup* section in AKS portal.
+>- You can also enable Trusted Access between Backup vault and AKS cluster during the backup or restore operations in the Azure portal.
+
 
 ## AKS Cluster
 
@@ -54,14 +59,14 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
 - Before installing Backup Extension in the AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If disabled, see [these steps to enable them](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
 
-- Backup Extension uses the AKS cluster’s Managed System Identity to perform backup operations. So, ASK backup doesn't support AKS clusters using Service Principal. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.md#update-an-aks-cluster-to-use-a-managed-identity).
+- Backup Extension uses the AKS cluster’s Managed System Identity to perform backup operations. So, ASK backup doesn't support AKS clusters using Service Principal. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
 
   >[!Note]
   >Only Managed System Identity based AKS clusters are supported by AKS backup. The support for User Identity based AKS clusters is currently not available. 
 
 - The Backup Extension during installation fetches Container Images stored in Microsoft Container Registry (MCR). If you enable a firewall on the AKS cluster, the extension installation process might fail due to access issues on the Registry. Learn [how to allow MCR access from the firewall](../container-registry/container-registry-firewall-access-rules.md#configure-client-firewall-rules-for-mcr).
 
-- Install Backup Extension on the AKS clusters following the [required FQDN/application rules](../aks/limit-egress-traffic.md#required-fqdn--application-rules-6).
+- Install Backup Extension on the AKS clusters following the [required FQDN/application rules](../aks/outbound-rules-control-egress.md).
 
 - If you've any previous installation of *Velero* in the AKS cluster, you need to delete it before installing Backup Extension.
 

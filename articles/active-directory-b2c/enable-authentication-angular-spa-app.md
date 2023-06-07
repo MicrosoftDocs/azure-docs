@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 03/23/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -107,7 +107,7 @@ export const b2cPolicies = {
 export const msalConfig: Configuration = {
      auth: {
          clientId: '<your-MyApp-application-ID>',
-         authority: b2cPolicies.authorities.signUpSignIn,
+         authority: b2cPolicies.authorities.signUpSignIn.authority,
          knownAuthorities: [b2cPolicies.authorityDomain],
          redirectUri: '/', 
      },

@@ -4,14 +4,14 @@ description: Learn how to automatically provision and de-provision user accounts
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 274810a2-bd74-4500-95f1-c720abf23541
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 04/04/2023
 ms.author: thwimmer
 ---
 
@@ -50,7 +50,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ### Generate Secret Token in Asana
 
-* Sign in to [Asana](https://app.asana.com/) by using your admin account.
+* Sign in to [Asana](https://app.asana.com/-/login) by using your admin account.
 * Select the profile photo from the top bar, and select your current organization-name settings.
 * Go to the **Service Accounts** tab.
 * Select **Add Service Account**.

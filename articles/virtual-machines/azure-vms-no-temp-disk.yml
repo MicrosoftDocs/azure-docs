@@ -14,7 +14,7 @@ summary: |
   > [!TIP]
   > Try the **[Virtual Machine selector tool](https://aka.ms/vm-selector)** to find other sizes that best fit your workload.
 
-  This article provides answers to frequently asked questions (FAQ) about Azure VM sizes that do not have a local temporary disk (i.e. no local temp disk).
+  This article provides answers to frequently asked questions (FAQ) about Azure VM sizes that don't have a local temporary disk (that is, no local temp disk).
   
 
 sections:
@@ -23,7 +23,7 @@ sections:
       - question: |
           What does no local temp disk mean? 
         answer: |
-          Traditionally, we have had VM sizes (e.g. Standard_D2s_v3, Standard_E48_v3) that include a small local disk (i.e. a D: Drive). With the VM series such as [Dasv5](dasv5-dadsv5-series.md) and [Easv5](easv5-eadsv5-series.md) that small local disk no longer exists. However, you can still attach Standard HDD, Premium SSD or Ultra SSD to use as remote storage.
+          Traditionally, we have had VM sizes (for example, Standard_D2s_v3, Standard_E48_v3) that include a small local disk (that is, a D: Drive). With the VM series such as [Dasv5](dasv5-dadsv5-series.md) and [Easv5](easv5-eadsv5-series.md) that small local disk no longer exists. However, you can still attach Standard HDD, Premium SSD or Ultra SSD to use as remote storage.
           
       - question: |
           What if I still want a local temp disk?
@@ -31,7 +31,7 @@ sections:
           If your workload requires a local temporary disk, we still offer sizes such as the [Dadsv5](dasv5-dadsv5-series.md). 
           
           > [!NOTE]
-          > Local temporary disk is not persistent; to ensure your data is persistent, please use Standard HDD, Premium SSD or Ultra SSD options. 
+          > Local temporary disk isn't persistent; to ensure your data is persistent, please use Standard HDD, Premium SSD or Ultra SSD options. 
 
           
       - question: |
@@ -45,7 +45,7 @@ sections:
           If interested in a work around, please see next question.
           
           > [!NOTE]
-          > If an image depends on the resource disk, or a pagefile or swapfile exists on the local temp disk, the diskless images will not work—instead, use the ‘with disk’ alternative. 
+          > If an image depends on the resource disk, or a pagefile or swapfile exists on the local temp disk, the diskless images won't work—instead, use the ‘with disk’ alternative. 
           
       - question: |
           How do I migrate from a VM size with local temp disk to a VM size with no local temp disk?  
@@ -70,12 +70,7 @@ sections:
           Will this break my custom scripts, custom images or OS images that have scratch files or page files on a local temp disk?
         answer: |
           If the custom OS image points to the local temp disk, the image might not work correctly with this diskless size.
-
-      - question: |
-          Have questions or feedback?
-        answer: |
-          Fill out the [feedback form]( https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRUMzdCQkw0OVVRTldFUUtXSTlLQVBPUkVHSy4u). 
-
+          
 additionalContent: |
 
   ## Next steps

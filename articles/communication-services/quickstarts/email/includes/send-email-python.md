@@ -5,13 +5,16 @@ author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
 ms.author: natekimball
-ms.date: 03/02/2023
+ms.date: 03/24/2023
 ms.topic: include
 ms.service: azure-communication-services
 ms.custom: mode-other
 ---
 
 Get started with Azure Communication Services by using the Communication Services Python Email SDK to send Email messages.
+
+> [!TIP]
+> Jump-start your email sending experience with Azure Communication Services by skipping straight to the [Basic Email Sending](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email) and [Advanced Email Sending](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email-advanced) sample code on GitHub.
 
 ## Understanding the email object model
 
@@ -154,7 +157,9 @@ pip install azure-communication-email
 ```
 ## Creating the email client with authentication
 
-### Option 1: Authenticate using a connection string
+There are a few different options available for authenticating an email client:
+
+#### [Connection String](#tab/connection-string)
 
 Instantiate an **EmailClient** with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
@@ -163,9 +168,9 @@ Instantiate an **EmailClient** with your connection string. Learn how to [manage
 email_client = EmailClient.from_connection_string(<connection_string>)
 ```
 
-### Option 2: Authenticate using Azure Active Directory
+#### [Azure Active Directory](#tab/aad)
 
-You can also use Active Directory authentication using DefaultAzureCredential.
+You can also use Active Directory authentication using [DefaultAzureCredential](../../../concepts/authentication.md).
 
 ```python
 from azure.communication.email import EmailClient
@@ -176,7 +181,7 @@ endpoint = "https://<resource-name>.communication.azure.com"
 email_client = EmailClient(endpoint, DefaultAzureCredential())
 ```
 
-### Option 3: Authenticate using AzureKeyCredential
+#### [AzureKeyCredential](#tab/azurekeycredential)
 
 Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
 
@@ -189,6 +194,8 @@ endpoint = "<your-endpoint-uri>";
 
 email_client = EmailClient(endpoint, key);
 ```
+
+---
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 
@@ -208,7 +215,7 @@ message = {
     "content": {
         "subject": "This is the subject",
         "plainText": "This is the body",
-        "html": "html><h1>This is the body</h1></html>"
+        "html": "<html><h1>This is the body</h1></html>"
     },
     "recipients": {
         "to": [
@@ -231,7 +238,6 @@ Make these replacements in the code:
 - Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
 - Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
 
-
 ### Get the status of the email delivery
 
 We can poll for the status of the email delivery by setting a loop on the operation status object returned from the EmailClient's `begin_send` method:
@@ -242,7 +248,7 @@ POLLER_WAIT_TIME = 10
 try:
     email_client = EmailClient.from_connection_string(connection_string)
 
-    poller = client.begin_send(message);
+    poller = email_client.begin_send(message);
 
     time_elapsed = 0
     while not poller.done():
@@ -254,7 +260,7 @@ try:
         if time_elapsed > 18 * POLLER_WAIT_TIME:
             raise RuntimeError("Polling timed out.")
 
-    if poller.status() == "Succeeded":
+    if poller.result()["status"] == "Succeeded":
         print(f"Successfully sent the email (operation id: {poller.result()['id']})")
     else:
         raise RuntimeError(str(poller.result()["error"]))
@@ -274,76 +280,3 @@ python send-email.py
 ### Sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email)
-
-## Advanced sending
-
-### Send an email message to multiple recipients
-
-We can define multiple recipients by adding more EmailAddresses to the EmailRecipients object. These addresses can be added as `to`, `cc`, or `bcc` recipient lists accordingly.
-
-```python
-message = {
-    "content": {
-        "subject": "This is the subject",
-        "plainText": "This is the body",
-        "html": "html><h1>This is the body</h1></html>"
-    },
-    "recipients": {
-        "to": [
-            {"address": "<recipient1@emaildomain.com>", "displayName": "Customer Name"},
-            {"address": "<recipient2@emaildomain.com>", "displayName": "Customer Name 2"}
-        ],
-        "cc": [
-            {"address": "<recipient1@emaildomain.com>", "displayName": "Customer Name"},
-            {"address": "<recipient2@emaildomain.com>", "displayName": "Customer Name 2"}
-        ],
-        "bcc": [
-            {"address": "<recipient1@emaildomain.com>", "displayName": "Customer Name"},
-            {"address": "<recipient2@emaildomain.com>", "displayName": "Customer Name 2"}
-        ]
-    },
-    "senderAddress": "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>"
-}
-```
-
-You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
-
-
-### Send an email message with attachments
-
-We can add an attachment by defining an EmailAttachment object and adding it to our EmailMessage object. Read the attachment file and encode it using Base64. Decode the bytes as a string and pass it into the EmailAttachment object.
-
-```python
-import base64
-
-with open("<your-attachment-path>", "rb") as file:
-    file_bytes = file.read()
-
-file_bytes_b64 = base64.b64encode(file_bytes)
-
-message = {
-    "content": {
-        "subject": "This is the subject",
-        "plainText": "This is the body",
-        "html": "html><h1>This is the body</h1></html>"
-    },
-    "recipients": {
-        "to": [
-            {
-                "address": "<recipient1@emaildomain.com>",
-                "displayName": "Customer Name"
-            }
-        ]
-    },
-    "senderAddress": "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
-    "attachments": [
-        {
-            "name": "<your-attachment-name>",
-            "contentType": "<your-attachment-mime-type>",
-            "contentInBase64": file_bytes_b64.decode()
-        }
-    ]
-}
-```
-
-You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)

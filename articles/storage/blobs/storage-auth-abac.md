@@ -6,7 +6,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 04/21/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -14,9 +14,9 @@ ms.subservice: blobs
 
 # Authorize access to Azure Blob Storage using Azure role assignment conditions
 
-Attribute-based access control (ABAC) is an authorization strategy that defines access levels based on attributes associated with security principals, resources and requests. With ABAC, you can grant a security principal access to a resource based on a condition expressed as a predicate using these attributes.
+Attribute-based access control (ABAC) is an authorization strategy that defines access levels based on attributes associated with security principals, resources, the environment, and the requests themselves. With ABAC, you can grant a security principal access to a resource based on a condition expressed as a predicate using these attributes.
 
-Azure ABAC builds on Azure role-based access control (Azure RBAC) by adding [conditions to Azure role assignments](../../role-based-access-control/conditions-overview.md). It enables you to author role-assignment conditions based on principal, resource and request attributes.
+Azure ABAC builds on Azure role-based access control (Azure RBAC) by adding [conditions to Azure role assignments](../../role-based-access-control/conditions-overview.md). It enables you to author role-assignment conditions based on principal, resource, request, and environment attributes.
 
 [!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 
@@ -29,6 +29,7 @@ Azure ABAC builds on Azure RBAC by adding [role assignment conditions](../../rol
 - Security principal that is requesting authorization
 - Resource to which access is being requested
 - Parameters of the request
+- Environment in which the request is made
 
 The benefits of using role assignment conditions are:
 
@@ -48,7 +49,7 @@ You can add conditions to built-in roles or custom roles. The built-in roles on 
 
 - [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
 - [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
-- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner).
+- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
 You can use conditions with custom roles as long as the role includes [actions that support conditions](storage-auth-abac-attributes.md#azure-blob-storage-actions-and-suboperations).
 
@@ -57,9 +58,24 @@ If you're working with conditions based on [blob index tags](storage-manage-find
 > [!NOTE]
 > Blob index tags are not supported for Data Lake Storage Gen2 storage accounts, which use a hierarchical namespace. You should not author role-assignment conditions using index tags on storage accounts that have HNS enabled.
 
-The [Azure role assignment condition format](../../role-based-access-control/conditions-format.md) allows the use of `@Principal`, `@Resource` or `@Request` attributes in the conditions. A `@Principal` attribute is a custom security attribute on a principal, such as a user, enterprise application (service principal), or managed identity. A `@Resource` attribute refers to an existing attribute of a storage resource that is being accessed, such as a storage account, a container, or a blob. A `@Request` attribute refers to an attribute or parameter included in a storage operation request.
+The [Azure role assignment condition format](../../role-based-access-control/conditions-format.md) allows the use of `@Principal`, `@Resource`, `@Request` or `@Environment` attributes in the conditions. A `@Principal` attribute is a custom security attribute on a principal, such as a user, enterprise application (service principal), or managed identity. A `@Resource` attribute refers to an existing attribute of a storage resource that is being accessed, such as a storage account, a container, or a blob. A `@Request` attribute refers to an attribute or parameter included in a storage operation request. An `@Environment` attribute refers to the network environment or the date and time of a request.
 
 [Azure RBAC supports a limited number of role assignments per subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits). If you need to create thousands of Azure role assignments, you may encounter this limit. Managing hundreds or thousands of role assignments can be difficult. In some cases, you can use conditions to reduce the number of role assignments on your storage account and make them easier to manage. You can [scale the management of role assignments](../../role-based-access-control/conditions-custom-security-attributes-example.md) using conditions and [Azure AD custom security attributes]() for principals.
+
+## Status of condition features in Azure Storage
+
+Currently, Azure attribute-based access control (Azure ABAC) is generally available (GA) for controlling access only to Azure Blob Storage, Azure Data Lake Storage Gen2, and Azure Queues using `request` and `resource` attributes in the standard storage account performance tier. It is either not available or in PREVIEW for other storage account performance tiers, resource types, and attributes.
+
+See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+The table below shows the current status of ABAC by storage account performance tier, storage resource type, and attribute type. Exceptions for specific attributes are also shown.
+
+| Performance tier | Resource types | Attribute types    | Attributes                | Availability |
+|--|--|--|--|--|
+| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource      | all attributes except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
+| Standard | Data Lake Storage Gen2                      | resource                  | snapshot       | Preview |
+| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal | all attributes | Preview |
+| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal<br/>request<br/>resource | all attributes | Preview |
 
 ## Next steps
 

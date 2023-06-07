@@ -46,11 +46,11 @@ To set up a storage account:
     - If you select Premium performance, set the **Premium account type** to **File shares**.
     - For **Redundancy**, select **Locally-redundant storage (LRS)** as a minimum.
     - The defaults on the remaining tabs don't need to be changed.
-   
+
    > [!TIP]
    > Your organization may have requirements to change these defaults:
    >
-   > - Whether you should select **Premium** depends on your IOPS and latency requirements. For more information, see [Storage options for FSLogix Profile Containers in Azure Virtual Desktop](store-fslogix-profile.md). 
+   > - Whether you should select **Premium** depends on your IOPS and latency requirements. For more information, see [Storage options for FSLogix Profile Containers in Azure Virtual Desktop](store-fslogix-profile.md).
    > - On the **Advanced** tab, **Enable storage account key access** must be left enabled.
    > - For more information on the remaining configuration options, see [Planning for an Azure Files deployment](../storage/files/storage-files-planning.md).
 
@@ -89,7 +89,7 @@ To use Active Directory accounts for the share permissions of your file share, y
    ```
 
    > [!IMPORTANT]
-   > This module requires requires the [PowerShell Gallery](/powershell/scripting/gallery/overview) and [Azure PowerShell](/powershell/azure/what-is-azure-powershell). You may be prompted to install these if they are not already installed or they need updating. If you are prompted for these, install them, then close all instances of PowerShell. Re-open an elevated PowerShell prompt and import the `AzFilesHybrid` module again before continuing.
+   > This module requires requires the [PowerShell Gallery](/powershell/gallery/overview) and [Azure PowerShell](/powershell/azure/what-is-azure-powershell). You may be prompted to install these if they are not already installed or they need updating. If you are prompted for these, install them, then close all instances of PowerShell. Re-open an elevated PowerShell prompt and import the `AzFilesHybrid` module again before continuing.
 
 1. Sign in to Azure by running the command below. You will need to use an account that has one of the following role-based access control (RBAC) roles:
 
@@ -105,7 +105,7 @@ To use Active Directory accounts for the share permissions of your file share, y
    > If your Azure account has access to multiple tenants and/or subscriptions, you will need to select the correct subscription by setting your context. For more information, see [Azure PowerShell context objects](/powershell/azure/context-persistence)
 
 1. Join the storage account to your domain by running the commands below, replacing the values for `$subscriptionId`, `$resourceGroupName`, and `$storageAccountName` with your values. You can also add the parameter `-OrganizationalUnitDistinguishedName` to specify an Organizational Unit (OU) in which to place the computer account.
- 
+
    ```powershell
    $subscriptionId = "subscription-id"
    $resourceGroupName = "resource-group-name"
@@ -115,8 +115,10 @@ To use Active Directory accounts for the share permissions of your file share, y
        -ResourceGroupName $ResourceGroupName `
        -StorageAccountName $StorageAccountName `
        -DomainAccountType "ComputerAccount" `
-       -EncryptionType "'RC4','AES256'"
+       -EncryptionType "AES256"
    ```
+
+   You can also specify the encryption algorithm used for Kerberos authentication in the previous command to `RC4` if you need to. Using AES256 is recommended.
 
 1. To verify the storage account has joined your domain, run the commands below and review the output, replacing the values for `$resourceGroupName` and `$storageAccountName` with your values:
 
@@ -237,9 +239,9 @@ To configure Profile Container on your session host VMs:
 
 You have now finished the setting up Profile Container. If you are installing Profile Container in your custom image, you will need to finish creating the custom image. For more information, follow the steps in [Create a custom image in Azure](set-up-golden-image.md) from the section [Take the final snapshot](set-up-golden-image.md#take-the-final-snapshot) onwards.
 
-## Validate profile creation 
+## Validate profile creation
 
-Once you've installed and configured Profile Container, you can test your deployment by signing in with a user account that's been assigned an app group or desktop on the host pool. 
+Once you've installed and configured Profile Container, you can test your deployment by signing in with a user account that's been assigned an application group or desktop on the host pool.
 
 If the user has signed in before, they'll have an existing local profile that they'll use during this session. Either delete the local profile first, or create a new user account to use for tests.
 

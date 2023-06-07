@@ -263,7 +263,7 @@ ProxyPassword="Password"
 
 You can optionally delete the configuration server by using PowerShell.
 
-1. [Install](/powershell/azure/install-Az-ps) the Azure PowerShell module.
+1. [Install](/powershell/azure/install-azure-powershell) the Azure PowerShell module.
 2. Sign in to your Azure account by using this command:
 
     `Connect-AzAccount`

@@ -77,6 +77,7 @@ Split on the following dimensions:
 - Deployment
 - Status Code
 - Status Code Class
+- Model Status Code
 
 **Bandwidth throttling**
 

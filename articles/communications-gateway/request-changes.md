@@ -14,7 +14,14 @@ If you notice problems with Azure Communications Gateway or you need Microsoft t
 
 Azure provides unlimited support for subscription management, which includes billing, quota adjustments, and account transfers. For technical support, you need a support plan, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview) or [Premier Support](https://www.microsoft.com/en-us/unifiedsupport/premier).
 
-## Pre-requisites
+## Prerequisites
+
+Perform initial troubleshooting to help determine if you should raise an issue with Azure Communications Gateway or a different component. We provide some examples where you should raise an issue with Azure Communications Gateway. Raising issues for the correct component helps resolve your issues faster.
+
+Raise an issue with Azure Communications Gateway if you experience an issue with:
+- SIP and RTP exchanged by Azure Communications Gateway and your network.
+- Your Azure bill relating to Azure Communications Gateway.
+- The API Bridge, including the API Bridge Number Management Portal.
 
 You must have an **Owner**, **Contributor**, or **Support Request Contributor** role in your Azure Communications Gateway subscription, or a custom role with [Microsoft.Support/*](../role-based-access-control/resource-provider-operations.md#microsoftsupport) at the subscription level.
 
@@ -33,14 +40,19 @@ You must have an **Owner**, **Contributor**, or **Support Request Contributor** 
 1. A new **Service** option will appear giving you the option to select either **My services** or **All services**. Select **My services**.
 1. In **Service type** select **Azure Communications Gateway** from the drop-down menu.
 1. A new **Problem type** option will appear. Select the problem type that most accurately describes your issue from the drop-down menu.
-1. A new **Problem subtype** option will appear. Select the problem subtype that most accurately describes your issue from the drop-down menu.
+    * Select **API Bridge Issue** if your API Bridge Number Management Portal is returning errors when you try to gain access or carry out actions.
+    * Select **Configuration and Setup** if you experience issues during initial provisioning and onboarding, or if you want to change configuration for an existing deployment.
+    * Select **Monitoring** for issues with metrics and logs.
+    * Select **Voice Call Issue** if calls aren't connecting, have poor quality, or show unexpected behavior.
+    * Select **Other issue or question** if your issue or question doesn't apply to any of the other problem types. 
+1. A new **Problem subtype** option will appear. Select the problem subtype that most accurately describes your issue from the drop-down menu. If the problem type you selected only has one subtype, the subtype is automatically selected.
 1. Select **Next**.
 
 ## 3. Assess the recommended solutions
 
 Based on the information you provided, we might show you recommended solutions you can use to try to resolve the problem. In some cases, we might even run a quick diagnostic. Solutions are written by Azure engineers and will solve most common problems.
 
-If you're still unable to resolve the issue, continue creating your support request by selecting **Next**.
+If you're still unable to resolve the issue, continue creating your support request by selecting **Return to support request** then selecting **Next**.
 
 ## 4. Enter additional details
 

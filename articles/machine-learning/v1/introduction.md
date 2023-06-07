@@ -20,7 +20,7 @@ ms.custom: UpdateFrequency5, cliv1, event-tier1-build-2022, ignite-2022
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension or Python SDK you are using:"]
 > * [v1](introduction.md)
-> * [v2 (current version)](../index.yml)
+> * [v2 (current version)](../index.yml?view=azureml-api-2&preserve-view=true)
 
 All articles in this section document the use of the first version of Azure Machine Learning Python SDK (v1) or Azure CLI ml extension (v1).  
 
@@ -57,7 +57,7 @@ To find which extensions you have installed, use `az extension list`.
 For more information on installing and using the different extensions, see the following articles:
 
 * `azure-cli-ml` - [Install, set up, and use the CLI (v1)](reference-azure-machine-learning-cli.md)
-* `ml` - [Install and set up the CLI (v2)](../how-to-configure-cli.md)
+* `ml` - [Install and set up the CLI (v2)](../how-to-configure-cli.md?view=azureml-api-2&preserve-view=true)
 
 For more information on installing and using the different SDK versions:
 

@@ -9,8 +9,7 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 01/25/2023
 ms.author: oriwolman
-ms.custom: compute-evergreen
-
+ms.custom: compute-evergreen, devx-track-arm-template
 ---
 
 # Community tools to migrate IaaS resources from classic to Azure Resource Manager

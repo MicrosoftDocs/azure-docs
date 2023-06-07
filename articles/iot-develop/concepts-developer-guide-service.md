@@ -6,20 +6,11 @@ ms.author: dobett
 ms.date: 11/17/2022
 ms.topic: conceptual
 ms.service: iot-develop
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 services: iot-develop
 zone_pivot_groups: programming-languages-set-ten
 
 # - id: programming-languages-set-ten
-#   title: Programming languages
-#   prompt: Choose a programming language
-#   pivots:
-#   - id: programming-language-csharp
-#     title: C#
-#   - id: programming-language-java
-#     title: Java
-#   - id: programming-language-javascript
-#     title: JavaScript
-#   - id: programming-language-python
 #     title: Python
 ---
 
@@ -69,7 +60,7 @@ The service SDKs let you access device information from a solution component suc
 
 Now that you've learned about device modeling, here are some more resources:
 
-- [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md)
+- [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md)
 - [C device SDK](https://github.com/Azure/azure-iot-sdk-c/)
 - [IoT REST API](/rest/api/iothub/device)
 - [IoT Plug and Play modeling guide](concepts-modeling-guide.md)

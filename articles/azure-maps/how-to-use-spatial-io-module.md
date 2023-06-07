@@ -7,8 +7,7 @@ ms.date: 02/28/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-
-ms.custom: devx-track-js
+ms.custom:
 #Customer intent: As an Azure Maps web sdk user, I want to install and use the spatial io module so that I can integrate spatial data with the Azure Maps web sdk.
 ---
 
@@ -219,7 +218,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
     </html>
     ```
 
-5. Remember to replace `<Your Azure Maps Key>` with your primary key. Open your HTML file, and you'll see results similar to the following image:
+5. Remember to replace `<Your Azure Maps Key>` with your subscription key. Open your HTML file, and you'll see results similar to the following image:
 
     <center>
 

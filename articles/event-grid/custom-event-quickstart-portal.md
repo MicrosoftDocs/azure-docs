@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.custom: mode-ui
 ---
 
-# Route custom events to web endpoint with the Azure portal and Event Grid
+# Route custom events to web endpoint with the Azure portal and Azure Event Grid
 Event Grid is a fully managed service that enables you to easily manage events across many different Azure services and applications. It simplifies building event-driven and serverless applications. For an overview of the service, see [Event Grid overview](overview.md).
 
 In this article, you use the Azure portal to do the following tasks: 

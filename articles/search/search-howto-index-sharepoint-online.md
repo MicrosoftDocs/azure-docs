@@ -9,16 +9,17 @@ manager: liamca
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 04/04/2023
 ---
 
 # Index data from SharePoint document libraries
 
-> [!IMPORTANT] 
-> SharePoint indexer support is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Request access](https://aka.ms/azure-cognitive-search/indexer-preview) to this feature, and after access is enabled, use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
+> [!IMPORTANT]
+> SharePoint indexer support is in public preview. It's offered "as-is", under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Preview features aren't recommended for production workloads and aren't guaranteed to become generally available.
+>
+>To use this preview, [request access](https://aka.ms/azure-cognitive-search/indexer-preview), and after access is enabled, use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
 
 This article explains how to configure a [search indexer](search-indexer-overview.md) to index documents stored in SharePoint document libraries for full text search in Azure Cognitive Search. Configuration steps are followed by a deeper exploration of behaviors and scenarios you're likely to encounter.
-
 
 ## Functionality
 
@@ -69,7 +70,7 @@ The SharePoint indexer supports both [delegated and application](/graph/auth/aut
 
 + Application permissions, where the indexer runs under the identity of the SharePoint tenant with access to all sites and files within the SharePoint tenant. The indexer requires a [client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to access the SharePoint tenant. The indexer will also require [tenant admin approval](../active-directory/manage-apps/grant-admin-consent.md) before it can index any content.
 
-If your Azure Active Directory organization has [Conditional Access enabled](../active-directory/conditional-access/overview.md) and your administrator isn't able to grant any device access for Delegated permissions, you should consider Application permissions instead. For more information, see [SharePoint Conditional Access policies](./search-indexer-troubleshooting.md#sharepoint-conditional-access-policies).
+If your Azure Active Directory organization has [Conditional Access enabled](../active-directory/conditional-access/overview.md) and your administrator isn't able to grant any device access for Delegated permissions, you should consider Application permissions instead. For more information, see [Azure Active Directory Conditional Access policies](./search-indexer-troubleshooting.md#azure-active-directory-conditional-access-policies).
 
 ### Step 3: Create an Azure AD application
 

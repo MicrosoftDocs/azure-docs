@@ -91,7 +91,6 @@ Arc resource bridge supports the following Azure regions:
 * Australia East
 * Southeast Asia
 
-
 ### Regional resiliency
 
 While Azure has a number of redundancy features at every level of failure, if a service impacting event occurs, this preview release of Azure Arc resource bridge does not support cross-region failover or other resiliency capabilities. In the event of the service becoming unavailable, the on-premises VMs continue to operate unaffected. Management from Azure is unavailable during that service outage.
@@ -111,11 +110,7 @@ The following private cloud environments and their versions are officially suppo
 
 ### Networking
 
-Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol.
-
-You may need to allow specific URLs to [ensure outbound connectivity is not blocked](troubleshoot-resource-bridge.md#restricted-outbound-connectivity) by your firewall or proxy server.
-
-For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
+Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol. You may need to allow specific URLs to [ensure outbound connectivity is not blocked](troubleshoot-resource-bridge.md#restricted-outbound-connectivity) by your firewall or proxy server. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
 
 ## Next steps
 

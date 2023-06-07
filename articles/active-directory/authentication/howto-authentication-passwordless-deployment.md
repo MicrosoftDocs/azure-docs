@@ -95,11 +95,11 @@ The wizard will use your inputs to craft a step-by-step plan for you to follow.
 
 ## Plan the project
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood.
 
 ### Plan a pilot
 
-When you deploy passwordless authentication, you should first enable one or more pilot groups. You can create groups specifically for this purpose. Add the users who will participate in the pilot to the groups. Then, enable new passwordless authentication methods for the selected groups. See [best practices for a pilot](../fundamentals/active-directory-deployment-plans.md).
+When you deploy passwordless authentication, you should first enable one or more pilot groups. You can create groups specifically for this purpose. Add the users who will participate in the pilot to the groups. Then, enable new passwordless authentication methods for the selected groups. See [best practices for a pilot](../fundamentals/deployment-plans.md).
 
 ### Plan communications
 
@@ -137,7 +137,7 @@ This method can also be used for easy recovery when the user has lost or forgott
 **MFA server** - End users enabled for multi-factor authentication through an organization's on-premises MFA server can create and use a single passwordless phone sign-in credential. If the user attempts to upgrade multiple installations (5 or more) of the Authenticator app with the credential, this change may result in an error.
 
 > [!IMPORTANT]
-> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
+> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users' authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
 
 **Device registration** - To use the Authenticator app for passwordless authentication, the device must be registered in the Azure AD tenant and can't be a shared device. A device can only be registered in a single tenant. This limit means that only one work or school account is supported for phone sign-in using the Authenticator app.
 
@@ -364,7 +364,7 @@ The [Registration tab](https://portal.azure.com/) shows the number of users capa
 
 ![Registration tab to view auth methods](media/howto-authentication-passwordless-deployment/monitoring-registration-tab.png)
 
-The [Usage tab ](https://portal.azure.com/)shows the sign-ins by authentication method.
+The [Usage tab](https://portal.azure.com/)shows the sign-ins by authentication method.
 
 ![Usage tab to view auth methods](media/howto-authentication-passwordless-deployment/monitoring-usage-tab.png)
 
@@ -382,4 +382,4 @@ Select the user row, and then select the **Authentication Details** tab to view 
 
 * [Learn how passwordless authentication works](concept-authentication-passwordless.md)
 
-* [Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
+* [Deploy other identity features](../fundamentals/deployment-plans.md)

@@ -1,13 +1,13 @@
 ---
 title: Configure a dev box by using Azure VM Image Builder
-titleSuffix: Microsoft Dev Box Preview
+titleSuffix: Microsoft Dev Box
 description: Learn how to create a custom image by using Azure VM Image Builder, and then create a dev box by using the image.
 services: dev-box
 ms.service: dev-box
 ms.custom: devx-track-azurepowershell
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 11/17/2022
+ms.date: 04/25/2023
 ms.topic: how-to
 ---
 
@@ -31,17 +31,20 @@ To reduce the complexity of creating VM images, VM Image Builder:
 
 - Can be integrated with Azure Compute Gallery, which creates an image management system for distributing, replicating, versioning, and scaling images globally. Additionally, you can distribute the same resulting image as a virtual hard disk or as one or more managed images, without having to rebuild them from scratch.
 
+> [!IMPORTANT]
+> Microsoft Dev Box supports only images that use the security type [Trusted Launch](/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal2) enabled.
+
 ## Prerequisites
 
 To provision a custom image that you created by using VM Image Builder, you need:
 
 - Owner or Contributor permissions on an Azure subscription or on a specific resource group.
 - A resource group.
-- A dev center with an attached network connection. If you don't have a one, follow the steps in [Create a network connection](./quickstart-configure-dev-box-service.md#create-a-network-connection).
+- A dev center with an attached network connection. If you don't have a one, follow the steps in [2. Configure a network connection](quickstart-configure-dev-box-service.md#2-configure-a-network-connection).
 
 ## Create a Windows image and distribute it to Azure Compute Gallery
 
-The next step is to use Azure VM Image Builder and Azure PowerShell to create an image version in Azure Compute Gallery (formerly Shared Image Gallery) and then distribute the image globally. You can also do this by using the Azure CLI.
+The next step is to use Azure VM Image Builder and Azure PowerShell to create an image version in Azure Compute Gallery and then distribute the image globally. You can also do this by using the Azure CLI.
 
 1. To use VM Image Builder, you need to register the features.
 
@@ -71,7 +74,7 @@ The next step is to use Azure VM Image Builder and Azure PowerShell to create an
     'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
     ```
 
-3. Create variables to store information that you'll use more than once.
+3. Create variables to store information that you use more than once.
 
     Copy the following sample code. Replace `<Resource group>` with the resource group that you used to create the dev center.
 
@@ -284,4 +287,4 @@ After the gallery images are available in the dev center, you can use the custom
 
 ## Next steps
 
-- [Create dev box definitions](./quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
+- [3. Create a dev box definition](quickstart-configure-dev-box-service.md#3-create-a-dev-box-definition)

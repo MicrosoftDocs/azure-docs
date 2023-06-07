@@ -1,12 +1,12 @@
 ---
-title: Remote-write in Azure Monitor Managed Service for Prometheus using Azure Active Directory (preview)
+title: Remote-write in Azure Monitor Managed Service for Prometheus using Azure Active Directory
 description: Describes how to configure remote-write to send data from self-managed Prometheus running in your Kubernetes cluster running on-premises or in another cloud using Azure Active Directory authentication. 
-author: bwren 
+author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 11/01/2022
 ---
 
-# Configure remote write for Azure Monitor managed service for Prometheus using Azure Active Directory authentication (preview)
+# Configure remote write for Azure Monitor managed service for Prometheus using Azure Active Directory authentication
 This article describes how to configure [remote-write](prometheus-remote-write.md) to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using Azure Active Directory authentication.
 
 ## Cluster configurations
@@ -17,10 +17,10 @@ This article applies to the following cluster configurations:
 - Kubernetes cluster running in another cloud or on-premises
 
 > [!NOTE]
-> For Azure Kubernetes service (AKS) or Azure Arc-enabled Kubernetes cluster, managed identify authentication is recommended. See [Azure Monitor managed service for Prometheus remote write - managed identity (preview)](prometheus-remote-write-managed-identity.md).
+> For Azure Kubernetes service (AKS) or Azure Arc-enabled Kubernetes cluster, managed identify authentication is recommended. See [Azure Monitor managed service for Prometheus remote write - managed identity](prometheus-remote-write-managed-identity.md).
 
 ## Prerequisites
-See prerequisites at [Azure Monitor managed service for Prometheus remote write (preview)](prometheus-remote-write.md#prerequisites).
+See prerequisites at [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#prerequisites).
 
 ## Create Azure Active Directory application
 Follow the procedure at [Register an application with Azure AD and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) to register an application for Prometheus remote-write and create a service principal.
@@ -226,7 +226,7 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
     | Value | Description |
     |:---|:---|
     | `<CLUSTER-NAME>` | Name of your AKS cluster |
-    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221103.1`<br>This is the remote write container image version.   |
+    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230505.1`<br>This is the remote write container image version.   |
     | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
     | `<APP-REGISTRATION -CLIENT-ID> ` | Client ID of your application |
     | `<TENANT-ID> ` | Tenant ID of the Azure Active Directory application |
@@ -249,7 +249,7 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
     ```
 
 ## Verification and troubleshooting
-See [Azure Monitor managed service for Prometheus remote write (preview)](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
+See [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
 
 ## Next steps
 

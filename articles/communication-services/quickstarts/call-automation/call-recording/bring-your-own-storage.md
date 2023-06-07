@@ -10,13 +10,15 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-extended-java
 ---
-# Call recording: Bring your own storage quickstart
+# Call recording: Bring your own Azure storage quickstart
 
 [!INCLUDE [Private Preview](../../../includes/private-preview-include-section.md)]
 
-This quickstart gets you started with BYOS (Bring your own storage) for Call Recording. To start using BYOS, make sure you're familiar with the [Call Recording APIs](../../voice-video-calling/get-started-call-recording.md).
+This quickstart gets you started with Bring your own Azure storage for Call Recording. To start using Bring your own Azure Storage functionality, make sure you're familiar with the [Call Recording APIs](../../voice-video-calling/get-started-call-recording.md).
+
+You need to be part of the Azure Communication Services TAP program. It's likely that you’re already part of this program, and if you aren't, sign-up using https://aka.ms/acs-tap-invite. Bring your own Azure Storage uses Managed Identities, to access to this functionality for Call Recording, submit your Azure Communication Services Resource IDs by filling this - [Registration form](https://forms.office.com/r/njact5SiVJ). You need to fill the form every time you need a new resource ID allow-listed.
 
 ## Pre-requisite: Setting up Managed Identity and RBAC role assignments
 
@@ -25,7 +27,7 @@ This quickstart gets you started with BYOS (Bring your own storage) for Call Rec
 ![Diagram showing a communication service resource with managed identity disabled](../media/byos-managed-identity-1.png)
 
 1. Open your Azure Communication Services resource. Navigate to *Identity* on the left.
-2. System Assigned Managed Identity is disabled by default. Enable it and click of *Save*
+2. System Assigned Managed Identity is disabled by default. Enable it and click on *Save*
 3. Once completed, you're able to see the Object principal ID of the newly created identity.
 
 ![Diagram showing a communication service resource with managed identity enabled](../media/byos-managed-identity-2.png)
@@ -107,4 +109,3 @@ For more information, see the following articles:
 - Download our [Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording) and [.NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ServerRecording) call recording sample apps 
 - Learn more about [Call Recording](../../../concepts/voice-video-calling/call-recording.md)
 - Learn more about [Call Automation](../../../concepts/call-automation/call-automation.md)
-

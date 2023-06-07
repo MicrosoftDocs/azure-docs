@@ -188,7 +188,7 @@ The **Key** element contains the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | No | A unique identifier of a particular key pair referenced from other elements in the policy file. |
-| StorageReferenceId | Yes | An identifer of a storage key container referenced from other elements in the policy file. |
+| StorageReferenceId | Yes | An identifier of a storage key container referenced from other elements in the policy file. |
 
 ## Input claims transformations
 

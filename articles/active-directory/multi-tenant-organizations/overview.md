@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: overview
-ms.date: 01/23/2023
+ms.date: 05/05/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -72,11 +72,7 @@ Here's the primary constraint with using B2B direct connect across multiple tena
 
 :::image type="content" source="./media/overview/multi-tenant-b2b-direct-connect.png" alt-text="Diagram that shows using B2B direct connect across tenants." lightbox="./media/overview/multi-tenant-b2b-direct-connect.png":::
 
-## Cross-tenant synchronization (preview)
-
-> [!IMPORTANT]
-> Cross-tenant synchronization is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+## Cross-tenant synchronization
 
 If you want users to have a more seamless collaboration experience across tenants, you can use [cross-tenant synchronization](./cross-tenant-synchronization-overview.md). Cross-tenant synchronization is a one-way synchronization service in Azure AD that automates creating, updating, and deleting B2B collaboration users across tenants in an organization. Cross-tenant synchronization builds on the B2B collaboration functionality and utilizes existing B2B cross-tenant access settings. Users are represented in the target tenant as a B2B collaboration user object.
 

@@ -1,12 +1,12 @@
 ---
-title: How to enable CORS - Azure Data Manager for Energy Preview #Required; page title is displayed in search results. Include the brand.
-description: Guide on CORS in Azure data manager for Energy and how to set up CORS #Required; article description that is displayed in search results. 
-author: NandiniMurali #Required; your GitHub user alias, with correct capitalization.
-ms.author: Nandinim #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 02/28/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
+title: How to enable CORS - Azure Data Manager for Energy Preview
+description: Guide on CORS in Azure data manager for Energy and how to set up CORS
+author: NandiniMurali
+ms.author: Nandinim
+ms.service: energy-data-services
+ms.topic: how-to
+ms.date: 02/28/2023
+ms.custom: template-how-to-pattern
 ---
 # Use CORS for resource sharing in Azure Data Manager for Energy Preview
 This document is to help you as user of Azure Data Manager for Energy preview to set up CORS policies.
@@ -21,7 +21,7 @@ You can set CORS rules for each Azure Data Manager for Energy Preview instance. 
 
 1.	Create an **Azure Data Manager for Energy Preview** instance.
 2.	Select the **Resource Sharing(CORS)** tab.
-   [![Screenshot of Resource Sharing(CORS) tab while creating Microsoft Energy Data Services.](media/how-to-enable-cors/enable-cors-1.png)](media/how-to-enable-cors/enable-cors-1.png#lightbox)
+   [![Screenshot of Resource Sharing(CORS) tab while creating Azure Data Manager for Energy.](media/how-to-enable-cors/enable-cors-1.png)](media/how-to-enable-cors/enable-cors-1.png#lightbox)
  
 3.	In the Resource Sharing(CORS) tab, select **Allowed Origins**. 
 4.	There can be upto 5 **Allowed Origins** added for a given instance.

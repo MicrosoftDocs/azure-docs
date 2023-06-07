@@ -57,8 +57,7 @@ In this tutorial, you learn how to:
     |Project name| Enter a name. This tutorial uses `myApp`.|
     |Project&nbsp;location| Enter the wanted location to save your project.|
     |Project SDK| It might be blank on your first use of IDEA. Select **New...** and navigate to your JDK.|
-    |Spark Version|The creation wizard integrates the proper version for Spark SDK and Scala SDK. Synapse only supports **Spark 2.4.0**.|
-    |||
+    |Spark Version|The creation wizard integrates the proper version for Spark SDK and Scala SDK. Here you can choose the Spark version you need.|
 
     ![Selecting the Apache Spark SDK](./media/intellij-tool-synapse/create-synapse-application02.png)
 
@@ -167,7 +166,7 @@ You can follow the instructions below to set up your local run and local debug f
 
     - Environment variables and WinUtils.exe Location are only for windows users.
     - Environment variables: The system environment variable can be auto detected if you have set it before and no need to manually add.
-    - [WinUtils.exe Location](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): You can specify the WinUtils location by selecting the folder icon on the right.
+    - [WinUtils.exe Location](https://github.com/steveloughran/winutils/releases/download/tag_2017-08-29-hadoop-2.8.1-native/hadoop-2.8.1.zip): You can specify the WinUtils location by selecting the folder icon on the right.
 
 2. Then select the local play button.
 

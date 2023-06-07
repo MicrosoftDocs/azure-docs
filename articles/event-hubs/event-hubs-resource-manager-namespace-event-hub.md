@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure event hub with consumer group'
 description: 'Quickstart: Create an Event Hubs namespace with an event hub and a consumer group using Azure Resource Manager templates'
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 06/08/2021
 ---
 

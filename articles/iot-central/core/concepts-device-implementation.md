@@ -1,6 +1,5 @@
 ---
 title: Device implementation
-titleSuffix: Azure IoT Central
 description: This article introduces the key concepts and best practices for implementing a device that connects to your IoT Central application.
 author: dominicbetts
 ms.author: dobett
@@ -115,6 +114,8 @@ If the device gets any of the following errors when it connects, it should use a
 - Internal error 500 from the service.
 
 To learn more about device error codes, see [Troubleshooting device connections](troubleshoot-connection.md).
+
+To learn more about implementing automatic reconnections, see [Manage device reconnections to create resilient applications](../../iot-develop/concepts-manage-device-reconnections.md).
 
 ### Test failover capabilities
 

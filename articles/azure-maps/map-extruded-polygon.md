@@ -6,7 +6,7 @@ ms.author: eriklind
 ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
-ms.custom: codepen, devx-track-js
+ms.custom: codepen
 ---
 
 # Add a polygon extrusion layer to the map
@@ -37,7 +37,7 @@ A choropleth map can be rendered using the polygon extrusion layer. Set the `hei
 
 ## Add a circle to the map
 
-Azure Maps uses an extended version of the GeoJSON schema that provides a definition for circles as noted [here](./extend-geojson.md#circle). An extruded circle can be rendered on the map by creating a `point` feature with a `subType` property of `Circle` and a numbered `Radius` property representing the radius in **meters**. For example:
+Azure Maps uses an extended version of the GeoJSON schema that provides a [definition for circles] (./extend-geojson.md#circle). An extruded circle can be rendered on the map by creating a `point` feature with a `subType` property of `Circle` and a numbered `Radius` property representing the radius in **meters**. For example:
 
 ```javascript
 {

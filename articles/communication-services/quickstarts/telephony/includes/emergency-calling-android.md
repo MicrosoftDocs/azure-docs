@@ -103,7 +103,7 @@ private void createAgent() {
 ```
 
 > [!WARNING]
-> Azure Communication Services supports enhanced emergency calling to 911 from the United States and Puerto Rico only. The service doesn't support calling 911 from other countries.
+> Azure Communication Services supports enhanced emergency calling to 911 from the United States and Puerto Rico only. The service doesn't support calling 911 from other countries/regions.
 
 ## Add functionality to the call button
 
