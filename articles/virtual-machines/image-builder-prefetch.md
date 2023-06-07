@@ -15,7 +15,7 @@ ms.subservice: image-builder
 
   **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Virtual Machine Scale Sets 
 
-In this article, you learn how to use Azure VM Image Builder to optimize your ACG (Azure Compute Gallery) or Managed Images or VHDs to improve the create time for your VMs. 
+In this article, you learn how to use Azure VM Image Builder to optimize your ACG (Azure Compute Gallery) Images or Managed Images or VHDs to improve the create time for your VMs. 
 
 ## Azure VM Optimization 
 Azure VM optimization improves virtual machine creation time by updating the gallery image to optimize the image for a faster boot time. 
