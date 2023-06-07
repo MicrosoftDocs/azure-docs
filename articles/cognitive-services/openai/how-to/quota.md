@@ -35,7 +35,7 @@ The flexibility to distribute TPM globally within a subscription and region has 
 
 ## Assign quota
 
-When you create a model deployment, you have the option to assign Tokens Per Minute (TPM) to that deployment. TPM can be modified in increments of 1,000, and will map to the TPM and RPM rate limits enforced on your deployment, as discussed above.
+When you create a model deployment, you have the option to assign Tokens-Per-Minute (TPM) to that deployment. TPM can be modified in increments of 1,000, and will map to the TPM and RPM rate limits enforced on your deployment, as discussed above.
 
 To create a new deployment from within the Azure AI Studio under **Management** select **Deployments** > **Create new deployment**.
 
@@ -76,7 +76,7 @@ As part of the transition to the new quota system and TPM based capacity allocat
 
 ## How throttling works
 
-Assigning TPM to a deployment sets the tokens-per-minute (TPM) and requests-per-minute (RPM) rate limits for the deployment, as described above. TPM throttling is based on the maximum number of tokens that are estimated to be processed by a request at the time the request is received. It isn't the same as the token count used for billing, which is computed after all processing is completed.  
+Assigning TPM to a deployment sets the Tokens-Per-Minute (TPM) and Requests-Per-Minute (RPM) rate limits for the deployment, as described above. TPM throttling is based on the maximum number of tokens that are estimated to be processed by a request at the time the request is received. It isn't the same as the token count used for billing, which is computed after all processing is completed.  
 
 As each request is received, Azure OpenAI computes an estimated max processed-token count that includes the following:
 
