@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 07/15/2022
+ms.date: 06/05/2023
 ---
 
 # High availability in Azure Cosmos DB for PostgreSQL
@@ -21,10 +21,10 @@ happens within a few minutes, and promoted nodes always have fresh data through
 PostgreSQL synchronous streaming replication.
 
 All primary nodes in a cluster are provisioned into one availability zone
-for better latency between the nodes. The standby nodes are provisioned into
-another zone. The Azure portal
+for better latency between the nodes. The preferred availability zone allows to put all cluster nodes in the same availability zone where the application is deployed. This could improve performance further by decreasing app-database latency. The standby nodes are provisioned into
+another availability zone. The Azure portal
 [displays](concepts-cluster.md#node-availability-zone) the availability
-zone of each node in a cluster.
+zone of each primary node in a cluster.
 
 Even without HA enabled, each node has its own locally
 redundant storage (LRS) with three synchronous replicas maintained by Azure
