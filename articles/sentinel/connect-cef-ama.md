@@ -76,7 +76,7 @@ To avoid this scenario, use one of these methods:
 
     ```kusto
     source |
-    where ProcessName !contains “\“CEF\””
+    where ProcessName !contains \"CEF\"
     ```
 
 ### Configure a log forwarder
