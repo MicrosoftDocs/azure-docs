@@ -32,6 +32,8 @@ This section describes testing reachability of a standard load balancer front-en
 
 This section describes testing reachability of a standard load balancer front-end from a Linux device outside of Azure.
 
+---
+
 ### Test the load balancer's front-end
 
 Choose either ping or traceroute to test reachability of a standard load balancer front-end from a device outside of Azure.
