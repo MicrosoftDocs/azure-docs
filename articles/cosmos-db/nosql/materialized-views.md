@@ -220,7 +220,7 @@ Once your account and Materialized View Builder is set up, you should be able to
               },
               "materializedViewDefinition": {
                 "sourceCollectionId": "mv-src",
-                "definition": "SELECT s.accountId, s.emailAddress, CONCAT(s.name.first, s.name.last) FROM s"
+                "definition": "SELECT s.accountId, s.emailAddress FROM s"
               }
             },
             "options": {
