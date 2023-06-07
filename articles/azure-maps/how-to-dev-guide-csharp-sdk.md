@@ -7,6 +7,7 @@ ms.author: yuchungchen
 ms.date: 11/11/2021
 ms.topic: how-to
 ms.service: azure-maps
+ms.custom: devx-track-dotnet
 services: azure-maps
 ---
 

@@ -43,15 +43,15 @@ Learn more about [Azure Pipelines ecosystem support](/azure/devops/pipelines/eco
 
 1. Go to **Pipelines**, and then select **New Pipeline**.
 
-1. Walk through the steps of the wizard by first selecting **GitHub** as the location of your source code.
+1. When prompted, select the location of your source code: either **Azure Repos Git** or **GitHub**.
 
-1. You might be redirected to GitHub to sign in. If so, enter your GitHub credentials.
+   You might be redirected to GitHub to sign in. If so, enter your GitHub credentials.
 
 1. When the list of repositories appears, select your repository.
 
 1. You might be redirected to GitHub to install the Azure Pipelines app. If so, select **Approve & install**.
 
-1.  When the **Configure** tab appears, select **ASP.NET Core**.
+1. When the **Configure** tab appears, select **ASP.NET Core**.
 
 1. When your new pipeline appears, take a look at the YAML to see what it does. When you're ready, select **Save and run**.
 

@@ -5,7 +5,6 @@ services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
-ms.workload: Infrastructure-services
 ms.date: 01/19/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
@@ -110,6 +109,5 @@ az peering service delete --peering-service-name "myPeeringService" --resource-g
 
 ## Next steps
 
-- To learn more about Peering Service connection, see [Peering Service connection](connection.md).
-- To learn more about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-- To measure Peering Service connection telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+- To learn more about Peering Service connections, see [Peering Service connection](connection.md).
+- To learn more about Peering Service connection telemetry, see [Access Peering Service connection telemetry](connection-telemetry.md).

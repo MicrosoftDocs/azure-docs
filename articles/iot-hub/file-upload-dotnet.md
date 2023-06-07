@@ -9,7 +9,7 @@ ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 08/24/2021
-ms.custom: "mqtt, devx-track-csharp"
+ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
 # Upload files from your device to the cloud with Azure IoT Hub (.NET)

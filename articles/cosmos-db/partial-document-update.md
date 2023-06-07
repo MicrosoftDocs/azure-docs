@@ -24,7 +24,7 @@ Partial document update feature improves this experience significantly. The clie
 - **Multi-region writes**: Supports automatic and transparent conflict resolution with partial updates on discrete paths within the same document.
 
 > [!NOTE]
-> *Partial document update* operation is based on the [RFC spec](https://www.rfc-editor.org/rfc/rfc6902#appendix-A.14). To escape a ~ character you need to add 0 or a 1 to the end.
+> The *Partial document update* operation is based on the [JSON Patch RFC](https://www.rfc-editor.org/rfc/rfc6902#appendix-A.14). Property names in paths need to escape the `~` and `/` characters as `~0` and `~1`, respectively.
 
 An example target JSON document:
 
@@ -38,9 +38,7 @@ An example target JSON document:
   },
   "used": false,
   "categoryId": "road-bikes",
-  "tags": [
-    "r-series"
-  ]
+  "tags": ["r-series"]
 }
 ```
 
@@ -52,7 +50,8 @@ A JSON Patch document:
   { "op": "remove", "path": "/used" },
   { "op": "set", "path": "/price", "value": 355.45 }
   { "op": "incr", "path": "/inventory/quantity", "value": 10 },
-  { "op": "add", "path": "/tags/-", "value": "featured-bikes" }
+  { "op": "add", "path": "/tags/-", "value": "featured-bikes" },
+  { "op": "move", "from": "/color", "path": "/inventory/color" }
 ]
 ```
 
@@ -64,14 +63,11 @@ The resulting JSON document:
   "name": "R-410 Road Bicycle",
   "price": 355.45,
   "inventory": {
-    "quantity": 25
+    "quantity": 25,
+    "color": "silver"
   },
   "categoryId": "road-bikes",
-  "color": "silver",
-  "tags": [
-    "r-series",
-    "featured-bikes"
-  ]
+  "tags": ["r-series", "featured-bikes"]
 }
 ```
 
@@ -79,16 +75,17 @@ The resulting JSON document:
 
 This table summarizes the operations supported by this feature.
 
-> [!NOTE]
-> *target path* refers to a location within the JSON document
+> [!NOTE] 
+> _target path_ refers to a location within the JSON document
 
-| Operation type | Description |
-| --- | --- |
-| **Add** | `Add` performs one of the following, depending on the target path: <br/> &bull; If the target path specifies an element that doesn't exist, it's added. <br/> &bull; If the target path specifies an element that already exists, its value is replaced. <br/> &bull; If the target path is a valid array index, a new element is inserted into the array at the specified index. This shifts existing elements after the new element. <br/> &bull; If the index specified is equal to the length of the array, it appends an element to the array. Instead of specifying an index, you can also use the `-` character. It also results in the element being appended to the array.<br /> **Note**: Specifying an index greater than the array length results in an error. |
-| **Set** | `Set` operation is similar to `Add` except with the Array data type. If the target path is a valid array index, the existing element at that index is updated. |
-| **Replace** | `Replace` operation is similar to `Set` except it follows *strict* replace only semantics. In case the target path specifies an element or an array that doesn't exist, it results in an error. |
-| **Remove** | `Remove` performs one of the following, depending on the target path: <br/> &bull; If the target path specifies an element that doesn't exist, it results in an error. <br/> &bull; If the target path specifies an element that already exists, it's removed. <br/> &bull; If the target path is an array index, it's deleted and any elements above the specified index are shifted back one position.<br /> **Note**: Specifying an index equal to or greater than the array length would result in an error. |
-| **Increment** | This operator increments a field by the specified value. It can accept both positive and negative values. If the field doesn't exist, it creates the field and sets it to the specified value. |
+| Operation type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Add**        | `Add` performs one of the following, depending on the target path: <br/> &bull; If the target path specifies an element that doesn't exist, it's added. <br/> &bull; If the target path specifies an element that already exists, its value is replaced. <br/> &bull; If the target path is a valid array index, a new element is inserted into the array at the specified index. This shifts existing elements after the new element. <br/> &bull; If the index specified is equal to the length of the array, it appends an element to the array. Instead of specifying an index, you can also use the `-` character. It also results in the element being appended to the array.<br /> **Note**: Specifying an index greater than the array length results in an error. |
+| **Set**        | `Set` operation is similar to `Add` except with the Array data type. If the target path is a valid array index, the existing element at that index is updated.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Replace**    | `Replace` operation is similar to `Set` except it follows _strict_ replace only semantics. In case the target path specifies an element or an array that doesn't exist, it results in an error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Remove**     | `Remove` performs one of the following, depending on the target path: <br/> &bull; If the target path specifies an element that doesn't exist, it results in an error. <br/> &bull; If the target path specifies an element that already exists, it's removed. <br/> &bull; If the target path is an array index, it's deleted and any elements above the specified index are shifted back one position.<br /> **Note**: Specifying an index equal to or greater than the array length would result in an error.                                                                                                                                                                                                                                                           |
+| **Increment**  | This operator increments a field by the specified value. It can accept both positive and negative values. If the field doesn't exist, it creates the field and sets it to the specified value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Move**       | This operator removes the value at a specified location and adds it to the target location. The operation object MUST contain a "from" member, which is a string containing a JSON Pointer value that references the location in the target document to move the value from. The "from" location MUST exist for the operation to be successful.If the "path" location suggests an object that does not exist, it will create the object and set the value equal to the value at "from" location<br/> &bull;If the "path" location suggests an object that already exists, it will replace the value at "path" location with the value at "from" location<br/> &bull;"Path" attribute cannot be a JSON child of the "from" JSON location<br />                              |
 
 ## Supported modes
 
@@ -118,7 +115,7 @@ Let's compare the similarities and differences between the supported modes.
 
 `Set` operation adds a property if it doesn't already exist (except if there was an `Array`). `Replace` operation fails if the property doesn't exist (applies to `Array` data type as well).
 
-> [!NOTE]
+> [!NOTE] 
 > `Replace` is a good candidate where the user expects some of the properties to be always present and allows you to assert/enforce that.
 
 ## REST API reference for Partial document update

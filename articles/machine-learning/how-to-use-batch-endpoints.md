@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use batch endpoints to operationalize long running machine learning jobs under a stable API.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.topic: conceptual
 author: santiagxf
 ms.author: fasantia

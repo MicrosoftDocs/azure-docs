@@ -96,6 +96,8 @@ NAT gateway isn't compatible with basic resources, such as Basic Load Balancer o
 
 * To upgrade a basic public IP to standard, see [upgrade from basic public to standard public IP](../virtual-network/ip-services/public-ip-upgrade-portal.md).
 
+* To upgrade a basic public IP with an attached VM to standard, see [upgrade a basic public IP with an attached VM](/azure/virtual-network/ip-services/public-ip-upgrade-vm).
+
 ### NAT gateway can't be attached to a gateway subnet
 
 NAT gateway can't be deployed in a gateway subnet. A gateway subnet is used by a VPN gateway for sending encrypted traffic between an Azure virtual network and on-premises location. See [VPN gateway overview](../vpn-gateway/vpn-gateway-about-vpngateways.md) to learn more about how gateway subnets are used by VPN gateway.

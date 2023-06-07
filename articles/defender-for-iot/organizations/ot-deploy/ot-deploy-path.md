@@ -183,6 +183,30 @@ When baseline learning ends, the OT monitoring deployment process is complete, a
 > [Turn off learning mode manually](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) if you feel that the current alerts in Defender for IoT reflect your network traffic accurately, and learning mode hasn't already ended automatically.
 >
 
+## Connect Defender for IoT data to your SIEM
+
+Once Defender for IoT has been deployed, send security alerts and manage OT/IoT incidents by integrating Defender for IoT with your security information and event management (SIEM) platform and existing SOC workflows and tools.
+Integrate Defender for IoT alerts with your organizational SIEM by [integrating with Microsoft Sentinel](../iot-advanced-threat-monitoring.md) and leveraging the out-of-the-box Microsoft Defender for IoT solution, or by [creating forwarding rules](../how-to-forward-alert-information-to-partners.md) to other SIEM systems.
+Defender for IoT integrates out-of-the-box with Microsoft Sentinel, as well as [a broad range of SIEM systems](../integrate-overview.md), such as Splunk, IBM QRadar, LogRhythm, Fortinet, and more.
+
+For more information, see:
+
+- [OT threat monitoring in enterprise SOCs](../concept-sentinel-integration.md)
+- [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../iot-solution.md)
+- [Connect on-premises OT network sensors to Microsoft Sentinel](../integrations/on-premises-sentinel.md)
+- [Integrations with Microsoft and partner services](../integrate-overview.md)
+- [Stream Defender for IoT cloud alerts to a partner SIEM](../integrations/send-cloud-data-to-partners.md)
+
+After integrating Defender for IoT alerts with a SIEM, we recommend the following next steps to operationalize OT/IoT alerts and fully integrate them with your existing SOC workflows and tools:
+
+- Identify and define relevant IoT/OT security threats and SOC incidents you would like to monitor based on your specific OT needs and environment.
+
+- Create detection rules and severity levels in the SIEM. Only relevant incidents will be triggered, thus reducing unnecessary noise. For example, you would define PLC code changes performed from unauthorized devices, or outside of work hours, as a high severity incident due to the high fidelity of this specific alert.
+    
+    In Microsoft Sentinel, the Microsoft Defender for IoT solution includes [a set of out-of-the-box detection rules](../iot-advanced-threat-monitoring.md#detect-threats-out-of-the-box-with-defender-for-iot-data), which are built specifically for Defender for IoT data, and help you fine-tune the incidents created in Sentinel.
+
+- Define the appropriate workflow for mitigation, and create automated investigation playbooks for each use case. In Microsoft Sentinel, the Microsoft Defender for IoT solution includes [out-of-the-box playbooks for automated response to Defender for IoT alerts](../iot-advanced-threat-monitoring.md#automate-response-to-defender-for-iot-alerts).
+
 ## Next steps
 
 Now that you understand the OT monitoring system deployment steps, you're ready to get started!

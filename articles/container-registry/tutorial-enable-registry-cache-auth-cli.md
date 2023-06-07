@@ -2,6 +2,7 @@
 title: Enable Cache ACR with authentication - Azure CLI
 description: Learn how to enable Cache ACR with authentication using Azure CLI.
 ms.topic: tutorial
+ms.custom: devx-track-azurecli
 ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---
