@@ -88,7 +88,7 @@ CallMediaRecognizeOptions callMediaRecognizeOptions = new CallMediaRecognizeDtmf
         .setInterToneTimeout(Duration.ofSeconds(5))
         .setInterruptCallMediaOperation(true)
         .setInitialSilenceTimeout(Duration.ofSeconds(30))
-        .setPlayPrompt(new FileSource().setUri("file://path/to/file"))
+        .setPlayPrompt(new FileSource().setUri(<audioUri>))
         .setInterruptPrompt(true);
 callMedia.startRecognizing(callMediaRecognizeOptions).block();
 ```
@@ -129,16 +129,14 @@ post("/api/callback", (request, response) -> {
 });
 ```
 
-### Example of how you can deserialize the *RecognizeFailed* event:
-``` java
-code snippet
-```
-
 ### Example of how you can deserialize the *RecognizeCanceled* event:
 ``` java
-if (callEvent instanceof RecognizeCanceled) { 
-
-            //Take action on Canceled notification, like terinating a call
-            callConnection.hangUp(true);
-         }
-```   
+if (callEvent instanceof RecognizeCanceled {
+     CallAutomationEventWithReasonCodeBase playCanceled= (CallAutomationEventWithReasonCodeBase) callEvent;
+     Reasoncode reasonCode = playCanceled.getReasonCode();
+     ResultInformation = playCanceled.getResultInformation();
+     //Play cancel action completed, Take some action on canceled event.
+     // Hang up call
+     callConnection.hangUp(true);
+}
+```
