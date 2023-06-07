@@ -70,7 +70,7 @@ To configure the diagnostic settings for a resource, select that resource. In th
 
 In the destination details section, check the option to send to partner solutions to select Elastic as a destination target. The option is only available after an Elastic resource has been created.
 
-:::image type="content" source="media/manage/diagnostic-settings.png" alt-text="Configure diagnostic settings":::
+:::image type="content" source="media/manage/diagnostic-settings.png" alt-text="Screenshot of configure diagnostic settings.":::
 
 ## Private link management
 
@@ -78,7 +78,7 @@ You can limit network access to a [private link](../../private-link/private-link
 
 :::image type="content" source="media/manage/private-link.png" alt-text="Screenshot of enabling private link":::
 
-## Traffic Filters
+## Traffic filters
 
 To manage how Elastic deployments can be accessed, you can set Traffic filters for Azure Private Links.
 
@@ -107,7 +107,7 @@ When you no longer need your Elastic resource, delete the resource in the Azure 
 
 To delete the resource in Azure, select your Elastic resource. In **Overview**, select **Delete**. Confirm that you want to delete Elastic resource.
 
-:::image type="content" source="media/manage/delete-elastic.png" alt-text="Delete Elastic resource":::
+:::image type="content" source="media/manage/delete-elastic.png" alt-text="Screenshot of delete Elastic resource.":::
 
 When the Elastic resource is deleted, logs are no longer sent to Elastic. All billing stops for Elastic through the Azure Marketplace.
 

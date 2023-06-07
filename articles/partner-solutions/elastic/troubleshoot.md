@@ -24,7 +24,7 @@ Only users who have *Owner* or *Contributor* access on the Azure subscription ca
    1. Navigate to [Azure diagnostic setting](../../azure-monitor/essentials/diagnostic-settings.md) for the resource.
    1. Verify that there's a diagnostic setting option available.
 
-   :::image type="content" source="media/troubleshoot/check-diagnostic-setting.png" alt-text="Verify diagnostic setting":::
+   :::image type="content" source="media/troubleshoot/check-diagnostic-setting.png" alt-text="Screenshot of verify diagnostic setting.":::
 
 - Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs. For more information, see [supported categories](../../azure-monitor/essentials/resource-logs-categories.md).
 

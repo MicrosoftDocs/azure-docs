@@ -25,7 +25,7 @@ Use the Azure portal to find the Elastic application.
 
 1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
 
-    :::image type="content" source="media/create/marketplace.png" alt-text="Marketplace icon.":::
+    :::image type="content" source="media/create/marketplace.png" alt-text="Image of marketplace icon.":::
 
 1. Search for _Elastic_ and select **Elastic Cloud (Elasticsearch) - An Azure Native ISV Service** from the available offerings.
 
@@ -73,7 +73,7 @@ After you've selected the offer for Elastic, you're ready to set up the applicat
 
 1. In **Tags**, add custom tags for the new Elastic resource. Each tag consists of a name and value. When you've finished adding tags, select **Next: Review+Create** to navigate to the final step for resource creation.
 
-   :::image type="content" source="media/create/add-tags.png" alt-text="Add tags to Elastic resource":::
+   :::image type="content" source="media/create/add-tags.png" alt-text="Screenshot of add tags to Elastic resource.":::
 
 1. On **Review + create**, your configuration is validated. You can review the selections you made in the earlier forms. You can also review the terms for this offering.
 
@@ -87,7 +87,7 @@ After you've selected the offer for Elastic, you're ready to set up the applicat
 
 1. After the deployment is finished, select **Go to resource** to view the deployed resource.
 
-    :::image type="content" source="media/create/deployment-complete.png" alt-text="View status of deployment":::
+    :::image type="content" source="media/create/deployment-complete.png" alt-text="Screenshot of view status of deployment.":::
 
 ## Next steps
 
