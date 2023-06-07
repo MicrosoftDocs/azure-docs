@@ -49,7 +49,7 @@ Branch sites can then access workloads in Azure deployed in virtual networks in 
 
 ### Security provided by Azure Firewall along with connectivity NVA
 
-Customers can deploy an Azure Firewall along side their connectivity-based NVAs. Virtual WAN routing can be configured to send all traffic to Azure Firewall for inspection. You may also configure Virtual WAN to send all internet-bound traffic to Azure Firewall for inspection.
+Customers can deploy an Azure Firewall along side their connectivity-based NVAs. Virtual WAN routing can be configured to send all traffic to Azure Firewall for inspection. You can also configure Virtual WAN to send all internet-bound traffic to Azure Firewall for inspection.
 
 :::image type="content" source="./media/about-nva-hub/global-transit-firewall.png" alt-text="Global transit architecture with Azure Firewall." lightbox="./media/about-nva-hub/global-transit-firewall.png":::
 
