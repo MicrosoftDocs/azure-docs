@@ -81,7 +81,7 @@ The following sections show how to set the Application Insights Java agent path 
 If you installed Tomcat via `apt-get` or `yum`, you should have a file `/etc/tomcat8/tomcat8.conf`. Add this line to the end of that file:
 
 ```
-JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/[applicationinsights-agent-3.4.13.jar](https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-config#configuration-file-path)"
+JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/applicationinsights-agent-3.4.13.jar"
 ```
 
 #### Tomcat installed via download and unzip
