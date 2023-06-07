@@ -154,7 +154,7 @@ The Azure Connected Machine agent is designed to manage agent and system resourc
 * The Guest Configuration agent can use up to 5% of the CPU to evaluate policies.
 * The Extension Service agent can use up to 5% of the CPU to install, upgrade, run, and delete extensions. Some extensions may apply more restrictive CPU limits once installed. The following exceptions apply:
 
-  | Extension Type | Operating System | CPU limit |
+  | Extension type | Operating system | CPU limit |
   | -------------- | ---------------- | --------- |
   | AzureMonitorLinuxAgent | Linux | 60% |
   | AzureMonitorWindowsAgent | Windows | 100% |
