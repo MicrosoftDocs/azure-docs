@@ -102,6 +102,5 @@ sudo rpm --import <https://aglet.packages.cloudpassage.com/cloudpassage.package
 --httpproxy 169.xxx.x.xx  --httpport 3128
 ~~~
 
-
 [!Note]
 Keep in mind if you set them system-wide, they may "lose" their ability to run kubectl locally. Set them inline within the script first to help minimize the effects.
