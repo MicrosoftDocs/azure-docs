@@ -4,7 +4,7 @@ description: Review support requirements for the Defender for Containers plan in
 ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
-ms.date: 01/01/2023
+ms.date: 06/07/2023
 ms.custom: references_regions, ignite-2022
 ---
 
@@ -53,7 +53,6 @@ This article summarizes support information for the [Defender for Containers pla
 > [!NOTE]
 > For additional requirements for Kubernetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
-
 ### Private link restrictions
 
 Defender for Containers relies on the Defender profile/extension for several features. The Defender profile/extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that only machines that are configured to send traffic through Azure Monitor Private Link can send data to that workstation. You can configure a private link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
@@ -67,7 +66,7 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 ## AWS (EKS)
 
 | Domain | Feature | Supported Resources | Linux release state  | Windows release state   | Agentless/Agent-based | Pricing tier |
-|--|--| -- | -- | -- | -- | --| 
+|--|--| -- | -- | -- | -- | --|
 | Compliance | Docker CIS | EC2 | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
 | Vulnerability Assessment | Registry scan | ECR | Preview | - | Agentless | Defender for Containers |
 | Vulnerability Assessment | View vulnerabilities for running images | - | - | - | - | - |
@@ -79,7 +78,6 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 | Discovery and provisioning | Collection of control plane threat data | EKS | Preview | Preview | Agentless | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Defender extension | - | - | - | - | - |
 | Discovery and provisioning | Auto provisioning of Azure policy extension | - | - | - | - | - |
-
 
 ### Images support-EKS
 
@@ -100,7 +98,6 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
-
 ### Private link restrictions
 
 Defender for Containers relies on the Defender profile/extension for several features. The Defender profile/extension doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that only machines that are configured to send traffic through Azure Monitor Private Link can send data to that workstation. You can configure a private link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
@@ -118,7 +115,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 ## GCP (GKE)
 
 | Domain | Feature | Supported Resources | Linux release state  | Windows release state  | Agentless/Agent-based | Pricing tier |
-|--|--| -- | -- | -- | -- | --| 
+|--|--| -- | -- | -- | -- | --|
 | Compliance | Docker CIS | GCP VMs | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
 | Vulnerability Assessment | Registry scan | - | - | - | - | - |
 | Vulnerability Assessment | View vulnerabilities for running images | - | - | - | - | - |
@@ -130,7 +127,6 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | Discovery and provisioning | Collection of control plane threat data | GKE | Preview | Preview | Agentless | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Defender extension | GKE | Preview | - | Agentless | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Azure policy extension | GKE | Preview | - | Agentless | Defender for Containers |
-
 
 ### Kubernetes distributions/configurations support-GKE
 
@@ -144,7 +140,6 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
-
 
 ### Private link restrictions
 
@@ -163,7 +158,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 ## On-premises Arc-enabled machines
 
 | Domain | Feature | Supported Resources | Linux release state  | Windows release state   | Agentless/Agent-based | Pricing tier |
-|--|--| -- | -- | -- | -- | --| 
+|--|--| -- | -- | -- | -- | --|
 | Compliance | Docker CIS | Arc enabled VMs | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
 | Vulnerability Assessment  | Registry scan - [OS packages](#registries-and-images-support--on-premises) | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers |
 | Vulnerability Assessment | Registry scan - [language specific packages](#registries-and-images-support--on-premises) | ACR, Private ACR | Preview | - | Agentless | Defender for Containers |
@@ -176,7 +171,6 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | Discovery and provisioning | Collection of control plane threat data | Arc enabled K8s clusters | Preview | Preview | Defender extension | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Defender extension | Arc enabled K8s clusters | Preview | Preview | Agentless | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Azure policy extension | Arc enabled K8s clusters | Preview | - | Agentless | Defender for Containers |
-
 
 ### Registries and images support -on-premises
 
@@ -207,11 +201,11 @@ Defender for Containers relies on the **Defender extension** for several feature
 - CentOS 8
 - Debian 10
 - Debian 11
-- Google Container-Optimized OS 
-- Mariner 1.0 
-- Mariner 2.0 
+- Google Container-Optimized OS
+- Mariner 1.0
+- Mariner 2.0
 - Red Hat Enterprise Linux 8
-- Ubuntu 16.04 
+- Ubuntu 16.04
 - Ubuntu 18.04
 - Ubuntu 20.04
 - Ubuntu 22.04
@@ -235,7 +229,7 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
 ## Next steps
-    
+
 - Learn how [Defender for Cloud collects data using the Log Analytics Agent](monitoring-components.md).
 - Learn how [Defender for Cloud manages and safeguards data](data-security.md).
 - Review the [platforms that support Defender for Cloud](security-center-os-coverage.md).

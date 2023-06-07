@@ -36,7 +36,7 @@ No enforcement options are currently available. Adaptive application controls ar
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features)|
+|Pricing:|For pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).|
 |Supported machines:|:::image type="icon" source="./media/icons/yes-icon.png"::: Azure and non-Azure machines running Windows and Linux<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/index.yml) machines|
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
@@ -60,7 +60,7 @@ Select the recommendation, or open the adaptive application controls page to vie
     - **Recommended** - Groups of machines that consistently run the same applications, and don't have an allowlist configured. We recommend that you enable adaptive application controls for these groups.
 
       > [!TIP]
-      > If you see a group name with the prefix *REVIEWGROUP*, it contains machines with a partially consistent list of applications. Microsoft Defender for Cloud can't see a pattern but recommends reviewing this group to see whether _you_ can manually define some adaptive application controls rules as described in [Edit a group's adaptive application controls rule](#edit-a-groups-adaptive-application-controls-rule).
+      > If you see a group name with the prefix *REVIEWGROUP*, it contains machines with a partially consistent list of applications. Microsoft Defender for Cloud can't see a pattern but recommends reviewing this group to see whether *you* can manually define some adaptive application controls rules as described in [Edit a group's adaptive application controls rule](#edit-a-groups-adaptive-application-controls-rule).
       >
       > You can also move machines from this group to other groups as described in [Move a machine from one group to another](#move-a-machine-from-one-group-to-another).
 
