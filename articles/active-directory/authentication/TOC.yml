@@ -149,11 +149,11 @@
         - name: Federated CBA with Azure AD
           items:
           - name: Configure CBA with federation
-            href: certificate-based-authentication-get-started.md
+            href: certificate-based-authentication-federation-get-started.md
           - name: Use on Android Devices
-            href: certificate-based-authentication-android.md
+            href: certificate-based-authentication-federation-android.md
           - name: Use on iOS Devices
-            href: certificate-based-authentication-ios.md
+            href: certificate-based-authentication-federation-ios.md
       - name: Use a Temporary Access Pass
         href: howto-authentication-temporary-access-pass.md
       - name: Use SMS-based authentication
