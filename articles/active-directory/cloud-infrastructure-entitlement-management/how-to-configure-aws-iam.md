@@ -14,7 +14,7 @@ ms.author: jfields
 
 # Configure AWS IAM Identity Center as an identity provider
 
-If you're an Amazon Web Services (AWS) customer that uses the AWS IAM Identity Center, you can configure the Identity Center as an identity provider in Permissions Management. Configuring your AWS IAM Identity Center information allows you to receive more accurate data for your identities in Permissions Management.
+If you're an Amazon Web Services (AWS) customer who uses the AWS IAM Identity Center, you can configure the Identity Center as an identity provider in Permissions Management. Configuring your AWS IAM Identity Center information allows you to receive more accurate data for your identities in Permissions Management.
 
 > [!NOTE]
 > Configuring AWS IAM Identity Center as an identity provider is an optional step. By configuring identity provider information, Permissions Management can read user and role access configured at AWS IAM Identity Center. Admins can see the augmented view of assigned permissions to the identities. You can return to these steps to configure an IdP at any time.
