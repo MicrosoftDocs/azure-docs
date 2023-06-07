@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Create a search index in .NET'
+title: 'Quickstart: Use Azure SDKs'
 titleSuffix: Azure Cognitive Search
-description: "In this C# quickstart, learn how to create an index, load data, and run queries using the Azure.Search.Documents client library."
+description: "Learn how to create, load, and query a search index using the Azure SDKs for .NET, Python, Java, and JavaScript."
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -11,14 +11,9 @@ ms.topic: quickstart
 ms.date: 01/27/2023
 ms.custom: devx-track-csharp, mode-api, devx-track-dotnet
 ---
-# Quickstart: Create a search index using the Azure.Search.Documents client library
+# Quickstart: Create a search index using the Azure SDKs
 
-Learn how to use the [Azure.Search.Documents (version 11) client library](/dotnet/api/overview/azure/search.documents-readme) to create a .NET Core console application in C# that creates, loads, and queries a search index.
-
-You can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) to start with a finished project or follow the steps in this article to create your own.
-
-> [!NOTE]
-> Looking for an earlier version? See [Create a search index using Microsoft.Azure.Search v10](/previous-versions/azure/search/search-get-started-dotnet-v10) instead.
+Here is an intro sentence.
 
 ## Prerequisites
 
@@ -28,19 +23,30 @@ Before you begin, have the following tools and services:
 
 + An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart.
 
+## [**.NET**](#tab/dotnet)
+
+Learn how to use the [Azure.Search.Documents (version 11) client library](/dotnet/api/overview/azure/search.documents-readme) to create a .NET Core console application in C# that creates, loads, and queries a search index.
+
+You can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) to start with a finished project or follow the steps in this article to create your own.
+
+> [!NOTE]
+> Looking for an earlier version? See [Create a search index using Microsoft.Azure.Search v10](/previous-versions/azure/search/search-get-started-dotnet-v10) instead.
+
+### Prerequisites
+
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code was tested on the free Community edition of Visual Studio 2019.
 
 When setting up your project, you'll download the [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/).
 
 Azure SDK for .NET conforms to [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support), which means .NET Framework 4.6.1 and .NET Core 2.1 as minimum requirements.
 
-## Set up your project
+### Set up your project
 
 Assemble service connection information, and then start Visual Studio to create a new Console App project that can run on. Select NET Core 3.1 for the run time.
 
 <a name="get-service-info"></a>
 
-### Copy a key and endpoint
+#### Copy a key and endpoint
 
 Calls to the service require a URL endpoint and an access key on every request. As a first step, find the API key and URL to add to your project. You'll specify both values when creating the client in a later step.
 
@@ -52,7 +58,7 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-### Install the NuGet package
+#### Install the NuGet package
 
 After the project is created, add the client library. The [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) consists of one client library that provides all of the APIs used to work with a search service in .NET.
 
@@ -66,7 +72,7 @@ After the project is created, add the client library. The [Azure.Search.Document
 
 1. Select **Install** on the right to add the assembly to your project and solution.
 
-### Create a search client
+#### Create a search client
 
 1. In **Program.cs**, change the namespace to `AzureSearch.SDK.Quickstart.v11` and then add the following `using` directives.
 
@@ -98,7 +104,7 @@ After the project is created, add the client library. The [Azure.Search.Document
     }
     ```
 
-## 1 - Create an index
+### 1 - Create an index
 
 This quickstart builds a Hotels index that you'll load with hotel data and execute queries against. In this step, define the fields in the index. Each field definition includes a name, data type, and attributes that determine how the field is used.
 
@@ -209,7 +215,7 @@ In this example, synchronous methods of the Azure.Search.Documents library are u
 
 <a name="load-documents"></a>
 
-## 2 - Load documents
+### 2 - Load documents
 
 Azure Cognitive Search searches over content stored in the service. In this step, you'll load JSON documents that conform to the hotel index you just created.
 
@@ -345,7 +351,7 @@ When uploading documents, you must use an [IndexDocumentsBatch](/dotnet/api/azur
 
     The 2-second delay compensates for indexing, which is asynchronous, so that all documents can be indexed before the queries are executed. Coding in a delay is typically only necessary in demos, tests, and sample applications.
 
-## 3 - Search an index
+### 3 - Search an index
 
 You can get query results as soon as the first document is indexed, but actual testing of your index should wait until all documents are indexed.
 
@@ -503,11 +509,19 @@ The previous queries show multiple [ways of matching terms in a query](search-qu
 
 Full text search and filters are performed using the [SearchClient.Search](/dotnet/api/azure.search.documents.searchclient.search) method. A search query can be passed in the `searchText` string, while a filter expression can be passed in the [Filter](/dotnet/api/azure.search.documents.searchoptions.filter) property of the [SearchOptions](/dotnet/api/azure.search.documents.searchoptions) class. To filter without searching, just pass `"*"` for the `searchText` parameter of the [Search](/dotnet/api/azure.search.documents.searchclient.search) method. To search without filtering, leave the `Filter` property unset, or don't pass in a `SearchOptions` instance at all.
 
-## Run the program
+### Run the program
 
 Press F5 to rebuild the app and run the program in its entirety.
 
 Output includes messages from [Console.WriteLine](/dotnet/api/system.console.writeline), with the addition of query information and results.
+
+## [**Python**](#tab/python)
+
+## [**Java**](#tab/java)
+
+## [**JavaScript**](#tab/javascript)
+
+---
 
 ## Clean up resources
 

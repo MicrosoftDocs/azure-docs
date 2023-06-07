@@ -21,8 +21,6 @@
     href: search-get-started-vectors.md
   - name: Portal
     items:
-    - name: Create a search service
-      href: search-create-service-portal.md
     - name: Create an index
       href: search-get-started-portal.md
     - name: Create a demo app
