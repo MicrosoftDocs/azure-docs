@@ -14,15 +14,17 @@ items:
   items: 
   - name: Storage Task conditions
     href: storage-task-conditions.md
-  - name: Storage Task Permissions
-    href: storage-task-permission.md
+  - name: Storage Task assignments
+    href: storage-task-assignment.md
   - name: Monitor Storage Tasks
     href: monitor-storage-tasks.md
 - name: How-To
   items: 
-  - name: Define the conditions of a Storage Task
+  - name: Create a Storage Task
+    href: storage-task-create.md
+  - name: Define conditions
     href: storage-task-condition-edit.md
-  - name: Assign a Storage Task to storage accounts
+  - name: Create an assignment
     href: storage-task-assignment-manage.md
   expanded: true
 - name: Reference

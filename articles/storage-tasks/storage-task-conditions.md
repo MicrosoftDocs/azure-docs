@@ -33,7 +33,7 @@ The following table lists supported properties, operands, actions, and values.
 
 ## Assembling conditions
 
-Show adding, nesting, and other constructions with their impact on results.
+- Show adding, nesting, and other constructions with their impact on results (if - else conditions etc.)
 
 ## Previewing and refining conditions
 
