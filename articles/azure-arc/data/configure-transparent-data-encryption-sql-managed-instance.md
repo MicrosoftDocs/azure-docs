@@ -40,7 +40,7 @@ The following limitations apply when you enable automatic TDE:
 - Failover groups aren't supported.
 
 
-## Create a managed instance with TDE enabled
+## Create a managed instance with TDE enabled (Azure CLI)
 
 The following example creates an Azure Arc-enabled SQL managed instance with one replica, TDE enabled:
 
@@ -62,7 +62,11 @@ You can set Azure Arc-enabled SQL Managed Instance TDE in one of two modes:
 - Service-managed
 - Customer-managed
 
+# [Service-managed](#tab/service-managed)
+
 In service-managed mode, TDE requires the managed instance to use a service-managed database master key as well as the service-managed server certificate. These credentials are automatically created when service-managed TDE is enabled. You can use Azure CLI or Kubernetes tools to enable in this mode.
+
+# [Customer-managed](#tab/customer-managed)
 
 In customer-managed mode, TDE uses a service-managed database master key and uses keys you provide for the server certificate. To configure customer-managed mode:
 
@@ -70,6 +74,8 @@ In customer-managed mode, TDE uses a service-managed database master key and use
 1. Store the certificate as a secret in the same Kubernetes namespace as the instance.
 
 To enable in this mode, use Kubernetes tools. At this time, you can't use Azure CLI to enable this mode.
+
+---
 
 > [!NOTE]
 > If you need to change from one mode to the other, you must disable TDE from the current mode before you apply the new mode. For details, see [Turn off TDE on the managed instance](#turn-off-tde-on-the-managed-instance).
@@ -80,7 +86,9 @@ To enable in this mode, use Kubernetes tools. At this time, you can't use Azure 
 >  kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "Disabled" } } } }'
 >  ```
 
-### Enable with service-managed encryption mode (Kubernetes native tools)
+### Enable
+
+# [Kubernetes native tools](#tab/kubernetes-native/service-managed)
 
 To enable TDE in service-managed mode, run kubectl patch to enable service-managed TDE
 
@@ -94,7 +102,7 @@ Example:
 kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "ServiceManaged" } } } }'
 ```
 
-### Enable with service-managed encryption mode (Aure CLI)
+# [Azure CLI](#tab/azure-cli/service-managed)
 
 To enable TDE in service-managed mode with Azure CLI:
 
@@ -102,7 +110,7 @@ To enable TDE in service-managed mode with Azure CLI:
 az sql mi-arc update --tde-mode CustomerManaged --tde-protector-public-key-file <cert-file> --tde-protector-private-key-file <key-file>
 ```
 
-### Enable with customer-managed encryption mode 
+# [Kubernetes native tools](#tab/kubernetes-native/customer-managed)
 
 To enable with customer-managed encryption, use Kubernetes native tools. 
 
@@ -134,6 +142,12 @@ To enable TDE in customer-managed mode:
    ```console
    kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "CustomerManaged", "protectorSecret": "sqlmi-tde-protector-cert-secret" } } } }'
    ```
+
+# [Azure CLI](#tab/kubernetes-native/customer-managed)
+
+Azure CLI does not currently support this task.
+
+---
 
 ## Turn off TDE on the managed instance
 
