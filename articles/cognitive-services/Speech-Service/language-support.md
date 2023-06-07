@@ -75,7 +75,7 @@ Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. 
 
 Please note that the following neural voices are retired.
 
-- The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021. If you're using container Neural TTS, [download](speech-container-ntts.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from October 30, 2021, all requests with previous versions won't succeed.
+- The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021. If you're using container Neural TTS, [download](speech-container-ntts.md#get-the-container-image-with-docker-pull) and deploy the latest version. All requests with previous versions won't succeed starting from October 30, 2021.
 - The `en-US-JessaNeural` voice is retired and replaced by `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria." 
 
 ### Custom Neural Voice
