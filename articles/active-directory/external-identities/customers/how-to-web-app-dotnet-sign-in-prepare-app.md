@@ -83,7 +83,7 @@ Identity related NuGet packages must be installed in the project to authenticate
 
     * `Authority` - The identity provider instance and sign-in audience for the app. Replace `Enter_the_Tenant_Subdomain_Here` with the sub-domain of your customer tenant. To find this, select **Overview** in the sidebar menu, then switch to the **Overview tab**. Find the **Primary domain**, in the form *caseyjensen.onmicrosoft.com*. The sub-domain is *caseyjensen*.
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
-    * `ClientSecret` - The value of the client secret you created in [Prepare your tenant](./tutorial-web-app-dotnet-sign-in-prepare-tenant.md). Replace the text in quotes with the client secret **value** in the Microsoft Entra admin center.
+    * `ClientSecret` - The value of the client secret you created in [Prepare your tenant](./how-to-web-app-dotnet-sign-in-prepare-tenant.md). Replace the text in quotes with the client secret **value** in the Microsoft Entra admin center.
     * `CallbackPath` - Is an identifier to help the server redirect a response to the appropriate application.
     
 1. Save changes to the file.
@@ -181,4 +181,4 @@ The *Program.cs* needs to be modified to add authentication and authorization to
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign in and sign out](how-to-web-app-dotnet-sign-in-sign-in-out.md)
+> [Sign in and sign out](how-to-web-app-dotnet-sign-in-sign-out.md)

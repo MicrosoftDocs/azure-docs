@@ -128,7 +128,7 @@ The web app is now configured to sign in users with the Microsoft identity platf
     1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
 1. The ASP.NET Welcome page appears in your browser as depicted in the following screenshot:
 
-    :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into an ASP.NET web app.":::
+    :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into an ASP.NET web app.":::
 
 ## Sign out of the application
 
