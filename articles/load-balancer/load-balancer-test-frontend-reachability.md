@@ -27,7 +27,13 @@ Standard Public Azure Load Balancer with a frontend IPv4 address supports testin
 
 This section describes testing reachability of a standard load balancer frontend from a device outside of Azure with ping. Follow the directions for the operating system that you're using.
 
-### [Windows](#tab/windows-outide/)
+### [Windows](#tab/windows-outside)
+
+### [Linux](#tab/linux-outside)
+
+---
+
+### [Ping](#tab/ping/windows-outside)
 
 1. From your Windows device, open the **Search taskbar** and enter `cmd`. Select **Command Prompt**.
 2. In the command prompt, type the following command: 
@@ -38,7 +44,7 @@ This section describes testing reachability of a standard load balancer frontend
 
 3. Review ping's output.
 
-### [Linux](#tab/linux-outside/)
+### [Ping](#tab/ping/linux-outside)
 
 1. Open Terminal.
 2. Type the following command:
@@ -48,6 +54,28 @@ This section describes testing reachability of a standard load balancer frontend
 ```
 
 3. Review ping's output.
+
+### [Traceroute](#tab/traceroute/windows-outside)
+
+1. From your Windows device, open the **Search taskbar** and enter `cmd`. Select **Command Prompt**.
+2. In the command prompt, type the following command:
+
+```dos
+    traceroute -I <Input your load balancer’s public IPv4 address>
+```
+
+3. Review tracert's output.
+
+### [Traceroute](#tab/traceroute/linux-outside)
+
+1. Open Terminal.
+2. Type the following command:
+
+```bash
+    tracert -l <Input your load balancer’s public IPv4 address>
+```
+
+3. Review tracert's output.
 
 ---
 
@@ -83,16 +111,24 @@ This section describes how to test reachability of a standard public load balanc
 
 1. Select **Add**.
 
-### Test the Load Balancer’s frontend
+### Connect to the virtual machine
 
 1. Return to **Overview** in the virtual machine’s menu and select **Connect**.
 1. Sign in to your virtual machine using RDP, SSH, or Bastion.
 1. Depending on your VM’s operating system, follow these steps:
 
-### [Windows](#tab/windowsvm/)
+### [Windows](#tab/windowsvm)
+
+### [Linux](#tab/linuxvm/)
+
+---
+
+### Test the Load Balancer’s frontend
+
+### [Ping](#tab/ping/windowsvm)
 
 1. From your Windows device, open the **Search taskbar** and enter `cmd`. Select **Command Prompt**.
-2. In the command prompt, type the following command:
+2. In the command prompt, type the following command: 
 
 ```dos
     ping <Input your load balancer’s public IPv4 address>
@@ -100,7 +136,7 @@ This section describes how to test reachability of a standard public load balanc
 
 3. Review ping's output.
 
-### [Linux](#tab/linuxvm/)
+### [Ping](#tab/ping/linuxvm)
 
 1. Open Terminal.
 2. Type the following command:
@@ -111,11 +147,33 @@ This section describes how to test reachability of a standard public load balanc
 
 3. Review ping's output.
 
+### [Traceroute](#tab/traceroute/windowsvm)
+
+1. From your Windows device, open the **Search taskbar** and enter `cmd`. Select **Command Prompt**.
+2. In the command prompt, type the following command:
+
+```dos
+    traceroute -I <Input your load balancer’s public IPv4 address>
+```
+
+3. Review tracert's output.
+
+### [Traceroute](#tab/traceroute/linuxvm)
+
+1. Open Terminal.
+2. Type the following command:
+
+```bash
+    tracert -l <Input your load balancer’s public IPv4 address>
+```
+
+3. Review tracert's output.
+
 ---
 
 ## Expected replies with ping
 
-Based on the current health probe state of your backend instances, you receive different replies when testing the Load Balancer’s frontend with ping. Review the following scenarios for the expected reply: 
+Based on the current health probe state of your backend instances, you receive different replies when testing the Load Balancer’s frontend with ping. Review the following scenarios for the expected reply:
 
 | **Scenario** | **Expected reply** |
 | --- | --- |
@@ -125,9 +183,11 @@ Based on the current health probe state of your backend instances, you receive d
 | **No backend instances behind Load Balancer/No load balancing rules associated** | Unresponsive: Request timed out |
 
 ## Usage considerations
-  * ICMP pings can't be disabled and are allowed by default on Standard Public Load Balancers. 
+
+- ICMP pings can't be disabled and are allowed by default on Standard Public Load Balancers.
+
 > [!NOTE]
-> ICMP ping requests are not sent to the backend instances; they are handled by the Load Balancer. 
+> ICMP ping requests are not sent to the backend instances; they are handled by the Load Balancer.
 
 ## Next steps
 
