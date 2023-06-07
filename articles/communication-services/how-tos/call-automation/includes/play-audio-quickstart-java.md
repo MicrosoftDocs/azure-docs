@@ -79,7 +79,7 @@ By this point you should be familiar with starting calls, if you need to learn m
 
 ``` java
 AnswerCallOptions answerCallOptions = new AnswerCallOptions("<Incoming call context>", "<https://sample-callback-uri>");
-Response<AnswerCallResult> answerCallResult = callAutomationClient                                           .answerCallWithResponse(answerCallOptions)
+Response<AnswerCallResult> answerCallResult = callAutomationClient.answerCallWithResponse(answerCallOptions)
                           .block();
 ```
 
@@ -102,12 +102,11 @@ In this scenario audio is played to all participants on the call.
 ``` java
 var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
 
-var playOptions = new PlayOptions()
+var playOptions = new PlayToAllOptions(playSource)
     .setLoop(false)
     .setOperationContext("operationContext");
 
 var playResponse = callConnection.getCallMediaAsync().playToAllWithResponse(
-    playSource,
     playOptions
 ).block();
 assertEquals(202, playResponse.getStatusCode()); // The request was accepted
@@ -121,13 +120,11 @@ In this scenario audio is played to a specific participant.
 var targetUser = new PhoneNumberIdentifier(<target>);
 var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
 
-var playOptions = new PlayOptions()
+var playOptions = new PlayOptions(playSource)
     .setLoop(false)
     .setOperationContext("operationContext");
 
 var playResponse = callConnection.getCallMediaAsync().playWithResponse(
-    playSource,
-    Collections.singletonList(targetUser), // Can be a list of multiple users
     playOptions
 ).block();
 assertEquals(202, playResponse.getStatusCode()); // The request was accepted
@@ -139,10 +136,8 @@ You can use the loop option to play hold music that loops until your application
 
 ``` java
 var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
-var fileSource = new FileSource().setUri(<audioUrl>);
-var playOptions = new PlayOptions().setLoop(true);
+var playOptions = new PlayOptions(playSource).setLoop(true);
 var playResponse = callConnection.getCallMediaAsync().playToAllWithResponse(
-    fileSource,
     playOptions
 ).block();
 assertEquals(202, playResponse.getStatusCode()); // The request was accepted
@@ -155,11 +150,8 @@ If you'll be playing the same audio file multiple times, your application can pr
 ``` java
 var targetUser = new PhoneNumberIdentifier(<target>);
 var callConnection= callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
-var fileSource = new FileSource().setUri(<audioUrl>).setPlaySourceId(<sourceId>);
 var playResponse = callConnection.getCallMediaAsync().playWithResponse(
-    fileSource,
-    Collections.singletonList(targetUser),
-    new PlayOptions()
+    new PlayOptions(playSource)
 ).block();
 assertEquals(202, playResponse.getStatusCode()); // The request was accepted
 ```
@@ -200,7 +192,7 @@ To learn more about other supported events, visit the [Call Automation overview 
 
 Cancel all media operations, all pending media operations are canceled. This action also cancels other queued play actions.
 
-```console
+```java
 var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
 var cancelResponse = callConnection.getCallMediaAsync().cancelAllMediaOperationsWithResponse().block();
 assertEquals(202, cancelResponse.getStatusCode()); // The request was accepted
@@ -213,7 +205,7 @@ if (callEvent instanceof PlayCanceled {
      CallAutomationEventWithReasonCodeBase playCanceled= (CallAutomationEventWithReasonCodeBase) callEvent;
      Reasoncode reasonCode = playCanceled.getReasonCode();
      ResultInformation = playCanceled.getResultInformation();
-     //Play audio completed, Take some action on canceled event.
+     //Play cancel action completed, Take some action on canceled event.
      // Hang up call
      callConnection.hangUp(true);
 }
