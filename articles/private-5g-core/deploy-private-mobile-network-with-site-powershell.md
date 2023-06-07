@@ -6,7 +6,7 @@ author: James-Green-Microsoft
 ms.author: jamesgreen
 ms.service: private-5g-core
 ms.topic: quickstart
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurepowershell
 ms.date: 03/15/2023
 ---
 

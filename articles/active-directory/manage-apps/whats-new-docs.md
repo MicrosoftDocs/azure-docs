@@ -37,7 +37,7 @@ Welcome to what's new in Azure Active Directory (Azure AD) application managemen
 - [Tutorial: Configure F5 BIG-IP Easy Button for SSO to Oracle PeopleSoft](f5-big-ip-oracle-peoplesoft-easy-button.md)
 - [Tutorial: Configure Cloudflare with Azure Active Directory for secure hybrid access](cloudflare-azure-ad-integration.md)
 - [Tutorial: Configure F5 BIG-IP Easy Button for SSO to SAP ERP](f5-big-ip-sap-erp-easy-button.md)
-- [Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication](migrate-okta-federation-to-azure-active-directory.md)
+- [Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication](migrate-okta-federation.md)
 
 ## April 2023
 ### Updated articles
