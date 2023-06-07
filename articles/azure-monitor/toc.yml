@@ -1223,7 +1223,8 @@ items:
           href: logs/resource-expression.md
         - name: Unify application data resources
           href: logs/unify-app-resource-data.md
-        - name: Query Azure Data Explorer from Azure Monitor
+        - name: Query data in Azure Data Explorer or Resource Graph
+          displayName: arg(), adx()        
           href: logs/azure-monitor-data-explorer-proxy.md
       - name: API
         items:
