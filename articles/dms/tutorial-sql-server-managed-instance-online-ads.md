@@ -3,7 +3,7 @@ title: "Tutorial: Migrate SQL Server to Azure SQL Managed Instance online by usi
 titleSuffix: Azure Database Migration Service
 description: Learn how to migrate on-premises SQL Server to Azure SQL Managed Instance only by using Azure Data Studio and Azure Database Migration Service.
 author: abhims14
-ms.author: abhishekum
+ms.author: croblesm
 ms.reviewer: cawrites
 ms.date: 06/07/2023
 ms.service: dms
