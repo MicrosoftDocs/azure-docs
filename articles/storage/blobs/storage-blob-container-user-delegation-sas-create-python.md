@@ -31,7 +31,13 @@ When an Azure AD security principal attempts to access blob data, that security 
 
 ## Create a user delegation SAS for a container
 
-You can create a user delegation SAS to delegate limited access to a container resource. The following code example shows how to create a user delegation SAS for a container:
+Once you've obtained the user delegation key, you can create a user delegation SAS. You can create a user delegation SAS to delegate limited access to a container resource using the following method:
+
+- [generate_container_sas](/python/api/azure-storage-blob/azure.storage.blob#azure-storage-blob-generate-container-sas)
+
+The user delegation key to sign the SAS is passed to the method as the `user_delegation_key` argument. Allowed permissions are passed to the method as the `permission` argument, and are defined in the [ContainerSasPermissions](/python/api/azure-storage-blob/azure.storage.blob.containersaspermissions) class.
+
+The following code example shows how to create a user delegation SAS for a container:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_create_user_delegation_sas_container":::
 

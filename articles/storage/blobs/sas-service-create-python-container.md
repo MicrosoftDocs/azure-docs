@@ -6,12 +6,12 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/12/2023
+ms.date: 06/07/2023
 ms.author: pauljewell
 ms.reviewer: nachakra
 ms.subservice: blobs
-ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp, engagement-fy23
+ms.devlang: python
+ms.custom: devx-track-python, devguide-python, engagement-fy23
 ---
 
 # Create a service SAS for a container with Python
@@ -22,23 +22,25 @@ This article shows how to use the storage account key to create a service SAS fo
 
 ## About the service SAS
 
-A service SAS is signed with the account access key. You can use the [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) class to create the credential that is used to sign the service SAS.
+A service SAS is signed with the storage account access key. A service SAS delegates access to a resource in a single Azure Storage service, such as Blob Storage.
 
-You can also use a stored access policy to define the permissions and duration of the SAS. If the name of an existing stored access policy is provided, that policy is associated with the SAS. To learn more about stored access policies, see [Define a stored access policy](#define-a-stored-access-policy). If no stored access policy is provided, the code examples in this article show how to define permissions and duration for the SAS.
+You can also use a stored access policy to define the permissions and duration of the SAS. If the name of an existing stored access policy is provided, that policy is associated with the SAS. To learn more about stored access policies, see [Define a stored access policy](/rest/api/storageservices/define-stored-access-policy). If no stored access policy is provided, the code examples in this article show how to define permissions and duration for the SAS.
 
 ## Create a service SAS for a container
 
-The following code example shows how to create a service SAS for a container resource. First, the code verifies that the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object is authorized with a shared key credential by checking the [CanGenerateSasUri](/dotnet/api/azure.storage.blobs.blobcontainerclient.cangeneratesasuri) property. Then, it generates the service SAS via the [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) class, and calls [GenerateSasUri](/dotnet/api/azure.storage.blobs.blobcontainerclient.generatesasuri) to create a service SAS URI based on the client and builder objects. 
+You can create a service delegation SAS to delegate limited access to a container resource using the following method:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_CreateServiceSASContainer":::
+- [generate_container_sas](/python/api/azure-storage-blob/azure.storage.blob#azure-storage-blob-generate-blob-sas)
+
+The storage account access key used to sign the SAS is passed to the method as the `account_key` argument. Allowed permissions are passed to the method as the `permission` argument, and are defined in the [ContainerSasPermissions](/python/api/azure-storage-blob/azure.storage.blob.containersaspermissions) class. 
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_create_service_sas_container":::
 
 ## Use a service SAS to authorize a client object
 
-The following code example shows how to use the service SAS to authorize a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object. This client object can be used to perform operations on the container resource based on the permissions granted by the SAS.
+The following code example shows how to use the service SAS to authorize a [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) object. This client object can be used to perform operations on the container resource based on the permissions granted by the SAS.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_UseServiceSASContainer":::
-
-[!INCLUDE [storage-dev-guide-stored-access-policy](../../../includes/storage-dev-guides/storage-dev-guide-stored-access-policy.md)]
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_use_service_sas_container":::
 
 ## Resources
 
