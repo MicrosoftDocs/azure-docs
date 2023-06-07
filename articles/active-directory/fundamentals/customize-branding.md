@@ -40,7 +40,12 @@ The **Global Administrator** role is required to customize company branding.
 
 ## Before you begin
 
-You can customize the sign-in experience when users sign in to your organization's tenant-specific apps, such as `https://outlook.com/woodgrove.com`, or when passing a domain variable, such as `https://passwordreset.microsoftonline.com/?whr=woodgrove.com`.
+You can customize the sign-in experience when users sign in to your organization by passing a domain variable:
+Microsoft 365 Portal: `https://login.microsoftonline.com/?whr=contoso.com`
+Outlook: `https://outlook.com/contoso.com`
+Teams: `https://teams.microsoft.com/?tenantId=contoso.com`
+MyApps: `http://myapps.microsoft.com/?whr=contoso.com`
+Azure AD Self-service Password Reset: `https://passwordreset.microsoftonline.com/?whr=contoso.com`
 
 Custom branding appears after users sign in. Users that start the sign-in process at a site like www\.office.com  won't see the branding. After users sign in, the branding may take at least 15 minutes to appear.
 

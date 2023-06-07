@@ -6,7 +6,7 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: shseth
 ms.date: 4/3/2023 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
 # Customer intent: As an IT manager, I want to understand how I should move from using legacy agents to Azure Monitor Agent.
 ---
 

@@ -70,7 +70,7 @@ The sign-in shows up on the Identity Protection dashboard within 10 - 15 minutes
 
 ## Atypical travel
 
-Simulating the atypical travel condition is difficult because the algorithm uses machine learning to weed out false-positives such as atypical travel from familiar devices, or sign-ins from VPNs that are used by other users in the directory. Additionally, the algorithm requires a sign-in history of 14 days and 10 logins of the user before it begins generating risk detections. Because of the complex machine learning models and above rules, there's a chance that the following steps won't lead to a risk detection. You might want to replicate these steps for multiple Azure AD accounts to simulate this detection.
+Simulating the atypical travel condition is difficult because the algorithm uses machine learning to weed out false-positives such as atypical travel from familiar devices, or sign-ins from VPNs that are used by other users in the directory. Additionally, the algorithm requires a sign-in history of 14 days or 10 logins of the user before it begins generating risk detections. Because of the complex machine learning models and above rules, there's a chance that the following steps won't lead to a risk detection. You might want to replicate these steps for multiple Azure AD accounts to simulate this detection.
 
 **To simulate an atypical travel risk detection, perform the following steps**:
 
