@@ -590,14 +590,28 @@ sections:
           * [Custom events and metrics](app/api-custom-events-metrics.md) that you code.
           * [Trace logs](app/asp-net-trace-logs.md) if you configure the appropriate collector.
           
-          From [client webpages](app/javascript.md):
+          From [client webpages](app/javascript-sdk.md):
           
-          * [Page view counts](app/usage-overview.md)
-          * [AJAX calls](app/asp-net-dependencies.md): Requests made from a running script
-          * Page view load data
-          * Configurable page [visit time](./app/data-model-complete.md#pageview)
-          * User and session counts
-          * [Authenticated user IDs](app/api-custom-events-metrics.md#authenticated-users)
+          * Uncaught exceptions in your app, including information on
+            * Stack trace
+            * Exception details and message accompanying the error
+            * Line & column number of error
+            * URL where error was raised
+          * Network Dependency Requests made by your app XHR and Fetch (fetch collection is disabled by default) requests, include information on:
+            * Url of dependency source
+            * Command & Method used to request the dependency
+            * Duration of the request
+            * Result code and success status of the request
+            * ID (if any) of user making the request
+            * Correlation context (if any) where request is made
+          * User information (for example, Location, network, IP)
+          * Device information (for example, Browser, OS, version, language, model)
+          * Session information
+
+            > [!Note]
+            > For some applications, such as single-page applications (SPAs), the duration may not be recorded and will default to 0.
+
+            For more information, see [Data collection, retention, and storage in Application Insights](./app/data-retention-privacy.md).
           
           From other sources, if you configure them:
           
