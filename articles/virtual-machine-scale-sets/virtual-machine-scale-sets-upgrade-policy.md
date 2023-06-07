@@ -40,14 +40,14 @@ In this mode, the scale set performs updates in batches with an optional pause t
 
 -  **Rolling Upgrades with MaxSurge disabled**
     
-    With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again and the next batch will begin. This continues until all instances brought up-to-date. 
+    With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again, and the next batch will begin. This continues until all instances brought up-to-date. 
 
 -  **Rolling Upgrades with MaxSurge enabled**
     
     With MaxSurge enabled, new instances are created and brought up-to-date with the latest scale model in batches rather than taking down the old instances for upgrades. Once complete, the new instances are added to the scale set and the old instances are removed. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. 
 
 
-When a Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health.
+When using an Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health.
  
 
 ## Setting the Upgrade Policy
@@ -139,7 +139,7 @@ Select the Virtual Machine Scale Set you want to change the Upgrade Policy for. 
 
 
 ### [CLI](#tab/cli2)
-Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update) and enable `MaxSurge`. If you do not already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
+Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update) and enable `MaxSurge`. If you don't already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
 
 ```azurecli-interactive
 az vmss update \
@@ -149,7 +149,7 @@ az vmss update \
 ```
 
 ### [PowerShell](#tab/powershell2)
-Update an existing Virtual Machine Scale Set using [Set-AzVmssRollingUpgradePolicy](/powershell/module/az.compute/set-azvmssrollingupgradepolicy) and [Update-AzVmss](/powershell/module/az.compute/update-azvmss). If you do not already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
+Update an existing Virtual Machine Scale Set using [Set-AzVmssRollingUpgradePolicy](/powershell/module/az.compute/set-azvmssrollingupgradepolicy) and [Update-AzVmss](/powershell/module/az.compute/update-azvmss). If you don't already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
 
 ```azurepowershell-interactive
 $vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
