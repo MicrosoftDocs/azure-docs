@@ -124,6 +124,8 @@
         href: cloud-sync/how-to-sso.md
       - name: Directory extensions and custom attributes
         href: cloud-sync/custom-attribute-mapping.md
+      - name: Exchange hyrid
+        href: cloud-sync/exchange-hybrid.md
     - name: Plan and design
       items:
       - name: Topologies and scenarios for cloud sync
