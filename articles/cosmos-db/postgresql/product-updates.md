@@ -7,7 +7,7 @@ ms.custom: mvc
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 06/05/2023
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -23,6 +23,8 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
 ### June  2023
+* General availability: Preferred availability zone (AZ) selection is now enabled in [all Azure Cosmos DB for PostgreSQL regions](./resources-regions.md) that support AZs.
+    * Learn about [cluster node availability zones](./concepts-cluster.md#node-availability-zone) and [how to set preferred availability zone](./howto-scale-grow.md#choose-preferred-availability-zone).
 * General availability: The new domain name and FQDN format for cluster nodes. The change applies to newly provisioned clusters only. 
     * See [details](./concepts-node-domain-name.md).
 
@@ -36,7 +38,6 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 * General availability: Clusters are now always provisioned with the latest Citus version supported for selected PostgreSQL version.
 	* See [this page](./reference-extensions.md#citus-extension) for the latest supported Citus versions.
 	* See [this page](./concepts-upgrade.md) for information on PostgreSQL and Citus version in-place upgrade.
-* General availability: PgBouncer 1.19.0 is now available in all supported regions.
 
 ### April  2023
 
@@ -47,7 +48,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 
 ### March 2023
 
-* General availability: Clusters compute [start / stop functionality](./concepts-compute-start-stop.md) is now supported across all configurations.
+* General availability: Cluster compute [start / stop functionality](./concepts-compute-start-stop.md) is now supported across all configurations.
 	
 ### February 2023
 
