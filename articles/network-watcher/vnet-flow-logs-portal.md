@@ -149,7 +149,7 @@ You can change the properties of a flow log after you create it. For example, yo
     - **Retention (days)**: Change the retention time in the storage account (this option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md#types-of-storage-accounts) storage accounts). Enter *0* if you want to retain the flow logs data in the storage account forever (until you manually delete the data from the storage account).
     - **Traffic Analytics**: Enable or disable traffic analytics for your flow log. For more information, see [Traffic analytics](traffic-analytics.md).
     - **Traffic Analytics processing interval**: Change the processing interval of traffic analytics (if traffic analytics is enabled). Available options are: one hour and 10 minutes. The default processing interval is every one hour. For more information, see [Traffic analytics](traffic-analytics.md).
-    - **Log Analytics workspace**: Change the Log Analytics workspace that you want to save the flow logs to (if traffic analytics is enabled). For more information, see [Log Analytics workspace overview](../azure/azure-monitor/logs/log-analytics-workspace-overview).
+    - **Log Analytics workspace**: Change the Log Analytics workspace that you want to save the flow logs to (if traffic analytics is enabled). For more information, see [Log Analytics workspace overview](../azure-monitor/logs/log-analytics-workspace-overview).
 
     :::image type="content" source="./media/vnet-flow-logs-portal/change-flow-log.png" alt-text="Screenshot of Flow logs settings page in the Azure portal where you can change some VNet flow log settings." lightbox="./media/vnet-flow-logs-portal/change-flow-log.png":::
 
@@ -183,7 +183,7 @@ You can view the details of a flow log in a subscription or a group of subscript
 
 ## Download a flow log
 
-You can download the flow log data from the storage account that you saved the flow log to.
+You can download the flow logs data from the storage account that you saved the flow log to.
 
 1. In the search box at the top of the portal, enter *storage accounts*. Select **Storage accounts** in the search results.
 
@@ -195,11 +195,11 @@ You can download the flow log data from the storage account that you saved the f
 
 1. In **insights-logs-flowlogflowevent**, navigate the folder hierarchy until you get to the `PT1H.json` file. VNet flow log files follow the following path:
 
-```
-https://{storageAccountName}.blob.core.windows.net/insights-logs-flowlogflowevent/flowLogResourceID=/{subscriptionID}_NETWORKWATCHERRG/NETWORKWATCHER_{Region}_{VirtualNetworkName}-{ResourceGroupName}-FLOWLOGS/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
-```
+    ```
+    https://{storageAccountName}.blob.core.windows.net/insights-logs-flowlogflowevent/flowLogResourceID=/{subscriptionID}_NETWORKWATCHERRG/NETWORKWATCHER_{Region}_{VirtualNetworkName}-{ResourceGroupName}-FLOWLOGS/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+    ```
 
-1. Select the ellipsis **...** to the right of the PT1H.json file, then select **Download**.
+1. Select the ellipsis **...** to the right of the `PT1H.json` file, then select **Download**.
 
    :::image type="content" source="./media/vnet-flow-logs-portal/flow-log-file-download.png" alt-text="Screenshot shows how to download a VNet flow log data file from the storage account container in the Azure portal.":::
 
