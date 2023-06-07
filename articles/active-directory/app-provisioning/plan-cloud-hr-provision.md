@@ -126,7 +126,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so owing to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md). Also make sure that stakeholder roles in the project are well understood. Document the stakeholders and their project input and accountabilities.
+When technology projects fail, they typically do so owing to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/deployment-plans.md). Also make sure that stakeholder roles in the project are well understood. Document the stakeholders and their project input and accountabilities.
 
 Include a representative from the HR organization who can provide inputs on existing HR business processes and worker identity plus job data-processing requirements.
 
@@ -138,7 +138,7 @@ Communication is critical to the success of any new service. Proactively communi
 
 Integrating HR business processes and identity workflows from the cloud HR app to target systems requires a considerable amount of data validation, data transformation, data cleansing, and end-to-end testing before you can deploy the solution into production.
 
-Run the initial configuration in a [pilot environment](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) before you scale it to all users in production.
+Run the initial configuration in a [pilot environment](../fundamentals/deployment-plans.md#best-practices-for-a-pilot) before you scale it to all users in production.
 
 ## Select cloud HR provisioning connector apps
 
