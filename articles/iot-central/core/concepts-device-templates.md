@@ -40,7 +40,10 @@ IoT Central can automatically assign a device to a device template when the devi
 
 1. If the device template is already published in the IoT Central application, the device is assigned to the device template.
 1. If the device template isn't already published in the IoT Central application, IoT Central looks for the device model in the [public model repository](https://github.com/Azure/iot-plugandplay-models). If IoT Central finds the model, it uses it to generate a basic device template.
-1. If IoT Central doesn't find the model in the public model repository, the device is marked as **Unassigned**. An operator can either create a device template for the device and then migrate the unassigned device to the new device template, or [autogenerate a device template](howto-set-up-template.md#autogenerate-a-device-template) based on the data the device sends.
+1. If IoT Central doesn't find the model in the public model repository, the device is marked as **Unassigned**. An operator can:
+
+    - Create a device template for the device and then migrate the unassigned device to the new device template.
+    - [Autogenerate a device template](howto-set-up-template.md#autogenerate-a-device-template) based on the data the device sends.
 
 The following screenshot shows you how to view the model ID of a device template in IoT Central. In a device template, select a component, and then select **Edit identity**:
 
@@ -64,7 +67,10 @@ To learn more about the DPS payload, see the sample code used in the [Tutorial: 
 
 ## Device models
 
-A device model defines how a device interacts with your IoT Central application. The device developer must make sure that the device implements the behaviors defined in the device model so that IoT Central can monitor and manage the device. A device model is made up of one or more _interfaces_, and each interface can define a collection of _telemetry_ types, _device properties_, and _commands_. A solution developer can import a JSON file that defines a complete device model or individual interface into a device template, or use the web UI in IoT Central to create or edit a device model.
+A device model defines how a device interacts with your IoT Central application. The device developer must make sure that the device implements the behaviors defined in the device model so that IoT Central can monitor and manage the device. A device model is made up of one or more _interfaces_, and each interface can define a collection of _telemetry_ types, _device properties_, and _commands_. A solution developer can:
+
+- Import a JSON file that defines a complete device model or individual interface into a device template.
+- Use the web UI in IoT Central to create or edit a device model.
 
 > [!NOTE]
 > IoT Central accepts any valid JSON payload from a device but it can only use the data for visualizations if it matches a definition in the device model. You can export data that doesn't match a definition, see  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
@@ -91,7 +97,7 @@ To learn more about DTDL models, see the [IoT Plug and Play modeling guide](../.
 
 By default, properties are read-only. Read-only properties mean that the device reports property value updates to your IoT Central application. Your IoT Central application can't set the value of a read-only property.
 
-You can also mark a property as writable on an interface. A device can receive an update to a writable property from your IoT Central application as well as reporting property value updates to your application.
+You can also mark a property as writable on an interface. A device can receive an update to a writable property from your IoT Central application and report property value updates to your application.
 
 Devices don't need to be connected to set property values. The updated values are transferred when the device next connects to the application. This behavior applies to both read-only and writable properties.
 
@@ -245,4 +251,4 @@ A solution developer creates views that let operators monitor and manage connect
 
 ## Next steps
 
-Now that you've learned about device templates, a suggested next steps is to read [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md) to learn more about the data a device exchanges with IoT Central.
+Now that you've learned about device templates, a suggested next step is to read [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md) to learn more about the data a device exchanges with IoT Central.

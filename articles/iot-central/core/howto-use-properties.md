@@ -1,6 +1,6 @@
 ---
 title: Use properties in an Azure IoT Central solution
-description: Learn how to use read-only and writable properties in an Azure IoT Central solution. Define properties in IoT Central and use properties progrmatically.
+description: Learn how to use read-only and writable properties in an Azure IoT Central solution. Define properties in IoT Central and use properties programmatically.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/06/2023
@@ -41,7 +41,7 @@ The following table shows the configuration settings for a property capability.
 | Name | The name of the property. Azure IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field must be alphanumeric.  The device code uses this **Name** value. |
 | Capability type | Property. |
 | Semantic type | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
-| Schema | The property data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
+| Schema | The property data type, such as double, string, or vector. The semantic type determines the available choices. Schema isn't available for the event and state semantic types. |
 | Writable | If the property isn't writable, the device can report property values to Azure IoT Central. If the property is writable, the device can report property values to Azure IoT Central. Then Azure IoT Central can send property updates to the device. |
 | Severity | Only available for the event semantic type. The severities are **Error**, **Information**, or **Warning**. |
 | State values | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value. |
@@ -68,7 +68,7 @@ By default, properties are read-only. Read-only properties let a device report p
 
 Azure IoT Central uses device twins to synchronize property values between the device and the Azure IoT Central application. Device property values use device twin reported properties. For more information, see [device twins](../../iot-hub/tutorial-device-twins.md).
 
-Property updates are sent by a device as a JSON payload. For more information, see [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md).
+A device sends property updates as a JSON payload. For more information, see [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md).
 
 You can use the Azure IoT device SDK to send a property update to your Azure IoT Central application.
 
@@ -80,7 +80,7 @@ The following view in Azure IoT Central application shows the properties you can
 
 ## Implement writable properties
 
-Writable properties are set by an operator in the Azure IoT Central application on a form. Azure IoT Central sends the property to the device. Azure IoT Central expects an acknowledgment from the device.
+An IoT Central operator sets writable properties on a form. Azure IoT Central sends the property to the device. Azure IoT Central expects an acknowledgment from the device.
 
 For example implementations in multiple languages, see [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Move from IoT Central to a PaaS solution
-description: This article discusses to move between application platform as a service (aPaaS) and platform as a service (PaaS) Azure IoT solution approaches.
+description: This article discusses how to move between application platform as a service (aPaaS) and platform as a service (PaaS) Azure IoT solution approaches.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/28/2022

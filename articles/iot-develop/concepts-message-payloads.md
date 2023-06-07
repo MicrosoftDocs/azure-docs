@@ -530,7 +530,7 @@ To learn more about the DTDL property naming rules, see [DTDL > Property](https:
 
 ### Properties in components
 
-If the property is defined in a component, wrap the property in the component name. The following example sets the `maxTempSinceLastReboot` in the `thermostat2` component. The marker `__t` indicates that this a component:
+If the property is defined in a component, wrap the property in the component name. The following example sets the `maxTempSinceLastReboot` in the `thermostat2` component. The marker `__t` indicates that this section defines a component:
 
 ```json
 {
@@ -825,7 +825,7 @@ A device client should send a JSON payload that looks like the following example
 
 This section shows examples of writable property types that a device receives from a service.
 
-If the writable property is defined in a component, the desired property message includes the component name. The following example shows the message requesting the device to update the `targetTemperature` in the `thermostat2` component. The marker `__t` indicates that this a component:
+If the writable property is defined in a component, the desired property message includes the component name. The following example shows the message requesting the device to update the `targetTemperature` in the `thermostat2` component. The marker `__t` indicates that this section defines a component:
 
 ```json
 {

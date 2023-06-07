@@ -148,7 +148,7 @@ To build the custom module in the [Azure Cloud Shell](https://shell.azure.com/):
 
 This scenario uses an IoT Edge gateway device to transform the data from any downstream devices. This section describes how to create IoT Central device template for the gateway device in your IoT Central application. IoT Edge devices use a deployment manifest to configure their modules.
 
-In this example, the downstream device doesn't need a device template. The downstream device is registered in IoT Central so you can generate the credentials it needs to connect the IoT Edge device. Because the IoT Edge module transforms the data, all the downstream device telemetry arrives in IoT Central as if it was sent by the IoT Edge device.
+In this example, the downstream device doesn't need a device template. The downstream device is registered in IoT Central so you can generate the credentials it needs to connect the IoT Edge device. Because the IoT Edge module transforms the data, all the downstream device telemetry arrives in IoT Central as if the IoT Edge device had sent it.
 
 To create a device template for the IoT Edge gateway device:
 
@@ -363,7 +363,7 @@ To connect a downstream device to the IoT Edge gateway device:
     git clone https://github.com/iot-for-all/iot-central-transform-with-iot-edge
     ```
 
-1. To copy the required certificate from the gateway device, run the following `scp` commands. This `scp` command uses the hostname `edgegateway` to identify the gateway virtual machine. You'll be prompted for your password:
+1. To copy the required certificate from the gateway device, run the following `scp` commands. This `scp` command uses the hostname `edgegateway` to identify the gateway virtual machine. You're prompted for your password:
 
     ```bash
     cd ~/iot-central-transform-with-iot-edge

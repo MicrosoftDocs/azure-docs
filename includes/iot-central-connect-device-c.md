@@ -31,7 +31,7 @@ sudo apt-get update
 sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
 ```
 
-Verify the version of `cmake` is above **2.8.12** and the version of **GCC** is above **4.4.7**.
+Verify the version of `cmake` is greater than **2.8.12** and the version of **GCC** is greater than **4.4.7**.
 
 ```sh
 cmake --version

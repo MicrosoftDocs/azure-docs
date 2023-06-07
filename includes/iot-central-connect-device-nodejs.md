@@ -159,7 +159,7 @@ async function sendTelemetry(deviceClient, data, index, componentName) {
 }
 ```
 
-The `main` method uses a helper method called `helperCreateReportedPropertiesPatch` to create property update messages. This method takes an optional parameter to specify the component sending the property.:
+The `main` method uses a helper method called `helperCreateReportedPropertiesPatch` to create property update messages. This method takes an optional parameter to specify the component sending the property:
 
 ```javascript
 const helperCreateReportedPropertiesPatch = (propertiesToReport, componentName) => {
