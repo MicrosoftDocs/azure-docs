@@ -113,7 +113,6 @@ The following platform SKUs are currently supported (and more are added periodic
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-core |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-core-smalldisk |
 
-
 ## Requirements for configuring automatic OS image upgrade
 
 - The *version* property of the image must be set to *latest*.

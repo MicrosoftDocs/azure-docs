@@ -1,6 +1,6 @@
 ---
 title:  Overview of the Azure Connected Machine agent
-description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
+description: This article provides a detailed overview of the Azure Connected Machine agent, which supports monitoring virtual machines hosted in hybrid environments.
 ms.date: 05/12/2023
 ms.topic: conceptual
 ---
@@ -11,7 +11,7 @@ The Azure Connected Machine agent enables you to manage your Windows and Linux m
 
 ## Agent components
 
-:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc-enabled servers agent architectural overview." border="false":::
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Connected Machine agent architectural overview." border="false":::
 
 The Azure Connected Machine agent package contains several logical components bundled together:
 
@@ -101,7 +101,7 @@ Installing the Connected Machine agent for Window applies the following system-w
 
 ### Linux agent installation details
 
-The preferred package format for the distribution (`.rpm` or `.deb`) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/) provides the Connected Machine agent for Linux. The shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent) installs and configurs the agent.
+The preferred package format for the distribution (`.rpm` or `.deb`) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/) provides the Connected Machine agent for Linux. The shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent) installs and configures the agent.
 
 Installing, upgrading, and removing the Connected Machine agent isn't required after server restart.
 
@@ -225,5 +225,5 @@ We provide several options for deploying the agent. For more information, see [P
 ## Next steps
 
 * To begin evaluating Azure Arc-enabled servers, see [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](learn/quick-enable-hybrid-vm.md).
-* Before you deploy the Azure Arc-enabled servers agent and integrate with other Azure management and monitoring services, review the [Planning and deployment guide](plan-at-scale-deployment.md).
+* Before you deploy the Azure Connected Machine agent and integrate with other Azure management and monitoring services, review the [Planning and deployment guide](plan-at-scale-deployment.md).
 * Review troubleshooting information in the [agent connection issues troubleshooting guide](troubleshoot-agent-onboard.md).

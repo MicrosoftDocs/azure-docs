@@ -10,7 +10,7 @@ ms.author: lagayhar
 author: lgayhardt
 ms.reviewer: lagayhar
 ms.date: 05/10/2022
-ms.custom: devx-track-python, event-tier1-build-2022
+ms.custom: event-tier1-build-2022
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
