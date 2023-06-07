@@ -43,17 +43,7 @@ For background information about the assets you can organize in API Center, see 
 
 ## Register the API Center provider
 
-After you've been added to the API Center preview, you need to register the API Center resource provider in your subscription. You only need to register the resource provider once. You can register the resource provider using the [portal](../azure-resource-manager/management/resource-providers-and-types.md) or other tools. 
-
-To register the API Center resource provider using the portal:
-
-1. [Sign in](https://portal.azure.com) to the portal. 
-
-1. In the search bar, enter *Subscriptions*, and select your subscription.
-
-1. In the left menu, select **Resource providers**.
-
-1. Search for *Microsoft.ApiCenter*, and then select **Register**.
+After you've been added to the API Center preview, you need to register the **Microsoft.ApiCenter** resource provider in your subscription, using the portal or other tools. You only need to register the resource provider once. For steps, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider). 
 
 ## Create an API center
 

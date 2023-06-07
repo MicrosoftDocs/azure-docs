@@ -14,7 +14,7 @@ ms.custom: Include file
 
 | Resource | Limit<sup>1</sup> |
 | ---------------------------------------------------------------------- | -------------------------- |
-| Maximum number of APIs | 10,000 |
+| Maximum number of APIs | 1,000 |
 | Maximum number of versions per API | 100 |
 | Maximum number of environments | 1,000 |
 | Maximum number of custom metadata properties | 100 |
