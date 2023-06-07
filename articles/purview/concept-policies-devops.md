@@ -42,7 +42,7 @@ Three elements define a DevOps policy:
 
   A role maps to a set of actions that the policy permits on the data resource. DevOps policies support the SQL Performance Monitor and SQL Security Auditor roles. Both of these roles provide access to SQL system metadata, and more specifically to dynamic management views (DMVs) and dynamic management functions (DMFs). But the set of DMVs and DMFs that these roles grant is different. We provide some popular examples [later in this article](#mapping-of-popular-dmvs-and-dmfs).
 
-  The [Create, list, update, and delete Microsoft Purview DevOps policies](concept-policies-devops.md) article details the role definition for each data source type. That is, it provides a mapping of roles in Microsoft Purview to the actions that are permitted in that type of data source. For example, the role definition for SQL Performance Monitor and SQL Security Auditor includes *Connect* actions at the server and database level on the data source side.
+  The [Create, list, update, and delete Microsoft Purview DevOps policies](how-to-policies-devops-authoring-generic) article details the role definition for each data source type. That is, it provides a mapping of roles in Microsoft Purview to the actions that are permitted in that type of data source. For example, the role definition for SQL Performance Monitor and SQL Security Auditor includes *Connect* actions at the server and database level on the data source side.
 
 In essence, the DevOps policy assigns the role's related permissions to the subject and is enforced in the scope of the data resource's path.
 
@@ -66,13 +66,13 @@ These are the benefits:
 
 | Principle | Benefit |
 |-|-|
-|*Simplify*        |The role definitions SQL Performance Monitor and SQL Security Auditor capture the permissions that typical IT and DevOps personas need to execute their job.|
+|Simplify        |The role definitions SQL Performance Monitor and SQL Security Auditor capture the permissions that typical IT and DevOps personas need to execute their job.|
 |                  |There's less need for permission expertise on each data source type.|
 |||
-|*Reduce effort*   |A graphical interface lets you move through the data object hierarchy quickly.|
+|Reduce effort   |A graphical interface lets you move through the data object hierarchy quickly.|
 |                  |Microsoft Purview supports policies on entire Azure resource groups and subscriptions.|
 |||
-|*Enhance security*|Access is granted centrally and can be easily reviewed and revoked.|
+|Enhance security|Access is granted centrally and can be easily reviewed and revoked.|
 |                  |There's less need for privileged accounts to configure access directly at the data source.|
 |                  |DevOps policies support the principle of least privilege via data resource scopes and role definitions.|
 |||
@@ -85,7 +85,7 @@ Many sophisticated customers prefer to interact with Microsoft Purview via scrip
 
 ## Mapping of popular DMVs and DMFs
 
-SQL dynamic metadata includes a list of more than 700 DMVs and DMFs. The following table lists some of the most popular ones. The table maps the DMVs and DMFs to their role definitions in Microsoft Purview DevOps policies. It also provides links to reference content.
+SQL dynamic metadata includes a list of more than 700 DMVs and DMFs. The following table illustrates some of the most popular ones. The table maps the DMVs and DMFs to their role definitions in Microsoft Purview DevOps policies. It also provides links to reference content.
 
 | DevOps role | Category | Example DMV or DMF |
 |-|-|-|
@@ -117,12 +117,12 @@ SQL dynamic metadata includes a list of more than 700 DMVs and DMFs. The followi
 
 For more information on what IT support personnel can do when you grant them access via the Microsoft Purview roles, see the following resources:
 
-- SQL Performance Monitor: [Use Microsoft Purview to provide at-scale access to performance data in Azure SQL and SQL Server](https://techcommunity.microsoft.com/t5/azure-sql-blog/use-microsoft-purview-to-provide-at-scale-access-to-performance/ba-p/3812839).
-- SQL Security Auditor: [Security-related dynamic management views and functions](/sql/relational-databases/system-dynamic-management-views/security-related-dynamic-management-views-and-functions-transact-sql).
+- SQL Performance Monitor: [Use Microsoft Purview to provide at-scale access to performance data in Azure SQL and SQL Server](https://techcommunity.microsoft.com/t5/azure-sql-blog/use-microsoft-purview-to-provide-at-scale-access-to-performance/ba-p/3812839)
+- SQL Security Auditor: [Security-related dynamic management views and functions](/sql/relational-databases/system-dynamic-management-views/security-related-dynamic-management-views-and-functions-transact-sql)
 
 ## Next steps
 
-To get started with DevOps policies, consult the following blogs, videos, and guides:
+To get started with DevOps policies, consult the following resources:
 
 * Try DevOps policies for Azure SQL Database: [Quickstart guide](https://aka.ms/quickstart-DevOps-policies).
 * See [other videos, blogs, and articles](./how-to-policies-devops-authoring-generic.md#next-steps).
