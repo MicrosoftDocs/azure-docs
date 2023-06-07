@@ -1,0 +1,430 @@
+---
+title: "Tutorial: Sign in users in .NET MAUI shell app"
+description: This tutorial demonstrate how to sign in users in .NET MAUI shell app and runs on window platform.
+author: henrymbuguakiarie
+manager: mwongerapk
+
+ms.author: henrymbugua
+ms.service: active-directory
+ms.topic: tutorial
+ms.subservice: ciam
+ms.date: 06/05/2023
+---
+
+# Tutorial: Sign in users in .NET MAUI shell app
+
+This tutorial shows you how to create .NET Multi-platform App UI (.NET MAUI) ContentPage (XAML) template, add sign-in code and run the app to go through the sign-in flow.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> - Add sign-in and sign-out code.
+> - Modify the app Shell.
+> - Add platform-specific code.
+> - Add app settings
+> - Run and test .NET MAUI desktop app.
+
+## Prerequisites
+
+- [Tutorial: Create .NET MAUI shell app and add MSAL client](tutorial-desktop-app-maui-sign-in-prepare-app.md)
+
+## Add sign-in and sign-out code
+
+The user interface of a .NET Multi-platform App UI (.NET MAUI) app is constructed of objects that map to the native controls of each target platform. The main control groups used to create the user interface of a .NET MAUI app are pages, layouts, and views.
+
+### Add main view page
+
+The next steps will organize our code so that the `main view` is defined.
+
+1. Delete _MainPage.xaml_ and _MainPage.xaml.cs_ from your project, they're no longer needed. In the **Solution Explorer** pane, find the entry for **MainPage.xaml**, right-click it and select **Delete**.
+1. Right-click on the **SignInMaui** project and select **Add** > **New Folder**. Name the folder **Views**.
+1. Right-click on the **Views**.
+1. Select **Add** > **New Item...**.
+1. Select **.NET MAUI** in the template list.
+1. Select the **.NET MAUI ContentPage (XAML)** template. Name the file **MainView.xaml**.
+1. Select **Add**.
+1. The _MainView.xaml_ file will open a new document tab, displaying all of the XAML markup that represents the UI of the page. Replace the XAML markup with the following markup:
+
+   ```xaml
+   <?xml version="1.0" encoding="utf-8" ?>
+   <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 x:Class="SignInMaui.Views.MainView"
+                 Title="Microsoft identity platform"
+                 >
+        <Shell.BackButtonBehavior>
+            <BackButtonBehavior IsVisible="False" IsEnabled="False" />
+        </Shell.BackButtonBehavior>
+
+        <ScrollView>
+            <VerticalStackLayout
+                Spacing="25"
+                Padding="30,0"
+                VerticalOptions="Center">
+
+                <Image
+                    Source="azure_active_directory.png"
+                    SemanticProperties.Description="Azure Active Directory Logo"
+                    HeightRequest="200"
+                    HorizontalOptions="Center" />
+
+                <Label
+                    Text="Azure AD for Customers"
+                    SemanticProperties.HeadingLevel="Level1"
+                    FontSize="26"
+                    HorizontalOptions="Center" />
+
+                <Label
+                    Text="MAUI sample"
+                    SemanticProperties.HeadingLevel="Level1"
+                    FontSize="26"
+                    HorizontalOptions="Center" />
+
+                <Button
+                    x:Name="SignInButton"
+                    Text="Sign In"
+                    SemanticProperties.Hint="Sign In"
+                    Clicked="OnSignInClicked"
+                    HorizontalOptions="Center"
+                    IsEnabled="False"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </ContentPage>
+   ```
+
+1. Save the file by pressing _CTRL+S_.
+
+   Let's break down the key parts of the XAML controls placed on the page:
+
+   - `<ContentPage>` is the root object for the MainView class.
+   - `<VerticalStackLayout>` is the child object of the ContentPage. This layout control arranges its children vertically, one after the other.
+   - `<Image>` displays an image, in this case it's using the _azure_active_directory.png_ that you downloaded earlier.
+   - `<Label>` controls display text.
+   - `<Button>` controls can be pressed by the user, which raise the Clicked event. You can run code in response to the Clicked event.
+   - `Clicked="OnSignInClicked"` the Clicked event of the button is assigned to the `OnSignInClicked` event handler, which will be defined in the code-behind file. You'll create this code in the next step.
+
+#### Handle the OnSignInClicked event
+
+The next step is to add the code for the button's Clicked event.
+
+1. In the **Solution Explorer** pane of Visual Studio, expand the _MainView.xaml_ file to reveal it's code-behind file _MainView.xaml.cs_. Open the _MainView.xaml.cs_ and replace the content of the file with following code:
+
+   ```csharp
+   // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
+
+    using SignInMaui.MSALClient;
+    using Microsoft.Identity.Client;
+
+    namespace SignInMaui.Views
+    {
+        public partial class MainView : ContentPage
+        {
+            public MainView()
+            {
+                InitializeComponent();
+
+                IAccount cachedUserAccount = PublicClientSingleton.Instance.MSALClientHelper.FetchSignedInUserFromCache().Result;
+
+                _ = Dispatcher.DispatchAsync(async () =>
+                {
+                    if (cachedUserAccount == null)
+                    {
+                        SignInButton.IsEnabled = true;
+                    }
+                    else
+                    {
+                        await Shell.Current.GoToAsync("claimsview");
+                    }
+                });
+            }
+
+            private async void OnSignInClicked(object sender, EventArgs e)
+            {
+                await PublicClientSingleton.Instance.AcquireTokenSilentAsync();
+                await Shell.Current.GoToAsync("claimsview");
+            }
+            protected override bool OnBackButtonPressed() { return true; }
+
+        }
+    }
+
+   ```
+
+   The `MainView` class is a content page responsible for displaying the main view of the application. In the constructor, it retrieves the cached user account using the `MSALClientHelper` from the `PublicClientSingleton` instance and enables the sign-in button if no cached user account is found. When the sign-in button is clicked, it calls the `AcquireTokenSilentAsync` method to acquire a token silently and navigates to the `claimsview` page using the `Shell.Current.GoToAsync` method. Additionally, the `OnBackButtonPressed` method is overridden to return true, indicating that the back button is disabled for this view.
+
+### Add claims view page
+
+The next steps will organize our code so that the `claims view` is defined.
+
+1. In the **Solution Explorer** pane of Visual Studio, right-click on the **Views**.
+1. Select **Add** > **New Item...**.
+1. Select **.NET MAUI** in the template list.
+1. Select the **.NET MAUI ContentPage (XAML)** template. Name the file **ClaimsView.xaml**.
+1. Select **Add**.
+1. The _ClaimsView.xaml_ file will open a new document tab, displaying all of the XAML markup that represents the UI of the page. Replace the XAML markup with the following markup:
+
+   ```xaml
+   <?xml version="1.0" encoding="utf-8" ?>
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 x:Class="SignInMaui.Views.ClaimsView"
+                 Title="ID Token View">
+        <Shell.BackButtonBehavior>
+            <BackButtonBehavior IsVisible="False" IsEnabled="False" />
+        </Shell.BackButtonBehavior>
+        <VerticalStackLayout>
+            <Label
+                Text="Azure AD for Customers"
+                FontSize="26"
+                HorizontalOptions="Center" />
+            <Label
+                Text="MAUI sample"
+                FontSize="26"
+                Padding="0,0,0,20"
+                HorizontalOptions="Center" />
+
+            <Label
+                Padding="0,20,0,0"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontSize="18"
+                Text="Claims found in ID token"
+                />
+            <ListView ItemsSource="{Binding IdTokenClaims}"
+                      x:Name="Claims">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="0, 0, 0, 0">
+                                <Label Grid.Column="1"
+                                       Text="{Binding}"
+                                       HorizontalOptions="Center" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button
+                x:Name="SignOutButton"
+                Text="Sign Out"
+                HorizontalOptions="Center"
+                Clicked="SignOutButton_Clicked" />
+        </VerticalStackLayout>
+    </ContentPage>
+   ```
+
+   This XAML markup code represents the UI layout for a claims view in a .NET MAUI app. It starts by defining the `ContentPage` with a title and disabling the back button behavior. Inside a `VerticalStackLayout`, there are several `Label` elements displaying static text, followed by a `ListView` named `Claims` that binds to a collection called `IdTokenClaims` to display the claims found in the ID token. Each claim is rendered within a `ViewCell` using a `DataTemplate` and displayed as a centered `Label` within a Grid. Lastly, there is a `Sign Out` button centered at the bottom of the layout, which triggers the `SignOutButton_Clicked` event handler when clicked.
+
+#### Handle the ClaimsView data
+
+The next step is to add the code to handle `ClaimsView` data.
+
+1. In the **Solution Explorer** pane of Visual Studio, expand the _ClaimsView.xaml_ file to reveal it's code-behind file _ClaimsView.xaml.cs_. Open the _ClaimsView.xaml.cs_ and replace the content of the file with following code:
+
+   ```csharp
+    using SignInMaui.MSALClient;
+    using Microsoft.Identity.Client;
+
+    namespace SignInMaui.Views;
+
+    public partial class ClaimsView : ContentPage
+    {
+        public IEnumerable<string> IdTokenClaims { get; set; } = new string[] {"No claims found in ID token"};
+        public ClaimsView()
+        {
+            BindingContext = this;
+            InitializeComponent();
+
+            _ = SetViewDataAsync();
+        }
+
+        private async Task SetViewDataAsync()
+        {
+            try
+            {
+                _ = await PublicClientSingleton.Instance.AcquireTokenSilentAsync();
+
+                IdTokenClaims = PublicClientSingleton.Instance.MSALClientHelper.AuthResult.ClaimsPrincipal.Claims.Select(c => c.Value);
+
+                Claims.ItemsSource = IdTokenClaims;
+            }
+
+            catch (MsalUiRequiredException)
+            {
+                await Shell.Current.GoToAsync("claimsview");
+            }
+        }
+
+        protected override bool OnBackButtonPressed() { return true; }
+
+        private async void SignOutButton_Clicked(object sender, EventArgs e)
+        {
+            await PublicClientSingleton.Instance.SignOutAsync().ContinueWith((t) =>
+            {
+                return Task.CompletedTask;
+            });
+
+            await Shell.Current.GoToAsync("mainview");
+        }
+    }
+   ```
+
+   The _ClaimsView.xaml.cs_ code represents the code-behind for a claims view in a .NET MAUI app. It starts by importing the necessary namespaces and defining the `ClaimsView` class, which extends `ContentPage`. The `IdTokenClaims` property is an enumerable of strings, initially set to a single string indicating no claims found. The `ClaimsView` constructor sets the binding context to the current instance, initializes the view components, and calls the `SetViewDataAsync` method asynchronously. The `SetViewDataAsync` method attempts to acquire a token silently, retrieves the claims from the authentication result, and sets the `IdTokenClaims` property to display them in the `ListView` named `Claims`. If a `MsalUiRequiredException` occurs, indicating that user interaction is needed for authentication, the app navigates to the claims view.
+
+   The `OnBackButtonPressed` method overrides the back button behavior to always return true, preventing the user from going back from this view. The `SignOutButton_Clicked` event handler signs the user out using the `PublicClientSingleton` instance, and upon completion, navigates to the `main view`.
+
+## Modify the app Shell
+
+The `AppShell` class defines an app's visual hierarchy, the XAML markup used in creating the UI of the app. Update the `AppShell` to let it know about the `Views`.
+
+1. Double-click the `AppShell.xaml` file in the **Solution Explorer** pane to open the XAML editor. Replace the XAML markup with the following code:
+
+   ```xaml
+   <?xml version="1.0" encoding="UTF-8" ?>
+    <Shell
+        x:Class="SignInMaui.AppShell"
+        xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:local="clr-namespace:SignInMaui.Views"
+        Shell.FlyoutBehavior="Disabled">
+
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate local:MainView}"
+            Route="MainPage" />
+    </Shell>
+   ```
+
+   The XAML code defines an `AppShell` class that disables the flyout behavior and sets the main content to a `ShellContent` element with a title `Home` and a content template pointing to the `MainView` class.
+
+1. In the **Solution Explorer** pane of Visual Studio, expand the _AppShell.xaml_ file to reveal it's code-behind file _AppShell.xaml.cs_. Open the _AppShell.xaml.cs_ and replace the content of the file with following code:
+
+   ```csharp
+   // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
+    using SignInMaui.Views;
+
+    namespace SignInMaui;
+
+    public partial class AppShell : Shell
+    {
+        public AppShell()
+        {
+            InitializeComponent();
+            Routing.RegisterRoute("mainview", typeof(MainView));
+            Routing.RegisterRoute("claimsview", typeof(ClaimsView));
+        }
+    }
+   ```
+
+   You update the `AppShell.xaml.cs` file to include the necessary route registrations for the `MainView` and `ClaimsView`. By calling the `InitializeComponent()` method, you ensure the initialization of the `AppShell` class. The `RegisterRoute()` method associate the `mainview` and `claimsview` routes with their respective view types, `MainView` and `ClaimsView`.
+
+## Add platform-specific code
+
+A .NET MAUI app project contains a Platforms folder, with each child folder representing a platform that .NET MAUI can target. To provides application-specific behavior to supplement the default application class, you modify `Platforms/Windows/App.xaml.cs`. Replace the content of the file with following code:
+
+```csharp
+using SignInMaui.MSALClient;
+using Microsoft.Identity.Client;
+using Microsoft.UI.Xaml;
+
+// To learn more about WinUI, the WinUI project structure,
+// and more about our project templates, see: http://aka.ms/winui-project-info.
+
+namespace SignInMaui.WinUI;
+
+/// <summary>
+/// Provides application-specific behavior to supplement the default Application class.
+/// </summary>
+public partial class App : MauiWinUIApplication
+{
+    /// <summary>
+    /// Initializes the singleton application object.  This is the first line of authored code
+    /// executed, and as such is the logical equivalent of main() or WinMain().
+    /// </summary>
+    public App()
+	{
+		this.InitializeComponent();
+
+        // configure redirect URI for your application
+        PlatformConfig.Instance.RedirectUri = $"msal{PublicClientSingleton.Instance.MSALClientHelper.AzureAdConfig.ClientId}://auth";
+
+        // Initialize MSAL
+        IAccount existinguser = Task.Run(async () => await PublicClientSingleton.Instance.MSALClientHelper.InitializePublicClientAppAsync()).Result;
+
+    }
+
+	protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+
+    protected override void OnLaunched(LaunchActivatedEventArgs args)
+    {
+        base.OnLaunched(args);
+
+        var app = SignInMaui.App.Current;
+        PlatformConfig.Instance.ParentWindow = ((MauiWinUIWindow)app.Windows[0].Handler.PlatformView).WindowHandle;
+    }
+}
+
+```
+
+In the code, you configure the redirect URI for the application and initialized the MSAL, and then set the parent window for the application. Additionally, you override the `OnLaunched` method to handle the launch event and retrieve the parent window handle.
+
+## Add app settings
+
+Settings allow the separation of data that configures the behavior of an app from the code, allowing the behavior to be changed without rebuilding the app. The `MauiAppBuilder` provides `ConfigurationManager` that is built in to configure settings in our .NET MAUI app. Let's add the `appsettings.json` file as an `EmbeddedResource`.
+
+To create app settings, follow these steps:
+
+1. In the **Solution Explorer** pane of Visual Studio, right-click on the **SignInMaui** project > **Add** > **New Item...**.
+1. Select **Web** > **JavaScript JSON Configuration File**. Name the file `appsettings.json`.
+1. Select **Add**.
+1. Select **appsettings.json**
+1. In the **Properties** pane, set **Build Action** to **Embedded resource**.
+1. In the **Properties** pane, set **Copy to Output Directory** to **Copy always**.
+1. Replace the content of `appsettings.json` file with the following code:
+
+   ```json
+   {
+     "AzureAd": {
+       "Authority": "https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/",
+       "ClientId": "Enter_the_Application_Id_Here",
+       "CacheFileName": "msal_cache.txt",
+       "CacheDir": "C:/temp"
+     },
+     "DownstreamApi": {
+       "Scopes": "openid offline_access"
+     }
+   }
+   ```
+
+1. In the `appsettings.json`, find the placeholder:
+
+   1. `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
+   1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
+
+## Run and test .NET MAUI desktop app
+
+Select the Windows platform to work on by setting the startup project in the **Solution Explorer**. Make sure that your platform of choice is marked for build and deploy in the configuration manager.
+
+Clean the solution, rebuild the solution, and run it.
+
+1. You can now test the sample .NET MAUI desktop application. After you run the application, the desktop application window appears automatically:
+
+   :::image type="content" source="media/how-to-desktop-app-maui-sample-sign-in/maui-desktop-sign-in-page.jpg" alt-text="Screenshot of the sign-in button in the desktop application":::
+
+1. On the desktop window that appears, select the **Sign In** button. A browser window opens, and you're prompted to sign in.
+
+   :::image type="content" source="media/how-to-desktop-app-maui-sample-sign-in/maui-desktop-sign-in-prompt.jpg" alt-text="Screenshot of user prompt to enter credential in desktop application.":::
+
+   During the sign in process, you're prompted to grant various permissions (to allow the application to access your data). Upon successful sign in and consent, the application screen displays the main page.
+
+   :::image type="content" source="media/how-to-desktop-app-maui-sample-sign-in/maui-desktop-after-sign-in.png" alt-text="Screenshot of the main page in the desktop application after signing in.":::
+
+## Next Steps
+
+- [Customize the default branding](how-to-customize-branding-customers.md).
+- [Configure sign-in with Google](how-to-google-federation-customers.md).
