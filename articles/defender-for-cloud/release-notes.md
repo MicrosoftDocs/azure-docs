@@ -581,7 +581,7 @@ Microsoft Defender for DevOps has expanded its preview and is now available in t
 
 Learn more about [Microsoft Defender for DevOps](defender-for-devops-introduction.md).
 
-### The built-in policy \[Preview]: Private endpoint should be configured for Key Vault has been deprecated
+### The built-in policy [Preview]: Private endpoint should be configured for Key Vault has been deprecated
 
 The built-in policy [`[Preview]: Private endpoint should be configured for Key Vault`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f0bc445-3935-4915-9981-011aa2b46147) has been deprecated and has been replaced with the [`[Preview]: Azure Key Vaults should use private link`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6abeaec-4d90-4a02-805f-6b26c4d3fbe9) policy.
 
@@ -657,3 +657,4 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 ## Next steps
 
 For past changes to Defender for Cloud, see [Archive for what's new in Defender for Cloud?](release-notes-archive.md).
+
