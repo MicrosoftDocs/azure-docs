@@ -10,7 +10,9 @@ ms.date: 06/05/2023
 
 # Quickstart: Automate a load test with CI/CD in GitHub Actions or Azure Pipelines
 
-Get started with automating load tests in Azure Load Testing by adding it to a CI/CD pipeline. After running a load test in the Azure portal, you export the configuration files, and configure a CI/CD pipeline in GitHub Actions or Azure Pipelines. After you complete this quickstart, you have a CI/CD workflow that is configured to run a load test with Azure Load Testing.
+Get started with automating load tests in Azure Load Testing by adding it to a CI/CD pipeline. After running a load test in the Azure portal, you export the configuration files, and configure a CI/CD pipeline in GitHub Actions or Azure Pipelines.
+
+After you complete this quickstart, you have a CI/CD workflow that is configured to run a load test with Azure Load Testing.
 
 ## Prerequisites
 
@@ -125,7 +127,7 @@ In Azure Pipelines, you create a *service connection* in your Azure DevOps proje
 
 1. From the list of service connections, select the one you created earlier, and then select **Manage Service Principal**.
 
-    :::image type="content" source="./media/quickstart-add-load-test-cicd/service-connection-manage-service-principal.png" alt-text="Screenshot that shows selections for managing a service principal.":::
+    :::image type="content" source="./media/quickstart-add-load-test-cicd/service-connection-manage-service-principal.png" alt-text="Screenshot that shows selections for managing a service principal." lightbox="./media/quickstart-add-load-test-cicd/service-connection-manage-service-principal.png":::
 
     The Azure portal opens in a separate browser tab and shows the service principal details.
 
@@ -143,7 +145,7 @@ Azure Load Testing uses Azure RBAC to grant permissions for performing specific 
 
 1. In the **Role** tab, select **Load Test Contributor** in the list of job function roles.
 
-    :::image type="content" source="media/quickstart-add-load-test-cicd/load-test-contributor-role-assignment.png" alt-text="Screenshot that shows the list of roles in the Add role assignment page in the Azure portal, highlighting the Load Test Contributor role.":::
+    :::image type="content" source="media/quickstart-add-load-test-cicd/load-test-contributor-role-assignment.png" alt-text="Screenshot that shows the list of roles in the Add role assignment page in the Azure portal, highlighting the Load Test Contributor role." lightbox="media/quickstart-add-load-test-cicd/load-test-contributor-role-assignment.png":::
 
 1. In the **Members** tab, select **Select members**, and then use the display name you copied previously to search the service principal.
 
@@ -212,9 +214,9 @@ Update your GitHub Actions workflow to run a load test for your Azure load testi
 
     ```yml
         - name: Login to Azure
-        uses: azure/login@v1
-        continue-on-error: false
-        with:
+          uses: azure/login@v1
+          continue-on-error: false
+          with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
@@ -226,8 +228,8 @@ Update your GitHub Actions workflow to run a load test for your Azure load testi
 
     ```yml
         - name: 'Azure Load Testing'
-        uses: azure/load-testing@v1
-        with:
+          uses: azure/load-testing@v1
+          with:
             loadTestConfigFile: 'config.yaml'
             loadTestResource: <load-testing-resource>
             resourceGroup: <load-testing-resource-group>
@@ -239,9 +241,9 @@ Update your GitHub Actions workflow to run a load test for your Azure load testi
 
     ```yml
         - uses: actions/upload-artifact@v2
-                with:
-                  name: loadTestResults
-                  path: ${{ github.workspace }}/loadTest
+          with:
+            name: loadTestResults
+            path: ${{ github.workspace }}/loadTest
     ```
 
 # [Azure Pipelines](#tab/pipelines)
