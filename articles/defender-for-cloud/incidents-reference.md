@@ -2,7 +2,7 @@
 title: Reference table for all incidents in Microsoft Defender for Cloud
 description: This article lists the incidents visible in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 06/01/2023
+ms.date: 06/07/2023
 ---
 
 # Incidents - a reference guide
@@ -12,7 +12,7 @@ ms.date: 06/01/2023
 
 This article lists the incidents you might get from Microsoft Defender for Cloud and any Microsoft Defender plans you've enabled. The incidents shown in your environment depend on the resources and services you're protecting, and your customized configuration.
 
-A [security incident](alerts-overview.md#what-are-security-incidents) is a correlation of alerts with an attack story that share an entity. For example, Resource, IP Address, User or share a [kill chain](alerts-reference.md#intentions) patterns.
+A [security incident](alerts-overview.md#what-are-security-incidents) is a correlation of alerts with an attack story that share an entity. For example, Resource, IP Address, User or share a [kill chain](alerts-reference.md#intentions) pattern.
 
 You can select an incident to view all of the alerts that are related to the incident and get more information.
 
