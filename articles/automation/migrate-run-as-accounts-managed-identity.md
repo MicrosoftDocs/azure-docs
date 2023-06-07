@@ -39,7 +39,7 @@ Before you migrate from a Run As account or Classic Run As account to a managed 
    For example, if the Automation account is required only to start or stop an Azure VM, then the permissions assigned to the Run As account need to be only for starting or stopping the VM. Similarly, assign read-only permissions if a runbook is reading from Azure Blob Storage. For more information, see [Azure Automation security guidelines](../automation/automation-security-guidelines.md#authentication-certificate-and-identities). 
 
 1. If you're using Classic Run As accounts, ensure that you have [migrated](../virtual-machines/classic-vm-deprecation.md) resources deployed through classic deployment model to Azure Resource Manager.
-1. Use [this script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/Check-AutomationRunAsAccountRoleAssignments.ps1) to find out which Automation accounts are using a Run As account. If your Azure Automation accounts contain a Run As account, it will have the built-in contributor role assigned to it by default. You can use the script to check the Azure Automation Run As accounts and determine if their role assignment is the default one or if it has been changed to a different role definition.
+1. Use [this script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/Check-AutomationRunAsAccountRoleAssignments.ps1) to find out which Automation accounts are using a Run As account. If your Azure Automation accounts contain a Run As account, it has the built-in contributor role assigned to it by default. You can use the script to check the Azure Automation Run As accounts and determine if their role assignment is the default one or if it has been changed to a different role definition.
 1. Use [this script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/IdentifyRunAsRunbooks.ps1) to find out if all runbooks in your Automation account are using the Run As account.
 
 ## Migrate from an Automation Run As account to a managed identity
@@ -232,7 +232,7 @@ For more information, see the sample runbook name **AzureAutomationTutorialWithI
 
 ## Next steps
 
-- Review the [frequently asked questions for migrating to managed identities](automation-managed-identity-faq.md).
+- Review the [frequently asked questions for migrating to managed identities](automation-managed-identity-faq.md)
 
 - If your runbooks aren't finishing successfully, review [Troubleshoot Azure Automation managed identity issues](troubleshoot/managed-identity.md).
 
