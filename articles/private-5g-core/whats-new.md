@@ -5,7 +5,7 @@ author: robswain
 ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 10/24/2022
+ms.date: 05/31/2023
 ---
 
 # What's new in Azure Private 5G Core?
@@ -21,6 +21,16 @@ To help you stay up to date with the latest developments, this article covers:
 - New releases for the packet core, referencing the packet core release notes for further information.
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
+
+## May 2023
+
+### Packet core 2305
+
+**Type:** New release
+
+**Date available:** May 31, 2023
+
+The 2305 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2305 release notes](azure-private-5g-core-release-notes-2305.md).
 
 ## March 2023
 
@@ -86,7 +96,7 @@ The Azure Private 5G Core online service now reports the provisioning status of 
 
 **Date available:** January 31, 2023
 
-You can now gather diagnostics for a site remotely using the Azure portal. Diagnostics packages will be collected from the edge site and uploaded to an Azure storage account, which can be shared as a SAS URI to AP5GC support or others for assistance with issues. Follow [Gather diagnostics using the Azure portal](gather-diagnostics.md) to gather a remote diagnostics package for an Azure Private 5G Core site using the Azure portal.
+You can now gather diagnostics for a site remotely using the Azure portal. Diagnostics packages will be collected from the edge site and uploaded to an Azure storage account, which can be shared with AP5GC support or others for assistance with issues. Follow [Gather diagnostics using the Azure portal](gather-diagnostics.md) to gather a remote diagnostics package for an Azure Private 5G Core site using the Azure portal.
 
 ### West Europe region
 

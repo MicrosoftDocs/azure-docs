@@ -4,7 +4,7 @@ description: Learn how to create a Bicep file or ARM template JSON template to u
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 05/17/2023
+ms.date: 06/06/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -40,10 +40,10 @@ The basic format is:
     "validate": {},
     "vmProfile": {
       "vmSize": "<vmSize>",
-      "proxyVmSize": "<vmSize>",
       "osDiskSizeGB": <sizeInGB>,
       "vnetConfig": {
-        "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+        "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>",
+        "proxyVmSize": "<vmSize>"
       },
       "userAssignedIdentities": [
               "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName1>",
@@ -76,10 +76,10 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
     validate: {}
     vmProfile:{
       vmSize: '<vmSize>'
-      proxyVmSize: '<vmSize>'
       osDiskSizeGB: <sizeInGB>
       vnetConfig: {
         subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
+        proxyVmSize: '<vmSize>'
       }
       userAssignedIdentities: [
         '/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName1>'
@@ -90,6 +90,7 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
     }
   }
 }
+
 ```
 
 ---
@@ -150,6 +151,8 @@ The location is the region where the custom image is created. The following regi
 - USGov Arizona (Public Preview)
 - USGov Virginia (Public Preview)
 - China North 3 (Public Preview)
+- Sweden Central
+- Poland Central
 
 > [!IMPORTANT]
 > Register the feature `Microsoft.VirtualMachineImages/FairfaxPublicPreview` to access the Azure Image Builder public preview in Azure Government regions (USGov Arizona and USGov Virginia).
@@ -1049,7 +1052,7 @@ versioning properties:
 - **scheme** - Generate new version number for distribution. `Latest` or `Source` are two possible values.
 - **major** - Specifies the major version under which to generate the latest version. Only applicable when the `scheme` is set to `Latest`. For example, in a gallery with the following versions published: 0.1.1, 0.1.2, 1.0.0, 1.0.1, 1.1.0, 1.1.1, 1.2.0, 2.0.0, 2.0.1, 2.1.0
     - With major not set or major set to 2, The `Latest` scheme generates version 2.1.1
-    - With major set to 1, the Latest scheme generates version 1.1.2
+    - With major set to 1, the Latest scheme generates version 1.2.1
     - With major set to 0, the Latest scheme generates version 0.1.3
 
 ### Distribute: VHD

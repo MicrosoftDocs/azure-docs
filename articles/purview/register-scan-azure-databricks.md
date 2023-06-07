@@ -51,13 +51,15 @@ When object is deleted from the data source, currently the subsequent scan won't
 
 * You must have an active [Microsoft Purview account](create-catalog-portal.md).
 
+* You need an Azure Key Vault, and to [grant Microsoft Purview permissions to access secrets](manage-credentials.md#grant-microsoft-purview-access-to-your-azure-key-vault).
+
 * You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md). The minimal supported self-hosted Integration Runtime version is 5.20.8227.2.
 
     * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
 
-    * Ensure that Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the machine where the self-hosted integration runtime is running. If you don't have this update installed, [download it now](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure that Visual C++ Redistributable (version Visual Studio 2012 Update 4 or newer) is installed on the machine where the self-hosted integration runtime is running. If you don't have this update installed, [download it now](/cpp/windows/latest-supported-vc-redist).
 
 * In your Azure Databricks workspace:
 

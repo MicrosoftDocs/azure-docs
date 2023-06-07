@@ -3,7 +3,7 @@ title: Java samples to illustrate connection pooling
 description: This article lists Java samples to illustrate connection pooling.
 author: savjani
 ms.author: pariks
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: sample

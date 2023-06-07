@@ -5,13 +5,13 @@ services: key-vault
 author: mbaldwin
 manager: devtiw
 tags: azure-resource-manager
+ms.custom: devx-track-azurepowershell
 
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
 ms.date: 03/07/2023
 ms.author: mbaldwin
-
 ---
 
 # Import HSM-protected keys to Key Vault (BYOK)

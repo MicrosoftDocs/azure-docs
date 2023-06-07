@@ -4,6 +4,7 @@ description: This article shows you how to select the profile for your Microsoft
 author: kobymon
 ms.author: kobymin
 ms.topic: how-to
+ms.custom: devx-track-extended-java
 ms.date: 01/03/2023
 ---
 
