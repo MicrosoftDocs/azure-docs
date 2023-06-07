@@ -17,7 +17,7 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
 
 > [!div class="checklist"]
 > * Create a Container Apps environment to deploy your service and container apps
-> * Create a Apache Kafka service
+> * Create an Apache Kafka service
 > * Create and use test command line App to use the dev Apache Kafka
 > * Deploy a kafka-ui app to view 
 > * Creating or Updating a consumer/prod that uses the dev service
