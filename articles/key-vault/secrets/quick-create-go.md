@@ -8,6 +8,7 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.devlang: golang
+ms.custom: devx-track-go
 ---
 
 # Quickstart: Manage secrets by using the Azure Key Vault Go client library

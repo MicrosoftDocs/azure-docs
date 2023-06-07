@@ -11,7 +11,7 @@ ms.date: 06/01/2023
 ms.author: tamram
 ms.subservice: blobs
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Performance and scalability checklist for Blob storage
