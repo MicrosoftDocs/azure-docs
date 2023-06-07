@@ -11,7 +11,7 @@ ms.author: mbender
 ms.custom: template-how-to
 ---
 
-# Testing reachability of Azure Load Balancer frontends with ping and tracerout
+# Testing reachability of Azure Load Balancer frontends with ping and traceroute
 
 Standard Public Azure Load Balancer frontend IPv4 and IPv6 addresses support testing reachability using ping and traceroute. Testing reachability of a load balancer frontend is useful for troubleshooting connectivity issues. In this article, you learn how to use ping and tracert for testing a frontend of an existing Standard public load balancer. It can be completed from an Azure Virtual Machine or from a device outside of Azure.
 
@@ -45,7 +45,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. In the command prompt, type the following command: 
 
 ```cmd
-    ping <IP_Address>
+    ping <Input your load balancer's public IP address>
 ```
 
 3. Review ping's output.
@@ -58,7 +58,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. Type the following command:
 
 ```bash
-    ping <IP_Address>
+    ping <Input your load balancer's public IP address>
 ```
 
 3. Review ping's output.
@@ -71,7 +71,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. In the command prompt, type the following command:
 
 ```cmd
-    tracert <IP_Address>
+    tracert <Input your load balancer's public IP address>
 ```
 
 3. Review tracert's output.
@@ -84,10 +84,10 @@ Follow these steps to test reachability of a standard public load balancer front
 2. Type the following command:
 
 ```bash
-    traceroute -l <IP_Address>
+    traceroute -I <Input your load balancer's public IP address>
 ```
 
-3. Review tracert's output.
+3. Review traceroute's output.
 
 ---
 
@@ -119,7 +119,7 @@ This section describes how to test reachability of a standard public load balanc
     | **Name** | Enter **AllowICMP** or a name of your choosing |
     | **Description** | Leave as Blank or enter a description |
 
-    :::image type="content" source="media/load-balancer-frontend-reachability-testing/add-inbound-port-rule-thumb.png" alt-text="Screenshot of Add inbound port rule windows with settings allowing ICMP echo messages."lightbox="media/load-balancer-frontend-reachability-testing/add-inbound-port-rule.png":::
+    :::image type="content" source="media/load-balancer-frontend-reachability-testing/add-Inbound-port-rule-thumb.png" alt-text="Screenshot of Add inbound port rule windows with settings allowing ICMP echo messages."lightbox="media/load-balancer-frontend-reachability-testing/add-Inbound-port-rule.png":::
 
 1. Select **Add**.
 
@@ -136,7 +136,7 @@ This section describes how to test reachability of a standard public load balanc
 
 ### Test the load balancer's frontend
 
-Choose either ping or tracert to test reachability of a standard public load balancer frontend from an Azure Virtual Machine.
+Choose either ping or traceroute to test reachability of a standard public load balancer frontend from an Azure Virtual Machine.
 
 ### [Ping](#tab/ping/windowsvm)
 
@@ -146,7 +146,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. In the command prompt, type the following command:
 
 ```cmd
-    ping <IP_Address>
+    ping <Input your load balancer's public IP address>
 ```
 
 3. Review ping's output.
@@ -159,7 +159,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. Type the following command:
 
 ```bash
-    ping <IP_Address>
+    ping <Input your load balancer's public IP address>
 ```
 
 3. Review ping's output.
@@ -172,7 +172,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. In the command prompt, type the following command:
 
 ```dos
-    traceroute -I <IP_Address>
+    tracert <Input your load balancer's public IP address>
 ```
 
 3. Review tracert's output.
@@ -185,10 +185,10 @@ Follow these steps to test reachability of a standard public load balancer front
 2. Type the following command:
 
 ```bash
-    traceroute -l <IP_Address>
+    traceroute -I <Input your load balancer's public IP address>
 ```
 
-3. Review tracert's output.
+3. Review traceroute's output.
 
 ---
 
