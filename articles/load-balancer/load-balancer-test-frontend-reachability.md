@@ -1,6 +1,6 @@
 ---
-title: Testing reachability of Azure Load Balancer frontend IPv4 address with ping
-description: Learn how to test Azure Load Balancer frontend IPv4 address for reachability with ping from an Azure VM or an external device.
+title: Testing reachability of Azure Load Balancer frontends with ping
+description: Learn how to test Azure Load Balancer frontend IPv4 and IPv6 addresses for reachability from an Azure VM or an external device. Supports ping and traceroute.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
@@ -11,9 +11,9 @@ ms.author: mbender
 ms.custom: template-how-to
 ---
 
-# Testing reachability of Azure Load Balancer frontend IPv4 address with ping
+# Testing reachability of Azure Load Balancer frontends with ping
 
-Standard Public Azure Load Balancer with a frontend IPv4 address supports testing reachability using ping. Testing reachability of a load balancer frontend is useful for troubleshooting connectivity issues. In this article, you learn how to use ping for testing a frontend of an existing Standard public load balancer. It can be completed from an Azure Virtual Machine or from a device outside of Azure.
+Standard Public Azure Load Balancer frontend IPv4 and IPv6 addresses support testing reachability using ping and tracert. Testing reachability of a load balancer frontend is useful for troubleshooting connectivity issues. In this article, you learn how to use ping and tracert for testing a frontend of an existing Standard public load balancer. It can be completed from an Azure Virtual Machine or from a device outside of Azure.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ Standard Public Azure Load Balancer with a frontend IPv4 address supports testin
 
 ## Testing from a device outside of Azure
 
-This section describes testing reachability of a standard load balancer frontend from a device outside of Azure with ping. Follow the directions for the operating system that you're using.
+This section describes testing reachability of a standard load balancer frontend from a device outside of Azure. Follow the directions for the operating system that you're using.
 
 ### [Windows](#tab/windows-outside)
 
@@ -33,7 +33,11 @@ This section describes testing reachability of a standard load balancer frontend
 
 ---
 
+Choose either ping or traceroute to test reachability of a standard load balancer frontend from a device outside of Azure.
+
 ### [Ping](#tab/ping/windows-outside)
+
+Follow these steps to test reachability of a standard public load balancer frontend using ping from a Windows device outside of Azure:
 
 1. From your Windows device, open the **Search taskbar** and enter `cmd`. Select **Command Prompt**.
 2. In the command prompt, type the following command: 
@@ -46,6 +50,8 @@ This section describes testing reachability of a standard load balancer frontend
 
 ### [Ping](#tab/ping/linux-outside)
 
+Follow these steps to test reachability of a standard public load balancer frontend using ping from a Linux device outside of Azure:
+
 1. Open Terminal.
 2. Type the following command:
 
@@ -57,6 +63,8 @@ This section describes testing reachability of a standard load balancer frontend
 
 ### [Traceroute](#tab/traceroute/windows-outside)
 
+Follow these steps to test reachability of a standard public load balancer frontend using tracert from a Windows device outside of Azure:
+
 1. From your Windows device, open the **Search taskbar** and enter `cmd`. Select **Command Prompt**.
 2. In the command prompt, type the following command:
 
@@ -67,6 +75,8 @@ This section describes testing reachability of a standard load balancer frontend
 3. Review tracert's output.
 
 ### [Traceroute](#tab/traceroute/linux-outside)
+
+Follow these steps to test reachability of a standard public load balancer frontend using tracert from a Linux device outside of Azure:
 
 1. Open Terminal.
 2. Type the following command:
@@ -125,10 +135,14 @@ This section describes how to test reachability of a standard public load balanc
 
 ### Test the Load Balancer’s frontend
 
+Choose either ping or tracert to test reachability of a standard public load balancer frontend from an Azure Virtual Machine.
+
 ### [Ping](#tab/ping/windowsvm)
 
+Follow these steps to test reachability of a standard public load balancer frontend using ping from a Windows virtual machine:
+
 1. From your Windows device, open the **Search taskbar** and enter `cmd`. Select **Command Prompt**.
-2. In the command prompt, type the following command: 
+2. In the command prompt, type the following command:
 
 ```dos
     ping <Input your load balancer’s public IPv4 address>
@@ -137,6 +151,8 @@ This section describes how to test reachability of a standard public load balanc
 3. Review ping's output.
 
 ### [Ping](#tab/ping/linuxvm)
+
+Follow these steps to test reachability of a standard public load balancer frontend using ping from a Linux virtual machine:
 
 1. Open Terminal.
 2. Type the following command:
@@ -149,6 +165,8 @@ This section describes how to test reachability of a standard public load balanc
 
 ### [Traceroute](#tab/traceroute/windowsvm)
 
+Follow these steps to test reachability of a standard public load balancer frontend using tracert from a Windows virtual machine:
+
 1. From your Windows device, open the **Search taskbar** and enter `cmd`. Select **Command Prompt**.
 2. In the command prompt, type the following command:
 
@@ -159,6 +177,8 @@ This section describes how to test reachability of a standard public load balanc
 3. Review tracert's output.
 
 ### [Traceroute](#tab/traceroute/linuxvm)
+
+Follow these steps to test reachability of a standard public load balancer frontend using tracert from a Linux virtual machine:
 
 1. Open Terminal.
 2. Type the following command:
