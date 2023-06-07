@@ -152,15 +152,15 @@ After the move has completed, recreate any computes and redeploy any web service
 
     1. Navigate to the __Datastores__ tab, select the datastore, and then select __Unregister__.
     
-    :::image type="content" source="./media/how-to-move-workspace/unregister-datastore.png" alt-text="Screenshot of the unregister datastore link." lightbox="./media/how-to-move-workspace/unregister-datastore.png":::
+        :::image type="content" source="./media/how-to-move-workspace/unregister-datastore.png" alt-text="Screenshot of the unregister datastore link." lightbox="./media/how-to-move-workspace/unregister-datastore.png":::
 
     1. Select __Create__ to create a new datastore.
     
-    :::image type="content" source="./media/how-to-move-workspace/create-datastore.png" alt-text="Screenshot of the create datastore link." lightbox="./media/how-to-move-workspace/create-datastore.png":::
+        :::image type="content" source="./media/how-to-move-workspace/create-datastore.png" alt-text="Screenshot of the create datastore link." lightbox="./media/how-to-move-workspace/create-datastore.png":::
 
     1. From the __Create datastore__ dialog, use the same name, type, etc. as the datastore you unregistered. Select the subscription ID and storage account from the new location. Finally, select __Create__ to create the new datastore registration. 
     
-    :::image type="content" source="./media/how-to-move-workspace/create-datastore-form.png" alt-text="Screenshot of the create dataset dialog." lightbox="./media/how-to-move-workspace/create-datastore-form.png":::
+        :::image type="content" source="./media/how-to-move-workspace/create-datastore-form.png" alt-text="Screenshot of the create dataset dialog." lightbox="./media/how-to-move-workspace/create-datastore-form.png":::
 
 ## Next steps
 
