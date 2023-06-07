@@ -43,7 +43,7 @@ You can learn the differences between [express and classic configuration](sql-az
 
 ### More scopes added to existing Azure DevOps Connectors 
 
-June 6
+June 6, 2023
 
 Defender for DevOps added the following extra scopes to the Azure DevOps (ADO) application:
 
