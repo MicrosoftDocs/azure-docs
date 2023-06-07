@@ -91,7 +91,7 @@ curl -vk <https://ubuntu.com>
 
 If a customer is running their rpm install with a shell script, they must ensure setting the http(s)\_proxy locally inside their shell script explicitly. They can also try setting the proxy as an option inline on rpm with the '--httpproxy' and '--httpport' options.
 
-[for additional information](https://www.xmodulo.com/how-to-install-rpm-packages-behind-proxy.html)
+[For additional information](https://www.xmodulo.com/how-to-install-rpm-packages-behind-proxy.html)
 
 ### How to install.RPM packages behind proxy
 
@@ -102,5 +102,5 @@ sudo rpm --import <https://aglet.packages.cloudpassage.com/cloudpassage.package
 --httpproxy 169.xxx.x.xx  --httpport 3128
 ~~~
 
-[!Note]
-Keep in mind if you set them system-wide, they may "lose" their ability to run kubectl locally. Set them inline within the script first to help minimize the effects.
+>[!Note]
+>Keep in mind if you set them system-wide, they may "lose" their ability to run kubectl locally. Set them inline within the script first to help minimize the effects.
