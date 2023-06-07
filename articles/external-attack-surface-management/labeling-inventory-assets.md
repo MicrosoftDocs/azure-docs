@@ -44,11 +44,11 @@ You should modify assets from the inventory list page if you want to update nume
 
 ![Screenshot of inventory list view with 'add filter' dropdown opened, displaying the query editor.](media/labels-2.png)
 
-3. Once your inventory list is filtered, select the assets that you wish to modify by adding a label or changing their tate. You can either select all using the checkbox next to the “Asset” table header, or individually select the assets you wish to label.  
+3. Once your inventory list is filtered, select the dropdown by checkbox next to the "Asset" table header. This dropdown gives you the option to select all results that match your query, the results on that specific page (up to 25), or "none" which unselects all assets. You can also choose to select only specific results on the page by selecting the individaul checkmarks next to each asset. 
+
+![Screenshot of inventory list view with bulk selection dropdown opened.](media/labels-14.png) 
  
 4. Select **Modify assets**. 
-
-![Screenshot of inventory list view with assets selected and 'Modify Assets' button highlighted.](media/labels-3.png)
 
 5. This action opens a new “Modify Assets” pane on the right-hand side of your screen. From this screen, you can quickly change the state of the selected asset(s). For this example, we will create a new label.  Select **Create a new label**. 
 
