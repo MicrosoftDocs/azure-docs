@@ -22,7 +22,7 @@ As a prerequisite, you need an Azure subscription and have been granted the prop
 :::image type="content" source="media/get-started/get-started-with-medtech-service.png" alt-text="Diagram showing the MedTech service deployment overview." lightbox="media/get-started/get-started-with-medtech-service.png":::
 
 > [!TIP]
-> See the MedTech service article, [Choose a deployment method for the MedTech service](deploy-choose-method.md), for a description of the different deployment methods that can help to simply and automate the deployment of the MedTech service. 
+> See the MedTech service article, [Choose a deployment method for the MedTech service](deploy-choose-method.md), for a description of the different deployment methods that can help to simplify and automate the deployment of the MedTech service. 
 
 ## Deploy resources
 
