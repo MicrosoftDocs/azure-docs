@@ -45,6 +45,8 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | New connect requests                         | 200 requests per second per TU                                                    |
 | Subscribe and unsubscribe operations         | 200 requests per second per TU                                                    |
 | Total number of subscriptions per MQTT client session | 50                                                                                |
+| Maximum number of topic filters per MQTT SUBSCRIBE packet                             | 10                                                                                |
+| Maximum number of segments per topic filter                             | 8                                                                               |
 | Maximum number of concurrent connections allowed per namespace | 10,000 per TU                                                   |
 
 ## Events limits in namespace

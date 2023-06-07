@@ -49,11 +49,11 @@ For more information, see:
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Sensor version 22.3.9**: <br>- [New endpoint to send OT sensor logs to Defender for IoT](#new-endpoint-to-send-ot-sensor-logs-to-defender-for-iot) <br><br> **Sensor versions 22.3.x and higher**: <br>- [Configure Active Directory and NTP settings in the Azure portal](#configure-active-directory-and-ntp-settings-in-the-azure-portal) |
+| **OT networks** | **Sensor version 22.3.9**: <br>- [Improved monitoring and support for OT sensor logs](#improved-monitoring-and-support-for-ot-sensor-logs) <br><br> **Sensor versions 22.3.x and higher**: <br>- [Configure Active Directory and NTP settings in the Azure portal](#configure-active-directory-and-ntp-settings-in-the-azure-portal) |
 
-### New endpoint to send OT sensor logs to Defender for IoT
+### Improved monitoring and support for OT sensor logs
 
-In version 22.3.9, we've added a new endpoint to our list of required endpoints to allow OT sensors to send more log data to our support teams. The additional data helps us troubleshoot customer issues, providing faster response times and more targeted solutions and recommendations.
+In version 22.3.9, we've added a new capability to collect logs from the OT sensor through a new endpoint. The additional data helps us troubleshoot customer issues, providing faster response times and more targeted solutions and recommendations. The new endpoint has been added to our list of required endpoints that connect your OT sensors to Azure.
 
 After updating your OT sensors, download the latest list of endpoints and ensure that your sensors can access all endpoints listed.
 

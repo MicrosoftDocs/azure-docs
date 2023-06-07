@@ -1028,8 +1028,10 @@
       href: sap/sap-audit-log-workbook.md    
     - name: Kickstart script reference
       href: sap/reference-kickstart.md
-    - name: Container update script reference
+    - name: Container update script reference 
       href: sap/reference-update.md
+    - name: Systemconfig.json file reference
+      href: sap/reference-systemconfig-json.md
     - name: Systemconfig.ini file reference
       href: sap/reference-systemconfig.md
     - name: SAP BTP

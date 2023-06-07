@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to operationalize a pipeline that performs batch scoring with preprocessing.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
