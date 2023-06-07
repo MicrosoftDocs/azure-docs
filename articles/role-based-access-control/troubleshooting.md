@@ -9,7 +9,7 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 06/05/2023
+ms.date: 06/07/2023
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli
 ---
@@ -401,6 +401,20 @@ You're currently signed in with a user that doesn't have write permission to the
 
 Check that you're currently signed in with a user that is assigned a role that has write permission to the resource at the selected scope. For example, to manage virtual machines in a resource group, you should have the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role on the resource group (or parent scope). For a list of the permissions for each built-in role, see [Azure built-in roles](built-in-roles.md).
 
+### Symptom - Guest user gets authorization failed
+
+When a guest user tries to access a resource, they get an error message similar to the following:
+
+`The client '<client>' with object id '<objectId>' does not have authorization to perform action '<action>' over scope '<scope>' or the scope is invalid.`
+
+**Cause**
+
+The guest user doesn't have permissions to the resource at the selected scope.
+
+**Solution**
+
+Check that the guest user is assigned a role with least privileged permissions to the resource at the selected scope. For more information, [Assign Azure roles to external guest users using the Azure portal](role-assignments-external-users.md).
+
 ### Symptom - Unable to create a support request
 
 When you try to create or update a support ticket, you get the following error message:
@@ -533,19 +547,8 @@ If you're an Azure AD Global Administrator and you don't have access to a subscr
 
 ## Classic subscription administrators
 
-### Symptom - Deleting a guest assigned the Co-Administrator role doesn't the remove role assignment
-
-Consider the following scenario:
-
-- Invite a guest user from an external tenant and then assign them the classic Co-Administrator role.
-- Later, you delete the guest user from your tenant without removing the role assignment.
-- The guest user signs in to the Azure portal and switches to your tenant.
-
-The guest user still has the Co-Administrator role assignment.
-
-**Solution**
-
-Don't use the classic subscription administrator roles. Microsoft recommends that you manage access to Azure resources using Azure RBAC. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md) and [Assign Azure roles to external guest users using the Azure portal](role-assignments-external-users.md).
+> [!IMPORTANT]
+> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
 
 ## Next steps
 
