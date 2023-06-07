@@ -16,3 +16,7 @@
   items:
       - name: Set up an API center
         href: set-up-api-center.md
+- name: Reference
+  items:
+      - name: REST API
+        href: https://aka.ms/apicenter/docs/rest
