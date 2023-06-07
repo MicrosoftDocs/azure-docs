@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 09/13/2021
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022, devx-track-arm-template
+ms.custom: devx-track-java, event-tier1-build-2022, devx-track-arm-template, devx-track-extended-java
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
