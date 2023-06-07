@@ -88,8 +88,6 @@ The following section explains how to enable TDE in customer-managed mode.
 
 The following section explains how to enable TDE in customer-managed mode.
 
----
-
 ```azurecli
 az sql mi-arc update --tde-mode ServiceManaged
 ```
