@@ -26,57 +26,47 @@ The MS Graph Inbound Provisioning API endpoint opens the provisioning pipeline t
 ## Supported Scenarios
 
 Several inbound user provisioning scenarios can be enabled using the inbound provisioning API endpoint. The diagram below demonstrates the most common scenarios. 
-> [!dive class-"mx-imgBorder:]
-> ![Diagram that shows API scenarios.](./media/application-provisioning-api-concepts/api-workflow-scenarios.png)
 
-:::image type="content" source="media/application-provisioning-api-concepts/api-workflow-scenarios.png" alt-text="Diagram that shows API scenarios.." lightbox="media/application-provisioning-api-concepts/api-workflow-scenarios.png":::
+:::image type="content" source="media/application-provisioning-api-concepts/api-workflow-scenarios.png" alt-text="Diagram that shows API scenarios." lightbox="media/application-provisioning-api-concepts/api-workflow-scenarios.png":::
 
-## How long will it take to provision users?
-When you're using automatic user provisioning with an application, there are some things to keep in mind. First, Azure AD automatically provisions and updates user accounts in an app based on things like [user and group assignment][def]. The sync happens at a regularly scheduled time interval, typically every 40 minutes.
+### Scenario 1: Enable CSV file imports
+You can now read a CSV file, extract and send data to the Azure AD provisioning platform through the inbound provisioning API endpoint.
 
-The time it takes for a given user to be provisioned depends mainly on whether your provisioning job is running an initial cycle or an incremental cycle.
+### Scenario 2: Enable ISVs to build direct integration with Azure AD
+ISV partners who ship apps that act as the source of truth/system of records for identities can build native integrations using the API endpoint. For example, an HR app or Student Information Systems app can send data to Azure AD as soon as a transaction is complete. They can also send end-of-day transactions as a SCIM bulk request to the API endpoint.
 
-- For **initial cycle**, the job time depends on many factors, including the number of users and groups in scope for provisioning, and the total number of users and group in the source system. The first sync between Azure AD and an app happen as fast as 20 minutes or take as long as several hours. The time depends on the size of the Azure AD directory and the number of users in scope for provisioning. A comprehensive list of factors that affect initial cycle performance are summarized later in this section.
+### Scenario 3: Enable partners to build integrations with HR vendors
+Partners who specialize in reading data from HR systems can build an integration service that transforms the HR data to a SCIM bulk request for provisioning users to Azure AD.  
 
-- For **incremental cycles**, after the initial cycle, job times tend to be faster (within 10 minutes), as the provisioning service stores watermarks that represent the state of both systems after the initial cycle, improving performance of subsequent syncs. The job time depends on the number of changes detected in that provisioning cycle. If there are fewer than 5,000 user or group membership changes, the job can finish within a single incremental provisioning cycle. 
+## End-to-end flow
+:::image type="content" source="media/application-provisioning-api-concepts/end-to-end-flow.png" alt-text="Diagram of the end-to-end workflow of inbound provisioning." lightbox="media/application-provisioning-api-concepts/end-to-end-workflow.png":::
 
-The following table summarizes synchronization times for common provisioning scenarios. In these scenarios, the source system is Azure AD and the target system is a SaaS application. The sync times are derived from a statistical analysis of sync jobs for the SaaS applications ServiceNow, Workplace, Salesforce, and G Suite.
+### Steps of the workflow
+    1) IT Admin creates a generic inbound provisioning app in the Azure AD Portal from the Enterprise App gallery. Specify worker data accepted by the API endpoint using SCIM schema exten)ions.   
+    2) IT Admin provides endpoint access details to the developer/system integrator.
+    3) Developer builds API client to send HR data to Azure AD.
+    4) The API client reads HR data from CSV/SQL or any HR system.
+    5) The API client sends a POST request to the Azure AD Provisioning Service. The data is a SCIM Bulk Request.
+    6) If successful, an “Accepted 202 Status” is returned. 
+    7) The Azure AD Provisioning Service then waits for the next sync cycle to apply attribute mappings and process data.
+    8) The user is provisioned into AD or Azure AD.
+    9) The API Client then queries the provisioning logs API endpoint for the status of each record sent.
+    10) If the processing of any record fails, the API client can check the error details and include the HR record of failed workers in the next bulk request (step 5). 
+    11)	The IT Admin can check the status of the provisioning job and view events in the provisioning logs at any time.
 
+### Key features of the Inbound Provisioning API
+- It is an MS Graph API endpoint that can be accessed using valid OAuth token.
+- The API endpoint accepts valid SCIM bulk request payloads.
+- With SCIM schema extensions, you can send any attribute in the payload. 
+- Each SCIM bulk request can contain at max 50 records. (We plan to evaluate this limitation and select a reasonable limit based on private preview feedback.) 
+- The API endpoint accepts SCIM bulk request payload in async mode.
+- Each API endpoint is associated with a specific provisioning app in Azure AD. You can integrate multiple data sources by creating a provisioning app for each data source. 
+- Incoming request payloads are staged for processing at regular sync intervals (currently ~40 minutes). (While testing, if you want to process a request payload faster, you can stop  
+  and start the provisioning job from the portal. In future release, we will provide provision-on-demand capability.)
+- Admins can check provisioning progress by viewing the provisioning logs. 
+- API clients can track progress by querying provisioning logs.
+- Microsoft is providing a sample CSV2SCIM PowerShell script to highlight the extensibility of this API approach and how it can be used to upload user data from CSV files. 
 
-| Scope configuration | Users, groups, and members in scope | Initial cycle time | Incremental cycle time |
-| -------- | -------- | -------- | -------- |
-| Sync assigned users and groups only |  < 1,000 |  < 30 minutes | < 30 minutes |
-| Sync assigned users and groups only |  1,000 - 10,000 | 142 - 708 minutes | < 30 minutes |
-| Sync assigned users and groups only |   10,000 - 100,000 | 1,170 - 2,340 minutes | < 30 minutes |
-| Sync all users and groups in Azure AD |  < 1,000 | < 30 minutes  | < 30 minutes |
-| Sync all users and groups in Azure AD |  1,000 - 10,000 | < 30 - 120 minutes | < 30 minutes |
-| Sync all users and groups in Azure AD |  10,000 - 100,000  | 713 - 1,425 minutes | < 30 minutes |
-| Sync all users in Azure AD|  < 1,000  | < 30 minutes | < 30 minutes |
-| Sync all users in Azure AD | 1,000 - 10,000  | 43 - 86 minutes | < 30 minutes |
-
-For the configuration **Sync assigned user and groups only**, you can use the following formulas to determine the approximate minimum and maximum expected **initial cycle** times:
-
-- Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
-- Maximum minutes = 0.08 x [Number of assigned users, groups, and group members]
-
-Summary of factors that influence the time it takes to complete an **initial cycle**:
-
-- The total number of users and groups in scope for provisioning.
-
-- The total number of users, groups, and group members present in the source system (Azure AD).
-
-- Whether users in scope for provisioning are matched to existing users in the target application, or need to be created for the first time. Sync jobs for which all users are created for the first time take about *twice as long* as sync jobs for which all users are matched to existing users.
-
-- Number of errors in the [provisioning logs](check-status-user-account-provisioning.md). Performance is slower if there are many errors and the provisioning service has gone into a quarantine state.	
-
-- Request rate limits and throttling implemented by the target system. Some target systems implement request rate limits and throttling, which can impact performance during large sync operations. Under these conditions, an app that receives too many requests too fast might slow its response rate or close the connection. To improve performance, the connector needs to adjust by not sending the app requests faster than the app can process them. Provisioning connectors built by Microsoft make this adjustment. 
-
-- The number and sizes of assigned groups. Syncing assigned groups takes longer than syncing users. Both the number and the sizes of the assigned groups impact performance. If an application has [mappings enabled for group object sync](customize-application-attributes.md#editing-group-attribute-mappings), group properties such as group names and memberships are synced in addition to users. These syncs take longer than only syncing user objects.
-
-- If performance becomes an issue, and you're attempting to provision most users and groups in your tenant, then use scoping filters. Scoping filters allow you to fine tune the data that the provisioning service extracts from Azure AD by filtering out users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## Next steps
 [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md)
-
-
-[def]: ../manage-apps/assign-user-or-group-access-portal.md
