@@ -4,7 +4,7 @@ description: How to authenticate requests and use the Azure Monitor REST API to 
 author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 01/30/2023
-ms.custom: has-adal-ref, devx-track-azurepowershell
+ms.custom: has-adal-ref
 ms.reviewer: edbaynash
 ---
 
@@ -37,11 +37,11 @@ Once you've created a service principal, retrieve an access token using a REST c
 For example
 
 ```bash
-curl --location --request POST 'https://login.microsoftonline.com/a1234bcd-5849-4a5d-a2eb-5267eae1bbc7/oauth2/token' \
+curl --location --request POST 'https://login.microsoftonline.com/abcd1234-5849-4a5d-a2eb-5267eae1bbc7/oauth2/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'client_id=0a123b56-c987-1234-abcd-1a2b3c4d5e6f' \
---data-urlencode 'client_secret123456.ABCDE.~XYZ876123ABceDb0000' \
+--data-urlencode 'client_id=0123b56a-c987-1234-abcd-1a2b3c4d5e6f' \
+--data-urlencode 'client_secret=123456.ABCDE.~XYZ876123ABceDb0000' \
 --data-urlencode 'resource=https://management.azure.com'
 
 ```
@@ -52,7 +52,7 @@ A successful request receives an access token in the response:
    token_type": "Bearer",
    "expires_in": "86399",
    "ext_expires_in": "86399",
-   "access_token": ""eyJ0eXAiOiJKV1QiLCJ.....Ax"
+   "access_token": "eyJ0eXAiOiJKV1QiLCJ.....Ax"
 }
 ```
 

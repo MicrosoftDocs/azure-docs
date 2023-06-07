@@ -1,21 +1,23 @@
 ---
-title: Connect your non-Azure machines to Microsoft Defender for Cloud
+title: Connect your non-Azure machines to Microsoft Defender for Cloud with Azure Arc
 description: Learn how to connect your non-Azure machines to Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 02/27/2022
+ms.date: 06/01/2023
 author: dcurwin
 ms.author: dacurwin
 zone_pivot_groups: non-azure-machines
 ms.custom: mode-other
 ---
-# Quickstart: Connect your non-Azure machines to Microsoft Defender for Cloud
+# Quickstart: Connect your non-Azure machines to Microsoft Defender for Cloud with Azure Arc
 
 Defender for Cloud can monitor the security posture of your non-Azure computers, but first you need to connect them to Azure.
 
 You can connect your non-Azure computers in any of the following ways:
 
-- Using Azure Arc-enabled servers (**recommended**)
-- From Defender for Cloud's pages in the Azure portal (**Getting started** and **Inventory**)
+- Onboarding with Azure Arc
+  - [Using Azure Arc-enabled servers](#add-non-azure-machines-with-azure-arc) (**recommended**)
+  - [From Defender for Cloud's pages in the Azure portal](#add-non-azure-machines-from-the-azure-portal) (**Getting started** and **Inventory**)
+- [Onboarding directly with Defender for Endpoint](onboard-machines-with-defender-for-endpoint.md)
 
 Each of these is described on this page.
 

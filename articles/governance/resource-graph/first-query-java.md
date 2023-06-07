@@ -3,7 +3,7 @@ title: "Quickstart: Your first Java query"
 description: In this quickstart, you follow the steps to enable the Resource Graph Maven packages for Java and run your first query.
 ms.date: 07/09/2021
 ms.topic: quickstart
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 # Quickstart: Run your first Resource Graph query using Java
 
