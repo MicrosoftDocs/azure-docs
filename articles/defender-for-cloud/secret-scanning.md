@@ -2,7 +2,7 @@
 title: Scan for secrets with agentless secret scanning
 description: Learn how to scan your server's for secrets with Defender for Server's agentless secret scanning.
 ms.topic: overview
-ms.date: 06/06/2023
+ms.date: 06/07/2023
 ---
 
 # Scan your servers for secrets with agentless secret scanning
@@ -27,7 +27,7 @@ Agentless secret scanning can proactively discover the following types of secret
 
 - [Enable](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) either or both of the following two plans: 
     - [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features)
-    - [Defender CSPM](concept-cloud-security-posture-management)
+    - [Defender CSPM](concept-cloud-security-posture-management.md)
 
 > [!NOTE]
 > If both plans are not enabled, you will only have limited access to the features available from Defender for Server's agentless secret scanning capabilities. Check out [which features are available with each plan](#feature-capability).
@@ -46,7 +46,7 @@ Agentless secret scanning can proactively discover the following types of secret
 
 ## Feature capability
 
-Once you have enabled either or both [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) and [Defender CSPM](concept-cloud-security-posture-management) you will gain access to the agentless secret scanning capabilities. However, if you only enable one of the two plans you will only gain some of the available features. The following table shows which plans enable which features:
+Once you have enabled either or both [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) and [Defender CSPM](concept-cloud-security-posture-management.md) you will gain access to the agentless secret scanning capabilities. However, if you only enable one of the two plans you will only gain some of the available features. The following table shows which plans enable which features:
 
 | Plan Feature | Defender for servers plan 2 | Defender CSPM |
 |--|--|--|
@@ -104,3 +104,7 @@ Agentless secret scanning for Azure VMs supports the following attack path scena
 1. Select the relevant attack path.
 
 1. Follow the remediation steps to remediate the attack path.
+
+## Remediate secrets with recommendations
+
+Each secret that is found will trigger recommendations that can be remediated from the Recommendations page. These recommendations are aggregated into two recommendation types under the Remediate vulnerabilities security control.
