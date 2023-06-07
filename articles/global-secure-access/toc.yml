@@ -17,6 +17,8 @@ items:
       href: how-to-configure-quick-access.md
     - name: Install the Windows client
       href: how-to-install-windows-client.md
+    - name: Simulate remote network connectivity
+      href: how-to-remote-network-azure.md
     - name: Explore the network traffic dashboard
       href: concept-traffic-dashboard.md
 - name: How-to guides
