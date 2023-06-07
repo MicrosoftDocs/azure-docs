@@ -23,11 +23,9 @@ The following sections provide you with a quick guide to the default quotas and 
 | Limit Name | Limit Value |
 |--|--|
 | OpenAI resources per region per Azure subscription | 30 |
-| Tokens per minute (TPM) per model and region<sup>1</sup> | GPT-4: TODO:DHuntley <br> GPT-4-32K: TODO:DHuntley <br> GPT-35-Turbo: TODO:DHuntley <br> Text-Davinci-003: TODO:DHuntley <br> All Others: TODO:DHuntley |
-| Requests Per Minute (RPM) per model and region<sup>1</sup>| GPT-4: TODO:DHuntley <br> GPT-4-32K: TODO:DHuntley <br> GPT-35-Turbo: TODO:DHuntley <br> Text-Davinci-003: TODO:DHuntley <br> All Others: TODO:DHuntley |
+| Default quota per model and region (in tokens-per-minute)<sup>1</sup> |Text-Davinci-003: 120K <br> GPT-4: 20K <br> GPT-4-32K: 60K  <br> All others: 240 K |
 | Maximum prompt tokens per request | Varies per model. For more information, see [Azure OpenAI Service models](./concepts/models.md)|
-| Max fine-tuned model deployments<sup>2</sup> | 2 |
-| Ability to deploy same model to multiple deployments | Not allowed |
+| Max fine-tuned model deployments | 2 |
 | Total number of training jobs per resource | 100 |
 | Max simultaneous running training jobs per resource | 1 |
 | Max training jobs queued | 20 | 
@@ -45,12 +43,15 @@ To minimize issues related to throttling, it's a good idea to use the following 
 - Implement retry logic in your application.
 - Avoid sharp changes in the workload. Increase the workload gradually.
 - Test different load increase patterns.
-- Create another Azure OpenAI resource in the same or different regions
+- Increase the capacity assigned to your deployment. Move capacity from another deployment, if necessary.
 
 ### How to request increases to the default quotas and limits
 
-At this time, due to overwhelming demand we cannot accept any new resource or quota increase requests.
+Quota increase requests can be submitted from the **Quotas** page of Azure AI Studio. Please note that due to overwhelming demand, we are not currently approving new quota increase requests. Your request will be queued until it can be filled at a later time.
+
+For other rate limits, please [submit a service request](/azure/cognitive-services/cognitive-services-support-options?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext).
 
 ## Next steps
 
+Explore how to [manage quota](./how-to/quota.md) for your Azure OpenAI deployments.
 Learn more about the [underlying models that power Azure OpenAI](./concepts/models.md).
