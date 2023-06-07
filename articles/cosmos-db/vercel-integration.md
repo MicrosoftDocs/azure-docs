@@ -54,7 +54,7 @@ Use this guide if you have already identified the Vercel project(s) or want to i
 
 4. Log in to Azure using your credentials to select the existing Azure Cosmos DB account for the integration
 
-   :::image type="content" source="./media/integrations/vercel/sign_in.png" alt-text="Screenshot shows to login to azure account." lightbox="./media/integrations/vercel/sign_in.png":::
+   :::image type="content" source="./media/integrations/vercel/sign_in.png" alt-text="Screenshot shows to login to Azure account." lightbox="./media/integrations/vercel/sign_in.png":::
 
 5. Choose a Directory, subscription and the Azure Cosmos DB Account
 
@@ -64,27 +64,27 @@ Use this guide if you have already identified the Vercel project(s) or want to i
 
 7. Select Integrate
 
-:::image type="content" source="./media/integrations/vercel/integrate.png" alt-text="Screenshot shows to confirm the integration." lightbox="./media/integrations/vercel/integrate.png":::
+   :::image type="content" source="./media/integrations/vercel/integrate.png" alt-text="Screenshot shows to confirm the integration." lightbox="./media/integrations/vercel/integrate.png":::
 
 ## Integrate Cosmos DB with Vercel via npm & Command Line
 
 1. Execute create-next-app with npm, yarn, or pnpm to bootstrap the example:
 
-```bash
-npx create-next-app --example with-azure-cosmos with-azure-cosmos-app
+   ```bash
+   npx create-next-app --example with-azure-cosmos with-azure-cosmos-app
 
-yarn create next-app --example with-azure-cosmos with-azure-cosmos-app
+   yarn create next-app --example with-azure-cosmos with-azure-cosmos-app
 
-pnpm create next-app --example with-azure-cosmos with-azure-cosmos-app
-```
+   pnpm create next-app --example with-azure-cosmos with-azure-cosmos-app
+   ```
 
-1. Modify pages/index.tsx to add your code.
+2. Modify pages/index.tsx to add your code.
 
-Make changes to pages/index.tsx according to your needs. You could check out the code at **lib/cosmosdb.ts** to see how the `@azure/cosmos` Javascript client is initialized.
+Make changes to pages/index.tsx according to your needs. You could check out the code at **lib/cosmosdb.ts** to see how the `@azure/cosmos` JavaScript client is initialized.
 
 3. Push the changes to a GitHub repository.
 
-1. Set up environment variables.
+### Set up environment variables.
 
 - COSMOSDB_CONNECTION_STRING - You need your Cosmos DB connection string. You can find these in the Azure portal in the keys section.
 
@@ -101,7 +101,7 @@ You could use this [template](https://vercel.com/new/clone?demo-title=CosmosDB%2
 
 2. Select the integration to set up Cosmos DB connection keys, these steps are described in detail in previous section.
 
-   :::image type="content" source="./media/integrations/vercel/add_integrations.png" alt-text="Screenshot shows the required permissions" lightbox="./media/integrations/vercel/add_integrations.png":::
+   :::image type="content" source="./media/integrations/vercel/add_integrations.png" alt-text="Screenshot shows the required permissions." lightbox="./media/integrations/vercel/add_integrations.png":::
 
 3. Set the environment variables for the database name and container name, and finally select Deploy
 
