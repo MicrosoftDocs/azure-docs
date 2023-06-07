@@ -18,7 +18,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.31 - June 2023
 
-Download for [Windows]() or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+Download for [Windows](https://download.microsoft.com/download/e/b/2/eb2f2d87-6382-463e-9d01-45b40c93c05b/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
