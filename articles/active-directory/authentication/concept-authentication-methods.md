@@ -101,6 +101,12 @@ The following additional verification methods can be used in certain scenarios:
 * [Security questions](concept-authentication-security-questions.md) - only used for SSPR
 * [Email address](concept-sspr-howitworks.md#authentication-methods) - only used for SSPR
 
+## Usable and non-usable methods
+
+Administrators can view which authentication methods are available for a user in the Azure portal. Usable methods are listed first, followed by non-usable methods. 
+
+Each authentication method can become non-usable for different reasons. For example, a Temporary Access Pass may expire, or FIDO2 security key may fail attestation. The portal will be updated to provide the reason for why the method is non-usable. 
+
 ## Next steps
 
 To get started, see the [tutorial for self-service password reset (SSPR)][tutorial-sspr] and [Azure AD Multi-Factor Authentication][tutorial-azure-mfa].
