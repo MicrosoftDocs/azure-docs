@@ -57,12 +57,6 @@ The Authenticator app can be used as a software token to generate an OATH verifi
 
 Users may have a combination of up to five OATH hardware tokens or authenticator applications, such as the Authenticator app, configured for use at any time.
 
-> [!WARNING]
-> To ensure the highest level of security for self-service password reset when only one method is required for reset, a verification code is the only option available to users.
->
-> When two methods are required, users can reset using either a notification or verification code in addition to any other enabled methods.
-
-
 ## FIPS 140 compliant for Azure AD authentication
 
 Beginning with version 6.6.8, Microsoft Authenticator for iOS is compliant with [Federal Information Processing Standard (FIPS) 140](https://csrc.nist.gov/publications/detail/fips/140/3/final?azure-portal=true) for all Azure AD authentications using push multi-factor authentications (MFA), passwordless Phone Sign-In (PSI), and time-based one-time passcodes (TOTP).  
