@@ -207,6 +207,8 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 > [!VIDEO https://learn.microsoft.com/shows/inside-azure-for-it/how-to-deploy-azure-vmware-solution-with-azure-netapp-files-datastore] 
 
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=inside-azure-for-it&ep=how-to-deploy-azure-vmware-solution-with-azure-netapp-files-datastore]
+
 ## FAQs
 
 - **Are there any special permissions required to create the datastore with the Azure NetApp Files volume and attach it onto the clusters in a private cloud?**
