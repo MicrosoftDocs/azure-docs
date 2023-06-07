@@ -224,7 +224,7 @@
       items:
       - name: Create and use a PostgreSQL service for development
         href: tutorial-dev-services-postgresql.md
-      - name: Create and use a Apache Kafka service for development
+      - name: Create and use an Apache Kafka service for development
         href: tutorial-dev-services-kafka.md
     - name: Create an Azure Files storage mount
       href: storage-mounts-azure-files.md

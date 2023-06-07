@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Create and use a Apache Kafka service for development'
-description: Create and use a Apache Kafka service for development
+title: 'Tutorial: Create and use an Apache Kafka service for development'
+description: Create and use an Apache Kafka service for development
 services: container-apps
 author: ahmelsayed
 ms.service: container-apps
@@ -9,7 +9,7 @@ ms.date: 06/06/2023
 ms.author: ahmels
 ---
 
-# Tutorial: Create and use a Apache Kafka service for development
+# Tutorial: Create and use an Apache Kafka service for development
 
 The Azure Container Apps service enables you to provision services like Apache Kafka, Redis, [PostgreSQL](./tutorial-dev-services-postgresql.md), etc on the same environment as your applications. Those services are deployed as special type of Container Apps that is managed for you and you can connect other applications to them securely without exporting secrets, or sharing them anywhere. Those services are deployed in the same private network as your applications so you don't have to setup or manage VNETs for simple development workflows. Finally, these services compute scale to 0 like other Container Apps when not used to cut down on cost for development.
 
@@ -171,9 +171,9 @@ In this tutorial you learn how to create and use a development Apache Kafka serv
 
     ----
 
-## Create a Apache Kafka service
+## Create an Apache Kafka service
 
-1. Create a Apache Kafka service 
+1. Create an Apache Kafka service 
 
     # [Bash](#tab/bash)
 
