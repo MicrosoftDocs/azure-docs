@@ -12,7 +12,7 @@ ms.custom:
 ---
 # Import an OData API
 
-This article shows how to import an OData service as an API in API Management. 
+This article shows how to import an OData-compliant service as an API in API Management. 
 
 In this article, you learn how to:
 > [!div class="checklist"]

@@ -6,7 +6,7 @@ ms.service: api-management
 author: martinpankraz
 ms.author: mapankra
 ms.topic: how-to
-ms.date: 01/26/2022
+ms.date: 06/06/2023
 ms.custom: 
 ---
 
@@ -20,6 +20,9 @@ In this article, you'll:
 > * Import the OpenAPI specification to API Management
 > * Complete API configuration
 > * Test the API in the Azure portal
+
+> [!NOTE]
+> In preview, API Management can now directly import an OData API from its metadata description, without requiring conversion to an OpenAPI specification. [Learn more](import-api-from-odata.md).
 
 ## Prerequisites
 
