@@ -55,10 +55,50 @@ There are four different types of point data that can be added to the map:
 
 The following code sample creates a GeoJSON Point geometry and passes it into the `atlas.Shape` class to make it easy to update. The center of the map is initially used to render a symbol. A click event is added to the map such that when it fires, the coordinates of the mouse are used with the shapes `setCoordinates` function. The mouse coordinates are recorded at the time of the click event. Then, the `setCoordinates` updates the location of the symbol on the map.
 
-<br/>
+```javascript
+function InitMap()
+{
+    var map = new atlas.Map('myMap', {
+        center: [-122.33, 47.64],
+        zoom: 13,
+        view: "Auto",
 
+        //Add authentication details for connecting to Azure Maps.
+        authOptions: {
+            authType: 'subscriptionKey',
+            subscriptionKey: '{}'
+        }
+    });
+
+    //Wait until the map resources are ready.
+    map.events.add('ready', function () {
+
+      /*Create a data source and add it to the map*/
+      var dataSource = new atlas.source.DataSource();
+      map.sources.add(dataSource);
+      var point = new atlas.Shape(new atlas.data.Point([-122.33, 47.64]));
+      //Add the symbol to the data source.
+      dataSource.add([point]);
+
+      /* Gets co-ordinates of clicked location*/
+      map.events.add('click', function(e){
+        /* Update the position of the point feature to where the user clicked on the map. */
+        point.setCoordinates(e.position);
+      });
+
+      //Create a symbol layer using the data source and add it to the map
+      map.layers.add(new atlas.layer.SymbolLayer(dataSource, null));
+    });
+}
+
+```
+
+:::image type="content" source="./media/map-add-symbol/add-a-symbol-layer.png"alt-text="A screenshot of map with a pin added using the symbol layer.":::
+
+<!-----------------------------------------------------------------------------------------------
 <iframe height='500' scrolling='no' title='Switch pin location' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>Switch pin location</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+-------------------------------------------------------------------------------------------------->
 
 > [!TIP]
 > By default, symbol layers optimize the rendering of symbols by hiding symbols that overlap. As you zoom in, the hidden symbols become visible. To disable this feature and render all symbols at all times, set the `allowOverlap` property of the `iconOptions` options to `true`.
