@@ -71,7 +71,7 @@ In your POM file, add the following reference for the project
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-callautomation</artifactId>
-  <version>1.0.0-alpha.20220915.1</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
@@ -132,10 +132,10 @@ post("/api/callback", (request, response) -> {
 ### Example of how you can deserialize the *RecognizeCanceled* event:
 ``` java
 if (callEvent instanceof RecognizeCanceled {
-     CallAutomationEventWithReasonCodeBase playCanceled= (CallAutomationEventWithReasonCodeBase) callEvent;
-     Reasoncode reasonCode = playCanceled.getReasonCode();
-     ResultInformation = playCanceled.getResultInformation();
-     //Play cancel action completed, Take some action on canceled event.
+     CallAutomationEventWithReasonCodeBase recognizeCanceled= (CallAutomationEventWithReasonCodeBase) callEvent;
+     Reasoncode reasonCode = recognizeCanceled.getReasonCode();
+     ResultInformation = recognizeCanceled.getResultInformation();
+     //Recognize cancel action completed, Take some action on canceled event.
      // Hang up call
      callConnection.hangUp(true);
 }
