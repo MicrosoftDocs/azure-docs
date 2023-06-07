@@ -66,7 +66,7 @@ function InitMap()
         //Add authentication details for connecting to Azure Maps.
         authOptions: {
             authType: 'subscriptionKey',
-            subscriptionKey: '{}'
+            subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
         }
     });
 
@@ -93,7 +93,7 @@ function InitMap()
 
 ```
 
-:::image type="content" source="./media/map-add-symbol/add-a-symbol-layer.png"alt-text="A screenshot of map with a pin added using the symbol layer.":::
+:::image type="content" source="./media/map-add-symbol/add-symbol-layer.png"alt-text="A screenshot of map with a pin added using the symbol layer.":::
 
 <!-----------------------------------------------------------------------------------------------
 <iframe height='500' scrolling='no' title='Switch pin location' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>Switch pin location</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -107,10 +107,63 @@ function InitMap()
 
 Symbol layers are rendered using WebGL. As such all resources, such as icon images, must be loaded into the WebGL context. This sample shows how to add a custom icon to the map resources. This icon is then used to render point data with a custom symbol on the map. The `textField` property of the symbol layer requires an expression to be specified. In this case, we want to render the temperature property. Since temperature is a number, it needs to be converted to a string. Additionally we want to append "°F" to it. An expression can be used to do this concatenation; `['concat', ['to-string', ['get', 'temperature']], '°F']`.
 
-<br/>
+```javascript
+function InitMap()
+{
+    var map = new atlas.Map('myMap', {
+        center: [-73.985708, 40.75773],
+        zoom: 12,
+        view: "Auto",
 
+        //Add authentication details for connecting to Azure Maps.
+        authOptions: {
+            authType: 'subscriptionKey',
+            subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
+        }
+    });
+
+    map.events.add('ready', function () {
+
+      //Load the custom image icon into the map resources.
+      map.imageSprite.add('my-custom-icon', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1717245/showers.png').then(function () {
+
+        //Create a data source and add it to the map.
+        var datasource = new atlas.source.DataSource();
+        map.sources.add(datasource);
+
+        //Create a point feature and add it to the data source.
+        datasource.add(new atlas.data.Feature(new atlas.data.Point([-73.985708, 40.75773]), {
+          temperature: 64
+        }));
+
+        //Add a layer for rendering point data as symbols.
+        map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
+          iconOptions: {
+            //Pass in the id of the custom icon that was loaded into the map resources.
+            image: 'my-custom-icon',
+
+            //Optionally scale the size of the icon.
+            size: 0.5
+          },
+          textOptions: {
+            //Convert the temperature property of each feature into a string and concatenate "°F".
+            textField: ['concat', ['to-string', ['get', 'temperature']], '°F'],
+
+            //Offset the text so that it appears on top of the icon.
+            offset: [0, -2]
+          }
+        }));
+      });
+    });
+}
+```
+
+:::image type="content" source="./media/map-add-symbol/add-custom-icon-to-symbol-layer.png"alt-text="A screenshot of map with a pin added using the symbol layer with a custom icon.":::
+
+<!-----------------------------------------------------------------------------------------------
 <iframe height='500' scrolling='no' title='Custom Symbol Image Icon' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>Custom Symbol Image Icon</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+-------------------------------------------------------------------------------------------------->
 
 > [!TIP]
 > The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. For more information, see the [How to use image templates](how-to-use-image-templates-web-sdk.md) document.
