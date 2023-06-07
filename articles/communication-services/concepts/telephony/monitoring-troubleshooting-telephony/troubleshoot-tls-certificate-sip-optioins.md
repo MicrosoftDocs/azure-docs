@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 description: Learn how to troubleshoot Azure Communication Services direct routing connectivity with Session Border Controllers - TLS certificate and SIP OPTIONS issues.
 ---
 
-## Session Border Controller (SBC) connectivity issues
+# Session Border Controller (SBC) connectivity issues
 
 When you set up a direct routing, you might experience the following Session Border Controller (SBC) connectivity issues:
 
@@ -45,7 +45,7 @@ This article lists some common issues that are related to SIP OPTIONS and TLS ce
 
 - As the final step, the SBC is marked as **Online** in the Azure portal.
 
-### SIP OPTIONS issues
+## SIP OPTIONS issues
 
 After the TLS connection is successfully established, and the SBC is able to send and receive messages to and from the SIP proxy, there might still be problems that affect the format or content of SIP OPTIONS.
 <br><br>
@@ -108,7 +108,7 @@ This issue occurs if a wildcard doesn't match a lower-level subdomain. For examp
 For more information about certificates, see [SBC certificates and domain names](../direct-routing-infrastructure.md#sbc-certificates-and-domain-names).
 </details>
 
-### TLS connection issues
+## TLS connection issues
 
 If the TLS connection is closed right away and SIP OPTIONS aren't received from the SBC, or if **200 OK** isn't received from the SBC, then the problem might be with the TLS version. The TLS version configured on the SBC should be 1.2 or higher.
 <br><br>
