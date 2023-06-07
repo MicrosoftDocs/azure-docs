@@ -1,5 +1,5 @@
 ---
-title: Testing reachability of Azure Load Balancer frontends with ping
+title: Testing reachability of Azure Load Balancer frontends with ping and traceroute
 description: Learn how to test Azure Load Balancer frontend IPv4 and IPv6 addresses for reachability from an Azure VM or an external device. Supports ping and traceroute.
 services: load-balancer
 author: mbender-ms
@@ -11,9 +11,9 @@ ms.author: mbender
 ms.custom: template-how-to
 ---
 
-# Testing reachability of Azure Load Balancer frontends with ping
+# Testing reachability of Azure Load Balancer frontends with ping and tracerout
 
-Standard Public Azure Load Balancer frontend IPv4 and IPv6 addresses support testing reachability using ping and tracert. Testing reachability of a load balancer frontend is useful for troubleshooting connectivity issues. In this article, you learn how to use ping and tracert for testing a frontend of an existing Standard public load balancer. It can be completed from an Azure Virtual Machine or from a device outside of Azure.
+Standard Public Azure Load Balancer frontend IPv4 and IPv6 addresses support testing reachability using ping and traceroute. Testing reachability of a load balancer frontend is useful for troubleshooting connectivity issues. In this article, you learn how to use ping and tracert for testing a frontend of an existing Standard public load balancer. It can be completed from an Azure Virtual Machine or from a device outside of Azure.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. In the command prompt, type the following command: 
 
 ```cmd
-    ping <Input your load balancer’s public IPv4 address>
+    ping <IP_Address>
 ```
 
 3. Review ping's output.
@@ -58,7 +58,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. Type the following command:
 
 ```bash
-    ping <Input your load balancer’s public IPv4 address>
+    ping <IP_Address>
 ```
 
 3. Review ping's output.
@@ -71,7 +71,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. In the command prompt, type the following command:
 
 ```cmd
-    traceroute -I <Input your load balancer’s public IPv4 address>
+    tracert <IP_Address>
 ```
 
 3. Review tracert's output.
@@ -84,7 +84,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. Type the following command:
 
 ```bash
-    tracert -l <Input your load balancer’s public IPv4 address>
+    traceroute -l <IP_Address>
 ```
 
 3. Review tracert's output.
@@ -146,7 +146,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. In the command prompt, type the following command:
 
 ```cmd
-    ping <Input your load balancer’s public IPv4 address>
+    ping <IP_Address>
 ```
 
 3. Review ping's output.
@@ -159,7 +159,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. Type the following command:
 
 ```bash
-    ping <Input your load balancer’s public IPv4 address>
+    ping <IP_Address>
 ```
 
 3. Review ping's output.
@@ -172,7 +172,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. In the command prompt, type the following command:
 
 ```dos
-    traceroute -I <Input your load balancer’s public IPv4 address>
+    traceroute -I <IP_Address>
 ```
 
 3. Review tracert's output.
@@ -185,7 +185,7 @@ Follow these steps to test reachability of a standard public load balancer front
 2. Type the following command:
 
 ```bash
-    tracert -l <Input your load balancer’s public IPv4 address>
+    traceroute -l <IP_Address>
 ```
 
 3. Review tracert's output.
