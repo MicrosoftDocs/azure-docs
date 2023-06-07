@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: edge
 ms.custom: devx-track-arm-template, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 06/07/2023
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro GPU device so that I can deploy VMs on the device.
 ---
@@ -90,7 +90,8 @@ Follow these steps to create a managed disk from a VHD that you uploaded to the 
 1. Create a new managed disk.
 
     ```powershell
-    $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri $VhdURI
+    $StorageAccountId = (Get-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName).Id      
+    $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -StorageAccountId $StorageAccountId -CreateOption Import -SourceUri "Source URL for your VHD"
     $disk = New-AzureRMDisk -ResourceGroupName $DiskRG -DiskName $DiskName -Disk $DiskConfig
     ```
 
