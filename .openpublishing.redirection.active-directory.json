@@ -2221,7 +2221,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/ active-directory-b2b-user-token.md",
+      "source_path_from_root": "/articles/active-directory/active-directory-b2b-user-token.md",
       "redirect_url": "/azure/active-directory/b2b/user-token",
       "redirect_document_id": true
     },
@@ -12560,7 +12560,6 @@
       "redirect_url": "/azure/active-directory/hybrid/connect/tutorial-phs-backup",
       "redirect_document_id": false
       },
-      
       
       {
       "source_path_from_root": "/articles/active-directory/hybrid/whatis-aadc-admin-agent.md",
