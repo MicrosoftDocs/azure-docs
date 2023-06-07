@@ -162,7 +162,7 @@ Data quality signal tracks data quality issues in production by comparing to tra
 | `alert_notification` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
 | `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_notification` is on, user will receive alert notification. | |By default, the object contains following `numerical` and ` categorical` metrics: `null_value_rate`, `data_type_error_rate`, and `out_of_bounds_rate` |
 | `metric_thresholds.applicable_feature_type` | String | Feature type that the metric will be applied to. | `numerical` or `categorical`| |
-| `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` and `categorical` metric names are: `null_value_rate`, `data_type_error_rate`, `out_of_bound_rate` | |
+| `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` and `categorical` metric names are: `null_value_rate`, `data_type_error_rate`, `out_of_bounds_rate` | |
 | `metric_thresholds.threshold` | Number | The threshold for the specified metric. | | |
 
 #### Feature attribution drift
