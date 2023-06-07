@@ -146,37 +146,37 @@ To open the Migrate to Azure SQL wizard:
 
 1. In **Step 5: Data source configuration**, select the location of your database backups. Your database backups can be located either on an on-premises network share or in an Azure storage blob container.
 
-   - For backups that are located on a network share, enter or select the following information:
+- For backups that are located on a network share, enter or select the following information:
 
-     |Name    |Description  |
-     |---------|-------------|
-     |**Source Credentials - Username**    |The credential (Windows and SQL authentication) to connect to the source SQL Server instance and validate the backup files.         |
-     |**Source Credentials - Password**    |The credential (Windows and SQL authentication) to connect to the source SQL Server instance and validate the backup files.         |
-     |**Network share location that contains backups**     |The network share location that contains the full and transaction log backup files. Any invalid files or backup files in the network share that don't belong to the valid backup set are automatically ignored during the migration process.        |
-     |**Windows user account with read access to the network share location**     |The Windows credential (username) that has read access to the network share to retrieve the backup files.       |
-     |**Password**     |The Windows credential (password) that has read access to the network share to retrieve the backup files.         |
-     |**Target database name** |You can modify the target database name during the migration process.            |
-     |**Storage account details** |The resource group and storage account where backup files are uploaded. You don't need to create a container. Database Migration Service automatically creates a blob container in the specified storage account during the upload process.          |
+    |Name    |Description  |
+    |---------|-------------|
+    |**Source Credentials - Username**    |The credential (Windows and SQL authentication) to connect to the source SQL Server instance and validate the backup files.         |
+    |**Source Credentials - Password**    |The credential (Windows and SQL authentication) to connect to the source SQL Server instance and validate the backup files.         |
+    |**Network share location that contains backups**     |The network share location that contains the full and transaction log backup files. Any invalid files or backup files in the network share that don't belong to the valid backup set are automatically ignored during the migration process.        |
+    |**Windows user account with read access to the network share location**     |The Windows credential (username) that has read access to the network share to retrieve the backup files.       |
+    |**Password**     |The Windows credential (password) that has read access to the network share to retrieve the backup files.         |
+    |**Target database name** |You can modify the target database name during the migration process.            |
+    |**Storage account details** |The resource group and storage account where backup files are uploaded. You don't need to create a container. Database Migration Service automatically creates a blob container in the specified storage account during the upload process.          |
 
-   - For backups that are stored in an Azure storage blob container, enter or select the following information:
+- For backups that are stored in an Azure storage blob container, enter or select the following information:
 
-     |Name    |Description  |
-     |---------|-------------|
-     |**Target database name** |You can modify the target database name during the migration process.            |
-     |**Storage account details** |The resource group, storage account, and container where backup files are located.  
-     |**Last Backup File** |The file name of the last backup of the database you're migrating.
+    |Name    |Description  |
+    |---------|-------------|
+    |**Target database name** |You can modify the target database name during the migration process.            |
+    |**Storage account details** |The resource group, storage account, and container where backup files are located.  
+    |**Last Backup File** |The file name of the last backup of the database you're migrating.
+    
+    > [!IMPORTANT]
+    > If loopback check functionality is enabled and the source SQL Server instance and file share are on the same computer, the source can't access the file share by using an FQDN. To fix this issue, [disable loopback check functionality](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd).
 
-   > [!IMPORTANT]
-   > If loopback check functionality is enabled and the source SQL Server instance and file share are on the same computer, the source can't access the file share by using an FQDN. To fix this issue, [disable loopback check functionality](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd).
+- The [Azure SQL migration extension for Azure Data Studio](./migration-using-azure-data-studio.md) no longer requires specific configurations on your Azure Storage account network settings to migrate your SQL Server databases to Azure. However, depending on your database backup location and desired storage account network settings, there are a few steps needed to ensure your resources can access the Azure Storage account. See the below table for the various migration scenarios and network configurations.
 
-* The [Azure SQL migration extension for Azure Data Studio](./migration-using-azure-data-studio.md) no longer requires specific configurations on your Azure Storage account network settings to migrate your SQL Server databases to Azure. However, depending on your database backup location and desired storage account network settings, there are a few steps needed to ensure your resources can access the Azure Storage account. See the below table for the various migration scenarios and network configurations.
-
-| Scenario | Database backup location | Network fileshare | Azure Storage account container |
-| --- | --- | --- | --- |
-| Storage Account network access |  |  | 
-| Enabled from all networks | | No extra steps | No extra steps |  | 
-| Enabled from selected virtual networks and IP addresses |  | [See 1a](#1a---azure-blob-storage-network-configuration) | [See 2a](#2a---azure-blob-storage-network-configuration-private-endpoint)  |  | 
-| Enabled from selected virtual networks and IP addresses + private endpoint |  | [See 1b](#1b---azure-blob-storage-network-configuration) | [See 2b](#2b---azure-blob-storage-network-configuration-private-endpoint) |  | 
+    | Scenario | Database backup location | Network fileshare | Azure Storage account container |
+    | --- | --- | --- | --- |
+    | Storage Account network access |  |  | 
+    | Enabled from all networks | | No extra steps | No extra steps |  | 
+    | Enabled from selected virtual networks and IP addresses |  | [See 1a](#1a---azure-blob-storage-network-configuration) | [See 2a](#2a---azure-blob-storage-network-configuration-private-endpoint)  |  | 
+    | Enabled from selected virtual networks and IP addresses + private endpoint |  | [See 1b](#1b---azure-blob-storage-network-configuration) | [See 2b](#2b---azure-blob-storage-network-configuration-private-endpoint) |  | 
 
 > ### 1a - Azure Blob storage network configuration
 If you have your Self-Hosted Integration Runtime (SHIR) installed on an Azure VM, see section [1b - Azure Blob storage network configuration](#1b---azure-blob-storage-network-configuration). If you have your Self-Hosted Integration Runtime (SHIR) installed on your on-premises network, you need to add your client IP address of the hosting machine in your Azure Storage account as so: 
