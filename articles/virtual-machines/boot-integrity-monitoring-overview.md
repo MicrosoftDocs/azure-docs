@@ -1,5 +1,5 @@
 ---
-title: Boot integrity monitoring (guest attestation) overview
+title: Boot integrity monitoring overview
 description: How to use the guest attestation extension to secure boot your VM. How to handle traffic blocking.
 author: Howie425
 ms.author: howieasmerom
