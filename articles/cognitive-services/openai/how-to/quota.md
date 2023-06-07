@@ -65,7 +65,7 @@ For an all up view of your quota allocations across deployments in a given regio
 
 :::image type="content" source="../media/quota/quota.png" alt-text="Screenshot of the quota UI of Azure OpenAI Studio" lightbox="../media/quota/quota.png":::
 
-- **Quota Name**: There's one quota value per region for each model type. The quota covers all versions of that model.  The quota name can be expanded in UI to show the deployments that are using the quota
+- **Quota Name**: There's one quota value per region for each model type. The quota covers all versions of that model.  The quota name can be expanded in UI to show the deployments that are using the quota.
 - **Deployment**: Model deployments divided by model class.
 - **Usage/Limit**: For the quota name, this shows how much quota is used by deployments and the total quota approved for this subscription and region. This amount of quota used is also represented in the bar graph.
 - **Request Quota**: The icon in this field navigates to a form where requests to increase quota can be submitted.
@@ -100,4 +100,4 @@ To minimize issues related to throttling, it's a good idea to use the following 
 
 ## Next steps
 
-- To review quota defaults for Azure OpenAI, consult to the [quotas & limits article](../quotas-limits.md)
+- To review quota defaults for Azure OpenAI, consult the [quotas & limits article](../quotas-limits.md)
