@@ -311,7 +311,7 @@ helm uninstall azureappconfiguration.kubernetesprovider --namespace azappconfig-
 
 [!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## Next Steps
+## Next steps
 
 In this quickstart, you:
 
