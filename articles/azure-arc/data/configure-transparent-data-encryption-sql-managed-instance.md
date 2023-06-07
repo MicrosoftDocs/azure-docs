@@ -64,7 +64,7 @@ You can set Azure Arc-enabled SQL Managed Instance TDE in one of two modes:
 
 # [Service-managed](#tab/service-managed)
 
-In service-managed mode, TDE requires the managed instance to use a service-managed database master key as well as the service-managed server certificate. These credentials are automatically created when service-managed TDE is enabled. You can use Azure CLI or Kubernetes tools to enable in this mode.
+In service-managed mode, TDE requires the managed instance to use a service-managed database master key as well as the service-managed server certificate. These credentials are automatically created when service-managed TDE is enabled. 
 
 # [Customer-managed](#tab/customer-managed)
 
@@ -72,8 +72,6 @@ In customer-managed mode, TDE uses a service-managed database master key and use
 
 1. Create a certificate.
 1. Store the certificate as a secret in the same Kubernetes namespace as the instance.
-
-To enable in this mode, use Kubernetes tools. At this time, you can't use Azure CLI to enable this mode.
 
 ---
 
@@ -87,6 +85,16 @@ To enable in this mode, use Kubernetes tools. At this time, you can't use Azure 
 >  ```
 
 ### Enable
+
+Use Azure CLI or Kubernetes tools to enable in this mode.
+
+# [Azure CLI](#tab/azure-cli/service-managed)
+
+To enable TDE in service-managed mode with Azure CLI:
+
+```azurecli
+az sql mi-arc update --tde-mode ServiceManaged
+```
 
 # [Kubernetes native tools](#tab/kubernetes-native/service-managed)
 
@@ -102,17 +110,15 @@ Example:
 kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "ServiceManaged" } } } }'
 ```
 
-# [Azure CLI](#tab/azure-cli/service-managed)
+# [Azure CLI](#tab/azure-cli/customer-managed)
 
-To enable TDE in service-managed mode with Azure CLI:
+To enable TDE in customer-managed mode with Azure CLI:
 
 ```azurecli
-az sql mi-arc update --tde-mode CustomerManaged --tde-protector-public-key-file <cert-file> --tde-protector-private-key-file <key-file>
+az sql mi-arc update --tde-mode CustomerManaged --tde-protector-private-key-file <private-key-file> --tde-protector-public-key-file <public-key-file>
 ```
 
 # [Kubernetes native tools](#tab/kubernetes-native/customer-managed)
-
-To enable with customer-managed encryption, use Kubernetes native tools. 
 
 To enable TDE in customer-managed mode:
 
@@ -143,10 +149,6 @@ To enable TDE in customer-managed mode:
    kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "CustomerManaged", "protectorSecret": "sqlmi-tde-protector-cert-secret" } } } }'
    ```
 
-# [Azure CLI](#tab/azure-cli/customer-managed)
-
-Azure CLI does not currently support this task.
-
 ---
 
 ## Turn off TDE on the managed instance
@@ -158,7 +160,15 @@ When TDE is disabled on Arc-enabled SQL Managed Instance, the data service autom
 3. Drops the service-managed certificate protector.
 4. Drops the service-managed database master key in the `master` database.
 
-### Turn off with service-managed mode (Kubernetes native tools)
+# [Azure CLI](#tab/azure-cli)
+
+To disable TDE:
+
+```azurecli
+az sql mi-arc update --tde-mode Disabled
+```
+
+# [Kubernetes native tools](#tab/kubernetes-native)
 
 Run kubectl patch to disable service-managed TDE.
 
@@ -169,31 +179,6 @@ kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{
 Example:
 ```console
 kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "Disabled" } } } }'
-```
-
-### Turn off with service-managed mode (Azure native tools)
-
-To disable TDE with Azure CLI:
-
-```azurecli
-az sql mi-arc update --tde-mode Disabled
-```
-
-### Turn off with customer-managed mode
-
-Run kubectl patch to disable customer-managed TDE.
-
-When you disable TDE in customer-managed mode, you need to set `"protectorSecret" : null`.  
-
-```console
-kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "Disabled" , "protectorSecret": null } } } }'
-```
-
-
-Example:
-
-```console
-kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "Disabled" , "protectorSecret": null } } } }'
 ```
 
 ## Back up a TDE credential
