@@ -3,7 +3,7 @@ title: Apache Spark slow when Azure HDInsight storage has many files
 description: Apache Spark job runs slowly when the Azure storage container contains many files in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 05/26/2022
+ms.date: 06/07/2023
 ---
 
 # Apache Spark job run slowly when the Azure storage container contains many files in Azure HDInsight
