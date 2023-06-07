@@ -64,7 +64,7 @@ In this section, you create an Azure Stream Analytics job using the ARM template
 
 You can either use the Azure portal to check the Azure Stream Analytics job or use Azure CLI or Azure PowerShell script to list the resource.
 
-## Azure portal
+### Azure portal
 After the deployment completes, select **Go to resource** to navigate to the **Stream Analytics Job** page for the job.
 
 ### Azure CLI
