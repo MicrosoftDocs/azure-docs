@@ -47,12 +47,12 @@ When you get results from NER, you can stream the results to an application or s
 
 ## Select which entities to be returned
 
-Starting with **model version 2023-04-15-preview**, the API will attempt to detect the [defined entity types and tags](concepts/entity-types-list.md) for a given document language. The entity types and tags replace the categories and subcategories structure the older models use to define entities for more flexibility. You can also specify which entities will be detected and returned, use the optional `includeList` and `excludeList` parameters with the appropriate entity types. The following example would detect only `Location`. You can specify one or more [entity types](concepts/entity-types-list.md) to be returned. Given the types and tags hierarchy introduced for this version, you have the flexibility to filter on different granuality levels as so:
+Starting with **API version 2023-04-15-preview**, the API will attempt to detect the [defined entity types and tags](concepts/entity-types-list.md) for a given document language. The entity types and tags replace the categories and subcategories structure the older models use to define entities for more flexibility. You can also specify which entities will be detected and returned, use the optional `includeList` and `excludeList` parameters with the appropriate entity types. The following example would detect only `Location`. You can specify one or more [entity types](concepts/entity-types-list.md) to be returned. Given the types and tags hierarchy introduced for this version, you have the flexibility to filter on different granuality levels as so:
 
 **Input:**
 
 > [!NOTE]
-> In this example, it will return only **location** entity type:
+> In this example, it will return only **Location** entity type.
 
 ```bash
 {
