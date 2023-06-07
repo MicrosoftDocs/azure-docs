@@ -692,7 +692,7 @@ func Example_setArtifactProperties() {
 }
 ```
 
-### Delete images asynchronously
+### Delete images
 
 ```go
 package azcontainerregistry_test
