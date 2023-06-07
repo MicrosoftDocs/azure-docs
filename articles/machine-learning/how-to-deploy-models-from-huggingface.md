@@ -193,6 +193,9 @@ Since the model weights aren't stored in the `HuggingFace` registry, you cannot 
 **What is a community registry?**
 Community registries are Azure Machine Learning registries created by trusted Azure Machine Learning partners and available to all Azure Machine Learning users.
 
+**Where can users submit questions and concerns regarding Hugging Face within Azure Machine Learning?**
+Submit your questions in the [Azure Machine Learning discussion forum.](https://discuss.huggingface.co/t/about-the-azure-machine-learning-category/40677) 
+
 ## Learn more
 
 Learn [how to use foundation models in Azure Machine Learning](./how-to-use-foundation-models.md) for fine-tuning, evaluation and deployment using Azure Machine Learning studio UI or code based methods.
