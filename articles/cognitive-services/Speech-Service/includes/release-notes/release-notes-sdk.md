@@ -14,11 +14,11 @@ ms.author: eur
 * **Java Script** - Continuous Language Identification (LID) now enabled for speech translation.
 * **Java Script** - Community contribution for adding `LocaleName` property to `VoiceInfo` class. Thank you GitHub user [shivsarthak](https://github.com/shivsarthak) for the pull request. 
 * **C++, C#, Java** - Added support for resampling Embedded Text-to-Speech (TTS) output from 16kHz to 48kHz sample rate.
-* Added support for `hi-IN` locale in Intent Recognizer with Simple Patter Matching.
+* Added support for `hi-IN` locale in Intent Recognizer with Simple Pattern Matching.
 
 #### Bug fixes
 
-* Fixed a crash caused by race condition in Speech Recognizer destruction, as seen in some of our Android tests
+* Fixed a crash caused by a race condition in Speech Recognizer during object destruction, as seen in some of our Android tests
 * Fixed possible deadlocks in Intent Recognizer with Simple Pattern Matcher
 
 #### Samples
