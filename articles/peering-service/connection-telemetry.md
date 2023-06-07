@@ -1,12 +1,12 @@
 ---
 title: Access connection telemetry
 titleSuffix: Azure Peering Service
-description: Learn how to access Azure Peering Service connection telemetry.
+description: Learn how to access Azure Peering Service connection telemetry including prefix latency and prefix events.
 services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
-ms.date: 06/05/2023
+ms.date: 06/06/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 # Customer intent: Customer wants to access their connection telemetry per prefix to Microsoft services with Azure Peering Service.
@@ -44,13 +44,17 @@ To view the latency report for a specific Peering Service connection, follow the
 
     :::image type="content" source="./media/connection-telemetry/peering-service-prefixes-latency.png" alt-text="Screenshot shows the prefix latency in the Azure portal." lightbox="./media/connection-telemetry/peering-service-prefixes-latency.png":::
 
+    > [!NOTE]
+    > Prefix latency data for prefixes smaller than /24 is approximated at /24. This is because we can view the client IP addresses on the measurements only with a resolution of /24 or higher due to compliance reasons.
+
+
 ## View prefix state report
 
-1. To view events for a specific prefix, select the prefix name and select **Prefix events** under **Diagnostics**. The events that are captured are displayed.
+To view events for a specific prefix, select the prefix name and select **Prefix events** under **Diagnostic**. The events that are captured are listed.
 
-    :::image type="content" source="./media/connection-telemetry/peering-service-prefixes-events.png" alt-text="Screenshot shows the prefix events in the Azure portal." lightbox="./media/connection-telemetry/peering-service-prefixes-events.png":::
+:::image type="content" source="./media/connection-telemetry/peering-service-prefixes-events.png" alt-text="Screenshot shows the prefix events in the Azure portal." lightbox="./media/connection-telemetry/peering-service-prefixes-events.png":::
 
- Some of the possible events that are captured in the **Prefix events** list are shown in the following table.
+Some of the possible events that are captured in the **Prefix events** list are shown in the following table.
 
 | **Event type** | **Event impact**|**Details**|
 |----------------|-----------------|---------|
