@@ -305,7 +305,7 @@ We will start by creating an app to use `./kafka-topics.sh`, `./kafka-console-pr
             {
               name: 'kafka-cli'
               image: 'mcr.microsoft.com/k8se/services/kafka:3.4'
-              command: [ '/bin/sleep' 'infinity' ]
+              command: [ '/bin/sleep', 'infinity' ]
             }
           ]
           scale: {
@@ -571,7 +571,7 @@ resource kafkaCli 'Microsoft.App/containerApps@2023-04-01-preview' = {
         {
           name: 'kafka-cli'
           image: 'mcr.microsoft.com/k8se/services/kafka:3.4'
-          command: [ '/bin/sleep' 'infinity' ]
+          command: [ '/bin/sleep', 'infinity' ]
         }
       ]
       scale: {
