@@ -36,7 +36,7 @@ If you have questions, ask community experts in [Microsoft Q&A](/answers/topics/
    * For **Problem type**, select **Assistance with resizing my VM**.
    * For **Problem subtype**, select the option that applies to you.
 
-Follow instructions in the **Solutions** and **Details** tabs, as applicable, and then **Review + create**.
+1. Follow instructions in the **Solutions** and **Details** tabs, as applicable, and then **Review + create**.
 
 ## Next steps
 
