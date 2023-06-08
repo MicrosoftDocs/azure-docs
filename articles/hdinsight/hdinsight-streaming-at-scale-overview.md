@@ -23,7 +23,7 @@ For more information, see [Introducing Apache Kafka on HDInsight](kafka/apache-k
 
 ## Spark Streaming
 
-Spark Streaming  is an extension to Spark, which allows you to reuse the same code that you use for batch processing. You can  combine both batch and interactive queries in the same application. Unlike Spark Streaming provides stateful exactly once processing semantics. When used in combination with the [Kafka Direct API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), which ensures that all Kafka data is received by Spark Streaming exactly once, it's possible to achieve end-to-end exactly once guarantees. One of Spark Streaming's strengths is its fault-tolerant capabilities, recovering faulted nodes rapidly when multiple nodes are being used within the cluster.
+Spark Streaming  is an extension to Spark, which allows you to reuse the same code that you use for batch processing. You can  combine both batch and interactive queries in the same application. Unlike Spark, Streaming provides stateful exactly once processing semantics. When used in combination with the [Kafka Direct API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), which ensures that all Kafka data received on Spark Streaming exactly once, it's possible to achieve end-to-end exactly once guarantees. One of Spark Streaming's strengths is its fault-tolerant capabilities, recovering faulted nodes rapidly when multiple nodes are being used within the cluster.
 
 For more information, see [What is Apache Spark Streaming?](./spark/apache-spark-streaming-overview.md).
 
@@ -31,7 +31,7 @@ For more information, see [What is Apache Spark Streaming?](./spark/apache-spark
 
 Although you can specify the number of nodes in your cluster during creation, you may want to grow or shrink the cluster to match the workload. All HDInsight clusters allow you to [change the number of nodes in the cluster](hdinsight-administer-use-portal-linux.md#scale-clusters). Spark clusters can be dropped with no loss of data, as all  data is stored in Azure Storage or Data Lake Storage.
 
-There are advantages to decoupling technologies. For instance, Kafka is an event buffering technology, so it's very IO intensive and doesn't need much processing power. In comparison, stream processors such as Spark Streaming are compute-intensive, requiring more powerful VMs. By having these technologies decoupled into different clusters, you can scale them independently while best utilizing the VMs.
+There are advantages to decoupling technologies. For instance, Kafka is an event buffering technology, so its very IO intensive and doesn't need much processing power. In comparison, stream processors such as Spark Streaming are compute-intensive, requiring more powerful VMs. By having these technologies decoupled into different clusters, you can scale them independently while best utilizing the VMs.
 
 ### Scale the stream buffering layer
 
