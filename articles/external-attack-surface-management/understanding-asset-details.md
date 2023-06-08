@@ -198,9 +198,9 @@ Web components are categorized based on their function. Options include:
 
 ### Observations
 
-The Observations tab displays any insights from the Attack Surface Priorities dashboard that pertain to the asset. These priorities can include critical CVEs, known associations to compromised infrastructure, use of deprecated technology, infrastructure best practice violations, or compliance issues. For more information on Observations, see the [Understanding dashboards](https://learn.microsoft.com/azure/external-attack-surface-management/understanding-dashboards) article. For each observation, Defender EASM provides the name of the observation, categorizes it by type, assigns a priority, and lists both CVSS v2 and v3 scores where applicable.
+The Observations tab displays any insights from the Attack Surface Priorities dashboard that pertain to the asset. These priorities can include critical CVEs, known associations to compromised infrastructure, use of deprecated technology, infrastructure best practice violations, or compliance issues. For more information on Observations, see the [Understanding dashboards](understanding-dashboards.md) article. For each observation, Defender EASM provides the name of the observation, categorizes it by type, assigns a priority, and lists both CVSS v2 and v3 scores where applicable.
 
-![Screenshot of observations tab.](media/Inventory_15.png)
+![Screenshot of observations tab.](media/Inventory-15.png)
 
 ### Resources
 
