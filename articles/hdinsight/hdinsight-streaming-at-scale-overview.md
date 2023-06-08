@@ -13,7 +13,7 @@ Real-time big data solutions  act on data that is in motion. Typically, this dat
 
 In a streaming application, one or more data sources are generating events (sometimes in the millions per second) that need to be ingested  quickly  without dropping any useful information. The incoming events are handled with *stream buffering*, also called *event queuing*, by a service such as [Apache Kafka](kafka/apache-kafka-introduction.md) or [Event Hubs](https://azure.microsoft.com/services/event-hubs/). After you collect the events, you can then analyze the data using a real-time analytics system within the *stream processing* layer. The processed data can be stored in long-term storage systems, like [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), and displayed in real time on a business intelligence dashboard, such as [Power BI](https://powerbi.microsoft.com), Tableau, or a custom web page.
 
-:::image type="content" source="./media/hdinsight-streaming-at-scale-overview/hdinsight-streaming-patterns.png" alt-text=" Screenshot showing Azure HDInsight streaming patterns":::
+:::image type="content" source="./media/hdinsight-streaming-at-scale-overview/hdinsight-streaming-patterns.png" alt-text=" Screenshot showing Azure HDInsight streaming patterns.":::
 
 ## Apache Kafka
 
@@ -31,7 +31,7 @@ For more information, see [What is Apache Spark Streaming?](./spark/apache-spark
 
 Although you can specify the number of nodes in your cluster during creation, you may want to grow or shrink the cluster to match the workload. All HDInsight clusters allow you to [change the number of nodes in the cluster](hdinsight-administer-use-portal-linux.md#scale-clusters). Spark clusters can be dropped with no loss of data, as all  data is stored in Azure Storage or Data Lake Storage.
 
-There are advantages to decoupling technologies. For instance, Kafka is an event buffering technology, so its very IO intensive and doesn't need much processing power. In comparison, stream processors such as Spark Streaming are compute-intensive, requiring more powerful VMs. By having these technologies decoupled into different clusters, you can scale them independently while best utilizing the VMs.
+There are advantages to decoupling technologies. For instance, Kafka is an event buffering technology, so it's very IO intensive and doesn't need much processing power. In comparison, stream processors such as Spark Streaming are compute-intensive, requiring more powerful VMs. By having these technologies decoupled into different clusters, you can scale them independently while best utilizing the VMs.
 
 ### Scale the stream buffering layer
 
