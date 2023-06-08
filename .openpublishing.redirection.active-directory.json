@@ -12717,6 +12717,48 @@
       },
 
       {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-funnel-based-design.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-funnel-based-design",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-solutions.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-solutions",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-proof-of-concept-funnel.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-proof-of-concept-funnel",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-proof-of-concept-regional.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-proof-of-concept-regional",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-region-based-design.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-region-based-design",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/azure-active-directory-parallel-identity-options.md",
+        "redirect_url": "/azure/active-directory/fundamentals/parallel-identity-options",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/azure-active-directory-b2c-deployment-plans.md",
+        "redirect_url": "/azure/active-directory/fundamentals/b2c-deployment-plans",
+        "redirect_document_id": true
+      },
+
+      {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/microsoft-graph-operations-custom-extensions.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/microsoft-graph-operations",
       "redirect_document_id": false

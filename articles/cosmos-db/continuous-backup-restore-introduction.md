@@ -4,7 +4,7 @@ description: Azure Cosmos DB's point-in-time restore feature helps to recover da
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2023
+ms.date: 04/15/2023
 ms.author: govindk
 ms.reviewer: mjbrown
 ms.custom: references_regions, cosmos-db-video, ignite-2022, build-2023
@@ -55,8 +55,7 @@ You can choose to restore any combination of provisioned throughput containers, 
 The following configurations aren't restored after the point-in-time recovery:
 
 * Firewall, VNET, Data plane RBAC or private endpoint settings. 
-* Consistency settings, by default - account is restored with session consistency.
-* Regions.
+* All the Regions from the source account.
 * Stored procedures, triggers, UDFs.
 * Role-based access control assignments. These will need to be re-assigned.
 
