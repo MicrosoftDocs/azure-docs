@@ -12,7 +12,9 @@ ms.author: danlep
 
 # Cosmos DB data source for a resolver
 
-The `cosmosdb-data-source` resolver policy resolves data for an object type and field in a GraphQL schema by using a [Cosmos DB](../cosmos-db/introduction.md) data source. The schema must be imported to API Management. Use the policy to configure a single query request, read request, delete request, or write request and an optional response from the Cosmos DB data source.   
+The `cosmosdb-data-source` resolver policy resolves data for an object type and field in a GraphQL schema by using a [Cosmos DB](../cosmos-db/introduction.md) data source. The schema must be imported to API Management as a GraphQL API. 
+
+Use the policy to configure a single query request, read request, delete request, or write request and an optional response from the Cosmos DB data source.   
 
 > [!NOTE]
 > This policy is currently in preview.
@@ -38,7 +40,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
             SQL statement 
         </sql-statement> 
         <parameters> 
-            <parameter type="parameter type" name="Query parameter name in @ notation"> 
+            <parameter name="Query parameter name in @ notation"> 
                 "Query parameter value or expression"
             </parameter>
             <!-- if there are multiple parameters, then add additional parameter elements --> 
@@ -147,7 +149,6 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| type | Used to set the expected parameter input type. Currently the only supported value is:<br /><br />- `raw` - the parameter will be input as a raw stream. | No | N/A |
 | name   | String. Name of the parameter in @ notation.    | Yes    | N/A  |
 
 #### paging elements
@@ -239,7 +240,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 ### Usage notes
 
 * To configure and manage a resolver with this policy, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
-* This policy is invoked only when resolving a single field in a matching GraphQL query, mutation, or subscription.  
+* This policy is invoked only when resolving a single field in a matching operation type in the schema.  
 
 ## Configure managed identity integration with Cosmos DB
 
@@ -485,20 +486,6 @@ type Query {
 [...]
 ```
 
-#### Pass raw stream from expression
-
-**Example policy**
-
-```xml
-[...]
-<query-request>
-    <sql-statement>SELECT * FROM c where c.familyId =@param</sql-statement>
-    <parameters>
-      <parameter name="@param" type="raw">@("\""+context.GraphQL.Arguments["stringInput"].ToString()+"\"")</parameter>
-    </parameters>
-  </query-request>
-[...]
-```
 
 ## Related policies
 

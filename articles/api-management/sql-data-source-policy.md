@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Azure SQL data source for a resolver
 
-The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request to an [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) database and an optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management.  
+The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request to an [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) database and an optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management as a GraphQL API.  
 
 > [!NOTE]
 > This policy is currently in preview.
@@ -75,7 +75,7 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| use-managed-identity | Boolean. Specifies whether to use the API Management instance's system-assigned [managed identity](api-management-howto-use-managed-service-identity.md) for connection to the Azure SQL database in place of a username and password in the connection string. Policy expressions are allowed. <br/><br/>The identity must be [configured](#configure-managed-identity-integration-with-sql-azure) to access the Azure SQL database.  | No  | `false`   |
+| use-managed-identity | Boolean. Specifies whether to use the API Management instance's system-assigned [managed identity](api-management-howto-use-managed-service-identity.md) for connection to the Azure SQL database in place of a username and password in the connection string. Policy expressions are allowed. <br/><br/>The identity must be [configured](#configure-managed-identity-integration-with-azure-sql) to access the Azure SQL database.  | No  | `false`   |
 
 ### request attribute
 
@@ -122,11 +122,11 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 ### Usage notes
 
 * To configure and manage a resolver with this policy, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
-* This policy is invoked only when resolving a single field in a matching GraphQL query. 
+* This policy is invoked only when resolving a single field in a matching operation type in the schema. 
 
 ## Configure managed identity integration with Azure SQL
 
-You can configure an API Management system-assigned managed identity for access to Azure SQL instead of configuring SQL authentication with username and password. For background, see [Configure and manage Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md).
+You can configure an API Management system-assigned managed identity for access to Azure SQL instead of configuring SQL authentication with username and password. For background, see [Configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure).
 
 ### Prerequisites
 
@@ -188,7 +188,7 @@ The following example resolves a GraphQL query by making a single-result T-SQL r
 
 ### Resolver for GraphQL query with transformed multi-row query response 
 
-The following example resolves a GraphQL query using a T-SQL query to an Azure SQL database. The connection to the database uses the API Management instance's system-assigned managed identity. The identity must be [configured](#configure-managed-identity-integration-with-sql-azure) to access the Azure SQL database.
+The following example resolves a GraphQL query using a T-SQL query to an Azure SQL database. The connection to the database uses the API Management instance's system-assigned managed identity. The identity must be [configured](#configure-managed-identity-integration-with-azure-sql) to access the Azure SQL database.
 
 The query parameter is accessed using the `context.GraphQL.Arguments` context variable. The multi-row query response is transformed using the `set-body` policy with a liquid template. 
 
@@ -232,7 +232,7 @@ The query parameter is accessed using the `context.GraphQL.Arguments` context va
 
 ### Resolver for GraphQL mutation 
 
-The following example resolves a GraphQL mutation using a T-SQL INSERT statement to insert a row an Azure SQL database. The connection to the database uses the API Management instance's system-assigned managed identity. The identity must be [configured](#configure-managed-identity-integration-with-sql-azure) to access the Azure SQL 
+The following example resolves a GraphQL mutation using a T-SQL INSERT statement to insert a row an Azure SQL database. The connection to the database uses the API Management instance's system-assigned managed identity. The identity must be [configured](#configure-managed-identity-integration-with-azure-sql) to access the Azure SQL 
 
 ```xml
 <sql-data-source> 
