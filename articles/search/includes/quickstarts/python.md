@@ -6,4 +6,4 @@ ms.topic: include
 ms.date: 06/09/2023
 ---
 
-Java include file.
+Python include file.
