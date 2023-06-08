@@ -23,6 +23,8 @@ This article shows you how to use Application Configuration Service for VMware T
 
 With Application Configuration Service for Tanzu, you have a central place to manage external properties for applications across all environments. To understand the differences from Spring Cloud Config Server in Basic/Standard, see the [Use Application Configuration Service for external configuration](./how-to-migrate-standard-tier-to-enterprise-tier.md#use-application-configuration-service-for-external-configuration) section of [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](./how-to-migrate-standard-tier-to-enterprise-tier.md).
 
+There are two generations of Application Configuration Service. Generation 2 uses [flux](https://fluxcd.io/) as backend to communicate with git repository. It has better performance. You are allowed to choose the generation of Application Configuration Service when you create the Azure Spring Apps Enterprise instance. The default is generation 1. You can also upgrade the generation of Application Configuration Service after the instance is created. However, downgrade is not supported. The upgrade is zero downtime but we still recommend you to test in staging environment before moving to production environment.
+
 ## Prerequisites
 
 - An already provisioned Azure Spring Apps Enterprise tiplaner instance with Application Configuration Service for Tanzu enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
@@ -65,6 +67,11 @@ The following image shows the three types of repository authentication supported
 
    You don't need extra Authentication configuration when you use a public repository. Select **Public** in the **Authentication** form.
 
+   | Property   | Required? | Description                                 |
+   |------------|-----------|---------------------------------------------|
+   | `CA certificate` | No       | Required only when a self-signed cert is used for the Git repo URL. |
+
+
 - Private repository with basic authentication.
 
    The following table shows the configurable properties you can use to set up a private Git repository with basic authentication.
@@ -73,6 +80,7 @@ The following image shows the three types of repository authentication supported
    |------------|-----------|---------------------------------------------|
    | `username` | Yes       | The username used to access the repository. |
    | `password` | Yes       | The password used to access the repository. |
+   | `CA certificate` | No  | Required only when a self-signed cert is used for the Git repo URL. |
 
 - Private repository with SSH authentication.
 
@@ -81,11 +89,23 @@ The following image shows the three types of repository authentication supported
    | Property                   | Required? | Description                                                                                                                                                                                                                         |
    |----------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | `Private key`              | Yes       | The private key that identifies the Git user. Passphrase-encrypted private keys aren't supported.                                                                                                                                   |
-   | `Host key`                 | No        | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
-   | `Host key algorithm`       | No        | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
+   | `Host key`                 | No for generation 1 <br> Yes for generation 2 | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
+   | `Host key algorithm`       | No for generation 1 <br> Yes for generation 2 | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
    | `Strict host key checking` | No        | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`.                                 |
 
 To validate access to the target URI, select **Validate**. After validation completes successfully, select **Apply** to update the configuration settings.
+
+## Upgrade Application Configuration Service for Tanzu settings to generation 2
+
+Application Configuration Service for Tanzu generation 2 has better performance when you have a large number of configuration files. However, downgrade is not supported. The upgrade is zero downtime but we still recommend you to test in staging environment before moving to production environment.
+
+1. select **Settings** section, and select  **Gen 2** in the **Generation** dropdown.
+
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2.png" alt-text="Screenshot of the Application Configuration Service page upgrade to generation 2." lightbox="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2.png":::
+
+2. Select Validate to validate access to the target URI. After validation completes successfully, select Apply to update the configuration settings.
+
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2-settings.png" alt-text="Screenshot of the Application Configuration Service page upgrade to generation 2 settings." lightbox="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2-settings.png":::
 
 ## Polyglot support
 
