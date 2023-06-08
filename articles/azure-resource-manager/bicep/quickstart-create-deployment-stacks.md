@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a deployment stack with Bicep
 description: Learn how to use Bicep to create and deploy a deployment stack in your Azure subscription.
-ms.date: 06/06/2023
+ms.date: 06/08/2023
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 # Customer intent: As a developer I want to use Bicep to create a deployment stack.
@@ -72,12 +72,12 @@ In this quickstart, you'll create the deployment stack at the resource group sco
 
 ```azurecli
 az group create \
-  --name myRgStackRg \
+  --name demoRg \
   --location centralus
 
 az stack group create \
-  --name myRgStackRgStack \
-  --resource-group 'myRgStackRg' \
+  --name demoStack \
+  --resource-group 'demoRg' \
   --template-file ./main.bicep \
   --deny-settings-mode none
 ```
@@ -88,12 +88,12 @@ jgao: test --deny-settings-mode none when it is available.
 
 ```azurepowershell
 New-AzResourceGroup `
-  -Name myRgStackRg `
+  -Name demoRg `
   -Location eastus
 
 New-AzResourceGroupDeploymentStack `
-  -Name 'myRgStackRgStack' `
-  -ResourceGroupName 'myRgStackRg' `
+  -Name 'demoStack' `
+  -ResourceGroupName 'demoRg' `
   -TemplateFile './main.bicep' `
   -DenySettingsMode none
 ```
@@ -107,7 +107,7 @@ To list the deployed deployment stacks at the subscription level:
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack group list --resource-group myRgStackRg
+az stack group list --resource-group demoRg
 ```
 
 The output shows four managed resource - two resource groups and two public IPs:
@@ -119,22 +119,22 @@ jgao: fill this part
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Get-AzResourceGroupDeploymentStack -ResourceGroupName myRgStackRg
+Get-AzResourceGroupDeploymentStack -ResourceGroupName demoRg
 ```
 
 The output shows four managed resource - two resource groups and two public IPs:
 
 ```output
-Id                          : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRgStackRg/providers/Microsoft.Resources/deploymentStacks/myRgStackRgStack
-Name                        : myRgStackRgStack
+Id                          : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack
+Name                        : demoStack
 ProvisioningState           : succeeded
 ResourcesCleanupAction      : detach
 ResourceGroupsCleanupAction : detach
 DenySettingsMode            : none
 CreationTime(UTC)           : 6/5/2023 8:55:48 PM
-DeploymentId                : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRgStackRg/providers/Microsoft.Resources/deployments/myRgStackRgStack-2023-06-05-20-55-48-38d09
-Resources                   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRgStackRg/providers/Microsoft.Network/virtualNetworks/vnetzu6pnx54hqubm
-                              /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRgStackRg/providers/Microsoft.Storage/storageAccounts/storezu6pnx54hqubm
+DeploymentId                : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-2023-06-05-20-55-48-38d09
+Resources                   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetzu6pnx54hqubm
+                              /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storezu6pnx54hqubm
 ```
 
 ---
@@ -144,7 +144,7 @@ You can also verify the deployment by list the managed resources in the deployme
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack group show --name myRgStackRgStack --resource-group myStackRg --output json
+az stack group show --name demoStack --resource-group myStackRg --output json
 ```
 
 The output is similar to:
@@ -164,16 +164,16 @@ The output is similar to:
     "excludedPrincipals": null,
     "mode": "none"
   },
-  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Resources/deployments/myRgStackRgStack-2023-06-05-20-55-48-38d09",
+  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Resources/deployments/demoStack-2023-06-05-20-55-48-38d09",
   "deploymentScope": null,
   "description": null,
   "detachedResources": [],
   "duration": "PT29.006353S",
   "error": null,
   "failedResources": [],
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Resources/deploymentStacks/myRgStackRgStack",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
   "location": null,
-  "name": "myRgStackRgStack",
+  "name": "demoStack",
   "outputs": null,
   "parameters": {},
   "parametersLink": null,
@@ -211,7 +211,7 @@ The output is similar to:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-(Get-AzResourceGroupDeploymentStack -Name myRgStackRgStack -ResourceGroupName myRgStackRg).Resources
+(Get-AzResourceGroupDeploymentStack -Name demoStack -ResourceGroupName demoRg).Resources
 ```
 
 The output is similar to:
@@ -238,7 +238,7 @@ Run the following command:
 ```azurecli
 az stack group create \
   --name mySubStack \
-  --resource-group myRgStackRg \
+  --resource-group demoRg \
   --template-file ./main.bicep \
   --deny-settings-mode none
 ```
@@ -248,7 +248,7 @@ az stack group create \
 ```azurepowershell
 Set-AzResourceGroupDeploymentStack `
   -Name 'mySubStack' `
-  -ResourceGroupname 'myRgStackRg' `
+  -ResourceGroupname 'demoRg' `
   -TemplateFile './main.bicep' `
   -DenySettingsMode none
 ```
@@ -268,7 +268,7 @@ To delete the deployment stack, and the managed resources:
 ```azurecli
 az stack group delete \
   --name mySubStack \
-  --resource-group myRgStackRg \
+  --resource-group demoRg \
   --delete-all
 ```
 
@@ -277,7 +277,7 @@ If you run the delete commands without the **delete all** parameters, the manage
 ```azurecli
 az stack group delete \
   --name mySubStack \
-  --resource-group myRgStackRg
+  --resource-group demoRg
 ```
 
 The following parameters can be used to control between detach and delete.
@@ -293,7 +293,7 @@ For more information, see [Delete deployment stacks](./deployment-stacks.md#dele
 ```azurepowershell
 Remove-AzResourceGroupDeploymentStack `
   -Name mySubStack `
-  -ResourceGroupName myRgStackRg `
+  -ResourceGroupName demoRg `
   -DeleteAll
 ```
 
@@ -302,7 +302,7 @@ If you run the delete commands without the **delete all** parameters, the manage
 ```azurepowershell
 Remove-AzResourceGroupDeploymentStack `
   -Name mySubStack `
-  -ResourceGroupName myRgStackRg
+  -ResourceGroupName demoRg
 ```
 
 The following parameters can be used to control between detach and delete.
