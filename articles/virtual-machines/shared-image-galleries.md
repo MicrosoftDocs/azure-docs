@@ -83,8 +83,9 @@ Image definitions contain metadata for the image to allow grouping of images tha
    | TrustedLaunch | TrustedLaunch | Only TrustedLaunch VM can be   created from this image type | Private |
    | TrustedLaunchAndConfidentialVmSupported | TrustedLaunchAndConfidentialVmSupported | It's a generic Gen2 image that does not contain the VMGS blob. Gen2 VM, TrustedLaunch VM, or a ConfidentialVM can be created from this image type. | Private, direct shared, community |
 
-
    For more information, see the CLI examples for adding [image definition features and SecurityType](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create) or the [PowerShell examples](/powershell/module/az.compute/new-azgalleryimagedefinition#example-4-create-an-image-definition-for-generalized-windows-images-and-set-features).
+   
+   **ConfidentialVM is only supported in the regions where it's available, You can find the supported regions [here](https://learn.microsoft.com/azure/confidential-computing/confidential-vm-overview#regions)
 
 ## Image versions
 

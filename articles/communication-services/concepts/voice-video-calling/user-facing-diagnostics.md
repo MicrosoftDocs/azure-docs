@@ -14,11 +14,9 @@ ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 # User Facing Diagnostics
-
-When we are working with calls in Azure Communication Services, problems may arise that cause issues for your customers. To help with the previously described scenario, we have a feature that is called "User Facing Diagnostics" that can be used to examine various properties of a call to determine what the issue might be.
+When working with calls in Azure Communication Services, you may encounter issues that affect your customers. To help with this, Azure Communication Services provides a feature called "User Facing Diagnostics" (UFD) that can be used to examine various properties of a call to determine what the issue might be. User Facing Diagnostics are events that are fired off that could indicate due to some underlying issue (poor network, user has their microphone muted) that a user might have a poor experience. After a User Facing Diagnostic is fired, you should consider giving feedback to an end-user that they might be having some underlying issue. However, the User Facing Diagnostic output is informational only, and the calling stack does not make any changes based on a User Facing Diagnostic being fired.
 
 ## Diagnostic values
-
 The following user-facing diagnostics are available:
 
 ### Network values
