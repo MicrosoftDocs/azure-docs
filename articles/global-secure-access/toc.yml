@@ -8,11 +8,11 @@ items:
     href: overview-what-is-global-secure-access.md
   - name: Get started with Global Secure Access
     href: how-to-get-started-with-global-secure-access.md
-  - name: Install the Windows client
-    href: how-to-install-windows-client.md
 - name: How-to guides
   expanded: true
   items:
+  - name: Install the Windows client
+    href: how-to-install-windows-client.md
   - name: Remote networks
     expanded: false
     items:
