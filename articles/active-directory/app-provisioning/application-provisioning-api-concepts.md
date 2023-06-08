@@ -68,7 +68,7 @@ Partners who specialize in reading data from HR systems can build an integration
 - Refer to [Quick start with PowerShell](**LINK TO QUICK START ARTICLE**) the extensibility of this API approach and how it can be used to upload user data from CSV files. 
 
 ### Known limitations and workarounds
-| # | Limitations | Workarounds
+| # | Limitations | Workarounds |
 | --- | --- | --- |
 | 1. | In each API call, using the SCIM bulk request, you can send a maximum of 50 records. 
 How this issue impacts your testing: If you need to upload 100 users using the API, you need to make two API calls. | None. |
@@ -78,7 +78,7 @@ How this issue impacts your testing: After you send a SCIM bulk request to the A
 | 3. | On-premises AD as target directory isn't yet supported. | None. We plan to support on-premises AD as target directory in the next iteration. The API usage model remains the same. So, you can still proceed with the testing using Azure AD to get familiar with the APIs. |
 | 4. | The provisioning service doesn't check for duplication ``userPrincipalName`` (UPN) and handle conflicts. If the default sync rule for UPN attribute generates an existing UPN value, then the user create operation fails. | Update the sync rule to use the [RandomString](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data#randomstring) function. Example:
 
-``Join("", Replace([userName], , "(?<Suffix>@(.)*)", "Suffix", "", , ), RandomString(3, 3, 0, 0, 0, ), "@", DefaultDomain())`` |
+```Join ("", Replace([userName], , "(?<Suffix>@(.)*)", "Suffix", "", , ), RandomString(3, 3, 0, 0, 0, ), "@", DefaultDomain())``` |
 | 5. | Only a user or service principal with the **Application Administrator** role can invoke this API. 
 How this issue impacts your testing: Application Administrator is a broad role and doesn't align with the model of least privilege access. 
 | None. In a future release, we intend to provide a more granular application scope to invoke this API. |
