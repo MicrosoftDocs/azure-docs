@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 06/02/2023
+ms.date: 06/08/2023
 ms.author: danlep
 ---
 
 # Configure a GraphQL resolver
 
-Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. 
+Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management as a GraphQL API. 
 
 Currently, API Management supports resolvers that can access the following data sources:
 
@@ -38,7 +38,7 @@ Currently, API Management supports resolvers that can access the following data 
 
 ## Create a resolver
 
-The following steps create a resolver using an HTTP-based data source. The general steps are similar for any resolver that uses one of the supported data sources.
+The following steps create a resolver using an HTTP-based data source. The general steps are similar for anya resolver that uses any of the supported data sources.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 

@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 06/01/2023
+ms.date: 06/07/2023
 ms.author: danlep
 ---
 
@@ -25,7 +25,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 <cosmosdb-data-source> 
     <!-- Required information that specifies connection to Cosmos DB -->
     <connection-info> 
-        <connection-string use-managed-identity="true | false" client-id= "Client ID of a user-assigned managed identity"> 
+        <connection-string use-managed-identity="true | false"> 
             AccountEndpoint=...;[AccountKey=...;]
         </connection-string> 
         <database-name>Cosmos DB database name</database-name> 
@@ -37,12 +37,12 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
         <sql-statement> 
             SQL statement 
         </sql-statement> 
-        <query-parameters> 
+        <parameters> 
             <parameter type="parameter type" name="Query parameter name in @ notation"> 
                 "Query parameter value or expression"
             </parameter>
             <!-- if there are multiple parameters, then add additional parameter elements --> 
-        </query-parameters> 
+        </parameters> 
         <partition-key data-type="string | number | bool | none | null" template="liquid" > 
             "Container partition key" 
         </partition-key> 
@@ -80,7 +80,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
     </delete-request> 
     
     <!-- Settings to write item -->
-    <write-request type="insert | replace | upsert" consistency-level="bounded-staleness | consistent-prefix | eventual | session | strong" enable-content-response-on-write="true | false" indexing-directive="default" pre-trigger="myPreTrigger" post-trigger="myPostTrigger">
+    <write-request type="insert | replace | upsert" consistency-level="bounded-staleness | consistent-prefix | eventual | session | strong" pre-trigger="myPreTrigger" post-trigger="myPostTrigger">
         <id template="liquid">
             "Item ID in container"
         </id>       
@@ -110,14 +110,14 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 | [read-request](#read-request-elements)    |  Specifies settings for a [read request](../cosmos-db/nosql/how-to-dotnet-read-item.md) to Cosmos DB container.    |    Configure one of `query-request`, `read-request`, `delete-request`, or `write-request`   |
 | [delete-request](#delete-request-attributes)    |  Specifies settings for a delete request to Cosmos DB container.    |   Configure one of `query-request`, `read-request`, `delete-request`, or `write-request`     |
 | [write-request](#write-request-attributes) | Specifies settings for a write request to Cosmos DB container.  |  Configure one of `query-request`, `read-request`, `delete-request`, or `write-request` |
-| [response](#response-elements)  |  Optionally specifies child policies to configure the resolver's response.  |    No |
+| [response](#response-elements)  |  Optionally specifies child policies to configure the resolver's response. If not specified, the response is returned from Cosmos DB as JSON. |    No |
 
 
 ### connection-info elements
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| [connection-string](#connection-string-attributes) | Specifies the connection string for Cosmos DB account. The connection string omits the account key if an API Management managed identity is configured. | Yes    |
+| [connection-string](#connection-string-attributes) | Specifies the connection string for Cosmos DB account. If an API Management managed identity is configured, omit the account key. | Yes    |
 | database-name | String. Name of Cosmos DB database. | Yes  |
 | container-name | String. Name of container in Cosmos DB database. | Yes  |
 
@@ -125,8 +125,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| use-managed-identity | Boolean. Specifies whether to use a [managed identity](api-management-howto-use-managed-service-identity.md) assigned to the API Management instance for connection to the Cosmos DB account in place of an account key in the connection string. The identity must be [configured](#configure-managed-identity-integration-with-cosmos-db) to access the Cosmos DB container. | No  | `false`   |
-| client-id | If `use-managed-identity` is `true` and a user-assigned managed identity is used, the client ID of the identity.<br/><br/>The identity must be [configured](#configure-managed-identity-integration-with-cosmos-db) or to access the Cosmos DB container.  | No | N/A |
+| use-managed-identity | Boolean. Specifies whether to use the API Management instance's system-assigned [managed identity](api-management-howto-use-managed-service-identity.md) for connection to the Cosmos DB account in place of an account key in the connection string. The identity must be [configured](#configure-managed-identity-integration-with-cosmos-db) to access the Cosmos DB container. | No  | `false`   |
 
 ### query-request attributes
 
@@ -162,13 +161,13 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| template    |  Used to set the templating mode for the `max-item-count`. Currently the only supported value is:<br /><br />- `liquid` - the `max-item-count` will use the liquid templating engine   |  No   |  N/A |
+| template    |  Used to set the templating mode for the `max-item-count`. Currently the only supported value is:<br /><br />- `liquid` - the `max-item-count` will use the liquid templating engine.   |  No   |  N/A |
 
 #### continuation-token attribute
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| template    |  Used to set the templating mode for the continuation token. Currently the only supported value is:<br /><br />- `liquid` - the continuation token will use the liquid templating engine   |  No   |  N/A |
+| template    |  Used to set the templating mode for the continuation token. Currently the only supported value is:<br /><br />- `liquid` - the continuation token will use the liquid templating engine.   |  No   |  N/A |
 
 ### read-request elements
 
@@ -190,8 +189,8 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 |Name|Description|Required|
 |----------|-----------------|--------------|
 |   id    |   Identifier of the item to delete in the container.      |  Yes          |
-| [partition-key](#partition-key-attributes)    |  A partition key for the location of the item in the container.     |      No      |    
-| [etag](#etag-attribute) | Entity tag for the item in the container, used for optimistic concurrency control.     |   No  |
+| [partition-key](#partition-key-attributes)    |  A partition key for the location of the item in the container.    |      No      |    
+| [etag](#etag-attribute) | Entity tag for the item in the container, used for [optimistic concurrency control](../cosmos-db/nosql/database-transactions-optimistic-concurrency.md#implementing-optimistic-concurrency-control-using-etag-and-http-headers).     |   No  |
 
 #### write-request attributes
 
@@ -199,7 +198,6 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | type | The type of write request: `insert`, `replace`, or `upsert`. | No  | `upsert`   |
 | consistency-level | String. Sets the Cosmos DB [consistency level](../cosmos-db/consistency-levels.md) of the write request.  | No  | N/A   |
-| enable-content-response-on-write | String.  | No  | N/A   |
 | indexing-directive | The [indexing policy](../cosmos-db/index-policy.md) that determines how the container's items should be indexed.  | No  | `default`   |
 | pre-trigger | String. Identifier of a [pre-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) function that is registered in your Cosmos DB container. | No | N/A |
 | post-trigger | String. Identifier of a [post-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers) function that is registered in your Cosmos DB container. | No | N/A |
@@ -209,7 +207,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 |Name|Description|Required|
 |----------|-----------------|--------------|
 |   id    |   Identifier of the item in the container.      |  Yes when `type` is `replace`.       |
-| [etag](#etag-attribute) | Entity tag for the item in the container, used for optimistic concurrency control.      |   No  |
+| [etag](#etag-attribute) | Entity tag for the item in the container, used for [optimistic concurrency control](../cosmos-db/nosql/database-transactions-optimistic-concurrency.md#implementing-optimistic-concurrency-control-using-etag-and-http-headers).      |   No  |
 | [set-body](set-body-policy.md)  |  Sets the body in the write request. If not provided, the request payload will map arguments into JSON format.| No  |
 
 ### response elements
@@ -245,7 +243,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 
 ## Configure managed identity integration with Cosmos DB
 
-You can configure an API Management managed identity to access a Cosmos DB account, instead of providing an account key in the connection string.
+You can configure an API Management system-assigned managed identity to access a Cosmos DB account, instead of providing an account key in the connection string.
 
 Follow these steps to use the Azure CLI to configure the managed identity.
 
@@ -314,7 +312,7 @@ The following example resolves a GraphQL query using a SQL query to a Cosmos DB 
 ```xml
 <cosmosdb-data-source>
     <connection-info>
-        <connectionstring>
+        <connection-string>
             AccountEndpoint=https://contoso-cosmosdb.
 documents.azure.com:443/;AccountKey=CONTOSOKEY;
         </connection-string>
@@ -336,7 +334,7 @@ The `id` and `partition-key` used for the read request are passed as query param
 ```xml
 <cosmosdb-data-source>
     <connection-info>
-        <connectionstring use-managed-identity="true">
+        <connection-string use-managed-identity="true">
             AccountEndpoint=https://contoso-cosmosdb.
 documents.azure.com:443/;
         </connection-string>
@@ -360,7 +358,7 @@ The following example resolves a GraphQL mutation by a delete request to a Cosmo
 ```xml
 <cosmosdb-data-source>
     <connection-info>
-        <connectionstring>
+        <connection-string>
             AccountEndpoint=https://contoso-cosmosdb.
 documents.azure.com:443/;AccountKey=CONTOSOKEY;
         </connection-string>
