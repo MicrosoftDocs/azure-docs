@@ -534,8 +534,8 @@
 - name: Responsibly develop & monitor (RAI)
   items: 
   - name: Responsible AI Overview
-    href: concept-responsible-ai.md 
-  - name: Configure RAI evalutation
+    href: concept-responsible-ai.md
+  - name: Configure RAI evaluation
     items:
     - name: Responsible AI dashboard
       href: concept-responsible-ai-dashboard.md
