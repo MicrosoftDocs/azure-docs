@@ -27,7 +27,7 @@ Some organizations may require setting up multiple Microsoft Purview accounts. R
 
 ### Tag your accounts
 
-When you use or create multiple Microsoft Purview accounts in your environment, use the tagging system in Azure to define them. You can add a tag when you create the resource under the Tags tab, or you can add a tag later in the Azure portal using the Tags page in the resource.
+When you use or create multiple Microsoft Purview accounts in your environment, use the tagging system in Azure to define them. You can add a tag when you create the resource under the Tags tab, or you can [add a tag later in the Azure portal using the Tags page in the resource](/azure/azure-resource-manager/management/tag-resources-portal).
 
 Add a tag called **Purview environment**, and give it one of the below values:
 
