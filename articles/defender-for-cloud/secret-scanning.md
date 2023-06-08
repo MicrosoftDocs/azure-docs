@@ -9,7 +9,7 @@ ms.date: 06/07/2023
 
 If discovered, exposed credentials and secrets in internet-facing workloads can enable attackers to move laterally across networks and search for sensitive data and ways to damage critical information systems.
 
-Defender for Cloud's agentless secret scanning for Virtual Machines (VM) locates plaintext secrets that exist in your environment. If secrets are detected, prioritized and actionable remediation steps will be suggested in order to minimize the risk of lateral movement, with minimal effect on your machine's performance.
+Defender for Cloud's agentless secret scanning for Virtual Machines (VM) locates plaintext secrets that exist in your environment. If secrets are detected, prioritized and actionable remediation steps are suggested that minimize the risk of lateral movement, with minimal effect on your machine's performance.
 
 Agentless secret scanning can proactively discover the following types of secrets across your environments:
 - **Insecure (plaintext) SSH private keys** - Detects Putty and PKCS#8 and PKCS#1 (RSA algorithm). 
@@ -46,7 +46,9 @@ Agentless secret scanning can proactively discover the following types of secret
 
 ## Feature capability
 
-Once you have enabled either or both [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) and [Defender CSPM](concept-cloud-security-posture-management.md) you will gain access to the agentless secret scanning capabilities. However, if you only enable one of the two plans you will only gain some of the available features. The following table shows which plans enable which features:
+You must enable [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) and [Defender CSPM](concept-cloud-security-posture-management.md) to gain access to all of the agentless secret scanning capabilities. 
+
+If you only enable one of the two plans, you gain only part of the available features of the agentless secret scanning capabilities. The following table shows which features are enabled by each plan:
 
 | Plan Feature | Defender for servers plan 2 | Defender CSPM |
 |--|--|--|
@@ -57,9 +59,9 @@ Once you have enabled either or both [Defender for Servers Plan 2](plan-defender
 
 ## Remediate secrets with Attack path
 
-Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). These scans expose exploitable paths that attackers may use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that will break the attack path and prevent successful breach.
+Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). These scans expose exploitable paths that attackers may use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that break the attack path and prevent successful breach.
 
-Attack path analysis takes into account the contextual information of your environment to identify issues that may compromise it. This analysis assists in prioritizing the riskiest issues for faster remediation.
+Attack path analysis takes into account the contextual information of your environment to identify issues that may compromise it. This analysis helps prioritize the riskiest issues for faster remediation.
 
 The attack path page shows an overview of your attack paths, affected resources and a list of active attack paths.
 
@@ -67,31 +69,31 @@ The attack path page shows an overview of your attack paths, affected resources 
 
 Agentless secret scanning for Azure VMs supports the following attack path scenarios:
 
-- Exposed Vulnerable VM has an insecure SSH private key that is used to authenticate to a VM. 
+- `Exposed Vulnerable VM has an insecure SSH private key that is used to authenticate to a VM`. 
 
-- Vulnerable VM has an insecure SSH private key that is used to authenticate to a VM. 
+- `Vulnerable VM has an insecure SSH private key that is used to authenticate to a VM`. 
 
-- Exposed Vulnerable VM has insecure secrets that are used to authenticate to a storage account. 
+- `Exposed Vulnerable VM has insecure secrets that are used to authenticate to a storage account`. 
 
-- Vulnerable VM has insecure secrets that are used to authenticate to a storage account. 
+- `Vulnerable VM has insecure secrets that are used to authenticate to a storage account`. 
 
-- Exposed Vulnerable VM has insecure secrets that are used to authenticate to an SQL server. 
+- `Exposed Vulnerable VM has insecure secrets that are used to authenticate to an SQL server`. 
 
 ### AWS instances supported attack path scenarios
 
-- Agentless secret scanning for AWS instances supports the following attack path scenarios:
+Agentless secret scanning for AWS instances supports the following attack path scenarios:
 
-- Exposed Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to a EC2 instance. 
+- `Exposed Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to a EC2 instance`. 
 
-- Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to a EC2 instance. 
+- `Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to a EC2 instance`. 
 
-- Exposed Vulnerable EC2 instance has an insecure secret that are used to authenticate to a storage account. 
+- `Exposed Vulnerable EC2 instance has an insecure secret that are used to authenticate to a storage account`. 
 
-- Vulnerable EC2 instances have insecure secrets that are used to authenticate to a storage account. 
+- `Vulnerable EC2 instances have insecure secrets that are used to authenticate to a storage account`. 
 
-- Exposed Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server. 
+- `Exposed Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server`. 
 
-- Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server. 
+- `Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server`. 
 
 **To investigate secrets with Attack path**:
 
@@ -107,7 +109,7 @@ Agentless secret scanning for Azure VMs supports the following attack path scena
 
 ## Remediate secrets with recommendations
 
-If a secret is found on your resource, that resource will trigger an affiliated recommendation that is located under the Remediate vulnerabilities security control on the recommendations page. Depending on your resources, either or both of the following recommendations will appear:
+If a secret is found on your resource, that resource triggers an affiliated recommendation that is located under the Remediate vulnerabilities security control on the recommendations page. Depending on your resources, either or both of the following recommendations appear:
 
 - **Azure resources**: `Machines should have secrets findings resolved`
 
@@ -137,6 +139,44 @@ If a secret is found on your resource, that resource will trigger an affiliated 
 
 1. (Optional) You can select an affected resource to see that resources information.
 
-Secrets that do not have a known attack path, are referred to as `secrets without an identified target resource`.
+Secrets that don't have a known attack path, are referred to as `secrets without an identified target resource`.
 
 ## Remediate secrets with cloud security explorer
+
+The [cloud security explorer](concept-attack-path.md#what-is-cloud-security-explorer) allows you to proactively identify potential security risks within your cloud environment. By querying the [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph), the context engine of Defender for Cloud. The cloud security explorer allows your security team to prioritize any concerns, while also considering the specific context and conventions of your organization. 
+
+**To remediate secrets with cloud security explorer**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Microsoft Defender for Cloud** > **Cloud Security Explorer**.
+
+1. Select one of the following templates:
+
+    - **VM with plaintext secret that can authenticate to another VM** - Returns all Azure VMs or AWS EC2 instances with plaintext secret that can access other VMs or EC2s.
+    - **VM with plaintext secret that can authenticate to a storage account** - Returns all Azure VMs or AWS EC2 instances with plaintext secret that can access storage accounts.
+    - **VM with plaintext secret that can authenticate to a SQL database** - Returns all Azure VMs or AWS EC2 instances with plaintext secret that can access SQL databases.
+
+If you don't want to use any of the available templates, you can also [build your own query](how-to-manage-cloud-security-explorer.md) on the cloud security explorer.
+
+## Remediate secrets from your asset inventory
+
+Your [asset inventory](asset-inventory.md) shows the [security posture](concept-cloud-security-posture-management.md) of the resources you've connected to Defender for Cloud. Defender for Cloud periodically analyzes the security state of resources connected to your subscriptions to identify potential security issues and provides you with active recommendations.
+
+The asset inventory allows you to view the secrets discovered on a specific machine.
+
+**To remediate secrets from your asset inventory**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Microsoft Defender for Cloud** > **Inventory**.
+
+1. Select the relevant VM.
+
+1. Select **Secrets**.
+
+1. Review each plaintext secret that appears with the relevant metadata.
+
+1. Select a secret to view the other details of that secret.
+
+Different types of secrets have different sets of additional information. For example, for plaintext SSH private keys, the information includes related public keys (mapping between the private key to the authorized keys’ file we discovered or mapping to a different virtual machine that contains the same SSH private key identifier). 
