@@ -75,11 +75,11 @@
       href: quickstart-create-resources.md
     - name: Set up dev environments
       href: how-to-configure-environment.md
-  # v1
+    # v1
     - name: Set up dev environments
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: ./v1/how-to-configure-environment.md
-  # end v1
+    # end v1
     - name: Install and setup the CLI(v2)
       href: how-to-configure-cli.md
     # v1
