@@ -27,7 +27,7 @@ You need to resize or deallocate your NC virtual machines. We recommend moving y
 
 If you have questions, ask community experts in [Microsoft Q&A](/answers/topics/azure-virtual-machines.html). If you have a support plan and need technical help, create a support request:
 
-1. In the [Help + support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) page, select **Create a support request**. Follow the **New support request** page instructions. Use the following values:
+- In the [Help + support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) page, select **Create a support request**. Follow the **New support request** page instructions. Use the following values:
    * For **Issue type**, select **Technical**.
    * For **Service**, select **My services**.
    * For **Service type**, select **Virtual Machine running Windows/Linux**.
