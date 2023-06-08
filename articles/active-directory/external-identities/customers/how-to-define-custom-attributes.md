@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/08/2023
+ms.date: 06/06/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -38,24 +38,33 @@ If your application relies on certain built-in or custom user attributes, you ca
 1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Azure Active Directory**.
 1. Select **External Identities** > **Overview**.
 1. Select **Custom user attributes**. The available user attributes are listed.
-1. To add an attribute, select **Add**.
-1. In the **Add an attribute** pane, enter the following values:
+1. To add an attribute, select **Add**. In the **Add an attribute** pane, enter the following values:
 
-   - **Name** - Provide a name for the custom attribute. For example, "Loyalty number".
+   - **Name** - Provide a name for the custom attribute. For example, "Loyalty number."
    - **Data Type** - Choose a data type, **String**, **Boolean**, or **Int**.
    - **Description** - Optionally, enter a description of the custom attribute for internal use. This description isn't visible to the user.
 
+   :::image type="content" source="media/how-to-define-custom-attributes/add-attribute.png" alt-text="Screenshot of the pane for adding an attribute." lightbox="media/how-to-define-custom-attributes/add-attribute.png":::
+
 1. Select **Create**. The custom attribute is now available in the list of user attributes and can be added to your user flows. 
 
-## Select attributes (built-in and custom) for sign-up
+## Include the attributes in a sign-up flow
 
-1. Under **User attributes**, choose the attributes you want to collect from the user during sign-up. Select **Show more** to choose from the full list of attributes, including **Job Title**, **Display Name**, and **Postal Code**. This list also includes any custom attributes you defined.
+Follow these steps to add sign-up attributes to a user flow you've already created. (For a new user flow, see [Create a sign-up and sign-in user flow for customers](how-to-user-flow-sign-up-sign-in-customers.md).)
 
-   :::image type="content" source="media/how-to-define-custom-attributes/user-attributes.png" alt-text="Screenshot of the user attribute options on the Create a user flow page.":::
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
-1. Select **OK**.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to your customer tenant.
 
-1. Select **Create** to create the user flow.
+1. In the left pane, select **Azure Active Directory** > **External Identities** > **User flows**.
+
+1. Select the user flow from the list.
+
+1. Select **User attributes**. The list includes any custom attributes you defined as described in the previous section. For example, the new **Rewards number** attribute now appears in the list. Choose the attributes you want to collect from the user during sign-up.
+
+   :::image type="content" source="media/how-to-define-custom-attributes/user-attributes.png" alt-text="Screenshot of the user attribute options on the Create a user flow page." lightbox="media/how-to-define-custom-attributes/user-attributes.png":::
+
+1. Select **Save**.
 
 ## Select the layout of the attribute collection page
 
@@ -73,11 +82,9 @@ You can choose the order in which the attributes are displayed on the sign-up pa
 
    - To change the order of display, select an attribute, and then select **Move up**, **Move down**, **Move to the top**, or **Move to the bottom**.
 
-   :::image type="content" source="media/how-to-define-custom-attributes/page-layouts.png" alt-text="Screenshot of page layout options for a user flow.":::
+   :::image type="content" source="media/how-to-define-custom-attributes/page-layouts.png" alt-text="Screenshot of page layout options for a user flow." lightbox="media/how-to-define-custom-attributes/page-layouts.png":::   
 
 1. Select **Save**.
-
-1. Select **Create**. The new user flow appears in the user flows list. (You might need to refresh the page.)
 
 ## Next steps
 
