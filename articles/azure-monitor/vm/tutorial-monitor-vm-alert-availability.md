@@ -60,7 +60,6 @@ There are multiple methods to create an alert rule in Azure Monitor. In this tut
 
 Set the following values for **When to evaluate**. This specifies that the rule will run every minute, using the collected values from the previous minute.
 
-
     | Setting | Value |
     |:---|:---|
     | Check every | 1 minute |
