@@ -19,12 +19,7 @@ With the **GCP Pub/Sub Audit Logs** connector, based on our [Codeless Connector 
 > [!IMPORTANT]
 > The GCP Pub/Sub Audit Logs connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.  
 
-Once you ingest the GCP data, you can view the details of three types of audit logs: 
-- Admin activity logs 
-- Data access logs
-- Access transparency logs 
-
-With these, Google's Cloud Audit Logs records a trail that practitioners can use to monitor access and detect potential threats across GCP resources.  
+Google's Cloud Audit Logs records a trail that practitioners can use to monitor access and detect potential threats across GCP resources.  
 
 ## Prerequisites
 
