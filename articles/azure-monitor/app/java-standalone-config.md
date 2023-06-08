@@ -388,10 +388,10 @@ The script is aiming at helping customers to track the web user data, and sent t
 If you want to enable this feature:
 
 ```json
-{
-  "preview": {
-    "injectJavaScriptSnippet": true
-  }
+"preview": {
+  "injectJavaScriptSnippet": {
+     "enabled": true
+   }
 }
 ```
 
