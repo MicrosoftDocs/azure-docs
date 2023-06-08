@@ -13,6 +13,8 @@ Real-time big data solutions  act on data that is in motion. Typically, this dat
 
 In a streaming application, one or more data sources are generating events (sometimes in the millions per second) that need to be ingested  quickly  without dropping any useful information. The incoming events are handled with *stream buffering*, also called *event queuing*, by a service such as [Apache Kafka](kafka/apache-kafka-introduction.md) or [Event Hubs](https://azure.microsoft.com/services/event-hubs/). After you collect the events, you can then analyze the data using a real-time analytics system within the *stream processing* layer. The processed data can be stored in long-term storage systems, like [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), and displayed in real time on a business intelligence dashboard, such as [Power BI](https://powerbi.microsoft.com), Tableau, or a custom web page.
 
+:::image type="content" source="./media/hdinsight-streaming-at-scale-overview/hdinsight-streaming-patterns.png" alt-text=" Screenshot showing Azure HDInsight streaming patterns":::
+
 ## Apache Kafka
 
 Apache Kafka provides a high-throughput, low-latency message queueing service, and is now part of the Apache suite of Open Source Software (OSS). Kafka uses a publish and subscribe messaging model and stores streams of partitioned data safely in a distributed, replicated cluster. Kafka  scales linearly as throughput increases.
