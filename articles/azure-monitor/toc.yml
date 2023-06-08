@@ -13,7 +13,7 @@ items:
       href: best-practices-plan.md
     - name: Configure data collection
       href: best-practices-data-collection.md
-    - name: Analysis and visualizations
+    - name: Analyze and visualize monitoring data
       href: best-practices-analysis.md
     - name: Configure alerts and automated actions
       href: best-practices-alerts.md
@@ -221,6 +221,9 @@ items:
       - name: Collect IIS logs
         displayName: data collection rule,Azure Monitor Agent,IIS logs
         href: agents/data-collection-iis.md
+      - name: Collect Windows Firewall logs
+        displayName: data collection rule,Azure Monitor Agent,firewall logs
+        href: agents/data-collection-firewall.md
       - name: Collect text logs
         displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
         href: agents/data-collection-text-log.md
@@ -552,7 +555,8 @@ items:
             href: logs/workspace-design.md
           - name: Dedicated clusters
             href: logs/logs-dedicated-clusters.md
-          - name: Enhance data and service resiliency
+          - name: Enhance resilience with availability zones
+            displayName: Enhance data and service resilience in Azure Monitor Logs with availability zones
             href: logs/availability-zones.md
         - name: Monitor
           items:
@@ -1296,7 +1300,7 @@ items:
           - name: API access, authentication and authorization
             href: logs/api/access-api.md
           - name: Application Insights API access with Azure Active Directory
-            href: logs/api/app-insights-azure-ad-api.md
+            href: app/app-insights-azure-ad-api.md
           - name: Register an app for API access
             href: logs/api/register-app-for-token.md 
           - name: Request format

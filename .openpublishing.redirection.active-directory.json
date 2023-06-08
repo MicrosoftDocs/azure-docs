@@ -1006,6 +1006,31 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/spa-quickstart-portal-react-ciam.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/spa-quickstart-portal-react-ciam",
+      "redirect_document_id": true 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/spa-quickstart-portal-angular-ciam.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/spa-quickstart-portal-angular-ciam",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/spa-quickstart-portal-vanilla-js-ciam.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/spa-quickstart-portal-vanilla-js-ciam",
+      "redirect_document_id": true 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-dotnet-ciam.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/web-app-quickstart-portal-dotnet-ciam",
+      "redirect_document_id": true 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-node-js-ciam.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/web-app-quickstart-portal-node-js-ciam",
+      "redirect_document_id": true 
+    },
+    {
       "source_path_from_root": "/articles/active-directory/external-identities/conditional-access.md",
       "redirect_url": "/azure/active-directory/external-identities/authentication-conditional-access",
       "redirect_document_id": true
@@ -10261,6 +10286,76 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/azure-ad-data-residency.md",
+      "redirect_url": "/azure/active-directory/fundamentals/data-residency",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad.md",
+      "redirect_url": "/azure/active-directory/fundamentals/five-steps-to-full-application-integration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/service-accounts-governing-azure.md",
+      "redirect_url": "/azure/active-directory/fundamentals/govern-service-accounts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/service-accounts-introduction-azure.md",
+      "redirect_url": "/azure/active-directory/fundamentals/secure-service-accounts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/whats-deprecated-azure-ad.md",
+      "redirect_url": "/azure/active-directory/fundamentals/what-is-deprecated",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-compare-azure-ad-to-ad.md",
+      "redirect_url": "/azure/active-directory/fundamentals/compare",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-iam.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-iam",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/standards/configure-azure-active-directory-for-fedramp-high-impact.md",
+      "redirect_url": "/azure/active-directory/standards/configure-for-fedramp-high-impact",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-ops.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-ops",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-intro.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-intro",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-auth.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-auth",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-ops-guide-govern.md",
+      "redirect_url": "/azure/active-directory/fundamentals/ops-guide-govern",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/datawiza-azure-ad-sso-mfa-oracle-ebs.md",
+      "redirect_url": "/azure/active-directory/manage-apps/datawiza-sso-mfa-oracle-ebs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/cloudflare-azure-ad-integration.md",
+      "redirect_url": "/azure/active-directory/manage-apps/cloudflare-integration",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/clarizen-provisioning-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
@@ -10986,6 +11081,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/migrate-applications-from-okta-to-azure-active-directory.md",
+      "redirect_url": "/azure/active-directory/manage-apps/migrate-applications-from-okta",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/privileged-identity-management/pim-apis-concept.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-apis",
       "redirect_document_id": false
@@ -11034,6 +11134,16 @@
       "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-complete-review.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/f5-aad-integration.md",
+      "redirect_url": "/azure/active-directory/manage-apps/f5-integration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/f5-aad-password-less-vpn.md",
+      "redirect_url": "/azure/active-directory/manage-apps/f5-passwordless-vpn",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-perform-security-review.md",
@@ -12420,6 +12530,12 @@
       "redirect_url": "/azure/active-directory/hybrid/connect/tshoot-connect-tshoot-sql-connectivity",
       "redirect_document_id": false
       },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-multiple-tenants.md",
+        "redirect_url": "/azure/active-directory/fundamentals/secure-multiple-tenants",
+        "redirect_document_id": true
+      },
       
       {
       "source_path_from_root": "/articles/active-directory/hybrid/tutorial-federation.md",
@@ -12444,7 +12560,6 @@
       "redirect_url": "/azure/active-directory/hybrid/connect/tutorial-phs-backup",
       "redirect_document_id": false
       },
-      
       
       {
       "source_path_from_root": "/articles/active-directory/hybrid/whatis-aadc-admin-agent.md",
@@ -12494,6 +12609,30 @@
         "redirect_url": "/azure/active-directory/privileged-identity-management/pim-perform-roles-and-resource-roles-review",
         "redirect_document_id": false
       },
+    
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-deployment-plans.md",
+        "redirect_url": "/azure/active-directory/fundamentals/deployment-plans",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-best-practices.md",
+        "redirect_url": "/azure/active-directory/fundamentals/secure-fundamentals",
+        "redirect_document_id": false
+      },
+      
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-fundamentals.md",
+        "redirect_url": "/azure/active-directory/fundamentals/secure-fundamentals",
+        "redirect_document_id": true
+      },
+    
+      {
+        "source_path_from_root": "/articles/active-directory/enterprise-users/clean-up-unmanaged-azure-ad-accounts.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/clean-up-unmanaged-accounts",
+        "redirect_document_id": true
+      },
 
       {
         "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md",
@@ -12511,7 +12650,114 @@
         "source_path_from_root": "/articles/active-directory-domain-services/migrate-from-classic-vnet.md",
         "redirect_url": "/azure/active-directory-domain-services/overview",
         "redirect_document_id": false
-      }
+      },
 
+      {
+        "source_path_from_root": "/articles/active-directory/manage-apps/datawiza-azure-ad-sso-oracle-jde.md",
+        "redirect_url": "/azure/active-directory/manage-apps/datawiza-sso-oracle-jde",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-introduction.md",
+        "redirect_url": "/azure/active-directory/fundamentals/secure-introduction",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-resource-management.md",
+        "redirect_url": "/azure/active-directory/fundamentals/secure-resource-management",
+        "redirect_document_id": true
+      },
+      
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-single-tenant.md",
+        "redirect_url": "/azure/active-directory/fundamentals/secure-single-tenant",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/manage-apps/datawiza-azure-ad-sso-oracle-peoplesoft.md",
+        "redirect_url": "/azure/active-directory/manage-apps/datawiza-sso-oracle-peoplesoft",
+        "redirect_document_id": true
+      },
+      
+      {
+        "source_path_from_root": "/articles/active-directory/manage-apps/silverfort-azure-ad-integration.md",
+        "redirect_url": "/azure/active-directory/manage-apps/silverfort-integration",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/manage-apps/datawiza-with-azure-ad.md",
+        "redirect_url": "/azure/active-directory/manage-apps/datawiza-configure-sha",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/manage-apps/migrate-okta-federation-to-azure-active-directory.md",
+        "redirect_url": "/azure/active-directory/manage-apps/migrate-okta-federation",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/manage-apps/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md",
+        "redirect_url": "/azure/active-directory/manage-apps/migrate-okta-sign-on-policies-conditional-access",
+        "redirect_document_id": true
+      },
+    
+      {
+        "source_path_from_root": "/articles/active-directory/standards/configure-azure-active-directory-for-cmmc-compliance.md",
+        "redirect_url": "/azure/active-directory/standards/configure-for-cmmc-compliance",
+        "redirect_document_id": true
+
+      },
+
+      {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/microsoft-graph-operations-custom-extensions.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/microsoft-graph-operations",
+      "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/external-identities/customers/microsoft-graph-operations-branding.md",
+        "redirect_url": "/azure/active-directory/external-identities/customers/microsoft-graph-operations",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/external-identities/customers/microsoft-graph-operations-user-flow.md",
+        "redirect_url": "/azure/active-directory/external-identities/customers/microsoft-graph-operations",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-management-apis-overview.md",
+        "redirect_url": "/azure/active-directory/external-identities/customers/microsoft-graph-operations",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-passwords-faq.yml",
+        "redirect_url": "/azure/active-directory/authentication/passwords-faq",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-certificate-based-authentication-android.md",
+        "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-federation-android",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-certificate-based-authentication-ios.md",
+        "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-federation-ios",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-certificate-based-authentication-get-started.md",
+        "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-federation-get-started",
+        "redirect_document_id": false
+      }
+      
       ]
-}
+} 
