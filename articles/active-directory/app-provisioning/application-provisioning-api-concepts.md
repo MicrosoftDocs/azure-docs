@@ -100,16 +100,14 @@ How this issue impacts your testing: After you send a SCIM bulk request to the A
 <td>The provisioning service doesn't check for duplication ``userPrincipalName`` (UPN) and handle conflicts. If the default sync rule for UPN attribute generates an existing UPN value, then the user create operation fails. </td>
 <td>Update the sync rule to use the [RandomString](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data#randomstring) function. Example:
 
-```
-{
-    Join ("", Replace([userName],
+    ```csharp
+    {Join ("", Replace([userName],
     "(?<Suffix>@(.)*)", "Suffix", 
     "", , ), RandomString(3, 3, 0, 0, 0, )",
     "@", DefaultDomain())
-
-}
-
-``` 
+    public static void Log(string message)}
+     
+    ``` 
 </td>
 </tr>
 <tr>
