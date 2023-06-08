@@ -77,9 +77,9 @@ For an all up view of your quota allocations across deployments in a given regio
 
 As part of the transition to the new quota system and TPM based allocation, all existing Azure OpenAI model deployments have been automatically migrated to use quota. In cases where the existing TPM/RPM allocation exceeds the default values due to previous custom rate-limit increases, equivalent TPM were assigned to the impacted deployments.
 
-## How throttling works
+## Understanding rate limits
 
-Assigning TPM to a deployment sets the Tokens-Per-Minute (TPM) and Requests-Per-Minute (RPM) rate limits for the deployment, as described above. TPM throttling is based on the maximum number of tokens that are estimated to be processed by a request at the time the request is received. It isn't the same as the token count used for billing, which is computed after all processing is completed.  
+Assigning TPM to a deployment sets the Tokens-Per-Minute (TPM) and Requests-Per-Minute (RPM) rate limits for the deployment, as described above. TPM rate limits are based on the maximum number of tokens that are estimated to be processed by a request at the time the request is received. It isn't the same as the token count used for billing, which is computed after all processing is completed.  
 
 As each request is received, Azure OpenAI computes an estimated max processed-token count that includes the following:
 
@@ -89,11 +89,11 @@ As each request is received, Azure OpenAI computes an estimated max processed-to
 
 As requests come into the deployment endpoint, the estimated max-processed-token count is added to a running token count of all requests that is reset each minute.  If at any time during that minute, the TPM rate limit value is reached, then further requests will receive a 429 response code until the counter resets.
 
-RPM throttling is based on the number of requests received over time.  The implementation of the RPM throttle expects that requests be evenly distributed over a one-minute period. If this average flow isn't maintained, then requests may receive a 429 response even though the limit isn't met when measured over the course of a minute.  To implement this behavior, Azure OpenAI Service evaluates the rate of incoming requests over a small period of time, typically 1 or 10 seconds. If the number of requests received during that time exceeds what would be expected at the set RPM limit, then new requests will receive a 429 response code until the next evaluation period. For example, if Azure OpenAI is monitoring request rate on 1-second intervals, then throttling will occur for a 600-RPM deployment if more than 10 requests are received during each 1-second period (600 requests per minute = 10 requests per second).
+RPM rate limits are based on the number of requests received over time. The rate limit expects that requests be evenly distributed over a one-minute period. If this average flow isn't maintained, then requests may receive a 429 response even though the limit isn't met when measured over the course of a minute.  To implement this behavior, Azure OpenAI Service evaluates the rate of incoming requests over a small period of time, typically 1 or 10 seconds. If the number of requests received during that time exceeds what would be expected at the set RPM limit, then new requests will receive a 429 response code until the next evaluation period. For example, if Azure OpenAI is monitoring request rate on 1-second intervals, then throttling will occur for a 600-RPM deployment if more than 10 requests are received during each 1-second period (600 requests per minute = 10 requests per second).
 
-### Best practices to mitigate rate-limit throttling
+### Rate limit best practices
 
-To minimize issues related to throttling, it's a good idea to use the following techniques:
+To minimize issues related to rate limits, it's a good idea to use the following techniques:
 
 - Set max_tokens and best_of to the minimum values that serve the needs of your scenario. For example, don’t set a large max-tokens value if you expect your responses to be small.
 - Use quota management to increase TPM on deployments with high traffic, and to reduce TPM on deployments with limited needs.
