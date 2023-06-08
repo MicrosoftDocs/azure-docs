@@ -1,3 +1,16 @@
+---
+title: include file
+description: Java webhook callback security
+services: azure-communication-services
+author: Richard Cho
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services
+ms.date: 06/08/2023
+ms.topic: include
+ms.topic: include file
+ms.author: richardcho
+---
+
 ## Improving Call Automation webhook callback security
 
 Each mid-call webhook callback sent by Call Automation uses a signed JSON Web Token (JWT) in the Authentication header of the inbound HTTPS request. You can use standard Open ID Connect (OIDC) JWT validation techniques to ensure the integrity of the token as follows. The lifetime of the JWT is five (5) minutes and a new token is created for every event sent to the callback URI.
