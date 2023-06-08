@@ -6,11 +6,15 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 06/08/2023
 ms.custom: template-concept, engagement-fy23
 ---
 
 # VNet flow logs (preview)
+
+> [!IMPORTANT]
+> VNet flow logs is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Virtual network (VNet) flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a virtual network. Flow data is sent to Azure Storage from where you can access it and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice. Network Watcher VNet flow logs capability overcomes some of the existing limitations of [NSG flow logs](network-watcher-nsg-flow-logging-overview.md).
 
@@ -214,3 +218,12 @@ If you want to retain data forever and don't want to apply any retention policy,
 ## Pricing
 
 VNet flow logs are charged per gigabyte of "Network Logs Collected" and come with a free tier of 5 GB/month per subscription. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
+
+## Next steps
+
+- To learn how to create, change, enable, disable, or delete VNet flow logs, see [Azure portal](vnet-flow-logs-portal.md), [PowerShell](vnet-flow-logs-powershell.md), or [Azure CLI](vnet-flow-logs-cli.md) VNet flow logs articles.
+- To learn about traffic analytics, see [Traffic analytics](traffic-analytics.md).
+- To learn how to use Azure built-in policies to audit or enable traffic analytics, see [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).
+
+
+

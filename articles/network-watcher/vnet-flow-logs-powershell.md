@@ -146,4 +146,5 @@ Remove-AzNetworkWatcherFlowLog -Name myVNetFlowLog -NetworkWatcherName NetworkWa
 
 ## Next steps
 
-Learn how to [Visualize your flow logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
+- To learn about traffic analytics, see [Traffic analytics](traffic-analytics.md).
+- To learn how to use Azure built-in policies to audit or enable traffic analytics, see [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).
