@@ -7,7 +7,7 @@ manager: amycolannino
 ms.topic: overview
 ms.date: 06/08/2023
 ms.service: network-access
-ms.custom: 
+ms.custom: references_regions
 ---
 
 # What is Global Secure Access (preview)?
