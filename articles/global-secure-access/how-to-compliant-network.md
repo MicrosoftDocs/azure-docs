@@ -14,7 +14,7 @@ ms.reviewer: mamkumar
 ---
 # Enable compliant network check with Conditional Access
 
-Using Conditional Access along with Global Secure Access customers can prevent malicious access to Microsoft apps, third-party SaaS apps, and private line-of-business (LoB) apps using multiple conditions to provide defense-in-depth. These conditions may include device compliance, location, and more to provide protection against user identity or token theft. Global Secure Access introduces the concept of a compliant network within Conditional Access and continuous access evaluation. This compliant network check ensures users connect from a verified network connectivity model for their specific tenant and are compliant with security policies enforced by administrators. 
+Organizations who use Conditional Access along with Global Secure Access, can prevent malicious access to Microsoft apps, third-party SaaS apps, and private line-of-business (LoB) apps using multiple conditions to provide defense-in-depth. These conditions may include device compliance, location, and more to provide protection against user identity or token theft. Global Secure Access introduces the concept of a compliant network within Conditional Access and continuous access evaluation. This compliant network check ensures users connect from a verified network connectivity model for their specific tenant and are compliant with security policies enforced by administrators. 
 
 The Global Secure Access client installed on devices or configured remote network allows administrators to secure resources behind a compliant network with advanced Conditional Access controls. This compliant network makes it easier for administrators to manage and maintain, without having to maintain a list of all of an organization's locations IP addresses. Administrators don't need to hairpin traffic through their organization's VPN egress points to ensure security.
 
@@ -63,13 +63,13 @@ The following example shows a Conditional Access policy that requires Exchange O
 :::image type="content" source="media/how-to-compliant-network/all-network-access-locations.png" alt-text="Screenshot showing a Conditional Access policy highlighting the All Network Access locations of my tenant location." lightbox="media/how-to-compliant-network/all-network-access-locations.png":::
 
 1. Sign in to the **Microsoft Entra admin center** as a Conditional Access Administrator or Security Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Select **New policy**.
+1. Browse to **Microsoft Entra ID** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
-1. Under **Target resources** > **Include**, and select **Select apps**.
+1. Under **Cloud apps or actions** > **Include**, and select **Select apps**.
    1. Choose **Office 365 Exchange Online** and **Office 365 SharePoint Online**.
 1. Under **Conditions** > **Location**.
    1. Set **Configure** to **Yes**
