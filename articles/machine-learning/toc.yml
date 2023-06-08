@@ -561,7 +561,7 @@
       href: concept-responsible-ai-dashboard.md
     - name: Generate responsible AI insights (UI)
       href: how-to-responsible-ai-insights-ui.md
-    - name: Generate a Responsible AI insights (SDK, CLI)
+    - name: Generate responsible AI insights (SDK, CLI)
       href: how-to-responsible-ai-insights-sdk-cli.md
     - name: Understand your datasets
       href: concept-data-analysis.md
