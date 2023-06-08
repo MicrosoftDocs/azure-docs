@@ -22134,6 +22134,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/develop/active-directory-how-applications-are-added.md",
+            "redirect_url": "/azure/active-directory/develop/how-applications-are-added",
+            "redirect_document_id": false
+        },
+	{
+            "source_path_from_root": "/articles/active-directory/develop/active-directory-how-to-integrate.md",
+            "redirect_url": "/azure/active-directory/develop/how-to-integrate",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-node-js-passport.md",
             "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-nodejs-msal",
             "redirect_document_id": false
