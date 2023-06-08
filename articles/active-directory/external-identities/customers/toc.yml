@@ -16,7 +16,7 @@ items:
   items: 
     - name: Overview of CIAM samples
       href: samples-ciam-all.md
-    - name: Code sample guides
+    - name: Explore code samples
       items: 
         - name: Single-page app
           items:
