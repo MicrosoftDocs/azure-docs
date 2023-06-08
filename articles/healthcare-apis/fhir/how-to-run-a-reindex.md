@@ -207,7 +207,7 @@ The following information is shown in the above response:
 
 * `resources`: Lists all the resource types impacted by the reindex job.
 
-* 'resourceReindexProgressByResource (CountReindexed of Count)': Provides the reindexed count of the total count, per resource type. In case when CountReindexed is not provided, it means reindexing for specific resource type is queued.
+* 'resourceReindexProgressByResource (CountReindexed of Count)': Provides reindexed count of the total count, per resource type. In case, when reindexing for specific resource type is queued only Count is provided.
 
 * 'searchParams': Lists url of the search parameters impacted by the reindex job.
 
