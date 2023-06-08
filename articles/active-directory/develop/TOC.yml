@@ -73,8 +73,8 @@
           href: ../workload-identities/workload-identities-overview.md
         - name: Applications and service principals
           href: app-objects-and-service-principals.md
-        - name: How and why apps are added to Azure AD
-          href: active-directory-how-applications-are-added.md
+        - name: How and why apps are added
+          href: how-applications-are-added.md
         - name: Single-tenant and multi-tenant apps
           href: single-and-multi-tenant-apps.md
     - name: Custom Authentication Extensions
@@ -581,7 +581,9 @@
         - name: Access token
           href: access-token-claims-reference.md
         - name: ID token
-          href: id-token-claims-reference.md            
+          href: id-token-claims-reference.md 
+        - name: Optional claims
+          href: optional-claims-reference.md           
         - name: SAML token
           href: reference-saml-tokens.md
     - name: Microsoft Authentication Library (MSAL) reference
