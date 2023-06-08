@@ -58,7 +58,7 @@ The cluster created in the previous step has a single node pool. Let's add a sec
 
 1. Review the template.
 
-Before deploying the agent pool template, let's review the content to understand its structure. 
+Before adding the agent pool template, let's review the content to understand its structure. 
 
 :::code language="json" source="includes/kubernetes-cluster/quickstart-arm-add-node-pool.json":::
 

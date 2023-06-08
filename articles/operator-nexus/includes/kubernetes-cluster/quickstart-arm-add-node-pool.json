@@ -23,7 +23,7 @@
           "description": "Nexus Kubernetes cluster system pool name"
         }
       },
-      "agentPoolVmSkuName": {
+      "agentVmSku": {
         "type": "string",
         "metadata": {
           "description": "Nexus Kubernetes worker vmSize to use (e.g. NC_M4_v1)"
@@ -38,10 +38,6 @@
           "NC_M36_v1",
           "NC_M44_v1"
         ]
-      },
-      "ncApiVersion": {
-        "type": "string",
-        "defaultValue": "2023-05-01-preview"
       },
       "agentPoolNodeCount": {
         "type": "int",
@@ -61,7 +57,7 @@
     "resources": [
       {
         "type": "Microsoft.NetworkCloud/kubernetesClusters/agentpools",
-        "apiVersion": "[parameters('ncApiVersion')]",
+        "apiVersion": "2023-05-01-preview",
         "name": "[concat(parameters('kubernetesClusterName'), '/', parameters('agentPoolName'))]",
         "location": "[parameters('location')]",
         "extendedLocation": {
@@ -71,7 +67,7 @@
         "properties": {
           "count": "[parameters('agentPoolNodeCount')]",
           "mode": "User",
-          "vmSkuName": "[parameters('agentPoolVmSkuName')]"
+          "vmSkuName": "[parameters('agentVmSku')]"
         },
         "dependsOn": []
       }

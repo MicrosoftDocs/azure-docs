@@ -50,6 +50,32 @@ Once you have reviewed and saved the template file named ```kubernetes-deploy.bi
 
 [!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/quickstart-cluster-connect.md)]
 
+## Add an agent pool
+The cluster created in the previous step has a single node pool. Let's add a second agent pool using the Bicep template. The following example creates an agent pool named ```myNexusAKSCluster-nodepool-2```:
+
+1. Review the template.
+
+Before adding the agent pool template, let's review the content to understand its structure. 
+
+:::code language="json" source="includes/kubernetes-cluster/quickstart-bicep-add-node-pool.bicep":::
+
+Once you have reviewed and saved the template file named ```kubernetes-add-agentpool.bicep```, proceed to the next section to deploy the template.
+
+1. Create a file named ```kubernetes-nodepool-parameters.json``` and add the required parameters in JSON format. You can use the following example as a starting point. Replace the values with your own.
+
+:::code language="json" source="includes/kubernetes-cluster/quickstart-add-node-pool-params.json":::
+
+3. Deploy the template.
+
+```azurecli
+    az deployment group create \
+      --resource-group myResourceGroup \
+      --template-file kubernetes-add-agentpool.bicep \
+      --parameters @kubernetes-nodepool-parameters.json
+```
+
+[!INCLUDE [quickstart-review-nodepool](./includes/kubernetes-cluster/quickstart-review-nodepool.md)]
+
 ## Clean up resources
 
 [!INCLUDE [quickstart-cleanup](./includes/kubernetes-cluster/quickstart-cleanup.md)]
