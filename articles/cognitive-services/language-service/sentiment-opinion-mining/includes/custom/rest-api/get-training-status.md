@@ -32,7 +32,7 @@ Use the following header to authenticate your request.
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
 
-#### Response Body
+#### Response body
 
 Once you send the request, you’ll get the following response. 
 
