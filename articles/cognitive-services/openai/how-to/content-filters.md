@@ -72,7 +72,7 @@ The following steps show how to set up a customized content filtering configurat
 
 7. Go to advanced options (outlined in the blue box below) select the content filter configuration suitable for that deployment from the **Content Filter** dropdown (outlined near the bottom of the dialog box in the red box below).
 
-    :::image type="content" source="../media/content-filters/advanced.png" alt-text="Screenshot of edit deployment configuration with content filter selected." lightbox="../media/content-filters/select-filter.png":::
+    :::image type="content" source="../media/content-filters/advanced.png" alt-text="Screenshot of edit deployment configuration with advanced options selected." lightbox="../media/content-filters/select-filter.png":::
 
 8. Select **Save and close** to apply the selected configuration to the deployment.
 
