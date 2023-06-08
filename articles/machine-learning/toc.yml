@@ -168,7 +168,7 @@
   items:
   - name: Workspace
     href: concept-workspace.md
-  - name: Working with notebooks
+  - name: Manage environments in studio
     items:
       - name: Create and manage files
         href: how-to-manage-files.md
@@ -178,6 +178,16 @@
         href: how-to-access-terminal.md
       - name: Manage compute sessions
         href: how-to-manage-compute-sessions.md
+      # v1
+      - name: Set up software environments CLI (v1)
+        href: ./v1/how-to-use-environments.md
+      - name: Set input & output directories
+        displayName: large data, write, experiment files, size limit
+        href: ./v1/how-to-save-write-experiment-files.md
+      - name: Use private Python packages
+        displayName: pip, Conda, anaconda
+        href: ./v1/how-to-use-private-python-packages.md
+      # end v1
   - name: Azure Machine Learning CLI and Python SDK
     href: concept-v2.md
   - name: Azure Machine Learning UI
@@ -1157,16 +1167,6 @@
         - name: Manage environments with SDK and CLI (v2)
           displayName: environment
           href: how-to-manage-environments-v2.md
-        # v1
-        - name: Set up software environments CLI (v1)
-          href: ./v1/how-to-use-environments.md
-        - name: Set input & output directories
-          displayName: large data, write, experiment files, size limit
-          href: ./v1/how-to-save-write-experiment-files.md
-        - name: Use private Python packages
-          displayName: pip, Conda, anaconda
-          href: ./v1/how-to-use-private-python-packages.md
-        # end v1
     - name: Work with data
       items:
         - name: Prepare data with Apache Spark (preview)
