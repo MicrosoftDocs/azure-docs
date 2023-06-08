@@ -2,7 +2,7 @@
 title: Azure Service Bus - message expiration
 description: This article explains about expiration and time to live (TTL) of Azure Service Bus messages. After such a deadline, the message is no longer delivered.
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.date: 06/08/2023
 ms.custom: contperf-fy22q2
 ---
 
@@ -34,14 +34,14 @@ If the message is protected from expiration while under lock and if the flag is 
 
 The combination of time-to-live and automatic (and transactional) dead-lettering on expiry are a valuable tool for establishing confidence in whether a job given to a handler or a group of handlers under a deadline is retrieved for processing as the deadline is reached.
 
-For example, consider a web site that needs to reliably execute jobs on a scale-constrained backend, and which occasionally experiences traffic spikes or wants to be insulated against availability episodes of that backend. In the regular case, the server-side handler for the submitted user data pushes the information into a queue and subsequently receives a reply confirming successful handling of the transaction into a reply queue. If there is a traffic spike and the backend handler can't process its backlog items in time, the expired jobs are returned on the dead-letter queue. The interactive user can be notified that the requested operation will take a little longer than usual, and the request can then be put on a different queue for a processing path where the eventual processing result is sent to the user by email. 
+For example, consider a web site that needs to reliably execute jobs on a scale-constrained backend, and which occasionally experiences traffic spikes or wants to be insulated against availability episodes of that backend. In the regular case, the server-side handler for the submitted user data pushes the information into a queue and subsequently receives a reply confirming successful handling of the transaction into a reply queue. If there's a traffic spike and the backend handler can't process its backlog items in time, the expired jobs are returned on the dead-letter queue. The interactive user can be notified that the requested operation will take a little longer than usual, and the request can then be put on a different queue for a processing path where the eventual processing result is sent to the user by email. 
 
 
 ## Temporary entities
 
 Service Bus queues, topics, and subscriptions can be created as temporary entities, which are automatically removed when they haven't been used for a specified period of time.
  
-Automatic cleanup is useful in development and test scenarios in which entities are created dynamically and aren't cleaned up after use, due to some interruption of the test or debugging run. It's also useful when an application creates dynamic entities, such as a reply queue, for receiving responses back into a web server process, or into another relatively short-lived object where it's difficult to reliably clean up those entities when the object instance disappears.
+Automatic cleanup is useful in development and test scenarios in which entities are created dynamically and aren't cleaned up after use, due to some interruption of the test or debugging run. It's also useful when an application creates dynamic entities, such as a reply queue, for receiving responses back into a web server process, or into another relatively short-lived object where it's difficult to reliably cleanup those entities when the object instance disappears.
 
 The feature is enabled using the **auto delete on idle** property on the namespace. This property is set to the duration for which an entity must be idle (unused) before it's automatically deleted. The minimum value for this property is 5 minutes.
 
@@ -84,7 +84,7 @@ To learn more about Service Bus messaging, see the following articles:
 - [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
 - [Dead-letter queues](service-bus-dead-letter-queues.md)
 - [Message deferral](message-deferral.md)
-- [Pre-fetch messages](service-bus-prefetch.md)
+- [Prefetch messages](service-bus-prefetch.md)
 - [Autoforward messages](service-bus-auto-forwarding.md)
 - [Transaction support](service-bus-transactions.md)
 - [Geo-disaster recovery](service-bus-geo-dr.md)
