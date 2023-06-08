@@ -176,7 +176,7 @@ In this section, we describe the interface and behavioral changes you can expect
 #### Behavioral changes
 
 * Exceptions thrown by activities scheduled with `Wait-DurableTask` (as in the Fan-Out/Fan-In pattern) are no longer silently ignored. Instead, on an exception, the CmdLet propagates that exception to the orchestrator so that it may be handled by user-code.
-* Null-valued task-results in a `Wait-DurableTask` (i.e WhenAll) invocation are no longer dropped. Instead, `Wait-DurableTask`'s result array includes null values in the corresponding to position of the input tasks that returned them. This means that a successful invocation of `Wait-DurableTask` without the `-Any` flag should return an array of the same size as the number of tasks it scheduled.
+* Null-valued task-results in a `Wait-DurableTask` (i.e WhenAll) invocation are no longer dropped from the result list. This means that a successful invocation of `Wait-DurableTask` without the `-Any` flag should return an array of the same size as the number of tasks it scheduled.
 
 #### Where to get support, provide feedback, and suggest changes
 
