@@ -6,47 +6,43 @@ ms.topic: include
 ms.date: 06/09/2023
 ---
 
-Create a Java console application that uses the [Azure.Search.Documents client library in the Azure SDK for Java.](/java/api/overview/azure/search). Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples/tree/main/quickstart).
+Create a Java console application that uses the [**Azure.Search.Documents**](/java/api/overview/azure/search) library to create, load, and query a search index. Alternatively, you can [download the source code](https://github.com/Azure-Samples/azure-search-java-samples/tree/main/quickstart) to start with a finished project or follow these steps to create your own.
 
 ### Set up your environment
 
-We used the following software and services to build and test this quickstart:
+We used the following tools to create this quickstart.
 
-+ [Visual Studio Code](https://code.visualstudio.com/)
-
-+ [Java extension for Visual Studio Code](https://code.visualstudio.com/docs/java/extensions)
++ [Visual Studio Code with the Java extension](https://code.visualstudio.com/docs/java/extensions)
 
 + [Java 11 SDK](/java/azure/jdk/)
 
-Begin by opening Visual Studio Code and setting up a new project.
-
 #### Create the project
 
-1. Open Visual Studio Code.
-1. Install the [Extension Pack For Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
+1. Start Visual Studio Code.
+
 1. Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) **Ctrl+Shift+P**. Search for **Create Java Project**.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-create-project.png" alt-text="Screenshot of a create a java project." border="true":::
+   :::image type="content" source="media/search-get-started-java/java-quickstart-create-project.png" alt-text="Screenshot of a create a java project." border="true":::
 
 1. Select **Maven**.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-select-maven.png" alt-text="Screenshot of a create a maven project." border="true":::
+   :::image type="content" source="media/search-get-started-java/java-quickstart-select-maven.png" alt-text="Screenshot of a create a maven project." border="true":::
 
 1. Select **maven-archetype-quickstart**.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-select-maven-project-type.png" alt-text="Screenshot of a create a maven quickstart project." border="true":::
+   :::image type="content" source="media/search-get-started-java/java-quickstart-select-maven-project-type.png" alt-text="Screenshot of a create a maven quickstart project." border="true":::
 
 1. Select the latest version, currently **1.4**.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of an enter group id." border="true":::
+   :::image type="content" source="media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of an enter group id." border="true":::
 
 1. Enter **azure.search.sample** as the group ID.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of an enter group id." border="true":::
+   :::image type="content" source="media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of an enter group id." border="true":::
 
 1. Enter **azuresearchquickstart** as the artifact ID.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-artifact-id.png" alt-text="Screenshot of an enter artifact id." border="true":::
+   :::image type="content" source="media/search-get-started-java/java-quickstart-artifact-id.png" alt-text="Screenshot of an enter artifact id." border="true":::
 
 1. Select the folder to create the project in.
 
@@ -137,7 +133,7 @@ Begin by opening Visual Studio Code and setting up a new project.
     }
     ```
 
-#### 1 - Create an index
+#### Create an index
 
 This quickstart builds a Hotels index that you'll load with hotel data and execute queries against. In this step, define the fields in the index. Each field definition includes a name, data type, and attributes that determine how the field is used.
 
@@ -324,7 +320,7 @@ Whether you use the basic `SearchField` API or either one of the helper models, 
         .setSuggesters(new SearchSuggester("sg", Arrays.asList("HotelName"))));
     ```
 
-#### 2 - Load Documents
+#### Load Documents
 
 Azure Cognitive Search searches over content stored in the service. In this step, you'll load JSON documents that conform to the hotel index you just created.
 
@@ -453,7 +449,7 @@ Once you initialize the `IndexDocumentsBatch` object, you can send it to the ind
 
 The 2-second delay compensates for indexing, which is asynchronous, so that all documents can be indexed before the queries are executed. Coding in a delay is typically only necessary in demos, tests, and sample applications.
 
-#### 3 - Search an index
+#### Search an index
 
 You can get query results as soon as the first document is indexed, but actual testing of your index should wait until all documents are indexed.
 

@@ -12,7 +12,12 @@ ms.date: 06/09/2023
 
 # Quickstart: Create a search index using the Azure SDKs
 
-Learn how to use the **Azure.Search.Documents** client library in an Azure SDKs to create, load, and query a search index using sample data.
+Learn how to use the **Azure.Search.Documents** client library in an Azure SDKs to create, load, and query a search index using sample data for [full text search](search-lucene-query-architecture.md) scenarios. This quickstart has steps for the following SDKs:
+
++ **Azure SDK for .NET**
++ **Azure SDK for Python**
++ **Azure SDK for Java**
++ **Azure SDK for JavaScript**
 
 ## Prerequisites
 
@@ -24,7 +29,7 @@ Learn how to use the **Azure.Search.Documents** client library in an Azure SDKs 
 
   [Sign in to the Azure portal](https://portal.azure.com/) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
-  In **Overview**, copy the URL and save to Notepad for a later step. An example endpoint might look like `https://mydemo.search.windows.net`.
+  In **Overview**, copy the URL and save it to Notepad for a later step. An example endpoint might look like `https://mydemo.search.windows.net`.
 
   In **Keys**, copy an admin key for full rights to create and delete objects. There are two interchangeable primary and secondary keys. Choose either one.
 

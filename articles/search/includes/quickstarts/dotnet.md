@@ -6,21 +6,17 @@ ms.topic: include
 ms.date: 06/09/2023
 ---
 
-Use the [Azure.Search.Documents (version 11) client library](/dotnet/api/overview/azure/search.documents-readme) to create a .NET Core console application in C# that creates, loads, and queries a search index.
-
-You can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) to start with a finished project or follow the steps in this article to create your own.
+Create a console application that uses the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library to create, load, and query a search index. You can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) to start with a finished project or follow these steps to create your own.
 
 #### Set up your environment
 
-After the project is created, add the client library. The [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) consists of one client library that provides all of the APIs used to work with a search service in .NET.
-
-1. Start Visual Studio and create a .NET Core console application.
+1. Start Visual Studio and create a new project for a console app.
 
 1. In **Tools** > **NuGet Package Manager**, select **Manage NuGet Packages for Solution...**.
 
 1. Select **Browse**.
 
-1. Search for `Azure.Search.Documents` and select version 11.0 or later.
+1. Search for [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) and select version 11.0 or later.
 
 1. Select **Install** on the right to add the assembly to your project and solution.
 
@@ -56,7 +52,7 @@ After the project is created, add the client library. The [Azure.Search.Document
     }
     ```
 
-### 1 - Create an index
+#### Create an index
 
 This quickstart builds a Hotels index that you'll load with hotel data and execute queries against. In this step, define the fields in the index. Each field definition includes a name, data type, and attributes that determine how the field is used.
 
@@ -165,9 +161,7 @@ In this example, synchronous methods of the Azure.Search.Documents library are u
     }
    ```
 
-<a name="load-documents"></a>
-
-### 2 - Load documents
+#### Load documents
 
 Azure Cognitive Search searches over content stored in the service. In this step, you'll load JSON documents that conform to the hotel index you just created.
 
@@ -303,7 +297,7 @@ When uploading documents, you must use an [IndexDocumentsBatch](/dotnet/api/azur
 
     The 2-second delay compensates for indexing, which is asynchronous, so that all documents can be indexed before the queries are executed. Coding in a delay is typically only necessary in demos, tests, and sample applications.
 
-### 3 - Search an index
+#### Search an index
 
 You can get query results as soon as the first document is indexed, but actual testing of your index should wait until all documents are indexed.
 
@@ -461,7 +455,7 @@ The previous queries show multiple [ways of matching terms in a query](search-qu
 
 Full text search and filters are performed using the [SearchClient.Search](/dotnet/api/azure.search.documents.searchclient.search) method. A search query can be passed in the `searchText` string, while a filter expression can be passed in the [Filter](/dotnet/api/azure.search.documents.searchoptions.filter) property of the [SearchOptions](/dotnet/api/azure.search.documents.searchoptions) class. To filter without searching, just pass `"*"` for the `searchText` parameter of the [Search](/dotnet/api/azure.search.documents.searchclient.search) method. To search without filtering, leave the `Filter` property unset, or don't pass in a `SearchOptions` instance at all.
 
-### Run the program
+#### Run the program
 
 Press F5 to rebuild the app and run the program in its entirety.
 

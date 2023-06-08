@@ -6,19 +6,17 @@ ms.topic: include
 ms.date: 06/09/2023
 ---
 
-In this exercise, build a Jupyter Notebook that uses the [azure-search-documents library](/python/api/overview/azure/search-documents-readme) in the Azure SDK for Python. 
+In this exercise, build a Jupyter Notebook that uses the [**azure-search-documents**](/python/api/overview/azure/search-documents-readme) library to create, load, and query an index. You can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart/v11) or follow these steps to create your own.
 
-Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart/v11).
+#### Set up your environment
 
-## Set up your environment
+We used the following tools to create this quickstart.
 
-The following services and tools are used in this quickstart.
-
-* Visual Studio Code with the Python extension (or equivalent tool), with Python 3.7 or later
+* [Visual Studio Code with the Python extension](https://code.visualstudio.com/docs/languages/python) (or an equivalent IDE), with Python 3.7 or later
 
 * [azure-search-documents package](https://pypi.org/project/azure-search-documents/) from the Azure SDK for Python
 
-## Connect to Azure Cognitive Search
+#### Connect to Azure Cognitive Search
 
 In this task, create the notebook, load the libraries, and set up your clients.
 
@@ -79,7 +77,7 @@ In this task, create the notebook, load the libraries, and set up your clients.
 
 1. Run each step.
 
-## 1 - Create an index
+#### Create an index
 
 Required index elements include a name, a fields collection, and a document key that uniquely identifies each search document. The fields collection defines the structure of a logical *search document*, used for both loading data and returning results. 
 
@@ -137,9 +135,7 @@ This index is named "hotels-quickstart" and has the field definitions you see be
 
 1. Run each step.
 
-<a name="load-documents"></a>
-
-## 2 - Load documents
+#### Load documents
 
 To load documents, create a documents collection, using an [index action](/python/api/azure-search-documents/azure.search.documents.models.indexaction) for the operation type (upload, merge-and-upload, and so forth). Documents originate from [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) on GitHub.
 
@@ -238,7 +234,7 @@ To load documents, create a documents collection, using an [index action](/pytho
 
 1. Run each step to push the documents to an index in your search service.
 
-## 3 - Search an index
+#### Search an index
 
 This step shows you how to query an index using the **search** method of the [search.client class](/python/api/azure-search-documents/azure.search.documents.searchclient).
 
