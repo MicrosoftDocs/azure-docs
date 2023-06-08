@@ -176,7 +176,7 @@ The [Microsoft Q&A](/answers/tags/132/azure-translator) and [Stack Overflow](htt
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Document Translation SDK quickstart**](quickstart/document-translation-sdk.md)
+> [**Document Translation SDK quickstart**](quickstarts/document-translation-sdk.md)
 
 >[!div class="nextstepaction"]
 > [**Document Translation v1.0 REST API reference**](reference/rest-api-guide.md)

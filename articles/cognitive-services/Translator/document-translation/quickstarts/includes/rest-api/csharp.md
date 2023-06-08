@@ -20,19 +20,19 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
 1. On the **Get started** page, choose Create a new project.
 
-    :::image type="content" source="../../media/visual-studio/get-started.png" alt-text="Screenshot of Visual Studio 2022 get started window.":::
+    :::image type="content" source="../../../media/visual-studio/get-started.png" alt-text="Screenshot of Visual Studio 2022 get started window.":::
 
 1. On the **Create a new project page**, enter **console** in the search box. Choose the **Console Application** template, then choose **Next**.
 
-     :::image type="content" source="../../media/visual-studio/create-project.png" alt-text="Screenshot of Visual Studio 2022 create new project page.":::
+     :::image type="content" source="../../../media/visual-studio/create-project.png" alt-text="Screenshot of Visual Studio 2022 create new project page.":::
 
 1. In the **Configure your new project** dialog window, enter `document-translation-qs` in the Project name box. Then choose Next.
 
-    :::image type="content" source="../../media/visual-studio/configure-new-project.png" alt-text="Screenshot of Visual Studio 2022 configure new project set-up window.":::
+    :::image type="content" source="../../../media/visual-studio/configure-new-project.png" alt-text="Screenshot of Visual Studio 2022 configure new project set-up window.":::
 
 1. In the **Additional information** dialog window, select **.NET 6.0 (Long-term support)**, and then select **Create**.
 
-    :::image type="content" source="../../media/visual-studio/additional-information.png" alt-text="Screenshot of Visual Studio 2022 additional information set-up window.":::
+    :::image type="content" source="../../../media/visual-studio/additional-information.png" alt-text="Screenshot of Visual Studio 2022 additional information set-up window.":::
 
 <!-- > [!div class="nextstepaction"]
 > [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment) -->
@@ -41,15 +41,15 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
 1. Right-click on your **document-translation-qs** project and select **Manage NuGet Packages...** .
 
-    :::image type="content" source="../../media/visual-studio/manage-nuget-packages.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
+    :::image type="content" source="../../../media/visual-studio/manage-nuget-packages.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
 
 1. Select the Browse tab and type **NewtonsoftJson**.
 
-     :::image type="content" source="../../media/visual-studio/get-newtonsoft-json.png" alt-text="Screenshot of select prerelease NuGet package in Visual Studio.":::
+     :::image type="content" source="../../../media/visual-studio/get-newtonsoft-json.png" alt-text="Screenshot of select prerelease NuGet package in Visual Studio.":::
 
 1. Select the latest stable version from the dropdown menu and install the package in your project.
 
-    :::image type="content" source="../../media/visual-studio/install-nuget-package.png" alt-text="Screenshot of install selected NuGet package window.":::
+    :::image type="content" source="../../../media/visual-studio/install-nuget-package.png" alt-text="Screenshot of install selected NuGet package window.":::
 
 <!-- > [!div class="nextstepaction"]
 > [I ran into an issue installing the NuGet package.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Install-package) -->
@@ -76,7 +76,7 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 ## Code sample
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../../cognitive-services/security-features.md).
 
 ```csharp
 using System.Text;
@@ -130,7 +130,7 @@ class Program
 
 Once you've added a code sample to your application, choose the green **Start** button next to **document-translation-qs** to build and run your program, or press **F5**.
 
-:::image type="content" source="../../media/visual-studio/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+:::image type="content" source="../../../media/visual-studio/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 Upon successful completion: 
 
