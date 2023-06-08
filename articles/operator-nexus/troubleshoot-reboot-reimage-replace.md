@@ -22,30 +22,30 @@ The time required to complete each of these actions is relatively similar, with 
 
 ## Identifying the corrective action
 
-When troubleshooting a BMM for failures and determining the best corrective action, it’s important to understand the options available. Rebooting or reimaging a BMM server can be a simple and effective way to fix problems or simply restore the software to a known-good place. This article will provide direction on the best practices to be followed for each of the three R’s.
+When troubleshooting a BMM for failures and determining the best corrective action, it’s important to understand the options available. Rebooting or reimaging a BMM server can be a simple and effective way to fix problems or simply restore the software to a known-good place. This article provides direction on the best practices to be followed for each of the three R’s.
 
 It's important to have a systematic approach when troubleshooting technical issues. One effective method is to start with the simplest and least invasive solution and work your way up to more complex and drastic measures, if necessary.
 
-The first step in troubleshooting is often to try rebooting the device or system. This can help to clear any temporary glitches or errors that may be causing the issue. If rebooting does not solve the problem, the next step may be to try reimaging the device or system. 
+The first step in troubleshooting is often to try rebooting the device or system. Rebooting can help to clear any temporary glitches or errors that may be causing the issue. If rebooting doesn't solve the problem, the next step may be to try reimaging the device or system.
 
-If reimaging does not solve the problem, the final step may be to replace the faulty hardware component. This can be a more drastic measure, but it may be necessary if the issue is related to a hardware malfunction.
-It's important to note that these troubleshooting methods may not always be effective, and there may be other factors at play that require a different approach. 
+If reimaging doesn't solve the problem, the final step may be to replace the faulty hardware component. This can be a more drastic measure, but it may be necessary if the issue is related to a hardware malfunction.
+It's important to note that these troubleshooting methods may not always be effective, and there may be other factors at play that require a different approach.
 
 ### Troubleshooting with Reboot action
 
-Rebooting a BMM is a process of restarting the server through a simple API call. This can be useful for troubleshooting issues when tenant VMs on the host are not responsive or otherwise stuck. 
+Rebooting a BMM is a process of restarting the server through a simple API call. This can be useful for troubleshooting issues when tenant VMs on the host aren't responsive or otherwise stuck.
 
-The reboot will typically be the starting point for mitigating a problem. 
+The reboot typically is the starting point for mitigating a problem.
 
 ### Troubleshooting with Reimage action
 
-Reimaging a BMM is a process used to redeploy the image on the OS disk, without impact to the Tenant data. This action executes the steps to rejoin the cluster with the same identifiers. This can be useful for troubleshooting issues by restoring the OS to a known-good working state. Common causes which can be resolved through reimage include recovery due to doubt of host integrity, suspected and/or confirmed security compromise, “break-glass” write activity performed. 
+Reimaging a BMM is a process used to redeploy the image on the OS disk, without impact to the Tenant data. This action executes the steps to rejoin the cluster with the same identifiers. This can be useful for troubleshooting issues by restoring the OS to a known-good working state. Common causes that can be resolved through reimage include recovery due to doubt of host integrity, suspected and/or confirmed security compromise, “break-glass” write activity performed. 
 
 Reimage action is the recommended best practice for lowest operational risk to ensure the integrity of the BMM.
 
 ### Troubleshooting with Replace action
 
-Servers contain many physical components which can fail over time. It is important to understand which physical repairs require a BMM replace action, do not require a replace and which are recommended but not required. A hardware validation process is invoked to ensure the integrity of the physical host in advance of deploying the OS image. Like the reimage action, the Tenant data is not modified during this activity.
+Servers contain many physical components which can fail over time. It's important to understand which physical repairs require a BMM replace action, do not require a replace and which are recommended but not required. A hardware validation process is invoked to ensure the integrity of the physical host in advance of deploying the OS image. Like the reimage action, the Tenant data is not modified during this activity.
 
 As a best practice, the BMM should be cordoned and shut down in advance of physical repair.
 When performing the following physical repairs, a replace action is not required, as the BMM host will continue to function normally after the repair.  
