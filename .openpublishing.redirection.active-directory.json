@@ -12593,7 +12593,7 @@
       },
 
       {
-      "source_path_from_root": "articles/active-directory/hybrid/connect/reference-connect-germany.md",
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/reference-connect-germany.md",
       "redirect_url": "/azure/active-directory/hybrid/connect/whatis-azure-ad-connect",
       "redirect_document_id": false
       },
