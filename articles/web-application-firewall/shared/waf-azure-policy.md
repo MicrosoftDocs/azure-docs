@@ -61,7 +61,7 @@ There are multiple built-in Azure Policy definitions to manage WAF resources. A 
 
 3.	On the Assignments page, select the **Assign policy** icon at the top.
 
-:::image type="content" source="../media/waf-azure-policy/assign-policy.png" alt-text="Basics tab on the Assign Policy page":::
+   :::image type="content" source="../media/waf-azure-policy/assign-policy.png" alt-text="Basics tab on the Assign Policy page":::
 
 4.	On the Assign Policy page basics tab, update the following fields:
     1.	**Scope**: Select what Azure subscriptions and resource groups the policies apply to.
