@@ -40,12 +40,12 @@ When updating a connector, ensure that the dll is updated in all required locati
 2. Stop the Microsoft ECMA2Host service.
 3. Manually update the custom connector dll into the following folders.
     1. ECMA
-    2. ECMA -> Cache -> <Connector Name>
-    3. ECMA -> Cache -> <Connector Name> -> AutosyncService
+    2. ECMA > Cache > connector name
+    3. ECMA > Cache > connector name > AutosyncService
 4. Start the Microsoft ECMA2Host service.
    
  > [!NOTE]
- > Note: If multiple connectors are using the same custom connector, you will need to complete step 3.ii and 3.iii for each connector. 
+ > Note: If multiple connectors are using the same custom dll, you will need to complete step 3.ii and 3.iii for each connector. 
  
 ## Requirements
 
