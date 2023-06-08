@@ -28,7 +28,7 @@ It's important that you monitor how you use your Azure Active Directory (AD) B2C
 
 1. Use the steps in [Create a client secret](client-credentials-grant-flow#step-2-register-an-application) to configure a client secret for your app. Record the secret's **Value**. You'll use this value for configuration in a later step.
 
-1. For your app to call Microsoft Graph API, you need to grant it the required permissions. To do so, use the steps in [Grant API access](microsoft-graph-get-started?tabs=app-reg-ga#grant-api-access), but only grant **Organization.Read.All** permission.
+1. For your app to call Microsoft Graph API, you need to grant it the required permissions. To do so, use the steps in [Grant API access](microsoft-graph-get-started.md?tabs=app-reg-ga#grant-api-access), but only grant **Organization.Read.All** permission.
 
 1. Run the following PowerShell script. Replace the placeholder: 
 
