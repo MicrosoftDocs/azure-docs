@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Overview
   items:
-    - name: Azure Monitor Overview
+    - name: Azure Monitor overview
       href: overview.md
     - name: Getting started
       items:
@@ -89,7 +89,7 @@ items:
   items:
   - name: Monitor Azure resources
     items:
-    - name: Monitor an Azure Resource
+    - name: Monitor an Azure resource
       href: essentials/monitor-azure-resource.md
     - name: Analyze metric data
       href: essentials/tutorial-metrics.md
@@ -107,7 +107,7 @@ items:
         items:
         - name: Overview
           href: app/codeless-overview.md
-        - name: Azure VM and Virtual Machine Scale Set
+        - name: Azure VM and Virtual Machine Scale Sets
           href: app/azure-vm-vmss-apps.md
         - name: Azure App Service
           items:
@@ -310,7 +310,7 @@ items:
         href: app/live-stream.md
       - name: Transaction search
         href: app/diagnostic-search.md
-      - name: Smart Detection
+      - name: Smart detection
         href: alerts/proactive-diagnostics.md
         items:
         - name: Upgrade to alerts
@@ -373,7 +373,7 @@ items:
             href: profiler/profiler-cloudservice.md
           - name: Azure Service Fabric app
             href: profiler/profiler-servicefabric.md
-          - name: Azure Virtual Machine
+          - name: Azure Virtual Machines
             href: profiler/profiler-vm.md
           - name: ASP.NET Core app hosted in Linux on App Service
             href: profiler/profiler-aspnetcore-linux.md
