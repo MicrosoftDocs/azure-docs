@@ -1,31 +1,41 @@
 ---
-title: Prepare a vanilla JavaScript single-page application for authentication 
-description: Learn how to prepare a vanilla JavaScript single-page app (SPA) for authentication and authorization with your Azure Active Directory (AD) for customers tenant.
+title: Prepare a Vanilla JavaScript single-page app (SPA) for authentication in a customer tenant 
+description: Learn how to prepare a Vanilla JavaScript single-page app (SPA) for authentication and authorization with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
+
 ms.author: owenrichards
 ms.service: active-directory
 ms.subservice: ciam
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 05/25/2023
 
-#Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure AD for customers tenant.
+#Customer intent: As a developer, I want to learn how to configure Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure AD for customers tenant.
 ---
 
-# Prepare a vanilla JavaScript single-page application for authentication
+# Prepare a Vanilla JavaScript single-page app (SPA) for authentication in a customer tenant
 
-After registering an application and creating a user flow in an Azure Active Directory (AD) for customers tenant, a vanilla JavaScript (JS) single-page application (SPA) can be created using an integrated development environment (IDE) or a code editor. In this article, you'll create a vanilla JS SPA and a server to host the application.
+In the [previous article](./tutorial-single-page-app-vanillajs-sign-in-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant.
+
+In this tutorial you'll;
+
+> [!div class="checklist"]
+> * Create a React project in Visual Studio Code
+> * Install required packages
+> * Configure the settings for the application
+> * Add code to *server.js* and *app files to implement authentication
 
 ## Prerequisites
 
-- Completion of the prerequisites and steps in [Sign in users to a vanilla JS single-page application](how-to-single-page-app-vanillajs-prepare-tenant.md).
-- Although any IDE that supports vanilla JS applications can be used, **Visual Studio Code** is recommended for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
-- [Node.js](https://nodejs.org/en/download/).
+* Completion of the prerequisites and steps in [Prepare your customer tenant to authenticate a Vanilla JavaScript single-page app](tutorial-single-page-app-vanillajs-sign-in-prepare-tenant.md).
+* Although any integrated development environment (IDE) that supports Vanilla JS applications can be used, **Visual Studio Code** is recommended for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+* [Node.js](https://nodejs.org/en/download/).
 
-## Create a new vanilla JS project and install dependencies
+## Create a new Vanilla JS project and install dependencies
 
-1. Open a terminal in your IDE and navigate to the location in which to create your project.
+1. Open Visual Studio Code, select **File** > **Open Folder...**. Navigate to and select the location in which to create your project.
+1. Open a new terminal by selecting **Terminal** > **New Terminal**.
 1. Run the following command to create a new vanilla JS project
 
     ```powershell
@@ -53,11 +63,10 @@ After registering an application and creating a user flow in an Azure Active Dir
     npm install express morgan @azure/msal-browser
     ```
 
-## Create the server file
+## Edit the *server.js* file
 
-**Express** is a web application framework for **Node.js**. It's used to create a server that hosts the application. **Morgan** is the middleware that logs HTTP requests to the console. The server file is used to host these dependencies and contains the routes for the application.
+**Express** is a web application framework for **Node.js**. It's used to create a server that hosts the application. **Morgan** is the middleware that logs HTTP requests to the console. The server file is used to host these dependencies and contains the routes for the application. Authentication and authorization are handled by the [Microsoft Authentication Library for JavaScript (MSAL.js)](/javascript/api/overview/).
 
-1. In your IDE, create a new file and call it *server.js*.
 1. Add the following code snippet to the *server.js* file:
 
     ```javascript
@@ -102,7 +111,79 @@ After registering an application and creating a user flow in an Azure Active Dir
 
 In this code, the **app** variable is initialized with the **express** module and **express** is used to serve the public assets. **Msal-browser** is served as a static asset and is used to initiate the authentication flow.
 
+## Edit the authentication configuration file
+
+The application uses the [Implicit Grant Flow](../../develop/v2-oauth2-implicit-grant-flow.md) to authenticate users. The Implicit Grant Flow is a browser-based flow that doesn't require a back-end server. The flow redirects the user to the sign-in page, where the user signs in and consents to the permissions that are being requested by the application. The purpose of *authConfig.js* is to configure the authentication flow.
+
+1. Open *public/authConfig.js* and add the following code snippet:
+
+    ```javascript
+    /**
+     * Configuration object to be passed to MSAL instance on creation. 
+     * For a full list of MSAL.js configuration parameters, visit:
+     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md 
+     */
+    const msalConfig = {
+        auth: {
+            clientId: 'Enter_the_Application_Id_Here', // This is the ONLY mandatory field that you need to supply.
+            authority: 'https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/', // Replace "Enter_the_Tenant_Subdomain_Here" with your tenant subdomain
+            redirectUri: '/', // You must register this URI on Azure Portal/App Registration. Defaults to window.location.href e.g. http://localhost:3000/
+            navigateToLoginRequestUrl: true, // If "true", will navigate back to the original request location before processing the auth code response.
+        },
+        cache: {
+            cacheLocation: 'sessionStorage', // Configures cache location. "sessionStorage" is more secure, but "localStorage" gives you SSO.
+            storeAuthStateInCookie: false, // set this to true if you have to support IE
+        },
+        system: {
+            loggerOptions: {
+                loggerCallback: (level, message, containsPii) => {
+                    if (containsPii) {
+                        return;
+                    }
+                    switch (level) {
+                        case msal.LogLevel.Error:
+                            console.error(message);
+                            return;
+                        case msal.LogLevel.Info:
+                            console.info(message);
+                            return;
+                        case msal.LogLevel.Verbose:
+                            console.debug(message);
+                            return;
+                        case msal.LogLevel.Warning:
+                            console.warn(message);
+                            return;
+                    }
+                },
+            },
+        },
+    };
+    
+    /**
+     * An optional silentRequest object can be used to achieve silent SSO
+     * between applications by providing a "login_hint" property.
+     */
+    
+    // const silentRequest = {
+    //   scopes: ["openid", "profile"],
+    //   loginHint: "example@domain.net"
+    // };
+    
+    // exporting config object for jest
+    if (typeof exports !== 'undefined') {
+        module.exports = {
+            msalConfig: msalConfig,
+            loginRequest: loginRequest,
+        };
+    }
+     ```
+
+1. Replace the following values with the values from the Azure portal:
+    - Find the `Enter_the_Application_Id_Here` value and replace it with the **application ID (clientId)** of the app you registered in the Microsoft Entra admin center.
+    - In **Authority**, find `Enter_the_Tenant_Subdomain_Here` and replace it with the subdomain of your tenant. For example, if your tenant primary domain is *caseyjensen@onmicrosoft.com*, the value you should enter is *casyjensen*.
+1. Save the file.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure application for authentication](how-to-single-page-app-vanillajs-configure-authentication.md)
+> [Configure SPA for authentication](tutorial-single-page-app-vanillajs-sign-in-configure-authentication-flows.md)
