@@ -23,7 +23,7 @@ ms.date: 05/13/2023
 
 Before deploying the Kubernetes template, let's review the content to understand its structure. 
 
-:::code language="bicep" source="includes/kubernetes-cluster/quickstart-deploy.bicep":::
+:::code language="bicep" source="includes/kubernetes-cluster/quickstart-bicep-deploy.bicep":::
 
 Once you have reviewed and saved the template file named ```kubernetes-deploy.bicep```, proceed to the next section to deploy the template.
 
