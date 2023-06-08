@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 # Manage inactive users in your Azure Active Directory B2C tenant
 
-It's recommended that inactive user accounts are monitored and managed properly, to control the number of objects that consume from the directory quota and to reduce the overall attack surface. 
+We recommend that you monitor your user accounts. Monitoring your user accounts enables you to discover inactive user accounts, which consumes your Azure Active Directory (AD) B2C directory quota. Monitoring user accounts also help you to reduce the overall attack surface. 
 
 ## List inactive users in your Azure AD B2C tenant
  
@@ -43,7 +43,7 @@ $response = Invoke-RestMethod $endpoint -Method "POST" -Headers $headers -Body $
 ## Call Graph API using token obtained in previous step
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer " + $response.access_token)
-$response = Invoke-RestMethod 'https://graph.microsoft.com/beta/organization?$select=directorySizeQuota' -Method 'GET' -Headers $headers
+$response = Invoke-RestMethod 'https://graph.microsoft.com/beta/users?$select=displayName,signInActivity' -Method 'GET' -Headers $headers
 $response | ConvertTo-Json
 ```
 
@@ -54,13 +54,13 @@ The following JSON shows an example of the results:
     "@odata.context":  "https://graph.microsoft.com/beta/$metadata#users(displayName,signInActivity)",
     "value":  [
         {
-            "id":  "178a7baa-1768-449a-bc5a-103f5ca6670a",
-            "displayName":  "Test User 16",
+            "id":  "[object id]",
+            "displayName":  "Martin Balaz",
             "signInActivity":  "@{lastSignInDateTime=2023-03-28T20:08:07Z; lastSignInRequestId=c43ac6b5-c644-456f-832d-ea323bf1cf00; lastNonInteractiveSignInDateTime=; lastNonInteractiveSignInRequestId=}"
         },
         {
-            "id":  "e4d91330-c1f3-4c35-ba26-230515c51761",
-            "displayName":  "Test User 18",
+            "id":  "[object id]",
+            "displayName":  "Takuya Miura",
             "signInActivity":  "@{lastSignInDateTime=2023-03-28T20:08:26Z; lastSignInRequestId=3f546eba-ba9b-4bc4-9bd3-b5b6fa5fce00; lastNonInteractiveSignInDateTime=; lastNonInteractiveSignInRequestId=}"
         }
     ]
@@ -71,20 +71,12 @@ The attribute lastSignInDateTime shows the last sign in date.
 
 ## Delete inactive users in your Azure AD B2C tenant
 
-To delete an user in your Azure AD B2C tenant you need to call the following Graph API 
+To delete a user in your Azure AD B2C tenant, you need to call the [Delete a user](/graph/api/user-delete) Microsoft Graph API. For this to work, grant your app **User.ReadWrite.All** Microsoft Graph API permission as explained earlier.
 
 >[!NOTE]
 >DELETE /graph/api/user-delete
 
-Use the value if the "id" attributed obtained in the previous list of inactive users.
-
-This delete step can be included in the PowerShell script. 
-
-You need to add the scope User.ReadWriteAll to the app registration.
-
->[!NOTE]
->The following script will attempt to delete users from your directory - please review before executing.
-
+The following PowerShell script reads all users with sign in date before a given date, then attempts to delete them. Before you run it, replace the `[TenantId]`, `[ClientID]` and `[ClientSecret]` placeholders with appropriate values as explained earlier. Also make sure you replace the date "2023-04-30T00:00:00Z" to a date that you consider appropriate to determine if an user is considered inactive.
 
 ```ps
 $tenantId = "[TenantId]"
