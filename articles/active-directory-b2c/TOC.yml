@@ -48,6 +48,9 @@
     - name: Find tenant name and ID  
       href: tenant-management-read-tenant-name.md
       displayName: tenant name, tenant ID, tenant details    
+    - name: Manage directory quota    
+      href: tenant-management-directory-quota.md
+      displayName: Monitor directory size quota           
   - name: 5 - Clean up and delete tenant
     href: tutorial-delete-tenant.md
 # Node Samples
@@ -401,6 +404,9 @@
     - name: Migrate users
       href: user-migration.md
       displayName: bulk import
+    - name: Manage inactive users   
+      href: user-manage-inactive.md
+      displayName: Manage and delete inactive users          
     - name: Partner integration
       items:
       - name: N8identity
