@@ -29,11 +29,24 @@ There are multiple ways to connect remote networks to Global Secure Access. In a
 
 Remote networks are configured on three tabs. To work through each tab, either select the tab from the top of the page, or select the **Next** button at the bottom of the page.
 
+## Onboard your tenant for remote networks
+
+Before you can set up remote networks, you need to onboard your tenant information with Microsoft. This is a one-time process that enables your tenant to use remote network connectivity.
+
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator. 
+1. Go to to **Global Secure Access (preview)** > **Devices** > **Remote network**.
+1. Select the link to the **Onboarding form** in the message at the top of the page.
+1. In the window that opens, review the Tenant ID and remote network region details.
+1. Select the **Next** button.
+1. Select the link to send an email to the Global Secure Access team. Once your tenant is processed, we will send IPsec tunnel and BDG connectivity details to the email you use.
+1. Once this step is complete, return to this form and select the acknowledgment checkbox. 
+<!--- do we need to say anything about checking the box if it's not done? like you can try but nothing will work?--->
+
 ### Basics
 The first step is to provide the basic details of your remote network, including the name, location, and bandwidth capacity. Completing this tab is required to create a new remote network.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator. 
-1. Browse to **Devices** > **Remote networks**.
+1. Go to to **Global Secure Access (preview)** > **Devices** > **Remote network**.
 1. Select the **Create remote network** button and provide the following details:
     - **Name**
     - **Region**
