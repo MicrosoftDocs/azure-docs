@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 05/10/2023
+ms.date: 06/07/2023
 ms.author: rolyon
 ms.custom: it-pro,subject-rbac-steps
 
@@ -181,6 +181,10 @@ Before you remove a guest user from a directory, you should first remove any rol
 
 1. In the remove role assignment message that appears, click **Yes**.
 
+1. Click the **Classic administrators** tab.
+
+1. If the guest user has a Co-Administrator assignment, add a check mark next to the guest user and click **Remove**.
+
 1. In the left navigation bar, click **Azure Active Directory** > **Users**.
 
 1. Click the guest user you want to remove.
@@ -232,4 +236,3 @@ If a guest user has been granted access to a directory, but they do not see the 
 - [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md)
 - [Properties of an Azure Active Directory B2B collaboration user](../active-directory/external-identities/user-properties.md)
 - [The elements of the B2B collaboration invitation email - Azure Active Directory](../active-directory/external-identities/invitation-email-elements.md)
-- [Add a guest user as a Co-Administrator](classic-administrators.md#add-a-guest-user-as-a-co-administrator)
