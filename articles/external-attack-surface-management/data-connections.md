@@ -1,8 +1,4 @@
 ---
-# Required metadata 
-# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
-# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
-
 title:       Defender EASM Data Connections 
 description: "The data connector sends Defender EASM asset data to two different platforms: Microsoft Log Analytics and Azure Data Explorer. Users need to be active customers to export Defender EASM data to either tool, and data connections are subject to the pricing model for each respective platform."
 author:      elaineriq # GitHub alias
@@ -71,7 +67,7 @@ Please note that use of this data connection is subject to the pricing structure
    
 ## Configuring Data Explorer permissions
 
-1. First, ensure that the Defender "EASM API" service principal has access to the correct roles in the database where you wish to export your attack surface data. For this reason, first ensure that your Defender EASM resource has been created in the appropriate tenant as this action provisions the EASM API principal. Refer to this [service principal provisioning article](https://review.learn.microsoft.com/identity/microsoft-identity-platform/mechanisms-for-service-principal-provisioning?branch=main) for more information on service principal provisioning. 
+1. First, ensure that the Defender "EASM API" service principal has access to the correct roles in the database where you wish to export your attack surface data. For this reason, first ensure that your Defender EASM resource has been created in the appropriate tenant as this action provisions the EASM API principal.  
 5. Open the Data Explorer cluster that will ingest your Defender EASM data or [create a new cluster](/azure/data-explorer/create-cluster-database-portal). 
 6. Select **Databases** in the Data section of the left-hand navigation menu.
 7. Select **+ Add Database** to create a database to house your Defender EASM data.
