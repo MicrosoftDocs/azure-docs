@@ -46,7 +46,7 @@ To create a dynamic scope, follow the steps:
 1. In the **Add a dynamic scope** page, select subscriptions which is the mandatory field for creating a scope.
     1. In **Filter by**, choose **Select** and in **Select filter by**, which are the optional fields, specify the Resource group, Resource type, Location, Tags, and OS type and then select  **Ok**.
     1.  In the **Preview of machines based on above scope**, you can view the list of machines for the selected criteria and then select **Save**. Here, the list of the machines may be different at run time.
-1. In **Configure Azure VMs for schedule patching** page, you provide your consent and it does one one of the following: 
+1. In **Configure Azure VMs for schedule patching** page, you provide your consent and it does one of the following: 
     1. select **Change the required options to ensure schedule supportability** option to confirm that you want to update the patch orchestration from the existing option to *Customer Managed Schedules (Preview)*: This updates the following two properties on your behalf:
     
        - *Patch mode = AutomaticByPlatform*
@@ -59,7 +59,7 @@ To create a dynamic scope, follow the steps:
 
 1. Select **Save** to go to the **Dynamic Scopes** tab to view and edit the Dynamic scope you created.
     
-1. In **Machines** tab, select **Add machines** to add any individual machnies to the maintenance configuration and select **Updates**.
+1. In **Machines** tab, select **Add machines** to add any individual machines to the maintenance configuration and select **Updates**.
 1. In the **Updates** tab, select the patch classification that you want to include/exclude and select **Tags**.
 1. Provide the tags in **Tags** tab.
 1. Select  **Review** and then **Review + Create**.
