@@ -37,8 +37,8 @@ The following table maps service types to corresponding required data types:
 
 | Service type | Agent (Windows Service name) | Purpose | Data type generated  |
 | --- | --- | --- | --- |  
-| Azure AD Connect (Sync) | Azure AD Connect Health Sync Insights Service | Collect AAD Connect-specific information (connectors, synchronization rules, etc.) | - AadSyncService-SynchronizationRules <br />  - AadSyncService-Connectors <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
-|  | Azure AD Connect Health Sync Monitoring Service | Collect AAD Connect-specific perf counters, ETW traces, files | Performance counter |
+| Azure AD Connect (Sync) | Azure AD Connect Health Sync Insights Service | Collect Azure AD Connect-specific information (connectors, synchronization rules, etc.) | - AadSyncService-SynchronizationRules <br />  - AadSyncService-Connectors <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
+|  | Azure AD Connect Health Sync Monitoring Service | Collect Azure AD Connect-specific perf counters, ETW traces, files | Performance counter |
 | AD DS | Azure AD Connect Health AD DS Insights Service | Perform synthetic tests, collect topology information, replication metadata |  - Adds-TopologyInfo-Json <br /> - Common-TestData-Json (creates the test results)   | 
 |  | Azure AD Connect Health AD DS Monitoring Service | Collect ADDS-specific perf counters, ETW traces, files | - Performance counter  <br /> - Common-TestData-Json (uploads the test results)  |
 | AD FS | Microsoft Azure AD Connect Health Agent | Perform synthetic tests | TestResult (creates the test results) | 
