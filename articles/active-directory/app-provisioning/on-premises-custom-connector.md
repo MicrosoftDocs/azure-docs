@@ -47,9 +47,15 @@ When updating a connector, ensure that the dll is updated in all required locati
  > [!NOTE]
  > Note: If multiple connectors are using the same custom connector, you will need to complete step 3.ii and 3.iii for each connector. 
  
-## Limitations 
+## Requirements
 
-Custom connectors built for MIM rely on the [ECMA framework](/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)). The following table includes capabilities of the ECMA framework that are either partially supported or not supported by the Azure AD provisioning agent. For a list of known limitations for the Azure AD provisioning service and on-premises application provisioning, see [here](known-issues.md#on-premises-application-provisioning).  
+Custom connectors built for MIM rely on the [ECMA framework](/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)). Please ensure that you are following best practices such as:
+* Ensuring that methods in your connector are declared as public
+* Excluding prefixes from method names
+  * **Correct:** public Schema GetSchema (KeyedCollection<string, ConfigParameter> configParameters)
+  * **Incorrect:** Schema PrefixGetSchema.GetSchema (KeyedCollection<string, ConfigParameter> configParameters)
+    
+The following table includes capabilities of the ECMA framework that are either partially supported or not supported by the Azure AD provisioning agent. For a list of known limitations for the Azure AD provisioning service and on-premises application provisioning, see [here](known-issues.md#on-premises-application-provisioning).  
 
 
 | **Capability / feature**   | **Support**   | **Comments**   | 
@@ -61,8 +67,9 @@ Custom connectors built for MIM rely on the [ECMA framework](/previous-versions/
 | DeleteAddAsReplace  | Not supported  |   | 
 | ExportPasswordInFirstPass  | Not supported  |   | 
 | Normalizations  | Not supported  |   | 
-| Concurrent operations  | Not supported  |   |
- 
+| Concurrent operations  | Ignored  |   |
+
+
 ## Next steps
 
 - [App provisioning](user-provisioning.md)
