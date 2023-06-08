@@ -59,9 +59,13 @@ During the retention period, soft deleted workspaces can be recovered or permane
 
 ## Deleting a workspace
 
-The default deletion behavior when deleting a workspace is soft delete. Optionally, you may override the soft delete behavior by permanently deleting your workspace. 
+The default deletion behavior when deleting a workspace is soft delete. Optionally, you may override the soft delete behavior by permanently deleting your workspace. Permanently deleting a workspace ensures workspace data is immediately deleted. Use this option to meet related compliance requirements, or whenever you require a workspace name to be reused immediately after deletion. This may be useful in dev/test scenarios where you want to create and later delete a workspace.
 
-When deleting a workspace from the Azure Portal, check __Delete the workspace permanently__. You can permanently delete only one workspace at a time, and not using a batch operation. If you are using the [Azure Machine Learning SDK or CLI](https://learn.microsoft.com/python/api/azure-ai-ml/azure.ai.ml.operations.workspaceoperations#azure-ai-ml-operations-workspaceoperations-begin-delete), you can set the `permanently_delete` flag.
+When deleting a workspace from the Azure Portal, check __Delete the workspace permanently__. You can permanently delete only one workspace at a time, and not using a batch operation. 
+
+:::image type="content" source="./media/concept-soft-delete/soft-delete-permanently-delete.png" alt-text="Screenshot of the delete workspace form in the portal.":::
+
+If you are using the [Azure Machine Learning SDK or CLI](https://learn.microsoft.com/python/api/azure-ai-ml/azure.ai.ml.operations.workspaceoperations#azure-ai-ml-operations-workspaceoperations-begin-delete), you can set the `permanently_delete` flag.
 
 ```python
 from azure.ai.ml.entities import Workspace
@@ -79,10 +83,6 @@ result = ml_client.workspaces.begin_delete(
 
 print(result)
 ```
-
-Permanently deleting a workspace allows a workspace name to be reused immediately after deletion. This may be useful in dev/test scenarios where you want to create and later delete a workspace. Another scenario is whenever compliance requirements dicate the immediately deletion of workspace data. See [General Data Protection Regulation (GDPR) implications](#general-data-protection-regulation-gdpr-implications) to learn more on how deletions are handled when soft delete is enabled.
-
-:::image type="content" source="./media/concept-soft-delete/soft-delete-permanently-delete.png" alt-text="Screenshot of the delete workspace form in the portal.":::
 
 ## Manage soft deleted workspaces
 
