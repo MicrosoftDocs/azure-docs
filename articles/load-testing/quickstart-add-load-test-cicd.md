@@ -19,17 +19,74 @@ After you complete this quickstart, you have a CI/CD workflow that is configured
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure Load Testing test. Create a [URL-based load test](./quickstart-create-and-run-load-test.md) or [use an existing JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md) to create a load test.
 
+# [Azure Pipelines](#tab/pipelines)
+- An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true). If you need help with getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
+
 # [GitHub Actions](#tab/github)
 - A GitHub account. If you don't have a GitHub account, you can [create one for free](https://github.com/).
 - A GitHub repository to store the load test input files and create a GitHub Actions workflow. To create one, see [Creating a new repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 
-# [Azure Pipelines](#tab/pipelines)
-- An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true). If you need help with getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
 ---
 
 ## Configure service authentication
 
 To run a load test in your CI/CD workflow, you need to grant permission to the CI/CD workflow to access your load testing resource. Create a service principal for the CI/CD workflow and assign the Load Test Contributor Azure RBAC role.
+
+# [Azure Pipelines](#tab/pipelines)
+
+### Create a service connection in Azure Pipelines
+
+In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription. When you create the service connection, Azure DevOps creates an Azure Active Directory service principal object.
+
+1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project.
+    
+    Replace the `<your-organization>` text placeholder with your project identifier.
+
+1. Select **Project settings** > **Service connections** > **+ New service connection**.
+
+1. In the **New service connection** pane, select the **Azure Resource Manager**, and then select **Next**.
+
+1. Select the **Service Principal (automatic)** authentication method, and then select **Next**.
+
+1. Enter the service connection details, and then select **Save** to create the service connection.
+
+    | Field | Value |
+    | ----- | ----- |
+    | **Scope level** | *Subscription*. |
+    | **Subscription** | Select the Azure subscription that hosts your load testing resource. |
+    | **Resource group** | Select the resource group that contains your load testing resource. |
+    | **Service connection name** | Enter a unique name for the service connection. |
+    | **Grant access permission to all pipelines** | Checked. |
+
+1. From the list of service connections, select the one you created earlier, and then select **Manage Service Principal**.
+
+    :::image type="content" source="./media/quickstart-add-load-test-cicd/service-connection-manage-service-principal.png" alt-text="Screenshot that shows selections for managing a service principal." lightbox="./media/quickstart-add-load-test-cicd/service-connection-manage-service-principal.png":::
+
+    The Azure portal opens in a separate browser tab and shows the service principal details.
+
+1. In the Azure portal, copy the **Display name** value.
+
+    You use this value in the next step to grant permissions for running load tests to the service principal.
+
+### Grant access to Azure Load Testing
+
+Azure Load Testing uses Azure RBAC to grant permissions for performing specific activities on your load testing resource. To run a load test from your CI/CD pipeline, you grant the Load Test Contributor role to the service principal.
+
+1. In the [Azure portal](https://portal.azure.com/), go to your Azure Load Testing resource.
+
+1. Select **Access control (IAM)** > **Add** > **Add role assignment**.
+
+1. In the **Role** tab, select **Load Test Contributor** in the list of job function roles.
+
+    :::image type="content" source="media/quickstart-add-load-test-cicd/load-test-contributor-role-assignment.png" alt-text="Screenshot that shows the list of roles in the Add role assignment page in the Azure portal, highlighting the Load Test Contributor role." lightbox="media/quickstart-add-load-test-cicd/load-test-contributor-role-assignment.png":::
+
+1. In the **Members** tab, select **Select members**, and then use the display name you copied previously to search the service principal.
+
+1. Select the service principal, and then select **Select**.
+
+1. In the **Review + assign tab**, select **Review + assign** to add the role assignment.
+
+You can now use the service connection in your Azure Pipelines workflow definition to access your Azure load testing resource.
 
 # [GitHub Actions](#tab/github)
 
@@ -99,62 +156,6 @@ To create a GitHub Actions secret:
 
 You can now access your Azure subscription and load testing resource from your GitHub Actions workflow by using the stored credentials.
 
-# [Azure Pipelines](#tab/pipelines)
-
-### Create a service connection in Azure Pipelines
-
-In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription. When you create the service connection, Azure DevOps creates an Azure Active Directory service principal object.
-
-1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project.
-    
-    Replace the `<your-organization>` text placeholder with your project identifier.
-
-1. Select **Project settings** > **Service connections** > **+ New service connection**.
-
-1. In the **New service connection** pane, select the **Azure Resource Manager**, and then select **Next**.
-
-1. Select the **Service Principal (automatic)** authentication method, and then select **Next**.
-
-1. Enter the service connection details, and then select **Save** to create the service connection.
-
-    | Field | Value |
-    | ----- | ----- |
-    | **Scope level** | *Subscription*. |
-    | **Subscription** | Select the Azure subscription that hosts your load testing resource. |
-    | **Resource group** | Select the resource group that contains your load testing resource. |
-    | **Service connection name** | Enter a unique name for the service connection. |
-    | **Grant access permission to all pipelines** | Checked. |
-
-1. From the list of service connections, select the one you created earlier, and then select **Manage Service Principal**.
-
-    :::image type="content" source="./media/quickstart-add-load-test-cicd/service-connection-manage-service-principal.png" alt-text="Screenshot that shows selections for managing a service principal." lightbox="./media/quickstart-add-load-test-cicd/service-connection-manage-service-principal.png":::
-
-    The Azure portal opens in a separate browser tab and shows the service principal details.
-
-1. In the Azure portal, copy the **Display name** value.
-
-    You use this value in the next step to grant permissions for running load tests to the service principal.
-
-### Grant access to Azure Load Testing
-
-Azure Load Testing uses Azure RBAC to grant permissions for performing specific activities on your load testing resource. To run a load test from your CI/CD pipeline, you grant the Load Test Contributor role to the service principal.
-
-1. In the [Azure portal](https://portal.azure.com/), go to your Azure Load Testing resource.
-
-1. Select **Access control (IAM)** > **Add** > **Add role assignment**.
-
-1. In the **Role** tab, select **Load Test Contributor** in the list of job function roles.
-
-    :::image type="content" source="media/quickstart-add-load-test-cicd/load-test-contributor-role-assignment.png" alt-text="Screenshot that shows the list of roles in the Add role assignment page in the Azure portal, highlighting the Load Test Contributor role." lightbox="media/quickstart-add-load-test-cicd/load-test-contributor-role-assignment.png":::
-
-1. In the **Members** tab, select **Select members**, and then use the display name you copied previously to search the service principal.
-
-1. Select the service principal, and then select **Select**.
-
-1. In the **Review + assign tab**, select **Review + assign** to add the role assignment.
-
-You can now use the service connection in your Azure Pipelines workflow definition to access your Azure load testing resource.
-
 ---
 
 ## Export load test input files
@@ -190,6 +191,52 @@ Perform the following steps to download the input files for an existing load tes
 ## Update the CI/CD workflow definition
 
 Azure Load Testing supports both GitHub Actions and Azure Pipelines for running load tests.
+
+# [Azure Pipelines](#tab/pipelines)
+
+### Install the Azure Load Testing extension for Azure DevOps
+
+To create and run a load test, the Azure Pipelines workflow definition uses the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) extension from the Azure DevOps Marketplace.
+
+1. Open the [Azure Load Testing task extension](https://marketplace.visualstudio.com/items?itemName=AzloadTest.AzloadTesting) in the Azure DevOps Marketplace, and select **Get it free**.
+
+1. Select your Azure DevOps organization, and then select **Install** to install the extension.
+
+    If you don't have administrator privileges for the selected Azure DevOps organization, select **Request** to request an administrator to install the extension.
+
+### Update the Azure Pipelines workflow
+
+Update your Azure Pipelines workflow to run a load test for your Azure load testing resource.
+
+1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project.
+
+1. Select **Pipelines** in the left navigation, select your pipeline, and then select **Edit** to edit your workflow definition.
+
+    Alternately, select **Create Pipeline** to create a new pipeline in Azure Pipelines.
+
+1. Use the `AzureLoadTest` task to run the load test.
+
+    Specify the load test configuration file you exported earlier in the `loadTestConfigFile` property.
+    
+    Replace the *`<load-testing-resource>`* and *`<load-testing-resource-group>`* text placeholders with the name of your Azure load testing resource and the resource group.
+
+    ```yml
+        - task: AzureLoadTest@1
+          inputs:
+            azureSubscription: $(serviceConnection)
+            loadTestConfigFile: 'config.yaml'
+            loadTestResource: <load-testing-resource>
+            resourceGroup: <load-testing-resource-group>
+    ```
+
+    Optionally, you can pass parameters or secrets to the load test by using the `env` or `secrets` property.
+
+1. Use the `publish` task to publish the test results as artifacts in your Azure Pipelines workflow run.
+
+    ```yml
+        - publish: $(System.DefaultWorkingDirectory)/loadTest
+          artifact: loadTestResults
+    ```
 
 # [GitHub Actions](#tab/github)
 
@@ -246,52 +293,6 @@ Update your GitHub Actions workflow to run a load test for your Azure load testi
             path: ${{ github.workspace }}/loadTest
     ```
 
-# [Azure Pipelines](#tab/pipelines)
-
-### Install the Azure Load Testing extension for Azure DevOps
-
-To create and run a load test, the Azure Pipelines workflow definition uses the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) extension from the Azure DevOps Marketplace.
-
-1. Open the [Azure Load Testing task extension](https://marketplace.visualstudio.com/items?itemName=AzloadTest.AzloadTesting) in the Azure DevOps Marketplace, and select **Get it free**.
-
-1. Select your Azure DevOps organization, and then select **Install** to install the extension.
-
-    If you don't have administrator privileges for the selected Azure DevOps organization, select **Request** to request an administrator to install the extension.
-
-### Update the Azure Pipelines workflow
-
-Update your Azure Pipelines workflow to run a load test for your Azure load testing resource.
-
-1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project.
-
-1. Select **Pipelines** in the left navigation, select your pipeline, and then select **Edit** to edit your workflow definition.
-
-    Alternately, select **Create Pipeline** to create a new pipeline in Azure Pipelines.
-
-1. Use the `AzureLoadTest` task to run the load test.
-
-    Specify the load test configuration file you exported earlier in the `loadTestConfigFile` property.
-    
-    Replace the *`<load-testing-resource>`* and *`<load-testing-resource-group>`* text placeholders with the name of your Azure load testing resource and the resource group.
-
-    ```yml
-        - task: AzureLoadTest@1
-          inputs:
-            azureSubscription: $(serviceConnection)
-            loadTestConfigFile: 'config.yaml'
-            loadTestResource: <load-testing-resource>
-            resourceGroup: <load-testing-resource-group>
-    ```
-
-    Optionally, you can pass parameters or secrets to the load test by using the `env` or `secrets` property.
-
-1. Use the `publish` task to publish the test results as artifacts in your Azure Pipelines workflow run.
-
-    ```yml
-        - publish: $(System.DefaultWorkingDirectory)/loadTest
-          artifact: loadTestResults
-    ```
-
 ---
 
 ## View load test results
@@ -303,19 +304,6 @@ When you run a load test from your CI/CD pipeline, you can view the summary resu
 ## Clean up resources
 
 If you don't plan to use any of the resources that you created, delete them so you don't incur any further charges.
-
-# [GitHub Actions](#tab/github)
-
-1. Remove GitHub Actions changes:
-    1. In [GitHub](https://github.com), browse to your repository.
-    1. If you created a new workflow definition, delete the workflow YAML file in the `.github/workflows` folder.
-    1. If you modified an existing workflow definition, undo the modifications for running the load test, and save the workflow.
-
-1. Remove the service principal:
-
-    ```azurecli-interactive
-    az ad sp delete --id $(az ad sp show --display-name "my-load-test-cicd" -o tsv)
-    ```
 
 # [Azure Pipelines](#tab/pipelines)
 
@@ -337,6 +325,19 @@ If you don't plan to use any of the resources that you created, delete them so y
 1. Remove the service connection:    
     1. Select **Project settings** > **Service connections**, and then select your service connection.
     1. Select **Edit** > **Delete** to remove the service connection.
+
+# [GitHub Actions](#tab/github)
+
+1. Remove GitHub Actions changes:
+    1. In [GitHub](https://github.com), browse to your repository.
+    1. If you created a new workflow definition, delete the workflow YAML file in the `.github/workflows` folder.
+    1. If you modified an existing workflow definition, undo the modifications for running the load test, and save the workflow.
+
+1. Remove the service principal:
+
+    ```azurecli-interactive
+    az ad sp delete --id $(az ad sp show --display-name "my-load-test-cicd" -o tsv)
+    ```
 
 ---
 
