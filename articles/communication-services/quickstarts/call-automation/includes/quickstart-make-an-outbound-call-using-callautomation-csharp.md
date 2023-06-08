@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Make an outbound call using Call Automation
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to make an outbound PSTN call using Azure Communication Services using Call Automation
+description: In this quickstart, you learn how to make an outbound PSTN call using Azure Communication Services using Call Automation
 author: anujb-msft
 ms.author: anujb-msft
 ms.date: 05/26/2023
@@ -11,7 +11,7 @@ ms.subservice: callautomation
 ms.custom: mode-other
 ---
 
-Azure Communication Services (ACS) Call Automation APIs are a powerful way to create interactive calling experiences. In this quick start we'll cover a way to: make an outbound call and recognize various events in the call.
+Azure Communication Services (ACS) Call Automation APIs are a powerful way to create interactive calling experiences. In this quick start we cover a way to: make an outbound call and recognize various events in the call.
 
 ## Sample Code
 
@@ -21,12 +21,12 @@ Find the complete sample code for this quick start on [GitHub](https://github.co
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A [phone number](https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number) in your Azure Communication Services resource that can make outbound calls. NB: phone numbers are not available in free subscriptions.
-- Create and host a Azure Dev Tunnel. Instructions [here](https://learn.microsoft.com/azure/developer/dev-tunnels/get-started)
+- A [phone number](https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number) in your Azure Communication Services resource that can make outbound calls. NB: phone numbers aren't available in free subscriptions.
+- Create and host an Azure Dev Tunnel. Instructions [here](https://learn.microsoft.com/azure/developer/dev-tunnels/get-started)
 
 ## Setup and host your Azure DevTunnel
 
-[Azure DevTunnels](https://learn.microsoft.com/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands below to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We will then use this endpoint to notify your application of calling events from the ACS Call Automation service.
+[Azure DevTunnels](https://learn.microsoft.com/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Run the commands to connect your local development environment to the public internet. DevTunnels creates a persistent endpoint URL and which allows anonymous access. We use this endpoint to notify your application of calling events from the ACS Call Automation service.
 
 ```bash
 devtunnel create --allow-anonymous
@@ -36,11 +36,11 @@ devtunnel host
 
 ## Update your application configuration
 
-You will need to update your `Program.cs` file with the following values:
+Next update your `Program.cs` file with the following values:
 
 - `acsConnectionString`: The connection string for your ACS resource. You can find your ACS connection string using the instructions [here](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=linux&pivots=platform-azp#access-your-connection-strings-and-service-endpoints). 
 - `callbackUriHost`: Once you have your DevTunnel host initialized, update this field with that URI.
-- `acsPhonenumber`: update this field with with the ACS phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+- `acsPhonenumber`: update this field with the ACS phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `targetPhonenumber`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 
 ```csharp
@@ -59,7 +59,7 @@ var callbackUriHost = "<CALLBACK_URI_HOST_WITH_PROTOCOL>";
 
 ## Make an outbound call
 
-To make the outbound call from ACS, this sample will use the `targetPhonenumber` you defined earlier in the application to create the call using the `CreateCallAsync` API. The code below will create make an outbound call using the target phone number.
+To make the outbound call from ACS, this sample uses the `targetPhonenumber` you defined earlier in the application to create the call using the `CreateCallAsync` API. This code will make an outbound call using the target phone number.
 
 ```csharp
 PhoneNumberIdentifier target = new PhoneNumberIdentifier(targetPhonenumber);
@@ -70,7 +70,7 @@ CreateCallResult createCallResult = await callAutomationClient.CreateCallAsync(c
 
 ## Handle call automation events
 
-Earlier in our application, we registerd the `callbackUriHost` to the Call Automation Service. This indicates the endpoint the service will use to notify us of calling events that happen. We can then iterate through the events and detect specific events our application wants to understand. In the code be below we respond to the `CallConnected` event.
+Earlier in our application, we registered the `callbackUriHost` to the Call Automation Service. The host indicates the endpoint the service requires to notify us of calling events that happen. We can then iterate through the events and detect specific events our application wants to understand. In the code be below we respond to the `CallConnected` event.
 
 ```csharp
 app.MapPost("/api/callbacks", async (CloudEvent[] cloudEvents, ILogger<Program> logger) =>
@@ -102,9 +102,9 @@ recordingId = recordingResult.Value.RecordingId;
 
 ## Play welcome message and recognize 
 
-Using the `FileSource` API, you can provide the service the audio file you want to use for your welcome message. The ACS Call Automation service will play this message upon the `CallConnected` event. 
+Using the `FileSource` API, you can provide the service the audio file you want to use for your welcome message. The ACS Call Automation service plays this message upon the `CallConnected` event. 
 
-In the code below, we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `StartRecognizingAsync`. This recognize and options API enables the telephony client to send DTMF tones that we can recognize.
+Next, we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `StartRecognizingAsync`. This recognizes and options API enables the telephony client to send DTMF tones that we can recognize.
 
 ```csharp
 // prepare recognize tones
@@ -121,7 +121,7 @@ await callMedia.StartRecognizingAsync(callMediaRecognizeDtmfOptions);
 
 ## Handle DTMF Events
 
-When the telephony endpoint selects a DTMF tone, ACS Call Automation will trigger the `api/callbacks` webhook we have setup and notify us with the `RecognizeCompleted` event. This gives us the ability to respond to a specific DTMF tone and trigger an action. In the code below, the application plays an audio file in response to DTMF tone one.
+When the telephony endpoint selects a DTMF tone, ACS Call Automation triggers the `api/callbacks` webhook we have setup and notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to a specific DTMF tone and trigger an action. Then the application plays an audio file in response to DTMF tone one.
 
 ```csharp
 if (parsedEvent is RecognizeCompleted recognizeCompleted)
