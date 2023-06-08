@@ -39,44 +39,44 @@ param dnsServiceIp string = '10.96.0.10'
 param agentPoolL2Networks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
 // }
 
 @description('The Layer 3 networks associated with the initial agent pool')
 param agentPoolL3Networks array = []
 // {
-//   ipamEnabled: 'False'
+//   ipamEnabled: 'True/False'
 //   networkId: 'string'
-//   pluginType: 'SRIOV'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
 // }
 
 @description('The trunked networks associated with the initial agent pool')
 param agentPoolTrunkedNetworks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
 // }
 
 @description('The Layer 2 networks associated with the cluster')
 param l2Networks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
 // }
 
 @description('The Layer 3 networks associated with the cluster')
 param l3Networks array = []
 // {
-//   ipamEnabled: 'False'
+//   ipamEnabled: 'True/False'
 //   networkId: 'string'
-//   pluginType: 'SRIOV'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
 // }
 
 @description('The trunked networks associated with the cluster')
 param trunkedNetworks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
 // }
 
 @description('The LoadBalancer IP address pools associated with the cluster')
@@ -85,9 +85,9 @@ param ipAddressPools array = []
 //   addresses: [
 //     'string'
 //   ]
-//   autoAssign: 'True'
-//   name: 'ip-pool-1'
-//   onlyUseHostIps: 'True'
+//   autoAssign: 'True/False'
+//   name: 'string'
+//   onlyUseHostIps: 'True/False'
 // }
 
 // Cluster Configuration Parameters
@@ -118,8 +118,8 @@ param workerVmSkuName string = 'NC_M4_v1'
 @description('The configurations for the initial agent pool')
 param initialPoolAgentOptions object = {}
 // {
-//   "hugepagesCount": 0,
-//   "hugepagesSize": "2M"
+//   "hugepagesCount": integer,
+//   "hugepagesSize": "2M/1G"
 // }
 
 @description('The SSH public key that will be associated with the "azureuser" user for secure remote login')
