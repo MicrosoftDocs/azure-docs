@@ -20,8 +20,7 @@ In addition to the content filtering system, the Azure OpenAI Service performs m
 
 The following sections provide information about the content filtering categories, the filtering severity levels, and API scenarios to be considered in application design and implementation.
 
-## Content filtering categories![image](https://github.com/mrbullwinkle/azure-docs-pr/assets/28361011/8ec2ec40-8149-4aed-a9f2-7c7f0ae5c851)
-
+## Content filtering categories
 
 The content filtering system integrated in Azure OpenAI Service contains neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but isn't subject to filtering.
 

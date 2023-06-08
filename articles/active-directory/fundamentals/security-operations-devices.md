@@ -84,13 +84,10 @@ Azure AD registered and Azure AD joined devices possess primary refresh tokens (
 
 You can create an alert that notifies appropriate administrators when a device is registered or joined without MFA by using Microsoft Sentinel.
 ~~~
-Sign-in logs
-
-    where ResourceDisplayName == "Device Registration Service"
-
-    where ConditionalAccessStatus == "success"
-
-    where AuthenticationRequirement <> "multiFactorAuthentication"
+SigninLogs
+| where ResourceDisplayName == "Device Registration Service"
+| where ConditionalAccessStatus == "success"
+| where AuthenticationRequirement <> "multiFactorAuthentication"
 ~~~
 
 You can also use [Microsoft Intune to set and monitor device compliance policies](/mem/intune/protect/device-compliance-get-started).
@@ -112,9 +109,7 @@ It might not be possible to block access to all cloud and software-as-a-service 
 
 ```
 SigninLogs
-
 | where DeviceDetail.isCompliant == false
-
 | where ConditionalAccessStatus == "success"
 ```
 
@@ -124,11 +119,8 @@ SigninLogs
 
 SigninLogs
 | where isempty(DeviceDetail.deviceId)
-
 | where AuthenticationRequirement == "singleFactorAuthentication"
-
 | where ResultType == "0"
-
 | where NetworkLocationDetails == "[]"
 ```
 
@@ -152,7 +144,6 @@ In LogAnalytics create a query such as
 
 ```
 AuditLogs
-
 | where OperationName == "Read BitLocker key" 
 ```
 

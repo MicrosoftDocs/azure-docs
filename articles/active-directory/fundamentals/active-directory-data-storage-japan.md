@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Customer data storage for Japan customers in Azure Active Directory 
 
-Azure Active Directory (Azure AD) stores its Customer Data in a geographical location based on the country you provided when you signed up for a Microsoft Online service. Microsoft Online services include Microsoft 365 and Azure. 
+Azure Active Directory (Azure AD) stores its Customer Data in a geographical location based on the country/region you provided when you signed up for a Microsoft Online service. Microsoft Online services include Microsoft 365 and Azure. 
 
 For information about where Azure AD and other Microsoft services' data is located, see the [Where your data is located](https://www.microsoft.com/trust-center/privacy/data-location) section of the Microsoft Trust Center.
 
