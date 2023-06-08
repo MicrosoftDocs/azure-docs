@@ -244,8 +244,7 @@ For more information, see the following link: https://github.com/MicrosoftDocs/a
 
 ## Troubleshooting
 
-See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
-
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-webpages-issues).
 ## Release notes
 
 Detailed release notes regarding updates and bug fixes can be found on [GitHub](https://github.com/microsoft/ApplicationInsights-JS/releases)
