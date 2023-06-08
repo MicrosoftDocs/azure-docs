@@ -381,7 +381,7 @@ Then it would be updated to
 </html>
 ```
 
-The script is aiming at helping customers to track the web user data, and sent the telemetry back to the Azure portal, detailed information could be found at this [link](https://github.com/microsoft/ApplicationInsights-JS)
+The script is aiming at helping customers to track the web user data, and sent the telemetry back to the Azure portal. Details can be found at [ApplicationInsights-JS](https://github.com/microsoft/ApplicationInsights-JS)
 
 If you want to enable this feature:
 
