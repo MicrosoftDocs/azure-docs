@@ -115,7 +115,7 @@ sections:
       - question: |
           Can I use quota to increase the max token limit of a model?
         answer:
-          No, quota Tokens-Per-Minute (TPM) allocation is not related to the max input token limit of a model. Model input token limits are defined in the [models table](../concepts/models.md) and are not impacted by changes made to TPM.  
+          No, quota Tokens-Per-Minute (TPM) allocation is not related to the max input token limit of a model. Model input token limits are defined in the [models table](./concepts/models.md) and are not impacted by changes made to TPM.  
 
 additionalContent: |
 
