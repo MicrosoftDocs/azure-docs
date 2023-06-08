@@ -1,6 +1,6 @@
 ---
 title: Inbound User Provisioning API concepts
-description: How to find out when a critically important user is able to access an application you have configured for user provisioning with Azure Active Directory.
+description: An overview of the Azure AD Inbound Use Provisioning API. 
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -13,7 +13,7 @@ ms.author: jfields
 ms.reviewer: chmutali
 ---
 
-# Introduction
+# Inbound User Provisioning API concepts
 
 This document provides a conceptual overview of the Azure AD Inbound User Provisioning API.
 
@@ -70,13 +70,12 @@ Partners who specialize in reading data from HR systems can build an integration
 ### Known limitations and workarounds
 | # | Limitations | Workarounds
 | --- | --- | --- |
-| 1. | In each API call, using the SCIM bulk request, you can at send a maximum of 50 records. 
-How this issue impacts your testing: If you need to upload 100 users using the API, you need to make two API calls. 
- | None. |
+| 1. | In each API call, using the SCIM bulk request, you can send a maximum of 50 records. 
+How this issue impacts your testing: If you need to upload 100 users using the API, you need to make two API calls. | None. |
 | 2. | The sync cycle that processes incoming requests runs every 40 minutes. 
 How this issue impacts your testing: After you send a SCIM bulk request to the API endpoint, at maximum it could take 40 minutes before you can start the verification process. 
 | While testing, if you want to process a request payload faster, you can stop and start the provisioning job from the portal. In a future release, we anticipate provision-on-demand capability. |
-| 3. | On-premises AD as target directory is not yet supported. | None. We plan to support on-premises AD as target directory in the next iteration. The API usage model remains the same. So, you can still proceed with the testing using Azure AD to get familiar with the APIs. |
+| 3. | On-premises AD as target directory isn't yet supported. | None. We plan to support on-premises AD as target directory in the next iteration. The API usage model remains the same. So, you can still proceed with the testing using Azure AD to get familiar with the APIs. |
 | 4. | The provisioning service doesn't check for duplication ``userPrincipalName`` (UPN) and handle conflicts. If the default sync rule for UPN attribute generates an existing UPN value, then the user create operation fails. | Update the sync rule to use the [RandomString](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data#randomstring) function. Example:
 
 ``Join("", Replace([userName], , "(?<Suffix>@(.)*)", "Suffix", "", , ), RandomString(3, 3, 0, 0, 0, ), "@", DefaultDomain())`` |
