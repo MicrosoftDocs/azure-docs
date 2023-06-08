@@ -97,7 +97,7 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
 * The workspace mustn't be in use during the move operation. Verify that all experiment jobs, data profiling jobs, and labeling projects have completed. Also verify that inference endpoints aren't being invoked.
 * The workspace becomes unavailable during the move.
 * Before to the move, you must delete or detach computes and inference endpoints from the workspace.
-* Datastores may still show the old subscription information after the move. For steps to manually update the datastores, see [Scenario: Move workspace to a different subscription](#scenario-move-workspace-to-a-different-subscription).
+* Datastores may still show the old subscription information after the move. For steps to manually update the datastores, see [Scenario: Move a workspace with nondefault datastores](#scenario-move-a-workspace-with-nondefault-datastores).
 
 The following scenarios __are not__ supported:
 
@@ -143,9 +143,9 @@ az resource move --destination-group destination-rg --destination-subscription-i
 
 After the move has completed, recreate any computes and redeploy any web service endpoints at the new location.
 
-## Scenario: Moving a workspace with nondefault data stores
+## Scenario: Move a workspace with nondefault datastores
 
-The automated workspace move operation doesn't move nondefault data stores. Use the following steps to manually update the data store credentials after the move.
+The automated workspace move operation doesn't move nondefault datastores. Use the following steps to manually update the data store credentials after the move.
 
 1. Within [Azure Machine Learning studio](https://ml.azure.com), select __Data__ and then select a nondefault data store. For each nondefault data store, check if the __Subscription ID__ and __Resource group name__ fields are empty. If they are, select __Update authentication__.
 
