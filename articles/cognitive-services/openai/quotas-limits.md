@@ -36,9 +36,9 @@ The following sections provide you with a quick guide to the default quotas and 
 
 <sup>1</sup> Default quota limits are subject to change.
 
-### General best practices to mitigate rate-limit throttling
+### General best practices remain within rate limits
 
-To minimize issues related to throttling, it's a good idea to use the following techniques:
+To minimize issues related to rate limits, it's a good idea to use the following techniques:
 
 - Implement retry logic in your application.
 - Avoid sharp changes in the workload. Increase the workload gradually.
