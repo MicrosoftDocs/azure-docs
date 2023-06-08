@@ -5,7 +5,7 @@ description: How to create and delete an SMB Azure file share by using the Azure
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 05/24/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
@@ -166,11 +166,11 @@ az storage account create \
 ---
 
 ### Enable large file shares on an existing account
-Before you create an Azure file share on an existing storage account, you might want to enable large file shares (up to 100 TiB) on the storage account if you haven't already. Standard storage accounts using either LRS or ZRS can be upgraded to support large file shares without causing downtime for existing file shares on the storage account. If you have a GRS, GZRS, RA-GRS, or RA-GZRS account, you'll need to convert it to an LRS account before proceeding.
+Before you create an Azure file share on an existing storage account, you might want to enable large file shares (up to 100 TiB) on the storage account if you haven't already. Standard storage accounts using either LRS or ZRS can be upgraded to support large file shares without causing downtime for existing file shares on the storage account. If you have a GRS, GZRS, RA-GRS, or RA-GZRS account, you'll either need to convert it to an LRS account before proceeding or register for the [Azure Files geo-redundancy for large file shares preview](geo-redundant-storage-for-large-file-shares.md).
 
 # [Portal](#tab/azure-portal)
 1. Open the [Azure portal](https://portal.azure.com), and navigate to the storage account where you want to enable large file shares.
-1. Select **Settings > Configuration**.
+1. Select **Configuration** under the **Settings** section.
 1. Go to the **Large file shares** setting at the bottom of the page. If it's set to **Disabled**, change the setting to **Enabled**.
 1. Select **Save**.
 

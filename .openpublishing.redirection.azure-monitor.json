@@ -6150,7 +6150,16 @@
             "source_path_from_root": "/articles/azure-monitor/logs/dashboard-upgrade.md",
             "redirect_url": "/azure/azure-monitor/visualize/tutorial-logs-dashboards",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/opentelemetry-dotnet-exporter.md",
+            "redirect_url": "/azure/azure-monitor/app/opentelemetry-enable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/api/app-insights-azure-ad-api.md",
+            "redirect_url": "/azure/azure-monitor/app/app-insights-azure-ad-api",
+            "redirect_document_id": false
         }
-        
     ]
 }

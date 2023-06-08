@@ -16,9 +16,7 @@ ms.date: 9/20/2022
 ms.author: amsliu
 ms.reviewer: 
 ms.collection: M365-identity-device-management
-ms.custom: devx-track-azurepowershell
-
-
+ms.custom:
 ---
 # Automate Microsoft Entra Identity Governance tasks via Azure Automation and Microsoft Graph
 

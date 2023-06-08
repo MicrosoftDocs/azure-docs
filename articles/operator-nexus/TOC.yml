@@ -9,6 +9,8 @@
   items:
     - name: Resource Types
       href: concepts-resource-types.md
+    - name: Compute overview
+      href: concepts-compute.md
     - name: Observability
       href: concepts-observability.md
 - name: Quickstarts
@@ -35,12 +37,16 @@
       href: howto-baremetal-functions.md
     - name: BareMetal Run-Read Execution
       href: howto-baremetal-run-read.md
+    - name: BareMetal Run-Data-Extract Execution
+      href: howto-baremetal-run-data-extract.md
     - name: BareMetal BMM Access Setup
       href: howto-baremetal-bmm-ssh.md
     - name: BareMetal BMC Access Setup
       href: howto-baremetal-bmc-ssh.md
     - name: Isolation Domain
       href: howto-configure-isolation-domain.md
+    - name: Network Fabric Route Policy
+      href: how-to-route-policy.md      
     - name: AKS-Hybrid
       href: howto-hybrid-aks.md
     - name: Monitor AKS-Hybrid Cluster
@@ -57,6 +63,10 @@
   items:
     - name: Troubleshoot AKS-Hybrid
       href: troubleshoot-aks-hybrid-cluster.md
+    - name: Troubleshoot Isolation Domain
+      href: troubleshoot-isolation-domain.md
+    - name: Troubleshoot Internet host virtual machine
+      href: troubleshoot-internet-host-virtual-machine.md
 - name: Sample Deployment
   items:
     - name: VNF Deployment
@@ -69,3 +79,5 @@
       href: reference-customer-edge-provider-edge-connectivity.md
     - name: List of metrics collected
       href: List-of-metrics-collected.md
+    - name: Near-edge Compute
+      href: reference-near-edge-compute.md

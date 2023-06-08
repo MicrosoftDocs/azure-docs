@@ -168,7 +168,7 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
 	"resources": [{
 			"type": "Microsoft.Insights/autoscalesettings",
 			"name": "cpuPredictiveAutoscale",
-			"apiVersion": "2015-04-01",
+			"apiVersion": "2022-10-01",
 			"location": "[parameters('location')]",
 			"properties": {
 				"profiles": [{
@@ -243,7 +243,7 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
 }
 ```
 
-**autoscale-only-parameters.json**
+**autoscale_only_parameters.json**
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",

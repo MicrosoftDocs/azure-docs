@@ -9,7 +9,7 @@ ms.service: iot-hub
 ms.devlang: java
 ms.topic: how-to
 ms.date: 08/16/2019
-ms.custom: mqtt, devx-track-java
+ms.custom: mqtt, devx-track-java, devx-track-extended-java
 ---
 
 # Schedule and broadcast jobs (Java)

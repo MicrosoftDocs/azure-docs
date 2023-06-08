@@ -9,6 +9,7 @@ ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
+ms.custom: devx-track-dotnet
 ms.topic: article
 ms.date: 08/07/2020
 ms.author: sethm
