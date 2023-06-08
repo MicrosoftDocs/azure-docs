@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager using Terraform'
-description: 'In this article, you Create a mesh network topology with Azure Virtual Network Manager using Terraform'
+description: 'In this article, you create a mesh network topology with Azure Virtual Network Manager using Terraform'
 ms.service: virtual-network-manager
 ms.topic: quickstart
 ms.custom: devx-track-terraform, ai-gen-docs
