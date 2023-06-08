@@ -49,23 +49,23 @@ Identity related **npm** packages must be installed in the project to enable use
 1. Open *authConfig.js* and add the following code snippet:
 
    ```javascript
-       /*
-     * Copyright (c) Microsoft Corporation. All rights reserved.
-     * Licensed under the MIT License.
-     */
+    /*
+    * Copyright (c) Microsoft Corporation. All rights reserved.
+    * Licensed under the MIT License.
+    */
 
     import { LogLevel } from '@azure/msal-browser';
 
     /**
-     * Configuration object to be passed to MSAL instance on creation. 
-     * For a full list of MSAL.js configuration parameters, visit:
-     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md 
-     */
+    * Configuration object to be passed to MSAL instance on creation. 
+    * For a full list of MSAL.js configuration parameters, visit:
+    * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md 
+    */
 
     export const msalConfig = {
         auth: {
             clientId: 'Enter_the_Application_Id_Here', // This is the ONLY mandatory field that you need to supply.
-            authority: 'https://Enter_the_Tenant_Name_Here.ciamlogin.com/', // Replace "Enter_the_Tenant_Name_Here" with your tenant name
+            authority: 'https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/', // Replace the placeholder with your tenant subdomain
             redirectUri: '/', // Points to window.location.origin. You must register this URI on Azure Portal/App Registration.
             postLogoutRedirectUri: '/', // Indicates the page to navigate after logout.
             navigateToLoginRequestUrl: false, // If "true", will navigate back to the original request location before processing the auth code response.
@@ -102,22 +102,28 @@ Identity related **npm** packages must be installed in the project to enable use
     };
 
     /**
-     * Scopes you add here will be prompted for user consent during sign-in.
-     * By default, MSAL.js will add OIDC scopes (openid, profile, email) to any login request.
-     * For more information about OIDC scopes, visit: 
-     * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
-     */
+    * Scopes you add here will be prompted for user consent during sign-in.
+    * By default, MSAL.js will add OIDC scopes (openid, profile, email) to any login request.
+    * For more information about OIDC scopes, visit: 
+    * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
+    */
     export const loginRequest = {
         scopes: [],
-        extraQueryParameters: {
-            dc: "ESTS-PUB-EUS-AZ1-FD000-TEST1"
-        }
     };
+
+    /**
+    * An optional silentRequest object can be used to achieve silent SSO
+    * between applications by providing a "login_hint" property.
+    */
+    // export const silentRequest = {
+    //    scopes: ["openid", "profile"],
+    //    loginHint: "example@domain.net"
+    // };
     ```
 
 1. Replace the following values with the values from the Azure portal.
     - Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
-    - The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
+    - In **Authority**, find `Enter_the_Tenant_Subdomain_Here` and replace it with the subdomain of your tenant. For example, if your tenant primary domain is *caseyjensen@onmicrosoft.com*, the value you should enter is *casyjensen*.
 
 
 ## Modify index.js to include the authentication provider

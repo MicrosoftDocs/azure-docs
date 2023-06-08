@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 01/21/2022
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022, devx-track-extended-java
 ---
 
 # Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps

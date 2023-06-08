@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 05/30/2023
+ms.date: 06/07/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -18,28 +18,12 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Additional scopes added to existing Azure DevOps Connectors](#additional-scopes-added-to-existing-azure-devops-connectors) | May 2023 |
 | [Release of containers vulnerability assessment runtime recommendation powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM](#release-of-containers-vulnerability-assessment-runtime-recommendation-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-cspm) | June 2023 |
-| [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) |  July 2023
-| [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) |  July 2023 |
-| [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | July 2023
-| [General availability release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) | July 2023
-
-### Additional scopes added to existing Azure DevOps Connectors 
-
-**Estimated date for change: May 2023**
-
-Defender for DevOps will be adding more scopes to the already existing Azure DevOps (ADO) application.
-
-The scopes that are set to be added include:
-
-- Advance Security management: `vso.advsec_manage`; Needed to enable, disable and manage, GitHub Advanced Security for ADO. 
-
-- Container Mapping: `vso.extension_manage`, `vso.gallery_manager`; This is needed to share the decorator extension with the ADO organization.  
-
-This change will only affect new Defender for DevOps customers that are trying to onboard ADO resources to Microsoft Defender for Cloud.
-
-Customers may experience ADO authentication errors when they try to create a new ADO connector. GitHub and existing connector flow will continue to work. This change of scope will result in downtime for any ADO Connector creation experience in May 2023. After May, all new ADO Connectors will be created with new scopes.
+| [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) | July 2023 |
+| [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) | July 2023 |
+| [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | July 2023 |
+| [General availability release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) | July 2023 |
+| [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | July 2023 |
 
 ### Release of containers vulnerability assessment runtime recommendation powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM
 
@@ -55,7 +39,7 @@ This new recommendation is set to replace the current recommendation of the same
 
 ### Changes to the Defender for DevOps recommendations environment source and resource ID
 
-**Estimated date for change: June 2023**
+**Estimated date for change: July 2023**
 
 The Security DevOps recommendations will be updated to align with the overall Microsoft Defender for Cloud features and experience.  Affected recommendations will point to a new recommendation source environment and have an updated resource ID.
 
@@ -123,6 +107,32 @@ With this release, the recommendation `Container registry images should have vul
 Customers with both Defender for Containers plan and Defender CSPM plan should [disable the Qualys recommendation](tutorial-security-policy.md#disable-a-security-recommendation), to avoid multiple reports for the same images with potential impact on secure score. If you're currently using the sub-assesment API or Azure Resource Graph or continuous export, you should also update your requests to the new schema used by the MDVM recommendation prior to disabling the Qualys recommendation and using MDVM results instead.
 
 Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
+
+### Business model and pricing updates for Defender for Cloud plans
+
+**Estimated date for change: July 2023**
+
+Microsoft Defender for Cloud has three plans that offer service layer protection: 
+
+- Defender for Key Vault 
+
+- Defender for Azure Resource Manager 
+
+- Defender for DNS 
+
+These plans are transitioning to a new business model with different pricing and packaging to address customer feedback regarding spending predictability and simplifying the overall cost structure. 
+
+**Business model and pricing changes summary**: 
+ 
+Existing customers of Defender for Key-Vault, Defender for Azure Resource Manager, and Defender for DNS will keep their current business model and pricing unless they actively choose to switch to the new business model and price. 
+ 
+- **Defender for Azure Resource Manager**: This plan will have a fixed price per subscription per month. Customers will have the option to switch to the new business model by selecting the Defender for Azure Resource Manager new per-subscription model. 
+
+- **Defender for Key Vault**: This plan will have a fixed price per vault at per month with no overage charge. Customers will have the option to switch to the new business model by selecting the Defender for Key Vault new per-vault model 
+
+- **Defender for DNS**: Defender for Servers Plan 2 customers will gain access to Defender for DNS value as part of Defender for Servers Plan 2 at no extra cost. Customers that have both Defender for Server Plan 2 and Defender for DNS will no longer be charged for Defender for DNS. Defender for DNS will no longer be available as a standalone plan. 
+
+For more information on all of these plans, check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h) 
 
 ## Next steps
 
