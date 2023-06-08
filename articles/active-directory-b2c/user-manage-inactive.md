@@ -18,13 +18,13 @@ ms.subservice: B2C
 
 # Manage inactive users in your Azure Active Directory B2C tenant
 
-We recommend that you monitor your user accounts. Monitoring your user accounts enables you to discover inactive user accounts, which consumes your Azure Active Directory (AD) B2C directory quota. Monitoring user accounts also help you to reduce the overall attack surface. 
+We recommend that you monitor your user accounts. Monitoring your user accounts enables you to discover inactive user accounts, which consume your Azure Active Directory (AD) B2C directory quota. Monitoring user accounts also help you to reduce the overall attack surface. 
 
 ## List inactive users in your Azure AD B2C tenant
  
 1. Use the steps in [Register an application](client-credentials-grant-flow.md#step-2-register-an-application) to register an app in your tenant, which uses client credentials flow. Record the **Application (client) ID** for use in a later. 
 
-1. Use the steps in [Create a client secret](client-credentials-grant-flow#step-2-register-an-application) to configure a client secret for your app. Record the secret's **Value**. You'll use this value for configuration in a later step.
+1. Use the steps in [Create a client secret](client-credentials-grant-flow#step-2-register-an-application) to configure a client secret for your app. Record the secret's **Value**. You will use this value for configuration in a later step.
 
 1. For your app to call Microsoft Graph API, you need to grant it the required permissions. To do so, use the steps in [Grant API access](microsoft-graph-get-started?tabs=app-reg-ga#grant-api-access), but only grant **User.Read.All** and **AuditLog.Read.All** permissions.
 
@@ -79,12 +79,12 @@ The attribute lastSignInDateTime shows the last sign in date.
 
 ## Delete inactive users in your Azure AD B2C tenant
 
-To delete a user in your Azure AD B2C tenant, you need to call the [Delete a user](/graph/api/user-delete) Microsoft Graph API. For this to work, grant your app **User.ReadWrite.All** Microsoft Graph API permission as explained earlier.
+To delete a user in your Azure AD B2C tenant, you need to call the [Delete a user](/graph/api/user-delete) Microsoft Graph API. To call this API you need to grant your app **User.ReadWrite.All** Microsoft Graph API permission as explained earlier.
 
 >[!NOTE]
 >DELETE /graph/api/user-delete
 
-The following PowerShell script reads all users with sign in date before a given date, then attempts to delete them. Before you run it, replace the `[TenantId]`, `[ClientID]` and `[ClientSecret]` placeholders with appropriate values as explained earlier. Also make sure you replace the date "2023-04-30T00:00:00Z" to a date that you consider appropriate to determine if an user is considered inactive.
+The following PowerShell script reads all users with sign in date before a given date, then attempts to delete them. Before you run it, replace the `[TenantId]`, `[ClientID]` and `[ClientSecret]` placeholders with appropriate values as explained earlier. Also replace `[Date]` with a date that you consider appropriate to determine if a user is considered inactive. For example: 2023-04-30T00:00:00Z
 
 ```ps
 $tenantId = "[TenantId]"
@@ -102,7 +102,7 @@ $response = Invoke-RestMethod $endpoint -Method "POST" -Headers $headers -Body $
 ## Call Graph API using token obtained in previous step
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer " + $response.access_token)
-$response = Invoke-RestMethod 'https://graph.microsoft.com/beta/users?$select=displayName,signInActivity&$filter=signInActivity/lastSignInDateTime le 2023-04-30T00:00:00Z' -Method 'GET' -Headers $headers
+$response = Invoke-RestMethod 'https://graph.microsoft.com/beta/users?$select=displayName,signInActivity&$filter=signInActivity/lastSignInDateTime le [Date]' -Method 'GET' -Headers $headers
 $response | ConvertTo-Json
 
 ## Call Graph API to delete the users obtained in the previous query
