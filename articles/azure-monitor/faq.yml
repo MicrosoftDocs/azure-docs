@@ -651,19 +651,6 @@ sections:
           
           The [Application Insights JavaScript SDK](app/javascript.md) doesn't include any personal data in its autocompletion, by default. However, some personal data used in your application might be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](app/api-filtering-sampling.md#javascript-web-applications).
           
-      - question: |
-          Why is my instrumentation key visible in my webpage source?
-        answer: |
-          * This visibility is common practice in monitoring solutions.
-          * It can't be used to steal your data.
-          * It could be used to skew your data or trigger alerts.
-          * We haven't heard that any customer has had such problems.
-          
-          You can:
-          
-          * Use two separate Instrumentation Keys (separate Application Insights resources), for client and server data.
-          * Write a proxy that runs in your server and have the web client send data through that proxy.
-          
       - question: How do I see POST data in Diagnostic Search?
         answer: |
           We don't log POST data automatically, but you can use a `TrackTrace` call. To do so, put the data in the message parameter. Message parameters have a longer size limit than the limits on string properties, although you can't filter on it.
@@ -699,7 +686,20 @@ sections:
           * If there's no client-side script, you can [set cookies at the server](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
           * If one real user uses your site in different browsers, or by using in-private/incognito browsing, or different machines, they're counted more than once.
           * To identify a signed-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
+
+      - question: |
+          Why is my instrumentation key visible in my webpage source?
+        answer: |
+          * This visibility is common practice in monitoring solutions.
+          * It can't be used to steal your data.
+          * It could be used to skew your data or trigger alerts.
+          * We haven't heard that any customer has had such problems.
           
+          You can:
+          
+          * Use two separate Instrumentation Keys (separate Application Insights resources), for client and server data.
+          * Write a proxy that runs in your server and have the web client send data through that proxy.    
+      
       - question: |
           What is the JavaScript SDK performance/overhead?
         answer: |
