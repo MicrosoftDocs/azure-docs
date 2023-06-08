@@ -6,12 +6,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/13/2022
+ms.date: 03/17/2023
 ms.author: aahi
 ms.custom: language-service-clu 
 ---
 
-Use the following **GET** request to query the status of your import job. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
+When you send a successful project import request, the full request URL for checking the import job's status (including your endpoint, project name, and job ID) is contained in the response's `operation-location` header. 
+
+Use the following **GET** request to query the status of your import job. You can use the URL you received from the previous step, or replace the placeholder values with your own values. 
 
 ```rest
 {ENDPOINT}/language/authoring/analyze-conversations/projects/{PROJECT-NAME}/import/jobs/{JOB-ID}?api-version={API-VERSION}
@@ -21,8 +23,8 @@ Use the following **GET** request to query the status of your import job. You ca
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-|`{JOB-ID}`     | The ID for locating your export job status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). | `2022-05-01` |
+|`{JOB-ID}`     | The ID for locating your import job status.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
+|`{API-VERSION}`     | The version of the API you're calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). | `2022-05-01` |
 
 #### Headers
 
@@ -34,7 +36,7 @@ Use the following header to authenticate your request.
 
 #### Response body
 
-Once you send the request, you will get the following response. Keep polling this endpoint until the status parameter changes to "succeeded".
+Once you send the request, you'll get the following response. Keep polling this endpoint until the status parameter changes to "succeeded".
 
 
 ```json

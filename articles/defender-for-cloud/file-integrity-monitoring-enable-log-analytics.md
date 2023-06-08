@@ -1,8 +1,8 @@
 ---
 title: Enable File Integrity Monitoring (Log Analytics agent)
 description: Learn how to enable File Integrity Monitoring when you collect data with the Log Analytics agent
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ms.date: 11/14/2022
 ---
@@ -16,6 +16,10 @@ In this article, you'll learn how to:
 - [Disable File Integrity Monitoring](#disable-file-integrity-monitoring)
 - [Monitor workspaces, entities, and files](#monitor-workspaces-entities-and-files)
 - [Compare baselines using File Integrity Monitoring](#compare-baselines-using-file-integrity-monitoring)
+
+> [!NOTE]
+> File Integrity Monitoring may create the following account on monitored SQL Servers: `NT Service\HealthService` \
+> If you delete the account, it will be automatically recreated.
 
 ## Availability
 
@@ -45,7 +49,7 @@ FIM is only available from Defender for Cloud's pages in the Azure portal. There
 
     - Access and view the status and settings of each workspace
 
-    - ![Upgrade plan icon.][4] Upgrade the workspace to use enhanced security features. This icon indicates that the workspace or subscription isn't protected with Microsoft Defender for Servers. To use the FIM features, your subscription must be protected with this plan. For more information, see [Microsoft Defender for Cloud's enhanced security features](enhanced-security-features-overview.md).
+    - ![Upgrade plan icon.][4] Upgrade the workspace to use enhanced security features. This icon indicates that the workspace or subscription isn't protected with Microsoft Defender for Servers. To use the FIM features, your subscription must be protected with this plan. Learn about how to [enable Defender for Servers](plan-defender-for-servers-select-plan.md).
 
     - ![Enable icon][3] Enable FIM on all machines under the workspace and configure the FIM options. This icon indicates that FIM isn't enabled for the workspace. If there's no enable or upgrade button, and the space is blank, it means that FIM is already enabled on the workspace.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Michigan Data Hub Single Sign-On | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Michigan Data Hub Single Sign-On'
 description: Learn how to configure single sign-on between Azure Active Directory and Michigan Data Hub Single Sign-On.
 services: active-directory
 author: jeevansd

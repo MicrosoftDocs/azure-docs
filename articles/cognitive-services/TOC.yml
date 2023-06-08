@@ -23,6 +23,8 @@
   - name: Create a new resource using an ARM template
     displayName: Resource Manager
     href: create-account-resource-manager-template.md  
+  - name: Create a new resource using Terraform
+    href: create-account-terraform.md
 - name: How-To
   items:
   - name: Plan and manage costs 
@@ -43,8 +45,6 @@
         href: containers/index.yml
       - name: Cognitive Services containers overview
         href: cognitive-services-container-support.md
-      - name: Container image tags and releases notes
-        href: ./containers/container-image-tags.md
       - name: General container FAQ
         href: ./containers/container-faq.yml
       - name: Use containers in disconnected environments

@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: xunwan
-author: xunwan
+author: SturgeonMi
 ms.reviewer: larryfr
 ms.date: 01/20/2023
 ms.custom: engagement-fy23
@@ -18,7 +18,7 @@ ms.custom: engagement-fy23
 # Data administration
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](./v1/concept-network-data-access.md)
+> * [v1](./v1/concept-network-data-access.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-administrate-data-authentication.md)
 
 Learn how to manage data access and how to authenticate in Azure Machine Learning
@@ -32,7 +32,7 @@ In general, data access from studio involves the following checks:
 
 * Who is accessing?
     - There are multiple different types of authentication depending on the storage type. For example, account key, token, service principal, managed identity, and user identity.
-    - If authentication is made using a user identity, then it's important to know *which* user is trying to access storage. For more information on authenticating a _user_, see [authentication for Azure Machine Learning](how-to-setup-authentication.md). For more information on service-level authentication, see [authentication between AzureML and other services](how-to-identity-based-service-authentication.md).
+    - If authentication is made using a user identity, then it's important to know *which* user is trying to access storage. For more information on authenticating a _user_, see [authentication for Azure Machine Learning](how-to-setup-authentication.md). For more information on service-level authentication, see [authentication between Azure Machine Learning and other services](how-to-identity-based-service-authentication.md).
 * Do they have permission?
     - Are the credentials correct? If so, does the service principal, managed identity, etc., have the necessary permissions on the storage? Permissions are granted using Azure role-based access controls (Azure RBAC).
     - [Reader](../role-based-access-control/built-in-roles.md#reader) of the storage account reads metadata of the storage.
@@ -70,7 +70,7 @@ The following table lists what identities should be used for specific scenarios:
 Data access is complex and it's important to recognize that there are many pieces to it. For example, accessing data from Azure Machine Learning studio is different than using the SDK. When using the SDK on your local development environment, you're directly accessing data in the cloud. When using studio, you aren't always directly accessing the data store from your client. Studio relies on the workspace to access data on your behalf.
 
 > [!TIP]
-> If you need to access data from outside Azure Machine Learning, such as using Azure Storage Explorer, *user* identity is probably what is used. Consult the documentation for the tool or service you are using for specific information. For more information on how Azure Machine Learning works with data, see [Setup authentication between AzureML and other services](how-to-identity-based-service-authentication.md).
+> If you need to access data from outside Azure Machine Learning, such as using Azure Storage Explorer, *user* identity is probably what is used. Consult the documentation for the tool or service you are using for specific information. For more information on how Azure Machine Learning works with data, see [Setup authentication between Azure Machine Learning and other services](how-to-identity-based-service-authentication.md).
 
 ## Azure Storage Account
 
@@ -96,7 +96,7 @@ When an Azure Storage account is behind a virtual network, the storage firewall 
 When the workspace uses a private endpoint and the storage account is also in the VNet, there are extra validation requirements when using studio:
 
 * If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the VNet.
-* If the storage account uses a __private endpoint__, the workspace private endpoint and storage service endpoint must be in the same VNet. In this case, they can be in different subnets.
+* If the storage account uses a __private endpoint__, the workspace private endpoint and storage private endpoint must be in the same VNet. In this case, they can be in different subnets.
 
 ## Azure Data Lake Storage Gen1
 

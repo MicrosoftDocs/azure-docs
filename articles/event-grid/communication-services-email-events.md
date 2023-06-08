@@ -37,8 +37,10 @@ This section contains an example of what that data would look like for each even
     "recipient": "receiver@azure.com",
     "messageId": "00000000-0000-0000-0000-000000000000",
     "status": "Delivered",
-    "DeliveryStatusDetails": "No error.",
-    "ReceivedTimestamp": "2020-09-18T00:22:20.2855749Z",
+    "deliveryStatusDetails": {
+      "statusMessage": "Status Message"
+    },
+    "deliveryAttemptTimeStamp": "2020-09-18T00:22:20.2855749Z",
   },
   "eventType": "Microsoft.Communication.EmailDeliveryReportReceived",
   "dataVersion": "1.0",
@@ -48,7 +50,7 @@ This section contains an example of what that data would look like for each even
 ```
 
 > [!NOTE]
-> Possible values for `Status` are `Delivered`, `Expanded` and `Failed`.
+> Possible values for `Status` are `Delivered`, `Expanded`, `Bounced`, `Suppressed`, `FilteredSpam` and `Failed`.
 
 ### Microsoft.Communication.EmailEngagementTrackingReportReceived event
 

@@ -7,10 +7,9 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/10/2022
+ms.date: 05/23/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
 # Form Recognizer W-2 form model
@@ -21,7 +20,7 @@ The Form Recognizer W-2 model, combines Optical Character Recognition (OCR) with
 
 ## Automated W-2 form processing
 
-Form W-2, also known as the Wage and Tax Statement, is sent by an employer to each employee and the Internal Revenue Service (IRS) at the end of the year. A W-2 form reports employees' annual wages and the amount of taxes withheld from their paychecks. The IRS also uses W-2 forms to track individuals' tax obligations. The Social Security Administration (SSA) uses the information on this and other forms to compute the Social Security benefits for all workers.
+An employer sends form W-2, also known as the Wage and Tax Statement, to each employee and the Internal Revenue Service (IRS) at the end of the year. A W-2 form reports employees' annual wages and the amount of taxes withheld from their paychecks. The IRS also uses W-2 forms to track individuals' tax obligations. The Social Security Administration (SSA) uses the information on this and other forms to compute the Social Security benefits for all workers.
 
 ***Sample W-2 tax form processed using Form Recognizer Studio***
 
@@ -29,7 +28,7 @@ Form W-2, also known as the Wage and Tax Statement, is sent by an employer to ea
 
 ## Development options
 
-The prebuilt W-2 model is supported by Form Recognizer v3.0 with the following tools:
+Form Recognizer v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -37,7 +36,7 @@ The prebuilt W-2 model is supported by Form Recognizer v3.0 with the following t
 
 ### Try W-2 data extraction
 
-Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need the following resources:
+Try extracting data from W-2 forms using the Form Recognizer Studio. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -92,9 +91,9 @@ Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need
 | MedicareTaxWithheld | 6 | Number | Medicare tax with held | 1111 |
 | SocialSecurityTips | 7 | Number | Social security tips | 1111 |
 | AllocatedTips | 8 | Number | Allocated tips | 1111 |
-| VerificationCode | 9 | String | Verification Code on Form W-2 | A123-B456-C789-DXYZ |
+| Verification&#8203;Code | 9 | String | Verification Code on Form W-2 | A123-B456-C789-DXYZ |
 | DependentCareBenefits | 10 | Number | Dependent care benefits | 1111 |
-| NonqualifiedPlans | 11 | Number | The non-qualified plan, a type of retirement savings plan that is employer-sponsored and tax-deferred | 1111 |
+| NonqualifiedPlans | 11 | Number | The nonqualified plan, a type of retirement savings plan that is employer-sponsored and tax-deferred | 1111 |
 | AdditionalInfo |  | Array of objects | An array of LetterCode and Amount |  |
 | LetterCode | 12a, 12b, 12c, 12d | String | Letter code Refer to [IRS/W-2](https://www.irs.gov/pub/irs-prior/fw2--2014.pdf) for the semantics of the code values. | D |
 | Amount | 12a, 12b, 12c, 12d | Number | Amount | 1234 |
@@ -123,11 +122,6 @@ Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need
 
 ## Next steps
 
-* Complete a Form Recognizer quickstart:
-> [!div class="checklist"]
->
-> * [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
-> * [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)
-> * [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)
-> * [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)
-> * [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li></ul>
+* Try processing your own forms and documents with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+
+* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.

@@ -63,7 +63,7 @@ The articles in this guide provide guidance on configuring VM insights and using
 
 
 ## Security monitoring
-Azure Monitor focuses on operational data like Activity logs, Metrics, and Log Analytics supported sources, including Windows Events (excluding security events), performance counters, logs, and Syslog. Security monitoring in Azure is performed by [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Microsoft Sentinel](/azure/sentinel/). Configuration of these services is not included in this guide.
+Azure Monitor focuses on operational data like Activity logs, Metrics, and Log Analytics supported sources, including Windows Events (excluding security events), performance counters, logs, and Syslog. Security monitoring in Azure is performed by [Microsoft Defender for Cloud](../../defender-for-cloud/index.yml) and [Microsoft Sentinel](../../sentinel/index.yml). Configuration of these services is not included in this guide.
 
 > [!IMPORTANT]
 > The security services have their own cost independent of Azure Monitor. Before you configure these services, refer to their pricing information to determine your appropriate investment in their usage.

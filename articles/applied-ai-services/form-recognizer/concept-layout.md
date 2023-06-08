@@ -7,9 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/10/2022
+ms.date: 05/23/2023
 ms.author: lajanuar
-recommendations: false
 ---
 
 # Azure Form Recognizer layout model
@@ -22,7 +21,7 @@ recommendations: false
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-Form Recognizer layout model is an advanced machine-learning based document analysis API available in the Form Recognizer cloud. It enables you to take documents in a variety of formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
+Form Recognizer layout model is an advanced machine-learning based document analysis API available in the Form Recognizer cloud. It enables you to take documents in various formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
 
 ## Document layout analysis
 
@@ -43,7 +42,7 @@ The following illustration shows the typical components in an image of a sample 
 
 ## Development options
 
-The following tools are supported by Form Recognizer v3.0:
+Form Recognizer v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|------------|------------|
@@ -77,7 +76,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 ### Try layout extraction
 
-See how data, including text, tables, table headers, selection marks, and structure information is extracted from documents using  Form Recognizer. You'll need the following resources:
+See how data, including text, tables, table headers, selection marks, and structure information is extracted from documents using  Form Recognizer. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -129,7 +128,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
     * Select the **Fetch** button.
 
-1. Select **Run Layout**. The Form Recognizer Sample Labeling tool will call the Analyze Layout API and analyze the document.
+1. Select **Run Layout**. The Form Recognizer Sample Labeling tool calls the Analyze Layout API and analyze the document.
 
     :::image type="content" source="media/fott-layout.png" alt-text="Screenshot: Layout dropdown window.":::
 
@@ -173,13 +172,13 @@ The paragraph roles are best used with unstructured documents.  Paragraph roles 
 
 ::: moniker range="form-recog-2.1.0"
 
-### Data extraction
+### Data extraction support
 
 | **Model**   | **Text** | **Tables**  | Selection marks|
 | --- | --- | --- | --- |
 | Layout  | ✓  | ✓| ✓ |
 
-The following tools are supported by Form Recognizer v2.1:
+Form Recognizer v2.1 supports the following tools:
 
 | Feature | Resources |
 |----------|-------------------------|
@@ -347,7 +346,62 @@ The response includes classifying whether each text line is of handwriting style
 }
 ```
 
-### Extracts selected pages from documents
+### Annotations extraction
+
+The Layout model extracts annotations in documents, such as checks and crosses. The response includes the kind of annotation, along with a confidence score and bounding polygon.
+
+```json
+    {
+  "pages": [
+    {
+      "annotations": [
+        {
+          "kind": "cross",
+          "polygon": [...],
+          "confidence": 1
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Barcode extraction
+
+The Layout model extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes are represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes appear at the end of each page.
+
+#### Supported barcode types
+
+| **Barcode Type**   | **Example**   |
+| --- | --- |
+| QR Code |:::image type="content" source="media/barcodes/qr-code.png" alt-text="Screenshot of the QR Code.":::|
+| Code 39 |:::image type="content" source="media/barcodes/code-39.png" alt-text="Screenshot of the Code 39.":::|
+| Code 128 |:::image type="content" source="media/barcodes/code-128.png" alt-text="Screenshot of the Code 128.":::|
+| UPC (UPC-A & UPC-E) |:::image type="content" source="media/barcodes/upc.png" alt-text="Screenshot of the UPC.":::|
+| PDF417 |:::image type="content" source="media/barcodes/pdf-417.png" alt-text="Screenshot of the PDF417.":::|
+
+   > [!NOTE]
+   > The `confidence` score is hard-coded for the `2023-02-28` public preview.
+
+   ```json
+   "content": ":barcode:",
+     "pages": [
+       {
+         "pageNumber": 1,
+         "barcodes": [
+           {
+             "kind": "QRCode",
+             "value": "http://test.com/",
+             "span": { ... },
+             "polygon": [...],
+             "confidence": 1
+           }
+         ]
+       }
+     ]
+   ```
+
+### Extract selected pages from documents
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
 
@@ -369,7 +423,7 @@ For large multi-page documents, use the `pages` query parameter to indicate spec
 
 ## The Get Analyze Layout Result operation
 
-The second step is to call the [Get Analyze Layout Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult) operation. This operation takes as input the Result ID that was created by the Analyze Layout operation. It returns a JSON response that contains a **status** field with the following possible values.
+The second step is to call the [Get Analyze Layout Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult) operation. This operation takes as input the Result ID the Analyze Layout operation created. It returns a JSON response that contains a **status** field with the following possible values.
 
 |Field| Type | Possible values |
 |:-----|:----:|:----|
@@ -377,7 +431,7 @@ The second step is to call the [Get Analyze Layout Result](https://westcentralus
 
 Call this operation iteratively until it returns the `succeeded` value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
 
-When the **status** field has the `succeeded` value, the JSON response will include the extracted layout, text, tables, and selection marks. The extracted data includes extracted text lines and words, bounding boxes, text appearance with handwritten indication, tables, and selection marks with selected/unselected indicated.
+When the **status** field has the `succeeded` value, the JSON response includes the extracted layout, text, tables, and selection marks. The extracted data includes extracted text lines and words, bounding boxes, text appearance with handwritten indication, tables, and selection marks with selected/unselected indicated.
 
 ### Handwritten classification for text lines (Latin only)
 
@@ -392,7 +446,7 @@ See here for a [sample document file](https://github.com/Azure-Samples/cognitive
 
 The JSON output has two parts:
 
-* `readResults` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words.
+* `readResults` node contains all of the recognized text and selection mark. The text presentation hierarchy is page, then line, then individual words.
 * `pageResults` node contains the tables and cells extracted with their bounding boxes, confidence, and a reference to the lines and words in "readResults".
 
 ## Example Output

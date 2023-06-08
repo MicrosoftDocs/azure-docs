@@ -155,7 +155,7 @@ Set the Azure Front Door *WebApplicationFirewallPolicyLink* ID to the policy ID 
    ```azurecli
    az network front-door update \
      --set FrontendEndpoints[0].WebApplicationFirewallPolicyLink.id=/subscriptions/<subscription ID>/resourcegroups/resource-group-name/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/IPAllowPolicyExampleCLI \
-     --name <frontdoor-name>
+     --name <frontdoor-name> \
      --resource-group <resource-group-name>
    ```
 In this example, the WAF policy is applied to **FrontendEndpoints[0]**. You can link the WAF policy to any of your front ends.
@@ -224,6 +224,8 @@ Find the name of the resource group that contains the Azure Front Door profile b
     -Mode Prevention `
     -EnabledState Enabled
    ```
+> [!TIP]
+> For an existing WAF policy, you can use [Update-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/update-azfrontdoorwafpolicy) to update the policy.
 
 ### Link a WAF policy to an Azure Front Door front-end host
 

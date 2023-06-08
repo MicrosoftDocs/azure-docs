@@ -1,21 +1,22 @@
 ---
 title: "Quickstart: Create an internal load balancer - Azure portal"
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create an internal load balancer by using the Azure portal.
+description: This quickstart shows how to create an internal load balancer using the Azure portal.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 07/18/2022
 ms.author: mbender
-ms.custom: mvc, mode-ui
+ms.custom: mvc, mode-ui, template-quickstart, engagement-fy23
 #Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using the Azure portal
 
-Get started with Azure Load Balancer by using the Azure portal to create an internal load balancer and two virtual machines.
+Get started with Azure Load Balancer by using the Azure portal to create an internal load balancer for a backend pool with two virtual machines. Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
 
+:::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer.":::
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

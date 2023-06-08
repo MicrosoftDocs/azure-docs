@@ -3,8 +3,8 @@ title: Migrate Windows Server 2008 servers to Azure with Azure Migrate/Site Reco
 description: This article describes how to migrate on-premises Windows Server 2008 machines to Azure, and recommends Azure Migrate.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/27/2020
-ms.custom: MVC
+ms.date: 12/30/2022
+ms.custom: MVC, engagement-fy23
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -107,7 +107,7 @@ The new vault is added to the **Dashboard** under **All resources**, and on the 
 ### Prepare your on-premises environment for migration
 
 - To migrate Windows Server 2008 virtual machines running on VMware, [set up the on-premises Configuration Server on VMware](vmware-azure-tutorial.md#set-up-the-source-environment).
-- If the Configuration Server cannot be set up as a VMware virtual machine, [set up the Configuration Server on an on-premises physical server or virtual machine](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+- If the Configuration Server cannot be set up as a VMware virtual machine, [set up the Configuration Server on an on-premises physical server or virtual machine](physical-azure-disaster-recovery.md#source-settings).
 
 ### Set up the target environment
 

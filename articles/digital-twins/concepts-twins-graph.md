@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about digital twins, and how their relationships form a digital twin graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/01/2022
+ms.date: 02/06/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -44,7 +44,7 @@ The result of this process is a set of nodes (the digital twins) connected via e
 
 ## Create with the APIs
 
-This section shows what it looks like to create digital twins and relationships from a client application. It contains .NET code examples that use the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), to provide more context on what goes on inside each of these concepts.
+This section shows what it looks like to create digital twins and relationships from a client application. It contains [.NET SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) examples that use the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), to provide more context on what goes on inside each of these concepts.
 
 ### Create digital twins
 
@@ -64,6 +64,10 @@ You can also use a helper class called `BasicDigitalTwin` to store property fiel
 Here's some example client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to build a relationship from one digital twin (the "source" twin) to another digital twin (the "target" twin).
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
+
+### Create twins and relationships in bulk with the Jobs API
+
+You can upload many twins and relationships in a single API call using the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api). Twins and relationships created with this API can optionally include initialization of their properties. For detailed instructions and examples that use this API, see [bulk import instructions for twins](how-to-manage-twin.md#create-twins-in-bulk-with-the-jobs-api) and [relationships](how-to-manage-graph.md#create-relationships-in-bulk-with-the-jobs-api).
 
 ## JSON representations of graph elements
 

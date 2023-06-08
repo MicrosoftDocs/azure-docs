@@ -4,7 +4,7 @@ description: Learn now to create and deploy an Azure Cloud Service using Azure R
 author: ghogen
 ms.service: cloud-services-extended-support
 manager: jillfra
-ms.custom: vs-azure
+ms.custom: vs-azure, devx-track-arm-template
 ms.workload: azure-vs
 ms.topic: tutorial
 ms.date: 10/5/2020

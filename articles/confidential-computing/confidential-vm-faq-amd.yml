@@ -42,15 +42,15 @@ sections:
           Collectively, AMD SEV technologies harden guest protections to deny hypervisor and other host management code access to VM memory and state. 
           Confidential VMs combine AMD SEV-SNP with Azure technologies such as full-disk encryption and [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md). 
           You can encrypt data in use, in transit, and at rest with keys that you control. 
-          With built-in [Azure Attestation](https://azure.microsoft.com/services/azure-attestation/) capabilities, you can independently establish trust in the security health and underlying infrastructure of your confidential VMs.
+          With built-in [Azure Attestation](https://azure.microsoft.com/services/azure-attestation/) capabilities, you can independently establish trust in the security, health and underlying infrastructure of your confidential VMs.
 
       - question: |
           How do Azure confidential VMs (DCasv5/ECasv5) offer better protection against threats originating from both within and outside Azure cloud infrastructure? 
         answer: |
           Azure VMs already offer industry leading security and protection against other tenants and malicious intruders. 
           Azure confidential VMs augment these protections by using hardware-based TEEs (Trusted Execution Environment) which leverage AMD’s SEV-SNP to cryptographically isolate and protect your data confidentiality and integrity even when they are in use. 
-          This means not host admins, or services (including the Azure hypervisor) can directly view or modify the memory or CPU state of your VM. 
-          Moreover, with full attestation capability, full OS disk encryption and hardeware-protected virtual Trusted Platform Modules, confidential VM persistent state is protected such that neither your private keys, nor are the contents of your memory are ever exposed to the hosting environment.
+          This means neither host admins, nor services (including the Azure hypervisor) can directly view or modify the memory or CPU state of your VM. 
+          Moreover, with full attestation capability, full OS disk encryption and hardware-protected virtual Trusted Platform Modules, confidential VM persistent state is protected such that neither your private keys, nor the contents of your memory are ever exposed to the hosting environment.
 
       - question: |
           Are the virtual disks attached to confidential VMs automatically protected?

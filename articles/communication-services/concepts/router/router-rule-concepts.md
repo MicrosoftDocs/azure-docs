@@ -10,6 +10,7 @@ ms.author: jassha
 ms.date: 10/14/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: devx-track-extended-java, devx-track-js
 zone_pivot_groups: acs-js-csharp
 ---
 
@@ -42,10 +43,11 @@ In this example a `StaticRule`, which is a subtype of `RouterRule` can be used t
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.SetClassificationPolicyAsync(
-    id: "my-policy-id",
-    prioritizationRule: new StaticRule(5)
-);
+await routerAdministration.CreateClassificationPolicyAsync(
+    new CreateClassificationPolicyOptions(classificationPolicyId: "my-policy-id")
+    {
+        PrioritizationRule = new StaticRule(new LabelValue(5))
+    });
 ```
 
 ::: zone-end
@@ -71,10 +73,11 @@ In this example a `ExpressionRule`, which is a subtype of `RouterRule` can be us
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.SetClassificationPolicyAsync(
-    id: "my-policy-id",
-    prioritizationRule: new ExpressionRule("If(job.Urgent = true, 10, 5)")
-);
+await routerAdministration.CreateClassificationPolicyAsync(
+    new CreateClassificationPolicyOptions(classificationPolicyId: "my-policy-id")
+    {
+        PrioritizationRule = new ExpressionRule("If(job.Escalated = true, 10, 5)") // this will check whether the job has a label "Escalated" set to "true"
+    });
 ```
 
 ::: zone-end
@@ -86,7 +89,7 @@ await client.upsertClassificationPolicy({
     id: "my-policy-id",
     prioritizationRule: {
         kind: "expression-rule",
-        expression: "If(job.Urgent = true, 10, 5)"
+        expression: "If(job.Escalated = true, 10, 5)"
     }
 });
 ```

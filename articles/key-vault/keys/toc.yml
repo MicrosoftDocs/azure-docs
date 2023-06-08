@@ -33,6 +33,8 @@ items:
   - name: ARM template
     displayName: Resource Manager
     href: quick-create-template.md
+  - name: Terraform
+    href: quick-create-terraform.md
 
 - name: Tutorials
   items:

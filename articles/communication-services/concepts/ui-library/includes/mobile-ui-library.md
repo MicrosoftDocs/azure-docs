@@ -44,7 +44,7 @@ The calling experience provides all these capabilities in one composite componen
 
 ### Quality and security
 
-Mobile composites for calling are initialized using [Azure Communication Services access tokens](../../../quickstarts/access-tokens.md).
+Mobile composites for calling are initialized using [Azure Communication Services access tokens](../../../quickstarts/identity/access-tokens.md).
 
 ### More details
 
@@ -65,7 +65,7 @@ The `ChatComposite` delivers real time text messaging experiences. With the flex
 
 ### Quality and security
 
-Similar to the `CallComposite`, the `ChatComposite` also utilizes [Azure Communication Services access tokens](../../../quickstarts/access-tokens.md). To ensure only users with appropriate permission can access chat, their user tokens need to be added into a valid [chat thread](../../../quickstarts/chat/get-started.md) prior to starting the Chat experience. 
+Similar to the `CallComposite`, the `ChatComposite` also utilizes [Azure Communication Services access tokens](../../../quickstarts/identity/access-tokens.md). To ensure only users with appropriate permission can access chat, their user tokens need to be added into a valid [chat thread](../../../quickstarts/chat/get-started.md) prior to starting the Chat experience. 
 
 ### More details
 

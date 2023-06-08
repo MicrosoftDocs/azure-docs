@@ -106,7 +106,7 @@ The response of those methods also contains the [minimum provisioned throughput]
 The actual minimum RU/s may vary depending on your account configuration. But generally it's the maximum of:
 
 * 400 RU/s 
-* Current storage in GB * 10 RU/s (this constraint can be relaxed in some cases, see our [high storage / low throughput program](#high-storage-low-throughput-program))
+* Current storage in GB * 1 RU/s
 * Highest RU/s ever provisioned on the database or container / 100
 
 ### Changing the provisioned throughput
@@ -131,14 +131,6 @@ You can programmatically check the scaling progress by reading the [current prov
 * [ThroughputResponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending) on the Java SDK.
 
 You can use [Azure Monitor metrics](monitor.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
-
-## <a id="high-storage-low-throughput-program"></a> High storage / low throughput program
-
-As described in the [Current provisioned throughput](#current-provisioned-throughput) section above, the minimum throughput you can provision on a container or database depends on a number of factors. One of them is the amount of data currently stored, as Azure Cosmos DB enforces a minimum throughput of 10 RU/s per GB of storage.
-
-This can be a concern in situations where you need to store large amounts of data, but have low throughput requirements in comparison. To better accommodate these scenarios, Azure Cosmos DB has introduced a **"high storage / low throughput" program** that decreases the RU/s per GB constraint on eligible accounts.
-
-To join this program and assess your full eligibility, all you have to do is to fill [this survey](https://aka.ms/cosmosdb-high-storage-low-throughput-program). The Azure Cosmos DB team will then follow up and proceed with your onboarding.
 
 ## Comparison of models
 This table shows a comparison between provisioning standard (manual) throughput on a database vs. on a container. 

@@ -1,8 +1,8 @@
 ---
 title: Deploy the Open Service Mesh add-on by using Bicep
 description: Use a Bicep template to deploy the Open Service Mesh (OSM) add-on to Azure Kubernetes Service (AKS).
-services: container-service
 ms.topic: article
+ms.custom: devx-track-bicep
 ms.date: 9/20/2021
 ms.author: pgibson
 ---
@@ -13,7 +13,7 @@ This article shows you how to deploy the Open Service Mesh (OSM) add-on to Azure
 
 > [!IMPORTANT]
 > Based on the version of Kubernetes your cluster is running, the OSM add-on installs a different version of OSM:
-> - If your cluster is running Kubernetes version 1.24.0 or greater, the OSM add-on installs version *1.2.3* of OSM.
+> - If your cluster is running Kubernetes version 1.24.0 or greater, the OSM add-on installs version *1.2.4* of OSM.
 > - If your cluster is running a version of Kubernetes between 1.23.5 and 1.24.0, the OSM add-on installs version *1.1.3* of OSM.
 > - If your cluster is running a version of Kubernetes below 1.23.5, the OSM add-on installs version *1.0.0* of OSM.
 
@@ -55,7 +55,7 @@ touch osm.aks.bicep && touch osm.aks.parameters.json
 
 Open the *osm.aks.bicep* file and copy the following example content to it. Then save the file.
 
-```azurecli-interactive
+```bicep
 // https://learn.microsoft.com/azure/aks/troubleshooting#what-naming-restrictions-are-enforced-for-aks-resources-and-parameters
 @minLength(3)
 @maxLength(63)
@@ -115,7 +115,7 @@ Open the *osm.aks.parameters.json* file and copy the following example content t
 > [!NOTE]
 > The *osm.aks.parameters.json* file is an example template parameters file needed for the Bicep deployment. Update the parameters specifically for your deployment environment. The specific parameter values in this example need the following parameters to be updated: `clusterName`, `clusterDNSPrefix`, `k8Version`, and `sshPubKey`. To find a list of supported Kubernetes versions in your region, use the `az aks get-versions --location <region>` command.
 
-```azurecli-interactive
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
@@ -180,7 +180,7 @@ kubectl get meshconfig osm-mesh-config -n kube-system -o yaml
 
 Here's an example output of MeshConfig:
 
-```
+```yaml
 apiVersion: config.openservicemesh.io/v1alpha1
 kind: MeshConfig
 metadata:
@@ -237,7 +237,7 @@ Notice that `enablePermissiveTrafficPolicyMode` is configured to `true`. In OSM,
 
 When you no longer need the Azure resources, use the Azure CLI to delete the deployment's test resource group:
 
-```
+```azurecli-interactive
 az group delete --name osm-bicep-test
 ```
 

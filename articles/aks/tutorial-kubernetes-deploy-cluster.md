@@ -1,7 +1,6 @@
 ---
 title: Kubernetes on Azure tutorial - Deploy a cluster
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an AKS cluster and use kubectl to connect to the Kubernetes master node.
-services: container-service
 ms.topic: tutorial
 ms.date: 12/01/2022
 
@@ -128,9 +127,9 @@ The following example output shows the list of cluster nodes.
 ```
 $ kubectl get nodes
 
-NAME                                STATUS   ROLES   AGE     VERSION
-aks-nodepool1-37463671-vmss000000   Ready    agent   2m37s   v1.18.10
-aks-nodepool1-37463671-vmss000001   Ready    agent   2m28s   v1.18.10
+NAME                                STATUS   ROLES   AGE   VERSION
+aks-nodepool1-19366578-vmss000002   Ready    agent   47h   v1.25.6
+aks-nodepool1-19366578-vmss000003   Ready    agent   47h   v1.25.6
 ```
 
 ## Next steps
@@ -149,7 +148,7 @@ In the next tutorial, you'll learn how to deploy an application to your cluster.
 > [Deploy an application in AKS][aks-tutorial-deploy-app]
 
 <!-- LINKS - external -->
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [k8s-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 

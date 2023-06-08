@@ -2,7 +2,8 @@
 title: Linter rule - decompiler cleanup
 description: Linter rule - decompiler cleanup
 ms.topic: conceptual
-ms.date: 11/01/2022
+ms.custom: devx-track-bicep
+ms.date: 02/10/2023
 ---
 
 # Linter rule - decompiler cleanup
@@ -18,6 +19,22 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 ## Solution
 
 To increase the readability, update these names with more meaningful names.
+
+The following example fails this test because the two variable names appear to have originated from a naming conflict during a decompilation from JSON.
+
+```bicep
+var hostingPlanName_var = functionAppName
+var storageAccountName_var = 'azfunctions${uniqueString(resourceGroup().id)}'
+```
+
+This example passes this test.
+
+```bicep
+var hostingPlanName = functionAppName
+var storageAccountName = 'azfunctions${uniqueString(resourceGroup().id)}'
+```
+
+Consider using <kbd>F2</kbd> in Visual Studio Code to replace symbols. 
 
 ## Next steps
 

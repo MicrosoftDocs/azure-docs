@@ -1,15 +1,16 @@
 ---
-title: 'Quickstart: Create a private endpoint by using Azure PowerShell'
-description: In this quickstart, you'll learn how to create a private endpoint by using Azure PowerShell.
+title: 'Quickstart: Create a private endpoint - Azure PowerShell'
+description: In this quickstart, you'll learn how to create a private endpoint using Azure PowerShell.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 05/24/2022
 ms.author: allensu
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using Azure PowerShell.
 ---
+
 # Quickstart: Create a private endpoint by using Azure PowerShell
 
 Get started with Azure Private Link by using a private endpoint to connect securely to an Azure web app.
@@ -28,7 +29,7 @@ You can create private endpoints for various Azure services, such as Azure SQL a
     
     - The example webapp in this article is named **myWebApp1979**. Replace the example with your webapp name.
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 

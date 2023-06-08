@@ -3,8 +3,8 @@ title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
 ms.date: 06/15/2022
 ms.topic: conceptual
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Understanding the Azure Resource Graph query language
 
@@ -179,7 +179,7 @@ Here is the list of KQL tabular operators supported by Resource Graph with speci
 |[parse](/azure/data-explorer/kusto/query/parseoperator) |[Get virtual networks and subnets of network interfaces](../samples/advanced.md#parse-subnets) |It's optimal to access properties directly if they exist instead of using `parse`. |
 |[project](/azure/data-explorer/kusto/query/projectoperator) |[List resources sorted by name](../samples/starter.md#list-resources) | |
 |[project-away](/azure/data-explorer/kusto/query/projectawayoperator) |[Remove columns from results](../samples/advanced.md#remove-column) | |
-|[sort](/azure/data-explorer/kusto/query/sortoperator) |[List resources sorted by name](../samples/starter.md#list-resources) |Synonym of `order` |
+|[sort](/azure/data-explorer/kusto/query/sort-operator) |[List resources sorted by name](../samples/starter.md#list-resources) |Synonym of `order` |
 |[summarize](/azure/data-explorer/kusto/query/summarizeoperator) |[Count Azure resources](../samples/starter.md#count-resources) |Simplified first page only |
 |[take](/azure/data-explorer/kusto/query/takeoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `limit`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
 |[top](/azure/data-explorer/kusto/query/topoperator) |[Show first five virtual machines by name and their OS type](../samples/starter.md#show-sorted) | |

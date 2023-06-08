@@ -2,7 +2,7 @@
 title: Tutorial - Connect Azure Analysis Services with Power BI Desktop | Microsoft Docs
 author: minewiskan
 description: In this tutorial, learn how to get an Analysis Services server name from the Azure portal and then connect to the server by using Power BI Desktop.
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: tutorial
 ms.date: 02/02/2022
 ms.author: owend

@@ -27,7 +27,7 @@ Confidential applications are encrypted in transit and at rest, and only decrypt
 
 The developer creates the confidential application and packages it as an IoT Edge module. The application is encrypted before being pushed to the container registry. The application remains encrypted throughout the IoT Edge deployment process until the module is started on the IoT Edge device. Once the confidential application is within the device's TEE, it is decrypted and can begin executing.
 
-![Diagram - Confidential applications are encrypted within IoT Edge modules until deployed into the secure enclave](./media/deploy-confidential-applications/confidential-applications-encrypted.png)
+:::image type="content" source="./media/deploy-confidential-applications/confidential-applications-encrypted.png" alt-text="Diagram that show confidential applications are encrypted within IoT Edge modules until deployed into the secure enclave.":::
 
 Confidential applications on IoT Edge are a logical extension of [Azure confidential computing](../confidential-computing/overview.md). Workloads that run within secure enclaves in the cloud can also be deployed to run within secure enclaves at the edge.
 

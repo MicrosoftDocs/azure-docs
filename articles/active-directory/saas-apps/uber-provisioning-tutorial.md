@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Uber for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Uber for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Uber.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: f16047ee-8ed6-4f8f-86e4-d9bc2cbd9016
 ms.service: active-directory

@@ -54,7 +54,7 @@ The following section describes the common scenarios and the expected consent ex
 
 In this consent scenario, the user accesses an app that requires a permission set that is within the user's scope of authority. The user is directed to the user consent flow.
 
-Admins will see an additional control on the traditional consent prompt that will allow to give consent on behalf of the entire tenant. The control will be defaulted to off, so only when admins explicitly check the box will consent be granted on behalf of the entire tenant. The check box will only show for the Global Admin role, so Cloud Admin and App Admin won't see this checkbox.
+Admins will see an additional control on the traditional consent prompt that will allow to give consent on behalf of the entire tenant. The control will be defaulted to off, so only when admins explicitly check the box will consent be granted on behalf of the entire tenant. The check box will only show for the Global Administrator role, so Cloud Admin and App Admin won't see this checkbox.
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_1a.png" alt-text="Consent prompt for scenario 1a":::
 

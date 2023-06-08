@@ -4,8 +4,7 @@ description: Learn how to deploy your code to Azure App Service from a CI/CD pip
 ms.topic: article
 ms.date: 12/14/2021
 ms.reviewer: ushan
-ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-
+ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
 # Deploy to App Service using GitHub Actions
@@ -289,7 +288,7 @@ The environment variable `AZURE_WEBAPP_PACKAGE_PATH` sets the path to your web a
   run: |
     dotnet restore
     dotnet build --configuration Release
-    dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+    dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
 ```
 **ASP.NET**
 
@@ -383,7 +382,7 @@ jobs:
         run: |
           dotnet restore
           dotnet build --configuration Release
-          dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+          dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
           
       # Deploy to Azure Web apps
       - name: 'Run Azure webapp deploy action using publish profile credentials'
@@ -598,10 +597,10 @@ jobs:
         run: |
           dotnet restore
           dotnet build --configuration Release
-          dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+          dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
           
       # Deploy to Azure Web apps
-      - name: 'Run Azure webapp deploy action using publish profile credentials'
+      - name: 'Run Azure webapp deploy action using Azure Credentials'
         uses: azure/webapps-deploy@v2
         with: 
           app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
@@ -651,7 +650,7 @@ jobs:
     - name: Run MSBuild
       run: msbuild .\SampleWebApplication.sln
        
-    - name: 'Run Azure webapp deploy action using publish profile credentials'
+    - name: 'Run Azure webapp deploy action using Azure Credentials'
       uses: azure/webapps-deploy@v2
       with: 
         app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
@@ -841,7 +840,7 @@ jobs:
         run: |
           dotnet restore
           dotnet build --configuration Release
-          dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+          dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
           
       # Deploy to Azure Web apps
       - name: 'Run Azure webapp deploy action using publish profile credentials'

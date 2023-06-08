@@ -14,7 +14,7 @@ ms.author: alkohli
   - City
   - ZIP Code/postal code
   - State
-  - Country/province/region
+  - Country/region/province
   - Shipping tracking number
 
     Order details are encrypted and stored in the service. The service retains the information until you explicitly delete the resource or order. The deletion of the resource and the corresponding order is blocked from the time the device is shipped until the device returns to Microsoft.

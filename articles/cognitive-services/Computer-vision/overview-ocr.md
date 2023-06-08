@@ -26,13 +26,13 @@ Intelligent Document Processing (IDP) uses OCR as its foundational technology to
 Microsoft's **Read** OCR engine is composed of multiple advanced machine-learning based models supporting [global languages](./language-support.md). This allows them to extract printed and handwritten text including mixed languages and writing styles. **Read** is available as cloud service and on-premises container for deployment flexibility. With the latest preview, it's also available as a synchronous API for single, non-document, image-only scenarios with performance enhancements that make it easier to implement OCR-assisted user experiences.
 
 > [!WARNING]
-> The Computer Vision legacy [ocr](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) and [RecognizeText](https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/587f2c6a1540550560080311) operations are no longer supported and should not be used.
+> The Computer Vision legacy [OCR API in v3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) and [RecognizeText API in v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/587f2c6a1540550560080311) operations are not recomended for use.
 
 [!INCLUDE [read-editions](includes/read-editions.md)]
 
 ## How to use OCR
 
-Try out OCR by using Vision Studio. Then follow one of the links to the Read edition in the later sections that best meet your requirements.
+Try out OCR by using Vision Studio. Then follow one of the links to the Read edition that best meet your requirements.
 
 > [!div class="nextstepaction"]
 > [Try Vision Studio](https://portal.vision.cognitive.azure.com/)

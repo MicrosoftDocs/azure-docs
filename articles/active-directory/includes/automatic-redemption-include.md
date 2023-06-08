@@ -11,12 +11,11 @@ ms.author: rolyon
 ms.custom: include file
 ---
 
-The automatic redemption setting is an inbound and outbound organizational trust setting to automatically redeem invitations so users don't have to accept the consent prompt the first time they access the resource/target tenant. This setting is a check box with the following name depending on whether it's inbound or outbound:
+The automatic redemption setting is an inbound and outbound organizational trust setting to automatically redeem invitations so users don't have to accept the consent prompt the first time they access the resource/target tenant. This setting is a check box with the following name:
 
-- **Suppress consent prompts for users from the other tenant when they access apps and resources in my tenant**
-- **Suppress consent prompts for users from my tenant when they access apps and resources in the other tenant**
+- **Automatically redeem invitations with the tenant** &lt;tenant&gt;
 
-:::image type="content" source="../media/external-identities/inbound-consent-prompt-setting.png" alt-text="Screenshot that shows the inbound suppress consent prompt check box." lightbox="../media/external-identities/inbound-consent-prompt-setting.png":::
+:::image type="content" source="../media/external-identities/inbound-consent-prompt-setting.png" alt-text="Screenshot that shows the inbound Automatic redemption check box." lightbox="../media/external-identities/inbound-consent-prompt-setting.png":::
 
 #### Compare setting for different scenarios
 

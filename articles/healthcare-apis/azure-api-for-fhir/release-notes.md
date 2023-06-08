@@ -2,18 +2,45 @@
 title: Azure API for FHIR monthly releases
 description: This article provides details about the Azure API for FHIR monthly features and enhancements.
 services: healthcare-apis
-author: expekesheth
+author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/16/2022
 ms.custom: references_regions
-ms.author: kesheth
+ms.author: kavitagaddam
 ---
 
 # Release notes: Azure API for FHIR
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
+
+> [!Note]
+> Azure Health Data services is the evolved version of Azure API for FHIR enabling customers to manage FHIR, DICOM, and MedTech services with integrations into other Azure Services. To learn about Azure Health Data Services [click here](https://azure.microsoft.com/products/health-data-services/).
+
+## **June 2023**
+**Bug Fix: Metadata endpoint URL in capability statement is relative URL**
+Per FHIR specification, metadata endpoint URL in capability statement needs to be an absolute URL. 
+For details on FHIR specification, visit [Capability Statement](https://www.hl7.org/fhir/capabilitystatement-definitions.html#CapabilityStatement.url). This fanix addresses the issue, for details visit [3265](https://github.com/microsoft/fhir-server/pull/3265).
+
+## **May 2023**
+
+**SMART on FHIR : Fixed clinical scope mapping for applications**
+
+This bug fix addresses issue with clinical scope not interpreted correctly for backend applications. 
+For more details, visit [#3250](https://github.com/microsoft/fhir-server/pull/3250)
+
+## **April 2023**
+
+**Fixed transient issues associated with loading custom search parameters**
+This bug fix address the issue, where the FHIR service would not load the latest SearchParameter status in event of failure.
+For more details, visit [#3222](https://github.com/microsoft/fhir-server/pull/3222)
+
+## **November 2022**
+
+**Fixed the Error generated when resource is updated using if-match header and PATCH**
+
+Bug is now fixed and Resource will be updated if matches the Etag header. For details , see [#2877](https://github.com/microsoft/fhir-server/issues/2877)|
 
 ## May 2022
 

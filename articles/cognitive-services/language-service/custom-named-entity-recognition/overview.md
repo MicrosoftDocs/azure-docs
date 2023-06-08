@@ -1,14 +1,14 @@
 ---
-title: What is custom named entity recognition in Azure Cognitive Service for Language (preview)
+title: Custom named entity recognition - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Learn how use custom named entity recognition.
+description: Customize an AI model to label and extract information from documents using Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 06/17/2022
+ms.date: 02/22/2023
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---

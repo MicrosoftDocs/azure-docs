@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Applied Mental Health | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Applied Mental Health'
 description: Learn how to configure single sign-on between Azure Active Directory and Applied Mental Health.
 services: active-directory
 author: jeevansd

@@ -1,13 +1,13 @@
 ---
 title: Azure Internet peering for Communications Services walkthrough
-titleSuffix: Azure
-description: Azure Internet peering for Communications Services walkthrough
+description: Azure Internet peering for Communications Services walkthrough.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 10/10/2022
 ms.author: halkazwini
+ms.custom: template-how-to
 ---
 
 # Azure Internet peering for Communications Services walkthrough

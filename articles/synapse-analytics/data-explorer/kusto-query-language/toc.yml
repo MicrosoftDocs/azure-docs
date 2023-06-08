@@ -219,7 +219,7 @@ items:
   - name: serialize operator
     href: /azure/data-explorer/kusto/query/serializeoperator?context=/azure/synapse-analytics/context/context
   - name: sort operator
-    href: /azure/data-explorer/kusto/query/sortoperator?context=/azure/synapse-analytics/context/context
+    href: /azure/data-explorer/kusto/query/sort-operator?context=/azure/synapse-analytics/context/context
   - name: summarize operator
     items:
     - name: summarize operator overview

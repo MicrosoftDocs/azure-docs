@@ -6,8 +6,7 @@ ms.subservice: flexible-server
 ms.topic: quickstart
 ms.author: sunila
 author: sunilagarwal
-ms.reviewer: ""
-ms.custom: seodec18, devx-track-azurecli, mode-other
+ms.custom: seodec18, mode-other
 ms.date: 11/30/2021
 ---
 

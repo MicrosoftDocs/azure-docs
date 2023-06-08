@@ -23,6 +23,9 @@ These actions may be disabled if there no more cores that can be enabled for you
 > [!NOTE]
 > Azure Lab Services capacity limits are set per subscription.
 
+### Prerequisites
+
+[!INCLUDE [Create support request](./includes/lab-services-prerequisite-create-support-request.md)]
 
 ## Request a limit increase
 
@@ -40,6 +43,45 @@ Azure Lab Services hosts lab resources, including VMs, within special Microsoft-
 
 Before you set up a large number of VMs across your labs, we recommend that you open a support ticket to pre-request VM capacity. Requests should include VM size, number, and location. Requesting capacity before lab creation helps us to ensure that you create your labs in a region that has a sufficient number of VM cores for the VM size that you need for your labs.
 
+## Azure region restrictions
+
+Azure Lab Services enables you to create labs in different Azure regions. The default limit for the total number of regions you can use for creating labs varies by offer category type. For example, the default for Pay-As-You-Go subscriptions is two regions.
+
+If you have reached the Azure regions limit for your subscription, you can only create labs in regions that you're already using. When you create a new lab in another region, the lab creation will fail with an error message.
+
+To overcome the Azure region restriction, you have the following options:
+
+- [Delete all labs](./how-to-manage-labs.md#delete-a-lab) in one of the other regions to reduce the total number of regions in which you have labs.
+
+- Contact Azure support to [request the removal of the region restriction](#request-removal-of-region-restriction) for your subscription.
+
+- Contact Azure support to [request a limit increase](./how-to-request-capacity-increase.md). When a limit increase is granted, the region restriction is lifted for your subscription. We recommend that you request a small limit increase for any SKU to lift the restriction for your subscription.
+
+### Request removal of region restriction
+
+You can contact Azure support and create a support ticket to lift the region restriction from your subscription.
+
+1. In the [Azure portal](https://portal.azure.com), go to your lab plan.
+1. In the left navigation menu, select **New Support Request**.
+1. On the **Problem description** tab, enter the following information, and then select **Next**.
+
+    | Field  | Value  |
+    | ------ | ------ |
+    | **Summary** | Enter *Remove region restriction*. |
+    | **Issue type** | *Technical* |
+    | **Subscription** | Select your Azure subscription. |
+    | **Service** | Select *My Services*. |
+    | **Service type** | Select *Lab Services with lab plan*. |
+    | **Resource** | *Select your lab plan*. |
+    | **Problem type** | Select *Labs Portal (labs.azure.com)*. |
+    | **Problem subtype** | Select *Problem creating a new lab*. |
+
+    :::image type="content" source="./media/capacity-limits/support-request-region-restriction.png" alt-text="Screenshot that shows how to create an Azure support request in the Azure portal to remove the region restriction." lightbox="./media/capacity-limits/support-request-region-restriction.png":::
+
+1. On the **Additional details** page, enter *Requesting lift of regional restrictions* in the **Description** field, and then select **Next**.
+
+1. On the **Review + create** page, select **Create** to create the support request.
+
 ## Best practices for requesting a limit increase
 [!INCLUDE [lab-services-request-capacity-best-practices](includes/lab-services-request-capacity-best-practices.md)]
 
@@ -49,4 +91,3 @@ See the following articles:
 
 - As an admin, see [VM sizing](administrator-guide.md#vm-sizing).
 - As an admin, see [Request a capacity increase](./how-to-request-capacity-increase.md)
-- [Frequently asked questions](classroom-labs-faq.yml).

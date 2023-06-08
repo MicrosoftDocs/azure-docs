@@ -10,7 +10,7 @@ ms.author: keli19
 ms.reviewer: lagayhar
 ms.date: 09/22/2022
 ms.topic: how-to
-ms.custom: designer, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, designer, event-tier1-build-2022, ignite-2022
 ---
 
 # Import data into Azure Machine Learning designer
@@ -113,4 +113,4 @@ If your workspace is in a virtual network, you must perform additional configura
 
 ## Next steps
 
-Learn the designer fundamentals with this [Tutorial: Predict automobile price with the designer](../tutorial-designer-automobile-price-train-score.md).
+Learn the designer fundamentals with this [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).

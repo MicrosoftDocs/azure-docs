@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Ariba | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Ariba'
 description: Learn how to configure single sign-on between Azure Active Directory and Ariba.
 services: active-directory
 author: jeevansd

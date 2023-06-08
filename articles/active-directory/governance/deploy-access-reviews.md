@@ -73,7 +73,7 @@ Consider your organizational needs to determine the strategy for deploying acces
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that project roles are clear.
+When technology projects fail, they typically do so because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/deployment-plans.md) and that project roles are clear.
 
 For access reviews, you'll likely include representatives from the following teams within your organization:
 
@@ -137,7 +137,7 @@ In your pilot, we recommend that you:
 * Document any access removed as a part of the pilot in case you need to quickly restore it.
 * Monitor audit logs to ensure all events are properly audited.
 
-For more information, see [Best practices for a pilot](../fundamentals/active-directory-deployment-plans.md).
+For more information, see [Best practices for a pilot](../fundamentals/deployment-plans.md).
 
 ## Introduction to access reviews
 
@@ -276,7 +276,7 @@ Group owners review membership because they're best qualified to know who needs 
 
    For example, Microsoft Teams uses Microsoft 365 Groups as the underlying authorization model to grant users access to resources that are in SharePoint, Exchange, OneNote, or other Microsoft 365 services. The creator of the team automatically becomes an owner and should be responsible for attesting to the membership of that group.
 
-* Groups created manually in the Azure AD portal or via scripting through Microsoft Graph might not necessarily have owners defined. Define them either through the Azure AD portal in the group's **Owners** section or via Microsoft Graph.
+* Groups created manually in the Azure portal or via scripting through Microsoft Graph might not necessarily have owners defined. Define them either through the Azure portal in the group's **Owners** section or via Microsoft Graph.
 
 * Groups that are synchronized from on-premises Active Directory can't have an owner in Azure AD. When you create an access review for them, select individuals who are best suited to decide on membership in them.
 

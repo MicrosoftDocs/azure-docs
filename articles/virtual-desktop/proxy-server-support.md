@@ -75,14 +75,15 @@ The Azure Virtual Desktop agent automatically tries to locate a proxy server on 
 
 To configure your network to use DNS resolution for WPAD, follow the instructions in [Auto detect settings Internet Explorer 11](/internet-explorer/ie11-deploy-guide/auto-detect-settings-for-ie11). Make sure the DNS server global query blocklist allows the WPAD resolution by following the directions in [Set-DnsServerGlobalQueryBlockList](/powershell/module/dnsserver/set-dnsserverglobalqueryblocklist?view=windowsserver2019-ps&preserve-view=true).
 
-### Manually set a device-wide Internet Explorer proxy
+### Manually set a device-wide proxy for Windows services
 
-You can set a device-wide proxy or Proxy Auto Configuration (.PAC) file that applies to all interactive, LocalSystem, and NetworkService users with the [Network Proxy CSP](/windows/client-management/mdm/networkproxy-csp). 
+You can set a device-wide proxy or Proxy Auto Configuration (.PAC) file that applies to all interactive, Local System, and Network Service users with the [Network Proxy CSP](/windows/client-management/mdm/networkproxy-csp). 
 
-You can also configure the proxy server for the local system account by running the following **bitsadmin** command, as shown in the following example: 
+In addition you will need to set a proxy for the Windows services *RDAgent* and *Remote Desktop Services*. RDAgent runs with the account *Local System* and Remote Desktop Services runs with the account *Network Service*. You can set a proxy for these accounts by running the following commands, changing the placeholder value for `<server>` with your own address:
 
 ```console
-bitsadmin /util /setieproxy LOCALSYSTEM AUTOSCRIPT http://server/proxy.pac 
+bitsadmin /util /setieproxy LOCALSYSTEM AUTOSCRIPT http://<server>/proxy.pac
+bitsadmin /util /setieproxy NETWORKSERVICE AUTOSCRIPT http://<server>/proxy.pac
 ```
 
 ## Client-side proxy support

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure GoToMeeting for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure GoToMeeting for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure single sign-on between Azure Active Directory and GoToMeeting.
 services: active-directory
 author: jeevansd

@@ -25,17 +25,32 @@ Use this article to learn which natural languages are supported by the PII and c
 ## PII language support
 
 | Language              | Language code | Starting with model version | Notes              |
-|:----------------------|:-------------:|:-------------------------------:|:------------------:|
-| Chinese-Simplified    | `zh-hans`     | 2021-01-15                      | `zh` also accepted |
-| English               | `en`          | 2020-07-01                      |                    |
-| French                | `fr`          | 2021-01-15                      |                    |
-| German                | `de`          | 2021-01-15                      |                    |
-| Italian               | `it`          | 2021-01-15                      |                    |
-| Japanese              | `ja`          | 2021-01-15                      |                    |
-| Korean                | `ko`          | 2021-01-15                      |                    |
-| Portuguese (Brazil)   | `pt-BR`       | 2021-01-15                      |                    |
-| Portuguese (Portugal) | `pt-PT`       | 2021-01-15                      | `pt` also accepted |
-| Spanish               | `es`          | 2020-04-01                      |                    |
+|---------------------|-------------|-----|------------------|
+|Arabic             |`ar`         |   2023-01-01-preview  |                  |
+|Chinese-Simplified   |`zh-hans`    |2021-01-15    |`zh` also accepted|
+|Chinese-Traditional |`zh-hant`    |  2023-01-01-preview   |                  |
+|Czech               |`cs`         |  2023-01-01-preview   |                  |
+|Danish              |`da`         |2023-01-01-preview     |                  |
+|Dutch               |`nl`         |2023-01-01-preview   |                  |
+|English              |`en`         |2020-07-01     |                  |
+|Finnish             |`fi`         |   2023-01-01-preview  |                  |
+|French               |`fr`         |2021-01-15     |                  |
+|German               |`de`         | 2021-01-15     |                  |
+|Hebrew               |`he`         |  2023-01-01-preview   |                  |
+|Hindi                |`hi`         |2023-01-01-preview    |                  |
+|Hungarian           |`hu`         |   2023-01-01-preview  |                  |
+|Italian              |`it`         |2021-01-15    |                  |
+|Japanese             |`ja`         | 2021-01-15    |                  |
+|Korean               |`ko`         | 2021-01-15     |                  |
+|Norwegian  (Bokmål) |`no`         |  2023-01-01-preview   |`nb` also accepted|
+|Polish              |`pl`         | 2023-01-01-preview    |                  |
+|Portuguese (Brazil)  |`pt-BR`      |2021-01-15      |                  |
+|Portuguese (Portugal)|`pt-PT`      | 2021-01-15    |`pt` also accepted|
+|Russian             |`ru`         |   2023-01-01-preview  |                  |
+|Spanish              |`es`         |2020-04-01     |                  |
+|Swedish             |`sv`         |   2023-01-01-preview  |                  |
+|Turkish             |`tr`         |2023-01-01-preview    |                  |
+
 
 # [PII for conversations (preview)](#tab/conversations)
 

@@ -1,12 +1,12 @@
 ---
-title: Troubleshoot self-service password reset writeback- Azure Active Directory
+title: Troubleshoot self-service password reset writeback
 description: Learn how to troubleshoot common problems and resolution steps for self-service password reset writeback in Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 01/05/2023
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -45,7 +45,11 @@ Azure [GOV endpoints](../../azure-government/compare-azure-government-global-azu
 * *\*.passwordreset.microsoftonline.us*
 * *\*.servicebus.usgovcloudapi.net*
 
-If you need more granularity, see the [list of Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated every Wednesday and goes into effect the next Monday.
+If you need more granularity, see the [list of Microsoft Azure IP Ranges and Service Tags for Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
+
+For Azure GOV, see the [list of Microsoft Azure IP Ranges and Service Tags for US Government Cloud](https://www.microsoft.com/download/details.aspx?id=57063).
+
+These files are updated weekly.
 
 To determine if access to a URL and port are restricted in an environment, run the following cmdlet:
 
@@ -81,7 +85,7 @@ If restarting the Azure AD Connect Sync service doesn't resolve your problem, tr
 To continue to troubleshoot issues, complete the following steps to disable and then re-enable the password writeback feature:
 
 1. As an administrator on the server that runs Azure AD Connect, open the **Azure AD Connect Configuration wizard**.
-1. In **Connect to Azure AD**, enter your Azure AD global admin credentials.
+1. In **Connect to Azure AD**, enter your Azure AD Global Administrator credentials.
 1. In **Connect to AD DS**, enter your on-premises Active Directory Domain Services admin credentials.
 1. In **Uniquely identifying your users**, select the **Next** button.
 1. In **Optional features**, clear the **Password writeback** check box.
@@ -191,8 +195,9 @@ A best practice when you troubleshoot problems with password writeback is to ins
 | 31014| OffboardingEventFail| This event indicates that the offboarding process wasn't successful. This might be due to a permissions error on the cloud or on-premises administrator account specified during configuration. The error can also occur if you're attempting to use a federated cloud global administrator when disabling password writeback. To fix this problem, check your administrative permissions and ensure that you're not using a federated account while configuring the password writeback capability.|
 | 31015| WriteBackServiceStarted| This event indicates that the password writeback service has started successfully. It is ready to accept password management requests from the cloud.|
 | 31016| WriteBackServiceStopped| This event indicates that the password writeback service has stopped. Any password management requests from the cloud won't be successful.|
-| 31017| AuthTokenSuccess| This event indicates that we successfully retrieved an authorization token for the global admin specified during Azure AD Connect setup to start the offboarding or onboarding process.|
+| 31017| AuthTokenSuccess| This event indicates that we successfully retrieved an authorization token for the Global Administrator specified during Azure AD Connect setup to start the offboarding or onboarding process.|
 | 31018| KeyPairCreationSuccess| This event indicates that we successfully created the password encryption key. This key is used to encrypt passwords from the cloud to be sent to your on-premises environment.|
+| 31019| ServiceBusHeartBeat| This event indicates that we successfully sent a request to your tenant's Service Bus instance.|
 | 31034| ServiceBusListenerError| This event indicates that there was an error connecting to your tenant's Service Bus listener. If the error message includes "The remote certificate is invalid", check to make sure that your Azure AD Connect server has all the required Root CAs as described in [Azure TLS certificate changes](../../security/fundamentals/tls-certificate-changes.md). |
 | 31044| PasswordResetService| This event indicates that password writeback is not working. The Service Bus listens for requests on two separate relays for redundancy. Each relay connection is managed by a unique Service Host. The writeback client returns an error if either Service Host is not running.|
 | 32000| UnknownError| This event indicates an unknown error occurred during a password management operation. Look at the exception text in the event for more details. If you're having problems, try disabling and then re-enabling password writeback. If this doesn't help, include a copy of your event log along with the tracking ID specified when you open a support request.|
@@ -203,7 +208,7 @@ A best practice when you troubleshoot problems with password writeback is to ins
 | 32005| ConfigurationError| During onboarding, we save tenant-specific information in a configuration file in your on-premises environment. This event indicates that there was an error saving this file or that when the service was started, there was an error reading the file. To fix this problem, try disabling and then re-enabling password writeback to force a rewrite of the configuration file.|
 | 32007| OnBoardingConfigUpdateError| During onboarding, we send data from the cloud to the on-premises password-reset service. That data is then written to an in-memory file before it is sent to the sync service to be stored securely on disk. This event indicates that there's a problem with writing or updating that data in memory. To fix this problem, try disabling and then re-enabling password writeback to force a rewrite of this configuration file.|
 | 32008| ValidationError| This event indicates we received an invalid response from the password-reset web service. To fix this problem, try disabling and then re-enabling password writeback.|
-| 32009| AuthTokenError| This event indicates that we couldn't get an authorization token for the global administrator account specified during Azure AD Connect setup. This error can be caused by a bad username or password specified for the global admin account. This error can also occur if the global admin account specified is federated. To fix this problem, rerun the configuration with the correct username and password and ensure that the administrator is a managed (cloud-only or password-synchronized) account.|
+| 32009| AuthTokenError| This event indicates that we couldn't get an authorization token for the global administrator account specified during Azure AD Connect setup. This error can be caused by a bad username or password specified for the Global Administrator account. This error can also occur if the Global Administrator account specified is federated. To fix this problem, rerun the configuration with the correct username and password and ensure that the administrator is a managed (cloud-only or password-synchronized) account.|
 | 32010| CryptoError| This event indicates there was an error generating the password encryption key or decrypting a password that arrives from the cloud service. This error likely indicates a problem with your environment. Look at the details of your event log to learn more about how to resolve this problem. You can also try disabling and then re-enabling the password writeback service.|
 | 32011| OnBoardingServiceError| This event indicates that the on-premises service couldn't properly communicate with the password-reset web service to initiate the onboarding process. This can happen as a result of a firewall rule or if there's a problem getting an authentication token for your tenant. To fix this problem, ensure that you're not blocking outbound connections over TCP 443 and TCP 9350-9354 or to https://ssprdedicatedsbprodncu.servicebus.windows.net. Also ensure that the Azure AD admin account you're using to onboard isn't federated.|
 | 32013| OffBoardingError| This event indicates that the on-premises service couldn't properly communicate with the password-reset web service to initiate the offboarding process. This can happen as a result  of a firewall rule or if there's a problem getting an authorization token for your tenant. To fix this problem, ensure that you're not blocking outbound connections over 443 or to https://ssprdedicatedsbprodncu.servicebus.windows.net, and that the Azure Active Directory admin account you're using to offboard isn't federated.|

@@ -17,8 +17,6 @@ This guide outlines the steps to set up a subscription for Job Router events and
 
 For more details on Event Grid, see the [Event Grid documentation][event-grid-overview].
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 

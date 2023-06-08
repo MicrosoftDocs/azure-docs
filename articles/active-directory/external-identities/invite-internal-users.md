@@ -1,23 +1,26 @@
 ---
-title: Invite internal users to B2B collaboration - Azure AD
-description: If you have internal user accounts for partners, distributors, suppliers, vendors, and other guests, you can change to Azure AD B2B collaboration by inviting them to sign in with their own external credentials or login. Use either PowerShell or the Microsoft Graph invitation API.
+title: Invite internal users to B2B collaboration
+description: If you have internal user accounts for partners, distributors, suppliers, vendors, and other guests, you can change to Azure AD B2B collaboration by inviting them to sign in with their own external credentials or sign-in. Use either PowerShell or the Microsoft Graph invitation API.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 03/21/2023
 
 ms.author: cmulligan
 author: csmulligan
 manager: celestedg
 
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to know how to invite internal users to B2B collaboration.
 ---
 
 # Invite internal users to B2B collaboration
 
-Before the availability of Azure AD B2B collaboration, organizations could collaborate with distributors, suppliers, vendors, and other guest users by setting up internal credentials for them. If you have internal guest users like these, you can invite them to use B2B collaboration instead. These B2B guest users will be able to use their own identities and credentials to sign in, and you won’t need to maintain passwords or manage account lifecycles.
+Before the availability of Azure AD B2B collaboration, organizations could collaborate with distributors, suppliers, vendors, and other guest users by setting up internal credentials for them. If you have internal guest users like these, you can invite them to use B2B collaboration instead. These B2B guest users will be able to sign in using their own identities and credentials, eliminating the need for password maintenance or account lifecycle management.
+
 
 Sending an invitation to an existing internal account lets you retain that user’s object ID, UPN, group memberships, and app assignments. You don’t need to manually delete and re-invite the user or reassign resources. To invite the user, you use the invitation API to pass both the internal user object and the guest user’s email address along with the invitation. When the user accepts the invitation, the B2B service changes the existing internal user object to a B2B user. Going forward, the user must sign in to cloud resources services using their B2B credentials.
 
@@ -25,7 +28,7 @@ Sending an invitation to an existing internal account lets you retain that user�
 
 - **Access to on-premises resources**: After the user is invited to B2B collaboration, they can still use their internal credentials to access on-premises resources. You can prevent this by resetting or changing the password on the internal account. The exception is [email one-time passcode authentication](one-time-passcode.md); if the user's authentication method is changed to one-time passcode, they won't be able to use their internal credentials anymore.
 
-- **Billing**: This feature doesn't change the UserType for the user, so it doesn't automatically switch the user's billing model to [External Identities monthly active user (MAU) pricing](external-identities-pricing.md). To activate MAU pricing for the user, change the UserType for the user to `guest`. Also note that your Azure AD tenant must be [linked to an Azure subscription](external-identities-pricing.md#link-your-azure-ad-tenant-to-a-subscription) to activate MAU billing.
+- **Billing**: This feature doesn't change the UserType for the user, so it doesn't automatically switch the user's billing model to [External Identities monthly active user (MAU) pricing](external-identities-pricing.md). To activate MAU pricing for the user, change the UserType for the user to `guest`. Also note that your Azure AD tenant must be linked to an Azure subscription to activate MAU billing.
 
 - **Invitation is one-way**: You can invite internal users to use B2B collaboration, but you can’t remove the B2B credentials once they’re added. To change the user back to an internal-only user, you’ll need to delete the user object and create a new one.
 
@@ -34,12 +37,12 @@ Sending an invitation to an existing internal account lets you retain that user�
 - **On-premises synced users**: For user accounts that are synced between on-premises and the cloud, the on-premises directory remains the source of authority after they’re invited to use B2B collaboration. Any changes you make to the on-premises account will sync to the cloud account, including disabling or deleting the account. Therefore, you can’t prevent the user from signing into their on-premises account while retaining their cloud account by simply deleting the on-premises account. Instead, you can set the on-premises account password to a random GUID or other unknown value.
 
 > [!NOTE]
-> In Azure AD Connect sync, there’s a default rule that writes the [onPremisesUserPrincipalName attribute](../hybrid/reference-connect-sync-attributes-synchronized.md#notes) to the user object. Because the presence of this attribute can prevent a user from signing in using external credentials, we block internal-to-external conversions for user objects with this attribute. If you’re using Azure AD Connect and you want to be able to invite internal users to B2B collaboration, you'll need to [modify the default rule](../hybrid/how-to-connect-sync-change-the-configuration.md) so the onPremisesUserPrincipalName attribute isn’t written to the user object.
+> In Azure AD Connect sync, there’s a default rule that writes the onPremisesUserPrincipalName attribute to the user object. Because the presence of this attribute can prevent a user from signing in using external credentials, we block internal-to-external conversions for user objects with this attribute. If you’re using Azure AD Connect and you want to be able to invite internal users to B2B collaboration, you'll need to [modify the default rule](../hybrid/how-to-connect-sync-change-the-configuration.md) so the onPremisesUserPrincipalName attribute isn’t written to the user object.
 ## How to invite internal users to B2B collaboration
 
 You can use the Azure portal, PowerShell, or the invitation API to send a B2B invitation to the internal user. Some things to note:
 
-- Before you invite the user, make sure the `User.Mail` property of the internal user object (the user's **Email** property in the Azure portal) is set to the external email address they'll use for B2B collaboration.
+- Before you invite the user, make sure the `User.Mail` property of the internal user object (the user's **Email** property in the Azure portal) is set to the external email address they'll use for B2B collaboration. If the internal user has an existing mailbox, you can't change this property to an external email address. You must update their attributes in the [Exchange admin center](/exchange/exchange-admin-center).
 
 - When you invite the user, an invitation is sent to the user via email. If you're using PowerShell or the invitation API, you can suppress this email by setting `SendInvitationMessage` to `False`. Then you can notify the user in another way. [Learn more about the invitation API](customize-invitation-api.md).
 

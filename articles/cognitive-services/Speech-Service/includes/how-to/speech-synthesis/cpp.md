@@ -12,7 +12,7 @@ ms.author: eur
 
 ## Select synthesis language and voice
 
-The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. Refer to the full [list of supported text-to-speech locales](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
+The text to speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. Refer to the full [list of supported text to speech locales](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 Specify the language or voice of [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) to match your input text and use the wanted voice:
 
@@ -39,7 +39,7 @@ The voice that speaks is determined in order of priority as follows:
 
 ## Synthesize speech to a file
 
-Next, you create a [`SpeechSynthesizer`](/cpp/cognitive-services/speech/speechsynthesizer) object. This object executes text-to-speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
+Next, you create a [`SpeechSynthesizer`](/cpp/cognitive-services/speech/speechsynthesizer) object. This object executes text to speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
 
 - The [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) object that you created in the previous step
 - An [`AudioConfig`](/cpp/cognitive-services/speech/audio-audioconfig) object that specifies how output results should be handled
@@ -61,8 +61,8 @@ void synthesizeSpeech()
 {
     auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
     auto audioConfig = AudioConfig::FromWavFileOutput("path/to/write/file.wav");
-    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig, audioConfig);
-    auto result = synthesizer->SpeakTextAsync("A simple test to write to a file.").get();
+    auto speechSynthesizer = SpeechSynthesizer::FromConfig(speechConfig, audioConfig);
+    auto result = speechSynthesizer->SpeakTextAsync("A simple test to write to a file.").get();
 }
 ```
 
@@ -76,8 +76,8 @@ To output synthesized speech to the current active output device such as a speak
 void synthesizeSpeech()
 {
     auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig);
-    auto result = synthesizer->SpeakTextAsync("I'm excited to try text to speech").get();
+    auto speechSynthesizer = SpeechSynthesizer::FromConfig(speechConfig);
+    auto result = speechSynthesizer->SpeakTextAsync("I'm excited to try text to speech").get();
 }
 ```
 
@@ -100,9 +100,9 @@ This time, save the result to a [`SpeechSynthesisResult`](/cpp/cognitive-service
 void synthesizeSpeech()
 {
     auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig);
+    auto speechSynthesizer = SpeechSynthesizer::FromConfig(speechConfig);
 
-    auto result = synthesizer->SpeakTextAsync("Getting the response as an in-memory stream.").get();
+    auto result = speechSynthesizer->SpeakTextAsync("Getting the response as an in-memory stream.").get();
     auto stream = AudioDataStream::FromResult(result);
 }
 ```
@@ -132,8 +132,8 @@ void synthesizeSpeech()
     auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
     speechConfig->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 
-    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig);
-    auto result = synthesizer->SpeakTextAsync("A simple test to write to a file.").get();
+    auto speechSynthesizer = SpeechSynthesizer::FromConfig(speechConfig);
+    auto result = speechSynthesizer->SpeakTextAsync("A simple test to write to a file.").get();
 
     auto stream = AudioDataStream::FromResult(result);
     stream->SaveToWavFileAsync("path/to/write/file.wav").get();
@@ -144,7 +144,7 @@ Running your program again will write a .wav file to the specified path.
 
 ## Use SSML to customize speech characteristics
 
-You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
+You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text to speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
 
 To start using SSML for customization, you make a simple change that switches the voice.
 
@@ -164,7 +164,7 @@ Next, you need to change the speech synthesis request to reference your XML file
 void synthesizeSpeech()
 {
     auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig);
+    auto speechSynthesizer = SpeechSynthesizer::FromConfig(speechConfig);
 
     std::ifstream file("./ssml.xml");
     std::string ssml, line;
@@ -173,7 +173,7 @@ void synthesizeSpeech()
         ssml += line;
         ssml.push_back('\n');
     }
-    auto result = synthesizer->SpeakSsmlAsync(ssml).get();
+    auto result = speechSynthesizer->SpeakSsmlAsync(ssml).get();
 
     auto stream = AudioDataStream::FromResult(result);
     stream->SaveToWavFileAsync("path/to/write/file.wav").get();
@@ -185,9 +185,9 @@ void synthesizeSpeech()
 
 ## Subscribe to synthesizer events
 
-You might want more insights about the text-to-speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
+You might want more insights about the text to speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
 
-While using the [SpeechSynthesizer](/cpp/cognitive-services/speech/speechsynthesizer) for text-to-speech, you can subscribe to the events in this table:
+While using the [SpeechSynthesizer](/cpp/cognitive-services/speech/speechsynthesizer) for text to speech, you can subscribe to the events in this table:
 
 [!INCLUDE [Event types](events.md)]
 
@@ -339,4 +339,11 @@ std::string getEnvironmentVariable(const char* name)
 }
 ```
 
-You can find more text-to-speech samples at [GitHub](https://aka.ms/csspeech/samples).
+You can find more text to speech samples at [GitHub](https://aka.ms/csspeech/samples).
+
+## Run and use a container
+
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
+
+For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
+

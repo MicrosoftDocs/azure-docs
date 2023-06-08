@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ANAQUA | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with ANAQUA'
 description: Learn how to configure single sign-on between Azure Active Directory and ANAQUA.
 services: active-directory
 author: jeevansd

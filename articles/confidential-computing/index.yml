@@ -37,6 +37,8 @@ landingContent:
             url: confidential-computing-solutions.md
           - text: Deploying confidential computing solutions
             url: confidential-computing-deployment-models.md
+          - text: Cleanroom solutions on confidential computing
+            url: multi-party-data.md
       - linkListType: concept
         links:
           - text: Microsoft Azure Attestation
@@ -49,6 +51,8 @@ landingContent:
             url: ../virtual-machines/trusted-launch.md
           - text: Azure Key Vault Managed HSM
             url: ../key-vault/managed-hsm/index.yml
+          - text: Azure SQL Always Encrypted in secure enclaves
+            url: https://learn.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves
           - text: Azure IoT Edge
             url: ../iot-edge/deploy-confidential-applications.md
       - linkListType: whats-new
@@ -64,6 +68,8 @@ landingContent:
             url: confidential-vm-overview.md
           - text: Virtual Machines based on AMD processors with SEV-SNP technology
             url: virtual-machine-solutions-amd.md
+          - text: Preview of Azure Confidential VM with Intel TDX
+            url: tdx-confidential-vm-overview.md
       - linkListType: concept
         links:
           - text: Guest attestation for confidential VMs
@@ -94,40 +100,45 @@ landingContent:
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
       - linkListType: whats-new
         links:
-          - text: AMD SEV-SNP Confidential VM's with customizable firmware - Private preview 
-            url: https://aka.ms/dlbcvm
+          - text: DCesv5 and ECesv5 Confidential VMs with Intel TDX
+            url: https://aka.ms/tdx-blog/
 
   # Card
   - title: Container compute
     linkLists:
       - linkListType: overview
         links: 
-        - text: Confidential containers on Azure
+        - text: Confidential containers on Azure overview
           url: confidential-containers.md
-        - text: App enclave nodes in AKS
-          url: confidential-nodes-aks-overview.md
-        - text: Confidential VM node pool in AKS
+        - text: Confidential VM with AMD SEV-SNP node pools in AKS
           url: confidential-node-pool-aks.md
+        - text: App enclave nodes with Intel SGX in AKS
+          url: confidential-nodes-aks-overview.md
+       
       - linkListType: quickstart
         links:
+          - text: Hello world with Confidential containers with Azure Container Instances (ACI)
+            url: ..\container-instances\container-instances-tutorial-deploy-confidential-containers-cce-arm.md
           - text: CLI based provisioning with a hello from enclave container app on AKS
             url: confidential-enclave-nodes-aks-get-started.md
           - text: Confidential containers with Intel SGX quickstart
             url: confidential-containers-enclaves.md
           - text: App enclave aware container samples
             url: enclave-aware-containers.md
-          - text: Confidential node pools on AKS
-            url: confidential-nodes-aks-addon.md
+          - text: Confidential VM node pools on AKS
+            url: ..\aks\use-cvm.md
       - linkListType: reference
         links:
           - text: Azure architecture center confidential container scenarios
             url: /search/?terms=confidential%20containers&scope=Azure%20Architecture%20Center
-          - text: About Azure Kubernetes Service (AKS) 
-            url: ..\aks\intro-kubernetes.md
-          - text: App enclave nodes on AKS FAQ 
+          - text: Confidential containers with ACC Azure Samples
+            url: https://github.com/Azure-Samples/confidential-container-samples
+          - text: Intel SGX based VM nodes on AKS FAQ 
             url: confidential-nodes-aks-faq.yml
       - linkListType: video
         links:
+          - text: Confidential VM worker nodes with AKS with remote attestation - Azure Friday
+            url: https://learn.microsoft.com/Shows/Azure-Friday/azure-confidential-computing-with-confidential-vms-and-aks-nodes
           - text: Overview of confidential computing Intel SGX nodes on AKS
             url: https://www.youtube.com/watch?v=FYZxtHI_Or0
           - text: Python hello world demo with Intel SGX based confidential containers on AKS 
@@ -136,10 +147,9 @@ landingContent:
             url: https://www.youtube.com/watch?v=em6ovuznAf8          
       - linkListType: whats-new
         links:
-          - text: AMD SEV-SNP based confidential containers with Azure Container Instances (ACI) - Private preview 
-            url: https://aka.ms/ccaci
-          - text: Confidential VM AMD SEV-SNP node pools on AKS
-            url: https://aka.ms/Ignite2022-CVM-Node-Pools-on-AKS-GA
+          - text: Confidential containers with Azure Container Instances (ACI) with AMD SEV-SNP Protection - Public preview 
+            url: https://techcommunity.microsoft.com/t5/apps-on-azure-blog/announcing-public-preview-of-confidential-containers-on-azure/ba-p/3755623
+
 ## Row 2
 # Card
   - title: Virtual machines with app enclaves
@@ -162,3 +172,20 @@ landingContent:
             url: ../virtual-machines/dcv2-series.md
           - text: DCsv3 and DCdsv3-series virtual machines
             url: ../virtual-machines/dcv3-series.md
+## Row 2
+# Card
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links: 
+          - text: Secure Key Release(SKR) with AKV and Azure Confidential Computing
+            url: concept-skr-attestation.md
+          - text: Secure Key Release(SKR) with AKV example policies
+            url: skr-policy-examples.md
+      - linkListType: quickstart
+        links:
+          - text: Confidential VM's SKR with guest attestation application
+            url: skr-flow-confidential-vm-sev-snp.md
+          - text: Confidential containers with Azure Container Instances SKR Side-Car
+            url: skr-flow-confidential-containers-azure-container-instance.md
+     

@@ -10,6 +10,7 @@ ms.author: danielgerlag
 ms.date: 01/28/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: devx-track-extended-java, devx-track-js
 zone_pivot_groups: acs-js-csharp
 ---
 
@@ -44,19 +45,23 @@ In the following example, we configure an Exception Policy that will cancel a jo
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.SetExceptionPolicyAsync(
-    id: "policy-1",
-    name: "My Exception Policy",
-    rules: new List<ExceptionRule>
-    {
-        new ExceptionRule(
-            id: "rule-1",
-            trigger: new QueueLengthExceptionTrigger(threshold: 100),
-            actions: new List<ExceptionAction>
+await routerClient.CreateExceptionPolicyAsync(
+    new CreateExceptionPolicyOptions(
+            exceptionPolicyId: "policy-1",
+            exceptionRules: new List<ExceptionRule>
             {
-                new CancelExceptionAction("cancel-action")
+                new ExceptionRule(
+                    id: "rule-1",
+                    trigger: new QueueLengthExceptionTrigger(threshold: 100),
+                    actions: new List<ExceptionAction>
+                    {
+                        new CancelExceptionAction("cancel-action")
+                    })
             })
-    });
+            {
+                Name = "My exception policy"
+            }
+);
 ```
 
 ::: zone-end
@@ -89,26 +94,30 @@ In the following example, we configure an Exception Policy with rules that will:
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.SetExceptionPolicyAsync(
-    id: "policy-1",
-    name: "My Exception Policy",
-    rules: new List<ExceptionRule>
-    {
-        new ExceptionRule(
-            id: "rule-1",
-            trigger: new WaitTimeExceptionTrigger(TimeSpan.FromMinutes(1)),
-            actions: new List<ExceptionAction>
+await routerClient.CreateExceptionPolicyAsync(
+    new CreateExceptionPolicyOptions(
+            exceptionPolicyId: "policy-1",
+            exceptionRules: new List<ExceptionRule>
             {
-                new ManualReclassifyExceptionAction(id: "action1", priority: 10)
-            }),
-        new ExceptionRule(
-            id: "rule-2",
-            trigger: new WaitTimeExceptionTrigger(TimeSpan.FromMinutes(5)),
-            actions: new List<ExceptionAction>
-            {
-                new ManualReclassifyExceptionAction(id: "action2", queueId: "queue-2")
+                new ExceptionRule(
+                    id: "rule-1",
+                    trigger: new WaitTimeExceptionTrigger(TimeSpan.FromMinutes(1)),
+                    actions: new List<ExceptionAction>
+                    {
+                        new ManualReclassifyExceptionAction(id: "action1", priority: 10)
+                    }),
+                new ExceptionRule(
+                    id: "rule-2",
+                    trigger: new WaitTimeExceptionTrigger(TimeSpan.FromMinutes(5)),
+                    actions: new List<ExceptionAction>
+                    {
+                        new ManualReclassifyExceptionAction(id: "action2", queueId: "queue-2")
+                    })
             })
-    });
+    {
+        Name = "My Exception Policy"
+    }
+);
 ```
 
 ::: zone-end
@@ -143,4 +152,3 @@ await client.upsertExceptionPolicy({
 <!-- LINKS -->
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
 [exception_triggered_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobexceptiontriggered
-

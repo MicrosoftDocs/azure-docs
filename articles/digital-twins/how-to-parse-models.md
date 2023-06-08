@@ -1,5 +1,4 @@
 ---
-# Mandatory fields.
 title: Parse and validate models
 titleSuffix: Azure Digital Twins
 description: Learn how to use the parser library to parse DTDL models.
@@ -8,11 +7,10 @@ ms.author: baanders # Microsoft employees only
 ms.date: 02/23/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy21q3
+ms.custom: contperf-fy21q3, devx-track-dotnet
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
@@ -93,5 +91,5 @@ The following code shows an example of how to use the parser library to reflect 
 
 ## Next steps
 
-Once you're done writing your models, see how to upload them (and do other management operations) with the DigitalTwinsModels APIs:
+Once you're done writing your models, see how to upload them (and do other management operations) with the Azure Digital Twins Models APIs:
 * [Manage DTDL models](how-to-manage-model.md)

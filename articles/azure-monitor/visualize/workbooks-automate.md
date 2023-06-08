@@ -4,6 +4,7 @@ description: Simplify complex reporting with prebuilt and custom parameterized A
 services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
 ms.date: 07/05/2022
 ---

@@ -1,8 +1,8 @@
 ---
 title: Supported built-in Azure Maps map styles
 description: Learn about the built-in map styles that Azure Maps supports, such as road, blank_accessible, satellite, satellite_road_labels, road_shaded_relief, and night.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 04/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -35,7 +35,7 @@ A **road** map is a standard map that displays roads. It also displays natural a
 
 The **blank** and **blank_accessible** map styles provide a blank canvas for visualizing data. The **blank_accessible** style will continue to provide screen reader updates with map's location details, even though the base map isn't displayed.
 
-> [!Note]
+> [!NOTE]
 > In the Web SDK, you can change the background color of the map by setting the CSS `background-color` style of map DIV element.
 
 **Applicable APIs:**

@@ -2,21 +2,15 @@
 title: 'Working remotely: Network Virtual Appliance (NVA) considerations for remote work'
 titleSuffix: Azure VPN Gateway
 description: Learn about the things that you should take into consideration working with Network Virtual Appliances (NVAs) in Azure during the COVID-19 pandemic.
-services: vpn-gateway
 author: KumudD
-
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 05/05/2023
 ms.author: kumud
 
 ---
 
 # Working remotely: Network Virtual Appliance (NVA) considerations for remote work
-
->[!NOTE]
->This article describes how you can leverage Network Virtual Appliances, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and  mitigate network issues that you are facing because of COVID-19 crisis.
->
 
 Some Azure customers utilize third-party Network Virtual Appliances (NVAs) from Azure Marketplace to provide critical services such as Point-to-site VPN for their employees who are working from home during the COVID-19 epidemic. This article outlines some high-level guidance to take into consideration when leveraging NVAs in Azure to provide remote access solutions.
 

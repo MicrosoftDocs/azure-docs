@@ -42,6 +42,9 @@
 - name: Scalar expressions
   displayName: scalar expressions, scalar
   href: scalar-expressions.md
+- name: Computed properties
+  displayName: computed properties
+  href: computed-properties.md
 - name: Operators
   items:
     - name: Equality and comparison operators

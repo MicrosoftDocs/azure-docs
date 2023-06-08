@@ -1,8 +1,8 @@
 ---
 title: Azure Private 5G Core 2209 release notes 
 description: Discover what's new in the Azure Private 5G Core 2209 release
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: release-notes
 ms.date: 09/30/2022
@@ -17,6 +17,9 @@ This article applies to the Azure Private 5G Core 2209 release (PMN-4-17-2). Thi
 ## What's new
 
 - **Updated template for Log Analytics** - There is a new version of the Log Analytics Dashboard Quickstart template. This is required to view metrics on Packet Core versions 4.17 and above. To continue using your Log Analytics Dashboard, you must redeploy it with the new template. See [Create an overview Log Analytics dashboard using an ARM template](./create-overview-dashboard.md).
+
+> [!NOTE]
+> Monitoring Azure Private 5G Core with Log Analytics is no longer supported. Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) instead.
 
 ## Issues fixed in the 2209 release
 
@@ -53,6 +56,7 @@ The following table provides a summary of known issues carried over from the pre
   | 13 | 4G/5G Signaling  | In rare scenarios, due to a race condition triggered during a RAN disconnect/re-connect sequence, Azure Private 5G Core may fail to process incoming requests from the eNodeB or gNodeB.   | Reinstall the packet core.  |
   | 14 | Local dashboards  | On the packet core dashboards, the 4G interface panel doesn’t display the data.  | Select each panel’s edit button and select Data source again as Prometheus and select refresh to see the data. |
   | 15 | 4G/5G Signaling  | In rare scenarios when a significant number of UEs are bulk registered and send continuous data , the core may incorrectly release data sessions. | If sessions are released, UEs may need to re-connect with the system to use data services.  |
+  | 16 | Packet forwarding  | When Azure Private 5G Core has NAT enabled on a data network, approximately one in every 65,536 downlink packets sent to a UE will be emitted with an incorrect IP checksum, which will likely cause it to be dropped.  | 
 
 ## Next steps
 

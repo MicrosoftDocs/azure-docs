@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Shopify Plus | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Shopify Plus'
 description: Learn how to configure single sign-on between Azure Active Directory and Shopify Plus.
 services: active-directory
 author: jeevansd

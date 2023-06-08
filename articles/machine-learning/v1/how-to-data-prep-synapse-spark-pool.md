@@ -10,7 +10,7 @@ author: ynpandey
 ms.author: franksolomon
 ms.reviewer: franksolomon
 ms.date: 11/28/2022
-ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, data4ml, synapse-azureml, contperf-fy21q4, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to prepare my data at scale, and to train my machine learning models from a single notebook using Azure Machine Learning.
 ---
 
@@ -41,7 +41,7 @@ The Azure Synapse Analytics integration with Azure Machine Learning (preview) al
 
 * [Create Apache Spark pool using Azure portal, web tools, or Synapse Studio](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 
-* [Configure your development environment](how-to-configure-environment-v1.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md#create) with the SDK already installed. 
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md#create) with the SDK already installed. 
 
 * Install the `azureml-synapse` package (preview) with the following code:
 

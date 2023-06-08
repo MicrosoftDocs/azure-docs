@@ -23,7 +23,7 @@ This tutorial will include creating a **chit chat** knowledge base and **email c
 
 ## Prerequisites
 
-- Create a [Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) **and select the custom question answering feature** in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+- Create a [Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) **and select the custom question answering feature** in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   - You will need the key and endpoint from the resource you create to connect your bot to the API. You'll paste your key and endpoint into the code below later in the tutorial. Copy them from the **Keys and Endpoint** tab in your resource.
   - When you enable custom question answering, you must select an Azure search resource to connect to.
   - Make sure the region of your resource is supported by [conversational language understanding](../../conversational-language-understanding/service-limits.md#regional-availability).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Agiloft Contract Management Suite | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Agiloft Contract Management Suite'
 description: Learn how to configure single sign-on between Azure Active Directory and Agiloft Contract Management Suite.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/09/2023
+ms.date: 02/10/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Agiloft Contract Management Suite
@@ -85,11 +85,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type the URL:
-    `https://www.agiloft.com`
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.agiloft.com:443/gui2/samlssologin.jsp?project=<KB_NAME>`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Agiloft Contract Management Suite Client support team](https://www.agiloft.com/support-login.htm) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Agiloft Contract Management Suite Client support team](https://www.agiloft.com/support-login.htm) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

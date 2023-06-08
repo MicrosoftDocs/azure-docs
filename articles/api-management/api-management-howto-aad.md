@@ -6,8 +6,9 @@ description: Learn how to enable user sign-in to the API Management developer po
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 07/12/2022
+ms.date: 04/18/2023
 ms.author: danlep
+ms.custom: engagement-fy23
 ---
 
 # Authorize developer accounts by using Azure Active Directory in Azure API Management
@@ -151,25 +152,11 @@ Now that you've enabled access for users in an Azure AD tenant, you can:
 * Add Azure AD groups into API Management. 
 * Control product visibility using Azure AD groups.
 
-Follow these steps to grant:
-* `User.Read` **delegated** permission for Microsoft Graph API. 
-* `Directory.ReadAll` **application** permission for Microsoft Graph API. 
-1. Update the first 3 lines of the following Azure CLI script to match your environment and run it.
-
-   ```azurecli
-   $subId = "Your Azure subscription ID" # Example: "1fb8fadf-03a3-4253-8993-65391f432d3a"
-   $tenantId = "Your Azure AD Tenant or Organization ID" # Example: 0e054eb4-e5d0-43b8-ba1e-d7b5156f6da8"
-   $appObjectID = "Application Object ID that has been registered in AAD" # Example: "2215b54a-df84-453f-b4db-ae079c0d2619"
-   #Login and Set the Subscription
-   az login
-   az account set --subscription $subId
-   #Assign the following permission: Microsoft Graph Delegated Permission: User.Read, Microsoft Graph Application Permission: Directory.ReadAll
-   az rest --method PATCH --uri "https://graph.microsoft.com/v1.0/$($tenantId)/applications/$($appObjectID)" --body "{'requiredResourceAccess':[{'resourceAccess': [{'id': 'e1fe6dd8-ba31-4d61-89e7-88639da4683d','type': 'Scope'},{'id': '7ab1d382-f21e-4acd-a863-ba3e13f7da61','type': 'Role'}],'resourceAppId': '00000003-0000-0000-c000-000000000000'}]}"
-   ```
-
-1. Sign out and sign back in to the Azure portal.
 1. Navigate to the App Registration page for the application you registered in [the previous section](#enable-user-sign-in-using-azure-ad---portal). 
-1. Select **API Permissions**. You should see the permissions granted by the Azure CLI script in step 1. 
+1. Select **API Permissions**. 
+1. Add the following minimum **application** permissions for Microsoft Graph API:
+    * `User.Read.All` application permission – so API Management can read the user’s group membership to perform group synchronization at the time the user logs in. 
+    * `Group.Read.All` application permission – so API Management can read the Azure AD groups when an administrator tries to add the group to API Management using the **Groups** blade in the portal. 
 1. Select **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
 
 Now you can add external Azure AD groups from the **Groups** tab of your API Management instance.
@@ -177,7 +164,8 @@ Now you can add external Azure AD groups from the **Groups** tab of your API Man
 1. Under **Developer portal** in the side menu, select **Groups**.
 1. Select the **Add Azure AD group** button.
 
-   !["Screenshot showing Add Azure AD group button.](./media/api-management-howto-aad/api-management-with-aad008.png)
+    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad008.png" alt-text="Screenshot showing Add Azure AD group button in the portal.":::
+
 1. Select the **Tenant** from the drop-down. 
 1. Search for and select the group that you want to add.
 1. Press the **Select** button.
@@ -191,7 +179,7 @@ Users from the configured Azure AD instance can now:
 * View and subscribe to any groups for which they have visibility.
 
 > [!NOTE]
-> Learn more about the difference between **Delegated** and **Application** permissions types     in [Permissions and consent in the Microsoft identity platform](../active-directory/develop/v2-permissions-and-consent.md#permission-types) article.
+> Learn more about the difference between **Delegated** and **Application** permissions types in [Permissions and consent in the Microsoft identity platform](../active-directory/develop/v2-permissions-and-consent.md#permission-types) article.
 
 ## <a id="log_in_to_dev_portal"></a> Developer portal: Add Azure AD account authentication
 

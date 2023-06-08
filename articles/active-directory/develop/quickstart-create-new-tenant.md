@@ -2,13 +2,13 @@
 title: "Quickstart: Create an Azure Active Directory tenant"
 description: In this quickstart, you learn how to create an Azure Active Directory tenant for use in developing applications that use the Microsoft identity platform for authentication and authorization.
 services: active-directory
-author: rwike77
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 09/08/2022
+ms.date: 04/19/2023
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit, mode-other
@@ -53,7 +53,7 @@ To check the tenant:
 > [!TIP]
 > To find the tenant ID, you can:
 > * Hover over your account name to get the directory or tenant ID.
-> * Search and select **Azure Active Directory** > **Properties** > **Tenant ID** in the Azure portal.
+> * Search and select **Azure Active Directory** > **Overview** > **Tenant ID** in the Azure portal.
 
 If you don't have a tenant associated with your account, you'll see a GUID under your account name. You won't be able to do actions like registering apps until you create an Azure AD tenant.
 
@@ -78,4 +78,4 @@ To begin building external facing applications that sign in social and local acc
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Register an app](quickstart-register-app.md) to integrate with Microsoft identity platform.
+> [Register an app](quickstart-register-app.md)

@@ -1,7 +1,7 @@
 ---
 ms.service: azure-arc
 ms.topic: include
-ms.date: 12/13/2022
+ms.date: 03/07/2023
 ---
 
 ### [Azure Cloud](#tab/azure-cloud)
@@ -21,8 +21,9 @@ ms.date: 12/13/2022
 |`https://k8connecthelm.azureedge.net` | `az connectedk8s connect` uses Helm 3 to deploy Azure Arc agents on the Kubernetes cluster. This endpoint is needed for Helm client download to facilitate deployment of the agent helm chart. |
 |`guestnotificationservice.azure.com`<br/>`*.guestnotificationservice.azure.com`<br/>`sts.windows.net`<br/>`https://k8sconnectcsp.azureedge.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
 |`*.servicebus.windows.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
-|`https://graph.microsoft.com/` | Required when [Azure RBAC](../azure-rbac.md) is configured |
-| `*.arc.azure.net`| To manage connected clusters in Azure portal. | 
+|`https://graph.microsoft.com/` | Required when [Azure RBAC](../azure-rbac.md) is configured. |
+| `*.arc.azure.net`| Required to manage connected clusters in Azure portal. |
+|`https://<region>.obo.arc.azure.com:8084/` | Required when [Cluster Connect](../cluster-connect.md) is configured. |
 
 To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command:
 
@@ -49,7 +50,8 @@ GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-0
 |`https://k8connecthelm.azureedge.net` | `az connectedk8s connect` uses Helm 3 to deploy Azure Arc agents on the Kubernetes cluster. This endpoint is needed for Helm client download to facilitate deployment of the agent helm chart. |
 |`guestnotificationservice.azure.us`<br/>`*.guestnotificationservice.azure.us`<br/>`sts.windows.net`<br/>`https://k8sconnectcsp.azureedge.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
 |`*.servicebus.usgovcloudapi.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
-|`https://graph.microsoft.com/` | Required when [Azure RBAC](../azure-rbac.md) is configured |
+|`https://graph.microsoft.com/` | Required when [Azure RBAC](../azure-rbac.md) is configured. |
+|`https://usgovvirginia.obo.arc.azure.us:8084/` | Required when [Cluster Connect](../cluster-connect.md) is configured. |
 
 To translate the `*.servicebus.usgovcloudapi.net` wildcard into specific endpoints, use the command:
 

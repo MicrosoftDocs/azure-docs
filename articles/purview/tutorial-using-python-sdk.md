@@ -4,9 +4,9 @@ description: This tutorial describes how to use the Microsoft Purview Python SDK
 author: raliouat
 ms.author: raoufaliouat
 ms.service: purview
+ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 05/27/2022
-
 # Customer intent: I can use the scanning and catalog Python SDKs to perform CRUD operations on data sources and scans, trigger scans and also to search the catalog.
 ---
 
@@ -31,7 +31,7 @@ For this tutorial, you'll need:
 *   An Azure Active Directory tenant associated with your subscription.
 *   An Azure Storage account. If you don't already have one, you can [follow our quickstart guide to create one](../storage/common/storage-account-create.md).
 *   A Microsoft Purview account. If you don't already have one, you can [follow our quickstart guide to create one](create-catalog-portal.md).
-* A [service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) with a [client secret](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
+* A [service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) with a [client secret](../active-directory/develop/howto-create-service-principal-portal.md#set-up-authentication).
 
 ## Give Microsoft Purview access to the Storage account
 
@@ -66,7 +66,7 @@ Microsoft Purview now has the required reading right to scan your Blob Storage.
     * Tenant ID (or Directory ID)
 
         :::image type="content" source="media/tutorial-using-python-sdk/app-registration-info.png" alt-text="Screenshot of the service principal page in the Azure portal with the Client ID and Tenant ID highlighted.":::
-    * [Client secret](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
+    * [Client secret](../active-directory/develop/howto-create-service-principal-portal.md#set-up-authentication)
 
         :::image type="content" source="media/tutorial-using-python-sdk/get-service-principal-secret.png" alt-text="Screenshot of the service principal page in the Azure portal, with the Certificates & secrets tab selected, showing the available client certificates and secrets.":::
 
@@ -126,7 +126,7 @@ In this section, you learn how to instantiate:
 * A catalog client useful to interact with the catalog through searching, browsing the discovered assets, identifying the sensitivity of your data, etc.
 * An administration client is useful for interacting with the Microsoft Purview Data Map itself, for operations like listing collections.
 
-First you need to authenticate to your Azure Active Directory. For this, you'll use the [client secret you created](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
+First you need to authenticate to your Azure Active Directory. For this, you'll use the [client secret you created](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
 
 
 1.	Start with required import statements: our three clients, the credentials statement, and an Azure exceptions statement.
@@ -223,7 +223,7 @@ In this section, you'll register your Blob Storage.
 	    return credentials
     ```
 
-1. All collections in the Microsoft Purview data map have a **friendly name** and a **name**. 
+1. All collections in the Microsoft Purview Data Map have a **friendly name** and a **name**. 
     * The **friendly name** name is the one you see on the collection. For example: Sales. 
     * The **name** for all collections (except the root collection) is a six-character name assigned by the data map. 
     
@@ -291,7 +291,7 @@ In this section, you'll register your Blob Storage.
 
 When the registration process succeeds, you can see an enriched body response from the client.
 
-In the following sections, you'll scan the data source you registered and search the catalog. Each of these scripts will be very similarly structured to this registration script.
+In the following sections, you'll scan the data source you registered and search the catalog. Each of these scripts will be similarly structured to this registration script.
 
 ### Full code
 
@@ -731,4 +731,3 @@ except HttpResponseError as e:
 > [!div class="nextstepaction"]
 > [Learn more about the Python Microsoft Purview Scanning Client](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-purview-scanning/1.0.0b2/index.html)
 > [Learn more about the Python Microsoft Purview Catalog Client](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-purview-catalog/1.0.0b2/index.html)
-

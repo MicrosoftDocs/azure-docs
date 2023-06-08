@@ -1,6 +1,7 @@
 ---
-title: Azure traffic analytics
-description: Learn what traffic analytics is, and how to use traffic analytics for viewing network activity, securing networks, and optimizing performance.
+title: Traffic analytics
+titleSuffix: Azure Network Watcher
+description: Learn what Azure Network Watcher traffic analytics is, and how to use it for viewing network activity, securing networks, and optimizing performance.
 services: network-watcher
 author: halkazwini
 ms.service: network-watcher
@@ -9,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 01/06/2023
 ms.author: halkazwini
 ms.reviewer: vinigam
-ms.custom: template-concept, references_regions, engagement-fy23, devx-track-azurepowershell, kr2b-contr-experiment
+ms.custom: template-concept, references_regions, engagement-fy23, kr2b-contr-experiment
 ---
 
-# Traffic analytics
+# Azure Network Watcher Traffic analytics
 
 Traffic analytics is a cloud-based solution that provides visibility into user and application activity in your cloud networks. Specifically, traffic analytics analyzes Azure Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. With traffic analytics, you can:
 
@@ -87,10 +88,10 @@ Reduced logs are enhanced with geography, security, and topology information and
 
 ## Prerequisites
 
-Traffic Analytics requires:
+Traffic analytics requires:
 
-- A Network Watcher enabled subscription. For more information, see [Create an Azure Network Watcher instance](network-watcher-create.md)
-- Network Security Group (NSG) flow logs enabled for the NSGs you want to monitor. For more information, see [Enable NSG flow log](network-watcher-nsg-flow-logging-portal.md#enable-nsg-flow-log).
+- A Network Watcher enabled subscription. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md)
+- NSG flow logs enabled for the network security groups you want to monitor. For more information, see [Create a flow log](nsg-flow-logging.md#create-a-flow-log).
 - An Azure Storage account to store raw flow logs. For more information, see [Create a storage account](../storage/common/storage-account-create.md)
 - An Azure Log Analytics workspace with read and write access. For more information, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md)
 
@@ -100,7 +101,6 @@ One of the following [Azure built-in roles](../role-based-access-control/built-i
 |---------          |---------               |
 |Resource Manager   | Owner                  |
 |                   | Contributor            |
-|                   | Reader                 |
 |                   | Network Contributor    |
 
 If none of the preceding built-in roles are assigned to your account, assign a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) to your account. The custom role should support the following actions at the subscription level:

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Oracle Cloud Infrastructure Console for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Oracle Cloud Infrastructure Console for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Oracle Cloud Infrastructure Console.
 services: active-directory
 author: twimmers
@@ -141,6 +141,9 @@ This section guides you through the steps to configure the Azure AD provisioning
     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
     |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:bypassNotification|Boolean|
     |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:isFederatedUser|Boolean|
+
+> [!NOTE]
+> Additional extension attributes must begin with "urn:ietf:params:scim:api:"
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Oracle Cloud Infrastructure Console**.
 

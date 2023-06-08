@@ -39,7 +39,7 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --orchestration-mode Flexible \
-  --image UbuntuLTS \
+  --image <SKU Linux Image> \
   --upgrade-policy-mode automatic \
   --instance-count 2 \
   --admin-username azureuser \

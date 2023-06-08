@@ -73,22 +73,6 @@
         href: ../iot-edge/how-to-create-virtual-switch.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
       - name: Configure GPU acceleration
         href: ../iot-edge/gpu-acceleration.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
-    - name: Windows containers on Windows hosts
-      items:
-      - name: Provision a single device
-        items:
-        - name: Symmetric key attestation
-          href: ../iot-edge/how-to-provision-single-device-windows-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
-        - name: X.509 certificate attestation
-          href: ../iot-edge/how-to-provision-single-device-windows-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
-      - name: Provision devices at scale
-        items:
-        - name: Symmetric key attestation
-          href: ../iot-edge/how-to-provision-devices-at-scale-windows-symmetric.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
-        - name: X.509 certificate attestation
-          href: ../iot-edge/how-to-provision-devices-at-scale-windows-x509.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
-        - name: TPM attestation
-          href: ../iot-edge/how-to-provision-devices-at-scale-windows-tpm.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
     - name: Update IoT Edge
       href: ../iot-edge/how-to-update-iot-edge.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
     - name: Manage device certificates
@@ -110,9 +94,9 @@
   - name: IIoT Platform GitHub repository
     href: https://github.com/Azure/iot-edge-opc-publisher
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
+    href: ../iot/iot-support-help.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
   - name: IoT Glossary
-    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
+    href: ../iot/iot-glossary.md?toc=/azure/industrial-iot/toc.json&bc=/azure/industrial-iot/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub

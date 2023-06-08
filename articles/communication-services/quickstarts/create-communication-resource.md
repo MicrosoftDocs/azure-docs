@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: arm
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
-ms.custom: mode-other, devx-track-azurecli 
+ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli 
 ---
 # Quickstart: Create and manage Communication Services resources
@@ -68,9 +68,9 @@ az communication list-key --name "<acsResourceName>" --resource-group "<resource
 
 If you would like to select a specific subscription, you can also specify the ```--subscription``` flag and provide the subscription ID.
 ```azurepowershell-interactive
-az communication list --resource-group  "resourceGroup>"  --subscription "<subscriptionId>"
+az communication list --resource-group  "<resourceGroup>"  --subscription "<subscriptionId>"
 
-az communication list-key --name "<acsResourceName>" --resource-group "resourceGroup>" --subscription "<subscriptionId>"
+az communication list-key --name "<acsResourceName>" --resource-group "<resourceGroup>" --subscription "<subscriptionId>"
 ```
 
 ## Store your connection string
@@ -144,4 +144,4 @@ In this quickstart you learned how to:
 > * Delete the resource
 
 > [!div class="nextstepaction"]
-> [Create your first user access tokens](access-tokens.md)
+> [Create your first user access tokens](identity/access-tokens.md)

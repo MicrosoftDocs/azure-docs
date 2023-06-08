@@ -3,11 +3,11 @@ title: Move encrypted Azure VMs across regions by using Azure Resource Mover
 description: Learn how to move encrypted Azure VMs to another region by using Azure Resource Mover.
 manager: evansma
 author: ankitaduttaMSFT 
-ms.service: resource-move
+ms.service: resource-mover
 ms.topic: tutorial
-ms.date: 12/21/2022
+ms.date: 02/10/2023
 ms.author: ankitadutta
-ms.custom: mvc engagement-fy23
+ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
 ---
 
@@ -40,7 +40,7 @@ Before you begin, verify the following:
 
 | Requirement |Details |
 |------------ | -------|
-|**Subscription permissions** | Ensure that you have *Owner* access on the subscription that contains the resources you want to move.<br/><br/> *Why do I need Owner access?* The first time you add a resource for a specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), formerly known as the Managed Service Identity (MSI). This identity is trusted by the subscription. Before you can create the identity and assign it the required roles (*Contributor* and *User access administrator* in the source subscription), the account you use to add resources needs *Owner* permissions in the subscription. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).|
+|**Subscription permissions** | Ensure that you have *Owner* access on the subscription that contains the resources you want to move.<br/><br/> *Why do I need Owner access?* The first time you add a resource for a specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), formerly known as the Managed Service Identity (MSI). This identity is trusted by the subscription. Before you can create the identity and assign it the required roles (*Contributor* and *User access administrator* in the source subscription), the account you use to add resources needs *Owner* permissions in the subscription. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).|
 | **VM support** | Ensure that the VMs you want to move are supported by doing the following:<li>[Verify](support-matrix-move-region-azure-vm.md#windows-vm-support) supported Windows VMs.<li>[Verify](support-matrix-move-region-azure-vm.md#linux-vm-support) supported Linux VMs and kernel versions.<li>Check supported [compute](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.|
 | **Key vault requirements (Azure Disk Encryption)** | If you have Azure Disk Encryption enabled for VMs, you require a key vault in both the source and destination regions. For more information, see [Create a key vault](../key-vault/general/quick-create-portal.md).<br/><br/> For the key vaults in the source and destination regions, you require these permissions:<li>Key permissions: Key Management Operations (Get, List) and Cryptographic Operations (Decrypt and Encrypt)<li>Secret permissions: Secret Management Operations (Get, List, and Set)<li>Certificate (List and Get)|
 | **Disk encryption set (server-side encryption with CMK)** | If you're using VMs with server-side encryption that uses a CMK, you require a disk encryption set in both the source and destination regions. For more information, see [Create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set).<br/><br/> Moving between regions isn't supported if you're using a hardware security module (HSM keys) for customer-managed keys.|
@@ -193,7 +193,7 @@ To select the resources, do the following:
 
 To resolve dependencies before the move, follow these steps:
 
-1. If any resources show a *Validate dependencies* message in the **Issues** column, select the **Validate dependencies** button.
+1. Dependencies are automatically validated in the background when you add the resources. If you still see the **Validate dependencies** option, select it to trigger the validation manually.
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png" alt-text="Screenshot showing the 'Validate dependencies' button." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png":::
 
@@ -212,7 +212,7 @@ To resolve dependencies before the move, follow these steps:
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png" alt-text="Screenshot of the dependencies list and the 'Add dependencies' button." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png":::
 
-1. Validate the dependencies again. 
+1. Dependencies are automatically validated in the background after you add them. If you see a **Validate dependencies** option, select it to trigger the manual validation. 
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png" alt-text="Screenshot of the pane for revalidating the dependencies." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png":::
 

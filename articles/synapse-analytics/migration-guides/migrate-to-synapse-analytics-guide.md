@@ -9,11 +9,11 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: 
-ms.date: 05/24/2022
+ms.date: 04/12/2023
 ---
 # Migrate a data warehouse to a dedicated SQL pool in Azure Synapse Analytics
 
-The following sections provide an overview of what's involved with migrating an existing data warehouse solution to an Azure Synapse Analytics dedicated SQL pool.
+The following sections provide an overview of what's involved with migrating an existing data warehouse solution to an Azure Synapse Analytics dedicated SQL pool (formerly SQL data warehouse).
 
 ## Overview
 
@@ -52,8 +52,6 @@ Performing a successful migration requires you to migrate your table schemas, co
 
 ## More resources
 
-The Customer Advisory Team has some great Azure Synapse Analytics (formerly Azure SQL Data Warehouse) guidance published as blog posts. For more information on migration, see [Migrating data to Azure SQL Data Warehouse in practice](/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice).
-
 For more information specifically about migrations from Netezza or Teradata to Azure Synapse Analytics, start at the first step of a seven-article sequence on migrations: 
 
 - [Netezza to Azure Synapse Analytics migrations](netezza/1-design-performance-migration.md)
@@ -66,9 +64,8 @@ For more assistance with completing this migration scenario, see the following r
 | Title/link                              | Description                                                                                                                       |
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | [Data Workload Assessment Model and Tool](https://www.microsoft.com/download/details.aspx?id=103130) | This tool provides suggested "best fit" target platforms, cloud readiness, and application or database remediation level for a given workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated and uniform target platform decision process. |
-| [Handling data encoding issues while loading data to Azure Synapse Analytics](https://azure.microsoft.com/blog/handling-data-encoding-issues-while-loading-data-to-sql-data-warehouse/) | This blog post provides insight on some of the data encoding issues you might encounter while using PolyBase to load data to SQL Data Warehouse. This article also provides some options that you can use to overcome such issues and load the data successfully. |
-| [Getting table sizes in Azure Synapse Analytics dedicated SQL pool](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Getting%20table%20sizes%20in%20SQL%20DW.pdf) | One of the key tasks that an architect must perform is to get metrics about a new environment post-migration. Examples include collecting load times from on-premises to the cloud and collecting PolyBase load times. One of the most important tasks is to determine the storage size in SQL Data Warehouse compared to the customer's current platform. |
-
+| [Handling data encoding issues while loading data to Azure Synapse Analytics](https://azure.microsoft.com/blog/handling-data-encoding-issues-while-loading-data-to-sql-data-warehouse/) | This blog post provides insight on some of the data encoding issues you might encounter while using PolyBase to load data to dedicated SQL pools (formerly SQL data warehouse). This article also provides some options that you can use to overcome such issues and load the data successfully. |
+| [Getting table sizes in Azure Synapse Analytics dedicated SQL pool](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Getting%20table%20sizes%20in%20SQL%20DW.pdf) | One of the key tasks that an architect must perform is to get metrics about a new environment post-migration. Examples include collecting load times from on-premises to the cloud and collecting PolyBase load times. One of the most important tasks is to determine the storage size indedicated SQL pools (formerly SQL data warehouse) compared to the customer's current platform. |
 
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
 

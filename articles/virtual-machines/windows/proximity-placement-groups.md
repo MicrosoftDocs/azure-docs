@@ -5,7 +5,7 @@ services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
-ms.date: 3/8/2021
+ms.date: 3/12/2023
 author: mattmcinnes
 ms.author: mattmcinnes
 ms.reviewer: 
@@ -36,8 +36,8 @@ $ppg = New-AzProximityPlacementGroup `
    -Location $location `
    -Name $ppgName `
    -ResourceGroupName $resourceGroup `
-   -ProximityPlacementGroupType Standard
-   -Zone $zone
+   -ProximityPlacementGroupType Standard `
+   -Zone $zone `
    -IntentVMSizeList $vmSize1, $vmSize2
 ```
 

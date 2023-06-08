@@ -8,7 +8,7 @@ ms.date: 04/02/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-
+ms.custom: devx-track-azurecli
 ---
 
 # Configure Azure VM Image Builder permissions by using the Azure CLI
@@ -75,7 +75,7 @@ For VM Image Builder to build images from source custom images, the service must
 Here's how you build from an existing custom image:
 
 ```Actions
-Microsoft.Compute/galleries/read
+Microsoft.Compute/images/read
 ```
 
 Here's how you build from an existing Azure Compute Gallery version:

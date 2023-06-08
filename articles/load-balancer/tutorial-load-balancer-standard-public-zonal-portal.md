@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Load balance VMs within an availability zone - Azure portal"
 titleSuffix: Azure Load Balancer
-description: This tutorial demonstrates how to create a Standard Load Balancer with zonal frontend to load balance VMs within an availability zone by using Azure portal
+description: This tutorial demonstrates how to create a Standard Load Balancer with zonal frontend to load balance VMs within an availability zone by using Azure portal.
 services: load-balancer
 author: mbender-ms
 # Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region. 
@@ -9,7 +9,7 @@ ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 12/05/2022
 ms.author: mbender
-ms.custom: seodec18
+ms.custom: template-tutorial, seodec18
 ---
 
 # Tutorial: Load balance VMs within an availability zone by using the Azure portal

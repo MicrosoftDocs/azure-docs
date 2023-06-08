@@ -86,6 +86,15 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: azure-file
 provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=0
+  - gid=0
+  - mfsymlinks
+  - cache=strict
+  - actimeo=30
+  - noperm
 parameters:
   location: $LOCATION
   secretNamespace: kube-system
@@ -98,6 +107,17 @@ EOF
 
 oc create -f azure-storageclass-azure-file.yaml
 ```
+
+Mount options for Azure Files will generally be dependent on the workload that you are deploying and the requirements of the application. Specifically for Azure files, there are additional parameters that you should consider using.
+
+Mandatory parameters: 
+- "mfsymlinks" to map symlinks to a form the client can use
+- "noperm" to disable permission checks on the client side
+
+Recommended parameters: 
+- "nossharesock" to disable reusing sockets if the client is already connected via an existing mount point
+- "actimeo=30" (or higher) to increase the time the CIFS client caches file and directory attributes
+- "nobrl" to disable sending byte range lock requests to the server and for applications which have challenges with posix locks
 
 ## Change the default StorageClass (optional)
 

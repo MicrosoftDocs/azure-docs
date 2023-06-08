@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Lenses.io | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Lenses.io'
 description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and Lenses.io.
 services: active-directory
 author: jeevansd

@@ -78,7 +78,7 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 
 |Dimension name|Description|
 | ------------------- | ----------------- |
-|Entity Name| Name of the event hub.|
+|Entity Name| Name of the event hub. With the 'Incoming Requests' metric, the Entity Name dimension will see a value of '-NamespaceOnlyMetric-' in addition to all your Event Hubs. This represents request which were made at the namespace level. Examples include a  request to list all Event Hubs under the namespace or requests to entities which failed authentication or authorization.|
 
 ## Resource logs
 [!INCLUDE [event-hubs-diagnostic-log-schema](./includes/event-hubs-diagnostic-log-schema.md)]

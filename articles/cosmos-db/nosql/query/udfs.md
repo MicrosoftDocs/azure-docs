@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.custom: devx-track-js, ignite-2022
+ms.custom: ignite-2022
 ---
 
 # User-defined functions (UDFs) in Azure Cosmos DB
@@ -28,6 +28,9 @@ However, we recommending avoiding UDFs when:
 - The UDF is the only filter in the `WHERE` clause of your query. UDF's do not utilize the index so evaluating the UDF will require loading documents. Combining additional filter predicates that use the index, in combination with a UDF, in the `WHERE` clause will reduce the number of documents processed by the UDF.
 
 If you must use the same UDF multiple times in a query, you should reference the UDF in a [subquery](subquery.md#evaluate-once-and-reference-many-times), allowing you to use a JOIN expression to evaluate the UDF once but reference it many times.
+
+> [!NOTE]
+> Server-side JavaScript features including user-defined functions do not support importing modules.
 
 ## Examples
 

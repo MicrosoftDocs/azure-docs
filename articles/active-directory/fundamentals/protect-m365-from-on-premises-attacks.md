@@ -157,7 +157,7 @@ Deploy Azure AD joined Windows 10 workstations with mobile device management pol
 - **Use Windows 10 workstations**.
   - Deprecate machines that run Windows 8.1 and earlier.
   - Don't deploy computers that have server operating systems as workstations.
-- **Use Microsoft Endpoint Manager as the authority for all device management workloads.** See [Microsoft Endpoint Manager](https://www.microsoft.com/security/business/microsoft-endpoint-manager).
+- **Use Microsoft Intune as the authority for all device management workloads.** See [Microsoft Intune](https://www.microsoft.com/security/business/endpoint-management/microsoft-intune).
 - **Deploy privileged access devices.** For more information, see [Device roles and profiles](/security/compass/privileged-access-devices#device-roles-and-profiles).
 
 ### Workloads, applications, and resources 
@@ -281,4 +281,4 @@ Define a log storage and retention strategy, design, and implementation to facil
 
 - [Build resilience into identity and access management by using Azure AD](resilience-overview.md)
 - [Secure external access to resources](secure-external-access-resources.md) 
-- [Integrate all your apps with Azure AD](five-steps-to-full-application-integration-with-azure-ad.md)
+- [Integrate all your apps with Azure AD](five-steps-to-full-application-integration.md)

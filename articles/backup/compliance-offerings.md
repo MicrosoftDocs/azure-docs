@@ -3,15 +3,15 @@ title: Azure Backup compliance offerings
 description: Summary of compliance offerings for Azure Backup
 ms.topic: reference
 ms.date: 11/29/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
 ms.custom: engagement-fy23
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Azure Backup compliance offerings
 
-Microsoft Azure & Azure Backup offer a comprehensive set of certifications and attestations that help organizations to comply with national, regional, and industry-specific requirements governing the collection and use of individuals' data.
+Microsoft Azure & Azure Backup offer a comprehensive set of certifications and attestations that help organizations to comply with national/regional and industry-specific requirements governing the collection and use of individuals' data.
 
 In this article, you'll learn about the various compliance offerings for Azure Backup to ensure that the service is regulated when you use the Azure Backup service.
 

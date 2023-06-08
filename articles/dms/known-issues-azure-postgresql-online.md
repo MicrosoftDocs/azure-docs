@@ -2,16 +2,15 @@
 title: "Known issues: Online migrations from PostgreSQL to Azure Database for PostgreSQL"
 titleSuffix: Azure Database Migration Service
 description: Learn about known issues and migration limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL using the Azure Database Migration Service.
-services: database-migration
-author: croblesm
-ms.author: roblescarlos
-manager: craigg
+author: apduvuri
+ms.author: adityaduvuri
 ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: [seo-lt-2019, seo-dt-2019]
-ms.topic: troubleshooting
 ms.date: 02/20/2020
+ms.service: dms
+ms.topic: troubleshooting
+ms.custom:
+  - seo-lt-2019
+  - seo-dt-2019
 ---
 
 # Known issues/limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL
@@ -98,6 +97,7 @@ When you try to perform an online migration from Amazon Web Service (AWS) Relati
 - The database name can't include a semicolon (;).
 - A captured table must have a primary key. If a table doesn't have a primary key, the result of DELETE and UPDATE record operations will be unpredictable.
 - Updating a primary key segment is ignored. Applying such an update will be identified by the target as an update that didn't update any rows. The result is a record written to the exceptions table.
+- If your table has a **JSON** column, any DELETE or UPDATE operations on this table can lead to a failed migration. 
 - Migration of multiple tables with the same name but a different case might cause unpredictable behavior and isn't supported. An example is the use of table1, TABLE1, and Table1.
 - Change processing of [CREATE | ALTER | DROP | TRUNCATE] table DDLs isn't supported.
 - In Database Migration Service, a single migration activity can only accommodate up to four databases.

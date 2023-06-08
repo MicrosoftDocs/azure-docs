@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Adobe Creative Cloud | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Adobe Creative Cloud'
 description: Learn how to configure single sign-on between Azure Active Directory and Adobe Creative Cloud.
 services: active-directory
 author: jeevansd

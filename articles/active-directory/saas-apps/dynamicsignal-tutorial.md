@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Dynamic Signal | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Dynamic Signal'
 description: Learn how to configure single sign-on between Azure Active Directory and Dynamic Signal.
 services: active-directory
 author: jeevansd

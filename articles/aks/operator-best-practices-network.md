@@ -2,7 +2,6 @@
 title: Best practices for network resources
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for virtual network resources and connectivity in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
 ms.date: 03/10/2021
 
@@ -59,7 +58,6 @@ By default, AKS uses a managed identity for its cluster identity. However, you a
 As each node and pod receives its own IP address, plan out the address ranges for the AKS subnets. Keep in mind:
 * The subnet must be large enough to provide IP addresses for every node, pods, and network resource that you deploy. 
     * With both kubenet and Azure CNI networking, each node running has default limits to the number of pods.
-* Each AKS cluster must be placed in its own subnet. 
 * Avoid using IP address ranges that overlap with existing network resources. 
     * Necessary to allow connectivity to on-premises or peered networks in Azure.
 * To handle scale out events or cluster upgrades, you need extra IP addresses available in the assigned subnet. 
@@ -117,11 +115,12 @@ The *ingress resource* is a YAML manifest of `kind: Ingress`. It defines the hos
 The following example YAML manifest would distribute traffic for *myapp.com* to one of two services, *blogservice* or *storeservice*. The customer is directed to one service or the other based on the URL they access.
 
 ```yaml
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
  name: myapp-ingress
-   annotations: kubernetes.io/ingress.class: "PublicIngress"
 spec:
+ ingressClassName: PublicIngress
  tls:
  - hosts:
    - myapp.com
@@ -132,12 +131,14 @@ spec:
       paths:
       - path: /blog
         backend:
-         serviceName: blogservice
-         servicePort: 80
+         service
+           name: blogservice
+           port: 80
       - path: /store
         backend:
-         serviceName: storeservice
-         servicePort: 80
+         service
+           name: storeservice
+           port: 80
 ```
 
 ### Ingress controller

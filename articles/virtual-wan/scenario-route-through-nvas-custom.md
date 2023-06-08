@@ -6,7 +6,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/23/2021
+ms.date: 02/13/2023
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ---
@@ -154,7 +154,7 @@ To set up routing via NVA, consider the following steps:
 
    * **Association:** Select all **VNets 1, 2, and 3**. This implies that VNet connections 1, 2, and 3 will associate to this route table and be able to learn routes (static and dynamic via propagation) in this route table.
 
-   * **Propagation:** Connections propagate routes to route tables. Selecting VNets 1, 2, and 3 enable propagating routes from VNets 1, 2, and 3 to this route table. Make sure the option for branches (VPN/ER/P2S) is not selected. This ensures that on-premises connections cannot get to the VNets 1, 2, and 3 directly.
+   * **Propagation:** Connections propagate routes to route tables. Selecting VNets 1, 2, and 3 enables propagating routes from VNets 1, 2, and 3 to this route table. Make sure the option for branches (VPN/ER/P2S) is not selected. This ensures that on-premises connections cannot get to the VNets 1, 2, and 3 directly.
 
 1. Edit the default route table, **DefaultRouteTable**.
 

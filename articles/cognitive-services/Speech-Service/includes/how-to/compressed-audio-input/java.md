@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/11/2020
+ms.date: 02/28/2023
 ms.custom: devx-track-java
 ms.author: eur
 ---
@@ -35,32 +35,13 @@ Choose a platform for installation instructions.
 
 ## Example
 
-To configure the Speech SDK to accept compressed audio input, create a `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class that specifies the compression format of the stream. Find related sample code in [Speech SDK samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/WavStream.java).
+To configure the Speech SDK to accept compressed audio input, create a `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class that specifies the compression format of the stream. Find related sample code in [Speech SDK samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/android/compressed-input/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/compressedinput/MainActivity.java).
 
-Let's assume that you have an input stream class called `pullStream` and are using OPUS/OGG. Your code might look like this:
+Let's assume that you have an input stream class called `pullAudio` and are using MP3. Your code might look like this:
 
 ```java
-import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
-import com.microsoft.cognitiveservices.speech.audio.AudioInputStream;
-import com.microsoft.cognitiveservices.speech.audio.AudioStreamFormat;
-import com.microsoft.cognitiveservices.speech.audio.PullAudioInputStream;
-import com.microsoft.cognitiveservices.speech.audio.AudioStreamContainerFormat;
-
-// ... omitted for brevity
-
-SpeechConfig speechConfig =
-    SpeechConfig.fromSubscription(
-        "YourSubscriptionKey",
-        "YourServiceRegion");
-
-// Create an audio config specifying the compressed
-// audio format and the instance of your input stream class.
-PullAudioInputStream pullStream = AudioInputStream.createPullStream(
-    AudioStreamFormat.getCompressedFormat(AudioStreamContainerFormat.OGG_OPUS));
-AudioConfig audioConfig = AudioConfig.fromStreamInput(pullStream);
-
-SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
-SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get();
-
-String text = result.getText();
+String filePath = "whatstheweatherlike.mp3";
+PullAudioInputStream pullAudio = AudioInputStream.createPullStream(new BinaryAudioStreamReader(filePath),
+    AudioStreamFormat.getCompressedFormat(AudioStreamContainerFormat.MP3));
+AudioConfig audioConfig = AudioConfig.fromStreamInput(pullAudio);
 ```

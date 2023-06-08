@@ -1,19 +1,17 @@
 ---
 title: Migrate to Azure file shares
-description: Learn about migrations to Azure file shares and find your migration guide.
+description: Learn how to migrate to Azure file shares and find your migration guide.
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 05/30/2023
 ms.author: kendownie
 ms.subservice: files
 ---
 
 # Migrate to Azure file shares
 
-This article covers the basic aspects of a migration to Azure file shares.
-
-This article contains migration basics and a table of migration guides. These guides help you move your files into Azure file shares. The guides are organized based on where your data is and what deployment model (cloud-only or hybrid) you're moving to.
+This article covers the basic aspects of a migration to Azure file shares and contains a table of migration guides. These guides help you move your files into Azure file shares. The guides are organized based on where your data is and what deployment model (cloud-only or hybrid) you're moving to.
 
 ## Migration basics
 
@@ -40,7 +38,7 @@ File fidelity in a migration can be defined as the ability to:
 
 - Store all applicable file information on the source.
 - Transfer files with the migration tool.
-- Store files in the target storage of the migration. </br> Ultimately, the target for migration guides on this page is one or more Azure file shares. Consider this [list of features / file fidelity that Azure file shares don't support](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+- Store files in the target storage of the migration. </br> Ultimately, the target for migration guides on this page is one or more Azure file shares. Consider this [list of features that SMB Azure file shares don't support](files-smb-protocol.md#limitations).
 
 To ensure your migration proceeds smoothly, identify [the best copy tool for your needs](#migration-toolbox) and match a storage target to your source.
 
@@ -113,6 +111,7 @@ The following table classifies Microsoft tools and their current suitability for
 | :-: | :-- | :---- | :---- |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Supported. Azure file shares can be mounted as network drives. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Natively integrated into Azure file shares. | Full fidelity.* |
+|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| [Azure File Migration Program](../solution-integration/validated-partners/data-management/azure-file-migration-program-solutions.md) | Supported. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Storage Migration Service | Indirectly supported. Azure file shares can be mounted as network drives on SMS target servers. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box (including the [data copy service](../../databox/data-box-deploy-copy-data-via-copy-service.md) to load files onto the device)| Supported. </br>(Data Box Disks does not support large file shares) | Data Box and Data Box Heavy fully support metadata. </br>Data Box Disks does not preserve file metadata. |
 |![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| AzCopy </br>latest version | Supported but not fully recommended. | Doesn't support differential copies at scale, and some file fidelity might be lost. </br>[Learn how to use AzCopy with Azure file shares](../common/storage-use-azcopy-files.md) |

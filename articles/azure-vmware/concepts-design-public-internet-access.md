@@ -3,7 +3,7 @@ title: Concept - Internet connectivity design considerations
 description: Options for Azure VMware Solution Internet Connectivity. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 9/17/2022
+ms.date: 2/5/2023
 ---
 
 # Internet connectivity design considerations 
@@ -65,6 +65,9 @@ The option that you select depends on the following factors:
 - If you need to run a third-party Network Virtual Appliance to conform to existing standards for security inspection or streamlined opex, you have two options. You can run your Azure Public IPv4 address in Azure native with the default route method or run it in Azure VMware Solution using Azure Public IPv4 address to NSX-T Data Center Edge. 
 - There are scale limits on how many Azure Public IPv4 addresses can be allocated to a Network Virtual Appliance running in native Azure or provisioned on Azure Firewall.  The Azure Public IPv4 address to NSX-T Data Center Edge option allows for much higher allocations (1,000s versus 100s).
 - Use an Azure Public IPv4 address to the NSX-T Data Center Edge for a localized exit to the internet from each private cloud in its local region. Using multiple Azure VMware Solution private clouds in several Azure regions that need to communicate with each other and the internet, it can be challenging to match an Azure VMware Solution private cloud with a security service in Azure. The difficulty is due to the way a default route from Azure works.
+
+> [!IMPORTANT]
+> By design, Public IPv4 Address with NSX-T Data Center does not allow the exchange of Azure/Microsoft owned Public IP Addresses over ExpressRoute Private Peering connections. This means you cannot advertise the Public IPv4 addresses to your customer vNET or on-premises network via ExpressRoute.  All Public IPv4 Addresses with NSX-T Data Center traffic must take the internet path even if the Azure VMware Solution private cloud is connected via ExpressRoute. For more information, visit [ExpressRoute Circuit Peering](../expressroute/expressroute-circuit-peerings.md).
 
 ## Next Steps
  

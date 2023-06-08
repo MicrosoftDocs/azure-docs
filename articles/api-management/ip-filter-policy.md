@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/08/2022
 ms.author: danlep
 ---
@@ -29,21 +29,20 @@ The `ip-filter` policy filters (allows/denies) calls from specific IP addresses 
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| address-range from="address" to="address" | A range of IP addresses to allow or deny access for.                                        | Required when the `address-range` element is used. | N/A     |
-| action    | Specifies whether calls should be allowed (`allow`) or not (`forbid`) for the specified IP addresses and ranges. | Yes                                                | N/A     |
+| action    | Specifies whether calls should be allowed (`allow`) or not (`forbid`) for the specified IP addresses and ranges. Policy expressions are allowed. | Yes                                                | N/A     |
 
 ## Elements
 
 | Element                                      | Description                                         | Required                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
-| address                                   | Add one or more of these elements to specify a single IP address on which to filter.   | At least one `address` or `address-range` element is required. |
+| address                                   | Add one or more of these elements to specify a single IP address on which to filter. Policy expressions are allowed.  | At least one `address` or `address-range` element is required. |
 | address-range | Add one or more of these elements to specify a range of IP addresses `from` "address" `to` "address" on which to filter. | At least one `address` or `address-range` element is required. |
 
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 - [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ### Usage notes

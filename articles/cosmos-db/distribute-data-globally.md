@@ -19,6 +19,9 @@ Azure Cosmos DB is a globally distributed database system that allows you to rea
 
 You can configure your databases to be globally distributed and available in [any of the Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). To lower the latency, place the data close to where your users are. Choosing the required regions depends on the global reach of your application and where your users are located. Azure Cosmos DB transparently replicates the data to all the regions associated with your Azure Cosmos DB account. It provides a single system image of your globally distributed Azure Cosmos DB database and containers that your application can read and write to locally.
 
+> [!NOTE]
+> Serverless accounts for Azure Cosmos DB can only run in a single Azure region. For more information, see [using serverless resources](serverless.md).
+
 With Azure Cosmos DB, you can add or remove the regions associated with your account at any time. Your application doesn't need to be paused or redeployed to add or remove a region. Azure Cosmos DB is available in all five distinct Azure cloud environments available to customers:
 
 * **Azure public** cloud, which is available globally.

@@ -1,7 +1,6 @@
 - name: Azure Applied AI Services Documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: What are Applied AI Services?
     href: what-are-applied-ai-services.md
@@ -9,6 +8,7 @@
     href: why-applied-ai-services.md
   - name: Frequently asked questions (FAQ)
     href: faq.yml
+  expanded: true
 - name: Quickstarts
   items:
   - name: Azure Form Recognizer
@@ -19,8 +19,6 @@
     href: ./immersive-reader/quickstarts/client-libraries.md
   - name: Azure Cognitive Search
     href: ../search/search-get-started-portal.md
-  - name: Azure Video Analyzer
-    href: ../azure-video-analyzer/video-analyzer-docs/edge/detect-motion-emit-events-quickstart.md
   - name: Azure Bot Service
     href: /composer/quickstart-create-bot
 - name: Resources

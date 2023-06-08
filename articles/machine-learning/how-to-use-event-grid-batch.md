@@ -33,7 +33,7 @@ The workflow will work in the following way:
 
 * This example assumes that you have a model correctly deployed as a batch endpoint. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
 * This example assumes that your batch deployment runs in a compute cluster called `cpu-cluster`.
-* The Logic App we are creating will communicate with Azure Machine Learning batch endpoints using REST. To know more about how to use the REST API of batch endpoints read [Deploy models with REST for batch scoring](how-to-deploy-batch-with-rest.md). 
+* The Logic App we are creating will communicate with Azure Machine Learning batch endpoints using REST. To know more about how to use the REST API of batch endpoints read [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md?tabs=rest). 
 
 ## Authenticating against batch endpoints
 
@@ -42,9 +42,9 @@ Azure Logic Apps can invoke the REST APIs of batch endpoints by using the [HTTP]
 We recommend to using a service principal for authentication and interaction with batch endpoints in this scenario. 
 
 1. Create a service principal following the steps at [Register an application with Azure AD and create a service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
-1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
+1. Create a secret to use for authentication as explained at [Option 3: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
 1. Take note of the `client secret` generated.
-1. Take note of the `client ID` and the `tenant id` as explained at [Get tenant and app ID values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
+1. Take note of the `client ID` and the `tenant id` as explained at [Get tenant and app ID values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
 1. Grant access for the service principal you created to your workspace as explained at [Grant access](../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the service principal will require:
 
    1. Permission in the workspace to read batch deployments and perform actions over them.
@@ -56,13 +56,13 @@ We will be using cloud URIs provided by Event Grid to indicate the input data to
 
 1. Create a [managed identity resource](../active-directory/managed-identities-azure-resources/overview.md):
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure Machine Learning CLI](#tab/cli)
 
    ```azurecli
    IDENTITY=$(az identity create  -n azureml-cpu-cluster-idn  --query id -o tsv)
    ```
 
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Azure Machine Learning SDK for Python](#tab/sdk)
 
    ```python
    # Use the Azure CLI to create the managed identity. Then copy the value of the variable IDENTITY into a Python variable
@@ -74,13 +74,13 @@ We will be using cloud URIs provided by Event Grid to indicate the input data to
    > [!NOTE]
    > This examples assumes you have a compute cluster created named `cpu-cluster` and it is used for the default deployment in the endpoint.
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure Machine Learning CLI](#tab/cli)
 
    ```azurecli
    az ml compute update --name cpu-cluster --identity-type user_assigned --user-assigned-identities $IDENTITY
    ```
 
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Azure Machine Learning SDK for Python](#tab/sdk)
 
    ```python
    from azure.ai.ml import MLClient

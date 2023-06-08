@@ -15,19 +15,19 @@ ms.date: 10/19/2022
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-You use data transformation activities in a Data Factory or Synapse [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Script activity is one of the transformation activities that pipelines support. This article builds on the [transform data article](transform-data.md), which presents a general overview of data transformation and the supported transformation activities. 
+You use data transformation activities in a Data Factory or Synapse [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Script activity is one of the transformation activities that pipelines support. This article builds on the [transform data article](transform-data.md), which presents a general overview of data transformation and the supported transformation activities. 
 
-Using the script activity, you can execute common operations with Data Manipulation Language (DML), and Data Definition Language (DDL). DML statements like INSERT, UPDATE, DELETE and SELECT let users insert, modify, delete and retrieve data in the database. DDL statements like CREATE, ALTER and DROP allow a database manager to create, modify, and remove database objects such as tables, indexes, and users.
+Using the script activity, you can execute common operations with Data Manipulation Language (DML), and Data Definition Language (DDL). DML statements like INSERT, UPDATE, DELETE and SELECT let users insert, modify, delete and retrieve data in the database. DDL statements like CREATE, ALTER and DROP allow a database manager to create, modify, and remove database objects such as tables, indexes, and users.
 
 You can use the Script activity to invoke a SQL script in one of the following data stores in your enterprise or on an Azure virtual machine (VM): 
 
 - Azure SQL Database 
 - Azure Synapse Analytics 
-- SQL Server Database. If you are using SQL Server, install Self-hosted integration runtime on the same machine that hosts the database or on a separate machine that has access to the database. Self-Hosted integration runtime is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See the [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) article for details. 
-- Oracle 
-- Snowflake 
+- SQL Server Database. If you are using SQL Server, install Self-hosted integration runtime on the same machine that hosts the database or on a separate machine that has access to the database. Self-Hosted integration runtime is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See the [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) article for details. 
+- Oracle
+- Snowflake
 
-The script may contain either a single SQL statement or multiple SQL statements that run sequentially. You can use the Execute SQL task for the following purposes: 
+The script may contain either a single SQL statement or multiple SQL statements that run sequentially. You can use the Script task for the following purposes:
 
 - Truncate a table in preparation for inserting data. 
 - Create, alter, and drop database objects such as tables and views. 
@@ -113,28 +113,28 @@ The following table describes these JSON properties:
 Sample output:
 ```json
 { 
-    "resultSetCount": 2, 
-    "resultSets": [ 
-        { 
-            "rowCount": 10, 
-            "rows":[ 
-                { 
-                    "<columnName1>": "<value1>", 
-                    "<columnName2>": "<value2>", 
-                    ... 
-                } 
-            ] 
-        }, 
-        ... 
-    ], 
-    "recordsAffected": 123, 
-    "outputParameters":{ 
-        "<parameterName1>": "<value1>", 
-        "<parameterName2>": "<value2>" 
-    }, 
-    "outputLogs": "<logs>", 
-    "outputLogsLocation": "<folder path>", 
-    "outputTruncated": true, 
+    "resultSetCount": 2, 
+    "resultSets": [ 
+        { 
+            "rowCount": 10, 
+            "rows":[ 
+                { 
+                    "<columnName1>": "<value1>", 
+                    "<columnName2>": "<value2>", 
+                    ... 
+                } 
+            ] 
+        }, 
+        ... 
+    ], 
+    "recordsAffected": 123, 
+    "outputParameters":{ 
+        "<parameterName1>": "<value1>", 
+        "<parameterName2>": "<value2>" 
+    }, 
+    "outputLogs": "<logs>", 
+    "outputLogsLocation": "<folder path>", 
+    "outputTruncated": true, 
     ... 
 } 
 ```

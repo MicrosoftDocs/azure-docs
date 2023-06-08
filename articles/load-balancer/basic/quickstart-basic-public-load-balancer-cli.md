@@ -6,8 +6,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/16/2022
-ms.custom: template-quickstart
+ms.date: 04/10/2023
+ms.custom: template-quickstart, devx-track-azurecli
 ---
 
 # Quickstart: Create a basic public load balancer using the Azure CLI
@@ -188,7 +188,7 @@ Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vn
     --resource-group CreatePubLBQS-rg \
     --name AzureBastionSubnet \
     --vnet-name myVNet \
-    --address-prefixes 10.1.1.0/27
+    --address-prefixes 10.1.1.0/26
 ```
 
 ### Create bastion host

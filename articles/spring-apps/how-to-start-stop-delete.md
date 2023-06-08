@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: how-to
 ms.date: 01/10/2023
 ms.author: karler
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagement-fy23
+ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23
 ---
 
 # Start, stop, and delete an application in Azure Spring Apps
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagem
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This guide explains how to change an application's state in Azure Spring Apps by using either the Azure portal or the Azure CLI.
 
@@ -45,6 +45,8 @@ After you deploy an application, you can start, stop, and delete it by using the
 1. Select the application whose state you want to change.
 
 1. On the **Overview** page for that application, select **Start/Stop**, **Restart**, or **Delete**.
+
+   :::image type="content" source="media/how-to-start-stop-delete/how-to-start-stop-delete.png" alt-text="Screenshot of Azure portal showing the Overview page of the demo app." lightbox="media/how-to-start-stop-delete/how-to-start-stop-delete.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 

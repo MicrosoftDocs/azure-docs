@@ -3,7 +3,7 @@ title: Monitoring Azure Event Hubs
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Event Hubs. 
 ms.topic: conceptual
 ms.custom: subject-monitoring
-ms.date: 06/16/2022
+ms.date: 03/01/2023
 ---
 
 # Monitor Azure Event Hubs
@@ -45,7 +45,7 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 If you use **Azure Storage** to store the diagnostic logging information, the information is stored in containers named **insights-logs-operationlogs** and **insights-metrics-pt1m**. Sample URL for an operation log: `https://<Azure Storage account>.blob.core.windows.net/insights-logs-operationallogs/resourceId=/SUBSCRIPTIONS/<Azure subscription ID>/RESOURCEGROUPS/<Resource group name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Namespace name>/y=<YEAR>/m=<MONTH-NUMBER>/d=<DAY-NUMBER>/h=<HOUR>/m=<MINUTE>/PT1H.json`. The URL for a metric log is similar. 
 
 ### Azure Event Hubs
-If you use **Azure Event Hubs** to store the diagnostic logging information, the information is stored in Event Hubs instances named **insights-logs-operationlogs** and **insights-metrics-pt1m**. You can also select your own event hub. 
+If you use **Azure Event Hubs** to store the diagnostic logging information, the information is stored in Event Hubs instances named **insights-logs-operationlogs** and **insights-metrics-pt1m**. You can also select an existing event hub except for the event hub for which you are configuring diagnostic settings. 
 
 ### Log Analytics
 If you use **Log Analytics** to store the diagnostic logging information, the information is stored in tables named **AzureDiagnostics** and **AzureMetrics**. 

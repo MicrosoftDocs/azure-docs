@@ -15,6 +15,8 @@ ms.custom: cogserv-non-critical-speech, references_regions
 
 # Quickstart: Create a voice assistant with Custom Commands
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 In this quickstart, you create and test a basic Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app.
 
 ## Region Availability

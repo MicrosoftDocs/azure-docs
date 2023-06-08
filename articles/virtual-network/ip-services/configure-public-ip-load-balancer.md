@@ -158,9 +158,7 @@ In this section, you'll change the frontend configuration used for outbound conn
 
 * By default, a public load balancer won't allow you to use multiple load-balancing rules with the same backend port. If a multiple rule configuration to the same backend port is required, then enable the floating IP option for a load-balancing rule. This setting overwrites the destination IP address of the traffic sent to the backend pool. Without floating IP enabled, the destination will be the backend pool private IP. With floating IP enabled, the destination IP will be the load balancer frontend public IP. The backend instance must have this public IP configured in its network configuration to correctly receive this traffic. A loopback interface with the frontend IP address must be configured in the instance. For more information, see [Azure Load Balancer Floating IP configuration](../../load-balancer/load-balancer-floating-ip.md).
 
-* With a load balancer setup, members of backend pool can often also be assigned instance-level public IPs. With this architecture, sending traffic directly to these IPs bypasses the load balancer. 
-
-* Both standard public load balancers and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives. If a public IP is assigned as a load balancer frontend, the timeout value on the IP takes precedence. This setting applies only to inbound connections to the load balancer. For more information, see [Load Balancer TCP Reset and Idle Timeout](../../load-balancer/load-balancer-tcp-reset.md).
+* With a load balancer setup, members of backend pool can often also be assigned instance-level public IPs. With this architecture, sending traffic directly to these IPs bypasses the load balancer.
 
 ## Caveats
 

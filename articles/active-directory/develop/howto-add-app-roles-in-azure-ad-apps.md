@@ -2,7 +2,7 @@
 title: Add app roles and get them from a token
 description: Learn how to add app roles to an application registered in Azure Active Directory. Assign users and groups to these roles, and receive them in the 'roles' claim in the token.
 services: active-directory
-author: kalyankrishna1
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,8 +10,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/27/2022
-ms.author: kkrishna
-ms.reviewer: marsma, kkrishna, jmprieur
+ms.author: cwerner
+ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ---
 
@@ -114,7 +114,7 @@ The **Status** column should reflect that consent has been **Granted for \<tenan
 
 If you're implementing app role business logic that signs in the users in your application scenario, first define the app roles in **App registrations**. Then, an admin assigns them to users and groups in the **Enterprise applications** pane. These assigned app roles are included with any token that's issued for your application, either access tokens when your app is the API being called by an app or ID tokens when your app is signing in a user.
 
-If you're implementing app role business logic in an app-calling-API scenario, you have two app registrations. One app registration is for the app, and a second app registration is for the API. In this case, define the app roles and assign them to the user or group in the app registration of the API. When the user authenticates with the app and requests an ID token to call the API, a roles claim is included in the ID token. Your next step is to add code to your web API to check for those roles when the API is called.
+If you're implementing app role business logic in an app-calling-API scenario, you have two app registrations. One app registration is for the app, and a second app registration is for the API. In this case, define the app roles and assign them to the user or group in the app registration of the API. When the user authenticates with the app and requests an access token to call the API, a roles claim is included in the token. Your next step is to add code to your web API to check for those roles when the API is called.
 
 To learn how to add authorization to your web API, see [Protected web API: Verify scopes and app roles](scenario-protected-web-api-verification-scope-app-roles.md).
 

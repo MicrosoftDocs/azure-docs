@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Beeline | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Beeline'
 description: Learn how to configure single sign-on between Azure Active Directory and Beeline.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 02/15/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Beeline
@@ -75,7 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://projects.beeline.com/<ProjInstance_Name>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern: 
-    `https://projects.beeline.com/<ProjInstance_Name>/SSO_External.ashx`
+    `https://azure-prj.auth.beeline.com/login/callback?connection=<ProjInstance_Namee>-SSO`
 
     > [!NOTE]
     > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Beeline Client support team](https://www.beeline.com/contact-support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

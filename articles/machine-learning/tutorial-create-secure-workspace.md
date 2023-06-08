@@ -10,11 +10,14 @@ ms.author: jhirono
 author: jhirono
 ms.date: 09/06/2022
 ms.topic: how-to
-ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022
+ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022, build-2023
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
-# How to create a secure workspace
+# Tutorial: How to create a secure workspace
 
-In this article, learn how to create and connect to a secure Azure Machine Learning workspace. A secure workspace uses Azure Virtual Network to create a security boundary around resources used by Azure Machine Learning. 
+In this article, learn how to create and connect to a secure Azure Machine Learning workspace. The steps in this article use an Azure Virtual Network to create a security boundary around resources used by Azure Machine Learning. 
+
+[!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
 
 In this tutorial, you accomplish the following tasks:
 
@@ -86,7 +89,7 @@ To create a virtual network, use the following steps:
     Use the following steps to configure the IP address and configure a subnet for training and scoring resources:
 
     > [!TIP]
-    > While you can use a single subnet for all Azure ML resources, the steps in this article show how to create two subnets to separate the training & scoring resources.
+    > While you can use a single subnet for all Azure Machine Learning resources, the steps in this article show how to create two subnets to separate the training & scoring resources.
     >
     > The workspace and other dependency services will go into the training subnet. They can still be used by resources in other subnets, such as the scoring subnet.
 
@@ -264,9 +267,7 @@ To create a virtual network, use the following steps:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-machine-learning-workspace.png" alt-text="Basic workspace configuration":::
 
-1. From the __Networking__ tab, select __Private endpoint__ and then select __+ add__.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-workspace-networking.png" alt-text="Workspace networking":::
+1. From the __Networking__ tab, select __Private with Internet Outbound__. In the __Workspace inbound access__ section, select __+ add__.
 
 1. On the __Create private endpoint__ form, use the following values: 
     * __Subscription__: The same Azure subscription that contains the previous resources you've created.
@@ -283,6 +284,7 @@ To create a virtual network, use the following steps:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-workspace-private-endpoint.png" alt-text="Screenshot of workspace private network config":::
 
+1. From the __Networking__ tab, in the __Workspace outbound access__ section, select __Use my own virtual network__.
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 1. Once the workspace has been created, select __Go to resource__.
 1. From the __Settings__ section on the left, select __Private endpoint connections__ and then select the link in the __Private endpoint__ column:
@@ -322,6 +324,48 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
     1. On the __Members__ tab, select __User, group, or service principal__ in the __Assign access to__ area and then select __+ Select members__. In the __Select members__ dialog, enter the name as your Azure Machine Learning workspace. Select the service principal for the workspace, and then use the __Select__ button.
 
     1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+## Secure Azure Monitor and Application Insights
+
+> [!NOTE]
+> For more information on securing Azure Monitor and Application Insights, see the following links:
+> * [Migrate to workspace-based Application Insights resources](../azure-monitor/app/convert-classic-resource.md).
+> * [Configure your Azure Monitor private link](../azure-monitor/logs/private-link-configure.md).
+
+1. In the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace. From __Overview__, select the __Application Insights__ link.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/workspace-application-insight.png" alt-text="Screenshot of the Application Insights link.":::
+
+1. In the __Properties__ for Application Insights, check the __WORKSPACE__ entry to see if it contains a value. If it _doesn't_, select __Migrate to Workspace-based__, select the __Subscription__ and __Log Analytics Workspace__ to use, then select __Apply__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/migrate-workspace-based.png" alt-text="Screenshot of the link to migrate to workspace-based.":::
+
+1. In the Azure portal, select __Home__, and then search for __Private link__. Select the __Azure Monitor Private Link Scope__ result and then select __Create__.
+1. From the __Basics__ tab, select the same __Subscription__, __Resource Group__, and __Resource group region__ as your Azure Machine Learning workspace. Enter a __Name__ for the instance, and then select __Review + Create__. To create the instance, select __Create__.
+1. Once the Azure Monitor Private Link Scope instance has been created, select the instance in the Azure portal. From the __Configure__ section, select __Azure Monitor Resources__ and then select __+ Add__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/add-monitor-resources.png" alt-text="Screenshot of the add button.":::
+
+1. From __Select a scope__, use the filters to select the Application Insights instance for your Azure Machine Learning workspace. Select __Apply__ to add the instance.
+1. From the __Configure__ section, select __Private Endpoint connections__ and then select __+ Private Endpoint__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/private-endpoint-connections.png" alt-text="Screenshot of the add private endpoint button.":::
+
+1. Select the same __Subscription__, __Resource Group__, and __Region__ that contains your VNet. Select __Next: Resource__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/monitor-private-endpoint-basics.png" alt-text="Screenshot of the Azure Monitor private endpoint basics.":::
+
+1. Select `Microsoft.insights/privateLinkScopes` as the __Resource type__. Select the Private Link Scope you created earlier as the __Resource__. Select `azuremonitor` as the __Target sub-resource__. Finally, select __Next: Virtual Network__ to continue.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/monitor-private-endpoint-resource.png" alt-text="Screenshot of the Azure Monitor private endpoint resources.":::
+
+1. Select the __Virtual network__ you created earlier, and the __Training__ subnet. Select __Next__ until you arrive at __Review + Create__. Select __Create__ to create the private endpoint.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/monitor-private-endpoint-network.png" alt-text="Screenshot of the Azure Monitor private endpoint network.":::
+
+1. After the private endpoint has been created, return to the __Azure Monitor Private Link Scope__ resource in the portal. From the __Configure__ section, select __Access modes__. Select __Private only__ for __Ingestion access mode__ and __Query access mode__, then select __Save__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/access-modes.png" alt-text="Screenshot of the private link scope access modes.":::
 
 ## Connect to the workspace
 
@@ -507,4 +551,9 @@ To delete all resources created in this tutorial, use the following steps:
 1. Enter the resource group name, then select __Delete__.
 ## Next steps
 
+:::moniker range="azureml-api-2"
 Now that you've created a secure workspace and can access studio, learn how to [deploy a model to an online endpoint with network isolation](how-to-secure-online-endpoint.md).
+:::moniker-end
+:::moniker range="azureml-api-1"
+Now that you've created a secure workspace, learn how to [deploy a model](./v1/how-to-deploy-and-where.md).
+:::moniker-end

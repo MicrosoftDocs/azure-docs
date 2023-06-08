@@ -5,6 +5,7 @@ keywords: azure app service, web app, deploy, deployment, pipelines, build
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
+ms.custom: UpdateFrequency3
 ---
 
 # Deployment Best Practices

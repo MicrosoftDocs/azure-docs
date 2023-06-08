@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
-# Create users in Azure Database for PostgreSQL - Flexible Server Preview
+# Create users in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
@@ -50,7 +50,7 @@ The server admin user account can be used to create more users and grant those u
 1. Edit and run the following SQL code. Replace your new user name with the placeholder value <new_user>, and replace the placeholder password with your own strong password.
 
    ```sql
-   CREATE ROLE <new_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
+   CREATE USER <new_user> CREATEDB CREATEROLE PASSWORD '<StrongPassword!>';
 
    GRANT azure_pg_admin TO <new_user>;
    ```
@@ -64,12 +64,12 @@ The server admin user account can be used to create more users and grant those u
 
 1. Edit and run the following SQL code. Replace the placeholder value `<db_user>` with your intended new user name and placeholder value `<newdb>` with your own database name. Replace the placeholder password with your own strong password.
 
-   This sql code syntax creates a new database named testdb, for example, purposes. Then it creates a new user in the PostgreSQL service and grants connect privileges to the new database for that user.
+   This SQL code below creates a new database, then it creates a new user in the PostgreSQL instance and grants connect privilege to the new database for that user.
 
    ```sql
    CREATE DATABASE <newdb>;
 
-   CREATE ROLE <db_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB NOCREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
+   CREATE USER <db_user> PASSWORD '<StrongPassword!>';
 
    GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
@@ -80,7 +80,7 @@ The server admin user account can be used to create more users and grant those u
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;
    ```
 
-   If a user creates a table "role," the table belongs to that user. If another user needs access to the table, you must grant privileges to the other user on the table level.
+   If a user creates a table "role", the table belongs to that user. If another user needs access to the table, you must grant privileges to the other user on the table level.
 
    For example:
 
@@ -91,7 +91,7 @@ The server admin user account can be used to create more users and grant those u
 1. Sign in to your server, specifying the designated database, using the new username and password. This example shows the psql command line. With this command, you're prompted for the password for the user name. Replace your own server name, database name, and user name.
 
    ```shell
-   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=db_user@mydemoserver --dbname=newdb
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=db_user --dbname=newdb
    ```
 
 ## Next steps

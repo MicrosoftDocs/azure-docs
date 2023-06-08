@@ -4,8 +4,8 @@ description: Learn how to set up disaster recovery for Virtual machines on Azure
 author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/14/2022
-ms.author: v-pgaddala
+ms.date: 04/19/2023
+ms.author: ankitadutta
 ---
 
 # Tutorial: Set up disaster recovery for Azure Public MEC using VM Flow
@@ -35,13 +35,13 @@ To enable replication to a secondary location, follow the below steps:
     :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/disaster-recovery.png" alt-text=" Screenshot of Select Disaster Recovery option."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/disaster-recovery-expanded.png":::
      
 1. In **Basics**, select the **Target region** or an Azure Public MEC.
-    - Option1: **Public MEC to Region**
+    - Option 1: **Public MEC to Region**
     
-        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edge-zone-to-region.png" alt-text="Screenshot of Option 1 Edge Zone to Region."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edge-zone-to-region-expanded.png":::
+        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edge-zone-to-region.png" alt-text="Screenshot of Option 1 Edge Zone to Region."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edge-zone-to-region.png":::
 
-    - Option2: **Public MEC to Public MEC**
+    - Option 2: **Public MEC to Public MEC**
     
-        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edgezone-to-edgezone.png" alt-text="Screenshot of Option 2 Edge Zone to Edge Zone."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edgezone-to-edgezone-expanded.png":::
+        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edgezone-to-edgezone.png" alt-text="Screenshot of Option 2 Edge Zone to Edge Zone."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edgezone-to-edgezone.png":::
     
     >[!Note]
     >This flow proceeds with Option 1: Public MEC to Region replication.
@@ -53,9 +53,9 @@ To enable replication to a secondary location, follow the below steps:
 1. In **Advanced settings**, select **Subscription**, **VM resource group**, **Virtual network**, **Availability** and **Proximity placement group** as required.
     1. Under **Capacity Reservation Settings**, **Capacity Reservation Groups** is disabled.
     1. Under **Storage settings** > **Cache storage account**, select the cache storage account associated with the vault from the dropdown.
-        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage.png" alt-text="Screenshot of cache storage field."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage-expanded.png":::
+        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage.png" alt-text="Screenshot of cache storage field."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage.png":::
 
-        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage-2.png" alt-text="Screenshot of cache storage field step 2."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage-2-expanded.png":::
+        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage-2.png" alt-text="Screenshot of cache storage field step 2."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/cache-storage-2.png":::
     
 1. Select **Next : Review + Start replication**.
     :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/review.png" alt-text="Screenshot of Review settings tab."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/review-expanded.png":::

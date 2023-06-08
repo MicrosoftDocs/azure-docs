@@ -15,7 +15,7 @@ In Microsoft Purview, you can create multiple business glossaries to support sep
 
 ## Create a new glossary
 
-To create a glossary term, follow these steps:
+To create a business glossary, follow these steps:
 
 1. On the home page, select **Data catalog** on the left pane, and then select the **Manage glossary** button in the center of the page.
 
@@ -25,7 +25,7 @@ To create a glossary term, follow these steps:
 
    :::image type="content" source="media/how-to-create-manage-glossary/select-new-glossary.png" alt-text="Screenshot of the button and pane for creating a new glossary." border="true":::
 
-1. Give your term a **Name** and a **Description**.
+1. Give your glossary a **Name** and a **Description**.
 
 1. You'll need to select at least one **Steward**, an Azure Active Directory user or group who will manage the glossary.
 

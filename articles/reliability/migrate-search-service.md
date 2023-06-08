@@ -16,7 +16,7 @@ ms.custom: references_regions, subject-reliability
 
 This guide describes how to migrate Azure Cognitive Search from non-availability zone support to availability support.
 
-Azure Cognitive Search services can take advantage of availability support [in regions that support availability zones](../search/search-performance-optimization.md#availability-zones). Services with [two or more replicas](../search/search-capacity-planning.md) in these regions created after availability support was enabled can automatically utilize availability zones. Each replica will be placed in a different availability zone within the region. If you have more replicas than availability zones, the replicas will be distributed across availability zones as evenly as possible.
+Azure Cognitive Search services can take advantage of availability support [in regions that support availability zones](../search/search-reliability.md#availability-zones). Services with [two or more replicas](../search/search-capacity-planning.md) in these regions created after availability support was enabled can automatically utilize availability zones. Each replica will be placed in a different availability zone within the region. If you have more replicas than availability zones, the replicas will be distributed across availability zones as evenly as possible.
 
 If a search service was created before availability zone support was enabled in its region, the search service must be recreated to take advantage of availability zone support.
 
@@ -24,9 +24,9 @@ If a search service was created before availability zone support was enabled in 
 
 The following are the current requirements/limitations for enabling availability zone support:
 
-- The search service must be in [a region that supports availability zones](../search/search-performance-optimization.md#availability-zones)
+- The search service must be in [a region that supports availability zones](../search/search-reliability.md#availability-zones)
 - The search service must be created after availability zone support was enabled in its region.
-- The search service must have [at least two replicas](../search/search-performance-optimization.md#high-availability)
+- The search service must have [at least two replicas](../search/search-reliability.md#high-availability)
 
 ## Downtime requirements
 
@@ -40,7 +40,7 @@ If you created your search service in a region that supports availability zones 
 
 ### How to recreate your search service
 
-1. [Create a new search service](../search/search-create-service-portal.md) in the same region as the old search service. This region should [support availability zones on or after the current date](../search/search-performance-optimization.md#availability-zones). 
+1. [Create a new search service](../search/search-create-service-portal.md) in the same region as the old search service. This region should [support availability zones on or after the current date](../search/search-reliability.md#availability-zones). 
 
    >[!IMPORTANT]
    >The [free and basic tiers do not support availability zones](../search/search-sku-tier.md#feature-availability-by-tier), and so they should not be used.
@@ -63,4 +63,4 @@ To rebuild all of your search indexes, choose one of the following two options:
 > [ARM Quickstart Templates](https://azure.microsoft.com/resources/templates/)
 
 > [!div class="nextstepaction"]
-> [Learn about high availability in Azure Cognitive Search](../search/search-performance-optimization.md)
+> [Learn about high availability in Azure Cognitive Search](../search/search-reliability.md)

@@ -2,36 +2,36 @@
 title: Azure Health Data Services as Event Grid source
 description: Describes the properties that are provided for Azure Health Data Services events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 12/02/2022
+ms.date: 01/31/2023
 ---
 
 # Azure Health Data Services as an Event Grid source
 
-This article provides the properties and schema for Azure Health Data Services events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for Azure Health Data Services Events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
-## Available event types
+## Available Event types
 
-### List of events for Azure Health Data Services REST APIs
+### List of Events for Azure Health Data Services REST APIs
 
-The following Fast Healthcare Interoperability Resources (FHIR&#174;) resource events are triggered when calling the REST APIs.
-
- |Event name|Description|
- |----------|-----------|
- |**FhirResourceCreated** |The event emitted after a FHIR resource gets created successfully.|
- |**FhirResourceUpdated** |The event emitted after a FHIR resource gets updated successfully.|
- |**FhirResourceDeleted** |The event emitted after a FHIR resource gets soft deleted successfully.|
-
-These events are triggered when a DICOM image is created or deleted by calling the DICOM service REST APIs.
+These events are triggered when a Fast Healthcare Interoperability Resources (FHIR&#174;) Observation is created, updated, or deleted by calling the FHIR service REST APIs.
 
  |Event name|Description|
  |----------|-----------|
- |**DicomImageCreated** |The event emitted after a DICOM image gets created successfully.|
- |**DicomImageDeleted** |The event emitted after a DICOM image gets deleted successfully.|
+ |**FhirResourceCreated** |The event emitted after a FHIR Observation resource is created successfully.|
+ |**FhirResourceUpdated** |The event emitted after a FHIR Observation resource is updated successfully.|
+ |**FhirResourceDeleted** |The event emitted after a FHIR Observation resource is soft deleted successfully.|
+
+These Events are triggered when a DICOM image is created or deleted by calling the DICOM service REST APIs.
+
+ |Event name|Description|
+ |----------|-----------|
+ |**DicomImageCreated** |The event emitted after a DICOM image is created successfully.|
+ |**DicomImageDeleted** |The event emitted after a DICOM image is deleted successfully.|
 
 ## Example events
-This section contains examples of what events message data would look like for each FHIR resource and DICOM image event.
+This section contains examples of what Azure Health Data Services Events message data would look like for each FHIR Observation and DICOM image event.
 
-> [!Note]
+> [!NOTE]
 > Events data looks similar to these examples with the `metadataVersion` property set to a value of `1`.
 >
 > For more information, see [Azure Event Grid event schema properties](./event-schema.md#event-properties).
@@ -99,6 +99,7 @@ This section contains examples of what events message data would look like for e
   "eventTime": "2021-09-08T01:29:12.0618739Z"
 }
 ```
+
 # [CloudEvent schema](#tab/cloud-event-schema)
 
 ```json
@@ -249,7 +250,7 @@ This section contains examples of what events message data would look like for e
 ---
 
 ## Next steps
-See the following tutorial: [Deploy Events using the Azure portal](../healthcare-apis/events/events-deploy-portal.md).
+* For an overview of the Azure Health Data Services Events feature, see [What are Events?](../healthcare-apis/events/events-overview.md).
+* To learn how to deploy the Azure Health Data Services Events feature in the Azure portal, see [Deploy Events using the Azure portal](../healthcare-apis/events/events-deploy-portal.md).
  
-
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

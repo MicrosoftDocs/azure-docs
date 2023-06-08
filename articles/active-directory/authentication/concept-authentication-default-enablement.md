@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/26/2022
+ms.date: 03/12/2023
 
 ms.author: justinha
 author: mjsantani
@@ -17,6 +17,9 @@ ms.collection: M365-identity-device-management
 # Customer intent: As an identity administrator, I want to encourage users to understand how default protection can improve our security posture.
 ---
 # Protecting authentication methods in Azure Active Directory
+
+>[!NOTE]
+>The Microsoft managed value for Authenticator Lite will move from disabled to enabled on June 9th, 2023. All tenants left in the default state 'Microsoft managed' will be enabled for the feature on June 9th.
 
 Azure Active Directory (Azure AD) adds and improves security features to better protect customers against increasing attacks. As new attack vectors become known, Azure AD may respond by enabling protection by default to help customers stay ahead of emerging security threats. 
 
@@ -37,9 +40,7 @@ Number matching is a good example of protection for an authentication method tha
 As MFA fatigue attacks rise, number matching becomes more critical to sign-in security. As a result, Microsoft will change the default behavior for push notifications in Microsoft Authenticator. 
 
 >[!NOTE]
->Number matching will begin to be enabled for all users of Microsoft Authenticator starting February 27, 2023.
-
-<!---Add link to Mayur Blog post here--->
+>Number matching will begin to be enabled for all users of Microsoft Authenticator starting May 08, 2023.
 
 ## Microsoft managed settings
 
@@ -58,6 +59,8 @@ The following table lists each setting that can be set to Microsoft managed and 
 | [Registration campaign](how-to-mfa-registration-campaign.md)                                    | Disabled      |
 | [Location in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)           | Disabled      |
 | [Application name in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)   | Disabled      |
+| [System-preferred MFA](concept-system-preferred-multifactor-authentication.md)                  | Disabled      |
+| [Authenticator Lite](how-to-mfa-authenticator-lite.md)                                          | Disabled      |  
 
 As threat vectors change, Azure AD may announce default protection for a **Microsoft managed** setting in [release notes](../fundamentals/whats-new.md) and on commonly read forums like [Tech Community](https://techcommunity.microsoft.com/). 
 

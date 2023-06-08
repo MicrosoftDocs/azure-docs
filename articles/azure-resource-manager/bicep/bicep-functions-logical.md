@@ -4,7 +4,8 @@ description: Describes the functions to use in a Bicep file to determine logical
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 12/15/2022
+ms.custom: devx-track-bicep
+ms.date: 01/30/2023
 ---
 
 # Logical functions for Bicep
@@ -25,7 +26,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |string or int |The value to convert to a boolean. The string value is case-insensitive. 0 is considered to be false and all other integers are considered to be true.  |
+| arg1 |Yes |string or int |The value to convert to a boolean. String value "true" with any combination of upper and lower case characters (for example "True", "TRUE", "tRue", "true") are considered to be equivalent and represent the boolean value of `true`, otherwise `false`. Integer value 0 is considered to be `false` and all other integers are considered to be `true`.  |
 
 ### Return value
 

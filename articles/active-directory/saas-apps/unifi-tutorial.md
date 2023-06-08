@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with UNIFI | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with UNIFI'
 description: Learn how to configure single sign-on between Azure Active Directory and UNIFI.
 services: active-directory
 author: jeevansd

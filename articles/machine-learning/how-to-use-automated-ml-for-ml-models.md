@@ -101,7 +101,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     Virtual machine priority| Low priority virtual machines are cheaper but don't guarantee the compute nodes. 
     Virtual machine type| Select CPU or GPU for virtual machine type.
     Virtual machine size| Select the virtual machine size for your compute.
-    Min / Max nodes| To profile data, you must specify 1 or more nodes. Enter the maximum number of nodes for your compute. The default is 6 nodes for an AzureML Compute.
+    Min / Max nodes| To profile data, you must specify 1 or more nodes. Enter the maximum number of nodes for your compute. The default is 6 nodes for an Azure Machine Learning Compute.
     Advanced settings | These settings allow you to configure a user account and existing virtual network for your experiment. 
     
     Select **Create**. Creation of a new compute can take a few minutes.
@@ -115,7 +115,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
     1. For **classification**, you can also enable deep learning.
     
-        If deep learning is enabled, validation is limited to _train_validation split_. [Learn more about validation options](how-to-configure-cross-validation-data-splits.md).
+        If deep learning is enabled, validation is limited to _train_validation split_. [Learn more about validation options (SDK v1)](./v1/how-to-configure-cross-validation-data-splits.md).
 
     1. For **forecasting** you can, 
     
@@ -130,7 +130,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     Additional configurations|Description
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#primary-metric).
-    Explain best model | Select to enable or disable, in order to show explanations for the recommended best model. <br> This functionality is not currently available for [certain forecasting algorithms](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
+    Explain best model | Select to enable or disable, in order to show explanations for the recommended best model. <br> This functionality is not currently available for [certain forecasting algorithms](./v1/how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
     Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-algorithms). <br> See the [supported algorithms for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
     Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. Learn more about how automated ML performs [multiple child jobs on clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
@@ -142,7 +142,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
 1. The **[Optional] Validate and test** form allows you to do the following. 
 
-    1. Specify the type of validation to be used for your training job. [Learn more about cross validation](how-to-configure-cross-validation-data-splits.md#prerequisites). 
+    1. Specify the type of validation to be used for your training job. [Learn more about cross validation (SDK v1)](./v1/how-to-configure-cross-validation-data-splits.md#prerequisites). 
     
         1. Forecasting tasks only supports k-fold cross validation.
     
@@ -266,7 +266,7 @@ After your experiment completes, you can test the model(s) that automated ML gen
 
 To better understand your model, you can see which data features (raw or engineered) influenced the model's predictions with the model explanations dashboard. 
 
-The model explanations dashboard provides an overall analysis of the trained model along with its predictions and explanations. It also lets you drill into an individual data point and its individual feature importance. [Learn more about the explanation dashboard visualizations](how-to-machine-learning-interpretability-aml.md#visualizations).
+The model explanations dashboard provides an overall analysis of the trained model along with its predictions and explanations. It also lets you drill into an individual data point and its individual feature importance. [Learn more about the explanation dashboard visualizations](./v1/how-to-machine-learning-interpretability-aml.md#visualizations).
 
 To get explanations for a particular model, 
 

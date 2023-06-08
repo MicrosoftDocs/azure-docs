@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Olfeo SAAS | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Olfeo SAAS'
 description: Learn how to configure single sign-on between Azure Active Directory and Olfeo SAAS.
 services: active-directory
 author: jeevansd

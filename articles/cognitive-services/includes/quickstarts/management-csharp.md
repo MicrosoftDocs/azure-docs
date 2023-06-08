@@ -10,7 +10,7 @@ ms.date: 06/04/2021
 ms.author: pafarley
 ---
 
-[Reference documentation](/dotnet/api/overview/azure/cognitiveservices/management/management-cognitiveservices) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/8.0.0-preview/) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
+[Reference documentation](/dotnet/api/overview/azure/cognitiveservices/management/management-cognitiveservices(deprecated)) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/8.0.0-preview/) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
 ## C# prerequisites
 
@@ -126,4 +126,4 @@ dotnet run
 * See **[Natural language support](../../language-support.md)** to see the list of natural languages that Cognitive Services supports.
 * See **[Use Cognitive Services as containers](../../cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
 * See **[Plan and manage costs for Cognitive Services](../../plan-manage-costs.md)** to estimate cost of using Cognitive Services.
-* See **[Cognitive Services Management SDK reference documentation](/dotnet/api/overview/azure/cognitiveservices/management/management-cognitiveservices)** for more details on the management SDK.
+* See **[Cognitive Services Management SDK reference documentation](/dotnet/api/overview/azure/cognitiveservices/management/management-cognitiveservices(deprecated))** for more details on the management SDK.

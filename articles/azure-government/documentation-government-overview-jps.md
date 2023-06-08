@@ -6,14 +6,14 @@ ms.topic: article
 author: stevevi
 ms.author: stevevi
 recommendations: false
-ms.date: 10/30/2022
+ms.date: 02/06/2023
 ---
 
 # Azure for public safety and justice
 
 ## Overview
 
-Public safety and justice agencies are under mounting pressure to keep communities safe, reduce crime, and improve responsiveness. Cloud computing is transforming the way law enforcement agencies approach their work. It is helping with intelligent policing awareness systems, body camera systems across the country/region, and day-to-day mobile police collaboration.
+Public safety and justice agencies are under mounting pressure to keep communities safe, reduce crime, and improve responsiveness. Cloud computing is transforming the way law enforcement agencies approach their work. It's helping with intelligent policing awareness systems, body camera systems across the country/region, and day-to-day mobile police collaboration.
 
 When they're properly planned and secured, cloud services can deliver powerful new capabilities for public safety and justice agencies. These capabilities include digital evidence management, data analysis, and real-time decision support. Solutions can be delivered on the latest mobile devices. However, not all cloud providers are equal. As law enforcement agencies embrace the cloud, they need a cloud service provider they can trust. The core of the law enforcement mission demands partners who are committed to meeting a full range of security, compliance, and operational needs.
 
@@ -36,7 +36,7 @@ Microsoft's commitment to meeting the applicable CJIS regulatory controls help c
 The remainder of this article discusses technologies that you can use to safeguard CJI stored or processed in Azure cloud services. **These technologies can help you establish sole control over CJI that you're responsible for.**
 
 > [!NOTE]
-> You are wholly responsible for ensuring your own compliance with all applicable laws and regulations. Information provided in this article does not constitute legal advice, and you should consult your legal advisor for any questions regarding regulatory compliance.
+> You're wholly responsible for ensuring your own compliance with all applicable laws and regulations. Information provided in this article doesn't constitute legal advice, and you should consult your legal advisor for any questions regarding regulatory compliance.
 
 ## Location of customer data
 
@@ -94,6 +94,27 @@ Azure SQL Database provides [transparent data encryption](/azure/azure-sql/datab
 Microsoft enables you to protect your data throughout its entire lifecycle: at rest, in transit, and in use. **Azure confidential computing** is a set of data security capabilities that offers encryption of data while in use. With this approach, when data is in the clear, which is needed for efficient data processing in memory, the data is protected inside a hardware-based trusted execution environment (TEE), also known as an enclave.
 
 Technologies like [Intel Software Guard Extensions](https://software.intel.com/sgx) (Intel SGX), or [AMD Secure Encrypted Virtualization](https://www.amd.com/en/processors/amd-secure-encrypted-virtualization) (SEV-SNP) are recent CPU improvements supporting confidential computing implementations. These technologies are designed as virtualization extensions and provide feature sets including memory encryption and integrity, CPU-state confidentiality and integrity, and attestation. For more information, see [Azure confidential computing](../confidential-computing/index.yml) documentation.
+
+## Multi-factor authentication (MFA)
+
+The CJIS Security Policy v5.9.2 revised the multi-factor authentication (MFA) requirements for CJI protection. MFA requires the use of two or more different factors defined as follows:
+
+- Something you know, for example, username/password or personal identification number (PIN)
+- Something you have, for example, a hard token such as a cryptographic key stored on or a one-time password (OTP) transmitted to a specialized hardware device
+- Something you are, for example, biometric information
+
+According to the CJIS Security Policy, identification and authentication of organizational users requires MFA to privileged and non-privileged accounts as part of CJI access control requirements. MFA is required at Authenticator Assurance Level 2 (AAL2), as described in the National Institute of Standards and Technology (NIST) [SP 800-63](https://pages.nist.gov/800-63-3/sp800-63-3.html) *Digital Identity Guidelines*. Authenticators and verifiers operated at AAL2 shall be validated to meet the requirements of FIPS 140 Level 1.
+
+The [Microsoft Authenticator app](../active-directory/authentication/concept-authentication-authenticator-app.md) provides an extra level of security to your Azure Active Directory (Azure AD) account. It's available on mobile phones running Android and iOS. With the Microsoft Authenticator app, you can provide secondary verification for MFA scenarios to meet your CJIS Security Policy MFA requirements. As mentioned previously, CJIS Security Policy requires that solutions for hard tokens use cryptographic modules validated at FIPS 140 Level 1. The Microsoft Authenticator app meets FIPS 140 Level 1 validation requirements for all Azure AD authentications, as explained in [Authentication methods in Azure Active Directory - Microsoft Authenticator app](../active-directory/authentication/concept-authentication-authenticator-app.md#fips-140-compliant-for-azure-ad-authentication). FIPS 140 compliance for Microsoft Authenticator is currently in place for iOS and in progress for Android.
+
+Moreover, Azure can help you meet and **exceed** your CJIS Security Policy MFA requirements by supporting the highest Authenticator Assurance Level 3 (AAL3). According to [NIST SP 800-63B Section 4.3](https://pages.nist.gov/800-63-3/sp800-63b.html#sec4), multi-factor **authenticators** used at AAL3 shall rely on hardware cryptographic modules validated at FIPS 140 Level 2 overall with at least FIPS 140 Level 3 for physical security, which exceeds the CJIS Security Policy MFA requirements. **Verifiers** at AAL3 shall be validated at FIPS 140 Level 1 or higher.
+
+Azure Active Directory (Azure AD) supports both authenticator and verifier NIST SP 800-63B AAL3 requirements:
+
+- **Authenticator requirements:** FIDO2 security keys, smartcards, and Windows Hello for Business can help you meet AAL3 requirements, including the underlying FIPS 140 validation requirements. Azure AD support for NIST SP 800-63B AAL3 **exceeds** the CJIS Security Policy MFA requirements.
+- **Verifier requirements:** Azure AD uses the [Windows FIPS 140 Level 1](/windows/security/threat-protection/fips-140-validation) overall validated cryptographic module for all its authentication related cryptographic operations. It's therefore a FIPS 140 compliant verifier.
+
+For more information, see [Azure NIST SP 800-63 documentation](/azure/compliance/offerings/offering-nist-800-63).
 
 ## Restrictions on insider access
 

@@ -1,10 +1,9 @@
 ---
 title: Use template reference
 description: Use the Azure Resource Manager template (ARM template) reference to create a template.
-author: mumian
-ms.date: 02/11/2022
+ms.date: 05/23/2023
 ms.topic: tutorial
-ms.author: jgao
+ms.custom: devx-track-arm-template
 ---
 
 # Tutorial: Utilize the ARM template reference
@@ -60,7 +59,7 @@ To complete this article, you need:
     * `resources`: specify the resource types that are deployed or updated in a resource group.
     * `outputs`: specify the values that are returned after deployment.
 
-1. Expand `resources`. There's a `Microsoft.Storage/storageAccounts` resource defined. The API version shown on the screenshot is **2021-06-01**.  The SKU name uses a parameter value. The parameter is called `storageAccountType`.
+1. Expand `resources`. There's a `Microsoft.Storage/storageAccounts` resource defined. The API version shown on the screenshot is **2022-09-01**.  The SKU name uses a parameter value. The parameter is called `storageAccountType`.
 
     ![Resource Manager template storage account definition](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
 
@@ -76,7 +75,8 @@ Using the template reference, you can find out whether you are using the latest 
 
     ![Resource Manager template reference storage account](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts.png)
 
-1. A resource type usually has several API versions. This page shows the latest template schema version by default. Select the **Latest** dropdown box to see the versions. The latest version shown on the screenshot is **2021-06-01**. Select either **Latest** or the version right beneath **Latest** to see the latest version. Make sure this version matches the version used for the storage account resource in your template. If you update the API version, verify the resource definition matches the template reference.
+1. Select **ARM template**.
+1. A resource type usually has several API versions. This page shows the latest template schema version by default. Select the **Latest** dropdown box to see the versions. The latest version shown on the screenshot is **2022-09-01**. Select either **Latest** or the version right beneath **Latest** to see the latest version. Make sure this version matches the version used for the storage account resource in your template. If you update the API version, verify the resource definition matches the template reference.
 
     ![Resource Manager template reference storage account versions](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-versions.png)
 

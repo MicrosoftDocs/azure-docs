@@ -1,12 +1,12 @@
 ---
 title: Share resources in an Azure Compute Gallery
-description: Learn how to share resources explicitly or to all Azure users using role-based access control or community galleries.
+description: Learn how to share resources explicitly or to all Azure users using role-based access control.
 author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/14/2022
+ms.date: 02/14/2023
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to , devx-track-azurecli 
@@ -27,14 +27,28 @@ We recommend sharing at the Gallery level for the best experience. We don't reco
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
-| Share with\: | Option |
-|----|----|
-| Specific people, groups, or service principals (described in this article) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](./share-gallery-direct.md) | A direct shared gallery lets you share to everyone in a subscription or tenant. |
-| [Everyone](./share-gallery-community.md) | Community gallery lets you share your entire gallery publicly, to all Azure users. |
+| Sharing with: | People | Groups | Service Principal | All users in a specific subscription (or) tenant | Publicly with all users in   Azure |
+|---|---|---|---|---|---|
+| RBAC Sharing | Yes | Yes | Yes | No | No |
+| RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
+| RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
 
+
+You can also create an [App registration](./share-using-app-registration.md) to share images between tenants.
 
 ## Share using RBAC
+
+When you share a gallery using RBAC, you need to provide the `imageID` to anyone creating a VM or scale set from the image. There is no way for the person deploying the VM or scale set to list the images that were shared to them using RBAC.
+
+If you share gallery resources to someone outside of your Azure tenant, they will need your `tenantID` to log in and have Azure verify they have access to the resource before they can use it within their own tenant. You will need to provide them with your `tenantID`, there is no way for someone outside your organization to query for your `tenantID`.
+
+> [!IMPORTANT]
+> RBAC sharing can be used to share resources with users within the organization (or) users outside the organization (cross-tenant). Here are the instructions to consume an image shared with RBAC and create VM/VMSS:
+> 
+> [RBAC - Shared within your organization](vm-generalized-image-version.md#rbac---shared-within-your-organization)
+> 
+> [RBAC - Shared from another tenant](vm-generalized-image-version.md#rbac---shared-from-another-tenant)
+> 
 
 ### [Portal](#tab/portal)
 
@@ -91,6 +105,6 @@ New-AzRoleAssignment `
 ## Next steps
 
 - Create an [image definition and an image version](image-version.md).
-- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-your-gallery) or [specialized](vm-specialized-image-version.md#create-a-vm-from-your-gallery) private gallery.
+- Create a VM from a [generalized](vm-generalized-image-version.md) or [specialized](vm-specialized-image-version.md) image in a gallery.
 
 

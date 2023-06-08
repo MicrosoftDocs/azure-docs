@@ -20,12 +20,16 @@
   items:
     - name: Govern access to applications
       items:
+      - name: Connected applications
+        href: apps.md
       - name: Automate identity governance tasks - PowerShell
         href: identity-governance-automation.md
       - name: Governing an application's existing users - PowerShell
         href: identity-governance-applications-existing-users.md
       - name: Governing a nonprovisionable application's users - PowerShell
         href: identity-governance-applications-not-provisioned-users.md
+      - name: Manage access to SAP applications
+        href: sap.md
     - name: Entitlement Management
       items:
       - name: Manage access to resources
@@ -40,6 +44,8 @@
         href: entitlement-management-onboard-external-user.md
       - name: Migrate an organizational role model
         href: identity-governance-organizational-roles.md
+      - name: Automated ServiceNow Ticket Creation Integration
+        href: entitlement-management-ticketed-provisioning.md  
     - name: Access Reviews
       items:
       - name: Review access to Microsoft 365 groups - Microsoft Graph
@@ -138,6 +144,8 @@
         href: entitlement-management-logic-apps-integration.md
       - name: Delegate to access package managers
         href: entitlement-management-delegate-managers.md
+      - name: Set up group writeback
+        href: entitlement-management-group-writeback.md  
     - name: Access package managers and Access package assignment managers
       items:
       - name: Create a new access package
@@ -148,6 +156,8 @@
         href: entitlement-management-access-package-resources.md
       - name: Change request settings
         href: entitlement-management-access-package-request-policy.md
+      - name: Configure verified ID settings (Preview)
+        href: entitlement-management-verified-id-settings.md  
       - name: Change approval settings
         href: entitlement-management-access-package-approval-policy.md
       - name: Change lifecycle settings
@@ -208,10 +218,10 @@
         href: ../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
       - name: Complete an access review
         href: ../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-    - name: Azure AD Privileged Access Groups (Preview)
+    - name: Azure AD PIM for Groups (Preview)
       items:
       - name: Create an access review
-        href: create-access-review-privileged-access-groups.md
+        href: create-access-review-pim-for-groups.md
   - name: Lifecycle Workflows (Preview)
     items:
       - name: Deployment
@@ -232,8 +242,12 @@
           href: manage-workflow-tasks.md
         - name: Run a workflow on-demand
           href: on-demand-workflow.md
+        - name: Customize emails
+          href: customize-workflow-email.md
         - name: Check the status of a workflow
           href: check-status-workflow.md
+        - name: Check execution user scope
+          href: check-workflow-execution-scope.md  
         - name: Customize the schedule of workflows
           href: customize-workflow-schedule.md         
       - name: Delete
