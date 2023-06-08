@@ -47,7 +47,7 @@ You can choose one of the following options to authorize access to your Translat
 
   :::image type="content" source="../media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
-To learn more, *see* [Managed identities for Document Translation](how-to-guides/create-use-managed-identities).
+To learn more, *see* [Managed identities for Document Translation](../how-to-guides/create-use-managed-identities).
 
 **✔️ Shared Access Signature (SAS)**.  A shared access signature is a URL that grants restricted access for a specified period of time to your Translator service. To use this method, you need to create Shared Access Signature (SAS) tokens for your source and target containers. The `sourceUrl`  and `targetUrl` , must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. *See* [**Create SAS tokens for Document Translation process**](../how-to-guides/create-sas-tokens.md).
 
@@ -58,12 +58,12 @@ To learn more, *see* [Create SAS tokens](../how-to-guides/create-sas-tokens.md).
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# programming](includes/csharp.md)]
+[!INCLUDE [C# programming](includes/sdk/csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python programming](includes/python.md)]
+[!INCLUDE [Python programming](includes/sdk/python.md)]
 ::: zone-end
 
 ## Build your application
