@@ -60,17 +60,22 @@ By design, the .snapshot directory is never visible to NFSv4.1 clients. By defau
 
 ### Are there any Oracle patches required with dNFS?
 
-Customers using Oracle 19c and higher must ensure they **are patched for Oracle bug 32931941**. Most of the patch bundles currently in use by Oracle customers do **\*not\*** include this patch. The patch has only been included in a subset of recent patch bundles.
+>[!IMPORTANT]
+> Customers using Oracle 19c and higher must ensure they **are patched for Oracle bug 32931941**. Most of the patch bundles currently in use by Oracle customers do **\*not\*** include this patch. The patch has only been included in a subset of recent patch bundles.
 
 If a database is exposed to this bug, network interruptions are highly likely to result in fractured block corruption. Network interruptions include events such as storage endpoint relocation, volume relocation, and storage service maintenance events. The corruption may not necessarily be detected immediately.
 
 This corruption is neither a bug on ONTAP nor the Azure NetApp Files service itself, but the result of an Oracle dNFS bug. The response to an NFS IO during a certain networking interruption or reconfiguration events is mishandled. The database will erroneously write a block that was being updated as it was written. In some cases, a later overwrite of that same block will silently corrupt the corrupted block. If not, Oracle database processes will eventually detect it. An error should be logged in the Alert logs, and the Oracle instance is likely to terminate. In addition, dbv and RMAN operations can detect the corruption.
 
-Oracle publishes [document 1495104.1](https://support.oracle.com/knowledge/Oracle%20Cloud/1495104_1.html), which is continually updated with recommended dNFS patches. If your database uses dNFS, ensure the DBA team is checking for updates in this document.
+Oracle publishes [document 1495104.1](https://support.oracle.com/knowledge/Oracle%20Cloud/1495104_1.html), which is continually 
+updated with recommended dNFS patches. If your database uses dNFS, ensure the DBA team is checking for updates in this document.
+
+>[!IMPORTANT]
+> Customers using Oracle dNFS with NFSv4.1 on Azure NetApp Files volumes must ensure to take actions mentioned under [Are there any patches required for use of Oracle dNFS with NFSv4.1?](#are-there-any-patches-required-for-use-of-oracle-dnfs-with-nfsv41).
 
 ### Are there any patches required for use of Oracle dNFS with NFSv4.1?
-
-If your databases are using Oracle dNFS with NFSv4.1, they **need to be patched for Oracle bugs 33132050 and 33676296**. You may have to request a backport for other versions of Oracle. For example, at the time of writing, these patches are available for 19.11, but not yet 19.3. If you cite these bug numbers in the support case, Oracle's support engineers know what to do.
+>[!IMPORTANT]
+> If your databases are using Oracle dNFS with NFSv4.1, they **need to be patched for Oracle bugs 33132050 and 33676296**. You may have to request a backport for other versions of Oracle. For example, at the time of writing, these patches are available for 19.11, but not yet 19.3. If you cite these bug numbers in the support case, Oracle's support engineers know what to do.
 
 This requirement applies to ONTAP-based systems and services in general, which includes both on-premises ONTAP and Azure NetApp Files.
 
