@@ -1,6 +1,6 @@
 // Azure parameters
 
-@description('The name for the Nexus Kubernetes cluster')
+@description('The name of Nexus Kubernetes cluster')
 param kubernetesClusterName string
 
 @description('The Azure region where the cluster is to be deployed')
@@ -149,7 +149,7 @@ resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-05-01
   properties: {
     kubernetesVersion: kubernetesVersion
     managedResourceGroupConfiguration: {
-      name: '${uniqueString(resourceGroup().id)}-${kubernetesClusterName}'
+      name: '${uniqueString(resourceGroup().name)}-${kubernetesClusterName}'
       location: location
     }
     aadConfiguration: {
