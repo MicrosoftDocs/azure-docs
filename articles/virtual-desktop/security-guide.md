@@ -190,6 +190,10 @@ HVCI is a powerful system mitigation that uses VBS to protect Windows kernel-mod
 
 Windows Defender Credential Guard uses VBS to isolate and protect secrets so that only privileged system software can access them. This prevents unauthorized access to these secrets and credential theft attacks, such as Pass-the-Hash attacks.
 
+### Disk OS encryption
+
+Disk OS encryption is an extra layer of encryption that binds disk encryption keys to the Confidential Computing VM's rusted Platform Module (TPM). This encryption makes the disk content accessible only to the VM. Integrity monitoring allows cryptographic attestation and verification of VM boot integrity and sends you alerts when the VM didn't start up properly. For more information about integrity monitoring, see [Enable OS disk encryption](confidential-computing.md#enable-os-disk-encryption) and [Microsoft Defender for Cloud Integration](../virtual-machines/trusted-launch.md#microsoft-defender-for-cloud-integration).
+
 ## Nested virtualization
 
 The following operating systems support running nested virtualization on Azure Virtual Desktop:
