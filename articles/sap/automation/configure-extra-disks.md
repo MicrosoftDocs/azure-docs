@@ -4,7 +4,7 @@ description: Provide custom disk configurations for your system in the SAP on Az
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 06/09/2022
+ms.date: 05/05/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -121,7 +121,7 @@ The following sample code is an example configuration file. It defines three dat
         {
           "name"                  : "backup",
           "count"                 : 1,
-          "disk_type"             : "StandardSSD_LRS",
+          "disk_type"             : "Premium_LRS",
           "size_gb"               : 256,
           "caching"               : "ReadWrite",
           "write_accelerator"     : false,
@@ -255,7 +255,7 @@ If you need to add disks to an already deployed system, you can add a new block 
         {
           "name"                  : "backup",
           "count"                 : 1,
-          "disk_type"             : "StandardSSD_LRS",
+          "disk_type"             : "Premium_LRS",
           "size_gb"               : 256,
           "caching"               : "ReadWrite",
           "write_accelerator"     : false,
