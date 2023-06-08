@@ -33,6 +33,12 @@ For sample queries for this table, see [Resource Graph sample queries for adviso
 - microsoft.web/sites/slots/config/web
 - microsoft.web/sites/workflows
 
+## authorizationresources
+
+- microsoft.authorization/roleassignments
+- microsoft.authorization/roledefinitions
+- microsoft.authorization/classicadministrators
+
 ## chaosresources
 
 - microsoft.chaos/experiments/statuses
