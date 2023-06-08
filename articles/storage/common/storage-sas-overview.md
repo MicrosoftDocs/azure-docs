@@ -110,7 +110,7 @@ Client applications provide the SAS URI to Azure Storage as part of a request. T
 
 Here's an example of a service SAS URI, showing the resource URI, the delimiter character ('?'), and the SAS token.
 
-:::image type="content" source="media/storage-sas-overview/sas-storage-uri.svg" alt-text="Diagram showing the components of a resource URI with SAS token":::
+:::image type="content" source="media/storage-sas-overview/sas-storage-uri.svg" alt-text="Diagram showing the components of a resource URI with SAS token" lightbox="media/storage-sas-overview/sas-storage-uri.svg":::
 
 > [!NOTE]
 > The delimiter character ('?') for the query string is not part of the SAS token. If you generate a SAS token from the portal, PowerShell, Azure CLI, or one of the Azure Storage SDKs, you may need to append the delimiter character to the resource URL.
