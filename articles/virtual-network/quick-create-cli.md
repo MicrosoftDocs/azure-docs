@@ -58,8 +58,7 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over s
         --name AzureBastionSubnet \
         --resource-group test-rg \
         --vnet-name vnet-1 \
-        --address-prefix 10.0.1.0/26 \
-        --location eastus2
+        --address-prefix 10.0.1.0/26
     ```
 
 1. Create a public IP address for Azure Bastion. This IP address is used to connect to the Bastion host from the internet. Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address named **public-ip** in the **test-rg** resource group.
@@ -95,8 +94,10 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create two VMs named **VM1** a
     ```azurecli-interactive
     az vm create \
         --resource-group test-rg \
+        --admin-username azureuser \
+        --authentication-type password \
         --name vm-1 \
-        --image UbuntuLTS \
+        --image Ubuntu2204 \
         --public-ip-address ""
     ```
 
@@ -105,8 +106,10 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create two VMs named **VM1** a
     ```azurecli-interactive
     az vm create \
         --resource-group test-rg \
+        --admin-username azureuser \
+        --authentication-type password \
         --name vm-2 \
-        --image UbuntuLTS \
+        --image Ubuntu2204 \
         --public-ip-address ""
     ```
 
