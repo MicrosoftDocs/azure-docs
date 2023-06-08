@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [OT plans billed by site-based licenses](#ot-plans-billed-by-site-based-licenses) |
+| **OT networks** | [OT plans billed by site-based licenses](#ot-plans-billed-by-site-based-licenses) <br> [Security recommendations for OT networks for insecure passwords and critical CVEs](#security-recommendations-for-ot-networks-for-insecure-passwords-and-critical-cves) |
 
 ### OT plans billed by site-based licenses
 
@@ -45,15 +45,29 @@ For more information, see:
 - [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md)
 - [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
 
+### Security recommendations for OT networks for insecure passwords and critical CVEs
+
+Defender for IoT now provides security recommendations for insecure passwords and for critical CVEs to help customers manage their OT/IoT network security posture.
+
+You can see the following new security recommendations from the Azure portal for detected devices across your networks:
+
+- **Secure your vulnerable devices**: Devices with this recommendation are found with one or more vulnerabilities with a critical severity. We recommend that you follow the steps listed by the device vendor or CISA (Cybersecurity & Infrastructure Agency).
+
+- **Set a secure password for devices with missing authentication**: Devices with this recommendation are found without authentication based on successful sign-ins. We recommend that you enable authentication, and that you set a stronger password with minimum length and complexity.
+
+- **Set a stronger password with minimum length and complexity**: Devices with this recommendation are found with weak passwords based on successful sign-ins. We recommend that you change the device password to a stronger password with minimum length and complexity.
+
+For more information, see [Supported security recommendations](recommendations.md#supported-security-recommendations).
+
 ## May 2023
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Sensor version 22.3.9**: <br>- [New endpoint to send OT sensor logs to Defender for IoT](#new-endpoint-to-send-ot-sensor-logs-to-defender-for-iot) <br><br> **Sensor versions 22.3.x and higher**: <br>- [Configure Active Directory and NTP settings in the Azure portal](#configure-active-directory-and-ntp-settings-in-the-azure-portal) |
+| **OT networks** | **Sensor version 22.3.9**: <br>- [Improved monitoring and support for OT sensor logs](#improved-monitoring-and-support-for-ot-sensor-logs) <br><br> **Sensor versions 22.3.x and higher**: <br>- [Configure Active Directory and NTP settings in the Azure portal](#configure-active-directory-and-ntp-settings-in-the-azure-portal) |
 
-### New endpoint to send OT sensor logs to Defender for IoT
+### Improved monitoring and support for OT sensor logs
 
-In version 22.3.9, we've added a new endpoint to our list of required endpoints to allow OT sensors to send more log data to our support teams. The additional data helps us troubleshoot customer issues, providing faster response times and more targeted solutions and recommendations.
+In version 22.3.9, we've added a new capability to collect logs from the OT sensor through a new endpoint. The additional data helps us troubleshoot customer issues, providing faster response times and more targeted solutions and recommendations. The new endpoint has been added to our list of required endpoints that connect your OT sensors to Azure.
 
 After updating your OT sensors, download the latest list of endpoints and ensure that your sensors can access all endpoints listed.
 
