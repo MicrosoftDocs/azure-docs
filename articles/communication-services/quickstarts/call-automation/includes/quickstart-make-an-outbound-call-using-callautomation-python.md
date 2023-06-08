@@ -39,7 +39,7 @@ pip install -r requirements.txt
 
 ```bash
 devtunnel create --allow-anonymous
-devtunnel port create -p MY_PYTHON_APPPORT
+devtunnel port create -p 8080
 devtunnel host
 ```
 
@@ -66,12 +66,11 @@ TARGET_PHONE_NUMBER = "<TARGET_PHONE_NUMBER>"
 CALLBACK_URI_HOST = "<CALLBACK_URI_HOST_WITH_PROTOCOL>"
 ```
 
-
-## Make an outbound call and play media
+## Make an outbound call
 
 To make the outbound call from ACS, first you will provide the phone number you want to receive the call. To make it simple, you can update the `target_phone_number` with a phone number in the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 
-The code makes an outbound call using the target_phone_number you've provided and place an outbound call to that number:
+The code below will make an outbound call using the target_phone_number you've provided: 
 
 ```python
 target_participant = PhoneNumberIdentifier(TARGET_PHONE_NUMBER)
@@ -86,8 +85,8 @@ call_connection_properties = call_automation_client.create_call(call_invite, CAL
 The Call Automation service also enables the capability to start recording and store recordings of voice and video calls. You can learn more about the various capabilities in the Call Recording APIs [here](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-call-recording).
 
 ```python
-server_call_id = event.data['serverCallId']
-recording_properties = call_automation_client.start_recording(ServerCallLocator(server_call_id))
+recording_properties = call_automation_client.start_recording(ServerCallLocator(event.data['serverCallId']))
+recording_id = recording_properties.recording_id
 ```
 
 ## Respond to calling events
@@ -128,13 +127,15 @@ call_connection_client.start_recognizing_media(input_type=RecognizeInputType.DTM
 When the telephony endpoint selects a DTMF tone, ACS Call Automation will trigger the webhook we have setup and notify us with the `RECOGNIZE_COMPLETED_EVENT` event. This gives us the ability to respond to a specific DTMF tone and trigger an action. 
 
 ```python
-if event.type == constants.RECOGNIZE_COMPLETED_EVENT:
-    # check if it collected the minimum digit it needed
-    if len(event.data['collectTonesResult']['tones']) == 1:
-        choice = event.data['collectTonesResult']['tones'][0]
-        return choice
-    else:
-        return None
+event = CloudEvent.from_dict(event_dict)
+if event.type == "Microsoft.Communication.RecognizeCompleted":
+    selected_tone = event.data['dtmfResult']['tones'][0]
+    if selected_tone == DtmfTone.ONE:
+        app.logger.info("Playing confirmed prompt")
+        call_connection_client.play_media_to_all([FileSource(CONFIRMED_PROMPT_URI)])
+    elif selected_tone == DtmfTone.TWO:
+        # Handle other options
+        ...
 ```
 
 ## Hang up the call
