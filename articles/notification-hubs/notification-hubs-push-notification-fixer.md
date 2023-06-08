@@ -5,18 +5,13 @@ services: notification-hubs
 documentationcenter: Mobile
 author: sethmanheim
 manager: femila
-editor: jwargo
-
-ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: csharp
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 06/08/2023
 ms.author: sethm
-ms.reviewer: jowargo
-ms.lastreviewed: 04/04/2019
 ms.custom: devx-track-csharp
 ---
 
@@ -253,11 +248,11 @@ In the portal, you can get a quick overview of all the activity in your notifica
 
    ![Notification Hubs overview dashboard][5]
 
-2. On the **Monitor** tab, you can add many other platform-specific metrics for a deeper look. You can look specifically at errors that are returned when Notification Hubs tries to send the notification to the push notification service.
+2. On the **Activity log** tab, you can add other platform-specific metrics for a deeper look. You can look specifically at errors that are returned when Notification Hubs tries to send the notification to the push notification service.
 
    ![Azure portal activity log][6]
 
-3. Begin by reviewing **Incoming Messages**, **Registration Operations**, and **Successful Notifications**. Then, go to the per-platform tab to review errors that are specific to the push notification service.
+3. On the **Overview** tab, begin by reviewing **Incoming Messages**, **Registration Operations**, and **Successful Notifications**. Then, go to the per-platform tab to review errors that are specific to that push notification service.
 
 4. If the authentication settings for your notification hub are incorrect, the message **PNS Authentication Error** appears. It's a good indication to check the push notification service credentials.
 
