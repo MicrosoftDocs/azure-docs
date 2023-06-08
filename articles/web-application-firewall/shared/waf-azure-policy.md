@@ -45,7 +45,7 @@ There are multiple built-in Azure Policy definitions to manage WAF resources. A 
 
 ### Recommended WAF Configurations 
 
-- **Azure Front Door profiles should use Premium tier that supports managed WAF rules and private link**: Mandates that all of your Azure Front Door profiles are on the premium tier instead of the standard tier. Azure Front Door Premium is optimized for security, and gives you access to the most up to date WAF rulesets and functionality.
+- **Azure Front Door profiles should use Premium tier that supports managed WAF rules and private link**: Mandates that all of your Azure Front Door profiles are on the premium tier instead of the standard tier. Azure Front Door Premium is optimized for security, and gives you access to the most up to date WAF rulesets and functionality like bot protection.
 
 - **Enable Rate Limit rule to protect against DDoS attacks on Azure Front Door WAF**: Rate limiting can help protect your application against DDoS attacks. The Azure Web Application Firewall (WAF) rate limit rule for Azure Front Door helps protect against DDoS by controlling the number of requests allowed from a particular client IP address to the application during a rate limit duration.
 
