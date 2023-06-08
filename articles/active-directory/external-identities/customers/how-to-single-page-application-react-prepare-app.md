@@ -1,5 +1,5 @@
 ---
-title: Prepare a React single-page app (SPA) for authentication in a customer tenant
+title: Tutorial - Prepare a React single-page app (SPA) for authentication in a customer tenant
 description: Learn how to prepare a React single-page app (SPA) for authentication with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
 author: garrodonnell
@@ -12,7 +12,7 @@ ms.author: godonnell
 #Customer intent: As a dev, devops, or IT admin, I want to learn how to enable authentication in my own React single-page app
 ---
 
-# Prepare a React single-page app (SPA) for authentication in a customer tenant
+# Tutorial: Prepare a React single-page app (SPA) for authentication in a customer tenant
 
 In the [previous article](./tutorial-single-page-app-react-sign-in-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant.
 In this tutorial you'll;

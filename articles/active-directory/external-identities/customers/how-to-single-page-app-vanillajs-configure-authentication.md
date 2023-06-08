@@ -1,5 +1,5 @@
 ---
-title: Configure a Vanilla JavaScript single-page app for authentication
+title: Tutorial - Handle authentication flows in a Vanilla JavaScript single-page app
 description: Learn how to configure authentication for a Vanilla JavaScript single-page app (SPA) with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
 author: OwenRichards1
@@ -14,7 +14,7 @@ ms.date: 05/25/2023
 #Customer intent: As a developer, I want to learn how to configure Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
 ---
 
-# Handle authentication flows in a Vanilla JavaScript single-page app
+# Tutorial: Handle authentication flows in a Vanilla JavaScript single-page app
 
 In the [previous article](./tutorial-single-page-app-vanillajs-sign-in-prepare-app.md), you created a Vanilla JavaScript (JS) single-page application (SPA) and a server to host it, and configured the file for authentication.
 
