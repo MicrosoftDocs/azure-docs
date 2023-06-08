@@ -275,9 +275,9 @@ Incorporating zero-trust principles into your Azure AD design strategy can help 
 
 * [Azure AD fundamentals](secure-with-azure-ad-fundamentals.md)
 
-* [Azure resource management fundamentals](secure-with-azure-ad-resource-management.md)
+* [Azure resource management fundamentals](secure-resource-management.md)
 
-* [Resource isolation in a single tenant](secure-with-azure-ad-single-tenant.md)
+* [Resource isolation in a single tenant](secure-single-tenant.md)
 
 * [Resource isolation with multiple tenants](secure-multiple-tenants.md)
 
