@@ -352,7 +352,7 @@
           href: search-howto-index-cosmosdb-mongodb.md
         - name: Azure Cosmos DB for Apache Gremlin
           href: search-howto-index-cosmosdb-gremlin.md
-      - name: Azure DB for MySQL
+      - name: Azure Database for MySQL
         href: search-howto-index-mysql.md
       - name: Azure SQL
         items:
