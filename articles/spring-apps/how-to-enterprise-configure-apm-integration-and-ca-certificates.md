@@ -334,87 +334,100 @@ Use the following steps to view the buildpack bindings:
 1. In the navigation pane, select **Build Service**.
 1. Select **Edit** under the **Bindings** column to view the bindings configured for a builder.
 
-   After a builder is bound to the buildpack bindings, the buildpack bindings are enabled for an app deployed with the builder.
-
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/edit-binding.png" alt-text="Screenshot of Azure portal showing the Build Service page with the Bindings Edit link highlighted for a selected builder." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/edit-binding.png":::
 
 1. Review the bindings on the **Edit binding for default builder** page.
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/show-service-binding.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder page with the binding types and their status listed.":::
 
-   You can do the following binding tasks:
+### Create a buildpack binding
 
-   - Create a buildpack binding. Select a **Binding type** that has a status of **Unbound**, and then select **Edit Binding** from the context menu and specify the binding properties.
-   - Unbind a buildpack binding. Select a **Binding type** that has a status of **Bound** and then select **Unbind binding** from the context menu.
+To create a buildpack binding, select **Unbound** on the **Edit Bindings** page, specify the binding properties, and then select **Save**.
 
-   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-command.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder page with the Unbind binding option highlighted for a selected binding type." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-command.png":::
+### Unbind a buildpack binding
 
-   To unbind a buildpack binding by editing binding properties, select **Edit Binding**, and then select **Unbind**.
+You can unbind a buildpack binding by using the **Unbind binding** command, or by editing the binding properties.
 
-   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing the Edit binding page with the Unbind button highlighted." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-properties.png":::
+To use the **Unbind binding** command, select the **Bound** hyperlink, and then select **Unbind binding**.
+
+:::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-command.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder page with the Unbind binding option highlighted for a selected binding type." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-command.png":::
+
+To unbind a buildpack binding by editing binding properties, select **Edit Binding**, and then select **Unbind**.
+
+:::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing the Edit binding page with the Unbind button highlighted." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-properties.png":::-
 
 When you unbind a binding, the bind status changes from **Bound** to **Unbound**.
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can view and edit binding using the Azure CLI.
+### View buildpack bindings using the Azure CLI
 
-1. Use the following command to view the current buildpack bindings:
+View the current buildpack bindings by using the following command:
 
-   ```azurecli
-   az spring build-service builder buildpack-binding list \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-instance-name> \
-       --builder-name <your-builder-name>
-   ```
+```azurecli
+az spring build-service builder buildpack-binding list \
+    --resource-group <your-resource-group-name> \
+    --service <your-service-instance-name> \
+    --builder-name <your-builder-name>
+```
 
-1. Use the following command to change the binding status from Unbound to Bound:
+### Create a binding
 
-   ```azurecli
-   az spring build-service builder buildpack-binding create \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-instance-name> \
-       --name <your-buildpack-binding-name> \
-       --builder-name <your-builder-name> \
-       --type <your-binding-type> \
-       --properties a=b c=d \
-       --secrets e=f g=h
-   ```
+Use this command to change the binding from *Unbound* to *Bound* status:
 
-1. Use the following command to view the details of a specific binding:
+```azurecli
+az spring build-service builder buildpack-binding create \
+    --resource-group <your-resource-group-name> \
+    --service <your-service-instance-name> \
+    --name <your-buildpack-binding-name> \
+    --builder-name <your-builder-name> \
+    --type <your-binding-type> \
+    --properties a=b c=d \
+    --secrets e=f g=h
+```
 
-   ```azurecli
-   az spring build-service builder buildpack-binding show \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-instance-name> \
-       --name <your-buildpack-binding-name> \
-       --builder-name <your-builder-name>
-   ```
+For information on the `properties` and `secrets` parameters for your buildpack, see the [Supported Scenarios - APM and CA Certificates Integration](#supported-scenarios---apm-and-ca-certificates-integration) section.
 
-1. Use the following command to change a binding's properties:
+### Show the details for a specific binding
 
-   ```azurecli
-   az spring build-service builder buildpack-binding set \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-instance-name> \
-       --name <your-buildpack-binding-name> \
-       --builder-name <your-builder-name> \
-       --type <your-binding-type> \
-       --properties a=b c=d \
-       --secrets e=f2 g=h
-   ```
+You can view the details of a specific binding by using the following command:
 
-1. Use the following command to change the binding status from Bound to Unbound.
+```azurecli
+az spring build-service builder buildpack-binding show \
+    --resource-group <your-resource-group-name> \
+    --service <your-service-instance-name> \
+    --name <your-buildpack-binding-name> \
+    --builder-name <your-builder-name>
+```
 
-   ```azurecli
-   az spring build-service builder buildpack-binding delete \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-instance-name> \
-       --name <your-buildpack-binding-name> \
-       --builder-name <your-builder-name>
-   ```
+### Edit the properties of a binding
 
-For more information on the `properties` and `secrets` parameters for your buildpack, see the [Supported scenarios - APM and CA certificates integration](#supported-scenarios---apm-and-ca-certificates-integration) section.
+You can change a binding's properties by using the following command:
+
+```azurecli
+az spring build-service builder buildpack-binding set \
+    --resource-group <your-resource-group-name> \
+    --service <your-service-instance-name> \
+    --name <your-buildpack-binding-name> \
+    --builder-name <your-builder-name> \
+    --type <your-binding-type> \
+    --properties a=b c=d \
+    --secrets e=f2 g=h
+```
+
+For more information on the `properties` and `secrets` parameters for your buildpack, see the [Supported Scenarios - APM and CA Certificates Integration](#supported-scenarios---apm-and-ca-certificates-integration) section.
+
+### Delete a binding
+
+Use the following command to change the binding status from *Bound* to *Unbound*.
+
+```azurecli
+az spring build-service builder buildpack-binding delete \
+    --resource-group <your-resource-group-name> \
+    --service <your-service-instance-name> \
+    --name <your-buildpack-binding-name> \
+    --builder-name <your-builder-name>
+```
 
 ---
 
