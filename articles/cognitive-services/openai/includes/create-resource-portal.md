@@ -54,14 +54,12 @@ To deploy a model, follow these steps:
 
     |Field|Description|
     |--|--|
-    | Model Source | Available in this resource (Default)<br>Available in AML workspace (Import a model from Azure Machine Learning) |
     | Select a model | Model availability varies by region.For a list of available models per region, see [Model Summary table and region availability](../concepts/models.md#model-summary-table-and-region-availability).|
     | Deployment name | Choose a name carefully. The deployment name will be used in your code to call the model via the client libraries and REST API |
-    | Advanced Options| Content Filter - Assign a content filter to your deployment. You can modify this selection at any time under the Quotas menu<br> TPM - Adjust the Tokens Per Minute (TPM) set the effective rate limit for your deployment. You can modify this value at any time via the **Quotas** menu |
+    | Advanced Options| Content Filter - Assign a content filter to your deployment. You can modify this selection at any time under the [Quotas menu](../how-to/quota.md)<br> TPM - Adjust the Tokens Per Minute (TPM) to set the effective rate limit for your deployment. You can modify this value at any time via the **Quotas** menu |
 
-5. Select **Available in this resource**
-6. Select a model from the drop-down.
-7. Enter a deployment name to help you identify the model.
-8. For your first deployment leave the Advanced Options set to the defaults.
+5. Select a model from the drop-down.
+6. Enter a deployment name to help you identify the model.
+7. For your first deployment leave the Advanced Options set to the defaults.
 
 The deployments table displays a new entry that corresponds to this newly created model. Your deployment status will move to succeeded when the deployment is complete and ready for use.
