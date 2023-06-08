@@ -28,24 +28,24 @@ It's important to have a systematic approach when troubleshooting technical issu
 
 The first step in troubleshooting is often to try rebooting the device or system. Rebooting can help to clear any temporary glitches or errors that may be causing the issue. If rebooting doesn't solve the problem, the next step may be to try reimaging the device or system.
 
-If reimaging doesn't solve the problem, the final step may be to replace the faulty hardware component. This can be a more drastic measure, but it may be necessary if the issue is related to a hardware malfunction.
+If reimaging doesn't solve the problem, the final step may be to replace the faulty hardware component. Replace can be a more drastic measure, but it may be necessary if the issue is related to a hardware malfunction.
 It's important to note that these troubleshooting methods may not always be effective, and there may be other factors at play that require a different approach.
 
 ### Troubleshooting with Reboot action
 
-Rebooting a BMM is a process of restarting the server through a simple API call. This can be useful for troubleshooting issues when tenant VMs on the host aren't responsive or otherwise stuck.
+Rebooting a BMM is a process of restarting the server through a simple API call. This action can be useful for troubleshooting issues when tenant VMs on the host aren't responsive or otherwise stuck.
 
 The reboot typically is the starting point for mitigating a problem.
 
 ### Troubleshooting with Reimage action
 
-Reimaging a BMM is a process used to redeploy the image on the OS disk, without impact to the Tenant data. This action executes the steps to rejoin the cluster with the same identifiers. This can be useful for troubleshooting issues by restoring the OS to a known-good working state. Common causes that can be resolved through reimage include recovery due to doubt of host integrity, suspected and/or confirmed security compromise, “break-glass” write activity performed. 
+Reimaging a BMM is a process used to redeploy the image on the OS disk, without impact to the Tenant data. This action executes the steps to rejoin the cluster with the same identifiers. Reimage action can be useful for troubleshooting issues by restoring the OS to a known-good working state. Common causes that can be resolved through reimage include recovery due to doubt of host integrity, suspected and/or confirmed security compromise, “break-glass” write activity performed. 
 
 Reimage action is the recommended best practice for lowest operational risk to ensure the integrity of the BMM.
 
 ### Troubleshooting with Replace action
 
-Servers contain many physical components that can fail over time. It's important to understand which physical repairs require a BMM replace action, do not require replace and which are recommended but not required. A hardware validation process is invoked to ensure the integrity of the physical host in advance of deploying the OS image. Like the reimage action, the Tenant data isn't modified during this activity.
+Servers contain many physical components that can fail over time. It's important to understand which physical repairs require a BMM replace action, do not require replace and which are recommended but not required. A hardware validation process is invoked to ensure the integrity of the physical host in advance of deploying the OS image. Like the reimage action, the Tenant data isn't modified during replace activity.
 
 As a best practice, the BMM should be cordoned and shut down in advance of physical repair.
 When performing the following physical repairs, a replace action isn't required, as the BMM host will continue to function normally after the repair.  
