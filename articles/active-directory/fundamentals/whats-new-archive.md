@@ -7964,7 +7964,7 @@ For more information about this feature, see [Quickstart: Download an audit repo
 
 We're in the process of updating how Exchange ActiveSync (EAS) evaluates the following conditions:
 
-- User location, based on country, region, or IP address
+- User location, based on country/region or IP address
 
 - Sign-in risk
 
