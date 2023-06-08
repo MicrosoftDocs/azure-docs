@@ -99,7 +99,7 @@ The following example shows a sample configuration drop-in for `NetworkManager` 
 
 ```bash
 sudo mkdir -p /etc/NetworkManager/conf.d 
-sudo cat /etc/NetworkManager/conf.d/99-azure-unmanaged-devices.conf <<EOF 
+sudo cat > /etc/NetworkManager/conf.d/99-azure-unmanaged-devices.conf <<EOF 
 # Ignore SR-IOV interface on Azure, since it's transparently bonded 
 # to the synthetic interface 
 [keyfile] 
