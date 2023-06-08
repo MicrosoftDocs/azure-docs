@@ -8,9 +8,9 @@ ms.custom: devx-track-js
 ms.reviewer: mmcc
 ---
 
-# Microsoft Azure Monitor Application Insights JavaScript SDK
+# Enable Azure Monitor Application Insights Real User Monitoring
 
-[Microsoft Azure Monitor Application Insights](app-insights-overview.md) JavaScript SDK allows you to monitor and analyze the performance of JavaScript web applications.
+The Microsoft Azure Monitor Application Insights JavaScript SDK allows you to monitor and analyze the performance of JavaScript web applications. This is commonly referred to as Real User Monitoring or RUM.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ ms.reviewer: mmcc
 - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
 - An application that uses [JavaScript](/visualstudio/javascript)
 
-## Enable Application Insights
+## Get started
 
 To enable Application Insights, follow these steps.
 
