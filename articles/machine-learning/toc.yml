@@ -544,27 +544,29 @@
 - name: Responsibly develop & monitor (RAI)
   items: 
   - name: Responsible AI Overview
-    href: concept-responsible-ai.md
-  - name: Configure RAI evaluation
     items:
-    - name: Responsible AI dashboard
+      - name: What is Responsible AI?
+        href: concept-responsible-ai.md
+      - name: Model interpretability
+        href: how-to-machine-learning-interpretability.md
+      - name: Causal analysis
+        href: concept-causal-inference.md
+      - name: Assess errors in ML models
+        href: concept-error-analysis.md
+      - name: Counterfactuals analysis and what-if
+        href: concept-counterfactual-analysis.md
+  - name: Configure RAI evaluation and insights dashboard
+    items:
+    - name: Responsible AI dashboard overview
       href: concept-responsible-ai-dashboard.md
     - name: Generate responsible AI insights (UI)
       href: how-to-responsible-ai-insights-ui.md
+    - name: Generate a Responsible AI insights (SDK, CLI)
+      href: how-to-responsible-ai-insights-sdk-cli.md
     - name: Understand your datasets
       href: concept-data-analysis.md
-    - name: Model interpretability
-      href: how-to-machine-learning-interpretability.md
-    - name: Causal analysis
-      href: concept-causal-inference.md
-    - name: Assess errors in ML models
-      href: concept-error-analysis.md
-    - name: Counterfactuals analysis and what-if
-      href: concept-counterfactual-analysis.md
   - name: Generate and configure an RAI scorecard
     items:
-      - name: Generate Responsible AI insights
-        href: how-to-responsible-ai-insights-ui.md
       - name: Using the Responsible AI scorecard in studio
         href: how-to-responsible-ai-scorecard.md
 - name: Orchestrate workflows using pipelines
