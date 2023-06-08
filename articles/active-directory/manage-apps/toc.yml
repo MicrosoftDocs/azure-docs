@@ -233,7 +233,7 @@
               - name: B2C
                 href: ../../active-directory-b2c/partner-f5.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
       - name: Silverfort
-        href: silverfort-azure-ad-integration.md
+        href: silverfort-integration.md
     - name: Single sign-on
       items:
       - name: Enable Single sign-on with SAML
