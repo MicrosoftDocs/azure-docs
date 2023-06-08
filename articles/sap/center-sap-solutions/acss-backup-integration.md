@@ -35,7 +35,7 @@ Before you can go ahead and use this feature in preview, register for it from th
 - For HANA database backup, create a HDB Userstore key that will be used for preparing HANA DB for configuring Backup. 
 
 > [!NOTE]
-> If you are configuring backup for HANA database from the Virtual Instance for SAP solutions resource, you can skip running the [Backup pre-registration script](https://learn.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#what-the-pre-registration-script-does). Azure Center for SAP solutions runs this script before configuring HANA backup.
+> If you are configuring backup for HANA database from the Virtual Instance for SAP solutions resource, you can skip running the [Backup pre-registration script](/azure/backup/tutorial-backup-sap-hana-db#what-the-pre-registration-script-does). Azure Center for SAP solutions runs this script before configuring HANA backup.
 
 ## Register for Backup integration preview feature
 Before you can start configuring Backup from the VIS resource or viewing Backup status on VIS resource in case Backup is already configured, you need to register for the Backup integration feature in Azure Center for SAP solutions. Follow these steps to register for the feature:
