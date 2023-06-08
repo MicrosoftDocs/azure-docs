@@ -18,7 +18,7 @@ The resolution of the snapping grid is in pixels. The grid is square and relativ
 
 Create a snap grid using the `atlas.drawing.SnapGridManager` class and pass in a reference to the map you want to connect the manager to. Set the `showGrid` option to `true` if you want to make the grid visible. To snap a shape to the grid, pass it into the snap grid managers `snapShape` function. If you want to snap an array of positions, pass it into the `snapPositions` function.
 
-The [Use a snapping grid] sample snaps an HTML marker to a grid when it is dragged. Drawing tools are used to snap drawn shapes to the grid when the `drawingcomplete` event fires.
+The [Use a snapping grid] sample snaps an HTML marker to a grid when it's dragged. Drawing tools are used to snap drawn shapes to the grid when the `drawingcomplete` event fires.
 
 :::image type="content" source="./media/map-add-snap-grid/use-snapping-grid.png"alt-text="A screenshot that shows the snap grid on map.":::
 
