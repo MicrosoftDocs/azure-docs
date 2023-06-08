@@ -621,16 +621,6 @@ sections:
           * [Logstash](logs/data-collector-api.md)
           
       - question: |
-          Can I filter out or modify some telemetry?
-        answer: |
-          Yes. In the server, you can write:
-          
-          * Telemetry Processor to filter or add properties to selected telemetry items before they're sent from your app.
-          * Telemetry Initializer to add properties to all items of telemetry.
-          
-          Learn more about [ASP.NET, ASP.NET Core, JavaScript (Web), Python](app/api-filtering-sampling.md) or [Java](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#filter-telemetry-in-your-java-web-app).
-          
-      - question: |
           How is city, country/region, and other geolocation data calculated?
         answer: |
           We look up the IP address (IPv4 or IPv6) of the web client:
@@ -691,7 +681,17 @@ sections:
         answer: |
           * See [How many Application Insights resources should I deploy?](app/separate-resources.md).
           * [Example: Cloud service with worker and web roles](app/azure-web-apps-net-core.md).
+
+      - question: |
+          Can I filter out or modify some telemetry?
+        answer: |
+          Yes. In the server, you can write:
           
+          * Telemetry Processor to filter or add properties to selected telemetry items before they're sent from your app.
+          * Telemetry Initializer to add properties to all items of telemetry.
+          
+          Learn more about [ASP.NET, ASP.NET Core, JavaScript (Web), Python](app/api-filtering-sampling.md) or [Java](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#filter-telemetry-in-your-java-web-app).    
+      
       - question: |
           What are the user and session counts?
         answer: |
