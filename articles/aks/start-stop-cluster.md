@@ -22,7 +22,7 @@ When using the cluster stop/start feature, the following conditions apply:
 
 - This feature is only supported for Virtual Machine Scale Set backed clusters.
 - The cluster state of a stopped AKS cluster is preserved for up to 12 months. If your cluster is stopped for more than 12 months, you can't recover the state. For more information, see the [AKS support policies](support-policies.md).
-- You can only start or delete a stopped AKS cluster. To perform other operations, like scaling or upgrading, you need to start your cluster first.
+- You can only perform start or delete operations on a stopped AKS cluster. To perform other operations, like scaling or upgrading, you need to start your cluster first.
 - If you provisioned PrivateEndpoints linked to private clusters, they need to be deleted and recreated again when starting a stopped AKS cluster.
 - Because the stop process drains all nodes, any standalone pods (i.e. pods not managed by a Deployment, StatefulSet, DaemonSet, Job, etc.) will be deleted.
 - When you start your cluster back up, the following behavior is expected:

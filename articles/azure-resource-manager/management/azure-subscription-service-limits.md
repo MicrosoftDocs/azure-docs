@@ -458,6 +458,10 @@ The latest values for Microsoft Purview quotas can be found in the [Microsoft Pu
 
 [!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-threat-intelligence.md)]
 
+## TI upload indicators API limits
+
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-ti-upload-api.md)]
+
 ### User and Entity Behavior Analytics (UEBA) limits
 
 [!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-ueba.md)]
@@ -547,7 +551,7 @@ There are limits, per subscription, for deploying resources using Compute Galler
 
 ## See also
 
-* [Understand Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+* [Understand Azure limits and increases](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)
 * [Virtual machine and cloud service sizes for Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Sizes for Azure Cloud Services](../../cloud-services/cloud-services-sizes-specs.md)
 * [Naming rules and restrictions for Azure resources](resource-name-rules.md)

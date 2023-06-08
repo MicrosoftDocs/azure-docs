@@ -1,7 +1,7 @@
 ---
 title: Azure Active Directory authorization proxy 
 description: Azure Active Directory authorization proxy 
-ms.topic: conceptual
+ms.topic: how-to
 author: EdB-MSFT
 ms.author: edbaynash
 ms.date: 07/10/2022
@@ -19,7 +19,9 @@ The Azure Active Directory authorization proxy is a reverse proxy, which can be 
 > The remote write example in this article uses Prometheus remote write to write data to Azure Monitor. Onboarding your AKS cluster to Prometheus automatically installs Prometheus on your cluster and sends data to your workspace.
 ## Deployment
 
-The proxy can be deployed with custom templates using release image or as helm chart. Both deployments contain the same customizable parameters. These parameters are described in the [Parameters](#parameters) table.  
+The proxy can be deployed with custom templates using release image or as a helm chart. Both deployments contain the same customizable parameters. These parameters are described in the [Parameters](#parameters) table.  
+
+For for more information, see [Azure Active Directory authentication proxy](https://github.com/Azure/aad-auth-proxy) project.
 
 The following examples show how to deploy the proxy for remote write and for querying data from Azure Monitor.
 
@@ -110,7 +112,7 @@ Before deploying the proxy, find your managed identity and assign it the `Monito
             spec:
                 containers:
                 - name: aad-auth-proxy
-                  image: mcr.microsoft.com/azuremonitor/auth-proxy/prod/aad-auth-proxy/images/aad-auth-proxy:aad-auth-proxy-0.1.0-main-04-11-2023-623473b0
+                  image: mcr.microsoft.com/azuremonitor/auth-proxy/prod/aad-auth-proxy/images/aad-auth-proxy:0.1.0-main-05-24-2023-b911fe1c
                   imagePullPolicy: Always
                   ports:
                   - name: auth-port
@@ -171,7 +173,7 @@ Before deploying the proxy, find your managed identity and assign it the `Monito
 
     ```bash 
     helm install aad-auth-proxy oci://mcr.microsoft.com/azuremonitor/auth-proxy/prod/aad-auth-proxy/helmchart/aad-auth-proxy \
-    --version 0.1.0 \
+    --version 0.1.0-main-05-24-2023-b911fe1c \
     -n observability \
     --set targetHost=https://proxy-test-abc123.eastus-1.metrics.ingest.monitor.azure.com \
     --set identityType=userAssigned \
@@ -191,10 +193,13 @@ Before deploying the proxy, find your managed identity and assign it the `Monito
         ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write
         ##
         remoteWrite:
-        - url: "http://azuremonitor-ingestion.observability.svc.cluster.local/dataCollectionRules/dcr-abc123d987e654f3210abc1def234567/streams/    Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview" 
+        - url: "http://azuremonitor-ingestion.observability.svc.cluster.local/dataCollectionRules/dcr-abc123d987e654f3210abc1def234567/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview" 
     ```
 
 1. Apply the remote write configuration.
+
+> [!NOTE]
+> For the latest proxy image version ,see the [release notes](https://github.com/Azure/aad-auth-proxy/blob/main/RELEASENOTES.md)
 
 ###  Check that the proxy is ingesting data
 

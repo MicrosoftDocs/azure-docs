@@ -4,6 +4,7 @@ description: Create a virtual machine and assign an automanage best practices co
 author: andrsmith
 ms.service: automanage
 ms.workload: infrastructure
+ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 08/25/2022
 ms.author: andrsmith

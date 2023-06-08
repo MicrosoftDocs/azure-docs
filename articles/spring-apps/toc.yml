@@ -85,6 +85,8 @@ items:
     href: concept-understand-app-and-deployment.md
   - name: Blue-green deployment strategies
     href: concepts-blue-green-deployment-strategies.md
+  - name: Zero downtime deployment
+    href: concept-zero-downtime-deployment.md
   - name: Quotas and limits
     href: quotas.md
   - name: Understand app status
@@ -107,6 +109,8 @@ items:
     href: concept-outbound-type.md
   - name: Enterprise plan in Azure Marketplace
     href: how-to-enterprise-marketplace-offer.md
+  - name: VMware Tanzu components
+    href: VMware-Tanzu-components.md
 - name: Security
   items:
   - name: Passwordless connection to an Azure database
