@@ -10,7 +10,7 @@ ms.date: 06/08/2023
 ms.custom: template-how-to, engagement-fy23
 ---
 
-# # Create, change, enable, disable, or delete VNet flow logs using Azure PowerShell
+# Create, change, enable, disable, or delete VNet flow logs using Azure PowerShell
 
 > [!div class="op_single_selector"]
 > - [Azure portal](vnet-flow-logs-portal.md)

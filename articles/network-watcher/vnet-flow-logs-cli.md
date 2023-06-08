@@ -10,7 +10,7 @@ ms.date: 06/08/2023
 ms.custom: template-how-to, engagement-fy23
 ---
 
-# # Create, change, enable, disable, or delete VNet flow logs using the Azure CLI
+# Create, change, enable, disable, or delete VNet flow logs using the Azure CLI
 
 > [!div class="op_single_selector"]
 > - [Azure portal](vnet-flow-logs-portal.md)
