@@ -543,7 +543,7 @@
     href: how-to-schedule-pipeline-job.md
 - name: Responsibly develop & monitor (RAI)
   items: 
-  - name: Responsible AI Overview
+  - name: Responsible AI overview
     items:
       - name: What is Responsible AI?
         href: concept-responsible-ai.md
@@ -553,6 +553,8 @@
         href: concept-causal-inference.md
       - name: Assess errors in ML models
         href: concept-error-analysis.md
+      - name: Understand your datasets
+        href: concept-data-analysis.md
       - name: Counterfactuals analysis and what-if
         href: concept-counterfactual-analysis.md
   - name: Configure RAI evaluation and insights dashboard
@@ -563,8 +565,6 @@
       href: how-to-responsible-ai-insights-ui.md
     - name: Generate responsible AI insights (SDK, CLI)
       href: how-to-responsible-ai-insights-sdk-cli.md
-    - name: Understand your datasets
-      href: concept-data-analysis.md
   - name: Generate and configure an RAI scorecard
     items:
       - name: Using the Responsible AI scorecard in studio
