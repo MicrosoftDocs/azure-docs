@@ -40,9 +40,12 @@ Exchange Hybrid Writeback is disabled by default.
  3.  On the left, select **Cloud sync**.
  4.  Click on an existing configuration.
  5.  At the top, select **Properties**.  You should see Exchange hybrid writeback disabled.
- 6.  Select the pencil next to **Basic**.
+ 6.  Select the pencil next to **Basic**. 
+ 
+   :::image type="content" source="media/exchange-hybrid/exchange-hybrid-1.png" alt-text="Conceptual image of exchange hybrid scenario." lightbox="media/exchange-hybrid/exchange-hybrid-1.png":::
  7. On the right, place a check in **Exchange hybrid writeback** and click **Apply**.
-
+   
+   :::image type="content" source="media/exchange-hybrid/exchange-hybrid-2.png" alt-text="Conceptual image of exchange hybrid scenario." lightbox="media/exchange-hybrid/exchange-hybrid-2.png":::
 
 ## Attributes synchronized
 Cloud sync writes Exchange On-line attributes back to users and groups in order to enable Exchange hybrid scenarios.  The following table is a list of the attributes and the mappings.
