@@ -16,6 +16,8 @@ ms.reviewer: mamkumar
 
 Universal tenant restrictions enhance the functionality of [tenant restriction v2](https://aka.ms/tenant-restrictions-enforcement) using Global Secure Access to tag all traffic no matter the operating system, browser, or device form factor. It allows support for both client and remote network connectivity. Administrators no longer have to manage proxy server configurations or complex network configurations.
 
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
+
 Universal Tenant Restrictions does this enforcement using Global Secure Access based policy signaling for both the authentication and data plane endpoints. Tenant restrictions v2 enables enterprises to prevent data exfiltration by malicious users using external tenant identities for Microsoft Entra ID integrated applications like Microsoft Graph, SharePoint Online, and Exchange Online. These technologies work together to prevent data exfiltration universally across all devices and networks.
 
 :::image type="content" source="media/how-to-universal-tenant-restrictions/tenant-restrictions-v-2-universal-tenant-restrictions-flow.png" alt-text="Diagram showing how tenant restrictions v2 protects against malicious users." lightbox="media/how-to-universal-tenant-restrictions/tenant-restrictions-v-2-universal-tenant-restrictions-flow.png":::
@@ -27,7 +29,7 @@ The following table explains the steps taken at each point in the previous diagr
 | **1** | Contoso configures a **tenant restrictions v2** policy in their cross-tenant access settings to block all external accounts and external apps. Contoso enforces the policy using Global Secure Access universal tenant restrictions. |
 | **2** | A user with a Contoso-managed device tries to access a Microsoft Entra ID integrated app with an unsanctioned external identity. |
 | **3** | When the traffic reaches Microsoft's Security Service Edge, an HTTP header is added to the request. The header contains Contoso's tenant ID and the tenant restrictions policy ID. |
-| **4** | *Authentication plane protection:* Microsoft Entra ID uses the header in the authentication request to look up the tenant restrictions policy.  Contoso's policy blocks unsanctioned external accounts from accessing external tenants. |
+| **4** | *Authentication plane protection:* Microsoft Entra ID uses the header in the authentication request to look up the tenant restrictions policy. Contoso's policy blocks unsanctioned external accounts from accessing external tenants. |
 | **5** | *Data plane protection:* If the user again tries to access an external unsanctioned application by copying an authentication response token they obtained outside of Contoso's network and pasting it into the device, they're blocked. The resource provider checks that the claim in the token and the header in the packet match. Any mismatch in the token and header triggers reauthentication and blocks access. |
 
 Universal tenant restrictions help to prevent data exfiltration across browsers, devices, and networks in the following ways:
@@ -53,7 +55,8 @@ For more information to configure these policies, see the article [Set up tenant
 Once you have created the tenant restriction v2 policies, you must allow Global Secure Access to apply tagging for tenant restrictions v2. An administrator with both the [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md) and [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) roles must take the following steps to enable enforcement with Global Secure Access.
 
 1. Sign in to the **Microsoft Entra admin center** as a Global Secure Access Administrator.
-1. Browse to **NEED THE ACTUAL PATH** > **Security** > **Tenant Restrictions**.
+1. Browse to **Global Secure Access** > **Global Settings** > **Session Management**.
+1. Select the **Tenant Restrictions** tab.
 1. Select the toggle to **Enable tagging to enforce tenant restrictions on your network**.
 
 :::image type="content" source="media/how-to-universal-tenant-restrictions/toggle-enable-tagging-to-enforce-tenant-restrictions.png" alt-text="Screenshot showing the toggle to enable tagging.":::

@@ -22,9 +22,7 @@ The Global Secure Access features streamline the roll-out and management of the 
 
 ## Microsoft Entra Internet Access
 
-Microsoft Entra Internet Access secures access to Microsoft 365 apps while protecting users, devices, and data against internet threats. With dedicated Microsoft 365 traffic forwarding profiles, you get best-in-class security and visibility, along with fast and seamless access to Microsoft 365 apps.
-
-The current Microsoft Entra Internet Access private preview secures access to public internet apps through an identity-centric, device-aware, cloud-delivered Secure Web Gateway (SWG). 
+Microsoft Entra Internet Access secures access to Microsoft 365 and public internet apps while protecting users, devices, and data against internet threats. With the dedicated Microsoft 365 forwarding profile, you get best-in-class security and visibility, along with fast and seamless access to Microsoft 365, while securing access to public internet apps is available in private preview. 
 
 ### Key features
 
@@ -36,7 +34,7 @@ The current Microsoft Entra Internet Access private preview secures access to pu
 - Acquire network traffic from the desktop client or from a remote network, such as a branch location.
 
 #### Private preview features
-The following new capabilities are available in the private preview of Microsoft Entra Internet Access. To request access to the private preview, complete [this form](https://www.microsoft.com).
+The following new capabilities are available in the private preview of Microsoft Entra Internet Access. To request access to the private preview, complete [this form](https://aka.ms/entra-ia-signup).
 
 - Dedicated public internet traffic forwarding profile
 - Protect user access to the public internet while leveraging Microsoft's cloud-delivered, identity-aware SWG solution 

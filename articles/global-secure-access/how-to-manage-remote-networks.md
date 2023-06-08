@@ -15,6 +15,8 @@ Remote networks connect your users in remote locations to Global Secure Access. 
 
 This article explains how to manage your existing remote networks for Global Secure Access.
 
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
+
 ## Prerequisites
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID

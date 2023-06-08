@@ -16,11 +16,18 @@ Global Secure Access is the centralized location in the Microsoft Entra admin ce
 
 This guide helps you get started configuring both services for the first time.
 
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
+
 ## Prerequisites
 
 Administrators who interact with **Global Secure Access preview** features must have the [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md). To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) to activate just-in-time privileged role assignments.
 
 A working Microsoft Entra ID tenant with the appropriate license is required. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Global Secure Access is dependent upon some features that require additional licensing.
+
+### Known limitations
+
+- Global Secure Access is currently available in North America and Europe.
+- At this time, only IPv4 is supported.
 
 ## Microsoft Entra Private Access
 

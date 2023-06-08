@@ -18,6 +18,8 @@ Microsoft Entra Private Access provides secure access to your organization's int
 
 This article describes how to configure per-app access for Microsoft Entra Private Access.
 
+[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
+
 ## Prerequisites
 
 To configure per-app access, you must have:
@@ -29,6 +31,11 @@ To manage App Proxy connector groups, which is required for per-app access, you 
 - A Microsoft Entra ID Premium P1/P2 license
 - An **Application Administrator** role in Microsoft Entra ID
 - An App Proxy license
+
+### Known limitations
+
+- Avoid overlapping app segments between Quick Access and per-app access.
+- Tunneling traffic to Private Access destinations by IP address is supported only for IP ranges outside of the end-user device local subnet. 
 
 ## How it works
 
