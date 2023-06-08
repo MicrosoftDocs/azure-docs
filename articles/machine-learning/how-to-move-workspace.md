@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 06/08/2023
 ---
 
 # Move Azure Machine Learning workspaces between subscriptions (preview)
@@ -88,11 +88,16 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
 ## Limitations
 
 * Workspace move is not meant for replicating workspaces, or moving individual assets such as models or datasets from one workspace to another.
-* Workspace move doesn't support migration across Azure regions or Azure Active Directory tenants.
+* Workspace move doesn't support migration across Azure regions.
+* Workspace move doesn't support migration across Azure Active Directory tenants.
+
+    > [!TIP]
+    > For information on manually moving tenants, see the [Transfer an Azure subscription to a different Azure Active Directory](/azure/role-based-access-control/transfer-subscription) article.
+
 * The workspace mustn't be in use during the move operation. Verify that all experiment jobs, data profiling jobs, and labeling projects have completed. Also verify that inference endpoints aren't being invoked.
 * The workspace will become unavailable during the move.
 * Before to the move, you must delete or detach computes and inference endpoints from the workspace.
-* Datastores may still show the old subscription information after the move.
+* Datastores may still show the old subscription information after the move. For steps to manually update the datastores, see [Scenario: Move workspace to a different subscription](#scenario-move-workspace-to-a-different-subscription).
 
 The following scenarios __are not__ supported:
 
@@ -139,6 +144,8 @@ az resource move --destination-group destination-rg --destination-subscription-i
 After the move has completed, recreate any computes and redeploy any web service endpoints at the new location.
 
 ## Scenario: Moving a workspace with non-default data stores
+
+The automated workspace move operation doesn't move non-default data stores. Use the following steps to manually update the data store credentials after the move.
 
 1. Within [Azure Machine Learning studio](https://ml.azure.com), select __Data__ and then select a non-default data store. For each non-default data store, check if the __Subscription ID__ and __Resource group name__ fields are empty. If they are, select __Update authentication__.
 
