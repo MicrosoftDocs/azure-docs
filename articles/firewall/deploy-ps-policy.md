@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.custom: devx-track-azurepowershell
-ms.date: 11/03/2022
+ms.date: 06/08/2023
 ms.author: victorh
 ms.topic: how-to
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
