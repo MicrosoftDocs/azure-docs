@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 02/23/2023
+ms.date: 06/07/2023
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2
 ---
@@ -1061,7 +1061,8 @@ To understand how `update` works:
     > Updating by using YAML is declarative. That is, changes in the YAML are reflected in the underlying Azure Resource Manager resources (endpoints and deployments). A declarative approach facilitates [GitOps](https://www.atlassian.com/git/tutorials/gitops): *All* changes to endpoints and deployments (even `instance_count`) go through the YAML.
 
     > [!TIP]
-    > You can use [generic update parameters](/cli/azure/use-cli-effectively#generic-update-parameters), such as the `--set` parameter, with the CLI `update` command to override attributes in your YAML *or* to set specific attributes without passing them in the YAML file. Using `--set` for single attributes is especially valuable in development and test scenarios. For example, to scale up the `instance_count` value for the first deployment, you could use the `--set instance_count=2` flag. However, because the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
+    > * You can use [generic update parameters](/cli/azure/use-cli-effectively#generic-update-parameters), such as the `--set` parameter, with the CLI `update` command to override attributes in your YAML *or* to set specific attributes without passing them in the YAML file. Using `--set` for single attributes is especially valuable in development and test scenarios. For example, to scale up the `instance_count` value for the first deployment, you could use the `--set instance_count=2` flag. However, because the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
+    > * Specifying the YAML file is NOT mandatory. For example, if you wanted to test different concurrency setting for a given deployment, you can try something like `az ml online-deployment update -n blue -e my-endpoint --set request_settings.max_concurrent_requests_per_instance=4 environment_variables.WORKER_COUNT=4`. This will keep all existing configuration but update only the specified parameters.
 
 1. Because you modified the `init()` function, which runs when the endpoint is created or updated, the message `Updated successfully` will be in the logs. Retrieve the logs by running:
 
