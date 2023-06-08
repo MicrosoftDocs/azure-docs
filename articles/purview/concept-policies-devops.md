@@ -11,7 +11,7 @@ ms.date: 05/30/2023
 
 # What can I accomplish with Microsoft Purview DevOps policies?
 
-This article describes how to manage access to data sources in your data estate by using the Microsoft Purview governance portal. It focuses on DevOps policies.
+This article describes how to manage access to data sources in your data estate by using the Microsoft Purview governance portal. It focuses on basic concepts of DevOps policies. That is, it provides background information about DevOps policies that you should know before you follow other articles to get configuration steps.
 
 > [!NOTE]
 > This capability is different from the [internal access control in the Microsoft Purview governance portal](./catalog-permissions.md).
