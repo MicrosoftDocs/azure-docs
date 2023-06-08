@@ -19,6 +19,7 @@ In this article, you'll learn about security admin rules in Azure Virtual Networ
 > Mesh connectivity configurations and security admin rules remain in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## What is a security admin rule?
 
 Security admin rules are global network security rules that enforce security policies defined in the rule collection on virtual networks. These rules can be used to Allow, Always Allow, or Deny traffic across virtual networks within your targeted network groups. These network groups can only consist of virtual networks within the scope of your network manager instance; thus, security admin rules cannot apply to virtual networks not managed by a network manager.
@@ -54,7 +55,7 @@ NSGs, on the other hand, are used to filter network traffic to and from individu
 
 Security admin rules are currently applied at the virtual network level, whereas network security groups can be associated at the subnet and NIC level. This table shows these differences and similarities:
 
-| **Rule Type** |** Target Audience** | **Applied On** | **Evaluation Order** | **Action Types** | **Parameters** |
+| **Rule Type** | **Target Audience** | **Applied On** | **Evaluation Order** | **Action Types** | **Parameters** |
 | --- | ---- | ---- | ---- | ---- | ---- | 
 | **Security admin rules** | Network admins, central governance team | 	Virtual networks | 	Higher priority | 	Allow, Deny, Always Allow | 	Priority, protocol, action, source, destination |
 | **Network security group rules** | 	Individual teams | 	Subnets, NICs | Lower priority, after security admin rules | Allow, Deny | Priority, protocol, action, source, destination |
@@ -168,5 +169,5 @@ You can define specific common ports to block from the source or to the destinat
 | 1433 | SQL |
 
 ## Next steps 
-
-Learn how to block network traffic with a [Security admin configuration](how-to-block-network-traffic-portal.md).
+> [!div class="nextstepaction"]
+> Learn how to block network traffic with a [Security admin configuration](how-to-block-network-traffic-portal.md).
