@@ -121,8 +121,8 @@ The VMs take a few minutes to create. After Azure creates each VM, Azure CLI ret
 ```output
     {
       "fqdns": "",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/CreateVNetQS-rg/providers/Microsoft.Compute/virtualMachines/vm-2",
-      "location": "eastus",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/vm-2",
+      "location": "eastus2",
       "macAddress": "00-0D-3A-23-9A-49",
       "powerState": "VM running",
       "privateIpAddress": "10.0.0.5",
