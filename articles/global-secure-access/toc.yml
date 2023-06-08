@@ -29,13 +29,13 @@ items:
   - name: Conditional Access
     expanded: false
     items:
-      - name: Target resource
+      - name: Traffic profiles as a target resource
         href: how-to-target-resource.md
-      - name: Source IP restoration
+      - name: Enable source IP restoration
         href: how-to-source-ip-restoration.md
-      - name: Compliant networks
+      - name: Compliant network check
         href: how-to-compliant-network.md
-      - name: Universal tenant restrictions
+      - name: Enable universal tenant restrictions
         href: how-to-universal-tenant-restrictions.md
   - name: Traffic forwarding profiles
     expanded: false
