@@ -4,7 +4,7 @@ description: Learn to execute a cluster runtime upgrade for Operator Nexus
 author: gedrivera
 ms.author: eduardori
 ms.service: azure-operator-nexus
-ms.custom: devx-track-azurecli
+ms.custom: azure-operator-nexus
 ms.topic: include
 ms.date: 06/06/2023
 # ms.custom: template-include
@@ -24,6 +24,8 @@ This how-to guide explains the steps for installing the required Azure CLI and e
 
 ## Finding available runtime versions
 
+### Via Portal
+
 To find available upgradeable runtime versions, navigate to the target cluster in the Azure portal. In the cluster's overview pane, navigate to the ***Available upgrade versions*** tab.
 
 ![Runtime Upgrade - View Available Upgradeable Cluster Version](./media/RuntimeUpgrade-UpgradeableRuntimeVersions.png)
@@ -31,6 +33,31 @@ To find available upgradeable runtime versions, navigate to the target cluster i
 From the **available upgrade versions** tab, we're able to see the different cluster versions that are currently available to upgrade. The operator can select from the listed the target runtime versions. Once selected, proceed to upgrade the cluster.
 
 ![Runtime Upgrade - Choose Runtime Version](./media/RuntimeUpgrade-RuntimeVersion.png)
+
+### Via Azure CLI
+
+Available upgrades are retrievable via the Azure CLI:
+
+```azurecli
+az networkcloud cluster show --name "clusterName" --resource-group "resourceGroup"
+```
+
+In the output, you can find the `availableUpgradeVersions` property and look at the `targetClusterVersion` field:
+
+```
+  "availableUpgradeVersions": [
+    {
+      "controlImpact": "True",
+      "expectedDuration": "Upgrades may take up to 4 hours + 2 hours per rack",
+      "impactDescription": "Workloads will be disrupted during rack-by-rack upgrade",
+      "supportExpiryDate": "2023-07-31",
+      "targetClusterVersion": "3.2.0",
+      "workloadImpact": "True"
+    }
+  ],
+```
+
+If there are no available cluster upgrades, the list will be empty.
 
 ## Upgrading cluster runtime using CLI
 
