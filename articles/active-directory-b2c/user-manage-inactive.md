@@ -9,7 +9,7 @@ manager: DavidHoerster
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/30/2023
+ms.date: 06/15/2023
 ms.custom: b2c-docs-improvements
 ms.reviewer: kengaderdus
 ms.author: falves
@@ -22,11 +22,19 @@ We recommend that you monitor your user accounts. Monitoring your user accounts 
 
 ## List inactive users in your Azure AD B2C tenant
  
-1. Create an App Registration in AAD tenant behind B2C, configure a client id / secret to do client credentials flow as described [here](client-credentials-grant-flow.md) (You can use the same app registration created in the step above with the API permissions mentioned below) 
+1. Use the steps in [Register an application](client-credentials-grant-flow.md#step-2-register-an-application) to register an app in your tenant, which uses client credentials flow. Record the **Application (client) ID** for use in a later. 
 
-1. Grant the app API permissions for "User.Read.All" and "AuditLog.Read.All" Microsoft Graph API and grant admin consent.
+1. Use the steps in [Create a client secret](client-credentials-grant-flow#step-2-register-an-application) to configure a client secret for your app. Record the secret's **Value**. You'll use this value for configuration in a later step.
 
-1. Run the following PowerShell script. Replace the TenantId with your tenant ID, the ClientID with the application ID you registered, and the ClientSecret with the application registration client secret.
+1. For your app to call Microsoft Graph API, you need to grant it the required permissions. To do so, use the steps in [Grant API access](microsoft-graph-get-started?tabs=app-reg-ga#grant-api-access), but only grant **User.Read.All** and **AuditLog.Read.All** permissions.
+
+1. Run the following PowerShell script. Replace: 
+
+   1. `[TenantId]` with your Azure AD B2C tenant ID. Learn [how to read your tenant ID](tenant-management-read-tenant-name.md#get-your-tenant-id) 
+   
+   1. `[ClientID]` with the Application (client) ID that you copied earlier.
+   
+   1. `[ClientSecret]` with the application client secret value that you copied earlier.
 
 ```ps
 $tenantId = "[TenantId]"
