@@ -85,6 +85,7 @@ result = ml_client.workspaces.begin_delete(
 
 print(result)
 ```
+Once permanently deleted, workspace data can no longer be recovered. Permanent deletion of workspace data is also triggered when the soft delete retention period expires.
 
 ## Manage soft deleted workspaces
 
@@ -113,10 +114,6 @@ Recovery of a workspace may not always be possible. Azure Machine Learning store
 |Azure Storage|[Recover a deleted Azure storage account](../storage/common/storage-account-recover.md).|
 |Azure Container Registry|Azure Container Registry is not a hard requirement for workspace recovery. Azure Machine Learning can regenerate images for custom environments.|
 |Azure Application Insights| First, [recover your log analytics workspace](../azure-monitor/logs/delete-workspace.md). Then recreate an application insights with the original name.|
-
-## Permanently delete a soft deleted workspace
-
-When you select *Permanently delete* on a soft deleted workspace, it triggers hard deletion of workspace data. Once deleted, workspace data can no longer be recovered. Permanent deletion of workspace data is also triggered when the soft delete retention period expires.
 
 ## Billing implications
 
