@@ -201,7 +201,7 @@ You can download the flow logs data from the storage account that you saved the 
 
 1. Select the ellipsis **...** to the right of the `PT1H.json` file, then select **Download**.
 
-   :::image type="content" source="./media/vnet-flow-logs-portal/flow-log-file-download.png" alt-text="Screenshot shows how to download a VNet flow log data file from the storage account container in the Azure portal.":::
+   :::image type="content" source="./media/vnet-flow-logs-portal/flow-log-file-download.png" alt-text="Screenshot shows how to download a VNet flow log data file from the storage account container in the Azure portal." lightbox="./media/vnet-flow-logs-portal/flow-log-file-download.png":::
 
 
 > [!NOTE]
