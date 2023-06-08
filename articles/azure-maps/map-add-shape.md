@@ -62,7 +62,7 @@ function InitMap()
 
 ```
 
-:::image type="content" source="./media/map-add-shape/polygon-layer.png"alt-text="A screenshot of map of New York City demonstrating the polygon layer covering all of Central Park with fill Color set to red and fill Opacity set to 0.7.":::
+:::image type="content" source="./media/map-add-shape/polygon-layer.png" alt-text="A screenshot of map of New York City demonstrating the polygon layer covering all of Central Park with fill Color set to red and fill Opacity set to 0.7.":::
 
   <!--------------------------------------------------------------------------
 <iframe height='500' scrolling='no' title='Add a polygon to a map ' src='//codepen.io/azuremaps/embed/yKbOvZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/yKbOvZ/'>Add a polygon to a map </a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -123,7 +123,7 @@ function InitMap()
 }
 ```
 
-:::image type="content" source="./media/map-add-shape/polygon-line-layer.png"alt-text="A screenshot of map of New York City demonstrating a mostly transparent polygon layer covering all of Central Park, bordered with a red line.":::
+:::image type="content" source="./media/map-add-shape/polygon-line-layer.png" alt-text="A screenshot of a map of New York City demonstrating a mostly transparent polygon layer covering all of Central Park, bordered with a red line.":::
 
 <!------------------------------------------------------------
 <iframe height='500' scrolling='no' title='Polygon and line layer to add polygon' src='//codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/aRyEPy/'>Polygon and line layer to add polygon</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -136,7 +136,7 @@ In addition to filling a polygon with a color, you may use an image pattern to f
 
 For a fully functional sample that shows how to use an image template as a fill pattern in a polygon layer, see [Fill polygon with built-in icon template] in the [Azure Maps Samples].
 
-:::image type="content" source="./media/map-add-shape/fill-polygon-with-built-in-icon-template.png"alt-text="A screenshot of map of New York City demonstrating a mostly transparent polygon layer covering all of Central Park, bordered with a red line.":::
+:::image type="content" source="./media/map-add-shape/fill-polygon-with-built-in-icon-template.png" alt-text="A screenshot of a map of the world with red dots forming a triangle in the center of the map.":::
 
 <!------------------------------------------------------------
 <iframe height="500" scrolling="no" title="Polygon fill pattern" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
@@ -152,7 +152,7 @@ For a fully functional sample that shows how to use an image template as a fill 
 
 The Polygon layer only has a few styling options, see the [Polygon Layer Options] sample map in the [Azure Maps Samples] to try them out.
 
-:::image type="content" source="./media/map-add-shape/polygon-layer-options.png"alt-text="A screenshot of the Polygon Layer Options tool.":::
+:::image type="content" source="./media/map-add-shape/polygon-layer-options.png" alt-text="A screenshot of the Polygon Layer Options tool.":::
 
 <!------------------------------------------------------------
 <iframe height='700' scrolling='no' title='LXvxpg' src='//codepen.io/azuremaps/embed/LXvxpg/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/LXvxpg/'>LXvxpg</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -220,7 +220,7 @@ function InitMap()
 }
 ```
 
-:::image type="content" source="./media/map-add-shape/add-circle-to-map.png"alt-text="A screenshot of the Polygon Layer Options tool.":::
+:::image type="content" source="./media/map-add-shape/add-circle-to-map.png" alt-text="A screenshot of a map showing a partially transparent green circle in New York City. This demonstrates adding a circle to a map.":::
 
   <!---------------------------------------------------------
 <iframe height='500' scrolling='no' title='Add a circle to a map' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>Add a circle to a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -248,11 +248,12 @@ The following code sample shows how to wrap a circle GeoJSON object with a shape
 
 ---------------------------------------------------------->
 
-:::image type="content" source="./media/map-add-shape/easy-to-update-geometry.png"alt-text="A screenshot of a map showing a red circle in New York City with a slider bar titled Circle Radius and as you slide the bar to the right or left, the value of the radius changes in the shape and the changing size of the circle renders automatically on the map.":::
+:::image type="content" source="./media/map-add-shape/easy-to-update-geometry.png" alt-text="A screenshot of a map showing a red circle in New York City with a slider bar titled Circle Radius and as you slide the bar to the right or left, the value of the radius changes in the shape and the changing size of the circle renders automatically on the map.":::
 
   <!---------------------------------------------------------
 <iframe height='500' scrolling='no' title='Update shape properties' src='//codepen.io/azuremaps/embed/ZqMeQY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZqMeQY/'>Update shape properties</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+---------------------------------------------------------->
 
 ## Next steps
 
