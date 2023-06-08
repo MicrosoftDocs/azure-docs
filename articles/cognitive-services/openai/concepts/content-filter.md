@@ -375,10 +375,12 @@ openai.api_version = "2023-06-01-preview" # API version required to test out Ann
 openai.api_key = os.getenv("AZURE_OPENAI_KEY")
 
 try:
-    openai.Completion.create(
+    response = openai.Completion.create(
         prompt="<HARMFUL_PROMPT>",
         engine="<MODEL_DEPLOYMENT_NAME>",
     )
+    print(response)
+
 except openai.error.InvalidRequestError as e:
     if e.error.code == "content_filter" and e.error.innererror:
         content_filter_result = e.error.innererror.content_filter_result
