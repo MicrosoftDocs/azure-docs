@@ -20,9 +20,9 @@ An API needs to publish a minimum of one app role for applications, also called 
     
 1. Select **Create app role** again and enter the following values for the second app role, then select **Apply** to save your changes:
 
-| Property | Value |
-|----------|-------| 
-| Display name | *ToDoList.ReadWrite.All* |
-| Allowed member types | **Applications** |
-| Value | *ToDoList.ReadWrite.All* |
-| Description | *Allow the app to read and write every user's ToDo list using the 'ToDoListApi'* |
+    | Property | Value |
+    |----------|-------| 
+    | Display name | *ToDoList.ReadWrite.All* |
+    | Allowed member types | **Applications** |
+    | Value | *ToDoList.ReadWrite.All* |
+    | Description | *Allow the app to read and write every user's ToDo list using the 'ToDoListApi'* |

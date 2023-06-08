@@ -22,14 +22,14 @@ An API needs to publish a minimum of one scope, also called [Delegated Permissio
     
 
 1. Select **Add a scope** again, and enter the following values for the second scope that defines read and write access to the API. Select **Add scope** to save your changes:
-
-| Property | Value |
-|----------|-------|
-| Scope name | *ToDoList.ReadWrite* |
-| Who can consent | **Admins only** |
-| Admin consent display name | *Read and write users ToDo list using the 'ToDoListApi'* |
-| Admin consent description | *Allow the app to read and write the user's ToDo list using the 'ToDoListApi'* |
-| State | **Enabled** |
+    
+    | Property | Value |
+    |----------|-------|
+    | Scope name | *ToDoList.ReadWrite* |
+    | Who can consent | **Admins only** |
+    | Admin consent display name | *Read and write users ToDo list using the 'ToDoListApi'* |
+    | Admin consent description | *Allow the app to read and write the user's ToDo list using the 'ToDoListApi'* |
+    | State | **Enabled** |
     
 1. Under **Manage**, select **Manifest** to open the API manifest editor.
 1. Set `accessTokenAcceptedVersion` property to `2`.
