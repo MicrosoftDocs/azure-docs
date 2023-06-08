@@ -22,6 +22,12 @@ This article explains how to deploy a small application to run on Azure Spring A
 
 The application code used in this tutorial is a simple app. When you've completed this example, the application is accessible online, and you can manage it through the Azure portal.
 
+::: zone pivot="sc-standard"
+
+[!INCLUDE [quickstart-tool-introduction](includes/quickstart/quickstart-tool-introduction.md)]
+
+::: zone-end
+
 [!INCLUDE [prerequisites](includes/quickstart/prerequisites.md)]
 
 ::: zone pivot="sc-consumption-plan"
