@@ -43,7 +43,7 @@ az networkcloud cluster update-version --cluster-name "clusterName" --target-clu
 
 The runtime upgrade is a long process. The upgrade is considered to be finished 80% of compute nodes and 100% of management/control nodes have been successfully upgraded.
 
-Upgrading all the nodes can conservatively take 6 hours but can take more if other processes, like firmware updates, are also part of the upgrade.
+Upgrading all the nodes takes multiple hours but can take more if other processes, like firmware updates, are also part of the upgrade.
 Due to the length of the upgrade process, it's advised to check the Cluster's detail status periodically for the current state of the upgrade.
 To check on the status of the upgrade observe the detailed status of the cluster. This check can be done via the portal or az CLI.
 
@@ -61,9 +61,9 @@ The output should be the target cluster's information and the cluster's detailed
 
 ## Frequently Asked Questions
 
-### Identifying Runtime Upgrade Timeout
+### Identifying Cluster Upgrade Stalled/Stuck
 
-During a runtime upgrade it's possible that the upgrade fails to move forward but, the detail status reflects that the upgrade is still ongoing. **Because the runtime upgrade may take a very large time to successfully finish, there is no set timeout length currently specified**.
+During a runtime upgrade it's possible that the upgrade fails to move forward but the detail status reflects that the upgrade is still ongoing. **Because the runtime upgrade may take a very large time to successfully finish, there is no set timeout length currently specified**.
 Hence, it's advisable to also check periodically on your cluster's detail status and logs to determine if your upgrade is indefinitely attempting to upgrade.
 
 We can identify when this is the case by looking at the Cluster's logs, detailed message, and detailed status message. If a timeout has occurred, we would observe that the Cluster is continuously reconciling over the same indefinitely and not moving forward. The Cluster's detailed status message would reflect, `"Cluster is in the process of being updated."`.
