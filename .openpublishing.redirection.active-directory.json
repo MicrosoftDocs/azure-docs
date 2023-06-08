@@ -4341,6 +4341,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/external-identities/azure-ad-account.md",
+      "redirect_url": "/azure/active-directory/external-identities/default-account",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-accessmanagement-managing-group-owners.md",
       "redirect_url": "/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners",
       "redirect_document_id": false
@@ -12561,7 +12566,6 @@
       "redirect_document_id": false
       },
       
-      
       {
       "source_path_from_root": "/articles/active-directory/hybrid/whatis-aadc-admin-agent.md",
       "redirect_url": "/azure/active-directory/hybrid/connect/whatis-aadc-admin-agent",
@@ -12666,6 +12670,18 @@
       },
 
       {
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-resource-management.md",
+        "redirect_url": "/azure/active-directory/fundamentals/secure-resource-management",
+        "redirect_document_id": true
+      },
+      
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/secure-with-azure-ad-single-tenant.md",
+        "redirect_url": "/azure/active-directory/fundamentals/secure-single-tenant",
+        "redirect_document_id": true
+      },
+
+      {
         "source_path_from_root": "/articles/active-directory/manage-apps/datawiza-azure-ad-sso-oracle-peoplesoft.md",
         "redirect_url": "/azure/active-directory/manage-apps/datawiza-sso-oracle-peoplesoft",
         "redirect_document_id": true
@@ -12701,6 +12717,36 @@
       },
 
       {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-funnel-based-design.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-funnel-based-design",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-solutions.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-solutions",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-proof-of-concept-funnel.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-proof-of-concept-funnel",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-proof-of-concept-regional.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-proof-of-concept-regional",
+        "redirect_document_id": true
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-b2c/azure-ad-b2c-global-identity-region-based-design.md",
+        "redirect_url": "/azure/active-directory-b2c/b2c-global-identity-region-based-design",
+        "redirect_document_id": true
+      },
+
+      {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/microsoft-graph-operations-custom-extensions.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/microsoft-graph-operations",
       "redirect_document_id": false
@@ -12722,7 +12768,31 @@
         "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-management-apis-overview.md",
         "redirect_url": "/azure/active-directory/external-identities/customers/microsoft-graph-operations",
         "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-passwords-faq.yml",
+        "redirect_url": "/azure/active-directory/authentication/passwords-faq",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-certificate-based-authentication-android.md",
+        "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-federation-android",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-certificate-based-authentication-ios.md",
+        "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-federation-ios",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/authentication/active-directory-certificate-based-authentication-get-started.md",
+        "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-federation-get-started",
+        "redirect_document_id": false
       }
-    
+      
       ]
 } 

@@ -9037,7 +9037,22 @@
             "source_path_from_root": "/articles/container-instances/container-instances-quotas.md",
             "redirect_url": "/azure/container-instances/container-instances-resource-and-quota-limits",
             "redirect_document_id": false
-        },        
+        },
+        {
+            "source_path_from_root": "/articles/container-instances/container-instances-tutorial-deploy-spot-containers-portal.md",
+            "redirect_url": "/azure/container-instances/container-instances-overview",
+            "redirect_document_id": false
+        },   
+        {
+            "source_path_from_root": "/articles/container-instances/container-instances-tutorial-deploy-spot-containers-cli.md",
+            "redirect_url": "/azure/container-instances/container-instances-overview",
+            "redirect_document_id": false
+        },   
+        {
+            "source_path_from_root": "/articles/container-instances/container-instances-spot-containers-overview.md",
+            "redirect_url": "/azure/container-instances/container-instances-overview",
+            "redirect_document_id": false
+        },       
         {
             "source_path_from_root": "/articles/container-registry/container-registry-managed-get-started-azure-cli.md",
             "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli",
@@ -11586,6 +11601,16 @@
         {
             "source_path_from_root": "/articles/firewall/firewall-network-rule-logging.md",
             "redirect_url": "/azure/firewall/firewall-diagnostics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/firewall/sample-powershell.md",
+            "redirect_url": "/azure/firewall/deploy-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/firewall/scripts/sample-create-firewall-test.md",
+            "redirect_url": "/azure/firewall/deploy-ps",
             "redirect_document_id": false
         },
         {
@@ -22116,6 +22141,16 @@
         {
             "source_path_from_root": "/articles/active-directory/develop/secure-line-of-business-apps.md",
             "redirect_url": "/azure/active-directory/develop/zero-trust-for-developers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/active-directory-how-applications-are-added.md",
+            "redirect_url": "/azure/active-directory/develop/how-applications-are-added",
+            "redirect_document_id": false
+        },
+	{
+            "source_path_from_root": "/articles/active-directory/develop/active-directory-how-to-integrate.md",
+            "redirect_url": "/azure/active-directory/develop/how-to-integrate",
             "redirect_document_id": false
         },
         {
