@@ -17,7 +17,7 @@ The required Application Insights instrumentation is built into Azure Functions.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-For a list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+For a list of supported autoinstrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
 ## Distributed tracing for Java applications (preview)
 
@@ -41,7 +41,7 @@ On the function app **Overview** pane, go to **Application Insights**. Under **C
 
 ### Troubleshooting
 
-Your Java functions might have slow startup times if you adopted this feature before February 2023. From the function app **Overview** pane, go to **Configuration** in the left-hand side navigation menu. Then click on **Application settings** and follow the steps below to fix the issue.
+Your Java functions might have slow startup times if you adopted this feature before February 2023. From the function app **Overview** pane, go to **Configuration** in the left-hand side navigation menu. Then select **Application settings** and use the following steps to fix the issue.
 
 #### Windows
 
@@ -79,7 +79,7 @@ Your Java functions might have slow startup times if you adopted this feature be
 
 #### Duplicate Logs
 
-If you are using log4j or logback to log to the console, then distributed tracing for Java Functions will create a duplicate copy of your log4j or logback logs sent to Application Insights. To avoid this, follow the workarounds shown below.
+If you're using log4j or logback for console logging, distributed tracing for Java Functions creates duplicate logs. These duplicate logs are then sent to Application Insights. To avoid this behavior, use the following workarounds.
 
 ##### Log4j
 
@@ -91,7 +91,7 @@ Add the following filter to your log4j.xml:
 </Filters>
 ```
 
-Here is an example:
+Example:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -122,7 +122,7 @@ Add the following filter to your logback.xml:
 </filter>  
 ```
 
-Here is an example:
+Example:
 
 ```xml
 <configuration debug="true">
