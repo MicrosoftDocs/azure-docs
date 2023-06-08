@@ -33,7 +33,7 @@ To prepare the hard drives using the WAImportExport tool, the following **64-bit
 ## Supported storage accounts
 
 > [!Note]
-> Classic storage accounts will not be supported starting August 1, 2023.
+> Classic storage accounts will not be supported starting **August 1, 2023**.
 
 Azure Import/Export service supports the following types of storage accounts:
 

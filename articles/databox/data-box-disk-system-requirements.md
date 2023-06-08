@@ -68,7 +68,7 @@ The client computer containing the data must have a USB 3.0 or later port. The d
 ## Supported storage accounts
 
 > [!Note]
-> Classic storage accounts will not be supported starting August 1, 2023.
+> Classic storage accounts will not be supported starting **August 1, 2023**.
 
 Here is a list of the supported storage types for the Data Box Disk.
 

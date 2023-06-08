@@ -38,7 +38,7 @@ The software requirements include supported operating systems, file transfer pro
 ### Supported storage accounts
 
 > [!Note]
-> Classic storage accounts will not be supported starting August 1, 2023.
+> Classic storage accounts will not be supported starting **August 1, 2023**.
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
 
