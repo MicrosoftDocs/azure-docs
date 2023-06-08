@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Register and configure .NET MAUI app with Azure AD for customers tenant"
+title: "Tutorial: Register and configure .NET MAUI app in a customer tenant"
 description: The tutorials provide a step-by-step guide on how to register and configure a .NET MAUI app with Azure AD for the customer's tenant.
 author: henrymbuguakiarie
 manager: mwongerapk
@@ -11,7 +11,7 @@ ms.subservice: ciam
 ms.date: 06/05/2023
 ---
 
-# Tutorial: Register and configure .NET MAUI app with Azure AD for customers tenant
+# Tutorial: Register and configure .NET MAUI app in a customer tenant
 
 This tutorial shows you how to register and configure .NET Multi-platform App UI (.NET MAUI) in Azure Active Directory (Azure AD) for customers tenant.
 
